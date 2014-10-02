@@ -43,14 +43,19 @@
 - (void)_saveDraft:(id)arg1;
 - (id)_mailDraftRestorationURL;
 - (id)activityTitle;
+- (id)_activitySettingsImage;
 - (id)_activityImage;
 - (id)activityType;
 - (void)dealloc;
 - (id)init;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) Class objectRestorationClass;
 @property(readonly, nonatomic) id <UIStateRestoring> restorationParent;
+@property(readonly) Class superclass;
 
 @end
 

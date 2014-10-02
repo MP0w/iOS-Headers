@@ -11,7 +11,6 @@
 @interface MCJobQueue : NSObject
 {
     NSObject<OS_dispatch_queue> *_executionQueue;
-    NSObject<OS_dispatch_queue> *_eventQueue;
     id <MCJobQueueObserver> _observer;
     NSObject<OS_dispatch_queue> *_jobQueue;
     NSObject<OS_dispatch_group> *_jobGroup;
@@ -22,13 +21,11 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_group> *jobGroup; // @synthesize jobGroup=_jobGroup;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *jobQueue; // @synthesize jobQueue=_jobQueue;
 @property(nonatomic) __weak id <MCJobQueueObserver> observer; // @synthesize observer=_observer;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *eventQueue; // @synthesize eventQueue=_eventQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *executionQueue; // @synthesize executionQueue=_executionQueue;
 - (void).cxx_destruct;
 - (void)abortEnqueuedJobsCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)waitForEnqueuedJobsToCompleteCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)jobDidFinish;
-- (BOOL)hasJobsEnqueued;
 - (void)enqueueJob:(CDUnknownBlockType)arg1;
 - (id)init;
 

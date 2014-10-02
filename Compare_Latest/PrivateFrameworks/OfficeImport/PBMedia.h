@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)writeMediaFromDrawable:(id)arg1 toObject:(id)arg2 state:(id)arg3;
++ (BOOL)readLinkedMovieFromMovieHolder:(id)arg1 toImage:(id)arg2 state:(id)arg3;
 + (BOOL)readEmbeddedSoundFromClientDataHolder:(id)arg1 toImage:(id)arg2 state:(id)arg3;
 
 @end

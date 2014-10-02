@@ -8,13 +8,13 @@
 
 #import "PCInterfaceUsabilityMonitorProtocol.h"
 
-@class CUTWeakReference, NSMutableArray, NSString;
+@class CUTWeakReference, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface PCInterfaceUsabilityMonitor : NSObject <PCInterfaceUsabilityMonitorProtocol>
 {
-    struct dispatch_queue_s *_delegateQueue;
-    struct dispatch_queue_s *_ivarQueue;
+    NSObject<OS_dispatch_queue> *_delegateQueue;
+    NSObject<OS_dispatch_queue> *_ivarQueue;
     int _interfaceIdentifier;
     NSString *_interfaceName;
     CUTWeakReference *_delegateReference;
@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)stringForLinkQuality:(int)arg1;
++ (BOOL)isBadLinkQuality:(int)arg1;
 + (BOOL)isPoorLinkQuality:(int)arg1;
 - (void)_createLinkQualityMonitor;
 - (void)_createLinkQualityMonitorOnIvarQueue;
@@ -49,8 +50,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL isRadioHot;
 @property(readonly, nonatomic) BOOL isInternetReachable;
 @property(readonly, nonatomic) int linkQuality;
+@property(readonly, nonatomic) BOOL isBadLinkQuality;
 @property(readonly, nonatomic) BOOL isPoorLinkQuality;
-@property(readonly, nonatomic) NSString *linkQualityString;
+@property(readonly, retain, nonatomic) NSString *linkQualityString;
 @property(readonly, nonatomic) BOOL isInterfaceHistoricallyUsable;
 - (BOOL)_isInterfaceHistoricallyUsableOnIvarQueue;
 @property(readonly, nonatomic) BOOL isInterfaceUsable;
@@ -61,12 +63,16 @@ __attribute__((visibility("hidden")))
 - (void)_flushStaleTransitionsOnIvarQueue;
 - (void)_updateOffTransitionsForLinkQualityChangeOnIvarQueue;
 - (void)dealloc;
-- (id)initWithInterfaceName:(id)arg1 interfaceIdentifier:(int)arg2 delegateQueue:(struct dispatch_queue_s *)arg3;
+- (id)initWithInterfaceName:(id)arg1 interfaceIdentifier:(int)arg2 delegateQueue:(id)arg3;
 - (id)init;
 
 // Remaining properties
 @property(readonly, nonatomic) struct __CFString *currentRAT;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) BOOL isLTEWithCDRX;
+@property(readonly) Class superclass;
 @property(readonly, nonatomic) struct __CFString *wwanInterfaceName;
 
 @end

@@ -8,6 +8,8 @@
 
 #import "UIAlertViewDelegate.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface _UIUserNotificationRestrictedAlertViewProxy : _UITargetedProxy <UIAlertViewDelegate>
 {
@@ -20,6 +22,12 @@ __attribute__((visibility("hidden")))
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)setDelegate:(id)arg1;
 - (id)delegate;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

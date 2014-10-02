@@ -22,7 +22,7 @@
 - (void)crossfadeWithDuration:(double)arg1;
 - (void)prepareToCrossfade;
 @property(readonly, nonatomic) struct CGPoint iconImageCenter;
-@property(readonly, nonatomic) SBIcon *endIcon;
+@property(readonly, retain, nonatomic) SBIcon *endIcon;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 startIcon:(id)arg2 endIcon:(id)arg3 viewMap:(id)arg4 coordinate:(struct SBIconCoordinate)arg5;
 

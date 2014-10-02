@@ -8,7 +8,7 @@
 
 #import "PBRequesterDelegate.h"
 
-@class GEORequester, GEOUsageCollectionRequest, NSLock, NSMapTable, NSTimer;
+@class GEORequester, GEOUsageCollectionRequest, NSLock, NSMapTable, NSMutableDictionary, NSString, NSTimer;
 
 @interface GEOUsageManager : NSObject <PBRequesterDelegate>
 {
@@ -19,9 +19,10 @@
     CDUnknownBlockType _backgroundTaskStart;
     CDUnknownBlockType _backgroundTaskEnd;
     NSMapTable *_requesterToBackgroundTask;
+    NSMutableDictionary *_stateData;
+    NSMutableDictionary *_stateTimingData;
 }
 
-+ (void)setUsePersistentConnection:(BOOL)arg1;
 + (id)sharedManager;
 @property(copy, nonatomic) CDUnknownBlockType backgroundTaskEnd; // @synthesize backgroundTaskEnd=_backgroundTaskEnd;
 @property(copy, nonatomic) CDUnknownBlockType backgroundTaskStart; // @synthesize backgroundTaskStart=_backgroundTaskStart;
@@ -36,10 +37,17 @@
 - (void)_endBackgroundTaskForRequester:(id)arg1;
 - (void)_startBackgroundTaskForRequester:(id)arg1;
 - (void)_applicationDeactivating;
+- (void)clearStateTimingData;
+- (void)captureStateTransition:(id)arg1 force:(BOOL)arg2;
+- (void)captureLeaveNowFeedbackCollection:(id)arg1;
+- (void)captureTrafficRerouteFeedbackCollection:(id)arg1;
+- (void)captureStateTimingFeedbackCollection:(id)arg1;
 - (void)captureMapsUsageFeedbackCollection:(id)arg1;
 - (void)captureTransitAppLaunchFeedbackCollection:(id)arg1;
+- (void)captureMapsLaunchURLScheme:(id)arg1 sourceApplication:(id)arg2;
 - (void)captureSuggestionsFeedbackCollection:(id)arg1;
 - (void)captureDirectionsFeedbackCollection:(id)arg1;
+- (void)captureRequestsForPlaceDataCache:(id)arg1 appIdentifier:(id)arg2;
 - (void)captureUsageDataForTiles:(id)arg1;
 - (void)captureUsageDataForRequest:(id)arg1 service:(int)arg2;
 - (BOOL)shouldIgnoreCollectionForCountry;
@@ -47,6 +55,14 @@
 - (void)_cleanupRequester;
 - (void)dealloc;
 - (id)init;
+- (void)captureTraits:(id)arg1 flyoverAnimationID:(unsigned long long)arg2 timestamp:(double)arg3 resultIndex:(int)arg4;
+- (void)captureTraits:(id)arg1 mapItem:(id)arg2 timestamp:(double)arg3 resultIndex:(int)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

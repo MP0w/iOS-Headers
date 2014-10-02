@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     NSMutableArray *mCells;
 }
 
+- (id)description;
 - (id)newCellIterator;
 - (id)cellIterator;
 - (id)addCellWithIndex:(unsigned int)arg1;
@@ -28,6 +29,7 @@ __attribute__((visibility("hidden")))
 - (unsigned int)index;
 - (void)dealloc;
 - (id)initWithTable:(id)arg1 at:(unsigned int)arg2;
+- (void)setIndex:(unsigned int)arg1;
 
 @end
 

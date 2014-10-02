@@ -8,7 +8,7 @@
 
 #import "SUDownloadPolicy.h"
 
-@class SUCarrierDownloadPolicyProperties, SUDescriptor, SUNetworkMonitor;
+@class NSString, SUCarrierDownloadPolicyProperties, SUDescriptor, SUNetworkMonitor;
 
 @interface SUDefaultDownloadPolicy : NSObject <SUDownloadPolicy>
 {
@@ -36,9 +36,14 @@
 - (BOOL)isSamePolicy:(id)arg1;
 - (BOOL)_isCellularCapable;
 - (id)_stringForBool:(BOOL)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithDescriptor:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -10,7 +10,7 @@
 #import "NSCopying.h"
 #import "NSFastEnumeration.h"
 
-@class NSMutableDictionary, NSSet;
+@class NSArray, NSDictionary, NSMutableDictionary, NSSet;
 
 @interface NSManagedObjectModel : NSObject <NSCoding, NSCopying, NSFastEnumeration>
 {
@@ -38,21 +38,18 @@
 + (id)_modelPathsFromBundles:(id)arg1;
 + (void)_deepCollectEntitiesInArray:(id)arg1 entity:(id)arg2;
 - (BOOL)isConfiguration:(id)arg1 compatibleWithStoreMetadata:(id)arg2;
-- (id)entityVersionHashesByName;
-- (void)setVersionIdentifiers:(id)arg1;
-- (id)versionIdentifiers;
-- (void)setLocalizationDictionary:(id)arg1;
-- (id)localizationDictionary;
+@property(readonly, copy) NSDictionary *entityVersionHashesByName;
+@property(copy) NSSet *versionIdentifiers;
+@property(retain) NSDictionary *localizationDictionary;
 - (id)fetchRequestFromTemplateWithName:(id)arg1 substitutionVariables:(id)arg2;
 - (void)setFetchRequestTemplate:(id)arg1 forName:(id)arg2;
 - (id)fetchRequestTemplateForName:(id)arg1;
-- (id)fetchRequestTemplatesByName;
+@property(readonly, copy) NSDictionary *fetchRequestTemplatesByName;
 - (void)setEntities:(id)arg1 forConfiguration:(id)arg2;
 - (id)entitiesForConfiguration:(id)arg1;
-- (id)configurations;
-- (void)setEntities:(id)arg1;
-- (id)entities;
-- (id)entitiesByName;
+@property(readonly) NSArray *configurations;
+@property(retain) NSArray *entities;
+@property(readonly, copy) NSDictionary *entitiesByName;
 - (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;

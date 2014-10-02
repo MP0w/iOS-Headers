@@ -9,7 +9,7 @@
 #import "SBWallpaperObserver.h"
 #import "_UISettingsKeyObserver.h"
 
-@class SBFolderSettings, SBWallpaperEffectView, UIImageView, _UILegibilitySettings;
+@class NSString, SBFolderSettings, SBWallpaperEffectView, UIImageView, _UILegibilitySettings;
 
 @interface SBFolderBackgroundView : UIView <_UISettingsKeyObserver, SBWallpaperObserver>
 {
@@ -36,6 +36,12 @@
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)defaultProperties;
+- (id)description;
 - (id)to;
 - (id)from;
 - (void)dealloc;

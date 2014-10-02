@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
     BOOL mRotateWithShape;
 }
 
+- (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (void)setRotateWithShape:(BOOL)arg1;

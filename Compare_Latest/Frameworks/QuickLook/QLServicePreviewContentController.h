@@ -10,7 +10,7 @@
 #import "QLPreviewContentDelegate.h"
 #import "QLRemotePreviewContentControllerProtocol.h"
 
-@class NSMutableDictionary, QLPreviewContentController, QLRemotePrintPageHelper, _UIHostedWindow;
+@class NSMutableDictionary, NSString, QLPreviewContentController, _UIHostedWindow;
 
 @interface QLServicePreviewContentController : UIViewController <QLRemotePreviewContentControllerProtocol, QLPreviewContentDataSource, QLPreviewContentDelegate>
 {
@@ -21,8 +21,8 @@
     int _previewMode;
     BOOL _remoteInstantiationFinished;
     BOOL _blockRemoteImages;
-    QLRemotePrintPageHelper *_printPageHelper;
-    int _clientInterfaceOrientation;
+    id <QLRemotePrintPageHelper> _printPageHelper;
+    struct CGSize _clientSize;
     _UIHostedWindow *_hostedWindow;
 }
 
@@ -53,8 +53,8 @@
 - (void)scrubToValue:(double)arg1;
 - (void)beginScrubbing;
 - (void)_setNavigationBarVerticalOffset:(float)arg1;
-- (void)_getPDFPageAtIndex:(int)arg1 size:(struct CGSize)arg2 handler:(CDUnknownBlockType)arg3;
-- (void)_prepareForDrawingPages:(struct _NSRange)arg1;
+- (void)_getPDFPageAtIndex:(int)arg1 handler:(CDUnknownBlockType)arg2;
+- (void)_prepareForDrawingPages:(struct _NSRange)arg1 withSize:(struct CGSize)arg2;
 - (void)_getNumberOfPagesForSize:(struct CGSize)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (id)printPageHelper;
 - (id)printPageRenderer;
@@ -62,11 +62,12 @@
 - (void)becomeForeground;
 - (void)enterBackground;
 - (void)setOverlayHidden:(BOOL)arg1 duration:(double)arg2;
-- (void)_willAnimateRotationTo:(int)arg1;
+- (void)_willTransitionToSize:(struct CGSize)arg1;
 - (void)_updateHostedWindowFrame;
 - (void)setContentFrame:(struct CGRect)arg1;
 - (void)willChangeContentFrame;
 - (void)checkCurrentPreviewItem;
+- (void)stopLoadingCurrentPreviewItem;
 - (void)refreshCurrentPreviewItem;
 - (void)configureWithParameters:(id)arg1;
 - (void)setLoadingTextForMissingFiles:(id)arg1;
@@ -84,6 +85,12 @@
 - (void)_willAppearInRemoteViewController;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

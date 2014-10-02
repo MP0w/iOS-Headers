@@ -8,12 +8,12 @@
 
 #import "NSCoding.h"
 
-@class NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, NSString;
+@class NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface APSMessage : NSObject <NSCoding>
 {
-    NSObject<OS_xpc_object> *_xpcMessage;
     NSMutableDictionary *_plist;
+    void *_xpcMessage;
     NSObject<OS_dispatch_queue> *_ivarQueue;
 }
 

@@ -4,21 +4,27 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <IMCore/IMChatItem.h>
+#import <IMCore/IMTranscriptChatItem.h>
 
-@class IMMessage;
+#import "IMMessageChatItem.h"
 
-@interface IMMessageChatItem : IMChatItem
+@class IMHandle, IMMessage, NSDate, NSString;
+
+@interface IMMessageChatItem : IMTranscriptChatItem <IMMessageChatItem>
 {
 }
 
-- (int)_reverseCompareToChatItem:(id)arg1;
-- (int)_compareToChatItem:(id)arg1;
-- (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (void)_setMessage:(id)arg1;
-@property(readonly, nonatomic) IMMessage *message;
-- (id)initWithMessage:(id)arg1;
+@property(readonly, retain, nonatomic) IMHandle *sender;
+@property(readonly, retain, nonatomic) NSDate *time;
+@property(readonly, nonatomic) BOOL failed;
+@property(readonly, nonatomic) BOOL isFromMe;
+@property(readonly, retain, nonatomic) IMMessage *message;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

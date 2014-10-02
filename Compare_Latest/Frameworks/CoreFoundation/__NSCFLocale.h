@@ -12,6 +12,8 @@ __attribute__((visibility("hidden")))
 }
 
 + (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
+- (void)_setNullLocale;
+- (unsigned char)_nullLocale;
 - (id)_prefs;
 - (id)initWithLocaleIdentifier:(id)arg1;
 - (id)displayNameForKey:(id)arg1 value:(id)arg2;

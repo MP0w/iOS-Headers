@@ -16,6 +16,7 @@
     BOOL _errorOccurred;
 }
 
++ (void)enableDebugLogging;
 - (void).cxx_destruct;
 - (void)finishStreamWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)suspendStreamWithCompletionBlock:(CDUnknownBlockType)arg1;

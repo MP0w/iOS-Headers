@@ -9,6 +9,7 @@
 @class TSSStyle, TSSStylesheet;
 
 @protocol TSKStyleMapper <NSObject>
+@property(readonly, nonatomic) BOOL clientsMustRemap;
 - (void)varyInThemeStylesheetIf:(BOOL)arg1 forDurationOfBlock:(void (^)(void))arg2;
 - (void)varyInThemeStylesheetForDurationOfBlock:(void (^)(void))arg1;
 - (TSSStyle *)mappedStyleForStyle:(TSSStyle *)arg1 inThemeStylesheet:(BOOL)arg2;

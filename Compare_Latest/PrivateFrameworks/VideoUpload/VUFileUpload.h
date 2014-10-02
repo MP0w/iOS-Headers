@@ -16,7 +16,7 @@
 
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)initWithPath:(id)arg1;
 
 @end

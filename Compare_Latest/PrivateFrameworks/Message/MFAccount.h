@@ -43,10 +43,13 @@
 + (id)authSchemesForAccountClass;
 + (id)accountWithProperties:(id)arg1;
 + (id)newAccountWithDictionary:(id)arg1;
++ (BOOL)shouldHealAccounts;
++ (void)setShouldHealAccounts:(BOOL)arg1;
 @property(copy, nonatomic) NSString *sourceApplicationBundleIdentifier; // @synthesize sourceApplicationBundleIdentifier=_sourceApplicationBundleIdentifier;
 - (id)copyDiagnosticInformation;
 - (BOOL)isEnabledForDataclass:(id)arg1;
 - (id)enabledDataclasses;
+- (id)loginDisabledErrorWithTitle:(id)arg1;
 - (id)inaccessiblePasswordErrorWithTitle:(id)arg1;
 - (id)missingPasswordErrorWithTitle:(id)arg1;
 - (BOOL)shouldDisplayHostnameInErrorMessages;
@@ -141,6 +144,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithProperties:(id)arg1;
 - (id)init;
+- (BOOL)shouldFetchACEDBInfoForError:(id)arg1;
 
 @end
 

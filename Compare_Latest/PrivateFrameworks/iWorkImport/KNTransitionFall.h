@@ -6,17 +6,20 @@
 
 #import <iWorkImport/KNAnimationEffect.h>
 
+#import "KNAnimationPluginArchiving.h"
 #import "KNFrameAnimator.h"
 #import "KNTransitionAnimator.h"
 
-@class KNMotionBlurAnimationPluginWrapper;
+@class KNMotionBlurAnimationPluginWrapper, NSString;
 
 __attribute__((visibility("hidden")))
-@interface KNTransitionFall : KNAnimationEffect <KNTransitionAnimator, KNFrameAnimator>
+@interface KNTransitionFall : KNAnimationEffect <KNTransitionAnimator, KNFrameAnimator, KNAnimationPluginArchiving>
 {
     KNMotionBlurAnimationPluginWrapper *_motionBlurWrapper;
 }
 
++ (void)downgradeAttributes:(id *)arg1 animationName:(id *)arg2 warning:(id *)arg3 type:(int)arg4 isToClassic:(BOOL)arg5 version:(unsigned long long)arg6;
++ (void)upgradeAttributes:(id *)arg1 animationName:(id)arg2 warning:(id *)arg3 type:(int)arg4 isFromClassic:(BOOL)arg5 version:(unsigned long long)arg6;
 + (id)thumbnailImageNameForType:(int)arg1;
 + (id)defaultAttributes;
 + (void)fillLocalizedDirectionMenu:(id)arg1 forType:(int)arg2;
@@ -31,6 +34,12 @@ __attribute__((visibility("hidden")))
 - (void)animationWillBeginWithContext:(id)arg1;
 - (id)animationsWithContext:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

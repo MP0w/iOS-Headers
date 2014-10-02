@@ -8,7 +8,7 @@
 
 #import "TSDThumbnailConsumer.h"
 
-@class NSDate, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, TSDThumbnailGenerator, TSKDocumentRoot, TSULRUCache;
+@class NSDate, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, NSString, TSDThumbnailGenerator, TSKDocumentRoot, TSULRUCache;
 
 __attribute__((visibility("hidden")))
 @interface TSDThumbnailController : NSObject <TSDThumbnailConsumer>
@@ -59,6 +59,12 @@ __attribute__((visibility("hidden")))
 - (void)teardown;
 - (void)dealloc;
 - (id)initWithDocumentRoot:(id)arg1 cacheSize:(unsigned int)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

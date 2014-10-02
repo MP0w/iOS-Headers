@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
     unsigned int _numberOfLines;
     float _rightCapWidth;
     float _rightPadding;
-    float _textBaseLine;
+    float _textBaseline;
     struct {
         unsigned int fontSize:1;
         unsigned int leftCapWidth:1;
@@ -33,7 +33,7 @@ __attribute__((visibility("hidden")))
         unsigned int numberOfLines:1;
         unsigned int rightCapWidth:1;
         unsigned int rightPadding:1;
-        unsigned int textBaseLine:1;
+        unsigned int textBaseline:1;
     } _has;
 }
 
@@ -44,7 +44,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) float leftCapWidth; // @synthesize leftCapWidth=_leftCapWidth;
 @property(nonatomic) float fontSize; // @synthesize fontSize=_fontSize;
 @property(retain, nonatomic) NSString *fontName; // @synthesize fontName=_fontName;
-@property(nonatomic) float textBaseLine; // @synthesize textBaseLine=_textBaseLine;
+@property(nonatomic) float textBaseline; // @synthesize textBaseline=_textBaseline;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -60,7 +61,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) BOOL hasLeftCapWidth;
 @property(nonatomic) BOOL hasFontSize;
 @property(readonly, nonatomic) BOOL hasFontName;
-@property(nonatomic) BOOL hasTextBaseLine;
+@property(nonatomic) BOOL hasTextBaseline;
 - (void)setLayers:(CDStruct_e9f6a06b *)arg1 count:(unsigned int)arg2;
 - (CDStruct_e9f6a06b)layerAtIndex:(unsigned int)arg1;
 - (void)addLayer:(CDStruct_e9f6a06b)arg1;

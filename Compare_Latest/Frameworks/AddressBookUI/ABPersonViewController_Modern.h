@@ -28,8 +28,8 @@
     void *_displayedPerson;
     id <ABPersonViewControllerDelegate> _personViewDelegate;
     NSArray *_displayedProperties;
-    UIView *_personHeaderView;
     ABContactViewController *_contactViewController;
+    UIView *_personHeaderView;
     int _style;
     int _highlightedProperty;
     int _highlightedMultiValueIdentifier;
@@ -40,10 +40,10 @@
 @property(nonatomic) int highlightedMultiValueIdentifier; // @synthesize highlightedMultiValueIdentifier=_highlightedMultiValueIdentifier;
 @property(nonatomic) int highlightedProperty; // @synthesize highlightedProperty=_highlightedProperty;
 @property(nonatomic) int style; // @synthesize style=_style;
-@property(retain, nonatomic) ABContactViewController *contactViewController; // @synthesize contactViewController=_contactViewController;
 @property(nonatomic) BOOL allowsOnlyFaceTimeActions; // @synthesize allowsOnlyFaceTimeActions=_allowsOnlyFaceTimeActions;
 @property(nonatomic) BOOL allowsOnlyPhoneActions; // @synthesize allowsOnlyPhoneActions=_allowsOnlyPhoneActions;
 @property(retain, nonatomic) UIView *personHeaderView; // @synthesize personHeaderView=_personHeaderView;
+@property(retain, nonatomic) ABContactViewController *contactViewController; // @synthesize contactViewController=_contactViewController;
 @property(nonatomic) BOOL allowsContactBlocking; // @synthesize allowsContactBlocking=_allowsContactBlocking;
 @property(nonatomic) BOOL allowsConferencing; // @synthesize allowsConferencing=_allowsConferencing;
 @property(nonatomic) BOOL allowsAddToFavorites; // @synthesize allowsAddToFavorites=_allowsAddToFavorites;
@@ -100,7 +100,7 @@
 - (BOOL)shouldShowLinkingUIOnCard;
 - (void)setAppearsInLinkingPeoplePicker:(BOOL)arg1;
 - (BOOL)appearsInLinkingPeoplePicker;
-- (void)loadContactViewController;
+- (void)reloadContactViewController;
 @property(nonatomic) BOOL badgeEmailPropertiesForMailVIP; // @synthesize badgeEmailPropertiesForMailVIP=_badgeEmailPropertiesForMailVIP;
 - (void)setHighlightedItemForProperty:(int)arg1 withIdentifier:(int)arg2 person:(void *)arg3 important:(BOOL)arg4;
 - (void)setHighlightedItemForProperty:(int)arg1 withIdentifier:(int)arg2 person:(void *)arg3;
@@ -126,6 +126,12 @@
 - (void)replaceActionWithTarget:(id)arg1 selector:(SEL)arg2 withTitle:(id)arg3 target:(id)arg4 selector:(SEL)arg5 location:(int)arg6 destructive:(BOOL)arg7;
 - (void)removeActionWithSelector:(SEL)arg1 target:(id)arg2 location:(int)arg3;
 - (void)addActionWithTitle:(id)arg1 target:(id)arg2 selector:(SEL)arg3 location:(int)arg4 destructive:(BOOL)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

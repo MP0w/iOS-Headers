@@ -4,20 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <AddressBookUI/ABPropertySimpleCell.h>
+#import <AddressBookUI/ABPropertySimpleTransportCell.h>
 
-@class NSString;
-
-@interface ABPropertyPhoneNumberCell : ABPropertySimpleCell
+@interface ABPropertyPhoneNumberCell : ABPropertySimpleTransportCell
 {
-    NSString *_previousValue;
 }
 
-- (CDStruct_421913e2)suggestionsForString:(id)arg1 inputIndex:(unsigned int)arg2;
 - (void)updateTransportButtons;
 - (BOOL)shouldPerformDefaultAction;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)dealloc;
 
 @end
 

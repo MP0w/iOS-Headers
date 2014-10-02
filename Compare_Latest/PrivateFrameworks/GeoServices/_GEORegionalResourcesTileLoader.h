@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class GEORegionalResourceTileData, NSMutableArray;
+@class GEORegionalResourceTileData, GEOResourceManifestConfiguration, NSMutableArray;
 
 __attribute__((visibility("hidden")))
 @interface _GEORegionalResourcesTileLoader : NSObject
@@ -16,10 +16,11 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _finishedHandler;
     CDUnknownBlockType _errorHandler;
     BOOL _canceled;
+    GEOResourceManifestConfiguration *_manifestConfiguration;
 }
 
 - (void)cancel;
-- (void)loadResourcesForTileKey:(const struct _GEOTileKey *)arg1 finished:(CDUnknownBlockType)arg2 error:(CDUnknownBlockType)arg3;
+- (void)loadResourcesForTileKey:(const struct _GEOTileKey *)arg1 manifestConfiguration:(id)arg2 finished:(CDUnknownBlockType)arg3 error:(CDUnknownBlockType)arg4;
 - (void)_loadNextResource;
 - (void)_addDownloadForName:(id)arg1 ofType:(int)arg2 baseURLString:(id)arg3 expectedChecksum:(id)arg4;
 - (BOOL)_loadRegionalResourceFromFilesystemIfPossible:(id)arg1 resourceChecksum:(id)arg2;

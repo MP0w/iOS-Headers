@@ -11,12 +11,15 @@
 }
 
 + (float)memberRowHeight;
+- (id)personLabelHighlightedColor;
 - (id)memberNameDisabledTextColor;
 - (id)memberNameTextColor;
 - (id)memberNamePlaceholderFont;
 - (id)memberNameBoldFont;
 - (id)memberNameRegularFont;
 - (float)memberNameFontSize;
+- (id)membersSearchCellBackgroundColor;
+- (id)membersSearchBackgroundColor;
 - (id)membersBackgroundColor;
 - (unsigned int)membersCountToShowIndex;
 

@@ -12,14 +12,10 @@
 {
     BOOL _haveCachedActionsState;
     int _actionsStateCachedValue;
-    EKAttendee *_selfAttendee;
-    NSString *_sharedItemCreatedByEmailAddress;
 }
 
-@property(copy, nonatomic) NSString *sharedItemCreatedByEmailAddress; // @synthesize sharedItemCreatedByEmailAddress=_sharedItemCreatedByEmailAddress;
-@property(retain, nonatomic) EKAttendee *selfAttendee; // @synthesize selfAttendee=_selfAttendee;
 - (void)moveToCalendar:(id)arg1;
-@property(readonly, nonatomic) EKCalendarItem *originalItem;
+@property(readonly, retain, nonatomic) EKCalendarItem *originalItem;
 - (void)_moveToCalendarInternal:(id)arg1;
 - (BOOL)rebase;
 - (void)updatePersistentObjectSkippingProperties:(id)arg1;
@@ -39,10 +35,12 @@
 @property(copy, nonatomic) NSString *sharedItemCreatedByLastName;
 @property(copy, nonatomic) NSString *sharedItemCreatedByFirstName;
 - (void)setSharedItemCreatedByAddress:(id)arg1;
+@property(copy, nonatomic) NSString *sharedItemCreatedByEmailAddress; // @dynamic sharedItemCreatedByEmailAddress;
 @property(copy, nonatomic) NSString *sharedItemCreatedByDisplayName;
 @property(retain, nonatomic) EKOrganizer *organizer;
 - (id)_organizerRelation;
 @property(readonly, nonatomic) int selfParticipantStatus;
+@property(retain, nonatomic) EKAttendee *selfAttendee; // @dynamic selfAttendee;
 - (void)removeAttendee:(id)arg1;
 - (void)addAttendee:(id)arg1;
 - (void)setAttendees:(id)arg1;
@@ -50,6 +48,7 @@
 @property(readonly, nonatomic) BOOL hasAttendees;
 - (id)_selfAttendeeRelation;
 - (id)_attendeesRelation;
+- (id)startDateForRecurrence;
 - (void)removeRecurrenceRule:(id)arg1;
 - (void)addRecurrenceRule:(id)arg1;
 @property(copy, nonatomic) NSArray *recurrenceRules;
@@ -83,18 +82,23 @@
 @property(copy, nonatomic) NSString *externalModificationTag;
 @property(copy, nonatomic) NSString *externalID;
 @property(nonatomic, getter=isDefaultAlarmRemoved) BOOL defaultAlarmRemoved;
+@property(copy, nonatomic) NSTimeZone *endTimeZone;
+@property(copy, nonatomic) NSTimeZone *startTimeZone;
 @property(copy, nonatomic) NSTimeZone *timeZone;
 @property(retain, nonatomic) EKCalendar *calendar;
 @property(copy, nonatomic) NSURL *URL;
 @property(copy, nonatomic) NSURL *action;
 @property(nonatomic) int priority;
+@property(nonatomic) NSString *calendarScale;
 @property(nonatomic, getter=isAllDay) BOOL allDay;
 - (void)setCreationDate:(id)arg1;
 @property(readonly, nonatomic) NSDate *creationDate;
 - (void)setLastModifiedDate:(id)arg1;
 @property(readonly, nonatomic) NSDate *lastModifiedDate;
+@property(copy, nonatomic) EKStructuredLocation *startLocation;
 @property(copy, nonatomic) EKStructuredLocation *structuredLocation;
 @property(copy, nonatomic) NSString *location;
+- (id)_startLocationRelation;
 - (id)_locationRelation;
 @property(copy, nonatomic) NSString *title;
 @property(readonly, nonatomic) BOOL hasNotes;

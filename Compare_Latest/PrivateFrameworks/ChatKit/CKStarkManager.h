@@ -17,15 +17,15 @@
 }
 
 + (id)sharedInstance;
-@property(retain) UIScreen *starkScreen; // @synthesize starkScreen=_starkScreen;
-@property(retain) UIWindow *starkWindow; // @synthesize starkWindow=_starkWindow;
-@property(retain) UIViewController *starkRootViewController; // @synthesize starkRootViewController=_starkRootViewController;
+@property(retain, nonatomic) UIScreen *starkScreen; // @synthesize starkScreen=_starkScreen;
+@property(retain, nonatomic) UIWindow *starkWindow; // @synthesize starkWindow=_starkWindow;
+@property(retain, nonatomic) UIViewController *starkRootViewController; // @synthesize starkRootViewController=_starkRootViewController;
 - (void)detachStarkScreen:(id)arg1;
 - (void)attachStarkToScreen:(id)arg1;
 - (void)screenDidDisconnectNotification:(id)arg1;
 - (void)screenDidConnectNotification:(id)arg1;
 - (void)startListeningForScreenNotifications;
-@property(readonly) BOOL isStarkConnected; // @synthesize isStarkConnected=_isStarkConnected;
+@property(readonly, nonatomic) BOOL isStarkConnected; // @synthesize isStarkConnected=_isStarkConnected;
 - (void)dealloc;
 - (id)init;
 

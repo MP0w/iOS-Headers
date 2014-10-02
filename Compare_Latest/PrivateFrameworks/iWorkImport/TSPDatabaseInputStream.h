@@ -9,6 +9,8 @@
 #import "SFUInputStream.h"
 #import "TSUStreamReadChannel.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TSPDatabaseInputStream : NSObject <TSUStreamReadChannel, SFUInputStream>
 {
@@ -28,6 +30,12 @@ __attribute__((visibility("hidden")))
 - (void)close;
 - (void)dealloc;
 - (id)initWithBlob:(struct sqlite3_blob *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

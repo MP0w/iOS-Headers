@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     NSMutableArray *mPaths;
 }
 
+- (id)description;
 - (void)addPath:(id)arg1;
 - (id)pathAtIndex:(unsigned int)arg1;
 - (unsigned int)pathCount;

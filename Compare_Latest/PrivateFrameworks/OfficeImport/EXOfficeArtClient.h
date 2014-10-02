@@ -9,8 +9,14 @@
 __attribute__((visibility("hidden")))
 @interface EXOfficeArtClient : OAXClient
 {
+    BOOL mAutoChartFillIsHollow;
+    BOOL mAutoChartStrokeIsHollow;
 }
 
+@property BOOL autoChartStrokeIsHollow; // @synthesize autoChartStrokeIsHollow=mAutoChartStrokeIsHollow;
+@property BOOL autoChartFillIsHollow; // @synthesize autoChartFillIsHollow=mAutoChartFillIsHollow;
+- (BOOL)chartAutoStrokeIsHollow;
+- (BOOL)chartAutoFillIsHollow;
 - (void)readClientDataFromNode:(struct _xmlNode *)arg1 toDrawable:(id)arg2 state:(id)arg3;
 
 @end

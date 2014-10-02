@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 
 + (id)edAlignmentInfoFromVmlAlignmentInfoElement:(struct _xmlNode *)arg1 state:(id)arg2;
 + (id)edAlignmentInfoFromXmlAlignmentInfoElement:(struct _xmlNode *)arg1 state:(id)arg2;
++ (void)initialize;
 + (int)edVerticalAlignFromVerticalAlignString:(id)arg1;
 + (int)edHorizontalAlignFromHorizontalAlignString:(id)arg1;
 

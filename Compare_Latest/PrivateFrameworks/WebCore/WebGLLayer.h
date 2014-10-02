@@ -9,15 +9,13 @@
 __attribute__((visibility("hidden")))
 @interface WebGLLayer : CAEAGLLayer
 {
-    struct GraphicsLayer *m_layerOwner;
-    struct GraphicsContext3D *m_context;
+    struct GraphicsContext3D *_context;
 }
 
+@property(nonatomic) struct GraphicsContext3D *context; // @synthesize context=_context;
 - (void)display;
 - (struct CGImage *)copyImageSnapshotWithColorSpace:(struct CGColorSpace *)arg1;
 - (id)initWithGraphicsContext3D:(struct GraphicsContext3D *)arg1;
-- (struct GraphicsLayer *)layerOwner;
-- (void)setLayerOwner:(struct GraphicsLayer *)arg1;
 
 @end
 

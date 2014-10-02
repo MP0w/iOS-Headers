@@ -9,7 +9,7 @@
 __attribute__((visibility("hidden")))
 @interface TSTTableDataFormat : TSTTableDataObject
 {
-    CDStruct_95e644ef mFormat;
+    CDStruct_bfed0e84 mFormat;
 }
 
 - (id).cxx_construct;
@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
-- (id)initObjectWithFormat:(CDStruct_95e644ef)arg1;
+- (id)initObjectWithFormat:(CDStruct_bfed0e84)arg1;
 
 @end
 

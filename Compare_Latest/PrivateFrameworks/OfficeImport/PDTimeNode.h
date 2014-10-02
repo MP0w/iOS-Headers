@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
     NSString *mGroupId;
 }
 
+- (BOOL)isEqual:(id)arg1;
 - (void)setGroupIdValue:(int)arg1;
 - (void)setGroupId:(id)arg1;
 - (id)groupId;

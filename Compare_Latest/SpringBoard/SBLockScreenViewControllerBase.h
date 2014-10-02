@@ -6,12 +6,12 @@
 
 #import "SBAlert.h"
 
-@class SBUnlockActionContext;
+@class SBLockScreenActionContext;
 
 @interface SBLockScreenViewControllerBase : SBAlert
 {
     id <SBLockScreenViewControllerDelegate> _delegate;
-    SBUnlockActionContext *_customUnlockActionContext;
+    SBLockScreenActionContext *_customLockScreenActionContext;
 }
 
 @property(nonatomic) id <SBLockScreenViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -19,8 +19,8 @@
 - (_Bool)hasSuperModalAlertItems;
 - (id)currentAlertItem;
 - (id)dequeueAllPendingSuperModalAlertItems;
-- (void)deactivateAlertItem:(id)arg1;
-- (_Bool)activateAlertItem:(id)arg1;
+- (void)deactivateAlertItem:(id)arg1 animated:(_Bool)arg2;
+- (_Bool)activateAlertItem:(id)arg1 animated:(_Bool)arg2;
 - (_Bool)wantsToHandleAlert:(id)arg1;
 - (_Bool)handleExternalKeyDownEvent;
 - (void)noteResetRestoreStateUpdated;
@@ -28,15 +28,14 @@
 - (_Bool)isLockScreenVisible;
 - (_Bool)isShowingOverheatUI;
 - (void)shakeSlideToUnlockTextWithCustomText:(id)arg1;
-- (CDUnknownBlockType)activationBlockAnimated:(_Bool)arg1;
 - (void)updateInterfaceIfNecessary;
 - (void)setShowingMediaControls:(_Bool)arg1;
 - (_Bool)isShowingMediaControls;
 - (void)updateOrientationForUndim;
 - (_Bool)lockScreenBulletinControllerIsActive;
-- (void)setCustomUnlockActionContext:(id)arg1;
-- (id)_customUnlockActionContext;
-- (id)currentUnlockActionContext;
+- (void)setCustomLockScreenActionContext:(id)arg1;
+- (id)_customLockScreenActionContext;
+- (id)currentLockScreenActionContext;
 - (_Bool)lockScreenIsShowingBulletins;
 - (_Bool)shouldShowLockStatusBarTime;
 - (_Bool)shouldShowSlideshowButton;
@@ -47,12 +46,16 @@
 - (void)updateCardItem:(id)arg1;
 - (void)deactivateCardItem:(id)arg1;
 - (void)activateCardItem:(id)arg1 animated:(_Bool)arg2;
+- (_Bool)allowAnimatedDismissalForLockScreenPlugin;
+- (void)updateCustomSubtitleTextForAwayViewPlugin:(id)arg1;
+- (void)adjustLockScreenContentByOffset:(double)arg1 forPluginController:(id)arg2 withAnimationDuration:(double)arg3;
 - (struct CGRect)defaultContentRegionForPluginController:(id)arg1 withOrientation:(long long)arg2;
 - (void)disableLockScreenBundleWithName:(id)arg1 deactivationContext:(id)arg2;
 - (void)enableLockScreenBundleWithName:(id)arg1 activationContext:(id)arg2;
 - (id)activeLockScreenPluginController;
 - (_Bool)isLockScreenPluginViewVisible;
 - (_Bool)hasActiveUIAccessories;
+- (void)setInScreenOffMode:(_Bool)arg1 forAutoUnlock:(_Bool)arg2;
 - (void)setInScreenOffMode:(_Bool)arg1;
 - (_Bool)isInScreenOffMode;
 - (void)startLockScreenFadeInAnimationForSource:(int)arg1;
@@ -60,23 +63,18 @@
 - (_Bool)wantsScreenToAutoDim;
 - (void)prepareForMesaUnlockWithCompletion:(CDUnknownBlockType)arg1;
 - (void)biometricEventMonitor:(id)arg1 handleBiometricEvent:(unsigned long long)arg2;
+- (void)noteNextUnlockShouldReturnToCallIfPossible:(_Bool)arg1;
 - (_Bool)isHidingPasscodeViewDuringCall;
 - (void)setForcesPasscodeViewDuringCall:(_Bool)arg1;
-- (void)prepareToReturnToCameraFromCall;
-- (void)cancelReturnToCameraAfterCall;
-- (_Bool)shouldReturnToCameraAfterCall;
 - (void)handlePhoneAppExitedIfNecessary;
 - (void)noteStartingPhoneCallWhileUILocked;
 - (_Bool)isMakingEmergencyCall;
 - (void)emergencyDialerExitedWithError:(id)arg1;
 - (void)exitEmergencyDialerAnimated:(_Bool)arg1;
 - (void)launchEmergencyDialer;
-- (void)dismissCameraImmediately;
 - (void)activateCameraAnimated:(_Bool)arg1;
 - (void)activateCamera;
-- (_Bool)cameraIsVisible;
-- (_Bool)cameraIsActive;
-- (void)willBeginDeactivationForTransitionToApp:(id)arg1 animated:(_Bool)arg2;
+- (void)willBeginDeactivationForTransitionToApps:(id)arg1 animated:(_Bool)arg2;
 - (_Bool)_isLockAlert;
 - (void)prepareForExternalUIUnlock;
 - (void)deactivate;
@@ -91,10 +89,11 @@
 - (void)setPasscodeLockVisible:(_Bool)arg1 animated:(_Bool)arg2 withUnlockSource:(int)arg3 andOptions:(id)arg4;
 - (void)setPasscodeLockVisible:(_Bool)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setPasscodeLockVisible:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)updateLegibility;
 - (_Bool)allowSystemGestureAtLocation:(struct CGPoint)arg1;
 - (void)_transitionWallpaperFromLockWithOptionalOutTimingFunction:(id)arg1 adjustWindowLevel:(_Bool)arg2;
 - (void)_transitionWallpaperFromLock;
-- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 
 @end

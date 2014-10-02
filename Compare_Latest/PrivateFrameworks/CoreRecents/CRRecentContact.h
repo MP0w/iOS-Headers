@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding.h"
+
 @class NSArray, NSDate, NSDictionary, NSMutableArray, NSNumber, NSString;
 
-@interface CRRecentContact : NSObject
+@interface CRRecentContact : NSObject <NSSecureCoding>
 {
     NSMutableArray *_recentDates;
     NSString *_recentsDomain;
@@ -21,15 +23,18 @@
     NSNumber *_weight;
     NSNumber *_decayedWeight;
     NSArray *_members;
+    unsigned int _groupKind;
     NSString *_groupName;
     NSString *_rawAddress;
     long long _contactID;
     long long _recentID;
 }
 
++ (BOOL)supportsSecureCoding;
 @property(copy, nonatomic) NSString *rawAddress; // @synthesize rawAddress=_rawAddress;
 @property(copy, nonatomic) NSString *groupName; // @synthesize groupName=_groupName;
 @property(nonatomic) long long recentID; // @synthesize recentID=_recentID;
+@property(nonatomic) unsigned int groupKind; // @synthesize groupKind=_groupKind;
 @property(copy, nonatomic) NSArray *members; // @synthesize members=_members;
 @property(retain, nonatomic) NSNumber *decayedWeight; // @synthesize decayedWeight=_decayedWeight;
 @property(retain, nonatomic) NSNumber *weight; // @synthesize weight=_weight;
@@ -41,6 +46,8 @@
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(copy, nonatomic) NSString *recentsDomain; // @synthesize recentsDomain=_recentsDomain;
 @property(nonatomic) long long contactID; // @synthesize contactID=_contactID;
+- (id)archivableGroupKind;
+- (void)setArchivableGroupKind:(id)arg1;
 - (id)archivableMetadata;
 - (void)setArchivableMetadata:(id)arg1;
 - (id)archivableGroupMembers;
@@ -50,15 +57,15 @@
 - (id)archivableRecentID;
 - (void)setArchivableRecentID:(id)arg1;
 - (void)enumerateArchivablePropertiesWithBlock:(CDUnknownBlockType)arg1;
-- (id)initWithDictionary:(id)arg1;
-- (id)copyDictionaryRepresentation;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (void)insertDate:(id)arg1 atIndex:(unsigned int)arg2 required:(BOOL)arg3;
 - (unsigned int)insertionIndexForDate:(id)arg1 wouldBeUnique:(char *)arg2;
 - (void)lazilyCreateRecentDates;
 - (void)recordRecentEventForDate:(id)arg1 userInitiated:(BOOL)arg2;
 @property(copy, nonatomic) NSArray *recentDates;
-@property(readonly, nonatomic) NSDate *leastRecentDate;
-@property(readonly, nonatomic) NSDate *mostRecentDate;
+@property(readonly, copy, nonatomic) NSDate *leastRecentDate;
+@property(readonly, copy, nonatomic) NSDate *mostRecentDate;
 @property(readonly, nonatomic) unsigned int countOfRecents;
 - (void)applyWeight:(id)arg1;
 - (unsigned int)hash;

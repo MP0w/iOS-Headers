@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
 - (id)initEmptyCache;
 - (void)dealloc;
 - (id)initWithMemoryCapacity:(unsigned int)arg1 diskCapacity:(unsigned int)arg2 diskPath:(id)arg3;
+- (id)initByCallingSuperSuperInit;
 
 @end
 

@@ -21,6 +21,7 @@
     BOOL _enforceWifiOnlyOverride;
     int _activeDownloadPolicyType;
     int _downloadFeeAgreementStatus;
+    int _termsAndConditionsAgreementStatus;
 }
 
 + (BOOL)supportsSecureCoding;
@@ -32,6 +33,7 @@
 @property(nonatomic, getter=isEnabledFor3G) BOOL enabledFor3G; // @synthesize enabledFor3G=_enabledFor3G;
 @property(nonatomic, getter=isEnabledFor2G) BOOL enabledFor2G; // @synthesize enabledFor2G=_enabledFor2G;
 @property(nonatomic) int activeDownloadPolicyType; // @synthesize activeDownloadPolicyType=_activeDownloadPolicyType;
+@property(nonatomic) int termsAndConditionsAgreementStatus; // @synthesize termsAndConditionsAgreementStatus=_termsAndConditionsAgreementStatus;
 @property(nonatomic) int downloadFeeAgreementStatus; // @synthesize downloadFeeAgreementStatus=_downloadFeeAgreementStatus;
 @property(nonatomic, getter=isAutoDownload) BOOL autoDownload; // @synthesize autoDownload=_autoDownload;
 - (unsigned int)hash;

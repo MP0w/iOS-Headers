@@ -40,7 +40,7 @@ __attribute__((visibility("hidden")))
 - (id)urlReference;
 @property(retain, nonatomic, setter=setURL:) NSURL *url;
 - (BOOL)allowsEditing;
-- (int)elementKind;
+- (int)smartFieldKind;
 - (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
 - (id)copyWithContext:(id)arg1;
 - (id)initWithContext:(id)arg1 url:(id)arg2;

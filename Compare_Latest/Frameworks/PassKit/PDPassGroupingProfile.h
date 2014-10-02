@@ -12,14 +12,14 @@
 {
     NSString *_passTypeID;
     NSString *_groupingID;
-    unsigned int _passStyle;
+    int _passStyle;
     NSDate *_relevantDate;
     NSDate *_ingestedDate;
 }
 
 @property(retain, nonatomic) NSDate *ingestedDate; // @synthesize ingestedDate=_ingestedDate;
 @property(retain, nonatomic) NSDate *relevantDate; // @synthesize relevantDate=_relevantDate;
-@property(nonatomic) unsigned int passStyle; // @synthesize passStyle=_passStyle;
+@property(nonatomic) int passStyle; // @synthesize passStyle=_passStyle;
 @property(copy, nonatomic) NSString *groupingID; // @synthesize groupingID=_groupingID;
 @property(copy, nonatomic) NSString *passTypeID; // @synthesize passTypeID=_passTypeID;
 - (BOOL)isEqual:(id)arg1;

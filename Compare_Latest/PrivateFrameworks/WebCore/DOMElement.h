@@ -14,6 +14,7 @@
 
 - (void)remove;
 - (BOOL)webkitMatchesSelector:(id)arg1;
+- (BOOL)matches:(id)arg1;
 - (id)querySelectorAll:(id)arg1;
 - (id)querySelector:(id)arg1;
 - (id)getElementsByClassName:(id)arg1;
@@ -46,7 +47,7 @@
 - (void)setAttribute:(id)arg1 value:(id)arg2;
 - (id)getAttribute:(id)arg1;
 - (id)webkitRegionOverset;
-@property(readonly) NSString *innerText;
+@property(readonly, copy) NSString *innerText;
 @property(readonly) unsigned int childElementCount;
 @property(readonly) DOMElement *nextElementSibling;
 @property(readonly) DOMElement *previousElementSibling;
@@ -54,6 +55,7 @@
 @property(readonly) DOMElement *firstElementChild;
 - (id)classList;
 @property(copy) NSString *className;
+@property(readonly) DOMElement *offsetParent;
 @property(readonly) int scrollHeight;
 @property(readonly) int scrollWidth;
 @property int scrollTop;
@@ -62,13 +64,12 @@
 @property(readonly) int clientWidth;
 @property(readonly) int clientTop;
 @property(readonly) int clientLeft;
-@property(readonly) DOMElement *offsetParent;
 @property(readonly) int offsetHeight;
 @property(readonly) int offsetWidth;
 @property(readonly) int offsetTop;
 @property(readonly) int offsetLeft;
 @property(readonly) DOMCSSStyleDeclaration *style;
-@property(readonly) NSString *tagName;
+@property(readonly, copy) NSString *tagName;
 - (BOOL)isFocused;
 - (id)_getURLAttribute:(id)arg1;
 - (struct __CTFont *)_font;

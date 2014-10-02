@@ -65,12 +65,13 @@
 - (void)fileCopierDidStart:(id)arg1;
 - (void)archiveFileTransfer:(id)arg1;
 - (void)_archiveFileTransfer:(id)arg1;
-- (void)_loadTransfersFromDefaults;
-- (void)_saveTransfersToDefaults;
 - (id)_dictionaryRepresentationsForFileTransfers:(id)arg1 toSave:(BOOL)arg2;
 - (id)_temporaryPathForGUID:(id)arg1 filename:(id)arg2;
 - (void)_postUpdated:(id)arg1;
 - (void)_updateContextStamp;
+- (void)_completeProgressForTransferGUID:(id)arg1;
+- (void)_clearProgressForTransferGUID:(id)arg1;
+- (id)_progressForTransferGUID:(id)arg1 allowCreate:(BOOL)arg2 path:(id)arg3;
 - (void)dealloc;
 - (id)init;
 

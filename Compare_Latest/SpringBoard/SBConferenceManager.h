@@ -14,9 +14,8 @@
 
 + (void)initialize;
 + (id)sharedInstance;
-- (void)_faceTimeAppActivationStateChanged:(id)arg1;
-- (void)_updateStatusBar;
-- (void)updateStatusBar;
+- (void)_updateStatusBarForChat:(id)arg1;
+- (void)updateStatusBarForChat:(id)arg1;
 - (void)_faceTimeCapabilityChanged:(id)arg1;
 - (id)currentCallStatusDisplayString;
 - (id)currentCallRemoteUserId;
@@ -25,6 +24,9 @@
 - (void)invitedToIMAVChat:(id)arg1;
 - (void)dealloc;
 - (_Bool)canStartFaceTime;
+- (id)currentFaceTimeCall;
+- (id)activeFaceTimeCall;
+- (id)incomingFaceTimeCall;
 - (_Bool)inFaceTime;
 - (_Bool)activeFaceTimeCallExists;
 - (_Bool)faceTimeInvitationExists;

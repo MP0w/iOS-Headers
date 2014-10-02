@@ -11,10 +11,20 @@
 @protocol EKEventViewDelegatePrivate <EKEventViewDelegate>
 
 @optional
+- (void)eventViewControllerWillDisappear:(EKEventViewController *)arg1;
+- (BOOL)eventViewControllerShouldHideDeleteButton;
+- (BOOL)eventViewControllerShouldShowInlineEditButtonForInvitations:(EKEventViewController *)arg1;
+- (void)eventViewControllerInlineEditButtonWasTapped:(EKEventViewController *)arg1;
+- (BOOL)eventViewControllerShouldHandleInlineEdit:(EKEventViewController *)arg1;
+- (BOOL)eventViewControllerShouldHideInlineEditButton;
+- (void)eventViewController:(EKEventViewController *)arg1 requestsDismissalOfEditViewController:(EKEventEditViewController *)arg2;
 - (void)eventViewControllerWillFinishEditingEvent:(EKEventViewController *)arg1 deleted:(BOOL)arg2;
 - (void)eventViewControllerDidBeginEditingEventWithEditViewController:(EKEventEditViewController *)arg1;
-- (void)eventViewController:(EKEventViewController *)arg1 requestsDisplayOfEditViewController:(EKEventEditViewController *)arg2;
-- (BOOL)eventViewControllerShouldHandlePresentationOfEditViewController:(EKEventViewController *)arg1;
+- (void)eventViewController:(EKEventViewController *)arg1 didDismissEditViewController:(EKEventEditViewController *)arg2 deleted:(BOOL)arg3;
+- (void)eventViewController:(EKEventViewController *)arg1 willDismissEditViewController:(EKEventEditViewController *)arg2 deleted:(BOOL)arg3;
+- (void)eventViewController:(EKEventViewController *)arg1 requestsDisplayOfEditViewController:(EKEventEditViewController *)arg2 animated:(BOOL)arg3;
+- (BOOL)eventViewDelegateShouldHandlePresentationOfEditViewController:(EKEventViewController *)arg1;
+- (BOOL)eventViewDelegateShouldCreateOwnEditViewController:(EKEventViewController *)arg1;
 - (void)eventViewControllerWillBeginEditingEvent:(EKEventViewController *)arg1;
 - (void)eventViewControllerDidRequestAddToCalendar:(EKEventViewController *)arg1;
 @end

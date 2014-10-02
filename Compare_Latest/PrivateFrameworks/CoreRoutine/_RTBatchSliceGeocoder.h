@@ -6,25 +6,25 @@
 
 #import "NSObject.h"
 
-@class GEOBatchReverseGeocodeRequest, NSMutableArray, NSObject<OS_dispatch_semaphore>;
+@class NSArray, NSObject<OS_dispatch_semaphore>;
 
 __attribute__((visibility("hidden")))
 @interface _RTBatchSliceGeocoder : NSObject
 {
-    GEOBatchReverseGeocodeRequest *_batchRequest;
+    id <GEOMapServiceTicket> _ticket;
     NSObject<OS_dispatch_semaphore> *_semaphore;
-    NSMutableArray *_placeResults;
+    NSArray *_geoMapItems;
     struct _NSRange _range;
 }
 
-@property(retain, nonatomic) NSMutableArray *placeResults; // @synthesize placeResults=_placeResults;
+@property(retain, nonatomic) NSArray *geoMapItems; // @synthesize geoMapItems=_geoMapItems;
 @property(retain, nonatomic) NSObject<OS_dispatch_semaphore> *semaphore; // @synthesize semaphore=_semaphore;
 @property(nonatomic) struct _NSRange range; // @synthesize range=_range;
-@property(retain, nonatomic) GEOBatchReverseGeocodeRequest *batchRequest; // @synthesize batchRequest=_batchRequest;
+@property(retain, nonatomic) id <GEOMapServiceTicket> ticket; // @synthesize ticket=_ticket;
 - (void).cxx_destruct;
 - (void)cancel;
 - (void)dealloc;
-- (void)_cancelRequest:(id)arg1;
+- (void)_cancelTicket:(id)arg1;
 - (void)geocodeLocations:(id)arg1;
 - (id)init;
 

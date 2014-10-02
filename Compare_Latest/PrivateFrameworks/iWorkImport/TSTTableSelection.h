@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "TSDTextSelection.h"
 
-@class TSTCellRegion;
+@class NSString, TSTCellRegion;
 
 __attribute__((visibility("hidden")))
 @interface TSTTableSelection : TSKSelection <NSCopying, TSDTextSelection>
@@ -32,7 +32,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL isAtEndOfLine;
 @property(readonly, nonatomic) struct _NSRange range;
 - (BOOL)intersectsPartialMergeRangeInTable:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (BOOL)containsCell:(CDStruct_0441cfb5)arg1;
 - (BOOL)containsSelection:(id)arg1;
 - (BOOL)areCellsInTheSameRegionInTable:(id)arg1;
@@ -65,6 +65,11 @@ __attribute__((visibility("hidden")))
 - (id)initWithTableModel:(id)arg1 cellRegion:(id)arg2 anchorCellID:(CDStruct_0441cfb5)arg3 cursorCellID:(CDStruct_0441cfb5)arg4 selectionType:(int)arg5;
 - (id)initWithTableModel:(id)arg1 cellRegion:(id)arg2 anchorCellID:(CDStruct_0441cfb5)arg3 cursorCellID:(CDStruct_0441cfb5)arg4 baseRegion:(id)arg5;
 - (id)initWithTableModel:(id)arg1 cellRegion:(id)arg2 anchorCellID:(CDStruct_0441cfb5)arg3 cursorCellID:(CDStruct_0441cfb5)arg4 baseRegion:(id)arg5 selectionType:(int)arg6;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

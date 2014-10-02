@@ -8,16 +8,19 @@
 
 #import "NSCopying.h"
 #import "NSFastEnumeration.h"
+#import "TSDMixing.h"
 
 @class NSMutableArray;
 
 __attribute__((visibility("hidden")))
-@interface TSWPTabs : NSObject <NSCopying, NSFastEnumeration>
+@interface TSWPTabs : NSObject <NSCopying, NSFastEnumeration, TSDMixing>
 {
     NSMutableArray *_tabs;
 }
 
 + (id)tabs;
+- (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
+- (int)mixingTypeWithObject:(id)arg1;
 - (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;

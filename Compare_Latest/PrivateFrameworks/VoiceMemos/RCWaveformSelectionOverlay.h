@@ -32,9 +32,11 @@
     double _selectedTimeRangeMaximumDuration;
     double _assetCurrentTime;
     double _assetDuration;
+    double _trackedAssetCurrentTime;
     CDStruct_73a5d3ca _selectedTimeRange;
 }
 
+@property(nonatomic) double trackedAssetCurrentTime; // @synthesize trackedAssetCurrentTime=_trackedAssetCurrentTime;
 @property(nonatomic, getter=isDisplayingSelectionTimes) BOOL displayingSelectionTimes; // @synthesize displayingSelectionTimes=_displayingSelectionTimes;
 @property(nonatomic, getter=isEditingEnabled) BOOL editingEnabled; // @synthesize editingEnabled=_editingEnabled;
 @property(readonly, nonatomic) struct CGRect selectionRect; // @synthesize selectionRect=_selectionRect;
@@ -80,7 +82,7 @@
 - (void)_autoUpdateIsDisplayingSelectionTimes;
 @property(readonly, nonatomic) int endTimeIndicatorSelectionAffinity;
 @property(readonly, nonatomic) int beginTimeIndicatorSelectionAffinity;
-@property(readonly, nonatomic) float currentTimeIndicatorPosition;
+@property(readonly, nonatomic) float currentTimeIndicatorCoordinate;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)reloadSelectionOffsets;
 - (void)setSelectedTimeRange:(CDStruct_73a5d3ca)arg1;

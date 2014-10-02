@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 + (BOOL)isStacked;
 + (id)chartSeriesType;
 - (void)updateLightingEffectsState:(id)arg1 scene:(id)arg2;
-- (tvec2_84d5962d)labelObjectSpacePosition:(unsigned int)arg1 dataSpaceValue:(float)arg2;
+- (tvec2_84d5962d)labelObjectSpacePosition:(unsigned int)arg1 axisValue:(double)arg2 intercept:(double)arg3;
 
 @end
 

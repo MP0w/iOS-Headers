@@ -103,23 +103,6 @@ struct AVRecorderPrivate {
     id _field2;
 };
 
-struct AVRemakerPrivate {
-    struct OpaqueFigRemaker *_field1;
-    char _field2;
-    id _field3;
-    id _field4;
-    id _field5;
-    id _field6;
-    id _field7;
-    id _field8;
-    double _field9;
-};
-
-struct AVSubtitleLayerUsingWebKitPrivate {
-    struct __CTFont *_field1;
-    struct __CFAttributedString *_field2;
-};
-
 struct AVSystemControllerPrivate {
     char _field1;
     char _field2;
@@ -172,8 +155,13 @@ struct AudioTimeStamp {
 };
 
 struct CGPoint {
-    float _field1;
-    float _field2;
+    float x;
+    float y;
+};
+
+struct CGRect {
+    struct CGPoint origin;
+    struct CGSize size;
 };
 
 struct CGSize {
@@ -191,8 +179,6 @@ struct FigOpaqueMediaValidator;
 struct OpaqueCMByteStream;
 
 struct OpaqueFigPlayer;
-
-struct OpaqueFigRemaker;
 
 struct OpaqueFigThread;
 
@@ -216,6 +202,11 @@ struct _NSRange {
 };
 
 #pragma mark Typedef'd Structures
+
+typedef struct {
+    int _field1;
+    int _field2;
+} CDStruct_1ef3fb1f;
 
 typedef struct {
     long long value;

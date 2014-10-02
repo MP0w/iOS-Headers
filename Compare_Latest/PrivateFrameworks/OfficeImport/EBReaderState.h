@@ -14,19 +14,14 @@ __attribute__((visibility("hidden")))
     struct XlBinaryReader *mXlReader;
     struct XlSheetInfoTable *mXlSheetInfoTable;
     ECColumnWidthConvertor *mColumnWidthConvertor;
-    unsigned int mTotalCellsWithContentCount;
-    unsigned int mTotalCellsWithFormulaCount;
     struct XlEshObjectFactory *mXlEshObjectFactory;
     OABReaderState *mOAState;
     BOOL mImportCSV;
 }
 
 @property(nonatomic) BOOL importCSV; // @synthesize importCSV=mImportCSV;
-- (void)reportWarning:(struct CPTaggedMessageStructure *)arg1;
+- (void)reportWarning:(struct TCTaggedMessageStructure *)arg1;
 - (id)oaState;
-- (void)incrementCellsWithFormulaCount;
-- (void)incrementCellsWithContentCount;
-- (unsigned int)cellsWithContentCount;
 - (id)columnWidthConvertor;
 - (struct XlSheetInfoTable *)xlSheetInfoTable;
 - (void)readGlobalXlObjects;

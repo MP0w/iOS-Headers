@@ -7,7 +7,6 @@
 #import "UIImage.h"
 
 @interface UIImage (MPUtilities)
-+ (id)imageFromAlbumArtData:(id)arg1 artworkInfo:(struct MLArtworkInstanceInfo *)arg2;
 - (id)imageWithShadow:(id)arg1;
 - (id)imageWithEtchedBorderOfColor:(id)arg1 radius:(float)arg2;
 - (id)MP_imageByOverlayingColor:(id)arg1;

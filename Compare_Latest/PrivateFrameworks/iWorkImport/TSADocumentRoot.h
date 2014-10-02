@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <iWorkImport/TSKDocumentRoot.h>
+#import <iWorkImport/TSWPDocumentRoot.h>
 
 #import "TSKImportExportDelegate.h"
 
-@class NSArray, NSMutableDictionary, NSMutableSet, NSSet, NSString, TSAFunctionBrowserState, TSCECalculationEngine, TSKViewState, TSTCustomFormatList;
+@class NSArray, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, NSString, SFUCryptoKey, TSAAnnotationCache, TSAFunctionBrowserState, TSAShortcutController, TSCECalculationEngine, TSKViewState, TSTCustomFormatList;
 
 __attribute__((visibility("hidden")))
-@interface TSADocumentRoot : TSKDocumentRoot <TSKImportExportDelegate>
+@interface TSADocumentRoot : TSWPDocumentRoot <TSKImportExportDelegate>
 {
     int _needsToCaptureViewState;
     id <TSADocumentRootDelegate> _delegate;
@@ -23,18 +23,28 @@ __attribute__((visibility("hidden")))
     TSCECalculationEngine *_calculationEngine;
     TSAFunctionBrowserState *_functionBrowserState;
     TSTCustomFormatList *_tablesCustomFormatList;
+    TSAShortcutController *_shortcutController;
+    TSAAnnotationCache *_annotationCache;
     BOOL _needsMovieCompatibilityUpgrade;
+    BOOL _isClosed;
     NSString *_templateIdentifier;
+    long _documentCacheOnceToken;
+    NSObject<OS_dispatch_queue> *_documentCacheDecryptionKeyAccessQueue;
+    SFUCryptoKey *_documentCacheDecryptionKey;
     BOOL _hasPreUFFVersion;
-    NSArray *buildVersionHistory;
+    NSArray *_buildVersionHistory;
 }
 
 + (id)persistenceWarningsForData:(id)arg1 isReadable:(BOOL)arg2 isExternal:(BOOL)arg3;
++ (unsigned int)previewTypeForCurrentDevice;
 + (struct CGSize)previewImageMaxSizeForType:(unsigned int)arg1;
 + (struct CGSize)previewImageSizeForType:(unsigned int)arg1;
++ (void)writePreviewImage:(id)arg1 group:(id)arg2 queue:(id)arg3 dataConsumerProvider:(CDUnknownBlockType)arg4 completion:(CDUnknownBlockType)arg5;
 + (void)writePreviewImage:(id)arg1 toPath:(id)arg2 withIntermediateDirectories:(BOOL)arg3 name:(id)arg4 group:(id)arg5 queue:(id)arg6 completion:(CDUnknownBlockType)arg7;
++ (BOOL)writePreviewImagesToPackageDataWriter:(id)arg1 scalableImage:(id)arg2 group:(id)arg3 queue:(id)arg4;
 + (BOOL)writePreviewImagesToPath:(id)arg1 scalableImage:(id)arg2 group:(id)arg3 queue:(id)arg4;
 + (void)removeExistingPreviewsForDocumentAtPath:(id)arg1;
++ (BOOL)writePreviewImagesToPackageDataWriter:(id)arg1 scalableImage:(id)arg2;
 + (BOOL)writePreviewImagesToPath:(id)arg1 scalableImage:(id)arg2;
 + (id)scaledPreviewImageForType:(unsigned int)arg1 scalableImage:(id)arg2;
 + (id)supportedPreviewImageExtensions;
@@ -46,10 +56,9 @@ __attribute__((visibility("hidden")))
 + (void)localizeModelObject:(id)arg1 withTemplateBundle:(id)arg2;
 @property(nonatomic) BOOL hasPreUFFVersion; // @synthesize hasPreUFFVersion=_hasPreUFFVersion;
 @property(nonatomic) id <TSADocumentRootDelegate> delegate; // @synthesize delegate=_delegate;
-@property(copy, nonatomic) NSArray *buildVersionHistory; // @synthesize buildVersionHistory;
+@property(copy, nonatomic) NSArray *buildVersionHistory; // @synthesize buildVersionHistory=_buildVersionHistory;
 - (BOOL)isMultiPageForQuickLook;
 - (BOOL)hasICloudConflict;
-- (long long)addObserverForICloudTeardownWithBlock:(CDUnknownBlockType)arg1;
 - (id)commandForPropagatingPresetChangeCommand:(id)arg1 alwaysPreserveAppearance:(BOOL)arg2;
 - (id)readBuildVersionHistoryFromDiskHasPreUFFVersion:(BOOL)arg1;
 @property(readonly, nonatomic, getter=isDocumentEditedSinceLastSave) BOOL documentEditedSinceLastSave;
@@ -60,11 +69,18 @@ __attribute__((visibility("hidden")))
 - (struct CGImageSource *)newImageSourceForDocumentCachePath:(id)arg1;
 - (BOOL)writeData:(id)arg1 atDocumentCachePath:(id)arg2;
 - (void)didSaveWithEncryptionChange;
+- (void)documentCacheWasInvalidated;
 - (id)dataFromDocumentCachePath:(id)arg1;
+- (id)p_documentCacheDecryptionKey;
+- (id)p_documentCacheDecryptionKeyAccessQueue;
+- (void)p_initializeDocumentCacheIfNeeded;
 - (id)documentCachePath;
 - (id)referencedStylesOfClass:(Class)arg1;
 - (BOOL)shouldAllowDrawableInGroups:(id)arg1 forImport:(BOOL)arg2;
+- (void)upgradeTextboxPresets;
+- (void)upgradeTextStylesForUnityPlusFromFileFormatVersion:(unsigned long long)arg1;
 - (void)upgradeTextStylesForUnity;
+- (void)enumerateStylesheetsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)p_replaceStyle:(id)arg1 andChildrenWithVariationOfStyle:(id)arg2;
 - (void)p_replaceStyles:(id)arg1 andChildrenWithVariationOfStyle:(id)arg2;
 - (void)p_removeStyles:(id)arg1;
@@ -72,7 +88,6 @@ __attribute__((visibility("hidden")))
 - (void)performStylesheetUpdatesIfNecessaryForVersion:(unsigned long long)arg1;
 - (void)pUpgradeHyperlinks;
 - (void)pUpgradeHyperlinksInStorage:(id)arg1;
-- (id)p_characterStyleWithProperties:(id)arg1 stylesheet:(id)arg2 override:(id)arg3;
 - (id)p_parseNumberOutOfBasename:(id)arg1 hasNumber:(char *)arg2 number:(unsigned int *)arg3;
 - (void)insertTextPresetDisplayItemsPreservingGrouping:(id)arg1 insertAtBeginningOfGroup:(BOOL)arg2;
 - (id)protected_defaultTextPresetOrdering;
@@ -85,6 +100,11 @@ __attribute__((visibility("hidden")))
 - (id)newExporterForType:(id)arg1 options:(id)arg2 preferredType:(id *)arg3;
 - (void)importerDidFinish:(id)arg1;
 - (void)p_registerAllFormulasAfterImport;
+- (void)didDownloadDocumentResources:(id)arg1 failedOrCancelledDocumentResources:(id)arg2 error:(id)arg3;
+- (id)warningLocationDescriptionForAffectedObjects:(id)arg1 sortingInfo:(id *)arg2;
+- (id)warningsByCombiningSortedWarnings:(id)arg1 withWarnings:(id)arg2;
+- (int)compareLocationSortingInfo:(id)arg1 toSortingInfo:(id)arg2;
+- (id)consolidatedDocumentWarningsFromWarnings:(id)arg1;
 @property(readonly, nonatomic) NSSet *missingFontWarningMessages;
 - (void)prepareToGeneratePreview;
 - (id)previewImageForSize:(struct CGSize)arg1;
@@ -106,6 +126,10 @@ __attribute__((visibility("hidden")))
 - (id)customFormatList;
 - (void)setFunctionBrowserState:(id)arg1;
 - (id)functionBrowserState;
+- (void)setShortcutController:(id)arg1;
+- (id)shortcutController;
+- (void)setAnnotationCache:(id)arg1;
+- (id)annotationCache;
 - (void)initializeForImport;
 - (void)setCalculationEngine:(id)arg1;
 - (id)calculationEngine;
@@ -134,8 +158,12 @@ __attribute__((visibility("hidden")))
 - (id)namedTextStyles;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) BOOL importingDesignDemoDoc;
 @property(readonly, nonatomic) BOOL isBrowsingVersions;
+@property(readonly) Class superclass;
 
 @end
 

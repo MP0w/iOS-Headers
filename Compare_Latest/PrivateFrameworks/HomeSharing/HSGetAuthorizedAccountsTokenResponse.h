@@ -14,7 +14,7 @@
 }
 
 @property(copy, nonatomic) NSData *tokenData; // @synthesize tokenData;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

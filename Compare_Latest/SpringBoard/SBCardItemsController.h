@@ -6,19 +6,19 @@
 
 #import "NSObject.h"
 
+#import "NSXPCListenerDelegate.h"
 #import "SBCardItemsControllerRemoteInterface.h"
-#import "XPCProxyTarget.h"
 
-@class NSMutableArray, NSMutableDictionary;
+@class NSMutableArray, NSMutableDictionary, NSString, NSXPCListener;
 
-@interface SBCardItemsController : NSObject <SBCardItemsControllerRemoteInterface, XPCProxyTarget>
+@interface SBCardItemsController : NSObject <SBCardItemsControllerRemoteInterface, NSXPCListenerDelegate>
 {
-    NSMutableArray *_remoteControllers;
     NSMutableDictionary *_cardItems;
+    NSMutableArray *_connections;
+    NSXPCListener *_listener;
 }
 
 - (void)_updateThumbnailForCardItem:(id)arg1 withSnapshotter:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)getCardItemsForControllerWithIdentifier:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)clearCardItemsForControllerWithIdentifier:(id)arg1;
 - (void)removeCardItems:(id)arg1 forControllerWithIdentifier:(id)arg2;
@@ -26,9 +26,15 @@
 - (void)setCardItems:(id)arg1 forControllerWithIdentifier:(id)arg2;
 - (void)_activateAllCardItems;
 - (void)cardItemsDidChange:(id)arg1 forControllerWithIdentifier:(id)arg2;
-- (void)_addControllerWithConnection:(id)arg1;
+- (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

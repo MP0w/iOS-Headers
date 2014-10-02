@@ -12,7 +12,6 @@
 
 - (void)_cleanupAnimation;
 - (void)_startAnimation;
-- (_Bool)_animationShouldStart;
 - (id)_viewToAnimate;
 
 @end

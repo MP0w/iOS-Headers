@@ -16,6 +16,12 @@ __attribute__((visibility("hidden")))
 + (int)readFlowType:(id)arg1;
 + (void)readTextBodyProperties:(struct _xmlNode *)arg1 textBodyProperties:(id)arg2 drawingState:(id)arg3;
 + (void)readTextBodyFromXmlNode:(struct _xmlNode *)arg1 textBody:(id)arg2 drawingState:(id)arg3;
++ (id)stringWithTextAnchorType:(int)arg1;
++ (id)stringWithTextBodyWrapType:(int)arg1;
++ (id)stringWithTextBodyFlowType:(int)arg1;
++ (id)stringWithTextBodyHorizontalOverflowType:(int)arg1;
++ (id)stringWithTextBodyVerticalOverflowType:(int)arg1;
++ (void)writeTextBodyAutoFit:(id)arg1 to:(id)arg2;
 + (void)readHorizontalOverflowType:(id)arg1 textBodyProperties:(id)arg2;
 + (void)readVerticalOverflowType:(id)arg1 textBodyProperties:(id)arg2;
 + (void)readWrapType:(id)arg1 textBodyProperties:(id)arg2;

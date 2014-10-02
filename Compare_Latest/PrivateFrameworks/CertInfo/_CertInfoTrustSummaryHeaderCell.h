@@ -20,6 +20,7 @@
 }
 
 @property(nonatomic, getter=isTrusted) BOOL trusted; // @synthesize trusted=_trusted;
+- (void).cxx_destruct;
 - (id)_trustedLabel;
 - (id)_subtitleLabel;
 - (id)_titleLabel;
@@ -30,8 +31,7 @@
 - (void)setExpired:(BOOL)arg1;
 @property(copy, nonatomic) NSString *trustSubtitle;
 @property(copy, nonatomic) NSString *trustTitle;
-@property(readonly, nonatomic) _CertInfoActionButton *actionButton;
-- (void)dealloc;
+@property(readonly, nonatomic) __weak _CertInfoActionButton *actionButton;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end

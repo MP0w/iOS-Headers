@@ -50,12 +50,17 @@
 @property(copy, nonatomic) NSString *loopVar; // @synthesize loopVar=_loopVar;
 @property(copy, nonatomic) NSString *label; // @synthesize label=_label;
 - (void)dealloc;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)parser:(id)arg1 didEndElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4;
 - (void)parser:(id)arg1 foundCharacters:(id)arg2;
 - (void)parser:(id)arg1 didStartElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4 attributes:(id)arg5;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

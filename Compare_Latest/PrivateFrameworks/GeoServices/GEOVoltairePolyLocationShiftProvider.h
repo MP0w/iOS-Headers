@@ -8,8 +8,9 @@
 
 #import "PBRequesterDelegate.h"
 
-@class GEORequester;
+@class GEORequester, NSString;
 
+__attribute__((visibility("hidden")))
 @interface GEOVoltairePolyLocationShiftProvider : GEOLocationShiftProvider <PBRequesterDelegate>
 {
     GEORequester *_requester;
@@ -24,6 +25,12 @@
 - (void)cancelRequest;
 - (void)startRequest:(id)arg1 finished:(CDUnknownBlockType)arg2 error:(CDUnknownBlockType)arg3;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

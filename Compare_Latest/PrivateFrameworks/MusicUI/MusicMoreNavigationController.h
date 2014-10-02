@@ -12,8 +12,11 @@
 
 + (Class)_moreListControllerClass;
 - (BOOL)canBecomeFirstResponder;
-- (void)pushViewController:(id)arg1 animated:(BOOL)arg2;
+- (void)traitCollectionDidChange:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(nonatomic) __weak id <MusicNavigationControllerDelegate> delegate;
 
 @end
 

@@ -17,6 +17,8 @@
 + (unsigned long long)maxVisibleIconRowsInterfaceOrientation:(long long)arg1;
 + (unsigned long long)iconColumnsForInterfaceOrientation:(long long)arg1;
 + (long long)rotationAnchor;
+- (void)cleanupAfterRotation;
+- (void)prepareToRotateToInterfaceOrientation:(long long)arg1;
 - (void)_updateVisibleIconsFromRow:(unsigned long long)arg1 toRow:(unsigned long long)arg2 includeIcon:(id)arg3 layoutIfNeeded:(_Bool)arg4;
 - (double)verticalIconPadding;
 - (double)sideIconInset;

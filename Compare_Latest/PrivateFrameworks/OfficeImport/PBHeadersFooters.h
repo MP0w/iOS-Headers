@@ -16,7 +16,6 @@ __attribute__((visibility("hidden")))
 + (void)readHeadersFootersToMasterSlide:(id)arg1 drawables:(id)arg2 state:(id)arg3;
 + (void)addCopyOfHeaderFooterPlaceholderOfType:(int)arg1 toDrawables:(id)arg2 slideBase:(id)arg3 headersFootersContainer:(id)arg4 state:(id)arg5;
 + (void)readHeaderFooterTextFromHeadersFootersContainer:(id)arg1 toPlaceholderShape:(id)arg2;
-+ (id)readStringWithInstance:(int)arg1 fromContainer:(id)arg2;
 + (struct PptHeadersFootersAtom *)headersFootersAtomWithHeadersFootersContainer:(id)arg1;
 + (id)headersFootersContainerWithSlideContainer:(id)arg1 state:(id)arg2;
 

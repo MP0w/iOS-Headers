@@ -15,9 +15,12 @@ __attribute__((visibility("hidden")))
     double mYSplitPosition;
     EDReference *mTopLeftCell;
     int mActivePane;
+    int mPaneState;
 }
 
 + (id)pane;
+- (void)setPaneState:(int)arg1;
+- (int)paneState;
 - (void)setActivePane:(int)arg1;
 - (int)activePane;
 - (void)setTopLeftCell:(id)arg1;

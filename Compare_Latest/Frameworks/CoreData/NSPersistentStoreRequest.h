@@ -16,9 +16,8 @@
 }
 
 + (void)initialize;
-- (void)setAffectedStores:(id)arg1;
-- (id)affectedStores;
-- (unsigned int)requestType;
+@property(retain, nonatomic) NSArray *affectedStores;
+@property(readonly) unsigned int requestType;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 

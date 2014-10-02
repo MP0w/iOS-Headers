@@ -6,10 +6,8 @@
 
 #import "NSObject.h"
 
-@class NSArray;
-
 @protocol KNAnimationOpenGLEffect <NSObject>
-- (void)teardownEffectWithTextures:(NSArray *)arg1;
+- (void)teardown;
 - (void)renderEffectAtPercent:(double)arg1;
 - (void)setupEffectIfNecessary;
 @end

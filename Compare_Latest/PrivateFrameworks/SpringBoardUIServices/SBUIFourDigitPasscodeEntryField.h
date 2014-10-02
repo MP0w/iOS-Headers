@@ -21,8 +21,6 @@
 
 - (struct UIEdgeInsets)_entryFieldPaddingOutsideRing;
 - (struct CGRect)_entryFieldBoundsWithXOffset:(float)arg1;
-- (float)_entryFieldIndicatorWidthPadding;
-- (float)_entryFieldIndicatorDiameter;
 - (void)_autofillForMesaWithCompletion:(CDUnknownBlockType)arg1;
 - (struct CGSize)_viewSize;
 - (void)_resetForFailedPasscode:(BOOL)arg1 playUnlockFailedSound:(BOOL)arg2;
@@ -35,7 +33,7 @@
 - (void)setCustomBackgroundColor:(id)arg1;
 - (void)setBackgroundAlpha:(float)arg1;
 - (void)dealloc;
-- (id)initWithDefaultSize;
+- (id)initWithDefaultSizeAndLightStyle:(BOOL)arg1;
 
 @end
 

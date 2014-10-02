@@ -13,13 +13,21 @@ __attribute__((visibility("hidden")))
 {
     NSObject<OS_dispatch_semaphore> *mCanEnqueueReaders;
     NSObject<OS_dispatch_group> *mInFlightReaders;
+    int mReaderSpinLock;
+    unsigned int mReaderCount;
+    NSObject<OS_dispatch_semaphore> *mReadLockUnlockSignal;
+    NSObject<OS_dispatch_semaphore> *mReadLockLockedSignal;
+    BOOL mHoldingRead;
     long mShutdownToken;
     BOOL mShuttingDown;
     TSKAccessController *mAccessController;
 }
 
++ (BOOL)isHoldingReadLockFromBackgroundQueue;
 + (id)p_sharedLimitedQueue;
 @property(getter=isShuttingDown) BOOL shuttingDown; // @synthesize shuttingDown=mShuttingDown;
+- (void)p_readUnlock;
+- (void)p_readLock;
 - (void)drainAndPerformSync:(CDUnknownBlockType)arg1;
 - (void)performAsync:(CDUnknownBlockType)arg1;
 - (void)shutdown;

@@ -32,5 +32,11 @@
 - (void)dealloc;
 - (id)initWithService:(id)arg1 delegate:(id)arg2 queue:(id)arg3;
 
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
+
 @end
 

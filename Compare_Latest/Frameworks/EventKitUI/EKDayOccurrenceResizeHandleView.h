@@ -14,7 +14,7 @@
     UIColor *_baseColor;
 }
 
-@property(readonly, nonatomic) EKDayOccurrenceView *occurrenceView; // @synthesize occurrenceView=_occurrenceView;
+@property(readonly, nonatomic) __weak EKDayOccurrenceView *occurrenceView; // @synthesize occurrenceView=_occurrenceView;
 @property(retain, nonatomic) UIColor *baseColor; // @synthesize baseColor=_baseColor;
 - (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;

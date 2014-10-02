@@ -6,6 +6,8 @@
 
 #import <Foundation/NSProxy.h>
 
+@class NSObject, Protocol;
+
 @interface NSProtocolChecker : NSProxy
 {
 }
@@ -21,8 +23,8 @@
 - (BOOL)conformsToProtocol:(id)arg1;
 - (BOOL)respondsToSelector:(SEL)arg1;
 - (void)doesNotRecognizeSelector:(SEL)arg1;
-- (id)target;
-- (id)protocol;
+@property(readonly, retain) NSObject *target;
+@property(readonly) Protocol *protocol;
 
 @end
 

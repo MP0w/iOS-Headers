@@ -25,7 +25,9 @@
     BOOL _demo;
     BOOL _didFallbackToPassword;
     int _enabledServiceTypes;
+    NSString *_firstName;
     NSString *_itunesPassSerialNumber;
+    NSString *_lastName;
     NSLock *_lock;
     BOOL _newCustomer;
     NSString *_secureToken;
@@ -46,11 +48,13 @@
 @property(getter=isSocialEnabled) BOOL socialEnabled;
 @property(copy) NSString *secureToken;
 @property(getter=isNewCustomer) BOOL newCustomer;
+@property(copy) NSString *lastName;
 @property(copy) NSString *ITunesPassSerialNumber;
+@property(copy) NSString *firstName;
 @property int enabledServiceTypes;
-@property int availableServiceTypes;
 @property(getter=isDemoAccount) BOOL demoAccount;
 @property(copy) NSString *creditsString;
+@property int availableServiceTypes;
 @property(getter=isActiveLockerAccount) BOOL activeLockerAccount;
 @property(getter=isActive) BOOL active;
 @property int accountSource;
@@ -60,6 +64,7 @@
 - (void)resetTransientData;
 - (void)removeEnabledServiceTypes:(int)arg1;
 - (void)removeAvailableServiceTypes:(int)arg1;
+- (void)getKeybagSyncDataWithType:(int)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)getITunesMatchStatusWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)addEnabledServiceTypes:(int)arg1;
 - (void)addAvailableServiceTypes:(int)arg1;
@@ -69,14 +74,18 @@
 - (void)getDownloadKindsEligibleForContentRestoreWithBlock:(CDUnknownBlockType)arg1;
 - (void)acceptTermsAndConditions:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
 - (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (id)description;
+@property(readonly) unsigned int hash;
+@property(readonly, copy) NSString *description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
 - (void)dealloc;
 - (id)initDemoAccount;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, OCPPackagePart;
+@class NSDictionary, OAVReadState, OCPPackagePart;
 
 __attribute__((visibility("hidden")))
 @interface OAVShapeManager : NSObject
@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     OCPPackagePart *mPackagePart;
     NSDictionary *mShapeStyle;
     NSDictionary *mTextBoxStyle;
+    OAVReadState *mOAVState;
 }
 
 - (struct OAVTextBoxInsets)textInsets;
@@ -66,14 +67,17 @@ __attribute__((visibility("hidden")))
 - (BOOL)isImage;
 - (id)movieRelId;
 - (id)imageRelId;
+- (id)points;
+- (BOOL)isPolyline;
 - (id)textBodyRects;
 - (id)limo;
 - (id)path;
+- (id)oavState;
 - (id)packagePart;
 - (struct _xmlNode *)shape;
 - (unsigned short)type;
 - (void)dealloc;
-- (id)initWithShape:(struct _xmlNode *)arg1 type:(unsigned short)arg2 packagePart:(id)arg3;
+- (id)initWithShape:(struct _xmlNode *)arg1 type:(unsigned short)arg2 packagePart:(id)arg3 state:(id)arg4;
 
 @end
 

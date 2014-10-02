@@ -11,5 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (void)setColorSpace:(struct CGColorSpace *)arg1;
+
 @end
 

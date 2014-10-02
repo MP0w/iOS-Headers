@@ -6,16 +6,20 @@
 
 #import <UIKit/_UITextViewInteractableItem.h>
 
-@class NSURL;
+#import "DDDetectionControllerInteractionDelegate.h"
+
+@class NSString, NSURL;
 
 __attribute__((visibility("hidden")))
-@interface _UITextViewInteractableLink : _UITextViewInteractableItem
+@interface _UITextViewInteractableLink : _UITextViewInteractableItem <DDDetectionControllerInteractionDelegate>
 {
     NSURL *_link;
 }
 
 + (id)interactableLinkWithURL:(id)arg1 range:(struct _NSRange)arg2;
 @property(retain, nonatomic) NSURL *link; // @synthesize link=_link;
+- (void)actionDidFinish:(id)arg1;
+- (void)action:(id)arg1 didDismissAlertController:(id)arg2;
 - (void)_dataDetectorAction:(id)arg1;
 - (void)_linkInteractionCopyLink;
 - (void)_linkInteractionAddToReadingList;
@@ -27,6 +31,12 @@ __attribute__((visibility("hidden")))
 - (BOOL)allowInteraction;
 - (id)localizedTitle;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

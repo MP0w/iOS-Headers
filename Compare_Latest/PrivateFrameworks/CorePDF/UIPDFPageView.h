@@ -110,7 +110,7 @@
 - (void)willMoveToSuperview:(id)arg1;
 - (void)setNeedsDisplay;
 - (void)setSelectionNeedsDisplay;
-@property(readonly) UIPDFDocument *document; // @dynamic document;
+@property(readonly, retain) UIPDFDocument *document; // @dynamic document;
 @property(readonly) unsigned int pageIndex; // @dynamic pageIndex;
 - (void)setDrawingSurfaceLayer:(id)arg1;
 - (void)didReceiveMemoryWarning:(id)arg1;

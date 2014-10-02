@@ -10,51 +10,32 @@
 
 @interface MCVPNPayloadBase : MCPayload
 {
-    BOOL _userNameRequired;
-    BOOL _passwordRequired;
-    BOOL _proxyUserNameRequired;
-    BOOL _proxyPasswordRequired;
-    BOOL _sharedSecretRequired;
-    BOOL _pinRequired;
-    NSMutableDictionary *_atom;
-    NSString *_certificateUUID;
+    NSMutableDictionary *_configurationDictionary;
+    NSString *_serviceName;
+    NSString *_vpnType;
     NSString *_userNameKey;
     NSString *_passwordKey;
     NSString *_proxyUserNameKey;
     NSString *_proxyPasswordKey;
     NSString *_sharedSecretKey;
     NSString *_pinKey;
-    NSString *_userName;
-    NSString *_password;
-    NSString *_proxyUserName;
-    NSString *_proxyPassword;
-    NSString *_sharedSecret;
-    NSString *_pin;
 }
 
-@property(copy, nonatomic) NSString *pin; // @synthesize pin=_pin;
-@property(copy, nonatomic) NSString *sharedSecret; // @synthesize sharedSecret=_sharedSecret;
-@property(copy, nonatomic) NSString *proxyPassword; // @synthesize proxyPassword=_proxyPassword;
-@property(copy, nonatomic) NSString *proxyUserName; // @synthesize proxyUserName=_proxyUserName;
-@property(copy, nonatomic) NSString *password; // @synthesize password=_password;
-@property(copy, nonatomic) NSString *userName; // @synthesize userName=_userName;
 @property(retain, nonatomic) NSString *pinKey; // @synthesize pinKey=_pinKey;
 @property(retain, nonatomic) NSString *sharedSecretKey; // @synthesize sharedSecretKey=_sharedSecretKey;
 @property(retain, nonatomic) NSString *proxyPasswordKey; // @synthesize proxyPasswordKey=_proxyPasswordKey;
 @property(retain, nonatomic) NSString *proxyUserNameKey; // @synthesize proxyUserNameKey=_proxyUserNameKey;
 @property(retain, nonatomic) NSString *passwordKey; // @synthesize passwordKey=_passwordKey;
 @property(retain, nonatomic) NSString *userNameKey; // @synthesize userNameKey=_userNameKey;
-@property(nonatomic) BOOL pinRequired; // @synthesize pinRequired=_pinRequired;
-@property(nonatomic) BOOL sharedSecretRequired; // @synthesize sharedSecretRequired=_sharedSecretRequired;
-@property(nonatomic) BOOL proxyPasswordRequired; // @synthesize proxyPasswordRequired=_proxyPasswordRequired;
-@property(nonatomic) BOOL proxyUserNameRequired; // @synthesize proxyUserNameRequired=_proxyUserNameRequired;
-@property(nonatomic) BOOL passwordRequired; // @synthesize passwordRequired=_passwordRequired;
-@property(nonatomic) BOOL userNameRequired; // @synthesize userNameRequired=_userNameRequired;
-@property(retain, nonatomic) NSString *certificateUUID; // @synthesize certificateUUID=_certificateUUID;
-@property(retain, nonatomic) NSMutableDictionary *atom; // @synthesize atom=_atom;
+@property(copy, nonatomic) NSString *vpnType; // @synthesize vpnType=_vpnType;
+@property(copy, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
+@property(retain, nonatomic) NSMutableDictionary *configurationDictionary; // @synthesize configurationDictionary=_configurationDictionary;
 - (void).cxx_destruct;
+- (id)payloadDescriptionKeyValueSections;
+- (id)installationWarnings;
+- (id)description;
+- (id)stubDictionary;
 - (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
-- (void)_validateVPNPayload:(id)arg1;
 
 @end
 

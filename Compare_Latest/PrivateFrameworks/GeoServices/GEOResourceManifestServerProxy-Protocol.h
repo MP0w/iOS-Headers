@@ -6,18 +6,21 @@
 
 #import "NSObject.h"
 
-@class NSNumber, NSObject<OS_dispatch_queue>, NSString;
+@class GEOResourceManifestConfiguration, NSNumber, NSObject<OS_dispatch_queue>, NSString;
 
 @protocol GEOResourceManifestServerProxy <NSObject>
+@property(nonatomic) id <GEOResourceManifestServerProxyDelegate> delegate;
 - (void)getResourceManifestWithHandler:(void (^)(GEOResourceManifestDownload *, NSError *))arg1;
 - (oneway void)resetActiveTileGroup;
 - (oneway void)setActiveTileGroupIdentifier:(NSNumber *)arg1;
 - (void)forceUpdate:(void (^)(NSError *))arg1;
+- (void)updateIfNecessary:(void (^)(NSError *))arg1;
 - (void)setManifestToken:(NSString *)arg1 completionHandler:(void (^)(NSError *))arg2;
+- (GEOResourceManifestConfiguration *)configuration;
 - (NSString *)authToken;
 - (void)closeConnection;
 - (void)openConnection;
-- (oneway void)startServer:(NSNumber *)arg1;
 - (NSObject<OS_dispatch_queue> *)serverQueue;
+- (id)initWithDelegate:(id <GEOResourceManifestServerProxyDelegate>)arg1 configuration:(GEOResourceManifestConfiguration *)arg2;
 @end
 

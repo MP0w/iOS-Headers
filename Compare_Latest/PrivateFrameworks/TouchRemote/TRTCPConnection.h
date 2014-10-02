@@ -31,10 +31,16 @@
 - (void)close;
 - (void)setDelegate:(id)arg1 delegateQueue:(id)arg2;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue;
-@property(readonly, nonatomic) id <TRTCPConnectionDelegate> delegate;
+@property(readonly, nonatomic) __weak id <TRTCPConnectionDelegate> delegate;
 - (void)connectionStreamDidClose:(id)arg1;
 - (void)dealloc;
 - (id)_initWithUniqueID:(int)arg1 connectionStream:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -14,7 +14,7 @@
 }
 
 + (id)copyParseRules;
-@property(retain) NSMutableSet *transports; // @synthesize transports=_transports;
+@property(retain, nonatomic) NSMutableSet *transports; // @synthesize transports=_transports;
 - (void)addTransport:(id)arg1;
 - (id)description;
 - (void)dealloc;

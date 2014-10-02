@@ -8,7 +8,7 @@
 
 #import "NSURLAuthenticationChallengeSender.h"
 
-@class NSObject<OS_dispatch_queue>, SSDownloadAuthenticationSession;
+@class NSObject<OS_dispatch_queue>, NSString, SSDownloadAuthenticationSession;
 
 @interface SSDownloadAuthenticationChallengeSender : NSObject <NSURLAuthenticationChallengeSender>
 {
@@ -24,6 +24,12 @@
 @property(readonly) SSDownloadAuthenticationSession *authenticationSession;
 - (void)dealloc;
 - (id)initWithAuthenticationSession:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

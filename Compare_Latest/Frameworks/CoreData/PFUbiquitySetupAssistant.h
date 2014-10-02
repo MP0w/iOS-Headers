@@ -96,7 +96,6 @@ __attribute__((visibility("hidden")))
 + (BOOL)doBasicSanityCheckForUbiquityRootURL:(id)arg1 withError:(id *)arg2;
 + (id)createDefaultLocalPeerID;
 + (id)generateMachineUUIDString;
-+ (void)initialize;
 @property(nonatomic) BOOL cacheFilePresenterForUbiquityRoot; // @synthesize cacheFilePresenterForUbiquityRoot=_cacheFilePresenterForUbiquityRoot;
 @property(retain, nonatomic) NSError *failSetupError; // @synthesize failSetupError=_failSetupError;
 @property(nonatomic) BOOL failSetup; // @synthesize failSetup=_failSetup;

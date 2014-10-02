@@ -38,6 +38,7 @@
 - (void)showSIMUnlock;
 @property(readonly, nonatomic) BOOL isSIMLocked;
 @property(readonly, nonatomic) BOOL isSIMRemoved;
+@property(readonly, nonatomic) BOOL requiresSIMInserted;
 - (void)_makeDataConnectionAvailable:(BOOL)arg1;
 - (BOOL)_isDataConnectionAvailable;
 - (void)_releaseCTServerConnection;
@@ -53,9 +54,10 @@
 @property(readonly, nonatomic) BOOL isWiFiCaptive;
 @property(readonly, nonatomic) BOOL isWiFiEnabled;
 @property(readonly, nonatomic) BOOL isWiFiAssociated;
-@property(readonly, nonatomic) NSNumber *wiFiScaledRate;
-@property(readonly, nonatomic) NSNumber *wiFiScaledRSSI;
-@property(readonly, nonatomic) NSNumber *wiFiSignalStrength;
+@property(readonly, nonatomic) BOOL isWiFiUsable;
+@property(readonly, retain, nonatomic) NSNumber *wiFiScaledRate;
+@property(readonly, retain, nonatomic) NSNumber *wiFiScaledRSSI;
+@property(readonly, retain, nonatomic) NSNumber *wiFiSignalStrength;
 @property(readonly, nonatomic) BOOL willTryToSearchForWiFiNetwork;
 @property(readonly, nonatomic) BOOL willTryToAutoAssociateWiFiNetwork;
 @property(readonly, nonatomic) BOOL isHostingWiFiHotSpot;
@@ -67,14 +69,12 @@
 - (void)_setFastDormancySuspended:(BOOL)arg1;
 - (void)_adjustCelluarAutoAssociation;
 - (void)_adjustCellularAutoAssociation;
-- (void)_adjustWiFiAutoAssociation;
-- (void)_adjustWiFiAutoAssociationLocked;
-- (void)_createWiFiManager;
 - (void)refresh;
 @property(readonly, nonatomic) BOOL isAirplaneModeEnabled;
 - (void *)_getValueForKey:(id)arg1;
 - (void)_initializeSCPrefs:(id)arg1;
 - (void)_synchronize;
+- (void)cutWiFiManagerLinkDidChange:(id)arg1 context:(id)arg2;
 - (void)dealloc;
 - (id)init;
 

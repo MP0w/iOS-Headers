@@ -16,14 +16,16 @@
     CoreDAVItemWithNoChildren *_notification;
     CoreDAVItemWithNoChildren *_subscribed;
     CoreDAVItemWithNoChildren *_sharedOwner;
+    CoreDAVItemWithNoChildren *_isFamilyCalendar;
 }
 
-@property(retain) CoreDAVItemWithNoChildren *sharedOwner; // @synthesize sharedOwner=_sharedOwner;
-@property(retain) CoreDAVItemWithNoChildren *subscribed; // @synthesize subscribed=_subscribed;
-@property(retain) CoreDAVItemWithNoChildren *notification; // @synthesize notification=_notification;
-@property(retain) CoreDAVItemWithNoChildren *scheduleOutbox; // @synthesize scheduleOutbox=_scheduleOutbox;
-@property(retain) CoreDAVItemWithNoChildren *scheduleInbox; // @synthesize scheduleInbox=_scheduleInbox;
-@property(retain) CoreDAVItemWithNoChildren *calendar; // @synthesize calendar=_calendar;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *isFamilyCalendar; // @synthesize isFamilyCalendar=_isFamilyCalendar;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *sharedOwner; // @synthesize sharedOwner=_sharedOwner;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *subscribed; // @synthesize subscribed=_subscribed;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *notification; // @synthesize notification=_notification;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *scheduleOutbox; // @synthesize scheduleOutbox=_scheduleOutbox;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *scheduleInbox; // @synthesize scheduleInbox=_scheduleInbox;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *calendar; // @synthesize calendar=_calendar;
 - (void)write:(id)arg1;
 - (id)copyParseRules;
 - (id)description;

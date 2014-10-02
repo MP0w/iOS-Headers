@@ -19,9 +19,11 @@
     int _size;
     int _style;
     NSMutableArray *_supportedLanguages;
+    int _updateBehavior;
     NSMutableArray *_validVersions;
     BOOL _multiTileURLUsesStatusCodes;
     struct {
+        unsigned int updateBehavior:1;
         unsigned int multiTileURLUsesStatusCodes:1;
     } _has;
 }
@@ -35,6 +37,7 @@
 @property(nonatomic) int style; // @synthesize style=_style;
 @property(retain, nonatomic) NSString *multiTileURL; // @synthesize multiTileURL=_multiTileURL;
 @property(retain, nonatomic) NSString *baseURL; // @synthesize baseURL=_baseURL;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -43,6 +46,8 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) BOOL hasUpdateBehavior;
+@property(nonatomic) int updateBehavior; // @synthesize updateBehavior=_updateBehavior;
 @property(nonatomic) BOOL hasMultiTileURLUsesStatusCodes;
 - (id)supportedLanguageAtIndex:(unsigned int)arg1;
 - (unsigned int)supportedLanguagesCount;

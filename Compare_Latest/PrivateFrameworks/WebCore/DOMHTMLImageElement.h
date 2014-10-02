@@ -12,8 +12,8 @@
 {
 }
 
-@property(readonly) NSURL *absoluteImageURL;
-@property(readonly) NSString *altDisplayString;
+@property(readonly, copy) NSURL *absoluteImageURL;
+@property(readonly, copy) NSString *altDisplayString;
 @property(readonly) int y;
 @property(readonly) int x;
 @property(readonly) int naturalWidth;
@@ -23,6 +23,8 @@
 @property int width;
 @property int vspace;
 @property(copy) NSString *useMap;
+- (void)setSrcset:(id)arg1;
+- (id)srcset;
 @property(copy) NSString *src;
 @property(copy) NSString *longDesc;
 @property BOOL isMap;

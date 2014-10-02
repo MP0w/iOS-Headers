@@ -7,14 +7,18 @@
 #import "_UIDynamicSlider.h"
 
 #import "SBUIControlCenterControl.h"
+#import "_UISettingsKeyObserver.h"
 
-@class UIImage;
+@class NSString, UIImage, UIVisualEffectView;
 
-@interface SBUIControlCenterSlider : _UIDynamicSlider <SBUIControlCenterControl>
+@interface SBUIControlCenterSlider : _UIDynamicSlider <_UISettingsKeyObserver, SBUIControlCenterControl>
 {
     float _valueImagePadding;
     BOOL _customTrackImage;
+    UIVisualEffectView *_highlightEffectView;
     BOOL _highlightMinimumTrackImage;
+    BOOL _shouldHighlightValueImagesWhileAdjusting;
+    BOOL _adjusting;
     UIImage *_minValueMaskImage;
     UIImage *_maxValueMaskImage;
     UIImage *_trackMaskImage;
@@ -32,9 +36,13 @@
 @property(retain) UIImage *trackMaskImage; // @synthesize trackMaskImage=_trackMaskImage;
 @property(retain) UIImage *maxValueMaskImage; // @synthesize maxValueMaskImage=_maxValueMaskImage;
 @property(retain) UIImage *minValueMaskImage; // @synthesize minValueMaskImage=_minValueMaskImage;
+@property(nonatomic, getter=isAdjusting) BOOL adjusting; // @synthesize adjusting=_adjusting;
+@property(nonatomic) BOOL shouldHighlightValueImagesWhileAdjusting; // @synthesize shouldHighlightValueImagesWhileAdjusting=_shouldHighlightValueImagesWhileAdjusting;
 @property(nonatomic) BOOL highlightMinimumTrackImage; // @synthesize highlightMinimumTrackImage=_highlightMinimumTrackImage;
+- (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (void)controlConfigurationDidChangeForState:(int)arg1;
 - (void)controlAppearanceDidChangeForState:(int)arg1;
+- (void)_updateEffects;
 - (void)_configureControlStates;
 - (void)layoutSubviews;
 - (struct CGRect)trackRectForBounds:(struct CGRect)arg1;
@@ -50,12 +58,20 @@
 - (void)setTrackImage:(id)arg1;
 - (void)_updateMaximumTrackImage;
 - (void)_updateMinimumTrackImage;
-- (struct UIEdgeInsets)_trackInsetsWithShadow:(BOOL)arg1;
+- (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (void)_updateValueImageView:(id)arg1 fadeToImage:(id)arg2;
 - (void)_updateMaximumValueImage;
 - (void)_updateMinimumValueImage;
-- (id)_valueImageForImage:(id)arg1;
+- (id)_valueImageForImage:(id)arg1 state:(int)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

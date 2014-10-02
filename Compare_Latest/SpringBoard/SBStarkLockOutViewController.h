@@ -21,7 +21,7 @@
 }
 
 @property(retain, nonatomic) SBStarkScreenController *screenController; // @synthesize screenController=_screenController;
-@property(readonly, nonatomic) SBStarkLockOutView *lockoutView; // @synthesize lockoutView=_modeView;
+@property(readonly, retain, nonatomic) SBStarkLockOutView *lockoutView; // @synthesize lockoutView=_modeView;
 - (void)_updateLockOutModeIfPending;
 - (id)_newModeViewForMode:(long long)arg1;
 - (void)animationControllerDidFinishAnimation:(id)arg1;

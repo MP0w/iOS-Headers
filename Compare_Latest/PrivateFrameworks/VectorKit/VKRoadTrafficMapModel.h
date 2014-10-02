@@ -6,27 +6,27 @@
 
 #import <VectorKit/VKVectorMapModel.h>
 
-@class VKRoadMapModel, VKTrafficDrawStyle, VKTrafficPainter;
+@class VKRoadMapModel, VKTrafficDrawStyle;
 
 __attribute__((visibility("hidden")))
 @interface VKRoadTrafficMapModel : VKVectorMapModel
 {
     VKRoadMapModel *_roadModel;
-    float _styleZAdjust;
     BOOL _enabled;
-    VKTrafficPainter *_trafficPainter;
     VKTrafficDrawStyle *_trafficDrawStyle;
+    struct unique_ptr<vk::TrafficManager, std::__1::default_delete<vk::TrafficManager>> _trafficManager;
 }
 
 @property(retain, nonatomic) VKRoadMapModel *roadModel; // @synthesize roadModel=_roadModel;
 @property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (id)init;
-- (void)drawScene:(id)arg1 withContext:(id)arg2;
-- (void)layoutScene:(id)arg1 withContext:(id)arg2;
+- (void)gglLayoutScene:(id)arg1 withContext:(id)arg2 renderQueue:(struct RenderQueue *)arg3;
+- (void)didReceiveMemoryWarning;
 - (void)stylesheetDidChange;
-- (unsigned int)supportedRenderPasses;
-- (unsigned int)mapLayerPosition;
+- (unsigned long long)mapLayerPosition;
 
 @end
 

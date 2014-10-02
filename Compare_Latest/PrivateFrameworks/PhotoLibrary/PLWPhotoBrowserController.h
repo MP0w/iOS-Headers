@@ -6,14 +6,12 @@
 
 #import <PhotoLibrary/PLPhotoBrowserController.h>
 
-#import "PLAssetContainerObserver.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class PLLibraryImageDataProvider;
+@class NSString;
 
-@interface PLWPhotoBrowserController : PLPhotoBrowserController <UIGestureRecognizerDelegate, PLAssetContainerObserver>
+@interface PLWPhotoBrowserController : PLPhotoBrowserController <UIGestureRecognizerDelegate>
 {
-    PLLibraryImageDataProvider *_imageDataProvider;
 }
 
 - (BOOL)wantsPhotoBrowserStyleStatusBar;
@@ -21,9 +19,13 @@
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)loadView;
-- (void)setAssetContainerList:(id)arg1 currentImageIndexPath:(id)arg2;
-- (void)dealloc;
-- (id)initWithAssetContainerList:(id)arg1 atImageIndexPath:(id)arg2 imageDataProvider:(id)arg3 modalDoneButtonItem:(id)arg4;
+- (id)initWithAssetCollections:(id)arg1 atImageIndexPath:(id)arg2 dataSource:(id)arg3 modalDoneButtonItem:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -19,7 +19,7 @@
 + (id)currentInputMode;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-@property(readonly, nonatomic) NSString *primaryLanguage;
+@property(readonly, retain, nonatomic) NSString *primaryLanguage;
 
 @end
 

@@ -27,13 +27,16 @@ __attribute__((visibility("hidden")))
 - (id)_initFromProperties:(id)arg1;
 - (id)_outputProperties;
 - (id)outputImage;
-- (id)_kernelSnoB;
-- (id)_kernelS;
-- (id)_kernelSH;
+- (id)_kernelSnoB_v0;
+- (id)_kernelSHnoB_v0;
+- (id)_kernelSH_v0;
 - (id)_kernelSHnoB_v1;
 - (id)_kernelSH_v1;
+- (id)_kernelSHnoB_v2;
+- (id)_kernelSH_v2;
 - (BOOL)_isIdentity;
 - (void)setDefaults;
+- (int)bestVersion;
 
 @end
 

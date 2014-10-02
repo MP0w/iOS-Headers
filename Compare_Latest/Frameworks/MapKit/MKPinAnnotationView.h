@@ -6,11 +6,10 @@
 
 #import <MapKit/MKAnnotationView.h>
 
-@class MKPinAnnotationViewInternal, UIImageView;
+@class UIImageView;
 
 @interface MKPinAnnotationView : MKAnnotationView
 {
-    MKPinAnnotationViewInternal *_pinInternal;
     UIImageView *_shadowView;
     id _delegate;
     int _pinType;
@@ -25,7 +24,7 @@
 + (struct CGPoint)_perceivedAnchorPoint;
 + (struct UIImage *)_shadowImage;
 + (id)_reuseIdentifier;
-+ (id)_pinsWithType:(int)arg1 mapDisplayStyle:(int)arg2;
++ (id)_pinsWithType:(int)arg1 mapDisplayStyle:(unsigned int)arg2;
 + (id)_dropBounceAnimation;
 + (id)_bounceAnimation;
 + (struct CGRect)_pinFrameForPosition:(struct CGPoint)arg1;
@@ -68,7 +67,7 @@
 - (struct UIImage *)_image;
 - (id)_pins;
 - (id)description;
-- (void)_setMapDisplayStyle:(int)arg1;
+- (void)_setMapDisplayStyle:(unsigned int)arg1;
 - (void)_setMapType:(unsigned int)arg1;
 - (struct CGRect)_significantBounds;
 - (void)setAnnotation:(id)arg1;
@@ -76,7 +75,6 @@
 @property(nonatomic) unsigned int pinColor;
 - (id)_delegate;
 - (void)_setDelegate:(id)arg1;
-- (id)_internal;
 - (id)initWithAnnotation:(id)arg1 reuseIdentifier:(id)arg2;
 - (struct CGPoint)_draggingDropOffset;
 - (struct CGPoint)centerOffset;

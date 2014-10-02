@@ -18,6 +18,15 @@
 }
 
 - (void).cxx_destruct;
+- (void)_setCloudKitCredentialType;
+- (void)_addCloudKitDataclasses;
+- (void)_removeLiverpoolTypes;
+- (void)_addAccessKeysAttributeToCloudKitAccountType;
+- (void)_addCloudKitAccountType;
+- (void)_createLiverpoolDataclasses;
+- (void)_setOwningBundleIDForNativeAccountTypes;
+- (void)_addAppleIDAuthenticationAccountType;
+- (void)_addFMFAccountType;
 - (void)_addHolidayCalendarAccountType;
 - (void)_makeTencentWeiboSingleton;
 - (void)_updateIdentityServicesAccountDescription;
@@ -35,6 +44,7 @@
 - (void)_addPasswordCredentialTypeToGmailAccountType;
 - (void)_addPasswordCredentialTypeToSMTPAccountType;
 - (void)_ensureProperAccountTypeDataclasses;
+- (void)_ensureDataclassesAllExist;
 - (void)_ensureAccountTypeWithIdentifier:(id)arg1 supportsDataclasses:(id)arg2 syncsDataclasses:(id)arg3;
 - (void)_addHotmailAccountType;
 - (void)_addLDAPAccountType;

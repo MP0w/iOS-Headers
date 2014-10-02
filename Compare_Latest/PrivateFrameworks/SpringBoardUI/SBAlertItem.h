@@ -8,7 +8,7 @@
 
 #import "UIAlertViewDelegate.h"
 
-@class NSArray, UIAlertView;
+@class NSArray, NSString, UIAlertView;
 
 @interface SBAlertItem : NSObject <UIAlertViewDelegate>
 {
@@ -35,6 +35,8 @@
 @property(nonatomic) BOOL pendInSetupIfNotAllowed; // @synthesize pendInSetupIfNotAllowed=_pendInSetupIfNotAllowed;
 @property(nonatomic) BOOL allowInSetup; // @synthesize allowInSetup=_allowInSetup;
 @property(nonatomic) BOOL ignoreIfAlreadyDisplaying; // @synthesize ignoreIfAlreadyDisplaying=_ignoreIfAlreadyDisplaying;
+- (BOOL)_dismissesOverlaysOnLockScreen;
+- (BOOL)dismissesAutomatically;
 - (id)prepareNewAlertSheetWithLockedState:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (BOOL)displayActionButtonOnLockScreen;
@@ -83,11 +85,19 @@
 - (BOOL)shouldShowInEmergencyCall;
 - (BOOL)shouldShowInLockScreen;
 - (BOOL)allowAutoUnlock;
+- (BOOL)allowLockScreenDismissal;
 - (BOOL)allowMenuButtonDismissal;
 - (void)dealloc;
 - (id)init;
+- (id)alertController;
 - (id)alertSheet;
 - (Class)alertSheetClass;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

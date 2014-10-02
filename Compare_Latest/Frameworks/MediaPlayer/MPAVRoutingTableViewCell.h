@@ -29,7 +29,6 @@
 - (void)_configureLabel:(id)arg1;
 - (void)setMirroringSwitchVisible:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)layoutSubviews;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

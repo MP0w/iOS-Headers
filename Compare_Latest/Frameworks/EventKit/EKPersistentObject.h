@@ -37,8 +37,6 @@ __attribute__((visibility("hidden")))
 - (id)primitiveDataValueForKey:(id)arg1;
 - (void)primitiveSetURLValue:(id)arg1 forKey:(id)arg2;
 - (id)primitiveURLValueForKey:(id)arg1;
-- (void)primitiveSetUnboundedStringValue:(id)arg1 forKey:(id)arg2;
-- (id)primitiveUnboundedStringValueForKey:(id)arg1;
 - (void)primitiveSetStringValue:(id)arg1 forKey:(id)arg2;
 - (id)primitiveStringValueForKey:(id)arg1;
 - (id)_loadStringValueForKey:(id)arg1;

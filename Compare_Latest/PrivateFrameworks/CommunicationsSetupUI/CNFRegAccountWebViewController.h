@@ -8,7 +8,7 @@
 
 #import "UIAlertViewDelegate.h"
 
-@class NSTimer;
+@class NSString, NSTimer;
 
 @interface CNFRegAccountWebViewController : CNFRegServerWebViewController <UIAlertViewDelegate>
 {
@@ -24,6 +24,7 @@
 - (void)doHandoffWithStatus:(int)arg1 appleID:(id)arg2 authID:(id)arg3 authToken:(id)arg4;
 - (void)cancelTapped;
 - (id)bagKey;
+- (id)clientInfoHeaderValue;
 - (id)interfaceLayoutHeaderValue;
 - (id)serviceHeaderValue;
 - (id)pushTokenHeaderValue;
@@ -57,6 +58,12 @@
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithRegController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

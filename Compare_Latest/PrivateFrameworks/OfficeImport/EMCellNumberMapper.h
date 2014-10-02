@@ -6,19 +6,20 @@
 
 #import <OfficeImport/CMMapper.h>
 
-@class EDStyle;
+@class EDStyle, EDWorkbook;
 
 __attribute__((visibility("hidden")))
 @interface EMCellNumberMapper : CMMapper
 {
     double edValue;
     EDStyle *edStyle;
+    EDWorkbook *workbook;
 }
 
 - (void)mapAt:(id)arg1 withState:(id)arg2;
 - (id)insertRedSpanIfNegativeAt:(id)arg1;
 - (id)formatValueAsNumber;
-- (id)initWithDoubleValue:(double)arg1 style:(id)arg2 parent:(id)arg3;
+- (id)initWithDoubleValue:(double)arg1 style:(id)arg2 workbook:(id)arg3 parent:(id)arg4;
 
 @end
 

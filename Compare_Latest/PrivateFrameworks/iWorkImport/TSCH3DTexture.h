@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)canLoadCachedFullMipmapBufferForDataCache:(id)arg1;
 - (void)resetResource;
 @property(readonly, nonatomic) TSCH3DResource *resource; // @dynamic resource;
+- (BOOL)hasCompleteData;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

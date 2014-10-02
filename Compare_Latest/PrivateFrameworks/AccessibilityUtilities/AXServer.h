@@ -27,7 +27,10 @@
 - (void)_didConnectToServer;
 - (void)_wasDisconnectedFromClient;
 - (void)_didConnectToClient;
+- (void)relinquishAssertionWithType:(id)arg1 identifier:(id)arg2;
+- (void)acquireAssertionWithType:(id)arg1 identifier:(id)arg2;
 - (id)sendMessage:(id)arg1;
+- (id)sendSimpleMessageWithObjectResult:(id)arg1;
 - (BOOL)sendSimpleMessageWithResult:(id)arg1;
 - (void)sendSimpleMessage:(id)arg1;
 - (void)dealloc;

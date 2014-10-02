@@ -8,7 +8,7 @@
 
 #import "TPDialerKeypadProtocol.h"
 
-@class TPDialerSoundController;
+@class NSString, TPDialerSoundController;
 
 @interface TPDialerNumberPad : TPNumberPad <TPDialerKeypadProtocol>
 {
@@ -31,6 +31,12 @@
 - (void)buttonUp:(id)arg1;
 - (void)buttonTapped:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

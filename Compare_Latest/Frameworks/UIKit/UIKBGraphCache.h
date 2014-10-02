@@ -8,7 +8,7 @@
 
 #import "_UIScreenBasedObject.h"
 
-@class NSMutableDictionary, UIScreen;
+@class NSDictionary, NSMutableDictionary, NSString, UIScreen;
 
 __attribute__((visibility("hidden")))
 @interface UIKBGraphCache : NSObject <_UIScreenBasedObject>
@@ -19,10 +19,17 @@ __attribute__((visibility("hidden")))
 
 + (id)graphCacheForScreen:(id)arg1;
 @property(readonly, nonatomic) NSMutableDictionary *graphCache; // @synthesize graphCache=_graphCache;
+@property(readonly) NSDictionary *_options;
 - (BOOL)_matchingOptions:(id)arg1;
 @property(readonly) UIScreen *_intendedScreen;
 - (void)dealloc;
 - (id)_initWithScreen:(id)arg1 options:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

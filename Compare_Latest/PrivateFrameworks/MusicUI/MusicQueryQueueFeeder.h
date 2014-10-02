@@ -6,20 +6,18 @@
 
 #import "MPMediaQueryQueueFeeder.h"
 
+@class MPMediaPlaylist;
+
 @interface MusicQueryQueueFeeder : MPMediaQueryQueueFeeder
 {
 }
 
-- (BOOL)_reloadWithPlaybackContext:(id)arg1 keepPlayingCurrentItemIfPossible:(BOOL)arg2;
-- (BOOL)reloadWithDataSource:(id)arg1 keepPlayingCurrentItemIfPossible:(BOOL)arg2;
 - (unsigned int)realShuffleType;
 - (unsigned int)realRepeatType;
 - (id)playbackInfoAtIndex:(unsigned int)arg1;
 - (Class)itemClass;
 - (id)errorResolverForItem:(id)arg1;
-- (id)init;
-- (id)mix;
-- (void)setMix:(id)arg1;
+@property(retain, nonatomic) MPMediaPlaylist *mixPlaylist;
 
 @end
 

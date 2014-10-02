@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
     double mEndTime;
     double mPosterTime;
     TSPData *mPosterImageData;
+    BOOL mPosterImageGeneratedWithAlphaSupport;
     struct CGSize mNaturalSize;
     unsigned int mLoopOption;
     float mVolume;
@@ -31,6 +32,7 @@ __attribute__((visibility("hidden")))
 
 + (id)presetKinds;
 + (double)defaultPosterTimeForDuration:(double)arg1;
+@property(nonatomic) unsigned int loopOption; // @synthesize loopOption=mLoopOption;
 @property(nonatomic, getter=isStreaming) BOOL streaming; // @synthesize streaming=mStreaming;
 @property(retain, nonatomic) TSPData *posterImageData; // @synthesize posterImageData=mPosterImageData;
 - (id)style;
@@ -49,14 +51,15 @@ __attribute__((visibility("hidden")))
 - (void)acceptVisitor:(id)arg1;
 - (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
 - (int)mixingTypeWithObject:(id)arg1;
+- (id)localizedChunkNameForTextureDeliveryStyle:(unsigned int)arg1 animationFilter:(id)arg2 chunkIndex:(unsigned int)arg3;
 - (id)animationFilters;
 - (BOOL)canChangeWrapType;
-- (Class)editorClass;
 - (Class)repClass;
 - (Class)layoutClass;
 - (Class)styleClass;
 - (void)p_setPropertiesFromLoadedAsset:(id)arg1;
 - (struct CGSize)rawDataSize;
+- (id)styleIdentifierTemplateForNewPreset;
 - (id)presetKind;
 - (void)setStyle:(id)arg1;
 - (id)mediaFileType;
@@ -69,7 +72,6 @@ __attribute__((visibility("hidden")))
 - (id)initWithContext:(id)arg1 geometry:(id)arg2;
 @property(nonatomic, getter=isAudioOnly) BOOL audioOnly;
 @property(nonatomic) float volume;
-@property(nonatomic) unsigned int loopOption;
 @property(nonatomic) double posterTime;
 @property(nonatomic) double endTime;
 @property(nonatomic) double startTime;
@@ -82,7 +84,7 @@ __attribute__((visibility("hidden")))
 - (id)subclassInitFromUnarchiver:(id)arg1;
 - (id)initFromUnarchiver:(id)arg1;
 - (void)loadFromArchive:(const struct MovieArchive *)arg1 unarchiver:(id)arg2;
-- (id)titleForBuildChunk:(id)arg1;
+- (BOOL)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
 
 @end
 

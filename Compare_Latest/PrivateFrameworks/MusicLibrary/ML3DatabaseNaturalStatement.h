@@ -10,7 +10,6 @@
 
 @class NSMutableArray, NSString;
 
-__attribute__((visibility("hidden")))
 @interface ML3DatabaseNaturalStatement : NSObject <NSSecureCoding>
 {
     NSString *_sql;

@@ -6,24 +6,35 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableDictionary;
+@class NSArray, NSDictionary, NSMutableDictionary, NSMutableSet;
 
 @interface UICollectionViewLayoutInvalidationContext : NSObject
 {
-    NSMutableDictionary *_invalidatedSupplementaryViews;
+    NSMutableSet *_invalidatedItemIndexPaths;
+    NSMutableDictionary *_invalidatedSupplementaryIndexPaths;
+    NSMutableDictionary *_invalidatedDecorationIndexPaths;
     NSArray *_updateItems;
+    struct CGPoint _contentOffsetAdjustment;
+    struct CGSize _contentSizeAdjustment;
     struct {
         unsigned int invalidateDataSource:1;
         unsigned int invalidateEverything:1;
     } _invalidationContextFlags;
 }
 
-- (id)_updateItems;
-- (void)_setUpdateItems:(id)arg1;
+@property(nonatomic) struct CGSize contentSizeAdjustment;
+@property(nonatomic) struct CGPoint contentOffsetAdjustment;
+@property(nonatomic, getter=_updateItems, setter=_setUpdateItems:) NSArray *updateItems;
 - (void)_setInvalidateEverything:(BOOL)arg1;
-@property(readonly, nonatomic) BOOL invalidateEverything;
+@property(nonatomic) BOOL invalidateEverything;
 - (void)_setInvalidateDataSourceCounts:(BOOL)arg1;
-@property(readonly, nonatomic) BOOL invalidateDataSourceCounts;
+@property(nonatomic) BOOL invalidateDataSourceCounts;
+@property(readonly, nonatomic) NSDictionary *invalidatedDecorationIndexPaths;
+- (void)invalidateDecorationElementsOfKind:(id)arg1 atIndexPaths:(id)arg2;
+@property(readonly, nonatomic) NSDictionary *invalidatedSupplementaryIndexPaths;
+- (void)invalidateSupplementaryElementsOfKind:(id)arg1 atIndexPaths:(id)arg2;
+@property(readonly, nonatomic) NSArray *invalidatedItemIndexPaths;
+- (void)invalidateItemsAtIndexPaths:(id)arg1;
 - (void)_invalidateSupplementaryElementsOfKind:(id)arg1 atIndexPaths:(id)arg2;
 - (void)_setInvalidatedSupplementaryViews:(id)arg1;
 - (id)_invalidatedSupplementaryViews;

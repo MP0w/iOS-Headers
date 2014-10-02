@@ -12,7 +12,7 @@
 #import "SKUIMissingItemDelegate.h"
 #import "SKUIProductPageOverlayDelegate.h"
 
-@class NSMapTable, NSMutableIndexSet, SKUIClientContext, SKUILockupComponent, SKUIMissingItemLoader, SKUIProductPageOverlayController, SKUIRowComponent;
+@class NSMapTable, NSMutableIndexSet, NSString, SKUIClientContext, SKUILockupComponent, SKUIMissingItemLoader, SKUIProductPageOverlayController, SKUIRowComponent;
 
 @interface SKUIRowSection : SKUIStorePageSection <SKUIArtworkRequestDelegate, SKUIEmbeddedMediaViewDelegate, SKUIItemStateCenterObserver, SKUIMissingItemDelegate, SKUIProductPageOverlayDelegate>
 {
@@ -75,7 +75,7 @@
 - (void)itemStateCenter:(id)arg1 itemStatesChanged:(id)arg2;
 - (void)mediaView:(id)arg1 playbackStateDidChange:(int)arg2;
 - (void)artworkRequest:(id)arg1 didLoadImage:(id)arg2;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)willTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)willHideInContext:(id)arg1;
 - (void)willAppearInContext:(id)arg1;
 - (void)prefetchResourcesWithReason:(int)arg1;
@@ -94,7 +94,11 @@
 - (id)initWithPageComponent:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) SKUIRowComponent *pageComponent; // @dynamic pageComponent;
+@property(readonly) Class superclass;
 
 @end
 

@@ -18,6 +18,7 @@
 
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) int type; // @synthesize type=_type;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

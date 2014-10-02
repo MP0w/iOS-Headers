@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 
 + (id)edPageMarginsFrom:(struct _xmlNode *)arg1 state:(id)arg2;
 + (id)edPageSetupFrom:(struct _xmlNode *)arg1 state:(id)arg2;
++ (void)initialize;
 + (int)edPageOrderFromPageOrderString:(id)arg1;
 + (int)edPageOrientationFromPageOrientationString:(id)arg1;
 

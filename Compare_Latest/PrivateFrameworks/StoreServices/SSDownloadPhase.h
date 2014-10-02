@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "SSXPCCoding.h"
 
-@class SSOperationProgress;
+@class NSString, SSOperationProgress;
 
 @interface SSDownloadPhase : NSObject <SSXPCCoding, NSCopying>
 {
@@ -29,6 +29,12 @@
 - (void)dealloc;
 - (id)initWithOperationProgress:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

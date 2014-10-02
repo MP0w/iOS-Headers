@@ -8,7 +8,7 @@
 
 #import "KNAnimationPluginArchiving.h"
 
-@class KNAnimParameterGroup, KNWipeDataBuffer, TSDGLDataBuffer, TSDGLShader;
+@class KNAnimParameterGroup, KNWipeDataBuffer, NSString, TSDGLDataBuffer, TSDGLShader;
 
 __attribute__((visibility("hidden")))
 @interface KNWipeBase : KNAnimationEffect <KNAnimationPluginArchiving>
@@ -39,6 +39,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (void)p_teardown;
 - (id)initWithAnimationContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

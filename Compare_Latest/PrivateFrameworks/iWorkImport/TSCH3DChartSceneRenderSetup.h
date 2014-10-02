@@ -10,16 +10,18 @@ __attribute__((visibility("hidden")))
 @interface TSCH3DChartSceneRenderSetup : TSCH3DSceneRenderSetup
 {
     float mScale;
+    tvec2_84d5962d mOffsetFromLayerRelativeToBodyCanvas;
     struct ChartProjectedBoundsSpaces mSpaces;
 }
 
 + (id)setup;
+@property(nonatomic) tvec2_84d5962d offsetFromLayerRelativeToBodyCanvas; // @synthesize offsetFromLayerRelativeToBodyCanvas=mOffsetFromLayerRelativeToBodyCanvas;
 @property(nonatomic) struct ChartProjectedBoundsSpaces spaces; // @synthesize spaces=mSpaces;
 @property(nonatomic) float scale; // @synthesize scale=mScale;
 - (id).cxx_construct;
 - (id)renderingCameraFromOriginalCamera:(id)arg1 pipeline:(id)arg2;
 - (void)setPixelAlignmentLayer:(id)arg1;
-- (void)setLayerVisibleBounds:(struct CGRect)arg1;
+- (void)setVisibleBoundsInLayerRelativeSpace:(struct CGRect)arg1;
 - (id)realignCamera:(id)arg1 toGlobalPixelAlignedBodyCanvasBounds:(const box_80622335 *)arg2 renderingBodyCanvasBounds:(const box_80622335 *)arg3 scale:(float)arg4 samples:(float)arg5 correspondingNoramlizedBounds:(const box_80622335 *)arg6;
 - (struct ChartProjectedBoundsConverter)converter;
 - (void)setupPipeline:(id)arg1 fromCamera:(id)arg2;

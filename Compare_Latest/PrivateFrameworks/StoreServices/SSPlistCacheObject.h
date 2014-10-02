@@ -8,7 +8,7 @@
 
 #import "SSCacheObject.h"
 
-@class NSDictionary;
+@class NSDictionary, NSString;
 
 @interface SSPlistCacheObject : NSObject <SSCacheObject>
 {
@@ -22,6 +22,12 @@
 - (id)cacheObjectTypeIdentifier;
 - (id)plist;
 - (void)setPlist:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

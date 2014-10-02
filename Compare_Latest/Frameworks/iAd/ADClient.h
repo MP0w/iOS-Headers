@@ -11,6 +11,8 @@
 }
 
 + (id)sharedClient;
+- (void)addClientToSegments:(id)arg1 replaceExisting:(BOOL)arg2;
+- (void)lookupAdConversionDetails:(CDUnknownBlockType)arg1;
 - (void)determineAppInstallationAttributionWithCompletionHandler:(CDUnknownBlockType)arg1;
 
 @end

@@ -10,7 +10,7 @@
 #import "UIKeyboardEmojiPressIndicationDelegate.h"
 #import "UIScrollViewDelegate.h"
 
-@class NSMutableArray, UIKeyboardEmojiCategory, UIKeyboardEmojiInputController, UILabel, UIPageControl, UIScrollView, UIView;
+@class NSMutableArray, NSString, UIKeyboardEmojiCategory, UIKeyboardEmojiInputController, UILabel, UIPageControl, UIScrollView, UIView;
 
 __attribute__((visibility("hidden")))
 @interface UIKeyboardEmojiScrollView : UIKBKeyView <UIScrollViewDelegate, UIKeyboardEmojiInput, UIKeyboardEmojiPressIndicationDelegate>
@@ -54,6 +54,12 @@ __attribute__((visibility("hidden")))
 - (void)installPressIndicatorAtPoint:(struct CGPoint)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 keyplane:(id)arg2 key:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

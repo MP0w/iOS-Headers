@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 - (id)supportedAxisScales;
 - (BOOL)supportsIndividualShadowRendering;
 - (BOOL)supportsGroupedShadows;
-- (BOOL)requiresAxisOrdinal;
+- (BOOL)requiresYAxisOrdinal;
 - (id)supportedSeriesTypes;
 - (BOOL)supportsMultipleSeriesTypes;
 - (id)userInterfaceName;

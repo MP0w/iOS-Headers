@@ -12,6 +12,7 @@
 }
 
 + (void)setGestureServiceEnabled:(BOOL)arg1;
++ (BOOL)isGestureServiceAvailable;
 + (BOOL)isGestureServiceEnabled;
 @property(copy) CDUnknownBlockType gestureHandler;
 - (void)dealloc;

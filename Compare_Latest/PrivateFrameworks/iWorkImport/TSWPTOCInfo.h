@@ -30,10 +30,12 @@ __attribute__((visibility("hidden")))
 - (void)acceptVisitor:(id)arg1;
 - (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
 - (void)p_regenerateStorageContent;
+- (id)containedStorageFormattedUsingParagraphStyle:(id)arg1;
 @property(readonly, nonatomic) NSSet *paragraphStylesShownInTOC;
 @property(retain, nonatomic, setter=setTOCEntries:) NSArray *tocEntries; // @synthesize tocEntries=_tocEntries;
 - (id)partitioner;
 - (Class)repClass;
+- (id)copyWithContext:(id)arg1;
 - (void)dealloc;
 
 @end

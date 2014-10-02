@@ -11,7 +11,5 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (id)retain;
-
 @end
 

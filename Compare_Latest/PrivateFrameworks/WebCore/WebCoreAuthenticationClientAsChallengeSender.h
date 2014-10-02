@@ -8,6 +8,8 @@
 
 #import "NSURLAuthenticationChallengeSender.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface WebCoreAuthenticationClientAsChallengeSender : NSObject <NSURLAuthenticationChallengeSender>
 {
@@ -23,6 +25,12 @@ __attribute__((visibility("hidden")))
 - (void)detachClient;
 - (struct AuthenticationClient *)client;
 - (id)initWithAuthenticationClient:(struct AuthenticationClient *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

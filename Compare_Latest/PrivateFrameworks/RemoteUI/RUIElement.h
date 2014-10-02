@@ -6,14 +6,17 @@
 
 #import "NSObject.h"
 
-@class NSDictionary;
+@class NSDictionary, NSString;
 
 @interface RUIElement : NSObject
 {
     NSDictionary *_attributes;
+    BOOL _enabled;
 }
 
+@property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
 @property(retain, nonatomic) NSDictionary *attributes; // @synthesize attributes=_attributes;
+- (void).cxx_destruct;
 - (void)setImageAlignment:(int)arg1;
 - (void)setImageSize:(struct CGSize)arg1;
 - (void)setImage:(id)arg1;
@@ -21,9 +24,12 @@
 - (void)imageLoaded:(id)arg1;
 - (int)_horizontalAlignmentForString:(id)arg1;
 - (id)URLAttributeForImageName:(id)arg1 getScale:(float *)arg2;
+@property(readonly, nonatomic) NSString *name;
 - (id)sourceURL;
 - (void)dealloc;
+- (id)subElementsWithName:(id)arg1;
 - (void)populatePostbackDictionary:(id)arg1;
+- (id)init;
 
 @end
 

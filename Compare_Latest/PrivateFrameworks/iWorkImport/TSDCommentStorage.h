@@ -16,8 +16,10 @@ __attribute__((visibility("hidden")))
     NSString *mText;
     NSDate *mCreationDate;
     TSKAnnotationAuthor *mAuthor;
+    id <TSDCommentStorageDelegate> mDelegate;
 }
 
+- (void)p_notifyDelegate;
 - (void)saveToArchiver:(id)arg1;
 - (id)initFromUnarchiver:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -28,12 +30,14 @@ __attribute__((visibility("hidden")))
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (void)appendText:(id)arg1;
+- (void)dealloc;
+@property(copy, nonatomic) NSString *text;
 - (id)initWithContext:(id)arg1;
 - (id)initWithContext:(id)arg1 author:(id)arg2;
 - (id)initWithContext:(id)arg1 text:(id)arg2 creationDate:(id)arg3 author:(id)arg4;
+@property(nonatomic) id <TSDCommentStorageDelegate> delegate;
 @property(retain, nonatomic) TSKAnnotationAuthor *author;
 @property(copy, nonatomic) NSDate *creationDate;
-@property(copy, nonatomic) NSString *text;
 
 @end
 

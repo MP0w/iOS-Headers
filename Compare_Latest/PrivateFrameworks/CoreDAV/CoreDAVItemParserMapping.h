@@ -15,9 +15,9 @@
     Class _parseClass;
 }
 
-@property Class parseClass; // @synthesize parseClass=_parseClass;
-@property(retain) NSString *name; // @synthesize name=_name;
-@property(retain) NSString *nameSpace; // @synthesize nameSpace=_nameSpace;
+@property(nonatomic) Class parseClass; // @synthesize parseClass=_parseClass;
+@property(retain, nonatomic) NSString *name; // @synthesize name=_name;
+@property(retain, nonatomic) NSString *nameSpace; // @synthesize nameSpace=_nameSpace;
 - (id)description;
 - (void)dealloc;
 - (id)initWithNameSpace:(id)arg1 name:(id)arg2 parseClass:(Class)arg3;

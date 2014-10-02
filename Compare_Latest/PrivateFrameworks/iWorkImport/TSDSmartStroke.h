@@ -17,6 +17,8 @@ __attribute__((visibility("hidden")))
 + (id)strokeWithName:(id)arg1 color:(id)arg2 width:(float)arg3;
 + (Class)classForName:(id)arg1;
 @property(copy, nonatomic) NSString *strokeName; // @synthesize strokeName=mStrokeName;
+- (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
+- (int)mixingTypeWithObject:(id)arg1;
 - (BOOL)shouldAntialiasDefeat;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;

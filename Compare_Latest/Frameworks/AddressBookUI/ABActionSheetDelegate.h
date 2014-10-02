@@ -8,6 +8,8 @@
 
 #import "UIActionSheetDelegate.h"
 
+@class NSString;
+
 @interface ABActionSheetDelegate : NSObject <UIActionSheetDelegate>
 {
     id _target;
@@ -16,6 +18,12 @@
 
 - (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (id)initWithActionSheetTarget:(id)arg1 action:(SEL)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -10,13 +10,13 @@
 #import "SBAwayListCellButtonHandler.h"
 #import "SBUIQuietModePlayability.h"
 
-@class NSDate, NSString, SBUnlockActionContext;
+@class NSDate, NSString, SBLockScreenActionContext;
 
 @interface SBAwayListItem : NSObject <SBAwayListCellButtonHandler, SBUIQuietModePlayability, NSCopying>
 {
     NSDate *_timestamp;
     _Bool _isNewItem;
-    SBUnlockActionContext *_unlockActionContext;
+    SBLockScreenActionContext *_lockScreenActionContext;
     NSString *_buttonLabel;
 }
 
@@ -27,10 +27,17 @@
 - (_Bool)isCritical;
 - (_Bool)inertWhenLocked;
 - (void)dealloc;
+- (void)prepareWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)canBeClearedByNotificationCenter;
 - (_Bool)wantsHighlightOnInsert;
 - (void)buttonPressed;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

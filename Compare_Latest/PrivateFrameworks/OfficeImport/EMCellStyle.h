@@ -6,25 +6,38 @@
 
 #import <OfficeImport/CMStyle.h>
 
+#import "NSCopying.h"
+
 @class EDStyle;
 
 __attribute__((visibility("hidden")))
-@interface EMCellStyle : CMStyle
+@interface EMCellStyle : CMStyle <NSCopying>
 {
-    EDStyle *edStyle;
-    BOOL _nameContainsItalic;
-    BOOL _nameContainsBold;
+    EDStyle *_edStyle;
+    int _edCellType;
+    double _columnWidth;
+    double _contentWidth;
+    BOOL _isRowZero;
+    BOOL _isColumnZero;
+    BOOL _truncateContents;
+    BOOL _resolvedProperties;
 }
 
-- (id)_parseFontName:(id)arg1;
++ (id)_parseFontName:(id)arg1 nameContainsBold:(char *)arg2 nameContainsItalic:(char *)arg3;
++ (id)styleForFont:(id)arg1;
+- (id)cacheFriendlyCSSStyleString;
+- (id)cssStyleString;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)addAlignmentStyle:(id)arg1;
 - (void)addBordersStyle:(id)arg1;
 - (void)addFillStyle:(id)arg1;
 - (void)addFontStyle:(id)arg1;
-- (void)changeWithContentWidth:(double)arg1 columnWidth:(double)arg2;
-- (void)changeWithContentFormatType:(int)arg1;
-- (id)initWithEDStyle:(id)arg1;
-- (id)init;
+- (void)resolveBorders;
+- (void)resolveContentWidth;
+- (void)resolveFormatType;
+- (id)initWithEDStyle:(id)arg1 type:(int)arg2 rowIndex:(unsigned int)arg3 columnIndex:(unsigned int)arg4 columnWidth:(unsigned int)arg5 contentWidth:(unsigned int)arg6 truncateContents:(BOOL)arg7;
 
 @end
 

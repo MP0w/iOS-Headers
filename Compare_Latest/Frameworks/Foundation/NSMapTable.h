@@ -10,6 +10,8 @@
 #import "NSCopying.h"
 #import "NSFastEnumeration.h"
 
+@class NSPointerFunctions;
+
 @interface NSMapTable : NSObject <NSCopying, NSCoding, NSFastEnumeration>
 {
 }
@@ -44,13 +46,13 @@
 - (void)removeObjectForKey:(id)arg1;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 - (id)objectForKey:(id)arg1;
-- (id)valuePointerFunctions;
-- (id)keyPointerFunctions;
+@property(readonly, copy) NSPointerFunctions *valuePointerFunctions;
+@property(readonly, copy) NSPointerFunctions *keyPointerFunctions;
 - (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
 - (id)copy;
 - (id)objectEnumerator;
 - (id)keyEnumerator;
-- (unsigned int)count;
+@property(readonly) unsigned int count;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
 - (id)init;

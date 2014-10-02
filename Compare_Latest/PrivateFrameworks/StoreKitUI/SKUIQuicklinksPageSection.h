@@ -8,7 +8,7 @@
 
 #import "SKUIQuicklinksViewControllerDelegate.h"
 
-@class SKUIQuicklinksPageComponent, SKUIQuicklinksViewController;
+@class NSString, SKUIQuicklinksPageComponent, SKUIQuicklinksViewController;
 
 @interface SKUIQuicklinksPageSection : SKUIStorePageSection <SKUIQuicklinksViewControllerDelegate>
 {
@@ -17,6 +17,7 @@
 
 - (void).cxx_destruct;
 - (id)_quicklinksViewController;
+- (void)willTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)quicklinksViewController:(id)arg1 didSelectLink:(id)arg2 atIndex:(int)arg3;
 - (int)numberOfCells;
 - (struct CGSize)cellSizeForIndexPath:(id)arg1;
@@ -26,7 +27,11 @@
 - (id)initWithPageComponent:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) SKUIQuicklinksPageComponent *pageComponent; // @dynamic pageComponent;
+@property(readonly) Class superclass;
 
 @end
 

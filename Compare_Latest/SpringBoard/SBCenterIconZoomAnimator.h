@@ -8,7 +8,7 @@
 
 #import "SBIconListLayoutDelegate.h"
 
-@class SBCenterZoomSettings, UIView;
+@class NSString, SBCenterZoomSettings, UIView;
 
 @interface SBCenterIconZoomAnimator : SBIconZoomAnimator <SBIconListLayoutDelegate>
 {
@@ -20,7 +20,7 @@
 }
 
 @property(readonly, nonatomic) struct CGPoint cameraPosition; // @synthesize cameraPosition=_cameraPosition;
-@property(readonly, nonatomic) UIView *zoomView; // @synthesize zoomView=_zoomView;
+@property(readonly, retain, nonatomic) UIView *zoomView; // @synthesize zoomView=_zoomView;
 - (void)_calculateCentersAndCameraPosition;
 - (id)_animationFactoryForDock;
 - (id)_animationFactoryForIcon:(id)arg1;
@@ -37,7 +37,11 @@
 - (id)initWithFolderController:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
 @property(retain, nonatomic) SBCenterZoomSettings *settings;
+@property(readonly) Class superclass;
 
 @end
 

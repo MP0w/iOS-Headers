@@ -8,7 +8,7 @@
 
 #import "WBSFormAutoFillFrame.h"
 
-@class WebFrame;
+@class NSString, WebFrame;
 
 @interface WBUFormAutoFillFrame : NSObject <WBSFormAutoFillFrame>
 {
@@ -17,14 +17,20 @@
 
 + (id)autoFillFrameWithWebFrame:(id)arg1;
 @property(readonly, nonatomic) WebFrame *webFrame; // @synthesize webFrame=_webFrame;
+- (void).cxx_destruct;
 - (void)enumerateChildFramesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)committedURL;
 - (struct OpaqueJSValue *)jsWrapperInMetadataControllerScriptWorldForNode:(id)arg1;
 - (BOOL)containsAnyFormElements;
 - (struct OpaqueJSContext *)jsContextForMetadataControllerScriptWorld;
 - (struct OpaqueFormAutoFillFrame *)frameRef;
-- (void)dealloc;
 - (id)initWithWebFrame:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

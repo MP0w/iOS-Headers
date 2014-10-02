@@ -22,15 +22,14 @@
 + (id)documentStateWithContextBefore:(id)arg1 markedText:(id)arg2 selectedRange:(struct _NSRange)arg3 contextAfter:(id)arg4;
 + (id)documentStateWithContextBefore:(id)arg1 selectedText:(id)arg2 contextAfter:(id)arg3;
 + (BOOL)supportsSecureCoding;
++ (id)documentStateWithContextBefore:(id)arg1 selectedText:(id)arg2 contextAfter:(id)arg3;
 + (id)documentStateWithText:(id)arg1 selectedRange:(struct _NSRange)arg2;
-+ (BOOL)string:(id)arg1 isConsistentPrefixWithString:(id)arg2;
-+ (BOOL)string:(id)arg1 isConsistentSuffixWithString:(id)arg2;
 @property(readonly, nonatomic) struct _NSRange selectedRangeInMarkedText; // @synthesize selectedRangeInMarkedText=_selectedRangeInMarkedText;
 @property(readonly, nonatomic) NSString *contextAfterInput; // @synthesize contextAfterInput=_contextAfterInput;
 @property(readonly, nonatomic) NSString *selectedText; // @synthesize selectedText=_selectedText;
 @property(readonly, nonatomic) NSString *markedText; // @synthesize markedText=_markedText;
 @property(readonly, nonatomic) NSString *contextBeforeInput; // @synthesize contextBeforeInput=_contextBeforeInput;
-- (BOOL)matchesContextOfDocumentState:(id)arg1;
+- (BOOL)documentIsEmpty;
 - (id)description;
 - (unsigned int)hash;
 - (unsigned int)hashString:(id)arg1 intoHashValue:(unsigned int)arg2;
@@ -52,8 +51,6 @@
 - (id)inputStringWithTerminatorPredicate:(CDUnknownBlockType)arg1;
 - (id)inputStemWithTerminatorPredicate:(CDUnknownBlockType)arg1;
 - (id)wordPrefixOfString:(id)arg1 withTerminatorPredicate:(CDUnknownBlockType)arg2 reverse:(BOOL)arg3;
-- (id)documentStateAfterTrimmingContextToLength:(unsigned int)arg1;
-- (id)documentStateAfterTrimmingContextToWords:(unsigned int)arg1 terminatorPredicate:(CDUnknownBlockType)arg2;
 - (id)initWithText:(id)arg1 selectedRange:(struct _NSRange)arg2;
 
 @end

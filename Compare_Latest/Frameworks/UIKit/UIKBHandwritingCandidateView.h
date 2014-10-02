@@ -10,7 +10,7 @@
 #import "UICollectionViewDelegateFlowLayout.h"
 #import "UIKeyboardCandidateList.h"
 
-@class NSArray, TIKeyboardCandidateResultSet, UIKBCandidateCollectionView, UIKeyboardCandidateLogButton, UIKeyboardCandidatePocketShadow;
+@class NSArray, NSString, TIKeyboardCandidateResultSet, UIKBCandidateCollectionView, UIKeyboardCandidateLogButton, UIKeyboardCandidatePocketShadow;
 
 __attribute__((visibility("hidden")))
 @interface UIKBHandwritingCandidateView : UIKBKeyView <UIKeyboardCandidateList, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -22,8 +22,12 @@ __attribute__((visibility("hidden")))
     UIKeyboardCandidatePocketShadow *_pocketShadow;
     CDStruct_961fb75c _visualStyling;
     UIKeyboardCandidateLogButton *_logButton;
+    unsigned int _dummyCellCount;
+    float _dummyCellWidth;
 }
 
+@property(nonatomic) float dummyCellWidth; // @synthesize dummyCellWidth=_dummyCellWidth;
+@property(nonatomic) unsigned int dummyCellCount; // @synthesize dummyCellCount=_dummyCellCount;
 @property(retain, nonatomic) UIKeyboardCandidateLogButton *logButton; // @synthesize logButton=_logButton;
 @property(nonatomic) BOOL usesCandidateSelection; // @synthesize usesCandidateSelection=_usesCandidateSelection;
 @property(nonatomic) CDStruct_961fb75c visualStyling; // @synthesize visualStyling=_visualStyling;
@@ -39,7 +43,6 @@ __attribute__((visibility("hidden")))
 - (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)selectAndScrollToCandidateAtIndexPath:(id)arg1 animated:(BOOL)arg2;
-- (unsigned int)dummyCellsCount;
 - (void)reloadDataByAppendingAtEnd:(BOOL)arg1;
 - (unsigned int)selectedSortIndex;
 - (id)statisticsIdentifier;
@@ -56,7 +59,7 @@ __attribute__((visibility("hidden")))
 - (void)showNextPage;
 - (void)showPreviousCandidate;
 - (void)showNextCandidate;
-- (void)showCandidate:(id)arg1;
+- (BOOL)showCandidate:(id)arg1;
 - (void)showCandidateAtIndex:(unsigned int)arg1;
 - (void)setUIKeyboardCandidateListDelegate:(id)arg1;
 - (void)setCandidates:(id)arg1 inlineText:(id)arg2 inlineRect:(struct CGRect)arg3 maxX:(float)arg4 layout:(BOOL)arg5;
@@ -67,10 +70,17 @@ __attribute__((visibility("hidden")))
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
 - (void)updateForKeyplane:(id)arg1 key:(id)arg2;
+- (void)calculateDummyCellAttributes;
 - (void)updatePocketShadowForKeyplane:(id)arg1;
 - (void)jumpToCompositions;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 keyplane:(id)arg2 key:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

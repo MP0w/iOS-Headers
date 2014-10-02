@@ -11,7 +11,7 @@
 #import "UIMovieScrubberDataSource.h"
 #import "UIMovieScrubberDelegate.h"
 
-@class AVAsset, AVAssetExportSession, NSArray, NSDictionary, NSLock, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSTimer, NSURL, PLManagedAsset, PLMoviePlayerController, PLPhotoBakedThumbnails, PLPhotoTileViewController, PLProgressStack, PLSlalomRangeMapper, PLSlalomRegionEditor, PLVideoEditingOverlayView, PLVideoPosterFrameView, UIActivityIndicatorView, UIImage, UIImageView, UIMovieScrubber, UIView<PLVideoOverlayButton>;
+@class AVAssetExportSession, NSArray, NSDictionary, NSLock, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSTimer, NSURL, PFVideoAVObjectBuilder, PFVideoAdjustments, PLManagedAsset, PLMoviePlayerController, PLPhotoBakedThumbnails, PLPhotoTileViewController, PLProgressStack, PLSlalomRegionEditor, PLVideoEditingOverlayView, PLVideoPosterFrameView, UIActivityIndicatorView, UIImage, UIImageView, UIMovieScrubber, UIView<PLVideoOverlayButton>;
 
 @interface PLVideoView : UIView <UIMovieScrubberDelegate, UIMovieScrubberDataSource, PLMoviePlayerControllerDelegate, PLSlalomRegionEditorDelegate>
 {
@@ -87,7 +87,6 @@
     unsigned int _videoIsLandscape:1;
     unsigned int _canCreateMetadata:1;
     unsigned int _createPreviewPosterFrame:1;
-    unsigned int _startedDeliveringNotificationsToMainThread:1;
     unsigned int _isTrimming:1;
     unsigned int _wasTrimmedInPlace:1;
     unsigned int _remakingFailed:1;
@@ -104,21 +103,27 @@
     BOOL _allowSlalomEditor;
     BOOL _prepareMoviePlayerForScrubberAutomatically;
     BOOL _shouldPlayVideoWhenViewAppears;
+    BOOL __slalomRegionEditorCreatedForScrubber;
     BOOL __didInsertMoviePlayerView;
     BOOL __didEditSlalom;
-    AVAsset *__slalomOriginalAsset;
-    NSArray *__slalomRegions;
-    PLSlalomRangeMapper *__slalomTimeRangeMapper;
+    BOOL __isFetchingVideo;
+    BOOL __localVideoUnavailable;
+    PFVideoAVObjectBuilder *__videoAVObjectBuilder;
+    int __expectedNotificationsCount;
+    PFVideoAdjustments *__adjustmentsToCommit;
 }
 
 + (void)_enqueueOverlayPlayButton:(id)arg1;
 + (id)_dequeueOverlayPlayButton;
 + (id)videoViewForVideoFileAtURL:(id)arg1;
+@property(readonly, nonatomic) PFVideoAdjustments *_adjustmentsToCommit; // @synthesize _adjustmentsToCommit=__adjustmentsToCommit;
+@property(readonly, nonatomic) int _expectedNotificationsCount; // @synthesize _expectedNotificationsCount=__expectedNotificationsCount;
+@property(nonatomic, setter=_setLocalVideoUnavailable:) BOOL _localVideoUnavailable; // @synthesize _localVideoUnavailable=__localVideoUnavailable;
+@property(readonly, nonatomic) BOOL _isFetchingVideo; // @synthesize _isFetchingVideo=__isFetchingVideo;
+@property(readonly, nonatomic) PFVideoAVObjectBuilder *_videoAVObjectBuilder; // @synthesize _videoAVObjectBuilder=__videoAVObjectBuilder;
 @property(nonatomic, setter=_setDidEditSlalom:) BOOL _didEditSlalom; // @synthesize _didEditSlalom=__didEditSlalom;
-@property(retain, nonatomic, setter=_setSlalomTimeRangeMapper:) PLSlalomRangeMapper *_slalomTimeRangeMapper; // @synthesize _slalomTimeRangeMapper=__slalomTimeRangeMapper;
-@property(retain, nonatomic, setter=_setSlalomRegions:) NSArray *_slalomRegions; // @synthesize _slalomRegions=__slalomRegions;
-@property(retain, nonatomic, setter=_setSlalomOriginalAsset:) AVAsset *_slalomOriginalAsset; // @synthesize _slalomOriginalAsset=__slalomOriginalAsset;
 @property(nonatomic) BOOL _didInsertMoviePlayerView; // @synthesize _didInsertMoviePlayerView=__didInsertMoviePlayerView;
+@property(readonly, nonatomic) BOOL _slalomRegionEditorCreatedForScrubber; // @synthesize _slalomRegionEditorCreatedForScrubber=__slalomRegionEditorCreatedForScrubber;
 @property(nonatomic) BOOL shouldPlayVideoWhenViewAppears; // @synthesize shouldPlayVideoWhenViewAppears=_shouldPlayVideoWhenViewAppears;
 @property(nonatomic) BOOL prepareMoviePlayerForScrubberAutomatically; // @synthesize prepareMoviePlayerForScrubberAutomatically=_prepareMoviePlayerForScrubberAutomatically;
 @property(readonly, nonatomic) UIView *scrubberBackgroundView; // @synthesize scrubberBackgroundView=_scrubberBackgroundView;
@@ -137,16 +142,21 @@
 - (id)_metadataForFlattenedVideo;
 - (BOOL)_isFlattenedVideoUpToDate;
 - (BOOL)_shouldPlayFlattenedVideo;
+- (BOOL)_canAirPlayCurrentVideo;
 - (void)slalomRegionEditorRequestForceUnzoom:(id)arg1;
 - (BOOL)slalomRegionEditorRequestForceZoom:(id)arg1;
 - (void)_scrubToSlalomRegionEditorStartHandle:(BOOL)arg1;
 - (void)slalomRegionEditorEndValueChanged:(id)arg1;
 - (void)slalomRegionEditorStartValueChanged:(id)arg1;
+- (void)_commitPendingAdjustmentsUpdateAndWait:(BOOL)arg1;
+- (void)_cancelDelayedCommitPendingAdjustmentsUpdate;
+- (void)_commitPendingAdjustmentsUpdate;
+- (void)_enqueueAdjustmentsForCommit;
 - (void)slalomRegionEditorDidEndEditing:(id)arg1;
 - (void)slalomRegionEditorDidBeginEditing:(id)arg1 withStartHandle:(BOOL)arg2;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)_updateScrubberValue;
-- (void)_updateSlalomRegionEditor;
+- (void)_updateSlalomRegionEditorRange;
 - (void)_setDuration:(double)arg1;
 @property(readonly, nonatomic) double duration;
 - (void)_playbackFinished;
@@ -161,12 +171,14 @@
 - (id)_thumbnailSourceAsset;
 - (double)_movieScrubberDuration;
 - (BOOL)_scrubberTimeNeedsMapping;
+- (void)notifyOfChange:(id)arg1 shouldReloadBlock:(CDUnknownBlockType)arg2;
 - (void)_scrubToMovieTime:(double)arg1;
 @property(nonatomic) double currentTime;
 @property(nonatomic) BOOL loadMediaImmediately;
 @property(nonatomic) BOOL scrubberIsSubview;
 - (BOOL)_canEditDuration:(double)arg1;
 @property(nonatomic) BOOL canEdit;
+- (void)notifyRequiredResourcesDownloaded;
 - (void)prepareMoviePlayer;
 @property(nonatomic) BOOL showsScrubber;
 - (void)setShowsScrubber:(BOOL)arg1 duration:(double)arg2;
@@ -180,6 +192,8 @@
 - (void)didMoveToSuperview;
 - (void)willMoveToSuperview:(id)arg1;
 - (void)setFrame:(struct CGRect)arg1;
+- (void)applicationDidEnterBackground;
+- (void)applicationWillResignActive;
 - (void)viewDidDisappear;
 - (void)viewDidAppear;
 - (void)viewWillAppear:(BOOL)arg1;
@@ -215,9 +229,6 @@
 - (BOOL)deleteOriginalFileAfterTrim;
 - (void)_exportCompletedWithSuccess:(BOOL)arg1;
 - (void)_cancelRemaking:(id)arg1;
-- (void)_stopDeliveringNotifications;
-- (void)_startDeliveringNotificationsToMainThread;
-- (void)_trimProgressChanged:(id)arg1;
 - (void)setProgress:(id)arg1;
 - (void)_updateTrimProgress;
 - (void)_informDelegateAboutProgressChange:(float)arg1;
@@ -230,6 +241,7 @@
 - (void)_reset;
 - (void)_setPlaybackDidBegin:(BOOL)arg1;
 - (void)_setPlaying:(BOOL)arg1;
+- (void)_updateSlalomRegionEditorState;
 - (void)_updateForEditing;
 @property(nonatomic, getter=isEditing) BOOL editing;
 - (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
@@ -260,15 +272,17 @@
 - (void)movieScrubber:(id)arg1 requestThumbnailImageForTimestamp:(id)arg2 isSummaryThumbnail:(BOOL)arg3;
 - (void)movieScrubber:(id)arg1 requestThumbnailImageForTimestamp:(id)arg2;
 @property(readonly, nonatomic) BOOL _didSetPhotoData;
-- (BOOL)_canPlayStreamedVideoWithLocalVideo;
-- (BOOL)_mediaIsStreamedVideo;
+- (BOOL)_canPlayCloudSharedStreamedVideoWithLocalVideo;
+- (BOOL)_shouldStreamVideo;
+- (BOOL)_shouldStreamCloudPhotoLibraryVideo;
+- (BOOL)_mediaIsCloudSharedStreamedVideo;
 - (BOOL)_mediaIsVideo;
 @property(readonly, nonatomic) BOOL _mediaIsPlayable;
-@property(readonly, nonatomic) NSString *_pathForPrebakedPortraitScrubberThumbnails;
-@property(readonly, nonatomic) NSString *_pathForPrebakedLandscapeScrubberThumbnails;
-@property(readonly, nonatomic) NSString *_pathForVideoPreviewFile;
-@property(readonly, nonatomic) NSString *_pathForOriginalFile;
-@property(readonly, nonatomic) NSString *pathForVideoFile;
+@property(readonly, retain, nonatomic) NSString *_pathForPrebakedPortraitScrubberThumbnails;
+@property(readonly, retain, nonatomic) NSString *_pathForPrebakedLandscapeScrubberThumbnails;
+@property(readonly, retain, nonatomic) NSString *_pathForVideoPreviewFile;
+- (id)_pathForOriginalFile;
+@property(readonly, retain, nonatomic) NSString *pathForVideoFile;
 - (void)movieScrubberDidEndAnimatingZoom:(id)arg1;
 - (void)movieScrubberDidBeginAnimatingZoom:(id)arg1;
 - (void)_saveCachedThumbnailsIfNecessary;
@@ -287,10 +301,15 @@
 - (void)moviePlayerControllerWillResignAsActiveController:(id)arg1;
 - (void)moviePlayerControllerDidBecomeActiveController:(id)arg1;
 - (void)_setMoviePlayerActive:(BOOL)arg1;
-- (void)_updateSlalomRegions:(id)arg1 forceSetAsset:(BOOL)arg2;
-- (void)_resetSlalomData;
+- (void)_updateScrubberForSlowMotion;
+- (void)_configurePlayerForStreamedVideoIfNecessary;
+- (id)_assetForVideoURL:(id)arg1;
 - (id)_assetForVideoPath:(id)arg1;
+- (id)_optionsForAVURLAsset;
+- (void)_updateVideoAVObjectBuilderFromContentEditingInput:(id)arg1;
+- (BOOL)_canHandleAdjustmentData:(id)arg1;
 - (BOOL)_prepareMoviePlayerIfNeeded;
+- (void)_prepareAndResumePlayback;
 - (void)moviePlayerUpdatedDestinationPlaceholder:(id)arg1;
 - (void)moviePlayerDurationAvailable:(id)arg1;
 - (void)moviePlayerReadyToDisplay:(id)arg1;
@@ -307,6 +326,7 @@
 - (void)layoutSubviews;
 - (BOOL)_canCreateMetadata;
 - (void)_updateScaleModeForSize:(struct CGSize)arg1;
+- (void)updateScaleMode;
 - (void)_hideTrimMessageView:(BOOL)arg1;
 - (void)removeVideoOverlay;
 - (void)_hideVideoOverlay:(BOOL)arg1;
@@ -317,12 +337,13 @@
 - (id)videoScrubber;
 - (BOOL)_canAccessVideo;
 - (BOOL)_shouldShowSlalomEditor;
+- (void)_removeScrubber;
 - (void)_createScrubberIfNeeded;
 - (float)_scrubberBackgroundHeight;
 - (void)_updateScrubberFrame;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
-- (id)description;
+@property(readonly, copy) NSString *description;
 @property(nonatomic) id <PLVideoViewDelegate> delegate;
 - (void)_tearDownMoviePlayer;
 - (void)_insertMoviePlayerViewIfNecessary;
@@ -331,6 +352,11 @@
 - (void)_networkReachabilityDidChange:(id)arg1;
 - (id)_initWithFrame:(struct CGRect)arg1 videoCameraImage:(id)arg2 orientation:(int)arg3;
 - (id)initWithFrame:(struct CGRect)arg1 videoCameraImage:(id)arg2 orientation:(int)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

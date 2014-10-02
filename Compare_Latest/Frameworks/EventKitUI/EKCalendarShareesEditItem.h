@@ -9,11 +9,13 @@
 #import "EKShareePickerViewControllerDelegate.h"
 #import "EKShareeViewControllerDelegate.h"
 
-@class NSMutableArray;
+@class NSMutableArray, NSString, UILabel, UIView;
 
 @interface EKCalendarShareesEditItem : EKCalendarEditItem <EKShareeViewControllerDelegate, EKShareePickerViewControllerDelegate>
 {
     NSMutableArray *_shareeCells;
+    UIView *_footerView;
+    UILabel *_descriptionLabel;
 }
 
 @property(retain, nonatomic) NSMutableArray *shareeCells; // @synthesize shareeCells=_shareeCells;
@@ -29,12 +31,23 @@
 - (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
 - (unsigned int)numberOfSubitems;
 - (id)cellForSubitemAtIndex:(unsigned int)arg1;
+- (void)layoutForWidth:(float)arg1;
+- (float)footerHeightForSection;
+- (void)_applyStyleToUILabel:(id)arg1;
+- (id)footerView;
+- (id)footerViewForSection;
 - (BOOL)configureWithCalendar:(id)arg1;
 - (id)_shareeCellForName:(id)arg1 detailText:(id)arg2 additionalDetailText:(id)arg3;
 - (id)_addPersonCell;
 - (id)_stringForShareeAccessLevel:(int)arg1;
 - (id)_stringForShareeStatus:(int)arg1;
 - (void)reset;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

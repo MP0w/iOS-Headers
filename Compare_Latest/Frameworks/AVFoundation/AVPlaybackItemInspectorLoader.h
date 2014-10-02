@@ -22,6 +22,7 @@
 - (id)_dictionaryOfSpecialGettersForKeyValueStatus;
 - (BOOL)_inspectionRequiresAFormatReader;
 - (struct OpaqueFigFormatReader *)_copyFormatReaderFromFigObjectWithFigErrorCode:(int *)arg1;
+- (Class)_classForTrackInspectors;
 @property(readonly, nonatomic, getter=_playbackItem) struct OpaqueFigPlaybackItem *playbackItem;
 - (void)cancelLoading;
 - (id)assetInspector;

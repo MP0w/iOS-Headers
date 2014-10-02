@@ -16,7 +16,7 @@
     NSDictionary *_options;
 }
 
-@property(retain, nonatomic) NSDictionary *options; // @synthesize options=_options;
+@property(copy, nonatomic) NSDictionary *options; // @synthesize options=_options;
 @property(retain, nonatomic) NSSet *grantedPermissions; // @synthesize grantedPermissions=_grantedPermissions;
 @property(retain, nonatomic) ACDClient *client; // @synthesize client=_client;
 @property(nonatomic) BOOL isGranted; // @synthesize isGranted=_isGranted;

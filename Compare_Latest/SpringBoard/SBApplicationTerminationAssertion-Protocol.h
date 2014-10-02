@@ -10,6 +10,6 @@
 
 @protocol SBApplicationTerminationAssertion <NSObject>
 @property(readonly, nonatomic) unsigned char reason;
-@property(readonly, nonatomic) NSString *displayId;
+@property(readonly, copy, nonatomic) NSString *displayId;
 @end
 

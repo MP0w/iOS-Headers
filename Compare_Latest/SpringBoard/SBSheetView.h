@@ -6,23 +6,21 @@
 
 #import "UIView.h"
 
-@class SBApplication, SBFakeStatusBarView, SBProxyRemoteView;
+@class SBApplication, SBProxyRemoteView;
 
 @interface SBSheetView : UIView
 {
     SBProxyRemoteView *_remoteProxyView;
     SBApplication *_app;
-    SBFakeStatusBarView *_fakeStatusBarView;
     _Bool _wasPresentedAnimated;
 }
 
 - (void)dealloc;
 - (void)noteSheetDidEnd;
 - (_Bool)wasPresentedAnimated;
-- (id)fakeStatusBarView;
 - (id)application;
 - (id)remoteViewIdentifier;
-- (id)initWithRemoteViewIdentifier:(id)arg1 application:(id)arg2 shouldFakeStatusBar:(_Bool)arg3 wasPresentedAnimated:(_Bool)arg4;
+- (id)initWithRemoteViewIdentifier:(id)arg1 application:(id)arg2 wasPresentedAnimated:(_Bool)arg3;
 
 @end
 

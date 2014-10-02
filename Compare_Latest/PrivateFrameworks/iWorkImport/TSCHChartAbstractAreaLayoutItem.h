@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
+@property(readonly, nonatomic) struct CGRect titleFrame;
 - (struct CGRect)calcDrawingRect;
 
 @end

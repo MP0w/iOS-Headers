@@ -25,7 +25,9 @@ __attribute__((visibility("hidden")))
 }
 
 + (BOOL)isCLSIDSupported:(id)arg1;
-+ (BOOL)isProgIDSupported:(id)arg1;
++ (BOOL)isProgIDMathType:(id)arg1;
++ (BOOL)isProgIDChart:(id)arg1;
+- (id)description;
 - (void)setObject:(id)arg1;
 - (id)object;
 - (void)setUnicodeProgID:(id)arg1;

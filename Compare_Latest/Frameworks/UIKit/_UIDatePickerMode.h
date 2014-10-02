@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
     NSDateComponents *_todayDateComponents;
     NSNumberFormatter *_formatter;
     _UIDatePickerView *_datePickerView;
+    BOOL _isUsingJapaneseCalendar;
     unsigned int _numberOfComponents;
     int _minuteInterval;
     NSDate *_minimumDate;
@@ -127,7 +128,9 @@ __attribute__((visibility("hidden")))
 - (void)_shouldReset:(id)arg1;
 - (id)timeZone;
 - (id)locale;
+- (id)calendarForFormatters;
 - (id)calendar;
+- (int)_yearlessYearForMonth:(int)arg1;
 - (void)dealloc;
 - (id)init;
 

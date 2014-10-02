@@ -11,7 +11,6 @@
 @interface SBIconAnimator : NSObject
 {
     double _fraction;
-    _Bool _startedAnimation;
     _Bool _startAnimationAfterRotationEnds;
     _Bool _windowIsRotating;
     _Bool _cleanedUp;
@@ -19,13 +18,15 @@
     SBFolderControllerAnimationContext *_animationContext;
     NSString *_instanceIdentifier;
     _Bool _invalidated;
+    _Bool _animatesInnerFolderViews;
     id <SBIconAnimatorDelegate> _delegate;
     SBIconAnimationSettings *_settings;
     SBFolderController *_folderController;
 }
 
-@property(readonly, nonatomic) SBFolderControllerAnimationContext *animationContext; // @synthesize animationContext=_animationContext;
-@property(readonly, nonatomic) SBFolderController *folderController; // @synthesize folderController=_folderController;
+@property(readonly, retain, nonatomic) SBFolderControllerAnimationContext *animationContext; // @synthesize animationContext=_animationContext;
+@property(readonly, retain, nonatomic) SBFolderController *folderController; // @synthesize folderController=_folderController;
+@property(nonatomic) _Bool animatesInnerFolderViews; // @synthesize animatesInnerFolderViews=_animatesInnerFolderViews;
 @property(nonatomic) _Bool invalidated; // @synthesize invalidated=_invalidated;
 @property(retain, nonatomic) SBIconAnimationSettings *settings; // @synthesize settings=_settings;
 @property(nonatomic) id <SBIconAnimatorDelegate> delegate; // @synthesize delegate=_delegate;
@@ -46,7 +47,7 @@
 - (void)setFraction:(double)arg1;
 - (void)prepare;
 - (id)centralAnimationFactory;
-@property(readonly, nonatomic) UIView *referenceView;
+@property(readonly, retain, nonatomic) UIView *referenceView;
 - (void)dealloc;
 - (id)initWithFolderController:(id)arg1;
 

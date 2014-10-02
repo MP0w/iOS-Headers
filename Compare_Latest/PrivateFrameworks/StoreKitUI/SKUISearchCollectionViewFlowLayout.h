@@ -6,24 +6,25 @@
 
 #import <StoreKitUI/SKUIItemGridCollectionViewLayout.h>
 
-@class NSMutableArray, UICollectionView;
+@class UICollectionView;
 
 @interface SKUISearchCollectionViewFlowLayout : SKUIItemGridCollectionViewLayout
 {
     UICollectionView *_collectionView;
     int _numberOfRows;
     int _numberOfColumns;
-    NSMutableArray *_sectionCounts;
     struct CGSize _headerSize;
+    float _horizontalPadding;
+    float _verticalPadding;
+    BOOL _backfills;
 }
 
+@property(nonatomic) BOOL backfills; // @synthesize backfills=_backfills;
+@property(nonatomic) float verticalPadding; // @synthesize verticalPadding=_verticalPadding;
+@property(nonatomic) float horizontalPadding; // @synthesize horizontalPadding=_horizontalPadding;
 - (void).cxx_destruct;
-- (int)_globalIndexForIndexPath:(id)arg1;
-- (id)_indexPathForGlobalIndex:(int)arg1;
 - (void)prepareLayout;
 - (id)layoutAttributesForDecorationViewOfKind:(id)arg1 atIndexPath:(id)arg2;
-- (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2;
-- (id)layoutAttributesForItemAtIndexPath:(id)arg1;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
 - (id)init;
 

@@ -18,7 +18,7 @@
 @property(retain, nonatomic) NSString *unformattedID; // @synthesize unformattedID=_unformattedID;
 @property(retain, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
 @property(retain, nonatomic) NSString *ID; // @synthesize ID=_id;
-@property(readonly, nonatomic) NSDictionary *handleInfo;
+@property(readonly, retain, nonatomic) NSDictionary *handleInfo;
 - (id)description;
 - (unsigned int)hash;
 - (BOOL)isBetterDefinedThan:(id)arg1;

@@ -6,18 +6,19 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
 @class NSArray;
 
-@interface BBBehaviorOverride : NSObject <NSCopying, NSCoding>
+@interface BBBehaviorOverride : NSObject <NSCopying, NSSecureCoding>
 {
     unsigned int _overrideType;
     unsigned int _mode;
     NSArray *_effectiveIntervals;
 }
 
++ (BOOL)supportsSecureCoding;
 @property(copy, nonatomic) NSArray *effectiveIntervals; // @synthesize effectiveIntervals=_effectiveIntervals;
 @property(nonatomic) unsigned int mode; // @synthesize mode=_mode;
 @property(nonatomic) unsigned int overrideType; // @synthesize overrideType=_overrideType;

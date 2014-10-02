@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
     float _bMargin;
 }
 
+@property(readonly) NSTextTableBlock *block;
 - (void)dealloc;
 - (id)description;
 - (id)initWithTextTable:(id)arg1 charIndex:(unsigned int)arg2 text:(id)arg3 layoutManager:(id)arg4 containerWidth:(float)arg5 collapseBorders:(BOOL)arg6;

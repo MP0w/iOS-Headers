@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMapTable, NSMutableArray, NSMutableDictionary, UICollectionView, UICollectionViewLayout;
+@class NSArray, NSMapTable, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, UICollectionView, UICollectionViewLayout;
 
 __attribute__((visibility("hidden")))
 @interface UICollectionViewData : NSObject
@@ -14,10 +14,12 @@ __attribute__((visibility("hidden")))
     UICollectionView *_collectionView;
     UICollectionViewLayout *_layout;
     NSMapTable *_screenPageMap;
+    NSMutableIndexSet *_globalIndexesOfItemsAwaitingValidation;
     id *_globalItems;
     NSMutableDictionary *_supplementaryLayoutAttributes;
     NSMutableDictionary *_decorationLayoutAttributes;
-    NSMutableDictionary *_invalidatedSupplementaryViews;
+    NSMutableDictionary *_invalidatedSupplementaryIndexPaths;
+    NSMutableDictionary *_invalidatedDecorationIndexPaths;
     struct CGRect _validLayoutRect;
     int _numItems;
     int _numSections;
@@ -73,8 +75,11 @@ __attribute__((visibility("hidden")))
 - (void)_validateItemCounts;
 - (void)_updateItemCounts;
 - (void)invalidate:(BOOL)arg1;
+- (void)validateDecorationViews;
 - (void)validateSupplementaryViews;
-- (void)invalidateSupplementaryViews:(id)arg1;
+- (void)invalidateDecorationIndexPaths:(id)arg1;
+- (void)invalidateSupplementaryIndexPaths:(id)arg1;
+- (void)invalidateItemsAtIndexPaths:(id)arg1;
 - (void)dealloc;
 - (id)initWithCollectionView:(id)arg1 layout:(id)arg2;
 

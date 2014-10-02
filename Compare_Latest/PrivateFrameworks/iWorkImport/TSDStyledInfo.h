@@ -8,13 +8,15 @@
 
 #import "TSSStyleClient.h"
 
-@class TSDReflection, TSDShadow, TSDStroke, TSSStyle;
+@class NSString, TSDReflection, TSDShadow, TSDStroke, TSSStyle;
 
 __attribute__((visibility("hidden")))
 @interface TSDStyledInfo : TSDDrawableInfo <TSSStyleClient>
 {
 }
 
+- (id)commandForSettingBoxedValue:(id)arg1 forProperty:(int)arg2;
+- (id)commandForTransformingByTransform:(struct CGAffineTransform)arg1 context:(id)arg2 transformedObjects:(id)arg3 inBounds:(struct CGRect)arg4;
 - (void)replaceReferencedStylesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)referencedStyles;
 - (id)styleIdentifierTemplateForNewPreset;
@@ -33,6 +35,13 @@ __attribute__((visibility("hidden")))
 - (id)stylesForCopyStyle;
 @property(retain, nonatomic) TSSStyle *style;
 - (Class)styleClass;
+- (BOOL)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

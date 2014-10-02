@@ -37,6 +37,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) BOOL offsetValid; // @synthesize offsetValid=mOffsetValid;
 @property(nonatomic) struct CGPoint position; // @synthesize position=mPosition;
 @property(nonatomic) int type; // @synthesize type=mType;
+- (struct CGPoint)pixelAlignedScaledCanvasCenterPositionFromKnobPosition:(struct CGPoint)arg1;
 - (id)description;
 - (BOOL)obscuresKnob:(id)arg1;
 - (BOOL)overlapsWithKnob:(id)arg1;

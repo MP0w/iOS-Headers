@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class XPCMachSendRight;
+@class _UIViewServiceXPCMachSendRight;
 
 @protocol _UIViewService_FencingControlInterface
 
 @optional
-- (void)__endFencingMessagesForSendRight:(XPCMachSendRight *)arg1;
-- (void)__beginFencingMessagesWithSendRight:(XPCMachSendRight *)arg1 connectionCount:(unsigned int)arg2;
+- (void)__endFencingMessagesForSendRight:(_UIViewServiceXPCMachSendRight *)arg1;
+- (void)__beginFencingMessagesWithSendRight:(_UIViewServiceXPCMachSendRight *)arg1 connectionCount:(unsigned int)arg2;
 @end
 

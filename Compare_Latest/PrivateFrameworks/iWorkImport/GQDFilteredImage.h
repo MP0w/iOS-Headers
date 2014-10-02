@@ -8,7 +8,7 @@
 
 #import "GQDNameMappable.h"
 
-@class GQDImageBinary;
+@class GQDImageBinary, NSString;
 
 __attribute__((visibility("hidden")))
 @interface GQDFilteredImage : NSObject <GQDNameMappable>
@@ -20,6 +20,12 @@ __attribute__((visibility("hidden")))
 + (const struct StateSpec *)stateForReading;
 - (void)dealloc;
 - (id)imageBinary;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

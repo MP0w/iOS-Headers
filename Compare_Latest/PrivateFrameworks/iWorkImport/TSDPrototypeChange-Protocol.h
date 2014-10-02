@@ -9,10 +9,10 @@
 @class TSSPropertySet;
 
 @protocol TSDPrototypeChange <NSObject>
-@property(readonly) id <TSSPropertySource> propertiesAfterChange;
-@property(readonly) id <TSSPropertySource> propertiesBeforeChange;
-@property(readonly) id replacement;
-@property(readonly) id prototype;
+@property(readonly, retain) id <TSSPropertySource> propertiesAfterChange;
+@property(readonly, retain) id <TSSPropertySource> propertiesBeforeChange;
+@property(readonly, retain) id replacement;
+@property(readonly, retain) id prototype;
 @property(readonly) BOOL prototypeIsBeingDeleted;
 @property(readonly) BOOL prototypeIsBeingModified;
 @property(readonly) BOOL prototypeIsBeingReplaced;

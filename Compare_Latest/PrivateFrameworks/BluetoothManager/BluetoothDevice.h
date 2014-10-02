@@ -36,6 +36,7 @@
 - (unsigned int)connectedServicesCount;
 - (unsigned int)connectedServices;
 - (BOOL)connected;
+- (BOOL)cloudPaired;
 - (BOOL)paired;
 - (id)scoUID;
 - (id)description;

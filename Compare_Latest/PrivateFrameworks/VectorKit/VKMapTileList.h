@@ -9,8 +9,8 @@
 __attribute__((visibility("hidden")))
 @interface VKMapTileList : NSObject
 {
-    struct vector<VKMapTile *, vk_allocator<VKMapTile *>> _list;
-    vector_3bee010d _rectList[29];
+    struct vector<VKMapTile *, std::__1::allocator<VKMapTile *>> _list;
+    vector_d61b411b _rectList[34];
     float _maximumStyleZ;
 }
 
@@ -21,9 +21,9 @@ __attribute__((visibility("hidden")))
 - (void)clearList;
 - (void)addTileToList:(id)arg1;
 @property(readonly, nonatomic) unsigned int numTiles;
-- (unsigned int)numRectForLayer:(unsigned int)arg1;
-- (const CDStruct_818bb265 *)rectListForLayer:(unsigned int)arg1;
-- (const vector_3bee010d *)rectListVectorForLayer:(unsigned int)arg1;
+- (unsigned int)numRectForLayer:(unsigned long long)arg1;
+- (const CDStruct_818bb265 *)rectListForLayer:(unsigned long long)arg1;
+- (const vector_d61b411b *)rectListVectorForLayer:(unsigned long long)arg1;
 @property(readonly, nonatomic) id *tileList;
 - (id)init;
 

@@ -6,10 +6,12 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying.h"
+
 @class GEOVLaneCharacteristic;
 
 __attribute__((visibility("hidden")))
-@interface GEOVPointCharacteristic : PBCodable
+@interface GEOVPointCharacteristic : PBCodable <NSCopying>
 {
     GEOVLaneCharacteristic *_laneCharacteristic;
     int _roadLaneCount;
@@ -46,6 +48,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) int sectionIndex; // @synthesize sectionIndex=_sectionIndex;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;

@@ -10,7 +10,7 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "UIScrollViewDelegate.h"
 
-@class NSIndexPath, NSString, NSTimer, UIColor, UIControl, UIImage, UIImageView, UILabel, UILongPressGestureRecognizer, UIScrollView, UITableView, UITableViewCellDeleteConfirmationView, UITapGestureRecognizer, UITextField, _UITableViewCellSeparatorView;
+@class NSIndexPath, NSString, NSTimer, UIColor, UIControl, UIImage, UIImageView, UILabel, UILongPressGestureRecognizer, UITableView, UITableViewCellDeleteConfirmationView, UITapGestureRecognizer, UITextField, UIVisualEffect, _UITableViewCellOldEditingData, _UITableViewCellSeparatorView;
 
 @interface UITableViewCell : UIView <UIScrollViewDelegate, NSCoding, UIGestureRecognizerDelegate>
 {
@@ -19,7 +19,7 @@
     id _target;
     SEL _editAction;
     SEL _accessoryAction;
-    id _oldEditingData;
+    _UITableViewCellOldEditingData *_oldEditingData;
     id _editingData;
     float _rightMargin;
     int _indentationLevel;
@@ -36,6 +36,7 @@
     float _selectionFadeDuration;
     UIColor *_backgroundColor;
     UIColor *_separatorColor;
+    UIVisualEffect *_separatorEffect;
     UIColor *_topShadowColor;
     UIColor *_bottomShadowColor;
     UIColor *_sectionBorderColor;
@@ -47,6 +48,35 @@
     id _highlightingSupport;
     id _selectionSegueTemplate;
     id _accessoryActionSegueTemplate;
+    UIControl *_accessoryView;
+    UIControl *_editingAccessoryView;
+    UIView *_customAccessoryView;
+    UIView *_customEditingAccessoryView;
+    _UITableViewCellSeparatorView *_separatorView;
+    _UITableViewCellSeparatorView *_topSeparatorView;
+    UIView *_topShadowView;
+    UITextField *_editableTextField;
+    double _lastSelectionTime;
+    NSTimer *_deselectTimer;
+    float _textFieldOffset;
+    float _indexBarWidth;
+    struct UIEdgeInsets _separatorInset;
+    struct UIEdgeInsets _backgroundInset;
+    SEL _returnAction;
+    UIColor *_selectionTintColor;
+    UIColor *_accessoryTintColor;
+    UIImage *_reorderControlImage;
+    UILongPressGestureRecognizer *_menuGesture;
+    NSIndexPath *_representedIndexPath;
+    BOOL _isPigglyWigglyCell;
+    BOOL _focusable;
+    UITableViewCellDeleteConfirmationView *_swipeToDeleteConfirmationView;
+    UITapGestureRecognizer *_swipeToDeleteCancelationGesture;
+    UIView *_clearBlendingView;
+    float _swipeToDeleteDistancePulled;
+    float _sectionCornerRadius;
+    float _sectionBorderWidth;
+    float _defaultMarginWidth;
     struct {
         unsigned int showingDeleteConfirmation:1;
         unsigned int separatorStyle:3;
@@ -95,41 +125,18 @@
         unsigned int separatorDrawsInVibrantLightMode:1;
         unsigned int separatorHidden:1;
         unsigned int hidingSeparatorsForSelection:1;
+        unsigned int clippedBeforeSwiping:1;
+        unsigned int allowsReorderingWhenNotEditing:1;
+        unsigned int needsHeightCalculation:1;
     } _tableCellFlags;
-    UIControl *_accessoryView;
-    UIControl *_editingAccessoryView;
-    UIView *_customAccessoryView;
-    UIView *_customEditingAccessoryView;
-    _UITableViewCellSeparatorView *_separatorView;
-    _UITableViewCellSeparatorView *_topSeparatorView;
-    UIView *_topShadowView;
-    UITextField *_editableTextField;
-    double _lastSelectionTime;
-    NSTimer *_deselectTimer;
-    float _textFieldOffset;
-    float _indexBarWidth;
-    struct UIEdgeInsets _separatorInset;
-    struct UIEdgeInsets _backgroundInset;
-    SEL _returnAction;
-    UIColor *_selectionTintColor;
-    UIColor *_accessoryTintColor;
-    UIImage *_reorderControlImage;
-    UILongPressGestureRecognizer *_menuGesture;
-    NSIndexPath *_representedIndexPath;
-    BOOL _isPigglyWigglyCell;
-    BOOL _focusable;
-    UITableViewCellDeleteConfirmationView *_swipeToDeleteConfirmationView;
-    UITapGestureRecognizer *_swipeToDeleteCancelationGesture;
-    UIScrollView *_wrapperView;
-    UIView *_clearBlendingView;
-    float _swipeToDeleteDistancePulled;
-    float _sectionCornerRadius;
-    float _sectionBorderWidth;
 }
 
 + (id)_defaultTopShadowColor;
 + (void)_initializeForIdiom:(int)arg1;
 + (void)initialize;
+- (void)_setAllowsReorderingWhenNotEditing:(BOOL)arg1;
+- (BOOL)_allowsReorderingWhenNotEditing;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (BOOL)_usesRoundedGroups;
 - (BOOL)_separatorHidden;
 - (void)_setSeparatorHidden:(BOOL)arg1;
@@ -139,6 +146,8 @@
 - (void)_setBackgroundInset:(struct UIEdgeInsets)arg1;
 - (void)_setIndexBarWidth:(float)arg1;
 - (float)_indexBarWidth;
+- (void)_setSeparatorEffect:(id)arg1;
+- (id)_separatorEffect;
 - (int)_separatorBackdropOverlayBlendMode;
 - (void)_setSeparatorBackdropOverlayBlendMode:(int)arg1;
 - (BOOL)_separatorDrawsInVibrantLightMode;
@@ -155,13 +164,15 @@
 - (float)textFieldOffset;
 - (void)setTextFieldOffset:(float)arg1;
 - (id)editableTextField;
+- (void)_actionButtonPushed:(id)arg1;
 - (void)_swipeAccessoryButtonPushed;
 - (void)_swipeDeleteButtonPushed;
 - (void)_updateViewsForDeleteButton;
+- (void)_setDeleteAnimationInProgress:(BOOL)arg1;
 - (BOOL)_isDeleteAnimationInProgress;
 - (id)_deleteConfirmationView;
-- (id)_wrapperView;
-- (void)_animateSwipeCancelation;
+- (BOOL)_isDeleteCancelationAnimationInProgress;
+- (void)_setDeleteCancelationAnimationInProgress:(BOOL)arg1;
 - (void)_updateSwipeWithDistancePulled:(float)arg1;
 - (void)_handleSwipeDeleteCancelation:(id)arg1;
 - (void)_beginSwiping;
@@ -172,6 +183,8 @@
 - (BOOL)_isFocusableElement;
 - (void)_setIsPigglyWigglyCell:(BOOL)arg1;
 - (BOOL)_isPigglyWigglyCell;
+- (float)_defaultMarginWidth;
+- (void)_setDefaultMarginWidth:(float)arg1;
 - (void)_setRightMarginWidth:(float)arg1;
 - (float)_rightMarginWidth;
 - (void)_setMarginWidth:(float)arg1;
@@ -194,6 +207,8 @@
 - (struct CGRect)removeControl:(id)arg1 startFrameForTarget:(id)arg2;
 - (void)_setDrawsTopShadow:(BOOL)arg1;
 - (BOOL)_drawsTopShadow;
+- (BOOL)_needsHeightCalculation;
+- (void)_setNeedsHeightCalculation:(BOOL)arg1;
 - (BOOL)_needsSetup;
 - (void)_setNeedsSetup:(BOOL)arg1;
 - (void)_descendent:(id)arg1 didMoveFromSuperview:(id)arg2 toSuperview:(id)arg3;
@@ -243,7 +258,6 @@
 - (void)_setEditingStyle:(int)arg1;
 - (id)_reorderControlImage;
 - (void)_setReorderControlImage:(id)arg1;
-- (void)_setShowsReorderControl:(BOOL)arg1;
 - (id)_badge:(BOOL)arg1;
 - (id)_imageView:(BOOL)arg1;
 - (id)_editableTextField:(BOOL)arg1;
@@ -254,6 +268,7 @@
 - (void)_performAction:(SEL)arg1 sender:(id)arg2;
 - (void)_updateFullWidthSwipeDeletionView;
 - (BOOL)canBecomeFirstResponder;
+- (void)_setSectionLocation:(int)arg1 animated:(BOOL)arg2 forceBackgroundSetup:(BOOL)arg3;
 - (void)setSectionLocation:(int)arg1 animated:(BOOL)arg2;
 - (void)setSectionLocation:(int)arg1;
 - (void)_setupSelectedBackgroundView;
@@ -267,7 +282,9 @@
 - (BOOL)_insetsBackground;
 - (struct CGRect)contentRectForState:(unsigned int)arg1;
 - (void)didTransitionToState:(unsigned int)arg1;
+- (void)_didTransitionToState:(unsigned int)arg1;
 - (void)willTransitionToState:(unsigned int)arg1;
+- (void)_willTransitionToState:(unsigned int)arg1;
 - (void)layoutSubviews;
 - (void)didMoveToSuperview;
 - (void)willMoveToSuperview:(id)arg1;
@@ -289,6 +306,7 @@
 - (struct CGRect)contentRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)backgroundRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)_delegateConfirmationRect;
+- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 @property(readonly, nonatomic) BOOL showingDeleteConfirmation;
 - (void)setShowingDeleteConfirmation:(BOOL)arg1;
 @property(nonatomic, getter=isEditing) BOOL editing;
@@ -311,6 +329,7 @@
 - (void)_syncAccessoryViewsIfNecessary;
 @property(nonatomic) BOOL shouldIndentWhileEditing;
 @property(nonatomic) BOOL showsReorderControl;
+- (void)_setShowsReorderControl:(BOOL)arg1;
 @property(readonly, nonatomic) int editingStyle;
 - (void)setEditingStyle:(int)arg1;
 - (int)style;
@@ -327,9 +346,6 @@
 - (void)_deselectAnimationFinished;
 - (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)_cancelInternalPerformRequests;
-- (void)bringSubviewToFront:(id)arg1;
-- (void)sendSubviewToBack:(id)arg1;
-- (void)_addSubview:(id)arg1 positioned:(int)arg2 relativeTo:(id)arg3;
 - (void)showSelectedBackgroundView:(BOOL)arg1 animated:(BOOL)arg2;
 @property(nonatomic, getter=isHighlighted) BOOL highlighted;
 @property(nonatomic, getter=isSelected) BOOL selected;
@@ -342,7 +358,7 @@
 - (void)_clearOpaqueViewState:(id)arg1;
 - (void)_saveOpaqueViewState:(id)arg1;
 - (void)prepareForReuse;
-@property(readonly, nonatomic) NSString *reuseIdentifier;
+@property(readonly, copy, nonatomic) NSString *reuseIdentifier;
 - (void)setReuseIdentifier:(id)arg1;
 - (void)setSectionBorderColor:(id)arg1;
 - (id)sectionBorderColor;
@@ -364,7 +380,7 @@
 - (void)setSelectedBackgroundView:(id)arg1 animated:(BOOL)arg2;
 - (void)selectedBackgroundViewChange:(id)arg1 finished:(id)arg2 context:(id)arg3;
 @property(retain, nonatomic) UIView *backgroundView;
-@property(readonly, nonatomic) UIView *contentView;
+@property(readonly, retain, nonatomic) UIView *contentView;
 - (id)_badgeText;
 - (void)_setBadgeText:(id)arg1;
 - (id)selectedImage;
@@ -384,26 +400,21 @@
 - (void)_setFont:(id)arg1 layout:(BOOL)arg2;
 - (id)text;
 - (void)setText:(id)arg1;
-@property(readonly, nonatomic) UIImageView *imageView;
-@property(readonly, nonatomic) UILabel *detailTextLabel;
-@property(readonly, nonatomic) UILabel *textLabel;
+@property(readonly, retain, nonatomic) UIImageView *imageView;
+@property(readonly, retain, nonatomic) UILabel *detailTextLabel;
+@property(readonly, retain, nonatomic) UILabel *textLabel;
 - (BOOL)_canDrawContent;
 - (void)setDrawingEnabled:(BOOL)arg1;
 - (BOOL)drawingEnabled;
 - (void)_didCreateContentView;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
-- (id)_encodableSubviews;
 - (void)_populateArchivedSubviews:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 - (void)_setupMenuGesture;
-- (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
-- (void)scrollViewDidEndScrollingAnimation:(id)arg1;
-- (void)scrollViewDidEndDecelerating:(id)arg1;
-- (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(BOOL)arg2;
 - (void)_endSwiping:(BOOL)arg1;
-- (void)_updateWrapperContentInset;
+- (void)_systemTextSizeChanged;
 - (void)_setupTableViewCellCommon;
 - (id)initWithFrame:(struct CGRect)arg1 reuseIdentifier:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
@@ -413,6 +424,7 @@
 - (BOOL)_drawsSeparatorAtTopOfSection;
 - (void)_setDrawsSeparatorAtTopOfSection:(BOOL)arg1;
 - (void)_updateSeparatorContent;
+- (BOOL)_shouldHideSeparator;
 - (struct CGRect)_topSeparatorFrame;
 - (BOOL)_showFullLengthTopSeparatorForTopOfSection;
 - (BOOL)_showSeparatorAtTopOfSection;
@@ -446,6 +458,9 @@
 - (id)_badge;
 - (id)_imageView;
 - (id)_editableTextField;
+- (void)_contentViewLabelTextDidChange:(id)arg1;
+- (void)_releaseDetailTextLabel;
+- (void)_releaseTextLabel;
 - (id)_detailTextLabel;
 - (id)_textLabel;
 - (id)_defaultFont;
@@ -455,12 +470,16 @@
 - (BOOL)_isCurrentlyConsideredHighlighted;
 - (void)_updateHighlightColorsForView:(id)arg1 highlighted:(BOOL)arg2;
 - (void)_layoutSubviewsAnimated:(BOOL)arg1;
+- (id)_layoutDebuggingTitle;
+- (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1 withHorizontalFittingPriority:(float)arg2 verticalFittingPriority:(float)arg3;
+- (void)setNeedsUpdateConstraints;
 - (void)_removeRemoveControl;
 - (void)_releaseRemoveControl;
 - (id)_createRemoveControlForStyle:(int)arg1;
 - (id)_currentAccessoryView:(BOOL)arg1;
 - (id)_disclosurePressedImage:(BOOL)arg1;
 - (id)_disclosureImage:(BOOL)arg1;
+- (id)_disclosureChevronImage:(BOOL)arg1;
 - (id)_checkmarkImage:(BOOL)arg1;
 - (id)_detailDisclosureImage:(BOOL)arg1;
 - (id)_tintedDisclosureImagePressed:(BOOL)arg1;
@@ -476,6 +495,12 @@
 - (BOOL)_isInModalViewController;
 - (int)_popoverControllerStyle;
 - (BOOL)isElementAccessibilityExposedToInterfaceBuilder;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

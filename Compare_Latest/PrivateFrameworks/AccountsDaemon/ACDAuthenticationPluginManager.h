@@ -6,11 +6,14 @@
 
 #import "NSObject.h"
 
-@class ACDAuthenticationHandlerQueueManager, NSMutableDictionary, NSObject<OS_dispatch_queue>;
+@class ACDQueueDictionary, NSLock, NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
 @interface ACDAuthenticationPluginManager : NSObject
 {
-    ACDAuthenticationHandlerQueueManager *_handlerManager;
+    ACDQueueDictionary *_verificationHandlerQueues;
+    ACDQueueDictionary *_renewalHandlerQueues;
+    NSLock *_verificationHandlersLock;
+    NSLock *_renewalHandlersLock;
     NSMutableDictionary *_authenticationPluginsByType;
     NSObject<OS_dispatch_queue> *_authenticationPluginQueue;
 }

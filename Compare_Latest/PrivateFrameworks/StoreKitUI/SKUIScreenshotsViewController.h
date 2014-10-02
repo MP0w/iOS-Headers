@@ -12,7 +12,7 @@
 #import "UICollectionViewDelegate.h"
 #import "UIScrollViewDelegate.h"
 
-@class NSArray, NSMutableArray, NSOperationQueue, SKUIClientContext, SKUIScreenshotDataConsumer, SKUIVideoImageDataConsumer, UICollectionView;
+@class NSArray, NSMutableArray, NSOperationQueue, NSString, SKUIClientContext, SKUIScreenshotDataConsumer, SKUIVideoImageDataConsumer, UICollectionView;
 
 @interface SKUIScreenshotsViewController : UIViewController <SKUISlideshowViewControllerDataSource, SKUISlideshowViewControllerDelegate, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 {
@@ -51,6 +51,12 @@
 - (void)loadView;
 - (void)reloadData;
 - (id)initWithTrailers:(id)arg1 screenshots:(id)arg2 clientContext:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,6 +6,8 @@
 
 #import "NSObject.h"
 
+@class NSString;
+
 @interface NSFileManager : NSObject
 {
 }
@@ -13,7 +15,7 @@
 + (id)defaultManager;
 - (id)containerURLForSecurityApplicationGroupIdentifier:(id)arg1;
 - (void)_registerForUbiquityAccountChangeNotifications;
-- (id)ubiquityIdentityToken;
+@property(readonly, copy) id <NSObject><NSCopying><NSCoding> ubiquityIdentityToken;
 - (BOOL)_processHasUbiquityContainerEntitlement;
 - (id)URLForPublishingUbiquitousItemAtURL:(id)arg1 expirationDate:(id *)arg2 error:(id *)arg3;
 - (id)URLForUbiquityContainerIdentifier:(id)arg1;
@@ -51,8 +53,7 @@
 - (BOOL)copyItemAtPath:(id)arg1 toPath:(id)arg2 error:(id *)arg3;
 - (BOOL)filesystemItemCopyOperation:(id)arg1 shouldProceedAfterError:(id)arg2 copyingItemAtPath:(id)arg3 toPath:(id)arg4;
 - (BOOL)filesystemItemCopyOperation:(id)arg1 shouldCopyItemAtPath:(id)arg2 toPath:(id)arg3;
-- (void)setDelegate:(id)arg1;
-- (id)delegate;
+@property id <NSFileManagerDelegate> delegate;
 - (void)dealloc;
 - (BOOL)setExtendedAttribute:(id)arg1 forKey:(id)arg2 atPath:(id)arg3 error:(id *)arg4;
 - (BOOL)removeExtendedAttributeForKey:(id)arg1 atPath:(id)arg2 error:(id *)arg3;
@@ -85,9 +86,13 @@
 - (BOOL)changeFileAttributes:(id)arg1 atPath:(id)arg2;
 - (id)fileAttributesAtPath:(id)arg1 traverseLink:(BOOL)arg2;
 - (BOOL)changeCurrentDirectoryPath:(id)arg1;
-- (id)currentDirectoryPath;
+@property(readonly, copy) NSString *currentDirectoryPath;
 - (BOOL)directoryCanBeCreatedAtPath:(id)arg1;
 - (id)_displayPathForPath:(id)arg1;
+- (int)relationshipOfDirectory:(unsigned int)arg1 inDomain:(unsigned int)arg2 toURL:(id)arg3 error:(id *)arg4;
+- (int)relationshipOfURL:(id)arg1 toURL:(id)arg2 error:(id *)arg3;
+- (BOOL)getRelationship:(int *)arg1 ofDirectory:(unsigned int)arg2 inDomain:(unsigned int)arg3 toItemAtURL:(id)arg4 error:(id *)arg5;
+- (BOOL)getRelationship:(int *)arg1 ofDirectoryAtURL:(id)arg2 toItemAtURL:(id)arg3 error:(id *)arg4;
 - (id)URLForDirectory:(unsigned int)arg1 inDomain:(unsigned int)arg2 appropriateForURL:(id)arg3 create:(BOOL)arg4 error:(id *)arg5;
 - (id)_URLForTrashingItemAtURL:(id)arg1 create:(BOOL)arg2 error:(id *)arg3;
 - (id)_URLForReplacingItemAtURL:(id)arg1 error:(id *)arg2;

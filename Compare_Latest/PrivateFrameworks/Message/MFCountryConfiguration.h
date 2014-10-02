@@ -21,7 +21,7 @@
 - (id)_networkCountryCode;
 - (id)_cellSimCountryCode;
 - (void)updateCurrentCountry;
-@property(readonly, nonatomic) NSString *countryCode;
+@property(readonly, copy, nonatomic) NSString *countryCode;
 - (void)invalidate;
 - (void)dealloc;
 - (id)init;

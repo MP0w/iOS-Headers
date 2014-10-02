@@ -29,6 +29,12 @@
 - (void)setBounds:(struct CGRect)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)intrinsicContentSize;
+- (BOOL)showsButtons;
+- (float)heightOfBottomMargin;
+- (float)heightThatFitsButtons;
+- (float)widthForSizingToFitSize:(struct CGSize)arg1;
+- (float)heightThatFitsMainLabel:(struct CGSize)arg1;
+- (float)heightThatFitsSubview:(id)arg1 padding:(float)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(nonatomic) BOOL editing;
 @property(copy, nonatomic) NSString *explanationText;

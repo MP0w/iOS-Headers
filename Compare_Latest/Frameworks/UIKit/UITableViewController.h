@@ -9,7 +9,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class UIRefreshControl, UITableView, UITableViewDataSource, _UIFilteredDataSource;
+@class NSString, UIRefreshControl, UITableView, UITableViewDataSource, _UIFilteredDataSource;
 
 @interface UITableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
@@ -63,6 +63,12 @@
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)init;
 @property(retain, nonatomic, getter=_staticDataSource, setter=_setStaticDataSource:) UITableViewDataSource *staticDataSource;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "UIScrollViewDelegate.h"
 
-@class NSMutableArray, NSObject<UIScrollViewDelegate>, UIScrollView;
+@class NSMutableArray, NSObject<UIScrollViewDelegate>, NSString, UIScrollView;
 
 @interface SUScrollViewScroller : NSObject <UIScrollViewDelegate>
 {
@@ -31,6 +31,12 @@
 - (void)detachFromScrollView;
 - (void)attachToScrollView:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

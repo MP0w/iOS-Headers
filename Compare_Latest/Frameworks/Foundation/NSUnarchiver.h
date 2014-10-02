@@ -40,8 +40,8 @@
 - (void)decodeValueOfObjCType:(const char *)arg1 at:(void *)arg2;
 - (id)data;
 - (int)versionForClassName:(id)arg1;
-- (unsigned int)systemVersion;
-- (BOOL)isAtEnd;
+@property(readonly) unsigned int systemVersion;
+@property(readonly, getter=isAtEnd) BOOL atEnd;
 - (struct _NSZone *)objectZone;
 - (void)setObjectZone:(struct _NSZone *)arg1;
 - (void)_setAllowedClasses:(id)arg1;

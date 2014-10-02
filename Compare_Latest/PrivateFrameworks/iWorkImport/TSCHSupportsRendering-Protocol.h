@@ -10,9 +10,11 @@
 
 @protocol TSCHSupportsRendering <NSObject>
 - (void)drawInContext:(struct CGContext *)arg1;
+- (struct CGRect)convertNaturalRectToLayerRelative:(struct CGRect)arg1;
 - (struct CGRect)convertUnscaledToBoundsRect:(struct CGRect)arg1;
 - (void)didDrawInLayer:(CALayer *)arg1 context:(struct CGContext *)arg2;
 - (void)setupForDrawingInLayer:(CALayer *)arg1 context:(struct CGContext *)arg2;
+- (BOOL)requireSeparateLabelLayer;
 - (BOOL)renderElementsShadowOnly;
 - (BOOL)renderElementsWithoutShadows;
 - (BOOL)shouldShowLegendHighlight;

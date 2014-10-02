@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
 @interface TSCHChartAxisRenderer : TSCHRenderer <TSCHCompositeRendering>
 {
     TSCHSelectionPath *mAxisTitleSelectionPath;
+    struct CGRect mStartingEditingFrame;
     NSString *mEditingString;
 }
 
@@ -40,6 +41,12 @@ __attribute__((visibility("hidden")))
 - (BOOL)p_needsPositionBasedTransparencyLayer;
 - (id)axisTitleSelectionPath;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
     BOOL mReturnEmptyCells;
 }
 
+@property(readonly, nonatomic) TSTTableModel *tableModel; // @synthesize tableModel=mTableModel;
 @property(readonly) int rowWalkDirection; // @synthesize rowWalkDirection=mRowWalkDirection;
 @property(readonly) BOOL dontExpandCellRefs; // @synthesize dontExpandCellRefs=mDontExpandCellRefs;
 - (id).cxx_construct;

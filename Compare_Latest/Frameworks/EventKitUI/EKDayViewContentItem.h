@@ -6,28 +6,54 @@
 
 #import "NSObject.h"
 
-@class EKCalendarDate, EKDayOccurrenceView;
+#import "CUIKSingleDayTimelineViewItem.h"
 
-@interface EKDayViewContentItem : NSObject
+@class EKCalendarDate, EKDayOccurrenceView, EKEvent, NSDate, NSString;
+
+@interface EKDayViewContentItem : NSObject <CUIKSingleDayTimelineViewItem>
 {
-    BOOL _pinned;
+    struct CGRect _unPinnedViewFrame;
     unsigned int _eventIndex;
     EKDayOccurrenceView *_view;
     EKCalendarDate *_startDate;
     EKCalendarDate *_endDate;
-    struct CGRect _unPinnedViewFrame;
+    float _topPinningProximity;
+    float _bottomPinningProximity;
+    double _travelTime;
 }
 
++ (float)barToBarHorizontalDistanceIncludingBarWidth;
+@property(nonatomic) float bottomPinningProximity; // @synthesize bottomPinningProximity=_bottomPinningProximity;
+@property(nonatomic) float topPinningProximity; // @synthesize topPinningProximity=_topPinningProximity;
+@property(nonatomic) double travelTime; // @synthesize travelTime=_travelTime;
 @property(copy, nonatomic) EKCalendarDate *endDate; // @synthesize endDate=_endDate;
 @property(copy, nonatomic) EKCalendarDate *startDate; // @synthesize startDate=_startDate;
-@property(nonatomic) struct CGRect unPinnedViewFrame; // @synthesize unPinnedViewFrame=_unPinnedViewFrame;
-@property(nonatomic, getter=isPinned) BOOL pinned; // @synthesize pinned=_pinned;
 @property(retain, nonatomic) EKDayOccurrenceView *view; // @synthesize view=_view;
 @property(readonly, nonatomic) unsigned int eventIndex; // @synthesize eventIndex=_eventIndex;
 - (void).cxx_destruct;
-- (id)description;
+- (void)setTravelTimeHeight:(float)arg1;
+- (void)setVisibleHeight:(float)arg1;
+@property(readonly) BOOL visibleHeightLocked;
+@property struct CGRect unPinnedViewFrame;
+- (void)setStagedFrame:(struct CGRect)arg1;
+- (struct CGRect)stagedFrame;
+@property(readonly, nonatomic) BOOL hideTravelTime;
+@property(readonly, nonatomic) EKEvent *event;
+@property(readonly, nonatomic) float viewMaxNaturalTextHeight;
+@property(readonly, nonatomic) float enoughHeightForOneLine;
+@property(readonly, nonatomic) NSDate *end;
+@property(readonly, nonatomic) NSDate *start;
+@property(readonly, nonatomic) NSDate *startWithTravelTime;
+- (BOOL)isPinned;
+@property(readonly, copy, nonatomic) EKCalendarDate *startDateIncludingTravelTime;
+@property(readonly, copy) NSString *description;
 - (BOOL)isEqual:(id)arg1;
 - (id)initWithEventIndex:(unsigned int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

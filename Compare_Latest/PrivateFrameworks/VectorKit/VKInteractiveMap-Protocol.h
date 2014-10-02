@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CALayer, GEOMapRegion, NSArray, NSSet, NSString, VKAnchorWrapper, VKAnimation, VKAnnotationMarker, VKLabelMarker, VKViewportInfo;
+@class GEOMapRegion, NSArray, NSSet, NSString, VKAnchorWrapper, VKAnimation, VKAnnotationMarker, VKLabelMarker, VKViewportInfo;
 
 @protocol VKInteractiveMap <NSObject>
 + (BOOL)supportsMapType:(int)arg1 scale:(int)arg2;
@@ -58,12 +58,13 @@
 - (void)didStartPanningDeceleration;
 - (void)stopPanningAtPoint:(struct CGPoint)arg1;
 - (void)updatePanWithTranslation:(struct CGPoint)arg1;
-- (void)startPanningAtPoint:(struct CGPoint)arg1;
+- (void)startPanningAtPoint:(struct CGPoint)arg1 panAtStartPoint:(BOOL)arg2;
 - (void)stopPinchingWithFocusPoint:(struct CGPoint)arg1;
 - (void)updatePinchWithFocusPoint:(struct CGPoint)arg1 oldFactor:(double)arg2 newFactor:(double)arg3;
 - (void)startPinchingWithFocusPoint:(struct CGPoint)arg1;
 - (void)zoom:(double)arg1 withFocusPoint:(struct CGPoint)arg2 completionHandler:(void (^)(void))arg3;
 - (void)zoomToLevel:(double)arg1 withFocusPoint:(struct CGPoint)arg2;
+- (double)currentZoomLevel;
 - (BOOL)isShowingNoDataPlaceholders;
 - (NSArray *)attributionsForCurrentRegion;
 - (BOOL)restoreViewportFromInfo:(VKViewportInfo *)arg1;
@@ -77,11 +78,11 @@
 - (void)stopTrackingAnnotation;
 - (void)startTrackingAnnotation:(id <VKTrackableAnnotation>)arg1 trackHeading:(BOOL)arg2 animated:(BOOL)arg3;
 - (CDStruct_071ac149)centerCoordinate;
-- (struct CGPoint)convertCoordinate:(CDStruct_c3b9c2ee)arg1 toCameraModelPointToLayer:(CALayer *)arg2;
-- (struct CGPoint)convertCoordinate:(CDStruct_c3b9c2ee)arg1 toPointToLayer:(CALayer *)arg2;
-- (struct CGPoint)convertMapPoint:(CDStruct_c3b9c2ee)arg1 toPointToLayer:(CALayer *)arg2;
-- (CDStruct_c3b9c2ee)convertPoint:(struct CGPoint)arg1 toMapPointFromLayer:(CALayer *)arg2;
-- (CDStruct_c3b9c2ee)convertPoint:(struct CGPoint)arg1 toCoordinateFromLayer:(CALayer *)arg2;
+- (struct CGPoint)convertCoordinateToCameraModelPoint:(CDStruct_c3b9c2ee)arg1;
+- (struct CGPoint)convertCoordinateToPoint:(CDStruct_c3b9c2ee)arg1;
+- (struct CGPoint)convertMapPointToPoint:(CDStruct_c3b9c2ee)arg1;
+- (CDStruct_c3b9c2ee)convertPointToMapPoint:(struct CGPoint)arg1;
+- (CDStruct_c3b9c2ee)convertPointToCoordinate:(struct CGPoint)arg1;
 - (void)deselectLabelMarker;
 - (VKLabelMarker *)selectedLabelMarker;
 - (void)selectLabelMarker:(VKLabelMarker *)arg1;
@@ -91,7 +92,7 @@
 - (NSArray *)annotationMarkers;
 - (BOOL)shouldHideOffscreenSelectedAnnotation;
 - (BOOL (^)(struct))annotationCoordinateTest;
-- (int (^)(struct))annotationRectTest;
+- (int (^)(double, double, double, double))annotationRectTest;
 - (void (^)(VKAnnotationMarker *))annotationMarkerDeselectionCallback;
 - (void)setAnnotationMarkerDeselectionCallback:(void (^)(VKAnnotationMarker *))arg1;
 - (void)deselectAnnotationMarker:(VKAnnotationMarker *)arg1;
@@ -116,13 +117,13 @@
 - (double)currentZoomLevelForTileSize:(int)arg1;
 - (double)maximumZoomLevelForTileSize:(int)arg1;
 - (double)minimumZoomLevelForTileSize:(int)arg1;
-- (double)currentZoomLevel;
-- (void)_setStyleTransitionProgress:(float)arg1 targetStyle:(int)arg2 step:(int)arg3;
+- (void)_setStyleTransitionProgress:(float)arg1 targetStyle:(unsigned int)arg2 step:(int)arg3;
 - (float)_styleTransitionProgress;
+- (void)setStylesheetMapDisplayStyle:(unsigned int)arg1;
 - (void)stylesheetAnimationDidEnd:(BOOL)arg1;
 - (void)stylesheetAnimationDidProgress:(float)arg1;
-- (void)stylesheetAnimationWillStartFromStyle:(int)arg1 toStyle:(int)arg2;
-- (void)requestStylesheetAnimation:(VKAnimation *)arg1 targetMapDisplayStyle:(int)arg2 setupHandler:(void (^)(void))arg3;
+- (void)stylesheetAnimationWillStartFromStyle:(unsigned int)arg1 toStyle:(unsigned int)arg2;
+- (void)requestStylesheetAnimation:(VKAnimation *)arg1 targetMapDisplayStyle:(unsigned int)arg2 setupHandler:(void (^)(void))arg3;
 - (NSString *)consoleString:(BOOL)arg1;
 - (NSString *)detailedDescription;
 - (void)exit3DMode;

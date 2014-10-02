@@ -4,26 +4,25 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <StoreBookkeeper/SBKRequestData.h>
 
 @class SBKSyncTransaction;
 
 __attribute__((visibility("hidden")))
-@interface SBKSyncRequestData : NSObject
+@interface SBKSyncRequestData : SBKRequestData
 {
-    SBKSyncTransaction *_transaction;
 }
 
-+ (id)serializablePropertyListPayloadWithTransaction:(id)arg1;
-@property(readonly) SBKSyncTransaction *transaction; // @synthesize transaction=_transaction;
-- (void).cxx_destruct;
 - (id)_serializableDeleteItemPayloadDictionaryForKey:(id)arg1;
 - (id)_serializableUpdateItemPayloadDictionaryForKey:(id)arg1;
 - (BOOL)_needsConflictDetection;
 - (id)_serializableConflictDetectionOrdinalForKey:(id)arg1;
 - (id)_serializableConflictDetectionValue;
 - (id)serializableRequestBodyPropertyList;
-- (id)initWithTransaction:(id)arg1;
+- (id)syncTransaction;
+
+// Remaining properties
+@property(readonly) SBKSyncTransaction *transaction;
 
 @end
 

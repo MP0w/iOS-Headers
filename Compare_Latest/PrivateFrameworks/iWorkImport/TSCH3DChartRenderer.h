@@ -31,8 +31,7 @@ __attribute__((visibility("hidden")))
 - (id)p_sceneObjectFromSelectionPath:(id)arg1;
 - (struct CGRect)p_frameForSelectionPath:(id)arg1 sceneObjectClass:(Class)arg2;
 - (id)textIdentifierAtPoint:(struct CGPoint)arg1;
-- (void)renderIntoContext:(struct CGContext *)arg1 visible:(struct CGRect)arg2 scene:(id)arg3 GLContext:(id)arg4 needLayout:(BOOL)arg5;
-- (void)renderIntoContext:(struct CGContext *)arg1 visible:(struct CGRect)arg2 scene:(id)arg3;
+- (void)renderIntoContext:(struct CGContext *)arg1 bodyCanvasVisibleRect:(struct CGRect)arg2 scene:(id)arg3 GLContext:(id)arg4 needLayout:(BOOL)arg5;
 - (void)renderIntoContext:(struct CGContext *)arg1 visible:(struct CGRect)arg2;
 - (void)updateLayout;
 - (id)p_renderPipelineWithUpdatedLayoutForScene:(id)arg1;
@@ -50,7 +49,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)p_multipassCanRender;
 - (BOOL)usesMultipassRendering;
 - (void)presentFramebufferForPipeline:(id)arg1 CGContext:(struct CGContext *)arg2 highQuality:(BOOL)arg3 cleanupRendering:(BOOL)arg4;
-- (BOOL)allocateFramebufferForVisibleRect:(const struct CGRect *)arg1;
+- (BOOL)allocateFramebufferForBodyCanvasVisibleRect:(const struct CGRect *)arg1;
 @property(retain, nonatomic) TSCH3DChartSceneAreaLayoutItem *sceneAreaLayoutItem;
 - (int)chunkPlane;
 - (id)p_state;

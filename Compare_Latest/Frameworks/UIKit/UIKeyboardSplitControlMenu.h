@@ -13,10 +13,13 @@ __attribute__((visibility("hidden")))
 {
     NSMutableArray *m_menuOptions;
     struct CGSize m_preferredSize;
+    CDUnknownBlockType _finishSplitTransitionBlock;
 }
 
 + (id)activeInstance;
 + (id)sharedInstance;
+@property(copy, nonatomic) CDUnknownBlockType finishSplitTransitionBlock; // @synthesize finishSplitTransitionBlock=_finishSplitTransitionBlock;
+- (void)didFinishSplitTransition;
 - (void)didSelectItemAtIndex:(int)arg1;
 - (id)titleForItemAtIndex:(int)arg1;
 - (int)defaultSelectedIndex;

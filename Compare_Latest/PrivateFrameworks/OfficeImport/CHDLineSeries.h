@@ -8,7 +8,7 @@
 
 #import "CHDMarkerOwner.h"
 
-@class CHDMarker;
+@class CHDMarker, NSString;
 
 __attribute__((visibility("hidden")))
 @interface CHDLineSeries : CHDSeries <CHDMarkerOwner>
@@ -23,6 +23,12 @@ __attribute__((visibility("hidden")))
 - (id)marker;
 - (void)dealloc;
 - (id)initWithChart:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

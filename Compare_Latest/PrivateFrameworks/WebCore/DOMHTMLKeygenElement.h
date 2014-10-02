@@ -16,10 +16,10 @@ __attribute__((visibility("hidden")))
 - (void)setCustomValidity:(id)arg1;
 - (BOOL)checkValidity;
 @property(readonly) DOMNodeList *labels;
-@property(readonly) NSString *validationMessage;
+@property(readonly, copy) NSString *validationMessage;
 @property(readonly) DOMValidityState *validity;
 @property(readonly) BOOL willValidate;
-@property(readonly) NSString *type;
+@property(readonly, copy) NSString *type;
 @property(copy) NSString *name;
 @property(copy) NSString *keytype;
 @property(readonly) DOMHTMLFormElement *form;

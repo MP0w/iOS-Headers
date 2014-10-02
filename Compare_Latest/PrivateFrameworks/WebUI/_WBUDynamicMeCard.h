@@ -16,6 +16,7 @@
 
 + (int)_ABPropertyIDForString:(id)arg1;
 + (BOOL)isProxyProperty:(id)arg1;
+- (void).cxx_destruct;
 - (void)performWhenReady:(CDUnknownBlockType)arg1;
 - (id)valueForProxyProperty:(id)arg1;
 - (id)valueForProperty:(id)arg1 isMultiValue:(char *)arg2;

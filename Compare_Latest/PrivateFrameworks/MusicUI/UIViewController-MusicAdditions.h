@@ -6,32 +6,40 @@
 
 #import "UIViewController.h"
 
-@interface UIViewController (MusicAdditions)
+#import "MPUMiniPlayerParticipant.h"
+
+@class MPMediaEntity, NSString;
+
+@interface UIViewController (MusicAdditions) <MPUMiniPlayerParticipant>
 + (id)music_sanitizedQueryForQuery:(id)arg1;
 + (id)music_queryForIdentifier:(id)arg1;
-+ (void)music_registerViewControllerIdentifiers;
-- (void)_music_updateNowPlayingNavigationItem;
-- (id)music_createNowPlayingButton;
 - (void)_music_setNoContentView:(id)arg1;
 - (void)_music_setCloudLoadingView:(id)arg1;
 - (id)_music_noContentView;
 - (id)_music_cloudLoadingView;
 - (void)_music_storeClientRestrictionsDidChangeNotification:(id)arg1;
-- (void)_music_itemWillChangeNotification:(id)arg1;
 - (void)_music_cloudControllerIsUpdateInProgressDidChangeNotification:(id)arg1;
 - (void)_music_storeButtonAction:(id)arg1;
-- (void)_music_nowPlayingButtonAction:(id)arg1;
 - (void)music_updateStoreNavigationItem;
+- (void)_music_updateForContentChangeForInitialViewLoad:(BOOL)arg1;
 - (void)music_updateForContentChange;
-- (BOOL)music_supportsMiniPlayer;
 @property(nonatomic, getter=music_showsStoreNavigationItem, setter=music_setShowsStoreNavigationItem:) BOOL music_showsStoreNavigationItem;
 @property(nonatomic, getter=music_showsNowPlayingNavigationItem, setter=music_setShowsNowPlayingNavigationItem:) BOOL music_showsNowPlayingNavigationItem;
 @property(nonatomic, getter=music_showsNoContent, setter=music_setShowsNoContent:) BOOL music_showsNoContent;
 @property(nonatomic, getter=music_showsMatchLoading, setter=music_setShowsMatchLoading:) BOOL music_showsMatchLoading;
+@property(nonatomic, getter=music_representativeSelectedMediaEntity, setter=music_setRepresentativeSelectedMediaEntity:) MPMediaEntity *music_representativeSelectedMediaEntity;
 - (BOOL)music_shouldPresentModallyInMoreList;
-- (void)music_prospectivePlaybackInformationDidChange;
-- (id)music_prospectivePlaybackInformation;
+- (void)music_loadNoContentOrMatchLoadingViewIfAppropriate;
 - (BOOL)music_hasContent;
-- (BOOL)music_beginPlaybackForVisibleContent;
+- (BOOL)music_handleUserActivityContext:(id)arg1 containerItem:(id)arg2;
+- (BOOL)music_appendCurrentUserActivityContainerItems:(id)arg1 previousViewController:(id)arg2 nextViewController:(id)arg3;
+- (id)MPU_prospectivePlaybackInformation;
+- (BOOL)MPU_beginPlaybackForVisibleContent;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 @end
 

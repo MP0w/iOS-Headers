@@ -12,6 +12,9 @@ __attribute__((visibility("hidden")))
 @interface TSDFPSCounter : NSObject
 {
     NSMutableArray *_dateArray;
+    double _startTimeInterval;
+    double _endTimeInterval;
+    unsigned int _frameCount;
 }
 
 - (id)p_getFPSInfo:(BOOL)arg1;

@@ -7,6 +7,9 @@
 #import "UIViewController.h"
 
 @interface UIViewController (ABPresentation)
+@property(readonly, nonatomic) BOOL ab_isDirectlyInPopover;
+@property(readonly, nonatomic) BOOL ab_isInPopover;
+- (BOOL)_ab_isInPopoverRecursive:(BOOL)arg1;
 @property(readonly, nonatomic) BOOL ab_shouldUseTransparentBackgroundInPopovers;
 @property(readonly, nonatomic) BOOL ab_shouldShowNavBarButtons;
 @end

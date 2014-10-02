@@ -8,7 +8,7 @@
 
 #import "MFAttachmentDataProvider.h"
 
-@class MFMailMessage, MFMimePart, NSData;
+@class MFMailMessage, MFMimePart, NSData, NSString;
 
 @interface MFRFC822AttachmentDataProvider : NSObject <MFAttachmentDataProvider>
 {
@@ -19,8 +19,15 @@
 
 - (id)messageForAttachment:(id)arg1;
 - (BOOL)fetchDataForAttachment:(id)arg1 withDataConsumer:(id)arg2 error:(id *)arg3;
+- (id)fetchLocalDataForAttachment:(id)arg1;
 - (void)dealloc;
 - (id)initWithMessageData:(id)arg1 parentPart:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -10,7 +10,7 @@
 #import "SKUIItemStateCenterObserver.h"
 #import "SKUIResourceLoaderDelegate.h"
 
-@class NSArray, NSMutableDictionary, SKUIClientContext, SKUIIconDataConsumer, SKUIItemArtworkContext, SKUIResourceLoader, SKUIScreenshotDataConsumer, UIImage;
+@class NSArray, NSMutableDictionary, NSString, SKUIClientContext, SKUIItemArtworkContext, SKUIResourceLoader, SKUIScreenshotDataConsumer, SKUIStyledImageDataConsumer, UIImage;
 
 @interface SKUIItemCollectionController : NSObject <SKUIArtworkRequestDelegate, SKUIItemStateCenterObserver, SKUIResourceLoaderDelegate>
 {
@@ -20,7 +20,7 @@
     id <SKUIItemCollectionDelegate> _delegate;
     BOOL _delegateProvidesScreenshots;
     NSMutableDictionary *_iconArtworkRequestIDs;
-    SKUIIconDataConsumer *_iconDataConsumer;
+    SKUIStyledImageDataConsumer *_iconDataConsumer;
     NSArray *_items;
     SKUIScreenshotDataConsumer *_landscapeScreenshotDataConsumer;
     UIImage *_landscapeScreenshotPlaceholderImage;
@@ -37,7 +37,7 @@
 @property(nonatomic) int numberOfItemsPerPage; // @synthesize numberOfItemsPerPage=_numberOfItemsPerPage;
 @property(retain, nonatomic) SKUIScreenshotDataConsumer *landscapeScreenshotDataConsumer; // @synthesize landscapeScreenshotDataConsumer=_landscapeScreenshotDataConsumer;
 @property(copy, nonatomic) NSArray *items; // @synthesize items=_items;
-@property(retain, nonatomic) SKUIIconDataConsumer *iconDataConsumer; // @synthesize iconDataConsumer=_iconDataConsumer;
+@property(retain, nonatomic) SKUIStyledImageDataConsumer *iconDataConsumer; // @synthesize iconDataConsumer=_iconDataConsumer;
 @property(nonatomic) __weak id <SKUIItemCollectionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) SKUIResourceLoader *artworkLoader; // @synthesize artworkLoader=_artworkLoader;
 @property(retain, nonatomic) SKUIItemArtworkContext *artworkContext; // @synthesize artworkContext=_artworkContext;
@@ -72,6 +72,12 @@
 - (id)initWithClientContext:(id)arg1;
 - (id)init;
 - (id)_initSKUIItemCollectionController;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

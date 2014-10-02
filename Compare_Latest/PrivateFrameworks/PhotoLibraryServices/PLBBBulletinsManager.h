@@ -8,7 +8,7 @@
 
 #import "PLBBPendingBulletinsBatchDelegate.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, PLXPCTransaction;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, PLXPCTransaction;
 
 @interface PLBBBulletinsManager : NSObject <PLBBPendingBulletinsBatchDelegate>
 {
@@ -78,6 +78,12 @@
 - (void)dealloc;
 - (id)_initSharedInstance;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

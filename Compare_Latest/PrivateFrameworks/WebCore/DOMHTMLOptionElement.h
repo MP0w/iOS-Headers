@@ -13,7 +13,7 @@
 }
 
 @property(readonly) int index;
-@property(readonly) NSString *text;
+@property(readonly, copy) NSString *text;
 @property(copy) NSString *value;
 @property BOOL selected;
 @property BOOL defaultSelected;

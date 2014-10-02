@@ -10,9 +10,12 @@ __attribute__((visibility("hidden")))
 @interface _GCControllerButtonInput : GCControllerButtonInput
 {
     CDUnknownBlockType _valueChangedHandler;
+    CDUnknownBlockType _pressedChangedHandler;
     float _value;
 }
 
+- (void)setPressedChangedHandler:(CDUnknownBlockType)arg1;
+- (CDUnknownBlockType)pressedChangedHandler;
 - (void)setValueChangedHandler:(CDUnknownBlockType)arg1;
 - (CDUnknownBlockType)valueChangedHandler;
 - (float)value;

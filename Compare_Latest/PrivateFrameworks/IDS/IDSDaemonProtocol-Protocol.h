@@ -6,19 +6,63 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSData, NSDictionary, NSNumber, NSSet, NSString;
+@class NSArray, NSData, NSDictionary, NSNumber, NSObject<OS_xpc_object>, NSSet, NSString, NSURL;
 
 @protocol IDSDaemonProtocol <NSObject>
 
 @optional
-- (void)setListenerCapabilities:(unsigned int)arg1;
-- (void)setListenerCommands:(NSSet *)arg1;
-- (void)setListenerServices:(NSSet *)arg1;
-- (void)acknowledgeMessageWithGUID:(NSString *)arg1;
-- (void)acknowledgeOutgoingMessageWithGUID:(NSString *)arg1;
-- (void)requestKeepAlive;
+- (void)continuityStopTrackingPeer:(NSString *)arg1 forType:(int)arg2;
+- (void)continuityStartTrackingPeer:(NSString *)arg1 forType:(int)arg2;
+- (void)continuityDisconnectFromPeer:(NSString *)arg1;
+- (void)continuityConnectToPeer:(NSString *)arg1;
+- (void)continuityStopScanningForType:(int)arg1;
+- (void)continuityStartScanningForType:(int)arg1 withData:(NSData *)arg2 peers:(NSArray *)arg3 withOptions:(NSDictionary *)arg4;
+- (void)continuityStartScanningForType:(int)arg1 withData:(NSData *)arg2 withOptions:(NSDictionary *)arg3;
+- (void)continuityStopAdvertisingOfType:(int)arg1;
+- (void)continuityStartAdvertisingOfType:(int)arg1 withData:(NSData *)arg2 withOptions:(NSDictionary *)arg3;
+- (void)continuityClientInstanceCreated;
+- (void)setInviteTimetout:(int)arg1 forSessionWithUniqueID:(NSString *)arg2;
+- (void)setAudioEnabled:(BOOL)arg1 forSessionWithUniqueID:(NSString *)arg2;
+- (void)sendSessionMessage:(NSData *)arg1 toSession:(NSString *)arg2;
+- (void)endSession:(NSString *)arg1 withData:(NSData *)arg2;
+- (void)endSession:(NSString *)arg1;
+- (void)declineInvitation:(NSString *)arg1 withData:(NSData *)arg2;
+- (void)declineInvitation:(NSString *)arg1;
+- (void)acceptInvitation:(NSString *)arg1 withData:(NSData *)arg2;
+- (void)acceptInvitation:(NSString *)arg1;
+- (void)cancelInvitation:(NSString *)arg1 withData:(NSData *)arg2;
+- (void)cancelInvitation:(NSString *)arg1;
+- (void)sendInvitation:(NSString *)arg1 withData:(NSData *)arg2 declineOnError:(BOOL)arg3;
+- (void)sendInvitation:(NSString *)arg1 withOptions:(NSDictionary *)arg2;
+- (void)cleanupSession:(NSString *)arg1;
+- (void)setupNewSessionWithConfiguration:(NSDictionary *)arg1;
+- (void)setNSUUID:(NSString *)arg1 onDeviceWithUniqueID:(NSString *)arg2 forService:(NSString *)arg3;
+- (void)closeSocketWithOptions:(NSDictionary *)arg1;
+- (void)openSocketWithOptions:(NSDictionary *)arg1;
+- (void)xpcObject:(NSObject<OS_xpc_object> *)arg1 objectContext:(NSDictionary *)arg2;
+- (void)setListenerServices:(NSSet *)arg1 commands:(NSSet *)arg2 capabilities:(unsigned int)arg3;
+- (void)sendAppAckWithGUID:(NSString *)arg1 toDestination:(NSString *)arg2 forAccountWithUniqueID:(NSString *)arg3;
+- (void)acknowledgeMessageWithGUID:(NSString *)arg1 forAccountWithUniqueID:(NSString *)arg2;
+- (void)acknowledgeOutgoingMessageWithGUID:(NSString *)arg1 alternateCallbackID:(NSString *)arg2 forAccountWithUniqueID:(NSString *)arg3;
 - (void)sendServerMessage:(NSDictionary *)arg1 command:(NSNumber *)arg2 usingAccountWithUniqueID:(NSString *)arg3;
-- (void)sendMessage:(NSDictionary *)arg1 fromID:(NSString *)arg2 toDestinations:(NSArray *)arg3 usingAccountWithUniqueID:(NSString *)arg4 useDictAsTopLevel:(BOOL)arg5 dataToEncrypt:(NSData *)arg6 encryptPayload:(BOOL)arg7 wantsResponse:(BOOL)arg8 timeout:(NSNumber *)arg9 command:(NSNumber *)arg10 wantsDeliveryStatus:(BOOL)arg11 deliveryStatusContext:(NSDictionary *)arg12 messageUUID:(NSData *)arg13 highPriority:(BOOL)arg14 identifier:(NSString *)arg15;
+- (void)sendPersistedFile:(NSURL *)arg1 userInfo:(NSDictionary *)arg2 toDestinations:(NSArray *)arg3 usingAccountWithUniqueID:(NSString *)arg4 identifier:(NSString *)arg5;
+- (void)cancelItemWithIdentifier:(NSString *)arg1 service:(NSString *)arg2;
+- (void)sendMessageWithSendParameters:(NSDictionary *)arg1;
+- (void)savePublicKey:(NSData *)arg1 withIdentifier:(NSString *)arg2;
+- (void)getPairedDeviceInfo;
+- (void)getLocalDeviceInfo;
+- (void)deletePairedDevice:(NSString *)arg1;
+- (void)addPairedDevice:(NSString *)arg1;
+- (void)localSetupCompleted;
+- (void)localSetupUnpair;
+- (void)stopLocalSetup;
+- (void)startLocalSetup;
+- (void)idsiCloudSignInDataMigratorForID:(NSString *)arg1;
+- (void)kickGetDependentForAccount:(NSString *)arg1;
+- (void)receivediCloudSignOutHack;
+- (void)receivediCloudSignInHackWithUserName:(NSString *)arg1 password:(NSString *)arg2;
+- (void)iCloudSignOutHack;
+- (void)iCloudSignInHackWithUserName:(NSString *)arg1 password:(NSString *)arg2;
 - (void)hardDeregister;
 - (void)deactivateAndPurgeIdentifyForAccount:(NSString *)arg1;
 - (void)_reregisterAndReidentify:(NSNumber *)arg1 account:(NSString *)arg2;

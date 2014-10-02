@@ -59,5 +59,11 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithPID:(unsigned int)arg1 displayName:(id)arg2 serviceName:(id)arg3;
 
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
+
 @end
 

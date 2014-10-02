@@ -14,13 +14,15 @@
     TPRingView *_ringView;
     BOOL _usesSmallerFontSize;
     int _orientation;
-    int _action;
     UIColor *_originalBackgroundColor;
+    struct CGSize _buttonSize;
 }
 
++ (float)defaultWidth;
++ (id)defaultFont;
 + (float)defaultHeight;
+@property(nonatomic) struct CGSize buttonSize; // @synthesize buttonSize=_buttonSize;
 @property(retain, nonatomic) UIColor *originalBackgroundColor; // @synthesize originalBackgroundColor=_originalBackgroundColor;
-@property(nonatomic) int action; // @synthesize action=_action;
 @property(nonatomic) BOOL usesSmallerFontSize; // @synthesize usesSmallerFontSize=_usesSmallerFontSize;
 @property(nonatomic) int orientation; // @synthesize orientation=_orientation;
 - (void)setSelected:(BOOL)arg1;

@@ -55,6 +55,7 @@
 @property(readonly, nonatomic) unsigned int parentID; // @synthesize parentID=_parentID;
 @property(retain, nonatomic) NSString *address; // @synthesize address=_url;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
+- (BOOL)isFrequentlyVisitedSitesFolder;
 - (BOOL)isWebFilterWhiteListFolder;
 - (BOOL)isReadingListFolder;
 - (BOOL)isBookmarksMenuFolder;
@@ -62,6 +63,9 @@
 - (id)localizedTitle;
 - (id)description;
 - (id)shortTypeDescription;
+- (unsigned int)hash;
+- (BOOL)isEqualToBookmark:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)init;
 - (id)initWhiteListBookmarkWithTitle:(id)arg1 address:(id)arg2;
@@ -81,6 +85,7 @@
 - (void)_setParentID:(unsigned int)arg1;
 - (unsigned int)_orderIndex;
 - (void)_markSpecial:(unsigned int)arg1;
+- (id)_initWithSqliteRow:(struct sqlite3_stmt *)arg1 hasIcon:(BOOL)arg2;
 - (id)_initWithSqliteRow:(struct sqlite3_stmt *)arg1;
 - (void)cleanupRedundantPreviewText;
 @property(retain, nonatomic) NSString *localPreviewText;

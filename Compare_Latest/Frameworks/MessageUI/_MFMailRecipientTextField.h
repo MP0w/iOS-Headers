@@ -4,16 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <MessageUI/MFComposeTextField.h>
+#import "UITextField.h"
 
-@interface _MFMailRecipientTextField : MFComposeTextField
+@interface _MFMailRecipientTextField : UITextField
 {
+    BOOL _isShowingDictationPlaceholder;
 }
 
+@property(readonly, nonatomic) BOOL isShowingDictationPlaceholder; // @synthesize isShowingDictationPlaceholder=_isShowingDictationPlaceholder;
 - (void)paste:(id)arg1;
 - (void)_handleKeyUIEvent:(id)arg1;
 - (id)customOverlayContainer;
 - (id)_previousKeyResponder;
+- (void)removeDictationResultPlaceholder:(id)arg1 willInsertResult:(BOOL)arg2;
+- (id)insertDictationResultPlaceholder;
 
 @end
 

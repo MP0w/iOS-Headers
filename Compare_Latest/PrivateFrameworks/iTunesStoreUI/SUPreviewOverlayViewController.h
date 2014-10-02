@@ -10,7 +10,6 @@
 
 @interface SUPreviewOverlayViewController : SUViewController
 {
-    BOOL _animating;
     struct CGSize _contentSize;
     CDUnknownBlockType _loadBlock;
     BOOL _loaded;
@@ -19,14 +18,12 @@
     SUPreviewOverlayStorePageViewController *_storePageViewController;
     NSString *_userInfoString;
     BOOL _visible;
-    BOOL _contentLoaded;
 }
 
 + (void)_setContentInsetsForScrollView:(id)arg1 viewController:(id)arg2;
 + (void)offsetScrollView:(id)arg1 forViewController:(id)arg2;
 + (id)defaultRequestProperties;
 + (double)defaultAnimationDuration;
-@property(nonatomic, getter=isContentLoaded) BOOL contentLoaded; // @synthesize contentLoaded=_contentLoaded;
 @property(copy, nonatomic) NSString *userInfoString; // @synthesize userInfoString=_userInfoString;
 @property(nonatomic) float paddingTop; // @synthesize paddingTop=_paddingTop;
 @property(nonatomic) float paddingRight; // @synthesize paddingRight=_paddingRight;
@@ -37,9 +34,12 @@
 - (void)loadView;
 - (void)storePage:(id)arg1 finishedWithSuccess:(BOOL)arg2;
 - (void)invalidateForMemoryPurge;
+- (void)showInViewController:(id)arg1 animated:(BOOL)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)showInNavigationController:(id)arg1 animated:(BOOL)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)loadWithRequestProperties:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)loadWithCompletionBlock:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic, getter=isContentLoaded) BOOL contentLoaded;
+- (void)hideInViewController:(id)arg1 animated:(BOOL)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)hideInNavigationController:(id)arg1 animated:(BOOL)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)dealloc;
 

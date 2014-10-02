@@ -28,7 +28,7 @@ __attribute__((visibility("hidden")))
 - (void)p_drawTiles:(id)arg1 inContext:(struct CGContext *)arg2 rect:(struct CGRect)arg3 start:(float)arg4 end:(float)arg5 vertical:(BOOL)arg6;
 - (void)p_drawFrameIntoRect:(struct CGRect)arg1 inContext:(struct CGContext *)arg2 withImages:(id)arg3 atViewScale:(float)arg4 isMask:(BOOL)arg5;
 - (struct CGImage *)p_newRenderedFrameForMask:(BOOL)arg1 size:(struct CGSize)arg2 forCALayer:(BOOL)arg3 viewScale:(float)arg4;
-- (struct CGImage *)p_newFrameForMask:(BOOL)arg1 size:(struct CGSize)arg2 forCALayer:(BOOL)arg3 viewScale:(float)arg4;
+- (struct CGImage *)newFrameForMask:(BOOL)arg1 size:(struct CGSize)arg2 forCALayer:(BOOL)arg3 viewScale:(float)arg4;
 - (void)updateCALayer:(id)arg1 toRect:(struct CGRect)arg2 withRepLayer:(id)arg3 maskLayer:(id)arg4 viewScale:(float)arg5 maskLayerTransform:(struct CGAffineTransform)arg6;
 - (id)applyToCALayer:(id)arg1 withRepLayer:(id)arg2 maskLayer:(id)arg3 viewScale:(float)arg4;
 - (void)blendMaskBeforeRenderingImageInContext:(struct CGContext *)arg1;

@@ -29,8 +29,8 @@
 @property(nonatomic) id <DevicePINControllerDelegate> pinDelegate; // @synthesize pinDelegate=_pinDelegate;
 - (void)setSuccess:(BOOL)arg1;
 - (BOOL)success;
+- (id)title;
 - (void)setPane:(id)arg1;
-- (struct CGRect)paneFrame;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
@@ -45,6 +45,7 @@
 - (BOOL)completedInputIsValid:(id)arg1;
 - (void)adjustButtonsForPasswordLength:(unsigned int)arg1;
 - (void)_updatePINButtons;
+- (BOOL)showSimplePINCancelButtonOnLeft;
 - (void)_showPINConfirmationError;
 - (void)_showUnacceptablePINError:(id)arg1 password:(id)arg2;
 - (void)_updateUI;
@@ -59,8 +60,9 @@
 - (BOOL)isBlocked;
 - (double)unblockTime;
 - (void)_clearBlockedState;
-- (void)_setNumberOfFailedAttempts:(int)arg1;
-- (int)numberOfFailedAttempts;
+- (void)_setNumberOfFailedAttempts:(long)arg1;
+- (long)numberOfFailedAttempts;
+- (BOOL)isNumericPIN;
 - (BOOL)simplePIN;
 - (BOOL)requiresKeyboard;
 - (int)_getScreenType;
@@ -81,7 +83,6 @@
 - (id)stringsTable;
 - (void)_dismiss;
 - (struct CGSize)overallContentSizeForViewInPopover;
-- (struct CGSize)pinContentSizeForViewInPopover;
 - (int)mode;
 - (void)setMode:(int)arg1;
 - (void)setSpecifier:(id)arg1;

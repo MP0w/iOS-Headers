@@ -10,7 +10,7 @@
 #import "VKRouteMatchedAnnotationPresentation.h"
 #import "VKTrackableAnnotationPresentation.h"
 
-@class MKAnnotationView, NSHashTable, VKAttributedRouteMatch;
+@class GEORouteMatch, MKAnnotationView, NSHashTable, NSString;
 
 __attribute__((visibility("hidden")))
 @interface MKUserLocationAnnotationViewProxy : NSObject <VKPuckAnimatorTarget, VKTrackableAnnotationPresentation, VKRouteMatchedAnnotationPresentation>
@@ -23,11 +23,17 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)removePresentationCoordinateChangedObserver:(id)arg1;
 - (void)addPresentationCoordinateChangedObserver:(id)arg1;
-@property(retain, nonatomic) VKAttributedRouteMatch *routeMatch;
+@property(retain, nonatomic) GEORouteMatch *routeMatch;
 @property(nonatomic, getter=isTracking) BOOL tracking;
 - (void)setAnimatingToCoordinate:(BOOL)arg1;
 @property(nonatomic) double presentationCourse;
 @property(nonatomic) CDStruct_c3b9c2ee presentationCoordinate;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

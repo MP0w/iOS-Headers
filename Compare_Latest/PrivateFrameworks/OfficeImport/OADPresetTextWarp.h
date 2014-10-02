@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
     int mPresetTextWarpType;
 }
 
++ (id)stringWithPresetTextWarpType:(int)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (void)setPresetTextWarpType:(int)arg1;

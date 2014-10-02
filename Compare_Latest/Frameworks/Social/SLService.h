@@ -10,7 +10,6 @@
 {
 }
 
-+ (id)availableServices;
 + (id)allServices;
 + (id)serviceForServiceType:(id)arg1;
 - (id)composeViewController;
@@ -18,9 +17,6 @@
 - (id)activityTitle;
 - (BOOL)supportsVideoURL:(id)arg1;
 - (BOOL)supportsImageURL:(id)arg1;
-- (id)shareSheetClassName;
-- (id)shareSheetHostingBundleIdentifier;
-- (id)connectionName;
 - (int)maximumVideoTimeLimit;
 - (int)maximumVideoDataSize;
 - (int)maximumVideoCount;
@@ -30,10 +26,7 @@
 - (void)addExtraParameters:(id)arg1 forRequest:(id)arg2;
 - (id)accountType;
 - (id)serviceType;
-- (BOOL)isServiceTypeSupportedByConfiguration;
-- (BOOL)isAvailable;
 - (BOOL)isFirstClassService;
-- (BOOL)isSheetAccessPermitted;
 - (BOOL)hasAccounts;
 
 @end

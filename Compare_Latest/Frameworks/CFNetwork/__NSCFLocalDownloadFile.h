@@ -19,15 +19,19 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_workQueue;
     NSString *_path;
     int _error;
+    id <__NSCFLocalDownloadFileOpener> _fileProvider;
+    CDUnknownBlockType _finishCompletion;
 }
 
+@property(copy) CDUnknownBlockType finishCompletion; // @synthesize finishCompletion=_finishCompletion;
+@property id <__NSCFLocalDownloadFileOpener> fileProvider; // @synthesize fileProvider=_fileProvider;
 @property int error; // @synthesize error=_error;
 @property _Bool truncateFile; // @synthesize truncateFile=_truncateFile;
 @property BOOL skipUnlink; // @synthesize skipUnlink=_skipUnlink;
 @property(retain) NSString *path; // @synthesize path=_path;
 @property _Bool finished; // @synthesize finished=_finished;
-@property(retain) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
-@property(retain) NSObject<OS_dispatch_io> *writeIO; // @synthesize writeIO=_writeIO;
+@property NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
+@property NSObject<OS_dispatch_io> *writeIO; // @synthesize writeIO=_writeIO;
 - (id).cxx_construct;
 - (void)captureFile:(id *)arg1 outStat:(struct stat *)arg2;
 - (id)fileURL;
@@ -36,6 +40,7 @@ __attribute__((visibility("hidden")))
 - (void)truncate;
 - (void)dealloc;
 - (id)ioChannel;
+- (id)initWithExistingUnopenableFile:(id)arg1 fileProvider:(id)arg2;
 - (id)initWithExistingFile:(id)arg1 expectedSize:(long long)arg2;
 - (id)initTempFileWithDirectory:(id)arg1;
 - (id)initQueues;

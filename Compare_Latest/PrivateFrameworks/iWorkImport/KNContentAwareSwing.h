@@ -4,28 +4,31 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <iWorkImport/KNContentAwareMagicMoveSuperset.h>
+#import <iWorkImport/KNAnimationEffect.h>
 
-#import "KNContentAwareFrameAnimator.h"
-#import "KNContentAwareTransitionAnimator.h"
+#import "KNMagicMoveFrameAnimator.h"
+#import "KNMagicMoveTransitionAnimator.h"
 
-@class KNMotionBlurAnimationPluginWrapper;
+@class KNMagicMoveWrapper, KNMotionBlurWrapper, NSMutableArray, NSString;
 
 __attribute__((visibility("hidden")))
-@interface KNContentAwareSwing : KNContentAwareMagicMoveSuperset <KNContentAwareTransitionAnimator, KNContentAwareFrameAnimator>
+@interface KNContentAwareSwing : KNAnimationEffect <KNMagicMoveTransitionAnimator, KNMagicMoveFrameAnimator>
 {
-    KNMotionBlurAnimationPluginWrapper *_motionBlurWrapper;
+    KNMotionBlurWrapper *_motionBlurWrapper;
+    KNMagicMoveWrapper *_magicMoveWrapper;
+    NSMutableArray *_effectTextures;
+    CDUnknownBlockType _motionBlurWrapperTextureDrawOptionsBlock;
+    CDUnknownBlockType _motionBlurWrapperSetupShaderBlock;
 }
 
-+ (int)rendererTypeForCapabilities:(id)arg1;
 + (id)thumbnailImageNameForType:(int)arg1;
 + (id)defaultAttributes;
 + (void)fillLocalizedDirectionMenu:(id)arg1 forType:(int)arg2;
 + (unsigned int)directionType;
 + (id)localizedMenuString:(int)arg1;
 + (id)supportedTypes;
++ (BOOL)shouldDisableMagicMoveOnText;
 + (BOOL)requiresPerspectiveTransform;
-+ (BOOL)requiresMagicMoveTextures;
 + (BOOL)requiresBullets;
 + (BOOL)isCharacterAwareEffect;
 + (id)animationFilter;
@@ -35,7 +38,15 @@ __attribute__((visibility("hidden")))
 - (void)renderFrameWithContext:(id)arg1;
 - (void)animationWillBeginWithContext:(id)arg1;
 - (id)animationsWithContext:(id)arg1;
+- (void)p_setupMagicMoveWrapperWithContext:(id)arg1;
 - (void)dealloc;
+- (void)teardown;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

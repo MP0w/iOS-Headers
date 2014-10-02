@@ -20,9 +20,9 @@
 }
 
 @property(nonatomic) int sendInterface; // @synthesize sendInterface=_sendInterface;
-@property(readonly, nonatomic) CDUnknownBlockType sendBlock; // @synthesize sendBlock=_sendBlock;
-@property(readonly, nonatomic) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
-@property(readonly, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;
+@property(readonly, copy, nonatomic) CDUnknownBlockType sendBlock; // @synthesize sendBlock=_sendBlock;
+@property(readonly, copy, nonatomic) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
+@property(readonly, retain, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;
 @property(readonly, nonatomic) double timeout; // @synthesize timeout=_timeout;
 @property(nonatomic) BOOL hasTimedOut; // @synthesize hasTimedOut=_hasTimedOut;
 @property(nonatomic) BOOL sent; // @synthesize sent=_sent;

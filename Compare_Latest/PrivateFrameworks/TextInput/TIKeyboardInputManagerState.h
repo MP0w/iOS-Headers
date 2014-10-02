@@ -31,6 +31,7 @@
             unsigned int nextInputWouldStartSentence:1;
             unsigned int inputStringIsExemptFromChecker:1;
             unsigned int suppressPlaceholderCandidate:1;
+            unsigned int usesAutocorrectionLists:1;
         } fields;
     } _mask;
     BOOL _shouldAddModifierSymbolsToWordCharacters;
@@ -48,11 +49,13 @@
     TICharacterSetDescription *_inputsPreventingAcceptSelectedCandidate;
     TICharacterSetDescription *_inputsToReject;
     TICharacterSetDescription *_terminatorsPreventingAutocorrection;
+    TICharacterSetDescription *_terminatorsDeletingAutospace;
     NSString *_searchStringForMarkedText;
 }
 
 + (BOOL)supportsSecureCoding;
 @property(copy, nonatomic) NSString *searchStringForMarkedText; // @synthesize searchStringForMarkedText=_searchStringForMarkedText;
+@property(copy, nonatomic) TICharacterSetDescription *terminatorsDeletingAutospace; // @synthesize terminatorsDeletingAutospace=_terminatorsDeletingAutospace;
 @property(copy, nonatomic) TICharacterSetDescription *terminatorsPreventingAutocorrection; // @synthesize terminatorsPreventingAutocorrection=_terminatorsPreventingAutocorrection;
 @property(copy, nonatomic) TICharacterSetDescription *inputsToReject; // @synthesize inputsToReject=_inputsToReject;
 @property(copy, nonatomic) TICharacterSetDescription *inputsPreventingAcceptSelectedCandidate; // @synthesize inputsPreventingAcceptSelectedCandidate=_inputsPreventingAcceptSelectedCandidate;
@@ -68,8 +71,9 @@
 @property(nonatomic) unsigned int inputIndex; // @synthesize inputIndex=_inputIndex;
 @property(nonatomic) unsigned int inputCount; // @synthesize inputCount=_inputCount;
 @property(copy, nonatomic) NSString *wordSeparator; // @synthesize wordSeparator=_wordSeparator;
-@property(copy, nonatomic) TIKeyboardCandidate *autocorrectionRecordForInputString; // @synthesize autocorrectionRecordForInputString=_autocorrectionRecordForInputString;
+@property(retain, nonatomic) TIKeyboardCandidate *autocorrectionRecordForInputString; // @synthesize autocorrectionRecordForInputString=_autocorrectionRecordForInputString;
 - (BOOL)stringEndsWord:(id)arg1;
+- (BOOL)shouldDeleteAutospaceBeforeTerminator:(id)arg1;
 - (BOOL)shouldSuppressAutocorrectionWithTerminator:(id)arg1;
 - (BOOL)inputStringAcceptsCurrentCandidateIfSelected:(id)arg1;
 - (BOOL)acceptInputString:(id)arg1;
@@ -78,6 +82,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
 @property(nonatomic) BOOL suppressPlaceholderCandidate;
+@property(nonatomic) BOOL usesAutocorrectionLists;
 @property(nonatomic) BOOL usesCandidateSelection;
 @property(nonatomic) BOOL usesAutoDeleteWord;
 @property(nonatomic) BOOL suppressCompletionsForFieldEditor;

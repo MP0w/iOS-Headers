@@ -11,11 +11,18 @@
 @interface SKUIPageDividerCollectionViewCell : UICollectionViewCell
 {
     UIView *_dividerLine;
+    float _leftEdgeInset;
+    float _rightEdgeInset;
+    int _verticalAlignment;
 }
 
+@property(nonatomic) int verticalAlignment; // @synthesize verticalAlignment=_verticalAlignment;
+@property(nonatomic) float rightEdgeInset; // @synthesize rightEdgeInset=_rightEdgeInset;
+@property(nonatomic) float leftEdgeInset; // @synthesize leftEdgeInset=_leftEdgeInset;
 - (void).cxx_destruct;
 - (void)layoutSubviews;
 - (void)applyLayoutAttributes:(id)arg1;
+- (void)setColoringWithStyle:(id)arg1;
 - (void)setColoringWithColorScheme:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 

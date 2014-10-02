@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSError, NSString, NSURL, NSURLAuthenticationChallenge, NSURLCredential, NSURLProtectionSpace, NSURLResponse;
+@class NSData, NSDictionary, NSError, NSString, NSURL, NSURLAuthenticationChallenge, NSURLCredential, NSURLProtectionSpace, NSURLRequest, NSURLResponse;
 
 @protocol NDBackgroundSessionClient <NSObject>
 - (void)credStorage_setDefaultCredential:(NSURLCredential *)arg1 forProtectionSpace:(NSURLProtectionSpace *)arg2;
@@ -18,11 +18,23 @@
 - (void)credStorage_getInitialCredentialDictionariesWithReply:(void (^)(NSDictionary *, NSDictionary *))arg1;
 - (void)backgroundSessionDidFinishAppWake:(NSString *)arg1 reply:(void (^)(void))arg2;
 - (void)backgroundSessionDidStartAppWake:(NSString *)arg1 reply:(void (^)(void))arg2;
+- (void)backgroundAVAssetDownloadTask:(unsigned int)arg1 didReceiveDownloadToken:(unsigned long long)arg2;
+- (void)backgroundAVAssetDownloadTaskDidUpdateProgress:(unsigned int)arg1 totalBytesWritten:(unsigned long long)arg2 totalBytesExpectedToWrite:(unsigned long long)arg3;
+- (void)openFileAtPath:(NSString *)arg1 mode:(int)arg2 withReply:(void (^)(NSFileHandle *))arg3;
 - (void)backgroundDownloadTask:(unsigned int)arg1 didFinishDownloadingToURL:(NSURL *)arg2 reply:(void (^)(void))arg3;
+- (void)backgroundDownloadTask:(unsigned int)arg1 didResumeAtOffset:(long long)arg2 expectedTotalBytes:(long long)arg3;
 - (void)backgroundDownloadTask:(unsigned int)arg1 didWriteData:(long long)arg2 totalBytesWritten:(long long)arg3 totalBytesExpectedToWrite:(long long)arg4;
-- (void)backgroundTask:(unsigned int)arg1 didCompleteWithError:(NSError *)arg2 reply:(void (^)(void))arg3;
+- (void)willRetryBackgroundDataTask:(unsigned int)arg1 withError:(NSError *)arg2 timingData:(NSDictionary *)arg3;
+- (void)backgroundDataTaskDidBecomeDownloadTask:(unsigned int)arg1;
+- (void)backgroundDataTask:(unsigned int)arg1 didReceiveData:(NSData *)arg2 withReply:(void (^)(void))arg3;
+- (void)backgroundTask:(unsigned int)arg1 didCompleteWithError:(NSError *)arg2 timingData:(NSDictionary *)arg3 reply:(void (^)(void))arg4;
+- (void)backgroundTask:(unsigned int)arg1 needNewBodyStream:(BOOL)arg2 withReply:(void (^)(NSFileHandle *))arg3;
 - (void)backgroundTask:(unsigned int)arg1 didSendBodyData:(long long)arg2 totalBytesSent:(long long)arg3 totalBytesExpectedToSend:(long long)arg4;
-- (void)backgroundTask:(unsigned int)arg1 didReceiveResponse:(NSURLResponse *)arg2;
+- (void)backgroundTask:(unsigned int)arg1 didReceiveResponse:(NSURLResponse *)arg2 timingData:(NSDictionary *)arg3 reply:(void (^)(int))arg4;
+- (void)backgroundTask:(unsigned int)arg1 didReceiveResponse:(NSURLResponse *)arg2 timingData:(NSDictionary *)arg3;
+- (void)backgroundTaskHasConnectionWaiting:(unsigned int)arg1;
+- (void)backgroundTask:(unsigned int)arg1 _willSendRequestForEstablishedConnection:(NSURLRequest *)arg2 reply:(void (^)(NSURLRequest *, NSFileHandle *))arg3;
+- (void)backgroundTask:(unsigned int)arg1 willPerformHTTPRedirectionWithNewRequest:(NSURLRequest *)arg2 reply:(void (^)(NSURLRequest *))arg3;
 - (void)backgroundTask:(unsigned int)arg1 didReceiveChallenge:(NSURLAuthenticationChallenge *)arg2 reply:(void (^)(int, NSURLCredential *))arg3;
 - (void)backgroundTaskDidSuspend:(unsigned int)arg1;
 - (void)backgroundTaskDidResume:(unsigned int)arg1;

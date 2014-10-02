@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class NSNumber, NSString;
+@class NSArray, NSNumber, NSString, NSURL;
 
 @interface NSURLComponents : NSObject <NSCopying>
 {
@@ -17,6 +17,7 @@
 + (id)componentsWithString:(id)arg1;
 + (id)componentsWithURL:(id)arg1 resolvingAgainstBaseURL:(BOOL)arg2;
 + (id)allocWithZone:(struct _NSZone *)arg1;
+@property(copy) NSArray *queryItems;
 @property(copy) NSString *percentEncodedFragment;
 @property(copy) NSString *percentEncodedQuery;
 @property(copy) NSString *percentEncodedPath;
@@ -31,8 +32,9 @@
 @property(copy) NSString *password;
 @property(copy) NSString *user;
 @property(copy) NSString *scheme;
+@property(readonly, copy) NSString *string;
 - (id)URLRelativeToURL:(id)arg1;
-- (id)URL;
+@property(readonly, copy) NSURL *URL;
 - (id)initWithString:(id)arg1;
 - (id)initWithURL:(id)arg1 resolvingAgainstBaseURL:(BOOL)arg2;
 - (id)init;

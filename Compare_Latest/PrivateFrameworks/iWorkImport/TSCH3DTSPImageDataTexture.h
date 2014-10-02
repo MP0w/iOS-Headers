@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)canLoadCachedFullMipmapBufferForDataCache:(id)arg1;
 - (id)databufferForDataCache:(id)arg1;
 @property(readonly, nonatomic) TSPData *imageData;
+- (BOOL)hasCompleteData;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (void)dealloc;

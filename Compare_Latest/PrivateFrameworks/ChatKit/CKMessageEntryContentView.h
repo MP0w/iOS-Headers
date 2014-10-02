@@ -13,8 +13,10 @@
 @interface CKMessageEntryContentView : UIScrollView <UITextViewDelegate>
 {
     BOOL _shouldShowSubject;
+    BOOL _shouldShowCharacterCount;
     BOOL _needsTextLayout;
     BOOL _needsEnsureSelectionVisible;
+    BOOL _ignoreEndEditing;
     CKComposition *_composition;
     CKMessageEntryTextView *_subjectView;
     CKMessageEntryRichTextView *_textView;
@@ -25,6 +27,7 @@
     struct UIEdgeInsets _subjectAlignmentInsets;
 }
 
+@property(nonatomic) BOOL ignoreEndEditing; // @synthesize ignoreEndEditing=_ignoreEndEditing;
 @property(nonatomic) BOOL needsEnsureSelectionVisible; // @synthesize needsEnsureSelectionVisible=_needsEnsureSelectionVisible;
 @property(nonatomic) BOOL needsTextLayout; // @synthesize needsTextLayout=_needsTextLayout;
 @property(retain, nonatomic) UIView *dividerLine; // @synthesize dividerLine=_dividerLine;
@@ -34,6 +37,7 @@
 @property(nonatomic) UIView *activeView; // @synthesize activeView=_activeView;
 @property(retain, nonatomic) CKMessageEntryRichTextView *textView; // @synthesize textView=_textView;
 @property(retain, nonatomic) CKMessageEntryTextView *subjectView; // @synthesize subjectView=_subjectView;
+@property(nonatomic) BOOL shouldShowCharacterCount; // @synthesize shouldShowCharacterCount=_shouldShowCharacterCount;
 @property(nonatomic) BOOL shouldShowSubject; // @synthesize shouldShowSubject=_shouldShowSubject;
 - (void)invalidateComposition;
 - (void)calculateTextMetrics;
@@ -43,10 +47,7 @@
 - (void)textViewDidEndEditing:(id)arg1;
 - (void)textViewDidBeginEditing:(id)arg1;
 - (BOOL)textViewShouldBeginEditing:(id)arg1;
-- (void)insertMessagePart:(id)arg1;
-- (void)setMessageParts:(id)arg1;
-- (void)clearMessage;
-- (BOOL)hasContent;
+- (void)acceptAutocorrection;
 @property(nonatomic) BOOL balloonColor;
 @property(readonly, nonatomic) struct UIEdgeInsets contentTextAlignmentInsets;
 @property(readonly, nonatomic, getter=isShowingDictationPlaceholder) BOOL showingDictationPlaceholder;
@@ -55,12 +56,18 @@
 - (BOOL)makeActive;
 @property(readonly, nonatomic, getter=isActive) BOOL active;
 @property(retain, nonatomic) CKComposition *composition; // @synthesize composition=_composition;
-- (id)initWithFrame:(struct CGRect)arg1 shouldShowSubject:(BOOL)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 shouldShowSubject:(BOOL)arg2 shouldShowCharacterCount:(BOOL)arg3;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

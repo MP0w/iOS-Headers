@@ -8,7 +8,7 @@
 
 #import "AVAssetWriterFigAssetWriterNotificationHandlerDelegate.h"
 
-@class AVAssetWriterFigAssetWriterNotificationHandler, AVWeakReference, NSObject<OS_dispatch_queue>;
+@class AVAssetWriterFigAssetWriterNotificationHandler, AVWeakReference, NSObject<OS_dispatch_queue>, NSString;
 
 @interface AVAssetWriterWritingHelper : AVAssetWriterHelper <AVAssetWriterFigAssetWriterNotificationHandlerDelegate>
 {
@@ -32,6 +32,12 @@
 - (id)figTrackReferences;
 - (id)initWithConfigurationState:(id)arg1 error:(id *)arg2;
 - (id)initWithConfigurationState:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

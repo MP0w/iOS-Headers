@@ -11,8 +11,17 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
 - (id)variantGeometriesForGeometry:(id)arg1 variantCount:(unsigned int)arg2;
 - (float)skinnyKeyThreshold;
+- (id)boldKeyImageName;
+- (id)undoKeyImageName;
+- (id)pasteKeyImageName;
+- (id)copyKeyImageName;
+- (id)cutKeyImageName;
+- (id)rightArrowKeyImageName;
+- (id)leftArrowKeyImageName;
+- (id)dismissKeyImageName;
 - (id)shiftLockImageName;
 - (id)shiftOnKeyImageName;
 - (id)shiftKeyImageName;
@@ -23,7 +32,11 @@ __attribute__((visibility("hidden")))
 - (id)globalKeyImageName;
 - (struct CGPoint)moreABCKeyOffset;
 - (struct CGPoint)more123KeyOffset;
+- (float)moreABCKeyFontSize;
 - (float)_row4ControlSegmentWidth;
+- (BOOL)isTallPopup;
+- (float)popupFontSize;
+- (struct CGPoint)popupSymbolTextOffset;
 - (struct CGPoint)variantSymbolTextOffset;
 - (struct UIEdgeInsets)variantSymbolFrameInsets;
 - (struct UIEdgeInsets)variantDisplayFrameInsets;

@@ -18,6 +18,7 @@
 
 @property(retain, nonatomic) GEOPhoto *image; // @synthesize image=_image;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -29,6 +30,7 @@
 @property(readonly, nonatomic) BOOL hasImage;
 @property(readonly, nonatomic) BOOL hasName;
 - (void)dealloc;
+- (id)initWithPlaceDataUser:(id)arg1;
 
 @end
 

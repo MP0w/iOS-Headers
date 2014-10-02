@@ -53,11 +53,9 @@
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
-- (void)viewDidUnload;
 - (void)loadView;
 - (void)updateNavigationButtons;
 - (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (BOOL)supportedInterfaceOrientation:(int)arg1;
 - (BOOL)_allowsAutorotation;
 - (void)viewDidLoad;
@@ -93,7 +91,8 @@
 - (void)setHighlightedItemForProperty:(int)arg1 withIdentifier:(int)arg2 person:(void *)arg3 important:(BOOL)arg4;
 - (void)setCardContentProvider:(id)arg1;
 @property(nonatomic) BOOL allowsConferencing;
-@property(nonatomic) BOOL allowsSendingTextMessage;
+- (BOOL)allowsSendingTextMessage;
+- (void)setAllowsSendingTextMessage:(BOOL)arg1;
 @property(nonatomic) BOOL allowsAddingToAddressBook;
 @property(nonatomic) BOOL allowsSharing;
 @property(nonatomic) BOOL allowsActions;
@@ -132,6 +131,12 @@
 - (void)addActionWithTitle:(id)arg1 target:(id)arg2 selector:(SEL)arg3 forProperty:(int)arg4 withActionGrouping:(int)arg5 ordering:(int)arg6;
 - (void)addActionWithTitle:(id)arg1 shortTitle:(id)arg2 target:(id)arg3 selector:(SEL)arg4 forProperty:(int)arg5 withActionGrouping:(int)arg6 ordering:(int)arg7;
 - (BOOL)hasActionWithTitle:(id)arg1 target:(id)arg2 selector:(SEL)arg3 property:(int)arg4 actionGrouping:(int)arg5 ordering:(int)arg6;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

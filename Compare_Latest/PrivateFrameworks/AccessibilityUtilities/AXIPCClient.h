@@ -20,15 +20,21 @@
     unsigned int _connectionAttempts;
     BOOL _connected;
     BOOL shouldRegisterCallbackSourceOnMainRunloop;
+    BOOL _usesPerPidLookup;
     NSString *_serviceName;
     NSMutableArray *_postConnectionTasks;
     AXAccessQueue *_connectionQueue;
     unsigned int clientCallbackPort;
     struct __CFRunLoopSource *clientCallbackSource;
+    int _pid;
+    AXAccessQueue *_portDeathAccessQueue;
 }
 
 + (id)allClients;
 + (void)initialize;
+@property(retain, nonatomic) AXAccessQueue *portDeathAccessQueue; // @synthesize portDeathAccessQueue=_portDeathAccessQueue;
+@property(nonatomic) int pid; // @synthesize pid=_pid;
+@property(nonatomic) BOOL usesPerPidLookup; // @synthesize usesPerPidLookup=_usesPerPidLookup;
 @property(nonatomic) BOOL shouldRegisterCallbackSourceOnMainRunloop; // @synthesize shouldRegisterCallbackSourceOnMainRunloop;
 @property(retain, nonatomic) AXAccessQueue *connectionQueue; // @synthesize connectionQueue=_connectionQueue;
 @property(retain, nonatomic) NSMutableArray *postConnectionTasks; // @synthesize postConnectionTasks=_postConnectionTasks;
@@ -43,6 +49,7 @@
 - (void)_attemptToEstablishConnection;
 - (void)_serverDied;
 - (id)sendMessage:(id)arg1 withError:(id *)arg2;
+- (BOOL)sendSimpleMessage:(id)arg1 synchronizationPort:(unsigned int)arg2 error:(id *)arg3;
 - (BOOL)sendSimpleMessage:(id)arg1 withError:(id *)arg2;
 - (void)sendSimpleMessage:(id)arg1;
 - (BOOL)_verifyConnectionWithError:(id *)arg1;

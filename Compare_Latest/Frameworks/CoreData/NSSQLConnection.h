@@ -56,8 +56,6 @@ __attribute__((visibility("hidden")))
 - (void)createIndexesForEntity:(id)arg1;
 - (void)createManyToManyTablesForEntity:(id)arg1;
 - (void)createTableForEntity:(id)arg1;
-- (void)performAdapterOperations:(id)arg1;
-- (void)performAdapterOperation:(id)arg1;
 - (void)endFetch;
 - (void)setColumnsToFetch:(id)arg1;
 - (id)columnsToFetch;
@@ -76,10 +74,8 @@ __attribute__((visibility("hidden")))
 - (void)selectAttributes:(id)arg1 fetchRequest:(id)arg2 lock:(BOOL)arg3 entity:(id)arg4;
 - (void)deleteRow:(id)arg1;
 - (void)updateRow:(id)arg1;
-- (void)deleteCorrelation:(id)arg1;
-- (void)updateCorrelation:(id)arg1;
-- (void)insertCorrelation:(id)arg1;
 - (void)insertRow:(id)arg1;
+- (void)writeCorrelationChangesFromTracker:(id)arg1;
 - (BOOL)isOpen;
 - (BOOL)databaseIsEmpty;
 - (BOOL)canConnect;

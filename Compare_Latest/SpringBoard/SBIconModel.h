@@ -23,8 +23,8 @@
     _Bool _allowsSaving;
 }
 
-@property(readonly, nonatomic) id <SBIconModelApplicationDataSource> applicationDataSource; // @synthesize applicationDataSource=_applicationDataSource;
-@property(readonly, nonatomic) id <SBIconModelStore> store; // @synthesize store=_store;
+@property(readonly, retain, nonatomic) id <SBIconModelApplicationDataSource> applicationDataSource; // @synthesize applicationDataSource=_applicationDataSource;
+@property(readonly, retain, nonatomic) id <SBIconModelStore> store; // @synthesize store=_store;
 @property(nonatomic) id <SBIconModelDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) _Bool allowsSaving; // @synthesize allowsSaving=_allowsSaving;
 @property(retain, nonatomic) NSDictionary *leafIconsByIdentifier; // @synthesize leafIconsByIdentifier=_leafIconsByIdentifier;
@@ -36,7 +36,8 @@
 - (void)layout;
 - (void)_replaceAppIconsWithDownloadingIcons:(id)arg1;
 - (void)_replaceAppIconsWithDownloadingIcons;
-- (void)saveIconState;
+- (void)saveIconStateIfNeeded;
+- (void)_saveIconState;
 - (void)_saveDesiredIconState;
 - (void)deleteIconState;
 - (id)_indexPathInRootFolder:(id)arg1 forNewIcon:(id)arg2 isDesignatedLocation:(_Bool *)arg3 replaceExistingIconAtIndexPath:(id *)arg4;
@@ -51,7 +52,7 @@
 - (id)_unarchiveRootFolder;
 - (id)_iconState;
 - (id)iconState;
-- (id)applicationIconForDisplayIdentifier:(id)arg1;
+- (id)applicationIconForBundleIdentifier:(id)arg1;
 - (id)leafIconForIdentifier:(id)arg1;
 - (id)expectedIconForDisplayIdentifier:(id)arg1;
 - (id)_applicationIcons;
@@ -61,8 +62,7 @@
 - (void)loadAllIcons;
 - (void)addIconForApplication:(id)arg1;
 - (id)addBookmarkIconForWebClip:(id)arg1;
-- (id)leafIconForWebClipIdentifier:(id)arg1;
-- (id)leafIconForWebClip:(id)arg1;
+- (id)bookmarkIconForWebClipIdentifier:(id)arg1;
 - (id)downloadingIconForBundleIdentifier:(id)arg1;
 - (id)addDownloadingIconForBundleID:(id)arg1 withIdentifier:(id)arg2;
 - (id)addDownloadingIconForDownload:(id)arg1;

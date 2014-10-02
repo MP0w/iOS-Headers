@@ -49,6 +49,7 @@ __attribute__((visibility("hidden")))
 - (id)init;
 @property(readonly, nonatomic) UIImage *UIImage;
 - (id)initWithUIImage:(id)arg1;
+- (id)compositedImageWithColor:(id)arg1 alpha:(float)arg2 blendMode:(int)arg3;
 - (struct CGImage *)CGImageForSize:(struct CGSize)arg1 inContext:(struct CGContext *)arg2 orLayer:(id)arg3;
 
 @end

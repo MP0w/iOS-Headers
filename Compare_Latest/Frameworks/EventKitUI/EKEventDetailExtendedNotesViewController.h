@@ -25,6 +25,8 @@ __attribute__((visibility("hidden")))
 
 // Remaining properties
 @property(nonatomic) __weak id <EKEditItemViewControllerDelegate> editDelegate;
+@property(nonatomic) BOOL editItemShouldBeAskedForInjectableViewController;
+@property(nonatomic) BOOL presentModally;
 
 @end
 

@@ -11,7 +11,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class CKSpotlightQuery, NSMutableArray, UISearchBar, UISearchDisplayController;
+@class CKSpotlightQuery, NSMutableArray, NSString, UISearchBar, UISearchDisplayController;
 
 @interface CKConversationSearcher : NSObject <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
 {
@@ -50,6 +50,12 @@
 - (void)_cancel;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

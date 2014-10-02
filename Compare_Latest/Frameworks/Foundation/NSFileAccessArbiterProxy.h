@@ -8,7 +8,7 @@
 
 #import "NSFileAccessArbiter.h"
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>;
+@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface NSFileAccessArbiterProxy : NSObject <NSFileAccessArbiter>
@@ -21,12 +21,17 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_providersByID;
 }
 
-+ (id)_operationQueueForPresenter:(id)arg1;
++ (id)_fileReactorDebuggingInformation;
++ (id)_willBeginOperationForReactor:(id)arg1 withDescription:(id)arg2;
++ (void)_accessPresenterOperationRecordsUsingBlock:(CDUnknownBlockType)arg1;
++ (id)_idForReactor:(id)arg1;
 - (void)handleCanceledServer;
 - (void)handleMessage:(id)arg1;
-- (void)_makeProvider:(id)arg1 observePresentationChangeOfKind:(id)arg2 withPresenterID:(id)arg3 url:(id)arg4 newURL:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
+- (void)_makeProvider:(id)arg1 observeEndOfWriteAtURL:(id)arg2 forAccessClaimWithID:(id)arg3 processIdentifier:(int)arg4;
+- (void)_makeProvider:(id)arg1 observePresentationChangeOfKind:(id)arg2 withPresenterID:(id)arg3 processIdentifier:(int)arg4 url:(id)arg5 newURL:(id)arg6 completionHandler:(CDUnknownBlockType)arg7;
+- (void)_makeProvider:(id)arg1 providePhysicalURLForURL:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_makeProvider:(id)arg1 cancelProvidingItemAtURL:(id)arg2 forAccessClaimWithID:(id)arg3;
-- (void)_makeProvider:(id)arg1 provideItemAtURL:(id)arg2 forAccessClaimWithID:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)_makeProvider:(id)arg1 provideItemAtURL:(id)arg2 forAccessClaimWithID:(id)arg3 processIdentifier:(int)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)_makePresenter:(id)arg1 reacquireFromWritingClaimForID:(id)arg2;
 - (void)_makePresenter:(id)arg1 relinquishToWritingClaimWithID:(id)arg2 options:(unsigned int)arg3 subitemURL:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)_makePresenter:(id)arg1 reacquireFromReadingClaimForID:(id)arg2;
@@ -42,6 +47,7 @@ __attribute__((visibility("hidden")))
 - (void)_makePresenter:(id)arg1 accommodateDisconnectionWithCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)_makePresenter:(id)arg1 accommodateDeletionWithSubitemURL:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_makePresenter:(id)arg1 saveChangesWithCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)getDebugInfoWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)idForFileReactor:(id)arg1;
 - (id)fileProviders;
 - (void)removeFileProvider:(id)arg1;
@@ -51,6 +57,7 @@ __attribute__((visibility("hidden")))
 - (void)addFilePresenter:(id)arg1;
 - (void)tiePresenterForID:(id)arg1 toItemAtURL:(id)arg2;
 - (void)writerWithPurposeID:(id)arg1 didVersionChangeOfKind:(id)arg2 toItemAtURL:(id)arg3 withClientID:(id)arg4 name:(id)arg5;
+- (void)writerWithPurposeID:(id)arg1 didMakeItemDisappearAtURL:(id)arg2;
 - (void)writerWithPurposeID:(id)arg1 didChangeUbiquityOfItemAtURL:(id)arg2;
 - (void)writerWithPurposeID:(id)arg1 didReconnectItemAtURL:(id)arg2;
 - (void)writerWithPurposeID:(id)arg1 didDisconnectItemAtURL:(id)arg2;
@@ -62,10 +69,15 @@ __attribute__((visibility("hidden")))
 - (id)grantAccessClaim:(id)arg1 synchronouslyIfPossible:(BOOL)arg2;
 - (id)_writeRelinquishmentForPresenter:(id)arg1;
 - (id)_readRelinquishmentForPresenter:(id)arg1;
-- (id)_idForReactor:(id)arg1;
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithServer:(id)arg1 queue:(id)arg2 eventHandler:(CDUnknownBlockType)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

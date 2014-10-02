@@ -65,6 +65,7 @@
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSMutableArray *steps; // @synthesize steps=_steps;
 @property(nonatomic) int transportType; // @synthesize transportType=_transportType;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -134,10 +135,8 @@
 - (void)clearSteps;
 @property(nonatomic) BOOL hasTransportType;
 - (void)dealloc;
-- (double)distanceFromPoint:(struct PolylineCoordinate)arg1 toPoint:(struct PolylineCoordinate)arg2;
 - (int)transportTypeForStep:(id)arg1;
 - (BOOL)isContingentRouteFor:(id)arg1 afterPoint:(unsigned int)arg2 mainRoutes:(id)arg3;
-- (id)zilchDataFromStepIndex:(unsigned int)arg1;
 - (id)newETARouteFromStepIndex:(unsigned int)arg1 stepPercentRemaining:(double)arg2;
 - (id)newETARoute;
 - (id)convertToFullRoute:(id)arg1 includeDepartureRoutes:(BOOL)arg2 uniquePointRange:(struct _NSRange *)arg3;
@@ -146,12 +145,10 @@
 - (id)debugDescription;
 - (unsigned int)stepIndexForPointIndex:(unsigned int)arg1;
 - (unsigned int)distanceFromStepIndex:(unsigned int)arg1 toStepIndex:(unsigned int)arg2;
-- (BOOL)unpackLatLngVertices;
-- (void)unpackZilchPoints;
 - (BOOL)unpackBasicPoints;
+- (BOOL)unpackZilchPoints;
+- (BOOL)unpackLatLngVertices;
 @property(readonly) unsigned int pointCount;
-- (int)formOfWayAt:(unsigned int)arg1;
-- (void)getFormOfWay:(int *)arg1 roadClass:(int *)arg2 at:(unsigned int)arg3;
 - (CDStruct_c3b9c2ee)pointAt:(unsigned int)arg1;
 - (void *)controlPoints;
 

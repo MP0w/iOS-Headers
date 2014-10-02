@@ -22,12 +22,16 @@ __attribute__((visibility("hidden")))
 - (void)setFormatName:(id)arg1;
 - (id)formatName;
 - (id)format;
-- (id)description;
-- (unsigned int)hash;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithFormat:(id)arg1 name:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

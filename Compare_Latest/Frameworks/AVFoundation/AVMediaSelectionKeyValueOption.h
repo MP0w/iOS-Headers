@@ -18,7 +18,6 @@
     BOOL _displaysNonForcedSubtitles;
 }
 
-- (id)associatedMediaSelectionOptionInMediaSelectionGroup:(id)arg1;
 - (id)metadataForFormat:(id)arg1;
 - (id)availableMetadataFormats;
 - (id)commonMetadata;

@@ -14,8 +14,8 @@
     NSMutableArray *_nestedGroupPrincipalURLs;
 }
 
-@property(retain) NSMutableArray *nestedGroupPrincipalURLs; // @synthesize nestedGroupPrincipalURLs=_nestedGroupPrincipalURLs;
-@property int state; // @synthesize state=_state;
+@property(retain, nonatomic) NSMutableArray *nestedGroupPrincipalURLs; // @synthesize nestedGroupPrincipalURLs=_nestedGroupPrincipalURLs;
+@property(nonatomic) int state; // @synthesize state=_state;
 - (void)taskGroup:(id)arg1 didFinishWithError:(id)arg2;
 - (void)task:(id)arg1 didFinishWithError:(id)arg2;
 - (void)startTaskGroup;

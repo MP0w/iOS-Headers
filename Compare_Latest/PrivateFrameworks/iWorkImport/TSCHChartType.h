@@ -6,16 +6,19 @@
 
 #import "NSObject.h"
 
+#import "TSDMixing.h"
+
 @class TSCHChartFeature;
 
 __attribute__((visibility("hidden")))
-@interface TSCHChartType : NSObject
+@interface TSCHChartType : NSObject <TSDMixing>
 {
     TSCHChartFeature *mFeature;
 }
 
 + (float)sageDepthFactorForExportingChartInfo:(id)arg1;
 + (id)constantDepthInfoChartScaleForInfoChartScale:(id)arg1 chartType:(id)arg2 barShape:(int)arg3;
++ (id)chartTypePlaceholderForDefault3DScaleProperty;
 + (id)allChartTypes;
 + (id)multiDataBubbleChart;
 + (id)multiDataScatterChart;
@@ -42,7 +45,11 @@ __attribute__((visibility("hidden")))
 + (id)barChart;
 + (id)pieChart;
 - (id)p_debugDescription;
+- (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
+- (int)mixingTypeWithObject:(id)arg1;
+- (BOOL)supportsShowLabelsInFrontOption;
 - (void)updateTitlesForExportingModel:(id)arg1 info:(id)arg2;
+- (unsigned int)maxCellsToCheckForGridValueType;
 - (BOOL)supportsIncrementalResize;
 - (BOOL)supportsBubbleOptions;
 - (BOOL)supportsSharedAndSeparateX;
@@ -84,7 +91,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)supportsGroupedShadows;
 - (BOOL)supportsShadowOffset;
 - (BOOL)drawValueLabelsForZero;
-- (BOOL)requiresAxisOrdinal;
+- (BOOL)requiresYAxisOrdinal;
 - (BOOL)requiresSeparateLabelsRenderPass;
 - (BOOL)supportsMultipleSeriesTypes;
 - (BOOL)reverseSingleColumnLegendOrder;
@@ -111,7 +118,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)explosionAffectsChartBodyBounds;
 - (id)animationFiltersWithDefaultFilters:(id)arg1;
 - (struct UIEdgeInsets)swatchImageEdgeInsetsForSize:(struct CGSize)arg1;
-- (id)imageWithPreset:(id)arg1 target:(int)arg2 imageSize:(struct CGSize)arg3 imageScale:(float)arg4 swatchFrame:(struct CGRect)arg5 documentRoot:(id)arg6;
+- (id)imageWithPreset:(id)arg1 target:(int)arg2 imageSize:(struct CGSize)arg3 imageScale:(float)arg4 swatchFrame:(struct CGRect)arg5 documentRoot:(id)arg6 shouldCache:(char *)arg7;
 - (int)chartBodyBoundsDefinition;
 - (BOOL)supportsCategoryAxisLabels;
 - (unsigned int)presentationDimension;
@@ -126,12 +133,8 @@ __attribute__((visibility("hidden")))
 - (float)categoryAxisTitleRotation;
 - (float)valueAxisTitleRotation;
 - (id)titlePositionerWithInfo:(id)arg1 scene:(id)arg2;
-- (float)rotation3DMaxY;
-- (float)rotation3DMinY;
-- (float)rotation3DMaxX;
-- (float)rotation3DMinX;
-- (struct TSCH3DChartRotationLimit)rotation3DLimit;
 - (struct CGSize)mungeBodySize:(struct CGSize)arg1;
+- (BOOL)layoutFrameShouldEncloseInfoGeometry;
 - (int)deprecated3DShadowSpecificProperty;
 - (int)deprecated3DBevelEdgesSpecificProperty;
 - (id)g_genericToSpecificPropertyMapBubble;

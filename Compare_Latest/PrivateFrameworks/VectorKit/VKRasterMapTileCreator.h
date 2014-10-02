@@ -8,30 +8,30 @@
 
 #import "VKMapModelDelegate.h"
 
-@class NSString, VKImageCanvas, VKMapModel;
+@class NSString, VKImageCanvas, VKMapModel, VKRasterMapTileRequest;
 
 @interface VKRasterMapTileCreator : NSObject <VKMapModelDelegate>
 {
     VKImageCanvas *_canvas;
-    int _mapType;
     VKMapModel *_mapModel;
     struct VKTileKey _superTileKey;
     double _startTimestamp;
-    NSString *_tileLoaderClientID;
+    BOOL _loaderOpen;
     CDUnknownBlockType _completion;
+    VKRasterMapTileRequest *_request;
+    struct GLRenderer *_gglRenderer;
 }
 
++ (shared_ptr_77723e34)device;
 - (id).cxx_construct;
 - (void)mapModelDidBecomePartiallyDrawn:(id)arg1;
 - (id)mapModel:(id)arg1 painterForOverlay:(id)arg2;
 - (void)mapModelDidFailLoadingTiles:(id)arg1 withError:(id)arg2;
 - (void)mapModelDidFinishLoadingTiles:(id)arg1;
 - (void)mapModelDidStartLoadingTiles:(id)arg1;
+- (void)mapModelDidUpdateMinMaxZoomLevel:(id)arg1;
 - (void)mapModel:(id)arg1 willTransitionFrom:(int)arg2 to:(int)arg3 duration:(double)arg4;
 - (void)mapModel:(id)arg1 selectedLabelMarkerWillDisappear:(id)arg2;
-- (void)mapModel:(id)arg1 didFinishAddingAnnotationMarkers:(id)arg2;
-- (void)mapModel:(id)arg1 didAnimateInAnnotationMarkers:(id)arg2;
-- (void)mapModel:(id)arg1 willAnimateInAnnotationMarkers:(id)arg2;
 - (void)mapModel:(id)arg1 annotationMarker:(id)arg2 didChangeDragState:(int)arg3 fromOldState:(int)arg4;
 - (void)mapModel:(id)arg1 needsPanByOffset:(struct CGPoint)arg2 relativeToScreenPoint:(struct CGPoint)arg3 animated:(BOOL)arg4 duration:(double)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (id)mapModel:(id)arg1 markerForAnnotation:(id)arg2;
@@ -40,16 +40,17 @@
 - (BOOL)mapModelInNavAtDefaultZoom:(id)arg1;
 - (void)mapModelDidBecomeFullyDrawn:(id)arg1 hasFailedTiles:(BOOL)arg2;
 - (void)mapModelWillBecomFullyDrawn:(id)arg1;
-- (void)renderTile:(CDUnknownBlockType)arg1;
-@property(nonatomic) int labelScaleFactor;
-@property(nonatomic) BOOL localizeLabels;
-@property(nonatomic) int mapType;
-- (void)setContentScale:(float)arg1;
-- (void)setTileKey:(const struct VKRasterTileKey *)arg1;
+- (void)renderRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)detailedDescription;
 - (void)dealloc;
-- (id)initWithSoftwareRendering:(BOOL)arg1;
+- (id)initWithSoftwareRendering:(BOOL)arg1 homeQueue:(id)arg2;
 - (void)_lookAtKey:(const struct VKTileKey *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

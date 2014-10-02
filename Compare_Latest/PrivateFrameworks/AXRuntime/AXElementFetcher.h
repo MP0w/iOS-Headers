@@ -20,6 +20,7 @@
     BOOL _groupingEnabled;
     BOOL _shouldUsePadInterfaceHeuristics;
     BOOL _fetchingElements;
+    BOOL _didSendFakeScreenChangeOnLastFetch;
     id <AXElementFetcherDelegate> _delegate;
     int _fetchPolicy;
     NSMapTable *_fetchObservers;
@@ -37,6 +38,7 @@
 + (id)_applicationForElement:(id)arg1;
 + (id)springBoardElement;
 + (id)systemWideElement;
+@property(nonatomic) BOOL didSendFakeScreenChangeOnLastFetch; // @synthesize didSendFakeScreenChangeOnLastFetch=_didSendFakeScreenChangeOnLastFetch;
 @property(retain, nonatomic) NSMutableDictionary *postFetchFilters; // @synthesize postFetchFilters=_postFetchFilters;
 @property(nonatomic, getter=isFetchingElements) BOOL fetchingElements; // @synthesize fetchingElements=_fetchingElements;
 @property(nonatomic) BOOL shouldUsePadInterfaceHeuristics; // @synthesize shouldUsePadInterfaceHeuristics=_shouldUsePadInterfaceHeuristics;
@@ -58,8 +60,8 @@
 - (id)_debugStringForPolicy:(int)arg1;
 - (BOOL)_fetchGroups:(BOOL)arg1;
 - (id)_filterGroup:(id)arg1 withFilter:(CDUnknownBlockType)arg2;
-- (id)_groupWithItems:(id)arg1 groupTraits:(int)arg2;
-- (id)_groupWithDictionary:(id)arg1;
+- (id)_groupWithItems:(id)arg1 groupTraits:(int)arg2 label:(id)arg3 currentPid:(int)arg4;
+- (id)_groupWithDictionary:(id)arg1 currentPid:(int)arg2;
 - (void)updateKeyboardGroup:(id)arg1;
 - (id)findGroupableMatchingBlock:(CDUnknownBlockType)arg1;
 - (id)_findGroupableMatchingBlock:(CDUnknownBlockType)arg1 inElementGroup:(id)arg2;

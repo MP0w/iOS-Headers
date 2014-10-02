@@ -15,7 +15,6 @@
     NSString *_username;
     NSString *_password;
     NSString *_emailAddress;
-    BOOL _useSSL;
     NSNumber *_mailNumberOfPastDaysToSync;
     NSData *_embeddedCertificate;
     NSString *_embeddedCertificateName;
@@ -24,26 +23,28 @@
     NSString *_accountPersistentUUID;
     NSData *_certificatePersistentID;
     BOOL _syncDefaultFoldersOnly;
+    NSNumber *_useSSL;
 }
 
 + (id)localizedPluralForm;
 + (id)localizedSingularForm;
 + (id)typeStrings;
+@property(retain, nonatomic) NSNumber *useSSL; // @synthesize useSSL=_useSSL;
 @property(nonatomic) BOOL syncDefaultFoldersOnly; // @synthesize syncDefaultFoldersOnly=_syncDefaultFoldersOnly;
 @property(retain, nonatomic) NSData *certificatePersistentID; // @synthesize certificatePersistentID=_certificatePersistentID;
 @property(copy, nonatomic) NSString *accountPersistentUUID; // @synthesize accountPersistentUUID=_accountPersistentUUID;
-@property(readonly, nonatomic) NSString *certificateUUID; // @synthesize certificateUUID=_certificateUUID;
+@property(readonly, retain, nonatomic) NSString *certificateUUID; // @synthesize certificateUUID=_certificateUUID;
 @property(copy, nonatomic) NSString *embeddedCertificatePassword; // @synthesize embeddedCertificatePassword=_embeddedCertificatePassword;
-@property(readonly, nonatomic) NSString *embeddedCertificateName; // @synthesize embeddedCertificateName=_embeddedCertificateName;
-@property(readonly, nonatomic) NSData *embeddedCertificate; // @synthesize embeddedCertificate=_embeddedCertificate;
-@property(readonly, nonatomic) NSNumber *mailNumberOfPastDaysToSync; // @synthesize mailNumberOfPastDaysToSync=_mailNumberOfPastDaysToSync;
-@property(readonly, nonatomic) BOOL useSSL; // @synthesize useSSL=_useSSL;
+@property(readonly, retain, nonatomic) NSString *embeddedCertificateName; // @synthesize embeddedCertificateName=_embeddedCertificateName;
+@property(readonly, retain, nonatomic) NSData *embeddedCertificate; // @synthesize embeddedCertificate=_embeddedCertificate;
+@property(readonly, retain, nonatomic) NSNumber *mailNumberOfPastDaysToSync; // @synthesize mailNumberOfPastDaysToSync=_mailNumberOfPastDaysToSync;
 @property(copy, nonatomic) NSString *emailAddress; // @synthesize emailAddress=_emailAddress;
 @property(copy, nonatomic) NSString *password; // @synthesize password=_password;
 @property(copy, nonatomic) NSString *username; // @synthesize username=_username;
-@property(readonly, nonatomic) NSString *hostname; // @synthesize hostname=_hostname;
-@property(readonly, nonatomic) NSString *accountDescription; // @synthesize accountDescription=_accountDescription;
+@property(readonly, retain, nonatomic) NSString *hostname; // @synthesize hostname=_hostname;
+@property(readonly, retain, nonatomic) NSString *accountDescription; // @synthesize accountDescription=_accountDescription;
 - (void).cxx_destruct;
+- (id)payloadDescriptionKeyValueSections;
 - (id)subtitle2Description;
 - (id)subtitle2Label;
 - (id)subtitle1Description;

@@ -22,8 +22,8 @@
 - (void)_removeAllCachedImages;
 - (void)loadImageForStation:(id)arg1 withSize:(struct CGSize)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)loadImageForRadioArtwork:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (id)cachedImageDataForStation:(id)arg1 withExactSize:(struct CGSize)arg2;
-- (id)cachedImageDataForRadioArtwork:(id)arg1;
+- (id)cachedImageDataForStation:(id)arg1 withExactSize:(struct CGSize)arg2 MIMEType:(id *)arg3;
+- (id)cachedImageDataForRadioArtwork:(id)arg1 MIMEType:(id *)arg2;
 - (void)dealloc;
 - (id)_init;
 - (id)init;

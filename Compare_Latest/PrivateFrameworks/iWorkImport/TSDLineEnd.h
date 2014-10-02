@@ -7,11 +7,12 @@
 #import "NSObject.h"
 
 #import "NSCopying.h"
+#import "TSDMixing.h"
 
 @class NSString;
 
 __attribute__((visibility("hidden")))
-@interface TSDLineEnd : NSObject <NSCopying>
+@interface TSDLineEnd : NSObject <NSCopying, TSDMixing>
 {
     struct CGPath *mPath;
     struct CGPath *mWrapPath;
@@ -42,6 +43,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct CGPoint endPoint; // @synthesize endPoint=mEndPoint;
 @property(readonly, nonatomic) struct CGPath *path; // @synthesize path=mPath;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=mIdentifier;
+- (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
+- (int)mixingTypeWithObject:(id)arg1;
 - (id)description;
 @property(readonly, nonatomic) BOOL isNone;
 @property(readonly, nonatomic) struct CGPath *wrapPath;

@@ -9,11 +9,12 @@
 #import "MusicPickerOverlayDelegate.h"
 #import "UIActionSheetDelegate.h"
 
-@class MusicPlaylistActionsView, NSOperationQueue, UIActionSheet;
+@class MusicPlaylistActionsView, NSOperationQueue, NSString, UIActionSheet;
 
 @interface MusicPlaylistSongsViewController : MusicSongsViewController <MusicPickerOverlayDelegate, UIActionSheetDelegate>
 {
     MusicPlaylistActionsView *_actionsView;
+    struct UIEdgeInsets _actionsViewContentInsetAdditions;
     UIActionSheet *_clearActionSheet;
     UIActionSheet *_deleteActionSheet;
     NSOperationQueue *_downloadabilityOperationQueue;
@@ -30,7 +31,7 @@
 @property(readonly, nonatomic) int downloadableSongCount; // @synthesize downloadableSongCount=_downloadableSongCount;
 - (void).cxx_destruct;
 - (void)_updateCloudPlaylist;
-- (void)_updateDownloadabilityStateWithCanReloadActionRows:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)_updateDownloadabilityStateWithCanReloadActionRowsSynchronously:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)_updateActionsView;
 - (id)_seedItem;
 - (id)_playlistTitle;
@@ -38,6 +39,7 @@
 - (BOOL)_allowsAddingSongs;
 - (BOOL)_allowsEditing;
 - (BOOL)_allowsIndividualTrackDeletion;
+- (void)_playlistSongs_contentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)_geniusSaveAction:(id)arg1;
 - (void)_geniusRefreshAction:(id)arg1;
 - (void)_geniusNewAction:(id)arg1;
@@ -65,6 +67,13 @@
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)dealloc;
+- (id)initWithDataSource:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

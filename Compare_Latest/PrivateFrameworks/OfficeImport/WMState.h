@@ -56,10 +56,11 @@ __attribute__((visibility("hidden")))
 - (float)pageOffset;
 - (unsigned int)currentPage;
 - (void)setCurrentPage:(unsigned int)arg1;
-- (void)setListState:(id)arg1 forListId:(int)arg2;
-- (id)listStateForListId:(int)arg1;
+- (void)setListState:(id)arg1 forListId:(unsigned int)arg2;
+- (id)listStateForListWithId:(long)arg1 settingUpStateIfNeededWithDocument:(id)arg2;
+- (id)listStateForListId:(unsigned int)arg1;
 - (void)clearCurrentListState;
-- (BOOL)isCurrentListId:(int)arg1;
+- (BOOL)isCurrentListId:(unsigned int)arg1;
 - (BOOL)isCurrentListStateOverridden;
 - (void)setCurrentListState:(id)arg1;
 - (id)outlineState;

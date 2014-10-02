@@ -8,7 +8,7 @@
 
 #import "SBCountedMapValue.h"
 
-@class SBIconLabelImageParameters;
+@class NSString, SBIconLabelImageParameters;
 
 @interface SBIconLabelImage : UIImage <SBCountedMapValue>
 {
@@ -26,12 +26,17 @@
 + (void)applyKerning:(double)arg1 whitespaceKerning:(double)arg2 toAttributedString:(id)arg3;
 + (struct CGRect)_rectWithDrawing:(_Bool)arg1 inRect:(struct CGRect)arg2 fromParameters:(id)arg3;
 @property(readonly, nonatomic) struct CGPoint maxSizeOffset; // @synthesize maxSizeOffset=_maxSizeOffset;
-@property(readonly, nonatomic) SBIconLabelImageParameters *parameters; // @synthesize parameters=_parameters;
-- (id)description;
+@property(readonly, copy, nonatomic) SBIconLabelImageParameters *parameters; // @synthesize parameters=_parameters;
+@property(readonly, copy) NSString *description;
 - (id)countedMapKey;
 - (void)dealloc;
 - (id)initWithCGImage:(struct CGImage *)arg1 scale:(double)arg2 orientation:(long long)arg3;
 - (id)_initWithCGImage:(struct CGImage *)arg1 scale:(double)arg2 orientation:(long long)arg3 parameters:(id)arg4 maxSizeOffset:(struct CGPoint)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -18,10 +18,6 @@
 @property(retain, nonatomic) CKMediaObject *mediaObject; // @synthesize mediaObject=_mediaObject;
 - (void)transferUpdated:(id)arg1;
 - (void)updateViews;
-- (BOOL)isFilled;
-- (void)setFilled:(BOOL)arg1;
-- (BOOL)color;
-- (void)setColor:(BOOL)arg1;
 - (void)prepareForReuse;
 - (void)prepareForDisplay;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1 textAlignmentInsets:(struct UIEdgeInsets *)arg2;
@@ -30,6 +26,7 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)description;
 - (void)dealloc;
+- (void)configureForMediaObject:(id)arg1 previewWidth:(float)arg2 orientation:(BOOL)arg3;
 - (void)configureForMessagePart:(id)arg1;
 
 @end

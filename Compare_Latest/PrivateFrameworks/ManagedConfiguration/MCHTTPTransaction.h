@@ -31,10 +31,10 @@
 + (id)performRequestURL:(id)arg1 method:(id)arg2 timeout:(double)arg3 userAgent:(id)arg4 contentType:(id)arg5 data:(id)arg6 identity:(struct __SecIdentity *)arg7 outPermanentlyRedirectedURL:(id *)arg8 outError:(id *)arg9;
 + (id)transactionWithURL:(id)arg1 method:(id)arg2;
 @property(readonly, nonatomic) int statusCode; // @synthesize statusCode=_statusCode;
-@property(readonly, nonatomic) NSURL *permanentlyRedirectedURL; // @synthesize permanentlyRedirectedURL=_permanentlyRedirectedURL;
-@property(readonly, nonatomic) NSError *error; // @synthesize error=_error;
+@property(readonly, retain, nonatomic) NSURL *permanentlyRedirectedURL; // @synthesize permanentlyRedirectedURL=_permanentlyRedirectedURL;
+@property(readonly, retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(retain, nonatomic) NSString *CMSSignatureHeaderName; // @synthesize CMSSignatureHeaderName=_CMSSignatureHeaderName;
-@property(readonly, nonatomic) NSData *responseData; // @synthesize responseData=_responseData;
+@property(readonly, retain, nonatomic) NSData *responseData; // @synthesize responseData=_responseData;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 @property(retain, nonatomic) NSString *contentType; // @synthesize contentType=_contentType;
 @property(retain, nonatomic) NSString *userAgent; // @synthesize userAgent=_userAgent;

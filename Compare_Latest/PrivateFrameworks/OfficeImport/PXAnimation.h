@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (void)readAnimationFromTimingXmlNode:(struct _xmlNode *)arg1 tgtAnimation:(id)arg2 drawingState:(id)arg3;
-+ (id)readGraphicBuild:(struct _xmlNode *)arg1;
++ (id)readGraphicBuild:(struct _xmlNode *)arg1 drawingState:(id)arg2;
 + (id)readOleChartBuild:(struct _xmlNode *)arg1;
 + (int)readChartBuildType:(id)arg1;
 + (id)readParagraphBuild:(struct _xmlNode *)arg1;
@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
 + (void)readCommonBehaviorData:(struct _xmlNode *)arg1 tgtCommonBehaviorData:(id)arg2 drawingState:(id)arg3;
 + (void)readAnimRotationElement:(struct _xmlNode *)arg1 timeNode:(id)arg2 drawingState:(id)arg3;
 + (void)readAnimSetElement:(struct _xmlNode *)arg1 timeNode:(id)arg2 drawingState:(id)arg3;
-+ (id)readAnimVariant:(struct _xmlNode *)arg1;
++ (id)readAnimVariant:(struct _xmlNode *)arg1 drawingState:(id)arg2;
 + (void)readAnimCmdElement:(struct _xmlNode *)arg1 timeNode:(id)arg2 drawingState:(id)arg3;
 + (void)readAnimVideoElement:(struct _xmlNode *)arg1 timeNode:(id)arg2 drawingState:(id)arg3;
 + (void)readAnimAudioElement:(struct _xmlNode *)arg1 timeNode:(id)arg2 drawingState:(id)arg3;
@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 + (void)readAnimEffectElement:(struct _xmlNode *)arg1 timeNode:(id)arg2 drawingState:(id)arg3;
 + (void)readAnimElement:(struct _xmlNode *)arg1 timeNode:(id)arg2 drawingState:(id)arg3;
 + (void)readChartType:(id)arg1 oleChartTarget:(id)arg2;
++ (void)readChartBuildStep:(id)arg1 chartTarget:(id)arg2;
 + (id)newShapeTarget:(struct _xmlNode *)arg1 drawingState:(id)arg2;
 + (id)newTarget:(struct _xmlNode *)arg1 drawingState:(id)arg2;
 + (void)readTriggerEvent:(id)arg1 timeCondition:(id)arg2;

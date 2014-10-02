@@ -17,6 +17,7 @@
 + (id)setAssistantDataWithDictionary:(id)arg1 context:(id)arg2;
 + (id)setAssistantData;
 @property(nonatomic) BOOL voiceOver;
+@property(copy, nonatomic) NSString *userInterfaceIdiom;
 @property(copy, nonatomic) NSNumber *uiScale;
 @property(copy, nonatomic) NSNumber *twentyFourHourTimeDisplay;
 @property(retain, nonatomic) SAVoice *ttsVoice;
@@ -46,7 +47,11 @@
 
 // Remaining properties
 @property(copy, nonatomic) NSString *aceId; // @dynamic aceId;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(copy, nonatomic) NSString *refId; // @dynamic refId;
+@property(readonly) Class superclass;
 
 @end
 

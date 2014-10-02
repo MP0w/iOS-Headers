@@ -16,8 +16,6 @@
     id <GKVoiceChatClient> client;
     BOOL outputMeteringEnabled;
     BOOL inputMeteringEnabled;
-    float outputMeterLevel;
-    float inputMeterLevel;
     BOOL microphoneMuted;
     unsigned long curCallID;
     int state;
@@ -58,8 +56,8 @@
 @property int chatMode; // @synthesize chatMode;
 @property float remoteParticipantVolume;
 @property(getter=isMicrophoneMuted) BOOL microphoneMuted;
-@property(readonly, nonatomic) float inputMeterLevel; // @synthesize inputMeterLevel;
-@property(readonly, nonatomic) float outputMeterLevel; // @synthesize outputMeterLevel;
+@property(readonly, nonatomic) float inputMeterLevel;
+@property(readonly, nonatomic) float outputMeterLevel;
 @property(getter=isInputMeteringEnabled) BOOL inputMeteringEnabled; // @synthesize inputMeteringEnabled;
 @property(getter=isOutputMeteringEnabled) BOOL outputMeteringEnabled; // @synthesize outputMeteringEnabled;
 - (void)getNSError:(id *)arg1 code:(int)arg2 description:(id)arg3 reason:(id)arg4;

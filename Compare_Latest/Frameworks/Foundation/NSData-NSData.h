@@ -27,7 +27,7 @@
 - (id)initWithBase64EncodedString:(id)arg1 options:(unsigned int)arg2;
 - (id)_base64EncodingAsString:(BOOL)arg1 withOptions:(unsigned int)arg2;
 - (id)_initWithBase64EncodedObject:(id)arg1 options:(unsigned int)arg2;
-- (id)_initWithBase64EncodedCharacterEnumerator:(CDUnknownBlockType)arg1 length:(unsigned int)arg2 options:(unsigned int)arg3;
+- (BOOL)_decodeBase64EncodedCharacterBuffer:(const char *)arg1 length:(unsigned int)arg2 options:(unsigned int)arg3 buffer:(char *)arg4 bufferLength:(unsigned int)arg5 state:(CDStruct_c835aa66 *)arg6;
 - (struct _NSRange)rangeOfData:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3;
 - (id)initWithData:(id)arg1;
 - (id)initWithContentsOfFile:(id)arg1 error:(id *)arg2;
@@ -50,7 +50,7 @@
 - (BOOL)writeToFile:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
 - (id)subdataWithRange:(struct _NSRange)arg1;
 - (BOOL)isEqualToData:(id)arg1;
-- (const void *)_bytesIfCompact;
+- (BOOL)_isCompact;
 - (BOOL)_isDispatchData;
 - (void)getBytes:(void *)arg1 range:(struct _NSRange)arg2;
 - (void)enumerateByteRangesUsingBlock:(CDUnknownBlockType)arg1;
@@ -63,6 +63,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (BOOL)_copyWillRetain;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;

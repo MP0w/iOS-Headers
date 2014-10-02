@@ -6,7 +6,7 @@
 
 #import <iWorkImport/TSWPTextHostLayout.h>
 
-@class NSArray, NSDictionary, NSIndexSet, TSCH3DVector, TSCHChartInfo, TSCHChartLayout, TSCHChartModel, TSDLayoutGeometry;
+@class NSArray, NSDictionary, NSIndexSet, TSCH3DVector, TSCHChartDrawableLayoutLegendResizer, TSCHChartInfo, TSCHChartLayout, TSCHChartModel, TSDLayoutGeometry;
 
 __attribute__((visibility("hidden")))
 @interface TSCHChartDrawableLayout : TSWPTextHostLayout
@@ -18,35 +18,40 @@ __attribute__((visibility("hidden")))
     TSCHChartLayout *mChartLayout;
     TSDLayoutGeometry *mLayoutGeometryWhileCallingSuperComputeLayoutGeometry;
     TSDLayoutGeometry *mLastPureGeometry;
+    TSDLayoutGeometry *mLastChartAreaGeometry;
     struct CGSize mMinSizeCache;
     BOOL mInResize;
     BOOL mSuppressChartLayoutInvalidation;
+    TSDLayoutGeometry *mLegendGeometryForResize;
+    TSCHChartDrawableLayoutLegendResizer *mLegendResizer;
 }
 
+@property(retain, nonatomic) TSCHChartDrawableLayoutLegendResizer *p_legendResizer; // @synthesize p_legendResizer=mLegendResizer;
+@property(copy, nonatomic) TSDLayoutGeometry *p_legendGeometryForResize; // @synthesize p_legendGeometryForResize=mLegendGeometryForResize;
+@property(copy, nonatomic) TSDLayoutGeometry *p_lastChartAreaGeometry; // @synthesize p_lastChartAreaGeometry=mLastChartAreaGeometry;
 @property(copy, nonatomic) TSDLayoutGeometry *p_lastPureGeometry; // @synthesize p_lastPureGeometry=mLastPureGeometry;
 @property(retain, nonatomic) TSCHChartLayout *p_chartLayoutNoCreate; // @synthesize p_chartLayoutNoCreate=mChartLayout;
 - (struct CGRect)rectForSelection:(id)arg1;
 - (void)layoutSearchForSpellingErrorsWithHitBlock:(CDUnknownBlockType)arg1 stop:(char *)arg2;
 - (void)layoutSearchForString:(id)arg1 options:(unsigned int)arg2 hitBlock:(CDUnknownBlockType)arg3;
+- (id)i_computeWrapPath;
+- (struct CGRect)insertionFrame;
 - (struct CGRect)alignmentFrame;
 - (struct CGRect)boundsInfluencingExteriorWrap;
-- (struct CGRect)p_addMultiDataControlToBounds:(struct CGRect)arg1;
-- (float)p_approximateMultiDataControlUnscaledHeight;
 - (int)wrapFitType;
+- (id)visibleGeometries;
+- (struct CGRect)frameForCulling;
+- (struct CGRect)p_addMultiDataControlToInlineWrapBounds:(struct CGRect)arg1;
+- (float)p_approximatedAdditionalHeightForMultiDataControlWithMinimumAccommodatingScale:(float)arg1;
+- (float)p_approximateMultiDataControlUnscaledMinimumWidth;
+- (float)p_approximateMultiDataControlUnscaledHeight;
 - (BOOL)p_isPrintingInBackground;
-- (id)p_constrainAndResizePureGeometry:(id)arg1 withValidChartLayout:(id)arg2 toShadowGeometry:(id *)arg3 toInfoGeometry:(id *)arg4;
-- (void)p_convertValidChartLayout:(id)arg1 andInfoGeometry:(id)arg2 toPureGeometry:(id *)arg3 toShadowGeometry:(id *)arg4;
+- (id)p_constrainAndResizePureGeometry:(id)arg1 withValidChartLayout:(id)arg2 toChartAreaGeometry:(id *)arg3 toShadowGeometry:(id *)arg4 toInfoGeometry:(id *)arg5;
+- (void)p_convertValidChartLayout:(id)arg1 andInfoGeometry:(id)arg2 toPureGeometry:(id *)arg3 toChartAreaGeometry:(id *)arg4 toShadowGeometry:(id *)arg5;
 - (id)renderersWithRep:(id)arg1;
 - (void)take3DDepth;
-- (void)take3DRotationFromTracker:(id)arg1;
-- (void)endResize;
-- (void)takeSizeFromTracker:(id)arg1;
-- (void)beginResize;
-- (BOOL)canAspectRatioLockBeChangedByUser;
-- (BOOL)resizeMayChangeAspectRatio;
-- (void)endDynamicOperation;
-- (void)beginDynamicOperation;
 - (struct CGRect)alignmentFrameForProvidingGuidesInRoot;
+- (void)p_addEdgeAlignmentGuidesForRect:(struct CGRect)arg1 set:(id)arg2;
 - (struct CGSize)minimumSize;
 - (struct CGSize)p_calcMinSize;
 - (void)processChanges:(id)arg1;
@@ -54,7 +59,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)changesShouldClearLayout:(id)arg1;
 - (BOOL)changesShouldSetNeedsLayout:(id)arg1;
 - (id)propertiesThatInvalidateLayout;
-- (id)computeInfoGeometryFromLayoutGeometry:(id)arg1;
+- (id)computeInfoGeometryFromPureLayoutGeometry:(id)arg1;
 - (BOOL)supportsParentRotation;
 - (BOOL)canRotateChildLayout:(id)arg1;
 - (id)computeInfoGeometryDuringResize;
@@ -74,6 +79,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSCHChartModel *model;
 @property(copy, nonatomic) TSDLayoutGeometry *legendModelGeometry;
 @property(copy, nonatomic) TSDLayoutGeometry *legendGeometry;
+- (void)p_setLegendGeometry:(id)arg1 fromTransform:(struct CGAffineTransform)arg2 onLayout:(id)arg3 shouldUpdateLayoutItemSize:(BOOL)arg4;
+- (void)p_setLegendSize:(struct CGSize)arg1;
+- (struct CGRect)snappedLegendModelFrame:(struct CGRect)arg1;
 @property(copy, nonatomic) NSDictionary *seriesIndexedPieWedgeExplosions;
 - (id)p_chartLayout2D;
 @property(copy, nonatomic) NSArray *pieWedgeExplosions;
@@ -82,10 +90,10 @@ __attribute__((visibility("hidden")))
 - (void)setChartLayoutPropertyValue:(id)arg1 forKey:(id)arg2;
 - (void)p_postLayoutPropertyValueDidChangeNotification;
 @property(readonly, nonatomic) BOOL is3DChart;
-@property(readonly, nonatomic) TSCHChartLayout *chartLayout;
+@property(readonly, retain, nonatomic) TSCHChartLayout *chartLayout;
 @property(readonly, nonatomic) TSCHChartInfo *chartInfo;
 - (id)chartDrawableInfo;
-@property(readonly, nonatomic) TSCHChartLayout *p_chartLayout;
+@property(readonly, retain, nonatomic) TSCHChartLayout *p_chartLayout;
 - (Class)repClassOverride;
 - (void)dealloc;
 - (id)initWithInfo:(id)arg1;

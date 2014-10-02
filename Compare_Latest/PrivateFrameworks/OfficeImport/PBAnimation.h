@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 + (id)newChartBuild:(id)arg1;
 + (id)newParaBuild:(id)arg1;
 + (void)parseTargetContainerHolder:(id)arg1 setTargetObj:(id)arg2 state:(id)arg3;
++ (unsigned int)paragraphIndexFromCharacterIndex:(unsigned int)arg1 srcDrawable:(id)arg2;
 + (void)parseTimeNodeVariants:(id)arg1 commonData:(id)arg2;
 + (void)parseCmdBehaviorContainer:(id)arg1 cmdBehavior:(id)arg2 timeNode:(id)arg3;
 + (void)parseRotationBehaviorContainer:(id)arg1 rotationBehavior:(id)arg2 timeNode:(id)arg3;

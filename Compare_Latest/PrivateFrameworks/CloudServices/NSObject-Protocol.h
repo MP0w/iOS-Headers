@@ -7,7 +7,10 @@
 @class NSString, Protocol;
 
 @protocol NSObject
-- (NSString *)description;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
+@property(readonly) unsigned int hash;
+- (struct _NSZone *)zone;
 - (unsigned int)retainCount;
 - (id)autorelease;
 - (oneway void)release;
@@ -20,14 +23,11 @@
 - (id)performSelector:(SEL)arg1 withObject:(id)arg2 withObject:(id)arg3;
 - (id)performSelector:(SEL)arg1 withObject:(id)arg2;
 - (id)performSelector:(SEL)arg1;
-- (struct _NSZone *)zone;
 - (id)self;
 - (Class)class;
-- (Class)superclass;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 
 @optional
-- (NSString *)debugDescription;
+@property(readonly, copy) NSString *debugDescription;
 @end
 

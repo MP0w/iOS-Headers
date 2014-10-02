@@ -6,11 +6,11 @@
 
 #import "SBBBBulletinInfo.h"
 
-@class SBItemInfoLayoutCache, SBNotificationsSectionInfo, UIColor, UIImage;
+@class SBItemInfoLayoutCache, SBNotificationCenterSectionInfo, UIColor, UIImage, UIViewController;
 
 @interface SBNotificationsBulletinInfo : SBBBBulletinInfo
 {
-    SBNotificationsSectionInfo *_sectionInfo;
+    SBNotificationCenterSectionInfo *_sectionInfo;
     SBItemInfoLayoutCache *_layoutCache;
     UIImage *_icon;
     UIImage *_attachmentImage;
@@ -18,16 +18,18 @@
     double _secondaryTextHeight;
     _Bool _suppressingMessageForPrivacy;
     _Bool _isCachedMessageSuppressionValid;
+    UIViewController *_secondaryContentViewController;
     UIColor *_secondaryTextColor;
 }
 
+@property(readonly, nonatomic) UIViewController *secondaryContentViewController; // @synthesize secondaryContentViewController=_secondaryContentViewController;
 @property(readonly, nonatomic) UIColor *secondaryTextColor; // @synthesize secondaryTextColor=_secondaryTextColor;
-@property(retain, nonatomic) SBNotificationsSectionInfo *sectionInfo; // @synthesize sectionInfo=_sectionInfo;
+@property(retain, nonatomic) SBNotificationCenterSectionInfo *sectionInfo; // @synthesize sectionInfo=_sectionInfo;
 @property(nonatomic) struct CGSize attachmentImageSize; // @synthesize attachmentImageSize=_attachmentImageSize;
 @property(retain, nonatomic) UIImage *attachmentImage; // @synthesize attachmentImage=_attachmentImage;
 @property(retain, nonatomic) UIImage *icon; // @synthesize icon=_icon;
 - (void)populateReusableView:(id)arg1;
-- (double)heightForReusableViewForBulletinViewController:(id)arg1 layoutMode:(long long)arg2;
+- (double)heightForReusableViewForBulletinViewController:(id)arg1 layoutMode:(long long)arg2 bulletinLocation:(long long)arg3;
 - (struct CGSize)_effectiveAttachmentImageSize;
 - (id)_attachmentImageToDisplay;
 - (id)_eventDateLabelForDisplay;
@@ -38,6 +40,7 @@
 - (CDStruct_89ddc8e1)_relevanceDateLabelDescription;
 - (id)_endDate;
 - (id)_secondaryTextColor;
+- (id)_secondaryContentView;
 - (id)_secondaryTextToDisplay;
 - (id)_secondaryText;
 - (id)_subtitleTextColor;
@@ -47,6 +50,7 @@
 - (id)_primaryTextColor;
 @property(readonly, nonatomic, getter=isSuppressingMessageForPrivacy) _Bool suppressingMessageForPrivacy; // @synthesize suppressingMessageForPrivacy=_suppressingMessageForPrivacy;
 - (id)_primaryText;
+- (void)prepareWithCompletion:(CDUnknownBlockType)arg1;
 - (void)invalidateCachedLayoutData;
 - (Class)reusableViewClass;
 - (id)identifier;

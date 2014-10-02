@@ -6,30 +6,40 @@
 
 #import <MediaPlayer/MPMediaItemCollection.h>
 
-@class NSString;
+@class MPMediaQuery, NSArray, NSString;
 
 @interface MPMediaPlaylist : MPMediaItemCollection
 {
+    NSArray *_representativeArtists;
+    MPMediaQuery *_seedTracksQuery;
 }
 
 + (BOOL)_isValidPlaylistProperty:(id)arg1;
 + (void)_createFilterableDictionary;
 + (BOOL)canFilterByProperty:(id)arg1;
+- (void).cxx_destruct;
+- (BOOL)canPlayUsingNetworkType:(int)arg1;
+- (BOOL)isCloudMix;
+- (id)seedTracksQuery;
+- (id)representativeArtists;
+- (id)multiverseIdentifier;
 - (id)representativeItem;
 - (unsigned int)mediaTypes;
 - (unsigned int)count;
 - (id)items;
-@property(readonly, nonatomic) int playlistAttributes;
+@property(readonly, nonatomic) NSArray *seedItems;
+@property(readonly, nonatomic) unsigned int playlistAttributes;
 @property(readonly, nonatomic) NSString *name;
 @property(readonly, nonatomic) unsigned long long persistentID;
 - (BOOL)existsInLibrary;
-- (id)loadGeniusMixArtworkWithTileLength:(float)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (id)valueForProperty:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
+- (id)initWithMultiverseIdentifier:(id)arg1;
 - (id)initWithPersistentID:(unsigned long long)arg1;
+- (id)artworkCatalogsWithMaximumCount:(unsigned int)arg1;
 
 @end
 

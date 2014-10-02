@@ -11,7 +11,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (id)edConditionalFormattingRuleFromXmlConditionalFormattingRuleElement:(struct _xmlNode *)arg1 state:(id)arg2;
++ (void)readFrom:(struct _xmlNode *)arg1 x14:(BOOL)arg2 edConditionalFormatting:(id)arg3 edReference:(id)arg4 state:(id)arg5;
++ (void)initialize;
 + (int)edTimePeriodFromXmlTimePeriodString:(id)arg1;
 + (int)edOperatorFromXmlOperatorString:(id)arg1;
 + (int)edRuleTypeFromXmlRuleTypeString:(id)arg1;

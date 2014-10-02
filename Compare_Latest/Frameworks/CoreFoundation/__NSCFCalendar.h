@@ -11,7 +11,11 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (id)calendarWithIdentifier:(id)arg1;
 + (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
+- (void)enumerateDatesStartingAfterDate:(id)arg1 matchingComponents:(id)arg2 options:(unsigned int)arg3 usingBlock:(CDUnknownBlockType)arg4;
+- (BOOL)nextWeekendStartDate:(out id *)arg1 interval:(out double *)arg2 options:(unsigned int)arg3 afterDate:(id)arg4;
+- (BOOL)isDateInWeekend:(id)arg1;
 - (id)components:(unsigned int)arg1 fromDate:(id)arg2 toDate:(id)arg3 options:(unsigned int)arg4;
 - (id)dateByAddingComponents:(id)arg1 toDate:(id)arg2 options:(unsigned int)arg3;
 - (id)components:(unsigned int)arg1 fromDate:(id)arg2;

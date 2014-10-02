@@ -8,7 +8,7 @@
 
 #import "NSCoding.h"
 
-@class EAGLContext, NSMutableDictionary;
+@class EAGLContext, NSMutableDictionary, UIImage;
 
 @interface GLKView : UIView <NSCoding>
 {
@@ -56,7 +56,7 @@
 - (BOOL)_canDrawContent;
 - (void)displayLayer:(id)arg1;
 @property(nonatomic) BOOL enableSetNeedsDisplay; // @synthesize enableSetNeedsDisplay=_enableSetNeedsDisplay;
-- (id)snapshot;
+@property(readonly) UIImage *snapshot;
 - (void)bindDrawable;
 @property(nonatomic) int drawableMultisample; // @synthesize drawableMultisample=_drawableMultisample;
 @property(nonatomic) int drawableStencilFormat; // @synthesize drawableStencilFormat=_drawableStencilFormat;

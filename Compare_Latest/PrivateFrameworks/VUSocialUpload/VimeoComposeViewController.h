@@ -8,16 +8,17 @@
 
 #import "VimeoComposeOptionViewDelegate.h"
 
-@class ACAccount, ACAccountStore, NSArray, NSString, SLSheetAction, UIImageView, VimeoDetailsController;
+@class ACAccount, ACAccountStore, NSArray, NSString, SLComposeSheetConfigurationItem, UIImageView, VimeoDetailsController, VimeoUploadSession;
 
 @interface VimeoComposeViewController : SLComposeServiceViewController <VimeoComposeOptionViewDelegate>
 {
+    VimeoUploadSession *_session;
     UIImageView *_logoView;
-    SLSheetAction *_detailsAction;
+    SLComposeSheetConfigurationItem *_detailsConfigurationItem;
     VimeoDetailsController *_detailsController;
     ACAccountStore *_accountStore;
     ACAccount *_vimeoAccount;
-    NSString *_description;
+    NSString *_postDescription;
     NSArray *_tags;
     int _videoSize;
     int _privacySettings;
@@ -26,17 +27,23 @@
 @property(nonatomic) int privacySettings; // @synthesize privacySettings=_privacySettings;
 @property(nonatomic) int videoSize; // @synthesize videoSize=_videoSize;
 @property(retain, nonatomic) NSArray *tags; // @synthesize tags=_tags;
-@property(retain, nonatomic) NSString *description; // @synthesize description=_description;
+@property(retain, nonatomic) NSString *postDescription; // @synthesize postDescription=_postDescription;
 @property(retain, nonatomic) ACAccount *vimeoAccount; // @synthesize vimeoAccount=_vimeoAccount;
 @property(retain, nonatomic) ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
+- (void).cxx_destruct;
 - (BOOL)textView:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
-- (void)send;
+- (void)didSelectPost;
 - (BOOL)validateText:(id)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)vimeoComposeOptionsViewDidFinish:(id)arg1;
-- (id)sheetActions;
-- (void)dealloc;
+- (id)configurationItems;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

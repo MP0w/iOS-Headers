@@ -13,6 +13,8 @@ __attribute__((visibility("hidden")))
 {
     unsigned int _disclosedSubitem;
     NSArray *_alarms;
+    BOOL _hasLeaveNowAlarm;
+    BOOL _canHaveLeaveNowAlarm;
 }
 
 - (void).cxx_destruct;
@@ -27,6 +29,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)_alarmsAreEditable;
 - (void)reset;
 - (void)setEvent:(id)arg1 store:(id)arg2;
+- (void)_updateAlarms;
 
 @end
 

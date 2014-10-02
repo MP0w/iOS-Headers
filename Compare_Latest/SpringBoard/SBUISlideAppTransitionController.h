@@ -23,8 +23,7 @@
 - (void)_cleanupAnimation;
 - (void)_startAnimation;
 - (void)_prepareAnimation;
-- (id)_animationProgressDependency;
-- (_Bool)_animationShouldStart;
+- (_Bool)_waitsForApplicationActivationIfNecessary;
 - (void)dealloc;
 - (id)initWithActivatingApp:(id)arg1 deactivatingApp:(id)arg2;
 

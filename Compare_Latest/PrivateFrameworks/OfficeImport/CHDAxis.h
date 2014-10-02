@@ -8,7 +8,7 @@
 
 #import "EDKeyedObject.h"
 
-@class CHDTitle, EDResources, OADGraphicProperties;
+@class CHDTitle, EDResources, NSString, OADGraphicProperties;
 
 __attribute__((visibility("hidden")))
 @interface CHDAxis : NSObject <EDKeyedObject>
@@ -47,6 +47,7 @@ __attribute__((visibility("hidden")))
     EDResources *mResources;
 }
 
+@property(readonly, copy) NSString *description;
 - (void)adjustAxisPositionForHorizontalChart;
 - (void)setTickLabelAutoRotation:(_Bool)arg1;
 - (_Bool)isTickLabelAutoRotation;
@@ -119,6 +120,11 @@ __attribute__((visibility("hidden")))
 - (unsigned int)fontIndex;
 - (void)setContentFormatId:(unsigned int)arg1;
 - (unsigned int)contentFormatId;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

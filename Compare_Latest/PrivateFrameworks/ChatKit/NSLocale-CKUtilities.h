@@ -7,6 +7,7 @@
 #import "NSLocale.h"
 
 @interface NSLocale (CKUtilities)
++ (void)__ck_setTestLocale:(id)arg1;
 + (id)__ck_currentLocale;
 @end
 

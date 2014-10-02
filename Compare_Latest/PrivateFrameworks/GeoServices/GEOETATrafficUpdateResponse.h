@@ -19,6 +19,7 @@
 
 @property(retain, nonatomic) NSMutableArray *routes; // @synthesize routes=_routes;
 @property(nonatomic) int status; // @synthesize status=_status;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -17,12 +17,12 @@
     BOOL _isShowingAuthenticationPanel;
 }
 
+- (void).cxx_destruct;
 - (void)removeAuthenticationChallenge:(id)arg1;
 - (void)addAuthenticationChallenge:(id)arg1 displayPanel:(BOOL)arg2;
 - (void)addAuthenticationChallenge:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)cancelAuthentication;
-- (void)dealloc;
 - (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)sheetReturnKeyPressed:(id)arg1;
 - (void)setShowingAuthentication:(BOOL)arg1;

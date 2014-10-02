@@ -13,8 +13,12 @@
     CDUnknownBlockType handler;
     NSString *identifier;
     int priority;
+    int _type;
+    struct __IOHIDEventSystemClient *_systemClient;
 }
 
+@property(retain, nonatomic) struct __IOHIDEventSystemClient *systemClient; // @synthesize systemClient=_systemClient;
+@property(nonatomic) int type; // @synthesize type=_type;
 @property(nonatomic) int priority; // @synthesize priority;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier;
 @property(copy, nonatomic) CDUnknownBlockType handler; // @synthesize handler;

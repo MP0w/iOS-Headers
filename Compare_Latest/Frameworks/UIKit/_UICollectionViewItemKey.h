@@ -25,8 +25,8 @@ __attribute__((visibility("hidden")))
 + (id)collectionItemKeyForCellWithIndexPath:(id)arg1;
 @property(readonly, nonatomic) BOOL isClone; // @synthesize isClone=_isClone;
 @property(readonly, nonatomic) unsigned int type; // @synthesize type=_type;
-@property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-@property(readonly, nonatomic) NSIndexPath *indexPath; // @synthesize indexPath=_indexPath;
+@property(readonly, retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(readonly, retain, nonatomic) NSIndexPath *indexPath; // @synthesize indexPath=_indexPath;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyAsClone:(BOOL)arg1;

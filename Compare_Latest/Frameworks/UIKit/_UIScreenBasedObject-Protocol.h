@@ -9,6 +9,7 @@
 @class NSDictionary, UIScreen;
 
 @protocol _UIScreenBasedObject <NSObject>
+@property(readonly) NSDictionary *_options;
 @property(readonly) UIScreen *_intendedScreen;
 - (BOOL)_matchingOptions:(NSDictionary *)arg1;
 - (id)_initWithScreen:(UIScreen *)arg1 options:(NSDictionary *)arg2;

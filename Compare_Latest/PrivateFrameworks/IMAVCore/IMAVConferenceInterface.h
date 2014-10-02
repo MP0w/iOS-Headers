@@ -22,6 +22,7 @@
 + (void)_postParticipantScreenAttributesChangeNotification:(id)arg1 cameraChanged:(BOOL)arg2 orientationChanged:(BOOL)arg3 aspectChanged:(BOOL)arg4 cameraWillSwitch:(BOOL)arg5 camera:(unsigned int)arg6 orentation:(unsigned int)arg7 aspect:(struct CGSize)arg8;
 + (void)_postParticipantMediaChangeNotification:(id)arg1 cameraChanged:(BOOL)arg2 orientationChanged:(BOOL)arg3 aspectChanged:(BOOL)arg4 contentRectChanged:(BOOL)arg5 cameraWillSwitch:(BOOL)arg6 camera:(unsigned int)arg7 orentation:(unsigned int)arg8 aspect:(struct CGSize)arg9 contentRect:(struct CGRect)arg10;
 + (BOOL)_useMultipleAVConference;
++ (BOOL)_forceRelayMode;
 - (void)updateAVChat:(id)arg1 withCallMetadata:(id)arg2;
 - (BOOL)_submitEndCallMetric:(id)arg1 forCallID:(int)arg2;
 - (BOOL)_submitLoggingInformation:(id)arg1 forChat:(id)arg2;
@@ -49,7 +50,7 @@
 - (void)conference:(id)arg1 localIPChange:(id)arg2 withCallID:(int)arg3;
 - (void)conference:(id)arg1 remoteVideoPaused:(BOOL)arg2 callID:(int)arg3;
 - (void)conference:(id)arg1 remoteAudioPaused:(BOOL)arg2 callID:(int)arg3;
-- (void)conference:(id)arg1 receivedNoRemotePacketsForTime:(double)arg2 callID:(int)arg3;
+- (void)conference:(id)arg1 reinitializeCallForCallID:(unsigned long)arg2;
 - (void)conference:(id)arg1 withCallID:(int)arg2 remoteMediaStalled:(BOOL)arg3;
 - (void)conference:(id)arg1 videoQualityNotificationForCallID:(int)arg2 isDegraded:(BOOL)arg3 isRemote:(BOOL)arg4;
 - (void)conference:(id)arg1 withCallID:(int)arg2 networkHint:(BOOL)arg3;
@@ -59,6 +60,8 @@
 - (void)conference:(id)arg1 remoteVideoAttributesChanged:(id)arg2 callID:(int)arg3;
 - (void)conference:(id)arg1 remoteScreenAttributesChanged:(id)arg2 callID:(int)arg3;
 - (void)conference:(id)arg1 receivedFirstRemoteFrameForCallID:(int)arg2;
+- (void)conference:(id)arg1 updateOutputFrequencyLevel:(id)arg2;
+- (void)conference:(id)arg1 updateInputFrequencyLevel:(id)arg2;
 - (void)conference:(id)arg1 updateOutputMeterLevel:(float)arg2;
 - (void)conference:(id)arg1 updateInputMeterLevel:(float)arg2;
 - (void)conference:(id)arg1 didStopWithCallID:(int)arg2 error:(id)arg3;
@@ -100,6 +103,7 @@
 - (BOOL)_hasAVConferenceObjectsForChatsOtherThan:(id)arg1;
 - (void)_configureAVConference:(id)arg1 forChat:(id)arg2;
 - (void)_setAudioSessionPropertiesForChat:(id)arg1;
+- (id)_getFaceTimeUUID;
 - (void)dealloc;
 - (id)init;
 

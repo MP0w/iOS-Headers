@@ -8,7 +8,7 @@
 
 #import "UIViewControllerAnimatedTransitioning.h"
 
-@class UICollectionViewLayout, UIPercentDrivenInteractiveTransition;
+@class NSString, UICollectionViewLayout, UIPercentDrivenInteractiveTransition;
 
 @interface _UICollectionViewControllerLayoutToLayoutTransition : NSObject <UIViewControllerAnimatedTransitioning>
 {
@@ -33,6 +33,12 @@
 - (double)transitionDuration:(id)arg1;
 - (void)animateTransition:(id)arg1;
 - (void)animationEnded:(BOOL)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

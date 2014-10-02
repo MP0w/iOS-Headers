@@ -14,8 +14,8 @@
     NSURL *_priorURL;
 }
 
-@property(retain) NSURL *priorURL; // @synthesize priorURL=_priorURL;
-@property(readonly) int absoluteOrder; // @synthesize absoluteOrder=_absoluteOrder;
+@property(retain, nonatomic) NSURL *priorURL; // @synthesize priorURL=_priorURL;
+@property(readonly, nonatomic) int absoluteOrder; // @synthesize absoluteOrder=_absoluteOrder;
 - (id)description;
 - (void)dealloc;
 - (id)initWithAction:(int)arg1 context:(id)arg2 absoluteOrder:(int)arg3;

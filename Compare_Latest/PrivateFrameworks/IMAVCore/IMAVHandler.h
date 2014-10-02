@@ -12,7 +12,6 @@
 {
     NSMutableArray *_pendingChats;
     NSMutableArray *_pendingLookups;
-    NSMutableArray *_processingInvites;
 }
 
 + (void)ensureHandlerSetup;
@@ -30,8 +29,10 @@
 - (void)pendingVCRequestComplete;
 - (void)vcCapabilitiesChanged:(unsigned long long)arg1;
 - (void)account:(id)arg1 avAction:(unsigned int)arg2 withArguments:(id)arg3 toAVChat:(id)arg4 isVideo:(BOOL)arg5;
+- (void)_handleFilteredIncomingAVChatForNotification:(id)arg1;
 - (void)_handleIncomingAVChatForNotification:(id)arg1;
 - (void)_enqueueIMAVChatForNetworkActivation:(id)arg1;
+- (void)_notifyOfFilteredIncomingInvitationFor:(id)arg1 notifyInvitationListeners:(BOOL)arg2;
 - (void)_notifyOfIncomingInvitationFor:(id)arg1 notifyInvitationListeners:(BOOL)arg2;
 - (void)account:(id)arg1 conference:(id)arg2 changedToNewConferenceID:(id)arg3;
 - (void)account:(id)arg1 conference:(id)arg2 peerIDChangedFromID:(id)arg3 toID:(id)arg4;

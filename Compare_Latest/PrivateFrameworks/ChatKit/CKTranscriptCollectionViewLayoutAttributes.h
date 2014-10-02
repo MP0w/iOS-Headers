@@ -6,6 +6,8 @@
 
 #import "UICollectionViewLayoutAttributes.h"
 
+@class CKChatItem;
+
 @interface CKTranscriptCollectionViewLayoutAttributes : UICollectionViewLayoutAttributes
 {
     struct CGRect _targetFrame;
@@ -13,13 +15,15 @@
     float _easing;
     float _targetEasing;
     BOOL _orientation;
+    CKChatItem *_chatItem;
 }
 
-@property(nonatomic) BOOL orientation; // @synthesize orientation=_orientation;
+@property(retain, nonatomic) CKChatItem *chatItem; // @synthesize chatItem=_chatItem;
 @property(nonatomic) float targetEasing; // @synthesize targetEasing=_targetEasing;
 @property(nonatomic) float easing; // @synthesize easing=_easing;
 @property(nonatomic) struct CGRect currentFrame; // @synthesize currentFrame=_currentFrame;
 @property(nonatomic) struct CGRect targetFrame; // @synthesize targetFrame=_targetFrame;
+- (void)dealloc;
 
 @end
 

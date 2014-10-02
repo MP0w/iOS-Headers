@@ -22,10 +22,12 @@
     } _has;
 }
 
++ (id)carInfoWithTraits:(id)arg1;
 @property(nonatomic) CDStruct_af817366 screenResolution; // @synthesize screenResolution=_screenResolution;
 @property(retain, nonatomic) NSString *model; // @synthesize model=_model;
 @property(retain, nonatomic) NSString *manufacturer; // @synthesize manufacturer=_manufacturer;
 @property(nonatomic) int interactionModel; // @synthesize interactionModel=_interactionModel;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -39,6 +41,7 @@
 @property(readonly, nonatomic) BOOL hasManufacturer;
 @property(nonatomic) BOOL hasInteractionModel;
 - (void)dealloc;
+- (id)initWithTraits:(id)arg1;
 
 @end
 

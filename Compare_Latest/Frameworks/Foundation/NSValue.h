@@ -14,6 +14,7 @@
 }
 
 + (BOOL)supportsSecureCoding;
++ (id)valueWithEdgeInsets:(struct NSEdgeInsets)arg1;
 + (id)valueWithRange:(struct _NSRange)arg1;
 + (id)valueWithRect:(struct CGRect)arg1;
 + (id)valueWithSize:(struct CGSize)arg1;
@@ -28,6 +29,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (Class)classForCoder;
+- (struct NSEdgeInsets)edgeInsetsValue;
 - (struct _NSRange)rangeValue;
 - (struct CGRect)rectValue;
 - (struct CGSize)sizeValue;
@@ -39,7 +41,8 @@
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isEqualToValue:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (const char *)objCType;
+- (BOOL)_matchType:(const char *)arg1 size:(unsigned int)arg2;
+@property(readonly) const char *objCType;
 - (void)getValue:(void *)arg1;
 - (id)init;
 - (BOOL)isNSValue__;

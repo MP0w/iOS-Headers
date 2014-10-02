@@ -11,10 +11,17 @@
     struct UIEdgeInsets _contentInsets;
 }
 
++ (BOOL)wantsHorizontalLayout;
 @property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
-- (id)contentViewConstraints;
-- (void)updateTransportButtons;
+- (id)variableConstraints;
+- (id)constantConstraints;
+- (float)bottomBaselineConstant;
+- (float)topBaselineConstant;
 - (void)transportButtonClicked:(id)arg1;
+- (id)standardStarView;
+- (id)standardTransportIcon;
+- (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end

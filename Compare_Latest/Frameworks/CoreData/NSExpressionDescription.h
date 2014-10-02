@@ -25,10 +25,8 @@
 
 - (void)_writeIntoData:(id)arg1 propertiesDict:(id)arg2 uniquedPropertyNames:(id)arg3 uniquedStrings:(id)arg4 uniquedData:(id)arg5 entitiesSlots:(id)arg6 fetchRequests:(id)arg7;
 - (unsigned int)_propertyType;
-- (void)setExpressionResultType:(unsigned int)arg1;
-- (unsigned int)expressionResultType;
-- (void)setExpression:(id)arg1;
-- (id)expression;
+@property unsigned int expressionResultType;
+@property(retain) NSExpression *expression;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

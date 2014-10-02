@@ -11,7 +11,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)readFromNode:(struct _xmlNode *)arg1 shapeStyle:(id)arg2;
++ (void)write:(id)arg1 to:(id)arg2;
++ (void)readFromNode:(struct _xmlNode *)arg1 shapeStyle:(id)arg2 drawingState:(id)arg3;
 
 @end
 

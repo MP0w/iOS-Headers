@@ -6,7 +6,7 @@
 
 #import <ImageCapture/ICCameraItem.h>
 
-@class NSMutableDictionary;
+@class NSMutableDictionary, NSString;
 
 @interface ICCameraFile : ICCameraItem
 {
@@ -17,9 +17,16 @@
 - (void)flushThumbnailCache;
 - (void)requestMetadata;
 - (void)requestThumbnail;
+@property(readonly) BOOL timeLapse;
+@property(readonly) BOOL highFramerate;
+@property(readonly) BOOL burstPicked;
+@property(readonly) BOOL burstFavorite;
+@property(readonly) NSString *burstUUID;
+- (double)duration;
 @property(retain) NSMutableDictionary *metadata_hidden;
 - (id)metadata;
 - (struct CGImage *)thumbnail;
+- (void)setKeywordPropertiesFromMetadata;
 - (void)handleCommandCompletionNotification:(id)arg1;
 - (void)overrideOrientation:(unsigned int)arg1;
 @property BOOL fetchingMetadata;

@@ -8,8 +8,9 @@
 
 #import "PBRequesterDelegate.h"
 
-@class GEORequester;
+@class GEORequester, NSString;
 
+__attribute__((visibility("hidden")))
 @interface GEOVoltaireETAProvider : GEOETAProvider <PBRequesterDelegate>
 {
     GEORequester *_requester;
@@ -20,8 +21,6 @@
     BOOL _cancelled;
 }
 
-+ (unsigned short)providerID;
-+ (void)setUsePersistentConnection:(BOOL)arg1;
 - (void)requesterWillSendRequestForEstablishedConnection:(id)arg1;
 - (void)requesterDidFinish:(id)arg1;
 - (void)requesterDidCancel:(id)arg1;
@@ -32,6 +31,12 @@
 - (void)updateRequest:(id)arg1 finished:(CDUnknownBlockType)arg2 error:(CDUnknownBlockType)arg3;
 - (void)startRequest:(id)arg1 finished:(CDUnknownBlockType)arg2 error:(CDUnknownBlockType)arg3;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

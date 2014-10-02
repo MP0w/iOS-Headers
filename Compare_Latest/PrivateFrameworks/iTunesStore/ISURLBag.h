@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary, NSSet, SSNetworkConstraints, SSURLBagContext;
+@class NSArray, NSDictionary, NSSet, NSString, SSNetworkConstraints, SSURLBagContext;
 
 @interface ISURLBag : NSObject
 {
@@ -18,6 +18,7 @@
     NSDictionary *_headerPatterns;
     double _invalidationTime;
     BOOL _loadedFromDiskCache;
+    NSString *_storeFrontIdentifier;
 }
 
 + (BOOL)_allowUnsignedBags;
@@ -30,13 +31,13 @@
 + (id)copyExtraHeadersForURL:(id)arg1 inBagContext:(id)arg2;
 + (id)storeFrontURLBagKeyForItemKind:(id)arg1;
 + (void)_loadItemKindURLBagKeyMap;
+@property(copy, nonatomic) NSString *storeFrontIdentifier; // @synthesize storeFrontIdentifier=_storeFrontIdentifier;
 @property(nonatomic) BOOL loadedFromDiskCache; // @synthesize loadedFromDiskCache=_loadedFromDiskCache;
 @property(nonatomic) double invalidationTime; // @synthesize invalidationTime=_invalidationTime;
 - (void)_writeURLResolutionCacheFile;
 - (void)_writeNetworkConstraintsCacheFile;
 - (void)_setDictionary:(id)arg1;
 - (id)_networkConstraintsCachePath;
-- (BOOL)_loadFromSignedDictionary:(id)arg1 returningError:(id *)arg2;
 - (id)_copyHeaderPatternsFromDictionary:(id)arg1;
 - (id)_copyGUIDSchemesFromDictionary:(id)arg1;
 - (id)_copyGUIDPatternsFromDictionary:(id)arg1;

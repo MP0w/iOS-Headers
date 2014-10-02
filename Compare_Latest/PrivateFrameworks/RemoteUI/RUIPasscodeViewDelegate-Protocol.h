@@ -7,6 +7,6 @@
 @class NSDictionary, NSString, RUIPasscodeView;
 
 @protocol RUIPasscodeViewDelegate
-- (void)passcodeViewOM:(RUIPasscodeView *)arg1 pressedLink:(NSString *)arg2 attributes:(NSDictionary *)arg3;
+- (void)passcodeViewOM:(RUIPasscodeView *)arg1 pressedLink:(NSString *)arg2 attributes:(NSDictionary *)arg3 completion:(void (^)(BOOL, NSError *))arg4;
 @end
 

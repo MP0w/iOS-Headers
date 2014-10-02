@@ -8,7 +8,7 @@
 
 #import "UITextFieldDelegate.h"
 
-@class TPButton, UIActivityIndicatorView, UITextField, UITextView, UIView;
+@class NSString, TPButton, UIActivityIndicatorView, UITextField, UITextView, UIView;
 
 @interface SBUSSDAlertDisplay : SBAlertView <UITextFieldDelegate>
 {
@@ -46,6 +46,12 @@
 - (id)_replyView;
 - (id)_notifyView;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "_SBFakeBlur.h"
 
-@class SBFWallpaperView, UIImageView;
+@class NSString, SBFWallpaperView, UIImageView;
 
 @interface _SBFakeBlurView : UIView <_SBFakeBlur>
 {
@@ -34,6 +34,12 @@
 - (id)initWithVariant:(long long)arg1;
 - (long long)effectiveStyle;
 - (void)requestStyle:(long long)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

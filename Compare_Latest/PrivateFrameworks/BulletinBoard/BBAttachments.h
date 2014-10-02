@@ -6,18 +6,19 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
 @class NSCountedSet, NSMutableDictionary;
 
-@interface BBAttachments : NSObject <NSCopying, NSCoding>
+@interface BBAttachments : NSObject <NSCopying, NSSecureCoding>
 {
     int primaryType;
     NSCountedSet *_additionalAttachments;
     NSMutableDictionary *_clientSideComposedImageInfos;
 }
 
++ (BOOL)supportsSecureCoding;
 @property(retain, nonatomic) NSMutableDictionary *clientSideComposedImageInfos; // @synthesize clientSideComposedImageInfos=_clientSideComposedImageInfos;
 @property(retain, nonatomic) NSCountedSet *additionalAttachments; // @synthesize additionalAttachments=_additionalAttachments;
 @property(nonatomic) int primaryType; // @synthesize primaryType;

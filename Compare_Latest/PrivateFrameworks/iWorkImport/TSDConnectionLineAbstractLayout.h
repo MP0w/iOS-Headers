@@ -44,12 +44,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) TSDLayout *connectedTo; // @synthesize connectedTo=mConnectedTo;
 @property(nonatomic) TSDLayout *connectedFrom; // @synthesize connectedFrom=mConnectedFrom;
 - (id)p_infoForConnectingToInfo:(id)arg1;
-- (void)dynamicallyMovedSmartShapeKnobTo:(struct CGPoint)arg1 withTracker:(id)arg2;
 - (struct CGPoint)getControlKnobPosition:(unsigned int)arg1;
-- (void)endDynamicOutsetChange;
-- (void)beginDynamicOutsetChange;
-- (int)connectionType;
-- (BOOL)isStraightLine;
 - (void)pauseDynamicTransformation;
 - (struct CGPoint)i_accumulatedDrag;
 - (void)endDynamicOperation;

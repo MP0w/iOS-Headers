@@ -18,11 +18,11 @@
 + (id)posterImageURL;
 + (void)importWallpaperAssetsIntoPhotoLibrary:(id)arg1;
 @property(retain, nonatomic) PLPhotoLibrary *photoLibrary; // @synthesize photoLibrary;
-@property(readonly, nonatomic) PLManagedObjectContext *managedObjectContext;
+@property(readonly, retain, nonatomic) PLManagedObjectContext *managedObjectContext;
 - (void)dealloc;
 - (id)init;
 - (void)addWallpaperURLsForModel:(id)arg1 toURLs:(id)arg2;
-@property(readonly, nonatomic) NSArray *allWallpaperURLs;
+@property(readonly, retain, nonatomic) NSArray *allWallpaperURLs;
 - (id)allExistingWallpaperAssets;
 - (void)importAll;
 - (void)deleteAll;

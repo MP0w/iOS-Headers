@@ -69,7 +69,7 @@ __attribute__((visibility("hidden")))
 - (id)backgroundImageView;
 - (float)_titleYAdjustmentCustomization;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)_drawBackground;
+- (void)_drawBackground_legacy;
 - (struct UIEdgeInsets)alignmentRectInsets;
 - (id)_currentCustomBackgroundNeedsDarkening:(char *)arg1;
 - (struct CGSize)_currentTextShadowOffsetForBarStyle:(int)arg1;

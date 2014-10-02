@@ -19,6 +19,7 @@
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 - (id)_initWithImage:(id)arg1 durations:(id)arg2;
 - (BOOL)writeToCPBitmapURL:(id)arg1;
+@property(readonly, nonatomic) struct CGSize size;
 - (id)initWithImages:(id)arg1 durations:(id)arg2;
 - (id)description;
 - (void)dealloc;

@@ -6,9 +6,12 @@
 
 #import "NSObject.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface ML3AlbumData : NSObject
 {
+    NSString *_sortAlbum;
     int _userRating;
     int _albumYear;
     long long _albumPid;
@@ -17,7 +20,9 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) int albumYear; // @synthesize albumYear=_albumYear;
 @property(nonatomic) int userRating; // @synthesize userRating=_userRating;
 @property(nonatomic) long long albumPid; // @synthesize albumPid=_albumPid;
-- (id)initWithState:(long long)arg1 userRating:(int)arg2 albumYear:(int)arg3;
+@property(retain, nonatomic) NSString *sortAlbum; // @synthesize sortAlbum=_sortAlbum;
+- (void).cxx_destruct;
+- (id)initWithState:(long long)arg1 sortAlbum:(id)arg2 userRating:(int)arg3 albumYear:(int)arg4;
 
 @end
 

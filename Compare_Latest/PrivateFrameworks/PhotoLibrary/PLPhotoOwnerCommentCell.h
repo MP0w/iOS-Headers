@@ -17,8 +17,8 @@
 
 + (float)heightOfOwnerCellWithAsset:(id)arg1 forWidth:(float)arg2 forInterfaceOrientation:(int)arg3;
 + (id)_ownerStringForAsset:(id)arg1;
-@property(readonly, nonatomic) UIView *styledSeparatorView; // @synthesize styledSeparatorView=_styledSeparatorView;
-@property(readonly, nonatomic) UILabel *ownerContentLabel; // @synthesize ownerContentLabel=_ownerContentLabel;
+@property(readonly, retain, nonatomic) UIView *styledSeparatorView; // @synthesize styledSeparatorView=_styledSeparatorView;
+@property(readonly, retain, nonatomic) UILabel *ownerContentLabel; // @synthesize ownerContentLabel=_ownerContentLabel;
 @property(copy, nonatomic) NSAttributedString *ownerString; // @synthesize ownerString=_ownerString;
 - (void)layoutSubviews;
 - (void)updateContentFromAsset:(id)arg1;

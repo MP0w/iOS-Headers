@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding.h"
+
 @class NSDictionary, NSNumber, NSString;
 
-@interface MPStoreItemOffer : NSObject
+@interface MPStoreItemOffer : NSObject <NSSecureCoding>
 {
     NSDictionary *_typeToActionText;
     NSString *_buyParameters;
@@ -17,14 +19,17 @@
     NSNumber *_price;
 }
 
++ (BOOL)supportsSecureCoding;
 @property(readonly, nonatomic) NSNumber *price; // @synthesize price=_price;
 @property(readonly, nonatomic) NSString *offerType; // @synthesize offerType=_offerType;
 @property(readonly, nonatomic) NSString *formattedPrice; // @synthesize formattedPrice=_formattedPrice;
 @property(readonly, nonatomic) NSString *buyParameters; // @synthesize buyParameters=_buyParameters;
 - (void).cxx_destruct;
 - (id)actionTextForType:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithLookupItemOffer:(id)arg1;
 
 @end

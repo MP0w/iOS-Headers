@@ -6,11 +6,18 @@
 
 #import "UICollectionViewDelegateFlowLayout.h"
 
-@class NSIndexPath, SKUIStorePageCollectionViewLayout, SKUIStorePageSection, UICollectionView;
+@class NSArray, NSIndexPath, SKUICollectionViewLayoutAttributes, SKUIStorePageCollectionViewLayout, UICollectionView;
 
 @protocol SKUIStorePageCollectionViewDelegate <UICollectionViewDelegateFlowLayout>
 
 @optional
-- (SKUIStorePageSection *)collectionView:(UICollectionView *)arg1 layout:(SKUIStorePageCollectionViewLayout *)arg2 pageSectionForIndexPath:(NSIndexPath *)arg3;
+- (NSArray *)indexPathsForPinningItemsInCollectionView:(UICollectionView *)arg1 layout:(SKUIStorePageCollectionViewLayout *)arg2;
+- (void)collectionView:(UICollectionView *)arg1 willBeginEditingItemAtIndexPath:(NSIndexPath *)arg2;
+- (void)collectionView:(UICollectionView *)arg1 layout:(SKUIStorePageCollectionViewLayout *)arg2 willApplyLayoutAttributes:(SKUICollectionViewLayoutAttributes *)arg3;
+- (int)collectionView:(UICollectionView *)arg1 layout:(SKUIStorePageCollectionViewLayout *)arg2 pinningTransitionStyleForItemAtIndexPath:(NSIndexPath *)arg3;
+- (int)collectionView:(UICollectionView *)arg1 layout:(SKUIStorePageCollectionViewLayout *)arg2 pinningStyleForItemAtIndexPath:(NSIndexPath *)arg3;
+- (struct UIEdgeInsets)collectionView:(UICollectionView *)arg1 layout:(SKUIStorePageCollectionViewLayout *)arg2 pinningContentInsetForItemAtIndexPath:(NSIndexPath *)arg3;
+- (BOOL)collectionView:(UICollectionView *)arg1 canScrollCellAtIndexPath:(NSIndexPath *)arg2;
+- (void)collectionView:(UICollectionView *)arg1 didEndEditingItemAtIndexPath:(NSIndexPath *)arg2;
 @end
 

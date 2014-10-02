@@ -6,13 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString;
+@class NSString;
 
 @interface IMPowerAssertion : NSObject
 {
     unsigned int _assertion;
     NSString *_identifier;
-    NSArray *_stack;
 }
 
 - (id)description;

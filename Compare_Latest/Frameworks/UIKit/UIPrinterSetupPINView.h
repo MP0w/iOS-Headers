@@ -8,7 +8,7 @@
 
 #import "UITextFieldDelegate.h"
 
-@class UIImageView, UILabel, UIPasscodeField, UITextField;
+@class NSString, UIImageView, UILabel, UIPasscodeField, UITextField;
 
 __attribute__((visibility("hidden")))
 @interface UIPrinterSetupPINView : UIControl <UITextFieldDelegate>
@@ -38,6 +38,12 @@ __attribute__((visibility("hidden")))
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)dealloc;
 - (id)initWithPrinterName:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

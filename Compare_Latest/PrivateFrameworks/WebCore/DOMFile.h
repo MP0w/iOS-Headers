@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (double)lastModifiedDate;
-@property(readonly) NSString *name;
+@property(readonly, copy) NSString *name;
 
 @end
 

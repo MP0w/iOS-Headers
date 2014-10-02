@@ -6,12 +6,18 @@
 
 #import <iCalendar/ICSPredefinedValue.h>
 
+@class NSString;
+
 @interface ICSStatusValue : ICSPredefinedValue
 {
+    NSString *_statusString;
 }
 
++ (id)statusTypeFromCode:(int)arg1 statusString:(id)arg2;
 + (id)statusTypeFromCode:(int)arg1;
 + (id)statusValueFromICSString:(id)arg1;
+@property(retain) NSString *statusString; // @synthesize statusString=_statusString;
+- (void)dealloc;
 - (void)_ICSStringWithOptions:(unsigned int)arg1 appendingToString:(id)arg2;
 
 @end

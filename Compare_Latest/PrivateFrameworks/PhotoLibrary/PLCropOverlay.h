@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class CAMBottomBar, PLContactPhotoOverlay, PLCropOverlayBottomBar, PLCropOverlayCropView, PLCropOverlayWallpaperBottomBar, PLProgressHUD, UIButton, UIImageView, UILabel, UIToolbar;
+@class CAMBottomBar, NSString, PLContactPhotoOverlay, PLCropOverlayBottomBar, PLCropOverlayCropView, PLCropOverlayWallpaperBottomBar, PLProgressHUD, UIButton, UIImageView, UILabel, UIToolbar;
 
 @interface PLCropOverlay : UIView
 {
@@ -37,12 +37,14 @@
     BOOL _isEditingHomeScreen;
     BOOL _isEditingLockScreen;
     PLContactPhotoOverlay *_contactPhotoOverlay;
+    NSString *_defaultOKButtonTitle;
     PLCropOverlayBottomBar *__bottomBar;
     UIButton *__cameraCancelButton;
 }
 
 @property(readonly, nonatomic) UIButton *_cameraCancelButton; // @synthesize _cameraCancelButton=__cameraCancelButton;
 @property(readonly, nonatomic) PLCropOverlayBottomBar *_bottomBar; // @synthesize _bottomBar=__bottomBar;
+@property(copy, nonatomic) NSString *defaultOKButtonTitle; // @synthesize defaultOKButtonTitle=_defaultOKButtonTitle;
 @property(nonatomic) BOOL isEditingLockScreen; // @synthesize isEditingLockScreen=_isEditingLockScreen;
 @property(nonatomic) BOOL isEditingHomeScreen; // @synthesize isEditingHomeScreen=_isEditingHomeScreen;
 @property(nonatomic) BOOL motionToggleIsOn; // @synthesize motionToggleIsOn=_motionToggleIsOn;
@@ -52,6 +54,7 @@
 - (id)_newOverlayViewWithFrame:(struct CGRect)arg1 lighterEdgeOnTop:(BOOL)arg2;
 - (void)_updateCropRectInRect:(struct CGRect)arg1;
 - (void)_updateToolbarItems:(BOOL)arg1;
+- (void)_updateEditImageDoneButtonTitle;
 - (void)_updateTitle;
 @property(nonatomic) BOOL previewMode;
 - (void)setTitleHidden:(BOOL)arg1 animationDuration:(float)arg2;

@@ -4,16 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <ManagedConfiguration/MCProcessAssertion.h>
 
-@interface MCPowerAssertion : NSObject
+@interface MCPowerAssertion : MCProcessAssertion
 {
+    BOOL _parked;
 }
 
-+ (id)assertion;
+@property(readonly, nonatomic, getter=isParked) BOOL parked; // @synthesize parked=_parked;
+- (void)unpark;
+- (void)park;
 - (void)dealloc;
 - (id)init;
-- (void)touch;
 
 @end
 

@@ -7,6 +7,18 @@
 #import "NSFileManager.h"
 
 @interface NSFileManager (SFUtilityAdditions)
+- (void)logFileProtectionAtURL:(id)arg1 recursively:(BOOL)arg2;
+- (void)_logFileProtectionAtURL:(id)arg1 recursively:(BOOL)arg2 indent:(id)arg3;
+- (BOOL)hasAtMostFileProtection:(id)arg1 atURL:(id)arg2 recursively:(BOOL)arg3;
+- (BOOL)hasAtLeastFileProtection:(id)arg1 atURL:(id)arg2 recursively:(BOOL)arg3;
+- (BOOL)_fileProtectionAtURL:(id)arg1 recursively:(BOOL)arg2 passesTest:(CDUnknownBlockType)arg3;
+- (BOOL)_fileProtection:(id)arg1 isGreaterThan:(id)arg2;
+- (BOOL)changeFileProtectionAtURL:(id)arg1 toProtection:(id)arg2 recursively:(BOOL)arg3 error:(id *)arg4;
+- (BOOL)changeFileProtectionAtURL:(id)arg1 fromProtection:(id)arg2 toProtection:(id)arg3 recursively:(BOOL)arg4 error:(id *)arg5;
+- (BOOL)_changeFileProtectionAtURL:(id)arg1 fromProtection:(id)arg2 toProtection:(id)arg3 recursively:(BOOL)arg4 error:(id *)arg5;
+- (BOOL)setAttributes:(id)arg1 ofItemAtURL:(id)arg2 recursively:(BOOL)arg3 error:(id *)arg4;
+- (BOOL)applyFileAttributesFromDocumentAtURL:(id)arg1 toDocumentAtURL:(id)arg2 error:(id *)arg3;
+- (BOOL)_setAttributes:(id)arg1 ofItemAtURL:(id)arg2 recursively:(BOOL)arg3 error:(id *)arg4 shouldUpdateAttributesHandler:(CDUnknownBlockType)arg5;
 - (unsigned long long)pathUsage:(id)arg1;
 - (unsigned long long)directoryUsage:(id)arg1;
 @end

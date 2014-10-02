@@ -14,16 +14,16 @@ __attribute__((visibility("hidden")))
     BOOL _isBackground;
     BOOL _isForeground;
     BOOL _isEffect;
+    BOOL _isMoving;
     float _opacity;
-    int _effectPass;
     struct CATransform3D _MVPMatrix;
     struct CATransform3D _previousMVPMatrix;
 }
 
-@property(nonatomic) int effectPass; // @synthesize effectPass=_effectPass;
 @property(nonatomic) struct CATransform3D previousMVPMatrix; // @synthesize previousMVPMatrix=_previousMVPMatrix;
 @property(nonatomic) struct CATransform3D MVPMatrix; // @synthesize MVPMatrix=_MVPMatrix;
 @property(nonatomic) float opacity; // @synthesize opacity=_opacity;
+@property(nonatomic) BOOL isMoving; // @synthesize isMoving=_isMoving;
 @property(nonatomic) BOOL isEffect; // @synthesize isEffect=_isEffect;
 @property(nonatomic) BOOL isForeground; // @synthesize isForeground=_isForeground;
 @property(nonatomic) BOOL isBackground; // @synthesize isBackground=_isBackground;

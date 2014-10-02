@@ -22,14 +22,14 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSNumber *deleteCount;
 @property(readonly, nonatomic) NSNumber *updateCount;
 @property(readonly, nonatomic) NSNumber *createCount;
-@property(readonly, nonatomic) NSDate *timestamp;
+@property(readonly, copy, nonatomic) NSDate *timestamp;
 @property(readonly, nonatomic) unsigned int changeType;
-@property(readonly, nonatomic) NSString *changedByLastName;
-@property(readonly, nonatomic) NSString *changedByFirstName;
-@property(readonly, nonatomic) NSURL *changedByAddress;
-@property(readonly, nonatomic) NSString *changedByDisplayName;
-@property(readonly, nonatomic) EKPersistentCalendarItem *calendarItem;
-@property(readonly, nonatomic) EKPersistentCalendar *calendar;
+@property(readonly, copy, nonatomic) NSString *changedByLastName;
+@property(readonly, copy, nonatomic) NSString *changedByFirstName;
+@property(readonly, copy, nonatomic) NSURL *changedByAddress;
+@property(readonly, copy, nonatomic) NSString *changedByDisplayName;
+@property(readonly, retain, nonatomic) EKPersistentCalendarItem *calendarItem;
+@property(readonly, retain, nonatomic) EKPersistentCalendar *calendar;
 
 @end
 

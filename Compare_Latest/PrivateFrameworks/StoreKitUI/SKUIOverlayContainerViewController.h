@@ -8,18 +8,18 @@
 
 #import "UIGestureRecognizerDelegate.h"
 
-@class NSArray, NSMutableArray, UIControl, UITapGestureRecognizer;
+@class NSArray, NSMutableArray, NSString, UIControl, UITapGestureRecognizer;
 
 @interface SKUIOverlayContainerViewController : UIViewController <UIGestureRecognizerDelegate>
 {
     UIControl *_backstopView;
     BOOL _isAdjustingViewsForDismiss;
+    int _popViewControllerCount;
     int _selectedViewControllerIndex;
     UITapGestureRecognizer *_tapGestureRecognizer;
     NSMutableArray *_viewControllers;
 }
 
-@property(readonly, nonatomic) NSArray *viewControllers; // @synthesize viewControllers=_viewControllers;
 - (void).cxx_destruct;
 - (id)_viewControllerForPoint:(struct CGPoint)arg1;
 - (void)_slideInViewController:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
@@ -40,14 +40,23 @@
 - (unsigned int)supportedInterfaceOrientations;
 - (BOOL)shouldAutomaticallyForwardAppearanceMethods;
 - (void)loadView;
+@property(readonly, copy, nonatomic) NSArray *viewControllers;
 - (void)showViewController:(id)arg1 withFlipTransition:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)showViewControllers:(id)arg1;
 - (void)showViewController:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
+- (void)replaceViewController:(id)arg1 withViewController:(id)arg2;
+- (void)popViewControllerAnimated:(BOOL)arg1;
 - (void)dismissWithFadeTransitionCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)dismissWithFlipTransition:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) UIControl *backstopControl;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

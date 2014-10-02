@@ -6,6 +6,7 @@
 
 #import <CoreUI/CUIThemeSchema.h>
 
+__attribute__((visibility("hidden")))
 @interface _CUIiPhoneOSThemeSchema : CUIThemeSchema
 {
 }

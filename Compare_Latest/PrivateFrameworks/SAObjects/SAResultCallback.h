@@ -8,7 +8,7 @@
 
 #import "SAAceSerializable.h"
 
-@class NSArray;
+@class NSArray, NSString;
 
 @interface SAResultCallback : AceObject <SAAceSerializable>
 {
@@ -17,9 +17,16 @@
 + (id)resultCallbackWithDictionary:(id)arg1 context:(id)arg2;
 + (id)resultCallback;
 @property(copy, nonatomic) NSArray *commands;
+@property(copy, nonatomic) NSArray *commandReferences;
 @property(nonatomic) int code;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

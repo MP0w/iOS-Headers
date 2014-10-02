@@ -15,16 +15,21 @@ __attribute__((visibility("hidden")))
     BOOL _needsToReloadStoreBookmarkMetadataIdentifiers;
     BOOL _needsToReloadContainerMediaTypes;
     BOOL _needsAnalyze;
-    int _userVersion;
+    BOOL _needsToAutogenerateArtworkVariants;
+    int _originalUserVersion;
+    int _currentUserVersion;
 }
 
-@property(nonatomic) int userVersion; // @synthesize userVersion=_userVersion;
+@property(nonatomic) BOOL needsToAutogenerateArtworkVariants; // @synthesize needsToAutogenerateArtworkVariants=_needsToAutogenerateArtworkVariants;
 @property(nonatomic) BOOL needsAnalyze; // @synthesize needsAnalyze=_needsAnalyze;
 @property(nonatomic) BOOL needsToReloadContainerMediaTypes; // @synthesize needsToReloadContainerMediaTypes=_needsToReloadContainerMediaTypes;
 @property(nonatomic) BOOL needsToReloadStoreBookmarkMetadataIdentifiers; // @synthesize needsToReloadStoreBookmarkMetadataIdentifiers=_needsToReloadStoreBookmarkMetadataIdentifiers;
 @property(nonatomic) BOOL needsToRemoveLocationsForItemsMissingAssets; // @synthesize needsToRemoveLocationsForItemsMissingAssets=_needsToRemoveLocationsForItemsMissingAssets;
 @property(nonatomic) BOOL needsToRecreateTriggers; // @synthesize needsToRecreateTriggers=_needsToRecreateTriggers;
 @property(nonatomic) BOOL needsToRecreateIndexes; // @synthesize needsToRecreateIndexes=_needsToRecreateIndexes;
+@property(nonatomic) int currentUserVersion; // @synthesize currentUserVersion=_currentUserVersion;
+@property(readonly, nonatomic) int originalUserVersion; // @synthesize originalUserVersion=_originalUserVersion;
+- (id)initWithOriginalUserVersion:(int)arg1;
 
 @end
 

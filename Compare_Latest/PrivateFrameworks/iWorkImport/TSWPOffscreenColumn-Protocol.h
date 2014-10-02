@@ -12,6 +12,6 @@
 @property(readonly, nonatomic) unsigned int startAnchoredCharIndex;
 @property(readonly, nonatomic) struct _NSRange range;
 @property(readonly, nonatomic) unsigned int startCharIndex;
-- (void)trimToCharIndex:(unsigned int)arg1 inTarget:(id <TSWPLayoutTarget>)arg2 removeAutoNumberFootnoteCount:(unsigned int)arg3;
+- (void)trimToCharIndex:(unsigned int)arg1 inTarget:(id <TSWPLayoutTarget>)arg2 removeFootnoteLayoutCount:(unsigned int)arg3 removeAutoNumberFootnoteCount:(unsigned int)arg4;
 @end
 

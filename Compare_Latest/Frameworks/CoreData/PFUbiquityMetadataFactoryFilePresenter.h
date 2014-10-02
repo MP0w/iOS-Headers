@@ -8,7 +8,7 @@
 
 #import "NSFilePresenter.h"
 
-@class NSOperationQueue, NSURL, PFUbiquityLocation;
+@class NSOperationQueue, NSString, NSURL, PFUbiquityLocation;
 
 __attribute__((visibility("hidden")))
 @interface PFUbiquityMetadataFactoryFilePresenter : NSObject <NSFilePresenter>
@@ -24,13 +24,17 @@ __attribute__((visibility("hidden")))
 - (void)savePresentedItemChangesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)relinquishPresentedItemToWriter:(CDUnknownBlockType)arg1;
 - (void)relinquishPresentedItemToReader:(CDUnknownBlockType)arg1;
-@property(readonly) NSOperationQueue *presentedItemOperationQueue;
+@property(readonly, retain) NSOperationQueue *presentedItemOperationQueue;
 - (void)dealloc;
 - (id)initWithMetadataStoreFileLocation:(id)arg1;
 - (id)init;
 
 // Remaining properties
-@property(readonly) NSURL *primaryPresentedItemURL;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly, copy) NSURL *primaryPresentedItemURL;
+@property(readonly) Class superclass;
 
 @end
 

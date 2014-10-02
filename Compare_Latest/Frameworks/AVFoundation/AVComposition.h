@@ -22,8 +22,11 @@
 - (id)_mutableTracks;
 - (id)_newTrackForIndex:(long)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (Class)_classForTrackInspectors;
 - (struct OpaqueFigFormatReader *)_formatReader;
 - (id)_assetInspector;
+- (id)_assetInspectorLoader;
+- (void)_loadAssetInspectorAndLoaderOnce;
 - (struct OpaqueFigMutableComposition *)_mutableComposition;
 - (id)description;
 - (void)finalize;

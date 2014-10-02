@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (void)removeObject:(id)arg1;
 + (void)removeObjectsOfClass:(Class)arg1;
 + (id)objectOfClass:(Class)arg1 forScreen:(id)arg2 withOptions:(id)arg3 createIfNecessary:(BOOL)arg4;
 + (void)screenDisconnected:(id)arg1;

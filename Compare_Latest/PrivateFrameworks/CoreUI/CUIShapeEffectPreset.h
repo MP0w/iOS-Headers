@@ -22,6 +22,7 @@
 - (void)addInnerGlowWithColorRed:(unsigned int)arg1 green:(unsigned int)arg2 blue:(unsigned int)arg3 opacity:(float)arg4 blur:(int)arg5 blendMode:(unsigned int)arg6;
 - (void)addGradientFillWithTopColorRed:(unsigned int)arg1 green:(unsigned int)arg2 blue:(unsigned int)arg3 bottomColorRed:(unsigned int)arg4 green:(unsigned int)arg5 blue:(unsigned int)arg6 opacity:(float)arg7;
 - (void)addColorFillWithRed:(unsigned int)arg1 green:(unsigned int)arg2 blue:(unsigned int)arg3 opacity:(float)arg4 blendMode:(unsigned int)arg5;
+- (void)addOutputOpacityWithOpacity:(float)arg1;
 - (void)addShapeOpacityWithOpacity:(float)arg1;
 - (void)appendColorValueRed:(unsigned int)arg1 green:(unsigned int)arg2 blue:(unsigned int)arg3 forParameter:(unsigned int)arg4 withEffectType:(unsigned int)arg5;
 - (void)appendEnumValue:(unsigned int)arg1 forParameter:(unsigned int)arg2 withEffectType:(unsigned int)arg3;
@@ -43,6 +44,7 @@
 - (float)effectScale;
 - (id)initWithEffectScale:(float)arg1;
 - (id)init;
+- (id)layerEffectsRepresentation;
 - (id)CUIEffectDataRepresentation;
 - (unsigned int)_parameterCount;
 - (id)initWithConstantPreset:(const CDStruct_9c478c45 *)arg1;

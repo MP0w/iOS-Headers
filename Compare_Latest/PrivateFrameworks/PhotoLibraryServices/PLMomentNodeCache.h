@@ -11,6 +11,7 @@
 @interface PLMomentNodeCache : NSObject
 {
     NSMutableDictionary *__nodesByObjectID;
+    NSMutableDictionary *__nodesByUserTag;
     NSMutableArray *__nodesByRowID;
     struct sqlite3 *__momentsDatabase;
     struct sqlite3_stmt *__spatialInsertStatement;
@@ -25,21 +26,26 @@
 @property(readonly, nonatomic) struct sqlite3_stmt *_spatialInsertStatement; // @synthesize _spatialInsertStatement=__spatialInsertStatement;
 @property(readonly, nonatomic) struct sqlite3 *_momentsDatabase; // @synthesize _momentsDatabase=__momentsDatabase;
 @property(readonly, nonatomic) NSMutableArray *_nodesByRowID; // @synthesize _nodesByRowID=__nodesByRowID;
+@property(readonly, nonatomic) NSMutableDictionary *_nodesByUserTag; // @synthesize _nodesByUserTag=__nodesByUserTag;
 @property(readonly, nonatomic) NSMutableDictionary *_nodesByObjectID; // @synthesize _nodesByObjectID=__nodesByObjectID;
+- (id)taggedNeighborsOfNode:(id)arg1;
+- (id)nodesWithTag:(id)arg1;
 - (id)spatialNeighborsOfNodes:(id)arg1 forSigma:(double)arg2;
 - (id)temporalNeighborsOfNode:(id)arg1 forTheta:(double)arg2;
+- (id)nodesWithinMinDate:(double)arg1 maxDate:(double)arg2;
 - (unsigned int)countOfTemporalNeighborsOfNode:(id)arg1 forTheta:(double)arg2;
+- (id)tieBreakerForNode:(id)arg1;
 - (id)nodeWithPartialAssetDictionary:(id)arg1;
 - (id)nodeForAsset:(id)arg1;
 - (void)performBatch:(CDUnknownBlockType)arg1;
 - (void)prepareAndExecuteStatement:(const char *)arg1;
 - (void)executePreparedStatement:(struct sqlite3_stmt *)arg1 withStatementBlock:(CDUnknownBlockType)arg2;
 - (struct sqlite3_stmt *)prepareStatement:(const char *)arg1;
+- (void)addNodeByUserTag:(id)arg1;
 - (void)insertNode:(id)arg1;
 - (void)closeMomentsDatabase;
 - (void)setupMomentsDatabase;
 - (void)openMomentsDatabase;
-- (id)databaseURL;
 - (void)dealloc;
 - (id)init;
 

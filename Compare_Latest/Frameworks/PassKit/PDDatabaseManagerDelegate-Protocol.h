@@ -6,14 +6,19 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSSet, PKCatalog, PKLocalPass;
+@class NSArray, NSSet, NSString, PKCatalog, PKObject, PKPaymentMessage, PKPaymentTransaction;
 
 @protocol PDDatabaseManagerDelegate <NSObject>
+- (void)paymentPassWithUniqueIdentifier:(NSString *)arg1 didEnableTransactionService:(BOOL)arg2;
+- (void)paymentPassWithUniqueIdentifier:(NSString *)arg1 didEnableMessageService:(BOOL)arg2;
+- (void)paymentPassWithUniqueIdentifier:(NSString *)arg1 didReceiveTransaction:(PKPaymentTransaction *)arg2;
+- (void)paymentPassWithUniqueIdentifier:(NSString *)arg1 didReceiveMessage:(PKPaymentMessage *)arg2;
 - (void)handleDatabaseIntegrityProblem;
 - (void)noteLockScreenSettingsChanged;
-- (void)hookUpLocalPass:(PKLocalPass *)arg1;
+- (void)registerDatabaseObject:(PKObject *)arg1;
 - (PKCatalog *)catalogOfRecord;
 - (NSArray *)trueLocalPasses;
 - (NSSet *)trueUniqueIDs;
+- (NSString *)secureElementIdentifier;
 @end
 

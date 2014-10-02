@@ -42,6 +42,7 @@
 - (id)additionalMessageHeaders;
 - (int)responseCommand;
 - (int)command;
+- (BOOL)wantsIDSServer;
 - (BOOL)wantsBinaryPush;
 - (BOOL)wantsBodySignature;
 - (BOOL)wantsSignature;

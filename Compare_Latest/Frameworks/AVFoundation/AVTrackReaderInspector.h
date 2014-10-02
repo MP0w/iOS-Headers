@@ -20,6 +20,7 @@
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isExcludedFromAutoselectionInTrackGroup;
+- (int)alternateGroupID;
 - (id)metadataForFormat:(id)arg1;
 - (id)availableMetadataFormats;
 - (id)commonMetadata;
@@ -37,13 +38,14 @@
 - (id)languageCode;
 - (float)estimatedDataRate;
 - (int)naturalTimeScale;
+- (BOOL)requiresFrameReordering;
 - (CDStruct_e83c9415)timeRange;
 - (long long)totalSampleDataLength;
 - (BOOL)isSelfContained;
 - (BOOL)isEnabled;
 - (id)formatDescriptions;
 - (void *)_valueAsCFTypeForProperty:(struct __CFString *)arg1;
-- (struct OpaqueFigTrackReader *)_trackReader;
+- (struct OpaqueFigTrackReader *)_figTrackReader;
 - (id)mediaType;
 - (unsigned long)_figMediaType;
 - (int)trackID;

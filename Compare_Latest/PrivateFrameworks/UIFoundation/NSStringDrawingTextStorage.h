@@ -8,7 +8,7 @@
 
 #import "NSLayoutManagerDelegate.h"
 
-@class CUICatalog, CUIStyleEffectConfiguration, NSConcreteNotifyingMutableAttributedString, NSLayoutManager, NSTextContainer;
+@class CUICatalog, CUIStyleEffectConfiguration, NSConcreteNotifyingMutableAttributedString, NSLayoutManager, NSString, NSTextContainer;
 
 __attribute__((visibility("hidden")))
 @interface NSStringDrawingTextStorage : NSTextStorage <NSLayoutManagerDelegate>
@@ -16,7 +16,6 @@ __attribute__((visibility("hidden")))
     NSConcreteNotifyingMutableAttributedString *_contents;
     NSLayoutManager *_layoutManager;
     NSTextContainer *_textContainer;
-    struct _NSRange _temporaryCharacterRange;
     float _baselineDelta;
     struct {
         unsigned int _typesetterBehavior:4;
@@ -28,13 +27,17 @@ __attribute__((visibility("hidden")))
     } _sdflags;
     CUICatalog *_catalog;
     CUIStyleEffectConfiguration *_styleEffects;
+    float _defaultTighteningFactor;
 }
 
++ (BOOL)_hasCustomSettings;
 + (void)_setHasCustomSettings:(BOOL)arg1;
++ (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)stringDrawingTextStorage;
 + (void)initialize;
 @property(retain, nonatomic) CUIStyleEffectConfiguration *cuiStyleEffects; // @synthesize cuiStyleEffects=_styleEffects;
 @property(retain, nonatomic) CUICatalog *cuiCatalog; // @synthesize cuiCatalog=_catalog;
+@property float defaultTighteningFactor; // @synthesize defaultTighteningFactor=_defaultTighteningFactor;
 - (void)addAttribute:(id)arg1 value:(id)arg2 range:(struct _NSRange)arg3;
 - (void)replaceCharactersInRange:(struct _NSRange)arg1 withAttributedString:(id)arg2;
 - (void)setAttributes:(id)arg1 range:(struct _NSRange)arg2;
@@ -62,9 +65,17 @@ __attribute__((visibility("hidden")))
 - (void)_setBaselineDelta:(float)arg1;
 - (struct CGRect)usedRectForTextContainer:(id)arg1;
 - (int)typesetterBehavior;
-- (id)flippedView;
 - (id)textContainer;
 - (id)layoutManager;
+- (oneway void)release;
+- (BOOL)_isDeallocating;
+- (BOOL)_tryRetain;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

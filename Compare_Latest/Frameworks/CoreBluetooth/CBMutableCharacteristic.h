@@ -16,11 +16,12 @@
 }
 
 @property(retain) NSNumber *ID; // @synthesize ID=_ID;
-@property(readonly) NSArray *subscribedCentrals; // @synthesize subscribedCentrals=_subscribedCentrals;
+@property(readonly, retain) NSArray *subscribedCentrals; // @synthesize subscribedCentrals=_subscribedCentrals;
 @property(nonatomic) unsigned int permissions; // @synthesize permissions=_permissions;
 @property(retain) NSArray *descriptors;
 @property(nonatomic) unsigned int properties;
 - (id)description;
+- (void)handlePowerNotOn;
 - (BOOL)handleCentralUnsubscribed:(id)arg1;
 - (BOOL)handleCentralSubscribed:(id)arg1;
 - (void)dealloc;

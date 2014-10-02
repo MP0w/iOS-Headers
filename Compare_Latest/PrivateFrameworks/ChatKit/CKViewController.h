@@ -10,8 +10,10 @@
 {
     BOOL _appeared;
     BOOL _appearing;
+    BOOL _dissapearing;
 }
 
+@property(nonatomic) BOOL dissapearing; // @synthesize dissapearing=_dissapearing;
 @property(nonatomic) BOOL appearing; // @synthesize appearing=_appearing;
 @property(nonatomic) BOOL appeared; // @synthesize appeared=_appeared;
 - (void)childViewControllersPerform:(SEL)arg1;

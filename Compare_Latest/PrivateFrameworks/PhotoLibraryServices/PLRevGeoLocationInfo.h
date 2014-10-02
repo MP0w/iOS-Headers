@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class GEOPlaceResult, NSString, PLRevGeoCompoundNameInfo;
+@class NSString, PLRevGeoCompoundNameInfo;
 
 @interface PLRevGeoLocationInfo : NSObject
 {
     BOOL _isValid;
     BOOL _isHome;
-    GEOPlaceResult *_geoPlaceResult;
+    id <GEOMapItemPrivate> _geoMapItem;
     PLRevGeoCompoundNameInfo *_compoundNameInfo;
     PLRevGeoCompoundNameInfo *_compoundSecondaryNameInfo;
     NSString *_providerId;
@@ -22,15 +22,17 @@
 + (unsigned int)currentVersion;
 + (unsigned int)qualityTypeForPointInCountryCode:(id)arg1 withDataProviderId:(id)arg2;
 + (CDUnknownBlockType)sortedNameInfoComparatorWithHomeAtEnd:(BOOL)arg1;
++ (id)_namingOrderForAssetReverseGeoDescription;
 @property(nonatomic) unsigned int providerVersion; // @synthesize providerVersion=_providerVersion;
 @property(retain, nonatomic) NSString *providerId; // @synthesize providerId=_providerId;
 @property(nonatomic) BOOL isHome; // @synthesize isHome=_isHome;
 @property(retain, nonatomic) PLRevGeoCompoundNameInfo *compoundSecondaryNameInfo; // @synthesize compoundSecondaryNameInfo=_compoundSecondaryNameInfo;
 @property(retain, nonatomic) PLRevGeoCompoundNameInfo *compoundNameInfo; // @synthesize compoundNameInfo=_compoundNameInfo;
-@property(retain, nonatomic) GEOPlaceResult *geoPlaceResult; // @synthesize geoPlaceResult=_geoPlaceResult;
+@property(retain, nonatomic) id <GEOMapItemPrivate> geoMapItem; // @synthesize geoMapItem=_geoMapItem;
 @property(readonly, nonatomic) BOOL isValid; // @synthesize isValid=_isValid;
-@property(readonly, nonatomic) NSString *countryCode;
+@property(readonly, copy, nonatomic) NSString *countryCode;
 - (void)_addNameInfo:(id)arg1 inPlaceInfoMap:(id)arg2 totalPlaceCount:(int *)arg3;
+- (id)localizedDescription;
 - (id)dataForInfo;
 - (id)description;
 - (id)initWithData:(id)arg1;

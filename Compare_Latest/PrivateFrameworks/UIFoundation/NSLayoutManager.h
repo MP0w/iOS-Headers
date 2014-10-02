@@ -7,11 +7,10 @@
 #import "NSObject.h"
 
 #import "NSCoding.h"
-#import "NSGlyphStorage.h"
 
-@class NSArray, NSGlyphGenerator, NSMutableArray, NSRunStorage, NSStorage, NSTextContainer, NSTextStorage, NSTypesetter, UIFont, UIView<NSTextContainerView>;
+@class NSArray, NSFont, NSGlyphGenerator, NSMutableArray, NSRunStorage, NSStorage, NSTextContainer, NSTextStorage, NSTypesetter;
 
-@interface NSLayoutManager : NSObject <NSGlyphStorage, NSCoding>
+@interface NSLayoutManager : NSObject <NSCoding>
 {
     NSTextStorage *_textStorage;
     NSGlyphGenerator *_glyphGenerator;
@@ -41,7 +40,6 @@
         unsigned int containersChanged:1;
         unsigned int isGeneratingGlyphs:1;
         unsigned int hasNonGeneratedGlyphData:1;
-        unsigned int loggedBGLayoutException:1;
         unsigned int syncAlignmentToDirection:1;
         unsigned int defaultAttachmentScaling:2;
         unsigned int usesFontLeading:1;
@@ -57,7 +55,7 @@
     unsigned short _textViewResizeDisableStack;
     unsigned short _displayInvalidationDisableStack;
     struct _NSRange _deferredDisplayCharRange;
-    UIView<NSTextContainerView> *_firstTextView;
+    id _firstTextView;
     struct CGRect *_cachedRectArray;
     unsigned int _cachedRectArrayCapacity;
     char *_glyphBuffer;
@@ -66,7 +64,7 @@
     unsigned int _cachedLocationGlyphIndex;
     struct CGPoint _cachedLocation;
     struct _NSRange _cachedFontCharRange;
-    UIFont *_cachedFont;
+    NSFont *_cachedFont;
     unsigned int _firstUnlaidGlyphIndex;
     unsigned int _firstUnlaidCharIndex;
     struct _NSRange _newlyFilledGlyphRange;
@@ -193,6 +191,7 @@
 - (void)invalidateLayoutForCharacterRange:(struct _NSRange)arg1 actualCharacterRange:(struct _NSRange *)arg2;
 - (void)invalidateGlyphsForCharacterRange:(struct _NSRange)arg1 changeInLength:(int)arg2 actualCharacterRange:(struct _NSRange *)arg3;
 - (void)_invalidateGlyphsForCharacterRange:(struct _NSRange)arg1 editedCharacterRange:(struct _NSRange)arg2 changeInLength:(int)arg3 actualCharacterRange:(struct _NSRange *)arg4;
+- (BOOL)backgroundColorProvidesOpaqueSurface;
 - (unsigned int)layoutOptions;
 - (int)typesetterBehavior;
 - (void)setTypesetterBehavior:(int)arg1;
@@ -280,7 +279,7 @@
 - (void)_drawGlyphsForGlyphRange:(struct _NSRange)arg1 atPoint:(struct CGPoint)arg2;
 - (char *)_packedGlyphs:(unsigned int)arg1 range:(struct _NSRange)arg2 length:(unsigned int *)arg3;
 - (id)selectedTextAttributesForCharacterAtIndex:(unsigned int)arg1 effectiveRange:(struct _NSRange *)arg2;
-- (void)_drawBackgroundForGlyphRange:(struct _NSRange)arg1 atPoint:(struct CGPoint)arg2 parameters:(struct _NSDrawingParameters *)arg3;
+- (void)_drawBackgroundForGlyphRange:(struct _NSRange)arg1 atPoint:(struct CGPoint)arg2;
 - (void)_firstTextViewChanged;
 - (void)_invalidateLayoutForExtendedCharacterRange:(struct _NSRange)arg1 isSoft:(BOOL)arg2;
 - (void)_invalidateLayoutForExtendedCharacterRange:(struct _NSRange)arg1 isSoft:(BOOL)arg2 invalidateUsage:(BOOL)arg3;

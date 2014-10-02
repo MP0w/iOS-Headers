@@ -11,7 +11,7 @@
 #import "SLSheetPlaceViewControllerDelegate.h"
 #import "UITextViewDelegate.h"
 
-@class NSArray, NSObject<SLMicroBlogSheetDelegate>, NSString, SLMicroBlogAccountsTableViewController, SLMicroBlogActiveAccountView, SLMicroBlogMentionsViewController, SLMicroBlogUserRecord, SLPlace, SLSheetAction, SLSheetPlaceViewController, UILabel;
+@class NSArray, NSObject<SLMicroBlogSheetDelegate>, NSString, SLComposeSheetConfigurationItem, SLMicroBlogAccountsTableViewController, SLMicroBlogMentionsViewController, SLMicroBlogUserRecord, SLPlace, SLSheetPlaceViewController;
 
 @interface SLMicroBlogComposeViewController : SLComposeServiceViewController <UITextViewDelegate, SLMicroBlogMentionsDelegate, SLMicroBlogAccountsTableViewControllerDelegate, SLSheetPlaceViewControllerDelegate>
 {
@@ -25,25 +25,22 @@
     NSArray *_accountUserRecords;
     NSArray *_accountIdentifiers;
     SLMicroBlogUserRecord *_selectedAccountUserRecord;
-    SLSheetAction *_accountSheetAction;
-    SLSheetAction *_locationSheetAction;
+    SLComposeSheetConfigurationItem *_accountConfigurationItem;
+    SLComposeSheetConfigurationItem *_locationConfigurationItem;
     SLMicroBlogAccountsTableViewController *_accountViewController;
     SLSheetPlaceViewController *_placeViewController;
     SLPlace *_currentPlace;
-    UILabel *_countLabel;
     int _shortenedURLCost;
     int _maxURLLength;
     BOOL _isPresentingPlaces;
-    SLMicroBlogActiveAccountView *_activeAccountView;
 }
 
 + (id)serviceBundle;
-@property(retain, nonatomic) SLMicroBlogActiveAccountView *activeAccountView; // @synthesize activeAccountView=_activeAccountView;
 - (void).cxx_destruct;
 - (void)textViewDidChangeSelection:(id)arg1;
 - (void)textViewDidChange:(id)arg1;
 - (BOOL)textView:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
-- (void)send;
+- (void)didSelectPost;
 - (id)_mentionsSearchString;
 - (void)applyMention:(id)arg1;
 - (void)mentionsViewController:(id)arg1 finishedWithResult:(id)arg2;
@@ -61,26 +58,33 @@
 - (int)characterCountForEnteredText:(id)arg1 attachments:(id)arg2;
 - (BOOL)_countMediaAttachmentsTowardCharacterCount;
 - (int)_characterCountForText:(id)arg1;
-- (void)_updateCharacterCountLabelWithCount:(int)arg1 overLimit:(BOOL)arg2;
 - (id)completeText:(id)arg1 withAttachments:(id)arg2;
-- (BOOL)validateText:(id)arg1;
+- (BOOL)isContentValid;
 - (int)_charactersRemainingWithText:(id)arg1;
-- (void)noteCheckedInWithDaemon;
+- (void)_hostApplicationDidEnterBackground;
+- (void)_hostApplicationWillEnterForeground;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)presentNoAccountsAlert;
 - (void)_presentNoAccountsAlertIfNecessaryAndReady;
-- (void)sheetPresentationAnimationDidFinish;
+- (void)presentationAnimationDidFinish;
 @property __weak NSObject<SLMicroBlogSheetDelegate> *microBlogSheetDelegate;
-- (id)sheetActions;
-- (id)_locationSheetAction;
+- (id)configurationItems;
+- (id)_locationConfigurationItem;
 - (void)_performLocationAction;
-- (id)_accountSheetAction;
+- (id)_accountConfigurationItem;
 - (void)accountsViewController:(id)arg1 didSelectAccountUserRecord:(id)arg2;
 - (void)_presentAccountPickerController;
 - (void)_beginLoadingAccountProfileImages;
+- (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)loadView;
 - (void)appWillEnterForeground:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

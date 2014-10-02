@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (id)text;
+- (unsigned int)characterCount;
 - (BOOL)isEmpty;
 - (void)dealloc;
 - (id)init;

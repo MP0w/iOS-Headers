@@ -6,6 +6,7 @@
 
 #import <CoreUI/CUIPSDImageRef.h>
 
+__attribute__((visibility("hidden")))
 @interface CUIMutablePSDImageRef : CUIPSDImageRef
 {
 }

@@ -19,7 +19,7 @@
 - (void)authenticateWithInfo:(id)arg1 handleResult:(CDUnknownBlockType)arg2;
 - (void)handleAuthCallback:(id)arg1;
 - (BOOL)refreshCarrierToken;
-@property(readonly, nonatomic) NSData *carrierToken; // @dynamic carrierToken;
+@property(readonly, retain, nonatomic) NSData *carrierToken; // @dynamic carrierToken;
 - (void)dealloc;
 - (id)init;
 

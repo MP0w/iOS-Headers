@@ -6,22 +6,27 @@
 
 #import "NSObject.h"
 
-@class NSMapTable, VKObjectPool, VKPIconPack;
+@class NSMapTable, VKPIconPack;
 
 __attribute__((visibility("hidden")))
 @interface VKIconAtlas : NSObject
 {
     VKPIconPack *_iconPack;
-    VKObjectPool *_artworkPool;
+    struct _GEOGenericContainer<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, std::__1::hash<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::equal_to<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, geo::GEOGenericContainerWeakReferenceTag, 0, 0, geo::GEOGenericContainerLockingTag, detail::_default_pointer_type> _artworkPool;
     NSMapTable *_atlasToImages;
 }
 
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (struct CGImage *)_createImageForIconInfo:(id)arg1 contentScale:(float)arg2;
-- (struct CGImage *)_createImageForStyleAttributeKey:(unsigned int)arg1 value:(int)arg2 contentScale:(float)arg3;
-- (struct CGImage *)_createImageForName:(id)arg1 contentScale:(float)arg2;
-- (id)artworkForName:(id)arg1 style:(CDStruct_d3c687f7 *)arg2 contentScale:(float)arg3 styleAttributes:(id)arg4;
+- (struct CGImage *)_createImageForName:(id)arg1 contentScale:(float)arg2 size:(int)arg3;
+- (id)artworkForName:(id)arg1 style:(CDStruct_5977520b *)arg2 contentScale:(float)arg3 size:(int)arg4;
+- (id)artworkForStyleAttributeKey:(unsigned int)arg1 value:(unsigned int)arg2 style:(CDStruct_5977520b *)arg3 contentScale:(float)arg4 size:(int)arg5;
+- (id)artworkForStyleAttributeKey:(unsigned int)arg1 longValue:(unsigned long long)arg2 style:(CDStruct_5977520b *)arg3 contentScale:(float)arg4 size:(int)arg5;
+- (id)_artworkForBaseImage:(struct CGImage *)arg1 additionalImage:(struct CGImage *)arg2 cacheKey:(id)arg3 style:(CDStruct_5977520b *)arg4 contentScale:(float)arg5;
 - (void)dealloc;
 - (id)initWithIconPack:(id)arg1;
+- (id)init;
 
 @end
 

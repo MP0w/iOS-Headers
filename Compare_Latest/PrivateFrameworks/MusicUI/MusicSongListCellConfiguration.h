@@ -10,16 +10,12 @@
 {
 }
 
-+ (void)_loadArtworkForEntity:(id)arg1 cell:(id)arg2 cacheID:(id)arg3 cachedOnly:(BOOL)arg4 animated:(BOOL)arg5;
 + (BOOL)_showsArtwork;
-+ (id)imageCache;
++ (BOOL)mediaCellConfigurationUsesSubtitle;
++ (id)reuseIdentifier;
 + (struct UIEdgeInsets)tableViewSeparatorInset;
-+ (id)tableViewCellBackgroundColor;
-+ (id)tableViewBackgroundColor;
-+ (float)tableViewCellHeight;
 + (Class)tableViewCellClass;
 + (id)mediaEntityPropertiesToFetch;
-+ (void)configureCellAfterDeceleration:(id)arg1 withViewController:(id)arg2 entity:(id)arg3 atIndex:(unsigned int)arg4 animated:(BOOL)arg5;
 + (void)configureCell:(id)arg1 withViewController:(id)arg2 entity:(id)arg3 atIndex:(unsigned int)arg4 animated:(BOOL)arg5;
 
 @end

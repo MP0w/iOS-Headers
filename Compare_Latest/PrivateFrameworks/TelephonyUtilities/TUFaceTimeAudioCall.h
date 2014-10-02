@@ -4,48 +4,24 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <TelephonyUtilities/TUCall.h>
+#import <TelephonyUtilities/TUFaceTimeCall.h>
 
-@class IMAVChat;
-
-@interface TUFaceTimeAudioCall : TUCall
+@interface TUFaceTimeAudioCall : TUFaceTimeCall
 {
-    IMAVChat *_chat;
 }
 
-- (id)description;
-- (BOOL)isTTY;
-- (BOOL)setMuted:(BOOL)arg1;
-- (BOOL)isMuted;
-- (BOOL)needsManualInCallSounds;
-- (BOOL)managesAudioInterruptions;
 - (id)audioMode;
 - (id)audioCategory;
-- (int)status;
-- (id)isoCountryCode;
-- (double)callDuration;
-- (BOOL)isEqual:(id)arg1;
-- (int)callIdentifier;
-- (id)chat;
-- (BOOL)isAlerting;
-- (id)callerNameFromNetwork;
-- (id)destinationID;
-- (id)remoteParticipant;
-- (void)leaveConference;
-- (void)joinConference;
-- (BOOL)isConferenced;
-- (id)bundleIDForHostingApplication;
-- (double)startTime;
-- (BOOL)isBlocked;
-- (BOOL)isOutgoing;
+- (int)callStatus;
+- (int)supportedModelType;
 - (int)service;
-- (void)disconnect;
-- (BOOL)unhold;
-- (BOOL)hold;
-- (void)resume;
-- (void)answer;
+- (BOOL)shouldIgnoreStatusChange;
+- (void)removeCallConnectedObserver;
+- (void)addCallConnectedObserver;
+- (void)handleCallConnected:(id)arg1;
+- (void)unhold;
+- (void)hold;
 - (void)dealloc;
-- (id)initWithChat:(id)arg1;
 
 @end
 

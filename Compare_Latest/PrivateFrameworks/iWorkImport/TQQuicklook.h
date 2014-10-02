@@ -28,9 +28,11 @@ __attribute__((visibility("hidden")))
 - (id)thumbnail;
 - (unsigned int)pageCount;
 - (void)close;
+- (struct __CFString *)getIdentifierForApp:(id)arg1;
 - (BOOL)load;
 - (void)dealloc;
 - (id)initWithPath:(id)arg1 passphrase:(id)arg2;
+- (BOOL)isSFFDocument;
 - (BOOL)writePreviewToOutput:(id)arg1 pageNumber:(unsigned int)arg2;
 - (Class)appDelegateClass;
 

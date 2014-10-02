@@ -13,11 +13,13 @@
 __attribute__((visibility("hidden")))
 @interface VKPShieldIndexEntry : PBCodable <NSCopying>
 {
+    CDStruct_56d48c16 _defaultForFeatureTypes;
     CDStruct_56d48c16 _shieldTypes;
     NSString *_artworkIdentifier;
 }
 
 @property(retain, nonatomic) NSString *artworkIdentifier; // @synthesize artworkIdentifier=_artworkIdentifier;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -26,6 +28,12 @@ __attribute__((visibility("hidden")))
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (void)setDefaultForFeatureTypes:(int *)arg1 count:(unsigned int)arg2;
+- (int)defaultForFeatureTypeAtIndex:(unsigned int)arg1;
+- (void)addDefaultForFeatureType:(int)arg1;
+- (void)clearDefaultForFeatureTypes;
+@property(readonly, nonatomic) int *defaultForFeatureTypes;
+@property(readonly, nonatomic) unsigned int defaultForFeatureTypesCount;
 - (void)setShieldTypes:(int *)arg1 count:(unsigned int)arg2;
 - (int)shieldTypesAtIndex:(unsigned int)arg1;
 - (void)addShieldTypes:(int)arg1;

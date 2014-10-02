@@ -4,17 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UITableViewCell.h"
+#import <EventKitUI/EKUIConstrainedFontsTableViewCell.h>
 
 @class UIControl;
 
-@interface PreferencesTableControlCell : UITableViewCell
+@interface PreferencesTableControlCell : EKUIConstrainedFontsTableViewCell
 {
-    UIControl *_control;
 }
 
-@property(retain, nonatomic) UIControl *control; // @synthesize control=_control;
-- (void).cxx_destruct;
+@property(retain, nonatomic) UIControl *control;
 
 @end
 

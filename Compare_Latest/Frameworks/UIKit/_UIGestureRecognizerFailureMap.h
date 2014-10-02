@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 - (void)gestureRecognizerBecameDirty:(id)arg1;
 - (void)gestureRecognizerDeallocated:(id)arg1;
 - (id)description;
+- (void)_rebuildFailureMapDefferingRelease;
 - (void)rebuildFailureMap;
 - (void)reloadFailureMap;
 - (void)dealloc;

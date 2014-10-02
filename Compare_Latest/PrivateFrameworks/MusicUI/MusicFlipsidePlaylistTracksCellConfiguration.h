@@ -4,18 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <MusicUI/MusicSongListCellConfiguration.h>
+#import <MusicUI/MusicPlaylistSongCellConfiguration.h>
 
-@interface MusicFlipsidePlaylistTracksCellConfiguration : MusicSongListCellConfiguration
+@interface MusicFlipsidePlaylistTracksCellConfiguration : MusicPlaylistSongCellConfiguration
 {
 }
 
-+ (BOOL)_showsArtwork;
 + (struct CGSize)sizeForDuration:(double)arg1;
++ (float)cloudRightInsetForDurationWidth:(float)arg1;
 + (id)mediaEntityPropertiesToFetch;
 + (struct UIEdgeInsets)tableViewSeparatorInset;
-+ (float)cloudRightInsetForDurationWidth:(float)arg1;
-+ (float)tableViewCellHeight;
 + (Class)tableViewCellClass;
 + (void)configureCell:(id)arg1 withViewController:(id)arg2 entity:(id)arg3 atIndex:(unsigned int)arg4 animated:(BOOL)arg5;
 

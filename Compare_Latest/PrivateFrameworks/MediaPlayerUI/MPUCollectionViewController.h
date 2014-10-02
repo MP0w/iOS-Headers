@@ -4,38 +4,50 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <MediaPlayerUI/MPUDataSourceViewController.h>
+#import "MPUDataSourceViewController.h"
 
+#import "MPStoreDownloadManagerObserver.h"
 #import "UICollectionViewDataSource.h"
 #import "UICollectionViewDelegate.h"
 
-@class UICollectionView, UICollectionViewLayout;
+@class NSString, UICollectionView;
 
-@interface MPUCollectionViewController : MPUDataSourceViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface MPUCollectionViewController : MPUDataSourceViewController <MPStoreDownloadManagerObserver, UICollectionViewDataSource, UICollectionViewDelegate>
 {
-    Class _cellConfigurationClass;
-    UICollectionViewLayout *_collectionViewLayout;
     UICollectionView *_collectionView;
 }
 
-+ (id)viewControllerWithRestorationIdentifierPath:(id)arg1 coder:(id)arg2;
++ (Class)invalidationContextClass;
 - (void).cxx_destruct;
+- (void)_updateVisibleCellsForDownloads:(id)arg1 updateAllCells:(BOOL)arg2;
 - (id)_createCollectionViewLayout;
 - (id)_createCollectionView;
-@property(readonly, nonatomic) Class collectionViewLayoutClass;
-@property(readonly, nonatomic) UICollectionViewLayout *collectionViewLayout;
+- (id)reuseIdentifierForCellAtIndexPath:(id)arg1;
+- (void)configureCell:(id)arg1 atIndexPath:(id)arg2 withEntity:(id)arg3 invalidationContext:(id)arg4;
 @property(readonly, nonatomic) UICollectionView *collectionView;
-@property(readonly, nonatomic) Class cellConfigurationClass;
-@property(readonly, nonatomic) Class cellClass;
-- (void)reloadData;
+- (int)collectionView:(id)arg1 editingStyleForItemAtIndexPath:(id)arg2;
+- (BOOL)collectionView:(id)arg1 canEditItemAtIndexPath:(id)arg2;
 - (BOOL)collectionView:(id)arg1 shouldSelectItemAtIndexPath:(id)arg2;
 - (BOOL)collectionView:(id)arg1 shouldHighlightItemAtIndexPath:(id)arg2;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
+- (int)numberOfSectionsInCollectionView:(id)arg1;
+- (void)downloadManager:(id)arg1 downloadPurchaseDidFinish:(id)arg2;
+- (void)downloadManager:(id)arg1 downloadDidFinish:(id)arg2;
+- (void)downloadManager:(id)arg1 didAddDownloads:(id)arg2 removeDownloads:(id)arg3;
+- (void)reloadData;
+- (id)contentScrollView;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidLoad;
-- (void)encodeRestorableStateWithCoder:(id)arg1;
 - (void)dealloc;
-- (id)initWithDataSource:(id)arg1 cellConfigurationClass:(Class)arg2;
+- (id)initWithDataSource:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

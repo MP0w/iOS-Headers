@@ -21,9 +21,12 @@
 @property(nonatomic) int style; // @synthesize style=_style;
 @property(readonly, nonatomic, getter=_mescalSession) SUMescalSession *_mescalSession; // @synthesize _mescalSession;
 - (void)_mescalDidOpenWithSession:(id)arg1 error:(id)arg2;
+- (void)_forceOrientationBackToSupportedOrientation;
 - (id)_bagKeyForStyle:(int)arg1;
 - (id)_authenticationQueryParametersForStyle:(int)arg1;
 - (void)_closeMescalSession;
+- (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (id)newViewControllerForPage:(id)arg1 ofType:(int)arg2 returningError:(id *)arg3;
 - (id)newFetchOperation;

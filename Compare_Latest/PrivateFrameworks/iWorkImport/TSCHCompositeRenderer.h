@@ -8,7 +8,7 @@
 
 #import "TSCHCompositeRendering.h"
 
-@class NSArray;
+@class NSArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface TSCHCompositeRenderer : TSCHRenderer <TSCHCompositeRendering>
@@ -31,6 +31,12 @@ __attribute__((visibility("hidden")))
 - (id)transparencyLayers;
 - (void)dealloc;
 - (id)initWithChartRep:(id)arg1 withSubRenderers:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

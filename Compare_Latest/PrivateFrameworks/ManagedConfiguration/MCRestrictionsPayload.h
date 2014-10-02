@@ -21,7 +21,7 @@
 - (void).cxx_destruct;
 - (id)installationWarnings;
 - (void)_insertRestrictedBoolForKey:(id)arg1 value:(id)arg2 preferenc:(BOOL)arg3;
-- (id)subtitle1Description;
+- (id)localizedRestrictionStrings;
 - (id)_defaultMediaSettings;
 - (id)_unionStrings;
 - (id)_intersectionStrings;

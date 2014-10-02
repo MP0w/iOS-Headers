@@ -7,6 +7,6 @@
 #import "GEOQuickETARequest.h"
 
 @interface GEOQuickETARequest (MKDirections)
-- (id)initWithDirectionsRequest:(id)arg1;
+- (id)initWithDirectionsRequest:(id)arg1 origin:(id)arg2 destination:(id)arg3;
 @end
 

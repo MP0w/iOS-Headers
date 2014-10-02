@@ -17,6 +17,7 @@
     UICollectionView *_collectionView;
     BOOL _delegateWantsWillDisplay;
     NSMutableIndexSet *_hiddenImageIndexSet;
+    CDStruct_4dbb0024 _metrics;
     BOOL _showBrickTitles;
     NSString *_swooshTitle;
     SKUISwooshView *_swooshView;
@@ -24,6 +25,7 @@
 
 @property(copy, nonatomic) NSArray *bricks; // @synthesize bricks=_bricks;
 - (void).cxx_destruct;
+- (CDStruct_4dbb0024)_brickSwooshMetrics;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
 - (struct UIEdgeInsets)collectionView:(id)arg1 layout:(id)arg2 insetForSectionAtIndex:(int)arg3;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
@@ -35,12 +37,19 @@
 - (void)setImage:(id)arg1 forItemAtIndex:(int)arg2;
 - (void)setDelegate:(id)arg1;
 - (void)setColorScheme:(id)arg1;
+- (void)setClientContext:(id)arg1;
 - (id)popImageViewForItemAtIndex:(int)arg1;
 - (id)indexPathsForVisibleItems;
 - (struct CGRect)frameForItemAtIndex:(int)arg1;
 - (void)deselectAllItems;
 - (void)dealloc;
 - (id)initWithSwoosh:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

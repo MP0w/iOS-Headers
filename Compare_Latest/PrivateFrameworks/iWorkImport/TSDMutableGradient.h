@@ -8,7 +8,7 @@
 
 #import "TSDGradientStopContainer.h"
 
-@class NSArray, TSUColor;
+@class NSArray, NSString, TSUColor;
 
 __attribute__((visibility("hidden")))
 @interface TSDMutableGradient : TSDGradient <TSDGradientStopContainer>
@@ -25,16 +25,20 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned int gradientType; // @dynamic gradientType;
 - (void)evenlyDistributeStops;
 - (void)reverseStopOrder;
-- (void)insertStopAtFraction:(float)arg1 withColor:(id)arg2;
-- (void)insertStopAtFraction:(float)arg1;
+- (id)insertStopAtFraction:(float)arg1 withColor:(id)arg2;
+- (id)insertStopAtFraction:(float)arg1;
 - (id)removeStopAtIndex:(unsigned int)arg1;
 - (void)removeStop:(id)arg1;
 - (void)insertGradientStop:(id)arg1;
 @property(retain, nonatomic) NSArray *gradientStops; // @dynamic gradientStops;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(nonatomic) BOOL isAdvancedGradient; // @dynamic isAdvancedGradient;
 @property(nonatomic) float opacity; // @dynamic opacity;
+@property(readonly) Class superclass;
 
 @end
 

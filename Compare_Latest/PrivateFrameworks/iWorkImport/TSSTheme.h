@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
 + (void)tstRegisterPresetSourceClasses;
 @property(readonly, nonatomic) TSSStylesheet *stylesheet; // @synthesize stylesheet=mStylesheet;
 - (void)checkThemeStylesheetConsistency;
+- (void)checkAndFixThemeStylesheetConsistencyForThemeStyles;
 - (void)bootstrapThemeAlternate:(int)arg1;
 - (id)p_identifierForBootstrapTheme:(int)arg1;
 - (id)modelPathComponentForChild:(id)arg1;
@@ -81,6 +82,12 @@ __attribute__((visibility("hidden")))
 - (id)paragraphStylesWithPartialContentTag:(id)arg1;
 - (id)paragraphStylesWithContentTag:(id)arg1;
 - (id)paragraphStyleWithContentTag:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

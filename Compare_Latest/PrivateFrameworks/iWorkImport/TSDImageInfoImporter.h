@@ -18,6 +18,8 @@ __attribute__((visibility("hidden")))
     int mIsCancelled;
 }
 
++ (BOOL)i_canImportFileWithData:(id)arg1 type:(id)arg2;
++ (BOOL)i_canImportFileAtURL:(id)arg1 type:(id)arg2;
 + (id)i_supportedFileTypesForSubclass;
 - (id)error;
 - (id)info;
@@ -27,7 +29,7 @@ __attribute__((visibility("hidden")))
 - (void)p_finishImportingWithInfo:(id)arg1 error:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)importInfoWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)dealloc;
-- (id)initWithContext:(id)arg1 imageData:(id)arg2 theme:(id)arg3;
+- (id)initWithContext:(id)arg1 data:(id)arg2 theme:(id)arg3;
 - (id)initWithContext:(id)arg1 URL:(id)arg2 theme:(id)arg3;
 
 @end

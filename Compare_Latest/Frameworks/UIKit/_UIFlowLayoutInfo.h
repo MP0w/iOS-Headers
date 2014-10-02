@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSMutableArray;
+@class NSArray, NSDictionary, NSMutableArray, UICollectionViewFlowLayout;
 
 __attribute__((visibility("hidden")))
 @interface _UIFlowLayoutInfo : NSObject
@@ -20,23 +20,30 @@ __attribute__((visibility("hidden")))
     float _dimension;
     BOOL _isValid;
     NSDictionary *_rowAlignmentOptions;
+    UICollectionViewFlowLayout *_layout;
     BOOL _usesFloatingHeaderFooter;
+    BOOL _estimatesSizes;
     struct CGSize _contentSize;
 }
 
+@property(nonatomic) BOOL estimatesSizes; // @synthesize estimatesSizes=_estimatesSizes;
+@property(nonatomic) UICollectionViewFlowLayout *layout; // @synthesize layout=_layout;
+@property(readonly, nonatomic) NSMutableArray *sections; // @synthesize sections=_sections;
 @property(retain, nonatomic) NSDictionary *rowAlignmentOptions; // @synthesize rowAlignmentOptions=_rowAlignmentOptions;
 @property(nonatomic) struct CGSize contentSize; // @synthesize contentSize=_contentSize;
 @property(nonatomic) BOOL leftToRight; // @synthesize leftToRight=_leftToRight;
 @property(nonatomic) BOOL horizontal; // @synthesize horizontal=_horizontal;
 @property(nonatomic) float dimension; // @synthesize dimension=_dimension;
 @property(nonatomic) BOOL usesFloatingHeaderFooter; // @synthesize usesFloatingHeaderFooter=_usesFloatingHeaderFooter;
-@property(readonly, nonatomic) NSMutableArray *sections; // @synthesize sections=_sections;
+@property(readonly, nonatomic) NSArray *invalidatedIndexPaths;
+- (void)setSize:(struct CGSize)arg1 forItemAtIndexPath:(id)arg2;
+- (void)didUpdateSizeForSection:(int)arg1 withDelta:(float)arg2;
 - (id)copy;
 - (id)snapshot;
 - (struct CGRect)frameForItemAtIndexPath:(id)arg1;
-- (void)dealloc;
 - (id)addSection;
 - (void)invalidate:(BOOL)arg1;
+- (void)dealloc;
 - (id)init;
 
 @end

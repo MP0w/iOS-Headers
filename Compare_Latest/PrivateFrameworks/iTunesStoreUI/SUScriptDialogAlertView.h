@@ -8,12 +8,20 @@
 
 #import "SUScriptNativeObject.h"
 
+@class NSString;
+
 @interface SUScriptDialogAlertView : UIAlertView <SUScriptNativeObject>
 {
 }
 
 - (BOOL)clearsWeakScriptReferences;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

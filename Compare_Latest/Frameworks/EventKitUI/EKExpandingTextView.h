@@ -14,11 +14,14 @@
 {
     UILabel *_placeholderLabel;
     BOOL _allowEnclosingViewScroll;
+    struct CGSize _previousIntrinsicContentSize;
 }
 
 - (void).cxx_destruct;
-- (void)setContentSize:(struct CGSize)arg1;
+- (BOOL)_shouldScrollEnclosingScrollView;
+- (struct CGSize)intrinsicContentSize;
 - (void)setContentOffset:(struct CGPoint)arg1;
+- (void)setContentSize:(struct CGSize)arg1;
 - (void)setBackgroundColor:(id)arg1;
 - (void)setTextAlignment:(int)arg1;
 - (void)setFont:(id)arg1;
@@ -28,6 +31,12 @@
 @property(copy, nonatomic) NSString *placeholder;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

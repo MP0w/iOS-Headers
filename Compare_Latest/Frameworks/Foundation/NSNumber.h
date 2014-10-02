@@ -6,6 +6,8 @@
 
 #import <Foundation/NSValue.h>
 
+@class NSString;
+
 @interface NSNumber : NSValue
 {
 }
@@ -48,34 +50,34 @@
 - (id)initWithCoder:(id)arg1;
 - (BOOL)_allowsDirectEncoding;
 - (Class)classForCoder;
-- (id)stringValue;
+@property(readonly, copy) NSString *stringValue;
 - (id)description;
 - (id)descriptionWithLocale:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isEqualToNumber:(id)arg1;
 - (int)compare:(id)arg1;
-- (unsigned long long)unsignedLongLongValue;
-- (long long)longLongValue;
-- (float)floatValue;
-- (double)doubleValue;
-- (unsigned long)unsignedLongValue;
-- (long)longValue;
-- (unsigned int)unsignedIntValue;
-- (int)intValue;
-- (unsigned short)unsignedShortValue;
-- (short)shortValue;
-- (unsigned char)unsignedCharValue;
-- (BOOL)charValue;
-- (unsigned int)unsignedIntegerValue;
-- (int)integerValue;
-- (BOOL)boolValue;
+@property(readonly) unsigned long long unsignedLongLongValue;
+@property(readonly) long long longLongValue;
+@property(readonly) float floatValue;
+@property(readonly) double doubleValue;
+@property(readonly) unsigned long unsignedLongValue;
+@property(readonly) long longValue;
+@property(readonly) unsigned int unsignedIntValue;
+@property(readonly) int intValue;
+@property(readonly) unsigned short unsignedShortValue;
+@property(readonly) short shortValue;
+@property(readonly) unsigned char unsignedCharValue;
+@property(readonly) BOOL charValue;
+@property(readonly) unsigned int unsignedIntegerValue;
+@property(readonly) int integerValue;
+@property(readonly) BOOL boolValue;
 - (int)_reverseCompare:(id)arg1;
 - (unsigned char)_getValue:(void *)arg1 forType:(long)arg2;
 - (long)_cfNumberType;
 - (unsigned long)_cfTypeID;
 - (BOOL)isNSNumber__;
-- (CDStruct_5fe7aead)decimalValue;
+@property(readonly) CDStruct_5fe7aead decimalValue;
 
 @end
 

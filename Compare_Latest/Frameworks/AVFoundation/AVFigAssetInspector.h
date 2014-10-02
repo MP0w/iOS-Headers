@@ -17,13 +17,19 @@
     BOOL hasSaveRestriction;
 }
 
+- (id)propertyListForProxy;
+- (BOOL)containsMovieFragments;
+- (BOOL)canContainMovieFragments;
 - (id)SHA1Digest;
+- (BOOL)isCompatibleWithSavedPhotosAlbum;
+- (BOOL)isPlayable;
 @property(readonly, nonatomic, getter=_isStreaming) BOOL streaming;
 @property(readonly, nonatomic) BOOL hasProtectedContent;
 @property(readonly, nonatomic) unsigned long long downloadToken;
 @property(readonly, nonatomic) NSURL *resolvedURL;
 @property(readonly, nonatomic) NSURL *URL;
-@property(readonly, nonatomic) NSArray *chapterGroupInfo;
+@property(readonly, nonatomic) NSArray *figChapters;
+@property(readonly, nonatomic) NSArray *figChapterGroupInfo;
 - (BOOL)isComposable;
 - (BOOL)isReadable;
 - (BOOL)isExportable;

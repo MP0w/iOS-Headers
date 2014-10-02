@@ -6,6 +6,8 @@
 
 #import <Foundation/NSOperation.h>
 
+@class NSArray;
+
 @interface NSBlockOperation : NSOperation
 {
     id _private2;
@@ -13,7 +15,7 @@
 }
 
 + (id)blockOperationWithBlock:(CDUnknownBlockType)arg1;
-- (id)executionBlocks;
+@property(readonly, copy) NSArray *executionBlocks;
 - (void)main;
 - (void)addExecutionBlock:(CDUnknownBlockType)arg1;
 - (void)finalize;

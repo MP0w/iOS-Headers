@@ -33,8 +33,8 @@ struct UIEdgeInsets {
 };
 
 struct UIOffset {
-    float horizontal;
-    float vertical;
+    float _field1;
+    float _field2;
 };
 
 struct _NSRange {

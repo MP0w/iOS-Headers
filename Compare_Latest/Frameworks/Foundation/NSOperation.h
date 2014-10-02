@@ -6,40 +6,45 @@
 
 #import "NSObject.h"
 
+@class NSArray, NSString;
+
 @interface NSOperation : NSObject
 {
     id _private;
     int _private1;
 }
 
++ (id)currentOperation;
 + (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
+- (id)_activity;
 - (id)__;
+- (id)description;
 - (void)start;
 - (void)main;
-- (id)dependencies;
+@property(readonly, copy) NSArray *dependencies;
 - (void)removeDependency:(id)arg1;
 - (void)addDependency:(id)arg1;
 - (void)waitUntilFinishedOrTimeout:(double)arg1;
 - (void)waitUntilFinished;
-- (void)setCompletionBlock:(CDUnknownBlockType)arg1;
-- (CDUnknownBlockType)completionBlock;
-- (void)setThreadPriority:(double)arg1;
-- (double)threadPriority;
-- (void)setQueuePriority:(int)arg1;
-- (int)queuePriority;
-- (BOOL)isReady;
-- (BOOL)isAsynchronous;
-- (BOOL)isConcurrent;
-- (BOOL)isFinished;
-- (BOOL)isExecuting;
+@property int qualityOfService;
+@property(copy) NSString *name;
+@property(copy) CDUnknownBlockType completionBlock;
+@property double threadPriority;
+@property int queuePriority;
+@property(readonly, getter=isReady) BOOL ready;
+@property(readonly, getter=isAsynchronous) BOOL asynchronous;
+@property(readonly, getter=isConcurrent) BOOL concurrent;
+@property(readonly, getter=isFinished) BOOL finished;
+@property(readonly, getter=isExecuting) BOOL executing;
 - (void)cancel;
-- (BOOL)isCancelled;
+@property(readonly, getter=isCancelled) BOOL cancelled;
 - (void)finalize;
 - (void)dealloc;
 - (id)init;
 - (void)setObservationInfo:(void *)arg1;
 - (void *)observationInfo;
 - (id)_implicitObservationInfo;
+- (int)_effQoS;
 
 @end
 

@@ -18,6 +18,8 @@ __attribute__((visibility("hidden")))
 - (struct __CFDate *)newDateFromString:(struct __CFString *)arg1 forceAllowAMPM:(BOOL)arg2 successfulFormatString:(const struct __CFString **)arg3 perfect:(char *)arg4;
 - (id)entryForSeparator:(unsigned short)arg1;
 - (void)addSeparator:(unsigned short)arg1 format:(id)arg2 locale:(struct __CFLocale *)arg3;
+- (id)formatStringsDictionary;
+- (id)initialPattern;
 - (void)dealloc;
 - (id)initWithInitialPattern:(id)arg1 locale:(struct __CFLocale *)arg2;
 

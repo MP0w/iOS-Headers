@@ -57,7 +57,7 @@
     GKVoiceChatSessionListener *_voiceChatListener;
 }
 
-@property(readonly) GKConnection *connection; // @synthesize connection=_connection;
+@property(readonly, retain) GKConnection *connection; // @synthesize connection=_connection;
 @property(readonly) int sessionMode; // @synthesize sessionMode=_mode;
 @property(readonly) NSString *sessionID; // @synthesize sessionID;
 @property(nonatomic) unsigned int port; // @synthesize port=_port;
@@ -101,7 +101,7 @@
 - (void)setDOOBReceiveHandler:(id)arg1 withContext:(void *)arg2 inBand:(unsigned int)arg3;
 - (void)receiveDOOB:(id)arg1 fromPeer:(id)arg2 inSession:(id)arg3 context:(void *)arg4;
 - (BOOL)sendDataToAllPeers:(id)arg1 withDataMode:(int)arg2 error:(id *)arg3;
-- (BOOL)sendData:(id)arg1 toPeers:(id)arg2 withDataMode:(int)arg3 isAudio:(BOOL)arg4 error:(id *)arg5;
+- (BOOL)sendData:(id)arg1 toPeers:(id)arg2 withDataMode:(int)arg3 enableOOB:(BOOL)arg4 error:(id *)arg5;
 - (BOOL)sendData:(id)arg1 toPeers:(id)arg2 withDataMode:(int)arg3 error:(id *)arg4;
 - (BOOL)passesSendDataSanityCheck:(id)arg1 toPeers:(id)arg2 withDataMode:(int)arg3 error:(id *)arg4;
 - (BOOL)sendAudioData:(id)arg1 toPeers:(id)arg2 withDataMode:(int)arg3 error:(id *)arg4;

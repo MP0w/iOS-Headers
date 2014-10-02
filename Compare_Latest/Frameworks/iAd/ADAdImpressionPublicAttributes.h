@@ -13,11 +13,11 @@
 @interface ADAdImpressionPublicAttributes : NSObject <NSSecureCoding>
 {
     BOOL _actionLeavesApplication;
-    BOOL _adHasAction;
+    BOOL _unbranded;
     BOOL _actionViewControllerHidesStatusBar;
+    int _action;
     NSString *_accessibilityLabel;
     unsigned int _actionViewControllerPresentationOrientationMask;
-    int _actionViewControllerTransitionStyle;
     int _modalPresentationStyle;
     NSArray *_videoAssets;
     NSString *_uniqueIdentifier;
@@ -26,7 +26,8 @@
     NSURL *_logoImageURL;
     NSString *_headlineForLCD;
     NSString *_descriptionForLCD;
-    double _videoCountdownDuration;
+    double _skipThreshold;
+    double _minimumIntervalBetweenPresentations;
 }
 
 + (BOOL)supportsSecureCoding;
@@ -38,13 +39,15 @@
 @property(copy, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(retain, nonatomic) NSArray *videoAssets; // @synthesize videoAssets=_videoAssets;
 @property(nonatomic) int modalPresentationStyle; // @synthesize modalPresentationStyle=_modalPresentationStyle;
-@property(nonatomic) int actionViewControllerTransitionStyle; // @synthesize actionViewControllerTransitionStyle=_actionViewControllerTransitionStyle;
 @property(nonatomic) BOOL actionViewControllerHidesStatusBar; // @synthesize actionViewControllerHidesStatusBar=_actionViewControllerHidesStatusBar;
 @property(nonatomic) unsigned int actionViewControllerPresentationOrientationMask; // @synthesize actionViewControllerPresentationOrientationMask=_actionViewControllerPresentationOrientationMask;
-@property(nonatomic) double videoCountdownDuration; // @synthesize videoCountdownDuration=_videoCountdownDuration;
+@property(nonatomic) double minimumIntervalBetweenPresentations; // @synthesize minimumIntervalBetweenPresentations=_minimumIntervalBetweenPresentations;
+@property(nonatomic) double skipThreshold; // @synthesize skipThreshold=_skipThreshold;
 @property(copy, nonatomic) NSString *accessibilityLabel; // @synthesize accessibilityLabel=_accessibilityLabel;
-@property(nonatomic) BOOL adHasAction; // @synthesize adHasAction=_adHasAction;
+@property(nonatomic) BOOL unbranded; // @synthesize unbranded=_unbranded;
+@property(nonatomic) int action; // @synthesize action=_action;
 @property(nonatomic) BOOL actionLeavesApplication; // @synthesize actionLeavesApplication=_actionLeavesApplication;
+- (id)_actionDescription;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

@@ -6,17 +6,13 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSMapTable, NSMutableArray, NSMutableIndexSet, NSMutableSet, NSNotificationCenter, NSNumber, NSObject<OS_dispatch_queue>, PLManagedObjectContext;
+@class NSDictionary, NSMapTable, NSMutableArray, NSMutableSet, NSNotificationCenter, NSNumber, PLManagedObjectContext;
 
 @interface PLChangeNotificationCenter : NSObject
 {
     BOOL _isProcessingRemoteDidSave;
-    NSObject<OS_dispatch_queue> *_thumbnailIndexIsolation;
-    NSMutableIndexSet *_changedThumbnailIndexes;
-    unsigned int _thumbnailIndexesChangeCounter;
     int _cameraPreviewChangeListenerCount;
     NSNumber *_cameraPreviewChangedToken;
-    int _stackViewImageChangeListenerCount;
     NSMutableArray *_snapshots;
     struct changeList_s _changedAlbumLists;
     struct contentChanges_s _albumListsContent;
@@ -38,13 +34,9 @@
 }
 
 + (void)forceFetchingAlbumReload;
-+ (void)getInsertedAssets:(id)arg1 deletedAssets:(id)arg2 changedAssets:(id)arg3 fromContextDidChangeNotification:(id)arg4;
 + (void)getInsertedAssetCount:(unsigned int *)arg1 deletedAssetCount:(unsigned int *)arg2 updatedAssets:(id)arg3 fromContextDidChangeNotification:(id)arg4;
-+ (void)processChangeHubEvent:(id)arg1 withGroup:(id)arg2;
 + (id)allManagedObjectKeysStrategy;
 + (id)defaultCenter;
-- (void)_unregisterForStackViewImageChanges;
-- (void)_registerForStackViewImageChanges;
 - (void)removeCameraPreviewWellImageChangeObserver:(id)arg1;
 - (void)addCameraPreviewWellImageChangeObserver:(id)arg1;
 - (void)_unregisterForCameraPreviewWellChanges;
@@ -73,7 +65,6 @@
 - (void)_evaluateContainersWithUpdatedContent;
 - (void)_splitContextDidChangeNotification:(id)arg1;
 - (void)_cleanupState;
-- (void)_persistUserAlbumChanges;
 - (void)_enqueueAssetChangeNotification;
 - (void)_enqueueMomentListChangeNotifications;
 - (void)_enqueueMomentChangeNotifications;
@@ -84,8 +75,6 @@
 - (void)_enqueuePhotoLibraryNotifications;
 - (void)_sendNotificationsForSplitChanges;
 - (void)postShouldReloadNotification;
-- (void)processChangeHubEvent:(id)arg1 withGroup:(id)arg2;
-- (void)_processThumbnailsUpdatedEvent:(id)arg1;
 - (void)enumerateIndexMappingCachesForObject:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (id)_toOneRelationshipsOfInterestForObject:(id)arg1;
 - (id)_attributesOfInterestForObject:(id)arg1;
@@ -113,7 +102,7 @@
 - (void)addAssetContainerListChangeObserver:(id)arg1 containerList:(id)arg2;
 - (void)removeAssetContainerChangeObserver:(id)arg1 container:(id)arg2;
 - (void)addAssetContainerChangeObserver:(id)arg1 container:(id)arg2;
-@property(readonly, nonatomic) NSNotificationCenter *backingCenter;
+@property(readonly, retain, nonatomic) NSNotificationCenter *backingCenter;
 - (void)enqueueNotification:(id)arg1;
 - (void)dealloc;
 - (id)init;

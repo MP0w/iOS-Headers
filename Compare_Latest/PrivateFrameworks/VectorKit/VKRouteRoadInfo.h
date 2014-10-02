@@ -17,8 +17,8 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, nonatomic) struct PolylineCoordinate routeOffset; // @synthesize routeOffset=_routeOffset;
-@property(readonly, nonatomic) NSString *shieldGroup; // @synthesize shieldGroup=_shieldGroup;
-@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, retain, nonatomic) NSString *shieldGroup; // @synthesize shieldGroup=_shieldGroup;
+@property(readonly, retain, nonatomic) NSString *name; // @synthesize name=_name;
 - (id).cxx_construct;
 - (void)dealloc;
 - (id)initWithName:(id)arg1 shieldGroup:(id)arg2 offset:(struct PolylineCoordinate)arg3;

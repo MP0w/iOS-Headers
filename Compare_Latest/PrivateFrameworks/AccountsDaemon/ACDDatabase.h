@@ -33,6 +33,8 @@
 - (BOOL)_databaseFileExists;
 - (id)_store;
 - (void)_setupManagedObjectContext;
+- (BOOL)saveWithError:(id *)arg1 rollbackOnFailure:(BOOL)arg2;
+- (BOOL)saveWithError:(id *)arg1;
 - (id)managedObjectIDForURI:(id)arg1;
 - (void)setAccountPropertyWithKey:(id)arg1 value:(id)arg2 owner:(id)arg3;
 - (void)deleteAccountPropertyWithKey:(id)arg1 owner:(id)arg2;

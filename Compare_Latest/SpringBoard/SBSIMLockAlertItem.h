@@ -8,13 +8,13 @@
 
 @interface SBSIMLockAlertItem : SBAlertItem
 {
-    int _status;
+    long long _status;
     long long _okButtonIndex;
     long long _unlockButtonIndex;
 }
 
-+ (id)alertTitleForStatus:(int)arg1;
-+ (id)alertTitleForStatus:(int)arg1 languageCode:(id)arg2;
++ (id)alertTitleForStatus:(long long)arg1;
++ (id)alertTitleForStatus:(long long)arg1 languageCode:(id)arg2;
 - (_Bool)reappearsAfterLock;
 - (_Bool)reappearsAfterUnlock;
 - (_Bool)pendInSetupIfNotAllowed;
@@ -25,13 +25,13 @@
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)unlock;
 - (void)didDeactivateForReason:(int)arg1;
-- (int)status;
+- (long long)status;
 - (id)alertTextForLanguageCode:(id)arg1;
 - (id)alertTitleForLanguageCode:(id)arg1;
 - (_Bool)canUnlock;
 - (void)dealloc;
 - (void)_resetButtonIndexes;
-- (id)initWithStatus:(int)arg1;
+- (id)initWithStatus:(long long)arg1;
 
 @end
 

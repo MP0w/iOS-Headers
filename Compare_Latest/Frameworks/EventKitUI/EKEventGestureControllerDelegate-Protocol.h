@@ -22,6 +22,7 @@
 - (BOOL)eventGestureController:(EKEventGestureController *)arg1 isAllDayAtPoint:(struct CGPoint)arg2 requireInsistence:(BOOL)arg3;
 - (void)eventGestureController:(EKEventGestureController *)arg1 addViewToScroller:(UIView *)arg2 isAllDay:(BOOL)arg3;
 - (float)eventGestureController:(EKEventGestureController *)arg1 yPositionPerhapsMatchingAllDayOccurrence:(EKEvent *)arg2 atPoint:(struct CGPoint)arg3;
+- (EKDayOccurrenceView *)eventGestureController:(EKEventGestureController *)arg1 occurrenceViewForOccurrence:(EKEvent *)arg2;
 - (EKDayOccurrenceView *)eventGestureController:(EKEventGestureController *)arg1 occurrenceViewAtPoint:(struct CGPoint)arg2;
 - (EKEvent *)createEventForEventGestureController:(EKEventGestureController *)arg1;
 - (void)eventGestureController:(EKEventGestureController *)arg1 adjustDraggingViewForAllDay:(BOOL)arg2;

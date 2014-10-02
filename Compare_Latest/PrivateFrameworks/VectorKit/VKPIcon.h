@@ -13,6 +13,7 @@
 __attribute__((visibility("hidden")))
 @interface VKPIcon : PBCodable <NSCopying>
 {
+    unsigned long long _matchingStyleAttributeLongValue;
     unsigned int _anchorPointX;
     unsigned int _anchorPointY;
     unsigned int _atlasIndex;
@@ -24,7 +25,9 @@ __attribute__((visibility("hidden")))
     int _matchingStyleAttributeValue;
     NSString *_name;
     unsigned int _quadIndex;
+    int _size;
     struct {
+        unsigned int matchingStyleAttributeLongValue:1;
         unsigned int anchorPointX:1;
         unsigned int anchorPointY:1;
         unsigned int iconRectHeight:1;
@@ -33,9 +36,11 @@ __attribute__((visibility("hidden")))
         unsigned int iconRectY:1;
         unsigned int matchingStyleAttributeKey:1;
         unsigned int matchingStyleAttributeValue:1;
+        unsigned int size:1;
     } _has;
 }
 
+@property(nonatomic) unsigned long long matchingStyleAttributeLongValue; // @synthesize matchingStyleAttributeLongValue=_matchingStyleAttributeLongValue;
 @property(nonatomic) int matchingStyleAttributeValue; // @synthesize matchingStyleAttributeValue=_matchingStyleAttributeValue;
 @property(nonatomic) unsigned int matchingStyleAttributeKey; // @synthesize matchingStyleAttributeKey=_matchingStyleAttributeKey;
 @property(nonatomic) unsigned int iconRectHeight; // @synthesize iconRectHeight=_iconRectHeight;
@@ -47,6 +52,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned int quadIndex; // @synthesize quadIndex=_quadIndex;
 @property(nonatomic) unsigned int atlasIndex; // @synthesize atlasIndex=_atlasIndex;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -55,6 +61,9 @@ __attribute__((visibility("hidden")))
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) BOOL hasSize;
+@property(nonatomic) int size; // @synthesize size=_size;
+@property(nonatomic) BOOL hasMatchingStyleAttributeLongValue;
 @property(nonatomic) BOOL hasMatchingStyleAttributeValue;
 @property(nonatomic) BOOL hasMatchingStyleAttributeKey;
 @property(nonatomic) BOOL hasIconRectHeight;

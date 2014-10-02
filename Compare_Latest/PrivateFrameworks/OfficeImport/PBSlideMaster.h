@@ -11,8 +11,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)writeSlideMaster:(id)arg1 presentationState:(id)arg2;
-+ (void)writeSlideMasterOrLayout:(id)arg1 presentationState:(id)arg2;
 + (void)flattenPlaceholderTextStylesIntoLayout:(id)arg1 layoutType:(int)arg2 masterStyleMap:(id)arg3;
 + (void)readSlideMasterStyles:(id)arg1 slideHolder:(id)arg2 state:(id)arg3;
 + (void)setFont:(id)arg1 fromCharacterProperties:(id)arg2;

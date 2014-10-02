@@ -8,12 +8,20 @@
 
 #import "SKStoreProductViewControllerDelegate.h"
 
+@class NSString;
+
 @interface SKUIDismissingProductViewController : SKStoreProductViewController <SKStoreProductViewControllerDelegate>
 {
 }
 
 - (void)productViewControllerDidFinish:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

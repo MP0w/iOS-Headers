@@ -9,7 +9,11 @@
 __attribute__((visibility("hidden")))
 @interface OADQTStubFile : OADEmbeddedMediaFile
 {
+    BOOL isAudioOnly;
 }
+
+@property(nonatomic) BOOL isAudioOnly; // @synthesize isAudioOnly;
+- (id)description;
 
 @end
 

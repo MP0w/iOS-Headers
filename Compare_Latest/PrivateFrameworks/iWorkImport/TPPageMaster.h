@@ -6,16 +6,16 @@
 
 #import <iWorkImport/TSPObject.h>
 
-#import "TPHeaderFooterProvider.h"
 #import "TPMasterDrawableProvider.h"
 #import "TSKDocumentObject.h"
 #import "TSKModel.h"
 #import "TSPCopying.h"
+#import "TSWPHeaderFooterProvider.h"
 
-@class NSArray, NSMutableArray, TPDocumentRoot, TPSection, TSWPStorage;
+@class NSArray, NSMutableArray, NSString, TPDocumentRoot, TPSection, TSWPStorage;
 
 __attribute__((visibility("hidden")))
-@interface TPPageMaster : TSPObject <TPHeaderFooterProvider, TPMasterDrawableProvider, TSKDocumentObject, TSKModel, TSPCopying>
+@interface TPPageMaster : TSPObject <TSWPHeaderFooterProvider, TPMasterDrawableProvider, TSKDocumentObject, TSKModel, TSPCopying>
 {
     TPDocumentRoot *_documentRoot;
     TPSection *_section;
@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) TPSection *section; // @synthesize section=_section;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)p_makeMasterDrawablesPerformSelector:(SEL)arg1 withStylesheet:(id)arg2 withMapper:(id)arg3;
 - (void)p_makeMasterDrawablesPerformSelector:(SEL)arg1 documentRoot:(id)arg2;
 - (void)p_makeMasterDrawablesPerformSelector:(SEL)arg1 documentRoot:(id)arg2 context:(id)arg3;
@@ -34,7 +34,7 @@ __attribute__((visibility("hidden")))
 - (void)i_createHeadersFooters:(int)arg1 stylesheet:(id)arg2 paragraphStyle:(id)arg3 context:(id)arg4 mayAlreadyExist:(BOOL)arg5;
 - (int)p_headerFragmentIndexForTabIndex:(unsigned int)arg1 paragraphStyle:(id)arg2 bodyWidth:(float)arg3;
 - (void)p_splitHeaderFooterByTabs:(id)arg1 storages:(id *)arg2 dolcContext:(id)arg3 bodyWidth:(float)arg4;
-- (void)p_filterParagraphStylesOnHeaderFooterStorage:(id)arg1 index:(int)arg2 stylesheet:(id)arg3;
+- (void)p_filterParagraphStylesOnHeaderFooterStorage:(id)arg1 stylesheet:(id)arg2;
 - (id)p_headerAndFooterStorages;
 - (void)i_copyHeadersAndFootersFrom:(id)arg1 dolcContext:(id)arg2;
 - (void)i_importHeaderFooter:(id)arg1 headerType:(int)arg2 dolcContext:(id)arg3 splitHeaders:(BOOL)arg4;
@@ -56,6 +56,8 @@ __attribute__((visibility("hidden")))
 - (BOOL)isHeaderFooterEmpty:(int)arg1;
 - (id)headerFooter:(int)arg1 fragmentAtIndex:(int)arg2;
 - (BOOL)usesSingleHeaderFooter;
+- (float)bodyWidth;
+- (id)documentRoot;
 - (float)footerHeight;
 - (float)headerHeight;
 - (float)pHeightOfHeaderFooter:(int)arg1;
@@ -73,10 +75,11 @@ __attribute__((visibility("hidden")))
 - (id)initFromUnarchiver:(id)arg1;
 - (void)i_setDocumentRoot:(id)arg1;
 - (id)initWithSection:(id)arg1;
-- (id)getMergedHeaderFooter:(int)arg1;
-- (BOOL)pAppendHeaderFooterFragment:(id)arg1 paragraph:(unsigned int)arg2 toCompositHeaderFooter:(id)arg3 segment:(unsigned int)arg4 lastSegmentInserted:(unsigned int)arg5 themeParStyle:(id)arg6 otherHFStyles:(id)arg7;
-- (id)pHFParagraphStyleWithPropertiesFromStyle:(id)arg1 baseStyle:(id)arg2 otherHFStyles:(id)arg3;
-- (void)pApplyParagraphStyle:(id)arg1 toHFFragment:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -27,7 +27,7 @@
 @property(readonly) NSArray *keysToDelete; // @synthesize keysToDelete=_keysToDelete;
 @property(readonly) NSArray *keysToUpdate; // @synthesize keysToUpdate=_keysToUpdate;
 @property(readonly) int conflictDetectionType; // @synthesize conflictDetectionType=_conflictDetectionType;
-@property(readonly) NSString *syncAnchor; // @synthesize syncAnchor=_syncAnchor;
+@property(readonly, copy) NSString *syncAnchor; // @synthesize syncAnchor=_syncAnchor;
 - (id)keyValuePairForUpdatedKey:(id)arg1;
 - (id)conflictDetectionOrdinalForKey:(id)arg1;
 - (id)description;
@@ -35,9 +35,9 @@
 - (void)_validateTransactionProcessor:(id)arg1;
 - (id)newRequest;
 - (id)requestURL;
-@property(readonly) NSString *domain; // @synthesize domain=_domain;
+- (id)domain;
 - (id)clampsKey;
-- (id)initWithSyncBagContext:(id)arg1 syncAnchor:(id)arg2 keysToUpdate:(id)arg3 keysToDelete:(id)arg4 conflictDetectionType:(int)arg5;
+- (id)initWithStoreBagContext:(id)arg1 syncAnchor:(id)arg2 keysToUpdate:(id)arg3 keysToDelete:(id)arg4 conflictDetectionType:(int)arg5;
 - (id)initWithSyncRequestURL:(id)arg1 domain:(id)arg2 syncAnchor:(id)arg3 keysToUpdate:(id)arg4 keysToDelete:(id)arg5 conflictDetectionType:(int)arg6;
 
 @end

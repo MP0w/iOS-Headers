@@ -6,12 +6,10 @@
 
 #import "NSObject.h"
 
-@class AVAsset, AVAssetExportSession, AVAudioMix, NSString, NSTimer, PLProgressView;
+@class AVAssetExportSession, NSString, NSTimer, PFVideoAVObjectBuilder, PLProgressView;
 
 @interface PLVideoRemaker : NSObject
 {
-    AVAsset *_asset;
-    AVAudioMix *_audioMix;
     NSString *_trimmedPath;
     double _duration;
     double _trimStartTime;
@@ -22,6 +20,8 @@
     NSTimer *_progressTimer;
     PLProgressView *_progressView;
     id _delegate;
+    CDUnknownBlockType _progressHandler;
+    PFVideoAVObjectBuilder *__videoAVObjectBuilder;
 }
 
 + (int)getSDRemakerModeForMode:(int)arg1;
@@ -29,6 +29,8 @@
 + (long long)approximateByteSizeForMode:(int)arg1 duration:(double)arg2;
 + (double)maximumDurationForTrimMode:(int)arg1;
 + (long long)fileLengthLimitForRemakerMode:(int)arg1;
+@property(readonly, retain, nonatomic) PFVideoAVObjectBuilder *_videoAVObjectBuilder; // @synthesize _videoAVObjectBuilder=__videoAVObjectBuilder;
+@property(copy, nonatomic) CDUnknownBlockType progressHandler; // @synthesize progressHandler=_progressHandler;
 - (void)_exportCompletedWithSuccess:(BOOL)arg1;
 - (void)cancel;
 - (void)_didEndRemakingWithTemporaryPath:(id)arg1;
@@ -50,7 +52,7 @@
 - (id)progressView;
 - (id)messageForRemakingProgress;
 - (void)dealloc;
-- (id)initWithManagedAsset:(id)arg1 applySlalomRegions:(BOOL)arg2;
+- (id)initWithManagedAsset:(id)arg1 applyVideoAdjustments:(BOOL)arg2;
 - (id)initWithAVAsset:(id)arg1;
 
 @end

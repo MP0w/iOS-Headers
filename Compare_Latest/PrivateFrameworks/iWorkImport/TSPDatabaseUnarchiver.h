@@ -13,9 +13,10 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, nonatomic) unsigned long long preUFFVersion; // @synthesize preUFFVersion=_databaseVersion;
+- (BOOL)canValidateReferences;
 - (set_149bae43 *)filterIdentifiers:(const set_149bae43 *)arg1;
-- (id)initWithMessageType:(unsigned int)arg1 message:(auto_ptr_4370f086)arg2 identifier:(long long)arg3 strongReferences:(auto_ptr_2bf936f6)arg4 databaseVersion:(unsigned long long)arg5 objectDelegate:(id)arg6 lazyReferenceDelegate:(id)arg7 delegate:(id)arg8 error:(id *)arg9;
-- (id)initWithMessageType:(unsigned int)arg1 message:(auto_ptr_4370f086)arg2 identifier:(long long)arg3 strongReferences:(auto_ptr_2bf936f6)arg4 fieldInfos:(auto_ptr_40e77785)arg5 version:(unsigned long long)arg6 unknownMessages:(id)arg7 ignoreVersionChecking:(BOOL)arg8 objectDelegate:(id)arg9 lazyReferenceDelegate:(id)arg10 delegate:(id)arg11 error:(id *)arg12;
+- (id)initWithMessageType:(unsigned int)arg1 message:(auto_ptr_4370f086)arg2 identifier:(long long)arg3 strongReferences:(auto_ptr_c01b630f)arg4 databaseVersion:(unsigned long long)arg5 objectDelegate:(id)arg6 lazyReferenceDelegate:(id)arg7 delegate:(id)arg8 error:(id *)arg9;
+- (id)initWithMessageType:(unsigned int)arg1 message:(auto_ptr_4370f086)arg2 identifier:(long long)arg3 strongReferences:(auto_ptr_c01b630f)arg4 fieldInfos:(auto_ptr_40e77785)arg5 version:(unsigned long long)arg6 unknownMessages:(id)arg7 ignoreVersionChecking:(BOOL)arg8 objectDelegate:(id)arg9 lazyReferenceDelegate:(id)arg10 delegate:(id)arg11 error:(id *)arg12;
 
 @end
 

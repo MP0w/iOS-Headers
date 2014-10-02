@@ -13,7 +13,7 @@
     NSMutableSet *_recurrences;
 }
 
-@property(retain) NSMutableSet *recurrences; // @synthesize recurrences=_recurrences;
+@property(retain, nonatomic) NSMutableSet *recurrences; // @synthesize recurrences=_recurrences;
 - (id)copyParseRules;
 - (void)addRecurrence:(id)arg1;
 - (void)dealloc;

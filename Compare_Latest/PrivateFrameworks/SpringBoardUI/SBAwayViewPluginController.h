@@ -24,11 +24,13 @@
 + (void)disableBundleNamed:(id)arg1 deactivationContext:(id)arg2;
 + (void)enableBundleNamed:(id)arg1;
 + (void)enableBundleNamed:(id)arg1 activationContext:(id)arg2;
-+ (id)_serializedDataForContext:(id)arg1;
 @property(copy, nonatomic) NSString *enablingApplicationBundleIdentifier; // @synthesize enablingApplicationBundleIdentifier=_enablingApplicationBundleIdentifier;
 @property(nonatomic, getter=_effectivePresentationStyle, setter=_setEffectivePresentationStyle:) unsigned int effectivePresentationStyle; // @synthesize effectivePresentationStyle=_effectivePresentationStyle;
 @property(nonatomic) int orientation; // @synthesize orientation=_orientation;
 @property(nonatomic) BOOL viewCanBeDisplayed; // @synthesize viewCanBeDisplayed=_viewCanBeDisplayed;
+- (void)setNeedsLegibilityAppearanceUpdate;
+- (BOOL)isContentViewWhiteUnderSlideToUnlockText;
+- (BOOL)legibilitySettingsOverridesVibrancy;
 - (id)legibilitySettings;
 - (unsigned int)overlayStyle;
 - (void)lockScreenMediaControlsShown:(BOOL)arg1;
@@ -44,6 +46,7 @@
 - (BOOL)wantsMenuButtonHeldEvent;
 - (BOOL)handleMenuButtonDoubleTap;
 - (BOOL)handleMenuButtonTap;
+- (id)slideToUnlockText;
 - (BOOL)showsDuringCall;
 - (BOOL)wantsUserWallpaper;
 - (BOOL)wantsHardwareEventsWhenScreenDimmed;
@@ -56,11 +59,15 @@
 - (id)customHeaderView;
 - (BOOL)showHeaderView;
 - (BOOL)showStatusBar;
+- (id)customSubtitleColor;
+- (id)customSubtitleText;
+- (BOOL)hasCustomSubtitle;
 - (BOOL)showDate;
 - (BOOL)showBatteryChargingText;
 - (BOOL)showDateView;
 - (BOOL)disablesAwayItemsCompletely;
 - (BOOL)showAwayItems;
+- (unsigned int)unlockAnimationStyleForDestinationApp:(id)arg1;
 - (id)bundleIDForUnlock;
 - (BOOL)animateResumingToApplicationWithIdentifier:(id)arg1;
 - (int)pluginPriority;

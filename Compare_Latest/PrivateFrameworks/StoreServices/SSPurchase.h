@@ -21,6 +21,7 @@
     NSString *_buyParameters;
     BOOL _createsDownloads;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
+    BOOL _displaysOnLockScreen;
     SSDownloadPolicy *_downloadPolicy;
     NSMutableDictionary *_downloadProperties;
     long long _expectedDownloadFileSize;
@@ -46,7 +47,7 @@
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
 - (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -73,6 +74,7 @@
 @property(copy) NSArray *filteredAssetTypes;
 @property(copy) NSDictionary *downloadProperties;
 @property(copy) SSDownloadPolicy *downloadPolicy;
+@property BOOL displaysOnLockScreen;
 @property(nonatomic) BOOL createsDownloads;
 @property(copy) NSString *buyParameters;
 @property(getter=isBackgroundPurchase) BOOL backgroundPurchase;
@@ -83,6 +85,11 @@
 - (id)initWithItem:(id)arg1;
 - (id)init;
 - (id)_initSSPurchase;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

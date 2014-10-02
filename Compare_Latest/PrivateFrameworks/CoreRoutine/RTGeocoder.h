@@ -6,22 +6,19 @@
 
 #import "NSObject.h"
 
-@class GEOGeocodeRequest;
-
 @interface RTGeocoder : NSObject
 {
-    GEOGeocodeRequest *_geocodeRequest;
+    id <GEOMapServiceTicket> _ticket;
 }
 
-@property(retain, nonatomic) GEOGeocodeRequest *geocodeRequest; // @synthesize geocodeRequest=_geocodeRequest;
+@property(retain, nonatomic) id <GEOMapServiceTicket> ticket; // @synthesize ticket=_ticket;
 - (void).cxx_destruct;
 - (void)dealloc;
-- (void)_cancelRequest:(id)arg1;
+- (void)_cancelTicket:(id)arg1;
 - (id)geocodeAddressDictionary:(id)arg1;
 - (void)geocodeAddressDictionary:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (id)geocodeLatitude:(double)arg1 longitude:(double)arg2;
 - (void)geocodeLatitude:(double)arg1 longitude:(double)arg2 handler:(CDUnknownBlockType)arg3;
-- (id)init;
 
 @end
 

@@ -14,6 +14,9 @@
 
 + (id)attendeeWithEmailAddress:(id)arg1 name:(id)arg2;
 + (id)attendeeWithName:(id)arg1 emailAddress:(id)arg2 address:(id)arg3;
+@property(nonatomic) BOOL statusChanged;
+@property(nonatomic) BOOL commentChanged;
+- (BOOL)isCurrentUser;
 @property(readonly, nonatomic) NSDate *lastModifiedParticipationStatus;
 - (void)setParticipantType:(int)arg1;
 - (int)participantType;

@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 - (long)sizeInBytes;
 - (void)setSizeInPoints:(struct CGSize)arg1;
 - (struct CGSize)sizeInPoints;
+- (void)setType:(int)arg1;
 - (int)type;
 - (void)setData:(id)arg1;
 - (id)data;

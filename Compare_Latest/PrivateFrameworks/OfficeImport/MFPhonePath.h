@@ -6,12 +6,12 @@
 
 #import <OfficeImport/MFPath.h>
 
-@class TSDBezierPath;
+@class OITSDBezierPath;
 
 __attribute__((visibility("hidden")))
 @interface MFPhonePath : MFPath
 {
-    TSDBezierPath *m_path;
+    OITSDBezierPath *m_path;
     int m_state;
 }
 

@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (id)imageWithPreset:(id)arg1 target:(int)arg2 imageSize:(struct CGSize)arg3 imageScale:(float)arg4 swatchFrame:(struct CGRect)arg5 documentRoot:(id)arg6;
+- (id)imageWithPreset:(id)arg1 target:(int)arg2 imageSize:(struct CGSize)arg3 imageScale:(float)arg4 swatchFrame:(struct CGRect)arg5 documentRoot:(id)arg6 shouldCache:(char *)arg7;
 - (BOOL)supportsBevels;
 - (id)defaultSeriesType:(unsigned int)arg1;
 - (id)userInterfaceName;
@@ -20,9 +20,6 @@ __attribute__((visibility("hidden")))
 - (float)categoryAxisTitleRotation;
 - (float)valueAxisTitleRotation;
 - (id)titlePositionerWithInfo:(id)arg1 scene:(id)arg2;
-- (void)setupPresetImageChart:(id)arg1;
-- (struct CGRect)adjustChartFrame:(struct CGRect)arg1 forPresetImageTarget:(int)arg2;
-- (struct TSCH3DChartRotationLimit)rotation3DLimit;
 
 @end
 

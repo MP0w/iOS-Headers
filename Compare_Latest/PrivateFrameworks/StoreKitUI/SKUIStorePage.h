@@ -8,11 +8,13 @@
 
 #import "NSCopying.h"
 
-@class NSArray, NSMutableDictionary, NSString, NSURL, SKUIArtwork, SKUIProductPage, SKUIUber, SSMetricsConfiguration;
+@class NSArray, NSData, NSHTTPURLResponse, NSMutableDictionary, NSString, NSURL, SKUIArtwork, SKUIProductPage, SKUIUber, SSMetricsConfiguration;
 
 @interface SKUIStorePage : NSObject <NSCopying>
 {
     SKUIArtwork *_backgroundArtwork;
+    NSData *_itmlData;
+    NSHTTPURLResponse *_itmlResponse;
     SSMetricsConfiguration *_metricsConfiguration;
     NSString *_metricsPageDescription;
     NSArray *_pageComponents;
@@ -32,6 +34,8 @@
 @property(copy, nonatomic) NSArray *pageComponents; // @synthesize pageComponents=_pageComponents;
 @property(copy, nonatomic) NSString *metricsPageDescription; // @synthesize metricsPageDescription=_metricsPageDescription;
 @property(retain, nonatomic) SSMetricsConfiguration *metricsConfiguration; // @synthesize metricsConfiguration=_metricsConfiguration;
+@property(retain, nonatomic) NSHTTPURLResponse *ITMLResponse; // @synthesize ITMLResponse=_itmlResponse;
+@property(retain, nonatomic) NSData *ITMLData; // @synthesize ITMLData=_itmlData;
 @property(retain, nonatomic) SKUIArtwork *backgroundArtwork; // @synthesize backgroundArtwork=_backgroundArtwork;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;

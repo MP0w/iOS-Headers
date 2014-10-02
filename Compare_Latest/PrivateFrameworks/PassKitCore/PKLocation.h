@@ -21,11 +21,11 @@
 }
 
 + (BOOL)supportsSecureCoding;
-@property(readonly, nonatomic) NSString *relevantText; // @synthesize relevantText=_relevantText;
-@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
-- (id)CLLocation;
+@property(retain, nonatomic) NSString *relevantText; // @synthesize relevantText=_relevantText;
+@property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)CLLocation;
 - (BOOL)hasEqualCoordinatesToLocation:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (id)description;
@@ -34,8 +34,6 @@
 - (double)maxDistance;
 - (double)longitude;
 - (double)latitude;
-- (void)setRelevantText:(id)arg1;
-- (void)setName:(id)arg1;
 - (void)setAltitude:(id)arg1;
 - (void)setMaxDistance:(id)arg1;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate;

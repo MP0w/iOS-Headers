@@ -8,7 +8,7 @@
 
 #import "SBTestRecipe.h"
 
-@class SBSIMLockEntryAlert;
+@class NSString, SBSIMLockEntryAlert;
 
 @interface SBSIMLockPasscodeRecipe : NSObject <SBTestRecipe>
 {
@@ -18,6 +18,12 @@
 + (id)title;
 - (void)handleVolumeDecrease;
 - (void)handleVolumeIncrease;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "SKUIArtworkRequestDelegate.h"
 
-@class NSMapTable, NSMutableIndexSet, SKUIImageDataConsumer, SKUIResourceLoader, SKUISwooshViewController, UIImage;
+@class NSMapTable, NSMutableIndexSet, NSString, SKUIImageDataConsumer, SKUIResourceLoader, SKUISwooshViewController, UIImage;
 
 @interface SKUISwooshArtworkLoader : NSObject <SKUIArtworkRequestDelegate>
 {
@@ -35,6 +35,12 @@
 - (id)cachedImageForObject:(id)arg1;
 - (unsigned int)artworkRequestIdentifierForObject:(id)arg1;
 - (id)initWithArtworkLoader:(id)arg1 swoosh:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

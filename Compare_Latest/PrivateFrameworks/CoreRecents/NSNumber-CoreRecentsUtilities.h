@@ -7,8 +7,10 @@
 #import "NSNumber.h"
 
 @interface NSNumber (CoreRecentsUtilities)
++ (id)cr_numberWithCRContactGroupKind:(unsigned int)arg1;
 + (id)cr_numberWithCRContactID:(long long)arg1;
 + (id)cr_numberWithCRRecentID:(long long)arg1;
+- (unsigned int)cr_CRContactGroupKindValue;
 - (long long)cr_CRContactIDValue;
 - (long long)cr_CRRecentIDValue;
 @end

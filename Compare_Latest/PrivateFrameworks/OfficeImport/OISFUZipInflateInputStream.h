@@ -8,6 +8,8 @@
 
 #import "SFUInputStream.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface OISFUZipInflateInputStream : NSObject <SFUInputStream>
 {
@@ -36,6 +38,12 @@ __attribute__((visibility("hidden")))
 - (id)initWithInput:(id)arg1;
 - (id)initWithOffset:(long long)arg1 end:(long long)arg2 uncompressedSize:(unsigned long long)arg3 crc:(unsigned long)arg4 dataRepresentation:(id)arg5;
 - (void)setupInflateStream;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

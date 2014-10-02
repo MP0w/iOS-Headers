@@ -11,7 +11,9 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (void)convertToSimpleTSDFillsInProperties:(id)arg1 inMap:(id)arg2 context:(id)arg3;
 + (void)upgradeAlignmentInParagraphStyles:(id)arg1 willModifyBlock:(CDUnknownBlockType)arg2;
++ (void)updateStyleState:(id)arg1 forPropertyMutationTuples:(id)arg2;
 + (void)updateStyleState:(id)arg1 forMutationsPerStyleOwner:(id)arg2;
 + (id)chartsNullShadowToDefaultDisabledShadow:(id)arg1;
 + (id)shadowToChartsNullShadow:(id)arg1;
@@ -24,7 +26,7 @@ __attribute__((visibility("hidden")))
 + (id)nullFill;
 + (BOOL)isNullFill:(id)arg1;
 + (BOOL)hasNoFill:(id)arg1;
-+ (id)fullyPopulatedStylesFromArray:(id)arg1 context:(id)arg2;
++ (id)fullyPopulatedStylesFromArray:(id)arg1 context:(id)arg2 styleClass:(Class)arg3;
 + (id)fullyPopulatedStyleFromStyle:(id)arg1 context:(id)arg2;
 + (BOOL)propertyMap:(id)arg1 equivalentTo:(id)arg2;
 

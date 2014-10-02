@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CLLocation, GEOPlace, NSDate, NSDateFormatter, NSDictionary, NSMutableOrderedSet, NSMutableSet, NSObject<OS_dispatch_queue>, NSOrderedSet, NSString, PLMomentAnalyzerWorkThread, PLPhotoLibrary, PLXPCTransaction;
+@class CLLocation, NSDate, NSDateFormatter, NSDictionary, NSMutableOrderedSet, NSMutableSet, NSObject<OS_dispatch_queue>, NSOrderedSet, NSString, PLMomentAnalyzerWorkThread;
 
 @interface PLMomentAnalyzer : NSObject
 {
@@ -16,7 +16,6 @@
     double _analysisStartTime;
     BOOL _delayedSavePending;
     unsigned int _objectUpdatesSinceSave;
-    PLXPCTransaction *_keepAliveTransaction;
     NSMutableOrderedSet *_pendingGEORequests;
     NSMutableSet *_activeGEORequests;
     NSMutableSet *_processingMomentUuids;
@@ -24,11 +23,10 @@
     NSMutableSet *_yearMomentListIdsToProcess;
     NSDateFormatter *_shortDateFormatter;
     NSDateFormatter *_dayOfTheWeekDateFormatter;
-    PLPhotoLibrary *_photoLibrary;
+    id <PLMomentGenerationDataManagement> _momentDataManager;
     BOOL _analyzingAllMoments;
     BOOL _skippedMomentsDuringAnalysis;
     BOOL _passSuccess;
-    void *_addressBook;
     unsigned int _errorState;
     int _errorBackoffLevel;
     int _triesAtCurrentBackoffLevel;
@@ -36,7 +34,7 @@
     BOOL _needToUpdateInvalidMomentsWhenPossible;
     NSDictionary *_homeAddressDictionary;
     CLLocation *_homeLocation;
-    GEOPlace *_homePlace;
+    id <GEOMapItemPrivate> _homeMapItem;
     NSString *_languageAndLocale;
     NSString *_lastGeoProviderId;
     NSOrderedSet *_defaultDominantGeoOrderingForMoment;
@@ -59,10 +57,12 @@
     NSString *_revGeoServerVersionInfoURL;
     NSString *_currentProviderId;
     BOOL _momentAnalysisPaused;
+    id <PLMomentGenerationDataManagement> _momentGenerationDataManager;
 }
 
-+ (id)sharedInstance;
-+ (BOOL)hasCompletedMomentsAndMomentListAnalysisInLibrary:(id)arg1;
+@property(nonatomic) id <PLMomentGenerationDataManagement> momentGenerationDataManager; // @synthesize momentGenerationDataManager=_momentGenerationDataManager;
+- (void)resumeMomentAnalysis;
+- (void)pauseMomentAnalysis;
 - (void)_setMomentAnalysisPaused:(BOOL)arg1;
 - (BOOL)updateInfoForMomentListWithMomentListId:(id)arg1;
 - (BOOL)updateInfoForYearMomentLists:(id)arg1;
@@ -77,7 +77,8 @@
 - (BOOL)_isNetworkReachable;
 - (void)_stopObservingReachabilityChanges;
 - (void)_startObservingReachabilityChanges;
-- (void)_networkReachabilityDidChange:(id)arg1;
+- (void)_networkReachabilityDidChange:(BOOL)arg1;
+- (id)_userSuppliedTitlesForCountedSet:(id)arg1;
 - (id)_localizedNamesForNameInfoArray:(id)arg1 namesUsed:(id)arg2 includeHome:(BOOL)arg3 outAddedHome:(char *)arg4;
 - (id)_simpleNamesForNameInfoArray:(id)arg1;
 - (id)_dominantPlacesInPlaceInfoArray:(id)arg1 orderType:(unsigned int)arg2 totalPlaceCount:(unsigned int)arg3 includeAllPlaces:(BOOL)arg4 includeHome:(BOOL)arg5 homeAtEnd:(BOOL)arg6 atLastLevel:(BOOL)arg7 outOtherNonDominantPlaces:(id)arg8;
@@ -107,58 +108,52 @@
 - (void)_processNextTransaction;
 - (void)_waitForReachability;
 - (void)_processNextAnalysisTransaction;
+- (void)_analysisDidComplete:(BOOL)arg1;
 - (void)_analysisComplete;
 - (void)_saveDataIfReachedObjectChangeThreshold;
 - (void)_saveDataIfNeededAfterTimeDiff:(double)arg1;
 - (void)_saveNow;
-- (void)_removeKeepAlive;
-- (void)_updateKeepAlive;
 - (void)_processGEORequestWithRequestInfo:(id)arg1;
-- (id)_compactPlaceDescriptionForPlaceResult:(id)arg1;
+- (id)_compactPlaceDescriptionForMapItem:(id)arg1;
 - (BOOL)_updateHomeLocationInRevGeoInfo:(id)arg1 forLocation:(id)arg2 withHomeLocation:(id)arg3;
 - (void)_finalizeDataForMoment:(id)arg1 withMomentLocationInfo:(id)arg2 success:(BOOL)arg3;
-- (void)_addRevGeoPlacesFromAssets:(id)arg1 toPlacesArray:(id)arg2;
+- (void)_addRevGeoPlacesAndUserTitlesFromAssets:(id)arg1 toPlacesArray:(id)arg2 toMomentTitles:(id)arg3 toCollectionTitles:(id)arg4;
 - (void)_enqueueReverseGeocodeMomentWithRequestInfo:(id)arg1 shouldFilterIfInProgress:(BOOL)arg2;
 - (void)_updateErrorStateWithSuccess:(BOOL)arg1 errorType:(unsigned int)arg2;
 - (void)_finishedGEORequestInfo:(id)arg1 withSuccess:(BOOL)arg2 errorType:(unsigned int)arg3;
 - (void)_setErrorState:(unsigned int)arg1;
 - (void)_resetErrorState;
-- (void)_addressBookChanged;
+- (void)addressBookChanged;
 - (void)_updateHomeLocation;
-- (id)_currentHomeAddressDictionary;
-- (id)_addressDictionaryForABRecord:(void *)arg1 identifier:(int)arg2;
 - (void)_forwardGeocodeAddressDictionaryOnGeoThread:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)_forwardGeocodeAddressDictionary:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)_runOnWorkQueueAferSeconds:(double)arg1 block:(CDUnknownBlockType)arg2;
 - (void)_runBlockOnWorkQueue:(CDUnknownBlockType)arg1;
-@property(readonly, nonatomic) PLPhotoLibrary *_photoLibrary;
-@property(readonly, nonatomic) CLLocation *_homeLocation;
+@property(readonly, retain, nonatomic) id <PLMomentGenerationDataManagement> _momentDataManager;
+@property(readonly, retain, nonatomic) CLLocation *_homeLocation;
 - (void)_updateCurrentProviderIdWithCountryCode:(id)arg1;
 - (void)_updateCurrentProviderId;
 - (id)_currentProviderId;
 - (void)_updateInformationForGeoProviderIfNeeded;
 - (void)_updateInformationForGeoProviderIfNeededOnWorkQueue;
 - (void)_countryCodeChanged:(id)arg1;
-@property(readonly, nonatomic) void *_addressBook;
 - (BOOL)_updateLanguageIfNeeded;
 - (BOOL)_updateHomeAddressIfNeeded;
 - (id)_locationFromDictionary:(id)arg1;
 - (id)_dictionaryFromLocation:(id)arg1;
 - (void)_saveGlobalMetadata;
-- (id)_metadataPath;
 - (void)_fetchServerVersionInfo;
 - (void)_updateLocalServerVersionInfo:(id)arg1;
 - (BOOL)_markInvalidOutOfDateAssetsInMoment:(id)arg1 forCurrentCountryVersionMap:(id)arg2 withCurrentProviderId:(id)arg3;
 - (BOOL)_loadServerVersionInfo;
-- (id)_serverVersionInfoFilePath;
 - (void)_updateDateFormattersForLocale:(id)arg1;
+- (BOOL)setVersionInfoURLIfAvailable:(id)arg1;
 - (void)_updateRevGeoServerFetchInfoConfig;
 - (void)_finalizeInitOnWorkQueue;
+- (id)init;
+- (void)startAnalyzer;
 - (void)_checkForNewServerVersionInfoIfNeeded;
 - (void)dealloc;
-- (id)init;
-- (void)resumeMomentAnalysis;
-- (void)pauseMomentAnalysis;
 
 @end
 

@@ -16,6 +16,7 @@
 }
 
 @property(retain, nonatomic) GEOLatLng *location; // @synthesize location=_location;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

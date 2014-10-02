@@ -11,13 +11,11 @@
 #import "TPPageLayoutInfoProvider.h"
 #import "TSWPLayoutOwner.h"
 
-@class NSDate, NSMutableArray, TPDocumentRoot, TPFootnoteLayoutController, TPOffscreenLayoutController, TPPageLayoutState, TSUMutablePointerSet, TSWPLayoutManager;
+@class NSDate, NSMutableArray, NSString, TPDocumentRoot, TPFootnoteLayoutController, TPOffscreenLayoutController, TPPageLayoutState, TSUMutablePointerSet, TSWPLayoutManager;
 
 __attribute__((visibility("hidden")))
 @interface TPPageController : NSObject <TPPageLayoutInfoProvider, TSWPLayoutOwner, TPLayoutStateConsumer, TPLayoutStateProvider>
 {
-    int _backgroundLayoutEnabled;
-    int _backgroundLayoutSuspendCount;
     TPDocumentRoot *_documentRoot;
     TSWPLayoutManager *_bodyLayoutManager;
     TPOffscreenLayoutController *_drawablesLayoutController;
@@ -34,6 +32,9 @@ __attribute__((visibility("hidden")))
     unsigned int _completePageCount;
     BOOL _shouldUpdatePageCount;
     TSUMutablePointerSet *_layoutObservers;
+    int _backgroundLayoutEnabled;
+    int _backgroundLayoutSuspendCount;
+    int _isScrolling;
 }
 
 @property(readonly, nonatomic) unsigned int pageCount; // @synthesize pageCount=_lastKnownPageCount;
@@ -102,6 +103,10 @@ __attribute__((visibility("hidden")))
 - (void)p_invalidatePageIndex:(unsigned int)arg1;
 - (void)p_setNeedsLayoutOnPageIndex:(unsigned int)arg1;
 - (void)p_setNeedsLayoutFromSectionIndexToEnd:(unsigned int)arg1;
+- (void)didScroll;
+- (void)willScroll;
+- (void)didZoom;
+- (void)willZoom;
 - (id)sectionHintsForArchivedLayoutState:(id)arg1;
 - (unsigned int)lastPageCountForArchivedLayoutState:(id)arg1;
 - (unsigned int)documentPageIndexForArchivedLayoutState:(id)arg1;
@@ -128,12 +133,15 @@ __attribute__((visibility("hidden")))
 - (float)footerHeight;
 - (float)headerHeight;
 - (void)accquireLockAndPerformAction:(CDUnknownBlockType)arg1;
+- (void)withPageLayoutAtIndex:(unsigned int)arg1 preferredLayoutController:(id)arg2 executeBlock:(CDUnknownBlockType)arg3;
 - (void)withPageLayoutAtIndex:(unsigned int)arg1 executeBlock:(CDUnknownBlockType)arg2;
 - (id)pageInfoForAttachmentAtBodyCharIndex:(unsigned int)arg1 selection:(id)arg2;
 - (id)pageInfoForPageIndex:(unsigned int)arg1;
 - (struct _NSRange)sectionPageRangeForPageIndex:(unsigned int)arg1 forceLayout:(BOOL)arg2 outEndIsValid:(char *)arg3;
+- (unsigned int)sectionPageIndexForPageIndex:(unsigned int)arg1 forceLayout:(BOOL)arg2;
 - (struct _NSRange)sectionBodyRangeForPageIndex:(unsigned int)arg1 forceLayout:(BOOL)arg2;
 - (unsigned int)sectionIndexForPageIndex:(unsigned int)arg1 forceLayout:(BOOL)arg2;
+- (struct _NSRange)pageRangeOfSectionIndex:(unsigned int)arg1;
 - (unsigned int)pageIndexForFootnoteIndex:(unsigned int)arg1 forceLayout:(BOOL)arg2;
 - (unsigned int)pageIndexForAnchoredCharIndex:(unsigned int)arg1 forceLayout:(BOOL)arg2;
 - (unsigned int)pageIndexForCharIndex:(unsigned int)arg1 forceLayout:(BOOL)arg2;
@@ -165,7 +173,7 @@ __attribute__((visibility("hidden")))
 - (const struct TSWPTopicNumberHints *)i_topicHintsAfterPageIndex:(unsigned int)arg1;
 - (const struct TSWPTopicNumberHints *)i_topicHintsPriorToPageIndex:(unsigned int)arg1;
 - (id)i_columnPriorToPageIndex:(unsigned int)arg1;
-- (void)i_trimPageAtIndex:(unsigned int)arg1 toCharIndex:(unsigned int)arg2 removeAutoNumberFootnoteCount:(unsigned int)arg3;
+- (void)i_trimPageAtIndex:(unsigned int)arg1 toCharIndex:(unsigned int)arg2 removeFootnoteLayoutCount:(unsigned int)arg3 removeAutoNumberFootnoteCount:(unsigned int)arg4;
 - (id)i_pageHintForPageIndex:(unsigned int)arg1;
 - (void)d_timeLayout;
 - (struct _NSRange)p_rangeOfContinuousSectionsAtPageIndex:(unsigned int)arg1 startPage:(unsigned int *)arg2;
@@ -179,6 +187,12 @@ __attribute__((visibility("hidden")))
 - (id)headerFooterProviderForPageIndex:(unsigned int)arg1;
 - (BOOL)canProvideNumberingInfoForPageIndex:(unsigned int)arg1;
 - (BOOL)canProvideInfoForPageIndex:(unsigned int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

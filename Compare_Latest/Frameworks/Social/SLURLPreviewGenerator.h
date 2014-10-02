@@ -8,7 +8,7 @@
 
 #import "UIWebViewDelegate.h"
 
-@class UIWebView;
+@class NSString, UIWebView;
 
 __attribute__((visibility("hidden")))
 @interface SLURLPreviewGenerator : NSObject <UIWebViewDelegate>
@@ -27,6 +27,12 @@ __attribute__((visibility("hidden")))
 - (void)_callCompletionWithPreview:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

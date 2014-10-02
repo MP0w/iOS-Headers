@@ -6,7 +6,7 @@
 
 #import <OfficeImport/EDSheet.h>
 
-@class EDCollection, EDColumnInfoCollection, EDMergedCellCollection, EDPane, EDReference, EDRowBlocks, EDWarnings, TSUPointerKeyDictionary;
+@class EDCollection, EDColumnInfoCollection, EDMergedCellCollection, EDPane, EDReference, EDRowBlocks, EDWarnings, OITSUPointerKeyDictionary;
 
 __attribute__((visibility("hidden")))
 @interface EDWorksheet : EDSheet
@@ -26,8 +26,8 @@ __attribute__((visibility("hidden")))
     unsigned long mMaxColumnOutlineLevel;
     _Bool mFitToPage;
     EDReference *mMaxCellReferencedInFormulas;
-    TSUPointerKeyDictionary *mMergedRows;
-    TSUPointerKeyDictionary *mMergedCols;
+    OITSUPointerKeyDictionary *mMergedRows;
+    OITSUPointerKeyDictionary *mMergedCols;
     EDReference *mImplicitCellArea;
 }
 

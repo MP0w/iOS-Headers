@@ -7,34 +7,42 @@
 #import "NSObject.h"
 
 #import "TSDAnnotationHosting.h"
+#import "TSDCommentStorageDelegate.h"
 
 @class NSDate, NSString, TSDCommentStorage, TSDDrawableInfo, TSKAnnotationAuthor;
 
 __attribute__((visibility("hidden")))
-@interface TSDDrawableComment : NSObject <TSDAnnotationHosting>
+@interface TSDDrawableComment : NSObject <TSDAnnotationHosting, TSDCommentStorageDelegate>
 {
     TSDDrawableInfo *mParent;
     TSDCommentStorage *mStorage;
 }
 
-@property(copy, nonatomic) TSDCommentStorage *storage; // @synthesize storage=mStorage;
 @property(nonatomic) TSDDrawableInfo *parent; // @synthesize parent=mParent;
+- (void)commentStorageTextDidChange:(id)arg1;
 - (void)commitText:(id)arg1;
 - (id)commandForDeletingComment;
 @property(readonly, nonatomic) int annotationDisplayStringType;
 @property(readonly, nonatomic) int annotationType;
 @property(readonly, nonatomic) NSDate *date;
-@property(retain, nonatomic) TSKAnnotationAuthor *author;
-@property(nonatomic) id <TSKModel> model;
-- (id)description;
+- (void)setAuthor:(id)arg1;
+@property(readonly, nonatomic) TSKAnnotationAuthor *author;
+@property(nonatomic) id <TSKModel> hostingModel;
+@property(readonly, copy) NSString *description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(copy, nonatomic) TSDCommentStorage *storage;
 - (Class)editorClass;
 - (void)dealloc;
 - (BOOL)isEqual:(id)arg1;
 - (id)initWithParent:(id)arg1 storage:(id)arg2;
 
 // Remaining properties
-@property(readonly, nonatomic) NSString *changeTrackingString;
+@property(readonly, nonatomic) NSString *changeTrackingContentFormatString;
+@property(readonly, nonatomic) NSString *changeTrackingContentString;
+@property(readonly, nonatomic) NSString *changeTrackingTitleString;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

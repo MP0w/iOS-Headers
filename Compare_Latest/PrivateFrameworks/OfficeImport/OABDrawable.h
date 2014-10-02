@@ -11,9 +11,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)addObject:(id)arg1 toContainer:(id)arg2 forDrawable:(id)arg3 state:(id)arg4;
-+ (void)writeDrawables:(id)arg1 intoParent:(id)arg2 state:(id)arg3;
-+ (void)writeDrawable:(id)arg1 intoParent:(id)arg2 state:(id)arg3;
 + (id)readDrawablesFromContainer:(id)arg1 state:(id)arg2;
 + (id)readDrawableFromObject:(id)arg1 state:(id)arg2;
 

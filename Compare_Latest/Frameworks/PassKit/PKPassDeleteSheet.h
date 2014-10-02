@@ -8,17 +8,19 @@
 
 #import "UIActionSheetDelegate.h"
 
-@class PKPassView, UIActionSheet;
+@class NSString, PKPassGroupView, PKPassView, UIActionSheet;
 
 @interface PKPassDeleteSheet : NSObject <UIActionSheetDelegate>
 {
     UIActionSheet *_actionSheet;
     id <PKPassDeleteDelegate> _delegate;
     PKPassView *_passView;
+    PKPassGroupView *_groupView;
 }
 
 + (void)performPassbookDeleteWithView:(id)arg1 completion:(CDUnknownBlockType)arg2;
-@property(retain, nonatomic) PKPassView *passView; // @synthesize passView=_passView;
+@property(readonly, retain, nonatomic) PKPassGroupView *groupView; // @synthesize groupView=_groupView;
+@property(readonly, retain, nonatomic) PKPassView *passView; // @synthesize passView=_passView;
 @property(nonatomic) id <PKPassDeleteDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)actionSheet:(id)arg1 willDismissWithButtonIndex:(int)arg2;
@@ -27,9 +29,16 @@
 - (void)_registerForEnterBackgroundNotification;
 - (void)_startAnimation;
 - (void)finished:(BOOL)arg1;
+- (void)forceDeleteAnimation;
 - (void)showInView:(id)arg1;
 - (void)dealloc;
-- (id)initWithPassView:(id)arg1;
+- (id)initWithPassView:(id)arg1 groupView:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

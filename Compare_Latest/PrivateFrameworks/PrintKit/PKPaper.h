@@ -19,7 +19,7 @@
     int rightMargin;
     int bottomMargin;
     BOOL _isTransverse;
-    NSDictionary *rollInfo;
+    NSDictionary *mediaInfo;
 }
 
 + (id)documentPapers;
@@ -36,9 +36,11 @@
 + (id)genericLetterPaper;
 + (id)genericA4Paper;
 + (id)rollPaperWithAttributes:(id)arg1;
++ (id)paperWithAttributes:(id)arg1;
++ (id)mediaNameForWidth:(int)arg1 Height:(int)arg2 mediaType:(id)arg3 Borderless:(BOOL)arg4 Simplex:(BOOL)arg5;
 + (BOOL)useMetric;
 @property(readonly, nonatomic) BOOL isTransverse; // @synthesize isTransverse=_isTransverse;
-@property(copy, nonatomic) NSDictionary *rollInfo; // @synthesize rollInfo;
+@property(copy, nonatomic) NSDictionary *mediaInfo; // @synthesize mediaInfo;
 @property(nonatomic) int bottomMargin; // @synthesize bottomMargin;
 @property(nonatomic) int rightMargin; // @synthesize rightMargin;
 @property(nonatomic) int topMargin; // @synthesize topMargin;
@@ -49,12 +51,17 @@
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)paperWithMarginsAdjustedForDuplexMode:(id)arg1;
-@property(readonly, nonatomic) NSString *localizedName; // @dynamic localizedName;
+@property(readonly, retain, nonatomic) NSString *localizedName; // @dynamic localizedName;
+- (int)sizeMediaTypeAndImageableCompare:(id)arg1;
+- (int)sizeAndImageableCompare:(id)arg1;
+- (BOOL)isEqualSize:(id)arg1;
+- (BOOL)isEqualSizeAndMediaType:(id)arg1;
 - (id)localizedNameFromDimensions;
 - (struct _ipp_s *)createMediaColAndDoMargins:(BOOL)arg1;
 - (void)addToMediaCol:(struct _ipp_s *)arg1;
 - (void)dealloc;
-@property(readonly, nonatomic) NSString *mediaTypeName; // @dynamic mediaTypeName;
+@property(readonly, retain, nonatomic) NSString *mediaTypeName; // @dynamic mediaTypeName;
+@property(readonly, retain, nonatomic) NSString *mediaType;
 @property(readonly, nonatomic) BOOL isRoll; // @dynamic isRoll;
 @property(readonly, nonatomic) int maxHeight;
 @property(readonly, nonatomic) int minHeight;
@@ -70,6 +77,8 @@
 - (id)cutToLength:(float)arg1;
 @property(readonly, nonatomic) unsigned int maxCutLength; // @dynamic maxCutLength;
 @property(readonly, nonatomic) unsigned int minCutLength; // @dynamic minCutLength;
+@property(readonly, nonatomic) unsigned int bottomMarginInPoints; // @dynamic bottomMarginInPoints;
+@property(readonly, nonatomic) unsigned int topMarginInPoints; // @dynamic topMarginInPoints;
 
 @end
 

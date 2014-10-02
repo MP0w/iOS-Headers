@@ -30,7 +30,7 @@
 @property(readonly, nonatomic, getter=isExtensionCandidate) BOOL extensionCandidate;
 @property(readonly, nonatomic) BOOL isAutocorrection;
 @property(readonly, nonatomic) BOOL isForShortcutConversion;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
 @property(readonly, nonatomic) unsigned int deleteCount;
 @property(readonly, nonatomic) unsigned int wordOriginFeedbackID;
@@ -41,6 +41,11 @@
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

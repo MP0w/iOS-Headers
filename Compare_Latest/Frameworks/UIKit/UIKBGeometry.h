@@ -26,6 +26,7 @@
 }
 
 + (id)codeStringForValue:(CDStruct_d5a6e384)arg1;
++ (id)geometryWithOriginValue:(CDStruct_d5a6e384)arg1 sizeValue:(CDStruct_d5a6e384)arg2;
 + (id)geometryWithRect:(struct CGRect)arg1;
 + (id)geometry;
 @property(nonatomic) BOOL explicitlySpecified; // @synthesize explicitlySpecified=m_explicitlySpecified;

@@ -9,7 +9,7 @@
 #import "AVAsynchronousKeyValueLoading.h"
 #import "NSCopying.h"
 
-@class AVAssetCache, AVWeakReference, NSArray, NSString, NSURL;
+@class AVWeakReference, NSArray, NSString, NSURL;
 
 @interface AVAssetInspectorLoader : NSObject <NSCopying, AVAsynchronousKeyValueLoading>
 {
@@ -17,20 +17,15 @@
 }
 
 + (void)initialize;
-@property(readonly, nonatomic, getter=_shouldOptimizeAccessForLinearMoviePlayback) BOOL shouldOptimizeAccessForLinearMoviePlayback;
-@property(readonly, nonatomic) unsigned int referenceRestrictions;
 - (id)_mapFigErrorCodeToNSError:(long)arg1;
 - (void)loadValuesAsynchronouslyForKeys:(id)arg1 keysForCollectionKeys:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_ensureAllDependenciesOfKeyAreLoaded:(id)arg1;
 @property(readonly, nonatomic, getter=_isStreaming) BOOL streaming;
 @property(readonly, nonatomic) BOOL hasProtectedContent;
 @property(readonly, nonatomic) unsigned long long downloadToken;
-@property(readonly, nonatomic) NSURL *downloadDestinationURL;
 @property(readonly, nonatomic) NSURL *resolvedURL;
-@property(readonly, nonatomic) BOOL shouldMatchDataInCacheByURLWithoutQueryComponent;
-@property(readonly, nonatomic) BOOL shouldMatchDataInCacheByURLPathComponentOnly;
-@property(readonly, nonatomic) AVAssetCache *assetCache;
-@property(readonly, nonatomic) NSArray *chapterGroupInfo;
+@property(readonly, nonatomic) NSArray *figChapters;
+@property(readonly, nonatomic) NSArray *figChapterGroupInfo;
 @property(readonly, nonatomic, getter=isCompatibleWithSavedPhotosAlbum) BOOL compatibleWithSavedPhotosAlbum;
 @property(readonly, nonatomic, getter=isComposable) BOOL composable;
 @property(readonly, nonatomic, getter=isReadable) BOOL readable;
@@ -38,6 +33,7 @@
 @property(readonly, nonatomic, getter=isPlayable) BOOL playable;
 @property(readonly, nonatomic) NSString *lyrics;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 duration;
+@property(readonly, nonatomic, getter=_classForTrackInspectors) Class classForTrackInspectors;
 @property(readonly, nonatomic, getter=_playbackItem) struct OpaqueFigPlaybackItem *playbackItem;
 @property(readonly, nonatomic, getter=_figAsset) struct OpaqueFigAsset *figAsset;
 @property(readonly, nonatomic, getter=_formatReader) struct OpaqueFigFormatReader *formatReader;
@@ -49,7 +45,6 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 @property(readonly, nonatomic, getter=_weakReference) AVWeakReference *weakReference;
-- (id)initWithURL:(id)arg1;
 - (id)init;
 
 @end

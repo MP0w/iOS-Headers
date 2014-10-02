@@ -14,6 +14,7 @@
     UIImage *_icon;
 }
 
++ (id)attachmentSummary:(unsigned int)arg1;
 + (id)fallbackFilenamePrefix;
 + (id)UTITypes;
 + (BOOL)isPreviewable;
@@ -24,8 +25,8 @@
 - (BOOL)shouldShowDisclosure;
 - (BOOL)shouldBeQuickLooked;
 - (BOOL)shouldShowViewer;
-- (id)generateThumbnailFillToSize:(struct CGSize)arg1;
-- (id)generateThumbnail;
+- (id)generateThumbnailFillToSize:(struct CGSize)arg1 contentAlignmentInsets:(struct UIEdgeInsets)arg2;
+- (id)generateThumbnailForWidth:(float)arg1 orientation:(BOOL)arg2;
 - (id)subtitle;
 - (id)title;
 - (void)dealloc;

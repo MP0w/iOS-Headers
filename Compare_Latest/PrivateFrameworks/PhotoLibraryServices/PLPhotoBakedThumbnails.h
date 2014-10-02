@@ -26,14 +26,14 @@
 + (BOOL)saveBakedThumbnailsOfImages:(id)arg1 toFile:(id)arg2 format:(int)arg3 orientation:(int *)arg4 options:(id)arg5 delegate:(id)arg6;
 + (id)thumbnailsWithContentsOfFile:(id)arg1 format:(int)arg2;
 - (id)_thumbnailData;
-- (BOOL)writeBorderedThumbnailOfImage:(struct CGImage *)arg1 toBuffer:(void *)arg2 orientation:(int *)arg3 format:(int)arg4 formatInfo:(const CDStruct_064f6571 *)arg5 delegate:(id)arg6;
+- (BOOL)writeBorderedThumbnailOfImage:(struct CGImage *)arg1 toBuffer:(void *)arg2 orientation:(int *)arg3 format:(int)arg4 formatInfo:(const CDStruct_39c0191a *)arg5 delegate:(id)arg6;
 @property(readonly, nonatomic) struct CGRect imageRect;
 @property(readonly, nonatomic) unsigned int bitmapInfo;
 @property(readonly, nonatomic) struct CGSize size;
 @property(readonly, nonatomic) int bytesPerPixel;
 @property(readonly, nonatomic) int bitsPerComponent;
-@property(readonly, nonatomic) NSData *optionsData;
-@property(readonly, nonatomic) NSMutableDictionary *options;
+@property(readonly, retain, nonatomic) NSData *optionsData;
+@property(readonly, retain, nonatomic) NSMutableDictionary *options;
 @property(readonly, nonatomic) int format;
 - (struct CGImage *)thumbnailImageAtIndex:(int)arg1;
 - (char *)thumbnailBytesAtIndex:(int)arg1;

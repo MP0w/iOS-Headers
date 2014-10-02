@@ -8,7 +8,7 @@
 
 #import "SBUIPluginControllerHost.h"
 
-@class SBUIPluginController;
+@class NSString, SBUIPluginController;
 
 @interface SBUIPluginHost : NSObject <SBUIPluginControllerHost>
 {
@@ -59,6 +59,12 @@
 - (_Bool)pluginSupportedAndEnabled;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

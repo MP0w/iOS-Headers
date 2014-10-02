@@ -9,7 +9,7 @@
 #import "TSCECalculationEngineRegistration.h"
 #import "TSCEFormulaOwning.h"
 
-@class NSCondition, NSMutableArray, TNChartFormulaStorage, TNMutableChartFormulaStorage, TSCECalculationEngine, TSCEFormulaRewriteSpec, TSUIntToIntDictionary;
+@class NSCondition, NSMutableArray, NSString, TNChartFormulaStorage, TNMutableChartFormulaStorage, TSCECalculationEngine, TSCEFormulaRewriteSpec, TSUIntToIntDictionary;
 
 __attribute__((visibility("hidden")))
 @interface TNChartMediator : TSCHChartMediator <TSCECalculationEngineRegistration, TSCEFormulaOwning>
@@ -53,6 +53,7 @@ __attribute__((visibility("hidden")))
 - (id)referencedEntities;
 - (id)referencedEntitiesInMap:(id)arg1;
 - (id)expandSingleRangeForProposedCategoryLabels:(CDStruct_5744d895)arg1;
+- (void)p_transposeSeriesAndCategoryLabelsInMap:(id)arg1;
 - (void)repairMissingSeriesLabelsInMap:(id)arg1;
 - (void)repairMissingCategoryLabelsInMap:(id)arg1;
 - (void)repairMissingCategoryLabelsInMap:(id)arg1 ignoringNonVisibleLabels:(BOOL)arg2;
@@ -66,10 +67,12 @@ __attribute__((visibility("hidden")))
 - (BOOL)p_labelsAreStaticInMap:(id)arg1 ofType:(int)arg2;
 - (void)saveToArchive:(struct ChartMediatorArchive *)arg1 archiver:(id)arg2;
 - (id)initFromArchive:(const struct ChartMediatorArchive *)arg1 unarchiver:(id)arg2;
+- (id)commandToSetNewSeriesIndex:(unsigned int)arg1 forSeriesIndex:(unsigned int)arg2;
 - (id)commandSetCategoryName:(id)arg1 forCategoryIndex:(unsigned int)arg2;
 - (id)p_commandToSetSeriesNameFormulaWrapper:(id)arg1 seriesIndex:(unsigned int)arg2;
 - (id)commandToSetSeriesNameFormula:(id)arg1 seriesIndex:(unsigned int)arg2;
 - (id)seriesNameFormulaForSeriesIndex:(unsigned int)arg1;
+- (unsigned int)p_labelIndexForSeriesNameSeriesIndex:(unsigned int)arg1;
 - (id)commandSetSeriesName:(id)arg1 forSeriesIndex:(unsigned int)arg2;
 - (void)willBeRemovedFromDocumentRoot:(id)arg1;
 - (void)wasAddedToDocumentRoot:(id)arg1 context:(id)arg2;
@@ -90,9 +93,10 @@ __attribute__((visibility("hidden")))
 - (void)p_registerHubFormulaWithCalcEngine:(id)arg1;
 - (void)p_unregisterAllFormulaeFromCalcEngine:(id)arg1;
 - (void)writeResultsForCalculationEngine:(id)arg1;
-- (CDStruct_4d60f806)recalculateForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 isInCycle:(BOOL)arg3 hasCalculatedPrecedents:(BOOL)arg4;
+- (CDStruct_7ddbbeae)recalculateForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 isInCycle:(BOOL)arg3 hasCalculatedPrecedents:(BOOL)arg4;
 - (void)invalidateForCalculationEngine:(id)arg1;
 - (void)rewriteForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 rewriteSpec:(id)arg3;
+- (BOOL)serializeCalculations;
 - (void)releaseForCalculationEngine:(id)arg1;
 - (void)retainForCalculationEngine:(id)arg1;
 - (void)p_copyValuesIntoChartModelFromPair:(id)arg1;
@@ -114,9 +118,8 @@ __attribute__((visibility("hidden")))
 - (id)commandToChangeLabelFormulas:(id)arg1 forType:(int)arg2;
 - (id)categoryLabelFormulas;
 - (id)labelFormulasForType:(int)arg1;
-- (id)numberFormatForSeries:(id)arg1 index:(unsigned int)arg2 axisType:(int)arg3;
-- (id)numberFormatForAxis:(id)arg1;
-- (id)p_defaultDecimalFormat;
+- (id)dataFormatterForSeries:(id)arg1 index:(unsigned int)arg2 axisType:(int)arg3 documentRoot:(id)arg4;
+- (id)dataFormatterForAxis:(id)arg1 documentRoot:(id)arg2;
 - (unsigned int)formulaIndexForSeriesDimension:(id)arg1;
 - (id)seriesDimensionForFormulaIndex:(unsigned int)arg1;
 - (BOOL)p_isScatterOrBubble;
@@ -131,6 +134,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSCECalculationEngine *calculationEngine;
 - (BOOL)isPhantom;
 @property(readonly, nonatomic) int scatterFormat;
+@property(readonly, nonatomic) BOOL categoryLabelFormulasAreAllStatic;
+@property(readonly, nonatomic) BOOL seriesLabelFormulasAreAllStatic;
 @property(readonly, nonatomic) BOOL labelFormulasAreAllStatic;
 - (BOOL)labelFormulasAreAllStaticInFormulaStorage:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -138,6 +143,12 @@ __attribute__((visibility("hidden")))
 - (id)initWithChartInfo:(id)arg1 withTable:(id)arg2 direction:(int)arg3;
 - (id)initWithChartInfo:(id)arg1 withTable:(id)arg2 selection:(id)arg3 direction:(int)arg4;
 - (id)initWithChartInfo:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

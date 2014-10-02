@@ -4,16 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <UIAccessibility/UIAccessibilityElementSuperCategory_super.h>
+#import <UIAccessibility/__UIAccessibilityElementSuperCategory_super.h>
 
-@interface UIAccessibilityElementSuperCategory : UIAccessibilityElementSuperCategory_super
+@interface UIAccessibilityElementSuperCategory : __UIAccessibilityElementSuperCategory_super
 {
 }
 
-+ (id)_accessibilityTargetClassName;
-+ (id)_installSafeCategoryValidationMethod;
-+ (id)_initializeSafeCategoryFromValidationManager;
-+ (void)_initializeSafeCategory;
++ (Class)safeCategoryTargetClass;
++ (id)safeCategoryTargetClassName;
 - (BOOL)_accessibilitySupportsHandwriting;
 - (id)_accessibilityAutomaticIdentifier;
 - (void)accessibilityZoomOutAtPoint:(struct CGPoint)arg1;
@@ -23,9 +21,11 @@
 - (unsigned long long)accessibilityTraits;
 - (id)accessibilityValue;
 - (struct CGRect)accessibilityFrame;
+- (id)accessibilityPath;
 - (id)accessibilityLanguage;
 - (id)accessibilityHint;
 - (id)accessibilityLabel;
+- (BOOL)isAccessibilityElement;
 - (struct CGPoint)accessibilityActivationPoint;
 - (float)_accessibilityActivationDelay;
 - (BOOL)_accessibilitySupportsActivateAction;

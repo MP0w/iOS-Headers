@@ -8,7 +8,7 @@
 
 #import "SSXPCCoding.h"
 
-@class NSDictionary, NSMutableDictionary;
+@class NSDictionary, NSMutableDictionary, NSString;
 
 @interface SSItemLookupRequest : SSRequest <SSXPCCoding>
 {
@@ -18,7 +18,7 @@
 - (id)_errorForStatusCode:(int)arg1;
 - (id)_convertedValueForValue:(id)arg1;
 - (id)_copyItemsFromResponse:(id)arg1 expirationDate:(id)arg2;
-@property(readonly) NSDictionary *parameters;
+@property(readonly, copy) NSDictionary *parameters;
 - (id)copyQueryStringParameters;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
@@ -31,7 +31,11 @@
 - (id)init;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) id <SSItemLookupRequestDelegate> delegate; // @dynamic delegate;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

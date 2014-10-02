@@ -13,6 +13,8 @@
     struct CGImageSource *_imageSource;
     unsigned int _count;
     int _orientation;
+    struct CGSize _pxSize;
+    BOOL _initializedProperties;
     NSData *_data;
 }
 
@@ -20,18 +22,20 @@
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 - (id)_thumbnailFillToSize:(struct CGSize)arg1 atIndex:(unsigned int)arg2;
 - (id)_thumbnailFitToSize:(struct CGSize)arg1 atIndex:(unsigned int)arg2;
+- (void)_initializeProperties;
 @property(readonly, nonatomic) unsigned int count; // @dynamic count;
 @property(readonly, nonatomic) int orientation; // @dynamic orientation;
 @property(readonly, nonatomic) struct CGSize pxSize; // @dynamic pxSize;
 @property(readonly, nonatomic) struct CGSize ptSize; // @dynamic ptSize;
-@property(readonly, nonatomic) NSString *UTIType; // @dynamic UTIType;
-@property(readonly, nonatomic) NSString *MIMEType; // @dynamic MIMEType;
+@property(readonly, copy, nonatomic) NSString *UTIType; // @dynamic UTIType;
+@property(readonly, copy, nonatomic) NSString *MIMEType; // @dynamic MIMEType;
 - (id)durationsWithMaxCount:(unsigned int)arg1;
 - (id)thumbnailsFillToSize:(struct CGSize)arg1 maxCount:(unsigned int)arg2;
 - (id)thumbnailsFitToSize:(struct CGSize)arg1 maxCount:(unsigned int)arg2;
+- (id)thumbnailFillToSizeCropping:(struct CGSize)arg1;
 - (id)thumbnailFillToSize:(struct CGSize)arg1;
 - (id)thumbnailFitToSize:(struct CGSize)arg1;
-@property(readonly, nonatomic) UIImage *image; // @dynamic image;
+@property(readonly, retain, nonatomic) UIImage *image; // @dynamic image;
 - (id)initWithData:(id)arg1;
 - (void)dealloc;
 

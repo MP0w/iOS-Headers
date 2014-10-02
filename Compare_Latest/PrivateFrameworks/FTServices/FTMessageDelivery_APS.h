@@ -9,7 +9,7 @@
 #import "APSConnectionDelegate.h"
 #import "FTMessageQueueDelegate.h"
 
-@class APSConnection, NSMutableArray, NSMutableDictionary;
+@class APSConnection, NSMutableArray, NSMutableDictionary, NSString;
 
 @interface FTMessageDelivery_APS : FTMessageDelivery <FTMessageQueueDelegate, APSConnectionDelegate>
 {
@@ -17,6 +17,7 @@
     Class _APSOutgoingMessageClass;
     APSConnection *_connection;
     int _messageSize;
+    int _largeMessageSize;
     NSMutableArray *_enabledTopics;
     NSMutableDictionary *_ftMessageMap;
     NSMutableDictionary *_startDateMap;
@@ -28,6 +29,7 @@
 }
 
 + (id)sharedInstance;
+- (int)maxLargeMessageSize;
 - (int)maxMessageSize;
 - (void)connection:(id)arg1 didFailToSendOutgoingMessage:(id)arg2 error:(id)arg3;
 - (void)connection:(id)arg1 didSendOutgoingMessage:(id)arg2;
@@ -43,7 +45,7 @@
 - (BOOL)_sendMessageAsynchronously:(id)arg1 error:(id *)arg2;
 - (void)invalidate;
 - (void)_notifyDelegateAboutError:(id)arg1 forMessage:(id)arg2;
-- (void)_updateWiFiAssertions;
+- (id)connection;
 - (void)_powerLogEvent:(id)arg1 dictionary:(id)arg2;
 - (id)_apsMessageForMessage:(id)arg1 body:(id)arg2;
 - (id)_apsMessageBodyForMessage:(id)arg1;
@@ -75,6 +77,12 @@
 - (void)_setEnabledTopics:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

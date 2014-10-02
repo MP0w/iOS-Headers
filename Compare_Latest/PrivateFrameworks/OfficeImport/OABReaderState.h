@@ -16,8 +16,10 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *mEshContentIdMap;
     id <OADColorPalette> mColorPalette;
     NSMutableDictionary *mBlipIdMap;
+    int mGroupDepth;
 }
 
+@property(nonatomic) int groupDepth; // @synthesize groupDepth=mGroupDepth;
 - (void)setDrawable:(id)arg1 forBlipId:(int)arg2;
 - (id)drawableForBlipId:(int)arg1;
 - (void)setColorPalette:(id)arg1;

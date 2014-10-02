@@ -9,7 +9,7 @@
 #import "PLAssetContainerList.h"
 #import "PLMomentContainer.h"
 
-@class NSOrderedSet;
+@class NSOrderedSet, NSString;
 
 @interface PLMomentLibrary : PLManagedObject <PLAssetContainerList, PLMomentContainer>
 {
@@ -39,7 +39,11 @@
 - (void)prepareForDeletion;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(retain, nonatomic) NSOrderedSet *moments; // @dynamic moments;
+@property(readonly) Class superclass;
 
 @end
 

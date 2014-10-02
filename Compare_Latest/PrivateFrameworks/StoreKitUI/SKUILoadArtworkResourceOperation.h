@@ -16,7 +16,7 @@
 - (id)initWithResourceRequest:(id)arg1;
 
 // Remaining properties
-@property(readonly) SKUIArtworkRequest *resourceRequest; // @dynamic resourceRequest;
+@property(readonly, copy) SKUIArtworkRequest *resourceRequest; // @dynamic resourceRequest;
 
 @end
 

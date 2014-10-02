@@ -8,14 +8,13 @@
 
 #import "OccurrenceCacheDataSourceProtocol.h"
 
-@class EKEventStore, NSArray, NSMutableDictionary, NSSet;
+@class EKEventStore, NSArray, NSSet, NSString;
 
 @interface OccurrenceCacheDataSource : NSObject <OccurrenceCacheDataSourceProtocol>
 {
     EKEventStore *_eventStore;
     NSSet *_calendars;
     NSArray *_cachedDays;
-    NSMutableDictionary *_cachedOccurrences;
     int _cachedDaysSeed;
 }
 
@@ -36,6 +35,12 @@
 - (BOOL)supportsInvitations;
 - (void)invalidateCachedOccurrences;
 - (id)initWithEventStore:(id)arg1 calendars:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

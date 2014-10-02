@@ -9,7 +9,7 @@
 #import "SKUIMenuViewControllerDelegate.h"
 #import "UIPopoverControllerDelegate.h"
 
-@class NSArray, SKUIClientContext, SKUIColorScheme, UIButton, UILabel, UIPopoverController, UIView;
+@class NSArray, NSString, SKUIClientContext, SKUIColorScheme, UIButton, UILabel, UIPopoverController, UIView;
 
 @interface SKUIIPadCustomerReviewsHeaderView : UIControl <SKUIMenuViewControllerDelegate, UIPopoverControllerDelegate>
 {
@@ -43,6 +43,12 @@
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)dealloc;
 - (id)initWithClientContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -14,24 +14,20 @@
 }
 
 + (void)initialize;
+- (id)recommendedOutputSettingsForConnection:(id)arg1 sourceSettings:(id)arg2 fileType:(id)arg3;
+- (id)_recommendedAudioOutputSettingsForConnection:(id)arg1 sourceSettings:(id)arg2 fileType:(id)arg3;
+- (id)_recommendedVideoOutputSettingsForConnection:(id)arg1 sourceSettings:(id)arg2;
 - (void)bumpChangeSeed;
 - (int)changeSeed;
 - (id)liveConnections;
 - (id)firstEnabledConnectionForMediaType:(id)arg1;
-- (id)notReadyError;
-- (void)_applyOverridesToCaptureOptions:(id)arg1;
-- (void)handleEnabledChangedForConnection:(id)arg1;
-- (void)handleNotification:(id)arg1 payload:(id)arg2;
-- (void)didStopForSession:(id)arg1 error:(id)arg2;
-- (void)didStartForSessionWithoutGraphRebuild:(id)arg1;
-- (void)didStartForSession:(id)arg1;
 - (void)removeConnection:(id)arg1;
 - (id)addConnection:(id)arg1 error:(id *)arg2;
 - (BOOL)appliesMirroringWithPhysicalFlipForConnection:(id)arg1;
 - (BOOL)appliesOrientationWithPhysicalRotationForConnection:(id)arg1;
-- (struct CGSize)outputSizeForCaptureOptions:(id)arg1;
+- (struct CGSize)outputSizeForSourceFormat:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)updateMetadataTransformForCaptureOptions:(id)arg1;
+- (void)updateMetadataTransformForSourceFormat:(id)arg1;
 - (struct CGRect)rectForMetadataOutputRectOfInterest:(struct CGRect)arg1;
 - (struct CGRect)metadataOutputRectOfInterestForRect:(struct CGRect)arg1;
 - (id)transformedMetadataObjectForMetadataObject:(id)arg1 connection:(id)arg2;
@@ -39,6 +35,17 @@
 - (id)connectionWithMediaType:(id)arg1;
 @property(readonly, nonatomic) NSArray *connections;
 - (BOOL)canAddConnectionForMediaType:(id)arg1;
+- (id)connectionMediaTypes;
+- (int)requiredOutputFormatForConnection:(id)arg1;
+- (BOOL)hasRequiredOutputFormatForConnection:(id)arg1;
+- (void)setSinkID:(id)arg1;
+- (id)sinkID;
+- (void)detachSafelyFromFigCaptureSession:(struct OpaqueFigCaptureSession *)arg1;
+- (void)detachFromFigCaptureSession:(struct OpaqueFigCaptureSession *)arg1;
+- (void)attachSafelyToFigCaptureSession:(struct OpaqueFigCaptureSession *)arg1;
+- (void)attachToFigCaptureSession:(struct OpaqueFigCaptureSession *)arg1;
+- (void)performBlockOnSessionNotifyingThread:(CDUnknownBlockType)arg1;
+- (void)performFigCaptureSessionOperationSafelyUsingBlock:(CDUnknownBlockType)arg1;
 - (void)setSession:(id)arg1;
 - (id)session;
 - (void)dealloc;

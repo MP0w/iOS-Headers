@@ -16,10 +16,10 @@
 }
 
 + (id)phoneNumberWithStringValue:(id)arg1;
-@property(readonly) NSString *stringValue; // @synthesize stringValue=_stringValue;
-@property(readonly) NSString *normalizedStringValue;
-@property(readonly) NSString *formattedStringValue;
-@property(readonly) NSString *countryCode;
+@property(readonly, copy) NSString *stringValue; // @synthesize stringValue=_stringValue;
+@property(readonly, copy) NSString *normalizedStringValue;
+@property(readonly, copy) NSString *formattedStringValue;
+@property(readonly, copy) NSString *countryCode;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

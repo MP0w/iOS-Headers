@@ -9,7 +9,6 @@
 @class ACAccount, ACAccountStore, UIViewController;
 
 @protocol FlickrComposeOptionViewDelegate <NSObject>
-- (void)reload;
 - (void)flickrComposeOptionView:(UIViewController *)arg1 didFinishWithSelection:(id)arg2;
 - (ACAccount *)flickrAccount;
 - (ACAccountStore *)accountStore;

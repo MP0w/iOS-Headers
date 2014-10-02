@@ -6,18 +6,22 @@
 
 #import "NSObject.h"
 
-@class AVAssetInspectorLoader, AVAssetResourceLoader, NSArray, NSObject<OS_dispatch_queue>, NSString, NSURL;
+@class AVAssetCache, AVAssetInspectorLoader, AVAssetResourceLoader, NSArray, NSObject<OS_dispatch_queue>, NSURL;
 
 @interface AVURLAssetInternal : NSObject
 {
     AVAssetInspectorLoader *loader;
     NSURL *URL;
     NSArray *tracks;
-    NSArray *chapterGroupInfo;
-    NSString *anchorChapterType;
     AVAssetResourceLoader *resourceLoader;
     long makeOneResourceLoaderOnly;
     NSObject<OS_dispatch_queue> *tracksAccessQueue;
+    AVAssetCache *assetCache;
+    BOOL shouldMatchDataInCacheByURLPathComponentOnly;
+    BOOL shouldMatchDataInCacheByURLWithoutQueryComponent;
+    BOOL shouldOptimizeAccessForLinearMoviePlayback;
+    NSURL *downloadDestinationURL;
+    unsigned int referenceRestrictions;
 }
 
 @end

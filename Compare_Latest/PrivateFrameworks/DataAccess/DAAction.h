@@ -12,23 +12,23 @@
 {
     int _itemChangeType;
     id _serverId;
-    id <NSCoding><NSObject> _changedItem;
+    id _changedItem;
     int _changeId;
 }
 
-@property int changeId; // @synthesize changeId=_changeId;
-@property(readonly, nonatomic) id serverId; // @synthesize serverId=_serverId;
+@property(nonatomic) int changeId; // @synthesize changeId=_changeId;
+- (void)_setChangedItem:(id)arg1;
 @property(retain, nonatomic) id changedItem; // @synthesize changedItem=_changedItem;
-@property(readonly) int itemChangeType; // @synthesize itemChangeType=_itemChangeType;
+@property(retain, nonatomic) id serverId; // @synthesize serverId=_serverId;
+@property(nonatomic) int itemChangeType; // @synthesize itemChangeType=_itemChangeType;
+- (void).cxx_destruct;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)description;
 - (id)stringForItemChangeType:(int)arg1;
-- (void)_setChangedItem:(id)arg1;
 - (id)initWithItemChangeType:(int)arg1 changedItem:(id)arg2 serverId:(id)arg3;
-- (void)dealloc;
 - (struct ASEvent *)event;
 - (id)deletedEventID;
 - (struct ASContact *)contact;

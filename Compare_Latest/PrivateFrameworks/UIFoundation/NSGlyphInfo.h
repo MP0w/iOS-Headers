@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     NSString *_baseString;
 }
 
++ (BOOL)supportsSecureCoding;
 + (void)initialize;
 + (id)glyphInfoWithCharacterIdentifier:(unsigned int)arg1 collection:(unsigned int)arg2 baseString:(id)arg3;
 + (id)glyphInfoWithGlyph:(unsigned int)arg1 forFont:(id)arg2 baseString:(id)arg3;

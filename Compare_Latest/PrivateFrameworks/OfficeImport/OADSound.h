@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     long mSizeInBytes;
 }
 
+- (id)description;
 - (_Bool)isLoaded;
 - (void)setSizeInBytes:(long)arg1;
 - (long)sizeInBytes;

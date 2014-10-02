@@ -18,13 +18,13 @@ __attribute__((visibility("hidden")))
 }
 
 + (Class)archivedSelectionClass;
-@property(readonly, nonatomic) NSArray *paths; // @synthesize paths=mPaths;
-@property(readonly, nonatomic) TSCHChartDrawableInfo *chartInfo; // @synthesize chartInfo=mInfo;
+@property(readonly, copy, nonatomic) NSArray *paths; // @synthesize paths=mPaths;
+@property(readonly, retain, nonatomic) TSCHChartDrawableInfo *chartInfo; // @synthesize chartInfo=mInfo;
 - (void)saveToArchive:(struct ChartSelectionArchive *)arg1 archiver:(id)arg2;
 - (id)initFromArchive:(const struct ChartSelectionArchive *)arg1 unarchiver:(id)arg2;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-@property(readonly, nonatomic) TSCHSelectionPath *firstPath;
+@property(readonly, copy, nonatomic) TSCHSelectionPath *firstPath;
 @property(readonly, nonatomic) BOOL returnChartFrameForAutoscroll;
 - (void)dealloc;
 - (id)init;

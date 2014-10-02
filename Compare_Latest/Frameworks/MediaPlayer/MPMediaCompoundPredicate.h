@@ -6,25 +6,33 @@
 
 #import <MediaPlayer/MPMediaPredicate.h>
 
-@class NSArray;
+#import "MPPProtobufferCoding.h"
 
-@interface MPMediaCompoundPredicate : MPMediaPredicate
+@class NSArray, NSString;
+
+@interface MPMediaCompoundPredicate : MPMediaPredicate <MPPProtobufferCoding>
 {
     NSArray *_predicates;
 }
 
 + (id)predicateMatchingPredicates:(id)arg1;
-@property(readonly, nonatomic) NSArray *predicates; // @synthesize predicates=_predicates;
+@property(readonly, copy, nonatomic) NSArray *predicates; // @synthesize predicates=_predicates;
 - (void).cxx_destruct;
-- (unsigned int)hash;
+- (id)protobufferEncodableObject;
+- (id)initWithProtobufferDecodableObject:(id)arg1;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithPredicates:(id)arg1;
 - (id)ML3PredicateForContainer;
 - (id)ML3PredicateForTrack;
 - (id)_ML3PredicateForEntityTypeSelector:(SEL)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

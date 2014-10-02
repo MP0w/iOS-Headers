@@ -6,23 +6,30 @@
 
 #import "TSPSupportDirectoryDelegate.h"
 
-@class NSDictionary, NSError, NSSet, NSString, NSURL, SFUCryptoKey, TSPData;
+@class NSArray, NSDictionary, NSError, NSSet, NSString, NSURL, NSUUID, TSPData, TSPObjectContext;
 
 @protocol TSPObjectContextDelegate <TSPSupportDirectoryDelegate>
 
 @optional
+@property(readonly, nonatomic) BOOL preserveDocumentRevisionIdentifierForSequenceZero;
+@property(readonly, nonatomic) NSUUID *baseUUIDForObjectUUID;
+@property(readonly, nonatomic) BOOL canUpgradeDocumentSupport;
 @property(readonly, nonatomic) BOOL areNewExternalReferencesToDataAllowed;
 @property(readonly, nonatomic) BOOL isDocumentSupportTemporary;
 @property(readonly, nonatomic) BOOL ignoreDocumentSupport;
 @property(readonly, nonatomic) id <NSFilePresenter> filePresenter;
 - (void)gilligan_data:(TSPData *)arg1 didMoveFromPackageIdentifier:(unsigned char)arg2 packageLocator:(NSString *)arg3 toPackageIdentifier:(unsigned char)arg4 packageLocator:(NSString *)arg5;
 - (BOOL)gilligan_isRemoteData:(TSPData *)arg1;
+- (void)context:(TSPObjectContext *)arg1 didChangeEstimatedDocumentDataSize:(unsigned long long)arg2;
+- (BOOL)isEstimatedDocumentDataSizeNotificationEnabledForContext:(TSPObjectContext *)arg1;
+- (void)context:(TSPObjectContext *)arg1 didDownloadDocumentResources:(NSArray *)arg2 failedOrCancelledDocumentResources:(NSArray *)arg3 error:(NSError *)arg4;
 - (NSSet *)persistenceWarningsForData:(TSPData *)arg1 isReadable:(BOOL)arg2 isExternal:(BOOL)arg3;
 - (BOOL)areExternalReferencesToDataAllowedAtURL:(NSURL *)arg1;
+- (NSString *)documentPasswordHintForWrite;
 - (NSDictionary *)additionalDocumentPropertiesForWrite;
 - (NSDictionary *)packageDataForWrite;
-- (void)decryptedDocumentWithKey:(SFUCryptoKey *)arg1;
 - (BOOL)retrievePassphraseWithConsumer:(id <TSPPassphraseConsumer>)arg1;
+- (void)didLoadDocumentWrittenByPreviousVersion;
 - (void)makeDocumentReadOnly;
 - (void)addPersistenceWarnings:(NSSet *)arg1;
 - (void)presentPersistenceError:(NSError *)arg1;

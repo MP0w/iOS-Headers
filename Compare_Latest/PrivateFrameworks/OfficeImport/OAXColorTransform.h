@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (void)write:(id)arg1 to:(id)arg2;
 + (id)readColorTransformsFromXmlNode:(struct _xmlNode *)arg1;
 + (id)colorTransformTypeEnumMap;
 

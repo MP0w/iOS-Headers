@@ -25,5 +25,11 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithSelection:(id)arg1 string:(id)arg2 changeSession:(id)arg3;
 
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
+
 @end
 

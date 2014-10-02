@@ -4,44 +4,48 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <MusicUI/MusicTableViewController.h>
+#import <MusicUI/MusicAlbumsDetailViewController.h>
 
 #import "MPTransportControlsTarget.h"
-#import "MPUCoverZoomDetailViewControllerProtocol.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class MPMediaItemCollection, MPTransportControls, MPUCoverZoomViewController, UIColor, UIPinchGestureRecognizer, UIView;
+@class MPTransportControls, MPUCoverZoomViewController, NSString, UIPinchGestureRecognizer, UIView;
 
-@interface MPHCZAlbumTableViewController : MusicTableViewController <MPTransportControlsTarget, UIGestureRecognizerDelegate, MPUCoverZoomDetailViewControllerProtocol>
+@interface MPHCZAlbumTableViewController : MusicAlbumsDetailViewController <MPTransportControlsTarget, UIGestureRecognizerDelegate>
 {
     MPUCoverZoomViewController *_coverZoomViewController;
-    MPMediaItemCollection *_album;
     UIPinchGestureRecognizer *_pinchGestureRecognizer;
-    UIColor *_primaryTextColor;
     UIView *_tapView;
     MPTransportControls *_transportControlsView;
 }
 
++ (Class)_albumsDetailTableHeaderViewClass;
 + (BOOL)_supportsSearch;
 @property(nonatomic) __weak MPUCoverZoomViewController *coverZoomViewController; // @synthesize coverZoomViewController=_coverZoomViewController;
 - (void).cxx_destruct;
-- (void)_updateHeaderViewForAlbum;
 - (void)_itemDidChangeNotification:(id)arg1;
 - (void)_tapAction:(id)arg1;
 - (void)_pinchAction:(id)arg1;
 - (BOOL)transportControls:(id)arg1 tappedButtonPart:(unsigned long long)arg2;
-- (int)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
-- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 viewForFooterInSection:(int)arg2;
+- (void)tableView:(id)arg1 willDisplayFooterView:(id)arg2 forSection:(int)arg3;
+- (void)tableView:(id)arg1 willDisplayHeaderView:(id)arg2 forSection:(int)arg3;
+- (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
 - (BOOL)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (id)_createTableViewBackgroundView;
 - (id)_createTableView;
 - (void)reloadData;
-- (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidLayoutSubviews;
-- (void)viewDidLoad;
 - (void)loadView;
 - (void)dealloc;
+- (id)initWithDataSource:(id)arg1;
 - (id)initWithEntity:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

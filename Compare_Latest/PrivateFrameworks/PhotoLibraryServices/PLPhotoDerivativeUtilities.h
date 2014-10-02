@@ -11,6 +11,7 @@
 }
 
 + (id)generateDerivativeForMSAsset:(id)arg1 derivativeType:(int)arg2 withSpecificationInfo:(id)arg3 collectionGUID:(id)arg4;
++ (BOOL)resizeImageForUtiType:(id)arg1 masterFilePath:(id)arg2 derivedSize:(struct CGSize)arg3 derivedAssetPath:(id)arg4;
 
 @end
 

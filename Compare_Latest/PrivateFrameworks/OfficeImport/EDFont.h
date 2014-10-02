@@ -37,10 +37,7 @@ __attribute__((visibility("hidden")))
     _Bool mDoNotModify;
 }
 
-+ (id)lassoNameForFontName:(id)arg1 bold:(_Bool)arg2 italic:(_Bool)arg3;
-+ (id)filterFontName:(id)arg1;
 + (id)fontWithResources:(id)arg1;
-+ (id)fontNameWithFamilyName:(id)arg1 bold:(_Bool)arg2 italic:(_Bool)arg3;
 - (void)setDoNotModify:(_Bool)arg1;
 - (void)setWeight:(unsigned int)arg1;
 - (_Bool)isWeightOverridden;
@@ -74,8 +71,6 @@ __attribute__((visibility("hidden")))
 - (int)underline;
 - (void)setScript:(int)arg1;
 - (int)script;
-- (id)lassoName;
-- (id)filteredName;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isEqualToFont:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -83,6 +78,12 @@ __attribute__((visibility("hidden")))
 - (id)initWithResources:(id)arg1;
 - (void)setColorReference:(id)arg1;
 - (id)colorReference;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

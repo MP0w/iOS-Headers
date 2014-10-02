@@ -6,7 +6,7 @@
 
 #import <CoreData/NSPropertyDescription.h>
 
-@class NSString;
+@class NSData, NSString;
 
 @interface NSAttributeDescription : NSPropertyDescription
 {
@@ -25,20 +25,15 @@
 
 + (id)_classNameForType:(unsigned int)arg1;
 + (void)initialize;
-- (void)setAllowsExternalBinaryDataStorage:(BOOL)arg1;
-- (BOOL)allowsExternalBinaryDataStorage;
+@property BOOL allowsExternalBinaryDataStorage;
 - (id)validationWarnings;
 - (id)validationPredicates;
-- (id)versionHash;
-- (void)setValueTransformerName:(id)arg1;
-- (id)valueTransformerName;
+@property(readonly, copy) NSData *versionHash;
+@property(copy) NSString *valueTransformerName;
 - (BOOL)isIndexed;
-- (void)setDefaultValue:(id)arg1;
-- (id)defaultValue;
-- (void)setAttributeType:(unsigned int)arg1;
-- (unsigned int)attributeType;
-- (void)setAttributeValueClassName:(id)arg1;
-- (id)attributeValueClassName;
+@property(retain) id defaultValue;
+@property unsigned int attributeType;
+@property(copy) NSString *attributeValueClassName;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

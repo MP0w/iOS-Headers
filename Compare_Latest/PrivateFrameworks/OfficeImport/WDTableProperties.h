@@ -17,8 +17,8 @@ __attribute__((visibility("hidden")))
     unsigned int mOriginal:1;
     unsigned int mTracked:1;
     unsigned int mResolved:1;
-    CDStruct_8f0e3ff6 mOriginalProperties;
-    CDStruct_8f0e3ff6 mTrackedProperties;
+    CDStruct_18c9c696 mOriginalProperties;
+    CDStruct_18c9c696 mTrackedProperties;
 }
 
 - (id).cxx_construct;
@@ -42,6 +42,9 @@ __attribute__((visibility("hidden")))
 - (BOOL)isIndexToAuthorIDOfDeletionOverridden;
 - (void)setIndexToAuthorIDOfDeletion:(unsigned short)arg1;
 - (unsigned short)indexToAuthorIDOfDeletion;
+- (BOOL)isBiDirectionalOverridden;
+- (void)setBiDirectional:(BOOL)arg1;
+- (BOOL)biDirectional;
 - (BOOL)isFormattingChangedOverridden;
 - (void)setFormattingChanged:(int)arg1;
 - (int)formattingChanged;
@@ -127,6 +130,9 @@ __attribute__((visibility("hidden")))
 - (BOOL)isShadingOverridden;
 - (id)mutableShading;
 - (id)shading;
+- (BOOL)isLookOverridden;
+- (void)setLook:(unsigned short)arg1;
+- (unsigned short)look;
 - (BOOL)isBaseStyleOverridden;
 - (void)setBaseStyle:(id)arg1;
 - (id)baseStyle;

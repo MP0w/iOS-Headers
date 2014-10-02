@@ -32,15 +32,15 @@
     NSString *_shortenedProductPageURLString;
     SKUIStoreNotes *_storeNotes;
     int _supportedFeatures;
+    unsigned int _supportedGameCenterFeatures;
     NSString *_supportURLString;
-    NSArray *_trailers;
     NSString *_updateDescription;
 }
 
 @property(readonly, nonatomic) NSString *installationRequirementsDescription; // @synthesize installationRequirementsDescription=_installationRequirementsDescription;
 @property(readonly, nonatomic) NSString *updateDescription; // @synthesize updateDescription=_updateDescription;
-@property(readonly, nonatomic) NSArray *trailers; // @synthesize trailers=_trailers;
 @property(readonly, nonatomic) NSString *supportURLString; // @synthesize supportURLString=_supportURLString;
+@property(readonly, nonatomic) unsigned int supportedGameCenterFeatures; // @synthesize supportedGameCenterFeatures=_supportedGameCenterFeatures;
 @property(readonly, nonatomic) int supportedFeatures; // @synthesize supportedFeatures=_supportedFeatures;
 @property(readonly, nonatomic) SKUIStoreNotes *storeNotes; // @synthesize storeNotes=_storeNotes;
 @property(readonly, nonatomic) NSString *shortenedProductPageURLString; // @synthesize shortenedProductPageURLString=_shortenedProductPageURLString;

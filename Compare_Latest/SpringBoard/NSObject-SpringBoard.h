@@ -7,5 +7,7 @@
 #import "NSObject.h"
 
 @interface NSObject (SpringBoard)
+- (void)sbf_updateTextAttributesForKey:(id)arg1;
+- (void)sbf_updateDictionaryForKey:(id)arg1 withChanges:(id)arg2;
 @end
 

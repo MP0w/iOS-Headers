@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (CDStruct_03942939)speedAtIndexPoint:(struct CGPoint)arg1;
+- (CDStruct_869f9c67)speedAtIndexPoint:(struct CGPoint)arg1;
 - (float)speedMax;
 - (void)drawGLSLWithPercent:(float)arg1 opacity:(float)arg2 rotation:(float)arg3 clockwise:(BOOL)arg4;
 

@@ -16,7 +16,7 @@
 }
 
 - (void)_noteSignificantAnimationFinished;
-- (void)_slideUpViewsWithSlideSettings:(id)arg1 fadeSettings:(id)arg2 delayIncrement:(double)arg3;
+- (void)_slideUpViewsWithSlideFactory:(id)arg1 fadeFactory:(id)arg2 delayIncrement:(double)arg3;
 - (void)_finishViewForSlideUp:(id)arg1;
 - (void)_cleanupAnimation;
 - (void)_startAnimation;

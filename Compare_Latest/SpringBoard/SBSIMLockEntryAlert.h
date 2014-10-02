@@ -8,12 +8,16 @@
 
 @interface SBSIMLockEntryAlert : SBAlert
 {
-    int _status;
+    long long _status;
 }
 
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
+- (long long)interfaceOrientationForActivation;
+- (_Bool)_forcesPortraitOrientation;
 - (void)deactivate;
 - (void)activate;
-- (int)status;
+- (long long)status;
 - (id)lockEntryView;
 - (_Bool)hasTranslucentBackground;
 - (id)alertDisplayViewWithSize:(struct CGSize)arg1;

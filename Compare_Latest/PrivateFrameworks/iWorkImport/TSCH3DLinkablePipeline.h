@@ -8,12 +8,20 @@
 
 #import "TSCH3DPipelineLinkable.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TSCH3DLinkablePipeline : TSCH3DRenderPipeline <TSCH3DPipelineLinkable>
 {
 }
 
 - (id)output;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

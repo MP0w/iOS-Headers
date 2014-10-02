@@ -8,7 +8,7 @@
 
 #import "ALAssetsLibraryAsset.h"
 
-@class ALAssetsFilter, ALAssetsLibrary, NSMutableDictionary, NSObject<PLAlbumProtocol>, PLPhotoLibrary;
+@class ALAssetsFilter, ALAssetsLibrary, NSMutableDictionary, NSObject<PLAlbumProtocol>, NSString, PLPhotoLibrary;
 
 __attribute__((visibility("hidden")))
 @interface ALAssetsGroupPrivate : NSObject <ALAssetsLibraryAsset>
@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     ALAssetsLibrary *_library;
     BOOL _isValid;
     BOOL _isCloudSharedGroup;
+    BOOL _applyHyperionFilter;
     struct NSObject *_album;
     ALAssetsFilter *_assetsFilter;
     unsigned int _groupType;
@@ -24,6 +25,7 @@ __attribute__((visibility("hidden")))
     PLPhotoLibrary *_photoLibrary;
 }
 
+@property(nonatomic) BOOL applyHyperionFilter; // @synthesize applyHyperionFilter=_applyHyperionFilter;
 @property(nonatomic) BOOL isCloudSharedGroup; // @synthesize isCloudSharedGroup=_isCloudSharedGroup;
 @property(retain, nonatomic) PLPhotoLibrary *_photoLibrary; // @synthesize _photoLibrary;
 @property(retain, nonatomic) NSMutableDictionary *propertyValues; // @synthesize propertyValues=_propertyValues;
@@ -42,6 +44,12 @@ __attribute__((visibility("hidden")))
 - (int)albumFilter;
 - (void)dealloc;
 - (id)initWithAlbum:(struct NSObject *)arg1 library:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

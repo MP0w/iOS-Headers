@@ -25,6 +25,7 @@
     int cancelled;
     int sentContentInfo;
     struct OpaqueFigPlaybackItem *figPlaybackItem;
+    struct OpaqueFigAssetImageGenerator *figImageGenerator;
     CDUnknownBlockType streamingKeyRequestCompletionHandler;
 }
 

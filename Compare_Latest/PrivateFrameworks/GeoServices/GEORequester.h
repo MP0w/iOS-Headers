@@ -20,6 +20,7 @@
 + (void)replayRequests;
 + (void)stopAllRequests;
 + (id)_logRequestResponseDirectory;
++ (void)enablePersistentConnection;
 + (void)setLogRequestResponseDirectory:(id)arg1;
 + (void)setOSVersion:(id)arg1;
 + (void)setAppID:(id)arg1;
@@ -42,8 +43,7 @@
 - (void)_applicationDidStopAllRequests:(id)arg1;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1 andDelegate:(id)arg2;
-- (id)initWithURL:(id)arg1 andDelegate:(id)arg2 usePersistentConnection:(BOOL)arg3;
-- (id)initWithURL:(id)arg1 andDelegate:(id)arg2 usePersistentConnection:(BOOL)arg3 useBackgroundConnection:(BOOL)arg4;
+- (id)initWithURL:(id)arg1 andDelegate:(id)arg2 useBackgroundConnection:(BOOL)arg3;
 
 @end
 

@@ -20,6 +20,7 @@
 - (id)PKURLForKey:(id)arg1;
 - (id)PKStringForKey:(id)arg1;
 - (id)PKDateForKey:(id)arg1;
+- (id)PKDecimalNumberForKey:(id)arg1;
 - (id)PKNumberForKey:(id)arg1;
 @end
 

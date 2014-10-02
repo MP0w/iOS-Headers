@@ -14,8 +14,8 @@
     NSString *_filename;
 }
 
-@property(retain) NSString *filename; // @synthesize filename=_filename;
-@property(retain) NSString *previousScheduleTag; // @synthesize previousScheduleTag=_previousScheduleTag;
+@property(retain, nonatomic) NSString *filename; // @synthesize filename=_filename;
+@property(retain, nonatomic) NSString *previousScheduleTag; // @synthesize previousScheduleTag=_previousScheduleTag;
 - (id)responseData;
 - (id)copyDefaultParserForContentType:(id)arg1;
 - (id)requestBody;

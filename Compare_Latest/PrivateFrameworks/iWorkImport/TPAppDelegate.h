@@ -11,12 +11,15 @@
 __attribute__((visibility("hidden")))
 @interface TPAppDelegate : TSABaseApplicationDelegate
 {
+    BOOL _newDocumentOnLaunch;
+    BOOL _appDoneLaunching;
+    BOOL _cachedBidiIsSupported;
 }
 
 + (id)sharedDelegate;
 - (void)p_inputMethodsChanged:(id)arg1;
 - (void)p_localeChanged:(id)arg1;
-- (id)applicationTemplateVariants;
+- (id)applicationTemplateVariantsForLocale:(struct __CFLocale *)arg1;
 - (BOOL)supportsScrollingInPhoneCommentUI;
 - (BOOL)supportsRTL;
 - (id)templateTypeDisplayName;

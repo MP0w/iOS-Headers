@@ -6,14 +6,13 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary, VGLMesh, VKRealisticPolygonMaker, VKStyle;
+@class VKRealisticPolygonMaker;
 
 __attribute__((visibility("hidden")))
 @interface VKRealisticRoadGroup : NSObject
 {
     struct VKTileKey _tileKey;
     int _renderZ;
-    NSMutableDictionary *_meshDict;
     VKRealisticPolygonMaker *_roadPolygonMaker;
     float _roadZ;
     float _casingHeight;
@@ -25,34 +24,41 @@ __attribute__((visibility("hidden")))
     float _roadShadowRamp;
     float _roadShadowWidth;
     float _roadShadowTaperLength;
-    VKStyle *_style;
+    Matrix_8746f91e _tileSize;
+    Matrix_8746f91e _tileOrigin;
+    shared_ptr_6e6219d6 _styleQuery;
     float _casingShadowRamp;
-    struct _VGLColor _sidewalkColor;
-    NSMutableArray *_roadMeshes;
-    VGLMesh *_roadShadows;
-    VGLMesh *_casingFacades;
-    VGLMesh *_casingTops;
-    VGLMesh *_casingShadows;
-    VGLMesh *_sidewalkShadows;
+    map_63821800 _roadDrawableIndices;
+    vector_5bdcb8f5 _roadDrawables;
+    struct fast_shared_ptr<ggl::PolygonBase::CompressedMeshMesh> _topMesh;
+    struct fast_shared_ptr<ggl::RealisticCasingFacade::RealisticMesh> _facadeMesh;
+    struct fast_shared_ptr<ggl::RealisticCasingFacade::RealisticMesh> _shadowMesh;
+    struct fast_shared_ptr<ggl::PolygonBase::CompressedMeshMesh> _sidewalkShadowMesh;
+    struct fast_shared_ptr<ggl::RealisticRoadShadow::RealisticMesh> _roadShadowMesh;
 }
 
+@property(readonly, nonatomic) vector_5bdcb8f5 *roadMeshDrawables; // @synthesize roadMeshDrawables=_roadDrawables;
 @property(readonly, nonatomic) float casingShadowRamp; // @synthesize casingShadowRamp=_casingShadowRamp;
-@property(retain, nonatomic) VKStyle *style; // @synthesize style=_style;
+@property(nonatomic) shared_ptr_6e6219d6 styleQuery; // @synthesize styleQuery=_styleQuery;
 @property(readonly, nonatomic) float roadShadowTaperLength; // @synthesize roadShadowTaperLength=_roadShadowTaperLength;
 @property(readonly, nonatomic) float roadShadowWidth; // @synthesize roadShadowWidth=_roadShadowWidth;
 @property(readonly, nonatomic) float roadShadowRamp; // @synthesize roadShadowRamp=_roadShadowRamp;
-@property(readonly, nonatomic) VGLMesh *sidewalkShadows; // @synthesize sidewalkShadows=_sidewalkShadows;
-@property(readonly, nonatomic) VGLMesh *casingShadows; // @synthesize casingShadows=_casingShadows;
-@property(readonly, nonatomic) VGLMesh *casingTops; // @synthesize casingTops=_casingTops;
-@property(readonly, nonatomic) VGLMesh *casingFacades; // @synthesize casingFacades=_casingFacades;
-@property(readonly, nonatomic) VGLMesh *roadShadows; // @synthesize roadShadows=_roadShadows;
-@property(readonly, nonatomic) NSArray *roadMeshes; // @synthesize roadMeshes=_roadMeshes;
 @property(nonatomic) int renderZ; // @synthesize renderZ=_renderZ;
 - (id).cxx_construct;
-- (unsigned int)triangleCount;
-- (id)_meshForStyle:(id)arg1 tileKey:(struct VKTileKey)arg2 scale:(float)arg3;
-- (void)updateComponentsWithModelViewProjectionMatrix:(CDUnion_f5b85e25)arg1 contentScale:(float)arg2;
-- (void)addRoadForPolygon:(const Vec2Imp_1782d7e3 *)arg1 pointCount:(unsigned int)arg2 characteristicPoints:(const CDStruct_dab2d0bd *)arg3 characteristicPointCount:(unsigned int)arg4 withStyle:(id)arg5;
+- (void).cxx_destruct;
+- (struct TexturedDrawable *)_meshForStyleQuery:(shared_ptr_6e6219d6)arg1 scale:(float)arg2 sharedResources:(id)arg3;
+- (void)updateComponentsWithContentScale:(float)arg1 sharedResources:(id)arg2;
+- (void)extractRoadPolygonWithPoints:(const Matrix_8746f91e *)arg1 pointCount:(unsigned int)arg2 indices:(const unsigned short *)arg3 indexCount:(unsigned int)arg4 styleQuery:(shared_ptr_6e6219d6)arg5 contentScale:(float)arg6 sharedResources:(id)arg7;
+- (void)extractShadowsWithPoints:(const Matrix_8746f91e *)arg1 count:(unsigned int)arg2;
+- (void)extractLinesWithPoints:(const Matrix_8746f91e *)arg1 count:(unsigned int)arg2;
+@property(readonly, nonatomic) Matrix_8746f91e size;
+@property(readonly, nonatomic) Matrix_8746f91e origin;
+- (void)addRoadForPolygon:(const Matrix_8746f91e *)arg1 pointCount:(unsigned int)arg2 characteristicPoints:(const CDStruct_dab2d0bd *)arg3 characteristicPointCount:(unsigned int)arg4 withStyleQuery:(shared_ptr_6e6219d6)arg5;
+@property(readonly, nonatomic) struct RealisticMesh *roadShadowMesh;
+@property(readonly, nonatomic) struct CompressedMeshMesh *casingSidewalkShadowMesh;
+@property(readonly, nonatomic) struct CompressedMeshMesh *casingTopMesh;
+@property(readonly, nonatomic) struct RealisticMesh *casingFacadeMesh;
+@property(readonly, nonatomic) struct RealisticMesh *casingShadowMesh;
 - (void)dealloc;
 - (id)initWithTile:(id)arg1;
 

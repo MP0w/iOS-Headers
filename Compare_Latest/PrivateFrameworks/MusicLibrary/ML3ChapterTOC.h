@@ -15,9 +15,6 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
-- (id)imageDataForArtworkFormatID:(unsigned int)arg1 size:(struct CGSize)arg2 artworkChapterIndex:(unsigned int)arg3 artworkInstanceInfo:(struct MLArtworkInstanceInfo *)arg4;
-- (id)artworkCacheIDForChapterIndex:(unsigned int)arg1;
-- (id)artworkCacheIDForTimeInMS:(unsigned int)arg1;
 - (id)initWithChapterDataRef:(struct ChapterData *)arg1 track:(id)arg2;
 
 @end

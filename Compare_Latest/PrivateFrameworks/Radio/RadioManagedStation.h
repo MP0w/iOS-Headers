@@ -41,6 +41,7 @@
 @property(nonatomic, getter=isPreviewOnly) BOOL previewOnly;
 @property(nonatomic, getter=isPremiumPlacement) BOOL premiumPlacement;
 @property(nonatomic) long long persistentID;
+@property(copy, nonatomic) NSString *name;
 @property(nonatomic) BOOL likesEnabled;
 @property(nonatomic) BOOL isExplicit;
 @property(nonatomic) unsigned int impressionThreshold;
@@ -57,9 +58,6 @@
 @property(readonly, nonatomic, getter=isPreview) BOOL preview;
 - (id)feedbackDictionaryRepresentation;
 - (id)additionalReferencedTrackDescriptors;
-
-// Remaining properties
-@property(copy, nonatomic) NSString *name; // @dynamic name;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "OADEffectsParent.h"
 
-@class NSArray, OADFill;
+@class NSArray, NSString, OADFill;
 
 __attribute__((visibility("hidden")))
 @interface OADTableBackground : NSObject <OADEffectsParent>
@@ -23,6 +23,12 @@ __attribute__((visibility("hidden")))
 - (void)setFill:(id)arg1;
 - (id)fill;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

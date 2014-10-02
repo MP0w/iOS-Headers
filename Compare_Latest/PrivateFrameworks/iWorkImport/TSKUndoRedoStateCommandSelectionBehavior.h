@@ -20,7 +20,7 @@ __attribute__((visibility("hidden")))
 - (void)registerSelectionChangesForUndo;
 - (void)registerSelectionChangesForCommit;
 @property(retain, nonatomic, setter=p_setPersistentUndoRedoState:) id <TSKPersistentUndoRedoState> p_persistentUndoRedoState;
-@property(readonly, nonatomic) id <TSKUndoRedoState> undoRedoState;
+@property(readonly, retain, nonatomic) id <TSKUndoRedoState> undoRedoState;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1;
 - (id)initWithContext:(id)arg1 initialUndoRedoState:(id)arg2;

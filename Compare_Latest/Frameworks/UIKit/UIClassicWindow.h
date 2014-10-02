@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (BOOL)_shouldZoom;
+- (BOOL)_isConstrainedByScreenJail;
 - (void)_updateTransformLayerForClassicPresentation;
 
 @end

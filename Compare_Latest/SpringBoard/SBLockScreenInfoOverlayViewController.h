@@ -22,7 +22,11 @@
 - (id)initWithTitle:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) id <SBLockScreenInfoOverlayDelegate> delegate;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

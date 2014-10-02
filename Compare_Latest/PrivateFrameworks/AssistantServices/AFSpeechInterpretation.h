@@ -21,6 +21,8 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
+- (int)confidenceScore;
+- (id)text;
 
 @end
 

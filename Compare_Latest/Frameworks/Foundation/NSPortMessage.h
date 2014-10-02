@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSPort;
+@class NSArray, NSMutableArray, NSPort;
 
 @interface NSPortMessage : NSObject
 {
@@ -20,11 +20,10 @@
 
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (BOOL)sendBeforeDate:(id)arg1;
-- (id)components;
-- (void)setMsgid:(unsigned int)arg1;
-- (unsigned int)msgid;
-- (id)receivePort;
-- (id)sendPort;
+@property(readonly, copy) NSArray *components;
+@property unsigned int msgid;
+@property(readonly, retain) NSPort *receivePort;
+@property(readonly, retain) NSPort *sendPort;
 - (void)dealloc;
 - (id)initWithReceivePort:(id)arg1 sendPort:(id)arg2 components:(id)arg3;
 - (id)initWithSendPort:(id)arg1 receivePort:(id)arg2 components:(id)arg3;

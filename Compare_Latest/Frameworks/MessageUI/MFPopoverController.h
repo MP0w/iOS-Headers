@@ -8,6 +8,8 @@
 
 #import "UIPopoverControllerDelegate.h"
 
+@class NSString;
+
 @interface MFPopoverController : UIPopoverController <UIPopoverControllerDelegate>
 {
     id _mailDelegate;
@@ -24,6 +26,12 @@
 - (void)dismissPopoverAnimated:(BOOL)arg1;
 - (void)dealloc;
 - (id)initWithContentViewController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

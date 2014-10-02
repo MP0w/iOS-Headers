@@ -6,111 +6,60 @@
 
 #import "UIViewController.h"
 
-#import "SKUIArtworkRequestDelegate.h"
-#import "SKUILayoutCacheDelegate.h"
 #import "SKUIMetricsViewController.h"
-#import "SKUIProductPageOverlayDelegate.h"
-#import "SKUIResourceLoaderDelegate.h"
-#import "SKUIStorePageCollectionViewDelegate.h"
+#import "SKUIStorePageSectionsDelegate.h"
 #import "SKUIViewControllerTesting.h"
-#import "UICollectionViewDataSource.h"
 #import "UIViewControllerRestoration.h"
 
-@class NSArray, NSDictionary, NSMapTable, NSMutableArray, NSOperationQueue, NSString, NSURLRequest, SKUIArtworkRequest, SKUIClientContext, SKUIColorScheme, SKUILayoutCache, SKUIMetricsController, SKUIProductPageOverlayController, SKUIResourceLoader, SKUIStorePage, SSMetricsPageEvent, SSVLoadURLOperation, UICollectionView, UIImage, UIRefreshControl, UIView;
+@class NSDictionary, NSOperationQueue, NSString, NSURLRequest, SKUIClientContext, SKUIColorScheme, SKUIMetricsController, SKUIStorePage, SKUIStorePageSectionsViewController, SSMetricsPageEvent, SSVLoadURLOperation, UIRefreshControl;
 
-@interface SKUIStorePageViewController : UIViewController <SKUIArtworkRequestDelegate, SKUIProductPageOverlayDelegate, SKUIResourceLoaderDelegate, SKUIStorePageCollectionViewDelegate, SKUILayoutCacheDelegate, UICollectionViewDataSource, SKUIViewControllerTesting, SKUIMetricsViewController, UIViewControllerRestoration>
+@interface SKUIStorePageViewController : UIViewController <SKUIStorePageSectionsDelegate, SKUIViewControllerTesting, SKUIMetricsViewController, UIViewControllerRestoration>
 {
-    SKUIProductPageOverlayController *_activeOverlayController;
-    SKUIArtworkRequest *_backgroundArtworkRequest;
-    UIImage *_backgroundImage;
     SKUIClientContext *_clientContext;
-    UICollectionView *_collectionView;
-    struct UIEdgeInsets _contentInsetAdjustments;
-    id <SKUIStorePageDataSource> _dataSource;
     id <SKUIStorePageDelegate> _delegate;
-    int _disappearOrientation;
-    NSArray *_initialOverlayURLs;
     NSString *_lastDataConsumerClassName;
     SSMetricsPageEvent *_lastPageEvent;
     NSURLRequest *_lastRequest;
     BOOL _loadOnAppear;
     SSVLoadURLOperation *_loadOperation;
-    NSMapTable *_menuSectionContexts;
     NSOperationQueue *_operationQueue;
     SKUIMetricsController *_metricsController;
-    SKUIProductPageOverlayController *_overlayController;
     NSString *_performanceTestName;
     NSDictionary *_performanceTestOptions;
     SKUIColorScheme *_placeholderColorScheme;
-    UIView *_pinnedHeaderView;
     UIRefreshControl *_refreshControl;
-    SKUIResourceLoader *_resourceLoader;
-    NSMutableArray *_sections;
+    SKUIStorePageSectionsViewController *_sectionsViewController;
     SKUIStorePage *_storePage;
-    SKUILayoutCache *_textLayoutCache;
 }
 
 + (id)viewControllerWithRestorationIdentifierPath:(id)arg1 coder:(id)arg2;
++ (BOOL)_shouldForwardViewWillTransitionToSize;
 @property(copy, nonatomic) SKUIStorePage *storePage; // @synthesize storePage=_storePage;
 @property(retain, nonatomic) UIRefreshControl *refreshControl; // @synthesize refreshControl=_refreshControl;
 @property(retain, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
 @property(nonatomic) __weak id <SKUIStorePageDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) __weak id <SKUIStorePageDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
-- (void)_updateSectionsAfterMenuChange;
-- (id)_textLayoutCache;
 - (void)_showProductPage:(id)arg1 withPageEvent:(id)arg2;
 - (void)_setStorePage:(id)arg1 error:(id)arg2;
 - (void)_setMetricsController:(id)arg1;
-- (void)_setBackgroundImage:(id)arg1;
-- (id)_sectionWithPageComponent:(id)arg1;
-- (id)_sections;
+- (id)_sectionsViewController;
 - (void)_runScrollTestWithName:(id)arg1 options:(id)arg2;
 - (void)_runPerformanceTestAfterPageLoad;
 - (void)_runPerformanceTestAfterIdle;
-- (id)_resourceLoader;
 - (void)_reloadStorePage;
-- (void)_reloadCollectionView;
 - (void)_recordMetricsPageEvent:(id)arg1 forStorePage:(id)arg2;
-- (void)_prefetchArtworkForVisibleSections;
-- (id)_newStorePageSectionContext;
-- (id)_menuContextForMenuComponent:(id)arg1;
-- (void)_enumerateVisibleSectionsUsingBlock:(CDUnknownBlockType)arg1;
-- (id)_defaultSectionForSwooshComponent:(id)arg1;
-- (id)_defaultSectionForGridComponent:(id)arg1;
+- (void)_loadWithOperation:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (id)_colorScheme;
-- (id)_collectionView;
-- (id)_childSectionsForMenuComponent:(id)arg1 selectedIndex:(int)arg2;
+- (void)loadWithJSONData:(id)arg1 fromOperation:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)_metricsEnterEventNotification:(id)arg1;
-- (id)_visibleMetricsImpressionsString;
-- (void)_updateSectionsForIndex:(int)arg1 menuSection:(id)arg2;
-- (void)_setSelectedIndex:(int)arg1 forMenuSection:(id)arg2;
-- (void)_setActiveProductPageOverlayController:(id)arg1;
-- (void)_pageSectionDidDismissOverlayController:(id)arg1;
-- (void)scrollViewDidScroll:(id)arg1;
-- (void)scrollViewDidEndDecelerating:(id)arg1;
-- (void)itemCollectionView:(id)arg1 didConfirmItemOfferForCell:(id)arg2;
-- (BOOL)collectionView:(id)arg1 shouldSelectItemAtIndexPath:(id)arg2;
-- (BOOL)collectionView:(id)arg1 shouldHighlightItemAtIndexPath:(id)arg2;
-- (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
-- (void)collectionView:(id)arg1 didEndDisplayingCell:(id)arg2 forItemAtIndexPath:(id)arg3;
-- (int)numberOfSectionsInCollectionView:(id)arg1;
-- (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
-- (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (BOOL)performTestWithName:(id)arg1 options:(id)arg2;
-- (void)layoutCacheDidFinishBatch:(id)arg1;
-- (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
-- (id)collectionView:(id)arg1 layout:(id)arg2 pageSectionForIndexPath:(id)arg3;
-- (void)resourceLoaderDidIdle:(id)arg1;
-- (void)productPageOverlayDidDismiss:(id)arg1;
+- (void)sectionsViewControllerDidDismissOverlayController:(id)arg1;
+- (BOOL)sectionsViewController:(id)arg1 showStorePageForURL:(id)arg2;
+- (BOOL)sectionsViewController:(id)arg1 showProductPageForItem:(id)arg2;
 - (id)activeMetricsController;
-- (void)collectionView:(id)arg1 editorialView:(id)arg2 didSelectLink:(id)arg3;
-- (void)artworkRequest:(id)arg1 didLoadImage:(id)arg2;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
+- (unsigned int)supportedInterfaceOrientations;
 - (void)loadView;
 - (void)encodeRestorableStateWithCoder:(id)arg1;
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
@@ -121,10 +70,15 @@
 - (void)loadURL:(id)arg1 withDataConsumer:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)loadURL:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic, getter=isLoading) BOOL loading;
-- (id)defaultSectionForComponent:(id)arg1;
 - (void)cancelPageLoad;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

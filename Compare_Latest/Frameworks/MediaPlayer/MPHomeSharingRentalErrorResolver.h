@@ -8,7 +8,7 @@
 
 #import "SSRequestDelegate.h"
 
-@class MPHomeSharingML3DataProvider, NSError, SSRentalCheckoutRequest;
+@class MPHomeSharingML3DataProvider, NSError, NSString, SSRentalCheckoutRequest;
 
 @interface MPHomeSharingRentalErrorResolver : MPAVErrorResolver <SSRequestDelegate>
 {
@@ -30,6 +30,12 @@
 - (void)resolveError:(id)arg1;
 - (void)dealloc;
 - (id)initWithItemID:(unsigned long long)arg1 homeSharingID:(unsigned long long)arg2 rentalID:(unsigned long long)arg3 accountID:(unsigned long long)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

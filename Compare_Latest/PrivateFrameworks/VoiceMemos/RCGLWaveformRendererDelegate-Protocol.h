@@ -9,6 +9,7 @@
 @class RCGLWaveformRenderer;
 
 @protocol RCGLWaveformRendererDelegate <NSObject>
+- (void)waveformRendererDidSynchronizeToDisplayLink:(RCGLWaveformRenderer *)arg1;
 - (void)waveformRendererContentDidFinishLoading:(RCGLWaveformRenderer *)arg1;
 - (void)waveformRenderer:(RCGLWaveformRenderer *)arg1 contentWidthDidChange:(float)arg2;
 @end

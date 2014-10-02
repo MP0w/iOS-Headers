@@ -25,8 +25,14 @@
 - (struct CGSize)contentSizeForOrientation:(long long)arg1;
 - (_Bool)enabledForOrientation:(long long)arg1;
 - (id)view;
-@property(readonly, nonatomic) NSString *sectionIdentifier;
+@property(readonly, copy, nonatomic) NSString *sectionIdentifier;
 - (void)loadView;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

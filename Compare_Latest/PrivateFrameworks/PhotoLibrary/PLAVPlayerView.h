@@ -20,7 +20,7 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties
-@property(readonly, nonatomic) AVPlayerLayer *layer;
+@property(readonly, retain, nonatomic) AVPlayerLayer *layer;
 
 @end
 

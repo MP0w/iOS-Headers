@@ -7,9 +7,15 @@
 #import "NSArray.h"
 
 @interface NSArray (SpringBoard)
+- (id)sbf_foldWithInitialValue:(id)arg1 block:(CDUnknownBlockType)arg2;
+- (id)sbf_first:(unsigned long long)arg1;
+- (id)sbf_reverse;
+- (id)sbf_mapNoNulls:(CDUnknownBlockType)arg1;
 - (id)sbf_map:(CDUnknownBlockType)arg1;
 - (void)sbf_each:(CDUnknownBlockType)arg1;
 - (id)sbf_filter:(CDUnknownBlockType)arg1;
+- (id)sbf_firstObjectOfClassNamed:(id)arg1;
+- (id)sbf_firstObjectOfClass:(Class)arg1;
 - (id)sbf_firstObjectPassingTest:(CDUnknownBlockType)arg1;
 @end
 

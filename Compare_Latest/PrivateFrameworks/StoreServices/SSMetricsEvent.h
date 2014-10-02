@@ -10,11 +10,13 @@
 {
 }
 
+- (id)decorateReportingURL:(id)arg1;
 - (double)timeIntervalFromMilliseconds:(id)arg1;
 - (id)millisecondsFromTimeInterval:(double)arg1;
 - (id)_dictionaryRepresentationOfBody;
 - (BOOL)isFieldBlacklistEnabled;
 - (BOOL)isBlacklistedByConfiguration:(id)arg1;
+- (id)allTableEntityPropertiesPermittedByConfiguration:(id)arg1 externalValues:(id)arg2;
 - (id)allTableEntityPropertiesPermittedByConfiguration:(id)arg1;
 - (void)appendPropertiesToBody:(id)arg1;
 

@@ -13,10 +13,17 @@ __attribute__((visibility("hidden")))
 {
     NSData *mData;
     NSString *mName;
+    float mStart;
+    float mEnd;
+    BOOL loop;
 }
 
+@property BOOL loop; // @synthesize loop;
+@property float movieEndPoint; // @synthesize movieEndPoint=mEnd;
+@property float movieStartPoint; // @synthesize movieStartPoint=mStart;
 @property(retain) NSString *name; // @synthesize name=mName;
 @property(retain) NSData *data; // @synthesize data=mData;
+@property(readonly) BOOL isAudioOnly;
 - (void)dealloc;
 
 @end

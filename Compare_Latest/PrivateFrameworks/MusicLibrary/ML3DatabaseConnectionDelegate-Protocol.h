@@ -11,7 +11,8 @@
 @protocol ML3DatabaseConnectionDelegate <NSObject>
 
 @optional
-- (BOOL)connectionDetectedDatabaseCorruption:(ML3DatabaseConnection *)arg1;
+- (void)connection:(ML3DatabaseConnection *)arg1 didEndDatabaseTransactionAndCommit:(BOOL)arg2;
+- (void)connectionDidBeginDatabaseTransaction:(ML3DatabaseConnection *)arg1;
 - (void)connection:(ML3DatabaseConnection *)arg1 didFailToCloseDatabaseWithError:(NSError *)arg2;
 - (void)connectionDidCloseDatabase:(ML3DatabaseConnection *)arg1;
 - (void)connectionWillCloseDatabase:(ML3DatabaseConnection *)arg1;

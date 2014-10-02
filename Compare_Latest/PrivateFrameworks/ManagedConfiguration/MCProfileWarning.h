@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSString;
 
-@interface MCProfileWarning : NSObject <NSCoding>
+@interface MCProfileWarning : NSObject <NSSecureCoding>
 {
     NSString *_localizedTitle;
     NSString *_localizedBody;
@@ -18,6 +18,7 @@
 }
 
 + (id)warningWithLocalizedTitle:(id)arg1 localizedBody:(id)arg2 isLongForm:(BOOL)arg3;
++ (BOOL)supportsSecureCoding;
 @property(nonatomic) BOOL isLongForm; // @synthesize isLongForm=_isLongForm;
 @property(retain, nonatomic) NSString *localizedBody; // @synthesize localizedBody=_localizedBody;
 @property(retain, nonatomic) NSString *localizedTitle; // @synthesize localizedTitle=_localizedTitle;

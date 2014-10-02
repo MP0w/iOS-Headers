@@ -11,7 +11,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (id)edConditionalFormattingFromXmlConditionalFormattingElement:(struct _xmlNode *)arg1 state:(id)arg2;
++ (void)readFrom:(struct _xmlNode *)arg1 x14:(BOOL)arg2 state:(id)arg3;
++ (void)readConditionalFormattingsFrom:(struct _xmlNode *)arg1 x14:(BOOL)arg2 state:(id)arg3;
 
 @end
 

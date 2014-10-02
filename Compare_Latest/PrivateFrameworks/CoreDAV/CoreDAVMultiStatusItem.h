@@ -15,9 +15,9 @@
 }
 
 + (id)copyParseRules;
-@property(retain) CoreDAVLeafItem *responseDescription; // @synthesize responseDescription=_responseDescription;
-@property(retain) NSMutableArray *orderedResponses; // @synthesize orderedResponses=_orderedResponses;
-@property(readonly) NSSet *responses;
+@property(retain, nonatomic) CoreDAVLeafItem *responseDescription; // @synthesize responseDescription=_responseDescription;
+@property(retain, nonatomic) NSMutableArray *orderedResponses; // @synthesize orderedResponses=_orderedResponses;
+@property(readonly, nonatomic) NSSet *responses;
 - (void)addResponse:(id)arg1;
 - (id)description;
 - (void)dealloc;

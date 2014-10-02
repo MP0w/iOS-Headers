@@ -8,6 +8,8 @@
 
 #import "OABPropertiesManager.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface OABDefaultsManager : NSObject <OABPropertiesManager>
 {
@@ -70,6 +72,12 @@ __attribute__((visibility("hidden")))
 - (struct EshColor)fillBgColor;
 - (struct EshColor)fillFgColor;
 - (BOOL)isFilled;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

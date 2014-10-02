@@ -8,7 +8,7 @@
 
 #import "MKUserTrackingButtonTarget.h"
 
-@class MKMapView, UIButton, UIImage, UINavigationBar, UIToolbar, UIView, _MKUserTrackingButton, _MKUserTrackingButtonController;
+@class MKMapView, NSString, UIButton, UIImage, UINavigationBar, UIToolbar, UIView, _MKUserTrackingButton, _MKUserTrackingButtonController;
 
 @interface MKUserTrackingBarButtonItem : UIBarButtonItem <MKUserTrackingButtonTarget>
 {
@@ -21,7 +21,6 @@
     UIImage *_trackingNoneImage;
     UIImage *_trackingFollowImage;
     UIImage *_trackingFollowWithHeadingImage;
-    id <MKUserTrackingView> _userTrackingView;
     UIToolbar *_toolbar;
     UINavigationBar *_navigationBar;
     UIView *_associatedView;
@@ -42,7 +41,7 @@
 - (id)createViewForToolbar:(id)arg1;
 - (void)setEnabled:(BOOL)arg1;
 @property(retain, nonatomic) MKMapView *mapView;
-@property(retain, nonatomic, setter=_setUserTrackingView:) id <MKUserTrackingView> _userTrackingView; // @synthesize _userTrackingView;
+@property(retain, nonatomic, setter=_setUserTrackingView:) id <MKUserTrackingView> _userTrackingView;
 - (void)_repositionViews;
 - (BOOL)_isInMiniBar;
 - (int)_activityIndicatorStyle;
@@ -57,8 +56,14 @@
 - (id)_imageForState:(int)arg1 controlState:(unsigned int)arg2;
 @property(nonatomic, getter=_selectsWhenTracking, setter=_setSelectsWhenTracking:) BOOL selectsWhenTracking;
 - (void)dealloc;
+- (id)init;
 - (id)initWithMapView:(id)arg1;
-- (id)_initWithUserTrackingView:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

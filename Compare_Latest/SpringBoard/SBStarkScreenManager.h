@@ -9,7 +9,7 @@
 #import "SBScreenConnectionHandler.h"
 #import "SBStarkScreenControllerDelegate.h"
 
-@class NSMapTable, SBLockScreenDisableAssertion, SBPasscodeLockDisableAssertion, SBSpuriousScreenUndimmingAssertion, SBStarkScreenController, SBStarkStatusBarStateProvider;
+@class NSMapTable, NSString, SBLockScreenDisableAssertion, SBPasscodeLockDisableAssertion, SBSpuriousScreenUndimmingAssertion, SBStarkScreenController, SBStarkStatusBarStateProvider;
 
 @interface SBStarkScreenManager : NSObject <SBScreenConnectionHandler, SBStarkScreenControllerDelegate>
 {
@@ -56,6 +56,12 @@
 - (id)currentScreenController;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

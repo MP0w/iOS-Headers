@@ -68,6 +68,7 @@ __attribute__((visibility("hidden")))
 - (void)setFrame:(struct CGRect)arg1;
 @property(readonly, nonatomic) UIKBCandidateCollectionView *currentCandidateView;
 @property(readonly, nonatomic) TIKeyboardCandidateResultSet *candidates;
+- (id)visibleCandidates;
 - (Class)_barCellClassForSection:(int)arg1;
 - (unsigned int)_sectionIndexForSection:(int)arg1;
 - (int)_sectionForSectionIndex:(unsigned int)arg1 candidateView:(id)arg2;
@@ -116,12 +117,15 @@ __attribute__((visibility("hidden")))
 - (void)showPreviousCandidate;
 - (void)showNextCandidate;
 - (void)showCandidateAtIndex:(unsigned int)arg1;
-- (void)showCandidate:(id)arg1;
+- (BOOL)showCandidate:(id)arg1;
 - (void)setUIKeyboardCandidateListDelegate:(id)arg1;
 - (void)candidatesDidChange;
 - (void)setCandidates:(id)arg1 inlineText:(id)arg2 inlineRect:(struct CGRect)arg3 maxX:(float)arg4 layout:(BOOL)arg5;
 - (BOOL)isHiddenCandidatesList;
 - (BOOL)isExtendedList;
+- (void)scrollViewDidEndDecelerating:(id)arg1;
+- (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(BOOL)arg2;
+- (void)adjustSelectionToNearestVisibleCandidate;
 - (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)scrollViewDidEndScrollingAnimation:(id)arg1;
@@ -136,6 +140,12 @@ __attribute__((visibility("hidden")))
 - (int)numberOfSectionsInCollectionView:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

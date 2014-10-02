@@ -6,12 +6,13 @@
 
 #import <StoreKitUI/SKUIItemCellLayout.h>
 
-@class NSString, SKUISearchAppBundleView, UIImage, UIImageView, UILabel;
+@class NSString, SKUIBadgeLabel, SKUISearchAppBundleView, UIImage, UIImageView, UILabel;
 
 @interface SKUICardCellLayout : SKUIItemCellLayout
 {
     SKUISearchAppBundleView *_appBundleView;
     UILabel *_artistLabel;
+    SKUIBadgeLabel *_editorialBadgeLabel;
     int _numberOfUserRatings;
     UIImageView *_screenshotImageView;
     UILabel *_titleLabel;
@@ -36,6 +37,7 @@
 - (void)layoutSubviews;
 @property(copy, nonatomic) NSString *title;
 @property(retain, nonatomic) UIImage *screenshotImage;
+@property(copy, nonatomic) NSString *editorialBadge;
 @property(copy, nonatomic) NSString *artistName;
 
 @end

@@ -8,7 +8,7 @@
 
 #import "TRTCPConnectionDelegate.h"
 
-@class NSMapTable, NSObject<OS_dispatch_queue>;
+@class NSMapTable, NSObject<OS_dispatch_queue>, NSString;
 
 @interface TRDConnectionManager : NSObject <TRTCPConnectionDelegate>
 {
@@ -37,6 +37,12 @@
 - (void)dealloc;
 - (id)_init;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

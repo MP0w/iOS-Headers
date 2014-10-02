@@ -6,21 +6,24 @@
 
 #import "MPMediaLibraryDataProvider.h"
 
-@class NSArray, NSDate, NSDictionary, NSIndexSet, NSString;
+@class MIPMultiverseIdentifier, NSArray, NSDate, NSDictionary, NSIndexSet, NSString;
 
 @protocol MPMediaLibraryDataProviderPrivate <MPMediaLibraryDataProvider>
 
 @optional
 @property(readonly, nonatomic) NSArray *localizedSectionIndexTitles;
+@property(readonly, nonatomic) id <MPArtworkDataSource> completeMyCollectionArtworkDataSource;
 @property(readonly, nonatomic) NSArray *preferredSubtitleLanguages;
 @property(readonly, nonatomic) NSArray *preferredAudioLanguages;
 @property(readonly, nonatomic) BOOL isGeniusEnabled;
 @property(readonly, nonatomic) NSString *databasePath;
+- (MIPMultiverseIdentifier *)multiverseIdentifierForCollectionWithPersistentID:(long long)arg1 groupingType:(int)arg2;
+- (MIPMultiverseIdentifier *)multiverseIdentifierForTrackWithPersistentID:(long long)arg1;
 - (BOOL)setValue:(id)arg1 forDatabaseProperty:(NSString *)arg2;
 - (id)valueForDatabaseProperty:(NSString *)arg1;
 - (NSString *)localizedSectionHeaderForSectionIndex:(unsigned int)arg1;
 - (void)updateEntitesToCurrentRevision;
-- (BOOL)supportsEntityChangeTrackingForMediaEntityType:(int)arg1 collectionGroupingType:(int)arg2 dataProviderClass:(out Class *)arg3;
+- (BOOL)supportsEntityChangeTrackingForMediaEntityType:(unsigned int)arg1 collectionGroupingType:(int)arg2 dataProviderClass:(out Class *)arg3;
 - (void)populateLocationPropertiesOfItemWithIdentifier:(long long)arg1 withPath:(NSString *)arg2;
 - (void)releaseGeniusClusterPlaylist:(void *)arg1;
 - (long long *)generateItemIdentifiersForGeniusClusterPlaylist:(void *)arg1 count:(unsigned int *)arg2 error:(id *)arg3;
@@ -40,15 +43,11 @@
 - (BOOL)isCurrentThreadInTransaction;
 - (void)performReadTransactionWithBlock:(void (^)(void))arg1;
 - (BOOL)performTransactionWithBlock:(BOOL (^)(void))arg1;
-- (BOOL)isArtworkImageIdenticalForItemWithIdentifier:(long long)arg1 otherItemWithIdentifier:(long long)arg2 compareRepresentativeItemArtwork:(BOOL)arg3 missingAlwaysComparesEqual:(BOOL)arg4;
-- (BOOL)hasArtworkImageForItemWithIdentifier:(long long)arg1;
-- (NSString *)artworkCacheIDForItemWithIdentifier:(long long)arg1 atPlaybackTime:(double)arg2;
-- (BOOL)shouldAsynchrounouslyLoadArtworkForItemWithIdentifier:(long long)arg1 artworkSize:(struct CGSize)arg2 artworkCacheID:(NSString *)arg3;
-- (BOOL)shouldAsynchrounouslyLoadArtworkForItemWithIdentifier:(long long)arg1 artworkFormat:(int)arg2 artworkCacheID:(NSString *)arg3;
-- (void)loadBestArtworkImageForSize:(struct CGSize)arg1 forArtworkCacheID:(NSString *)arg2 completionBlock:(void (^)(UIImage *, struct CGRect, struct CGRect))arg3;
-- (void)loadArtworkImageForFormat:(int)arg1 ofItemWithArtworkCacheID:(NSString *)arg2 canUseSurfaceBackedImage:(BOOL)arg3 completionBlock:(void (^)(UIImage *, struct CGRect, struct CGRect))arg4;
-- (void)loadArtworkImageForFormat:(int)arg1 ofItemWithIdentifier:(long long)arg2 completionBlock:(void (^)(UIImage *, struct CGRect, struct CGRect))arg3;
 - (long long)itemPersistentIDForStoreID:(long long)arg1;
+- (BOOL)collectionExistsWithStoreID:(long long)arg1 groupingType:(int)arg2 existentPID:(unsigned long long *)arg3;
+- (BOOL)collectionExistsWithName:(NSString *)arg1 groupingType:(int)arg2 existentPID:(unsigned long long *)arg3;
+- (BOOL)collectionExistsContainedWithinPersistentIDs:(const unsigned long long *)arg1 count:(unsigned long)arg2 groupingType:(int)arg3 existentPID:(unsigned long long *)arg4;
+- (BOOL)collectionExistsWithPersistentID:(unsigned long long)arg1 groupingType:(int)arg2;
 - (BOOL)playlistExistsWithPersistentID:(unsigned long long)arg1;
 - (BOOL)itemExistsWithPersistentID:(unsigned long long)arg1;
 - (BOOL)hasUbiquitousBookmarkableItems;

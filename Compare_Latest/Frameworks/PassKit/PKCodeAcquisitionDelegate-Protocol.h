@@ -6,10 +6,10 @@
 
 #import "NSObject.h"
 
-@class PKCodeAcquisitionViewController, PKLocalPass;
+@class PKCodeAcquisitionViewController, PKPass;
 
 @protocol PKCodeAcquisitionDelegate <NSObject>
 - (void)codeAcquisitionControllerDidCancel:(PKCodeAcquisitionViewController *)arg1;
-- (void)codeAcquisitionController:(PKCodeAcquisitionViewController *)arg1 didAcquirePass:(PKLocalPass *)arg2;
+- (void)codeAcquisitionController:(PKCodeAcquisitionViewController *)arg1 didAcquirePass:(PKPass *)arg2;
 @end
 

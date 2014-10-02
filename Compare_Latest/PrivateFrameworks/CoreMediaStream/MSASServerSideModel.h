@@ -254,7 +254,11 @@
 - (void)enqueueCommand:(id)arg1;
 
 // Remaining properties
-@property(readonly, nonatomic) NSString *personID;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly, retain, nonatomic) NSString *personID;
+@property(readonly) Class superclass;
 
 @end
 

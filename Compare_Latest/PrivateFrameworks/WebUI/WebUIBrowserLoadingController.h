@@ -46,6 +46,7 @@
 @property(readonly, nonatomic) BOOL canGoBack; // @synthesize canGoBack=_canGoBack;
 @property(retain, nonatomic) UIWebBrowserView *browserView; // @synthesize browserView=_browserView;
 @property(nonatomic) id <WebUIBrowserLoadingControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)webThreadWebView:(id)arg1 didLayout:(unsigned int)arg2;
 - (void)webView:(id)arg1 didHandleOnloadEventsForFrame:(id)arg2;
 - (void)webView:(id)arg1 didFirstVisuallyNonEmptyLayoutInFrame:(id)arg2;
@@ -66,7 +67,6 @@
 - (void)webView:(id)arg1 didFailProvisionalLoadWithError:(id)arg2 forFrame:(id)arg3;
 - (void)webView:(id)arg1 didReceiveServerRedirectForProvisionalLoadForFrame:(id)arg2;
 - (void)webView:(id)arg1 didStartProvisionalLoadForFrame:(id)arg2;
-- (void)reportNetworkDataUsageOfRawBytesSent:(unsigned long long)arg1 rawBytesReceived:(unsigned long long)arg2 cellularBytesSent:(unsigned long long)arg3 cellularBytesReceived:(unsigned long long)arg4;
 - (void)finishSimulatedClick;
 - (void)beginSimulatedClickForURL:(id)arg1;
 - (void)_didNotLoadURL;

@@ -6,19 +6,21 @@
 
 #import "NSObject.h"
 
-@class HSConnection, NSString;
+@class HSConnection, NSString, SSAccount;
 
 @interface HSCloudLibrary : NSObject
 {
     NSString *_name;
     NSString *_uniqueIdentifier;
+    SSAccount *_account;
     HSConnection *_connection;
 }
 
 @property(readonly, nonatomic) HSConnection *connection; // @synthesize connection=_connection;
-@property(readonly, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
-@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
-- (void)dealloc;
+@property(readonly, nonatomic) SSAccount *account; // @synthesize account=_account;
+@property(readonly, copy, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
+@property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
+- (void).cxx_destruct;
 - (id)initWithConnectionConfiguration:(id)arg1;
 
 @end

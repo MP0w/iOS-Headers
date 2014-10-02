@@ -8,7 +8,7 @@
 
 #import "PLAssetContainerList.h"
 
-@class NSOrderedSet;
+@class NSOrderedSet, NSString;
 
 @interface PLSimpleAlbumList : NSObject <PLAssetContainerList>
 {
@@ -25,6 +25,12 @@
 - (void)dealloc;
 - (id)initWithAssetContainers:(id)arg1;
 - (id)initWithAssetContainer:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

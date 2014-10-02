@@ -22,7 +22,7 @@
 - (void)showNextPage;
 - (void)showPreviousCandidate;
 - (void)showNextCandidate;
-- (void)showCandidate:(TIKeyboardCandidate *)arg1;
+- (BOOL)showCandidate:(TIKeyboardCandidate *)arg1;
 - (void)showCandidateAtIndex:(unsigned int)arg1;
 - (void)setUIKeyboardCandidateListDelegate:(id <UIKeyboardCandidateListDelegate>)arg1;
 - (void)setCandidates:(TIKeyboardCandidateResultSet *)arg1 inlineText:(NSString *)arg2 inlineRect:(struct CGRect)arg3 maxX:(float)arg4 layout:(BOOL)arg5;

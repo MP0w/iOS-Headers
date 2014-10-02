@@ -7,13 +7,27 @@
 #import "NSString.h"
 
 @interface NSString (SafariSharedExtras)
++ (id)safari_stringByBase64EncodingData:(id)arg1;
 + (id)safari_stringWithUTF8Bytes:(const void *)arg1 length:(unsigned int)arg2;
++ (void)_safari_reverseEnumerateComponents:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
++ (id)safari_stringWithJSValue:(struct OpaqueJSValue *)arg1 context:(struct OpaqueJSContext *)arg2;
 + (id)safari_stringWithJSValue:(struct OpaqueJSValue *)arg1 context:(struct OpaqueJSContext *)arg2 nullStringPolicy:(long)arg3;
+- (id)safari_base64DecodedData;
+- (id)safari_canonicalURLStringForFrequentlyVisitedSites;
+- (void)safari_enumerateSubdomainRangesInHostUsingBlock:(CDUnknownBlockType)arg1;
+- (id)safari_stringByReplacingSearchTermsTokenWithQueryString:(id)arg1;
+- (id)safari_scriptIfJavaScriptURLString;
+- (BOOL)safari_isJavaScriptURLString;
+- (id)safari_domainFromHost;
+- (unsigned int)safari_countOfString:(id)arg1;
+- (id)safari_stringBySubstitutingHTMLEntitiesForAmpersandAndAngleBrackets;
 - (id)safari_stringBySubstitutingAmpersandAndAngleBracketsForHTMLEntities;
 - (id)safari_simplifiedUserVisibleURLString;
 - (id)safari_simplifiedUserVisibleURLStringWithSimplifications:(unsigned int)arg1 forDisplayOnly:(BOOL)arg2 simplifiedStringOffset:(unsigned int *)arg3;
+- (id)safari_stringEncodedAsURLQueryParameter;
 - (id)safari_stringByFoldingWideCharactersAndNormalizing;
 - (id)safari_userVisibleURL;
+- (id)safari_bestURLStringForUserTypedString;
 - (id)safari_bestURLForUserTypedString;
 - (id)safari_stringByRemovingWwwDotPrefix;
 - (id)safari_fixedStringByExpandingTildeInPath;
@@ -21,12 +35,13 @@
 - (BOOL)safari_hasCaseInsensitiveSuffix:(id)arg1;
 - (BOOL)safari_hasCaseInsensitivePrefix:(id)arg1;
 - (BOOL)safari_isCaseInsensitiveEqualToString:(id)arg1;
-- (BOOL)safari_hasSuffix:(id)arg1;
 - (BOOL)safari_hasPrefix:(id)arg1;
 - (id)safari_stringByTrimmingWhitespace;
 - (id)safari_stringByRemovingUnnecessaryCharactersFromUserTypedURLString;
+- (id)safari_stringByRemovingTopLevelDomainFromHost;
 - (id)safari_highLevelDomainFromHost;
-- (id)_isTopLevelDomainUsingCFFromComponents:(id)arg1;
+- (id)_safari_topLevelDomainUsingCFFromComponents:(id)arg1;
 - (id)safari_possibleTopLevelDomainCorrectionForUserTypedString;
+- (id)safari_stringByRemovingCharactersInSet:(id)arg1;
 @end
 

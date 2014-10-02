@@ -6,16 +6,16 @@
 
 #import <ChatKit/CKTranscriptCell.h>
 
-@class UIButton, UIImage, UIImageView;
+@class CKBalloonImageView, UIButton, UIImage;
 
 @interface CKTranscriptMessageCell : CKTranscriptCell
 {
     BOOL _wantsContactImageLayout;
     UIButton *_failureButton;
-    UIImageView *_contactImageView;
+    CKBalloonImageView *_contactImageView;
 }
 
-@property(retain, nonatomic) UIImageView *contactImageView; // @synthesize contactImageView=_contactImageView;
+@property(retain, nonatomic) CKBalloonImageView *contactImageView; // @synthesize contactImageView=_contactImageView;
 @property(retain, nonatomic) UIButton *failureButton; // @synthesize failureButton=_failureButton;
 @property(nonatomic) BOOL wantsContactImageLayout; // @synthesize wantsContactImageLayout=_wantsContactImageLayout;
 @property(nonatomic) BOOL failed;
@@ -23,7 +23,6 @@
 - (void)layoutSubviewsForContents;
 - (id)description;
 - (void)dealloc;
-- (void)configureForRow:(id)arg1;
 
 @end
 

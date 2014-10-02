@@ -24,12 +24,14 @@
 - (unsigned int)minimumOS;
 - (id)longTitle;
 - (BOOL)isNewsstand;
+- (BOOL)isFamilyShareable;
 - (id)iconURL;
 - (id)iconTitle;
 - (id)bundleID;
 - (int)contentRatingFlags;
 - (id)companyName;
 - (id)category;
+- (id)accountIdentifier;
 
 @end
 

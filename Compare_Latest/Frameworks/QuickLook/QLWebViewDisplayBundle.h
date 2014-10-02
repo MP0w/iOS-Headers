@@ -11,7 +11,7 @@
 #import "UIWebPDFViewHandlerDelegate.h"
 #import "UIWebViewDelegate.h"
 
-@class NSData, NSMutableArray, NSURLRequest, QLPDFHanderDelegateForwarder, QLPreviewConverter, QLScrubView, UIView, UIWebView;
+@class NSData, NSMutableArray, NSString, NSURLRequest, QLPDFHanderDelegateForwarder, QLPreviewConverter, QLScrubView, UIView, UIWebView;
 
 @interface QLWebViewDisplayBundle : QLDisplayBundle <UIWebViewDelegate, UIScrollViewDelegate, QLScrubViewDataSource, UIWebPDFViewHandlerDelegate>
 {
@@ -89,6 +89,12 @@
 - (void)setPreviewMode:(int)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

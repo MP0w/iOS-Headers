@@ -12,10 +12,14 @@
 {
     CoreDAVItemWithNoChildren *_canBePublished;
     CoreDAVItemWithNoChildren *_canBeShared;
+    CoreDAVItemWithNoChildren *_isMarkedUndeletable;
+    CoreDAVItemWithNoChildren *_isMarkedImmutableSharees;
 }
 
-@property(retain) CoreDAVItemWithNoChildren *canBeShared; // @synthesize canBeShared=_canBeShared;
-@property(retain) CoreDAVItemWithNoChildren *canBePublished; // @synthesize canBePublished=_canBePublished;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *isMarkedImmutableSharees; // @synthesize isMarkedImmutableSharees=_isMarkedImmutableSharees;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *isMarkedUndeletable; // @synthesize isMarkedUndeletable=_isMarkedUndeletable;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *canBeShared; // @synthesize canBeShared=_canBeShared;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *canBePublished; // @synthesize canBePublished=_canBePublished;
 - (id)copyParseRules;
 - (id)description;
 - (void)dealloc;

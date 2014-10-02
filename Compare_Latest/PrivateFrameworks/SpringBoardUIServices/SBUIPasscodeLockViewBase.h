@@ -9,10 +9,11 @@
 #import "SBFLegibilitySettingsProviderDelegate.h"
 #import "SBUIBiometricEventObserver.h"
 #import "SBUIPasscodeLockView.h"
+#import "SBUIPasscodeLockView_Internal.h"
 
 @class NSString, SBUIPasscodeEntryField, UIColor, _UILegibilitySettings;
 
-@interface SBUIPasscodeLockViewBase : UIView <SBUIBiometricEventObserver, SBFLegibilitySettingsProviderDelegate, SBUIPasscodeLockView>
+@interface SBUIPasscodeLockViewBase : UIView <SBUIBiometricEventObserver, SBFLegibilitySettingsProviderDelegate, SBUIPasscodeLockView_Internal, SBUIPasscodeLockView>
 {
     id <SBUIPasscodeLockViewDelegate_Internal> _delegate;
     int _style;
@@ -31,10 +32,17 @@
     BOOL _allowsStatusTextUpdatingOnResignFirstResponder;
     BOOL _mesaLockedOut;
     unsigned int _biometricMatchMode;
+    BOOL _deviceHasBeenUnlockedOnceSinceBoot;
     BOOL _shouldResetForFailedPasscodeAttempt;
+    NSString *_statusText;
+    NSString *_statusSubtitleText;
+    unsigned int _statusState;
 }
 
+@property(nonatomic, getter=_statusState, setter=_setStatusState:) unsigned int statusState; // @synthesize statusState=_statusState;
 @property(nonatomic) BOOL shouldResetForFailedPasscodeAttempt; // @synthesize shouldResetForFailedPasscodeAttempt=_shouldResetForFailedPasscodeAttempt;
+@property(readonly, copy, nonatomic, getter=_statusSubtitleText) NSString *statusSubtitleText; // @synthesize statusSubtitleText=_statusSubtitleText;
+@property(readonly, copy, nonatomic, getter=_statusText) NSString *statusText; // @synthesize statusText=_statusText;
 @property(nonatomic) unsigned int biometricMatchMode; // @synthesize biometricMatchMode=_biometricMatchMode;
 @property(nonatomic, getter=_luminosityBoost, setter=_setLuminosityBoost:) float luminosityBoost; // @synthesize luminosityBoost=_luminanceBoost;
 @property(retain, nonatomic) id <SBFLegibilitySettingsProvider> backgroundLegibilitySettingsProvider; // @synthesize backgroundLegibilitySettingsProvider=_backgroundLegibilitySettingsProvider;
@@ -47,21 +55,29 @@
 @property(nonatomic) int style; // @synthesize style=_style;
 @property(nonatomic) id <SBUIPasscodeLockViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)biometricEventMonitor:(id)arg1 handleBiometricEvent:(unsigned int)arg2;
-- (void)_updateStatusTextForBioEvent:(unsigned int)arg1 animated:(BOOL)arg2;
+- (void)updateStatusTextForBioEvent:(unsigned int)arg1 animated:(BOOL)arg2;
 - (void)providerLegibilitySettingsChanged:(id)arg1;
 - (void)_notifyDelegatePasscodeEnteredViaMesa;
 - (void)_handleBiometricEvent:(unsigned int)arg1;
-- (void)_resetForFailedMesaAttemptWithEvent:(unsigned int)arg1;
+- (void)_resetForFailedMesaAttempt;
 - (void)_resetStatusText;
 - (void)_evaluateLuminance;
 - (float)_luminanceBoostFromDisplayBrightness;
 - (float)_luminanceBoostFromLegibility;
 - (void)_screenBrightnessReallyDidChange;
 - (void)_clearBrightnessChangeTimer;
+- (void)_noteBioMatchingEnabledDidChange;
 - (void)_noteScreenBrightnessDidChange;
+- (void)_noteDeviceHasBeenUnlockedOnceSinceBoot:(BOOL)arg1;
 - (BOOL)_wantsBiometricAuthentication;
 - (void)_resetForFailedPasscode:(BOOL)arg1;
-- (void)_updateStatusText:(id)arg1 subtitle:(id)arg2 animated:(BOOL)arg3;
+- (id)_defaultStatusText;
+- (unsigned int)_statusStateForLockoutState:(unsigned int)arg1;
+- (void)updateStatusTextAnimated:(BOOL)arg1;
+- (void)updateStatusText:(id)arg1 subtitle:(id)arg2 animated:(BOOL)arg3;
+- (void)_setStatusSubtitleText:(id)arg1;
+- (void)_setStatusText:(id)arg1;
+- (void)_updateStatusStateForLockout;
 - (void)_sendDelegateKeypadKeyUp;
 - (void)_sendDelegateKeypadKeyDown;
 - (void)_luminanceBoostDidChange;
@@ -75,12 +91,21 @@
 - (BOOL)resignFirstResponder;
 - (BOOL)becomeFirstResponder;
 - (BOOL)canBecomeFirstResponder;
+- (void)autofillForSuccessfulMesaAttemptWithCompletion:(CDUnknownBlockType)arg1;
+- (void)resetForFailedMesaAttemptWithStatusText:(id)arg1 andSubtitle:(id)arg2;
 @property(nonatomic) BOOL playsKeypadSounds; // @dynamic playsKeypadSounds;
 - (void)setAllowsStatusTextUpdatingOnResignFirstResponder:(BOOL)arg1;
 - (void)reset;
+- (void)resetForScreenOff;
 - (void)resetForFailedPasscode;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

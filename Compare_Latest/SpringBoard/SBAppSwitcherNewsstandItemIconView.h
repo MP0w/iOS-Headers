@@ -13,7 +13,7 @@
 + (double)_labelHeight;
 + (int)_defaultIconFormat;
 - (double)_labelVerticalOffset;
-- (struct CGRect)_frameForUpdatedMarkWithLabelFrame:(struct CGRect)arg1;
+- (struct CGRect)_frameForLabelAccessoryViewWithLabelFrame:(struct CGRect)arg1;
 - (struct CGRect)_frameForLabel;
 - (id)initWithFrame:(struct CGRect)arg1;
 

@@ -11,21 +11,8 @@
 __attribute__((visibility("hidden")))
 @interface CIBurstImageStat : NSObject
 {
-    NSString *imageId;
     float normalizedFocusScore;
     float normalizedSigma;
-    int orientation;
-    NSMutableArray *faceStatArray;
-    BOOL exclude;
-    BOOL AEStable;
-    int AEAverage;
-    int AETarget;
-    BOOL AFStable;
-    int temporalOrder;
-    float imageScore;
-    float actionScore;
-    float avgHorzDiffY;
-    float blurExtent;
     float colorHistogram[1024];
     int numEntries;
     unsigned short aeMatrix[256];
@@ -41,26 +28,45 @@ __attribute__((visibility("hidden")))
     struct GridROI_t smoothedROI;
     BOOL hasRegistrationData;
     float maxSkewness;
+    float roiSize;
+    BOOL exclude;
+    BOOL AEStable;
+    BOOL AFStable;
+    BOOL emotionallyRejected;
+    BOOL doLimitedSharpnessAndBlur;
+    BOOL isGarbage;
+    NSString *imageId;
+    int orientation;
+    NSMutableArray *faceStatArray;
+    int AEAverage;
+    int AETarget;
+    int temporalOrder;
+    float avgHorzDiffY;
+    float blurExtent;
+    float imageScore;
+    float actionScore;
     float registrationErrorX;
     float registrationErrorY;
     float registrationErrorIntegral;
     float actionClusteringScore;
+    int numHWFaces;
     float tx;
     float ty;
+    int _AEDelta;
+    int _fullsizeJpegSize;
+    int _version;
     struct CGRect facesRoiRect;
-    int numHWFaces;
-    _Bool doLimitedSharpnessAndBlur;
-    _Bool emotionallyRejected;
-    _Bool isGarbage;
-    float roiSize;
 }
 
+@property int version; // @synthesize version=_version;
+@property int fullsizeJpegSize; // @synthesize fullsizeJpegSize=_fullsizeJpegSize;
+@property int AEDelta; // @synthesize AEDelta=_AEDelta;
 @property float roiSize; // @synthesize roiSize;
-@property _Bool isGarbage; // @synthesize isGarbage;
+@property BOOL isGarbage; // @synthesize isGarbage;
 @property float ty; // @synthesize ty;
 @property float tx; // @synthesize tx;
-@property _Bool doLimitedSharpnessAndBlur; // @synthesize doLimitedSharpnessAndBlur;
-@property _Bool emotionallyRejected; // @synthesize emotionallyRejected;
+@property BOOL doLimitedSharpnessAndBlur; // @synthesize doLimitedSharpnessAndBlur;
+@property BOOL emotionallyRejected; // @synthesize emotionallyRejected;
 @property int numHWFaces; // @synthesize numHWFaces;
 @property struct CGRect facesRoiRect; // @synthesize facesRoiRect;
 @property float actionClusteringScore; // @synthesize actionClusteringScore;

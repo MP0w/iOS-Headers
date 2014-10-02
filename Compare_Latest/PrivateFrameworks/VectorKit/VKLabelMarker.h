@@ -6,35 +6,50 @@
 
 #import "NSObject.h"
 
+@class NSString;
+
 @interface VKLabelMarker : NSObject
 {
     shared_ptr_dd1f7020 _manager;
     shared_ptr_0c41964b _label;
     float _contentScale;
+    unsigned long long _featureID;
+    int _featureType;
+    struct _retain_ptr<GEOVectorTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> _featureTile;
+    NSString *_subtitle;
 }
 
+@property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (BOOL)shouldActivateFeatureSelectionMode;
 - (void)dealloc;
 - (id)debugAnchorPointString;
+- (unsigned long long)animationID;
+- (int)selectionType;
 - (struct CGPoint)screenPointToScrollRelativeToWithCanvasSize:(struct CGSize)arg1 canvasScale:(float)arg2;
 - (struct CGPoint)calloutAnchorPointWithCanvasSize:(struct CGSize)arg1 canvasScale:(float)arg2 snapToPixels:(BOOL)arg3;
+- (void)setLabelPressed:(BOOL)arg1;
 - (void)setLabelSelected:(BOOL)arg1;
 - (id)featureHandles;
 - (id)incident;
+- (id)featureTile;
+- (int)featureType;
+- (unsigned long long)featureID;
 - (unsigned long long)businessID;
 - (BOOL)hasBusinessID;
+- (BOOL)isFlyoverTour;
 - (BOOL)isTrafficIncident;
 - (BOOL)isOneWayArrow;
 - (BOOL)isSelectable;
 - (struct CGRect)calloutAnchorRect;
-- (CDStruct_d2b197d1)bounds;
+- (id)mapRegion;
+- (CDStruct_aca18c62)_bounds;
 - (CDStruct_c3b9c2ee)coordinate;
 - (id)iconName;
-- (id)subtitle;
 - (id)title;
 - (shared_ptr_0c41964b)infoLabel;
-- (id)initWithManager:(const shared_ptr_dd1f7020 *)arg1 infoLabel:(const shared_ptr_0c41964b *)arg2 contentScale:(float)arg3;
+- (id)initWithManager:(const shared_ptr_dd1f7020 *)arg1 infoLabel:(const shared_ptr_0c41964b *)arg2 contentScale:(float)arg3 featureInfo:(const struct LabelFeatureInfo *)arg4;
 
 @end
 

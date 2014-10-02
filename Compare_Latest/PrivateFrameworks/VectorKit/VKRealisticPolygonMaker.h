@@ -6,17 +6,19 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSMutableDictionary;
+@class NSMutableArray;
 
 __attribute__((visibility("hidden")))
 @interface VKRealisticPolygonMaker : NSObject
 {
     NSMutableArray *_polygons;
-    NSMutableDictionary *_styleForPolygon;
+    struct unordered_map<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>, std::__1::hash<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::equal_to<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::allocator<std::__1::pair<const geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>>>> _styleQueryForPolygon;
 }
 
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)generateIndexedTrianglesWithHandler:(CDUnknownBlockType)arg1;
-- (void)addPolygonForPoints:(const Vec2Imp_1782d7e3 *)arg1 pointCount:(unsigned int)arg2 withStyle:(id)arg3;
+- (void)addPolygonForPoints:(const Matrix_8746f91e *)arg1 pointCount:(unsigned int)arg2 withStyleQuery:(shared_ptr_6e6219d6)arg3;
 - (void)dealloc;
 
 @end

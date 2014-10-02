@@ -6,18 +6,22 @@
 
 #import <Social/SLSheetImagePreviewView.h>
 
-@class CALayer, SLURLPreviewGenerator, UIImage;
+@class SLURLPreviewGenerator, UIImage, UIImageView, UIView;
 
 __attribute__((visibility("hidden")))
 @interface SLSheetURLPreviewView : SLSheetImagePreviewView
 {
     UIImage *_shadowImage;
     SLURLPreviewGenerator *_webPreviewGenerator;
-    CALayer *_backgroundLayer;
+    UIView *_placeholderPreviewView;
+    UIImageView *_placeholderGlyphView;
 }
 
 - (void).cxx_destruct;
-- (void)generateAutomaticPreviewForURL:(id)arg1;
+- (void)_generateAutomaticPreviewForURL:(id)arg1;
+- (BOOL)generatePreviewImageFromAttachments;
+- (void)setImage:(id)arg1;
+- (void)ensurePlaceholderPreviewImage;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)init;

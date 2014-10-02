@@ -9,7 +9,7 @@
 #import "ABImagePickerControllerDelegate.h"
 #import "ABPickerViewControllerDelegate.h"
 
-@class ABImagePickerController, ABPersonTableViewDataSource, ABPersonViewControllerHelper, ABStyleProvider;
+@class ABImagePickerController, ABPersonTableViewDataSource, ABPersonViewControllerHelper, ABStyleProvider, NSString;
 
 @interface ABPersonPickersDelegate : NSObject <ABPickerViewControllerDelegate, ABImagePickerControllerDelegate>
 {
@@ -47,6 +47,12 @@
 - (void)labelPickerViewController:(id)arg1 didDeleteLabel:(id)arg2;
 - (BOOL)labelPickerViewController:(id)arg1 shouldDismissAfterSelectingLabel:(id)arg2;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

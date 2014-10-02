@@ -14,12 +14,12 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly) DOMMediaList *media;
-@property(readonly) NSString *title;
-@property(readonly) NSString *href;
+@property(readonly, copy) NSString *title;
+@property(readonly, copy) NSString *href;
 @property(readonly) DOMStyleSheet *parentStyleSheet;
 @property(readonly) DOMNode *ownerNode;
 @property BOOL disabled;
-@property(readonly) NSString *type;
+@property(readonly, copy) NSString *type;
 - (void)finalize;
 - (void)dealloc;
 

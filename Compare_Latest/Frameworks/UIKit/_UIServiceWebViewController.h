@@ -9,7 +9,7 @@
 #import "WebUIBrowserLoadingControllerDelegate.h"
 #import "_UIServiceWebViewControllerProtocol.h"
 
-@class WebUIBrowserLoadingController, _UIServiceWebView;
+@class NSString, WebUIBrowserLoadingController, _UIServiceWebView;
 
 __attribute__((visibility("hidden")))
 @interface _UIServiceWebViewController : UIViewController <_UIServiceWebViewControllerProtocol, WebUIBrowserLoadingControllerDelegate>
@@ -46,10 +46,14 @@ __attribute__((visibility("hidden")))
 - (void)_remotelyDecidePolicyForRequest:(id)arg1 inMainFrame:(BOOL)arg2 navigationType:(id)arg3 decisionHandler:(CDUnknownBlockType)arg4;
 - (void)setShouldDecidePolicyRemotely:(BOOL)arg1;
 - (void)_willAppearInRemoteViewController;
-- (void)_setupRemoteInspectorDetailsForRequestingProcess;
-- (id)localizedApplicationNameForProcess:(int)arg1;
 - (BOOL)_isInternalInstall;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

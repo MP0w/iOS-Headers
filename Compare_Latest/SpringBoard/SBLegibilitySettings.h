@@ -16,8 +16,8 @@
     double _timeLightShadowStrength;
     double _dateDarkShadowStrength;
     double _dateLightShadowStrength;
-    double _legalDarkShadowStrength;
-    double _legalLightShadowStrength;
+    double _statusTextDarkShadowStrength;
+    double _statusTextLightShadowStrength;
     double _iconLabelDarkShadowStrength;
     double _iconLabelLightShadowStrength;
     double _folderTitleDarkShadowStrength;
@@ -37,8 +37,8 @@
 @property double folderTitleDarkShadowStrength; // @synthesize folderTitleDarkShadowStrength=_folderTitleDarkShadowStrength;
 @property double iconLabelLightShadowStrength; // @synthesize iconLabelLightShadowStrength=_iconLabelLightShadowStrength;
 @property double iconLabelDarkShadowStrength; // @synthesize iconLabelDarkShadowStrength=_iconLabelDarkShadowStrength;
-@property double legalLightShadowStrength; // @synthesize legalLightShadowStrength=_legalLightShadowStrength;
-@property double legalDarkShadowStrength; // @synthesize legalDarkShadowStrength=_legalDarkShadowStrength;
+@property double statusTextLightShadowStrength; // @synthesize statusTextLightShadowStrength=_statusTextLightShadowStrength;
+@property double statusTextDarkShadowStrength; // @synthesize statusTextDarkShadowStrength=_statusTextDarkShadowStrength;
 @property double dateLightShadowStrength; // @synthesize dateLightShadowStrength=_dateLightShadowStrength;
 @property double dateDarkShadowStrength; // @synthesize dateDarkShadowStrength=_dateDarkShadowStrength;
 @property double timeLightShadowStrength; // @synthesize timeLightShadowStrength=_timeLightShadowStrength;
@@ -51,7 +51,7 @@
 - (double)timerTextStrengthForStyle:(long long)arg1;
 - (double)folderTitleStrengthForStyle:(long long)arg1;
 - (double)iconLabelStrengthForStyle:(long long)arg1;
-- (double)legalStrengthForStyle:(long long)arg1;
+- (double)statusTextStrengthForStyle:(long long)arg1;
 - (double)dateStrengthForStyle:(long long)arg1;
 - (double)timeStrengthForStyle:(long long)arg1;
 - (double)cameraGrabberStrengthForStyle:(long long)arg1;

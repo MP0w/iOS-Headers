@@ -12,8 +12,10 @@ __attribute__((visibility("hidden")))
     unsigned int _tileset;
     unsigned int _edition;
     unsigned int _provider;
+    BOOL _invalidateOnly;
 }
 
+@property BOOL invalidateOnly; // @synthesize invalidateOnly=_invalidateOnly;
 @property unsigned int provider; // @synthesize provider=_provider;
 @property unsigned int edition; // @synthesize edition=_edition;
 @property unsigned int tileset; // @synthesize tileset=_tileset;

@@ -9,6 +9,7 @@
 @class TSCECalculationEngine, TSCEFormulaRewriteSpec, TSKCommand;
 
 @protocol TSCEFormulaOwning <NSObject>
+- (BOOL)serializeCalculations;
 - (void)releaseForCalculationEngine:(TSCECalculationEngine *)arg1;
 - (void)retainForCalculationEngine:(TSCECalculationEngine *)arg1;
 - (TSKCommand *)endRewriteForCalculationEngine:(TSCECalculationEngine *)arg1 spec:(TSCEFormulaRewriteSpec *)arg2;
@@ -16,6 +17,6 @@
 - (void)rewriteForCalculationEngine:(TSCECalculationEngine *)arg1 formulaID:(CDStruct_a91f2c80)arg2 rewriteSpec:(TSCEFormulaRewriteSpec *)arg3;
 - (void)invalidateForCalculationEngine:(TSCECalculationEngine *)arg1;
 - (void)writeResultsForCalculationEngine:(TSCECalculationEngine *)arg1;
-- (CDStruct_4d60f806)recalculateForCalculationEngine:(TSCECalculationEngine *)arg1 formulaID:(CDStruct_a91f2c80)arg2 isInCycle:(BOOL)arg3 hasCalculatedPrecedents:(BOOL)arg4;
+- (CDStruct_7ddbbeae)recalculateForCalculationEngine:(TSCECalculationEngine *)arg1 formulaID:(CDStruct_a91f2c80)arg2 isInCycle:(BOOL)arg3 hasCalculatedPrecedents:(BOOL)arg4;
 @end
 

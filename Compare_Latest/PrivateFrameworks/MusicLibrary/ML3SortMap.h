@@ -8,7 +8,6 @@
 
 @class ML3DatabaseConnection, ML3MusicLibrary, NSData, NSMutableArray, NSMutableDictionary;
 
-__attribute__((visibility("hidden")))
 @interface ML3SortMap : NSObject
 {
     ML3DatabaseConnection *_connection;

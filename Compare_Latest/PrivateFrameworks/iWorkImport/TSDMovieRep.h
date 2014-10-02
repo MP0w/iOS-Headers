@@ -6,21 +6,21 @@
 
 #import <iWorkImport/TSDMediaRep.h>
 
-#import "TSKAVPlayerControllerDelegate.h"
+#import "TSKMediaPlayerControllerDelegate.h"
 
-@class AVAsset, AVPlayerLayer, CALayer, TSDButtonKnob, TSDFrameRep, TSDMovieInfo, TSKAVPlayerController;
+@class AVAsset, CALayer, NSObject<TSKMediaPlayerController>, NSString, TSDFrameRep, TSDMovieInfo;
 
 __attribute__((visibility("hidden")))
-@interface TSDMovieRep : TSDMediaRep <TSKAVPlayerControllerDelegate>
+@interface TSDMovieRep : TSDMediaRep <TSKMediaPlayerControllerDelegate>
 {
-    TSKAVPlayerController *mPlayerController;
+    NSObject<TSKMediaPlayerController> *mPlayerController;
     BOOL mCurrentlyObservingPlayerLayer;
     BOOL mPlayerLayerShouldBeDisplayed;
-    AVPlayerLayer *mPlayerLayer;
+    CALayer *mPlayerLayer;
     CALayer *mLayerToStroke;
     CALayer *mMovieReflectionLayer;
     CALayer *mMovieReflectionMaskLayer;
-    AVPlayerLayer *mReflectionPlayerLayer;
+    CALayer *mReflectionPlayerLayer;
     CALayer *mReflectionPlayerStrokeMaskLayer;
     CALayer *mPlayerStrokeLayer;
     CALayer *mReflectionPlayerStrokeLayer;
@@ -29,7 +29,6 @@ __attribute__((visibility("hidden")))
     AVAsset *mAssetForPlayability;
     BOOL mDidCheckPlayability;
     BOOL mIsPlayable;
-    TSDButtonKnob *mPlayButtonKnob;
     BOOL mPlayButtonKnobVisible;
     BOOL mDidCancelUpdatingPlayButtonVisibility;
     BOOL mInReadMode;
@@ -38,12 +37,14 @@ __attribute__((visibility("hidden")))
     float mDynamicVolume;
     BOOL mIsChangingDynamicVolume;
     BOOL mNeedsTeardownPlayerController;
+    BOOL mDelayTearingDownPlayerController;
 }
 
 + (float)magicMoveAttributeMatchPercentBetweenOutgoingObject:(id)arg1 incomingObject:(id)arg2;
 @property(nonatomic) struct CGImage *alternatePosterImage; // @synthesize alternatePosterImage=mAlternatePosterImage;
 @property(readonly, nonatomic, getter=isPlayable) BOOL playable; // @synthesize playable=mIsPlayable;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)willBeginEyedropperMode;
 - (void)dynamicVolumeChangeDidEnd;
 - (void)dynamicVolumeUpdateToValue:(float)arg1;
 - (void)dynamicVolumeChangeDidBegin;
@@ -52,6 +53,8 @@ __attribute__((visibility("hidden")))
 - (void)dynamicVisibleTimeUpdateToValue:(double)arg1 withTolerance:(double)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)dynamicVisibleTimeChangeDidBegin;
 @property(readonly, nonatomic) double visibleTime;
+- (void)dynamicRotateDidEndWithTracker:(id)arg1;
+- (void)dynamicRotateDidBegin;
 - (void)dynamicResizeDidEndWithTracker:(id)arg1;
 - (id)dynamicResizeDidBegin;
 - (BOOL)isDraggable;
@@ -71,12 +74,13 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=isPlaying) BOOL playing;
 - (void)playbackDidStopForPlayerController:(id)arg1;
 - (void)playerController:(id)arg1 playbackDidFailWithError:(id)arg2;
-- (id)playerController;
+@property(readonly, nonatomic) NSObject<TSKMediaPlayerController> *playerController;
 - (void)p_updatePlayButtonVisibility;
 @property(readonly, nonatomic) BOOL p_playButtonFitsInFrame;
-- (void)p_cancelUpdatingPlayButtonState;
+- (void)p_cancelUpdatingUIStateForMoviePlayability;
+- (void)p_stopUpdatingUIStateForMoviePlayability;
 - (void)p_updateUIStateForMoviePlayability;
-@property(readonly, nonatomic) TSDButtonKnob *p_playButtonKnob;
+- (id)p_playButtonKnob;
 - (BOOL)shouldShowMediaReplaceUI;
 - (void)willEndReadMode;
 - (void)willBeginReadMode;
@@ -86,6 +90,7 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)enabledKnobMask;
 - (void)addKnobsToArray:(id)arg1;
 - (void)p_addPlayButtonToKnobs:(id)arg1;
+- (void)screenScaleDidChange;
 - (void)p_updateRepeatMode;
 - (BOOL)handleSingleTapAtPoint:(struct CGPoint)arg1;
 - (BOOL)wantsToHandleTapsWhenLocked;
@@ -94,6 +99,7 @@ __attribute__((visibility("hidden")))
 - (void)becameSelected;
 - (void)processChangedProperty:(int)arg1;
 - (id)actionForLayer:(id)arg1 forKey:(id)arg2;
+- (struct CGImage *)newFrameMaskForViewScale:(float)arg1 frameRect:(struct CGRect *)arg2;
 - (void)drawInLayerContext:(struct CGContext *)arg1;
 - (void)drawInContextWithoutEffects:(struct CGContext *)arg1 withContent:(BOOL)arg2 withStroke:(BOOL)arg3 withOpacity:(BOOL)arg4 forAlphaOnly:(BOOL)arg5 drawChildren:(BOOL)arg6;
 - (void)p_drawInContext:(struct CGContext *)arg1 withContent:(BOOL)arg2 withStroke:(BOOL)arg3 withOpacity:(float)arg4 withMask:(BOOL)arg5 forShadowOrHitTest:(BOOL)arg6;
@@ -136,6 +142,10 @@ __attribute__((visibility("hidden")))
 - (void)createReflectionLayer;
 - (BOOL)shouldShowReflection;
 - (void)disposeReflectionLayer;
+- (void)p_reallyDisposeReflectionLayers;
+- (BOOL)p_shouldHideReflectionLayers;
+- (void)p_showReflectionLayers;
+- (void)p_hideReflectionLayers;
 - (void)p_disposeReflectionStrokeLayers;
 - (void)p_disposeMaskLayer;
 - (void)p_disposeStrokeLayer;
@@ -146,6 +156,12 @@ __attribute__((visibility("hidden")))
 - (id)movieLayout;
 @property(readonly, nonatomic) TSDMovieInfo *movieInfo;
 - (id)initWithLayout:(id)arg1 canvas:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

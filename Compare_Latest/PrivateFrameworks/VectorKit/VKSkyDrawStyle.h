@@ -4,21 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <VectorKit/VKDrawStyle.h>
+#import <VectorKit/VKRenderStyle.h>
 
 __attribute__((visibility("hidden")))
-@interface VKSkyDrawStyle : VKDrawStyle
+@interface VKSkyDrawStyle : VKRenderStyle
 {
-    struct _VGLColor _fillColor;
-    struct _VGLColor _horizonColor;
 }
 
-- (id).cxx_construct;
-@property(readonly, nonatomic) struct _VGLColor horizonColor;
-@property(readonly, nonatomic) struct _VGLColor fillColor;
-- (void)takeFromZoomInvariantProperties:(id)arg1;
-- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2 globals:(id)arg3;
-- (id)variant;
++ (int)renderStyleID;
+@property(readonly, nonatomic) Matrix_5173352a horizonColor;
+@property(readonly, nonatomic) Matrix_5173352a fillColor;
 
 @end
 

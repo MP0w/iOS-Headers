@@ -10,13 +10,13 @@
 #import "MCDNowPlayingViewControllerDelegate.h"
 #import "MPUNowPlayingDelegate.h"
 
-@class MCDActionSheetController, MCDNowPlayingViewController, MPUNowPlayingController, NSDictionary;
+@class MCDNowPlayingViewController, MPUNowPlayingController, NSDictionary, NSString, UIAlertController;
 
 @interface MCDMediaRemoteNowPlayingViewController : UIViewController <MPUNowPlayingDelegate, MCDNowPlayingViewControllerDataSource, MCDNowPlayingViewControllerDelegate>
 {
     MPUNowPlayingController *_nowPlayingController;
     BOOL _isScrubbing;
-    MCDActionSheetController *_actionSheetController;
+    UIAlertController *_actionSheetAlertController;
     MCDNowPlayingViewController *_nowPlayingViewController;
     double _elapsedTime;
     struct {
@@ -70,6 +70,7 @@
 - (void)_updateAllContent;
 - (void)_updatePlayControls;
 - (double)playbackDurationForNowPlayingViewController:(id)arg1 withElapsedTime:(out double *)arg2;
+- (BOOL)nowPlayingViewControllerIsShowingExplicitTrack:(id)arg1;
 - (id)backgroundArtForNowPlayingController:(id)arg1;
 - (id)albumTextForNowPlayingController:(id)arg1;
 - (id)artistTextForNowPlayingController:(id)arg1;
@@ -79,6 +80,12 @@
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

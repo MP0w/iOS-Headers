@@ -8,7 +8,7 @@
 
 #import "UITextContentViewDelegate.h"
 
-@class SUTextContentView, UIScrollView;
+@class NSString, SUTextContentView, UIScrollView;
 
 @interface SUTextViewCell : SUTableCell <UITextContentViewDelegate>
 {
@@ -33,6 +33,12 @@
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

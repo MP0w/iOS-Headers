@@ -9,7 +9,7 @@
 #import "TSWPLayoutOwner.h"
 #import "TSWPLayoutTarget.h"
 
-@class NSMutableArray, TSDBezierPath, TSDCanvas, TSPObject<TSDHint>, TSWPLayoutManager;
+@class NSMutableArray, NSString, TSDBezierPath, TSDCanvas, TSPObject<TSDHint>, TSWPLayoutManager;
 
 __attribute__((visibility("hidden")))
 @interface TSWPLayout : TSDLayout <TSWPLayoutTarget, TSWPLayoutOwner>
@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
     BOOL _textLayoutValid;
 }
 
-@property(readonly, nonatomic) NSMutableArray *columns; // @synthesize columns=_columns;
+@property(readonly, retain, nonatomic) NSMutableArray *columns; // @synthesize columns=_columns;
 @property(readonly, nonatomic) BOOL shouldWrapAroundExternalDrawables;
 - (id)textColorOverride;
 @property(readonly, nonatomic) TSDBezierPath *interiorClippingPath;
@@ -60,23 +60,29 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) id <TSWPFootnoteMarkProvider> footnoteMarkProvider;
 @property(readonly, nonatomic) id <TSWPFootnoteHeightMeasurer> footnoteHeightMeasurer;
 @property(readonly, nonatomic) TSPObject<TSDHint> *nextTargetFirstChildHint;
-@property(readonly, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
+@property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
 @property(readonly, nonatomic) const struct TSWPTopicNumberHints *nextTargetTopicNumbers;
 @property(readonly, nonatomic) const struct TSWPTopicNumberHints *previousTargetTopicNumbers;
-@property(readonly, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
+@property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
 - (id)columnMetricsForCharIndex:(unsigned int)arg1 outRange:(struct _NSRange *)arg2;
 - (void)layoutSearchForAnnotationWithHitBlock:(CDUnknownBlockType)arg1;
 - (void)layoutSearchForString:(id)arg1 options:(unsigned int)arg2 hitBlock:(CDUnknownBlockType)arg3;
 - (struct CGPoint)calculatePointFromSearchReference:(id)arg1;
+- (struct CGRect)p_protectedRectWithinLayoutForSelectionRect:(struct CGRect)arg1;
 - (void)wrappableChildInvalidated:(id)arg1;
 - (void)parentDidChange;
+- (void)p_clearOutLayoutManager;
 - (void)parentWillChangeTo:(id)arg1;
+- (void)willBeRemovedFromLayoutController:(id)arg1;
+- (void)willBeAddedToLayoutController:(id)arg1;
 - (BOOL)shouldProvideSizingGuides;
 - (BOOL)shouldDisplayGuides;
+- (struct CGSize)maximumFrameSizeForChild:(id)arg1;
 - (Class)repClassOverride;
 - (void)invalidateParentForAutosizing;
 - (BOOL)invalidateForPageCountChange;
 - (void)invalidateForFootnoteNumberingChange;
+- (void)p_invalidateTextLayout;
 - (void)invalidateTextLayout;
 - (void *)initialLayoutState;
 - (id)computeLayoutGeometry;
@@ -98,9 +104,13 @@ __attribute__((visibility("hidden")))
 
 // Remaining properties
 @property(retain, nonatomic) NSMutableArray *anchoredDrawablesForRelayout;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) struct __CFLocale *hyphenationLocale;
 @property(readonly, nonatomic) TSDLayout *parentLayoutForInlineAttachments;
 @property(readonly, nonatomic) BOOL shouldHyphenate;
+@property(readonly) Class superclass;
 
 @end
 

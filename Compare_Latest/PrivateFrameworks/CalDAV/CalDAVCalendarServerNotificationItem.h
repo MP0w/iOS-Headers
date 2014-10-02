@@ -14,8 +14,8 @@
     CoreDAVItem *_content;
 }
 
-@property(retain) CoreDAVItem *content; // @synthesize content=_content;
-@property(retain) CoreDAVLeafItem *dtstamp; // @synthesize dtstamp=_dtstamp;
+@property(retain, nonatomic) CoreDAVItem *content; // @synthesize content=_content;
+@property(retain, nonatomic) CoreDAVLeafItem *dtstamp; // @synthesize dtstamp=_dtstamp;
 - (id)copyParseRules;
 - (id)description;
 - (void)dealloc;

@@ -8,7 +8,7 @@
 
 #import "MFGuaranteedCollectingDataConsumer.h"
 
-@class MFLock;
+@class MFLock, NSString;
 
 @interface MFMutableFilterDataConsumer : MFBaseFilterDataConsumer <MFGuaranteedCollectingDataConsumer>
 {
@@ -23,6 +23,12 @@
 - (void)addDataConsumer:(id)arg1;
 - (void)dealloc;
 - (id)initWithMainConsumer:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

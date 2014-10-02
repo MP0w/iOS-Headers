@@ -7,6 +7,6 @@
 #import "NSObject.h"
 
 @interface NSObject (NSDiscardableContentProxy)
-- (id)autoContentAccessingProxy;
+@property(readonly, retain) id autoContentAccessingProxy;
 @end
 

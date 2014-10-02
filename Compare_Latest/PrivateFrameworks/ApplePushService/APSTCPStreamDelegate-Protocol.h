@@ -6,16 +6,17 @@
 
 #import "NSObject.h"
 
-@class APSConfiguration, APSTCPStream, NSData, NSError, NSString;
+@class APSConfiguration, NSData, NSError, NSString;
 
 @protocol APSTCPStreamDelegate <NSObject>
-- (void)tcpStream:(APSTCPStream *)arg1 errorOccured:(NSError *)arg2;
-- (void)tcpStreamEndEncountered:(APSTCPStream *)arg1;
-- (unsigned int)tcpStream:(APSTCPStream *)arg1 dataReceived:(NSData *)arg2;
+- (void)tcpStream:(id <APSTCPStream>)arg1 errorOccured:(NSError *)arg2;
+- (void)tcpStreamEndEncountered:(id <APSTCPStream>)arg1;
+- (unsigned int)tcpStream:(id <APSTCPStream>)arg1 dataReceived:(NSData *)arg2;
 
 @optional
-- (void)tcpStreamHasConnected:(APSTCPStream *)arg1;
-- (void)tcpStream:(APSTCPStream *)arg1 hasDeterminedServerHostname:(NSString *)arg2;
-- (void)tcpStream:(APSTCPStream *)arg1 receivedServerBag:(APSConfiguration *)arg2;
+- (BOOL)tcpStreamHasSpaceAvailable:(id <APSTCPStream>)arg1;
+- (void)tcpStreamHasConnected:(id <APSTCPStream>)arg1;
+- (void)tcpStream:(id <APSTCPStream>)arg1 hasDeterminedServerHostname:(NSString *)arg2;
+- (void)tcpStream:(id <APSTCPStream>)arg1 receivedServerBag:(APSConfiguration *)arg2;
 @end
 

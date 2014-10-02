@@ -27,6 +27,8 @@
 - (id)_axElementsForAXUIElements:(id)arg1;
 - (BOOL)isGroup;
 - (id)highestAncestorGroup;
+- (id)opaqueParent;
+- (id)opaqueElementInDirection:(int)arg1 startElement:(id)arg2 searchTraits:(unsigned long long)arg3;
 - (void)scrollToBottom;
 - (void)scrollToTop;
 - (void)decreaseAutoscrollSpeed;
@@ -36,12 +38,16 @@
 - (void)autoscrollInDirection:(int)arg1;
 @property(retain, nonatomic) AXElement *autoscrollTarget;
 @property(readonly, nonatomic) BOOL canPerformEscape;
+@property(readonly, nonatomic) int scannerActivateBehavior;
 @property(readonly, nonatomic) NSArray *scannerRootGroup;
 @property(readonly, nonatomic) BOOL isScannerElement;
+- (void)insertTextAtCurrentPosition:(id)arg1;
+- (void)insertText:(id)arg1 atPosition:(int)arg2;
 - (BOOL)zoomOut;
 - (BOOL)zoomIn;
 - (BOOL)longPress;
 - (BOOL)press;
+- (BOOL)canPerformSecondaryActivate;
 - (BOOL)canPerformActivate;
 @property(readonly, nonatomic) NSArray *supportedGestures;
 @property(readonly, nonatomic) unsigned int windowContextId;
@@ -50,7 +56,9 @@
 - (BOOL)supportsAction:(int)arg1;
 - (BOOL)canScrollInAtLeastOneDirection;
 - (void)scrollToVisible;
+- (BOOL)canPerformTrackingDetail;
 @property(readonly, nonatomic) BOOL canPerformZoom;
+@property(readonly, nonatomic) BOOL isAccessibilityOpaqueElementProvider;
 - (float)distanceToPoint:(struct CGPoint)arg1;
 - (float)distanceToElement:(id)arg1;
 - (BOOL)hasOnlyTraits:(unsigned long long)arg1;
@@ -59,6 +67,8 @@
 - (id)previousElementsWithCount:(unsigned int)arg1;
 - (id)nextElementsWithCount:(unsigned int)arg1;
 @property(nonatomic) struct _NSRange selectedTextRange;
+@property(readonly, nonatomic) NSArray *customActions;
+@property(nonatomic) BOOL assistiveTechFocused;
 @property(readonly, nonatomic) NSArray *typingCandidates;
 @property(readonly, nonatomic) NSArray *textOperations;
 @property(readonly, nonatomic) BOOL hasVariantKeys;
@@ -67,6 +77,7 @@
 @property(readonly, nonatomic) BOOL hasTextEntry;
 @property(readonly, nonatomic) BOOL hasWebContent;
 @property(readonly, nonatomic) BOOL isMathEquation;
+- (id)keyboardContainer;
 @property(readonly, nonatomic) BOOL isKeyboardKey;
 @property(readonly, nonatomic) AXElement *touchContainer;
 @property(readonly, nonatomic) BOOL isTouchContainer;
@@ -93,18 +104,28 @@
 @property(readonly, nonatomic) AXElement *firstResponder;
 @property(readonly, nonatomic) NSArray *visibleElements;
 @property(readonly, nonatomic) BOOL isScreenLocked;
+@property(readonly, nonatomic) int applicationOrientation;
+- (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromContextId:(unsigned int)arg2;
 - (struct CGRect)convertRect:(struct CGRect)arg1 fromContextId:(unsigned int)arg2;
+- (void)sendUserEventOccurred;
+@property(readonly, nonatomic) AXElement *accessibilityUIServerApplication;
+@property(readonly, nonatomic) AXElement *systemApplication;
 @property(readonly, nonatomic) AXElement *springBoardApplication;
 @property(readonly, nonatomic) AXElement *currentApplication;
 @property(nonatomic, getter=isPassivelyListeningForEvents) BOOL passivelyListeningForEvents;
 @property(readonly, nonatomic) BOOL isSystemWideElement;
 @property(readonly, nonatomic) struct __AXUIElement *elementRef;
 - (id)elementForAttribute:(int)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithUIElement:(id)arg1;
 - (id)initWithAXUIElement:(struct __AXUIElement *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

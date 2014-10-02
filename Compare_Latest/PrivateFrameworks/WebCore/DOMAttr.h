@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) DOMElement *ownerElement;
 @property(copy) NSString *value;
 @property(readonly) BOOL specified;
-@property(readonly) NSString *name;
+@property(readonly, copy) NSString *name;
 
 @end
 

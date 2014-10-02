@@ -27,11 +27,11 @@ __attribute__((visibility("hidden")))
 }
 
 @property(copy, nonatomic) CDUnknownBlockType inboundHandler; // @synthesize inboundHandler=inboundHandler_;
-@property(readonly, nonatomic) NSIndexSet *participantsInFlight; // @synthesize participantsInFlight=participantsInFlight_;
-@property(readonly, nonatomic) NSData *sessionKey; // @synthesize sessionKey=sessionKey_;
+@property(readonly, copy, nonatomic) NSIndexSet *participantsInFlight; // @synthesize participantsInFlight=participantsInFlight_;
+@property(readonly, copy, nonatomic) NSData *sessionKey; // @synthesize sessionKey=sessionKey_;
 @property(copy, nonatomic) NSData *ticket; // @synthesize ticket=ticket_;
 @property(nonatomic) id <CDXClientSessionDelegate> delegate; // @synthesize delegate=delegate_;
-@property(readonly, nonatomic) CDXClient *CDXClient; // @synthesize CDXClient=CDXClient_;
+@property(readonly, retain, nonatomic) CDXClient *CDXClient; // @synthesize CDXClient=CDXClient_;
 - (void)recvRaw:(id)arg1 ticket:(id)arg2;
 - (BOOL)sendData:(id)arg1 toParticipants:(id)arg2;
 - (BOOL)sendData:(id)arg1;

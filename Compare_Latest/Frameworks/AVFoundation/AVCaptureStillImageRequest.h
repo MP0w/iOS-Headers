@@ -6,39 +6,26 @@
 
 #import "NSObject.h"
 
-#import "NSCopying.h"
+@class AVCaptureBracketedStillImageSettings;
 
-@interface AVCaptureStillImageRequest : NSObject <NSCopying>
+@interface AVCaptureStillImageRequest : NSObject
 {
     CDUnknownBlockType _sbufCompletionBlock;
     CDUnknownBlockType _iosurfaceCompletionBlock;
-    int _stillImageOrientation;
-    BOOL _stillImageMirrored;
-    struct CGSize _previewImageSize;
-    unsigned long _imageDataFormatType;
-    int _HDRMode;
-    BOOL _chromaNoiseReductionEnabled;
-    BOOL _suspendsVideoProcessing;
+    CDUnknownBlockType _bracketedCaptureCompletionBlock;
+    long long _settingsID;
     unsigned long _shutterSoundID;
-    BOOL _jpegQualitySpecified;
-    float _jpegQuality;
+    AVCaptureBracketedStillImageSettings *_bracketedSettings;
 }
 
 + (id)request;
+@property(retain) AVCaptureBracketedStillImageSettings *bracketedSettings; // @synthesize bracketedSettings=_bracketedSettings;
 @property unsigned long shutterSoundID; // @synthesize shutterSoundID=_shutterSoundID;
-@property BOOL suspendsVideoProcessing; // @synthesize suspendsVideoProcessing=_suspendsVideoProcessing;
-@property BOOL chromaNoiseReductionEnabled; // @synthesize chromaNoiseReductionEnabled=_chromaNoiseReductionEnabled;
-@property int HDRMode; // @synthesize HDRMode=_HDRMode;
+@property long long settingsID; // @synthesize settingsID=_settingsID;
+@property(copy) CDUnknownBlockType bracketedCaptureCompletionBlock; // @synthesize bracketedCaptureCompletionBlock=_bracketedCaptureCompletionBlock;
 @property(copy) CDUnknownBlockType iosurfaceCompletionBlock; // @synthesize iosurfaceCompletionBlock=_iosurfaceCompletionBlock;
 @property(copy) CDUnknownBlockType sbufCompletionBlock; // @synthesize sbufCompletionBlock=_sbufCompletionBlock;
-@property int stillImageOrientation; // @synthesize stillImageOrientation=_stillImageOrientation;
-@property(getter=isStillImageMirrored) BOOL stillImageMirrored; // @synthesize stillImageMirrored=_stillImageMirrored;
-@property BOOL jpegQualitySpecified; // @synthesize jpegQualitySpecified=_jpegQualitySpecified;
-@property float jpegQuality; // @synthesize jpegQuality=_jpegQuality;
-@property unsigned long imageDataFormatType; // @synthesize imageDataFormatType=_imageDataFormatType;
-@property struct CGSize previewImageSize; // @synthesize previewImageSize=_previewImageSize;
 - (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

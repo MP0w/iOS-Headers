@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 
 @property(retain, nonatomic) NSMutableArray *variants; // @synthesize variants=_variants;
 @property(nonatomic) int style; // @synthesize style=_style;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

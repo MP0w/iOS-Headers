@@ -8,7 +8,7 @@
 
 #import "UIGestureRecognizerDelegate.h"
 
-@class CALayer, UIColor, UIPDFAnnotation, UIPDFMarkupAnnotation, UIPDFPageView;
+@class CALayer, NSString, UIColor, UIPDFAnnotation, UIPDFMarkupAnnotation, UIPDFPageView;
 
 @interface UIPDFAnnotationController : NSObject <UIGestureRecognizerDelegate>
 {
@@ -88,6 +88,12 @@
 - (void)dealloc;
 - (id)initWithPageView:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
     NSUUID *_originalDocumentUUID;
     NSUUID *_originalVersionUUID;
     NSURL *_originalURL;
-    unsigned int _updateType;
+    int _updateType;
     TSUSafeSaveAssistant *_safeSaveAssistant;
     NSUUID *_documentUUID;
     NSURL *_URL;
@@ -27,12 +27,14 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 @property(copy, nonatomic) NSUUID *documentUUID; // @synthesize documentUUID=_documentUUID;
 @property(retain, nonatomic) TSUSafeSaveAssistant *safeSaveAssistant; // @synthesize safeSaveAssistant=_safeSaveAssistant;
-@property(readonly, nonatomic) unsigned int updateType; // @synthesize updateType=_updateType;
+@property(readonly, nonatomic) int updateType; // @synthesize updateType=_updateType;
 @property(readonly, nonatomic) NSURL *originalURL; // @synthesize originalURL=_originalURL;
 @property(readonly, nonatomic) NSUUID *originalVersionUUID; // @synthesize originalVersionUUID=_originalVersionUUID;
 @property(readonly, nonatomic) NSUUID *originalDocumentUUID; // @synthesize originalDocumentUUID=_originalDocumentUUID;
 - (void).cxx_destruct;
-- (id)initWithOriginalDocumentUUID:(id)arg1 originalVersionUUID:(id)arg2 originalURL:(id)arg3 updateType:(unsigned int)arg4;
+@property(readonly, nonatomic) BOOL preserveDocumentUUID;
+@property(readonly, nonatomic) BOOL shouldUpdate;
+- (id)initWithOriginalDocumentUUID:(id)arg1 originalVersionUUID:(id)arg2 originalURL:(id)arg3 updateType:(int)arg4;
 - (id)init;
 
 @end

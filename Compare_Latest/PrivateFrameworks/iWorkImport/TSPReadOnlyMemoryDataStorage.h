@@ -8,7 +8,7 @@
 
 #import "TSPDataStorage.h"
 
-@class NSData, NSString;
+@class NSData, NSString, SFUCryptoKey;
 
 __attribute__((visibility("hidden")))
 @interface TSPReadOnlyMemoryDataStorage : NSObject <TSPDataStorage>
@@ -20,13 +20,14 @@ __attribute__((visibility("hidden")))
 - (BOOL)isInPackage:(id)arg1;
 @property(readonly, nonatomic) BOOL readOnly;
 - (void)performIOChannelReadWithAccessor:(CDUnknownBlockType)arg1;
-- (void)performReadWithAccessor:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) unsigned long long encodedLength;
 - (id)filenameForPreferredFilename:(id)arg1;
+@property(readonly, nonatomic) BOOL isMissingData;
+@property(readonly, nonatomic) BOOL isReadable;
 @property(readonly, nonatomic) unsigned char packageIdentifier;
 @property(readonly, nonatomic) NSString *packageLocator;
 @property(readonly, nonatomic) NSString *documentResourceLocator;
-- (BOOL)writeToBundleWriter:(id)arg1 preferredFilename:(id)arg2 filename:(id *)arg3 didCopyDataToBundle:(char *)arg4;
+- (BOOL)writeData:(id)arg1 toPackageWriter:(id)arg2 preferredFilename:(id)arg3 filename:(id *)arg4 didCopyDataToPackage:(char *)arg5 isMissingData:(char *)arg6;
 - (void)archiveInfoMessage:(struct DataInfo *)arg1 archiver:(id)arg2;
 - (id)AVAssetWithOptions:(id)arg1 usingResourceLoaderWithContentTypeUTI:(id)arg2;
 - (id)AVAssetWithOptions:(id)arg1 contentTypeUTI:(id)arg2;
@@ -37,8 +38,14 @@ __attribute__((visibility("hidden")))
 - (id)initWithNSData:(id)arg1;
 
 // Remaining properties
+@property(readonly, nonatomic) unsigned int CRC;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, nonatomic) SFUCryptoKey *decryptionKey;
+@property(readonly, copy) NSString *description;
 @property(nonatomic) BOOL gilligan_isRemote;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) BOOL needsDownload;
+@property(readonly) Class superclass;
 
 @end
 

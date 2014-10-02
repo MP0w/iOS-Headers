@@ -25,7 +25,7 @@
 - (void).cxx_destruct;
 - (void)_loadRadioStoreBagAndAllowRetry:(BOOL)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)_loadRadioStoreBagWithCompletionHandler:(CDUnknownBlockType)arg1;
-@property(readonly) NSDictionary *unparsedResponseDictionary;
+@property(readonly, copy) NSDictionary *unparsedResponseDictionary;
 - (void)setUnparsedResponseDictionary:(id)arg1;
 @property(readonly) int status;
 - (void)setStatus:(int)arg1;

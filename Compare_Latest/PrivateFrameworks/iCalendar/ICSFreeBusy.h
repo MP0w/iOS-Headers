@@ -13,9 +13,9 @@
 }
 
 + (id)name;
-@property(retain) NSString *x_calendarserver_extended_freebusy;
-@property(retain) NSString *x_calendarserver_mask_uid;
-@property(retain) NSArray *freebusy;
+@property(retain, nonatomic) NSString *x_calendarserver_extended_freebusy;
+@property(retain, nonatomic) NSString *x_calendarserver_mask_uid;
+@property(retain, nonatomic) NSArray *freebusy;
 
 // Remaining properties
 @property(retain) NSArray *attendee; // @dynamic attendee;

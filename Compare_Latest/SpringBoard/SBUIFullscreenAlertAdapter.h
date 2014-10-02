@@ -20,7 +20,7 @@
 - (void)setDisplay:(id)arg1;
 - (void)deactivate;
 - (void)activate;
-- (void)setDisplaySetting:(unsigned int)arg1 flag:(_Bool)arg2;
+- (void)setFlag:(long long)arg1 forStateSetting:(unsigned int)arg2;
 - (void)handleAutoLock;
 - (_Bool)handleHeadsetButtonPressed:(_Bool)arg1;
 - (_Bool)handleVolumeDownButtonPressed;

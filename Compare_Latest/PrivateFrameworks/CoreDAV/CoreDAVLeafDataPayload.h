@@ -17,14 +17,18 @@
     NSData *_dataPayload;
 }
 
-@property(readonly) NSString *syncKey; // @synthesize syncKey=_syncKey;
-@property(readonly) NSData *dataPayload; // @synthesize dataPayload=_dataPayload;
-@property(retain) NSURL *serverID; // @synthesize serverID=_serverID;
+@property(readonly, nonatomic) NSString *syncKey; // @synthesize syncKey=_syncKey;
+@property(readonly, nonatomic) NSData *dataPayload; // @synthesize dataPayload=_dataPayload;
+@property(retain, nonatomic) NSURL *serverID; // @synthesize serverID=_serverID;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1 eTag:(id)arg2 dataPayload:(id)arg3 inContainerWithURL:(id)arg4 withAccountInfoProvider:(id)arg5;
 
 // Remaining properties
-@property(readonly) NSArray *childrenOrder;
+@property(readonly, nonatomic) NSArray *childrenOrder;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

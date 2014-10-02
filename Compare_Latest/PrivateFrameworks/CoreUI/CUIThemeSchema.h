@@ -19,6 +19,8 @@
 - (const CDStruct_9508427b *)sortedEffectDefinitionAtIndex:(unsigned int)arg1;
 - (const CDStruct_9508427b *)effectDefinitionAtIndex:(unsigned int)arg1;
 - (const CDStruct_7d98abf3 *)categoryForElementDefinition:(const CDStruct_9508427b *)arg1;
+- (void)enumerateAvailableValuesForThemeAttribute:(int)arg1 inPartDefinition:(const CDStruct_77d6184b *)arg2 usingBlock:(CDUnknownBlockType)arg3;
+- (void)enumerateAvailableThemeAttributesInPartDefinition:(const CDStruct_77d6184b *)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)schemaRenditionsForPartDefinition:(const CDStruct_77d6184b *)arg1;
 - (const CDStruct_77d6184b *)partDefinitionForWidgetName:(id)arg1;
 - (id)widgetNameForPartDefinition:(const CDStruct_77d6184b *)arg1;

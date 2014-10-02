@@ -6,26 +6,19 @@
 
 #import <VectorKit/VKRoadMapModel.h>
 
-@class VGLRenderState, VGLTexture, VGLTextureCanvas;
-
 __attribute__((visibility("hidden")))
 @interface VKHybridRoadMapModel : VKRoadMapModel
 {
-    VGLTextureCanvas *_offscreenCanvas;
-    VGLTexture *_offscreenTexture;
-    VGLRenderState *_renderState;
+    struct unique_ptr<md::OffscreenQueue, std::__1::default_delete<md::OffscreenQueue>> _offscreenQueue;
     float _roadAlpha;
 }
 
-- (void)drawScene:(id)arg1 withContext:(id)arg2 pass:(unsigned int)arg3;
-- (void)_onscreenDrawScene:(id)arg1 withContext:(id)arg2;
-- (void)_offscreenDrawScene:(id)arg1 withContext:(id)arg2;
-- (unsigned int)supportedRenderPasses;
-- (void)dealloc;
-- (void)_createOffscreenWithContext:(id)arg1;
-- (void)_cleanupOffscreen;
-- (void)layoutScene:(id)arg1 withContext:(id)arg2;
-- (id)init;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (void)gglLayoutScene:(id)arg1 withContext:(id)arg2 renderQueue:(struct RenderQueue *)arg3;
+- (void)unLockCommandBuffers:(struct RenderQueue *)arg1;
+- (void)lockCommandBuffers:(struct RenderQueue *)arg1;
+- (void)gglLayoutSceneIfNeeded:(id)arg1 withContext:(id)arg2 renderQueue:(struct RenderQueue *)arg3 dispatchQueue:(id)arg4;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "TSUReadChannel.h"
 
-@class NSError, NSObject<OS_dispatch_data>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>;
+@class NSError, NSObject<OS_dispatch_data>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface TSUBufferedReadChannel : NSObject <TSUReadChannel>
@@ -31,10 +31,12 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL isValid;
 - (void)addBarrier:(CDUnknownBlockType)arg1;
 - (void)setLowWater:(unsigned long)arg1;
 - (id)_currentDataIntersectionWithOffset:(long long)arg1 length:(unsigned long)arg2 isReadDone:(char *)arg3;
 - (void)_readFromOffset:(long long)arg1 length:(unsigned long)arg2 queue:(id)arg3 handler:(CDUnknownBlockType)arg4;
+- (void)readWithQueue:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)readFromOffset:(long long)arg1 length:(unsigned long)arg2 queue:(id)arg3 handler:(CDUnknownBlockType)arg4;
 - (void)setStreamReadChannelSourceQueue:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)_resetStreamReadChannel;
@@ -43,6 +45,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithReadChannel:(id)arg1 sourceReadBufferSize:(unsigned long)arg2 streamReadChannelBlock:(CDUnknownBlockType)arg3;
 - (id)initWithReadChannel:(id)arg1 streamReadChannelBlock:(CDUnknownBlockType)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

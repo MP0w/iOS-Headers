@@ -8,7 +8,7 @@
 
 #import "_UIActionSliderDelegate.h"
 
-@class UIButton, UIImageView, _UIActionSlider;
+@class NSString, UIButton, UIImageView, _UIActionSlider;
 
 @interface TPSlidingButton : UIView <_UIActionSliderDelegate>
 {
@@ -25,11 +25,18 @@
 @property(retain) UIButton *sideButtonRight; // @synthesize sideButtonRight=_sideButtonRight;
 @property(retain) _UIActionSlider *acceptButton; // @synthesize acceptButton=_acceptButton;
 - (void)actionSliderDidCompleteSlide:(id)arg1;
+- (void)actionSlider:(id)arg1 didUpdateSlideWithValue:(float)arg2;
 - (struct CGSize)_knobSize;
 - (struct CGSize)intrinsicContentSize;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithSlidingButtonType:(int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

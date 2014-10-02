@@ -15,8 +15,10 @@ __attribute__((visibility("hidden")))
 {
     TSWPPadding *mPadding;
     int mVerticalAlignment;
+    float mMaxWidthForChildren;
 }
 
+@property(nonatomic) float maxWidthForChildren; // @synthesize maxWidthForChildren=mMaxWidthForChildren;
 - (BOOL)forceWesternLineBreaking;
 - (int)verticalAlignment;
 - (id)padding;

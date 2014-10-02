@@ -6,19 +6,26 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSMutableDictionary;
+@class NSDictionary, NSMutableDictionary, NSString;
 
 @interface DAResolvedRecipient : NSObject
 {
     int _status;
-    NSMutableDictionary *_resolvedEmailToX509Certs;
+    int _certificatesStatus;
+    int _availabilityStatus;
+    NSString *_mergedFreeBusy;
+    NSMutableDictionary *_mResolvedEmailToX509Certs;
 }
 
-@property(readonly) NSDictionary *resolvedEmailToX509Certs; // @synthesize resolvedEmailToX509Certs=_resolvedEmailToX509Certs;
-@property int status; // @synthesize status=_status;
+@property(retain, nonatomic) NSMutableDictionary *mResolvedEmailToX509Certs; // @synthesize mResolvedEmailToX509Certs=_mResolvedEmailToX509Certs;
+@property(retain, nonatomic) NSString *mergedFreeBusy; // @synthesize mergedFreeBusy=_mergedFreeBusy;
+@property(nonatomic) int availabilityStatus; // @synthesize availabilityStatus=_availabilityStatus;
+@property(nonatomic) int certificatesStatus; // @synthesize certificatesStatus=_certificatesStatus;
+@property(nonatomic) int status; // @synthesize status=_status;
+- (void).cxx_destruct;
 - (void)addCert:(id)arg1 forEmailAddress:(id)arg2;
-- (void)dealloc;
 - (id)description;
+@property(readonly, nonatomic) NSDictionary *resolvedEmailToX509Certs;
 
 @end
 

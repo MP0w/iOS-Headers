@@ -13,7 +13,7 @@
 - (id)userInfo;
 - (id)object;
 - (id)name;
-- (id)init;
+- (id)initNotification;
 
 @end
 

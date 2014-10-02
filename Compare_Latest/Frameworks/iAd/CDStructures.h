@@ -13,12 +13,12 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 #pragma mark Named Structures
 
 struct CGAffineTransform {
-    float a;
-    float b;
-    float c;
-    float d;
-    float tx;
-    float ty;
+    float _field1;
+    float _field2;
+    float _field3;
+    float _field4;
+    float _field5;
+    float _field6;
 };
 
 struct CGPoint {
@@ -34,5 +34,12 @@ struct CGRect {
 struct CGSize {
     float width;
     float height;
+};
+
+struct UIEdgeInsets {
+    float top;
+    float left;
+    float bottom;
+    float right;
 };
 

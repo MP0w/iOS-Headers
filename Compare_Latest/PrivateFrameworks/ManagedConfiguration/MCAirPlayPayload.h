@@ -23,6 +23,7 @@
 @property(retain, nonatomic) NSArray *whitelistDestinations; // @synthesize whitelistDestinations=_whitelistDestinations;
 - (void).cxx_destruct;
 - (id)description;
+- (id)payloadDescriptionKeyValueSections;
 - (id)subtitle2Description;
 - (id)subtitle2Label;
 - (id)subtitle1Description;

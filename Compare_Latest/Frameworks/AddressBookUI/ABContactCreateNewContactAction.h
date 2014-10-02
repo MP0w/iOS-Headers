@@ -8,7 +8,7 @@
 
 #import "ABNewPersonViewControllerDelegate.h"
 
-@class CNContact, UIViewController;
+@class CNContact, NSString, UIViewController;
 
 @interface ABContactCreateNewContactAction : ABContactAction <ABNewPersonViewControllerDelegate>
 {
@@ -21,6 +21,12 @@
 - (void)newPersonViewController:(id)arg1 didCompleteWithNewPerson:(void *)arg2;
 - (void)performActionWithSender:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

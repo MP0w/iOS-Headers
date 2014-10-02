@@ -11,7 +11,7 @@
 #import "UIPageViewControllerDelegate.h"
 #import "UIScrollViewDelegate.h"
 
-@class NSMapTable, NSObject<OS_dispatch_source>, SKUIGalleryPageComponent, SKUIMediaComponent, SKUIResourceLoader, UIPageControl, UIPageViewController, UITapGestureRecognizer;
+@class NSMapTable, NSObject<OS_dispatch_source>, NSString, SKUIGalleryPageComponent, SKUIMediaComponent, SKUIResourceLoader, UIPageControl, UIPageViewController, UITapGestureRecognizer;
 
 @interface SKUIGalleryViewController : UIViewController <SKUIArtworkRequestDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate>
 {
@@ -51,6 +51,12 @@
 - (void)loadArtworkForChildComponent:(id)arg1 reason:(int)arg2 constraintWidth:(float)arg3;
 - (void)dealloc;
 - (id)initWithGalleryComponent:(id)arg1 artworkLoader:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

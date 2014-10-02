@@ -10,7 +10,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class NSDate, PreferencesValueCell, UIDatePicker, UITableView, UITableViewCell;
+@class NSDate, NSString, PreferencesValueCell, UIDatePicker, UITableView, UITableViewCell;
 
 @interface EKRecurrenceEndEditItemViewController : EKEditItemViewController <UITableViewDataSource, UITableViewDelegate, EKCellShortener>
 {
@@ -30,7 +30,7 @@
 @property(copy, nonatomic) NSDate *repeatEndDate; // @synthesize repeatEndDate=_repeatEndDate;
 - (void).cxx_destruct;
 - (void)shortenCell:(id)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)traitCollectionDidChange:(id)arg1;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)_updateSelectionForCell:(id)arg1 atRow:(int)arg2;
@@ -52,6 +52,12 @@
 - (void)dealloc;
 - (void)loadView;
 - (id)initWithFrame:(struct CGRect)arg1 styleProvider:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

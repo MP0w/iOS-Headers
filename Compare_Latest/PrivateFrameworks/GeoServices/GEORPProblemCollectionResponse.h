@@ -12,13 +12,14 @@
 
 @interface GEORPProblemCollectionResponse : PBCodable <NSCopying>
 {
-    NSString *_problemID;
+    NSString *_problemId;
     int _statusCode;
     CDStruct_bcb1eac0 _has;
 }
 
-@property(retain, nonatomic) NSString *problemID; // @synthesize problemID=_problemID;
+@property(retain, nonatomic) NSString *problemId; // @synthesize problemId=_problemId;
 @property(nonatomic) int statusCode; // @synthesize statusCode=_statusCode;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -27,7 +28,7 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasProblemID;
+@property(readonly, nonatomic) BOOL hasProblemId;
 @property(nonatomic) BOOL hasStatusCode;
 - (void)dealloc;
 

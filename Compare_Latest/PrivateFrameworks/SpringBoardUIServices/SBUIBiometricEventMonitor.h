@@ -15,8 +15,10 @@
     NSHashTable *_observers;
     unsigned int _lastEvent;
     NSCountedSet *_matchingDisabledRequesters;
+    NSCountedSet *_fingerDetectRequesters;
     NSCountedSet *_activePasscodeViews;
     BOOL _matchingEnabled;
+    BOOL _fingerDetectionEnabled;
     BOOL _screenIsOff;
     BOOL _deviceLocked;
     BOOL _lockScreenTopmost;
@@ -24,8 +26,10 @@
 }
 
 + (id)sharedInstance;
+@property(readonly, nonatomic, getter=isMatchingEnabled) BOOL matchingEnabled; // @synthesize matchingEnabled=_matchingEnabled;
 @property(nonatomic) id <SBUIBiometricEventMonitorDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)_profileSettingsChanged:(id)arg1;
+@property(readonly, nonatomic) unsigned int lockoutState;
 - (void)disableMatchingForPasscodeView:(id)arg1;
 - (void)enableMatchingForPasscodeView:(id)arg1;
 - (void)_updateHandlersForEvent:(unsigned int)arg1;
@@ -38,8 +42,10 @@
 - (void)_setMatchingEnabled:(BOOL)arg1;
 - (void)_stopMatching;
 - (void)_startMatching;
+- (void)_stopFingerDetection;
+- (void)_startFingerDetection;
+- (void)setFingerDetectEnabled:(BOOL)arg1 requester:(id)arg2;
 - (void)setMatchingDisabled:(BOOL)arg1 requester:(id)arg2;
-- (BOOL)isMatchingEnabled;
 - (id)stringForEvent:(unsigned int)arg1;
 - (BOOL)hasEnrolledIdentities;
 - (void)removeObserver:(id)arg1;

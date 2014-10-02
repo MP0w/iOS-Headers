@@ -26,7 +26,7 @@
 - (void)setState:(id)arg1 ofLayer:(id)arg2;
 - (void)setState:(id)arg1 ofLayer:(id)arg2 transitionSpeed:(float)arg3;
 - (id)stateOfLayer:(id)arg1;
-@property NSObject<CAStateControllerDelegate> *delegate;
+@property __weak NSObject<CAStateControllerDelegate> *delegate;
 @property(readonly) CALayer *layer;
 - (void)dealloc;
 - (id)initWithLayer:(id)arg1;

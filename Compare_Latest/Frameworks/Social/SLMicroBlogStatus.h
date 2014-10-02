@@ -16,9 +16,11 @@
     NSArray *_imageData;
     NSArray *_imageAssetURLs;
     NSString *_maskedApplicationID;
+    NSString *_inReplyToStatusID;
 }
 
 + (BOOL)supportsSecureCoding;
+@property(retain, nonatomic) NSString *inReplyToStatusID; // @synthesize inReplyToStatusID=_inReplyToStatusID;
 @property(retain, nonatomic) NSString *maskedApplicationID; // @synthesize maskedApplicationID=_maskedApplicationID;
 @property(retain, nonatomic) NSArray *imageAssetURLs; // @synthesize imageAssetURLs=_imageAssetURLs;
 @property(retain, nonatomic) NSArray *imageData; // @synthesize imageData=_imageData;

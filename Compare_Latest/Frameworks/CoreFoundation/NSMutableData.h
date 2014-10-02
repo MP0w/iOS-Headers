@@ -10,5 +10,9 @@
 {
 }
 
+
+// Remaining properties
+@property unsigned int length; // @dynamic length;
+@property(readonly) void *mutableBytes; // @dynamic mutableBytes;
 @end
 

@@ -9,11 +9,11 @@
 @interface _MFSearchProcessResultsOperation : NSOperation
 {
     id <_MFSearchResultsConsumer> _consumer;
-    int _type;
+    unsigned int _type;
     CDUnknownBlockType _completionBlock;
 }
 
-+ (id)operationWithResultsOfType:(int)arg1 completion:(CDUnknownBlockType)arg2 consumer:(id)arg3;
++ (id)operationWithResultsOfType:(unsigned int)arg1 completion:(CDUnknownBlockType)arg2 consumer:(id)arg3;
 - (void)main;
 - (void)dealloc;
 

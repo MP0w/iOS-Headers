@@ -4,23 +4,26 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <OfficeImport/OCXReadState.h>
 
-@class NSMutableDictionary, OAVState, OAXDrawingState, OAXTableStyleCache, PDPresentation;
+@class CXNamespace, NSMutableDictionary, OAVReadState, OAXDrawingState, OAXTableStyleCache, PDPresentation;
 
 __attribute__((visibility("hidden")))
-@interface PXPresentationState : NSObject
+@interface PXPresentationState : OCXReadState
 {
     NSMutableDictionary *mModelObjects;
     OAXDrawingState *mOfficeArtState;
-    OAVState *mOAVState;
+    OAVReadState *mOAVState;
     OAXTableStyleCache *mTableStyleCache;
     NSMutableDictionary *mSlideURLToIndexMap;
     PDPresentation *mTgtPresentation;
-    id <OCCancelDelegate> mCancel;
+    id <TCCancelDelegate> mCancel;
+    CXNamespace *_PXPresentationMLNamespace;
 }
 
-@property(retain, nonatomic) id <OCCancelDelegate> cancelDelegate; // @synthesize cancelDelegate=mCancel;
+@property(retain, nonatomic) CXNamespace *PXPresentationMLNamespace; // @synthesize PXPresentationMLNamespace=_PXPresentationMLNamespace;
+@property(retain, nonatomic) id <TCCancelDelegate> cancelDelegate; // @synthesize cancelDelegate=mCancel;
+- (void)setupNSForXMLFormat:(int)arg1;
 - (BOOL)isCancelled;
 - (void)setTgtPresentation:(id)arg1;
 - (id)tgtPresentation;

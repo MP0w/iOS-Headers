@@ -9,6 +9,7 @@
 @class NSArray;
 
 @protocol UIViewControllerContextTransitioningEx <UIViewControllerContextTransitioning>
+@property(nonatomic, getter=_allowUserInteraction, setter=_setAllowUserInteraction:) BOOL _allowUserInteraction;
 @property(nonatomic, setter=_setPercentOffset:) float _percentOffset;
 @property(retain, nonatomic, setter=_setContainerViews:) NSArray *_containerViews;
 - (void)_interactivityDidChange:(BOOL)arg1;

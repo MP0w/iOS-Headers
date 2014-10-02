@@ -8,7 +8,7 @@
 
 #import "ADBannerViewDelegate.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_source>, RadioGetHistoryRequest;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_source>, NSString, RadioGetHistoryRequest;
 
 @interface RUHistoryDataSource : NSObject <ADBannerViewDelegate>
 {
@@ -23,7 +23,7 @@
     NSArray *_historyCategories;
 }
 
-@property(readonly, nonatomic) NSArray *historyCategories; // @synthesize historyCategories=_historyCategories;
+@property(readonly, copy, nonatomic) NSArray *historyCategories; // @synthesize historyCategories=_historyCategories;
 @property(nonatomic) __weak id <RUHistoryDataSourceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_scheduleAdLoadTimeout;
@@ -42,6 +42,12 @@
 - (void)bannerViewDidLoadAd:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

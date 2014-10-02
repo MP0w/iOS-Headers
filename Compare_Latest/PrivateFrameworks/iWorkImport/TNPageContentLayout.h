@@ -6,22 +6,21 @@
 
 #import <iWorkImport/TSDLayout.h>
 
-@class TNPageLayout, TSDLayoutGeometry;
+@class TNPageLayout;
 
 __attribute__((visibility("hidden")))
 @interface TNPageContentLayout : TSDLayout
 {
     TNPageLayout *mPageLayout;
-    TSDLayoutGeometry *mCachedGeometry;
+    unsigned int mPageNumber;
 }
 
+@property(readonly) unsigned int pageNumber; // @synthesize pageNumber=mPageNumber;
 @property TNPageLayout *pageLayout; // @synthesize pageLayout=mPageLayout;
 - (Class)repClassOverride;
 - (unsigned int)pageCount;
-- (unsigned int)pageNumber;
 - (id)computeLayoutGeometry;
 - (void)validate;
-- (void)dealloc;
 - (id)initWithPageLayout:(id)arg1;
 
 @end

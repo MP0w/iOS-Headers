@@ -6,34 +6,42 @@
 
 #import "NSObject.h"
 
-#import "BBXPCConnectionDelegate.h"
-#import "XPCProxyTarget.h"
+#import "NSXPCListenerDelegate.h"
 
-@class BBServerConnection, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, NSString;
+@class BBDataProviderConnectionResolver, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
-@interface BBDataProviderConnection : NSObject <XPCProxyTarget, BBXPCConnectionDelegate>
+@interface BBDataProviderConnection : NSObject <NSXPCListenerDelegate>
 {
-    NSObject<OS_dispatch_queue> *_queue;
-    NSObject<OS_dispatch_queue> *_clientQueue;
-    BBServerConnection *_serverConnection;
-    NSObject<OS_xpc_object> *_serviceConnection;
-    NSString *_bundleID;
     NSString *_serviceName;
+    NSString *_bundleID;
+    BBDataProviderConnectionResolver *_connectionResolver;
+    NSObject<OS_dispatch_queue> *_clientCalloutQueue;
+    NSObject<OS_dispatch_queue> *_queue;
+    id <BBDataProviderConnectionServerProxy> _serverProxy;
+    NSObject<OS_dispatch_queue> *_connectionQueue;
+    BOOL _connected;
     NSMutableDictionary *_dataProvidersBySectionID;
-    NSMutableDictionary *_pendingConnectionsBySectionID;
+    NSMutableDictionary *_parentFactoriesBySectionID;
 }
 
 + (void)initialize;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)ping:(CDUnknownBlockType)arg1;
-- (void)connection:(id)arg1 connectionStateDidChange:(BOOL)arg2;
 - (void)invalidate;
+- (void)_invalidate;
 - (void)removeDataProviderWithSectionID:(id)arg1;
+- (void)addParentSectionInfo:(id)arg1 displayName:(id)arg2 icon:(id)arg3;
 - (id)addDataProvider:(id)arg1;
-- (void)_resolveIncomingConnection:(id)arg1;
-- (id)description;
+- (void)setServerProxy:(id)arg1;
+- (id)bundleID;
+- (id)serviceName;
 - (void)dealloc;
 - (id)initWithServiceName:(id)arg1 onQueue:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

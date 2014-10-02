@@ -10,9 +10,11 @@
 {
 }
 
++ (void)configureCellForSizing:(id)arg1;
 + (int)tableViewSeparatorStyle;
 + (struct UIEdgeInsets)tableViewSeparatorInset;
 + (id)tableViewSeparatorColor;
++ (Class)tableViewCellClass;
 
 @end
 

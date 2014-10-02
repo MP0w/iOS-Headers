@@ -10,7 +10,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class MPAVRoutingController, NSArray;
+@class MPAVRoutingController, NSArray, NSString;
 
 @interface MPAudioRoutingPicker : UIAlertView <MPAVRoutingControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 {
@@ -31,6 +31,12 @@
 - (void)dealloc;
 - (void)setAVPlayer:(id)arg1;
 - (id)initWithAVPlayer:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

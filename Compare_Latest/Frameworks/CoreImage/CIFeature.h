@@ -13,7 +13,7 @@
 }
 
 @property(readonly) struct CGRect bounds;
-@property(readonly) NSString *type;
+@property(readonly, retain) NSString *type;
 - (id)init;
 
 @end

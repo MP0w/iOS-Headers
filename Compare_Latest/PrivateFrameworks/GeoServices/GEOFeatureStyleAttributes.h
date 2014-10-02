@@ -10,10 +10,12 @@
 
 @interface GEOFeatureStyleAttributes : NSObject <NSCopying>
 {
-    struct {
-        unsigned int key;
-        int value;
-    } v[16];
+    CDStruct_1e94be47 *v;
+    GEOFeatureStyleAttributes *_sharedAttributes;
+    CDStruct_d008d4b8 *extAttrs;
+    unsigned char countExtAttrs;
+    unsigned char countAttrs;
+    BOOL featureType;
 }
 
 - (void)sort;
@@ -21,8 +23,15 @@
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)replaceAttributes:(CDStruct_1e94be47 *)arg1 count:(unsigned int)arg2;
+- (void)setExtAttributes:(CDStruct_d008d4b8 *)arg1 count:(unsigned int)arg2;
+- (BOOL)featureType;
+- (void)dealloc;
+- (id)initWithSharedStyleAttributes:(id)arg1 extAttributes:(CDStruct_d008d4b8 *)arg2 extAttributeCount:(unsigned char)arg3;
+- (id)initWithStyleAttributes:(id)arg1;
 - (id)initWithAttributes:(unsigned int)arg1;
 - (id)init;
+- (id)initWithPlaceDataStyleAttributes:(id)arg1;
 - (BOOL)shouldSuppress3DBuildingStrokes;
 - (BOOL)isDrivable;
 - (BOOL)isWalkable;

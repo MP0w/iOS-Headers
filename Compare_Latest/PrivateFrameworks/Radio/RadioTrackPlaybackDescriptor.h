@@ -23,7 +23,7 @@
 }
 
 + (BOOL)supportsSecureCoding;
-@property(readonly, nonatomic) NSDictionary *trackInfo; // @synthesize trackInfo=_trackInfo;
+@property(readonly, copy, nonatomic) NSDictionary *trackInfo; // @synthesize trackInfo=_trackInfo;
 @property(readonly, nonatomic) long long storeID; // @synthesize storeID=_storeID;
 @property(readonly, nonatomic) NSDate *skipDate; // @synthesize skipDate=_skipDate;
 @property(readonly, nonatomic) double pauseTime; // @synthesize pauseTime=_pauseTime;

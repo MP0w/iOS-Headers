@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSAttributedString, NSDate, NSString;
+@class NSArray, NSAttributedString, NSDate, NSMutableArray, NSString;
 
 @interface CKDBMessage : NSObject
 {
@@ -25,50 +25,48 @@
     BOOL _hasBeenRead;
     BOOL _isOutgoing;
     BOOL _isVisibleByDefault;
+    BOOL _isAudioMessage;
     long long _madridType;
     int _identifier;
     NSDate *_date;
     NSArray *_recipients;
-    NSArray *_messageParts;
     NSString *_plainBody;
     NSAttributedString *_madridAttributedBody;
+    NSMutableArray *_mediaObjects;
     NSString *_voicemailString;
     NSString *_madridAccountLogin;
 }
 
-@property(readonly, nonatomic) NSString *madridChatIdentifier; // @synthesize madridChatIdentifier=_madridChatIdentifier;
+@property(readonly, retain, nonatomic) NSArray *mediaObjects; // @synthesize mediaObjects=_mediaObjects;
+@property(readonly, retain, nonatomic) NSString *madridChatIdentifier; // @synthesize madridChatIdentifier=_madridChatIdentifier;
 @property(readonly, nonatomic) BOOL isVisibleByDefault; // @synthesize isVisibleByDefault=_isVisibleByDefault;
 @property(readonly, nonatomic) NSString *madridChatGUID; // @synthesize madridChatGUID=_madridChatGUID;
 @property(nonatomic) int identifier; // @synthesize identifier=_identifier;
-@property(readonly, nonatomic) NSArray *messageParts; // @synthesize messageParts=_messageParts;
-@property(readonly, nonatomic) NSAttributedString *madridAttributedBody; // @synthesize madridAttributedBody=_madridAttributedBody;
-@property(readonly, nonatomic) NSDate *date; // @synthesize date=_date;
+@property(readonly, retain, nonatomic) NSAttributedString *madridAttributedBody; // @synthesize madridAttributedBody=_madridAttributedBody;
+@property(readonly, retain, nonatomic) NSDate *date; // @synthesize date=_date;
 @property(readonly, nonatomic) long long madridType; // @synthesize madridType=_madridType;
 @property(readonly, nonatomic) BOOL isOutgoing; // @synthesize isOutgoing=_isOutgoing;
+@property(readonly, nonatomic) BOOL isAudioMessage; // @synthesize isAudioMessage=_isAudioMessage;
 @property(readonly, nonatomic) BOOL hasBeenRead; // @synthesize hasBeenRead=_hasBeenRead;
 @property(readonly, nonatomic) BOOL isMadrid; // @synthesize isMadrid=_isMadrid;
-@property(readonly, nonatomic) NSString *madridAccountGUID; // @synthesize madridAccountGUID=_madridAccountGUID;
-@property(readonly, nonatomic) NSString *madridAccountLogin; // @synthesize madridAccountLogin=_madridAccountLogin;
-@property(readonly, nonatomic) NSString *madridService; // @synthesize madridService=_madridService;
-@property(readonly, nonatomic) NSString *madridRoomname; // @synthesize madridRoomname=_madridRoomname;
-@property(readonly, nonatomic) NSString *guid; // @synthesize guid=_guid;
-@property(readonly, nonatomic) NSString *address; // @synthesize address=_address;
-@property(readonly, nonatomic) NSString *subject; // @synthesize subject=_subject;
-@property(readonly, nonatomic) NSString *text; // @synthesize text=_text;
+@property(readonly, retain, nonatomic) NSString *madridAccountGUID; // @synthesize madridAccountGUID=_madridAccountGUID;
+@property(readonly, retain, nonatomic) NSString *madridAccountLogin; // @synthesize madridAccountLogin=_madridAccountLogin;
+@property(readonly, retain, nonatomic) NSString *madridService; // @synthesize madridService=_madridService;
+@property(readonly, retain, nonatomic) NSString *madridRoomname; // @synthesize madridRoomname=_madridRoomname;
+@property(readonly, retain, nonatomic) NSString *guid; // @synthesize guid=_guid;
+@property(readonly, retain, nonatomic) NSString *address; // @synthesize address=_address;
+@property(readonly, retain, nonatomic) NSString *subject; // @synthesize subject=_subject;
+@property(readonly, retain, nonatomic) NSString *text; // @synthesize text=_text;
 - (id)attachmentText:(BOOL)arg1;
 - (id)previewText;
 - (id)alertImage;
 - (BOOL)senderIsVoicemail;
 - (id)voicemailString;
-@property(readonly, nonatomic) BOOL isMessageFullyLoaded;
-- (struct _IMDAttachmentRecordStruct *)_copyMadridAttachmentRecordForGUID:(id)arg1;
-- (BOOL)_hasAttachments;
-- (void)_loadMessageParts;
-@property(readonly, nonatomic) NSString *plainBody;
-@property(readonly, nonatomic) NSArray *recipients; // @dynamic recipients;
-@property(readonly, nonatomic) NSString *groupID; // @dynamic groupID;
-@property(readonly, nonatomic) NSString *formattedAddress; // @dynamic formattedAddress;
-@property(readonly, nonatomic) NSString *attachmentText; // @dynamic attachmentText;
+@property(readonly, retain, nonatomic) NSString *plainBody;
+@property(readonly, copy, nonatomic) NSArray *recipients; // @dynamic recipients;
+@property(readonly, retain, nonatomic) NSString *groupID; // @dynamic groupID;
+@property(readonly, retain, nonatomic) NSString *formattedAddress; // @dynamic formattedAddress;
+@property(readonly, copy, nonatomic) NSString *attachmentText;
 @property(readonly, nonatomic) BOOL hasAttachments; // @dynamic hasAttachments;
 - (id)description;
 - (void)dealloc;

@@ -8,9 +8,13 @@
 
 #import "CHAutoStyling.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface CHXAutoStyling : CHAutoStyling <CHAutoStyling>
 {
+    BOOL __autoChartFillIsHollow;
+    BOOL __autoChartStrokeIsHollow;
 }
 
 + (int)styleIdWithStyleRow:(int)arg1 styleColumn:(int)arg2;
@@ -19,13 +23,17 @@ __attribute__((visibility("hidden")))
 + (id)colorWithSchemeColorId:(int)arg1 shade:(float)arg2;
 + (id)colorWithSchemeColorId:(int)arg1 tint:(float)arg2;
 + (id)colorWithSchemeColorId:(int)arg1 transformType:(int)arg2 transformValue:(float)arg3;
+@property BOOL _autoChartStrokeIsHollow; // @synthesize _autoChartStrokeIsHollow=__autoChartStrokeIsHollow;
+@property BOOL _autoChartFillIsHollow; // @synthesize _autoChartFillIsHollow=__autoChartFillIsHollow;
+- (void)setAutoChartStrokeIsHollow:(BOOL)arg1;
+- (void)setAutoChartFillIsHollow:(BOOL)arg1;
 - (void)resolveMarker:(id)arg1 withSeriesGraphicProperties:(id)arg2 forSeriesIndex:(unsigned int)arg3;
-- (void)resolveGraphicPropertiesOfErrorBar:(id)arg1 forSeriesIndex:(unsigned int)arg2 colorMap:(id)arg3 colorScheme:(id)arg4;
+- (void)resolveGraphicPropertiesOfErrorBar:(id)arg1 forSeriesIndex:(unsigned int)arg2;
 - (void)resolveGraphicPropertiesOfTrendline:(id)arg1 forSeriesIndex:(unsigned int)arg2;
-- (void)resolveGraphicPropertiesOfSeries:(id)arg1 forSeriesIndex:(unsigned int)arg2 isLine:(_Bool)arg3 colorMap:(id)arg4 colorScheme:(id)arg5;
-- (void)resolveGraphicPropertiesOfSeries:(id)arg1 forSeriesIndex:(unsigned int)arg2 colorMap:(id)arg3 colorScheme:(id)arg4;
+- (void)resolveGraphicPropertiesOfSeries:(id)arg1 forSeriesIndex:(unsigned int)arg2 isLine:(_Bool)arg3;
+- (void)resolveGraphicPropertiesOfSeries:(id)arg1 forSeriesIndex:(unsigned int)arg2;
 - (id)autoStrokeForSeriesIndex:(unsigned int)arg1;
-- (id)autoAxisStroke;
+- (id)autoTextFill;
 - (void)resolveLegendGraphicProperties:(id)arg1;
 - (void)resolveMinorGridLinesGraphicProperties:(id)arg1;
 - (void)resolveMajorGridLinesGraphicProperties:(id)arg1;
@@ -34,15 +42,26 @@ __attribute__((visibility("hidden")))
 - (void)resolveFloorGraphicProperties:(id)arg1;
 - (void)resolveWallGraphicProperties:(id)arg1;
 - (void)resolveChartAreaGraphicProperties:(id)arg1;
-- (id)autoColorOfSeriesWithIndex:(unsigned int)arg1 colorMap:(id)arg2 colorScheme:(id)arg3;
+- (id)autoColorOfSeriesWithIndex:(unsigned int)arg1;
 - (id)autoColorOfFirstColumnSeriesWithIndex:(unsigned int)arg1 seriesCount:(unsigned int)arg2;
 - (void)setDefaultErrorBarPropertiesInGraphicProperties:(id)arg1;
-- (id)autoChartAreaColor;
-- (id)autoPlotAreaColor;
+- (unsigned long)autoFloorAndChartAreaStrokeIndex;
+- (unsigned long)autoFloorAndWallsFillIndex;
+- (id)autoFloorAndWallsAndPlotArea2DFillColor;
+- (id)autoChartAreaFillColor;
+- (id)autoOtherStrokeColor;
+- (id)autoChartAreaAndDataTableAndFloorStrokeColor;
 - (id)autoMinorGridColor;
-- (id)autoAxisColor;
+- (id)autoAxisAndMajorGridColor;
 - (int)styleColumn;
 - (int)styleRow;
+- (int)styleId;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "EKCancellableRemoteOperation.h"
+
 @class EKEventStore, NSNumber, NSSet, NSString;
 
-@interface EKOccurrenceCacheSearch : NSObject
+@interface EKOccurrenceCacheSearch : NSObject <EKCancellableRemoteOperation>
 {
     NSSet *_calendars;
     NSString *_searchTerm;
@@ -20,10 +22,18 @@
 
 + (id)searchWithCalendars:(id)arg1 searchTerm:(id)arg2 store:(id)arg3 callback:(CDUnknownBlockType)arg4;
 - (id)searchTerm;
+- (void)receivedBatchResultsFromServer:(id)arg1 finished:(BOOL)arg2;
 - (void)cancel;
 - (void)run;
+- (int)performSearchOperation:(unsigned int)arg1 inCalendars:(id)arg2 withEventStore:(id)arg3 andSearchTerm:(id)arg4;
 - (void)dealloc;
 - (id)initWithCalendars:(id)arg1 searchTerm:(id)arg2 store:(id)arg3 callback:(CDUnknownBlockType)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

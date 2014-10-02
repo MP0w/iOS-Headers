@@ -37,6 +37,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) struct CGRect inlineRect; // @synthesize inlineRect=_inlineRect;
 @property(copy, nonatomic) NSString *inlineText; // @synthesize inlineText=_inlineText;
 @property(retain, nonatomic) TIKeyboardCandidateResultSet *candidateSet; // @synthesize candidateSet=_candidateSet;
+- (id)_inheritedRenderConfig;
 @property(readonly, nonatomic) UIKeyboardCandidateSortControl *sortSelectionBar; // @synthesize sortSelectionBar=_sortSelectionBar;
 @property(readonly, nonatomic) UIKeyboardCandidateGridCollectionViewController *collectionViewController; // @synthesize collectionViewController=_collectionViewController;
 - (void)sortSelectionBarAction;
@@ -63,7 +64,7 @@ __attribute__((visibility("hidden")))
 - (void)showPreviousCandidate;
 - (void)showNextCandidate;
 - (void)showCandidateAtIndex:(unsigned int)arg1;
-- (void)showCandidate:(id)arg1;
+- (BOOL)showCandidate:(id)arg1;
 - (void)setUIKeyboardCandidateListDelegate:(id)arg1;
 - (void)layout;
 - (id)candidates;
@@ -81,10 +82,18 @@ __attribute__((visibility("hidden")))
 - (BOOL)isExtendedList;
 - (void)expand;
 - (struct CGSize)size;
+- (void)updateLayerBorderWidth;
+- (void)didMoveToWindow;
 - (void)setFrame:(struct CGRect)arg1;
 - (id)activeCandidateList;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "EDKeyedObject.h"
 
-@class CHDChart, CHDChartType, CHDData, CHDDataLabel, CHDDataValue, CHDErrorBar, CHDFormula, EDCollection, EDKeyedCollection, OADGraphicProperties;
+@class CHDChart, CHDChartType, CHDData, CHDDataLabel, CHDDataValue, CHDErrorBar, CHDFormula, EDCollection, EDKeyedCollection, NSString, OADGraphicProperties;
 
 __attribute__((visibility("hidden")))
 @interface CHDSeries : NSObject <EDKeyedObject>
@@ -74,6 +74,12 @@ __attribute__((visibility("hidden")))
 - (void)clearBackPointers;
 - (id)shallowCopy;
 - (id)initWithChart:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

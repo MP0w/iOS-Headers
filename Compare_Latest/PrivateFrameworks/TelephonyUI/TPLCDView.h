@@ -16,14 +16,10 @@
     TPLCDSubImageView *_imageView;
     unsigned int _layoutAsLabelled:1;
     BOOL _verticallyCenterTextViewIfLabelless;
-    BOOL _hasBackgroundGradient;
-    UIView *_backgroundGradientView;
 }
 
 + (float)defaultLabelFontSize;
 + (float)defaultTextFontSize;
-@property(nonatomic) BOOL hasBackgroundGradient; // @synthesize hasBackgroundGradient=_hasBackgroundGradient;
-@property(retain, nonatomic) UIView *backgroundGradientView; // @synthesize backgroundGradientView=_backgroundGradientView;
 @property BOOL verticallyCenterTextViewIfLabelless; // @synthesize verticallyCenterTextViewIfLabelless=_verticallyCenterTextViewIfLabelless;
 - (id)secondLineText;
 - (void)setSecondLineText:(id)arg1;
@@ -38,7 +34,6 @@
 - (void)setLabelFontSize:(float)arg1;
 - (void)didFinishAnimatingLCDLabelFadeOut:(id)arg1 finished:(id)arg2 context:(id)arg3;
 - (void)didMoveToWindow;
-- (struct CGPoint)_backgroundGradientViewOrigin;
 - (void)layoutSubviews;
 - (struct CGRect)_imageViewFrame;
 - (struct CGRect)_labelFrame;

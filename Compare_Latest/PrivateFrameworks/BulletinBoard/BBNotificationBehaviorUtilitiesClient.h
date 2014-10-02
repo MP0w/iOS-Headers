@@ -7,28 +7,31 @@
 #import "NSObject.h"
 
 #import "BBNotificationBehaviorUtilitiesClientProtocol.h"
-#import "BBXPCConnectionDelegate.h"
-#import "XPCProxyTarget.h"
 
-@class BBServerConnection;
+@class NSString, NSXPCConnection;
 
-@interface BBNotificationBehaviorUtilitiesClient : NSObject <BBNotificationBehaviorUtilitiesClientProtocol, XPCProxyTarget, BBXPCConnectionDelegate>
+@interface BBNotificationBehaviorUtilitiesClient : NSObject <BBNotificationBehaviorUtilitiesClientProtocol>
 {
-    BBServerConnection *_connection;
+    NSXPCConnection *_connection;
     CDUnknownBlockType _filteringStateChangeHandler;
     CDUnknownBlockType _activeBehaviorOverridesChangeHandler;
 }
 
-- (void)connection:(id)arg1 connectionStateDidChange:(BOOL)arg2;
-- (void)activeBehaviorOverrideTypesChanged:(unsigned int)arg1;
++ (id)clientInterface;
+- (void)activeBehaviorOverrideTypesChanged:(unsigned int)arg1 source:(unsigned int)arg2;
 - (void)shouldPresentNotificationOfType:(int)arg1 fromSender:(id)arg2 withHandler:(CDUnknownBlockType)arg3;
 - (void)setActiveBehaviorOverridesChangeHandler:(CDUnknownBlockType)arg1;
 - (void)setFilteringStateChangeHandler:(CDUnknownBlockType)arg1;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)notificationPresentationFilteringChangedToEnabled:(BOOL)arg1;
 - (void)invalidate;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

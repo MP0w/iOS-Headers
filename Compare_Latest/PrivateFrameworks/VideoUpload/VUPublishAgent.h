@@ -18,6 +18,7 @@
     VUPublishViewController *_publishViewController;
 }
 
+- (void).cxx_destruct;
 - (void)publishPost:(id)arg1 hasWrittenBytes:(int)arg2 expectsToWrite:(int)arg3;
 - (void)publishPostSucceeded:(id)arg1;
 - (void)publishPost:(id)arg1 didFailWithError:(id)arg2;
@@ -29,7 +30,6 @@
 - (id)mediaTitle;
 - (id)navigationController;
 - (Class)publishViewControllerClass;
-- (void)dealloc;
 
 @end
 

@@ -20,6 +20,7 @@
 @property(retain, nonatomic) NSArray *SafariDomains; // @synthesize SafariDomains=_SafariDomains;
 @property(retain, nonatomic) NSString *VPNUUID; // @synthesize VPNUUID=_VPNUUID;
 - (void).cxx_destruct;
+- (id)payloadDescriptionKeyValueSections;
 - (id)description;
 - (id)stubDictionary;
 - (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;

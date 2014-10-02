@@ -6,18 +6,22 @@
 
 #import <CoreImage/CICodeGenerator.h>
 
-@class NSDictionary;
+@class NSNumber;
 
 __attribute__((visibility("hidden")))
 @interface CIAztecCodeGenerator : CICodeGenerator
 {
-    NSDictionary *inputOptions;
+    NSNumber *inputCorrectionLevel;
+    NSNumber *inputLayers;
+    NSNumber *inputCompactStyle;
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) NSDictionary *inputOptions; // @synthesize inputOptions;
+@property(copy, nonatomic) NSNumber *inputCompactStyle; // @synthesize inputCompactStyle;
+@property(copy, nonatomic) NSNumber *inputLayers; // @synthesize inputLayers;
+@property(copy, nonatomic) NSNumber *inputCorrectionLevel; // @synthesize inputCorrectionLevel;
 - (struct CGImage *)outputCGImage;
-- (void)setDefaults;
+- (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 
 @end
 

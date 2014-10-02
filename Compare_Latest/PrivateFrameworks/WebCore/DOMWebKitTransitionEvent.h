@@ -13,9 +13,9 @@ __attribute__((visibility("hidden")))
 {
 }
 
-@property(readonly) NSString *pseudoElement;
+@property(readonly, copy) NSString *pseudoElement;
 @property(readonly) double elapsedTime;
-@property(readonly) NSString *propertyName;
+@property(readonly, copy) NSString *propertyName;
 
 @end
 

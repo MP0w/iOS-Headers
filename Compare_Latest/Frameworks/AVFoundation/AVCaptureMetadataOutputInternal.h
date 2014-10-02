@@ -6,17 +6,21 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSObject<OS_dispatch_queue>;
+@class AVWeakReference, AVWeakReferencingDelegateStorage, NSArray, NSObject<OS_dispatch_queue>;
 
 @interface AVCaptureMetadataOutputInternal : NSObject
 {
-    id <AVCaptureMetadataOutputObjectsDelegate> delegate;
-    NSObject<OS_dispatch_queue> *clientQueue;
+    AVWeakReferencingDelegateStorage *delegateStorage;
     NSArray *metadataObjectTypes;
     struct CGRect rectOfInterest;
+    AVWeakReference *weakReference;
+    struct OpaqueFigSimpleMutex *remoteQueueMutex;
+    void *remoteReceiverQueue;
+    NSObject<OS_dispatch_queue> *objectQueue;
 }
 
 - (void)dealloc;
+- (id)init;
 
 @end
 

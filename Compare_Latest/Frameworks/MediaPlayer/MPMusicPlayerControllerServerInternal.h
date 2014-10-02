@@ -24,6 +24,7 @@
 
 + (BOOL)_canSeedGeniusWithItem:(id)arg1;
 - (void).cxx_destruct;
+- (void)_updateVideoView;
 - (unsigned int)_numberOfItems;
 - (void)_tearDownVideoView;
 - (void)_endPlayback;
@@ -66,7 +67,6 @@
 - (void)setPlaybackSpeed:(id)arg1;
 - (void)pauseWithFadeoutDuration:(id)arg1;
 - (void)playItem:(id)arg1;
-- (id)nowPlayingRadioTrack;
 - (id)nowPlayingItemAtIndex:(id)arg1;
 - (id)queueAsRadioStation;
 - (id)queueAsQuery;

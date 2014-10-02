@@ -20,9 +20,12 @@
 }
 
 + (void)restoreAlbumListFromPersistedDataAtPath:(id)arg1 library:(id)arg2;
-+ (void)persistAlbumListUUIDs:(id)arg1 type:(int)arg2 allowsOverwrite:(BOOL)arg3;
++ (void)persistAlbumListUUIDs:(id)arg1 type:(short)arg2 allowsOverwrite:(BOOL)arg3;
 + (BOOL)isValidPathForPersistence:(id)arg1;
-+ (BOOL)isValidTypeForPersistence:(int)arg1;
++ (BOOL)isValidTypeForPersistence:(short)arg1;
++ (void)pushChangesFromAlbumContainer:(id)arg1 toAlbumContainer:(id)arg2;
++ (id)_validAlbumsFromSource:(id)arg1 destination:(id)arg2;
++ (BOOL)_albumOrderMatchesFrom:(id)arg1 inDestination:(id)arg2;
 + (id)allStreamedAlbumsListInManagedObjectContext:(id)arg1;
 + (id)placesAlbumListInManagedObjectContext:(id)arg1;
 + (id)facesAlbumListInManagedObjectContext:(id)arg1;
@@ -30,9 +33,10 @@
 + (id)importListInManagedObjectContext:(id)arg1;
 + (id)albumListInManagedObjectContext:(id)arg1;
 + (void)addSingletonObjectsToContext:(id)arg1;
-+ (id)_albumListWithType:(int)arg1 inManagedObjectContext:(id)arg2;
-+ (id)_typeDescriptionForAlbumListType:(int)arg1;
-+ (unsigned int)_priorityForAlbumKind:(int)arg1;
++ (id)_albumListWithType:(short)arg1 inManagedObjectContext:(id)arg2;
++ (id)_typeDescriptionForAlbumListType:(short)arg1;
++ (unsigned int)priorityForAlbumKind:(int)arg1;
++ (BOOL)albumKindHasFixedOrder:(int)arg1;
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
 + (id)wallpaperAlbumListInPhotoLibrary:(id)arg1;
 + (id)allStreamedAlbumsListInPhotoLibrary:(id)arg1;
@@ -41,11 +45,12 @@
 + (id)eventListInPhotoLibrary:(id)arg1;
 + (id)importListInPhotoLibrary:(id)arg1;
 + (id)albumListInPhotoLibrary:(id)arg1;
-+ (id)_singletonListWithType:(int)arg1 library:(id)arg2;
++ (id)_singletonListWithType:(short)arg1 library:(id)arg2;
 + (void)initialize;
 @property(nonatomic) BOOL didRegisteredWithUserInterfaceContext; // @synthesize didRegisteredWithUserInterfaceContext;
 @property(nonatomic) BOOL isRegisteredForChanges; // @synthesize isRegisteredForChanges;
 - (void)didSave;
+- (void)willSave;
 - (void)unregisterForChanges;
 - (void)registerForChanges;
 - (void)enumerateDerivedIndexMappers:(CDUnknownBlockType)arg1;
@@ -59,27 +64,35 @@
 - (BOOL)needsReordering;
 - (void)setNeedsReordering;
 - (void)insertIntoOrderedAlbumsAtIndexByPriorityForAlbum:(id)arg1;
-@property(readonly, nonatomic) CDUnknownBlockType albumsSortingComparator;
+@property(readonly, copy, nonatomic) CDUnknownBlockType albumsSortingComparator;
 - (BOOL)albumHasFixedOrder:(struct NSObject *)arg1;
 - (id)containersRelationshipName;
 - (BOOL)canEditContainers;
 - (BOOL)isEmpty;
 @property(readonly, nonatomic) unsigned int containersCount;
 - (id)containers;
-@property(readonly, nonatomic) NSString *_typeDescription;
-@property(readonly, nonatomic) NSString *_prettyDescription;
+@property(readonly, retain, nonatomic) NSString *_typeDescription;
+@property(readonly, retain, nonatomic) NSString *_prettyDescription;
 @property(readonly, nonatomic) int filter;
+@property(readonly, nonatomic) BOOL isFolder;
 @property(readonly, nonatomic) BOOL canEditAlbums;
 @property(readonly, nonatomic) unsigned int unreadAlbumsCount;
 @property(readonly, nonatomic) BOOL hasAtLeastOneAlbum;
 @property(readonly, nonatomic) unsigned int albumsCount;
 - (id)_albumsCountFetchRequest;
-@property(readonly, nonatomic) NSMutableOrderedSet *albums;
-@property(nonatomic) int albumListType;
+@property(readonly, retain, nonatomic) NSMutableOrderedSet *albums;
+@property(nonatomic) short albumListType;
 - (void)willTurnIntoFault;
 - (void)awakeFromFetch;
 - (void)awakeFromInsert;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
+@property(retain, nonatomic) NSString *uuid; // @dynamic uuid;
 
 @end
 

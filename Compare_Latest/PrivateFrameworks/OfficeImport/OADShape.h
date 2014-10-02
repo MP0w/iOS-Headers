@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     OADTextBody *mTextBody;
 }
 
+- (id)description;
 - (BOOL)isTextBox;
 - (void)createPresetGeometryWithShapeType:(int)arg1;
 - (void)removeUnnecessaryOverrides;

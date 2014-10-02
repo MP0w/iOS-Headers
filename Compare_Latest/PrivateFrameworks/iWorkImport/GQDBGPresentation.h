@@ -17,8 +17,8 @@ __attribute__((visibility("hidden")))
 + (struct _xmlNs *)appNamespace;
 + (void)initialize;
 - (id).cxx_construct;
-- (void)initializeAppBundleResourcesUrl;
-- (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2;
+- (void)initializeAppBundleResourcesUrl:(struct __CFURL *)arg1;
+- (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2 fileUrl:(struct __CFURL *)arg3;
 - (id)colorForMissingAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2;
 - (void)loadAppBundleResourceToColorMap;
 - (struct CGSize)slideSize;

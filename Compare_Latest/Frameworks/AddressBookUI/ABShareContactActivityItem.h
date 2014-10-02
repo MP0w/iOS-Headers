@@ -9,7 +9,7 @@
 #import "UIActivityItemSource.h"
 #import "UIActivityItemSourceAttachment.h"
 
-@class CNContact;
+@class CNContact, NSString;
 
 @interface ABShareContactActivityItem : NSObject <UIActivityItemSource, UIActivityItemSourceAttachment>
 {
@@ -25,6 +25,12 @@
 - (id)activityViewControllerPlaceholderItem:(id)arg1;
 - (void)dealloc;
 - (id)initWithContact:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

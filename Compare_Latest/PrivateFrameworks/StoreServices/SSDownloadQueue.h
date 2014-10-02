@@ -8,7 +8,7 @@
 
 #import "SSDownloadManagerObserverPrivate.h"
 
-@class NSArray, NSSet, SSDownloadManager;
+@class NSArray, NSSet, NSString, SSDownloadManager;
 
 @interface SSDownloadQueue : NSObject <SSDownloadManagerObserverPrivate>
 {
@@ -17,10 +17,6 @@
     struct __CFSet *_observers;
 }
 
-+ (void)setCachedArtwork:(id)arg1 forDownload:(id)arg2;
-+ (void)loadArtworkForDownload:(id)arg1;
-+ (void)cancelLoadArtworkForDownload:(id)arg1;
-+ (id)cachedArtworkForDownload:(id)arg1;
 + (id)softwareApplicationDownloadKinds;
 + (id)mediaDownloadKinds;
 @property(nonatomic) BOOL shouldAutomaticallyFinishDownloads; // @synthesize shouldAutomaticallyFinishDownloads=_autoFinishDownloads;
@@ -57,6 +53,12 @@
 - (id)initWithDownloadKinds:(id)arg1;
 - (id)init;
 - (id)_initWithDownloadManagerOptions:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

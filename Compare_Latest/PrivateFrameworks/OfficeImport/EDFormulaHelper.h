@@ -8,7 +8,7 @@
 
 #import "EFHelper.h"
 
-@class ECMappingContext, EDWorkbook, EDWorksheet;
+@class ECMappingContext, EDWorkbook, EDWorksheet, NSString;
 
 __attribute__((visibility("hidden")))
 @interface EDFormulaHelper : NSObject <EFHelper>
@@ -35,6 +35,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithWorkbook:(id)arg1 worksheet:(id)arg2 rowNumber:(int)arg3 columnNumber:(int)arg4;
 - (unsigned int)createIndexWithType:(int)arg1 firstSheetIndex:(unsigned int)arg2 lastSheetIndex:(unsigned int)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

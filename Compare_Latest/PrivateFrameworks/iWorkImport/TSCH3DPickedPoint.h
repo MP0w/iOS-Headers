@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)pickedPointWithSceneObject:(id)arg1 element:(const tvec2_3b141483 *)arg2 projection:(const tmat4x4_3074befe *)arg3 transform:(const tmat4x4_3074befe *)arg4 objectSpacePoint:(const tvec3_17f03ce0 *)arg5 centerProjectionPoint:(const tvec2_84d5962d *)arg6;
-@property(readonly, nonatomic) TSCH3DSceneObject *sceneObject; // @synthesize sceneObject=mSceneObject;
+@property(readonly, retain, nonatomic) TSCH3DSceneObject *sceneObject; // @synthesize sceneObject=mSceneObject;
 @property(readonly, nonatomic) tmat4x4_3074befe transform; // @synthesize transform=mTransform;
 @property(readonly, nonatomic) tmat4x4_3074befe projection; // @synthesize projection=mProjection;
 @property(readonly, nonatomic) tvec2_84d5962d centerProjectionPoint; // @synthesize centerProjectionPoint=mCenterProjectionPoint;

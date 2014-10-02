@@ -6,12 +6,10 @@
 
 #import <iWorkImport/TSDStyledLayout.h>
 
-#import "TSDShapeControlLayout.h"
-
-@class TSDBezierPath, TSDEditableBezierPathSource, TSDFill, TSDInfoGeometry, TSDMutableStroke, TSDPathSource, TSDPathSource<TSDSmartPathSource>;
+@class TSDBezierPath, TSDEditableBezierPathSource, TSDFill, TSDInfoGeometry, TSDMutableStroke, TSDPathSource;
 
 __attribute__((visibility("hidden")))
-@interface TSDShapeLayout : TSDStyledLayout <TSDShapeControlLayout>
+@interface TSDShapeLayout : TSDStyledLayout
 {
     struct {
         unsigned int path:1;
@@ -20,6 +18,7 @@ __attribute__((visibility("hidden")))
         unsigned int pathIsOpen:1;
         unsigned int pathIsLineSegment:1;
         unsigned int alignmentFrame:1;
+        unsigned int alignmentFrameInRoot:1;
         unsigned int headAndTail:1;
         unsigned int headLineEnd:1;
         unsigned int tailLineEnd:1;
@@ -31,6 +30,8 @@ __attribute__((visibility("hidden")))
     BOOL mCachedPathIsOpen;
     BOOL mCachedPathIsLineSegment;
     struct CGRect mCachedAlignmentFrame;
+    struct CGRect mCachedAlignmentFrameInRoot;
+    struct CGAffineTransform mCachedAlignmentFrameInRootTransformInRoot;
     struct CGPoint mHeadPoint;
     struct CGPoint mTailPoint;
     struct CGPoint mHeadLineEndPoint;
@@ -82,11 +83,6 @@ __attribute__((visibility("hidden")))
 - (void)takeRotationFromTracker:(id)arg1;
 - (BOOL)supportsRotation;
 - (id)initialInfoGeometry;
-- (void)dynamicMovePathKnobDidEnd;
-- (void)dynamicallyMovedPathKnobTo:(struct CGPoint)arg1 withTracker:(id)arg2;
-- (void)dynamicMovePathKnobDidBegin;
-- (void)dynamicallyMovedSmartShapeKnobTo:(struct CGPoint)arg1 withTracker:(id)arg2;
-- (void)dynamicMoveSmartShapeKnobDidBegin;
 - (void)offsetGeometryBy:(struct CGPoint)arg1;
 - (void)dynamicallyMovingLineSegmentWithTracker:(id)arg1;
 - (void)endResize;
@@ -121,7 +117,7 @@ __attribute__((visibility("hidden")))
 - (id)layoutInfoGeometry;
 - (BOOL)pathIsLineSegment;
 - (BOOL)pathIsOpen;
-@property(readonly, nonatomic) TSDPathSource<TSDSmartPathSource> *smartPathSource;
+- (id)smartPathSource;
 - (struct CGRect)pathBoundsWithoutStroke;
 - (struct CGRect)pathBounds;
 - (id)path;

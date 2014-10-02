@@ -41,9 +41,9 @@
 @property(readonly, nonatomic) float gestureRotation;
 @property(readonly, nonatomic) float gestureScale;
 @property(readonly, nonatomic) BOOL isGesture;
-@property(readonly, nonatomic) NSArray *touchPhases;
-@property(readonly, nonatomic) NSArray *touchIdentifiers;
-@property(readonly, nonatomic) NSArray *touchLocations;
+@property(readonly, retain, nonatomic) NSArray *touchPhases;
+@property(readonly, retain, nonatomic) NSArray *touchIdentifiers;
+@property(readonly, retain, nonatomic) NSArray *touchLocations;
 @property(readonly, nonatomic) unsigned int touchCount;
 @property(readonly, nonatomic) float deltaY;
 @property(readonly, nonatomic) float deltaX;
@@ -54,8 +54,8 @@
 @property(readonly, nonatomic, getter=isPopupVariant) BOOL popupVariant;
 @property(readonly, nonatomic, getter=isKeyRepeating) BOOL keyRepeating;
 @property(readonly, nonatomic) unsigned int modifierFlags;
-@property(readonly, nonatomic) NSString *charactersIgnoringModifiers;
-@property(readonly, nonatomic) NSString *characters;
+@property(readonly, retain, nonatomic) NSString *charactersIgnoringModifiers;
+@property(readonly, retain, nonatomic) NSString *characters;
 @property(readonly, nonatomic) struct CGPoint locationInWindow;
 - (id)description;
 - (id)_eventDescription;

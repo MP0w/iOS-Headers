@@ -6,25 +6,26 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString;
+@class NSArray, NSString, PSWeakReference;
 
 @interface PSUsageBundleApp : NSObject
 {
+    PSWeakReference *_storageReporterReference;
     NSString *_name;
     NSString *_bundleIdentifier;
     NSArray *_categories;
     float _totalSize;
-    id <PSStorageReporting> _usageBundleStorageReporter;
 }
 
 + (id)usageBundleAppForBundleWithIdentifier:(id)arg1 withTotalSize:(float)arg2 andCategories:(id)arg3;
 + (id)usageBundleAppForBundleWithIdentifier:(id)arg1 withTotalSize:(float)arg2;
-@property(retain, nonatomic) id <PSStorageReporting> usageBundleStorageReporter; // @synthesize usageBundleStorageReporter=_usageBundleStorageReporter;
 @property(nonatomic) float totalSize; // @synthesize totalSize=_totalSize;
 @property(retain, nonatomic) NSArray *categories; // @synthesize categories=_categories;
 @property(retain, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
+@property(nonatomic) id <PSStorageReporting> usageBundleStorageReporter;
 - (id)description;
+- (void)dealloc;
 
 @end
 

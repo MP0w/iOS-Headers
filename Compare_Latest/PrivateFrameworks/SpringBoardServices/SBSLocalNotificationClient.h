@@ -25,6 +25,12 @@
 + (void)_scheduleLocalNotifications:(id)arg1 cancel:(BOOL)arg2 replace:(BOOL)arg3 optionalBundleIdentifier:(id)arg4;
 + (void)_scheduleLocalNotifications:(id)arg1 cancel:(BOOL)arg2 replace:(BOOL)arg3 optionalBundleIdentifier:(id)arg4 waitUntilDone:(BOOL)arg5;
 + (id)getPendingNotification;
++ (id)currentUserNotificationSettingsForBundleID:(id)arg1;
++ (id)currentUserNotificationSettings;
++ (void)migrateUserNotificationSettingsForBundleIdentifierPushSettingsPairs:(id)arg1;
++ (void)registerUserNotificationSettings:(id)arg1 bundleIdentifier:(id)arg2;
++ (void)registerUserNotificationSettings:(id)arg1;
++ (unsigned int)currentAllowedNotificationTypesForBundleID:(id)arg1;
 
 @end
 

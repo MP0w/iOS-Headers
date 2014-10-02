@@ -4,23 +4,29 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <ChatKit/CKTranscriptCell.h>
+#import <ChatKit/CKTranscriptLabelCell.h>
 
-@class NSAttributedString, UILabel;
+@class NSAttributedString, UIButton;
 
-@interface CKTranscriptStatusCell : CKTranscriptCell
+@interface CKTranscriptStatusCell : CKTranscriptLabelCell
 {
-    UILabel *_label;
+    UIButton *_statusButton;
+    float _prevBalloonWidth;
 }
 
-@property(retain, nonatomic) UILabel *label; // @synthesize label=_label;
-- (void)startZoomInAnimation;
-@property(copy, nonatomic) NSAttributedString *attributedText;
-- (void)layoutSubviewsForContents;
-- (id)initWithFrame:(struct CGRect)arg1;
++ (void)transitionFromView:(id)arg1 toView:(id)arg2 duration:(double)arg3 options:(unsigned int)arg4 completion:(CDUnknownBlockType)arg5;
++ (void)zoomAnimation:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
++ (id)statusButton;
+@property(nonatomic) float prevBalloonWidth; // @synthesize prevBalloonWidth=_prevBalloonWidth;
+@property(retain, nonatomic) UIButton *statusButton; // @synthesize statusButton=_statusButton;
+@property(copy, nonatomic) NSAttributedString *attributedButtonText;
+- (void)performRemoval:(CDUnknownBlockType)arg1;
+- (void)performReload:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)performInsertion:(CDUnknownBlockType)arg1;
+- (void)layoutSubviewsForAlignmentContents;
+- (void)setOrientation:(BOOL)arg1;
 - (void)dealloc;
-- (void)configureForRow:(id)arg1;
-- (void)configureForRowObject:(id)arg1;
+- (void)configureForChatItem:(id)arg1;
 
 @end
 

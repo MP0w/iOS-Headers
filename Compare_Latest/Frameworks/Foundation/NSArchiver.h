@@ -6,6 +6,8 @@
 
 #import <Foundation/NSCoder.h>
 
+@class NSMutableData;
+
 @interface NSArchiver : NSCoder
 {
     void *mdata;
@@ -37,7 +39,7 @@
 - (void)finalize;
 - (void)dealloc;
 - (id)data;
-- (id)archiverData;
+@property(readonly, retain) NSMutableData *archiverData;
 - (id)initForWritingWithMutableData:(id)arg1;
 
 @end

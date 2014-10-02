@@ -6,13 +6,12 @@
 
 #import "NSObject.h"
 
-#import "NSCopying.h"
 #import "NSDiscardableContent.h"
 
-@class NSHashTable, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, TSPComponentExternalReferenceMap, TSPObject;
+@class NSDictionary, NSHashTable, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, TSPComponentExternalReferenceMap, TSPObject;
 
 __attribute__((visibility("hidden")))
-@interface TSPComponent : NSObject <NSCopying, NSDiscardableContent>
+@interface TSPComponent : NSObject <NSDiscardableContent>
 {
     int _accessCount;
     id <TSPComponentDelegate> _delegate;
@@ -22,6 +21,7 @@ __attribute__((visibility("hidden")))
     NSString *_locator;
     unsigned long long _readVersion;
     unsigned long long _writeVersion;
+    unsigned long long _saveToken;
     TSPObject *_strongRootObject;
     TSPObject *_weakRootObject;
     NSHashTable *_writtenObjects;
@@ -29,24 +29,25 @@ __attribute__((visibility("hidden")))
     NSMutableSet *_dataReferences;
     struct {
         unsigned int usesDelayedArchiving:1;
-        unsigned int allowsDuplicatesOutsideOfDocumentPackage:1;
-        unsigned int dirtiesDocumentPackage:1;
         unsigned int modified:1;
         unsigned int persisted:1;
         unsigned int isStoredOutsideObjectArchive:1;
         unsigned int packageIdentifier:2;
+        unsigned int discarded:1;
     } _flags;
-    TSPComponent *_originalDocumentComponent;
+    NSDictionary *_objectUUIDToIdentifierDictionary;
+    unsigned long long _encodedLength;
 }
 
-@property(readonly, nonatomic) TSPComponent *originalDocumentComponent; // @synthesize originalDocumentComponent=_originalDocumentComponent;
+@property(readonly, nonatomic) unsigned long long encodedLength; // @synthesize encodedLength=_encodedLength;
+@property(readonly, nonatomic) NSDictionary *objectUUIDToIdentifierDictionary; // @synthesize objectUUIDToIdentifierDictionary=_objectUUIDToIdentifierDictionary;
 @property(readonly, nonatomic) NSString *preferredLocator; // @synthesize preferredLocator=_preferredLocator;
 @property(readonly, nonatomic) long long identifier; // @synthesize identifier=_identifier;
+@property(readonly, nonatomic) unsigned long long saveToken; // @synthesize saveToken=_saveToken;
 @property(readonly, nonatomic) unsigned long long writeVersion; // @synthesize writeVersion=_writeVersion;
 @property(readonly, nonatomic) unsigned long long readVersion; // @synthesize readVersion=_readVersion;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)enumerateDataReferences:(CDUnknownBlockType)arg1;
 - (id)newUpdatedExternalReferenceMapUsingDelegate:(id)arg1;
 - (BOOL)addExternalReferenceToObjectOrLazyReference:(id)arg1 isWeak:(BOOL)arg2 externalReferenceMap:(id)arg3 delegate:(id)arg4;
@@ -57,17 +58,15 @@ __attribute__((visibility("hidden")))
 @property(readonly) BOOL needsArchiving;
 - (BOOL)needsArchivingImpl;
 @property(readonly) BOOL persisted;
+- (void)markAsDiscarded;
 - (void)willDiscardComponent;
-- (void)setPackageIdentifier:(unsigned char)arg1 preferredLocator:(id)arg2 locator:(id)arg3 isStoredOutsideObjectArchive:(BOOL)arg4 rootObjectOrNil:(id)arg5 archivedObjects:(id)arg6 externalReferenceMap:(id)arg7 dataReferences:(id)arg8 readVersion:(unsigned long long)arg9 writeVersion:(unsigned long long)arg10 wasCopied:(BOOL)arg11 wasModifiedDuringWrite:(BOOL)arg12;
+- (void)setPackageIdentifier:(unsigned char)arg1 preferredLocator:(id)arg2 locator:(id)arg3 isStoredOutsideObjectArchive:(BOOL)arg4 rootObjectOrNil:(id)arg5 archivedObjects:(id)arg6 externalReferenceMap:(id)arg7 dataReferences:(id)arg8 readVersion:(unsigned long long)arg9 writeVersion:(unsigned long long)arg10 objectUUIDToIdentifierDictionary:(id)arg11 saveToken:(unsigned long long)arg12 encodedLength:(unsigned long long)arg13 wasCopied:(BOOL)arg14 wasModifiedDuringWrite:(BOOL)arg15;
 - (void)didReadObjects:(id)arg1;
 - (void)setArchivedObjectsImpl:(id)arg1;
 - (void)setModifiedImpl:(BOOL)arg1 forObject:(id)arg2;
 - (void)setModified:(BOOL)arg1 forObject:(id)arg2 isDocumentUpgrade:(BOOL)arg3;
 - (void)setModified:(BOOL)arg1 forObject:(id)arg2;
 @property(readonly) BOOL modified;
-- (BOOL)dirtiesDocumentPackageQueryingRootObject:(BOOL)arg1;
-- (BOOL)allowsDuplicatesOutsideOfDocumentPackageQueryingRootObject:(BOOL)arg1;
-- (void)updateComponentPropertiesUsingRootObjectOrNil:(id)arg1;
 @property(readonly) unsigned char packageIdentifier;
 @property(readonly, nonatomic) BOOL isStoredOutsideObjectArchive;
 - (void)setLocator:(id)arg1;
@@ -80,12 +79,11 @@ __attribute__((visibility("hidden")))
 - (BOOL)shouldKeepStrongObjectImpl;
 - (BOOL)shouldForceCaching;
 - (BOOL)isCachingEnabled;
-- (id)initWithDelegate:(id)arg1 message:(const struct ComponentInfo *)arg2 packageIdentifier:(unsigned char)arg3 originalDocumentComponent:(id)arg4;
+- (id)initWithDelegate:(id)arg1 message:(const struct ComponentInfo *)arg2 packageIdentifier:(unsigned char)arg3 encodedLength:(unsigned long long)arg4;
 - (id)initWithDelegate:(id)arg1 rootObject:(id)arg2;
-- (id)initWithDelegate:(id)arg1 identifier:(long long)arg2 preferredLocator:(id)arg3 packageIdentifier:(unsigned char)arg4 isStoredOutsideObjectArchive:(BOOL)arg5 allowsDuplicatesOutsideOfDocumentPackage:(BOOL)arg6 dirtiesDocumentPackage:(BOOL)arg7;
-- (id)initWithDelegate:(id)arg1 identifier:(long long)arg2 preferredLocator:(id)arg3 packageIdentifier:(unsigned char)arg4 isStoredOutsideObjectArchive:(BOOL)arg5 allowsDuplicatesOutsideOfDocumentPackage:(BOOL)arg6 dirtiesDocumentPackage:(BOOL)arg7 originalDocumentComponent:(id)arg8;
+- (id)initWithDelegate:(id)arg1 identifier:(long long)arg2 preferredLocator:(id)arg3 packageIdentifier:(unsigned char)arg4 isStoredOutsideObjectArchive:(BOOL)arg5 encodedLength:(unsigned long long)arg6;
 - (id)init;
-- (void)saveToMessage:(struct ComponentInfo *)arg1 writtenComponentInfo:(const struct WrittenComponentInfo *)arg2;
+- (void)saveToMessage:(struct ComponentInfo *)arg1 saveToken:(unsigned long long)arg2 writtenComponentInfo:(const struct WrittenComponentInfo *)arg3;
 
 @end
 

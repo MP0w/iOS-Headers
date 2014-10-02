@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, TSUNoCopyDictionary;
+@class NSMutableArray, OITSUNoCopyDictionary;
 
 __attribute__((visibility("hidden")))
 @interface OADGraphicFeatureCache : NSObject
 {
     NSMutableArray *mFeatureUsageArray;
-    TSUNoCopyDictionary *mFeatureMap;
+    OITSUNoCopyDictionary *mFeatureMap;
 }
 
 - (id)featuresSortedByUsageCount;

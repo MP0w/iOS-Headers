@@ -8,7 +8,7 @@
 
 #import "NSFilePresenter.h"
 
-@class NSDate, NSDocumentDifferenceSize, NSLock, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSOperationQueue, NSString, NSTimer, NSURL, NSUndoManager;
+@class NSDate, NSDocumentDifferenceSize, NSLock, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSOperationQueue, NSString, NSTimer, NSURL, NSUndoManager, NSUserActivity;
 
 @interface UIDocument : NSObject <NSFilePresenter>
 {
@@ -43,7 +43,10 @@
         unsigned int movingFile:1;
         unsigned int savingError:1;
         unsigned int inConflict:1;
+        unsigned int needToStopAccessingSecurityScopedResource:1;
     } _docFlags;
+    NSUserActivity *_currentUserActivity;
+    NSLock *_activityContinuationLock;
 }
 
 + (void)_autosavingTimerDidFireSoContinue:(id)arg1;
@@ -77,10 +80,10 @@
 - (void)relinquishPresentedItemToWriter:(CDUnknownBlockType)arg1;
 - (BOOL)_shouldAllowWritingInResponseToPresenterMessage;
 - (void)relinquishPresentedItemToReader:(CDUnknownBlockType)arg1;
-@property(readonly) NSOperationQueue *presentedItemOperationQueue;
-@property(readonly) NSURL *presentedItemURL;
+@property(readonly, retain) NSOperationQueue *presentedItemOperationQueue;
+@property(readonly, copy) NSURL *presentedItemURL;
 - (id)fileNameExtensionForType:(id)arg1 saveOperation:(int)arg2;
-@property(readonly) NSString *localizedName;
+@property(readonly, copy) NSString *localizedName;
 - (void)_updateLocalizedName;
 - (void)userInteractionNoLongerPermittedForError:(id)arg1;
 - (void)finishedHandlingError:(id)arg1 recovered:(BOOL)arg2;
@@ -131,14 +134,26 @@
 - (void)_setOpen:(BOOL)arg1;
 @property(getter=_isEditingDisabled, setter=_setEditingDisabled:) BOOL editingDisabled;
 @property(copy) NSDate *fileModificationDate;
-@property(readonly) NSString *fileType;
+@property(readonly, copy) NSString *fileType;
 - (void)setFileType:(id)arg1;
 @property(readonly) NSURL *fileURL;
 - (void)_setFileURL:(id)arg1;
 - (void)openWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)restoreUserActivityState:(id)arg1;
+- (void)updateUserActivityState:(id)arg1;
+- (id)userActivity;
+- (void)setUserActivity:(id)arg1;
+- (void)_setUserActivity:(id)arg1;
+- (void)_clearActivityForCloudDocument;
+- (void)_saveActivityForCloudDocumentIfAppropriate;
+- (id)_activityTypeIdentifierForCloudDocument;
+- (void)_invalidateCurrentUserActivity;
+- (BOOL)_documentIsUbiquitous;
+- (id)_userActivityWithActivityType:(id)arg1;
+- (id)_userInfoForActivityContinuation;
 - (void)_unregisterAsFilePresenterIfNecessary;
 - (void)_registerAsFilePresenterIfNecessary;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithFileURL:(id)arg1;
 - (id)init;
@@ -147,7 +162,10 @@
 - (id)_fileOpeningQueue;
 
 // Remaining properties
-@property(readonly) NSURL *primaryPresentedItemURL;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly, copy) NSURL *primaryPresentedItemURL;
+@property(readonly) Class superclass;
 
 @end
 

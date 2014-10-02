@@ -10,12 +10,8 @@
 {
 }
 
-+ (id)fieldWithMagnet:(struct CGPoint)arg1 strength:(float)arg2 minRadius:(float)arg3;
-+ (id)fieldWithMagnet:(struct CGPoint)arg1 strength:(float)arg2;
-@property(nonatomic) float minRadius;
-@property(nonatomic) struct CGPoint offset;
-@property(nonatomic) BOOL isTangential;
-- (id)initWithMagnet:(struct CGPoint)arg1 strength:(float)arg2 minRadius:(float)arg3;
++ (id)field;
+- (id)init;
 
 @end
 

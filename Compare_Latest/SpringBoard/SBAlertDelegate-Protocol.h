@@ -9,8 +9,10 @@
 @class SBAlert, SBFAnimationFactory;
 
 @protocol SBAlertDelegate <NSObject>
+- (void)alertWantsToForceWallpaperTunnelUpdate:(SBAlert *)arg1;
 - (void)alertIsReadyToBeRemovedFromView:(SBAlert *)arg1;
 - (void)alertIsReadyToBeDeactivated:(SBAlert *)arg1;
+- (void)alertWillDismiss:(SBAlert *)arg1;
 - (void)alert:(SBAlert *)arg1 requestsBackgroundStyleChangeWithAnimationFactory:(SBFAnimationFactory *)arg2;
 @end
 

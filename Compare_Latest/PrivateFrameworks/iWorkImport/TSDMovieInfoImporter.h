@@ -25,6 +25,8 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)supportedMovieRemoteURLSchemes;
++ (BOOL)i_canImportFileWithData:(id)arg1 type:(id)arg2;
++ (BOOL)i_canImportFileAtURL:(id)arg1 type:(id)arg2;
 + (id)i_supportedFileTypesForSubclass;
 - (id)error;
 - (id)info;
@@ -32,11 +34,13 @@ __attribute__((visibility("hidden")))
 - (void)cancel;
 - (void)p_finishImportingWithInfo:(id)arg1 error:(id)arg2;
 - (void)p_tellMovieCompatibilityProviderToIgnoreCompatibilityLevelIfNeeded;
+- (void)p_importInfoFromAnimatedGIF;
 - (void)p_importInfoFromAsset;
 - (void)p_importInfoFromAssetConvertingIfNeededToRequiredCompatibilityLevel:(int)arg1 fromCompatibilityLevel:(int)arg2;
 - (void)importInfoWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (BOOL)p_isURLRemote;
 - (void)dealloc;
+- (id)initWithContext:(id)arg1 data:(id)arg2 theme:(id)arg3;
 - (id)initWithContext:(id)arg1 URL:(id)arg2 theme:(id)arg3;
 
 @end

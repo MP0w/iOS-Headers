@@ -23,9 +23,15 @@
 - (void)shutDownCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)XPCServiceConnectionDidDisconnect:(id)arg1;
 - (void)XPCServiceConnection:(id)arg1 didReceiveRequest:(id)arg2 sequenceNumber:(unsigned int)arg3;
-@property(readonly, nonatomic) NSString *serviceName;
+@property(readonly, retain, nonatomic) NSString *serviceName;
 - (void)sendMessage:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (id)initWithXPCServiceConnection:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

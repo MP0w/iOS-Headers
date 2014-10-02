@@ -14,8 +14,8 @@
 }
 
 + (struct __WBSFieldLabelPatternMatcherArray *)createFieldLabelPatternMatcherArrayFromWordArrays:(id)arg1 allowingEndOfWordMatches:(BOOL)arg2;
+- (void).cxx_destruct;
 - (void)_addWord:(id)arg1 allowingEndOfWordMatch:(BOOL)arg2;
-- (void)dealloc;
 - (id)init;
 
 @end

@@ -25,6 +25,8 @@ __attribute__((visibility("hidden")))
 - (id)textInputTraits;
 - (void)_setBottomEffectBackgroundVisible:(BOOL)arg1;
 - (void)_setEnabled:(BOOL)arg1 animated:(BOOL)arg2;
+- (BOOL)canBecomeFirstResponder;
+- (BOOL)canResignFirstResponder;
 - (BOOL)resignFirstResponder;
 - (void)_becomeFirstResponder;
 - (void)_activateSelectionView;

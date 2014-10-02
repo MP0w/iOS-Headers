@@ -11,7 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface __NSOperationQueueInternal : NSObject
 {
-    int __queueLock;
+    struct _opaque_pthread_mutex_t __queueLock;
     NSOperation *__firstOperation;
     NSOperation *__lastOperation;
     NSOperation *__pendingFirstOperation;
@@ -26,8 +26,8 @@ __attribute__((visibility("hidden")))
     unsigned char __mainQ;
     unsigned char __suspended;
     unsigned char __overcommit;
-    unsigned char __pad1[1];
-    NSObject<OS_dispatch_queue> *__dispatchQueue;
+    BOOL __propertyQOS;
+    NSObject<OS_dispatch_queue> *__dispatch_queue;
     char __nameBuffer[160];
 }
 

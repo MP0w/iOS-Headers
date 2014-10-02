@@ -10,7 +10,7 @@
 #import "GEOTileRequesterDelegate.h"
 #import "GEOVoltaireMultiTileDownloaderDelegate.h"
 
-@class GEOVoltaireSimpleTileRequester, NSMutableArray, NSThread, NSTimer;
+@class GEOVoltaireSimpleTileRequester, NSMutableArray, NSString, NSThread, NSTimer;
 
 @interface GEOVoltaireTileRequester : GEOTileRequester <GEOVoltaireMultiTileDownloaderDelegate, GEOTileRequesterDelegate, GEOResourceManifestTileGroupObserver>
 {
@@ -29,7 +29,7 @@
 + (unsigned char)tileProviderIdentifier;
 - (void)tileRequesterFinished:(id)arg1;
 - (void)tileRequester:(id)arg1 receivedError:(id)arg2;
-- (void)tileRequester:(id)arg1 receivedData:(id)arg2 tileEdition:(unsigned int)arg3 tileSet:(unsigned int)arg4 forKey:(struct _GEOTileKey)arg5 userInfo:(id)arg6;
+- (void)tileRequester:(id)arg1 receivedData:(id)arg2 tileEdition:(unsigned int)arg3 tileSet:(unsigned int)arg4 etag:(id)arg5 forKey:(struct _GEOTileKey)arg6 userInfo:(id)arg7;
 - (void)tileDownload:(id)arg1 didFailWithError:(id)arg2;
 - (void)tileDownloadFinished:(id)arg1;
 - (void)tileDownload:(id)arg1 didReceiveData:(id)arg2 edition:(unsigned int)arg3 forKey:(struct _GEOTileKey)arg4;
@@ -44,6 +44,12 @@
 - (void)start;
 - (unsigned int)tileSetForKey:(const struct _GEOTileKey *)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

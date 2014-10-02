@@ -6,11 +6,12 @@
 
 #import <iWorkImport/KNBuildPop.h>
 
-#import "KNAnimationPluginArchiving.h"
 #import "KNAnimationPluginObsoleteNames.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
-@interface KNBuildPopByCharacter : KNBuildPop <KNAnimationPluginArchiving, KNAnimationPluginObsoleteNames>
+@interface KNBuildPopByCharacter : KNBuildPop <KNAnimationPluginObsoleteNames>
 {
 }
 
@@ -21,6 +22,12 @@ __attribute__((visibility("hidden")))
 + (id)defaultAttributes;
 + (id)animationFilter;
 + (id)animationName;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

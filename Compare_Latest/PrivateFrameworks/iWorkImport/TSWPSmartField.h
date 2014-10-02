@@ -36,7 +36,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct _NSRange range;
 @property(readonly, nonatomic) int styleAttributeArrayKind;
 @property(readonly, nonatomic) int attributeArrayKind;
-- (int)elementKind;
+- (int)smartFieldKind;
 - (id)copyWithContext:(id)arg1;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1;

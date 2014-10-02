@@ -6,23 +6,34 @@
 
 #import "_SBFVibrantTableViewCell.h"
 
+#import "SBModalLayoutCaching.h"
+
 @class NSString, UIImageView, UILabel;
 
-@interface SBTodayBulletinCell : _SBFVibrantTableViewCell
+@interface SBTodayBulletinCell : _SBFVibrantTableViewCell <SBModalLayoutCaching>
 {
     UILabel *_label;
     UIImageView *_iconImageView;
+    long long _layoutMode;
 }
 
 + (id)defaultTextAttributes;
++ (double)interCellSpacingInLayoutMode:(long long)arg1;
 + (id)defaultFontColor;
 + (id)defaultFont;
+@property(nonatomic) long long layoutMode; // @synthesize layoutMode=_layoutMode;
 - (void)layoutSubviews;
 - (void)setIcon:(id)arg1;
 @property(copy, nonatomic) NSString *labelText;
 @property(nonatomic) struct CGRect textRect;
 - (void)dealloc;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

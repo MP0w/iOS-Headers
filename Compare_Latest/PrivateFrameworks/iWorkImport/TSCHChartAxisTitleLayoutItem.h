@@ -10,8 +10,10 @@ __attribute__((visibility("hidden")))
 @interface TSCHChartAxisTitleLayoutItem : TSCHChartLayoutItem
 {
     struct CGSize mChartBodySize;
+    float mMinHitSize;
 }
 
+@property(nonatomic) float minHitSize; // @synthesize minHitSize=mMinHitSize;
 @property(nonatomic) struct CGSize chartBodySize; // @synthesize chartBodySize=mChartBodySize;
 - (struct CGPath *)newDragAndDropHighlightPathForSelection:(id)arg1;
 - (float)titlePaddingForAxis:(id)arg1;
@@ -23,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (struct CGAffineTransform)p_transformForRenderingRangePtr:(struct _NSRange *)arg1 outElementSize:(struct CGSize *)arg2 outClipRect:(struct CGRect *)arg3;
 - (struct CGRect)calcDrawingRect;
 - (struct CGSize)calcMinSize;
+- (BOOL)isTitleOn;
 - (id)axisLayoutItem;
 - (id)initWithParent:(id)arg1;
 

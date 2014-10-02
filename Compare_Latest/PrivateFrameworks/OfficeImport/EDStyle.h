@@ -9,7 +9,7 @@
 #import "EDImmutableObject.h"
 #import "NSCopying.h"
 
-@class EDProtection, EDResources;
+@class EDProtection, EDResources, NSString;
 
 __attribute__((visibility("hidden")))
 @interface EDStyle : NSObject <NSCopying, EDImmutableObject>
@@ -61,7 +61,7 @@ __attribute__((visibility("hidden")))
 - (id)contentFormat;
 - (void)setContentFormatOverridden:(_Bool)arg1;
 - (_Bool)isContentFormatOverridden;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isEqualToStyle:(id)arg1;
 - (BOOL)isEquivalentToStyle:(id)arg1;
@@ -81,6 +81,11 @@ __attribute__((visibility("hidden")))
 - (void)setFontIndex:(unsigned int)arg1;
 - (unsigned int)fontIndex;
 - (void)setIndex:(unsigned int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

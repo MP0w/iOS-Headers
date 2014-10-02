@@ -8,7 +8,7 @@
 
 #import "GQDNameMappable.h"
 
-@class GQDWPExternalTextWrap;
+@class GQDWPExternalTextWrap, NSString;
 
 __attribute__((visibility("hidden")))
 @interface GQDGroup : GQDDrawable <GQDNameMappable>
@@ -21,6 +21,12 @@ __attribute__((visibility("hidden")))
 - (id)externalTextWrap;
 - (struct __CFArray *)drawables;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

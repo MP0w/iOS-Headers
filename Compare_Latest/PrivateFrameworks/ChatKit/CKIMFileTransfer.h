@@ -8,7 +8,7 @@
 
 #import "CKFileTransfer.h"
 
-@class NSDictionary, NSError, NSObject<OS_dispatch_queue>, NSString, NSURL;
+@class IMMessage, NSDictionary, NSError, NSObject<OS_dispatch_queue>, NSString, NSURL;
 
 @interface CKIMFileTransfer : NSObject <CKFileTransfer>
 {
@@ -23,7 +23,7 @@
     NSError *_error;
     NSDictionary *_transcoderUserInfo;
     int _transferState;
-    id <CKMessage> _message;
+    IMMessage *_imMessage;
     NSURL *_linkFileURL;
     unsigned long long _currentBytes;
     unsigned long long _totalBytes;
@@ -31,7 +31,7 @@
 
 @property(copy, nonatomic) NSURL *linkFileURL; // @synthesize linkFileURL=_linkFileURL;
 @property(nonatomic) int transferState; // @synthesize transferState=_transferState;
-@property(readonly, nonatomic) NSString *guid; // @synthesize guid=_guid;
+@property(readonly, copy, nonatomic) NSString *guid; // @synthesize guid=_guid;
 - (void)attachmentRestored:(id)arg1;
 - (void)transferUpdated:(id)arg1;
 - (void)updateTransfer;
@@ -49,15 +49,20 @@
 @property(readonly, nonatomic, getter=isFileDataReady) BOOL fileDataReady; // @synthesize fileDataReady=_fileDataReady;
 @property(readonly, nonatomic) unsigned long long totalBytes; // @synthesize totalBytes=_totalBytes;
 @property(readonly, nonatomic) unsigned long long currentBytes; // @synthesize currentBytes=_currentBytes;
-@property(readonly, nonatomic) NSDictionary *transcoderUserInfo; // @synthesize transcoderUserInfo=_transcoderUserInfo;
-@property(readonly, nonatomic) NSError *error; // @synthesize error=_error;
-@property(readonly, nonatomic) NSString *filename; // @synthesize filename=_filename;
-@property(readonly, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
-@property(retain, nonatomic) id <CKMessage> message; // @synthesize message=_message;
+@property(readonly, copy, nonatomic) NSDictionary *transcoderUserInfo; // @synthesize transcoderUserInfo=_transcoderUserInfo;
+@property(readonly, copy, nonatomic) NSError *error; // @synthesize error=_error;
+@property(readonly, copy, nonatomic) NSString *filename; // @synthesize filename=_filename;
+@property(readonly, copy, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
+@property(retain, nonatomic) IMMessage *IMMessage; // @synthesize IMMessage=_imMessage;
 - (id)initWithFileURL:(id)arg1 transcoderUserInfo:(id)arg2;
-- (id)initWithTransferGUID:(id)arg1 message:(id)arg2;
-- (id)description;
+- (id)initWithTransferGUID:(id)arg1 imMessage:(id)arg2;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

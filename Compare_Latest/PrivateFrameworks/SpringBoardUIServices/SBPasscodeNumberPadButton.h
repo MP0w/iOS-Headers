@@ -8,18 +8,26 @@
 
 #import "SBUIPasscodeNumberPadButton.h"
 
+@class NSString;
+
 @interface SBPasscodeNumberPadButton : TPNumberPadDarkStyleButton <SBUIPasscodeNumberPadButton>
 {
 }
 
 + (float)_numberPadButtonOuterCircleDiameter;
-+ (float)_numberPadButtonPaddingWidth;
-+ (float)_numberPadButtonPaddingHeight;
 + (struct UIEdgeInsets)paddingOutsideRing;
 + (struct CGSize)defaultSize;
++ (id)_stringCharacterForCharacter:(unsigned int)arg1;
++ (int)_characterTypeForCharacter:(unsigned int)arg1;
 - (id)stringCharacter;
 - (int)characterType;
 - (id)initForCharacter:(unsigned int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -21,6 +21,7 @@
 - (void)annotationContainerWillAnimateBubble:(MKAnnotationContainerView *)arg1;
 - (float)annotationContainer:(MKAnnotationContainerView *)arg1 pinDropDistanceForCoordinate:(CDStruct_c3b9c2ee)arg2 maxDistance:(float *)arg3 startPoint:(struct CGPoint *)arg4 shadowStartPoint:(struct CGPoint *)arg5;
 - (void)annotationContainer:(MKAnnotationContainerView *)arg1 scrollToRevealCalloutWithOffset:(struct CGPoint)arg2 annotationCoordinate:(CDStruct_c3b9c2ee)arg3 completionHandler:(void (^)(void))arg4;
+- (void)calloutDidAppearForAnnotationView:(MKAnnotationView *)arg1 inContainer:(MKAnnotationContainerView *)arg2;
 - (void)annotationContainer:(MKAnnotationContainerView *)arg1 annotationView:(MKAnnotationView *)arg2 calloutAccessoryControlTapped:(UIControl *)arg3;
 - (BOOL)annotationContainerIsRotated:(MKAnnotationContainerView *)arg1;
 - (BOOL)annotationContainerShouldAlignToPixels:(MKAnnotationContainerView *)arg1;

@@ -17,9 +17,11 @@
     BOOL _cancelled;
     BOOL _loading;
     BOOL _forceCellularIfPossible;
+    BOOL _requireIDSHost;
     int _retries;
 }
 
+@property BOOL requireIDSHost; // @synthesize requireIDSHost=_requireIDSHost;
 @property(retain) NSString *bundleIdentifierForDataUsage; // @synthesize bundleIdentifierForDataUsage=_bundleIdentifierForDataUsage;
 @property BOOL forceCellularIfPossible; // @synthesize forceCellularIfPossible=_forceCellularIfPossible;
 - (void)cancel;

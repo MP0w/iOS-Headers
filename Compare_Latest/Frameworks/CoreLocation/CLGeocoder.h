@@ -20,10 +20,9 @@
 - (void)_notifyResult:(id)arg1;
 - (void)_notifyResult:(id)arg1 error:(id)arg2;
 - (void)_ensureMainThreadExecutionContextForBlock:(CDUnknownBlockType)arg1;
-- (void)_setLoggingPropertiesForRequest:(id)arg1;
-- (void)_request:(id)arg1 didReturnError:(id)arg2;
-- (void)_request:(id)arg1 didReturnError:(id)arg2 partialResultForLocation:(id)arg3;
-- (void)_request:(id)arg1 didReturnResponse:(id)arg2;
+- (void)_ticket:(id)arg1 didReturnError:(id)arg2;
+- (void)_ticket:(id)arg1 didReturnError:(id)arg2 partialResultForLocation:(id)arg3;
+- (void)_ticket:(id)arg1 didReturnGeoMapItems:(id)arg2;
 - (void)cancelGeocode;
 - (void)geocodeAddressString:(id)arg1 inRegion:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)geocodeAddressString:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

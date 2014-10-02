@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class IMHandle, NSArray, NSDate, NSDictionary, NSString;
+@class IMHandle, NSArray, NSDate, NSDictionary, NSNumber, NSString;
 
 @interface IMAVChatProxy : NSObject
 {
@@ -27,21 +27,25 @@
 @property(nonatomic) double invitationTimeoutTime;
 @property(readonly, nonatomic) int endedError;
 @property(readonly, nonatomic) unsigned int endedReason;
+@property(nonatomic, setter=setMute:) BOOL isMute;
 @property(readonly, nonatomic) BOOL isVideo;
 @property(readonly, nonatomic) BOOL isCaller;
 @property(readonly, nonatomic) BOOL isActive;
 - (BOOL)_isProxy;
-@property(readonly, nonatomic) IMHandle *otherIMHandle;
-@property(readonly, nonatomic) IMHandle *initiatorIMHandle;
-@property(readonly, nonatomic) NSArray *remoteParticipants;
-@property(readonly, nonatomic) NSDate *dateEnded;
-@property(readonly, nonatomic) NSDate *dateConnected;
+@property(readonly, retain, nonatomic) IMHandle *otherIMHandle;
+@property(readonly, retain, nonatomic) IMHandle *initiatorIMHandle;
+@property(readonly, retain, nonatomic) NSArray *remoteParticipants;
+@property(readonly, retain, nonatomic) NSDate *dateEnded;
+@property(readonly, retain, nonatomic) NSDate *dateConnected;
+@property(readonly, retain, nonatomic) NSNumber *dataDownloaded;
+@property(readonly, retain, nonatomic) NSNumber *dataUploaded;
+@property(readonly, nonatomic) BOOL isSendingAudio;
 @property(readonly, nonatomic) BOOL isStateFinal;
 @property(readonly, nonatomic) unsigned int state;
-@property(readonly, nonatomic) NSString *conferenceID;
+@property(readonly, retain, nonatomic) NSString *conferenceID;
 @property(readonly, nonatomic) int callID;
 @property(readonly, nonatomic) unsigned int sessionID;
-@property(readonly, nonatomic) NSString *GUID;
+@property(readonly, retain, nonatomic) NSString *GUID;
 - (id)account;
 - (id)description;
 - (void)dealloc;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class ISDataProvider, NSData, NSDictionary, NSString, NSURL;
+@class ISDataProvider, NSData, NSDictionary, NSString, NSURL, SBKTransaction;
 
 __attribute__((visibility("hidden")))
 @interface SBKRequest : NSObject
@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
     ISDataProvider *_responseDataProvider;
     BOOL _concurrent;
     BOOL _includeDeviceGUID;
+    SBKTransaction *_transaction;
 }
 
 + (id)_contentTypeStringForBodyContentType:(int)arg1;
@@ -36,6 +37,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) BOOL shouldAuthenticate; // @synthesize shouldAuthenticate=_shouldAuthenticate;
 @property(nonatomic) int method; // @synthesize method=_method;
 @property(readonly, nonatomic, getter=isConcurrent) BOOL concurrent; // @synthesize concurrent=_concurrent;
+@property(retain, nonatomic) SBKTransaction *transaction; // @synthesize transaction=_transaction;
 - (void).cxx_destruct;
 - (id)newURLOperation;
 - (id)_defaultHeaderFields;

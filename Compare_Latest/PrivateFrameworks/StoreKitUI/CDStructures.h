@@ -29,6 +29,15 @@ struct CATransform3D {
     float _field16;
 };
 
+struct CGAffineTransform {
+    float _field1;
+    float _field2;
+    float _field3;
+    float _field4;
+    float _field5;
+    float _field6;
+};
+
 struct CGPoint {
     float x;
     float y;
@@ -54,10 +63,31 @@ struct SKUIEditorialStyle {
     float titleSpacing;
 };
 
+struct SKUIIndexPathRange {
+    int _field1;
+    int _field2;
+    int _field3;
+    int _field4;
+};
+
 struct SKUILockupStyle {
     int artworkSize;
     int layoutStyle;
     unsigned int visibleFields;
+};
+
+struct SKUIProductLockupLayoutSizing {
+    struct CGSize _field1;
+    struct CGSize _field2;
+    struct CGSize _field3;
+    struct CGSize _field4;
+    struct CGSize _field5;
+};
+
+struct SKUIStackedImageConfiguration {
+    struct UIOffset _field1;
+    struct CGSize _field2;
+    int _field3;
 };
 
 struct UIEdgeInsets {
@@ -67,8 +97,42 @@ struct UIEdgeInsets {
     float right;
 };
 
+struct UIOffset {
+    float _field1;
+    float _field2;
+};
+
 struct _NSRange {
     unsigned int location;
     unsigned int length;
 };
+
+#pragma mark Typedef'd Structures
+
+typedef struct {
+    float cellHeight;
+    float cellWidth;
+    float interItemSpacing;
+} CDStruct_4dbb0024;
+
+typedef struct {
+    struct CGSize iconSize;
+    struct CGSize newsstandSize;
+    struct CGSize newsstandSwooshSize;
+    struct CGSize videoLockupIconSize;
+    struct CGSize videoThumbnailSize;
+    float horizontalPadding;
+    float interItemSpacingMixed;
+    float interItemSpacingNewsstand;
+    float interItemSpacingVideoLockup;
+} CDStruct_56286497;
+
+// Ambiguous groups
+typedef struct {
+    unsigned int dataSourceRespondsToCombinedEntry:1;
+    unsigned int dataSourceRespondsToNumberOfSections:1;
+    unsigned int delegateRespondsToDidSelectEntryAtIndexPath:1;
+    unsigned int delegateRespondsToDidSelectBeyondBottom:1;
+    unsigned int delegateRespondsToDidSelectBeyondTop:1;
+} CDStruct_2ba00048;
 

@@ -8,6 +8,8 @@
 
 #import "ABSearchOperationDelegate.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface EKSocialURLSearchDelegate : NSObject <ABSearchOperationDelegate>
 {
@@ -18,6 +20,12 @@ __attribute__((visibility("hidden")))
 - (void)searchOperation:(id)arg1 didFindMatches:(id)arg2 moreComing:(BOOL)arg3;
 - (void)_completeWithRecord:(void *)arg1;
 - (void)setCompletionHandler:(CDUnknownBlockType)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -9,7 +9,7 @@
 #import "SKStoreProductViewControllerDelegate.h"
 #import "SKUIIPadProductPageDelegate.h"
 
-@class NSArray, SKUIClientContext, SKUIItem, SKUIOverlayContainerViewController, UIView, UIViewController;
+@class NSArray, NSString, SKUIClientContext, SKUIItem, SKUIOverlayContainerViewController, UIView, UIViewController;
 
 @interface SKUIProductPageOverlayController : NSObject <SKUIIPadProductPageDelegate, SKStoreProductViewControllerDelegate>
 {
@@ -20,7 +20,7 @@
     UIViewController *_parentViewController;
 }
 
-@property(readonly, nonatomic) UIViewController *parentViewController; // @synthesize parentViewController=_parentViewController;
+@property(readonly, nonatomic) __weak UIViewController *parentViewController; // @synthesize parentViewController=_parentViewController;
 @property(nonatomic) __weak id <SKUIProductPageOverlayDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
@@ -45,6 +45,12 @@
 - (void)dismiss;
 - (void)dealloc;
 - (id)initWithParentViewController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -9,6 +9,8 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
+@class NSData, NSString;
+
 @interface NSTimeZone : NSObject <NSCopying, NSSecureCoding>
 {
 }
@@ -50,8 +52,8 @@
 - (BOOL)isDaylightSavingTimeForDate:(id)arg1;
 - (id)abbreviationForDate:(id)arg1;
 - (int)secondsFromGMTForDate:(id)arg1;
-- (id)data;
-- (id)name;
+@property(readonly, copy) NSData *data;
+@property(readonly, copy) NSString *name;
 
 @end
 

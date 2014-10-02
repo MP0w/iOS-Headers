@@ -10,7 +10,7 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "_MKUserInteractionGestureRecognizerTouchObserver.h"
 
-@class MKBasicMapView, MKTiltGestureRecognizer, MKVariableDelayTapRecognizer, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIPinchGestureRecognizer, UIRotationGestureRecognizer, UITapGestureRecognizer, _MKUserInteractionGestureRecognizer, _UIDynamicAnimationGroup, _UIDynamicValueAnimation;
+@class MKBasicMapView, MKTiltGestureRecognizer, MKVariableDelayTapRecognizer, NSString, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIPinchGestureRecognizer, UIRotationGestureRecognizer, UITapGestureRecognizer, _MKUserInteractionGestureRecognizer, _UIDynamicAnimationGroup, _UIDynamicValueAnimation;
 
 __attribute__((visibility("hidden")))
 @interface MKMapGestureController : NSObject <MKVariableDelayTapRecognizerDelegate, _MKUserInteractionGestureRecognizerTouchObserver, UIGestureRecognizerDelegate>
@@ -32,8 +32,7 @@ __attribute__((visibility("hidden")))
     _UIDynamicValueAnimation *_rotationDecelerationAnimation;
     MKTiltGestureRecognizer *_tiltGestureRecognizer;
     _UIDynamicValueAnimation *_tiltDecelerationAnimation;
-    BOOL _isPanning;
-    BOOL _isPinching;
+    BOOL _didStartLongPress;
 }
 
 @property(nonatomic) BOOL panWithMomentum; // @synthesize panWithMomentum=_panWithMomentum;
@@ -46,6 +45,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) UITapGestureRecognizer *doubleTapGestureRecognizer; // @synthesize doubleTapGestureRecognizer=_doubleTapGestureRecognizer;
 - (void).cxx_destruct;
 - (BOOL)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (BOOL)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (BOOL)gestureRecognizerShouldBegin:(id)arg1;
 - (double)variableDelayTapRecognizer:(id)arg1 shouldWaitForNextTapForDuration:(double)arg2 afterTouch:(id)arg3;
 - (void)gestureRecognizerTouchesCanceled:(id)arg1;
@@ -53,6 +53,7 @@ __attribute__((visibility("hidden")))
 - (void)gestureRecognizerTouchesBegan:(id)arg1;
 - (void)handleTouch:(id)arg1;
 - (void)handlePan:(id)arg1;
+- (struct CGPoint)_snapPointToDevicePixels:(struct CGPoint)arg1;
 - (void)handlePinch:(id)arg1;
 - (void)handleTwoFingerLongPress:(id)arg1;
 - (void)handleTwoFingerTap:(id)arg1;
@@ -73,6 +74,12 @@ __attribute__((visibility("hidden")))
 @property(nonatomic, getter=isRotationEnabled) BOOL rotationEnabled;
 - (id)initWithMapView:(id)arg1 gestureTargetView:(id)arg2;
 - (id)initWithMapView:(id)arg1 gestureTargetView:(id)arg2 doubleTapTargetView:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

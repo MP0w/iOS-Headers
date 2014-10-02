@@ -15,7 +15,7 @@
     NSMutableSet *_loadedContainerPIDs;
     NSMutableDictionary *_blocksForLoadingContainerPIDs;
     NSObject<OS_dispatch_queue> *_containerFillQueue;
-    BOOL _updateInProgress;
+    id <MPArtworkDataSource> _artworkDataSource;
 }
 
 + (void)_determineHomeSharingGroupIDWithCompletionHandler:(CDUnknownBlockType)arg1;
@@ -25,6 +25,7 @@
 + (void)beginScanningForLibraries;
 + (BOOL)isScanningForLibraries;
 @property(readonly, nonatomic) HSHomeSharingLibrary *homeSharingLibrary; // @synthesize homeSharingLibrary=_homeSharingLibrary;
+- (id)artworkDataSource;
 - (void).cxx_destruct;
 - (void)_fillContainerForQueryCriteria:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (id)_tokenDataForMediaItem:(id)arg1;
@@ -40,11 +41,6 @@
 - (id)adjustedValueForMPProperty:(id)arg1 ofEntity:(id)arg2 withDefaultValue:(id)arg3;
 - (void)setValue:(id)arg1 forProperty:(id)arg2 ofItemWithIdentifier:(long long)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (BOOL)hasGeniusMixes;
-- (BOOL)shouldAsynchrounouslyLoadArtworkForItemWithIdentifier:(long long)arg1 artworkSize:(struct CGSize)arg2 artworkCacheID:(id)arg3;
-- (BOOL)shouldAsynchrounouslyLoadArtworkForItemWithIdentifier:(long long)arg1 artworkFormat:(int)arg2 artworkCacheID:(id)arg3;
-- (void)loadBestArtworkImageDataForSize:(struct CGSize)arg1 ofItemWithIdentifier:(long long)arg2 atPlaybackTime:(double)arg3 completionBlock:(CDUnknownBlockType)arg4;
-- (id)_cachedImagePathHomeSharingID:(unsigned int)arg1 pixelSize:(struct CGSize)arg2;
-- (void)loadArtworkImageForFormat:(int)arg1 ofItemWithIdentifier:(long long)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (id)itemResultSetForQueryCriteria:(id)arg1;
 - (void)loadQueryCriteria:(id)arg1 countOfCollectionsWithCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)loadQueryCriteria:(id)arg1 countOfItemsWithCompletionBlock:(CDUnknownBlockType)arg2;

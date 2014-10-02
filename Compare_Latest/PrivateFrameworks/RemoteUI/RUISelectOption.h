@@ -10,13 +10,13 @@
 
 @interface RUISelectOption : NSObject
 {
-    NSString *label;
-    NSString *value;
+    NSString *_label;
+    NSString *_value;
 }
 
-@property(retain, nonatomic) NSString *value; // @synthesize value;
-@property(retain, nonatomic) NSString *label; // @synthesize label;
-- (void)dealloc;
+@property(retain, nonatomic) NSString *value; // @synthesize value=_value;
+@property(retain, nonatomic) NSString *label; // @synthesize label=_label;
+- (void).cxx_destruct;
 
 @end
 

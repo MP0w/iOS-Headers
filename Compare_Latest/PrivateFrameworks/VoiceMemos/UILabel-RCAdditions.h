@@ -7,6 +7,9 @@
 #import "UILabel.h"
 
 @interface UILabel (RCAdditions)
-- (struct CGPoint)rc_baselinePoint;
++ (void)rc_transitionFromLabel:(id)arg1 toLabelWithText:(id)arg2 sizeNewLabelToFit:(BOOL)arg3 duration:(double)arg4 newLabelTransitionCompleteHandler:(CDUnknownBlockType)arg5;
+- (float)rc_distanceFromBaselineToCoordinate:(float)arg1 inView:(id)arg2;
+@property(readonly, nonatomic) float rc_capOffsetFromTop;
+@property(readonly, nonatomic) float rc_baselineOffsetFromBottom;
 @end
 

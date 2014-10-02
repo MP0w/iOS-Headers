@@ -28,6 +28,7 @@
 - (void)phoneCallStatusChangedNotification:(id)arg1;
 - (void)callCenterModelStateChangedNotification:(id)arg1;
 - (void)buttonWasTapped:(id)arg1;
+- (BOOL)shouldShowActionTypeSendToVoicemail;
 - (id)keyForButtonType:(int)arg1;
 - (id)existingButtonsNotInArray:(id)arg1;
 - (id)buttonForButtonType:(int)arg1 createIfNecessary:(BOOL)arg2 createWithHorizontalPositionFraction:(float)arg3;

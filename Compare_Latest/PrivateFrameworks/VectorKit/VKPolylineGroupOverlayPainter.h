@@ -8,7 +8,7 @@
 
 #import "VKPolylineGroupOverlayObserver.h"
 
-@class NSMapTable, VKPolylineOverlay, VKPolylineOverlayPainter;
+@class NSMapTable, NSString, VKPolylineOverlay, VKPolylineOverlayPainter;
 
 @interface VKPolylineGroupOverlayPainter : VKOverlayPainter <VKPolylineGroupOverlayObserver>
 {
@@ -18,18 +18,24 @@
 }
 
 @property(nonatomic) BOOL showTraffic; // @synthesize showTraffic=_showTraffic;
+- (void)setApplicationState:(unsigned int)arg1;
 - (void)stylesheetDidChange;
 - (void)_addPainterForOverlay:(id)arg1;
 - (void)polylineGroup:(id)arg1 didSelectPolyline:(id)arg2;
 - (void)polylineGroup:(id)arg1 didRemovePolyline:(id)arg2;
 - (void)polylineGroup:(id)arg1 didAddPolyline:(id)arg2;
-- (void)drawDebug:(id)arg1 tiles:(id)arg2;
-- (void)drawWithContext:(id)arg1 tiles:(id)arg2;
+- (void)gglLayoutWithContext:(id)arg1 commandBuffer:(struct CommandBuffer *)arg2 tiles:(id)arg3;
 - (void)layoutWithContext:(id)arg1 tiles:(id)arg2 keysInView:(id)arg3;
 @property(readonly, nonatomic) VKPolylineOverlayPainter *selectedPolylinePainter;
 - (void)setContainerModel:(id)arg1;
 - (void)dealloc;
 - (id)initWithOverlay:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

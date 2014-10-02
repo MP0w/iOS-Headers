@@ -9,6 +9,8 @@
 #import "TSCECalculationEngineRegistration.h"
 #import "TSKDocumentObject.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TNPersistentChartMediator : TSCHPersistentChartMediator <TSKDocumentObject, TSCECalculationEngineRegistration>
 {
@@ -25,6 +27,12 @@ __attribute__((visibility("hidden")))
 - (void)willModify;
 - (void)saveToArchiver:(id)arg1;
 - (id)initFromUnarchiver:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

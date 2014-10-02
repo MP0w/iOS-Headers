@@ -34,11 +34,11 @@
 @property BOOL hasCompletedLoad; // @synthesize hasCompletedLoad=_hasCompletedLoad;
 @property(retain) NSString *loadURL; // @synthesize loadURL=_loadURL;
 @property int fluidProgressType; // @synthesize fluidProgressType=_fluidProgressType;
+- (void).cxx_destruct;
 - (double)secondsElapsedSinceLoadBegan;
 - (BOOL)isFluidProgressStalled;
 - (id)nextFluidProgressAnimation;
 - (float)fluidProgressValue;
-- (void)dealloc;
 @property float minProgressPosition;
 - (void)setWebKitProgressValue:(float)arg1;
 @property int fluidProgressAnimationPhase;

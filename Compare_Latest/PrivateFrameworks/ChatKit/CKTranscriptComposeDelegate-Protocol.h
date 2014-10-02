@@ -6,13 +6,12 @@
 
 #import "NSObject.h"
 
-@class CKComposition, CKConversation, CKTranscriptController, NSMutableArray;
+@class CKComposition, CKConversation, CKTranscriptController;
 
 @protocol CKTranscriptComposeDelegate <NSObject>
 - (void)transcriptController:(CKTranscriptController *)arg1 didSelectNewConversation:(CKConversation *)arg2;
 - (BOOL)supportsAttachments;
-- (void)showNewMessageCompositionForMessageParts:(NSMutableArray *)arg1;
-- (void)showForwardedMessageParts:(NSMutableArray *)arg1;
+- (void)showNewMessageCompositionForComposition:(CKComposition *)arg1;
 - (void)transcriptController:(CKTranscriptController *)arg1 didSendMessageInConversation:(CKConversation *)arg2;
 - (void)transcriptController:(CKTranscriptController *)arg1 willSendComposition:(CKComposition *)arg2 inConversation:(CKConversation *)arg3;
 - (void)didCancelComposition:(CKTranscriptController *)arg1;

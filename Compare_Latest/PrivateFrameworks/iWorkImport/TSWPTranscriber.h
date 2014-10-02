@@ -13,11 +13,12 @@ __attribute__((visibility("hidden")))
 {
     NSString *_displayName;
     NSString *_identifier;
-    NSLocale *_romanizationLocale;
     NSString *_transformIdentifier;
+    NSLocale *_romanizationLocale;
 }
 
 + (id)transcriberWithIdentifier:(id)arg1 displayName:(id)arg2 romanizationLocaleID:(id)arg3 transformIdentifier:(id)arg4;
+@property(readonly) NSLocale *romanizationLocale; // @synthesize romanizationLocale=_romanizationLocale;
 - (id)transcribeText:(id)arg1 withLocale:(id)arg2;
 - (id)transcribeText:(id)arg1;
 - (void)dealloc;

@@ -15,26 +15,31 @@
     struct __CFRunLoop *_accelerometerEventsRunLoop;
     double _interval;
     NSLock *_lock;
-    BOOL _orientationEventsEnabled;
     int _orientationCheckToken;
     int _orientationNotificationsToken;
     NSThread *_orientationEventsThread;
+    unsigned int _orientationPort;
+    BOOL _passiveOrientationEvents;
+    BOOL _orientationEventsEnabled;
     float _xThreshold;
     float _yThreshold;
     float _zThreshold;
+    double _updateInterval;
 }
 
+@property(nonatomic) BOOL orientationEventsEnabled; // @synthesize orientationEventsEnabled=_orientationEventsEnabled;
+@property(nonatomic) BOOL passiveOrientationEvents; // @synthesize passiveOrientationEvents=_passiveOrientationEvents;
+@property(nonatomic) float zThreshold; // @synthesize zThreshold=_zThreshold;
+@property(nonatomic) float yThreshold; // @synthesize yThreshold=_yThreshold;
+@property(nonatomic) float xThreshold; // @synthesize xThreshold=_xThreshold;
+@property(nonatomic) double updateInterval; // @synthesize updateInterval=_updateInterval;
 - (void)_orientationDidChange;
 - (id)_orientationEventsThread;
 - (int)currentDeviceOrientation;
-@property(nonatomic) BOOL orientationEventsEnabled;
+- (void)_updateOrientationServer;
 - (void)_serverWasRestarted;
 - (void)_checkOut;
 - (void)_checkIn;
-@property(nonatomic) float zThreshold;
-@property(nonatomic) float yThreshold;
-@property(nonatomic) float xThreshold;
-@property(nonatomic) double updateInterval;
 @property(nonatomic) BOOL accelerometerEventsEnabled;
 - (void)dealloc;
 - (id)init;

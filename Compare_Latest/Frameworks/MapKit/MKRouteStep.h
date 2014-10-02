@@ -16,6 +16,7 @@
     MKRouteStepPolyline *_polyline;
 }
 
+@property(readonly, nonatomic, getter=_geoStep) GEOStep *geoStep; // @synthesize geoStep=_geoStep;
 @property(readonly, nonatomic) unsigned int transportType; // @synthesize transportType=_transportType;
 @property(readonly, nonatomic) NSString *instructions; // @synthesize instructions=_instructions;
 @property(readonly, nonatomic) MKPolyline *polyline; // @synthesize polyline=_polyline;

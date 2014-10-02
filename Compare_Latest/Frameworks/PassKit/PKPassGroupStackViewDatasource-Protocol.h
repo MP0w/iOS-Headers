@@ -7,7 +7,7 @@
 @class PKGroup;
 
 @protocol PKPassGroupStackViewDatasource
-- (float)groupHeightAtIndex:(unsigned int)arg1;
+- (unsigned int)indexOfSeparationGroup;
 - (unsigned int)indexOfGroup:(PKGroup *)arg1;
 - (PKGroup *)groupAtIndex:(unsigned int)arg1;
 - (unsigned int)numberOfGroups;

@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
 - (void)animateSheetMaskFromOldSheetFrame:(struct CGRect)arg1 toSheetFrame:(struct CGRect)arg2 duration:(double)arg3;
 - (void)restoreSheetCutout;
 - (void)removeSheetCutout;
+- (void)removeAllAnimations;
 - (id)initWithBackgroundColor:(id)arg1 cornerRadius:(float)arg2;
 
 @end

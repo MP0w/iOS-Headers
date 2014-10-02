@@ -7,6 +7,7 @@
 @class UIColor;
 
 @protocol SBUIEmergencyCallServiceInterface
+- (void)noteViewMovedOffscreenTemporarily;
 - (void)noteTintColorForBackgroundStyleChanged:(UIColor *)arg1;
 - (void)backgroundStyle:(void (^)(int))arg1;
 @end

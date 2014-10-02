@@ -8,7 +8,7 @@
 
 #import "WebBookmarksXPCConnectionDelegate.h"
 
-@class NSMutableArray, NSMutableDictionary, NSObject<OS_xpc_object>;
+@class NSMutableArray, NSMutableDictionary, NSObject<OS_xpc_object>, NSString;
 
 @interface WebBookmarksXPCListener : NSObject <WebBookmarksXPCConnectionDelegate>
 {
@@ -24,6 +24,12 @@
 - (void)_handleIncomingConnection:(id)arg1;
 - (void)dealloc;
 - (id)initListenerForMachService:(const char *)arg1 delegate:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

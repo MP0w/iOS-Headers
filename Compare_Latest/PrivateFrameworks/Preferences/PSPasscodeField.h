@@ -8,7 +8,7 @@
 
 #import "UIKeyInput.h"
 
-@class NSMutableArray, NSMutableString;
+@class NSMutableArray, NSMutableString, NSString;
 
 @interface PSPasscodeField : UIView <UIKeyInput>
 {
@@ -40,10 +40,14 @@
 // Remaining properties
 @property(nonatomic) int autocapitalizationType;
 @property(nonatomic) int autocorrectionType;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(nonatomic) BOOL enablesReturnKeyAutomatically;
+@property(readonly) unsigned int hash;
 @property(nonatomic) int keyboardAppearance;
 @property(nonatomic) int returnKeyType;
 @property(nonatomic) int spellCheckingType;
+@property(readonly) Class superclass;
 
 @end
 

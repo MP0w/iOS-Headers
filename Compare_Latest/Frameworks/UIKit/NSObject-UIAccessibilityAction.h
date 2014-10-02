@@ -6,7 +6,10 @@
 
 #import "NSObject.h"
 
+@class NSArray;
+
 @interface NSObject (UIAccessibilityAction)
+@property(retain, nonatomic) NSArray *accessibilityCustomActions;
 - (BOOL)accessibilityActivate;
 - (BOOL)accessibilityPerformMagicTap;
 - (BOOL)accessibilityPerformEscape;

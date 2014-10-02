@@ -39,7 +39,7 @@ __attribute__((visibility("hidden")))
 - (struct ResizingSize)resizingSize;
 - (void)p_updateLabelWrapBoundsPass;
 - (BOOL)isSage;
-- (BOOL)isForward;
+- (BOOL)isInward;
 @property(nonatomic) tvec2_3b141483 containingViewport;
 - (void)invalidateLabelsBoundsForSceneObjectClass:(Class)arg1 boundsIndex:(int)arg2;
 - (void)invalidateBounds;

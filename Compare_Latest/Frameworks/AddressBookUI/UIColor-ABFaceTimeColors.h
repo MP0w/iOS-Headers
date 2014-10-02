@@ -8,6 +8,7 @@
 
 @interface UIColor (ABFaceTimeColors)
 + (id)faceTimeSectionOutlineColor;
++ (id)faceTimeSeparatorColorWithBlurUnsupported;
 + (id)faceTimeLightSeparatorColor;
 + (id)faceTimeDarkSeparatorColor;
 + (id)faceTimeShadowedGroupBackgroundColor;

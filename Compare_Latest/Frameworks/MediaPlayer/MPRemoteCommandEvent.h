@@ -15,7 +15,6 @@
     double _timestamp;
 }
 
-+ (Class)_commandEventClassForMediaRemoteCommand:(unsigned int)arg1;
 + (id)eventWithCommand:(id)arg1 mediaRemoteType:(unsigned int)arg2 options:(id)arg3;
 @property(readonly, nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 @property(readonly, nonatomic) MPRemoteCommand *command; // @synthesize command=_command;

@@ -8,7 +8,7 @@
 
 #import "UIActionSheetDelegate.h"
 
-@class DDActionController, NSMapTable, NSObject<DDDetectionControllerDelegate>, NSObject<OS_dispatch_queue>, NSOperationQueue;
+@class DDActionController, NSMapTable, NSObject<DDDetectionControllerDelegate>, NSObject<OS_dispatch_queue>, NSOperationQueue, NSString;
 
 @interface DDDetectionController : NSObject <UIActionSheetDelegate>
 {
@@ -22,6 +22,7 @@
     NSObject<DDDetectionControllerDelegate> *_delegate;
 }
 
++ (BOOL)_shouldConsiderResultForCoreRecents:(struct __DDResult *)arg1;
 + (id)tapAndHoldSchemes;
 + (id)sharedController;
 @property NSObject<DDDetectionControllerDelegate> *delegate; // @synthesize delegate=_delegate;
@@ -29,6 +30,8 @@
 - (BOOL)_shouldImmediatelyShowActionSheetForCoreResult:(struct __DDResult *)arg1;
 - (struct __DDResult *)_resultForURL:(id)arg1 forContainer:(id)arg2 context:(id *)arg3;
 - (struct __DDResult *)_resultForIdentifier:(id)arg1 forContainer:(id)arg2 context:(id *)arg3;
+- (void)performAction:(id)arg1 fromAlertController:(id)arg2 interactionDelegate:(id)arg3;
+- (void)performAction:(id)arg1 inView:(id)arg2 interactionDelegate:(id)arg3;
 - (void)performAction:(id)arg1 inView:(id)arg2 withPopoverController:(id)arg3 interactionDelegate:(id)arg4;
 - (void)_doURLification:(id)arg1;
 - (void)containerWillBeRemoved:(id)arg1;
@@ -37,9 +40,11 @@
 - (void)startURLificationForContainer:(id)arg1 detectedTypes:(unsigned int)arg2;
 - (void)startURLificationForContainer:(id)arg1 detectedTypes:(unsigned int)arg2 options:(int)arg3;
 - (void)_startCoalescedURLification:(id)arg1;
+- (void)_startCoalescedURLification:(id)arg1 clearPreviousResults:(BOOL)arg2;
 - (id)_newOperationForContainer:(id)arg1;
 - (void)resetResultsForContainer:(id)arg1;
 - (void)_commonResetResultsForContainer:(id)arg1;
+- (void)_resetStoredResultsForContainer:(id)arg1;
 - (void)setContext:(id)arg1 forContainer:(id)arg2;
 - (void)setResults:(struct __CFArray *)arg1 forContainer:(id)arg2;
 - (void)dealloc;
@@ -50,6 +55,7 @@
 - (struct __DDResult *)resultForNode:(id)arg1 url:(id)arg2 frame:(id)arg3 contextRef:(id *)arg4;
 - (id)actionsForDOMNode:(id)arg1 forFrame:(id)arg2;
 - (id)actionsForAnchor:(id)arg1 url:(id)arg2 forFrame:(id)arg3;
+- (id)actionsForURL:(id)arg1;
 - (struct __DDResult *)resultForDOMNode:(id)arg1 forFrame:(id)arg2;
 - (struct __DDResult *)_resultForAnchor:(id)arg1 forFrame:(id)arg2 context:(id *)arg3;
 - (BOOL)shouldImmediatelyShowActionSheetForURL:(id)arg1 forFrame:(id)arg2;
@@ -67,6 +73,12 @@
 - (struct __DDResult *)resultForLinkAtIndex:(unsigned int)arg1 inTextStorage:(id)arg2;
 - (id)_subResultAtIndex:(unsigned int)arg1 ofResult:(id)arg2;
 - (void)resetResultsForTextView:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

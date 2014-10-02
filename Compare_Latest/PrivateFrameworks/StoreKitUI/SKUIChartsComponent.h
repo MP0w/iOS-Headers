@@ -15,6 +15,7 @@
 
 @property(readonly, nonatomic) NSArray *charts; // @synthesize charts=_charts;
 - (void).cxx_destruct;
+- (id)_ineligibleGratisIdentifiersForChartDictionary:(id)arg1;
 - (id)description;
 - (id)metricsElementName;
 - (int)componentType;

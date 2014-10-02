@@ -30,6 +30,7 @@ __attribute__((visibility("hidden")))
 - (id)i_wrapPath;
 - (id)i_computeWrapPath;
 - (id)p_childWrapPathsFrom:(id)arg1;
+- (BOOL)supportsFlipping;
 - (BOOL)canFlip;
 - (BOOL)supportsRotation;
 - (BOOL)supportsParentRotation;
@@ -48,7 +49,9 @@ __attribute__((visibility("hidden")))
 - (void)takeRotationFromTracker:(id)arg1;
 - (id)computeInfoGeometryDuringResize;
 - (void)beginDynamicOperation;
+- (struct CGRect)rectForPresentingAnnotationPopoverForSelection:(id)arg1;
 - (struct CGRect)alignmentFrame;
+- (struct CGRect)clipRect;
 - (struct CGRect)boundsForStandardKnobs;
 - (void)processChangedProperty:(int)arg1;
 - (id)computeLayoutGeometry;

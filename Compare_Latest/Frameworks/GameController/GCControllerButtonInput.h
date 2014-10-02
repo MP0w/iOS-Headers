@@ -10,6 +10,7 @@
 {
 }
 
+@property(copy) CDUnknownBlockType pressedChangedHandler;
 @property(copy) CDUnknownBlockType valueChangedHandler;
 @property(readonly, getter=isPressed) BOOL pressed;
 - (BOOL)setHIDValue:(struct __IOHIDValue *)arg1;

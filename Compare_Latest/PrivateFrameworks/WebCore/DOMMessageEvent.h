@@ -6,7 +6,7 @@
 
 #import <WebCore/DOMEvent.h>
 
-@class DOMAbstractView, DOMMessagePort, NSString;
+@class DOMMessagePort, NSString;
 
 __attribute__((visibility("hidden")))
 @interface DOMMessageEvent : DOMEvent
@@ -16,9 +16,9 @@ __attribute__((visibility("hidden")))
 - (void)initMessageEvent:(id)arg1 canBubbleArg:(BOOL)arg2 cancelableArg:(BOOL)arg3 dataArg:(id)arg4 originArg:(id)arg5 lastEventIdArg:(id)arg6 sourceArg:(id)arg7 messagePort:(id)arg8;
 @property(readonly) DOMMessagePort *messagePort;
 @property(readonly) NSString *data;
-@property(readonly) DOMAbstractView *source;
-@property(readonly) NSString *lastEventId;
-@property(readonly) NSString *origin;
+@property(readonly) id <DOMEventTarget> source;
+@property(readonly, copy) NSString *lastEventId;
+@property(readonly, copy) NSString *origin;
 
 @end
 

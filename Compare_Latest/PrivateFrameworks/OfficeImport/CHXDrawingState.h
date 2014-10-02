@@ -6,12 +6,12 @@
 
 #import <OfficeImport/OAXDrawingState.h>
 
-@class CHXState;
+@class CHXReadState;
 
 __attribute__((visibility("hidden")))
 @interface CHXDrawingState : OAXDrawingState
 {
-    CHXState *mCHXState;
+    CHXReadState *mCHXState;
 }
 
 - (id)chxState;

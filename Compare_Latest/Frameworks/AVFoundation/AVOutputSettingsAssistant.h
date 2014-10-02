@@ -16,6 +16,7 @@
 + (id)outputSettingsAssistantWithPreset:(id)arg1;
 + (id)availableOutputSettingsPresets;
 + (id)_allOutputSettingsPresets;
++ (BOOL)validatesSourceVideoMinFrameDuration;
 + (id)videoEncoderCapabilities;
 + (id)videoSettingsAdjusterForPreset:(id)arg1;
 + (id)baseSettingsProviderForPreset:(id)arg1;

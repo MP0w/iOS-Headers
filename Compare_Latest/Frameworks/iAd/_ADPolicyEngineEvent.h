@@ -8,7 +8,7 @@
 
 #import "ADBannerViewInternalDelegate.h"
 
-@class NSArray, NSMutableArray;
+@class NSArray, NSMutableArray, NSString;
 
 @interface _ADPolicyEngineEvent : NSObject <ADBannerViewInternalDelegate>
 {
@@ -29,6 +29,12 @@
 - (void)addBannerForCreativeType:(int)arg1;
 - (id)init;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

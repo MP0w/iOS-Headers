@@ -11,7 +11,5 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)writeChart:(id)arg1 toParentContainer:(id)arg2 state:(id)arg3;
-
 @end
 

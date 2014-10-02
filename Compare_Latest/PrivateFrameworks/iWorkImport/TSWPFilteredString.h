@@ -11,16 +11,16 @@
 __attribute__((visibility("hidden")))
 @interface TSWPFilteredString : NSString
 {
+    unsigned int _length;
     NSString *_sourceString;
     TSWPDeletionRangeMap *_rangeMap;
-    unsigned int _length;
     TSWPRangeArray *_sourceRanges;
 }
 
-@property(readonly, nonatomic) TSWPRangeArray *sourceRanges; // @synthesize sourceRanges=_sourceRanges;
-@property(readonly, nonatomic) unsigned int length; // @synthesize length=_length;
+@property(readonly, retain, nonatomic) TSWPRangeArray *sourceRanges; // @synthesize sourceRanges=_sourceRanges;
 @property(retain, nonatomic) TSWPDeletionRangeMap *rangeMap; // @synthesize rangeMap=_rangeMap;
 @property(nonatomic) NSString *sourceString; // @synthesize sourceString=_sourceString;
+- (unsigned int)length;
 - (struct _NSRange)charRangeMappedFromStorage:(struct _NSRange)arg1;
 - (struct _NSRange)charRangeMappedToStorage:(struct _NSRange)arg1;
 - (unsigned int)charIndexMappedFromStorage:(unsigned int)arg1;

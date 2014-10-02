@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class AVMediaSelectionGroupInternal, NSArray;
+@class AVMediaSelectionGroupInternal, AVMediaSelectionOption, NSArray;
 
 @interface AVMediaSelectionGroup : NSObject <NSCopying>
 {
@@ -23,9 +23,8 @@
 + (id)mediaSelectionGroupWithAsset:(id)arg1 dictionary:(id)arg2;
 - (id)mediaSelectionOptionWithPropertyList:(id)arg1;
 - (id)_optionWithID:(id)arg1 displaysNonForcedSubtitles:(BOOL)arg2;
-- (id)_defaultOption;
-- (BOOL)_isKeyValueGroup;
-- (BOOL)_isAlternateTrackGroup;
+@property(readonly, nonatomic) AVMediaSelectionOption *defaultOption;
+- (BOOL)_isStreamingGroup;
 - (BOOL)_matchesGroupID:(id)arg1 mediaType:(id)arg2;
 - (id)_groupMediaType;
 - (id)_groupID;

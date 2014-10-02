@@ -38,8 +38,8 @@ __attribute__((visibility("hidden")))
 @property(retain) SBKTransaction *transaction; // @synthesize transaction=_transaction;
 - (void).cxx_destruct;
 @property(readonly) double retrySeconds;
-@property(readonly) NSString *currentStoreAccountName;
-@property(readonly) NSString *previousStoreAccountName;
+@property(readonly, copy) NSString *currentStoreAccountName;
+@property(readonly, copy) NSString *previousStoreAccountName;
 @property(readonly) BOOL isTransactionMissingInformationError;
 @property(readonly) BOOL isTransactionCancelledError;
 @property(readonly) BOOL isClampError;

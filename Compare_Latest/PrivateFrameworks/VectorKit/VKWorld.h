@@ -17,9 +17,7 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) VKModelObject *modelRoot; // @synthesize modelRoot=_modelRoot;
 @property(nonatomic) id <VKWorldDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)drawDebugScene:(id)arg1 withContext:(id)arg2;
-- (void)drawScene:(id)arg1 withContext:(id)arg2;
-- (void)layoutScene:(id)arg1 withContext:(id)arg2;
+- (void)gglLayoutScene:(id)arg1 withContext:(id)arg2 renderQueue:(struct RenderQueue *)arg3 dispatchQueue:(id)arg4;
 - (void)runAnimation:(id)arg1;
 - (void)worldDisplayDidChange;
 - (void)worldLayoutDidChange;

@@ -6,7 +6,7 @@
 
 #import <StoreKitUI/SKUIPageComponent.h>
 
-@class SKUIEditorialComponent, SKUIItem;
+@class SKUIEditorialComponent, SKUIItem, SKUILockupViewElement;
 
 @interface SKUILockupComponent : SKUIPageComponent
 {
@@ -25,9 +25,13 @@
 - (void)_setItem:(id)arg1;
 @property(readonly, nonatomic) BOOL _needsItemData;
 - (int)componentType;
+- (id)initWithViewElement:(id)arg1;
 - (id)initWithItem:(id)arg1 style:(struct SKUILockupStyle)arg2;
 - (id)initWithItemIdentifier:(long long)arg1 style:(struct SKUILockupStyle)arg2;
 - (id)initWithCustomPageContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) SKUILockupViewElement *viewElement; // @dynamic viewElement;
 
 @end
 

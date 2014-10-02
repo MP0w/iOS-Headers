@@ -8,6 +8,8 @@
 
 #import "KNActionEffectBuildAnimator.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface KNActionFlip : KNAnimationEffect <KNActionEffectBuildAnimator>
 {
@@ -21,6 +23,7 @@ __attribute__((visibility("hidden")))
 + (void)fillLocalizedDirectionMenu:(id)arg1 forType:(int)arg2;
 + (unsigned int)directionType;
 + (id)localizedMenuString:(int)arg1;
++ (BOOL)isEmphasisBuildAnimation;
 + (id)supportedTypes;
 + (id)animationFilter;
 + (int)animationCategory;
@@ -28,6 +31,12 @@ __attribute__((visibility("hidden")))
 - (id)animationsForTextureSet:(id)arg1 finalTextureSet:(id)arg2 duration:(double)arg3 attributes:(id)arg4 previousAttributes:(id)arg5;
 - (id)animationsForTextureSet:(id)arg1 context:(id)arg2;
 - (void)p_addAnimationsForLayer:(id)arg1 duration:(double)arg2 endAngle:(float)arg3 result:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

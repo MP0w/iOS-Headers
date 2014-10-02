@@ -19,6 +19,8 @@
 - (CDStruct_c3b9c2ee)_coordinateForPoint:(struct CGPoint)arg1;
 - (struct CGPoint)pointForCoordinate:(CDStruct_c3b9c2ee)arg1;
 - (id)_initWithSnapshot:(id)arg1;
+- (id)snapshotWithAnnotationView:(id)arg1 atPoint:(struct CGPoint)arg2;
+- (id)snapshotWithAnnotationView:(id)arg1 atCoordinate:(CDStruct_c3b9c2ee)arg2;
 
 @end
 

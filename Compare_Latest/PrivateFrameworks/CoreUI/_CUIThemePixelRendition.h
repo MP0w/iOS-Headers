@@ -8,6 +8,7 @@
 
 @class CUIRenditionMetrics, CUIRenditionSliceInformation, _CSIRenditionBlockData;
 
+__attribute__((visibility("hidden")))
 @interface _CUIThemePixelRendition : CUIThemeRendition
 {
     unsigned int nimages;

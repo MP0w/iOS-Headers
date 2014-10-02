@@ -19,7 +19,7 @@
 - (void)animateZoomWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)_shouldZoomUsingSuperImplementation;
 - (id)_animationProgressDependency;
-- (_Bool)_animationShouldStart;
+- (_Bool)_waitsForApplicationActivationIfNecessary;
 - (void)dealloc;
 - (void)_cleanupPhonesContextHostView;
 - (id)appStatusBarTransitionInfoWithStartEffectivelyHidden:(_Bool)arg1 endStyleRequest:(id)arg2 endOrientation:(long long)arg3;

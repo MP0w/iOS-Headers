@@ -8,7 +8,7 @@
 
 #import "SBTestRecipe.h"
 
-@class SBTestStarkAlert;
+@class NSString, SBTestStarkAlert;
 
 @interface SBStarkAlertRecipe : NSObject <SBTestRecipe>
 {
@@ -18,6 +18,12 @@
 + (id)title;
 - (void)handleVolumeDecrease;
 - (void)handleVolumeIncrease;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "CLLocationManagerRoutineClientInterface.h"
 
-@class CLLocationManagerRoutine, NSObject<OS_dispatch_queue>, NSXPCConnection;
+@class CLLocationManagerRoutine, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
 
 @interface _CLLocationManagerRoutineProxy : NSObject <CLLocationManagerRoutineClientInterface>
 {
@@ -27,6 +27,12 @@
 - (void)didUpdateLocations:(id)arg1;
 - (void)dealloc;
 - (id)initWithCLLocationManagerRoutine:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

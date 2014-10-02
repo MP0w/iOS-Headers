@@ -17,6 +17,7 @@
 
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
 @property(nonatomic) _Bool disablesUpdates; // @synthesize disablesUpdates=_disablesUpdates;
+- (void)setCustomSubtitleText:(id)arg1 withColor:(id)arg2;
 - (void)setContentAlpha:(double)arg1 withDateVisible:(_Bool)arg2;
 - (void)_startUpdateTimer;
 - (void)_stopUpdateTimer;

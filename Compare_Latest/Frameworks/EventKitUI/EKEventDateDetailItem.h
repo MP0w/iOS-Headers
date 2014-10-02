@@ -8,7 +8,7 @@
 
 #import "EKCellShortener.h"
 
-@class NSDate, PreferencesDoubleTwoPartValueCell;
+@class NSDate, NSString, PreferencesDoubleTwoPartValueCell;
 
 __attribute__((visibility("hidden")))
 @interface EKEventDateDetailItem : EKEventDetailItem <EKCellShortener>
@@ -27,6 +27,12 @@ __attribute__((visibility("hidden")))
 - (void)setEvent:(id)arg1 store:(id)arg2;
 - (void)reset;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

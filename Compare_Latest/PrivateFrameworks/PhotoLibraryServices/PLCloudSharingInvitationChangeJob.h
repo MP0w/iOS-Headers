@@ -37,7 +37,7 @@
 - (long long)daemonOperation;
 - (void)dealloc;
 - (id)description;
-- (id)initFromXPCObject:(id)arg1;
+- (id)initFromXPCObject:(id)arg1 connection:(id)arg2;
 - (void)encodeToXPCObject:(id)arg1;
 
 @end

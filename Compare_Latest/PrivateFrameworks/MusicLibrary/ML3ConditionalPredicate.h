@@ -14,9 +14,9 @@
 }
 
 + (id)predicateWithConditionPredicate:(id)arg1 thenPredicate:(id)arg2 elsePredicate:(id)arg3;
-@property(readonly, nonatomic) ML3Predicate *elsePredicate; // @synthesize elsePredicate=_elsePredicate;
-@property(readonly, nonatomic) ML3Predicate *thenPredicate; // @synthesize thenPredicate=_thenPredicate;
-@property(readonly, nonatomic) ML3Predicate *conditionPredicate; // @synthesize conditionPredicate=_conditionPredicate;
+@property(readonly, copy, nonatomic) ML3Predicate *elsePredicate; // @synthesize elsePredicate=_elsePredicate;
+@property(readonly, copy, nonatomic) ML3Predicate *thenPredicate; // @synthesize thenPredicate=_thenPredicate;
+@property(readonly, copy, nonatomic) ML3Predicate *conditionPredicate; // @synthesize conditionPredicate=_conditionPredicate;
 - (void).cxx_destruct;
 - (id)spotlightPredicate;
 - (BOOL)isDynamicForEntityClass:(Class)arg1;

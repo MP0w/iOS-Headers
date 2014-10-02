@@ -8,7 +8,6 @@
 
 @class NSHashTable, NSLock, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>;
 
-__attribute__((visibility("hidden")))
 @interface GEOTileServerRemoteProxy : GEOTileServerProxy
 {
     NSObject<OS_dispatch_queue> *_connQueue;
@@ -22,8 +21,9 @@ __attribute__((visibility("hidden")))
 
 - (BOOL)skipNetworkForKeysWhenPreloading:(id)arg1;
 - (void)endPreloadSession;
-- (void)beginPreloadSessionOfSize:(unsigned long long)arg1;
+- (void)beginPreloadSessionOfSize:(unsigned long long)arg1 exclusive:(BOOL)arg2;
 - (void)shrinkDiskCacheToSize:(unsigned long long)arg1;
+- (void)calculateFreeableSize;
 - (void)flushPendingWrites;
 - (void)open;
 - (void)close;
@@ -36,7 +36,7 @@ __attribute__((visibility("hidden")))
 - (void)_handleTile:(id)arg1;
 - (void)_handleEvent:(id)arg1 fromConnection:(id)arg2;
 - (void)dealloc;
-- (id)init;
+- (id)initWithCacheLocation:(id)arg1 manifestConfiguration:(id)arg2 locale:(id)arg3;
 
 @end
 

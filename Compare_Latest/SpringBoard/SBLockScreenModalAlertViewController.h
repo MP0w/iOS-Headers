@@ -6,26 +6,30 @@
 
 #import "UIViewController.h"
 
-@class NSMutableArray, SBAlertItem, SBLockScreenModalAlertView;
+@class NSArray, NSMutableArray, SBAlertItem, SBUIBiometricEventMonitor;
 
 @interface SBLockScreenModalAlertViewController : UIViewController
 {
-    SBLockScreenModalAlertView *_modalAlertView;
     NSMutableArray *_pendingAlertItems;
     NSMutableArray *_pendingSuperModalAlertItems;
+    NSMutableArray *_presentedAlertItems;
     SBAlertItem *_currentAlertItem;
+    SBUIBiometricEventMonitor *_bioEventMonitor;
 }
 
-- (void)pendOrDeactivateCurrentAlertItem;
+@property(readonly, nonatomic) NSArray *presentedAlertItems; // @synthesize presentedAlertItems=_presentedAlertItems;
+- (void)_pendOrDeactivateAlertItem:(id)arg1 animated:(_Bool)arg2;
+- (void)_removePresentedAlertItem:(id)arg1;
+- (void)_addPresentedAlertItem:(id)arg1;
 - (void)_pendAlertItem:(id)arg1;
 - (id)allPendingAlertItems;
 - (_Bool)hasSuperModalAlertItems;
 - (id)dequeueAllPendingSuperModalAlertItems;
 @property(readonly, nonatomic) SBAlertItem *currentAlertItem; // @synthesize currentAlertItem=_currentAlertItem;
+- (void)pendOrDeactivateCurrentAlertItem;
 - (id)dequeueAllPendingAlertItems;
-- (void)deactivateAlertItem:(id)arg1;
-- (_Bool)activateAlertItem:(id)arg1 pended:(_Bool)arg2;
-- (void)loadView;
+- (void)deactivateAlertItem:(id)arg1 animated:(_Bool)arg2;
+- (_Bool)activateAlertItem:(id)arg1 pended:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

@@ -17,6 +17,7 @@
     UIImageView *_rightBattery;
     UIActivityIndicatorView *_loadingIndicator;
     NSNumberFormatter *_numberFormatter;
+    BOOL _bluetoothAvailable;
 }
 
 @property(retain, nonatomic) AXRemoteHearingAidDevice *device; // @synthesize device=_device;

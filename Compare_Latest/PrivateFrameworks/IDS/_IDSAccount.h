@@ -8,7 +8,7 @@
 
 #import "IDSDaemonListenerProtocol.h"
 
-@class NSArray, NSData, NSDate, NSDictionary, NSMapTable, NSMutableArray, NSString;
+@class IDSDevice, NSArray, NSData, NSDate, NSDictionary, NSMapTable, NSMutableArray, NSString;
 
 @interface _IDSAccount : NSObject <IDSDaemonListenerProtocol>
 {
@@ -17,6 +17,7 @@
     NSString *_uniqueID;
     NSString *_service;
     NSMutableArray *_devices;
+    IDSDevice *_localDevice;
     id _delegateContext;
     NSMapTable *_delegateToInfo;
     NSMapTable *_registrationDelegateToInfo;
@@ -38,6 +39,9 @@
 - (void)authenticateAccount;
 - (void)activeDevicesUpdatedForAccount:(id)arg1;
 - (void)refreshRegistrationForAccount:(id)arg1;
+- (void)device:(id)arg1 nsuuidChanged:(id)arg2;
+- (void)account:(id)arg1 localDeviceRemoved:(id)arg2;
+- (void)account:(id)arg1 localDeviceAdded:(id)arg2;
 - (void)account:(id)arg1 dependentDevicesUpdated:(id)arg2;
 - (void)account:(id)arg1 displayNameChanged:(id)arg2;
 - (void)account:(id)arg1 loginChanged:(id)arg2;
@@ -46,7 +50,7 @@
 - (void)account:(id)arg1 aliasesChanged:(id)arg2;
 - (void)account:(id)arg1 registrationStatusInfoChanged:(id)arg2;
 - (void)_connect;
-- (id)description;
+@property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) NSData *pushToken;
 @property(readonly, nonatomic) NSData *registrationCertificate;
 @property(readonly, nonatomic) NSArray *registeredURIs;
@@ -54,7 +58,10 @@
 @property(readonly, nonatomic) NSDate *dateRegistered;
 @property(readonly, nonatomic) NSDate *nextRegistrationDate;
 - (id)_keychainRegistration;
-@property(readonly, nonatomic) NSArray *devices;
+- (void)_callNearbyDevicesChanged;
+- (void)_callDevicesChanged;
+@property(readonly, retain, nonatomic) NSArray *nearbyDevices;
+@property(readonly, retain, nonatomic) NSArray *devices;
 - (void)_loadCachedDevices;
 - (void)_updateDependentDevicesWithDevicesInfo:(id)arg1;
 @property(readonly, nonatomic) NSString *profileID;
@@ -64,17 +71,20 @@
 - (void)setPassword:(id)arg1;
 @property(readonly, nonatomic) int accountType;
 @property(nonatomic, setter=_setIsEnabled:) BOOL _isEnabled;
-@property(readonly, nonatomic) NSString *uniqueID;
-@property(readonly, nonatomic) NSString *serviceName;
+@property(readonly, retain, nonatomic) NSString *uniqueID;
+@property(readonly, retain, nonatomic) NSString *pushTopic;
+@property(readonly, retain, nonatomic) NSString *primaryServiceName;
+@property(readonly, retain, nonatomic) NSString *serviceName;
 @property(retain, nonatomic) NSString *loginID;
-@property(readonly, nonatomic) NSArray *vettedAliases;
-@property(readonly, nonatomic) NSArray *aliases;
-@property(readonly, nonatomic) NSArray *aliasStrings;
+@property(readonly, retain, nonatomic) NSString *displayName;
+@property(readonly, retain, nonatomic) NSArray *vettedAliases;
+@property(readonly, retain, nonatomic) NSArray *aliases;
+@property(readonly, retain, nonatomic) NSArray *aliasStrings;
 @property(readonly, nonatomic) BOOL canSend;
 @property(readonly, nonatomic) NSDictionary *regionServerContext;
 @property(readonly, nonatomic) NSString *regionBasePhoneNumber;
 @property(readonly, nonatomic) NSString *regionID;
-@property(readonly, nonatomic) NSDictionary *profileInfo;
+@property(readonly, retain, nonatomic) NSDictionary *profileInfo;
 - (void)updateAccountWithAccountInfo:(id)arg1;
 @property(retain, nonatomic) NSDictionary *accountInfo;
 @property(readonly, nonatomic) BOOL isActive;
@@ -83,12 +93,20 @@
 - (void)_callRegistrationDelegatesWithBlock:(CDUnknownBlockType)arg1;
 - (void)removeRegistrationDelegate:(id)arg1;
 - (void)addRegistrationDelegate:(id)arg1 queue:(id)arg2;
+- (void)_callDelegatesWithBlock:(CDUnknownBlockType)arg1 group:(id)arg2;
 - (void)_callDelegatesWithBlock:(CDUnknownBlockType)arg1;
 - (void)removeDelegate:(id)arg1;
 - (void)addDelegate:(id)arg1 queue:(id)arg2;
+- (BOOL)_isiCloudPairingService;
 - (void)dealloc;
 - (id)initWithLoginID:(id)arg1 uniqueID:(id)arg2 serviceName:(id)arg3 delegateContext:(id)arg4;
 - (id)initWithDictionary:(id)arg1 uniqueID:(id)arg2 serviceName:(id)arg3 delegateContext:(id)arg4;
+- (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

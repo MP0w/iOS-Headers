@@ -8,7 +8,7 @@
 
 #import "SKUIClientProductPageViewController.h"
 
-@class SKStoreProductViewController;
+@class NSString, SKStoreProductViewController;
 
 __attribute__((visibility("hidden")))
 @interface SKRemoteProductViewController : _UIRemoteViewController <SKUIClientProductPageViewController>
@@ -29,6 +29,12 @@ __attribute__((visibility("hidden")))
 - (void)didFinish;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

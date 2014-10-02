@@ -15,5 +15,6 @@
 @property(readonly, nonatomic) BOOL isPartitioned;
 @property(readonly, nonatomic) BOOL isAnchored;
 @property(readonly, nonatomic) BOOL isDrawable;
+- (void)infoChanged;
 @end
 

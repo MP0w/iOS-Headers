@@ -7,6 +7,7 @@
 #import "NSError.h"
 
 @interface NSError (EventKit)
++ (id)errorWithCode:(int)arg1 description:(id)arg2 reason:(id)arg3;
 + (id)errorWithCode:(int)arg1 description:(id)arg2;
 + (id)errorWithCode:(int)arg1;
 + (id)errorWithCADResult:(int)arg1 action:(id)arg2;

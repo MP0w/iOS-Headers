@@ -13,10 +13,11 @@
     SBStarkScreenController *_starkScreenController;
 }
 
-@property(readonly, nonatomic) SBStarkScreenController *starkScreenController; // @synthesize starkScreenController=_starkScreenController;
+@property(readonly, retain, nonatomic) SBStarkScreenController *starkScreenController; // @synthesize starkScreenController=_starkScreenController;
+- (id)__newWaitForAppActivationTransaction;
 - (void)_cleanupAnimation;
 - (void)__startAnimation;
-- (_Bool)_wantsInitialProgressStateChange;
+- (_Bool)__wantsInitialProgressStateChange;
 - (id)_getTransitionWindow;
 - (void)dealloc;
 - (id)initWithActivatingApp:(id)arg1 deactivatingApp:(id)arg2 starkScreenController:(id)arg3;

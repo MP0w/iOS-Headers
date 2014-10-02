@@ -26,7 +26,7 @@
 + (id)cloudPlistName;
 + (id)cameraRollPlistName;
 + (id)migrateOldPlistToNewPlist:(id)arg1;
-@property(readonly) NSURL *directoryURL; // @synthesize directoryURL=_baseURL;
+@property(readonly, retain) NSURL *directoryURL; // @synthesize directoryURL=_baseURL;
 @property BOOL representsCameraRoll; // @synthesize representsCameraRoll=_representsCameraRoll;
 - (void)reset;
 - (id)nextAvailableFileURLWithExtension:(id)arg1;
@@ -39,7 +39,7 @@
 - (struct _NSRange)fileNameNumberRangeForDirNumber:(unsigned int)arg1;
 - (id)availableFileNameNumbersInDirNumber:(unsigned int)arg1;
 - (id)subDirURLForNumber:(unsigned int)arg1 create:(BOOL)arg2 didCreate:(char *)arg3;
-@property(readonly, nonatomic) NSURL *currentSubDirectory;
+@property(readonly, retain, nonatomic) NSURL *currentSubDirectory;
 
 @end
 

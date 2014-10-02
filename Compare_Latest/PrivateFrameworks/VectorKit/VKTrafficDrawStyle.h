@@ -4,29 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <VectorKit/VKDrawStyle.h>
+#import <VectorKit/VKRenderStyle.h>
 
 __attribute__((visibility("hidden")))
-@interface VKTrafficDrawStyle : VKDrawStyle
+@interface VKTrafficDrawStyle : VKRenderStyle
 {
-    struct VKProfileSparseRamp<float> width;
-    float animationSpeed;
-    float glowFadingRange[2];
-    float shiftRange[2];
-    float antiAliasingFactor[2];
-    struct {
-        struct VKProfileSparseRamp<_VGLColor> fillColor;
-        struct VKProfileSparseRamp<_VGLColor> secondaryColor;
-        float pattern[3];
-        float fadingFactor[2];
-    } perSpeedTraffic[4];
 }
 
-- (id).cxx_construct;
-- (void).cxx_destruct;
-- (void)takeFromZoomInvariantProperties:(id)arg1;
-- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2 globals:(id)arg3;
-- (id)variant;
++ (int)renderStyleID;
 
 @end
 

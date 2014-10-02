@@ -8,36 +8,37 @@
 
 #import "NSNetServiceDelegate.h"
 
-@class MCPeerID, NSDictionary, NSMutableDictionary, NSNetService, NSObject<OS_dispatch_queue>, NSString;
+@class MCPeerID, NSData, NSDictionary, NSMutableDictionary, NSNetService, NSObject<OS_dispatch_queue>, NSString;
 
 @interface MCNearbyServiceAdvertiser : NSObject <NSNetServiceDelegate>
 {
+    id <MCNearbyServiceAdvertiserDelegate> _delegate;
     BOOL _isAdvertising;
     BOOL _wasAdvertising;
-    id <MCNearbyServiceAdvertiserDelegate> _delegate;
     MCPeerID *_myPeerID;
     NSDictionary *_discoveryInfo;
     NSString *_serviceType;
     NSString *_formattedServiceType;
+    NSNetService *_networkServer;
+    NSData *_TXTRecordData;
     NSMutableDictionary *_peers;
     int _outgoingInviteID;
     NSObject<OS_dispatch_queue> *_syncQueue;
     NSMutableDictionary *_invites;
-    NSNetService *_networkServer;
 }
 
-@property(retain, nonatomic) NSNetService *networkServer; // @synthesize networkServer=_networkServer;
 @property(nonatomic) BOOL wasAdvertising; // @synthesize wasAdvertising=_wasAdvertising;
 @property(nonatomic) BOOL isAdvertising; // @synthesize isAdvertising=_isAdvertising;
 @property(retain, nonatomic) NSMutableDictionary *invites; // @synthesize invites=_invites;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *syncQueue; // @synthesize syncQueue=_syncQueue;
 @property(nonatomic) int outgoingInviteID; // @synthesize outgoingInviteID=_outgoingInviteID;
 @property(retain, nonatomic) NSMutableDictionary *peers; // @synthesize peers=_peers;
+@property(retain, nonatomic) NSData *TXTRecordData; // @synthesize TXTRecordData=_TXTRecordData;
+@property(retain, nonatomic) NSNetService *networkServer; // @synthesize networkServer=_networkServer;
 @property(copy, nonatomic) NSString *formattedServiceType; // @synthesize formattedServiceType=_formattedServiceType;
 @property(copy, nonatomic) NSString *serviceType; // @synthesize serviceType=_serviceType;
 @property(copy, nonatomic) NSDictionary *discoveryInfo; // @synthesize discoveryInfo=_discoveryInfo;
 @property(readonly, nonatomic) MCPeerID *myPeerID; // @synthesize myPeerID=_myPeerID;
-@property(nonatomic) id <MCNearbyServiceAdvertiserDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)netService:(id)arg1 didNotPublish:(id)arg2;
 - (void)netServiceDidPublish:(id)arg1;
 - (void)netServiceDidStop:(id)arg1;
@@ -58,11 +59,18 @@
 - (void)startAdvertisingPeer;
 - (void)syncStartAdvertisingPeer;
 - (void)parseIDString:(id *)arg1 displayName:(id *)arg2 fromIdentifier:(id)arg3;
-- (void)insertTXTRecord;
-- (id)description;
+- (id)txtRecordDataWithDiscoveryInfo:(id)arg1;
+- (id)makeTXTRecordDataWithDiscoveryInfo:(id)arg1;
+@property(nonatomic) __weak id <MCNearbyServiceAdvertiserDelegate> delegate;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithPeer:(id)arg1 discoveryInfo:(id)arg2 serviceType:(id)arg3;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

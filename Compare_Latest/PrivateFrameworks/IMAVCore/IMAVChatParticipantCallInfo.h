@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSData, NSDictionary, NSMutableArray, NSNumber, NSString;
+@class NSData, NSDictionary, NSNumber, NSString;
 
 @interface IMAVChatParticipantCallInfo : NSObject
 {
@@ -28,7 +28,6 @@
     BOOL _isReinitiate;
     unsigned int _localConnectionType;
     unsigned int _remoteConnectionType;
-    NSMutableArray *_remotePacketOutageTimes;
     BOOL _inviteNeedsDelivery;
     NSData *_localSKEData;
     NSData *_remoteSKEData;
@@ -55,8 +54,6 @@
 @property(retain, nonatomic) NSDictionary *relayCancel; // @synthesize relayCancel=_relayCancel;
 @property(retain, nonatomic) NSDictionary *relayUpdate; // @synthesize relayUpdate=_relayUpdate;
 @property(retain, nonatomic) NSDictionary *relayInitiate; // @synthesize relayInitiate=_relayInitiate;
-- (unsigned int)_numberOfOutagesSinceInterval:(double)arg1;
-- (void)_addRemotePacketOutage;
 - (id)description;
 @property(readonly, nonatomic) BOOL isFinished;
 - (void)dealloc;

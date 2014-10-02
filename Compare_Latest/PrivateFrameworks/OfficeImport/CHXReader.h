@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
 + (id)readFromXmlDocument:(struct _xmlDoc *)arg1 chartStyleId:(int)arg2 drawingState:(id)arg3;
 + (id)readFromParentNode:(struct _xmlNode *)arg1 drawingState:(id)arg2;
 + (id)externalDataWithChartPart:(id)arg1 relationship:(id)arg2;
-+ (id)externalDataRelationshipWithChartPart:(id)arg1;
++ (id)externalDataRelationshipWithChartPart:(id)arg1 drawingState:(id)arg2;
 + (id)chartPartWithParentNode:(struct _xmlNode *)arg1 drawingState:(id)arg2;
 
 @end

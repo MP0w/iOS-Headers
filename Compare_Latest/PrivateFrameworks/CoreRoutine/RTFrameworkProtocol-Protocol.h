@@ -6,6 +6,9 @@
 
 #import "NSObject.h"
 
+@class CLVisit, NSError;
+
 @protocol RTFrameworkProtocol <NSObject>
+- (void)onVisit:(CLVisit *)arg1 withError:(NSError *)arg2;
 @end
 

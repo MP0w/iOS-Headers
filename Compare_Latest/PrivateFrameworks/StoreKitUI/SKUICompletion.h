@@ -25,5 +25,11 @@
 - (id)initWithCacheRepresentation:(id)arg1;
 - (id)initWithCompletionDictionary:(id)arg1;
 
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
+
 @end
 

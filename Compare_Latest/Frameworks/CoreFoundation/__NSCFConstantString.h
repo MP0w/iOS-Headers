@@ -16,7 +16,6 @@ __attribute__((visibility("hidden")))
 - (oneway void)release;
 - (id)retain;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isKindOfClass:(Class)arg1;
 
 @end
 

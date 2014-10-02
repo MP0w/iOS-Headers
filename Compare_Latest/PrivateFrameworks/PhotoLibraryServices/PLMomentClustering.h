@@ -11,6 +11,7 @@
 @interface PLMomentClustering : NSObject
 {
     BOOL _dirty;
+    BOOL _shouldApplyUserInfluenceBeforeClustering;
     BOOL _accumulatesSmallClusters;
     BOOL _spatialJoinsAdjacentClusters;
     CDUnknownBlockType _progressBlock;
@@ -55,6 +56,7 @@
 @property(nonatomic) double accumulationTimeInterval; // @synthesize accumulationTimeInterval=_accumulationTimeInterval;
 @property(nonatomic) unsigned int accumulationSize; // @synthesize accumulationSize=_accumulationSize;
 @property(nonatomic) BOOL accumulatesSmallClusters; // @synthesize accumulatesSmallClusters=_accumulatesSmallClusters;
+@property(nonatomic) BOOL shouldApplyUserInfluenceBeforeClustering; // @synthesize shouldApplyUserInfluenceBeforeClustering=_shouldApplyUserInfluenceBeforeClustering;
 @property(nonatomic, getter=isDirty, setter=_setDirty:) BOOL dirty; // @synthesize dirty=_dirty;
 @property(nonatomic) double theta; // @synthesize theta=_theta;
 @property(nonatomic) double sigma; // @synthesize sigma=_sigma;
@@ -69,8 +71,12 @@
 @property(copy, nonatomic) CDUnknownBlockType progressBlock; // @synthesize progressBlock=_progressBlock;
 - (void)markNodeForDiagnosis:(id)arg1;
 @property(readonly, nonatomic) BOOL hasMarkedNodes;
+- (id)_clustersByMergingUserInfluencedClusters:(id)arg1;
+- (id)_clustersBySplittingUserInfluencedClusters:(id)arg1;
+- (id)clustersByApplyingUserInfluenceToClusters:(id)arg1;
 - (id)spatialJoinClustersFromClusters:(id)arg1;
 - (id)accumulateSmallClustersFromClusters:(id)arg1;
+- (id)neighborsOfTaggedNode:(id)arg1;
 - (id)neighborsOfNode:(id)arg1;
 - (id)temporalSnapshotOfNode:(id)arg1 withRange:(double)arg2;
 - (id)clustersWithNodes:(id)arg1 sigma:(double)arg2 theta:(double)arg3;

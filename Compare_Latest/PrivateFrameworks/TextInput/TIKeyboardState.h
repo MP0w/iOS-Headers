@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSString, TIDocumentState, TIKeyboardCandidate, TIKeyboardLayout, TIKeyboardLayoutState;
+@class NSString, TIDocumentState, TIKeyboardCandidate, TIKeyboardLayout, TIKeyboardLayoutState, TITextInputTraits;
 
 @interface TIKeyboardState : NSObject <NSCopying, NSSecureCoding>
 {
@@ -21,7 +21,6 @@
             unsigned int suppressingCandidateSelection:1;
             unsigned int needsCandidateMetadata:1;
             unsigned int keyboardEventsLagging:1;
-            unsigned int secureTextEntry:1;
             unsigned int hardwareKeyboardMode:1;
             unsigned int splitKeyboardMode:1;
             unsigned int wordLearningEnabled:1;
@@ -29,42 +28,59 @@
             unsigned int shortcutConversionEnabled:1;
             unsigned int typologyLoggingEnabled:1;
             unsigned int autocapitalizationEnabled:1;
-            unsigned int autocapitalizationType:2;
-            unsigned int keyboardType:4;
         } fields;
     } _mask;
+    union {
+        int integerValue;
+        struct {
+            unsigned int displayed:1;
+            unsigned int autoDisplayMode:1;
+        } fields;
+    } _autocorrectionListUIState;
+    NSString *_clientIdentifier;
     NSString *_inputMode;
+    NSString *_recipientIdentifier;
     TIKeyboardLayout *_keyLayout;
+    int _shiftState;
     TIKeyboardLayoutState *_layoutState;
     TIDocumentState *_documentState;
     NSString *_inputForMarkedText;
     NSString *_searchStringForMarkedText;
     TIKeyboardCandidate *_currentCandidate;
+    TITextInputTraits *_textInputTraits;
+    NSString *_responseContext;
 }
 
 + (BOOL)supportsSecureCoding;
+@property(copy, nonatomic) NSString *responseContext; // @synthesize responseContext=_responseContext;
+@property(retain, nonatomic) TITextInputTraits *textInputTraits; // @synthesize textInputTraits=_textInputTraits;
 @property(retain, nonatomic) TIKeyboardCandidate *currentCandidate; // @synthesize currentCandidate=_currentCandidate;
 @property(copy, nonatomic) NSString *searchStringForMarkedText; // @synthesize searchStringForMarkedText=_searchStringForMarkedText;
 @property(copy, nonatomic) NSString *inputForMarkedText; // @synthesize inputForMarkedText=_inputForMarkedText;
 @property(retain, nonatomic) TIDocumentState *documentState; // @synthesize documentState=_documentState;
 @property(copy, nonatomic) TIKeyboardLayoutState *layoutState; // @synthesize layoutState=_layoutState;
+@property(nonatomic) int shiftState; // @synthesize shiftState=_shiftState;
 @property(retain, nonatomic) TIKeyboardLayout *keyLayout; // @synthesize keyLayout=_keyLayout;
+@property(copy, nonatomic) NSString *recipientIdentifier; // @synthesize recipientIdentifier=_recipientIdentifier;
 @property(copy, nonatomic) NSString *inputMode; // @synthesize inputMode=_inputMode;
+@property(copy, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
+@property(nonatomic) BOOL autocorrectionListUIAutoDisplayMode;
+@property(nonatomic) BOOL autocorrectionListUIDisplayed;
+@property(nonatomic) BOOL secureTextEntry;
 @property(nonatomic) unsigned int keyboardType;
 @property(nonatomic) unsigned int autocapitalizationType;
+- (void)_createTextInputTraitsIfNecessary;
 @property(nonatomic) BOOL autocapitalizationEnabled;
-@property(nonatomic) BOOL typologyLoggingEnabled;
 @property(nonatomic) BOOL shortcutConversionEnabled;
 @property(nonatomic) BOOL autocorrectionEnabled;
 @property(nonatomic) BOOL wordLearningEnabled;
 @property(nonatomic) BOOL splitKeyboardMode;
 @property(nonatomic) BOOL hardwareKeyboardMode;
-@property(nonatomic) BOOL secureTextEntry;
 @property(nonatomic) BOOL keyboardEventsLagging;
 @property(nonatomic) BOOL needsCandidateMetadata;
 @property(nonatomic) BOOL suppressingCandidateSelection;

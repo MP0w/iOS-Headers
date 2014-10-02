@@ -15,7 +15,7 @@
     double fDistanceFilter;
     double fDesiredAccuracy;
     BOOL fUpdatingLocation;
-    CDStruct_c3f64973 fLocation;
+    CDStruct_dcdde258 fLocation;
     NSString *fLocationEventType;
     BOOL fCapabilitiesValid;
     struct {
@@ -26,6 +26,7 @@
     int fHeadingOrientation;
     BOOL fPersistentMonitoringEnabled;
     BOOL fAllowsLocationPrompts;
+    BOOL fDynamicAccuracyReductionEnabled;
     BOOL fPreviousAuthorizationStatusValid;
     int fPreviousAuthorizationStatus;
     int fActivityType;
@@ -35,11 +36,14 @@
     BOOL fBatchingLocation;
     BOOL fUpdatingVehicleSpeed;
     BOOL fUpdatingVehicleHeading;
+    BOOL fMatchInfoEnabled;
+    BOOL fCourtesyPromptNeeded;
     NSMutableSet *fRangedRegions;
 }
 
 @property(readonly, nonatomic) NSMutableSet *rangedRegions; // @synthesize rangedRegions=fRangedRegions;
 - (void)dealloc;
+- (void)performCourtesyPromptIfNeeded;
 - (void)stopUpdatingLocationAutoPaused;
 - (int)PausesLocationUpdatesAutomatically;
 - (void)setPausesLocationUpdatesAutomatically:(int)arg1;

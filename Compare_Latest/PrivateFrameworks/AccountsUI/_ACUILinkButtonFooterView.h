@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
 @interface _ACUILinkButtonFooterView : UIView <PSHeaderFooterView>
 {
     ACUILinkButton *_linkButton;
+    int _desiredTextAlignment;
 }
 
 - (void).cxx_destruct;

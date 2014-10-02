@@ -6,23 +6,28 @@
 
 #import "UIView.h"
 
-@class NSString, UILabel;
+@class NSDictionary, NSString, SBObservingLabel;
 
 @interface SBSearchTableHeaderView : UIView
 {
-    UILabel *_titleLabel;
-    UIView *_separatorView;
     NSString *_reuseIdentifier;
+    SBObservingLabel *_titleLabel;
+    UIView *_separatorView;
+    NSDictionary *_titleTextAttributes;
 }
 
++ (_Bool)requiresConstraintBasedLayout;
 + (id)lineColor;
-+ (double)heightForActiveContentSizeCategory;
-@property(readonly, nonatomic) NSString *reuseIdentifier; // @synthesize reuseIdentifier=_reuseIdentifier;
+@property(retain, nonatomic) NSDictionary *titleTextAttributes; // @synthesize titleTextAttributes=_titleTextAttributes;
+@property(retain, nonatomic) UIView *separatorView; // @synthesize separatorView=_separatorView;
+@property(retain, nonatomic) SBObservingLabel *titleLabel; // @synthesize titleLabel=_titleLabel;
+@property(readonly, copy, nonatomic) NSString *reuseIdentifier; // @synthesize reuseIdentifier=_reuseIdentifier;
 - (_Bool)isUserInteractionEnabled;
-- (void)dealloc;
 @property(retain, nonatomic) NSString *title;
-- (void)layoutSubviews;
+- (void)_contentSizeCategoryDidChange:(id)arg1;
+- (void)updateFonts;
 - (void)prepareForReuse;
+- (void)dealloc;
 - (id)initWithReuseIdentifier:(id)arg1;
 
 @end

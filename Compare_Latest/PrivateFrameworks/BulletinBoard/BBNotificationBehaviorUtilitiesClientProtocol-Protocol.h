@@ -7,7 +7,7 @@
 #import "NSObject.h"
 
 @protocol BBNotificationBehaviorUtilitiesClientProtocol <NSObject>
-- (void)activeBehaviorOverrideTypesChanged:(unsigned int)arg1;
+- (void)activeBehaviorOverrideTypesChanged:(unsigned int)arg1 source:(unsigned int)arg2;
 - (void)notificationPresentationFilteringChangedToEnabled:(BOOL)arg1;
 @end
 

@@ -12,7 +12,7 @@
 - (unsigned int)pageCountForPageIndex:(unsigned int)arg1;
 - (unsigned int)pageNumberForPageIndex:(unsigned int)arg1;
 - (id <TPMasterDrawableProvider>)masterDrawableProviderForPageIndex:(unsigned int)arg1;
-- (id <TPHeaderFooterProvider>)headerFooterProviderForPageIndex:(unsigned int)arg1;
+- (id <TSWPHeaderFooterProvider>)headerFooterProviderForPageIndex:(unsigned int)arg1;
 - (BOOL)canProvideNumberingInfoForPageIndex:(unsigned int)arg1;
 - (BOOL)canProvideInfoForPageIndex:(unsigned int)arg1;
 @end

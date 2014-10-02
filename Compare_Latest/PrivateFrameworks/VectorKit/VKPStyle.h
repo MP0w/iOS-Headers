@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableArray *zooms; // @synthesize zooms=_zooms;
 @property(retain, nonatomic) VKPStyleProperties *properties; // @synthesize properties=_properties;
 @property(retain, nonatomic) NSMutableArray *attributes; // @synthesize attributes=_attributes;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

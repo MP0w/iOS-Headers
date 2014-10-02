@@ -6,7 +6,7 @@
 
 #import "NSManagedObject.h"
 
-@class NSString, TDThemeBitSource;
+@class NSString, TDTemplateRenderingMode, TDThemeBitSource;
 
 @interface TDAsset : NSManagedObject
 {
@@ -15,6 +15,7 @@
 
 + (int)subtypeFromImageFilename:(id)arg1;
 + (int)idiomFromImageFilename:(id)arg1;
++ (BOOL)isTemplateFromImageFilename:(id)arg1;
 + (unsigned int)scaleFactorFromImageFilename:(id)arg1;
 + (id)_filenameRegex;
 @property(readonly, nonatomic) NSString *baseName;
@@ -30,6 +31,7 @@
 @property(retain, nonatomic) NSString *category; // @dynamic category;
 @property(retain, nonatomic) NSString *name; // @dynamic name;
 @property(retain, nonatomic) TDThemeBitSource *source; // @dynamic source;
+@property(retain, nonatomic) TDTemplateRenderingMode *templateRenderingMode; // @dynamic templateRenderingMode;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import <UIKit/UIKeyboardMenuView.h>
 
-@class NSArray, NSMutableArray;
+@class NSArray, NSMutableArray, UISwitch;
 
 __attribute__((visibility("hidden")))
 @interface UIInputSwitcherView : UIKeyboardMenuView
@@ -14,14 +14,20 @@ __attribute__((visibility("hidden")))
     int m_currentInputModeIndex;
     BOOL m_keyboardSettingsFromSwitcher;
     NSMutableArray *m_inputModes;
+    UISwitch *m_predictiveSwitch;
 }
 
 + (id)activeInstance;
 + (id)sharedInstance;
 @property(nonatomic) BOOL keyboardSettingsFromSwitcher; // @synthesize keyboardSettingsFromSwitcher=m_keyboardSettingsFromSwitcher;
 @property(retain, nonatomic) NSArray *inputModes; // @synthesize inputModes=m_inputModes;
+- (id)predictiveSwitch;
+- (void)switchAction;
 - (void)didSelectItemAtIndex:(int)arg1;
+- (id)subtitleFontForItemAtIndex:(int)arg1;
 - (id)subtitleForItemAtIndex:(int)arg1;
+- (id)fontForItemAtIndex:(int)arg1;
+- (id)localizedTitleForItemAtIndex:(int)arg1;
 - (id)titleForItemAtIndex:(int)arg1;
 - (int)defaultSelectedIndex;
 - (struct CGSize)preferredSize;
@@ -35,6 +41,7 @@ __attribute__((visibility("hidden")))
 - (void)setInputMode:(id)arg1;
 - (void)selectRowForInputMode:(id)arg1;
 - (id)selectedInputMode;
+- (void)toggleKeyboardPredictionPreference;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

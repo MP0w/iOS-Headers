@@ -8,6 +8,8 @@
 
 #import "_SBIconWallpaperColorClient.h"
 
+@class NSString;
+
 @interface SBIconBlurryBackgroundView : UIView <_SBIconWallpaperColorClient>
 {
     struct CGRect _wallpaperRelativeBounds;
@@ -31,6 +33,12 @@
 - (void)didAddSubview:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -14,25 +14,31 @@
 {
     BOOL _isEyesFree;
     BOOL _useAutomaticEndpointing;
+    BOOL _useStreamingDictation;
     BOOL _isInitialBringUp;
-    int _event;
+    BOOL _acousticIdEnabled;
+    int _activationEvent;
     NSString *_btDeviceAddress;
     NSString *_serverCommandId;
     NSNumber *_homeButtonUpFromBeep;
+    int _audioFileType;
     double _activationEventTime;
     double _expectedActivationEventTime;
 }
 
 + (BOOL)supportsSecureCoding;
+@property(nonatomic) int audioFileType; // @synthesize audioFileType=_audioFileType;
+@property(nonatomic) BOOL acousticIdEnabled; // @synthesize acousticIdEnabled=_acousticIdEnabled;
 @property(copy, nonatomic) NSNumber *homeButtonUpFromBeep; // @synthesize homeButtonUpFromBeep=_homeButtonUpFromBeep;
 @property(nonatomic) BOOL isInitialBringUp; // @synthesize isInitialBringUp=_isInitialBringUp;
 @property(nonatomic) double expectedActivationEventTime; // @synthesize expectedActivationEventTime=_expectedActivationEventTime;
 @property(nonatomic) double activationEventTime; // @synthesize activationEventTime=_activationEventTime;
+@property(nonatomic) BOOL useStreamingDictation; // @synthesize useStreamingDictation=_useStreamingDictation;
 @property(nonatomic) BOOL useAutomaticEndpointing; // @synthesize useAutomaticEndpointing=_useAutomaticEndpointing;
 @property(copy, nonatomic) NSString *serverCommandId; // @synthesize serverCommandId=_serverCommandId;
 @property(nonatomic) BOOL isEyesFree; // @synthesize isEyesFree=_isEyesFree;
 @property(copy, nonatomic) NSString *btDeviceAddress; // @synthesize btDeviceAddress=_btDeviceAddress;
-@property(nonatomic) int activationEvent; // @synthesize activationEvent=_event;
+@property(nonatomic) int activationEvent; // @synthesize activationEvent=_activationEvent;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

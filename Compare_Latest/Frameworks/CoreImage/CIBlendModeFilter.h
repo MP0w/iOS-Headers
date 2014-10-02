@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) CIImage *inputBackgroundImage; // @synthesize inputBackgroundImage;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
+- (BOOL)_needUnpremuls;
 - (struct CGRect)_extent;
 
 @end

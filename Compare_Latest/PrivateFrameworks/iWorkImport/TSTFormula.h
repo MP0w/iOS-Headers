@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 + (id)doubleQuoteCharacters;
 + (id)leadingSingleQuoteEscapeCharacters;
 + (id)singleQuoteCharacters;
++ (id)formulaForCell:(id)arg1 atCellID:(CDStruct_0441cfb5)arg2 inTable:(id)arg3;
 @property(nonatomic) BOOL requireEqualsToken; // @synthesize requireEqualsToken=mRequireEqualsToken;
 @property(copy, nonatomic) NSString *initialWhitespace; // @synthesize initialWhitespace=mInitialWhitespace;
 @property(nonatomic, getter=isEmpty) BOOL empty; // @synthesize empty=mEmpty;
@@ -44,6 +45,9 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSCECalculationEngine *calculationEngine; // @synthesize calculationEngine=mCalculationEngine;
 @property(retain, nonatomic) TSTExpressionNode *expressionTree; // @synthesize expressionTree=mExpressionTree;
 - (id).cxx_construct;
+- (id)p_formulaAsTextReturningTokenValues:(BOOL)arg1;
+- (id)formulaDetokenizedText;
+- (id)formulaPlainText;
 - (id)p_fixFormula:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)reparseWithStorage:(id)arg1 adjustExpressionTree:(CDUnknownBlockType)arg2;

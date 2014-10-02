@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
 - (struct CGSize)_contentSize;
 - (void)addSubview:(id)arg1;
 - (struct CGSize)_sizeFittingContentViews;
-- (void)_setToolbarBackgroundView:(id)arg1;
+- (void)_setToolbarBackgroundViewWithImage:(id)arg1;
 - (void)_setToolbarBackgroundImage:(id)arg1;
 - (BOOL)_isToolbar;
 - (id)initWithFrame:(struct CGRect)arg1 inputView:(id)arg2;

@@ -20,8 +20,8 @@ __attribute__((visibility("hidden")))
 - (BOOL)isObjectInExternalPackage:(id)arg1 claimingComponent:(id *)arg2;
 - (BOOL)isComponentExternal:(id)arg1 wasWritten:(char *)arg2 wasCopied:(char *)arg3;
 - (BOOL)shouldEnqueueComponent:(id)arg1;
-- (id)initWithContext:(id)arg1 packageWriteCoordinator:(id)arg2;
-- (id)initWithContext:(id)arg1 packageIdentifier:(unsigned char)arg2;
+- (id)initWithContext:(id)arg1 documentRevision:(id)arg2 saveToken:(unsigned long long)arg3 fileFormatVersion:(unsigned long long)arg4 packageWriteCoordinator:(id)arg5;
+- (id)initWithContext:(id)arg1 documentRevision:(id)arg2 saveToken:(unsigned long long)arg3 packageIdentifier:(unsigned char)arg4 fileFormatVersion:(unsigned long long)arg5 preferredPackageType:(int)arg6;
 
 @end
 

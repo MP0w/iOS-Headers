@@ -8,8 +8,9 @@
 
 #import "PBRequesterDelegate.h"
 
-@class GEORequester;
+@class GEORequester, NSString;
 
+__attribute__((visibility("hidden")))
 @interface GEORPVoltaireProblemProvider : GEORPProblemProvider <PBRequesterDelegate>
 {
     GEORequester *_submissionRequester;
@@ -23,8 +24,6 @@
     CDUnknownBlockType _notificationAvailabilityFinishedHandler;
 }
 
-+ (unsigned short)providerID;
-+ (void)setUsePersistentConnection:(BOOL)arg1;
 - (void)requesterDidFinish:(id)arg1;
 - (void)requesterDidCancel:(id)arg1;
 - (void)requester:(id)arg1 didFailWithError:(id)arg2;
@@ -33,6 +32,12 @@
 - (void)startStatusRequest:(id)arg1 finished:(CDUnknownBlockType)arg2 error:(CDUnknownBlockType)arg3;
 - (void)startSubmissionRequest:(id)arg1 finished:(CDUnknownBlockType)arg2 error:(CDUnknownBlockType)arg3;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

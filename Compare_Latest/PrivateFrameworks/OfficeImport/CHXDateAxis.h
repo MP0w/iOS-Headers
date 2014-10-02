@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)chdAxisFromXmlAxisElement:(struct _xmlNode *)arg1 state:(id)arg2;
++ (id)stringFromTimeUnit:(int)arg1;
 + (int)chdTimeUnitFromXmlTimeUnitElement:(struct _xmlNode *)arg1;
 
 @end

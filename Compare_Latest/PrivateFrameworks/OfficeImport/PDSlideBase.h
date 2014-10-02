@@ -64,8 +64,9 @@ __attribute__((visibility("hidden")))
 - (id)name;
 - (void)dealloc;
 - (id)init;
+- (id)description;
+- (void)setPpt9AnimationDataForCacheItem:(id)arg1 order:(int)arg2 state:(id)arg3;
 - (void)addSlideNumberPlaceholder:(id)arg1;
-- (void)setPpt9AnimationDataForCacheItem:(id)arg1 order:(int)arg2;
 
 @end
 

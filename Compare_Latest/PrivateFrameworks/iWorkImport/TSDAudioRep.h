@@ -7,12 +7,12 @@
 #import <iWorkImport/TSDMediaRep.h>
 
 #import "TSDAudioHUDControllerDelegate.h"
-#import "TSKAVPlayerControllerDelegate.h"
+#import "TSKMediaPlayerControllerDelegate.h"
 
-@class CALayer, TSDMovieInfo, TSKAVPlayerController;
+@class CALayer, NSString, TSDMovieInfo, TSKAVPlayerController;
 
 __attribute__((visibility("hidden")))
-@interface TSDAudioRep : TSDMediaRep <TSKAVPlayerControllerDelegate, TSDAudioHUDControllerDelegate>
+@interface TSDAudioRep : TSDMediaRep <TSKMediaPlayerControllerDelegate, TSDAudioHUDControllerDelegate>
 {
     TSKAVPlayerController *mPlayerController;
     CALayer *mPlayPauseButtonLayer;
@@ -22,8 +22,8 @@ __attribute__((visibility("hidden")))
     id <TSDAudioHUDController> mAudioHUDController;
 }
 
++ (float)magicMoveAttributeMatchPercentBetweenOutgoingObject:(id)arg1 incomingObject:(id)arg2;
 @property(readonly, nonatomic) id <TSDAudioHUDController> audioHUDController; // @synthesize audioHUDController=mAudioHUDController;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)p_teardownAudioHUD;
 - (void)p_updateAudioHUDWithFrame:(struct CGRect)arg1;
 - (void)setupPlayerControllerForAudioHUDController:(id)arg1;
@@ -56,6 +56,7 @@ __attribute__((visibility("hidden")))
 - (void)addKnobsToArray:(id)arg1;
 - (BOOL)shouldCreateSelectionKnobs;
 - (id)newTrackerForKnob:(id)arg1;
+@property(readonly, nonatomic) BOOL shouldBecomeSelectedWhenPlaying;
 - (void)p_updateEndTime;
 - (void)p_updateStartTime;
 - (void)p_updateVolume;
@@ -82,6 +83,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 @property(readonly, nonatomic) TSDMovieInfo *movieInfo;
 - (id)initWithLayout:(id)arg1 canvas:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

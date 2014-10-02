@@ -177,8 +177,8 @@
 - (BOOL)removeProfileValueForKey:(id)arg1;
 - (id)profileStringForKey:(id)arg1;
 - (id)profileValueForKey:(id)arg1;
-@property(readonly, nonatomic) NSDictionary *profileInfo;
-@property(readonly, nonatomic) NSString *countryCode;
+@property(readonly, retain, nonatomic) NSDictionary *profileInfo;
+@property(readonly, retain, nonatomic) NSString *countryCode;
 - (BOOL)updateAuthorizationCredentials:(id)arg1 token:(id)arg2;
 - (BOOL)authenticateAccount;
 - (BOOL)requestNewAuthorizationCredentials;
@@ -244,7 +244,7 @@
 @property(readonly, nonatomic) int registrationStatus;
 - (void)_updateRegistrationStatus:(int)arg1 error:(int)arg2 info:(id)arg3;
 @property(readonly, nonatomic) BOOL supportsRegistration;
-@property(readonly, nonatomic) NSDictionary *registrationFailureAlertInfo;
+@property(readonly, retain, nonatomic) NSDictionary *registrationFailureAlertInfo;
 @property(readonly, nonatomic) BOOL isOperational;
 @property(readonly, nonatomic) BOOL isRegistered;
 @property(readonly, nonatomic) BOOL _isUsableForSending;
@@ -313,6 +313,8 @@
 @property(readonly, nonatomic) BOOL validPort;
 @property(readonly, nonatomic) BOOL validLogin;
 @property(readonly, nonatomic) BOOL canActivate;
+@property(readonly, nonatomic) BOOL allowsMMSRelay;
+@property(readonly, nonatomic) BOOL allowsSMSRelay;
 @property(nonatomic) BOOL allowsVCRelay;
 @property(nonatomic) BOOL goIdle;
 @property(readonly, nonatomic) int port;

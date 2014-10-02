@@ -23,6 +23,8 @@ __attribute__((visibility("hidden")))
 - (unsigned int)createFencePort;
 - (BOOL)valid;
 - (id)options;
+- (BOOL)isSecure;
+- (void)setSecure:(BOOL)arg1;
 - (float)level;
 - (void)setLevel:(float)arg1;
 - (void)orderBelow:(unsigned int)arg1;

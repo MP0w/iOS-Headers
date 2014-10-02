@@ -12,12 +12,17 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)chdAxisFromXmlAxisElement:(struct _xmlNode *)arg1 state:(id)arg2;
-+ (int)chdCrossesFromXmlAxisElement:(struct _xmlNode *)arg1;
++ (id)stringWithCrosses:(int)arg1;
++ (id)stringWithTickLabelPosition:(int)arg1;
++ (id)stringWithTickMarkType:(int)arg1;
++ (id)stringWithAxisPosition:(int)arg1;
++ (int)chdCrossesFromXmlAxisElement:(struct _xmlNode *)arg1 state:(id)arg2;
 + (int)chdTickLabelPositionFromXmlTickLabelPositionElement:(struct _xmlNode *)arg1;
 + (int)chdTickMarkFromXmlTickMarkElement:(struct _xmlNode *)arg1;
-+ (int)chdAxisPositionFromXmlAxisElement:(struct _xmlNode *)arg1;
++ (int)chdAxisPositionFromXmlAxisElement:(struct _xmlNode *)arg1 state:(id)arg2;
 + (void)readScalingFromXmlScalingElement:(struct _xmlNode *)arg1 axis:(id)arg2 state:(id)arg3;
-+ (Class)chxAxisClassWithXmlAxisElement:(struct _xmlNode *)arg1;
++ (Class)chxAxisClassWithChdAxis:(id)arg1;
++ (Class)chxAxisClassWithXmlAxisElement:(struct _xmlNode *)arg1 state:(id)arg2;
 
 @end
 

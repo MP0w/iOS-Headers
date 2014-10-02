@@ -8,7 +8,7 @@
 
 #import "_UIViewServiceImplicitAnimationDecodingProxy_EncodingProxyInterface.h"
 
-@class _UIViewAnimationAttributes;
+@class NSString, _UIViewAnimationAttributes;
 
 __attribute__((visibility("hidden")))
 @interface _UIViewServiceImplicitAnimationDecodingProxy : _UITargetedProxy <_UIViewServiceImplicitAnimationDecodingProxy_EncodingProxyInterface>
@@ -18,10 +18,15 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)proxyDecodingAnimationsForTarget:(id)arg1;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)__animateNextInvocationOfSelector:(id)arg1 withAnimationAttributes:(id)arg2;
 - (void)forwardInvocation:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

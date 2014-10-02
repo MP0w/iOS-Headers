@@ -6,25 +6,27 @@
 
 #import "NSObject.h"
 
-@class UIView, UIWindow;
+@class NSMutableArray, UIScreen, UIView, UIWindow;
 
 @interface SBScreenFlash : NSObject
 {
+    NSMutableArray *_flashCompletionBlocks;
+    UIScreen *_screen;
     UIWindow *_flashWindow;
     UIView *_flashView;
     _Bool _windowVisible;
 }
 
-+ (id)sharedInstance;
-- (void)animationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
-- (void)flashColor:(id)arg1;
-- (void)flash;
-- (void)stopFlash;
++ (id)mainScreenFlasher;
+- (void)_animationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
 - (void)_orderWindowFront:(id)arg1 withColor:(id)arg2;
 - (void)_orderWindowOut:(id)arg1;
 - (void)_tearDown;
 - (void)_createUIWithColor:(id)arg1;
+- (void)flashColor:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)flashWhiteWithCompletion:(CDUnknownBlockType)arg1;
 - (void)dealloc;
+- (id)initWithScreen:(id)arg1;
 
 @end
 

@@ -26,14 +26,15 @@ __attribute__((visibility("hidden")))
 - (BOOL)preferSeriesToValues;
 - (unsigned int)p_gridSeriesIndexForRemoteSeriesIndex:(unsigned int)arg1;
 - (unsigned int)p_remoteSeriesIndexForGridSeriesIndex:(unsigned int)arg1;
+- (id)commandToSetNewSeriesIndex:(unsigned int)arg1 forSeriesIndex:(unsigned int)arg2;
 - (id)seriesDataFormulaForSeriesDimension:(id)arg1;
 - (id)commandToSetSeriesDataFormula:(id)arg1 seriesDimension:(id)arg2;
 - (id)errorBarCustomFormulaForSeriesIndex:(unsigned int)arg1 dataType:(int)arg2;
 - (id)commandToSetErrorBarCustomFormula:(id)arg1 seriesIndex:(unsigned int)arg2 dataType:(int)arg3;
 - (id)commandToChangeCategoryLabelFormulas:(id)arg1;
 - (id)categoryLabelFormulas;
-- (id)numberFormatForSeries:(id)arg1 index:(unsigned int)arg2 axisType:(int)arg3;
-- (id)numberFormatForAxis:(id)arg1;
+- (id)dataFormatterForSeries:(id)arg1 index:(unsigned int)arg2 axisType:(int)arg3 documentRoot:(id)arg4;
+- (id)dataFormatterForAxis:(id)arg1 documentRoot:(id)arg2;
 - (id)commandToSetChartGridDirection:(int)arg1 documentRoot:(id)arg2;
 - (void)invalidateAndSynchronizeMediator;
 - (BOOL)isEditing;

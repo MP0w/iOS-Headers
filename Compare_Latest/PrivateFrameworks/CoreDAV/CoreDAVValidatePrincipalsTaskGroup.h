@@ -8,7 +8,7 @@
 
 #import "CoreDAVTaskDelegate.h"
 
-@class NSMutableSet, NSSet, NSURL;
+@class NSMutableSet, NSSet, NSString, NSURL;
 
 @interface CoreDAVValidatePrincipalsTaskGroup : CoreDAVTaskGroup <CoreDAVTaskDelegate>
 {
@@ -18,18 +18,24 @@
     BOOL _authError;
 }
 
-@property(readonly) BOOL didReceiveAuthenticationError; // @synthesize didReceiveAuthenticationError=_authError;
-@property(retain) NSURL *urlBeingExamined; // @synthesize urlBeingExamined=_urlBeingExamined;
-@property(retain) NSMutableSet *principalURLs; // @synthesize principalURLs=_principalURLs;
-@property(retain) NSMutableSet *urlsToExamine; // @synthesize urlsToExamine=_urlsToExamine;
+@property(readonly, nonatomic) BOOL didReceiveAuthenticationError; // @synthesize didReceiveAuthenticationError=_authError;
+@property(retain, nonatomic) NSURL *urlBeingExamined; // @synthesize urlBeingExamined=_urlBeingExamined;
+@property(retain, nonatomic) NSMutableSet *principalURLs; // @synthesize principalURLs=_principalURLs;
+@property(retain, nonatomic) NSMutableSet *urlsToExamine; // @synthesize urlsToExamine=_urlsToExamine;
 - (void)cancelTaskGroup;
 - (void)startTaskGroup;
 - (void)task:(id)arg1 didFinishWithError:(id)arg2;
 - (void)_fetchNextURL;
 - (void)_finishWithError:(id)arg1;
-@property(readonly) NSSet *resultPrincipalURLs;
+@property(readonly, nonatomic) NSSet *resultPrincipalURLs;
 - (void)dealloc;
 - (id)initWithAccountInfoProvider:(id)arg1 urls:(id)arg2 taskManager:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

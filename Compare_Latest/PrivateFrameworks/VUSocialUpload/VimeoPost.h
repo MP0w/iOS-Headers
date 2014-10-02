@@ -24,7 +24,7 @@
     NSURL *_assetURL;
     NSData *_assetData;
     NSString *_title;
-    NSString *_description;
+    NSString *_postDescription;
     NSArray *_tags;
     unsigned int _accessType;
     int _videoSize;
@@ -46,12 +46,14 @@
 @property(nonatomic) int videoSize; // @synthesize videoSize=_videoSize;
 @property(nonatomic) unsigned int accessType; // @synthesize accessType=_accessType;
 @property(retain, nonatomic) NSArray *tags; // @synthesize tags=_tags;
-@property(retain, nonatomic) NSString *description; // @synthesize description=_description;
+@property(retain, nonatomic) NSString *postDescription; // @synthesize postDescription=_postDescription;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) NSData *assetData; // @synthesize assetData=_assetData;
 @property(retain, nonatomic) NSURL *assetURL; // @synthesize assetURL=_assetURL;
-@property(nonatomic) id <VimeoPostDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)_errorWithCode:(int)arg1;
+@property(nonatomic) __weak id <VimeoPostDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
+- (void)failWithErrorCode:(int)arg1;
+- (void)failWithError:(id)arg1;
 - (void)_warningWithCode:(int)arg1;
 - (id)_tags;
 - (void)_setPrivacy;
@@ -64,12 +66,11 @@
 - (void)_getTicket;
 - (void)_checkQuota;
 - (unsigned long long)postSize;
-- (void)uploadToAccount:(id)arg1;
+- (BOOL)uploadToAccount:(id)arg1 error:(id *)arg2;
 - (id)serializedDictionary;
 - (id)initWithDictionary:(id)arg1;
 - (id)assetsLibrary;
 - (void)_cleanup;
-- (void)dealloc;
 - (id)init;
 
 @end

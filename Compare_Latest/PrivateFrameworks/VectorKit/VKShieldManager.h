@@ -8,32 +8,43 @@
 
 #import "GEOResourceManifestTileGroupObserver.h"
 
-@class NSMapTable, VKObjectPool;
+@class NSArray, NSMapTable, NSString, VKGenericShieldGenerator, VKResourceManager;
 
 @interface VKShieldManager : NSObject <GEOResourceManifestTileGroupObserver>
 {
-    NSMapTable *_regionalAtlases;
-    NSMapTable *_regionalIndexes;
-    NSMapTable *_defaultAtlases;
-    NSMapTable *_defaultIndexes;
-    VKObjectPool *_genericArtworks;
+    NSMapTable *_atlases;
+    NSMapTable *_indexes;
+    struct _GEOGenericContainer<md::ShieldCacheKey, VKShieldArtwork *, std::__1::hash<md::ShieldCacheKey>, std::__1::equal_to<md::ShieldCacheKey>, geo::GEOGenericContainerWeakReferenceTag, 0, 0, geo::GEOGenericContainerLockingTag, detail::_default_pointer_type> _artworkPool;
+    struct _GEOGenericContainer<md::GenericShieldCacheKey, VKShieldArtwork *, std::__1::hash<md::GenericShieldCacheKey>, std::__1::equal_to<md::GenericShieldCacheKey>, geo::GEOGenericContainerWeakReferenceTag, 0, 0, geo::GEOGenericContainerLockingTag, detail::_default_pointer_type> _genericArtworks;
+    unsigned int _tileGroupIdentifier;
+    VKResourceManager *_resourceManager;
+    VKGenericShieldGenerator *_genericShieldGenerator;
+    NSArray *_nonRegionalResourceNames;
 }
 
 + (id)sharedManager;
-- (id)imageForShieldType:(int)arg1 shieldText:(id)arg2 contentScale:(float)arg3 size:(int)arg4 idiom:(int)arg5;
-- (id)artworkForShieldType:(int)arg1 textLength:(unsigned int)arg2 contentScale:(float)arg3 size:(int)arg4 idiom:(int)arg5;
-- (id)artworkForShieldType:(int)arg1 textLength:(unsigned int)arg2 contentScale:(float)arg3 size:(int)arg4 idiom:(int)arg5 mapRect:(CDStruct_02837cd9)arg6;
-- (id)artworkForShieldType:(int)arg1 textLength:(unsigned int)arg2 contentScale:(float)arg3 resourceNames:(id)arg4 style:(id)arg5 size:(int)arg6 idiom:(int)arg7 numberOfLines:(unsigned int)arg8;
-- (id)_defaultAtlasForSize:(int)arg1 scale:(float)arg2 idiom:(int)arg3;
-- (id)_defaultIndexForSize:(int)arg1 scale:(float)arg2 idiom:(int)arg3;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (id)imageForShieldType:(long long)arg1 shieldText:(id)arg2 contentScale:(float)arg3 size:(int)arg4 idiom:(int)arg5 colors:(CDStruct_aed172a0 *)arg6 featureType:(unsigned int)arg7;
+- (id)artworkForShieldType:(long long)arg1 textLength:(unsigned int)arg2 contentScale:(float)arg3 size:(int)arg4 idiom:(int)arg5 colors:(CDStruct_aed172a0 *)arg6 featureType:(unsigned int)arg7;
+- (id)artworkForShieldType:(long long)arg1 textLength:(unsigned int)arg2 contentScale:(float)arg3 size:(int)arg4 idiom:(int)arg5 mapRect:(CDStruct_90e2a262)arg6 colors:(CDStruct_aed172a0 *)arg7 featureType:(unsigned int)arg8;
+- (id)artworkForShieldName:(id)arg1 textLength:(unsigned int)arg2 contentScale:(float)arg3 resourceNames:(id)arg4 size:(int)arg5 idiom:(int)arg6 numberOfLines:(unsigned int)arg7 colors:(CDStruct_aed172a0 *)arg8;
+- (id)artworkForShieldType:(long long)arg1 textLength:(unsigned int)arg2 contentScale:(float)arg3 resourceNames:(id)arg4 style:(id)arg5 size:(int)arg6 idiom:(int)arg7 numberOfLines:(unsigned int)arg8 colors:(CDStruct_aed172a0 *)arg9 featureType:(unsigned int)arg10;
 - (id)_indexForName:(id)arg1;
 - (id)_atlasForName:(id)arg1;
+- (id)_nonRegionalIndexesAndPacks;
 - (void)_didReceiveMemoryWarning:(id)arg1;
 - (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
 - (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;
 - (void)purge;
 - (void)dealloc;
-- (id)init;
+- (id)initWithTileGroupIdentifier:(unsigned int)arg1 resourceManager:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

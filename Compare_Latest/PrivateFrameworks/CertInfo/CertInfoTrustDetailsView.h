@@ -14,8 +14,8 @@
     CertInfoCertificateDetailsView *_currentCertView;
 }
 
+- (void).cxx_destruct;
 - (void)layoutSubviews;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 trustProperties:(id)arg2;
 - (void)_appendRemainingCertificates;
 

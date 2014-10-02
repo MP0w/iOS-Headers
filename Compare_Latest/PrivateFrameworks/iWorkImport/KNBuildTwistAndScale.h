@@ -10,7 +10,7 @@
 #import "KNChunkableBuildAnimator.h"
 #import "KNFrameBuildAnimator.h"
 
-@class KNAnimParameterGroup, KNMotionBlurAnimationPluginWrapper;
+@class KNAnimParameterGroup, KNMotionBlurAnimationPluginWrapper, NSString;
 
 __attribute__((visibility("hidden")))
 @interface KNBuildTwistAndScale : KNAnimationEffect <KNChunkableBuildAnimator, KNFrameBuildAnimator, KNAnimationPluginArchiving>
@@ -41,6 +41,12 @@ __attribute__((visibility("hidden")))
 - (struct CATransform3D)p_transform3DForTextureWithPercent:(double)arg1 scale:(float)arg2 startTime:(float)arg3 rotation:(float)arg4 globalRotationEndTime:(float)arg5 isOutgoing:(BOOL)arg6 offsetFromSlideCenter:(struct CGPoint)arg7 isGL:(BOOL)arg8 direction:(unsigned int)arg9;
 - (void)dealloc;
 - (id)initWithAnimationContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

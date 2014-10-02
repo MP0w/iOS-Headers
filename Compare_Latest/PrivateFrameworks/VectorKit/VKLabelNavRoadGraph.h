@@ -18,18 +18,18 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_intersections;
     BOOL _oppositeCarriagewayJunctionsValid;
     NSMutableArray *_oppositeCarriagewayJunctions;
-    Vec2Imp_1782d7e3 _unitHeading;
+    Matrix_8746f91e _unitHeading;
     BOOL _offRouteJunctionsValid;
-    BRectImp_d02b3a99 _offRouteJunctionSelectRect;
+    Box_3d7e3c2c _offRouteJunctionSelectRect;
     NSMutableArray *_offRouteJunctions;
     struct PolylineCoordinate _routeUserOffset;
     BOOL _routeFeatureMapValid;
-    unordered_map_ad9b4de7 _routeFeatureMap;
+    unordered_map_68316259 _routeFeatureMap;
     BOOL _simplifiedRouteValid;
-    vector_d5845d09 _simplifiedRoutePoints;
+    vector_e20517dc _simplifiedRoutePoints;
     unsigned int _currentRoadStartSimplifiedPointIndex;
     BOOL _screenRouteValid;
-    struct vector<RouteSegment, vk_allocator<RouteSegment>> _screenRouteSegments;
+    struct vector<RouteSegment, std::__1::allocator<RouteSegment>> _screenRouteSegments;
     unsigned int _firstPOIAligningRouteSegment;
 }
 
@@ -50,7 +50,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)isOnScreenRouteBackwardsAtJunction:(id)arg1 navContext:(struct NavContext *)arg2;
 - (BOOL)prepareOppositeCarriagewayJunctions;
 - (id)oppositeCarriagewayJunctions;
-- (unsigned char)computeRoutePositionMaskForPOIAtPixel:(const Vec2Imp_1782d7e3 *)arg1 currentPositionMask:(unsigned char)arg2 context:(struct NavContext *)arg3;
+- (unsigned char)computeRoutePositionForPOIAtPixel:(const Matrix_8746f91e *)arg1 currentPosition:(unsigned char)arg2 context:(struct NavContext *)arg3;
 - (BOOL)collideRouteWithLabel:(id)arg1 routeCrossProduct:(float *)arg2 context:(struct NavContext *)arg3;
 - (void)_transformRouteToScreenWithContext:(struct NavContext *)arg1;
 - (void)_updateSimplifiedRoute;

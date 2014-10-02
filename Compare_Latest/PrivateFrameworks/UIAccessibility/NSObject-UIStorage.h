@@ -7,7 +7,20 @@
 #import "NSObject.h"
 
 @interface NSObject (UIStorage)
+- (BOOL)_accessibilitySpeakThisCanBeHighlighted;
+- (BOOL)_accessibilitySpeakThisShouldOnlyIncludeVisibleElements;
+- (BOOL)_accessibilitySpeakThisShouldScrollTextRects;
+- (id)_accessibilityTextRectsForRange:(id)arg1 singleTextRect:(struct CGRect *)arg2;
+- (id)_accessibilityTextRectsForSpeakThisStringRange:(struct _NSRange)arg1;
+- (id)_accessibilitySpeakThisElementsAndStrings;
+- (unsigned int)_accessibilitySpeakThisMaximumNumberOfElements;
+- (void)_accessibilitySetIgnoreDelegate:(BOOL)arg1;
+- (BOOL)_accessibilityIgnoreDelegate;
+- (BOOL)_accessibilityMimicsTextInputResponder;
+- (id)_accessibilityVisibleElementsGrouped:(BOOL)arg1;
 - (BOOL)accessibilityPerformAction:(int)arg1 withValue:(id)arg2;
+- (struct CGRect)_accessibilityScreenRectForSceneReferenceRect:(struct CGRect)arg1;
+- (struct CGPoint)_accessibilityScreenPointForSceneReferencePoint:(struct CGPoint)arg1;
 - (BOOL)_accessibilityHandleMagicTap;
 - (void)_accessibilityRemoveActionBlockForKey:(unsigned long)arg1;
 - (void)_accessibilityRemoveAllActionBlocks;

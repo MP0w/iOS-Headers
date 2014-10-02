@@ -10,7 +10,7 @@
 {
 }
 
-- (id)initWithScreen:(id)arg1 rootViewController:(id)arg2;
++ (double)windowLevel;
 
 @end
 

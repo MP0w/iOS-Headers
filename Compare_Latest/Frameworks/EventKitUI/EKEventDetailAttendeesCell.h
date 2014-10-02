@@ -18,7 +18,6 @@ __attribute__((visibility("hidden")))
 - (void)layoutForWidth:(float)arg1 position:(int)arg2;
 - (id)_attendeesListView;
 - (void)setAttendees:(id)arg1;
-- (id)viewControllerForCell;
 - (BOOL)update;
 - (id)initWithEvent:(id)arg1 editable:(BOOL)arg2;
 

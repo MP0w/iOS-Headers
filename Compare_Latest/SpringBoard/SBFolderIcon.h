@@ -10,7 +10,7 @@
 #import "SBIconIndexNodeObserver.h"
 #import "SBIconObserver.h"
 
-@class NSHashTable, NSMutableArray, NSMutableSet, SBFolder;
+@class NSHashTable, NSMutableArray, NSMutableSet, NSString, SBFolder;
 
 @interface SBFolderIcon : SBIcon <SBFolderObserver, SBIconObserver, SBIconIndexNodeObserver>
 {
@@ -60,7 +60,7 @@
 - (void)_updateBadgeValue;
 - (void)updateLabel;
 - (void)launchFromLocation:(int)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)localeChanged;
 - (id)displayName;
 - (id)getGenericIconImage:(int)arg1;
@@ -68,6 +68,11 @@
 - (void)dealloc;
 - (id)initWithFolder:(id)arg1;
 - (Class)iconImageViewClassForLocation:(int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

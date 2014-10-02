@@ -12,13 +12,16 @@
 {
     struct OpaqueFigMetadataReader *reader;
     long itemIndex;
+    NSString *identifier;
     NSString *keySpace;
-    id key;
+    id <NSObject><NSCopying> key;
     NSString *commonKey;
     NSLocale *locale;
-    id value;
+    NSString *extendedLanguageTag;
+    id <NSObject><NSCopying> value;
     CDStruct_1b6d18a9 time;
     CDStruct_1b6d18a9 duration;
+    NSString *dataType;
     NSDictionary *extras;
 }
 

@@ -6,15 +6,16 @@
 
 #import "NSObject.h"
 
+#import "MPStoreDownloadManagerObserver.h"
 #import "NSCopying.h"
-#import "SSDownloadManagerObserver.h"
 
-@class NSArray, NSMutableSet, NSString, NSURL;
+@class NSArray, NSMutableSet, NSString, NSURL, SSDownload;
 
-@interface MPItemDownloadProperties : NSObject <SSDownloadManagerObserver, NSCopying>
+@interface MPItemDownloadProperties : NSObject <MPStoreDownloadManagerObserver, NSCopying>
 {
     long long _assetFileSize;
     NSURL *_destinationURL;
+    SSDownload *_download;
     BOOL _downloadExists;
     NSString *_downloadIdentifier;
     long long _downloadSizeLimit;
@@ -33,17 +34,23 @@
 @property(readonly, nonatomic) long long assetFileSize; // @synthesize assetFileSize=_assetFileSize;
 - (void).cxx_destruct;
 - (void)_reloadNetworkConstraints;
+- (void)_attemptToFindDownloadTokenForPossibleDownloads:(id)arg1;
 - (id)newAVAssetOptionsWithDownloadStyle:(int)arg1;
 - (void)acquireDownloadTokenWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)downloadManager:(id)arg1 downloadStatesDidChange:(id)arg2;
+- (void)downloadManager:(id)arg1 downloadDidProgress:(id)arg2;
+- (void)downloadManager:(id)arg1 didAddDownloads:(id)arg2 removeDownloads:(id)arg3;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (id)description;
+@property(readonly) unsigned int hash;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
-- (id)initWithMediaItem:(id)arg1;
+- (id)initWithContext:(id)arg1;
 - (id)initWithDownloadIdentifier:(long long)arg1;
 - (id)initWithDownload:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

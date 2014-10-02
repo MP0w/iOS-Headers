@@ -25,10 +25,12 @@
     void *_powerAssertion;
 }
 
+- (unsigned int)count;
 - (void)setForcedShortTimeoutInterval:(id)arg1;
 - (void)setCriticalMessageTimeout:(id)arg1;
 - (void)setCriticalMessageKeepAliveTimerDuration:(id)arg1;
 - (void)setNumberOfCriticalMessageFlushesBeforeDisconnecting:(id)arg1;
+@property(readonly, nonatomic) BOOL hasEagerMessages;
 @property(readonly, nonatomic) BOOL hasPendingMessages;
 - (void)_criticalMessageKeepAliveTimerFired;
 - (void)_clearCriticalMessageKeepAliveTimer;
@@ -36,6 +38,7 @@
 - (void)_startCriticalMessageFlushTimerSendingFlush;
 - (BOOL)_outgoingMessageIsLateCriticalMessage:(id)arg1;
 - (void)_timerFired:(id)arg1;
+- (void)_recalculateDisableFastDormancy;
 - (void)_recalculatePowerAssertion;
 - (void)_recalculateTimer;
 - (void)_queueChanged;
@@ -46,8 +49,8 @@
 - (void)handleErrorSendingOutgoingMessage:(id)arg1 error:(id)arg2;
 - (void)handleSentOutgoingMessage:(id)arg1 onInterface:(int)arg2;
 - (void)cancelOutgoingMessageWithID:(unsigned int)arg1;
-- (id)nextOutgoingMessageToSend;
-- (void)enqueueOutgoingMessage:(id)arg1 forConnection:(id)arg2;
+- (id)nextOutgoingMessageToSendForTokenState:(id)arg1;
+- (void)enqueueOutgoingMessage:(id)arg1 forOriginator:(id)arg2;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1 environment:(id)arg2;
 

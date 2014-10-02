@@ -61,6 +61,7 @@ __attribute__((visibility("hidden")))
 - (void)selectAllNodes;
 - (void)deleteSelectedNodes;
 - (void)deleteSelectedNodesForced:(BOOL)arg1;
+@property(readonly, nonatomic) BOOL deletingSelectedNodesWillDeleteShape;
 @property(readonly, nonatomic) BOOL canDeleteSelectedNodes;
 @property(readonly, nonatomic) BOOL isCompound;
 - (void)removeNode:(id)arg1;
@@ -101,6 +102,15 @@ __attribute__((visibility("hidden")))
 - (void)addTemporarySmoothNodes;
 - (void)updateSmoothNodes;
 - (void)morphWithMorphInfo:(id)arg1;
+@property(readonly, nonatomic) BOOL isCurved;
+@property(readonly, nonatomic) struct CGPoint pathDelta;
+- (void)p_adjustZeroBasedPathUsingDelta:(struct CGPoint)arg1;
+- (void)p_adjustZeroBasedPathUsingDeltaFromPath:(id)arg1 isAdditive:(BOOL)arg2;
+- (void)truncateDelta:(struct CGPoint)arg1;
+- (void)truncateDeltaFromZeroBasedPath:(id)arg1;
+- (void)prependDeltaFromZeroBasedPath:(id)arg1;
+- (void)translateBezierPathToStartAtZero;
+- (id)editableBezierPathStartingAtZero;
 
 @end
 

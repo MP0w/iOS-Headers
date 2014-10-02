@@ -25,7 +25,7 @@
 @property(retain, nonatomic) KeychainSyncCountryInfo *countryInfo; // @synthesize countryInfo=_countryInfo;
 @property(retain, nonatomic) NSString *phoneNumber; // @synthesize phoneNumber=_phoneNumber;
 - (void)textFieldChanged:(id)arg1;
-@property(readonly, nonatomic) PSEditableTableCell *phoneNumberCell;
+@property(readonly, retain, nonatomic) PSEditableTableCell *phoneNumberCell;
 - (id)unformattedPhoneNumber;
 - (id)phoneNumberForSpecifier:(id)arg1;
 - (void)setPhoneNumber:(id)arg1 forSpecifier:(id)arg2;
@@ -33,7 +33,7 @@
 - (void)setDialingCountryInfo:(id)arg1 forSpecifier:(id)arg2;
 - (void)resignFirstResponder;
 - (void)reloadSpecifiers;
-@property(readonly, nonatomic) NSArray *specifiers;
+@property(readonly, retain, nonatomic) NSArray *specifiers;
 - (void)dealloc;
 - (id)initWithListController:(id)arg1;
 

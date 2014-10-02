@@ -6,7 +6,7 @@
 
 #import <GeoServices/GEOMapRequest.h>
 
-@class GEOMapAccess, GEOMapTileFinder, NSMutableArray;
+@class GEOMapAccess, GEOMapTileFinder, GEOVectorTile, NSMutableArray;
 
 __attribute__((visibility("hidden")))
 @interface GEOMapEdgeConnectionFinder : GEOMapRequest
@@ -14,16 +14,18 @@ __attribute__((visibility("hidden")))
     GEOMapAccess *_map;
     GEOMapTileFinder *_tileFinder;
     NSMutableArray *_builders;
-    CDStruct_b4689c16 _edgeFrom;
-    CDStruct_2c43369c _coordinateFrom;
+    GEOVectorTile *_tile;
+    CDStruct_dde70fb6 *_junction;
+    CDStruct_2c43369c _coordinate;
 }
 
 - (id).cxx_construct;
-- (void)findConnections:(CDUnknownBlockType)arg1;
-- (void)_findOutgoingEdges:(CDUnknownBlockType)arg1;
+- (void)_findConnections:(CDUnknownBlockType)arg1 incoming:(BOOL)arg2;
+- (void)findConnectionsIn:(CDUnknownBlockType)arg1;
+- (void)findConnectionsOut:(CDUnknownBlockType)arg1;
 - (void)cancel;
 - (void)dealloc;
-- (id)initWithMap:(id)arg1 edgeFrom:(const CDStruct_b4689c16 *)arg2 coordinateFrom:(CDStruct_c3b9c2ee)arg3;
+- (id)initWithMap:(id)arg1 tile:(id)arg2 junction:(CDStruct_dde70fb6 *)arg3 coordinate:(CDStruct_c3b9c2ee)arg4;
 
 @end
 

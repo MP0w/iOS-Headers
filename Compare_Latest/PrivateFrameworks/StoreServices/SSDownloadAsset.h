@@ -31,7 +31,7 @@
 - (int)_legacyAssetType;
 @property(readonly) SSURLRequestProperties *URLRequestProperties;
 - (void)_resetLocalIVars;
-@property(readonly) NSURLRequest *URLRequest;
+@property(readonly, retain) NSURLRequest *URLRequest;
 @property(readonly) NSArray *sinfs;
 - (long long)bytesUploadTotal;
 - (long long)bytesUploaded;

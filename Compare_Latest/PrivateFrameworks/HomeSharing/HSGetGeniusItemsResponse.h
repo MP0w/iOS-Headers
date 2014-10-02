@@ -14,6 +14,7 @@
 }
 
 @property(copy, nonatomic) NSArray *itemIDs; // @synthesize itemIDs;
+- (void).cxx_destruct;
 
 @end
 

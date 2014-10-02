@@ -13,6 +13,7 @@
 - (_Bool)iconAllowsLaunch:(SBLeafIcon *)arg1;
 - (_Bool)iconCompleteUninstall:(SBLeafIcon *)arg1;
 - (_Bool)iconAllowsUninstall:(SBLeafIcon *)arg1;
+- (_Bool)iconIsBeta:(SBLeafIcon *)arg1;
 - (_Bool)iconIsRecentlyUpdated:(SBLeafIcon *)arg1;
 - (int)iconAccessoryType:(SBLeafIcon *)arg1;
 - (NSString *)iconFormattedAccessoryString:(SBLeafIcon *)arg1;
@@ -21,6 +22,7 @@
 - (double)iconProgressPercent:(SBLeafIcon *)arg1;
 - (long long)iconProgressState:(SBLeafIcon *)arg1;
 - (_Bool)iconAppearsInNewsstand:(SBLeafIcon *)arg1;
+- (_Bool)iconCanTightenLabel:(SBLeafIcon *)arg1;
 - (_Bool)iconCanEllipsizeLabel:(SBLeafIcon *)arg1;
 - (NSString *)iconDisplayName:(SBLeafIcon *)arg1;
 - (UIImage *)icon:(SBLeafIcon *)arg1 defaultImageWithFormat:(int)arg2;

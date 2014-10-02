@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 + (id)selectionForSheet:(id)arg1 paginated:(BOOL)arg2;
 + (Class)archivedSelectionClass;
 @property(readonly, nonatomic, getter=isPaginated) BOOL paginated; // @synthesize paginated=mIsPaginated;
-@property(readonly, nonatomic) TNSheet *sheet; // @synthesize sheet=mSheet;
+@property(readonly, retain, nonatomic) TNSheet *sheet; // @synthesize sheet=mSheet;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

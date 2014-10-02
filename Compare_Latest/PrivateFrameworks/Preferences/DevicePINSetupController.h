@@ -16,6 +16,7 @@
 - (BOOL)popupStyleIsModal;
 - (BOOL)usePopupStyle;
 - (BOOL)success;
+- (id)init;
 
 @end
 

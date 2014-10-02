@@ -23,14 +23,20 @@
 @property(readonly, nonatomic) NSString *photoSetTitle; // @synthesize photoSetTitle=_photoSetTitle;
 @property(readonly, nonatomic) long long photoSetID; // @synthesize photoSetID=_photoSetID;
 @property(retain, nonatomic) FlickrPhotoSetManager *manager; // @synthesize manager=_manager;
-@property(nonatomic) id <FlickrComposeOptionViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <FlickrComposeOptionViewDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (void)reloadData;
-- (void)dealloc;
 - (id)initWithPhotoSetManager:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

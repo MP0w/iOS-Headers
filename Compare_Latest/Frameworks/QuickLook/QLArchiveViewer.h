@@ -8,24 +8,25 @@
 
 #import "UINavigationControllerDelegate.h"
 #import "UIPopoverControllerDelegate.h"
+#import "UIPopoverPresentationControllerDelegate.h"
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class QLArchiveTableViewController, QLPreviewController, UIDocumentInteractionController, UINavigationController, UIPopoverController;
+@class NSString, QLArchiveTableViewController, QLPreviewController, UIDocumentInteractionController, UINavigationController, UIPopoverPresentationController;
 
-@interface QLArchiveViewer : NSObject <UIPopoverControllerDelegate, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate>
+@interface QLArchiveViewer : NSObject <UIPopoverControllerDelegate, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate>
 {
     QLPreviewController *_previewController;
     UIDocumentInteractionController *_documentInteractionController;
     UINavigationController *_navigationController;
-    UIPopoverController *_popoverController;
+    UIPopoverPresentationController *_presentationController;
     QLArchiveTableViewController *_tableViewController;
     BOOL _visible;
 }
 
 - (int)navigationControllerPreferredInterfaceOrientationForPresentation:(id)arg1;
 - (unsigned int)navigationControllerSupportedInterfaceOrientations:(id)arg1;
-- (void)popoverControllerDidDismissPopover:(id)arg1;
+- (void)popoverPresentationControllerDidDismissPopover:(id)arg1;
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(BOOL)arg2;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
@@ -43,8 +44,19 @@
 - (void)dismiss:(id)arg1;
 - (void)dismissAnimated:(BOOL)arg1;
 - (void)presentFromBarButtonItem:(id)arg1 animated:(BOOL)arg2;
+- (BOOL)isInRegularWidth;
 - (void)dealloc;
 - (id)initWithPreviewController:(id)arg1;
+- (void)prepareForPopoverPresentation:(id)arg1;
+- (id)presentationController:(id)arg1 viewControllerForAdaptivePresentationStyle:(int)arg2;
+- (int)adaptivePresentationStyleForPresentationController:(id)arg1;
+- (void)setupViewControllersForPresentationStyle:(int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

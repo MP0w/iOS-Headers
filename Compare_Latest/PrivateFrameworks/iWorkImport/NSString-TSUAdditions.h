@@ -17,6 +17,8 @@
 + (id)stringByIndentingString:(id)arg1 times:(unsigned int)arg2;
 + (id)stringWithFormat:(id)arg1 arguments:(char *)arg2;
 + (id)stringWithUUID;
+- (id)stringWithoutAttachmentCharacters;
+- (id)setOfContainedWordsIncludingPunctuationAndSymbols:(BOOL)arg1;
 - (BOOL)containsSubstring:(id)arg1;
 - (void)enumerateRangesOfCharactersInSet:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (struct _NSRange)range;

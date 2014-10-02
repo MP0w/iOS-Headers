@@ -20,7 +20,7 @@
 + (id)eligibleOutputSettingsDictionaryKeys;
 @property(readonly, nonatomic) NSDictionary *pixelBufferAttributes;
 - (BOOL)canFullySpecifyOutputFormatReturningReason:(id *)arg1;
-- (BOOL)isCodecAvailableOnCurrentSystem;
+- (BOOL)encoderIsAvailableOnCurrentSystemReturningError:(id *)arg1;
 - (BOOL)willYieldCompressedSamples;
 - (id)cleanApertureDictionary;
 - (id)pixelAspectRatioDictionary;

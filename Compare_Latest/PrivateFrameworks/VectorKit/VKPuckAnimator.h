@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class VKAnimation, VKAttributedRouteMatch, VKPuckAnimatorLocationProjector, VKRunningCurve;
+@class GEORouteMatch, VKAnimation, VKPuckAnimatorLocationProjector, VKRunningCurve;
 
 @interface VKPuckAnimator : NSObject
 {
@@ -20,14 +20,16 @@
     BOOL _suspended;
     double _tracePlaybackSpeedMultiplier;
     unsigned int _behavior;
-    VKAttributedRouteMatch *_lastProjectedLocation;
+    struct VKPoint _lastProjectedPosition;
+    GEORouteMatch *_lastProjectedLocation;
 }
 
 @property(nonatomic) unsigned int behavior; // @synthesize behavior=_behavior;
 @property(nonatomic) double tracePlaybackSpeedMultiplier; // @synthesize tracePlaybackSpeedMultiplier=_tracePlaybackSpeedMultiplier;
-@property(retain, nonatomic) VKAttributedRouteMatch *lastProjectedLocation; // @synthesize lastProjectedLocation=_lastProjectedLocation;
+@property(retain, nonatomic) GEORouteMatch *lastProjectedLocation; // @synthesize lastProjectedLocation=_lastProjectedLocation;
 @property(nonatomic) id <VKPuckAnimatorDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) id <VKPuckAnimatorTarget> target; // @synthesize target=_target;
+- (id).cxx_construct;
 - (void)updateVehicleHeading:(double)arg1;
 - (void)updateLocation:(id)arg1 routeMatch:(id)arg2;
 - (void)_step;

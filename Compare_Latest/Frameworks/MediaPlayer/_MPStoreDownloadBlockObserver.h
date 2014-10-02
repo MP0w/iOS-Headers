@@ -8,7 +8,7 @@
 
 #import "MPStoreDownloadManagerObserver.h"
 
-@class MPStoreDownload;
+@class MPStoreDownload, NSString;
 
 @interface _MPStoreDownloadBlockObserver : NSObject <MPStoreDownloadManagerObserver>
 {
@@ -24,6 +24,12 @@
 - (void)downloadManager:(id)arg1 downloadPurchaseDidFinish:(id)arg2;
 - (void)downloadManager:(id)arg1 downloadDidFinish:(id)arg2;
 - (id)initWithDownload:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

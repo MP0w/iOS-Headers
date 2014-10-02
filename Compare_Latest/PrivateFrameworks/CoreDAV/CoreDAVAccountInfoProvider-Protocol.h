@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSData, NSDictionary, NSError, NSSet, NSString, NSURL, NSURLAuthenticationChallenge, NSURLConnection, NSURLProtectionSpace;
+@class CoreDAVTask, NSData, NSDictionary, NSError, NSSet, NSString, NSURL, NSURLAuthenticationChallenge, NSURLConnection, NSURLProtectionSpace;
 
 @protocol CoreDAVAccountInfoProvider <NSObject>
 - (BOOL)shouldFailAllTasks;
@@ -35,6 +35,10 @@
 - (void)noteFailedProtocolRequest;
 - (void)noteFailedNetworkRequest;
 - (void)noteSuccessfulRequestWithNumDownloadedElements:(int)arg1;
+- (void)noteTimeSpentInNetworking:(double)arg1 forTask:(CoreDAVTask *)arg2;
+- (void)noteFailedProtocolRequestForTask:(CoreDAVTask *)arg1;
+- (void)noteFailedNetworkRequestForTask:(CoreDAVTask *)arg1;
+- (void)noteSuccessfulRequestWithNumDownloadedElements:(int)arg1 forTask:(CoreDAVTask *)arg2;
 - (BOOL)shouldTurnModalOnBadPassword;
 - (BOOL)shouldSendClientInfoHeaderForURL:(NSURL *)arg1;
 - (BOOL)shouldHandleHTTPCookiesForURL:(NSURL *)arg1;

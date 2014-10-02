@@ -9,27 +9,28 @@
 #import "SBDefaultBannerViewSource.h"
 #import "SBUIQuietModePlayability.h"
 
-@class SBAwayListItem;
+@class NSString, SBAwayListItem;
 
 @interface SBLockScreenNotificationBannerItem : SBUIBannerItem <SBDefaultBannerViewSource, SBUIQuietModePlayability>
 {
     SBAwayListItem *_listItem;
-    id <SBUnlockActionHandler> _unlockActionHandler;
+    id <SBLockScreenActionHandler> _lockedActionHandler;
     id <SBLockScreenNotificationBannerItemDelegate> _delegate;
 }
 
 @property(nonatomic) id <SBLockScreenNotificationBannerItemDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) id <SBUnlockActionHandler> unlockActionHandler; // @synthesize unlockActionHandler=_unlockActionHandler;
+@property(retain, nonatomic) id <SBLockScreenActionHandler> unlockActionHandler; // @synthesize unlockActionHandler=_lockedActionHandler;
 @property(readonly, nonatomic) SBAwayListItem *listItem; // @synthesize listItem=_listItem;
-- (id)unlockActionContext;
+- (id)lockScreenActionContext;
 - (_Bool)overridesQuietMode;
 - (_Bool)isCritical;
 - (_Bool)inertWhenLocked;
-- (_Bool)isVIP;
+- (id)accessoryIconMask;
 - (id)attachmentImage;
 - (id)attachmentText;
 - (id)iconImage;
 - (id)sourceDate;
+- (id)suppressedMessage;
 - (id)message;
 - (id)title;
 - (id)sortDate;
@@ -37,6 +38,12 @@
 - (CDUnknownBlockType)action;
 - (void)dealloc;
 - (id)initWithListItem:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

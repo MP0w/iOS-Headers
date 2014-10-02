@@ -59,13 +59,18 @@
 @property(nonatomic) unsigned int maxQueueDepth;
 @property(nonatomic) BOOL managesSystemDownloads;
 @property(nonatomic) BOOL forceSynchronousQueueFilling;
-- (void)_networkTypeDidChangeNotification:(id)arg1;
 - (void)_mediaLibraryDisplayValuesDidChangeNotification:(id)arg1;
 - (void)_downloadCancelledNotification:(id)arg1;
 - (void)_assetCancelNotification:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

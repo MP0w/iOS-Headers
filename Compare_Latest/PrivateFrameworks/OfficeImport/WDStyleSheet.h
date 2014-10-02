@@ -23,7 +23,9 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *mIdDictionaryForName;
 }
 
-- (id)styleNameToId:(id)arg1;
+- (id)allAliasesForStyleId:(id)arg1 name:(id)arg2;
+- (id)styleIdToName:(id)arg1;
+- (id)styleNameToUniqueId:(id)arg1;
 - (id)styleIdForName:(id)arg1;
 - (void)setDefaultListStyle:(id)arg1;
 - (id)defaultListStyle;

@@ -16,12 +16,7 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) struct CGRect imageCropRect;
 @property(readonly, nonatomic) struct CGRect bounds;
-- (id)albumImageDataWithSize:(struct CGSize)arg1;
-- (id)albumImageWithSize:(struct CGSize)arg1;
-- (id)imageDataWithSize:(struct CGSize)arg1 atPlaybackTime:(double)arg2;
-- (id)imageWithSize:(struct CGSize)arg1 atPlaybackTime:(double)arg2;
 - (id)imageWithSize:(struct CGSize)arg1;
-- (BOOL)hasArtworkAvailable;
 - (id)initWithImage:(id)arg1;
 
 @end

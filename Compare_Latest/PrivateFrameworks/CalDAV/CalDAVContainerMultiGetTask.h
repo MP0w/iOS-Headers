@@ -12,8 +12,8 @@
     BOOL _getScheduleChanges;
 }
 
-@property BOOL getScheduleChanges; // @synthesize getScheduleChanges=_getScheduleChanges;
-@property BOOL getScheduleTags; // @synthesize getScheduleTags=_getScheduleTags;
+@property(nonatomic) BOOL getScheduleChanges; // @synthesize getScheduleChanges=_getScheduleChanges;
+@property(nonatomic) BOOL getScheduleTags; // @synthesize getScheduleTags=_getScheduleTags;
 - (void)setAdditionalProperties:(id)arg1 onDataItem:(id)arg2;
 - (id)copyAdditionalPropElements;
 - (id)initWithURLs:(id)arg1 atContainerURL:(id)arg2 getScheduleTags:(BOOL)arg3 getScheduleChanges:(BOOL)arg4;

@@ -15,16 +15,26 @@
 
 + (id)connectionWithInputPort:(id)arg1 videoPreviewLayer:(id)arg2;
 + (id)connectionWithInputPorts:(id)arg1 output:(id)arg2;
++ (id)alloc;
 + (void)initialize;
+- (void)_updatePropertiesForFormat:(id)arg1;
+- (int)_resolveActiveVideoStabilizationMode:(int)arg1 format:(id)arg2;
+- (void)_updateActiveVideoStabilizationMode:(int)arg1 bumpChangeSeed:(BOOL)arg2;
+- (void)bumpChangeSeed;
+- (int)changeSeed;
+- (id)figCaptureConnectionConfigurationForSessionPreset:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (BOOL)sourcesFromFrontFacingCamera;
 - (id)sourceDevice;
 - (void)setVideoRetainedBufferCountHint:(int)arg1;
 - (int)videoRetainedBufferCountHint;
 - (BOOL)isVideoRetainedBufferCountHintSupported;
+@property(readonly, nonatomic) int activeVideoStabilizationMode;
+@property(nonatomic) int preferredVideoStabilizationMode;
 @property(nonatomic) BOOL enablesVideoStabilizationWhenAvailable;
 @property(readonly, nonatomic, getter=isVideoStabilizationEnabled) BOOL videoStabilizationEnabled;
 @property(readonly, nonatomic, getter=isVideoStabilizationSupported) BOOL supportsVideoStabilization;
+- (void)_updateMaxScaleAndCropFactorForFormat:(id)arg1;
 @property(nonatomic) float videoScaleAndCropFactor;
 @property(readonly, nonatomic) float videoMaxScaleAndCropFactor;
 @property(nonatomic) CDStruct_1b6d18a9 videoMaxFrameDuration;
@@ -45,25 +55,25 @@
 - (void)updateAudioChannelsArray;
 - (float)getPeakAudioLevelForChannel:(id)arg1;
 - (float)getAvgAudioLevelForChannel:(id)arg1;
+- (void)updateAudioLevelsArray;
 @property(readonly, nonatomic) NSArray *audioChannels;
 - (id)mediaType;
 - (BOOL)isLive;
 @property(nonatomic, getter=isEnabled) BOOL enabled;
-- (void)setActive:(BOOL)arg1;
+- (void)_setActive:(BOOL)arg1;
 @property(readonly, nonatomic, getter=isActive) BOOL active;
 @property(readonly, nonatomic) NSArray *inputPorts;
 @property(readonly, nonatomic) AVCaptureVideoPreviewLayer *videoPreviewLayer;
 @property(readonly, nonatomic) AVCaptureOutput *output;
-- (void)invalidate;
-- (void)removeInputPort:(id)arg1;
-- (void)addInputPort:(id)arg1;
+- (void)teardownObservers;
+- (void)setupObservers;
 - (id)session;
 - (void)inputPortFormatDescriptionChanged:(id)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)initWithInputPort:(id)arg1 videoPreviewLayer:(id)arg2;
 - (id)initWithInputPorts:(id)arg1 output:(id)arg2;
-- (void)initCommonStorage;
+- (void)setupInternalStorage;
 
 @end
 

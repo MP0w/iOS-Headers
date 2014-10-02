@@ -6,37 +6,52 @@
 
 #import "NSObject.h"
 
+#import "NSCopying.h"
 #import "_UIBasicAnimationFactory.h"
 
-@class CAMediaTimingFunction;
+@class BSAnimationSettings, NSString;
 
-@interface SBFAnimationFactory : NSObject <_UIBasicAnimationFactory>
+@interface SBFAnimationFactory : NSObject <NSCopying, _UIBasicAnimationFactory>
 {
-    CAMediaTimingFunction *_timingFunction;
-    double _duration;
-    double _delay;
-    double _frameInterval;
+    BSAnimationSettings *_settings;
 }
 
-+ (void)animateWithFactory:(id)arg1 animations:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
-+ (void)animateWithFactory:(id)arg1 animations:(CDUnknownBlockType)arg2;
-+ (void)animateWithSettings:(id)arg1 delay:(double)arg2 options:(unsigned int)arg3 animations:(CDUnknownBlockType)arg4 completion:(CDUnknownBlockType)arg5;
-+ (void)animateWithSettings:(id)arg1 delay:(double)arg2 animations:(CDUnknownBlockType)arg3 completion:(CDUnknownBlockType)arg4;
-+ (void)animateWithSettings:(id)arg1 options:(unsigned int)arg2 animations:(CDUnknownBlockType)arg3 completion:(CDUnknownBlockType)arg4;
-+ (void)animateWithSettings:(id)arg1 animations:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
++ (void)animateWithFactory:(id)arg1 additionalDelay:(double)arg2 options:(unsigned int)arg3 actions:(CDUnknownBlockType)arg4 completion:(CDUnknownBlockType)arg5;
++ (void)animateWithFactory:(id)arg1 additionalDelay:(double)arg2 options:(unsigned int)arg3 actions:(CDUnknownBlockType)arg4;
++ (void)animateWithFactory:(id)arg1 additionalDelay:(double)arg2 actions:(CDUnknownBlockType)arg3 completion:(CDUnknownBlockType)arg4;
++ (void)animateWithFactory:(id)arg1 additionalDelay:(double)arg2 actions:(CDUnknownBlockType)arg3;
++ (void)animateWithFactory:(id)arg1 options:(unsigned int)arg2 actions:(CDUnknownBlockType)arg3 completion:(CDUnknownBlockType)arg4;
++ (void)animateWithFactory:(id)arg1 options:(unsigned int)arg2 actions:(CDUnknownBlockType)arg3;
++ (void)animateWithFactory:(id)arg1 actions:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
++ (void)animateWithFactory:(id)arg1 actions:(CDUnknownBlockType)arg2;
++ (id)factoryWithMass:(float)arg1 stiffness:(float)arg2 damping:(float)arg3 epsilon:(float)arg4 timingFunction:(id)arg5;
++ (id)factoryWithMass:(float)arg1 stiffness:(float)arg2 damping:(float)arg3 timingFunction:(id)arg4;
++ (id)factoryWithMass:(float)arg1 stiffness:(float)arg2 damping:(float)arg3 epsilon:(float)arg4;
++ (id)factoryWithMass:(float)arg1 stiffness:(float)arg2 damping:(float)arg3;
++ (id)factoryWithDuration:(double)arg1 delay:(double)arg2 timingFunction:(id)arg3;
++ (id)factoryWithDuration:(double)arg1 timingFunction:(id)arg2;
++ (id)factoryWithDuration:(double)arg1 delay:(double)arg2;
++ (id)factoryWithDuration:(double)arg1;
 + (id)factoryWithAnimationAttributes:(id)arg1;
++ (id)factoryWithSettings:(id)arg1 timingFunction:(id)arg2;
 + (id)factoryWithSettings:(id)arg1;
-@property(nonatomic) double frameInterval; // @synthesize frameInterval=_frameInterval;
-@property(retain, nonatomic) CAMediaTimingFunction *timingFunction; // @synthesize timingFunction=_timingFunction;
-@property(nonatomic) double delay; // @synthesize delay=_delay;
-@property(nonatomic) double duration; // @synthesize duration=_duration;
-- (id)_animation;
+@property(readonly, copy) NSString *description;
+- (BOOL)isEqual:(id)arg1;
+@property(readonly) unsigned int hash;
 - (id)_timingFunctionForAnimation;
 - (id)_basicAnimationForView:(id)arg1 withKeyPath:(id)arg2;
-- (void)setTimingFunctionFromSettings:(id)arg1;
-- (void)animateWithDelay:(double)arg1 options:(unsigned int)arg2 animations:(CDUnknownBlockType)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)animateWithDelay:(double)arg1 animations:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
+@property(readonly, nonatomic) double delay;
+@property(readonly, nonatomic) double duration;
+- (void)_animateWithAdditionalDelay:(double)arg1 options:(unsigned int)arg2 actions:(CDUnknownBlockType)arg3 completion:(CDUnknownBlockType)arg4;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)factoryWithTimingFunction:(id)arg1;
 - (void)dealloc;
+- (id)init;
+- (id)_initWithSettings:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

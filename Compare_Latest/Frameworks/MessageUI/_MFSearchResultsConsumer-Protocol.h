@@ -9,11 +9,11 @@
 @class NSArray, NSMutableArray, NSMutableSet;
 
 @protocol _MFSearchResultsConsumer <NSObject>
-- (void)_appendSortedResultsOfType:(int)arg1 excluding:(NSMutableSet *)arg2 toResults:(NSMutableArray *)arg3;
-- (void)_enumerateSearchResultTypesInSortOrderUsingBlock:(void (^)(int))arg1;
-- (BOOL)_didFinishSearchForType:(int)arg1;
-- (BOOL)_shouldProcessResultsAfterFinishingType:(int)arg1;
-- (void)_addResults:(NSArray *)arg1 ofType:(int)arg2;
+- (void)_appendSortedResultsOfType:(unsigned int)arg1 excluding:(NSMutableSet *)arg2 toResults:(NSMutableArray *)arg3;
+- (void)_enumerateSearchResultTypesInSortOrderUsingBlock:(void (^)(unsigned int))arg1;
+- (BOOL)_didFinishSearchForType:(unsigned int)arg1;
+- (BOOL)_shouldProcessResultsAfterFinishingType:(unsigned int)arg1;
+- (void)_addResults:(NSArray *)arg1 ofType:(unsigned int)arg2;
 - (BOOL)_isResetting;
 @end
 

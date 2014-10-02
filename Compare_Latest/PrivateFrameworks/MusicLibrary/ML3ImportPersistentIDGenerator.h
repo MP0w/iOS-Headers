@@ -16,8 +16,7 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 - (void)removePersistentIDFromIdMapping:(long long)arg1;
-- (long long)nextPersistentIDForImportItem:(id)arg1;
-- (long long)nextPersistentIDForTrackAtIndex:(unsigned int)arg1 fromDataSource:(shared_ptr_77107615)arg2;
+- (long long)nextPersistentIDForImportItem:(shared_ptr_de333b55)arg1;
 - (void)addIdMapping:(id)arg1 forProperty:(unsigned int)arg2;
 - (id)initWithDatabaseConnection:(id)arg1;
 

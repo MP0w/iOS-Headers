@@ -16,6 +16,8 @@ __attribute__((visibility("hidden")))
     int mBoundsTrack;
 }
 
++ (BOOL)isTextType:(int)arg1;
+- (id)description;
 - (void)setBoundsTrack:(int)arg1;
 - (int)boundsTrack;
 - (void)setIndex:(int)arg1;

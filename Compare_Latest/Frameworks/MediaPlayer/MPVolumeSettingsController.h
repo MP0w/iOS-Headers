@@ -4,24 +4,27 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UITwoSidedAlertController.h"
+#import "UIViewController.h"
 
-#import "UITwoSidedAlertControllerDelegate.h"
+@class NSString, UIAlertController, UIWindow;
 
-@class NSString;
-
-@interface MPVolumeSettingsController : UITwoSidedAlertController <UITwoSidedAlertControllerDelegate>
+@interface MPVolumeSettingsController : UIViewController
 {
     NSString *_audioCategory;
+    UIAlertController *_alertController;
+    UIWindow *_hostingWindow;
+    UIWindow *_previousWindow;
 }
 
+@property(nonatomic) __weak UIWindow *previousWindow; // @synthesize previousWindow=_previousWindow;
+@property(nonatomic) __weak UIWindow *hostingWindow; // @synthesize hostingWindow=_hostingWindow;
 - (void).cxx_destruct;
-- (void)audioRoutingPicker:(id)arg1 didSelectRouteAtIndex:(int)arg2;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
-- (void)twoSidedAlertControllerDidDismiss:(id)arg1;
-- (id)createBackAlert;
-- (void)flip;
-- (id)createFrontAlert;
+- (void)_flip;
+- (void)_keyWindowDidChange:(id)arg1;
+- (void)dismissAlertController;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)presentAlertControllerInWindow:(id)arg1;
+- (void)dealloc;
 - (id)initWithAudioCategory:(id)arg1;
 
 @end

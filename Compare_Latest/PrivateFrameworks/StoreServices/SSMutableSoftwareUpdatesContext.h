@@ -20,5 +20,11 @@
 @property(nonatomic, getter=isForced) BOOL forced; // @dynamic forced;
 @property(copy, nonatomic) NSString *clientIdentifierHeader; // @dynamic clientIdentifierHeader;
 
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
+
 @end
 

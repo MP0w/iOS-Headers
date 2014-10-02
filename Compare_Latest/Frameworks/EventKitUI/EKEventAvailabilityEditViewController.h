@@ -9,7 +9,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class NSMutableArray, UITableView;
+@class NSMutableArray, NSString, UITableView;
 
 __attribute__((visibility("hidden")))
 @interface EKEventAvailabilityEditViewController : EKEditItemViewController <UITableViewDataSource, UITableViewDelegate>
@@ -29,6 +29,12 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned int supportedAvailabilities;
 - (void)loadView;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

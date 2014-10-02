@@ -8,5 +8,6 @@
 
 @interface UIImage (MPUAdditions)
 + (id)imageWithSize:(struct CGSize)arg1 opaque:(BOOL)arg2 fromBlock:(CDUnknownBlockType)arg3;
+- (id)scaledImageWithSize:(struct CGSize)arg1;
 @end
 

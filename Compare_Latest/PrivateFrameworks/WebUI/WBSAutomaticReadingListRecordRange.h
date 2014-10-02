@@ -22,8 +22,8 @@
 @property(copy, nonatomic) id oldest; // @synthesize oldest=_oldest;
 @property(copy, nonatomic) NSDate *newestCreationDate; // @synthesize newestCreationDate=_newestCreationDate;
 @property(copy, nonatomic) id newest; // @synthesize newest=_newest;
+- (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (void)setOldest:(id)arg1 creationDate:(id)arg2;
 - (void)setNewest:(id)arg1 creationDate:(id)arg2;
 - (id)initWithNewest:(id)arg1 newestCreationDate:(id)arg2 oldest:(id)arg3 oldestCreationDate:(id)arg4;

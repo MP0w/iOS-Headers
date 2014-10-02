@@ -6,14 +6,14 @@
 
 #import "NSObject.h"
 
-@class TSUColor;
+@class OITSUColor;
 
 __attribute__((visibility("hidden")))
 @interface EDColorLocator : NSObject
 {
     unsigned int mColorOffset;
     int mColorIndex;
-    TSUColor *mColor;
+    OITSUColor *mColor;
 }
 
 - (void)setColor:(id)arg1;

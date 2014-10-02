@@ -13,6 +13,8 @@
 @interface AVMediaFileType : NSObject <NSCopying>
 {
     NSString *_uti;
+    long _supportsSampleReferencesOnce;
+    BOOL _supportsSampleReferences;
 }
 
 + (id)isoFileTypes;
@@ -25,6 +27,7 @@
 @property(readonly, nonatomic) unsigned long audioFileTypeID;
 @property(readonly, nonatomic) NSString *figFormatReaderFileFormat;
 @property(readonly, nonatomic) NSString *UTI;
+@property(readonly, nonatomic) BOOL supportsSampleReferences;
 @property(readonly, nonatomic) NSSet *supportedMediaTypes;
 @property(readonly, nonatomic) NSString *defaultFileExtension;
 - (id)description;

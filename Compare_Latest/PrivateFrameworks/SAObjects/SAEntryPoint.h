@@ -8,7 +8,7 @@
 
 #import "SAAceSerializable.h"
 
-@class NSNumber;
+@class NSNumber, NSString;
 
 @interface SAEntryPoint : AceObject <SAAceSerializable>
 {
@@ -20,6 +20,12 @@
 @property(copy, nonatomic) NSNumber *latitude;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSUUID, _ML3DatabaseConnectionSubPool;
+@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString, NSUUID, _ML3DatabaseConnectionSubPool;
 
 @interface ML3DatabaseConnectionPool : NSObject
 {
@@ -14,9 +14,12 @@
     _ML3DatabaseConnectionSubPool *_writersSubPool;
     NSMutableDictionary *_identifiersConnectionsMap;
     NSObject<OS_dispatch_queue> *_serialQueue;
+    NSObject<OS_dispatch_semaphore> *_lockedSemaphore;
     NSUUID *_poolStorageKey;
     int _connectionsProfilingLevel;
     BOOL _useDistantWriterConnections;
+    BOOL _waitingForUnlock;
+    BOOL _locked;
     NSString *_databasePath;
     id <ML3DatabaseConnectionPoolDelegate> _delegate;
     unsigned int _maxReaders;
@@ -24,6 +27,7 @@
     unsigned int _connectionsJournalingMode;
 }
 
+@property(readonly, nonatomic, getter=isLocked) BOOL locked; // @synthesize locked=_locked;
 @property(nonatomic) unsigned int connectionsJournalingMode; // @synthesize connectionsJournalingMode=_connectionsJournalingMode;
 @property(readonly, nonatomic) unsigned int maxWriters; // @synthesize maxWriters=_maxWriters;
 @property(readonly, nonatomic) unsigned int maxReaders; // @synthesize maxReaders=_maxReaders;
@@ -34,6 +38,9 @@
 - (id)_localConnectionForThread:(id)arg1;
 - (void)_setConnection:(id)arg1 forIdentifier:(id)arg2;
 - (id)_connectionForIdentifier:(id)arg1;
+- (void)_closeAllConnectionsAndWaitForBusyConnections:(BOOL)arg1;
+- (void)unlock;
+- (void)lock;
 - (void)closeAllConnections;
 - (void)checkInConnection:(id)arg1;
 - (id)_connectionForWriting:(BOOL)arg1 useThreadConnection:(BOOL)arg2;

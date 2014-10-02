@@ -6,15 +6,13 @@
 
 #import "SBUIMainScreenAnimationController.h"
 
-@class SBAlert, SBAlertManager, SBLockScreenViewController, UIView;
+@class SBAlert, SBAlertManager, SBLockScreenViewController;
 
 @interface SBUIAnimationFadeAlertToLockscreen : SBUIMainScreenAnimationController
 {
     SBLockScreenViewController *_lockScreenViewController;
     SBAlert *_deactivatingAlert;
     SBAlertManager *_alertManager;
-    UIView *_cameraSnapshotView;
-    _Bool _animatingBackToCamera;
 }
 
 - (void)_cleanupAnimation;

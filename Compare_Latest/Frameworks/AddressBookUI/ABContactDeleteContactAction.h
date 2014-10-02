@@ -6,13 +6,11 @@
 
 #import <AddressBookUI/ABContactAction.h>
 
-#import "UIActionSheetDelegate.h"
-
-@interface ABContactDeleteContactAction : ABContactAction <UIActionSheetDelegate>
+@interface ABContactDeleteContactAction : ABContactAction
 {
 }
 
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)showDeleteFailureAlert;
 - (void)performActionWithSender:(id)arg1;
 
 @end

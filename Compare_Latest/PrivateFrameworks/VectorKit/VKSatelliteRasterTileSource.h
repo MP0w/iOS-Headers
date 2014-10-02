@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (unsigned int)mapLayerForZoomLevelRange;
+- (unsigned long long)mapLayerForZoomLevelRange;
 
 @end
 

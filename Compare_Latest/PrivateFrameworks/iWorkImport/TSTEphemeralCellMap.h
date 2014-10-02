@@ -8,6 +8,8 @@
 
 #import "TSTCellMap.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TSTEphemeralCellMap : NSObject <TSTCellMap>
 {
@@ -28,12 +30,17 @@ __attribute__((visibility("hidden")))
 - (void)addCell:(id)arg1 andCellID:(CDStruct_0441cfb5)arg2;
 - (id)cellAtIndex:(unsigned int)arg1;
 - (CDStruct_0441cfb5)cellIDAtIndex:(unsigned int)arg1;
-- (BOOL)containsCellID:(CDStruct_0441cfb5)arg1;
 - (CDStruct_0441cfb5 *)cellIDs;
 - (unsigned int)count;
 - (void)dealloc;
 - (id)initWithCapacity:(unsigned int)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

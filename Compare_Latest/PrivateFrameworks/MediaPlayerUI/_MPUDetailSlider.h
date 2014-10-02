@@ -9,7 +9,7 @@
 #import "MPDetailedScrubbing.h"
 #import "_MPUSliderScrubForwarding.h"
 
-@class MPDetailScrubController;
+@class MPDetailScrubController, NSString;
 
 @interface _MPUDetailSlider : UISlider <MPDetailedScrubbing, _MPUSliderScrubForwarding>
 {
@@ -18,12 +18,17 @@
 
 @property(nonatomic) __weak MPDetailScrubController *scrubController; // @synthesize scrubController=_scrubController;
 - (void).cxx_destruct;
-- (struct CGRect)thumbViewRect;
 - (struct CGRect)thumbHitRect;
 - (void)cancelTrackingWithEvent:(id)arg1;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (BOOL)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

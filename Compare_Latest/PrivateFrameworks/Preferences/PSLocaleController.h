@@ -4,28 +4,60 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <Preferences/PSListController.h>
+#import <Preferences/PSViewController.h>
 
-@class PSSpecifier;
+#import "UISearchBarDelegate.h"
+#import "UITableViewDataSource.h"
+#import "UITableViewDelegate.h"
 
-@interface PSLocaleController : PSListController
+@class NSArray, NSString, PSLocaleSelector, PSRegion, UISearchBar, UITableView, UIView;
+
+@interface PSLocaleController : PSViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 {
-    PSSpecifier *_checkedSpecifier;
-    BOOL _firstAppearance;
+    UITableView *_tableView;
+    UIView *_contentView;
+    UISearchBar *_searchBar;
+    BOOL _searchMode;
+    PSLocaleSelector *_localeSelector;
+    NSArray *_filteredListContent;
+    NSArray *_sections;
+    NSArray *_regionsList;
+    PSRegion *_currentRegion;
 }
 
-- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (void)setLocale:(id)arg1 specifier:(id)arg2;
-- (id)locale:(id)arg1;
-- (id)specifiers;
-- (void)addLanguage:(id)arg1 toSupportedLanguages:(id)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (void)subcategorySelected:(id)arg1 specifier:(id)arg2;
+@property(retain, nonatomic) PSRegion *currentRegion; // @synthesize currentRegion=_currentRegion;
+@property(retain, nonatomic) NSArray *regionsList; // @synthesize regionsList=_regionsList;
+@property(retain, nonatomic) NSArray *sections; // @synthesize sections=_sections;
+@property(retain, nonatomic) NSArray *filteredListContent; // @synthesize filteredListContent=_filteredListContent;
+@property(retain, nonatomic) PSLocaleSelector *localeSelector; // @synthesize localeSelector=_localeSelector;
+- (void)searchBarCancelButtonClicked:(id)arg1;
+- (void)searchBarTextDidEndEditing:(id)arg1;
+- (void)searchBarTextDidBeginEditing:(id)arg1;
+- (id)filteredRegionsForRegionList:(id)arg1 searchString:(id)arg2;
+- (void)searchBar:(id)arg1 textDidChange:(id)arg2;
+- (void)reloadDataAndScrollToCheckedRegionAnimated:(BOOL)arg1;
 - (void)updateChecked:(id)arg1;
+- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (id)sectionIndexTitlesForTableView:(id)arg1;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (int)numberOfSectionsInTableView:(id)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidLoad;
+- (void)viewDidLayoutSubviews;
+- (void)loadView;
+- (void)loadRegions;
+- (void)reloadSections;
+- (id)_mainContentView;
 - (void)dealloc;
 - (id)init;
-- (void)localeChangedAction;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

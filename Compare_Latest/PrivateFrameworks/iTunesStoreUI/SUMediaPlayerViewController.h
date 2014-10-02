@@ -8,7 +8,7 @@
 
 #import "ISOperationDelegate.h"
 
-@class NSMutableArray, SUClientInterface, SUMediaPlayerItem, UIView;
+@class NSMutableArray, NSString, SUClientInterface, SUMediaPlayerItem, UIView;
 
 @interface SUMediaPlayerViewController : MPMoviePlayerViewController <ISOperationDelegate>
 {
@@ -23,7 +23,7 @@
 + (void)_sendPingRequestsForURLs:(id)arg1 URLBagKey:(id)arg2 playerItem:(id)arg3;
 + (void)sendPlaybackPingRequestsForMediaPlayerItem:(id)arg1;
 + (void)sendDownloadPingRequestsForMediaPlayerItem:(id)arg1;
-@property(readonly, nonatomic) SUMediaPlayerItem *mediaPlayerItem; // @synthesize mediaPlayerItem=_mediaItem;
+@property(readonly, copy, nonatomic) SUMediaPlayerItem *mediaPlayerItem; // @synthesize mediaPlayerItem=_mediaItem;
 @property(retain, nonatomic) SUClientInterface *clientInterface; // @synthesize clientInterface=_clientInterface;
 - (void)_showBackgroundImage:(id)arg1;
 - (void)_setIsActivePlayer:(BOOL)arg1;
@@ -49,6 +49,12 @@
 - (void)dealloc;
 - (id)initWithMediaPlayerItem:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

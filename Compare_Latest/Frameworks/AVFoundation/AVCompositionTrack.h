@@ -13,7 +13,7 @@
     AVCompositionTrackInternal *_priv;
 }
 
-@property(readonly, nonatomic) NSArray *segments;
+@property(readonly, copy, nonatomic) NSArray *segments;
 - (struct OpaqueFigMutableComposition *)_mutableComposition;
 - (id)description;
 - (void)finalize;

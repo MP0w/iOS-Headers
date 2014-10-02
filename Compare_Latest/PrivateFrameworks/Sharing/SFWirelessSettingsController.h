@@ -8,20 +8,18 @@
 
 @class NSObject<OS_dispatch_semaphore>;
 
-__attribute__((visibility("hidden")))
 @interface SFWirelessSettingsController : NSObject
 {
+    id _delegate;
     BOOL _wifiEnabled;
     BOOL _bluetoothEnabled;
     BOOL _deviceSupportsWAPI;
     BOOL _firstCallbackCompleted;
     struct __SFOperation *_information;
     NSObject<OS_dispatch_semaphore> *_firstCallBackSemaphore;
-    id <SFWirelessSettingsControllerDelegate> _delegate;
 }
 
 @property __weak id <SFWirelessSettingsControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (void)dealloc;
 @property(readonly) BOOL deviceSupportsWAPI;
 - (void)repairAppleID;

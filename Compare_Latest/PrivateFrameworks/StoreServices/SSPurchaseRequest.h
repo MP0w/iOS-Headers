@@ -9,7 +9,7 @@
 #import "SSPurchaseManagerDelegate.h"
 #import "SSXPCCoding.h"
 
-@class NSArray, NSMutableSet, SSPurchaseManager;
+@class NSArray, NSMutableSet, NSString, SSPurchaseManager;
 
 @interface SSPurchaseRequest : SSRequest <SSPurchaseManagerDelegate, SSXPCCoding>
 {
@@ -46,7 +46,11 @@
 - (id)init;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) id <SSPurchaseRequestDelegate> delegate; // @dynamic delegate;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

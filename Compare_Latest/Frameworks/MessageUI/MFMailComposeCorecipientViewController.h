@@ -9,7 +9,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class MFMailComposeRecipientView, NSArray, NSMutableArray, NSMutableIndexSet, UITableView;
+@class MFMailComposeRecipientView, NSArray, NSMutableArray, NSMutableIndexSet, NSString, UITableView;
 
 @interface MFMailComposeCorecipientViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
@@ -34,6 +34,12 @@
 - (void)_dismissAndAddSelectedContacts;
 - (void)dealloc;
 - (id)initWithRecentComposeRecipients:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,11 +6,12 @@
 
 #import "UISlider.h"
 
+#import "MPAVRoutingControllerDelegate.h"
 #import "MPVolumeControllerDelegate.h"
 
 @class MPAVController, MPAVRoutingController, MPVolumeController, NSString, NSTimer, UIImage, UIImageView, UILabel, UIView;
 
-@interface MPVolumeSlider : UISlider <MPVolumeControllerDelegate>
+@interface MPVolumeSlider : UISlider <MPAVRoutingControllerDelegate, MPVolumeControllerDelegate>
 {
     MPVolumeController *_volumeController;
     NSTimer *_commitTimer;
@@ -25,19 +26,20 @@
     BOOL _volumeWarningBlinking;
     UIImage *_volumeWarningTrackImage;
     MPAVRoutingController *_routingController;
+    struct UIEdgeInsets _hitRectInsets;
 }
 
+@property(nonatomic) struct UIEdgeInsets hitRectInsets; // @synthesize hitRectInsets=_hitRectInsets;
 @property(retain, nonatomic) UIImage *volumeWarningTrackImage; // @synthesize volumeWarningTrackImage=_volumeWarningTrackImage;
 @property(readonly, nonatomic) int style; // @synthesize style=_style;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) UIView *_newVolumeWarningView;
+- (id)_newVolumeWarningView;
 - (void)_endBlinkingWarningView;
 - (void)_blinkWarningView;
 - (void)_beginBlinkingWarningView;
 - (void)_routeNameLabelAnimationDidEnd;
 - (void)_layoutVolumeWarningView;
 - (void)_layoutForAvailableRoutes;
-- (void)_layoutMaskForThumb;
 - (void)_resetThumbImageForState:(unsigned int)arg1;
 - (id)_maxTrackImageForStyle:(int)arg1;
 - (id)_minTrackImageForStyle:(int)arg1;
@@ -51,16 +53,16 @@
 - (void)volumeController:(id)arg1 EUVolumeLimitEnforcedDidChange:(BOOL)arg2;
 - (void)volumeController:(id)arg1 EUVolumeLimitDidChange:(float)arg2;
 - (void)volumeController:(id)arg1 volumeValueDidChange:(float)arg2;
+- (void)routingControllerAvailableRoutesDidChange:(id)arg1;
 @property(copy, nonatomic) NSString *volumeAudioCategory;
 @property(retain, nonatomic) MPAVController *player;
 - (void)setUserInteractionEnabled:(BOOL)arg1;
 - (void)setHidden:(BOOL)arg1;
 - (void)setAlpha:(float)arg1;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (struct CGRect)hitRect;
 - (void)didMoveToWindow;
 - (void)didMoveToSuperview;
-- (void)setFrame:(struct CGRect)arg1;
 - (void)layoutSubviews;
 - (void)_endTracking;
 - (void)cancelTrackingWithEvent:(id)arg1;
@@ -75,6 +77,12 @@
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,13 +6,12 @@
 
 #import "SBLockOverlayView.h"
 
-@class SBLockOverlayStylePropertiesFactory, UIButton, UIImageView, UILabel, UIView, _UILegibilitySettings;
+@class SBLockOverlayStylePropertiesFactory, SBUIAppleLogoView, UIButton, UILabel, UIView, _UILegibilitySettings;
 
 @interface SBLockScreenBuddyView : SBLockOverlayView
 {
     UILabel *_titleLabel;
-    UIView *_logoImageContainer;
-    UIImageView *_logoImageView;
+    SBUIAppleLogoView *_logoView;
     _Bool _usesWhiteLogo;
     int _viewState;
     SBLockOverlayStylePropertiesFactory *_underlayPropertiesFactory;

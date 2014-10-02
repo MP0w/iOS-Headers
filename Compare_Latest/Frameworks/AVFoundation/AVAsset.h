@@ -13,11 +13,15 @@
 
 @interface AVAsset : NSObject <NSCopying, AVAsynchronousKeyValueLoading>
 {
-    AVAssetInternal *_assetInternal;
+    AVAssetInternal *_asset;
 }
 
 + (id)assetWithURL:(id)arg1 figPlaybackItem:(struct OpaqueFigPlaybackItem *)arg2 trackIDs:(id)arg3 dynamicBehavior:(BOOL)arg4;
 + (id)assetWithURL:(id)arg1;
++ (id)assetProxyWithPropertyList:(id)arg1;
+- (BOOL)_hasResourceLoaderDelegate;
+- (BOOL)containsMovieFragments;
+- (BOOL)canContainMovieFragments;
 - (BOOL)isCompatibleWithSavedPhotosAlbum;
 - (BOOL)isComposable;
 - (BOOL)isReadable;
@@ -31,6 +35,7 @@
 - (id)trackWithTrackID:(int)arg1;
 - (void)_tracksDidChange;
 - (id)tracks;
+- (id)_ID3Metadata;
 - (id)metadata;
 - (id)metadataForFormat:(id)arg1;
 - (id)availableMetadataFormats;
@@ -57,7 +62,9 @@
 @property(readonly, nonatomic) float preferredRate;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 duration;
 - (BOOL)_isStreaming;
+- (struct OpaqueFigMutableComposition *)_mutableComposition;
 - (id)_absoluteURL;
+- (Class)_classForTrackInspectors;
 - (struct OpaqueFigPlaybackItem *)_playbackItem;
 - (struct OpaqueFigFormatReader *)_formatReader;
 - (struct OpaqueFigAsset *)_figAsset;
@@ -76,9 +83,15 @@
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
+@property(readonly, nonatomic) BOOL isProxy;
+@property(readonly, nonatomic) id propertyListForProxy;
 - (id)chapterMetadataGroupsBestMatchingPreferredLanguages:(id)arg1;
 - (id)chapterMetadataGroupsWithTitleLocale:(id)arg1 containingItemsWithCommonKeys:(id)arg2;
+- (id)_chapterMetadataGroupsWithFigChapterGroups:(id)arg1 titleLocale:(id)arg2 containingItemsWithCommonKeys:(id)arg3;
+- (id)_chapterDataTypeForMediaSubType:(long)arg1;
+- (unsigned int)_addChapterMetadataItem:(id)arg1 timeRange:(CDStruct_e83c9415)arg2 toChapters:(id)arg3 fromIndex:(unsigned int)arg4;
 @property(readonly) NSArray *availableChapterLocales;
+- (void)_loadChapterInfo;
 - (int)unusedTrackID;
 - (id)_exportURL;
 - (BOOL)_containsAtLeastOnePlayableVideoTrack;

@@ -13,7 +13,7 @@
     float _reflectionAlpha;
 }
 
-@property(readonly, nonatomic) UIView *containerView; // @synthesize containerView=_containerView;
+@property(readonly, retain, nonatomic) UIView *containerView; // @synthesize containerView=_containerView;
 - (void)setBackgroundColor:(id)arg1;
 - (void)layoutSubviews;
 - (void)setFrame:(struct CGRect)arg1;

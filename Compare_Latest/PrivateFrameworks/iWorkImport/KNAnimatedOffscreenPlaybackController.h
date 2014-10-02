@@ -8,7 +8,7 @@
 
 #import "TSDCanvasDelegate.h"
 
-@class CALayer, KNAnimatedSlideView, KNDocumentRoot, KNPlaybackSession, KNSlideNode, NSMutableSet, NSSet;
+@class CALayer, KNAnimatedSlideView, KNDocumentRoot, KNPlaybackSession, KNSlideNode, NSMutableSet, NSSet, NSString, TSUMutableRetainedPointerSet;
 
 __attribute__((visibility("hidden")))
 @interface KNAnimatedOffscreenPlaybackController : NSObject <TSDCanvasDelegate>
@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     KNAnimatedSlideView *mAnimator;
     NSMutableSet *mActiveBuildRenderers;
     NSMutableSet *mMovieRenderers;
+    TSUMutableRetainedPointerSet *mBuildRenderersToAnimateAtEndOfFinishedBuilds;
     double mCurrentEventAnimationsStartTime;
     double mCurrentEventAnimationsNonDelayedEndTime;
     double mCurrentEventAnimationsDelay;
@@ -39,11 +40,12 @@ __attribute__((visibility("hidden")))
 - (double)currentEventAnimationsRemainingTimeAfterLayerTime:(double)arg1;
 - (void)endCurrentEventAnimations;
 - (void)p_addAnimationsForBuildRenderer:(id)arg1 atBuildStartTime:(double)arg2 relativeToTime:(double)arg3;
-- (void)updateCurrentEventAnimationsForLayerTime:(double)arg1;
-- (void)beginCurrentEventAnimationsAtLayerTime:(double)arg1;
+- (void)updateCurrentEventAnimationsForLayerTime:(double)arg1 ignoreBuildDelays:(BOOL)arg2;
+- (void)beginCurrentEventAnimationsAtLayerTime:(double)arg1 ignoreBuildDelays:(BOOL)arg2;
 - (void)p_invalidateAnimator;
 - (void)p_renderCurrentEvent;
 - (BOOL)p_isCurrentEventTransition;
+@property(readonly, nonatomic, getter=isFirstBuildEventAutomatic) BOOL firstBuildEventAutomatic;
 @property(readonly, nonatomic) unsigned int currentSlideNodeEventCount;
 @property(readonly, nonatomic) KNSlideNode *nextSlideNode;
 @property(readonly, nonatomic) KNSlideNode *firstSlideNode;
@@ -55,6 +57,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)init;
 - (id)initWithDocumentRoot:(id)arg1 layerSize:(struct CGSize)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

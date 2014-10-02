@@ -8,7 +8,7 @@
 
 #import "SBFLockScreenDateFormatter.h"
 
-@class NSTimeZone;
+@class NSString, NSTimeZone;
 
 @interface SBFLockScreenSimpleDateFormatter : NSObject <SBFLockScreenDateFormatter>
 {
@@ -20,6 +20,12 @@
 - (id)formatDateAsTimeNoAMPM:(id)arg1;
 - (void)resetFormattersIfNecessary;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

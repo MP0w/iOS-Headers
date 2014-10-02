@@ -23,6 +23,7 @@
 - (void)_layoutRequestsInRange:(struct _NSRange)arg1;
 - (void)_addLayoutBatch:(id)arg1;
 - (struct _NSRange)populateCacheWithLayoutRequests:(id)arg1;
+- (id)layoutForIndex:(int)arg1 forced:(BOOL)arg2;
 - (id)layoutForIndex:(int)arg1;
 - (void)commitLayoutRequests;
 - (struct _NSRange)addLayoutRequests:(id)arg1;

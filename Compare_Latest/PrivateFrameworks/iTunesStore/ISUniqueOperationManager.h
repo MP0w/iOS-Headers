@@ -8,7 +8,7 @@
 
 #import "ISSingleton.h"
 
-@class ISUniqueOperationContext, NSLock, NSMutableArray, NSMutableDictionary;
+@class ISUniqueOperationContext, NSLock, NSMutableArray, NSMutableDictionary, NSString;
 
 @interface ISUniqueOperationManager : NSObject <ISSingleton>
 {
@@ -30,6 +30,12 @@
 - (void)checkInOperation:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

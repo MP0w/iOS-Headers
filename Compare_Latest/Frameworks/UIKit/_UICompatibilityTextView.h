@@ -147,12 +147,14 @@
 - (id)supportedPasteboardTypesForCurrentSelection;
 - (id)undoManager;
 - (id)undoManagerForWebView:(id)arg1;
+- (id)textStylingAtPosition:(id)arg1 inDirection:(int)arg2;
 - (void)_showTextStyleOptions:(id)arg1;
 - (void)toggleUnderline:(id)arg1;
 - (void)toggleItalics:(id)arg1;
 - (void)toggleBoldface:(id)arg1;
 - (void)_addShortcut:(id)arg1;
 - (void)_define:(id)arg1;
+- (void)_transliterateChinese:(id)arg1;
 - (void)_promptForReplace:(id)arg1;
 - (void)selectAll:(id)arg1;
 - (void)select:(id)arg1;
@@ -194,7 +196,6 @@
 - (BOOL)_alwaysHandleScrollerMouseEvent;
 - (void)keyboardDidShow:(id)arg1;
 - (void)delayedUpdateForKeyboardDidShow;
-- (void)registerForEditingDelegateNotification:(id)arg1 selector:(SEL)arg2;
 - (void)removeFromSuperview;
 - (void)dealloc;
 - (void)_dealloc;
@@ -213,13 +214,17 @@
 // Remaining properties
 @property(nonatomic) int autocapitalizationType; // @dynamic autocapitalizationType;
 @property(nonatomic) int autocorrectionType; // @dynamic autocorrectionType;
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) id <UITextViewDelegate> delegate; // @dynamic delegate;
+@property(readonly, copy) NSString *description;
 @property(nonatomic) BOOL enablesReturnKeyAutomatically; // @dynamic enablesReturnKeyAutomatically;
+@property(readonly) unsigned int hash;
 @property(nonatomic) int keyboardAppearance; // @dynamic keyboardAppearance;
 @property(nonatomic) int keyboardType; // @dynamic keyboardType;
 @property(nonatomic) int returnKeyType; // @dynamic returnKeyType;
 @property(nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry; // @dynamic secureTextEntry;
 @property(nonatomic) int spellCheckingType; // @dynamic spellCheckingType;
+@property(readonly) Class superclass;
 
 @end
 

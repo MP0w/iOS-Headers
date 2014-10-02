@@ -20,6 +20,7 @@
 @property(retain, nonatomic) NSMutableArray *entryPoints; // @synthesize entryPoints=_entryPoints;
 @property(retain, nonatomic) GEOLocation *location; // @synthesize location=_location;
 @property(retain, nonatomic) GEOPlaceSearchRequest *placeSearchRequest; // @synthesize placeSearchRequest=_placeSearchRequest;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -35,8 +36,6 @@
 @property(readonly, nonatomic) BOOL hasLocation;
 @property(readonly, nonatomic) BOOL hasPlaceSearchRequest;
 - (void)dealloc;
-- (id)locationForWaypoint;
-- (id)initWithLocation:(id)arg1;
 
 @end
 

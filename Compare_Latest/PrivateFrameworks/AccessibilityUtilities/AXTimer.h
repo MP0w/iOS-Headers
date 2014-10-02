@@ -30,7 +30,7 @@
 @property(nonatomic, getter=isActive) BOOL active; // @synthesize active=_active;
 @property(nonatomic) BOOL automaticallyCancelPendingBlockUponSchedulingNewBlock; // @synthesize automaticallyCancelPendingBlockUponSchedulingNewBlock=_automaticallyCancelPendingBlockUponSchedulingNewBlock;
 @property(copy) NSString *label; // @synthesize label=_label;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)_warnAboutAsynchronousCancelling;
 - (void)_reallyCancel;
 - (void)cancel;
@@ -45,6 +45,11 @@
 - (void)dealloc;
 - (id)initWithTargetAccessQueue:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

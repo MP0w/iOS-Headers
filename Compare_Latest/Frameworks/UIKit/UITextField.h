@@ -11,10 +11,11 @@
 #import "UIPopoverControllerDelegate.h"
 #import "UITextInput.h"
 #import "UITextInputTraits_Private.h"
+#import "_UILayoutBaselineUpdating.h"
 
 @class NSAttributedString, NSDictionary, NSLayoutConstraint, NSString, UIButton, UIColor, UIFont, UIImage, UIImageView, UILabel, UITextFieldAtomBackgroundView, UITextFieldBackgroundView, UITextFieldBorderView, UITextFieldLabel, UITextInputTraits, UITextInteractionAssistant, UITextPosition, UITextRange, UIView, _UIBaselineLayoutStrut, _UICascadingTextStorage;
 
-@interface UITextField : UIControl <UIKeyboardInput, UITextInputTraits_Private, UIPopoverControllerDelegate, UITextInput, NSCoding>
+@interface UITextField : UIControl <UIKeyboardInput, _UILayoutBaselineUpdating, UITextInputTraits_Private, UIPopoverControllerDelegate, UITextInput, NSCoding>
 {
     _UICascadingTextStorage *_textStorage;
     int _borderStyle;
@@ -77,12 +78,10 @@
     BOOL _deferringBecomeFirstResponder;
     BOOL _avoidBecomeFirstResponder;
     BOOL _setSelectionRangeAfterFieldEditorIsAttached;
-    BOOL _originFromBaselineLayoutIsInvalid;
     NSLayoutConstraint *_baselineLayoutConstraint;
     _UIBaselineLayoutStrut *_baselineLayoutLabel;
 }
 
-+ (void)_preheatDictationIfNecessary;
 + (BOOL)_isDisplayingShortcutViewController;
 + (BOOL)_isCompatibilityTextField;
 @property(retain) UIView *inputView; // @synthesize inputView=_inputView;
@@ -103,14 +102,12 @@
 - (id)_backgroundView;
 - (id)_systemBackgroundView;
 - (void)setContinuousSpellCheckingEnabled:(BOOL)arg1;
+- (void)_deleteBackwardAndNotify:(BOOL)arg1;
 - (void)deleteBackward;
 - (void)insertText:(id)arg1;
 - (BOOL)hasText;
 - (id)rangeWithTextAlternatives:(id *)arg1 atPosition:(id)arg2;
 - (void)removeDictationResultPlaceholder:(id)arg1 willInsertResult:(BOOL)arg2;
-- (id)_dictationLanguage;
-- (void)_startDictation;
-- (void)_stopDictation;
 - (struct CGRect)frameForDictationResultPlaceholder:(id)arg1;
 - (id)insertDictationResultPlaceholder;
 - (void)insertDictationResult:(id)arg1 withCorrectionIdentifier:(id)arg2;
@@ -148,6 +145,7 @@
 - (id)_inputController;
 - (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (BOOL)_inPopover;
+- (void)_transliterateChinese:(id)arg1;
 - (void)_promptForReplace:(id)arg1;
 - (void)replace:(id)arg1;
 - (void)decreaseSize:(id)arg1;
@@ -294,6 +292,7 @@
 - (void)createPlaceholderIfNecessary;
 - (void)finishedSettingPlaceholder;
 - (id)createTextLabelWithTextColor:(id)arg1;
+- (void)_switchToLayoutEngine:(id)arg1;
 - (void)_createBaselineLayoutLabelIfNecessary;
 - (id)createPlaceholderLabelWithFont:(id)arg1 andTextAlignment:(int)arg2;
 - (Class)_placeholderLabelClass;
@@ -357,9 +356,10 @@
 - (void)layoutSubviews;
 - (struct CGRect)_prefixFrame;
 - (struct CGRect)_suffixFrame;
-- (void)updateConstraints;
-- (void)_setUpBaselineLayoutConstraints;
-- (float)_baselineLayoutConstraintConstant;
+- (void)_updateBaselineInformationDependentOnBounds;
+- (BOOL)_wantsBaselineUpdatingFollowingConstraintsPass;
+- (void)_setUpBaselineLayoutConstraintsForBounds:(struct CGRect)arg1;
+- (float)_baselineLayoutConstraintConstantForBounds:(struct CGRect)arg1;
 - (void)_updateLabel;
 - (struct CGRect)_availableTextRectForBounds:(struct CGRect)arg1 forEditing:(BOOL)arg2;
 - (struct CGRect)_availableTextRectExcludingButtonsForBounds:(struct CGRect)arg1;
@@ -381,6 +381,7 @@
 - (id)clearButton;
 - (id)_clearButtonImageForState:(unsigned int)arg1;
 - (void)_endedEditing;
+- (float)_marginTopForBounds:(struct CGRect)arg1;
 - (float)_marginTop;
 - (id)_copyFont:(id)arg1 newSize:(float)arg2 maxSize:(float)arg3;
 - (void)setFont:(id)arg1 fullFontSize:(float)arg2;
@@ -412,11 +413,11 @@
 - (struct CGSize)_textSize;
 - (struct CGSize)_textSizeUsingFullFontSize:(BOOL)arg1;
 - (void)setAnimating:(BOOL)arg1;
-- (void)setCenter:(struct CGPoint)arg1;
+- (struct CGRect)_responderExternalTouchRectForWindow:(id)arg1;
+- (struct CGRect)_responderSelectionRectForWindow:(id)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)_sizeChanged:(BOOL)arg1;
-- (BOOL)_needsOriginRecheckForConstraintsLayout;
 - (void)_setNeedsStyleRecalc;
 - (void)dealloc;
 - (void)_encodeBackgroundColorWithCoder:(id)arg1;
@@ -440,19 +441,25 @@
 @property(nonatomic) BOOL acceptsFloatingKeyboard;
 @property(nonatomic) BOOL acceptsSplitKeyboard;
 @property(nonatomic) int autocapitalizationType; // @dynamic autocapitalizationType;
+@property(copy, nonatomic) NSString *autocorrectionContext;
 @property(nonatomic) int autocorrectionType; // @dynamic autocorrectionType;
 @property(nonatomic) BOOL contentsIsSingleValue;
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) BOOL deferBecomingResponder; // @dynamic deferBecomingResponder;
+@property(readonly, copy) NSString *description;
+@property(nonatomic) BOOL disablePrediction;
 @property(nonatomic) BOOL displaySecureTextUsingPlainText;
 @property(nonatomic) int emptyContentReturnKeyType;
 @property(nonatomic) BOOL enablesReturnKeyAutomatically; // @dynamic enablesReturnKeyAutomatically;
 @property(nonatomic) BOOL enablesReturnKeyOnNonWhiteSpaceContent;
 @property(nonatomic) BOOL forceEnableDictation;
+@property(readonly) unsigned int hash;
 @property(retain, nonatomic) UIColor *insertionPointColor;
 @property(nonatomic) unsigned int insertionPointWidth;
 @property(nonatomic) BOOL isSingleLineDocument;
 @property(nonatomic) int keyboardType; // @dynamic keyboardType;
 @property(nonatomic) BOOL learnsCorrections;
+@property(copy, nonatomic) NSString *responseContext;
 @property(nonatomic) BOOL returnKeyGoesToNextResponder;
 @property(nonatomic) int returnKeyType; // @dynamic returnKeyType;
 @property(nonatomic) int selectionAffinity;
@@ -461,6 +468,7 @@
 @property(retain, nonatomic) UIColor *selectionHighlightColor;
 @property(nonatomic) int shortcutConversionType;
 @property(nonatomic) int spellCheckingType; // @dynamic spellCheckingType;
+@property(readonly) Class superclass;
 @property(nonatomic) BOOL suppressReturnKeyStyling;
 @property(nonatomic) int textLoupeVisibility;
 @property(nonatomic) int textSelectionBehavior;

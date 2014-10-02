@@ -8,6 +8,8 @@
 
 #import "SASupportCondition.h"
 
+@class NSString;
+
 @interface SAFalseCondition : AceObject <SASupportCondition>
 {
 }
@@ -16,6 +18,12 @@
 + (id)falseCondition;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

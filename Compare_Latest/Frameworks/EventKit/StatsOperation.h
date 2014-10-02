@@ -6,13 +6,10 @@
 
 #import "NSObject.h"
 
-@class NSString;
-
 __attribute__((visibility("hidden")))
 @interface StatsOperation : NSObject
 {
     int _type;
-    NSString *_key;
     long long _intValue;
     double _doubleValue;
 }

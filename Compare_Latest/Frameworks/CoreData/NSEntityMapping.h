@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSData, NSDictionary, NSExpression, NSMutableArray, NSString;
+@class NSArray, NSData, NSDictionary, NSExpression, NSMutableArray, NSString;
 
 @interface NSEntityMapping : NSObject
 {
@@ -31,28 +31,17 @@
 }
 
 + (void)initialize;
-- (void)setEntityMigrationPolicyClassName:(id)arg1;
-- (id)entityMigrationPolicyClassName;
-- (void)setUserInfo:(id)arg1;
-- (id)userInfo;
-- (void)setSourceExpression:(id)arg1;
-- (id)sourceExpression;
-- (void)setRelationshipMappings:(id)arg1;
-- (id)relationshipMappings;
-- (void)setAttributeMappings:(id)arg1;
-- (id)attributeMappings;
-- (void)setDestinationEntityVersionHash:(id)arg1;
-- (id)destinationEntityVersionHash;
-- (void)setDestinationEntityName:(id)arg1;
-- (id)destinationEntityName;
-- (void)setSourceEntityVersionHash:(id)arg1;
-- (id)sourceEntityVersionHash;
-- (void)setSourceEntityName:(id)arg1;
-- (id)sourceEntityName;
-- (void)setMappingType:(unsigned int)arg1;
-- (unsigned int)mappingType;
-- (void)setName:(id)arg1;
-- (id)name;
+@property(copy) NSString *entityMigrationPolicyClassName;
+@property(retain, nonatomic) NSDictionary *userInfo;
+@property(retain) NSExpression *sourceExpression;
+@property(retain) NSArray *relationshipMappings;
+@property(retain) NSArray *attributeMappings;
+@property(copy) NSData *destinationEntityVersionHash;
+@property(copy) NSString *destinationEntityName;
+@property(copy) NSData *sourceEntityVersionHash;
+@property(copy) NSString *sourceEntityName;
+@property unsigned int mappingType;
+@property(copy) NSString *name;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

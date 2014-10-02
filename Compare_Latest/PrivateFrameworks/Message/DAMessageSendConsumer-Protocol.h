@@ -7,6 +7,9 @@
 #import "DAActionConsumer.h"
 
 @protocol DAMessageSendConsumer <DAActionConsumer>
-- (void)messageSentWithContext:(void *)arg1;
+
+@optional
+- (void)messageDidSendWithContext:(id)arg1 sentBytesCount:(unsigned int)arg2 receivedBytesCount:(unsigned int)arg3;
+- (void)messageDidSendWithContext:(id)arg1;
 @end
 

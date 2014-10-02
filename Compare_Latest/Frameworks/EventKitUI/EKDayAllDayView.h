@@ -31,6 +31,9 @@ __attribute__((visibility("hidden")))
     EKEvent *_dimmedOccurrence;
 }
 
++ (id)allDayLabelBoldFont;
++ (id)allDayLabelFont;
++ (id)unscaledAllDayFont;
 @property(retain, nonatomic) EKEvent *dimmedOccurrence; // @synthesize dimmedOccurrence=_dimmedOccurrence;
 @property(nonatomic) int maxVisibleRows; // @synthesize maxVisibleRows=_maxVisibleRows;
 @property(nonatomic) float fixedHeight; // @synthesize fixedHeight=_fixedHeight;
@@ -38,6 +41,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) BOOL showsBorderLines; // @synthesize showsBorderLines=_showsBorderLines;
 @property(nonatomic) __weak id <EKDayAllDayViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)updateLabelFont;
 - (void)setBorderColor:(id)arg1;
 - (void)setAllDayLabelColor:(id)arg1;
 - (BOOL)isAllDayLabelHighlighted;

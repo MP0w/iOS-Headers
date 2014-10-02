@@ -10,9 +10,10 @@
 
 @protocol TSPComponentDelegate <NSObject>
 - (void)didModifyFlushedComponent:(TSPComponent *)arg1 forObject:(TSPObject *)arg2;
-- (void)removeComponentFromCacheWithIdentifier:(long long)arg1;
-- (void)cacheComponent:(TSPComponent *)arg1;
+- (void)flushComponent:(TSPComponent *)arg1 isDiscardingContent:(BOOL)arg2;
+- (void)cacheComponent:(TSPComponent *)arg1 isDiscardingContent:(BOOL)arg2;
 - (TSPObject *)objectForIdentifier:(long long)arg1;
 - (BOOL)shouldKeepAllCachedObjectsInMemory;
+- (BOOL)isActive;
 @end
 

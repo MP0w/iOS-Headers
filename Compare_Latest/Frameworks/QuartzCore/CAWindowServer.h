@@ -17,7 +17,12 @@
 + (id)server;
 + (id)contextWithOptions:(id)arg1;
 + (id)context;
+- (unsigned int)contextIdHostingContextId:(unsigned int)arg1;
+- (unsigned int)taskPortOfContextId:(unsigned int)arg1;
+- (unsigned int)clientPortOfContextId:(unsigned int)arg1;
 - (id)description;
+- (id)insecureProcessIds;
+@property(getter=isSecure) BOOL secure;
 @property unsigned int rendererFlags;
 @property(getter=isMirroringEnabled) BOOL mirroringEnabled;
 @property(readonly) NSArray *displays;

@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSDictionary, NSString;
+@class NSArray, NSDictionary, NSString;
 
 @interface NSError : NSObject <NSCopying, NSSecureCoding>
 {
@@ -31,20 +31,20 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
-- (id)helpAnchor;
-- (id)recoveryAttempter;
-- (id)localizedRecoveryOptions;
-- (id)localizedRecoverySuggestion;
-- (id)localizedFailureReason;
-- (id)localizedDescription;
+@property(readonly, copy) NSString *helpAnchor;
+@property(readonly, retain) id recoveryAttempter;
+@property(readonly, copy) NSArray *localizedRecoveryOptions;
+@property(readonly, copy) NSString *localizedRecoverySuggestion;
+@property(readonly, copy) NSString *localizedFailureReason;
+@property(readonly, copy) NSString *localizedDescription;
 - (struct __CFString *)_retainedUserInfoCallBackForKey:(id)arg1;
 - (id)_cocoaErrorStringWithKind:(id)arg1;
 - (id)_cocoaErrorStringWithKind:(id)arg1 variant:(id)arg2;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
-- (id)userInfo;
-- (id)domain;
-- (int)code;
+@property(readonly, copy) NSDictionary *userInfo;
+@property(readonly, copy) NSString *domain;
+@property(readonly) int code;
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithDomain:(id)arg1 code:(int)arg2 userInfo:(id)arg3;

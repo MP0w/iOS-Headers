@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (void)p_drawShadowedContentIntoContext:(struct CGContext *)arg1 size:(struct CGSize)arg2 contentsScale:(float)arg3 preset:(id)arg4;
+- (void)p_drawShadowedContentIntoContext:(struct CGContext *)arg1 size:(struct CGSize)arg2 contentsScale:(float)arg3 preset:(id)arg4 shouldCache:(char *)arg5;
 - (struct UIEdgeInsets)swatchImageEdgeInsetsForSize:(struct CGSize)arg1;
 - (id)p_chartType;
 

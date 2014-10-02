@@ -21,10 +21,11 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSMutableArray *updatedPlaces; // @synthesize updatedPlaces=_updatedPlaces;
 @property(retain, nonatomic) NSMutableArray *localizedChangeLists; // @synthesize localizedChangeLists=_localizedChangeLists;
 @property(retain, nonatomic) GEOMapRegion *displayRegion; // @synthesize displayRegion=_displayRegion;
-@property(retain, nonatomic) NSMutableArray *updatedPlaces; // @synthesize updatedPlaces=_updatedPlaces;
 @property(nonatomic) double resolutionDate; // @synthesize resolutionDate=_resolutionDate;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -33,15 +34,15 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)updatedPlaceAtIndex:(unsigned int)arg1;
+- (unsigned int)updatedPlacesCount;
+- (void)addUpdatedPlace:(id)arg1;
+- (void)clearUpdatedPlaces;
 - (id)localizedChangeListAtIndex:(unsigned int)arg1;
 - (unsigned int)localizedChangeListsCount;
 - (void)addLocalizedChangeList:(id)arg1;
 - (void)clearLocalizedChangeLists;
 @property(readonly, nonatomic) BOOL hasDisplayRegion;
-- (id)updatedPlaceAtIndex:(unsigned int)arg1;
-- (unsigned int)updatedPlacesCount;
-- (void)addUpdatedPlace:(id)arg1;
-- (void)clearUpdatedPlaces;
 @property(nonatomic) BOOL hasResolutionDate;
 - (void)dealloc;
 

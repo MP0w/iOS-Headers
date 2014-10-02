@@ -8,6 +8,7 @@
 
 #import "NSCoding.h"
 #import "UIBarPositioning.h"
+#import "UIGestureRecognizerDelegate.h"
 #import "UIStatusBarTinting.h"
 #import "_UIBarPositioningInternal.h"
 #import "_UIBasicAnimationFactory.h"
@@ -15,7 +16,7 @@
 
 @class NSArray, NSDictionary, NSMutableArray, NSString, UIColor, UIImage, UIImageView, UINavigationItem, UISwipeGestureRecognizer, _UIViewControllerTransitionContext;
 
-@interface UINavigationBar : UIView <_UIShadowedView, _UIBasicAnimationFactory, UIStatusBarTinting, _UIBarPositioningInternal, NSCoding, UIBarPositioning>
+@interface UINavigationBar : UIView <UIGestureRecognizerDelegate, _UIShadowedView, _UIBasicAnimationFactory, UIStatusBarTinting, _UIBarPositioningInternal, NSCoding, UIBarPositioning>
 {
     NSMutableArray *_itemStack;
     float _rightMargin;
@@ -66,9 +67,10 @@
     _UIViewControllerTransitionContext *_navControllerAnimatingContext;
     BOOL _needsUpdateBackIndicatorImage;
     BOOL _wantsLetterpressContent;
+    BOOL __condensed;
     int _barPosition;
-    NSString *_backdropViewLayerGroupName;
     float _requestedMaxBackButtonWidth;
+    NSString *_backdropViewLayerGroupName;
     NSMutableArray *__animationIds;
 }
 
@@ -85,14 +87,16 @@
 + (id)_statusBarBaseTintColorForStyle:(int)arg1 translucent:(BOOL)arg2 tintColor:(id)arg3 backgroundImage:(id)arg4 viewSize:(struct CGSize)arg5;
 + (id)_bottomColorForBackgroundImage:(id)arg1 viewSize:(struct CGSize)arg2;
 @property(retain, nonatomic, setter=_setAnimationIds:) NSMutableArray *_animationIds; // @synthesize _animationIds=__animationIds;
+@property(nonatomic, getter=_isCondensed, setter=_setCondensed:) BOOL _condensed; // @synthesize _condensed=__condensed;
 @property(nonatomic, setter=_setWantsLetterpressContent:) BOOL _wantsLetterpressContent; // @synthesize _wantsLetterpressContent;
-@property(nonatomic, setter=_setRequestedMaxBackButtonWidth:) float _requestedMaxBackButtonWidth; // @synthesize _requestedMaxBackButtonWidth;
 @property(retain, nonatomic, setter=_setBackdropViewLayerGroupName:) NSString *_backdropViewLayerGroupName; // @synthesize _backdropViewLayerGroupName;
+@property(nonatomic, setter=_setRequestedMaxBackButtonWidth:) float _requestedMaxBackButtonWidth; // @synthesize _requestedMaxBackButtonWidth;
 @property(nonatomic, setter=_setNeedsUpdateBackIndicatorImage:) BOOL _needsUpdateBackIndicatorImage; // @synthesize _needsUpdateBackIndicatorImage;
 @property(readonly, nonatomic) int barPosition; // @synthesize barPosition=_barPosition;
 - (int)_backgroundBackdropStyle;
 - (void)_handlePopSwipe:(id)arg1;
 - (BOOL)_gestureRecognizerShouldBegin:(id)arg1;
+- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
 - (id)_shadowView;
 - (void)_setAutoAdjustTitle:(BOOL)arg1;
 - (void)_navBarButtonPressed:(id)arg1;
@@ -171,6 +175,7 @@
 - (void)updatePrompt;
 - (id)currentBackButton;
 - (BOOL)_shouldShowBackButtonForNavigationItem:(id)arg1;
+- (id)_currentBackButtonForNthItemFromTop:(unsigned int)arg1;
 - (BOOL)_hasBackButton;
 - (id)currentRightView;
 - (id)_currentRightViews;
@@ -206,7 +211,7 @@
 - (void)didAddSubview:(id)arg1;
 - (void)_updateNavigationBarItem:(id)arg1 forStyle:(int)arg2;
 - (void)_updateNavigationBarItem:(id)arg1 forStyle:(int)arg2 previousTintColor:(id)arg3;
-@property(nonatomic) id delegate;
+@property(nonatomic) id <UINavigationBarDelegate> delegate;
 - (void)removeConstraint:(id)arg1;
 - (void)addConstraint:(id)arg1;
 - (void)setTranslatesAutoresizingMaskIntoConstraints:(BOOL)arg1;
@@ -221,6 +226,7 @@
 - (BOOL)_shouldPopForTouchAtPoint:(struct CGPoint)arg1;
 - (void)_handleMouseDownAtPoint:(struct CGPoint)arg1;
 - (void)_setBackIndicatorPressed:(BOOL)arg1 initialPress:(BOOL)arg2;
+- (void)_evaluateBackIndicatorForHilightedState:(BOOL)arg1 ofBarButtonItem:(id)arg2 inNavigationItem:(id)arg3;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)hitTest:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
 - (id)_commonHitTest:(struct CGPoint)arg1 forView:(id)arg2;
@@ -238,17 +244,24 @@
 - (struct CGSize)intrinsicContentSize;
 - (BOOL)_contentHuggingDefault_isUsuallyFixedHeight;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (int)effectiveInterfaceOrientation;
 - (void)setNavigationItems:(id)arg1;
 - (void)_setupTopNavItem:(id)arg1 oldTopNavItem:(id)arg2;
+- (void)_addItems:(id)arg1 withEffectiveDelegate:(id)arg2 transition:(int)arg3;
+- (void)_addItem:(id)arg1 withEffectiveDelegate:(id)arg2 transition:(int)arg3;
+- (void)_setItemsUpToItem:(id)arg1 transition:(id)arg2;
 - (void)_setItems:(id)arg1 transition:(int)arg2;
+- (void)_setItems:(id)arg1 transition:(int)arg2 reset:(BOOL)arg3;
 - (BOOL)_didVisibleItemsChangeWithNewItems:(id)arg1 oldItems:(id)arg2;
 - (void)setItems:(id)arg1 animated:(BOOL)arg2;
 - (int)_transitionForOldItems:(id)arg1 newItems:(id)arg2;
-@property(readonly, nonatomic) UINavigationItem *backItem;
-@property(readonly, nonatomic) UINavigationItem *topItem;
+@property(readonly, retain, nonatomic) UINavigationItem *backItem;
+@property(readonly, retain, nonatomic) UINavigationItem *topItem;
 - (void)popNavigationItem;
 - (void)_prepareForPopAnimationWithNewTopItem:(id)arg1;
 - (id)_popNavigationItemWithTransition:(int)arg1;
+- (void)_pushNestedNavigationItem:(id)arg1;
+- (void)_popNestedNavigationItem;
 - (id)popNavigationItemAnimated:(BOOL)arg1;
 - (void)pushNavigationItem:(id)arg1;
 - (int)_currentBarStyle;
@@ -313,15 +326,20 @@
 - (void)_effectiveBarTintColorDidChangeWithPreviousColor:(id)arg1;
 @property(retain, nonatomic) UIColor *tintColor; // @dynamic tintColor;
 - (void)_updatePaletteBackgroundIfNecessary;
+- (void)_configurePaletteConstraintsIfNecessary;
 - (void)_updateBackgroundColor;
 - (void)_tintViewAppearanceDidChange;
+- (id)_nthNavigationItemFromTop:(int)arg1;
+- (int)_itemStackCount;
 @property(nonatomic, setter=_setBackIndicatorLeftMargin:) float _backIndicatorLeftMargin;
 - (float)_effectiveBackIndicatorLeftMargin;
 @property(retain, nonatomic, setter=_setBackIndicatorImage:) UIImage *_backIndicatorImage;
 @property(retain, nonatomic) UIImage *backIndicatorTransitionMaskImage;
 @property(retain, nonatomic) UIImage *backIndicatorImage;
+@property(readonly, nonatomic) float _heightIncludingBackground;
 - (void)tintColorDidChange;
 @property(readonly, nonatomic) int _barTranslucence;
+- (id)_effectiveDelegate;
 - (void)_palette:(id)arg1 isAttaching:(BOOL)arg2 didComplete:(BOOL)arg3;
 - (id)_backgroundViewForPalette:(id)arg1;
 - (void)_setReversesButtonTextShadowOffsetWhenPressed:(BOOL)arg1;
@@ -333,11 +351,18 @@
 - (void)_setButtonBackgroundImage:(id)arg1 mini:(id)arg2 forStates:(unsigned int)arg3;
 - (void)_setBackgroundImage:(id)arg1 mini:(id)arg2;
 - (void)_applySPIAppearanceToButtons;
+@property(nonatomic, setter=_setShadowAlpha:) float _shadowAlpha;
 @property(retain, nonatomic, setter=_setBackgroundView:) UIView *_backgroundView;
 - (BOOL)isElementAccessibilityExposedToInterfaceBuilder;
 - (float)_autolayoutSpacingAtEdge:(int)arg1 nextToNeighbor:(id)arg2;
 - (float)_autolayoutSpacingAtEdge:(int)arg1 inContainer:(id)arg2;
 - (BOOL)_hasCustomAutolayoutNeighborSpacing;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

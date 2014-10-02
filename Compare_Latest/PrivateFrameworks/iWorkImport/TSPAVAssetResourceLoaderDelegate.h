@@ -8,12 +8,12 @@
 
 #import "AVAssetResourceLoaderDelegate.h"
 
-@class NSObject<OS_dispatch_queue>, NSString, TSPFileDataStorage;
+@class NSObject<OS_dispatch_queue>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface TSPAVAssetResourceLoaderDelegate : NSObject <AVAssetResourceLoaderDelegate>
 {
-    TSPFileDataStorage *_dataStorage;
+    id <TSPDataStorage> _dataStorage;
     NSObject<OS_dispatch_queue> *_delegateQueue;
     id <TSUReadChannel> _readChannel;
     NSObject<OS_dispatch_queue> *_concurrentRequestQueue;
@@ -25,7 +25,14 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (void)_provideData:(id)arg1 untilRequestCancelledForResourceLoadingRequest:(id)arg2;
 - (id)delegateQueue;
-- (id)initWithTSPFileDataStorage:(id)arg1 contentTypeUTI:(id)arg2;
+- (id)initWithDataStorage:(id)arg1 contentTypeUTI:(id)arg2;
+- (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

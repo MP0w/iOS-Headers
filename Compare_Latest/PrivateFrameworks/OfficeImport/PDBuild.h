@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     OADDrawable *mDrawable;
 }
 
+- (BOOL)isEqual:(id)arg1;
 - (void)setDrawable:(id)arg1;
 - (id)drawable;
 - (void)setIsAnimateBackground:(BOOL)arg1;

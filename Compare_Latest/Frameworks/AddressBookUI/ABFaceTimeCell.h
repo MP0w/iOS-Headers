@@ -4,33 +4,32 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <AddressBookUI/ABContactCell.h>
+#import <AddressBookUI/ABLabeledCell.h>
 
-@class ABTransportButton, NSDictionary, UILabel;
+@class ABTransportButton, UILabel;
 
-@interface ABFaceTimeCell : ABContactCell
+@interface ABFaceTimeCell : ABLabeledCell
 {
-    BOOL _displayConstraintsActive;
     BOOL _isFaceTimeAudioAvailable;
-    UILabel *_faceTimeLabel;
     ABTransportButton *_transportIcon1;
     ABTransportButton *_transportIcon2;
     id <ABPropertyCellDelegate> _delegate;
-    NSDictionary *_labelTextAttributes;
+    UILabel *_faceTimeLabel;
 }
 
-+ (BOOL)requiresConstraintBasedLayout;
 @property(nonatomic) BOOL isFaceTimeAudioAvailable; // @synthesize isFaceTimeAudioAvailable=_isFaceTimeAudioAvailable;
-@property(nonatomic) BOOL displayConstraintsActive; // @synthesize displayConstraintsActive=_displayConstraintsActive;
-@property(copy, nonatomic) NSDictionary *labelTextAttributes; // @synthesize labelTextAttributes=_labelTextAttributes;
+@property(readonly, nonatomic) UILabel *faceTimeLabel; // @synthesize faceTimeLabel=_faceTimeLabel;
 @property(nonatomic) id <ABPropertyCellDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) ABTransportButton *transportIcon2; // @synthesize transportIcon2=_transportIcon2;
 @property(readonly, nonatomic) ABTransportButton *transportIcon1; // @synthesize transportIcon1=_transportIcon1;
-@property(retain, nonatomic) UILabel *faceTimeLabel; // @synthesize faceTimeLabel=_faceTimeLabel;
 - (void)transportButtonClicked:(id)arg1;
-- (void)updateConstraints;
-- (void)setNeedsUpdateDisplayConstraints;
+- (void)tintColorDidChange;
+- (id)variableConstraints;
+- (id)constantConstraints;
+- (id)rightMostView;
+- (float)minCellHeight;
 - (void)performDefaultAction;
+- (id)labelView;
 - (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 

@@ -8,7 +8,7 @@
 
 #import "AFManagedStore.h"
 
-@class NSXPCConnection;
+@class NSString, NSXPCConnection;
 
 @interface AFManagedStorageConnection : NSObject <AFManagedStore>
 {
@@ -24,6 +24,12 @@
 - (void)_clearConnection;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

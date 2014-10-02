@@ -24,17 +24,17 @@
     NSDateComponents *_todoFilterEndDate;
 }
 
-@property BOOL fallbackOnMultiGetError; // @synthesize fallbackOnMultiGetError=_fallbackOnMultiGetError;
-@property(retain) NSDateComponents *todoFilterEndDate; // @synthesize todoFilterEndDate=_todoFilterEndDate;
-@property(retain) NSDateComponents *todoFilterStartDate; // @synthesize todoFilterStartDate=_todoFilterStartDate;
-@property(retain) NSDateComponents *eventFilterEndDate; // @synthesize eventFilterEndDate=_eventFilterEndDate;
-@property(retain) NSDateComponents *eventFilterStartDate; // @synthesize eventFilterStartDate=_eventFilterStartDate;
-@property BOOL supportsExtendedCalendarQuery; // @synthesize supportsExtendedCalendarQuery=_supportsExtendedCalendarQuery;
-@property BOOL syncTodos; // @synthesize syncTodos=_syncTodos;
-@property BOOL syncEvents; // @synthesize syncEvents=_syncEvents;
-@property BOOL getScheduleChanges; // @synthesize getScheduleChanges=_getScheduleChanges;
-@property BOOL getScheduleTags; // @synthesize getScheduleTags=_getScheduleTags;
-@property(retain) id <CalDAVCalendar> calendar; // @synthesize calendar=_calendar;
+@property(nonatomic) BOOL fallbackOnMultiGetError; // @synthesize fallbackOnMultiGetError=_fallbackOnMultiGetError;
+@property(retain, nonatomic) NSDateComponents *todoFilterEndDate; // @synthesize todoFilterEndDate=_todoFilterEndDate;
+@property(retain, nonatomic) NSDateComponents *todoFilterStartDate; // @synthesize todoFilterStartDate=_todoFilterStartDate;
+@property(retain, nonatomic) NSDateComponents *eventFilterEndDate; // @synthesize eventFilterEndDate=_eventFilterEndDate;
+@property(retain, nonatomic) NSDateComponents *eventFilterStartDate; // @synthesize eventFilterStartDate=_eventFilterStartDate;
+@property(nonatomic) BOOL supportsExtendedCalendarQuery; // @synthesize supportsExtendedCalendarQuery=_supportsExtendedCalendarQuery;
+@property(nonatomic) BOOL syncTodos; // @synthesize syncTodos=_syncTodos;
+@property(nonatomic) BOOL syncEvents; // @synthesize syncEvents=_syncEvents;
+@property(nonatomic) BOOL getScheduleChanges; // @synthesize getScheduleChanges=_getScheduleChanges;
+@property(nonatomic) BOOL getScheduleTags; // @synthesize getScheduleTags=_getScheduleTags;
+@property(retain, nonatomic) id <CalDAVCalendar> calendar; // @synthesize calendar=_calendar;
 - (id)initWithFolderURL:(id)arg1 previousCTag:(id)arg2 previousSyncToken:(id)arg3 getScheduleTags:(BOOL)arg4 getScheduleChanges:(BOOL)arg5 accountInfoProvider:(id)arg6 taskManager:(id)arg7;
 - (id)initWithFolderURL:(id)arg1 previousCTag:(id)arg2 previousSyncToken:(id)arg3 actions:(id)arg4 getScheduleTags:(BOOL)arg5 getScheduleChanges:(BOOL)arg6 accountInfoProvider:(id)arg7 taskManager:(id)arg8 appSpecificCalendarItemClass:(Class)arg9;
 - (id)copyAdditionalResourcePropertiesToFetch;

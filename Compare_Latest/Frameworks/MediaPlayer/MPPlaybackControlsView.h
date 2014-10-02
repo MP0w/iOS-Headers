@@ -22,10 +22,6 @@
     MPButton *_mailButton;
     MPButton *_playbackSpeedButton;
     MPDetailSlider *_progressControl;
-    MPButton *_radioButton;
-    MPButton *_radioHistoryButton;
-    MPButton *_radioShareButton;
-    MPButton *_trackInfoButton;
     MPButton *_repeatButton;
     MPButton *_rewindButton;
     UIView *_rewindButtonBezel;
@@ -46,7 +42,6 @@
     unsigned int _useMediaDetailSlider:1;
     unsigned int _detailScrubbing:1;
     unsigned int _needsUpdateButtonVisibility:1;
-    BOOL _radioButtonHidden;
     unsigned long long _disabledParts;
 }
 
@@ -86,10 +81,6 @@
 - (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
 - (void)_shuffleButton:(id)arg1;
 - (void)_rewindButton:(id)arg1;
-- (void)_trackInfoButton:(id)arg1;
-- (void)_radioShareButton:(id)arg1;
-- (void)_radioHistoryButton:(id)arg1;
-- (void)_radioButton:(id)arg1;
 - (void)_fastForwardButton:(id)arg1;
 - (void)_repeatButton:(id)arg1;
 - (void)_playbackSpeedButton:(id)arg1;
@@ -136,6 +127,12 @@
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

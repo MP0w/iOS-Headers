@@ -9,11 +9,12 @@
 #import "NSCopying.h"
 #import "TSCHStyleOwning.h"
 #import "TSCHUnretainedParent.h"
+#import "TSDMixing.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSString, TSCHChartDrawableInfo, TSCHChartLayoutCache, TSCHChartMediator, TSCHChartModel, TSCHChartStylePreset, TSCHChartType, TSCHLegendModel, TSDInfoGeometry, TSPLazyReference, TSSStylesheet;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSString, TSCHChartDrawableInfo, TSCHChartLayoutCache, TSCHChartMediator, TSCHChartModel, TSCHChartStylePreset, TSCHChartType, TSCHLegendModel, TSDInfoGeometry, TSPLazyReference;
 
 __attribute__((visibility("hidden")))
-@interface TSCHChartInfo : NSObject <TSCHStyleOwning, TSCHUnretainedParent, NSCopying>
+@interface TSCHChartInfo : NSObject <TSCHStyleOwning, TSCHUnretainedParent, TSDMixing, NSCopying>
 {
     TSCHChartModel *mModel;
     id <TSCHStyleActAlike> mStyle;
@@ -44,9 +45,12 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *mStyleViewProxyMap;
     NSArray *mStyleViewProxyParagraphStyleArray;
     unsigned int mLastSeriesIndex;
+    NSString *mLastAppliedFillSetLookupString;
 }
 
 + (BOOL)groupedShadowsForChartModel:(id)arg1;
++ (id)scale3DPropertyToConstantDepthInfoChartScaleMappingsWithBarShape:(int)arg1 conversionBlock:(CDUnknownBlockType)arg2;
++ (id)p_chartTypeTo3DScalePropertyPairs;
 + (id)paragraphStyleIdentifierForRoleIndex:(unsigned int)arg1 ordinal:(unsigned int)arg2;
 + (id)seriesStyleIdentifierForRoleIndex:(unsigned int)arg1 ordinal:(unsigned int)arg2;
 + (id)categoryAxisStyleIdentifierForRoleIndex:(unsigned int)arg1 ordinal:(unsigned int)arg2;
@@ -61,23 +65,34 @@ __attribute__((visibility("hidden")))
 + (Class)classForSeriesStyle;
 + (Class)classForChartNonstyle;
 + (Class)classForChartStyle;
++ (id)specificNumberFormatTypeProperties;
++ (id)specificPropertiesThatCanContainCustomFormats;
++ (id)specificPropertiesThatCanContainCustomDateFormats;
++ (id)specificPropertiesThatCanContainCustomNumberFormats;
 + (id)paragraphStylePropertiesChartsUse;
 + (id)propertiesThatInvalidateModel;
 + (id)swapTuplesForParagraphStyleMutations:(id)arg1 forReferencingProperty:(int)arg2 forStyleOwner:(id)arg3;
++ (id)adjustNumberFormatTypeValue:(id)arg1 forChartModel:(id)arg2 gridValueType:(int)arg3 hasCustomFormat:(BOOL)arg4;
++ (int)adjustNumberFormatType:(int)arg1 forChartModel:(id)arg2 gridValueType:(int)arg3 hasCustomFormat:(BOOL)arg4;
 + (id)p_currentThreadSceneAreaLayoutCache;
 + (void)setCurrentThreadSceneAreaLayoutCache:(id)arg1;
 + (double)beginValueForStackedBarSeries:(id)arg1 index:(unsigned int)arg2 unitSpaceIntercept:(double)arg3 relativelyPositive:(BOOL)arg4 valueAxis:(id)arg5;
++ (id)genericParagraphStyleIndexProperties;
 + (id)paragraphStyleIndexProperties;
 + (id)p_stylesheetFromOrderedArrayOfSources:(id)arg1;
 @property(nonatomic) double informationalMessageDuration; // @synthesize informationalMessageDuration=mMessageDuration;
 @property(retain, nonatomic) NSString *informationalMessageString; // @synthesize informationalMessageString=mMessageString;
 @property(nonatomic) BOOL displayMessageOnRepCreation; // @synthesize displayMessageOnRepCreation=mDisplayMessageOnRepCreation;
+@property(copy, nonatomic) NSString *lastAppliedFillSetLookupString; // @synthesize lastAppliedFillSetLookupString=mLastAppliedFillSetLookupString;
 @property(readonly, nonatomic) TSCHChartDrawableInfo *drawableInfo; // @synthesize drawableInfo=mDrawableInfo;
 @property(nonatomic) struct CGPoint previewOrigin; // @synthesize previewOrigin=mPreviewOrigin;
 @property(retain, nonatomic) TSCHChartMediator *mediator; // @synthesize mediator=mChartMediator;
 @property(retain, nonatomic) TSCHChartType *chartType; // @synthesize chartType=mChartType;
 @property(retain, nonatomic) TSCHLegendModel *legend; // @synthesize legend=mLegendModel;
 @property(retain, nonatomic) TSCHChartModel *model; // @synthesize model=mModel;
+- (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
+- (int)mixingTypeWithObject:(id)arg1;
+- (BOOL)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
 - (void)performDeferredUpgradeAndImportOperations;
 @property(readonly, nonatomic) BOOL wantsDeferredUpgradeOrImport;
 - (struct CGRect)chartBodyBoundsForSageImportWithSageChartType:(BOOL)arg1;
@@ -96,7 +111,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSCHChartStylePreset *preset;
 - (id)childCommandForApplyThemeCommand:(id)arg1;
 - (id)styleOwnerFromSwapType:(int)arg1 andIndex:(unsigned int)arg2;
-- (id)applyStyleSwapTuple:(id)arg1;
 - (id)applyStyleSwapTuples:(id)arg1;
 - (id)childInfos;
 - (id)commandSetCategoryName:(id)arg1 forCategoryIndex:(unsigned int)arg2;
@@ -128,11 +142,11 @@ __attribute__((visibility("hidden")))
 - (id)legendStyle;
 - (id)newChartStylePresetByExampleWithPresetIndex:(unsigned int)arg1 withSeriesCount:(unsigned int)arg2 forTheme:(id)arg3;
 - (id)newChartStylePresetByExampleWithPresetIndex:(unsigned int)arg1 forTheme:(id)arg2;
+- (id)masterFontNameForInspectors;
 - (id)swapTuplesForParagraphStyleMutations:(id)arg1 forReferencingProperty:(int)arg2;
 - (id)swapTuplesForMutationsForImport:(id)arg1;
 - (id)swapTuplesForMutations:(id)arg1;
 - (id)p_swapTuplesForMutations:(id)arg1 isForImport:(BOOL)arg2;
-- (id)paragraphStyle;
 - (id)defaultProperties;
 - (id)nonstyle;
 - (id)style;
@@ -147,27 +161,30 @@ __attribute__((visibility("hidden")))
 - (int)defaultPropertyForGeneric:(int)arg1;
 - (int)specificPropertyForGeneric:(int)arg1;
 - (id)p_genericToDefaultPropertyMap;
-- (id)themeStylesheet;
-@property(readonly, nonatomic) TSSStylesheet *documentStylesheet;
+- (void)performBlockWithStylesheetForAddingStyles:(CDUnknownBlockType)arg1;
 - (unsigned int)addParagraphStyle:(id)arg1;
 - (id)paragraphStyles;
 - (id)paragraphStyleAtIndex:(unsigned int)arg1;
 - (int)elementKind;
 @property(readonly, nonatomic) BOOL isPhantom;
-- (Class)editorClass;
 - (Class)layoutClass;
 - (Class)repClass;
 - (void)setDefaultLegendPositionIfNeededWithOptionalLayout:(id)arg1;
 - (float)p_dataSetNameAccomodationWithOptionalLayout:(id)arg1;
 - (float)p_titleAccommodationWithLegendSize:(struct CGSize)arg1 optionalLayout:(id)arg2;
+- (void)setChartType:(id)arg1 gridRowIds:(id)arg2 gridColumnIds:(id)arg3;
 - (void)p_setChartType:(id)arg1 andSetLegendDefaults:(BOOL)arg2;
+- (void)p_setChartType:(id)arg1 andSetLegendDefaults:(BOOL)arg2 gridRowIds:(id)arg3 gridColumnIds:(id)arg4;
 - (void)setInfoGeometryByUpdatingLegendGeometryAccommodatedForInitialLayoutGeometry:(id)arg1;
-- (id)infoGeometryForDesiredLayoutGeometry:(id)arg1;
+- (id)p_infoGeometryForGeometry:(id)arg1 isCircumscribing:(BOOL)arg2;
+- (id)infoGeometryForDesiredCircumscribingGeometry:(id)arg1;
+- (id)infoGeometryForDesiredPureLayoutGeometry:(id)arg1;
 - (id)infoGeometryForVisuallyCenteringOnUnscaledCanvasPoint:(struct CGPoint)arg1;
 - (void)chartMoveToPosition:(struct CGPoint)arg1 size:(struct CGSize)arg2;
 - (struct CGRect)resizedLegendFrame:(struct CGRect)arg1 oldChartSize:(struct CGSize)arg2 newChartSize:(struct CGSize)arg3;
 @property(readonly, nonatomic) int gridDirection;
 @property(readonly, nonatomic) struct CGSize minimumChartBodySize;
+- (void)setLastAppliedFillSetIdentifier:(id)arg1;
 - (id)modelForDataSetIndex:(unsigned int)arg1;
 @property(copy, nonatomic) TSDInfoGeometry *geometry;
 - (void)setGeometry:(id)arg1 clearObjectPlaceholderFlag:(BOOL)arg2;
@@ -184,12 +201,17 @@ __attribute__((visibility("hidden")))
 - (id)initWithChartType:(id)arg1 legendShowing:(id)arg2 chartBodyFrame:(id)arg3 chartAreaFrame:(id)arg4 circumscribingFrame:(id)arg5 legendFrame:(id)arg6 stylePreset:(id)arg7 privateSeriesStyles:(id)arg8 chartNonStyle:(id)arg9 legendNonStyle:(id)arg10 valueAxisNonStyles:(id)arg11 categoryAxisNonStyles:(id)arg12 seriesNonStyles:(id)arg13;
 - (id)init;
 - (id)p_init;
+- (id)commandToApplyViewProxiesToModel;
+- (void)clearViewStyleProxyForLayouts:(id)arg1;
+- (void)setViewStyleProxyParagraphStyleArray:(id)arg1 layouts:(id)arg2;
+- (void)addViewStyleProxyForMutationTuples:(id)arg1 layouts:(id)arg2;
+- (void)p_invalidateCachesInLayouts:(id)arg1;
+- (id)viewOverrideMapForStyleOwner:(id)arg1;
 - (id)create3DSceneWithLayoutSettings:(const CDStruct_1f804ca1 *)arg1;
 @property(nonatomic) CDStruct_1f804ca1 defaultLayoutSettings;
 @property(readonly, nonatomic) BOOL hasSetDefaultLayoutSettings;
 - (void)debugLayoutCache;
 @property(readonly, nonatomic) TSCHChartLayoutCache *sceneAreaLayoutItemCache;
-- (id)clamped3DRotationPropertyObject;
 - (BOOL)isSingleCircleSpecialCase;
 - (BOOL)isSingleCircleSpecialCaseOutSeries:(id *)arg1;
 - (float)maximumExplosionOfAllSeriesExcept:(id)arg1;
@@ -199,28 +221,31 @@ __attribute__((visibility("hidden")))
 - (void)performUpgradeForPersistentChartInfo:(id)arg1 archiveVersion:(unsigned long long)arg2 innerChartFrame:(struct CGRect)arg3 isFromPasteboard:(BOOL)arg4;
 - (void)loadFromPreUFFArchive:(const struct ChartInfoArchive *)arg1 unarchiver:(id)arg2 persistentChartInfo:(id)arg3;
 - (id)g_genericToDefaultPropertyMap;
+- (id)allStyleOwners;
+- (unsigned int)nonStyleIndexForStyleOwnerRef:(id)arg1;
+- (id)styleOwnerRefForStyleOwner:(id)arg1;
+- (id)styleOwnerForRef:(id)arg1;
 - (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
 - (void)applyChartStyleState:(id)arg1;
 - (void)p_duplicatePersistableMembersOfCopiedChartUsingContext:(id)arg1;
 - (void)p_setDrawableInfo:(id)arg1;
-- (id)p_copyStyleArray:(id)arg1 inContext:(id)arg2;
+- (id)p_copyStyleArray:(id)arg1 inContext:(id)arg2 withMapper:(id)arg3;
 - (id)p_copyNonStyleArray:(id)arg1 inContext:(id)arg2;
 - (unsigned int)p_paragraphStyleIndexOfFirstCategoryAxisParagraphStyle;
-- (id)commandToApplyViewProxiesToModel;
-- (void)clearViewStyleProxyForLayouts:(id)arg1;
-- (void)setViewStyleProxyParagraphStyleArray:(id)arg1 layouts:(id)arg2;
-- (void)addViewStyleProxyForMutationTuples:(id)arg1 layouts:(id)arg2;
-- (void)p_invalidateCachesInLayouts:(id)arg1;
-- (id)viewOverrideMapForStyleOwner:(id)arg1;
-- (CDStruct_f1d50d6b)styleOwnerRefForStyleOwner:(id)arg1;
-- (id)styleOwnerForRef:(CDStruct_f1d50d6b)arg1;
 - (id)tuplesToApplyState:(id)arg1;
 - (id)chartStyleState;
 - (void)saveToUnityArchive:(struct ChartArchive *)arg1 persistentChartInfo:(id)arg2 archiver:(id)arg3;
 - (void)loadFromUnityArchive:(const struct ChartArchive *)arg1 unarchiver:(id)arg2 persistentChartInfo:(id)arg3;
+- (id)p_allStylesAndNonStylesThatCanHaveCustomNumberFormats;
 - (id)p_swapTuplesForApplyingPreset:(id)arg1 preservingAppearance:(BOOL)arg2;
 - (id)p_swapTuplesForApplyingPresetRemovingOverrides:(id)arg1;
 - (id)swapTuplesForApplyingPreset:(id)arg1 withBehavior:(unsigned int)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

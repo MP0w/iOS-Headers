@@ -6,37 +6,38 @@
 
 #import <AddressBookUI/ABCardGroupItem.h>
 
-@class CNContact, CNLabeledValue, NSArray, NSString, NSURL;
+@class ABCardPropertyGroup, CNContact, CNLabeledValue, NSArray, NSString, NSURL;
 
 @interface ABPropertyGroupItem : ABCardGroupItem
 {
     BOOL _allowsIMessage;
     BOOL _allowsPhone;
     BOOL _allowsEmail;
-    BOOL _modified;
     NSArray *_labeledValues;
     CNLabeledValue *_labeledValue;
-    NSString *_property;
+    ABCardPropertyGroup *_group;
     NSArray *_contacts;
     CNContact *_contact;
     id <ABPropertyGroupItemDelegate> _delegate;
+    CNLabeledValue *_originalLabeledValue;
 }
 
 + (id)newPropertyGroupItemForProperty:(id)arg1;
-+ (id)propertyGroupItemWithLabeledValue:(id)arg1 property:(id)arg2 contact:(id)arg3;
-+ (id)propertyGroupItemWithLabeledValue:(id)arg1 property:(id)arg2 contacts:(id)arg3;
-@property(nonatomic) BOOL modified; // @synthesize modified=_modified;
++ (id)propertyGroupItemWithLabeledValue:(id)arg1 group:(id)arg2 contact:(id)arg3;
++ (id)propertyGroupItemWithLabeledValue:(id)arg1 group:(id)arg2 contacts:(id)arg3;
+@property(retain, nonatomic) CNLabeledValue *originalLabeledValue; // @synthesize originalLabeledValue=_originalLabeledValue;
 @property(nonatomic) BOOL allowsEmail; // @synthesize allowsEmail=_allowsEmail;
 @property(nonatomic) BOOL allowsPhone; // @synthesize allowsPhone=_allowsPhone;
 @property(nonatomic) BOOL allowsIMessage; // @synthesize allowsIMessage=_allowsIMessage;
 @property(nonatomic) id <ABPropertyGroupItemDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) CNContact *contact; // @synthesize contact=_contact;
 @property(copy, nonatomic) NSArray *contacts; // @synthesize contacts=_contacts;
-@property(readonly, nonatomic) NSString *property; // @synthesize property=_property;
+@property(nonatomic) ABCardPropertyGroup *group; // @synthesize group=_group;
 @property(retain, nonatomic) CNLabeledValue *labeledValue; // @synthesize labeledValue=_labeledValue;
 @property(retain, nonatomic) NSArray *labeledValues; // @synthesize labeledValues=_labeledValues;
 - (void)_enumerateContactsAndValuesWithBlock:(CDUnknownBlockType)arg1;
-- (void)saveChanges;
+- (void)saveChangesImmediately:(BOOL)arg1;
+@property(readonly, nonatomic) BOOL modified;
 - (BOOL)isValidIdentifier:(int)arg1;
 - (void)updateLabeledValueWithLabel:(id)arg1;
 - (void)updateLabeledValueWithValue:(id)arg1;
@@ -52,18 +53,22 @@
 @property(readonly, nonatomic) BOOL canRemove;
 @property(readonly, nonatomic, getter=isReadonly) BOOL readonly;
 @property(readonly, nonatomic, getter=isEmpty) BOOL empty;
+- (BOOL)isValidValue:(id)arg1;
 - (id)valueForDisplayString:(id)arg1;
 - (id)displayStringForValue:(id)arg1;
+@property(readonly, nonatomic) NSArray *supportedLabels;
 @property(readonly, nonatomic) NSString *placeholderString;
 @property(readonly, nonatomic) NSString *editingStringValue;
 @property(readonly, nonatomic) NSString *displayLabel;
 @property(readonly, nonatomic) NSString *displayValue;
 @property(readonly, nonatomic) id normalizedValue;
 - (id)emptyLabeledValue;
+@property(readonly, nonatomic) NSString *property;
 - (id)description;
+- (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
-- (id)initWithLabeledValue:(id)arg1 property:(id)arg2 contacts:(id)arg3;
-- (id)initWithProperty:(id)arg1;
+- (id)initWithLabeledValue:(id)arg1 group:(id)arg2 contacts:(id)arg3;
+- (id)initWithGroup:(id)arg1;
 - (id)init;
 
 @end

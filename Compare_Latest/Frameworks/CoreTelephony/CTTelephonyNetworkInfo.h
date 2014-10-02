@@ -31,7 +31,7 @@
 - (id)radioAccessTechnology;
 @property(retain, nonatomic) NSString *cellId;
 - (id)signalStrength;
-@property(readonly, nonatomic) NSString *currentRadioAccessTechnology;
+@property(readonly, retain, nonatomic) NSString *currentRadioAccessTechnology;
 - (void)queryCellId;
 - (void)updateRadioAccessTechnology:(id)arg1;
 - (void)queryDataMode;

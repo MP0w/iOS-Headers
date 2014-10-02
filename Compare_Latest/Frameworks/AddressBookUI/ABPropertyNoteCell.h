@@ -6,28 +6,26 @@
 
 #import <AddressBookUI/ABPropertyCell.h>
 
-@class UITextView;
+@class UILabel, UITextView;
 
 @interface ABPropertyNoteCell : ABPropertyCell
 {
     UITextView *_textView;
+    UILabel *_labelLabel;
 }
 
+@property(readonly, nonatomic) UILabel *labelLabel; // @synthesize labelLabel=_labelLabel;
 @property(retain, nonatomic) UITextView *textView; // @synthesize textView=_textView;
-- (id)contentViewEditingConstraints;
-- (id)contentViewConstraints;
 - (void)setAllowsEditing:(BOOL)arg1;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)updateWithPropertyItem:(id)arg1;
-- (void)_updateDisplayAndEditingControls;
 - (void)textViewEditingDidEnd:(id)arg1;
 - (void)textViewChanged:(id)arg1;
 - (void)setValueTextAttributes:(id)arg1;
-- (void)setLabelTextAttributes:(id)arg1;
-- (void)tintColorDidChange;
-- (void)setBackgroundColor:(id)arg1;
+- (float)bottomBaselineConstant;
 - (void)performDefaultAction;
 - (BOOL)shouldPerformDefaultAction;
+- (void)setLabelTextAttributes:(id)arg1;
+- (id)valueView;
+- (id)labelView;
 - (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 

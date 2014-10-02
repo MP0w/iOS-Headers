@@ -30,7 +30,7 @@
 @property(nonatomic) BOOL isShuttingDown; // @synthesize isShuttingDown=_isShuttingDown;
 @property(retain, nonatomic) NSString *serverSideConfigVersion; // @synthesize serverSideConfigVersion=_serverSideConfigVersion;
 @property(retain, nonatomic) NSURL *baseURL; // @synthesize baseURL=_baseURL;
-@property(readonly, nonatomic) NSString *personID; // @synthesize personID=_personID;
+@property(readonly, retain, nonatomic) NSString *personID; // @synthesize personID=_personID;
 @property(retain, nonatomic) NSObject<OS_dispatch_group> *pendingConnectionsGroup; // @synthesize pendingConnectionsGroup=_pendingConnectionsGroup;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *pendingConnectionsQueue; // @synthesize pendingConnectionsQueue=_pendingConnectionsQueue;
 @property(retain, nonatomic) MSASPConnectionGate *gate; // @synthesize gate=_gate;
@@ -104,6 +104,12 @@
 - (id)stoppingError;
 - (id)shutDownError;
 - (id)initWithPersonID:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

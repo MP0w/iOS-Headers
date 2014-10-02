@@ -6,23 +6,28 @@
 
 #import <AVFoundation/AVCaptureDevice.h>
 
-@class NSDictionary, NSString;
+@class AVWeakReference, NSDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface AVCaptureFigAudioDevice : AVCaptureDevice
 {
-    NSDictionary *_deviceProperties;
+    NSObject<OS_dispatch_queue> *_fcsQueue;
+    struct OpaqueFigCaptureSource *_fcs;
+    NSDictionary *_attributes;
     BOOL _levelMeteringEnabled;
     BOOL _isConnected;
     NSString *_localizedName;
-    struct OpaqueCMClock *_deviceClock;
+    AVWeakReference *_weakReference;
 }
 
 + (id)_devices;
-- (struct OpaqueCMClock *)deviceClock;
++ (void)initialize;
++ (id)alloc;
+- (void)_handleNotification:(struct __CFString *)arg1 payload:(id)arg2;
 - (void)audioInputDeviceLocalizedNameDidChangeHandler:(id)arg1;
 - (void)audioInputDevicesDidChangeHandler:(id)arg1;
+- (id)_copyFigCaptureSourceProperty:(struct __CFString *)arg1;
+- (struct OpaqueCMClock *)deviceClock;
 - (BOOL)supportsAVCaptureSessionPreset:(id)arg1;
-- (id)devicePropertiesDictionary;
 - (void)stopUsingDevice;
 - (BOOL)startUsingDevice:(id *)arg1;
 - (BOOL)isConnected;
@@ -31,8 +36,10 @@
 - (id)localizedName;
 - (id)modelID;
 - (id)uniqueID;
+- (void)_setFigCaptureSource:(struct OpaqueFigCaptureSource *)arg1;
+- (struct OpaqueFigCaptureSource *)figCaptureSource;
 - (void)dealloc;
-- (id)initWithProperties:(id)arg1;
+- (id)_initWithFigCaptureSource:(struct OpaqueFigCaptureSource *)arg1;
 - (id)init;
 
 @end

@@ -12,7 +12,6 @@
 
 @interface GEOUsageCollection : PBCodable <NSCopying>
 {
-    CDStruct_612aec5b _probeID;
     CDStruct_612aec5b _sessionID;
     CDStruct_8f5f9923 *_tileUsages;
     unsigned int _tileUsagesCount;
@@ -27,7 +26,6 @@
     int _responseTime;
     BOOL _sessionIDIsPersistent;
     struct {
-        unsigned int probeID:1;
         unsigned int sessionID:1;
         unsigned int timestamp:1;
         unsigned int cellWifi:1;
@@ -41,7 +39,6 @@
 
 @property(retain, nonatomic) NSString *hwMachine; // @synthesize hwMachine=_hwMachine;
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
-@property(nonatomic) CDStruct_612aec5b probeID; // @synthesize probeID=_probeID;
 @property(nonatomic) CDStruct_612aec5b sessionID; // @synthesize sessionID=_sessionID;
 @property(retain, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
 @property(nonatomic) int cellWifi; // @synthesize cellWifi=_cellWifi;
@@ -49,6 +46,7 @@
 @property(nonatomic) int responseDataSize; // @synthesize responseDataSize=_responseDataSize;
 @property(nonatomic) int requestDataSize; // @synthesize requestDataSize=_requestDataSize;
 @property(nonatomic) int geoService; // @synthesize geoService=_geoService;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -67,7 +65,6 @@
 @property(readonly, nonatomic) CDStruct_8f5f9923 *tileUsages;
 @property(readonly, nonatomic) unsigned int tileUsagesCount;
 @property(nonatomic) BOOL hasTimestamp;
-@property(nonatomic) BOOL hasProbeID;
 @property(nonatomic) BOOL hasSessionID;
 @property(readonly, nonatomic) BOOL hasCountryCode;
 @property(nonatomic) BOOL hasCellWifi;

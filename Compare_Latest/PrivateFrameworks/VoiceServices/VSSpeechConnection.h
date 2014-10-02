@@ -17,6 +17,8 @@
 
 @property(readonly, nonatomic) VSSpeechRequest *request; // @synthesize request=_request;
 - (void).cxx_destruct;
+- (void)getLogToFile:(CDUnknownBlockType)arg1;
+- (void)setLogToFile:(BOOL)arg1;
 - (void)getVoiceInfoForLanguageCode:(id)arg1 footprint:(int)arg2 gender:(int)arg3 custom:(BOOL)arg4 reply:(CDUnknownBlockType)arg5;
 - (void)getAutoDownloadedVoiceAssets:(CDUnknownBlockType)arg1;
 - (void)setAutoDownloadedVoiceAssets:(id)arg1;

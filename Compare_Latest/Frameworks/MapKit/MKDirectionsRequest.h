@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class MKMapItem, NSDate;
+@class MKMapItem, NSArray, NSDate;
 
 @interface MKDirectionsRequest : NSObject <NSCopying>
 {
@@ -24,9 +24,11 @@
     BOOL _includeDistanceInETA;
     NSDate *_departureDate;
     NSDate *_arrivalDate;
+    NSArray *_additionalTransportTypesRequested;
 }
 
 + (BOOL)isDirectionsRequestURL:(id)arg1;
+@property(retain, nonatomic, getter=_additionalTransportTypesRequested, setter=_setAdditionalTransportTypesRequested:) NSArray *additionalTransportTypesRequested; // @synthesize additionalTransportTypesRequested=_additionalTransportTypesRequested;
 @property(nonatomic, getter=_includeDistanceInETA, setter=_setIncludeDistanceInETA:) BOOL includeDistanceInETA; // @synthesize includeDistanceInETA=_includeDistanceInETA;
 @property(readonly, nonatomic) BOOL _includeEntryPoints; // @synthesize _includeEntryPoints;
 @property(readonly, nonatomic) BOOL _includeBasicRoutePoints; // @synthesize _includeBasicRoutePoints;

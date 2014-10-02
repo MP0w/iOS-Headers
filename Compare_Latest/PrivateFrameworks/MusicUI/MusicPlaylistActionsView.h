@@ -20,9 +20,15 @@
 - (void).cxx_destruct;
 - (void)_updateButtonsForCurrentStyle;
 - (void)_addButtonWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3;
+- (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
+- (void)setCanRefreshPlaylist:(BOOL)arg1;
+- (void)setCanEditPlaylist:(BOOL)arg1;
 - (void)setCanDeletePlaylist:(BOOL)arg1;
+- (void)setCanClearPlaylist:(BOOL)arg1;
 @property(copy, nonatomic) NSString *backdropViewGroupName;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

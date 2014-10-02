@@ -12,6 +12,5 @@
 + (struct USet *)_characterSetWithPattern:(id)arg1;
 - (BOOL)_isJapanesePhrase;
 - (BOOL)_isOnlyIdeographs;
-- (BOOL)_contentsExclusivelyInCharacterSet:(struct USet *)arg1;
 @end
 

@@ -9,12 +9,14 @@
 #import "NSCoding.h"
 #import "NSCopying.h"
 
+@class NSColor;
+
 @interface NSShadow : NSObject <NSCopying, NSCoding>
 {
     unsigned int _shadowFlags;
-    id _shadowColor;
-    float _shadowBlurRadius;
     struct CGSize _shadowOffset;
+    float _shadowBlurRadius;
+    NSColor *_shadowColor;
 }
 
 + (id)defaultShadowColor;
@@ -23,10 +25,10 @@
 @property(nonatomic) float shadowBlurRadius; // @synthesize shadowBlurRadius=_shadowBlurRadius;
 @property(nonatomic) struct CGSize shadowOffset; // @synthesize shadowOffset=_shadowOffset;
 - (id)description;
-@property(retain, nonatomic) id shadowColor; // @synthesize shadowColor=_shadowColor;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+@property(retain, nonatomic) id shadowColor;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;

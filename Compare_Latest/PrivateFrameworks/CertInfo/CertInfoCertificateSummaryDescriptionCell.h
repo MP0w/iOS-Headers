@@ -13,9 +13,9 @@
     CertInfoDescriptionCellContentView *_customContentView;
 }
 
+- (void).cxx_destruct;
 - (float)rowHeight;
 - (void)setLabelsAndValues:(id)arg1;
-- (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end

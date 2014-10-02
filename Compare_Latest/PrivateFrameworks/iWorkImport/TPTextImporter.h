@@ -8,7 +8,7 @@
 
 #import "TSKImporter.h"
 
-@class NSURL, TSUProgressContext;
+@class NSString, NSURL, TSUProgressContext;
 
 __attribute__((visibility("hidden")))
 @interface TPTextImporter : NSObject <TSKImporter>
@@ -27,6 +27,12 @@ __attribute__((visibility("hidden")))
 - (void)setURL:(id)arg1;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

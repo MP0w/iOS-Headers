@@ -8,7 +8,7 @@
 
 #import "SBLeafIconDataSource.h"
 
-@class UIWebClip;
+@class NSString, NSURL, UIWebClip;
 
 @interface SBBookmark : NSObject <SBLeafIconDataSource>
 {
@@ -16,11 +16,12 @@
 }
 
 + (id)bookmarkWithWebClip:(id)arg1;
-@property(retain, nonatomic) UIWebClip *webClip; // @synthesize webClip=_webClip;
+@property(readonly, retain, nonatomic) UIWebClip *webClip; // @synthesize webClip=_webClip;
 - (_Bool)icon:(id)arg1 launchFromLocation:(int)arg2;
 - (_Bool)iconAllowsLaunch:(id)arg1;
 - (_Bool)iconCompleteUninstall:(id)arg1;
 - (_Bool)iconAllowsUninstall:(id)arg1;
+- (_Bool)iconIsBeta:(id)arg1;
 - (_Bool)iconIsRecentlyUpdated:(id)arg1;
 - (id)iconFormattedAccessoryString:(id)arg1;
 - (id)iconBadgeNumberOrString:(id)arg1;
@@ -29,17 +30,24 @@
 - (double)iconProgressPercent:(id)arg1;
 - (long long)iconProgressState:(id)arg1;
 - (_Bool)iconAppearsInNewsstand:(id)arg1;
+- (_Bool)iconCanTightenLabel:(id)arg1;
 - (_Bool)iconCanEllipsizeLabel:(id)arg1;
 - (id)icon:(id)arg1 defaultImageWithFormat:(int)arg2;
 - (id)icon:(id)arg1 imageWithFormat:(int)arg2;
 - (unsigned long long)iconPriority:(id)arg1;
 - (id)iconDisplayName:(id)arg1;
 - (_Bool)allowsUninstall;
-- (void)deviceUnlockedForFirstTime:(id)arg1;
-- (id)bundleIdentifier;
-- (id)identifier;
+- (void)_deviceUnlockedForFirstTime:(id)arg1;
+@property(readonly, retain, nonatomic) NSURL *launchURL;
+@property(readonly, retain, nonatomic) NSString *identifier;
 - (void)dealloc;
 - (id)initWithWebClip:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,10 +6,10 @@
 
 #import "NSObject.h"
 
-#import "OAVClient.h"
+#import "OAVReadClient.h"
 
 __attribute__((visibility("hidden")))
-@interface PXVmlClient : NSObject <OAVClient>
+@interface PXVmlClient : NSObject <OAVReadClient>
 {
 }
 

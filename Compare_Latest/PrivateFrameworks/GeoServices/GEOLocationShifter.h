@@ -6,33 +6,28 @@
 
 #import "NSObject.h"
 
-@class GEOLocationShiftFunctionRequest, GEOLocationShiftFunctionResponse;
+@class GEOLocationShiftFunctionRequest, GEOLocationShiftFunctionResponse, NSLock, NSMutableArray;
 
 @interface GEOLocationShifter : NSObject
 {
-    BOOL _hasCheckedLocationShiftEnabled;
-    BOOL _locationShiftEnabled;
     GEOLocationShiftFunctionResponse *_shiftFunction;
     BOOL _isRequestingShiftFunction;
-    CDStruct_2c43369c _coordinateToShift;
-    double _coordinateAccuracy;
     GEOLocationShiftFunctionRequest *_shiftRequest;
-    int _shiftProviderID;
-    CDUnknownBlockType _successHandler;
+    NSLock *_lock;
+    NSMutableArray *_locationsToShift;
 }
 
-@property(nonatomic) double coordinateAccuracy; // @synthesize coordinateAccuracy=_coordinateAccuracy;
-@property(copy, nonatomic) CDUnknownBlockType successHandler; // @synthesize successHandler=_successHandler;
 @property(retain, nonatomic) GEOLocationShiftFunctionRequest *shiftRequest; // @synthesize shiftRequest=_shiftRequest;
-@property(nonatomic) CDStruct_c3b9c2ee coordinateToShift; // @synthesize coordinateToShift=_coordinateToShift;
 @property(retain, nonatomic) GEOLocationShiftFunctionResponse *shiftFunction; // @synthesize shiftFunction=_shiftFunction;
-- (void)_shiftAndReturnCoordinate:(CDStruct_c3b9c2ee)arg1 accuracy:(double)arg2;
-- (void)_applyLocationShift:(CDStruct_c3b9c2ee)arg1 accuracy:(double)arg2;
+- (void)_shiftAndReturnLocations;
+- (void)_sendErrorForLocations:(id)arg1;
+- (BOOL)_shiftLocation:(id)arg1;
+- (BOOL)shiftCoordinate:(CDStruct_c3b9c2ee)arg1 accuracy:(double)arg2 shiftedCoordinate:(CDStruct_c3b9c2ee *)arg3 shiftedAccuracy:(double *)arg4;
+- (void)shiftCoordinate:(CDStruct_c3b9c2ee)arg1 accuracy:(double)arg2 withCompletionHandler:(CDUnknownBlockType)arg3 mustGoToNetworkCallback:(CDUnknownBlockType)arg4 errorHandler:(CDUnknownBlockType)arg5 callbackQueue:(id)arg6;
 - (void)shiftCoordinate:(CDStruct_c3b9c2ee)arg1 accuracy:(double)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)_requestShiftFunctionForLocation:(CDStruct_c3b9c2ee)arg1 accuracy:(double)arg2;
 - (void)_countryProvidersDidChange:(id)arg1;
-@property(nonatomic) BOOL locationShiftEnabled;
-- (void)_updateLocationShiftEnabled;
+@property(readonly, nonatomic) BOOL locationShiftEnabled;
 - (void)dealloc;
 - (id)init;
 

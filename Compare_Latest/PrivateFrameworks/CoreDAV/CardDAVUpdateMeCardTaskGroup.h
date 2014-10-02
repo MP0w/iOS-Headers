@@ -8,7 +8,7 @@
 
 #import "CoreDAVPropPatchTaskDelegate.h"
 
-@class NSURL;
+@class NSString, NSURL;
 
 @interface CardDAVUpdateMeCardTaskGroup : CoreDAVTaskGroup <CoreDAVPropPatchTaskDelegate>
 {
@@ -16,14 +16,19 @@
     NSURL *_cardURL;
 }
 
-@property(readonly) NSURL *homeURL; // @synthesize homeURL=_homeURL;
-@property(readonly) NSURL *cardURL; // @synthesize cardURL=_cardURL;
+@property(readonly, nonatomic) NSURL *homeURL; // @synthesize homeURL=_homeURL;
+@property(readonly, nonatomic) NSURL *cardURL; // @synthesize cardURL=_cardURL;
 - (void)propPatchTask:(id)arg1 parsedResponses:(id)arg2 error:(id)arg3;
 - (void)startTaskGroup;
 - (id)_newPropPatchTask;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithAccountInfoProvider:(id)arg1 taskManager:(id)arg2 homeURL:(id)arg3 cardURL:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -10,7 +10,7 @@
 
 @interface AFDictationConnection : NSObject
 {
-    NSXPCConnection *_assistantConnection;
+    NSXPCConnection *_connection;
     NSString *_lastUsedLanguage;
     id <AFDictationDelegate> _delegate;
     unsigned int _stateInSync:1;
@@ -47,13 +47,19 @@
 - (void)beginAvailabilityMonitoring;
 - (BOOL)dictationIsAvailableForLanguage:(id)arg1;
 - (void)_availabilityChanged:(id)arg1;
-- (id)_assistantDictationService;
-- (id)_assistantConnection;
+- (void)_extendRequestTimeout;
+- (void)_invokeRequestTimeout;
+- (void)_cancelRequestTimeout;
+- (void)_scheduleRequestTimeout;
+- (id)_dictationService;
+- (id)_connection;
 - (void)_registerInvalidationHandlerForXPCConnection:(id)arg1;
 - (void)_clearConnections;
 - (void)_connectionInterrupted;
 - (void)_tellDelegateAudioSessionIDChanged:(unsigned int)arg1;
+- (void)_tellSpeechDelegateAudioFileFinished:(id)arg1 error:(id)arg2;
 - (void)_tellSpeechDelegateRecognitionDidFail:(id)arg1;
+- (void)_tellSpeechDelegateDidRecognizeTranscriptionObjects:(id)arg1 languageModel:(id)arg2;
 - (void)_tellSpeechDelegateDidRecognizeSpeechTokens:(id)arg1 languageModel:(id)arg2;
 - (void)_tellSpeechDelegateDidRecognizeSpeechPhrases:(id)arg1 languageModel:(id)arg2 correctionIdentifier:(id)arg3;
 - (void)_tellSpeechDelegateDidHypothesizeSpeechPhrases:(id)arg1 languageModel:(id)arg2;

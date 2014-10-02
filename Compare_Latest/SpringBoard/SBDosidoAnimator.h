@@ -26,7 +26,7 @@
 - (void)_doRealDosido:(id)arg1 withSpacingBetween:(double)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)_transformedContentView;
 @property(readonly, nonatomic) double defaultDuration; // @dynamic defaultDuration;
-- (void)animateFromView:(id)arg1 toView:(id)arg2 withSpacingBetween:(double)arg3 outAnimationSettings:(id *)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)animateFromView:(id)arg1 toView:(id)arg2 withSpacingBetween:(double)arg3 outAnimationFactory:(id *)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)dealloc;
 - (id)initWithParentView:(id)arg1 fromOrientation:(long long)arg2;
 

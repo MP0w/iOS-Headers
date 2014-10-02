@@ -6,14 +6,15 @@
 
 #import "NSObject.h"
 
-@class CKConversation, CKRecipientSelectionController, NSString;
+@class CKRecipientSelectionController, MFComposeRecipient, NSString;
 
 @protocol CKRecipientSelectionControllerDelegate <NSObject>
-- (struct UIEdgeInsets)recipientSelectionControllerRequestNavigationBarInsets:(CKRecipientSelectionController *)arg1;
+- (struct UIEdgeInsets)navigationBarInsetsForRecipientSelectionController:(CKRecipientSelectionController *)arg1;
+- (void)recipientSelectionController:(CKRecipientSelectionController *)arg1 didFinishAvailaiblityLookupForRecipient:(MFComposeRecipient *)arg2;
+- (void)recipientSelectionControllerDidPushABViewController:(CKRecipientSelectionController *)arg1;
 - (void)recipientSelectionControllerRequestDismissKeyboard:(CKRecipientSelectionController *)arg1;
 - (void)recipientSelectionController:(CKRecipientSelectionController *)arg1 textDidChange:(NSString *)arg2;
 - (void)recipientSelectionControllerSearchListDidShowOrHide:(CKRecipientSelectionController *)arg1;
-- (void)recipientSelectionController:(CKRecipientSelectionController *)arg1 didSelectConversation:(CKConversation *)arg2;
 - (void)recipientSelectionControllerReturnPressed:(CKRecipientSelectionController *)arg1;
 - (void)recipientSelectionControllerDidChangeSize:(CKRecipientSelectionController *)arg1;
 @end

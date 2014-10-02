@@ -41,8 +41,9 @@
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)imageForImage:(id)arg1;
+- (id)imageForColor:(id)arg1 size:(struct CGSize)arg2;
 - (id)imageForColor:(id)arg1;
-- (id)imageForSize:(struct CGSize)arg1;
+@property(readonly, nonatomic) struct CGSize imageSize;
 
 @end
 

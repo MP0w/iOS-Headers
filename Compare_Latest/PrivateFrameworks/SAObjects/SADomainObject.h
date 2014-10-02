@@ -8,7 +8,7 @@
 
 #import "SAAceIdentifiable.h"
 
-@class NSURL;
+@class NSString, NSURL;
 
 @interface SADomainObject : AceObject <SAAceIdentifiable>
 {
@@ -20,6 +20,12 @@
 @property(copy, nonatomic) NSURL *identifier; // @dynamic identifier;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

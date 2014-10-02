@@ -45,6 +45,8 @@
 - (void)beginLineWithGlyphAtIndex:(unsigned int)arg1;
 - (void)endParagraph;
 - (void)beginParagraph;
+- (void)setDefaultTighteningFactor:(float)arg1;
+- (float)defaultTighteningFactor;
 - (unsigned int)_sweepDirectionForGlyphAtIndex:(long)arg1;
 - (BOOL)_usesScreenFonts;
 - (void)_flushCachedObjects;
@@ -59,9 +61,6 @@
 - (int)_baseWritingDirection;
 - (void)_doBidiProcessing;
 - (void)dealloc;
-- (oneway void)release;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
 
 @end
 

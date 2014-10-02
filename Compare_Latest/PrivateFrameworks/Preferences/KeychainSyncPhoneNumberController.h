@@ -10,7 +10,7 @@
 #import "KeychainSyncViewController.h"
 #import "UIAlertViewDelegate.h"
 
-@class KeychainSyncPhoneSettingsFragment, UIAlertView, UILabel;
+@class KeychainSyncPhoneSettingsFragment, NSString, UIAlertView, UILabel;
 
 @interface KeychainSyncPhoneNumberController : PSKeychainSyncViewController <KeychainSyncPhoneSettingsFragmentDelegate, UIAlertViewDelegate, KeychainSyncViewController>
 {
@@ -33,7 +33,11 @@
 - (void)dealloc;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) id <KeychainSyncViewControllerDelegate> delegate;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

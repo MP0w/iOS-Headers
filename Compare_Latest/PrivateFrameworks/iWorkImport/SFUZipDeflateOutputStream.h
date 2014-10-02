@@ -8,6 +8,8 @@
 
 #import "SFUOutputStream.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface SFUZipDeflateOutputStream : NSObject <SFUOutputStream>
 {
@@ -26,6 +28,12 @@ __attribute__((visibility("hidden")))
 - (id)closeLocalStream;
 - (void)dealloc;
 - (id)initWithOutputStream:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

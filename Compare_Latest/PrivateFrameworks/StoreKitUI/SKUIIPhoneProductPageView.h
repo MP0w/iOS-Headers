@@ -9,8 +9,12 @@
 @interface SKUIIPhoneProductPageView : UIView
 {
     UIView *_view;
+    UIView *_bannerView;
+    float _bannerOffset;
 }
 
+@property(nonatomic) float bannerOffset; // @synthesize bannerOffset=_bannerOffset;
+@property(retain, nonatomic) UIView *bannerView; // @synthesize bannerView=_bannerView;
 @property(retain, nonatomic) UIView *view; // @synthesize view=_view;
 - (void).cxx_destruct;
 - (void)layoutSubviews;

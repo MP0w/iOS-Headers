@@ -32,12 +32,14 @@
     SSMetricsSearchEvent *_searchEvent;
 }
 
++ (BOOL)_shouldForwardViewWillTransitionToSize;
 @property(retain, nonatomic) SKUISearchFieldController *searchFieldController; // @synthesize searchFieldController=_searchFieldController;
 - (void).cxx_destruct;
 - (void)_setResponse:(id)arg1 error:(id)arg2;
 - (void)_setMetricsController:(id)arg1;
+- (void)_sendXEventWithDictionary:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)_searchWithURLRequest:(id)arg1 persistRelated:(BOOL)arg2 metricsEvent:(id)arg3;
-- (void)_searchWithSearchTerm:(id)arg1 persistRelated:(BOOL)arg2 metricsEvent:(id)arg3;
+- (void)_searchWithSearchTerm:(id)arg1 persistRelated:(BOOL)arg2 metricsEvent:(id)arg3 baseRequest:(id)arg4;
 - (void)_reloadOrientation:(int)arg1;
 - (void)_reloadView;
 - (void)_reloadChildViewController;
@@ -60,6 +62,7 @@
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)decodeRestorableStateWithCoder:(id)arg1;
 - (id)contentScrollView;
+- (void)showError:(id)arg1;
 - (void)setClientContext:(id)arg1;
 - (void)reloadData;
 - (void)searchWithSearchTerm:(id)arg1 metricsEvent:(id)arg2;
@@ -70,6 +73,12 @@
 - (void)scrollToTop;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

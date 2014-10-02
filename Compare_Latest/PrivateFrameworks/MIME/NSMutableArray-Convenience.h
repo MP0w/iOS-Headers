@@ -8,6 +8,7 @@
 
 @interface NSMutableArray (Convenience)
 - (void)mf_moveObjectAtIndex:(unsigned int)arg1 toIndex:(unsigned int)arg2;
+- (void)mf_addObject:(id)arg1 orPlaceholder:(id)arg2;
 - (BOOL)mf_addObjectIfAbsentAccordingToEquals:(id)arg1;
 - (BOOL)mf_addObjectIfAbsent:(id)arg1;
 @end

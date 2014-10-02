@@ -6,56 +6,47 @@
 
 #import "UITableViewController.h"
 
+#import "CKContactsSearchManagerDelegate.h"
 #import "IDSBatchIDQueryControllerDelegate.h"
-#import "MFContactsSearchConsumer.h"
 
-@class IDSBatchIDQueryController, IMAccount, MFContactsSearchManager, MFContactsSearchResultsModel, NSArray, NSDate, NSMutableDictionary, NSNumber, NSString;
+@class CKContactsSearchManager, IDSBatchIDQueryController, IMAccount, NSArray, NSDate, NSString;
 
-@interface CKRecipientSearchListController : UITableViewController <IDSBatchIDQueryControllerDelegate, MFContactsSearchConsumer>
+@interface CKRecipientSearchListController : UITableViewController <IDSBatchIDQueryControllerDelegate, CKContactsSearchManagerDelegate>
 {
-    BOOL _shouldDisplayGroupSuggestionCells;
+    BOOL _smsEnabled;
+    BOOL _shouldUsePopovers;
     id <CKRecipientSearchListControllerDelegate> _delegate;
     NSArray *_enteredRecipients;
-    NSString *_searchText;
+    NSArray *_prefilteredRecipients;
+    CKContactsSearchManager *_searchManager;
     NSArray *_searchResults;
-    NSMutableDictionary *_searchIDSStatuses;
-    int _pendingSearchTypes;
-    MFContactsSearchManager *_searchManager;
-    MFContactsSearchResultsModel *_searchResultsModel;
     IDSBatchIDQueryController *_statusQueryController;
-    NSNumber *_currentSearchTaskID;
     IMAccount *_defaultiMessageAccount;
     NSDate *_idsQueryStartTime;
 }
 
 @property(retain, nonatomic) NSDate *idsQueryStartTime; // @synthesize idsQueryStartTime=_idsQueryStartTime;
 @property(retain, nonatomic) IMAccount *defaultiMessageAccount; // @synthesize defaultiMessageAccount=_defaultiMessageAccount;
-@property(retain, nonatomic) NSNumber *currentSearchTaskID; // @synthesize currentSearchTaskID=_currentSearchTaskID;
 @property(retain, nonatomic) IDSBatchIDQueryController *statusQueryController; // @synthesize statusQueryController=_statusQueryController;
-@property(retain, nonatomic) MFContactsSearchResultsModel *searchResultsModel; // @synthesize searchResultsModel=_searchResultsModel;
-@property(retain, nonatomic) MFContactsSearchManager *searchManager; // @synthesize searchManager=_searchManager;
-@property(nonatomic) int pendingSearchTypes; // @synthesize pendingSearchTypes=_pendingSearchTypes;
-@property(retain, nonatomic) NSMutableDictionary *searchIDSStatuses; // @synthesize searchIDSStatuses=_searchIDSStatuses;
-@property(retain, nonatomic) NSArray *searchResults; // @synthesize searchResults=_searchResults;
-@property(retain, nonatomic) NSString *searchText; // @synthesize searchText=_searchText;
-@property(nonatomic) BOOL shouldDisplayGroupSuggestionCells; // @synthesize shouldDisplayGroupSuggestionCells=_shouldDisplayGroupSuggestionCells;
+@property(copy, nonatomic) NSArray *searchResults; // @synthesize searchResults=_searchResults;
+@property(retain, nonatomic) CKContactsSearchManager *searchManager; // @synthesize searchManager=_searchManager;
+@property(nonatomic) BOOL shouldUsePopovers; // @synthesize shouldUsePopovers=_shouldUsePopovers;
+@property(nonatomic) BOOL smsEnabled; // @synthesize smsEnabled=_smsEnabled;
+@property(retain, nonatomic) NSArray *prefilteredRecipients; // @synthesize prefilteredRecipients=_prefilteredRecipients;
 @property(retain, nonatomic) NSArray *enteredRecipients; // @synthesize enteredRecipients=_enteredRecipients;
 @property(nonatomic) id <CKRecipientSearchListControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (BOOL)_serviceColorForRecipients:(id)arg1;
 - (id)_statusQueryController;
-- (void)_performSearchWithBlock:(CDUnknownBlockType)arg1;
+@property(nonatomic) BOOL suppressGroupSuggestions;
 - (void)removeRecipientFromSearchResults:(id)arg1;
+- (void)invalidateSearchManager;
 - (void)cancelSearch;
 - (void)invalidateOutstandingIDStatusRequests;
 - (BOOL)isSearchResultsHidden;
 - (BOOL)hasSearchResults;
 - (void)searchWithText:(id)arg1;
 - (void)idStatusUpdatedForDestinations:(id)arg1;
-- (void)endedNetworkActivity;
-- (void)beganNetworkActivity;
-- (void)finishedTaskWithID:(id)arg1;
-- (void)finishedSearchingForType:(int)arg1;
-- (void)consumeSearchResults:(id)arg1 type:(int)arg2 taskID:(id)arg3;
+- (void)contactsSearchManager:(id)arg1 finishedSearchingWithResults:(id)arg2;
 - (BOOL)scrollViewShouldScrollToTop:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
@@ -69,6 +60,12 @@
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)loadView;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

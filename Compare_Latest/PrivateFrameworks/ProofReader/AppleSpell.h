@@ -12,8 +12,15 @@
 {
     void *_proofReaderConnection;
     struct __CFDictionary *_databaseConnections;
+    struct __CFDictionary *_languageModelDicts;
+    double _lastWriteLanguageModels;
+    double _lastDecayLanguageModels;
+    double _lastReleaseLanguageModels;
+    double _lastMaintainLanguageModels;
+    unsigned int _languageModelWordCount;
     NSMutableDictionary *_bindicts;
     NSMutableArray *_globalBindictDataArray;
+    NSMutableArray *_globalNameBindictDataArray;
     NSMutableArray *_globalNegBindictDataArray;
     NSMutableDictionary *_autocorrections;
     NSString *_lastLanguage;
@@ -34,6 +41,7 @@
     NSURL *_updateBundleURL;
     NSMutableDictionary *_languageCounts;
     double _lastLanguageCounts;
+    NSMutableDictionary *_userAdaptationDictionary;
     BOOL _userPrefersUncheckedLatinLanguage;
 }
 
@@ -45,9 +53,14 @@
 - (id)spellServer:(id)arg1 stringForInputString:(id)arg2 language:(id)arg3;
 - (id)spellServer:(id)arg1 suggestWordWithLengthInRange:(struct _NSRange)arg2 language:(id)arg3;
 - (id)spellServer:(id)arg1 suggestNextLetterDictionariesForPartialWordRange:(struct _NSRange)arg2 inString:(id)arg3 language:(id)arg4;
+- (id)spellServer:(id)arg1 suggestNextLetterDictionariesForPartialWordRange:(struct _NSRange)arg2 inString:(id)arg3 language:(id)arg4 options:(id)arg5;
 - (id)spellServer:(id)arg1 suggestCompletionDictionariesForPartialWordRange:(struct _NSRange)arg2 inString:(id)arg3 language:(id)arg4;
+- (id)spellServer:(id)arg1 suggestCompletionDictionariesForPartialWordRange:(struct _NSRange)arg2 inString:(id)arg3 language:(id)arg4 options:(id)arg5;
 - (id)spellServer:(id)arg1 suggestCompletionsForPartialWordRange:(struct _NSRange)arg2 inString:(id)arg3 language:(id)arg4;
+- (id)spellServer:(id)arg1 suggestCompletionsForPartialWordRange:(struct _NSRange)arg2 inString:(id)arg3 language:(id)arg4 options:(id)arg5;
+- (id)spellServer:(id)arg1 suggestGuessesForWord:(id)arg2 inLanguage:(id)arg3;
 - (id)spellServer:(id)arg1 suggestGuessesForWordRange:(struct _NSRange)arg2 inString:(id)arg3 language:(id)arg4;
+- (id)spellServer:(id)arg1 suggestGuessesForWordRange:(struct _NSRange)arg2 inString:(id)arg3 language:(id)arg4 options:(id)arg5;
 - (id)spellServer:(id)arg1 checkString:(id)arg2 offset:(unsigned int)arg3 types:(unsigned long long)arg4 options:(id)arg5 orthography:(id)arg6 wordCount:(int *)arg7;
 - (struct _NSRange)spellServer:(id)arg1 findMisspelledWordInString:(id)arg2 language:(id)arg3 wordCount:(int *)arg4 countOnly:(BOOL)arg5 correction:(id *)arg6;
 - (struct _NSRange)spellServer:(id)arg1 findMisspelledWordInString:(id)arg2 language:(id)arg3 wordCount:(int *)arg4 countOnly:(BOOL)arg5;
@@ -59,17 +72,23 @@
 - (BOOL)validateWordBuffer:(char *)arg1 length:(unsigned int)arg2 language:(id)arg3 connection:(struct _PR_DB_IO *)arg4 sender:(id)arg5 checkBase:(BOOL)arg6 checkDict:(BOOL)arg7 checkNames:(BOOL)arg8 checkHyphens:(BOOL)arg9 checkIntercaps:(BOOL)arg10 checkOptions:(BOOL)arg11 depth:(unsigned int)arg12;
 - (BOOL)validateWordBuffer:(char *)arg1 length:(unsigned int)arg2 language:(id)arg3 connection:(struct _PR_DB_IO *)arg4 sender:(id)arg5 checkBase:(BOOL)arg6 checkDict:(BOOL)arg7 checkTemp:(BOOL)arg8 checkNames:(BOOL)arg9 checkHyphens:(BOOL)arg10 checkIntercaps:(BOOL)arg11 checkOptions:(BOOL)arg12 depth:(unsigned int)arg13;
 - (BOOL)validateWordBuffer:(char *)arg1 length:(unsigned int)arg2 language:(id)arg3 connection:(struct _PR_DB_IO *)arg4 sender:(id)arg5 checkBase:(BOOL)arg6 checkDict:(BOOL)arg7 checkTemp:(BOOL)arg8 checkUser:(BOOL)arg9 checkNames:(BOOL)arg10 checkHyphens:(BOOL)arg11 checkIntercaps:(BOOL)arg12 checkOptions:(BOOL)arg13 depth:(unsigned int)arg14;
+- (BOOL)checkSpecialPrefixesForWordBuffer:(char *)arg1 length:(unsigned int)arg2;
 - (BOOL)validateAbbreviationOrNumberWordBuffer:(char *)arg1 length:(unsigned int)arg2 language:(id)arg3 encoding:(unsigned long)arg4 connection:(struct _PR_DB_IO *)arg5 sender:(id)arg6;
 - (BOOL)validateWordPrefixBuffer:(char *)arg1 length:(unsigned int)arg2 connection:(struct _PR_DB_IO *)arg3;
 - (BOOL)validateWordBuffer:(char *)arg1 length:(unsigned int)arg2 connection:(struct _PR_DB_IO *)arg3;
-- (BOOL)globalCheckNegativeWordBuffer:(char *)arg1 length:(unsigned int)arg2 language:(id)arg3 encoding:(unsigned long)arg4;
-- (BOOL)globalCheckWordBuffer:(char *)arg1 length:(unsigned int)arg2 language:(id)arg3 encoding:(unsigned long)arg4;
+- (BOOL)checkNegativeWordBuffer:(char *)arg1 length:(unsigned int)arg2 language:(id)arg3 encoding:(unsigned long)arg4;
+- (BOOL)checkNegativeWordBuffer:(char *)arg1 length:(unsigned int)arg2 language:(id)arg3 encoding:(unsigned long)arg4 depth:(unsigned int)arg5;
+- (BOOL)checkNoPredictWordBuffer:(char *)arg1 length:(unsigned int)arg2 language:(id)arg3 encoding:(unsigned long)arg4;
+- (BOOL)checkNoPredictWordBuffer:(char *)arg1 length:(unsigned int)arg2 language:(id)arg3 encoding:(unsigned long)arg4 depth:(unsigned int)arg5;
+- (BOOL)checkNameWordBuffer:(char *)arg1 length:(unsigned int)arg2 language:(id)arg3 encoding:(unsigned long)arg4 globalOnly:(BOOL)arg5;
 - (BOOL)checkWordBuffer:(char *)arg1 length:(unsigned int)arg2 language:(id)arg3 encoding:(unsigned long)arg4 index:(unsigned int)arg5;
+- (id)linguisticTaggerForLanguage:(id)arg1 string:(id)arg2 range:(struct _NSRange)arg3 taggerIndex:(unsigned int *)arg4;
 - (void)setUpdateBundleURL:(id)arg1;
 - (void)addAlternateDataBundleURL:(id)arg1;
 - (void)clearCaches;
 - (id)autocorrectionDictionaryForLanguage:(id)arg1;
 - (id)globalNegativeBindictDataArray;
+- (id)globalNameBindictDataArray;
 - (id)globalBindictDataArray;
 - (id)bindictDataForLanguage:(id)arg1 index:(unsigned int)arg2;
 - (id)bindictDataArrayForLanguage:(id)arg1 index:(unsigned int)arg2;
@@ -80,8 +99,10 @@
 - (id)localizationsForLanguage:(id)arg1;
 - (id)bundle;
 - (id)init;
+- (void)_findAlternateDataBundleURLs;
 - (void)resetTimer;
 - (void)timeout:(id)arg1;
+- (unsigned int)numberOfTurkishSuffixPointsInBuffer:(char *)arg1 length:(unsigned int)arg2 maxSuffixPoints:(unsigned int)arg3 suffixPoints:(CDStruct_1e94be47 *)arg4;
 - (BOOL)_checkEnglishGrammarInString:(id)arg1 range:(struct _NSRange)arg2 indexIntoBuffer:(unsigned int)arg3 bufferLength:(unsigned int)arg4 language:(id)arg5 connection:(struct _PR_DB_IO *)arg6 sender:(id)arg7 bufIO:(struct _PR_BUF_IO *)arg8 retval:(int *)arg9 errorRange:(struct _NSRange *)arg10 details:(id *)arg11;
 - (id)_detailWithRange:(struct _NSRange)arg1 description:(id)arg2 corrections:(id)arg3;
 - (id)_correctionForSuggestedPhrase:(const char *)arg1 originalBuffer:(const char *)arg2 length:(unsigned int)arg3;
@@ -95,11 +116,12 @@
 - (BOOL)looksLikeAdverb:(id)arg1 language:(id)arg2 connection:(struct _PR_DB_IO *)arg3 sender:(id)arg4;
 - (BOOL)looksLikeArticledNoun:(id)arg1 language:(id)arg2 connection:(struct _PR_DB_IO *)arg3;
 - (id)spellServer:(id)arg1 suggestWordWithMinimumLength:(unsigned int)arg2 maximumLength:(unsigned int)arg3 language:(id)arg4;
-- (id)spellServer:(id)arg1 suggestNextLetterDictionariesForPartialWordRange:(struct _NSRange)arg2 inString:(id)arg3 inLanguage:(id)arg4;
-- (id)spellServer:(id)arg1 suggestCompletionDictionariesForPartialWordRange:(struct _NSRange)arg2 inString:(id)arg3 inLanguage:(id)arg4;
-- (id)spellServer:(id)arg1 suggestCompletionsForPartialWordRange:(struct _NSRange)arg2 inString:(id)arg3 inLanguage:(id)arg4;
-- (id)spellServer:(id)arg1 suggestGuessesForWord:(id)arg2 inLanguage:(id)arg3;
-- (id)_correctionForString:(id)arg1 range:(struct _NSRange)arg2 inString:(id)arg3 tagger:(id)arg4 taggerIndex:(unsigned int)arg5 dictionary:(id)arg6 language:(id)arg7 connection:(struct _PR_DB_IO *)arg8 keyEventData:(id)arg9 alternativeCorrection:(id *)arg10 isApostropheInsertion:(char *)arg11;
+- (id)spellServer:(id)arg1 suggestNextLetterDictionariesForPartialWordRange:(struct _NSRange)arg2 inString:(id)arg3 inLanguage:(id)arg4 options:(id)arg5;
+- (id)spellServer:(id)arg1 suggestCompletionDictionariesForPartialWordRange:(struct _NSRange)arg2 inString:(id)arg3 inLanguage:(id)arg4 options:(id)arg5;
+- (id)spellServer:(id)arg1 suggestCompletionsForPartialWordRange:(struct _NSRange)arg2 inString:(id)arg3 inLanguage:(id)arg4 options:(id)arg5;
+- (id)spellServer:(id)arg1 suggestGuessesForWordRange:(struct _NSRange)arg2 inString:(id)arg3 inLanguage:(id)arg4 options:(id)arg5;
+- (id)_correctionForString:(id)arg1 range:(struct _NSRange)arg2 inString:(id)arg3 tagger:(id)arg4 taggerIndex:(unsigned int)arg5 appIdentifier:(id)arg6 dictionary:(id)arg7 language:(id)arg8 connection:(struct _PR_DB_IO *)arg9 keyEventData:(id)arg10 alternativeCorrection:(id *)arg11 isApostropheInsertion:(char *)arg12;
+- (void)_addBasicGuessesForWordBuffer:(char *)arg1 length:(unsigned int)arg2 language:(id)arg3 connection:(struct _PR_DB_IO *)arg4 sender:(id)arg5 minAutocorrectionLength:(unsigned int)arg6 toGuesses:(id)arg7;
 - (id)_japaneseCorrectionForString:(id)arg1 connection:(struct _PR_DB_IO *)arg2;
 - (id)spellServer:(id)arg1 finalModificationsForPinyinInputString:(id)arg2;
 - (id)spellServer:(id)arg1 modificationsForPinyinInputString:(id)arg2 geometryModelData:(id)arg3;
@@ -123,8 +145,8 @@
 - (void)addSpecialModifiedPinyinToArray:(id)arg1 inBuffer:(char *)arg2 length:(unsigned int)arg3 atEnd:(BOOL)arg4;
 - (id)englishStringFromWordBuffer:(char *)arg1 length:(unsigned int)arg2 connection:(struct _PR_DB_IO *)arg3;
 - (id)englishStringsFromWordBuffer:(char *)arg1 length:(unsigned int)arg2 connection:(struct _PR_DB_IO *)arg3;
-- (id)spellServer:(id)arg1 suggestGuessesForKoreanWordRange:(struct _NSRange)arg2 inString:(id)arg3;
-- (id)_correctionForKoreanString:(id)arg1 range:(struct _NSRange)arg2 inString:(id)arg3 tagger:(id)arg4 taggerIndex:(unsigned int)arg5 dictionary:(id)arg6 keyEventData:(id)arg7 alternativeCorrection:(id *)arg8;
+- (id)spellServer:(id)arg1 suggestGuessesForKoreanWordRange:(struct _NSRange)arg2 inString:(id)arg3 options:(id)arg4;
+- (id)_correctionForKoreanString:(id)arg1 range:(struct _NSRange)arg2 inString:(id)arg3 tagger:(id)arg4 taggerIndex:(unsigned int)arg5 appIdentifier:(id)arg6 dictionary:(id)arg7 keyEventData:(id)arg8 alternativeCorrection:(id *)arg9;
 - (void)addGuessesForKoreanWord:(id)arg1 toMutableArray:(id)arg2 includeAdditionalGuesses:(BOOL)arg3;
 
 @end

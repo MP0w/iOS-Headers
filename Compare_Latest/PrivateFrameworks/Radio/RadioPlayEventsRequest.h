@@ -14,7 +14,7 @@
     RadioPlayEventCollection *_playEventCollection;
 }
 
-@property(readonly, nonatomic) RadioPlayEventCollection *playEventCollection; // @synthesize playEventCollection=_playEventCollection;
+@property(readonly, copy, nonatomic) RadioPlayEventCollection *playEventCollection; // @synthesize playEventCollection=_playEventCollection;
 - (void).cxx_destruct;
 - (void)startWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)setDeviceName:(id)arg1;

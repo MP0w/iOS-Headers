@@ -8,12 +8,11 @@
 
 #import "TSCH3DChartAnimationRendering.h"
 #import "TSCH3DGLLayerProvider.h"
-#import "TSCHChartPieWedgeExplosionTracking.h"
 
-@class CALayer, NSDictionary, NSMutableArray, NSMutableIndexSet, NSNumber, TSCH3DChartAnimationEngine, TSCH3DChartRenderer, TSCH3DChartRendererState, TSCH3DChartRepCachedTexture, TSCH3DChartRepFPSCounter, TSCH3DChartRepRenderQueue, TSCH3DGLContext, TSCH3DRotateKnob, TSCH3DScene;
+@class CALayer, NSDictionary, NSMutableArray, NSMutableIndexSet, NSNumber, TSCH3DChartAnimationEngine, TSCH3DChartRenderer, TSCH3DChartRendererState, TSCH3DChartRepCachedTexture, TSCH3DChartRepFPSCounter, TSCH3DChartRepRenderQueue, TSCH3DGLContext, TSCH3DScene;
 
 __attribute__((visibility("hidden")))
-@interface TSCH3DChartRep : TSCHChartRep <TSCHChartPieWedgeExplosionTracking, TSCH3DChartAnimationRendering, TSCH3DGLLayerProvider>
+@interface TSCH3DChartRep : TSCHChartRep <TSCH3DChartAnimationRendering, TSCH3DGLLayerProvider>
 {
     TSCH3DChartRenderer *mRenderer3D;
     TSCH3DChartRepRenderQueue *mRenderQueue;
@@ -39,9 +38,8 @@ __attribute__((visibility("hidden")))
     BOOL mMaybeBeginScrolling;
     BOOL mDidChangeDepth;
     struct CGSize mMinimumInteractiveSize;
-    struct CGRect mCurrentVisibleBoundsRect;
+    struct CGRect mCurrentVisibleBoundsInLayerRelativeSpace;
     BOOL mWillChangeAppearance;
-    TSCH3DRotateKnob *mRotate3DKnob;
     struct CGRect mBeginScaleChartBodyLayoutRect;
     BOOL mHasEverRendered;
     int mCGContextDrawingMode;
@@ -56,10 +54,12 @@ __attribute__((visibility("hidden")))
     BOOL mHasInterestInSharegroup;
     BOOL mWillBeRemoved;
     BOOL mAnimationHasEnded;
+    BOOL mLayerPositionIsInvalidated;
 }
 
 + (id)p_allFillProperties;
 + (id)chartRep3DFromLayer:(id)arg1;
++ (BOOL)hasDelegateInLayer:(id)arg1;
 + (BOOL)canRenderUsingOpenGL;
 + (id)sharegroupTokensOfInterest;
 @property(retain, nonatomic) NSNumber *customAnimationContentsScale; // @synthesize customAnimationContentsScale=mCustomAnimationContentsScale;
@@ -84,6 +84,7 @@ __attribute__((visibility("hidden")))
 - (void)dynamicChange3DDepthDidBegin;
 - (void)dynamically3DRotatingWithTracker:(id)arg1;
 - (void)p_invalidateLayoutLabelsBoundsClass:(Class)arg1;
+- (void)dynamicallyUpdatingLegendFrameWithTracker:(id)arg1;
 - (void)invalidateLayoutCache;
 - (void)tswpTextEditingDidEndEditing:(id)arg1;
 - (id)hitChartElements:(struct CGPoint)arg1 passingTest:(CDUnknownBlockType)arg2;
@@ -115,6 +116,7 @@ __attribute__((visibility("hidden")))
 - (void)p_setChartChunkStage:(int)arg1;
 - (id)p_renderLegendTextureWithBounds:(const struct CGRect *)arg1 returningBodyCanvasBounds:(struct CGRect *)arg2;
 - (void)p_renderTextureWithBounds:(const struct CGRect *)arg1 finalTexture:(BOOL)arg2 enumerationBlock:(CDUnknownBlockType)arg3;
+- (BOOL)p_shouldRenderAnimationTextureAsSingleImage;
 - (void)p_updateElementSceneObjectPropertiesForScene:(id)arg1;
 - (void)p_setAnimationLevelOfDetailGeometryForScene:(id)arg1;
 - (void)setTextureAnimationInfo:(id)arg1;
@@ -133,7 +135,8 @@ __attribute__((visibility("hidden")))
 - (int)p_effectiveStageFromTextureStage:(int)arg1 isFinalElements:(BOOL)arg2;
 - (int)p_lastTextureStage;
 - (void)renderAnimationFrame:(float)arg1 drawingFrame:(struct CGRect)arg2 chunkStage:(int)arg3;
-- (id)animationLayerWithFrame:(struct CGRect)arg1 scale:(float)arg2 colorSpace:(struct CGColorSpace *)arg3 returningDrawingFrame:(struct CGRect *)arg4 TSDGLLayer:(id *)arg5;
+- (id)animationLayerWithFrame:(struct CGRect)arg1 untransformedFrame:(struct CGRect)arg2 scale:(float)arg3 colorSpace:(struct CGColorSpace *)arg4 returningDrawingFrame:(struct CGRect *)arg5 TSDGLLayer:(id *)arg6;
+- (struct CGRect)p_adjustedAnimationDrawableFrameWithFrame:(struct CGRect)arg1 untransformedFrame:(struct CGRect)arg2;
 - (void)p_addLegendLayerToAnimationLayer:(id)arg1;
 - (void)p_addSeparateRenderedLayersToAnimationLayer:(id)arg1 intersectedBodyCanvasBounds:(const struct CGRect *)arg2;
 - (id)p_renderSeparateAnimationLayers:(id)arg1 intersectedBodyCanvasBounds:(const struct CGRect *)arg2;
@@ -161,8 +164,8 @@ __attribute__((visibility("hidden")))
 - (BOOL)shouldShowSizesInRulers;
 - (void)showHitFeedbackForSelectionPath:(id)arg1;
 - (void)clearDragHighlightAndPreviewState;
-- (void)editorIsDeselectingInfo;
-- (void)editorIsSelectingInfos:(id)arg1;
+- (void)editor:(id)arg1 isDeselectingInfos:(id)arg2;
+- (void)editor:(id)arg1 isSelectingInfos:(id)arg2;
 - (void)p_set3DRotateKnobVisible:(BOOL)arg1;
 - (BOOL)p_shouldShowRotate3DKnobWithInfoCount:(unsigned int)arg1;
 - (BOOL)shouldShowKnobs;
@@ -172,11 +175,11 @@ __attribute__((visibility("hidden")))
 - (void)becameSelected;
 - (void)processChanges:(id)arg1;
 - (BOOL)canDrawInParallel;
-- (BOOL)canDrawInBackgroundDuringScroll;
-- (struct ChartProjectedBoundsConverter)p_chart3DLayoutBoundsConverter;
+- (struct ChartProjectedBoundsConverter)p_chart3DLayoutBoundsConverterUpdatingLayoutIfNecessary:(BOOL)arg1;
+- (struct CGPoint)offsetFromLayerRelativeToBodyCanvas;
 - (void)renderIntoContext:(struct CGContext *)arg1 visible:(struct CGRect)arg2;
 - (void)renderIntoGLLayerWithGLContext:(id)arg1;
-- (void)p_lowQualityRenderWithGLContext:(id)arg1 visible:(struct CGRect)arg2 renderer:(id)arg3;
+- (void)p_lowQualityRenderWithGLContext:(id)arg1 bodyCanvasVisibleRect:(struct CGRect)arg2 renderer:(id)arg3;
 - (BOOL)canRenderIntoGLLayer;
 - (BOOL)p_shouldRender;
 - (void)p_setupForRendering;
@@ -196,6 +199,7 @@ __attribute__((visibility("hidden")))
 - (id)GLLayer;
 - (id)GLLayerNoCreate;
 - (void)p_calculateGLLayerFrame;
+- (BOOL)p_shouldUpdateRendererLayoutForCurrentLayer;
 - (void)p_recreateGLLayer;
 - (void)p_createBackgroundLayoutLayer;
 - (void)p_updateLayerTree;
@@ -257,11 +261,6 @@ __attribute__((visibility("hidden")))
 - (id)p_sharegroupTokensOfInterest;
 - (void)dealloc;
 - (id)initWithLayout:(id)arg1 canvas:(id)arg2;
-- (void)explosionsDidUpdateForNewSeriesIndexedExplosions:(id)arg1;
-- (BOOL)pieWedgeHitByUnscaledPoint:(struct CGPoint)arg1 seriesIndex:(unsigned int)arg2 distanceFromCenter:(struct CGPoint *)arg3;
-- (float)newExplosionValueForFinalDragPoint:(struct CGPoint)arg1 startingFrom:(struct CGPoint)arg2 forSeries:(unsigned int)arg3 knob:(id)arg4;
-- (struct CGPoint)effectivePointForDragPoint:(struct CGPoint)arg1 startingFrom:(struct CGPoint)arg2 forSeries:(unsigned int)arg3;
-- (BOOL)isPieChart;
 
 @end
 

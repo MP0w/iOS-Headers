@@ -6,29 +6,34 @@
 
 #import "NSObject.h"
 
+__attribute__((visibility("hidden")))
 @interface CUIRenditionMetrics : NSObject
 {
     struct CGSize _imageSize;
     struct CGSize _edgeBottomLeftMargin;
     struct CGSize _edgeTopRightMargin;
-    struct CGSize _alignmentBottomLeftMargin;
-    struct CGSize _alignmentTopRightMargin;
+    struct CGSize _contentBottomLeftMargin;
+    struct CGSize _contentTopRightMargin;
+    float _baseline;
     float _scale;
     struct crmFlags _crmFlags;
 }
 
+- (BOOL)hasOpaqueContentBounds;
+- (struct CGRect)insetContentRectWithMetrics:(struct CGRect)arg1;
 - (struct CGRect)insetRectWithMetrics:(struct CGRect)arg1;
-- (struct CGRect)alignmentRect;
+- (struct CGRect)contentRect;
 - (struct CGRect)edgeRect;
 - (BOOL)scalesHorizontally;
 - (BOOL)scalesVertically;
 - (float)scale;
-- (struct CGSize)alignmentTopRightMargin;
-- (struct CGSize)alignmentBottomLeftMargin;
+- (float)baseline;
+- (struct CGSize)contentTopRightMargin;
+- (struct CGSize)contentBottomLeftMargin;
 - (struct CGSize)edgeTopRightMargin;
 - (struct CGSize)edgeBottomLeftMargin;
 - (struct CGSize)imageSize;
-- (id)initWithImageSize:(struct CGSize)arg1 edgeBottomLeft:(struct CGSize)arg2 edgeTopRight:(struct CGSize)arg3 alignmentBottomLeft:(struct CGSize)arg4 alignmentTopRight:(struct CGSize)arg5 scalesVertically:(BOOL)arg6 scalesHorizontally:(BOOL)arg7 scale:(float)arg8;
+- (id)initWithImageSize:(struct CGSize)arg1 edgeBottomLeft:(struct CGSize)arg2 edgeTopRight:(struct CGSize)arg3 contentBottomLeft:(struct CGSize)arg4 contentTopRight:(struct CGSize)arg5 baseline:(float)arg6 scalesVertically:(BOOL)arg7 scalesHorizontally:(BOOL)arg8 scale:(float)arg9;
 
 @end
 

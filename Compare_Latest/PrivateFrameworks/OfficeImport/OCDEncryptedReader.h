@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)retainDecryptorWithErrorCode:(int *)arg1;
 - (void)useUnencryptedDocument;
 - (void)dealloc;
+- (id)defaultPassphrase;
 - (void)restartReaderToUseDecryptedDocument;
 
 @end

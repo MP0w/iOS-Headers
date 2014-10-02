@@ -6,7 +6,6 @@
 
 #import <MusicLibrary/ML3DatabaseFunction.h>
 
-__attribute__((visibility("hidden")))
 @interface ML3DatabaseFunctionPointer : ML3DatabaseFunction
 {
     CDUnknownFunctionPointerType _functionPointer;

@@ -8,24 +8,26 @@
 
 #import "MCProfileConnectionObserver.h"
 
-@class MCProfileConnection, NSMutableDictionary, NSObject<OS_dispatch_queue>;
+@class MCProfileConnection, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface MPRestrictionsMonitor : NSObject <MCProfileConnectionObserver>
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSMutableDictionary *_cachedSettings;
     MCProfileConnection *_connection;
+    BOOL _allowsAccountModification;
     BOOL _allowsDeletion;
     BOOL _allowsExplicitContent;
-    BOOL _allowsCollectionCompletionPurchases;
+    BOOL _allowsStorePurchases;
     BOOL _allowsRadioPurchases;
 }
 
 + (id)sharedRestrictionsMonitor;
 @property(readonly, nonatomic) BOOL allowsRadioPurchases; // @synthesize allowsRadioPurchases=_allowsRadioPurchases;
-@property(readonly, nonatomic) BOOL allowsCollectionCompletionPurchases; // @synthesize allowsCollectionCompletionPurchases=_allowsCollectionCompletionPurchases;
+@property(readonly, nonatomic) BOOL allowsStorePurchases; // @synthesize allowsStorePurchases=_allowsStorePurchases;
 @property(readonly, nonatomic) BOOL allowsExplicitContent; // @synthesize allowsExplicitContent=_allowsExplicitContent;
 @property(readonly, nonatomic) BOOL allowsDeletion; // @synthesize allowsDeletion=_allowsDeletion;
+@property(readonly, nonatomic) BOOL allowsAccountModification; // @synthesize allowsAccountModification=_allowsAccountModification;
 - (void).cxx_destruct;
 - (void)_updateWithCanPostNotifications:(BOOL)arg1;
 - (void)_cacheValue:(id)arg1 forSetting:(id)arg2;
@@ -34,6 +36,12 @@
 - (id)effectiveValueForSetting:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

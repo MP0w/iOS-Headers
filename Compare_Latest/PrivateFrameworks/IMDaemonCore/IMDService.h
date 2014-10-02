@@ -23,8 +23,8 @@
     BOOL _blockPrefWriting;
 }
 
-@property(readonly, nonatomic) NSDictionary *serviceProperties; // @synthesize serviceProperties=_serviceProperties;
-@property(readonly, nonatomic) NSBundle *bundle; // @synthesize bundle=_bundle;
+@property(readonly, retain, nonatomic) NSDictionary *serviceProperties; // @synthesize serviceProperties=_serviceProperties;
+@property(readonly, retain, nonatomic) NSBundle *bundle; // @synthesize bundle=_bundle;
 - (void)systemDidEnterMemoryPressure;
 - (void)systemDidStartBackup;
 - (id)description;
@@ -45,7 +45,7 @@
 @property(readonly, nonatomic) BOOL serviceSupportsRegistration;
 @property(readonly, nonatomic) BOOL supportsDatabase;
 @property(readonly, nonatomic) BOOL disallowDeactivation;
-@property(readonly, nonatomic) NSDictionary *defaultAccountSettings;
+@property(readonly, retain, nonatomic) NSDictionary *defaultAccountSettings;
 - (id)newAccountWithAccountDefaults:(id)arg1 accountID:(id)arg2;
 - (void)accountRemoved:(id)arg1;
 - (void)accountAdded:(id)arg1;
@@ -54,8 +54,8 @@
 - (void)saveSettings;
 - (void)delayedSaveSettings;
 - (BOOL)clearOneTimeImportAccounts;
-@property(readonly, nonatomic) NSDictionary *serviceDefaultsForSetup;
-@property(readonly, nonatomic) NSDictionary *serviceDefaults;
+@property(readonly, retain, nonatomic) NSDictionary *serviceDefaultsForSetup;
+@property(readonly, retain, nonatomic) NSDictionary *serviceDefaults;
 - (id)_serviceDefaultsForDomain:(id)arg1;
 - (id)_defaultDefaults;
 - (void)synchronizeServiceDefaults;
@@ -63,10 +63,10 @@
 @property(readonly, nonatomic) Class accountClass;
 @property(readonly, nonatomic) Class sessionClass;
 - (id)_oldServiceDomain;
-@property(readonly, nonatomic) NSString *serviceDomain;
+@property(readonly, retain, nonatomic) NSString *serviceDomain;
 - (id)_serviceDomain;
 - (id)oldInternalName;
-@property(readonly, nonatomic) NSString *internalName;
+@property(readonly, retain, nonatomic) NSString *internalName;
 - (void)unloadServiceBundle;
 - (void)_reallyUnloadServiceBundle;
 - (void)loadServiceBundle;

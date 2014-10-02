@@ -9,7 +9,7 @@
 #import "SUManagerClientDelegate.h"
 #import "SUNetworkObserver.h"
 
-@class SUDownload, SUManagerClient;
+@class NSString, SUDownload, SUManagerClient;
 
 @interface SBSoftwareUpdateController : NSObject <SUManagerClientDelegate, SUNetworkObserver>
 {
@@ -74,6 +74,12 @@
 - (void)isDownloading:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

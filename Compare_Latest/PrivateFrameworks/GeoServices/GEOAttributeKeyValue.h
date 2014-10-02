@@ -18,6 +18,7 @@
 
 @property(retain, nonatomic) NSString *attributeValue; // @synthesize attributeValue=_attributeValue;
 @property(retain, nonatomic) NSString *attributeKey; // @synthesize attributeKey=_attributeKey;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

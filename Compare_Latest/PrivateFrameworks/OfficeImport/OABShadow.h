@@ -11,7 +11,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)writeShadowFromEffects:(id)arg1 toShadow:(struct EshShadow *)arg2 state:(id)arg3;
 + (id)readShadowFromShapeBaseManager:(id)arg1 colorPalette:(id)arg2;
 
 @end

@@ -9,21 +9,16 @@
 #import "SKUIMenuViewControllerDelegate.h"
 #import "SKUIPopupMenuDelegate.h"
 #import "SKUISortDataRequestDelegate.h"
-#import "UIPickerViewDataSource.h"
-#import "UIPickerViewDelegate.h"
 #import "UIPopoverControllerDelegate.h"
 
-@class NSMutableIndexSet, SKUIFocusedTouchGestureRecognizer, SKUIMenuPageComponent, SKUIMenuViewController, SKUIPickerWrapperView, SKUIPillsControl, SKUIPopupMenuHeaderView, UIPopoverController, UIView;
+@class NSMutableIndexSet, NSString, SKUIMenuPageComponent, SKUIMenuViewController, SKUIPillsControl, SKUIPopupMenuHeaderView, UIBarButtonItem, UIPopoverController;
 
-@interface SKUIMenuPageSection : SKUIStorePageSection <SKUIMenuViewControllerDelegate, SKUIPopupMenuDelegate, SKUISortDataRequestDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate>
+@interface SKUIMenuPageSection : SKUIStorePageSection <SKUIMenuViewControllerDelegate, SKUIPopupMenuDelegate, SKUISortDataRequestDelegate, UIPopoverControllerDelegate>
 {
+    UIBarButtonItem *_cancelMenuItem;
     SKUIPillsControl *_pillsControl;
     SKUIMenuViewController *_moreListMenuViewController;
     UIPopoverController *_moreListPopoverController;
-    SKUIFocusedTouchGestureRecognizer *_pickerDismissGestureRecognizer;
-    SKUIPickerWrapperView *_pickerWrapper;
-    UIView *_pickerBackgroundView;
-    BOOL _pinned;
     SKUIPopupMenuHeaderView *_popupHeaderView;
     int _selectedIndex;
     NSMutableIndexSet *_sortRequestIndexSet;
@@ -31,35 +26,37 @@
 
 - (void).cxx_destruct;
 - (void)_showPopoverController;
-- (void)_showPickerView;
 - (void)_showMoreList;
+- (void)_showMenuViewController;
 - (void)_setSelectedIndex:(int)arg1;
+- (void)_restorePreviousSelection;
 - (id)_popupHeaderView;
 - (id)_pillsControl;
+- (id)_newMenuViewController;
 - (void)_loadSortDataIfNecessaryForMenuIndex:(int)arg1 reason:(int)arg2;
+- (void)_dismissMenuViewController;
 - (id)_contentChildView;
 - (void)_pillAction:(id)arg1;
-- (void)_dismissPickerViewAction:(id)arg1;
+- (void)_cancelMenuAction:(id)arg1;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
-- (id)pickerView:(id)arg1 titleForRow:(int)arg2 forComponent:(int)arg3;
-- (void)pickerView:(id)arg1 didSelectRow:(int)arg2 inComponent:(int)arg3;
-- (int)pickerView:(id)arg1 numberOfRowsInComponent:(int)arg2;
-- (int)numberOfComponentsInPickerView:(id)arg1;
 - (void)sortDataRequest:(id)arg1 didFinishWithLockups:(id)arg2;
 - (void)popupMenuHeader:(id)arg1 didSelectMenuItemAtIndex:(int)arg2;
 - (void)menuViewController:(id)arg1 didSelectItemAtIndex:(int)arg2;
 - (void)willAppearInContext:(id)arg1;
-- (void)restorePinnedHeaderView:(id)arg1;
-- (id)popPinnedHeaderView;
+- (struct UIEdgeInsets)sectionContentInset;
 - (int)numberOfCells;
-- (void)collectionViewWillApplyLayoutAttributes:(id)arg1;
 - (struct CGSize)cellSizeForIndexPath:(id)arg1;
 - (id)cellForIndexPath:(id)arg1;
+- (id)backgroundColorForIndexPath:(id)arg1;
 - (void)dealloc;
 - (id)initWithPageComponent:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) SKUIMenuPageComponent *pageComponent; // @dynamic pageComponent;
+@property(readonly) Class superclass;
 
 @end
 

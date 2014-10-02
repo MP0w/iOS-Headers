@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 + (BOOL)accessInstanceVariablesDirectly;
 + (void)initialize;
 + (BOOL)supportsSecureCoding;
+- (id)description;
 - (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

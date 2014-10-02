@@ -10,7 +10,7 @@
 #import "RUStationTreeViewControllerDelegate.h"
 #import "UIScrollViewDelegate.h"
 
-@class NSMutableArray, RUMetricsController, RUSearchViewController, RUStationTreeViewController, UISearchDisplayController;
+@class NSMutableArray, NSString, RUMetricsController, RUSearchViewController, RUStationTreeViewController, UISearchDisplayController;
 
 @interface RUCreateStationViewController : UIViewController <RUSearchViewControllerDelegate, RUStationTreeViewControllerDelegate, UIScrollViewDelegate>
 {
@@ -19,16 +19,22 @@
     UISearchDisplayController *_searchDisplayController;
     RUSearchViewController *_searchResultsViewController;
     BOOL _shouldScrollSearchBar;
+    BOOL _shouldUseSearchingInsetsForSearchBar;
     RUStationTreeViewController *_stationTreeViewController;
     id <RUCreateStationViewControllerDelegate> _delegate;
 }
 
++ (BOOL)_shouldForwardViewWillTransitionToSize;
 @property(nonatomic) __weak id <RUCreateStationViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)_updateViewForHorizontalSizeClassChange;
 - (void)_updateSearchBarFrameForced:(BOOL)arg1;
+- (void)_updateSearchBarContentInset;
 - (struct CGRect)_searchBarSearchingFrame;
+- (struct UIEdgeInsets)_searchBarContentInset;
 - (id)_searchDisplayController;
 - (void)_didReceiveRadioAccountDidDeauthenticateNotification:(id)arg1;
+- (struct UIEdgeInsets)_contentInset;
 - (void)_addStationWithDictionary:(id)arg1;
 - (void)_addMetricsControllerOperationBlock:(CDUnknownBlockType)arg1;
 - (void)_statusBarHeightChangedNotification:(id)arg1;
@@ -43,12 +49,19 @@
 - (void)searchViewControllerDidBeginSearching:(id)arg1;
 - (id)metricsPageTypeForSearchViewController:(id)arg1;
 - (id)metricsPageDescriptionForSearchViewController:(id)arg1;
+- (void)traitCollectionDidChange:(id)arg1;
 - (id)contentScrollView;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
+- (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidLoad;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

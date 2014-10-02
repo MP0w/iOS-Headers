@@ -18,6 +18,8 @@ __attribute__((visibility("hidden")))
     TSCHChartSeriesType *mSeriesType;
     TSCHChartAxis *mCoordinateAxis;
     TSCHChartAxis *mValueAxis;
+    double mIntercept;
+    double mUnitSpaceIntercept;
     struct ValueEnumerator mSeries;
     struct ValueEnumerator mCoordinate;
     struct vector<double, std::__1::allocator<double>> mSeriesValues;
@@ -30,7 +32,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSCHChartModel *model; // @synthesize model=mModel;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (unsigned int)valueLabelPositionForValue:(double)arg1;
+- (unsigned int)valueLabelPositionForAxisValue:(double)arg1;
 - (BOOL)skipZeroValues;
 - (id)seriesFillOrStrokeColor;
 - (id)seriesFill;
@@ -42,13 +44,15 @@ __attribute__((visibility("hidden")))
 - (BOOL)isValid;
 - (BOOL)isValidNonZero;
 - (unsigned int)elementIndex;
-- (double)unitSpaceValueForDataSpaceValue:(double)arg1;
-- (double)dataSpaceValue;
-- (double)value;
+- (double)unitSpaceValueForAxisValue:(double)arg1;
+- (double)axisSpaceValue;
+- (double)unitSpaceValue;
 - (double)groupValue;
 - (id)nextElement:(unsigned int)arg1;
 - (id)nextElement;
 - (void)updateValue;
+- (double)unitSpaceIntercept;
+- (double)intercept;
 - (unsigned int)index;
 - (id)elementEnumerator;
 - (tvec2_3b141483)position;

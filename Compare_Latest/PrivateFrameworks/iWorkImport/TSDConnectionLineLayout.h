@@ -13,7 +13,6 @@ __attribute__((visibility("hidden")))
     float mEndClipT;
 }
 
-- (void)dynamicallyMovedSmartShapeKnobTo:(struct CGPoint)arg1 withTracker:(id)arg2;
 - (struct CGPoint)getControlKnobPosition:(unsigned int)arg1;
 - (struct CGPoint)controlPointForPointA:(struct CGPoint)arg1 pointB:(struct CGPoint)arg2 andOriginalA:(struct CGPoint)arg3 originalB:(struct CGPoint)arg4;
 - (id)createConnectedPathFrom:(id)arg1 to:(id)arg2 withControlPoints:(struct CGPoint [3])arg3;

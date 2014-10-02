@@ -22,8 +22,8 @@
 + (id)queryWithDatabase:(id)arg1 predicate:(id)arg2 orderingProperties:(id)arg3;
 + (id)queryWithDatabase:(id)arg1 predicate:(id)arg2;
 + (id)anyInDatabase:(id)arg1 predicate:(id)arg2;
-@property(readonly, nonatomic) NSDictionary *externalPropertyValues; // @synthesize externalPropertyValues=_externalPropertyValues;
-@property(readonly, nonatomic) NSDictionary *propertyValues; // @synthesize propertyValues=_propertyValues;
+@property(readonly, copy, nonatomic) NSDictionary *externalPropertyValues; // @synthesize externalPropertyValues=_externalPropertyValues;
+@property(readonly, copy, nonatomic) NSDictionary *propertyValues; // @synthesize propertyValues=_propertyValues;
 @property(nonatomic) long long databaseID; // @synthesize databaseID=_databaseID;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (BOOL)isEqual:(id)arg1;

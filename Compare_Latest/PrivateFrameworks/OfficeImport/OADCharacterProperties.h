@@ -46,6 +46,8 @@ __attribute__((visibility("hidden")))
     unsigned int mHasKerning:1;
     unsigned int mHasIsVerticalText:1;
     unsigned int mIsVerticalText:1;
+    unsigned int mHasIsRightToLeft:1;
+    unsigned int mIsRightToLeft:1;
     unsigned int mHasBaseline:1;
     unsigned int mHasIsHorizontalNormalized:1;
     unsigned int mIsHorizontalNormalized:1;
@@ -54,7 +56,7 @@ __attribute__((visibility("hidden")))
 
 + (void)initialize;
 - (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (void)removeUnnecessaryOverrides;
 - (void)overrideWithProperties:(id)arg1;
 - (void)setHoverHyperlink:(id)arg1;
@@ -85,6 +87,9 @@ __attribute__((visibility("hidden")))
 - (void)setBaseline:(double)arg1;
 - (double)baseline;
 - (BOOL)hasBaseline;
+- (void)setIsRightToLeft:(BOOL)arg1;
+- (BOOL)isRightToLeft;
+- (BOOL)hasIsRightToLeft;
 - (void)setIsVerticalText:(BOOL)arg1;
 - (BOOL)isVerticalText;
 - (BOOL)hasIsVerticalText;
@@ -129,6 +134,11 @@ __attribute__((visibility("hidden")))
 - (BOOL)hasStroke;
 - (void)dealloc;
 - (id)initWithDefaults;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

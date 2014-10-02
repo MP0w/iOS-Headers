@@ -45,11 +45,11 @@ __attribute__((visibility("hidden")))
 - (id)description;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)relationship;
-- (id)source;
+@property(readonly, nonatomic) NSPropertyDescription *relationship;
+@property(readonly, nonatomic) NSManagedObject *source;
 - (void)turnIntoFault;
 - (void)willRead;
-- (BOOL)isFault;
+@property(readonly, nonatomic, getter=isFault) BOOL fault;
 - (void)dealloc;
 - (id)initWithSource:(id)arg1 forRelationship:(id)arg2 asFault:(BOOL)arg3;
 - (BOOL)_isDeallocating;

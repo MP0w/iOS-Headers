@@ -24,15 +24,16 @@
 - (id)instructionForFigInstruction:(void *)arg1;
 - (id)_serializableInstructions;
 - (void)setAnimationTool:(id)arg1;
-@property(readonly, nonatomic) AVVideoCompositionCoreAnimationTool *animationTool;
+@property(readonly, retain, nonatomic) AVVideoCompositionCoreAnimationTool *animationTool;
 - (id)_postProcessingRootLayer;
 - (id)_postProcessingVideoLayers;
+- (id)_postProcessingVideoLayer;
 - (BOOL)_hasPostProcessingLayers;
 - (int)_auxiliaryTrackID;
 - (id)_auxiliaryTrackLayer;
 - (BOOL)_hasLayerAsAuxiliaryTrack;
 - (void)setInstructions:(id)arg1;
-@property(readonly, nonatomic) NSArray *instructions;
+@property(readonly, copy, nonatomic) NSArray *instructions;
 - (void)setRenderScale:(float)arg1;
 @property(readonly, nonatomic) float renderScale;
 - (void)setRenderSize:(struct CGSize)arg1;
@@ -44,6 +45,8 @@
 @property(readonly, nonatomic) Class customVideoCompositorClass;
 - (void)setBuiltInCompositorName:(id)arg1;
 - (id)builtInCompositorName;
+- (void)_bumpChangeSeed;
+- (unsigned int)_changeSeed;
 - (void)finalize;
 - (void)dealloc;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;

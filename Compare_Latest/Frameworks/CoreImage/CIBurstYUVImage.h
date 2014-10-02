@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 @property char *Ybuffer; // @synthesize Ybuffer;
 @property int height; // @synthesize height;
 @property int width; // @synthesize width;
+- (struct __CVBuffer *)pixelBuffer;
 - (void)dealloc;
 - (id)initWithCGImage:(struct CGImage *)arg1 maxDimension:(int)arg2;
 - (void)convertRGBAToYUV420:(char *)arg1 rgbaBytesPerRow:(int)arg2;

@@ -11,12 +11,10 @@
 __attribute__((visibility("hidden")))
 @interface GEOMapEdgeBuilder : GEOMapRequest
 {
-    struct deque<GEORoadEdge, std::__1::allocator<GEORoadEdge>> _edges;
-    unsigned int _zoomLevel;
     BOOL _buildAhead;
     BOOL _buildBehind;
-    Vec2Imp_1782d7e3 _firstTilePoint;
-    Vec2Imp_1782d7e3 _lastTilePoint;
+    Matrix_8746f91e _firstTilePoint;
+    Matrix_8746f91e _lastTilePoint;
     GEOMapTileFinder *_currentTileFinder;
     CDUnknownBlockType _edgeHandler;
     unordered_set_2ba6858f _tileKeysSeen;
@@ -26,16 +24,27 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) CDUnknownBlockType edgeHandler; // @synthesize edgeHandler=_edgeHandler;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)_findNeighborsOfKey:(const struct _GEOTileKey *)arg1 center:(CDStruct_c3b9c2ee)arg2 radius:(double)arg3 findAhead:(BOOL)arg4;
+- (id)_tileFinderForMap:(id)arg1 center:(CDStruct_c3b9c2ee)arg2 radius:(double)arg3;
+- (id)_lastTile;
+- (id)_firstTile;
+- (Matrix_8746f91e)_lastPoint;
+- (Matrix_8746f91e)_firstPoint;
+- (CDStruct_dde70fb6 *)_lastJunction;
+- (CDStruct_dde70fb6 *)_firstJunction;
+- (BOOL)_findEdgeBehindInTile:(id)arg1;
+- (BOOL)_findEdgeAheadInTile:(id)arg1;
+- (void)_buildCompleteEdge;
+- (BOOL)_edgeStart:(const Matrix_8746f91e *)arg1 end:(const Matrix_8746f91e *)arg2 connectsTo:(const CDStruct_c3b9c2ee *)arg3 rect:(const CDStruct_02837cd9 *)arg4;
+- (BOOL)_pointConnects:(const Matrix_8746f91e *)arg1 rect:(const CDStruct_02837cd9 *)arg2 to:(const CDStruct_c3b9c2ee *)arg3;
+- (void)_findTilesAdjacentToTile:(const struct _GEOTileKey *)arg1 containingPoint:(const Matrix_8746f91e *)arg2 findAhead:(BOOL)arg3;
 - (void)buildEdge:(CDUnknownBlockType)arg1;
 - (BOOL)_findNextEdge;
-- (void)_buildCompleteEdge;
 - (BOOL)_findEdgeBehind;
 - (BOOL)_findEdgeAhead;
 @property(readonly, nonatomic) GEOMapAccess *map;
 - (void)cancel;
 - (void)dealloc;
-- (id)initWithMap:(id)arg1 firstEdge:(const CDStruct_b4689c16 *)arg2;
+- (id)initWithMap:(id)arg1;
 
 @end
 

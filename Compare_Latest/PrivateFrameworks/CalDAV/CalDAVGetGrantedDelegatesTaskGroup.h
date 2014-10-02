@@ -12,8 +12,8 @@
     BOOL _fetchPrincipalDetails;
 }
 
-@property BOOL fetchPrincipalDetails; // @synthesize fetchPrincipalDetails=_fetchPrincipalDetails;
-@property int state; // @synthesize state=_state;
+@property(nonatomic) BOOL fetchPrincipalDetails; // @synthesize fetchPrincipalDetails=_fetchPrincipalDetails;
+@property(nonatomic) int state; // @synthesize state=_state;
 - (void)taskGroup:(id)arg1 didFinishWithError:(id)arg2;
 - (void)task:(id)arg1 didFinishWithError:(id)arg2;
 - (void)startTaskGroup;

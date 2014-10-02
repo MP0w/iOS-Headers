@@ -21,13 +21,13 @@ __attribute__((visibility("hidden")))
 - (void)saveToArchive:(struct PopUpMenuModel *)arg1 archiver:(id)arg2;
 - (id)initFromUnarchiver:(id)arg1;
 - (void)loadFromArchive:(const struct PopUpMenuModel *)arg1;
-- (id)popUpItemFromDate:(id)arg1 format:(CDStruct_95e644ef)arg2;
+- (id)popUpItemFromDate:(id)arg1 format:(CDStruct_bfed0e84)arg2;
 - (id)popUpItemFromString:(id)arg1;
 - (id)popUpItemFromBoolean:(BOOL)arg1;
-- (id)popUpItemFromNumber:(double)arg1 format:(CDStruct_95e644ef)arg2;
+- (id)popUpItemFromNumber:(double)arg1 format:(CDStruct_bfed0e84)arg2;
 - (id)displayStringAtIndex:(unsigned int)arg1;
 - (BOOL)booleanAtIndex:(unsigned int)arg1;
-- (CDStruct_95e644ef)formatAtIndex:(unsigned int)arg1;
+- (CDStruct_bfed0e84)formatAtIndex:(unsigned int)arg1;
 - (id)dateAtIndex:(unsigned int)arg1;
 - (id)stringAtIndex:(unsigned int)arg1;
 - (double)numberAtIndex:(unsigned int)arg1;

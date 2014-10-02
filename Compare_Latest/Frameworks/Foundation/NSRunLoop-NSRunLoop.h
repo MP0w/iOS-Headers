@@ -10,9 +10,6 @@
 + (id)mainRunLoop;
 + (id)currentRunLoop;
 + (id)_new:(id)arg1;
-- (void)cancelPerformSelectorsWithTarget:(id)arg1;
-- (void)cancelPerformSelector:(SEL)arg1 target:(id)arg2 argument:(id)arg3;
-- (void)performSelector:(SEL)arg1 target:(id)arg2 argument:(id)arg3 order:(unsigned int)arg4 modes:(id)arg5;
 - (BOOL)runBeforeDate:(id)arg1;
 - (void)runUntilDate:(id)arg1;
 - (void)run;

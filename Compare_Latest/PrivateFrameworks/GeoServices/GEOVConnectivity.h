@@ -6,10 +6,12 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying.h"
+
 @class NSMutableArray;
 
 __attribute__((visibility("hidden")))
-@interface GEOVConnectivity : PBCodable
+@interface GEOVConnectivity : PBCodable <NSCopying>
 {
     NSMutableArray *_junctions;
 }
@@ -17,6 +19,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableArray *junctions; // @synthesize junctions=_junctions;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;

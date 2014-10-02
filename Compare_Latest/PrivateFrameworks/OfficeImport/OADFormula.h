@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (id).cxx_construct;
+- (id)description;
 - (void)setName:(id)arg1;
 - (id)name;
 - (void)dealloc;

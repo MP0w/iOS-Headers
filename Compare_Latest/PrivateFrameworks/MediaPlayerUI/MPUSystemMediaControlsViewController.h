@@ -11,32 +11,35 @@
 #import "MPUMediaControlsTitlesViewDelegate.h"
 #import "MPUNowPlayingDelegate.h"
 #import "MPURemoteViewControllerPresentation.h"
+#import "MPUSystemMediaControlsViewDelegate.h"
 #import "MPUTransportControlsViewDelegate.h"
 #import "RUTrackActionsDelegate.h"
 #import "UIModalItemDelegate.h"
 #import "UIPopoverControllerDelegate.h"
 
-@class MPAVRoutingController, MPUNowPlayingController, NSArray, NSDictionary, NSString, NSTimer, RUTrackActionsModalItem, RUTrackActionsViewController, UIImageView, UIPopoverController, UIView, _MPUSystemMediaControlsView;
+@class MPAVRoutingController, MPUNowPlayingController, MPUSystemMediaControlsView, NSArray, NSDictionary, NSString, NSTimer, RUTrackActionsModalItem, RUTrackActionsViewController, UIImageView, UIPopoverController, UIView;
 
-@interface MPUSystemMediaControlsViewController : UIViewController <MPUNowPlayingDelegate, MPUTransportControlsViewDelegate, MPURemoteViewControllerPresentation, MPUChronologicalProgressViewDelegate, MPUMediaControlsTitlesViewDelegate, MPAVRoutingControllerDelegate, RUTrackActionsDelegate, UIModalItemDelegate, UIPopoverControllerDelegate>
+@interface MPUSystemMediaControlsViewController : UIViewController <MPUNowPlayingDelegate, MPUTransportControlsViewDelegate, MPURemoteViewControllerPresentation, MPUChronologicalProgressViewDelegate, MPUMediaControlsTitlesViewDelegate, MPUSystemMediaControlsViewDelegate, MPAVRoutingControllerDelegate, RUTrackActionsDelegate, UIModalItemDelegate, UIPopoverControllerDelegate>
 {
     MPUNowPlayingController *_nowPlayingController;
     MPAVRoutingController *_routingController;
-    BOOL _wantsToLaunchNowPlayingApp;
-    BOOL _nowPlayingInfoIsOverridingSupportedCommands;
+    MPUSystemMediaControlsView *_mediaControlsView;
+    UIImageView *_artworkImageView;
     unsigned int _runningLongPressCommand;
     NSArray *_currentlySupportedCommands;
-    _MPUSystemMediaControlsView *_mediaControlsView;
-    UIImageView *_artworkImageView;
     NSDictionary *_nowPlayingInfoForPresentedTrackActions;
     UIPopoverController *_trackActionsPopoverController;
     RUTrackActionsModalItem *_trackActionsModalItem;
     RUTrackActionsViewController *_trackActionsViewController;
-    NSString *_audioCategoryForDisabledHUD;
+    NSTimer *_skipInformationRevealTimer;
     NSTimer *_scrubberCommitTimer;
     double _scrubbedTimeDestination;
     double _lastDurationFromUpdate;
+    NSString *_audioCategoryForDisabledHUD;
     BOOL _lockscreenDisabledForScreenTurnOff;
+    BOOL _wantsToLaunchNowPlayingApp;
+    BOOL _nowPlayingIsRadioStation;
+    NSArray *_notificationObservers;
     BOOL _persistentUpdatesEnabled;
     int _style;
     id <MPUSystemMediaControlsDelegate> _delegate;
@@ -46,17 +49,23 @@
 @property(nonatomic) __weak id <MPUSystemMediaControlsDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) int style; // @synthesize style=_style;
 - (void).cxx_destruct;
+- (id)_commandOptionsForRadioItemUsingNowPlayingInfo:(id)arg1;
 - (void)_cancelRunningLongPressCommand;
 - (void)_launchCurrentNowPlayingApp;
+- (void)_updateBuyButtonsWithNowPlayingInfo:(id)arg1;
 - (void)_updateSupportedCommands;
+- (void)_revealSkipInformation;
+- (void)_invalidateSkipInformationRevealTimer;
+- (void)_scheduleSkipInformationRevealTimer;
 - (void)_stopScrubberCommitTimer;
 - (void)_commitCurrentScrubberValue;
 - (void)_beginScrubberCommitTimer;
 - (void)_tearDownNotifications;
 - (void)_setupNotifications;
 - (void)_applyNowPlayingInformation:(id)arg1 toTrackActioningController:(id)arg2;
+- (void)_buyButtonActionForSender:(id)arg1 command:(unsigned int)arg2;
 - (void)_likeBanButtonTapped:(id)arg1;
-- (void)_infoButtonTapped:(id)arg1;
+- (void)_systemAppDidSkipTrackNotification:(id)arg1;
 - (void)_supportedCommandsDidChangeNotification:(id)arg1;
 - (void)_backlightLevelChangedNotification:(id)arg1;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
@@ -68,10 +77,17 @@
 - (void)progressViewDidEndScrubbing:(id)arg1;
 - (void)progressViewDidBeginScrubbing:(id)arg1;
 - (void)remoteViewControllerDidFinish;
+- (struct CGSize)transportControlsView:(id)arg1 adjustedMaximumTransportButtonSizeWithProposedSize:(struct CGSize)arg2;
+- (struct CGRect)transportControlsView:(id)arg1 adjustedFrameOfTransportButtonWithControlType:(int)arg2 proposedFrame:(struct CGRect)arg3;
+- (void)transportControlsView:(id)arg1 prepareTransportButton:(id)arg2;
 - (void)transportControlsView:(id)arg1 tapOnAccessoryButtonType:(int)arg2;
 - (void)transportControlsView:(id)arg1 longPressEndOnControlType:(int)arg2;
 - (void)transportControlsView:(id)arg1 longPressBeginOnControlType:(int)arg2;
 - (void)transportControlsView:(id)arg1 tapOnControlType:(int)arg2;
+- (id)transportControlsView:(id)arg1 imageForTransportButtonWithControlType:(int)arg2;
+- (void)mediaControlsViewDidConfirmBuyAlbumAction:(id)arg1;
+- (void)mediaControlsViewDidCancelBuyTrackDownloadAction:(id)arg1;
+- (void)mediaControlsViewDidConfirmBuyTrackAction:(id)arg1;
 - (void)nowPlayingController:(id)arg1 nowPlayingApplicationDidChange:(id)arg2;
 - (void)nowPlayingController:(id)arg1 elapsedTimeDidChange:(double)arg2;
 - (void)nowPlayingController:(id)arg1 playbackStateDidChange:(BOOL)arg2;
@@ -83,6 +99,12 @@
 - (void)dealloc;
 - (id)initWithStyle:(int)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

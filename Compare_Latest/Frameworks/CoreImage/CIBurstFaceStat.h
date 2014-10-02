@@ -8,40 +8,77 @@
 
 #import "NSCopying.h"
 
+@class NSMutableArray;
+
 __attribute__((visibility("hidden")))
 @interface CIBurstFaceStat : NSObject <NSCopying>
 {
     BOOL leftEyeOpen;
     BOOL rightEyeOpen;
     BOOL smiling;
+    BOOL foundByFaceCore;
     BOOL hasLeftEye;
     BOOL hasRightEye;
-    BOOL foundByFaceCore;
-    struct CGRect faceRect;
-    struct CGRect leftEyeRect;
-    struct CGRect rightEyeRect;
+    BOOL leftEyePleasant;
+    BOOL rightEyePleasant;
+    BOOL mouthPleasant;
+    BOOL hasRollAngle;
+    BOOL hasYawAngle;
+    BOOL smallFace;
+    BOOL _isSyncedWithImage;
+    float normalizedSigma;
+    int faceId;
+    int hwFaceId;
+    int framesSinceLast;
+    float focusScore;
+    float normalizedFocusScore;
+    float faceScore;
     float leftEyeBlinkScore;
     float rightEyeBlinkScore;
     float smileScore;
-    struct CGRect normalizedFaceRect;
-    int faceId;
-    int framesSinceLast;
-    float focusScore;
-    float faceScore;
-    float normalizedFocusScore;
-    float normalizedSigma;
-    BOOL hasRollAngle;
-    BOOL hasYawAngle;
+    int FCRLeftEyeFeaturesOffset;
+    int FCRRightEyeFeaturesOffset;
+    int FCRSmileFeaturesOffset;
+    int FCRBlinkFeaturesSize;
+    int FCRSmileFeaturesSize;
+    NSMutableArray *FCRSmileAndBlinkFeatures;
+    float faceHOGTime;
+    float faceCropTime;
+    float faceScoreTime;
+    NSMutableArray *faceHOG;
+    float normalizedSmileScore;
     float rollAngle;
     float yawAngle;
     double timestamp;
+    struct CGRect faceRect;
+    struct CGRect normalizedFaceRect;
+    struct CGRect leftEyeRect;
+    struct CGRect rightEyeRect;
+    struct CGRect _hwFaceRect;
 }
 
+@property BOOL isSyncedWithImage; // @synthesize isSyncedWithImage=_isSyncedWithImage;
+@property struct CGRect hwFaceRect; // @synthesize hwFaceRect=_hwFaceRect;
+@property BOOL smallFace; // @synthesize smallFace;
 @property double timestamp; // @synthesize timestamp;
 @property float yawAngle; // @synthesize yawAngle;
 @property float rollAngle; // @synthesize rollAngle;
 @property BOOL hasYawAngle; // @synthesize hasYawAngle;
 @property BOOL hasRollAngle; // @synthesize hasRollAngle;
+@property BOOL mouthPleasant; // @synthesize mouthPleasant;
+@property BOOL rightEyePleasant; // @synthesize rightEyePleasant;
+@property BOOL leftEyePleasant; // @synthesize leftEyePleasant;
+@property float normalizedSmileScore; // @synthesize normalizedSmileScore;
+@property NSMutableArray *faceHOG; // @synthesize faceHOG;
+@property float faceScoreTime; // @synthesize faceScoreTime;
+@property float faceCropTime; // @synthesize faceCropTime;
+@property float faceHOGTime; // @synthesize faceHOGTime;
+@property NSMutableArray *FCRSmileAndBlinkFeatures; // @synthesize FCRSmileAndBlinkFeatures;
+@property int FCRSmileFeaturesSize; // @synthesize FCRSmileFeaturesSize;
+@property int FCRBlinkFeaturesSize; // @synthesize FCRBlinkFeaturesSize;
+@property int FCRSmileFeaturesOffset; // @synthesize FCRSmileFeaturesOffset;
+@property int FCRRightEyeFeaturesOffset; // @synthesize FCRRightEyeFeaturesOffset;
+@property int FCRLeftEyeFeaturesOffset; // @synthesize FCRLeftEyeFeaturesOffset;
 @property float smileScore; // @synthesize smileScore;
 @property float rightEyeBlinkScore; // @synthesize rightEyeBlinkScore;
 @property float leftEyeBlinkScore; // @synthesize leftEyeBlinkScore;
@@ -53,6 +90,7 @@ __attribute__((visibility("hidden")))
 @property float normalizedFocusScore; // @synthesize normalizedFocusScore;
 @property float focusScore; // @synthesize focusScore;
 @property int framesSinceLast; // @synthesize framesSinceLast;
+@property int hwFaceId; // @synthesize hwFaceId;
 @property int faceId; // @synthesize faceId;
 @property float normalizedSigma; // @synthesize normalizedSigma;
 @property struct CGRect normalizedFaceRect; // @synthesize normalizedFaceRect;
@@ -62,6 +100,7 @@ __attribute__((visibility("hidden")))
 @property BOOL rightEyeOpen; // @synthesize rightEyeOpen;
 @property BOOL leftEyeOpen; // @synthesize leftEyeOpen;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
 - (id)initWithFaceStat:(id)arg1;
 
 @end

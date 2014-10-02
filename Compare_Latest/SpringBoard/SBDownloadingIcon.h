@@ -20,7 +20,6 @@
 - (_Bool)isDownloadingIcon;
 - (void)cancelDownload;
 - (_Bool)iconAppearsInNewsstand;
-- (void)_showAlertForError:(id)arg1;
 - (id)uninstallAlertCancelTitle;
 - (id)uninstallAlertConfirmTitle;
 - (id)uninstallAlertBody;

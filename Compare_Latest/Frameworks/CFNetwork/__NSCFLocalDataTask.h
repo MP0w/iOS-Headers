@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (void)_onqueue_didReceiveResponse:(id)arg1;
+- (void)_onqueue_didReceiveResponse:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (BOOL)isKindOfClass:(Class)arg1;
 
 @end

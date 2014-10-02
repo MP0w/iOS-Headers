@@ -8,6 +8,8 @@
 
 #import "TSCHStyleActAlike.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TSCHChartSeriesDefaultNonStyle : NSObject <TSCHStyleActAlike>
 {
@@ -21,6 +23,8 @@ __attribute__((visibility("hidden")))
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)defaultNonStyle;
 + (id)_singletonAlloc;
+- (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
+- (int)mixingTypeWithObject:(id)arg1;
 - (id)boxedDefaultValueForProperty:(int)arg1;
 - (float)defaultFloatValueForProperty:(int)arg1;
 - (int)defaultIntValueForProperty:(int)arg1;
@@ -37,6 +41,12 @@ __attribute__((visibility("hidden")))
 - (oneway void)release;
 - (unsigned int)retainCount;
 - (id)retain;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

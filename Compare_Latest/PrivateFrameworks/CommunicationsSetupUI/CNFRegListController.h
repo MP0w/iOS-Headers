@@ -10,7 +10,7 @@
 #import "CNFRegChangeAccountPasswordDelegate.h"
 #import "IMSystemMonitorListener.h"
 
-@class CNFRegController;
+@class CNFRegController, NSString;
 
 @interface CNFRegListController : PSListController <CNFRegChangeAccountPasswordDelegate, CNFRegAccountAuthorizationDelegate, IMSystemMonitorListener>
 {
@@ -72,6 +72,12 @@
 - (void)dealloc;
 - (id)initWithParentController:(id)arg1;
 - (id)initWithRegController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

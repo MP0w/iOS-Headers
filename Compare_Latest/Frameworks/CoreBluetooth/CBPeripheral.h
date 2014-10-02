@@ -4,36 +4,44 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <CoreBluetooth/CBPeer.h>
 
-#import "NSCopying.h"
+@class CBCentralManager, NSArray, NSMutableArray, NSMutableDictionary, NSNumber, NSString;
 
-@class CBCentralManager, NSArray, NSMutableArray, NSMutableDictionary, NSNumber, NSString, NSUUID;
-
-@interface CBPeripheral : NSObject <NSCopying>
+@interface CBPeripheral : CBPeer
 {
     id <CBPeripheralDelegate> _delegate;
-    struct __CFUUID *_UUID;
-    NSUUID *_identifier;
+    struct {
+        unsigned int didUpdateName:1;
+        unsigned int didModifyServices:1;
+        unsigned int didInvalidateServices:1;
+        unsigned int didReadRSSI:1;
+        unsigned int didUpdateRSSI:1;
+        unsigned int didDiscoverServices:1;
+        unsigned int didDiscoverIncludedServices:1;
+        unsigned int didDiscoverCharacteristics:1;
+        unsigned int didUpdateCharacteristicValue:1;
+        unsigned int didWriteCharacteristicValue:1;
+        unsigned int didNotifyCharacteristicValue:1;
+        unsigned int didDiscoverDescriptors:1;
+        unsigned int didUpdateDescriptorValue:1;
+        unsigned int didWriteDescriptorValue:1;
+        unsigned int didReceiveTimeSync:1;
+    } _delegateFlags;
     NSString *_name;
     NSNumber *_RSSI;
     int _state;
     NSMutableArray *_services;
     CBCentralManager *_centralManager;
     NSMutableDictionary *_attributes;
-    BOOL _isPaired;
     BOOL _isConnectedToSystem;
 }
 
 @property(readonly, nonatomic) BOOL isConnectedToSystem; // @synthesize isConnectedToSystem=_isConnectedToSystem;
-@property(readonly, nonatomic) BOOL isPaired; // @synthesize isPaired=_isPaired;
 @property(retain) NSArray *services; // @synthesize services=_services;
 @property int state; // @synthesize state=_state;
 @property(retain) NSNumber *RSSI; // @synthesize RSSI=_RSSI;
 @property(retain) NSString *name; // @synthesize name=_name;
-@property(readonly, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
-@property(readonly, nonatomic) struct __CFUUID *UUID; // @synthesize UUID=_UUID;
-@property(nonatomic) __weak id <CBPeripheralDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)handleDescriptorValueWritten:(id)arg1;
 - (void)handleDescriptorValueUpdated:(id)arg1;
 - (void)handleCharacteristicDescriptorsDiscovered:(id)arg1;
@@ -42,24 +50,20 @@
 - (void)handleCharacteristicValueUpdated:(id)arg1;
 - (void)handleServiceCharacteristicsDiscovered:(id)arg1;
 - (void)handleServiceIncludedServicesDiscovered:(id)arg1;
-- (void)handleDescriptorEvent:(id)arg1 descriptorSelector:(SEL)arg2 delegateSelector:(SEL)arg3;
-- (void)handleCharacteristicEvent:(id)arg1 characteristicSelector:(SEL)arg2 delegateSelector:(SEL)arg3;
-- (void)handleServiceEvent:(id)arg1 serviceSelector:(SEL)arg2 delegateSelector:(SEL)arg3;
-- (void)handleAttributeEvent:(id)arg1 args:(id)arg2 attributeSelector:(SEL)arg3 delegateSelector:(SEL)arg4;
-- (void)handleUnpaired:(id)arg1;
-- (void)handlePairingCompleted:(id)arg1;
-- (void)handlePairingRequested:(id)arg1;
+- (void)handleDescriptorEvent:(id)arg1 descriptorSelector:(SEL)arg2 delegateSelector:(SEL)arg3 delegateFlag:(BOOL)arg4;
+- (void)handleCharacteristicEvent:(id)arg1 characteristicSelector:(SEL)arg2 delegateSelector:(SEL)arg3 delegateFlag:(BOOL)arg4;
+- (void)handleServiceEvent:(id)arg1 serviceSelector:(SEL)arg2 delegateSelector:(SEL)arg3 delegateFlag:(BOOL)arg4;
+- (void)handleAttributeEvent:(id)arg1 args:(id)arg2 attributeSelector:(SEL)arg3 delegateSelector:(SEL)arg4 delegateFlag:(BOOL)arg5;
 - (void)handleServicesDiscovered:(id)arg1;
+- (void)handleTimeSyncResponse:(id)arg1;
 - (void)handleWritesExecuted:(id)arg1;
 - (void)handleRSSIUpdated:(id)arg1;
 - (void)handleServicesChanged:(id)arg1;
 - (void)handleNameUpdated:(id)arg1;
+- (void)getTimeSyncData;
 - (BOOL)hasTag:(id)arg1;
 - (void)untag:(id)arg1;
 - (void)tag:(id)arg1;
-- (void)unpair;
-- (void)acceptPairing:(BOOL)arg1 ofType:(id)arg2 withPasskey:(id)arg3;
-- (void)pair;
 - (void)writeValue:(id)arg1 forDescriptor:(id)arg2;
 - (void)readValueForDescriptor:(id)arg1;
 - (void)discoverDescriptorsForCharacteristic:(id)arg1;
@@ -73,6 +77,7 @@
 - (void)discoverServices:(id)arg1;
 - (void)readRSSI;
 @property(readonly) BOOL isConnected; // @dynamic isConnected;
+@property(nonatomic) __weak id <CBPeripheralDelegate> delegate; // @dynamic delegate;
 - (void)setOrphan;
 - (void)handleConnectionStateUpdated:(BOOL)arg1;
 - (void)handleDisconnection;
@@ -86,9 +91,7 @@
 - (void)sendMsg:(int)arg1 requiresConnected:(BOOL)arg2 args:(id)arg3;
 - (void)sendMsg:(int)arg1 args:(id)arg2;
 - (id)description;
-- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (oneway void)release;
 - (id)initWithCentralManager:(id)arg1 dictionary:(id)arg2;
 
 @end

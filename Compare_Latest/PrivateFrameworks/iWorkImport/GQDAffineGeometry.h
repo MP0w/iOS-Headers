@@ -8,6 +8,8 @@
 
 #import "GQDNameMappable.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface GQDAffineGeometry : NSObject <GQDNameMappable>
 {
@@ -53,6 +55,12 @@ __attribute__((visibility("hidden")))
 - (void)setNaturalSize:(struct CGSize)arg1;
 - (struct CGSize)naturalSize;
 - (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

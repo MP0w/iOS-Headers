@@ -35,6 +35,7 @@
     int _viewHeight;
     float _projection11;
     double _startTime;
+    const float *_lineWidth;
     float _runningPowerLevels[5];
     unsigned int _powerPointer;
     BOOL _isInitialized;

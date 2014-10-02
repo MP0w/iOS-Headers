@@ -21,14 +21,14 @@
 }
 
 + (id)copyParseRules;
-@property(retain) CoreDAVMatchResultsItem *matchResults; // @synthesize matchResults=_matchResults;
-@property(retain) CoreDAVLeafItem *serverUID; // @synthesize serverUID=_serverUID;
-@property(retain) CoreDAVItemWithHrefChildItem *location; // @synthesize location=_location;
-@property(retain) CoreDAVLeafItem *responseDescription; // @synthesize responseDescription=_responseDescription;
+@property(retain, nonatomic) CoreDAVMatchResultsItem *matchResults; // @synthesize matchResults=_matchResults;
+@property(retain, nonatomic) CoreDAVLeafItem *serverUID; // @synthesize serverUID=_serverUID;
+@property(retain, nonatomic) CoreDAVItemWithHrefChildItem *location; // @synthesize location=_location;
+@property(retain, nonatomic) CoreDAVLeafItem *responseDescription; // @synthesize responseDescription=_responseDescription;
 @property(retain, nonatomic) CoreDAVErrorItem *errorItem; // @synthesize errorItem=_errorItem;
-@property(retain) NSMutableSet *propStats; // @synthesize propStats=_propStats;
-@property(retain) CoreDAVLeafItem *status; // @synthesize status=_status;
-@property(retain) NSMutableArray *hrefs; // @synthesize hrefs=_hrefs;
+@property(retain, nonatomic) NSMutableSet *propStats; // @synthesize propStats=_propStats;
+@property(retain, nonatomic) CoreDAVLeafItem *status; // @synthesize status=_status;
+@property(retain, nonatomic) NSMutableArray *hrefs; // @synthesize hrefs=_hrefs;
 - (BOOL)hasPropertyError;
 - (id)successfulPropertiesToValues;
 - (id)firstHref;

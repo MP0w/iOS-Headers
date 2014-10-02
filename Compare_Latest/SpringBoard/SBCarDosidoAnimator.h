@@ -6,11 +6,16 @@
 
 #import "SBDosidoAnimator.h"
 
+@class SBStarkScreenController;
+
 @interface SBCarDosidoAnimator : SBDosidoAnimator
 {
+    SBStarkScreenController *_screenController;
 }
 
 - (void)_doRealDosido:(id)arg1 withSpacingBetween:(double)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)dealloc;
+- (id)initWithParentView:(id)arg1 fromOrientation:(long long)arg2 starkScreenController:(id)arg3;
 
 @end
 

@@ -15,7 +15,7 @@ __attribute__((visibility("hidden")))
 
 @property(readonly) DOMCSSStyleSheet *styleSheet;
 @property(readonly) DOMMediaList *media;
-@property(readonly) NSString *href;
+@property(readonly, copy) NSString *href;
 
 @end
 

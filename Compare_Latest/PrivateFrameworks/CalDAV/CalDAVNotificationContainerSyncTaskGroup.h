@@ -13,7 +13,7 @@
     NSSet *_notificationTypeNamesToFetch;
 }
 
-@property(retain) NSSet *notificationTypeNamesToFetch; // @synthesize notificationTypeNamesToFetch=_notificationTypeNamesToFetch;
+@property(retain, nonatomic) NSSet *notificationTypeNamesToFetch; // @synthesize notificationTypeNamesToFetch=_notificationTypeNamesToFetch;
 - (id)copyAdditionalResourcePropertiesToFetch;
 - (BOOL)shouldFetchResourceWithEtag:(id)arg1 propertiesToValues:(id)arg2;
 - (id)copyGetTaskWithURL:(id)arg1;

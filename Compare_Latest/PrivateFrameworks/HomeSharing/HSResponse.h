@@ -24,8 +24,8 @@
 @property(readonly, nonatomic) NSDictionary *responseHeaderFields; // @synthesize responseHeaderFields=_responseHeaderFields;
 @property(readonly, nonatomic) unsigned int responseCode; // @synthesize responseCode=_responseCode;
 @property(readonly, nonatomic) NSData *responseData; // @synthesize responseData=_responseData;
+- (void).cxx_destruct;
 - (id)description;
-- (void)dealloc;
 - (id)initWithCode:(unsigned int)arg1 headerFields:(id)arg2 data:(id)arg3 MIMEType:(id)arg4 error:(id)arg5;
 
 @end

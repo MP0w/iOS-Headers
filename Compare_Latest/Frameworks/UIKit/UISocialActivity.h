@@ -4,35 +4,31 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <UIKit/UIActivity.h>
+#import <UIKit/UIApplicationExtensionActivity.h>
 
-@class NSString, SLComposeViewController, UIImage;
+@class NSString, SLComposeViewController;
 
-@interface UISocialActivity : UIActivity
+@interface UISocialActivity : UIApplicationExtensionActivity
 {
-    NSString *_socialActivityType;
+    NSString *_builtinActivityType;
     SLComposeViewController *_socialComposeViewController;
-    UIImage *_composedImage;
 }
 
 + (int)activityCategory;
-@property(retain, nonatomic) UIImage *composedImage; // @synthesize composedImage=_composedImage;
 @property(retain, nonatomic) SLComposeViewController *socialComposeViewController; // @synthesize socialComposeViewController=_socialComposeViewController;
-@property(copy, nonatomic) NSString *socialActivityType; // @synthesize socialActivityType=_socialActivityType;
+@property(copy, nonatomic) NSString *builtinActivityType; // @synthesize builtinActivityType=_builtinActivityType;
 - (void)_cleanup;
-- (struct CGSize)_thumbnailSize;
+- (BOOL)_dismissActivityFromViewController:(id)arg1 animated:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
+- (BOOL)_presentActivityOnViewController:(id)arg1 animated:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)activityViewController;
 - (void)prepareWithActivityItems:(id)arg1;
 - (BOOL)canPerformWithActivityItems:(id)arg1;
-- (int)_blockingActivityItemTypes;
-- (int)_activityItemTypes;
-- (id)_serviceType;
-- (int)_maxImageDataSize;
-- (id)_activityImage;
-- (id)activityTitle;
+- (BOOL)_canBeExcludedByActivityViewController:(id)arg1;
 - (id)activityType;
+- (id)debugDescription;
 - (void)dealloc;
-- (id)initActivityType:(id)arg1;
+- (id)initWithActivityType:(id)arg1;
+- (id)initWithApplicationExtension:(id)arg1;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "TSCH3DRenderBufferAllocator.h"
 
-@class TSCH3DRenderBufferStorage;
+@class NSString, TSCH3DRenderBufferStorage;
 
 __attribute__((visibility("hidden")))
 @interface TSCH3DGLRenderBufferAllocator : NSObject <TSCH3DRenderBufferAllocator>
@@ -25,6 +25,12 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL isTexturable;
 - (void)dealloc;
 - (id)initWithStorage:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

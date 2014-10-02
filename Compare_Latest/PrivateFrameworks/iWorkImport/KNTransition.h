@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) int customTextDelivery;
 @property(readonly, nonatomic) BOOL customMagicMoveFadeUnmatchedObjects;
 @property(readonly, nonatomic) int customTimingCurve;
+@property(readonly, nonatomic) BOOL customMotionBlur;
 @property(readonly, nonatomic) BOOL customBounce;
 @property(readonly, nonatomic) int customMosaicType;
 @property(readonly, nonatomic) int customMosaicSize;
@@ -33,6 +34,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) double duration;
 @property(readonly, nonatomic) BOOL hasAutomaticTrigger;
 - (id)description;
+@property(readonly, nonatomic) BOOL supportsBounce;
 @property(readonly, nonatomic) BOOL supportsDuration;
 @property(readonly, nonatomic) BOOL supportsDirection;
 @property(readonly, nonatomic) unsigned int direction;
@@ -48,6 +50,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithOwner:(id)arg1;
 - (void)saveToArchive:(struct TransitionArchive *)arg1 archiver:(id)arg2;
 - (id)initWithArchive:(const struct TransitionArchive *)arg1 unarchiver:(id)arg2 owner:(id)arg3;
+- (unsigned long long)p_keynoteVersionFromUnarchiver:(id)arg1;
 
 @end
 

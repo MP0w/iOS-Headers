@@ -8,7 +8,7 @@
 
 #import "UIGestureRecognizerDelegate.h"
 
-@class UILongPressGestureRecognizer, UIView;
+@class NSString, UILongPressGestureRecognizer, UIView;
 
 @interface UICollectionViewCell : UICollectionReusableView <UIGestureRecognizerDelegate>
 {
@@ -33,6 +33,9 @@
 @property(retain, nonatomic) UIView *selectedBackgroundView; // @synthesize selectedBackgroundView=_selectedBackgroundView;
 @property(retain, nonatomic) UIView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(readonly, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
+- (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1 withHorizontalFittingPriority:(float)arg2 verticalFittingPriority:(float)arg3;
+- (BOOL)_forwardsSystemLayoutFittingSizeToContentView:(id)arg1;
+- (void)layoutSubviews;
 - (id)_selectionSegueTemplate;
 - (void)_setSelectionSegueTemplate:(id)arg1;
 - (void)paste:(id)arg1;
@@ -62,6 +65,12 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

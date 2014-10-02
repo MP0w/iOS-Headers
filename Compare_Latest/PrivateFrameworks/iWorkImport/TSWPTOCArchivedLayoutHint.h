@@ -8,7 +8,7 @@
 
 #import "TSDArchivedHint.h"
 
-@class TSWPTOCLayoutHint;
+@class NSString, TSWPTOCLayoutHint;
 
 __attribute__((visibility("hidden")))
 @interface TSWPTOCArchivedLayoutHint : TSPObject <TSDArchivedHint>
@@ -21,6 +21,12 @@ __attribute__((visibility("hidden")))
 - (id)initWithContext:(id)arg1 hint:(id)arg2;
 - (void)dealloc;
 @property(retain, nonatomic) id <TSDHint> hint;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

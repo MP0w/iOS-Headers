@@ -58,8 +58,6 @@
 - (void)_ephemerisURLAvailable:(id)arg1;
 - (void)_locationPointDataAvailable:(id)arg1;
 - (void)_locationNmeaDataAvailable:(id)arg1;
-- (void)_externalAccessoryIPodOutOptionsChanged:(id)arg1;
-- (void)_externalAccessoryPortPropertyChanged:(id)arg1;
 - (id)availableAccessories;
 - (void)_ipAccessoryDisconnected:(id)arg1;
 - (void)_ipAccessoryDidConnect:(id)arg1;
@@ -72,6 +70,9 @@
 - (void)_externalAccessoryReconnected:(id)arg1;
 - (void)_applicationWillEnterForeground:(id)arg1;
 - (void)_cleanUpForTaskSuspend;
+- (void)_checkForConnectedAccessories;
+- (BOOL)_iAPAccessoriesMatchEAConnectedAccessoriesList:(id)arg1;
+- (BOOL)_shouldCheckForConnectedAccessories;
 - (void)_applicationDidEnterBackground:(id)arg1;
 - (void)_iapServerDied:(id)arg1;
 - (void)_notifyObserversThatAccessoryDisconnectedWithUserInfo:(id)arg1;
@@ -82,6 +83,12 @@
 - (void)dealloc;
 - (id)_initFromSingletonCreationMethod;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

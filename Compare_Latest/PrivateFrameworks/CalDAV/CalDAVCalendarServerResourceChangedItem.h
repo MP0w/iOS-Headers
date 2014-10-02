@@ -18,12 +18,12 @@
     ICSDateValue *_dtstamp;
 }
 
-@property(retain) ICSDateValue *dtstamp; // @synthesize dtstamp=_dtstamp;
-@property(retain) NSMutableSet *collectionUpdates; // @synthesize collectionUpdates=_collectionUpdates;
-@property(retain) NSMutableSet *collectionChanges; // @synthesize collectionChanges=_collectionChanges;
-@property(retain) NSMutableSet *deleted; // @synthesize deleted=_deleted;
-@property(retain) NSMutableSet *updated; // @synthesize updated=_updated;
-@property(retain) NSMutableSet *created; // @synthesize created=_created;
+@property(retain, nonatomic) ICSDateValue *dtstamp; // @synthesize dtstamp=_dtstamp;
+@property(retain, nonatomic) NSMutableSet *collectionUpdates; // @synthesize collectionUpdates=_collectionUpdates;
+@property(retain, nonatomic) NSMutableSet *collectionChanges; // @synthesize collectionChanges=_collectionChanges;
+@property(retain, nonatomic) NSMutableSet *deleted; // @synthesize deleted=_deleted;
+@property(retain, nonatomic) NSMutableSet *updated; // @synthesize updated=_updated;
+@property(retain, nonatomic) NSMutableSet *created; // @synthesize created=_created;
 - (id)copyParseRules;
 - (void)setDtstampItem:(id)arg1;
 - (void)addCollectionUpdates:(id)arg1;

@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     long cachedColorOnceToken;
 }
 
+- (BOOL)getHue:(float *)arg1 saturation:(float *)arg2 brightness:(float *)arg3 alpha:(float *)arg4;
 - (BOOL)getRed:(float *)arg1 green:(float *)arg2 blue:(float *)arg3 alpha:(float *)arg4;
 - (BOOL)getWhite:(float *)arg1 alpha:(float *)arg2;
 - (float)alphaComponent;

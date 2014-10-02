@@ -11,7 +11,7 @@
 @interface SCRCGestureEvent : NSObject
 {
     unsigned int _deviceIdentifier;
-    SCRCGestureFinger *_finger[5];
+    SCRCGestureFinger *_finger[8];
     unsigned int _fingerCount;
     double _time;
     struct CGPoint _averageLocation;

@@ -9,7 +9,7 @@
 __attribute__((visibility("hidden")))
 @interface VKTrafficSegmentsAlongRoute : NSObject
 {
-    struct vector<TrafficSegment, vk_allocator<TrafficSegment>> _segments;
+    struct vector<TrafficSegment, std::__1::allocator<TrafficSegment>> _segments;
 }
 
 - (id).cxx_construct;

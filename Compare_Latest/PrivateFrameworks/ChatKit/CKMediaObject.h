@@ -6,63 +6,73 @@
 
 #import "NSObject.h"
 
-#import "CKPreviewDispatchCachePolicyDelegate.h"
 #import "QLPreviewItem.h"
 
 @class NSData, NSDictionary, NSString, NSURL;
 
-@interface CKMediaObject : NSObject <CKPreviewDispatchCachePolicyDelegate, QLPreviewItem>
+@interface CKMediaObject : NSObject <QLPreviewItem>
 {
     id <CKFileTransfer> _transfer;
 }
 
++ (id)attachmentSummary:(unsigned int)arg1;
 + (id)fallbackFilenamePrefix;
 + (id)UTITypes;
++ (Class)__ck_attachmentItemClass;
 + (id)iconCache;
-+ (id)previewDispatchCache;
 + (BOOL)isPreviewable;
 @property(retain, nonatomic) id <CKFileTransfer> transfer; // @synthesize transfer=_transfer;
 @property(readonly) NSURL *previewItemURL;
 @property(readonly, nonatomic) int mediaType;
 - (id)pasteboardItem;
-@property(readonly, nonatomic) NSString *UTIType;
-@property(readonly, nonatomic) NSString *mimeType;
-@property(readonly, nonatomic) NSDictionary *transcoderUserInfo;
-@property(readonly, nonatomic) NSString *filename;
-@property(readonly, nonatomic) NSURL *fileURL;
-@property(readonly, nonatomic) NSData *data;
-@property(readonly, nonatomic) NSString *transferGUID;
+@property(readonly, copy, nonatomic) NSString *UTIType;
+@property(readonly, copy, nonatomic) NSString *mimeType;
+@property(readonly, copy, nonatomic) NSDictionary *transcoderUserInfo;
+@property(readonly, copy, nonatomic) NSString *filename;
+@property(readonly, copy, nonatomic) NSURL *fileURL;
+@property(readonly, copy, nonatomic) NSData *data;
+@property(readonly, copy, nonatomic) NSString *transferGUID;
 - (id)initWithTransfer:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
-- (id)PNGDataFromImage:(id)arg1;
+- (id)composeImages;
+- (id)JPEGDataFromImage:(id)arg1;
 - (id)fileManager;
 - (id)previewDispatchCache;
-- (BOOL)previewDispatchCache:(id)arg1 shouldReplaceCachedPreview:(id)arg2 withPreview:(id)arg3;
-- (id)generateThumbnailFillToSize:(struct CGSize)arg1;
-- (id)generateThumbnail;
+- (id)generateThumbnailFillToSize:(struct CGSize)arg1 contentAlignmentInsets:(struct UIEdgeInsets)arg2;
+- (id)generateThumbnailForWidth:(float)arg1 orientation:(BOOL)arg2;
 - (struct CGSize)bbSize;
 - (id)bbPreviewFillToSize:(struct CGSize)arg1;
 - (id)savedPreviewFromURL:(id)arg1 forOrientation:(BOOL)arg2;
 - (void)savePreview:(id)arg1 toURL:(id)arg2 forOrientation:(BOOL)arg3;
-- (id)generatePreviewFromThumbnail:(id)arg1 forOrientation:(BOOL)arg2;
+- (id)generatePreviewFromThumbnail:(id)arg1 width:(float)arg2 orientation:(BOOL)arg3;
 - (void)_sampleImageEdges:(id)arg1 usingRect:(struct CGRect)arg2 forMostlyWhitePixels:(unsigned int *)arg3 otherPixels:(unsigned int *)arg4;
-- (id)previewForOrientation:(BOOL)arg1;
+- (id)previewForWidth:(float)arg1 orientation:(BOOL)arg2;
 - (id)fileSizeString;
 - (id)downloadProgressString;
 - (id)downloadProgressImage;
 - (BOOL)shouldShowDisclosure;
+- (id)previewCachesFileURLWithOrientation:(BOOL)arg1 extension:(id)arg2;
+- (id)previewCacheKeyWithOrientation:(BOOL)arg1;
+- (BOOL)canBeAttachmentContiguous;
+- (void)export:(id)arg1;
+- (BOOL)canExport;
 - (BOOL)shouldBeQuickLooked;
 - (BOOL)shouldShowViewer;
+- (id)location;
 - (id)icon;
 - (id)subtitle;
 - (id)title;
 - (Class)previewBalloonViewClass;
-- (Class)balloonViewClass;
+- (Class)coloredBalloonViewClass;
+- (Class)balloonViewClassForWidth:(float)arg1 orientation:(BOOL)arg2;
 - (BOOL)isPreviewable;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
 @property(readonly) NSString *previewItemTitle;
+@property(readonly) Class superclass;
 
 @end
 

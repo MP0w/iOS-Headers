@@ -6,10 +6,14 @@
 
 #import <MusicCarDisplayUI/MCD_OLD_TableViewController.h>
 
+@class NSMutableDictionary;
+
 @interface MCDGeniusMixesViewController : MCD_OLD_TableViewController
 {
+    NSMutableDictionary *_geniusImages;
 }
 
+- (void).cxx_destruct;
 - (id)_playlistAtIndexPath:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;

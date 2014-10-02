@@ -8,33 +8,39 @@
 
 #import "KNInspectableAnimation.h"
 
-@class KNBuild, KNSlide, NSArray, NSSet, NSString;
+@class KNBuild, KNSlide, NSArray, NSSet, NSString, TSPLazyReference;
 
 __attribute__((visibility("hidden")))
 @interface KNBuildChunk : TSPContainedObject <KNInspectableAnimation>
 {
-    KNBuild *mBuild;
     unsigned int mIndexInBuild;
     double mDelay;
-    BOOL mOwnsDelay;
     double mDuration;
-    BOOL mOwnsDuration;
     BOOL mAutomatic;
-    BOOL mOwnsAutomatic;
     unsigned int mReferent;
-    BOOL mOwnsReferent;
+    KNBuild *mCachedBuild;
+    TSPLazyReference *mBuildReference;
+    BOOL mNeedsAutomaticFromBuildAttributes;
+    BOOL mNeedsReferentFromBuildAttributes;
+    BOOL mNeedsDelayFromBuildAttributes;
+    BOOL mNeedsDurationFromBuildAttributes;
+    unsigned int mCachedIndexOnSlide;
+    unsigned int mCachedActiveIndexOnSlide;
 }
 
+@property(nonatomic) double delay; // @synthesize delay=mDelay;
+@property(nonatomic) double duration; // @synthesize duration=mDuration;
 @property(readonly, nonatomic) unsigned int indexInBuild; // @synthesize indexInBuild=mIndexInBuild;
-@property(readonly, nonatomic) KNBuild *build; // @synthesize build=mBuild;
 @property(readonly, nonatomic) BOOL canEditAnimations;
 @property(readonly, nonatomic) NSSet *inspectableAttributes;
 @property(readonly, nonatomic) NSString *title;
 - (id)description;
 - (id)p_stringForReferent:(unsigned int)arg1;
+- (BOOL)isComplementOfBuildChunk:(id)arg1;
 @property(readonly, nonatomic) BOOL hasComplement;
 @property(readonly, nonatomic) unsigned int activeIndexOnSlide;
 @property(readonly, nonatomic, getter=isActive) BOOL active;
+@property(readonly, nonatomic) BOOL isFirstInDeliveryGroup;
 @property(readonly, nonatomic) BOOL isFirstOnSlide;
 @property(readonly, nonatomic) BOOL isFirstInBuild;
 @property(readonly, nonatomic) unsigned int deliveryGroupIndex;
@@ -43,28 +49,27 @@ __attribute__((visibility("hidden")))
 - (BOOL)isEqual:(id)arg1;
 @property(readonly, nonatomic) unsigned int eventTrigger;
 @property(readonly, nonatomic) NSArray *availableEventTriggers;
+- (id)nextChunkOnSlide;
 - (id)p_previousChunkOnSlide;
+@property(readonly, nonatomic, getter=isAutomaticWithPreviousChunkOnSameDrawable) BOOL automaticWithPreviousChunkOnSameDrawable;
 @property(readonly, nonatomic, getter=isAutomaticWithPreviousChunk) BOOL automaticWithPreviousChunk;
 @property(readonly, nonatomic) BOOL supportsWithStart;
 - (id)p_chunksBuildingWithThisChunk;
 - (BOOL)p_chunksBuildingWithThisChunkCanBuildWithChunk:(id)arg1;
 - (BOOL)p_canBuildWithChunk:(id)arg1 checkOtherChunksBuildingWithThisChunk:(BOOL)arg2;
 - (BOOL)canBuildWithChunk:(id)arg1;
-@property(nonatomic) BOOL ownsReferent;
 @property(nonatomic) unsigned int referent;
 - (void)p_invalidateSlideCaches;
-@property(nonatomic) BOOL ownsAutomatic;
 @property(nonatomic, getter=isAutomatic) BOOL automatic;
-@property(nonatomic) double delay;
-@property(nonatomic) double duration;
-- (void)reset;
+@property(readonly, nonatomic) KNBuild *build;
 - (void)dealloc;
 - (id)initWithIndex:(unsigned int)arg1 inBuild:(id)arg2 copyingAttributesFromChunk:(id)arg3;
 - (id)initWithIndex:(unsigned int)arg1 inBuild:(id)arg2 referent:(unsigned int)arg3 copyingRemainingAttributesFromChunk:(id)arg4;
 - (id)initWithIndex:(unsigned int)arg1 inBuild:(id)arg2;
-@property(nonatomic) BOOL ownsDelay;
-@property(nonatomic) BOOL ownsDuration;
 - (void)saveToArchive:(struct BuildChunkArchive *)arg1 archiver:(id)arg2;
+- (void)p_setDurationFromBuildAttributes:(id)arg1;
+- (void)p_setDelayFromBuildAttributes:(id)arg1 withReferent:(unsigned int)arg2 automatic:(BOOL)arg3;
+- (void)didLoadBuild:(id)arg1;
 - (id)initWithArchive:(const struct BuildChunkArchive *)arg1 unarchiver:(id)arg2 owner:(id)arg3;
 
 @end

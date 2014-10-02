@@ -6,7 +6,7 @@
 
 #import <BulletinBoard/BBBulletin.h>
 
-@class BBAction, BBContent, BBSound, NSArray, NSDate, NSSet, NSString, NSTimeZone;
+@class BBAccessoryIcon, BBAction, BBContent, BBSound, NSArray, NSDate, NSSet, NSString, NSTimeZone;
 
 @interface BBBulletinRequest : BBBulletin
 {
@@ -20,6 +20,9 @@
 - (void)addAlertSuppressionAppID:(id)arg1;
 @property(nonatomic) unsigned int realertCount;
 - (void)setUnlockActionLabel:(id)arg1;
+- (void)_updateSupplementaryAction:(id)arg1;
+- (void)setSupplementaryActions:(id)arg1 forLayout:(int)arg2;
+@property(copy, nonatomic) NSArray *supplementaryActions; // @dynamic supplementaryActions;
 - (void)withdraw;
 - (void)publish;
 - (void)publish:(BOOL)arg1;
@@ -32,7 +35,7 @@
 - (BOOL)hasContentModificationsRelativeTo:(id)arg1;
 
 // Remaining properties
-@property(nonatomic) unsigned int accessoryStyle; // @dynamic accessoryStyle;
+@property(retain, nonatomic) BBAccessoryIcon *accessoryIconMask; // @dynamic accessoryIconMask;
 @property(copy, nonatomic) BBAction *acknowledgeAction; // @dynamic acknowledgeAction;
 @property(nonatomic) int addressBookRecordID; // @dynamic addressBookRecordID;
 @property(copy, nonatomic) NSSet *alertSuppressionContexts; // @dynamic alertSuppressionContexts;
@@ -44,6 +47,7 @@
 @property(nonatomic) int dateFormatStyle; // @dynamic dateFormatStyle;
 @property(nonatomic) BOOL dateIsAllDay; // @dynamic dateIsAllDay;
 @property(copy, nonatomic) BBAction *defaultAction; // @dynamic defaultAction;
+@property(copy, nonatomic) BBAction *dismissAction; // @dynamic dismissAction;
 @property(copy, nonatomic) NSString *dismissalID; // @dynamic dismissalID;
 @property(retain, nonatomic) NSDate *endDate; // @dynamic endDate;
 @property(retain, nonatomic) NSDate *expirationDate; // @dynamic expirationDate;
@@ -53,6 +57,7 @@
 @property(copy, nonatomic) NSString *message; // @dynamic message;
 @property(retain, nonatomic) BBContent *modalAlertContent; // @dynamic modalAlertContent;
 @property(copy, nonatomic) NSString *publisherBulletinID; // @dynamic publisherBulletinID;
+@property(copy, nonatomic) BBAction *raiseAction; // @dynamic raiseAction;
 @property(retain, nonatomic) NSDate *recencyDate; // @dynamic recencyDate;
 @property(copy, nonatomic) NSString *recordID; // @dynamic recordID;
 @property(copy, nonatomic) NSString *section; // @dynamic section;

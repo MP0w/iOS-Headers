@@ -30,6 +30,7 @@
 @property(retain, nonatomic) NSString *nameType; // @synthesize nameType=_nameType;
 @property(retain, nonatomic) NSString *languageCode; // @synthesize languageCode=_languageCode;
 @property(nonatomic) BOOL isDefault; // @synthesize isDefault=_isDefault;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -45,6 +46,7 @@
 @property(readonly, nonatomic) BOOL hasLanguageCode;
 @property(nonatomic) BOOL hasIsDefault;
 - (void)dealloc;
+- (id)initWithPlaceDataLocalizedString:(id)arg1;
 
 @end
 

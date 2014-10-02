@@ -8,7 +8,7 @@
 
 #import "PINEntryView.h"
 
-@class FailureBarView, UILabel;
+@class FailureBarView, NSString, UILabel;
 
 @interface PINView : UIView <PINEntryView>
 {
@@ -17,14 +17,16 @@
     FailureBarView *_failureView;
     UILabel *_pinPolicyLabel;
     BOOL _error;
-    id _delegate;
+    id <PSPINEntryViewDelegate> _delegate;
 }
 
 - (void)setBlocked:(BOOL)arg1;
 - (void)dealloc;
 - (void)hideFailedAttempts;
-- (void)showFailedAttempts:(int)arg1;
+- (void)showFailedAttempts:(long)arg1;
 - (void)setPINPolicyString:(id)arg1 visible:(BOOL)arg2;
+- (void)notifyDelegatePINEntered;
+- (void)notifyDelegatePINChanged;
 - (void)setDelegate:(id)arg1;
 - (BOOL)becomeFirstResponder;
 - (void)appendString:(id)arg1;
@@ -35,6 +37,14 @@
 - (void)hidePasscodeField:(BOOL)arg1;
 - (void)hideError;
 - (void)showError:(id)arg1 animate:(BOOL)arg2;
+- (void)setTextFieldKeyboardAppearance:(int)arg1;
+- (void)setTextFieldKeyboardType:(int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

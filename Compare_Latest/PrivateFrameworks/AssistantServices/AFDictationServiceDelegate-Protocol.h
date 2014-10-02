@@ -6,10 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary, NSError, NSString;
+@class NSArray, NSDictionary, NSError, NSFileHandle, NSString;
 
 @protocol AFDictationServiceDelegate <NSObject>
+- (oneway void)speechDidFinishWritingAudioFile:(NSFileHandle *)arg1 error:(NSError *)arg2;
 - (oneway void)speechRecognitionDidFail:(NSError *)arg1;
+- (oneway void)speechDidRecognizeTranscriptionObjects:(NSArray *)arg1 usingSpeechModel:(NSString *)arg2;
 - (oneway void)speechDidRecognizeTokens:(NSArray *)arg1 usingSpeechModel:(NSString *)arg2;
 - (oneway void)speechDidRecognizePhrases:(NSArray *)arg1 usingSpeechModel:(NSString *)arg2 correctionContext:(NSDictionary *)arg3;
 - (oneway void)speechRecordingDidFail:(NSError *)arg1;

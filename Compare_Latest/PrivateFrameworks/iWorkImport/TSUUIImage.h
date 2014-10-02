@@ -21,9 +21,9 @@ __attribute__((visibility("hidden")))
 - (float)scale;
 - (struct CGSize)size;
 - (id)UIImage;
+- (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithContentsOfFile:(id)arg1;
-- (id)initWithData:(id)arg1;
 - (id)initWithUIImage:(id)arg1;
 
 @end

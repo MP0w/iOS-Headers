@@ -27,9 +27,9 @@ __attribute__((visibility("hidden")))
 - (id)description;
 - (BOOL)evaluateFormulaAtCellID:(CDStruct_0441cfb5)arg1 withCalcEngine:(id)arg2 withFormulaTableID:(struct __CFUUID *)arg3;
 @property(readonly, nonatomic) struct TSCEFormula *formula;
-@property(readonly, nonatomic) TSTFormulaPredicate *predicate;
-@property(readonly, nonatomic) TSWPParagraphStyle *textStyle;
-@property(readonly, nonatomic) TSTCellStyle *cellStyle;
+@property(readonly, copy, nonatomic) TSTFormulaPredicate *predicate;
+@property(readonly, copy, nonatomic) TSWPParagraphStyle *textStyle;
+@property(readonly, copy, nonatomic) TSTCellStyle *cellStyle;
 - (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -8,6 +8,8 @@
 
 #import "CKGradientReferenceView.h"
 
+@class NSString;
+
 @interface CKGradientReferenceView : UIView <CKGradientReferenceView>
 {
     struct CGRect _gradientFrame;
@@ -16,6 +18,12 @@
 @property(nonatomic) struct CGRect gradientFrame; // @synthesize gradientFrame=_gradientFrame;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

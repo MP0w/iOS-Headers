@@ -9,11 +9,11 @@
 @class NSFileVersion, NSOperationQueue, NSURL;
 
 @protocol NSFilePresenter <NSObject>
-@property(readonly) NSOperationQueue *presentedItemOperationQueue;
-@property(readonly) NSURL *presentedItemURL;
+@property(readonly, retain) NSOperationQueue *presentedItemOperationQueue;
+@property(readonly, copy) NSURL *presentedItemURL;
 
 @optional
-@property(readonly) NSURL *primaryPresentedItemURL;
+@property(readonly, copy) NSURL *primaryPresentedItemURL;
 - (void)presentedSubitemAtURL:(NSURL *)arg1 didResolveConflictVersion:(NSFileVersion *)arg2;
 - (void)presentedSubitemAtURL:(NSURL *)arg1 didLoseVersion:(NSFileVersion *)arg2;
 - (void)presentedSubitemAtURL:(NSURL *)arg1 didGainVersion:(NSFileVersion *)arg2;

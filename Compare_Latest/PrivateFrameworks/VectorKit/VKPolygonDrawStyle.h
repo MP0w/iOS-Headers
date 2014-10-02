@@ -4,77 +4,54 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <VectorKit/VKDrawStyle.h>
+#import <VectorKit/VKRenderStyle.h>
 
-@class NSMutableArray, NSString;
+@class NSString;
 
 __attribute__((visibility("hidden")))
-@interface VKPolygonDrawStyle : VKDrawStyle
+@interface VKPolygonDrawStyle : VKRenderStyle
 {
-    struct VKProfileSparseRamp<signed char> visibility;
-    struct VKProfileSparseRamp<_VGLColor> fillColor;
-    struct VKProfileSparseRamp<float> strokeWidth;
-    struct VKProfileSparseRamp<_VGLColor> strokeColor;
-    struct VKProfileSparseRamp<float> outerStrokeWidth;
-    struct VKProfileSparseRamp<_VGLColor> outerStrokeColor;
-    struct _VGLColor _casingColor;
-    struct VKProfileSparseRamp<int> zIndices;
-    int polygonType;
-    NSMutableArray *textures;
-    struct VKProfileSparseRamp<float> textureOpacity;
-    int textureBlendMode;
-    NSMutableArray *secondTextures;
-    struct VKProfileSparseRamp<float> secondTextureOpacity;
-    int secondTextureBlendMode;
-    NSMutableArray *thirdTextures;
-    struct VKProfileSparseRamp<float> thirdTextureOpacity;
-    int thirdTextureBlendMode;
-    struct VKProfileSparseRamp<signed char> casingsVisible;
-    struct VKProfileSparseRamp<signed char> fancyCasingsVisible;
-    NSString *descriptionKey;
-    unsigned int hasFillColor:1;
-    unsigned int hasFillTexture:1;
-    unsigned int hasStrokeColor:1;
     NSString *_name;
-    float _variation;
 }
 
-@property(nonatomic) float variation; // @synthesize variation=_variation;
++ (int)renderStyleID;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
-- (id).cxx_construct;
-- (void).cxx_destruct;
-- (id)preferredTextureNameAtZoom:(float)arg1;
-- (id)descriptionAtZoom:(float)arg1;
+- (id)preferredTargetTextureNameAtZoom:(float)arg1;
+- (id)preferredSourceTextureNameAtZoom:(float)arg1;
 - (BOOL)fancyCasingsVisibleAtZoom:(float)arg1;
 - (BOOL)casingsVisibleAtZoom:(float)arg1;
 - (int)polygonType;
-- (struct _VGLColor)outerStrokeColorAtZoom:(float)arg1;
+- (Matrix_5173352a)outerStrokeColorAtZoom:(float)arg1;
 - (float)outerStrokeWidthAtZoom:(float)arg1;
-- (struct _VGLColor)strokeColorAtZoom:(float)arg1;
+- (Matrix_5173352a)strokeColorAtZoom:(float)arg1;
 - (float)strokeWidthAtZoom:(float)arg1;
 - (unsigned int)zIndexAtZoom:(float)arg1;
-- (int)thirdTextureBlendMode;
+- (int)thirdTextureBlendModeAtZoom:(float)arg1;
+- (id)thirdTextureVariantAtZoom:(float)arg1;
 - (float)thirdTextureOpacityAtZoom:(float)arg1;
 - (id)thirdTextureAtZoom:(float)arg1;
-- (int)secondTextureBlendMode;
+- (int)secondTextureBlendModeAtZoom:(float)arg1;
+- (id)secondTextureVariantAtZoom:(float)arg1;
 - (float)secondTextureOpacityAtZoom:(float)arg1;
 - (id)secondTextureAtZoom:(float)arg1;
-- (int)textureBlendMode;
-- (id)textureVariantAtZoom:(float)arg1;
+- (int)textureBlendModeAtZoom:(float)arg1;
+- (id)targetTextureAtZoom:(float)arg1;
 - (float)textureOpacityAtZoom:(float)arg1;
-- (id)textureAtZoom:(float)arg1;
-@property(readonly, nonatomic) struct _VGLColor casingColor;
-- (struct _VGLColor)nonAnimatedFillColorAtZoom:(float)arg1;
-- (struct _VGLColor)fillColorAtZoom:(float)arg1;
+- (id)sourceTextureAtZoom:(float)arg1;
+@property(readonly, nonatomic) Matrix_5173352a casingColor;
+- (Matrix_5173352a)sourceFillColorAtZoom:(float)arg1;
+- (Matrix_5173352a)targetFillColorAtZoom:(float)arg1;
+- (Matrix_5173352a)fillColorAtZoom:(float)arg1;
+- (BOOL)isTargetNotDrawn;
+- (BOOL)isSourceNotDrawn;
 - (BOOL)isNotDrawn;
+- (BOOL)hasStrokeColor;
+- (BOOL)hasFillTextureVariant;
 - (BOOL)hasFillTexture;
+- (BOOL)hasFillColorVariant;
 - (BOOL)hasFillColor;
 - (BOOL)visibleAtZoom:(float)arg1;
-- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2 globals:(id)arg3;
-- (void)takeFromZoomInvariantProperties:(id)arg1;
-- (id)variant;
 - (void)dealloc;
-- (id)initWithStyle:(id)arg1;
 
 @end
 

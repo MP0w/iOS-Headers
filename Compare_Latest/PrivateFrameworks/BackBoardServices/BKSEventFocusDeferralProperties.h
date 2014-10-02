@@ -13,25 +13,30 @@
 @interface BKSEventFocusDeferralProperties : NSObject <NSSecureCoding>
 {
     NSString *_clientID;
+    int _pid;
     NSString *_displayUUID;
     unsigned int _contextID;
 }
 
-+ (BOOL)supportsSecureCoding;
 + (id)propertiesWithClientID:(id)arg1 displayUUID:(id)arg2 contextID:(unsigned int)arg3;
 + (id)propertiesWithMainDisplayAndClientID:(id)arg1 contextID:(unsigned int)arg2;
++ (BOOL)supportsSecureCoding;
++ (id)propertiesWithClientID:(id)arg1 pid:(int)arg2 displayUUID:(id)arg3 contextID:(unsigned int)arg4;
++ (id)propertiesWithMainDisplayAndClientID:(id)arg1 pid:(int)arg2 contextID:(unsigned int)arg3;
 @property(readonly, nonatomic) unsigned int contextID; // @synthesize contextID=_contextID;
 @property(readonly, nonatomic) NSString *displayUUID; // @synthesize displayUUID=_displayUUID;
+@property(readonly, nonatomic) int pid; // @synthesize pid=_pid;
 @property(readonly, nonatomic) NSString *clientID; // @synthesize clientID=_clientID;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)propertiesOneLevelMoreGeneric;
-- (BOOL)isEqualNotIncludingClientID:(id)arg1;
+- (BOOL)isEqualNotIncludingClientIDAndPid:(id)arg1;
 - (id)description;
+- (void)setPid:(int)arg1;
 - (void)dealloc;
-- (id)initWithClientID:(id)arg1 displayUUID:(id)arg2 contextID:(unsigned int)arg3;
+- (id)initWithClientID:(id)arg1 pid:(int)arg2 displayUUID:(id)arg3 contextID:(unsigned int)arg4;
 
 @end
 

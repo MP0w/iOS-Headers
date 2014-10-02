@@ -17,11 +17,11 @@
     double _naturalVisualAltitude;
     UIView *_scalingView;
     SBIcon *_targetIcon;
-    double _zoomScale;
+    struct CGPoint _zoomScaleDimension;
 }
 
-@property(readonly, nonatomic) double zoomScale; // @synthesize zoomScale=_zoomScale;
-@property(readonly, nonatomic) SBIcon *targetIcon; // @synthesize targetIcon=_targetIcon;
+@property(readonly, nonatomic) struct CGPoint zoomScaleDimension; // @synthesize zoomScaleDimension=_zoomScaleDimension;
+@property(readonly, retain, nonatomic) SBIcon *targetIcon; // @synthesize targetIcon=_targetIcon;
 - (void)_calculateIconScootch;
 - (struct CGPoint)_scootchForIcon:(id)arg1 inDock:(_Bool)arg2;
 - (void)_applyOuterFadeFraction:(double)arg1;
@@ -34,7 +34,10 @@
 - (void)_cleanupAnimation;
 - (void)_setAnimationFraction:(double)arg1;
 - (void)_prepareAnimation;
-@property(readonly, nonatomic) SBIconView *targetIconView;
+- (void)_setZoomScale:(struct CGPoint)arg1;
+- (_Bool)_forceSquareZoomDimension;
+@property(readonly, nonatomic) double zoomScale;
+@property(readonly, retain, nonatomic) SBIconView *targetIconView;
 - (void)dealloc;
 - (id)initWithFolderController:(id)arg1 targetIcon:(id)arg2;
 

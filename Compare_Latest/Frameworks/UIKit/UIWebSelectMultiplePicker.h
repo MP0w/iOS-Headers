@@ -10,7 +10,7 @@
 #import "UIPickerViewDelegate.h"
 #import "UIWebFormControl.h"
 
-@class DOMHTMLSelectElement, NSArray;
+@class DOMHTMLSelectElement, NSArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface UIWebSelectMultiplePicker : UIPickerView <UIWebFormControl, UIPickerViewDataSource, UIPickerViewDelegate>
@@ -39,6 +39,12 @@ __attribute__((visibility("hidden")))
 - (id)controlView;
 - (void)dealloc;
 - (id)initWithDOMHTMLSelectElement:(id)arg1 cachedItems:(id)arg2 singleSelectionItem:(id)arg3 singleSelectionIndex:(unsigned int)arg4 multipleSelection:(BOOL)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

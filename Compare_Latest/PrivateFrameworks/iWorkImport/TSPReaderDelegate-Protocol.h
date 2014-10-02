@@ -6,10 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSArray, TSPData, TSPLazyReference, TSPObject, TSPObjectContext, TSPReader;
+@class NSArray, NSUUID, TSPData, TSPLazyReference, TSPObject, TSPObjectContext, TSPReader;
 
 @protocol TSPReaderDelegate <NSObject>
 @property(readonly, nonatomic) BOOL isReadingFromDocument;
+@property(readonly, nonatomic) NSUUID *baseObjectUUID;
+@property(readonly, nonatomic) unsigned long long fileFormatVersion;
 - (void)reader:(TSPReader *)arg1 didReadLazyReference:(TSPLazyReference *)arg2;
 - (void)reader:(TSPReader *)arg1 didFindExternalRepeatedReference:(NSArray *)arg2 isWeak:(BOOL)arg3 allowUnknownObject:(BOOL)arg4 fromParentObject:(TSPObject *)arg5 completion:(void (^)(id))arg6;
 - (void)reader:(TSPReader *)arg1 didFindExternalReferenceToObjectIdentifier:(long long)arg2 componentIdentifier:(long long)arg3 isWeak:(BOOL)arg4 allowUnknownObject:(BOOL)arg5 fromParentObject:(TSPObject *)arg6 completion:(void (^)(id))arg7;
@@ -23,6 +25,7 @@
 @property(readonly, nonatomic) BOOL isCrossDocumentPaste;
 @property(readonly, nonatomic) BOOL isFromPasteboard;
 - (void)reader:(TSPReader *)arg1 didUnarchiveObject:(TSPObject *)arg2;
+- (void)reader:(TSPReader *)arg1 didResetObjectUUID:(NSUUID *)arg2 forObjectIdentifier:(long long)arg3 originalObjectUUID:(NSUUID *)arg4;
 - (void)reader:(TSPReader *)arg1 didResetObjectIdentifierForObject:(TSPObject *)arg2 originalObjectIdentifier:(long long)arg3;
 @end
 

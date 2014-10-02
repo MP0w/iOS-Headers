@@ -7,16 +7,26 @@
 #import "NSPredicate.h"
 
 #import "EKDefaultPropertiesLoading.h"
+#import "NSSecureCoding.h"
 
-@interface EKNotifiableEventsPredicate : NSPredicate <EKDefaultPropertiesLoading>
+@class NSString;
+
+@interface EKNotifiableEventsPredicate : NSPredicate <EKDefaultPropertiesLoading, NSSecureCoding>
 {
 }
 
 + (id)predicate;
++ (BOOL)supportsSecureCoding;
 - (id)defaultPropertiesToLoad;
 - (BOOL)shouldLoadDefaultProperties;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (BOOL)evaluateWithObject:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

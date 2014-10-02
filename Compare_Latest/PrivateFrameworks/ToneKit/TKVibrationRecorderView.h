@@ -8,7 +8,7 @@
 
 #import "TKVibrationRecorderTouchSurfaceDelegate.h"
 
-@class NSLayoutConstraint, TKVibrationRecorderProgressView, TKVibrationRecorderTouchSurface, UILabel, UIToolbar;
+@class NSLayoutConstraint, NSString, TKVibrationRecorderProgressView, TKVibrationRecorderTouchSurface, UILabel, UIToolbar;
 
 @interface TKVibrationRecorderView : UIView <TKVibrationRecorderTouchSurfaceDelegate>
 {
@@ -71,6 +71,12 @@
 - (id)_titleForControlsToolbarButtonWithIdentifier:(int)arg1;
 - (void)dealloc;
 - (id)initWithVibrationPatternMaximumDuration:(double)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "TSDGLDataBufferAccessor.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSString, TSDGLShader;
 
 __attribute__((visibility("hidden")))
 @interface TSDGLDataBuffer : NSObject <TSDGLDataBufferAccessor>
@@ -25,6 +25,8 @@ __attribute__((visibility("hidden")))
     unsigned int mGLVertexArrayObjects[2];
     BOOL _isUpdatingRawDataBuffer;
     BOOL _didTeardown;
+    BOOL _isEnabled;
+    TSDGLShader *_enabledShader;
     BOOL _isDoubleBuffered;
     unsigned int _vertexCount;
     NSArray *_vertexAttributes;
@@ -39,22 +41,25 @@ __attribute__((visibility("hidden")))
 - (void)updateDataBufferAttributes:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (id)vertexAttributeNamed:(id)arg1;
 - (void)setDataForAttribute:(id)arg1 atIndex:(unsigned int)arg2 fromAttribute:(id)arg3 dataBuffer:(id)arg4 index:(unsigned int)arg5;
-- (void)setGLPoint4D:(CDStruct_f2e236b6)arg1 forAttribute:(id)arg2 atIndex:(unsigned int)arg3;
-- (CDStruct_f2e236b6)GLPoint4DForAttribute:(id)arg1 atIndex:(unsigned int)arg2;
-- (void)setGLPoint3D:(CDStruct_03942939)arg1 forAttribute:(id)arg2 atIndex:(unsigned int)arg3;
-- (CDStruct_03942939)GLPoint3DForAttribute:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)setGLPoint4D:(CDStruct_818bb265)arg1 forAttribute:(id)arg2 atIndex:(unsigned int)arg3;
+- (CDStruct_818bb265)GLPoint4DForAttribute:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)setGLPoint3D:(CDStruct_869f9c67)arg1 forAttribute:(id)arg2 atIndex:(unsigned int)arg3;
+- (CDStruct_869f9c67)GLPoint3DForAttribute:(id)arg1 atIndex:(unsigned int)arg2;
 - (void)setGLPoint2D:(CDStruct_b2fbf00d)arg1 forAttribute:(id)arg2 atIndex:(unsigned int)arg3;
 - (CDStruct_b2fbf00d)GLPoint2DForAttribute:(id)arg1 atIndex:(unsigned int)arg2;
 - (void)setCGFloat:(float)arg1 forAttribute:(id)arg2 atIndex:(unsigned int)arg3;
 - (void)setGLfloat:(float)arg1 forAttribute:(id)arg2 atIndex:(unsigned int)arg3;
 - (float)GLfloatForAttribute:(id)arg1 atIndex:(unsigned int)arg2;
-- (void)drawWithShader:(id)arg1 range:(struct _NSRange)arg2;
+- (void)drawWithShader:(id)arg1 range:(struct _NSRange)arg2 deactivateShaderWhenDone:(BOOL)arg3;
+- (void)drawWithShader:(id)arg1 deactivateShaderWhenDone:(BOOL)arg2;
 - (void)drawWithShader:(id)arg1;
+- (void)disableDataBufferWithShader:(id)arg1;
+- (void)enableDataBufferWithShader:(id)arg1;
 - (void)disableElementArrayBuffer;
 - (void)enableElementArrayBuffer;
 - (void)setGLushort:(unsigned short)arg1 forIndexElement:(unsigned int)arg2;
 - (unsigned short)GLushortForIndexElement:(unsigned int)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (void)teardown;
 - (id)initWithVertexRect:(struct CGRect)arg1 textureRect:(struct CGRect)arg2 textureFlipped:(BOOL)arg3;
@@ -66,6 +71,11 @@ __attribute__((visibility("hidden")))
 - (id)initWithVertexAttributes:(id)arg1 meshSize:(struct CGSize)arg2;
 - (id)initWithVertexAttributes:(id)arg1 vertexCount:(unsigned int)arg2 indexElementCount:(unsigned int)arg3 doubleBuffered:(BOOL)arg4;
 - (void)p_setupGLElementArrayBufferIfNecessary;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -4,10 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSString;
+@class CUINamedImageDescription, NSArray, NSString;
 
 @protocol CUIStructuredThemeStorage2
+- (NSArray *)imagesWithName:(NSString *)arg1;
+- (NSArray *)allImageNames;
 - (const struct _renditionkeytoken *)renditionKeyForName:(NSString *)arg1;
 - (BOOL)canGetRenditionWithKey:(const struct _renditionkeytoken *)arg1;
+
+@optional
+- (void)removeImageNamed:(NSString *)arg1 withDescription:(CUINamedImageDescription *)arg2;
+- (void)insertCGImage:(struct CGImage *)arg1 withName:(NSString *)arg2 andDescription:(CUINamedImageDescription *)arg3;
 @end
 

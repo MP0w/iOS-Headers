@@ -18,6 +18,7 @@
     NSString *_userAgent;
     unsigned int _maxConcurrentMessages;
     BOOL _retryInAirplaneMode;
+    BOOL _logToRegistration;
     IMTimer *_timer;
 }
 
@@ -27,10 +28,12 @@
 + (Class)HTTPMessageDeliveryClass;
 @property BOOL retryInAirplaneMode; // @synthesize retryInAirplaneMode=_retryInAirplaneMode;
 @property unsigned int maxConcurrentMessages; // @synthesize maxConcurrentMessages=_maxConcurrentMessages;
+@property BOOL logToRegistration; // @synthesize logToRegistration=_logToRegistration;
 @property(copy) NSString *userAgent; // @synthesize userAgent=_userAgent;
 @property(copy) NSNumber *protocolVersion; // @synthesize protocolVersion=_protocolVersion;
 - (void)_signMessage:(id)arg1 useDataSignatures:(BOOL)arg2 body:(id)arg3 queryString:(id)arg4 intoDictionary:(id)arg5;
 - (void)networkStateChanged;
+@property(readonly) int maxLargeMessageSize;
 @property(readonly) int maxMessageSize;
 - (void)_setRetryTimer:(double)arg1;
 - (void)_clearRetryTimer;

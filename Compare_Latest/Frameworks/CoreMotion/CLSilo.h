@@ -27,7 +27,6 @@
 - (id)debugDescription;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithIdentifier:(id)arg1;
-- (void)heartAttack;
 
 @end
 

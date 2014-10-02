@@ -11,11 +11,12 @@
 @interface CRPowerMonitor : NSObject
 {
     int _lockNotifyToken;
-    BOOL _deviceIsLocked;
+    unsigned char _lockState;
     NSObject<OS_dispatch_queue> *_queue;
 }
 
 + (id)sharedMonitor;
+@property(readonly, nonatomic, getter=isLocked) BOOL locked;
 - (void)dealloc;
 - (id)init;
 

@@ -10,7 +10,7 @@
 #import "SKUIProductPageOverlayDelegate.h"
 #import "SKUISwooshViewControllerDelegate.h"
 
-@class SKUILockupSwooshArtworkLoader, SKUILockupSwooshViewController, SKUIMissingItemLoader, SKUIProductPageOverlayController, SKUISwooshPageComponent;
+@class NSString, SKUILockupSwooshArtworkLoader, SKUILockupSwooshViewController, SKUIMissingItemLoader, SKUIProductPageOverlayController, SKUISwooshPageComponent;
 
 @interface SKUILockupSwooshPageSection : SKUIStorePageSection <SKUIMissingItemDelegate, SKUIProductPageOverlayDelegate, SKUISwooshViewControllerDelegate>
 {
@@ -23,6 +23,7 @@
 
 - (void).cxx_destruct;
 - (id)_swooshViewController;
+- (void)_showProductPageForItem:(id)arg1 index:(int)arg2 animated:(BOOL)arg3;
 - (id)_popSourceViewForOverlayController:(id)arg1;
 - (id)_missingItemLoader;
 - (void)_loadMissingItemsFromIndex:(int)arg1 withReason:(int)arg2;
@@ -33,22 +34,27 @@
 - (id)productPageOverlay:(id)arg1 flipSourceViewToDismissItem:(id)arg2;
 - (void)swooshDidSelectSeeAll:(id)arg1;
 - (void)swoosh:(id)arg1 willDisplayCellAtIndex:(int)arg2;
+- (id)swoosh:(id)arg1 videoThumbnailForCellAtIndex:(int)arg2;
 - (id)swoosh:(id)arg1 imageForCellAtIndex:(int)arg2;
 - (void)swoosh:(id)arg1 didSelectCellAtIndex:(int)arg2;
 - (void)missingItemLoader:(id)arg1 didLoadItems:(id)arg2 invalidItemIdentifiers:(id)arg3;
+- (void)willAppearInContext:(id)arg1;
 - (void)setImage:(id)arg1 forRequest:(id)arg2;
 - (void)prefetchResourcesWithReason:(int)arg1;
 - (int)numberOfCells;
 - (void)collectionViewDidEndDisplayingCellForItemAtIndexPath:(id)arg1;
 - (struct CGSize)cellSizeForIndexPath:(id)arg1;
 - (id)cellForIndexPath:(id)arg1;
-- (void)willAppearInContext:(id)arg1;
 - (void)addImpressionsForIndexPath:(id)arg1 toSession:(id)arg2;
 - (void)dealloc;
 - (id)initWithPageComponent:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) SKUISwooshPageComponent *pageComponent; // @dynamic pageComponent;
+@property(readonly) Class superclass;
 
 @end
 

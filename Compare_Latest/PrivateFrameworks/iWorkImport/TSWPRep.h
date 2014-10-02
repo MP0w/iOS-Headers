@@ -11,7 +11,7 @@
 #import "TSKPulseAnimationControllerProtocol.h"
 #import "TSWPHyperlinkHostRepProtocol.h"
 
-@class CALayer, CAShapeLayer, NSArray, TSKHighlightArrayController, TSKPulseAnimationController, TSWPEditingController, TSWPLayout, TSWPSearchReference, TSWPSelection, TSWPStorage;
+@class CALayer, CAShapeLayer, NSArray, NSString, TSKHighlightArrayController, TSKPulseAnimationController, TSWPEditingController, TSWPLayout, TSWPSearchReference, TSWPSelection, TSWPStorage;
 
 __attribute__((visibility("hidden")))
 @interface TSWPRep : TSDContainerRep <TSKHighlightArrayControllerProtocol, TSKPulseAnimationControllerProtocol, TSWPHyperlinkHostRepProtocol, TSDDecorator>
@@ -40,7 +40,6 @@ __attribute__((visibility("hidden")))
     BOOL _markChanged;
     unsigned int _newSelectionFlags;
     BOOL _repFieldsAreActive;
-    BOOL _secondaryHighlightChanged;
     BOOL _indentAnimationRunning;
     CALayer *_indentAnimationLayer;
     int _indentDelta;
@@ -53,10 +52,12 @@ __attribute__((visibility("hidden")))
     TSWPSelection *_dropSelection;
     BOOL _findIsShowing;
     TSWPSearchReference *_activeSearchReference;
+    TSWPEditingController *_textEditor;
     NSArray *_searchReferences;
 }
 
 @property(retain, nonatomic) NSArray *searchReferences; // @synthesize searchReferences=_searchReferences;
+@property(readonly, nonatomic) TSWPEditingController *textEditor; // @synthesize textEditor=_textEditor;
 @property(nonatomic) BOOL findIsShowing; // @synthesize findIsShowing=_findIsShowing;
 @property(retain, nonatomic) TSWPSearchReference *activeSearchReference; // @synthesize activeSearchReference=_activeSearchReference;
 @property(nonatomic) TSWPSelection *dropSelection; // @synthesize dropSelection=_dropSelection;
@@ -67,7 +68,6 @@ __attribute__((visibility("hidden")))
 - (id)imageForSearchReference:(id)arg1 forPath:(struct CGPath *)arg2 shouldPulsate:(BOOL)arg3;
 - (struct CGPath *)newPathForSearchReference:(id)arg1;
 - (void)p_updateHighlights;
-- (void)p_didDismissPopover:(id)arg1;
 - (void)p_setSearchReferencesToHighlight:(id)arg1;
 - (void)p_findUIStateChangedNotification:(id)arg1;
 - (void)p_setActiveSearchReference:(id)arg1;
@@ -142,6 +142,7 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)glyphRectForRubyFieldAtCharIndex:(unsigned int)arg1 glyphRange:(struct _NSRange)arg2;
 - (unsigned int)glyphCountForRubyFieldAtCharIndex:(unsigned int)arg1;
 - (unsigned int)charCountOfGlyphStartingAtCharIndex:(unsigned int)arg1;
+- (unsigned int)fontTraitsForRange:(struct _NSRange)arg1 includingLabel:(BOOL)arg2;
 - (struct CGRect)glyphRectForRange:(struct _NSRange)arg1 includingLabel:(BOOL)arg2;
 - (struct CGRect)columnRectForRange:(struct _NSRange)arg1;
 - (struct CGRect)labelRectForCharIndex:(unsigned int)arg1;
@@ -168,14 +169,13 @@ __attribute__((visibility("hidden")))
 - (void)didEnterBackground;
 - (void)willEnterForeground;
 - (void)enableCaretAnimation;
+- (void)disableCaretAnimation;
 - (void)viewScrollingEnded;
 - (void)viewScaleDidChange;
-- (void)disableCaretAnimation;
 - (void)viewDidAppear;
 - (void)gesturesDidEnd;
 - (void)didEndZooming;
 - (void)willBeginZooming;
-@property(readonly, nonatomic) TSWPEditingController *textEditor;
 - (BOOL)isEditing;
 - (id)columnForCharIndex:(unsigned int)arg1;
 - (id)closestColumnForPoint:(struct CGPoint)arg1;
@@ -190,7 +190,6 @@ __attribute__((visibility("hidden")))
 - (id)smartFieldAtPoint:(struct CGPoint)arg1;
 - (BOOL)canEditWithEditor:(id)arg1;
 - (id)beginEditing;
-- (Class)wpEditorClass;
 - (BOOL)handlesEditMenu;
 - (struct CGRect)newTextLayerUnscaledBounds:(struct CGRect)arg1 forNewTextBounds:(struct CGRect)arg2;
 - (void)screenScaleDidChange;
@@ -224,6 +223,7 @@ __attribute__((visibility("hidden")))
 - (unsigned int)charIndexForPointWithPinning:(struct CGPoint)arg1;
 - (float)knobOffsetForKnob:(id)arg1 paragraphMode:(BOOL)arg2;
 - (struct CGPoint)knobCenterForSelection:(id)arg1 knob:(id)arg2;
+- (BOOL)p_shouldShowCommentsIncludingHighlights:(BOOL)arg1;
 - (struct CGRect)closestCaretRectForPoint:(struct CGPoint)arg1 inSelection:(BOOL)arg2;
 - (struct CGRect)p_topicDragRectForSelection:(id)arg1;
 - (struct CGRect)p_caretRectForSelection:(id)arg1;
@@ -249,7 +249,11 @@ __attribute__((visibility("hidden")))
 - (BOOL)p_shouldDisplaySelectionControls;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) TSWPLayout *layout;
+@property(readonly) Class superclass;
 
 @end
 

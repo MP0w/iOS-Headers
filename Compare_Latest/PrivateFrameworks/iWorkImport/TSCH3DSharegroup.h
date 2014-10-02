@@ -8,7 +8,7 @@
 
 #import "TSUFlushable.h"
 
-@class NSMutableSet, NSThread, TSCH3DResourceCache, TSCH3DShaderCache, TSCH3DSharegroupToken;
+@class NSMutableSet, NSString, NSThread, TSCH3DResourceCache, TSCH3DShaderCache, TSCH3DSharegroupToken;
 
 __attribute__((visibility("hidden")))
 @interface TSCH3DSharegroup : NSObject <TSUFlushable>
@@ -44,10 +44,15 @@ __attribute__((visibility("hidden")))
 - (BOOL)isCurrentThreadOwner;
 - (BOOL)owningThreadIsNil;
 - (void)setOwningThread:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithOwningThread:(id)arg1 token:(id)arg2;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

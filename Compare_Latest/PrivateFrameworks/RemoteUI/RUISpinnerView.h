@@ -15,8 +15,8 @@
     RUIObjectModel *_objectModel;
 }
 
-@property(nonatomic) RUIObjectModel *objectModel; // @synthesize objectModel=_objectModel;
-- (void)dealloc;
+@property(nonatomic) __weak RUIObjectModel *objectModel; // @synthesize objectModel=_objectModel;
+- (void).cxx_destruct;
 - (void)viewDidLayout;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;

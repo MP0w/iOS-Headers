@@ -24,6 +24,7 @@
 - (long)_chapterGroupIndex;
 - (id)extraAttributes;
 - (void)_takeValueFrom:(id)arg1;
+- (id)dataType;
 - (id)value;
 - (CDStruct_1b6d18a9)duration;
 - (CDStruct_1b6d18a9)time;
@@ -38,7 +39,7 @@
 - (void)dealloc;
 - (void)_removeFigAssetNotifications;
 - (void)_addFigAssetNotifications;
-- (id)_initWithAsset:(id)arg1 chapterGroupIndex:(long)arg2 chapterIndex:(long)arg3 chapterType:(id)arg4 locale:(id)arg5 time:(CDStruct_1b6d18a9)arg6 duration:(CDStruct_1b6d18a9)arg7;
+- (id)_initWithAsset:(id)arg1 chapterGroupIndex:(long)arg2 chapterIndex:(long)arg3 chapterType:(id)arg4 locale:(id)arg5 chapterDataType:(id)arg6 time:(CDStruct_1b6d18a9)arg7 duration:(CDStruct_1b6d18a9)arg8;
 - (id)init;
 
 @end

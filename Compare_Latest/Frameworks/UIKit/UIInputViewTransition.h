@@ -27,7 +27,6 @@ __attribute__((visibility("hidden")))
     struct CGRect endFloatingFrame;
     struct CGRect beginFloatingFrameScreen;
     struct CGRect endFloatingFrameScreen;
-    BOOL ignoreFrameChanges;
     UISnapshotView *snapshotView;
     int activeClippingModes;
     struct CGRect snapshotViewBeginFrame;
@@ -35,7 +34,6 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) int activeClippingModes; // @synthesize activeClippingModes;
-@property(nonatomic) BOOL ignoreFrameChanges; // @synthesize ignoreFrameChanges;
 @property(nonatomic) struct CGRect snapshotViewEndFrame; // @synthesize snapshotViewEndFrame;
 @property(nonatomic) struct CGRect snapshotViewBeginFrame; // @synthesize snapshotViewBeginFrame;
 @property(retain, nonatomic) UISnapshotView *snapshotView; // @synthesize snapshotView;
@@ -55,6 +53,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIInputViewAnimationStyle *animationStyle; // @synthesize animationStyle;
 @property(retain, nonatomic) UIInputViewSet *oldSet; // @synthesize oldSet;
 - (id)description;
+@property(readonly, nonatomic) BOOL ignoreFrameChanges;
 - (BOOL)isOnScreen;
 - (BOOL)isAccessoryViewChangedOnly;
 - (BOOL)requiresAutomaticAppearanceEnabled;

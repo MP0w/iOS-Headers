@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)defaultProperties;
+- (id)description;
 - (BOOL)hasDirection;
 - (void)setDirection:(int)arg1;
 - (int)direction;

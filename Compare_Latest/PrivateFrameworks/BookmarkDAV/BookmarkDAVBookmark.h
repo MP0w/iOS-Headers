@@ -24,13 +24,13 @@
     CoreDAVErrorItem *_bulkUploadErrorItem;
 }
 
-@property(retain) CoreDAVErrorItem *bulkUploadErrorItem; // @synthesize bulkUploadErrorItem=_bulkUploadErrorItem;
-@property(readonly) NSDictionary *appleAttributes; // @synthesize appleAttributes=_appleAttributes;
-@property(readonly) NSString *name; // @synthesize name=_name;
-@property(readonly) NSURL *bookmarkURL; // @synthesize bookmarkURL=_bookmarkURL;
-@property(readonly) NSString *syncKey; // @synthesize syncKey=_syncKey;
-@property(retain) NSURL *serverID; // @synthesize serverID=_serverID;
-@property(readonly) NSData *dataPayload;
+@property(retain, nonatomic) CoreDAVErrorItem *bulkUploadErrorItem; // @synthesize bulkUploadErrorItem=_bulkUploadErrorItem;
+@property(readonly, retain, nonatomic) NSDictionary *appleAttributes; // @synthesize appleAttributes=_appleAttributes;
+@property(readonly, retain, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, retain, nonatomic) NSURL *bookmarkURL; // @synthesize bookmarkURL=_bookmarkURL;
+@property(readonly, nonatomic) NSString *syncKey; // @synthesize syncKey=_syncKey;
+@property(retain, nonatomic) NSURL *serverID; // @synthesize serverID=_serverID;
+@property(readonly, nonatomic) NSData *dataPayload;
 - (void)setPropertiesFromXBEL:(id)arg1;
 - (void)parser:(id)arg1 foundCDATA:(id)arg2;
 - (void)parser:(id)arg1 foundCharacters:(id)arg2;
@@ -41,7 +41,11 @@
 - (id)initWithURL:(id)arg1 eTag:(id)arg2 dataPayload:(id)arg3 inContainerWithURL:(id)arg4 withAccountInfoProvider:(id)arg5;
 
 // Remaining properties
-@property(readonly) NSArray *childrenOrder;
+@property(readonly, nonatomic) NSArray *childrenOrder;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -9,10 +9,8 @@
 @class NSString;
 
 @interface GEOPlace (MKGeoServicesExtras)
-@property(readonly, nonatomic) NSString *yelpID;
+@property(readonly, retain, nonatomic) NSString *yelpID;
 - (unsigned long long)businessID;
-- (id)businessName;
-- (BOOL)hasSingleBusiness;
 - (id)initWithPlacemark:(id)arg1;
 @end
 

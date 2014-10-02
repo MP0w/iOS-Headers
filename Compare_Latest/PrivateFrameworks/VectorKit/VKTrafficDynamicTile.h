@@ -11,17 +11,17 @@ __attribute__((visibility("hidden")))
 {
     struct _GEOTileKey _downloadKey;
     struct shared_ptr<zilch::TrafficDynamicTile> _tile;
-    struct unordered_multimap<long long, const zilch::TrafficDynamicTile::Flow *, std::__1::hash<long long>, std::__1::equal_to<long long>, vk_allocator<std::__1::pair<const long long, const zilch::TrafficDynamicTile::Flow *>>> _flows;
+    struct unordered_multimap<long long, const zilch::TrafficDynamicTile::Flow *, std::__1::hash<long long>, std::__1::equal_to<long long>, std::__1::allocator<std::__1::pair<const long long, const zilch::TrafficDynamicTile::Flow *>>> _flows;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (const struct Incident *)incidentAtIndex:(unsigned int)arg1;
+- (const struct Incident *)incidentAtIndex:(unsigned long)arg1;
 - (int)flowForRoadId:(long long)arg1 buffer:(const struct Flow **)arg2 maxSize:(int)arg3;
 - (void)dealloc;
 - (id)initWithKey:(const struct VKTileKey *)arg1 downloadKey:(const struct _GEOTileKey *)arg2 data:(id)arg3;
-@property(readonly, nonatomic) long updateTime;
-@property(readonly, nonatomic) unsigned int incidentCount;
+@property(readonly, nonatomic) long long updateTime;
+@property(readonly, nonatomic) unsigned long incidentCount;
 
 @end
 

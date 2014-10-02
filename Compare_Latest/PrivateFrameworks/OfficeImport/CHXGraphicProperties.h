@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (BOOL)isGraphicPropertiesContainedByXmlElement:(struct _xmlNode *)arg1;
++ (BOOL)isGraphicPropertiesContainedByXmlElement:(struct _xmlNode *)arg1 state:(id)arg2;
 + (void)setGraphicPropertiesFromXmlElementWithGraphicProperties:(id)arg1 element:(struct _xmlNode *)arg2 state:(id)arg3;
 + (id)oadGraphicPropertiesFromXmlElementWithGraphicProperties:(struct _xmlNode *)arg1 state:(id)arg2;
 

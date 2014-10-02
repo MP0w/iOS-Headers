@@ -10,7 +10,7 @@
 #import "UITextInputTraits.h"
 #import "UITextLinkInteraction.h"
 
-@class DOMHTMLElement, NSAttributedString, NSDictionary, NSString, UIColor, UIDelayedAction, UIFont, UITextInteractionAssistant, UITextPosition, UITextRange, UIWebDocumentView, WebFrame;
+@class DOMHTMLElement, NSAttributedString, NSDictionary, NSString, UIColor, UIFont, UITextInteractionAssistant, UITextPosition, UITextRange, UIWebDocumentView, WebFrame;
 
 @interface UITextContentView : UIView <UITextInput, UITextLinkInteraction, UITextInputTraits>
 {
@@ -18,7 +18,6 @@
     WebFrame *m_frame;
     DOMHTMLElement *m_body;
     int m_marginTop;
-    UIDelayedAction *m_scrollToVisibleTimer;
     struct UIEdgeInsets m_selectionInset;
     float m_bottomBufferHeight;
     BOOL m_editable;
@@ -37,6 +36,7 @@
     int m_textAlignment;
 }
 
+@property(nonatomic) id <UITextContentViewDelegate> delegate; // @synthesize delegate=m_delegate;
 @property(nonatomic) BOOL scrollsSelectionOnWebDocumentChanges; // @synthesize scrollsSelectionOnWebDocumentChanges=m_scrollsSelectionOnWebDocumentChanges;
 @property(nonatomic) struct UIEdgeInsets selectionInset; // @synthesize selectionInset=m_selectionInset;
 - (void)setSelectionGranularity:(int)arg1;
@@ -75,16 +75,9 @@
 - (void)insertText:(id)arg1;
 - (void)deleteBackward;
 - (id)_proxyTextInput;
-- (void)setScrollerIndicatorSubrect:(struct CGRect)arg1;
-- (void)setAllowsFourWayRubberBanding:(BOOL)arg1;
-- (BOOL)scrollingEnabled;
-- (void)setScrollingEnabled:(BOOL)arg1;
-- (void)setAllowsRubberBanding:(BOOL)arg1;
 - (struct CGPoint)offset;
 - (void)setOffset:(struct CGPoint)arg1;
 - (void)displayScrollerIndicators;
-- (BOOL)showScrollerIndicators;
-- (void)setShowScrollerIndicators:(BOOL)arg1;
 - (float)bottomBufferHeight;
 - (void)setBottomBufferHeight:(float)arg1;
 - (void)webView:(id)arg1 decidePolicyForNavigationAction:(id)arg2 request:(id)arg3 frame:(id)arg4 decisionListener:(id)arg5;
@@ -138,18 +131,15 @@
 - (id)contentAsHTMLString;
 - (void)setContentToHTMLString:(id)arg1;
 - (struct CGRect)rectForScrollToVisible;
-- (void)scrollToVisibleTimerAction;
-- (void)clearScrollToVisibleTimer;
-- (void)touchScrollToVisibleTimer;
-- (void)touchScrollToVisibleTimerWithDelay:(double)arg1;
 - (void)performScrollSelectionToVisible:(BOOL)arg1;
 - (void)scrollSelectionToVisible:(BOOL)arg1;
 - (struct CGRect)rectForSelection:(struct _NSRange)arg1;
 - (void)setSelectionToEnd;
 - (void)setSelectionToStart;
 - (void)setSelectionWithPoint:(struct CGPoint)arg1;
-- (BOOL)isSMSTextView;
+- (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
+- (void)_sizeChanged;
 - (void)performBecomeEditableTasks;
 - (void)webViewDidChange:(id)arg1;
 - (void)scrollRectToVisible:(struct CGRect)arg1 animated:(BOOL)arg2;
@@ -161,9 +151,11 @@
 - (void)toggleUnderline:(id)arg1;
 - (void)toggleItalics:(id)arg1;
 - (void)toggleBoldface:(id)arg1;
+- (id)textStylingAtPosition:(id)arg1 inDirection:(int)arg2;
 - (void)_addShortcut:(id)arg1;
 - (void)_insertAttributedTextWithoutClosingTyping:(id)arg1;
 - (void)_define:(id)arg1;
+- (void)_transliterateChinese:(id)arg1;
 - (void)_promptForReplace:(id)arg1;
 - (void)replace:(id)arg1;
 - (void)decreaseSize:(id)arg1;
@@ -209,16 +201,11 @@
 - (BOOL)resignFirstResponder;
 - (BOOL)becomeFirstResponder;
 - (id)_keyboardResponder;
-- (void)updateWebViewObjects;
 - (void)setSelectionChangeCallbacksDisabled:(BOOL)arg1;
 - (void)didMoveToSuperview;
 - (void)recalculateStyle;
 - (id)styleString;
-- (struct CGSize)tileSizeForSize:(struct CGSize)arg1;
-- (id)scrollView;
 - (void)keyboardDidShow:(id)arg1;
-- (void)registerForEditingDelegateNotification:(id)arg1 selector:(SEL)arg2;
-@property(nonatomic) id <UITextContentViewDelegate> delegate; // @dynamic delegate;
 - (void)removeFromSuperview;
 - (void)dealloc;
 - (void)commonInitWithWebDocumentView:(id)arg1 isDecoding:(BOOL)arg2;
@@ -233,12 +220,16 @@
 // Remaining properties
 @property(nonatomic) int autocapitalizationType; // @dynamic autocapitalizationType;
 @property(nonatomic) int autocorrectionType; // @dynamic autocorrectionType;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(nonatomic) BOOL enablesReturnKeyAutomatically; // @dynamic enablesReturnKeyAutomatically;
+@property(readonly) unsigned int hash;
 @property(nonatomic) int keyboardAppearance; // @dynamic keyboardAppearance;
 @property(nonatomic) int keyboardType; // @dynamic keyboardType;
 @property(nonatomic) int returnKeyType; // @dynamic returnKeyType;
 @property(nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry; // @dynamic secureTextEntry;
 @property(nonatomic) int spellCheckingType; // @dynamic spellCheckingType;
+@property(readonly) Class superclass;
 @property(readonly, nonatomic) UIView *textInputView;
 
 @end

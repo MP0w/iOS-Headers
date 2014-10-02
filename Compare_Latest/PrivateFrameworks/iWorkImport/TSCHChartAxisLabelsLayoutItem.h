@@ -15,7 +15,6 @@ __attribute__((visibility("hidden")))
 }
 
 - (struct CGPath *)newDragAndDropHighlightPathForSelection:(id)arg1;
-- (id)mutationTuplesToApplyDuringResize;
 - (void)protected_iterateHitChartElements:(struct CGPoint)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (id)p_overrideLabelStringForHitTestingEmptyLabel;
 - (struct CGRect)layoutSpaceRectForAllLabels;

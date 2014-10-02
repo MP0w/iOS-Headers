@@ -9,23 +9,19 @@
 #import "KNAnimationPluginArchiving.h"
 #import "KNFrameAnimator.h"
 
-@class NSArray, TSDGLDataBuffer, TSDGLMotionBlurEffect, TSDGLShader;
+@class NSArray, NSString, TSDGLDataBuffer, TSDGLMotionBlurEffect, TSDGLShader;
 
 __attribute__((visibility("hidden")))
 @interface KNTransitionFlop : KNAnimationEffect <KNFrameAnimator, KNAnimationPluginArchiving>
 {
     TSDGLShader *_flopShader;
-    TSDGLShader *_flopVelocityShader;
-    TSDGLDataBuffer *_colorDataBuffer;
-    TSDGLDataBuffer *_velocityDataBuffer;
+    TSDGLDataBuffer *_dataBuffer;
     NSArray *_colorBufferAttributes;
-    NSArray *_velocityBufferAttributes;
     NSArray *_shadowBufferAttributes;
     unsigned int _colorPositionAttributeIndex;
     unsigned int _colorTexCoordAttributeIndex;
     unsigned int _colorNormalAttributeIndex;
-    unsigned int _velocityPositionAttributeIndex;
-    unsigned int _velocityPrevPositionAttributeIndex;
+    unsigned int _colorPrevPositionAttributeIndex;
     unsigned int _shadowPositionAttributeIndex;
     unsigned int _shadowAlphaAttributeIndex;
     TSDGLShader *_shadowShader;
@@ -35,7 +31,6 @@ __attribute__((visibility("hidden")))
     TSDGLShader *_quadShader;
     TSDGLMotionBlurEffect *_motionBlurEffect;
     int _numPoints;
-    BOOL _shouldDrawMotionBlur;
 }
 
 + (void)downgradeAttributes:(id *)arg1 animationName:(id *)arg2 warning:(id *)arg3 type:(int)arg4 isToClassic:(BOOL)arg5 version:(unsigned long long)arg6;
@@ -50,15 +45,21 @@ __attribute__((visibility("hidden")))
 + (int)animationCategory;
 + (id)animationName;
 - (void)renderFrameWithContext:(id)arg1;
-- (void)p_drawFlopWithVelocity:(BOOL)arg1 isVertical:(BOOL)arg2 texture:(id)arg3 oldTexture:(id)arg4;
+- (void)p_drawFlopVertical:(BOOL)arg1 texture:(id)arg2 oldTexture:(id)arg3;
 - (void)animationDidEndWithContext:(id)arg1;
 - (void)animationWillBeginWithContext:(id)arg1;
 - (void)updateShadowWithTexture:(id)arg1 percent:(float)arg2 direction:(unsigned int)arg3;
-- (void)updateFlop:(id)arg1 withPercent:(float)arg2 direction:(unsigned int)arg3;
-- (void)createArrays:(id)arg1 direction:(unsigned int)arg2;
+- (void)updateFlop:(id)arg1 withContext:(id)arg2;
+- (void)createArrays:(id)arg1 context:(id)arg2;
 - (void)dealloc;
 - (void)p_teardown;
 - (id)initWithAnimationContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

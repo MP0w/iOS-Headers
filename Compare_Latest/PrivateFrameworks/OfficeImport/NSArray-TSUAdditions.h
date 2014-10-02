@@ -9,6 +9,10 @@
 @interface NSArray (TSUAdditions)
 + (id)arrayWithInts:(int *)arg1 count:(unsigned int)arg2;
 + (id)arrayWithCGFloats:(float *)arg1 count:(unsigned int)arg2;
+- (id)uniqueObjects;
+- (id)arrayByFlattening;
+- (id)arrayByTransformingWithBlock:(CDUnknownBlockType)arg1;
+- (id)arrayOfObjectsPassingTest:(CDUnknownBlockType)arg1;
 - (id)firstObjectPassingTest:(CDUnknownBlockType)arg1;
 - (void)enumerateSnapshotObjectsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)arrayByReversingOrder;
@@ -18,7 +22,7 @@
 - (id)arrayWithObjectsInSet:(id)arg1;
 - (id)indexesOfObjects:(id)arg1;
 - (unsigned int)indexOfSmallestObject;
-- (id)firstObject;
+- (id)rangeCheckedObjectAtIndex:(unsigned int)arg1;
 - (id)initWithInts:(int *)arg1 count:(unsigned int)arg2;
 - (id)initWithCGFloats:(float *)arg1 count:(unsigned int)arg2;
 @end

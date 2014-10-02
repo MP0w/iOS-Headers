@@ -22,10 +22,12 @@ __attribute__((visibility("hidden")))
 - (id)makeDelegateWithSceneObject:(id)arg1 scene:(id)arg2;
 - (id)makeDelegateWithScene:(id)arg1;
 @property(readonly, nonatomic) TSCH3DPickedPoint *pickedPoint;
-- (id)p_pickedPointNoSlack;
-- (id)p_pickedPointSlack;
+- (id)p_frontMostPickedPoint;
+- (id)p_closestPickedPoint;
 @property(nonatomic) float slack;
 @property(readonly, nonatomic) NSArray *pickedPoints;
+- (id)p_renderProcessor;
+- (id)p_unsortedPickedPoints;
 - (BOOL)run;
 - (void)rayPick:(id)arg1;
 - (void)dealloc;

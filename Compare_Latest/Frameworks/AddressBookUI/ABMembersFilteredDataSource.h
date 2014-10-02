@@ -9,11 +9,12 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class NSArray, NSMutableArray;
+@class NSArray, NSMapTable, NSString;
 
 @interface ABMembersFilteredDataSource : NSObject <UITableViewDelegate, UITableViewDataSource>
 {
-    NSMutableArray *_records;
+    NSMapTable *_records;
+    NSMapTable *_sectionTitles;
     void *_addressBook;
     id <ABMembersDataSourceDelegate> _delegate;
     id <ABStyleProvider> _styleProvider;
@@ -26,15 +27,29 @@
 @property(nonatomic) id <ABMembersDataSourceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
+- (id)viewForFooterInTableView:(id)arg1;
+- (id)viewForHeaderInTableView:(id)arg1;
+- (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (int)numberOfSectionsInTableView:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)removeAllRecords;
-- (void)addRecords:(id)arg1;
+- (void)addRecords:(id)arg1 toSection:(int)arg2;
+- (id)titleForSection:(int)arg1;
+- (void)setTitle:(id)arg1 forSection:(int)arg2;
+- (id)sectionArrayAtIndex:(int)arg1;
 - (unsigned int)count;
 @property(readonly, nonatomic) NSArray *records;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

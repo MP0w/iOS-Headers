@@ -8,6 +8,8 @@
 
 #import "DOMXPathNSResolver.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface DOMNativeXPathNSResolver : DOMObject <DOMXPathNSResolver>
 {
@@ -16,6 +18,12 @@ __attribute__((visibility("hidden")))
 - (id)lookupNamespaceURI:(id)arg1;
 - (void)finalize;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

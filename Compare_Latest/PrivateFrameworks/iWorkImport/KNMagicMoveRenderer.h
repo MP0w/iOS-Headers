@@ -6,12 +6,15 @@
 
 #import <iWorkImport/KNTransitionRenderer.h>
 
-@class NSDate, NSMutableArray, NSOperationQueue, NSTimer, TSDFPSCounter;
+@class NSDate, NSMapTable, NSMutableArray, NSOperationQueue, NSTimer, TSDFPSCounter;
 
 __attribute__((visibility("hidden")))
 @interface KNMagicMoveRenderer : KNTransitionRenderer
 {
     NSMutableArray *mMatches;
+    NSMutableArray *mAnimatedLayersRetained;
+    NSMutableArray *mLayerToOldParentArray;
+    NSMapTable *mLayerToOldHiddenMap;
     NSMutableArray *mMorphMatches;
     NSDate *mLastMorphDate;
     TSDFPSCounter *mMorphFPSCounter;
@@ -24,8 +27,8 @@ __attribute__((visibility("hidden")))
     double mAnimationStartTime;
 }
 
-+ (void)generateLayersForMatches:(id)arg1 addToArray:(id)arg2;
-+ (void)generateLayersForTexture:(id)arg1 inTextureSet:(id)arg2 isOutgoing:(BOOL)arg3 addToArray:(id)arg4;
++ (void)generateLayersForMatches:(id)arg1 addToArray:(id)arg2 oldHiddenValuesMap:(id)arg3;
++ (void)generateLayersForTexture:(id)arg1 inTextureSet:(id)arg2 isOutgoing:(BOOL)arg3 addToArray:(id)arg4 oldHiddenValuesMap:(id)arg5;
 - (void)stopAnimations;
 - (void)removeAnimationsAndFinish:(BOOL)arg1;
 - (void)updateAnimationsForLayerTime:(double)arg1;
@@ -33,11 +36,14 @@ __attribute__((visibility("hidden")))
 - (void)animateWithDelay:(double)arg1;
 - (void)setupPluginContext;
 - (void)p_generateMagicMoveMatches;
+- (void)renderSlideIndex:(unsigned int)arg1;
 - (void)renderOutgoingSlideAndPrecacheIncomingSlide;
-- (void)p_addLayers;
+- (void)p_restoreLayerHierarchy;
+- (void)addLayersForSlideIndex:(unsigned int)arg1;
 - (void)p_updateMorphAnimationsForTime:(double)arg1;
 - (void)p_updateMorphAnimations;
 - (void)p_cleanUpUpdateMorphAnimations;
+- (void)teardownTransitionIsExitingShow:(BOOL)arg1;
 - (void)dealloc;
 - (id)initWithEffectClass:(Class)arg1 direction:(unsigned int)arg2 duration:(double)arg3 session:(id)arg4 attributes:(id)arg5 animatedSlideView:(id)arg6;
 

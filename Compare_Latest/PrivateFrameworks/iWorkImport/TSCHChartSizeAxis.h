@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (double)doubleModelToAxisValue:(double)arg1 forSeries:(id)arg2;
+- (void)updateGridValueTypeInterceptInAnalysis:(id)arg1;
 - (id)computeMinorGridlinesFromMajorGridlinesInAnalysis:(id)arg1;
 - (id)computeMajorGridlinesFromMinMaxInAnalysis:(id)arg1;
 - (void)adjustMinMaxForDataRangeInAnalysis:(id)arg1;

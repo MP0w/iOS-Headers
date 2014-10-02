@@ -11,7 +11,7 @@
 #import "NSCoding.h"
 #import "NSCopying.h"
 
-@class MPConcreteMediaEntityPropertiesCache, MPMediaLibrary;
+@class MPConcreteMediaEntityPropertiesCache, MPMediaLibrary, NSString;
 
 @interface MPConcreteMediaItem : MPMediaItem <NSCoding, NSCopying, MPMediaItemArrayPIDEncodableItem, MPCacheableConcreteMediaEntity>
 {
@@ -37,6 +37,7 @@
 - (void)setValue:(id)arg1 forProperty:(id)arg2 withCompletionBlock:(CDUnknownBlockType)arg3;
 - (BOOL)setValue:(id)arg1 forProperty:(id)arg2;
 - (id)valuesForProperties:(id)arg1;
+- (id)cachedValueForProperty:(id)arg1;
 - (id)valueForProperty:(id)arg1;
 - (id)_nonBatchableOrCachedValueForProperty:(id)arg1 needsFetch:(char *)arg2;
 - (unsigned long long)persistentID;
@@ -47,14 +48,19 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)invalidateCachedProperties;
-@property(readonly, nonatomic) MPConcreteMediaEntityPropertiesCache *cachedPropertyValues;
+@property(readonly, retain, nonatomic) MPConcreteMediaEntityPropertiesCache *cachedPropertyValues;
 - (void)dealloc;
 - (id)_initWithPersistentID:(unsigned long long)arg1 library:(id)arg2 propertiesCache:(id)arg3;
 - (id)initWithPersistentID:(unsigned long long)arg1 library:(id)arg2;
 - (id)initWithPersistentID:(unsigned long long)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

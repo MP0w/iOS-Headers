@@ -24,6 +24,7 @@
 
 @property(copy, nonatomic) NSString *homeSharingGroupID; // @synthesize homeSharingGroupID=_homeSharingGroupID;
 @property(nonatomic) int browserType; // @synthesize browserType=_browserType;
+- (void).cxx_destruct;
 - (void)_startWithCurrentRetryCount:(unsigned int)arg1 maximumRetryCount:(unsigned int)arg2 addLibraryHandler:(CDUnknownBlockType)arg3 removeLibraryHandler:(CDUnknownBlockType)arg4;
 - (void)_didRemoveService:(id)arg1 moreComing:(BOOL)arg2;
 - (void)_didFindService:(id)arg1 moreComing:(BOOL)arg2;
@@ -32,6 +33,12 @@
 - (void)startWithAddLibraryHandler:(CDUnknownBlockType)arg1 removeLibraryHandler:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

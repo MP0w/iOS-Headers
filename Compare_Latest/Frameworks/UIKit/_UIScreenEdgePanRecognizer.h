@@ -8,7 +8,7 @@
 
 #import "_UISettingsKeyObserver.h"
 
-@class UIDelayedAction, _UIScreenEdgePanRecognizerSettings;
+@class NSString, UIDelayedAction, _UIScreenEdgePanRecognizerSettings;
 
 @interface _UIScreenEdgePanRecognizer : NSObject <_UISettingsKeyObserver>
 {
@@ -42,6 +42,7 @@
 @property(nonatomic) BOOL requiresFlatThumb; // @synthesize requiresFlatThumb=_requiresFlatThumb;
 @property(nonatomic) unsigned int targetEdges; // @synthesize targetEdges=_targetEdges;
 @property(nonatomic) struct CGRect screenBounds; // @synthesize screenBounds=_screenBounds;
+@property(nonatomic) BOOL shouldUseGrapeFlags; // @synthesize shouldUseGrapeFlags=_useGrapeFlags;
 - (unsigned int)_targetEdges;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (void)_createOrDestoryAnalysisWindowIfNeeded;
@@ -56,6 +57,12 @@
 - (void)reset;
 - (void)dealloc;
 - (id)initWithType:(int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

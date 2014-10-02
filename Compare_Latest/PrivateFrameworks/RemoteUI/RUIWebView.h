@@ -20,6 +20,8 @@
 
 @property(retain, nonatomic) NSURL *baseURL; // @synthesize baseURL=_baseURL;
 @property(copy, nonatomic) NSString *html; // @synthesize html=_html;
+@property(nonatomic) __weak id delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (BOOL)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(int)arg3;
 - (void)dealloc;
 - (void)webView:(id)arg1 didFailLoadWithError:(id)arg2;
@@ -27,7 +29,12 @@
 - (id)userStyleSheet;
 - (id)sourceURL;
 - (id)webView;
-- (void)setDelegate:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

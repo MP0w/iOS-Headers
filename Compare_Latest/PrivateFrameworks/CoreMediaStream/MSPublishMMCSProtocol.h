@@ -8,7 +8,7 @@
 
 #import "MSPublishStorageProtocol.h"
 
-@class NSMutableDictionary;
+@class NSMutableDictionary, NSString;
 
 @interface MSPublishMMCSProtocol : MSMMCSProtocol <MSPublishStorageProtocol>
 {
@@ -33,6 +33,12 @@
 - (void)dealloc;
 - (void)deactivate;
 - (id)initWithPersonID:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

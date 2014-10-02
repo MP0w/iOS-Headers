@@ -8,7 +8,7 @@
 
 #import "GQWrapPointGenerator.h"
 
-@class GQDSStyle, GQDWPContainerHint, GQHStyle, GQWrapPointSet;
+@class GQDSStyle, GQDWPContainerHint, GQHStyle, GQWrapPointSet, NSString;
 
 __attribute__((visibility("hidden")))
 @interface GQHPagesState : GQHState <GQWrapPointGenerator>
@@ -124,6 +124,12 @@ __attribute__((visibility("hidden")))
 - (void)startLayout;
 - (void)startSection;
 - (id)wrapPointSetForPage:(int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

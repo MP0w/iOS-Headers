@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (void)pop;
 - (void)addKeyframeWithRelativeStartTime:(double)arg1 relativeDuration:(double)arg2 animations:(CDUnknownBlockType)arg3;
-- (id)actionForLayer:(id)arg1 forKey:(id)arg2 forView:(id)arg3;
+- (id)animationForLayer:(id)arg1 forKey:(id)arg2 forView:(id)arg3;
 - (void)setupWithDuration:(double)arg1 delay:(double)arg2 view:(id)arg3 options:(unsigned int)arg4 factory:(id)arg5 parentState:(id)arg6 start:(CDUnknownBlockType)arg7 completion:(CDUnknownBlockType)arg8;
 - (id)init;
 

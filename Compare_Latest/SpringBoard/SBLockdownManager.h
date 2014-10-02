@@ -22,6 +22,7 @@
 + (id)sharedInstance;
 - (void)dealloc;
 - (int)lockdownState;
+- (id)developerBuildExpirationDate;
 - (_Bool)isDeveloperDevice;
 - (_Bool)brickedDevice;
 - (void)_setupActivationState;

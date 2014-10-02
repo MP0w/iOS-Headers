@@ -70,7 +70,7 @@
 - (void)setDefaultDuration:(double)arg1;
 
 // Remaining properties
-@property CAStateControllerTransition *CAStateControllerTransition; // @dynamic CAStateControllerTransition;
+@property __weak CAStateControllerTransition *CAStateControllerTransition; // @dynamic CAStateControllerTransition;
 
 @end
 

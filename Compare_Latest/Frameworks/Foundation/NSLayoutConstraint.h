@@ -32,12 +32,19 @@
 + (id)constraintWithItem:(id)arg1 attribute:(int)arg2 relatedBy:(int)arg3 toItem:(id)arg4 attribute:(int)arg5 multiplier:(float)arg6 symbolicConstant:(id)arg7;
 + (id)constraintWithItem:(id)arg1 attribute:(int)arg2 relatedBy:(int)arg3 toItem:(id)arg4 attribute:(int)arg5 multiplier:(float)arg6 symbolicConstant:(id)arg7 theme:(id)arg8;
 + (id)constraintsWithVisualFormat:(id)arg1 options:(unsigned int)arg2 metrics:(id)arg3 views:(id)arg4;
++ (id)_findCommonAncestorOfItem:(id)arg1 andItem:(id)arg2;
++ (void)_addOrRemoveConstraints:(id)arg1 activate:(BOOL)arg2;
++ (void)deactivateConstraints:(id)arg1;
++ (void)activateConstraints:(id)arg1;
++ (void)_setLegacyDecodingOnly:(BOOL)arg1;
 - (void)_setSecondItem:(id)arg1;
 @property id secondItem; // @synthesize secondItem=_secondItem;
 - (void)_setFirstItem:(id)arg1;
 @property id firstItem; // @synthesize firstItem=_firstItem;
+@property(getter=isActive) BOOL active;
 - (BOOL)_nsib_isRedundant;
 - (BOOL)_nsib_isRedundantInEngine:(id)arg1;
+- (id)_layoutEngine;
 - (id)nsis_descriptionOfVariable:(id)arg1;
 - (id)_loweredExpression;
 - (BOOL)_lowerIntoExpression:(id)arg1 reportingConstantIsRounded:(char *)arg2;
@@ -53,7 +60,7 @@
 - (id)_constraintByReplacingItem:(id)arg1 withItem:(id)arg2;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)equationDescription;
 - (id)descriptionAccessory;
 - (id)_priorityDescription;
@@ -64,6 +71,7 @@
 @property(copy) NSString *symbolicConstant;
 - (void)_setSymbolicConstant:(id)arg1;
 - (id)_symbolicConstant;
+- (void)_ensureValueMaintainsArbitraryLimit:(float *)arg1;
 @property float constant;
 - (id)_constantDescriptionForDTrace;
 - (id)_descriptionforSymbolicConstant;
@@ -108,6 +116,12 @@
 @property int relation;
 - (void)_setFirstAttribute:(int)arg1;
 @property int firstAttribute;
+@property(nonatomic, getter=_loweredConstantNeedsUpdate, setter=_setLoweredConstantNeedsUpdate:) BOOL loweredConstantNeedsUpdate;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

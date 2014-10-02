@@ -8,14 +8,13 @@
 
 #import "MFGuaranteedCollectingDataConsumer.h"
 
-@class NSArray, NSMutableData, NSString;
+@class NSMutableData, NSString;
 
 @interface MFBufferedDataConsumer : NSObject <MFGuaranteedCollectingDataConsumer>
 {
     NSMutableData *_data;
     int _fd;
     NSString *_path;
-    NSArray *_stack;
 }
 
 - (void)done;
@@ -23,6 +22,12 @@
 - (id)data;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

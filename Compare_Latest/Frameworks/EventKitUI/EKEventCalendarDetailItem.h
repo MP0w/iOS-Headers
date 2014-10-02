@@ -22,7 +22,10 @@ __attribute__((visibility("hidden")))
 - (BOOL)hasDetailViewControllerAtIndex:(unsigned int)arg1;
 - (id)cellForSubitemAtIndex:(unsigned int)arg1;
 - (BOOL)configureWithCalendar:(id)arg1 preview:(BOOL)arg2;
+- (void)_contentSizeCategoryChanged:(id)arg1;
 - (void)reset;
+- (void)dealloc;
+- (id)init;
 
 @end
 

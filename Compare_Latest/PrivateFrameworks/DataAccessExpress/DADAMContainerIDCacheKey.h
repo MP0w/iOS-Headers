@@ -16,13 +16,13 @@
     int _dataclass;
 }
 
-@property(readonly) int dataclass; // @synthesize dataclass=_dataclass;
-@property(readonly) NSString *accountID; // @synthesize accountID=_accountID;
+@property(readonly, nonatomic) int dataclass; // @synthesize dataclass=_dataclass;
+@property(readonly, nonatomic) NSString *accountID; // @synthesize accountID=_accountID;
+- (void).cxx_destruct;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
-- (void)dealloc;
 - (id)initWithAccountID:(id)arg1 andDataclass:(int)arg2;
 
 @end

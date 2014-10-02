@@ -12,7 +12,6 @@
 
 + (id)clientInterface;
 + (id)serviceInterface;
-+ (id)newServiceConnection;
 
 @end
 

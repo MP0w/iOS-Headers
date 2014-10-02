@@ -6,12 +6,12 @@
 
 #import <OfficeImport/MFRegion.h>
 
-@class TSDBezierPath;
+@class OITSDBezierPath;
 
 __attribute__((visibility("hidden")))
 @interface MFPhoneRegion : MFRegion
 {
-    TSDBezierPath *m_path;
+    OITSDBezierPath *m_path;
     struct CGRect m_bounds;
 }
 

@@ -25,6 +25,7 @@
 @property(retain, nonatomic) GEOLatLng *destination; // @synthesize destination=_destination;
 @property(retain, nonatomic) GEOLatLng *source; // @synthesize source=_source;
 @property(retain, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -6,25 +6,31 @@
 
 #import "NSObject.h"
 
+@class NSString;
+
 @interface DADataHandler : NSObject
 {
     void *_container;
+    NSString *_changeTrackingID;
 }
 
-+ (id)newDataHandlerForDataclass:(int)arg1 container:(void *)arg2;
++ (id)newDataHandlerForDataclass:(int)arg1 container:(void *)arg2 changeTrackingID:(id)arg3;
+@property(copy, nonatomic) NSString *changeTrackingID; // @synthesize changeTrackingID=_changeTrackingID;
 @property(nonatomic) void *container; // @synthesize container=_container;
+- (void).cxx_destruct;
 - (id)getDAObjectWithLocalItem:(void *)arg1 serverId:(id)arg2 account:(id)arg3;
 - (BOOL)closeDBAndSave:(BOOL)arg1;
 - (void)openDB;
+- (void)drainSuperfluousChanges;
 - (BOOL)wipeServerIds;
 - (void)drainContainer;
-- (struct __CFArray *)copyOfAllLocalObjectsInContainer;
+- (id)copyOfAllLocalObjectsInContainer;
 - (BOOL)saveContainer;
 - (void *)copyLocalObjectFromId:(int)arg1;
 - (int)getIdFromLocalObject:(void *)arg1;
 - (int)dataclass;
 - (void)dealloc;
-- (id)initWithContainer:(void *)arg1;
+- (id)initWithContainer:(void *)arg1 changeTrackingID:(id)arg2;
 
 @end
 

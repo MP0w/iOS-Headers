@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class MFBitmap, MFBrush, MFDeviceContext, MFFont, MFPath, MFPen, MFRegion, NSArray, NSString, TSUColor;
+@class MFBitmap, MFBrush, MFDeviceContext, MFFont, MFPath, MFPen, MFRegion, NSArray, NSString, OITSUColor;
 
 @protocol MFDeviceDriver
 - (MFBitmap *)createBitmap:(MFDeviceContext *)arg1:(int)arg2:(int)arg3:(int)arg4:(int)arg5:(const char *)arg6:(unsigned int)arg7;
@@ -16,12 +16,12 @@
 - (MFFont *)createFontIndirectW:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(int)arg5:(_Bool)arg6:(_Bool)arg7:(_Bool)arg8:(int)arg9:(int)arg10:(unsigned char)arg11:(int)arg12:(int)arg13:(int)arg14:(NSString *)arg15:(NSString *)arg16:(NSString *)arg17:(unsigned int)arg18:(unsigned int)arg19:(unsigned int)arg20:(unsigned int)arg21:(unsigned int)arg22;
 - (MFFont *)createFont:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(int)arg5:(_Bool)arg6:(_Bool)arg7:(_Bool)arg8:(int)arg9:(int)arg10:(unsigned char)arg11:(int)arg12:(int)arg13:(int)arg14:(NSString *)arg15;
 - (MFFont *)createFont:(int)arg1;
-- (MFPen *)createPen:(int)arg1:(int)arg2:(TSUColor *)arg3:(double *)arg4;
+- (MFPen *)createPen:(int)arg1:(int)arg2:(OITSUColor *)arg3:(double *)arg4;
 - (MFPen *)createPen;
 - (MFBrush *)createNullBrush;
-- (MFBrush *)createSolidBrush:(TSUColor *)arg1;
+- (MFBrush *)createSolidBrush:(OITSUColor *)arg1;
 - (MFBrush *)createPatternBrush:(MFBitmap *)arg1 usePaletteForBilevel:(BOOL)arg2;
-- (MFBrush *)createHatchBrush:(TSUColor *)arg1:(int)arg2;
+- (MFBrush *)createHatchBrush:(OITSUColor *)arg1:(int)arg2;
 - (int)plgBlt:(MFDeviceContext *)arg1:(struct CGPoint *)arg2:(MFBitmap *)arg3:(int)arg4:(int)arg5:(int)arg6:(int)arg7:(MFBitmap *)arg8:(int)arg9:(int)arg10:(struct CGAffineTransform *)arg11:(unsigned int)arg12;
 - (int)maskBlt:(MFDeviceContext *)arg1:(int)arg2:(int)arg3:(int)arg4:(int)arg5:(MFBitmap *)arg6:(int)arg7:(int)arg8:(MFBitmap *)arg9:(int)arg10:(int)arg11:(unsigned int)arg12:(struct CGAffineTransform *)arg13:(unsigned int)arg14;
 - (int)stretchBlt:(MFDeviceContext *)arg1:(int)arg2:(int)arg3:(int)arg4:(int)arg5:(MFBitmap *)arg6:(int)arg7:(int)arg8:(int)arg9:(int)arg10:(unsigned int)arg11:(struct CGAffineTransform *)arg12:(unsigned int)arg13;
@@ -50,6 +50,6 @@
 - (int)arcTo:(MFDeviceContext *)arg1:(int)arg2:(int)arg3:(int)arg4:(int)arg5:(int)arg6:(int)arg7:(int)arg8:(int)arg9;
 - (int)arc:(MFDeviceContext *)arg1:(int)arg2:(int)arg3:(int)arg4:(int)arg5:(int)arg6:(int)arg7:(int)arg8:(int)arg9;
 - (int)textOut:(MFDeviceContext *)arg1:(int *)arg2:(int *)arg3:(NSString *)arg4;
-- (int)extTextOut:(MFDeviceContext *)arg1:(int *)arg2:(int *)arg3:(NSString *)arg4:(int)arg5:(int)arg6:(int)arg7:(int)arg8:(int)arg9:(int *)arg10:(int)arg11;
+- (int)extTextOut:(MFDeviceContext *)arg1:(int *)arg2:(int *)arg3:(id)arg4:(int)arg5:(int)arg6:(int)arg7:(int)arg8:(int)arg9:(int *)arg10:(int)arg11;
 @end
 

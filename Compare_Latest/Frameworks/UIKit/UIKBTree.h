@@ -20,6 +20,7 @@
     NSString *layoutTag;
 }
 
++ (int)extraIPhoneIdiom:(int)arg1 width:(float)arg2 landscape:(BOOL)arg3;
 + (id)keyboard;
 + (id)key;
 + (id)shapesForControlKeyShapes:(id)arg1 options:(int)arg2;
@@ -41,6 +42,7 @@
 - (BOOL)hasLayoutTag:(id)arg1;
 - (id)variantDisplayString;
 - (void)orderVariantKeys:(BOOL)arg1;
+- (BOOL)disablesEdgeSwipe;
 - (BOOL)behavesAsShiftKey;
 - (BOOL)avoidAutoDeactivation;
 - (BOOL)dynamicDisplayTypeHint;
@@ -48,6 +50,8 @@
 - (BOOL)canFadeOutFromState:(int)arg1 toState:(int)arg2;
 - (BOOL)modifiesKeyplane;
 - (BOOL)avoidsLanguageIndicator;
+- (BOOL)isExemptFromInputManagerHitTesting;
+- (BOOL)isExemptFromInputManagerLayout;
 - (void)setForceMultitap:(BOOL)arg1;
 - (BOOL)forceMultitap;
 - (void)setClipCorners:(int)arg1;
@@ -102,6 +106,9 @@
 - (id)geometrySet:(BOOL)arg1;
 - (id)keySet;
 - (void)updateMoreAndInternationalKeysWithOptions:(int)arg1;
+- (void)mergeKeyNames:(id)arg1;
+- (void)subsumeDisappearingKeyName:(id)arg1 intoKeyName:(id)arg2 factors:(id)arg3;
+- (id)keysForMergeConditions;
 - (void)updateDictationKeyOnNumberPads:(BOOL)arg1;
 - (id)findLeftMoreKey;
 - (struct CGRect)frameForKeylayoutName:(id)arg1;
@@ -109,6 +116,9 @@
 - (BOOL)supportsType:(int)arg1;
 - (id)autolocalizedKeyCacheIterator;
 - (int)dragThreshold;
+- (int)handBias;
+- (float)primaryKeylayoutOffset;
+- (float)primaryKeylayoutWidthRatio;
 - (BOOL)isSplit;
 - (void)setIsGenerated:(BOOL)arg1;
 - (BOOL)isGenerated;

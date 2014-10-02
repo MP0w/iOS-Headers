@@ -16,10 +16,10 @@
     CalDAVCalendarServerReplyItem *_reply;
 }
 
-@property(retain) CalDAVCalendarServerCancelItem *cancel; // @synthesize cancel=_cancel;
-@property(retain) CalDAVCalendarServerReplyItem *reply; // @synthesize reply=_reply;
-@property(retain) CalDAVCalendarServerUpdateItem *update; // @synthesize update=_update;
-@property(retain) CoreDAVItemWithNoChildren *create; // @synthesize create=_create;
+@property(retain, nonatomic) CalDAVCalendarServerCancelItem *cancel; // @synthesize cancel=_cancel;
+@property(retain, nonatomic) CalDAVCalendarServerReplyItem *reply; // @synthesize reply=_reply;
+@property(retain, nonatomic) CalDAVCalendarServerUpdateItem *update; // @synthesize update=_update;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *create; // @synthesize create=_create;
 - (id)copyParseRules;
 - (id)description;
 - (void)dealloc;

@@ -8,7 +8,7 @@
 
 #import "IDSServiceDelegate.h"
 
-@class IDSService, MSASAlbum, MSASStateMachine, NSMutableDictionary;
+@class IDSService, MSASAlbum, MSASStateMachine, NSMutableDictionary, NSString;
 
 @interface MSASPhoneInvitations : NSObject <IDSServiceDelegate>
 {
@@ -27,6 +27,12 @@
 - (void)removeSharingRelationships:(id)arg1 forAlbum:(id)arg2;
 - (void)addPendingPhoneInvitations:(id)arg1 toOwnedAlbum:(id)arg2 inStateMachin:(id)arg3;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

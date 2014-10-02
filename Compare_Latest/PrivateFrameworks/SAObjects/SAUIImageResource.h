@@ -8,7 +8,7 @@
 
 #import "SAAceSerializable.h"
 
-@class NSData, NSURL;
+@class NSData, NSString, NSURL;
 
 @interface SAUIImageResource : AceObject <SAAceSerializable>
 {
@@ -23,6 +23,12 @@
 @property(copy, nonatomic) NSData *imageData;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

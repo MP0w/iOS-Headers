@@ -12,7 +12,7 @@
 
 @interface GEORPProblemNotificationAvailabilityRequest : PBRequest <NSCopying>
 {
-    CDStruct_cb16bb10 _businessIDs;
+    CDStruct_cb16bb10 _businessIds;
     CDStruct_56d48c16 _problemTypes;
     GEOClientCapabilities *_clientCapabilities;
     NSString *_countryCode;
@@ -30,6 +30,7 @@
 @property(retain, nonatomic) GEOClientCapabilities *clientCapabilities; // @synthesize clientCapabilities=_clientCapabilities;
 @property(retain, nonatomic) NSData *devicePushToken; // @synthesize devicePushToken=_devicePushToken;
 @property(retain, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -42,18 +43,18 @@
 - (id)description;
 @property(nonatomic) BOOL hasPinType;
 @property(nonatomic) BOOL hasPlaceType;
-- (void)setBusinessIDs:(unsigned long long *)arg1 count:(unsigned int)arg2;
-- (unsigned long long)businessIDsAtIndex:(unsigned int)arg1;
-- (void)addBusinessIDs:(unsigned long long)arg1;
-- (void)clearBusinessIDs;
-@property(readonly, nonatomic) unsigned long long *businessIDs;
-@property(readonly, nonatomic) unsigned int businessIDsCount;
+- (void)setBusinessIds:(unsigned long long *)arg1 count:(unsigned int)arg2;
+- (unsigned long long)businessIdAtIndex:(unsigned int)arg1;
+- (void)addBusinessId:(unsigned long long)arg1;
+- (void)clearBusinessIds;
+@property(readonly, nonatomic) unsigned long long *businessIds;
+@property(readonly, nonatomic) unsigned int businessIdsCount;
 @property(readonly, nonatomic) BOOL hasClientCapabilities;
 @property(readonly, nonatomic) BOOL hasDevicePushToken;
 @property(readonly, nonatomic) BOOL hasCountryCode;
 - (void)setProblemTypes:(int *)arg1 count:(unsigned int)arg2;
-- (int)problemTypesAtIndex:(unsigned int)arg1;
-- (void)addProblemTypes:(int)arg1;
+- (int)problemTypeAtIndex:(unsigned int)arg1;
+- (void)addProblemType:(int)arg1;
 - (void)clearProblemTypes;
 @property(readonly, nonatomic) int *problemTypes;
 @property(readonly, nonatomic) unsigned int problemTypesCount;

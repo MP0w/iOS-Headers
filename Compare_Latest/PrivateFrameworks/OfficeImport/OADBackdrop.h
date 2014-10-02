@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     OADVector3D *mUp;
 }
 
+- (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (void)setUp:(id)arg1;

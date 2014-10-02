@@ -8,6 +8,8 @@
 
 #import "GQZArchiveInputStream.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface GQZArchiveFileInputStream : NSObject <GQZArchiveInputStream>
 {
@@ -23,6 +25,12 @@ __attribute__((visibility("hidden")))
 - (const char *)dataAtOffset:(long long)arg1 size:(unsigned long)arg2 end:(long long)arg3 readSize:(unsigned int *)arg4;
 - (void)dealloc;
 - (id)initWithPath:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

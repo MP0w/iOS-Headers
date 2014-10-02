@@ -12,7 +12,7 @@
 #import "UICollectionViewDelegate.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class NSArray, SBCarBannerNotificationView, SBStarkAlertItemBannerSource, SBStarkBannerCell, SBStarkBannerTarget, SBStarkBulletinBannerSource, SBStarkNotificationLayout, SBUIBannerContext, UITapGestureRecognizer;
+@class NSArray, NSString, SBCarBannerNotificationView, SBStarkAlertItemBannerSource, SBStarkBannerCell, SBStarkBannerTarget, SBStarkBulletinBannerSource, SBStarkNotificationLayout, SBUIBannerContext, UITapGestureRecognizer;
 
 @interface SBStarkNotificationViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, SBCollectionViewCellDelegate, SBStarkBannerTargetObserver, UIGestureRecognizerDelegate>
 {
@@ -35,6 +35,7 @@
 - (void)starkBannerTarget:(id)arg1 didChangeContextWithDismissReason:(int)arg2;
 - (void)_performSelectGesture:(id)arg1;
 - (void)_performBackGesture:(id)arg1;
+- (void)collectionView:(id)arg1 willDisplayCell:(id)arg2 forItemAtIndexPath:(id)arg3;
 - (void)collectionView:(id)arg1 didEndDisplayingCell:(id)arg2 forItemAtIndexPath:(id)arg3;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
 - (_Bool)collectionView:(id)arg1 shouldDeselectItemAtIndexPath:(id)arg2;
@@ -43,6 +44,7 @@
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (long long)numberOfSectionsInCollectionView:(id)arg1;
+- (void)_showTestNotificationWithTitle:(id)arg1;
 - (_Bool)isSuspended;
 - (void)setSuspended:(_Bool)arg1 cancellingCurrent:(_Bool)arg2 forReason:(id)arg3;
 - (void)setSuspended:(_Bool)arg1 forReason:(id)arg2;
@@ -52,6 +54,12 @@
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithInteractionAffordances:(unsigned long long)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

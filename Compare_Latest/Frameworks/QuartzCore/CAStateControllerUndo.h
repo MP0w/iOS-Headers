@@ -8,7 +8,7 @@
 
 #import "CAStateRecorder.h"
 
-@class CAState, NSMutableArray;
+@class CAState, NSMutableArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface CAStateControllerUndo : NSObject <CAStateRecorder>
@@ -27,6 +27,12 @@ __attribute__((visibility("hidden")))
 - (void)addTransition:(id)arg1;
 - (void)willAddLayer:(id)arg1;
 - (void)addElement:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

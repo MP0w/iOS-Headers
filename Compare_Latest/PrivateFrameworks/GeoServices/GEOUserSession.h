@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSLock, NSString;
 
 @interface GEOUserSession : NSObject
 {
@@ -15,21 +15,25 @@
     CDStruct_612aec5b _sessionID;
     NSString *_sessionIDString;
     CDStruct_612aec5b _usageCollectionSessionID;
+    unsigned int _sequenceNumber;
+    NSLock *_lock;
 }
 
 + (id)sharedInstance;
 + (void)setIsGeod;
-@property(readonly) double sessionCreationTime; // @synthesize sessionCreationTime=_sessionCreationTime;
+@property(readonly) double sessionCreationTime;
 @property(readonly) CDStruct_612aec5b usageCollectionSessionID;
 @property(readonly) NSString *sessionIDString;
+@property(readonly) unsigned int sequenceNumber;
 @property(readonly) CDStruct_612aec5b sessionID;
 - (void)_updateSessionID;
-- (void)dealloc;
-- (id)init;
 - (void)_renewUsageCollectionSessionID;
+- (void)_safe_renewUsageCollectionSessionID;
 - (void)_updateWithNewUUIDForSessionID:(CDStruct_612aec5b *)arg1;
 - (id)_defaultForKey:(id)arg1;
 - (void)_setDefault:(id)arg1 forKey:(id)arg2;
+- (void)dealloc;
+- (id)init;
 
 @end
 

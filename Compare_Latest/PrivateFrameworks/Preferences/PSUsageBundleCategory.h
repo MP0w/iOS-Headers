@@ -20,6 +20,7 @@
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) PSUsageBundleApp *usageBundleApp; // @synthesize usageBundleApp=_usageBundleApp;
 - (id)description;
+- (void)dealloc;
 
 @end
 

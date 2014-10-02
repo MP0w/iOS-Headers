@@ -10,7 +10,6 @@
 
 @interface SBPlatformController : NSObject
 {
-    NSString *_currentConfigurationName;
     long long _defaultIconInfoOnce;
     NSDictionary *_defaultStarkIconState;
     NSDictionary *_defaultIconState;
@@ -33,9 +32,8 @@
 + (id)sharedInstance;
 - (void)_visibleIdentifiersChanged:(id)arg1;
 - (void)_loadDefaultIconInfoIfNecessary;
-- (id)_currentConfigurationName;
-- (_Bool)isN90Like;
 - (_Bool)isSingleCoreDevice;
+- (_Bool)isDeveloperInstall;
 - (_Bool)isCarrierInstall;
 - (_Bool)isInternalInstall;
 - (_Bool)supportsOpenGLES2;

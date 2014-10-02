@@ -45,6 +45,11 @@
 @property(copy, nonatomic) NSString *sharedOwnerName;
 @property(nonatomic) int sharingStatus;
 @property(readonly, nonatomic) BOOL isDefaultCalendarForSource;
+@property(nonatomic) BOOL isIgnoringEventAlerts;
+@property(nonatomic) BOOL isIgnoringSharedCalendarNotifications;
+@property(nonatomic) BOOL isMarkedImmutableSharees;
+@property(nonatomic) BOOL isMarkedUndeletable;
+@property(nonatomic) BOOL isFamilyCalendar;
 @property(nonatomic) BOOL isHolidaySubscribedCalendar;
 @property(nonatomic) BOOL isFacebookBirthdayCalendar;
 @property(nonatomic) BOOL schedulingProhibited;

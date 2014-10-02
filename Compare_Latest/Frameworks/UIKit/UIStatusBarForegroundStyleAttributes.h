@@ -50,9 +50,9 @@ __attribute__((visibility("hidden")))
 - (float)textOffsetForStyle:(int)arg1;
 - (void)_drawText:(id)arg1 inRect:(struct CGRect)arg2 withFont:(id)arg3 lineBreakMode:(int)arg4 letterSpacing:(float)arg5 textAlignment:(int)arg6;
 - (void)drawBluetoothBatteryInsidesWithSize:(struct CGSize)arg1 capacity:(float)arg2;
-- (int)bluetoothBatteryImageIdWithCapacity:(float)arg1;
+- (id)bluetoothBatteryImageNameWithCapacity:(float)arg1;
 - (void)drawBatteryInsidesWithSize:(struct CGSize)arg1 capacity:(float)arg2 charging:(BOOL)arg3;
-- (int)batteryImageIdWithCapacity:(float)arg1;
+- (id)batteryImageNameWithCapacity:(float)arg1;
 - (float)batteryAccessoryMargin;
 - (int)activityIndicatorStyleWithSyncActivity:(BOOL)arg1;
 - (int)legibilityStyle;

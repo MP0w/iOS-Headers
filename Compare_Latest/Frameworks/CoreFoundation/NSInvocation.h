@@ -6,6 +6,8 @@
 
 #import "NSObject.h"
 
+@class NSMethodSignature;
+
 @interface NSInvocation : NSObject
 {
     void *_frame;
@@ -26,15 +28,13 @@
 - (void)getArgument:(void *)arg1 atIndex:(int)arg2;
 - (void)setReturnValue:(void *)arg1;
 - (void)getReturnValue:(void *)arg1;
-- (void)setSelector:(SEL)arg1;
-- (SEL)selector;
-- (void)setTarget:(id)arg1;
-- (id)target;
+@property SEL selector;
+@property id target;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)_addAttachedObject:(id)arg1;
-- (BOOL)argumentsRetained;
+@property(readonly) BOOL argumentsRetained;
 - (void)retainArguments;
-- (id)methodSignature;
+@property(readonly, retain) NSMethodSignature *methodSignature;
 - (void)dealloc;
 - (id)init;
 

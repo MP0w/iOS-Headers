@@ -8,27 +8,30 @@
 
 #import "SPSearchResultsPipe.h"
 
-@class NSMutableDictionary, SPXPCConnection;
+@class NSMutableDictionary, SPXPCConnection, SPXPCMessage;
 
 @interface SDSearchQuery : SPSearchQuery <SPSearchResultsPipe>
 {
     SPXPCConnection *_connection;
     NSMutableDictionary *_serializers;
     unsigned int _externalID;
+    SPXPCMessage *_message;
 }
 
+@property(retain, nonatomic) SPXPCMessage *message; // @synthesize message=_message;
 @property(readonly, nonatomic) SPXPCConnection *connection; // @synthesize connection=_connection;
 @property(readonly, nonatomic) unsigned int externalID; // @synthesize externalID=_externalID;
 - (void)dealloc;
 - (id)initWithSearchString:(id)arg1 forSearchDomains:(id)arg2 externalID:(unsigned int)arg3 connection:(id)arg4;
 - (id)serializerForDomain:(int)arg1;
-- (void)storeCompletedSearch:(id)arg1;
+- (BOOL)storeCompletedSearch:(id)arg1;
 - (void)domainCompletedSearch:(unsigned int)arg1;
 - (void)sendFinishedDomains;
 - (void)queryFinishedWithError:(id)arg1;
 - (void)appendResults:(id)arg1 toSerializerDomain:(unsigned int)arg2;
 - (void)appendResults:(id)arg1;
 - (void)appendSection:(id)arg1 toSerializerDomain:(unsigned int)arg2;
+- (void)sendQueryReset;
 - (void)sendQueryCompleted;
 - (void)sendError:(id)arg1;
 - (void)sendResults:(id)arg1;

@@ -6,14 +6,14 @@
 
 #import <OfficeImport/MFPGradientBrush.h>
 
-@class TSUColor;
+@class OITSUColor;
 
 __attribute__((visibility("hidden")))
 @interface MFPLinearGradientBrush : MFPGradientBrush
 {
     struct CGRect mBounds;
-    TSUColor *mStartColor;
-    TSUColor *mEndColor;
+    OITSUColor *mStartColor;
+    OITSUColor *mEndColor;
 }
 
 - (id).cxx_construct;

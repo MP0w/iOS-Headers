@@ -8,6 +8,8 @@
 
 #import "KNTransitionAnimator.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface KNTransitionFadeThruColor : KNAnimationEffect <KNTransitionAnimator>
 {
@@ -23,6 +25,12 @@ __attribute__((visibility("hidden")))
 + (int)animationCategory;
 + (id)animationName;
 - (id)animationsWithContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

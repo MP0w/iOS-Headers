@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     int mDirection;
 }
 
+- (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (void)setDirection:(int)arg1;

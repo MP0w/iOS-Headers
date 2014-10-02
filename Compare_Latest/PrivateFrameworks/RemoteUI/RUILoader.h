@@ -13,11 +13,15 @@
     RUIParser *_parser;
     NSURL *_url;
     BOOL _allowNonSecureHTTP;
+    id <RUIParserDelegate> _parserDelegate;
 }
 
+@property(nonatomic) __weak id <RUIParserDelegate> parserDelegate; // @synthesize parserDelegate=_parserDelegate;
 @property(nonatomic) BOOL allowNonSecureHTTP; // @synthesize allowNonSecureHTTP=_allowNonSecureHTTP;
+- (void).cxx_destruct;
+- (id)connection:(id)arg1 willSendRequest:(id)arg2 redirectResponse:(id)arg3;
+- (BOOL)receivedValidResponse:(id)arg1;
 - (void)failWithError:(id)arg1;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)webViewFinishedLoading;
 - (void)didParseData;
 - (BOOL)anyWebViewLoading;
@@ -30,7 +34,6 @@
 - (void)loadXMLUIWithURL:(id)arg1;
 - (void)loadRequest:(id)arg1;
 - (void)cancel;
-- (void)setDelegate:(id)arg1;
 - (void)dealloc;
 
 @end

@@ -15,7 +15,6 @@
     NSArray *_stack;
 }
 
-@property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) double timeout; // @synthesize timeout=_timeout;
 - (void)timedout;
 - (void)dealloc;

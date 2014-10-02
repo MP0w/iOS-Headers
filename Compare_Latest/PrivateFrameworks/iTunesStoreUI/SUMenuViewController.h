@@ -9,7 +9,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class UITableView;
+@class NSString, UITableView;
 
 @interface SUMenuViewController : SUViewController <UITableViewDataSource, UITableViewDelegate>
 {
@@ -36,6 +36,12 @@
 - (BOOL)isMenuItemEnabledAtIndex:(int)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

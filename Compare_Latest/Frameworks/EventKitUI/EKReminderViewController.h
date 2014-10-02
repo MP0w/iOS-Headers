@@ -10,7 +10,7 @@
 #import "EKPickerTableViewDelegate.h"
 #import "EKReminderEditorDelegate.h"
 
-@class EKEventStore, EKReminder, EKReminderEditor;
+@class EKEventStore, EKReminder, EKReminderEditor, NSString;
 
 @interface EKReminderViewController : UIViewController <EKCalendarItemEditorDelegate, EKReminderEditorDelegate, EKPickerTableViewDelegate>
 {
@@ -49,6 +49,12 @@
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

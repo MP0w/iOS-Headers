@@ -58,7 +58,7 @@
 - (void)addJiggleAnimationWithDuration:(double)arg1 angle:(float)arg2;
 - (void)addJiggleAnimation;
 - (float)opacityByApplyingAnimation:(id)arg1 atTime:(double)arg2 animationCache:(id)arg3;
-- (struct CATransform3D)transform3DByApplyingAnimation:(id)arg1 atTime:(double)arg2 offset:(struct CGPoint)arg3 parentFrame:(struct CGRect)arg4 animationCache:(id)arg5;
+- (struct CATransform3D)transform3DByApplyingAnimation:(id)arg1 atTime:(double)arg2 offset:(struct CGPoint)arg3 animationCache:(id)arg4;
 - (void)removeAllAnimationsOnLayerTree;
 - (double)durationOfAllAnimations;
 - (void)addPerspectiveSublayerProjectionUsingScreenSize:(struct CGSize)arg1;

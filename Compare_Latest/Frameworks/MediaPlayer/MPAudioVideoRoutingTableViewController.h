@@ -8,7 +8,7 @@
 
 #import "MPAVRoutingControllerDelegate.h"
 
-@class MPAVRoutingController, NSArray;
+@class MPAVRoutingController, NSArray, NSString;
 
 @interface MPAudioVideoRoutingTableViewController : UITableViewController <MPAVRoutingControllerDelegate>
 {
@@ -41,6 +41,12 @@
 - (void)routingControllerAvailableRoutesDidChange:(id)arg1;
 - (void)dealloc;
 - (id)initWithType:(unsigned int)arg1 displayMirroringRoutes:(BOOL)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -27,7 +27,7 @@ __attribute__((visibility("hidden")))
 + (id)nameFromSageLightingPackageName:(id)arg1;
 + (id)p_sageLightingPackageNames;
 @property(copy, nonatomic) NSString *name; // @synthesize name=mName;
-@property(readonly, nonatomic) NSString *localizedName;
+@property(readonly, copy, nonatomic) NSString *localizedName;
 - (void)affect:(id)arg1 states:(id)arg2 scene:(id)arg3 texturePool:(id)arg4;
 - (void)addLight:(id)arg1;
 - (unsigned int)hash;

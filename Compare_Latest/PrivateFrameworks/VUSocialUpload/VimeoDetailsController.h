@@ -33,7 +33,8 @@
 @property(readonly, nonatomic) int privacySetting; // @synthesize privacySetting=_privacySetting;
 @property(readonly, nonatomic) int videoSize; // @synthesize videoSize=_videoSize;
 @property(readonly, nonatomic) NSMutableArray *videoSizes; // @synthesize videoSizes=_videoSizes;
-@property(nonatomic) id <VimeoComposeOptionViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <VimeoComposeOptionViewDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (BOOL)textFieldShouldReturn:(id)arg1;
 - (void)textFieldDidEndEditing:(id)arg1;
 - (BOOL)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
@@ -42,16 +43,21 @@
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (struct CGSize)contentSizeForViewInPopover;
+- (struct CGSize)preferredContentSize;
 - (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
 @property(readonly, nonatomic) NSArray *tags;
-@property(readonly, nonatomic) NSString *description;
+@property(readonly, nonatomic) NSString *videoDescription;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)loadView;
-- (void)dealloc;
 - (id)initWithStyle:(int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

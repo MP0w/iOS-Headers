@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     int numScores;
 }
 
+@property int numScores; // @synthesize numScores;
 @property float minScore; // @synthesize minScore;
 @property float maxScore; // @synthesize maxScore;
 - (float)computeStandardDeviation;

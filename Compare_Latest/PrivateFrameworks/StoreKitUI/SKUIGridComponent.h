@@ -25,6 +25,7 @@
 @property(readonly, nonatomic) NSArray *children; // @synthesize children=_children;
 - (void).cxx_destruct;
 - (id)description;
+- (void)_setChildrenWithFeaturedContextContext:(id)arg1;
 - (void)_reloadMissingItemCount;
 - (id)_newLockupComponentWithItem:(id)arg1 defaultStyle:(struct SKUILockupStyle)arg2;
 - (id)_updateWithMissingItems:(id)arg1;
@@ -33,6 +34,8 @@
 - (BOOL)isMissingItemData;
 - (void)enumerateMissingItemIdentifiersFromIndex:(int)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (int)componentType;
+- (id)initWithViewElement:(id)arg1;
+- (id)initWithRoomContext:(id)arg1 gridType:(int)arg2;
 - (id)initWithLockups:(id)arg1;
 - (id)initWithGridItems:(id)arg1;
 - (id)initWithFeaturedContentContext:(id)arg1 kind:(int)arg2;

@@ -20,14 +20,14 @@
     NSURL *_acceptedURL;
 }
 
-@property(retain) NSURL *acceptedURL; // @synthesize acceptedURL=_acceptedURL;
-@property(retain) NSString *lastName; // @synthesize lastName=_lastName;
-@property(retain) NSString *firstName; // @synthesize firstName=_firstName;
-@property(retain) CoreDAVLeafItem *summary; // @synthesize summary=_summary;
-@property(retain) CoreDAVLeafItem *inReplyTo; // @synthesize inReplyTo=_inReplyTo;
-@property(retain) CoreDAVItemWithHrefChildItem *hostURL; // @synthesize hostURL=_hostURL;
-@property(retain) CoreDAVItemWithNoChildren *inviteStatus; // @synthesize inviteStatus=_inviteStatus;
-@property(retain) CoreDAVHrefItem *href; // @synthesize href=_href;
+@property(retain, nonatomic) NSURL *acceptedURL; // @synthesize acceptedURL=_acceptedURL;
+@property(retain, nonatomic) NSString *lastName; // @synthesize lastName=_lastName;
+@property(retain, nonatomic) NSString *firstName; // @synthesize firstName=_firstName;
+@property(retain, nonatomic) CoreDAVLeafItem *summary; // @synthesize summary=_summary;
+@property(retain, nonatomic) CoreDAVLeafItem *inReplyTo; // @synthesize inReplyTo=_inReplyTo;
+@property(retain, nonatomic) CoreDAVItemWithHrefChildItem *hostURL; // @synthesize hostURL=_hostURL;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *inviteStatus; // @synthesize inviteStatus=_inviteStatus;
+@property(retain, nonatomic) CoreDAVHrefItem *href; // @synthesize href=_href;
 - (id)copyParseRules;
 - (void)setAcceptedURLItem:(id)arg1;
 - (void)setLastNameItem:(id)arg1;

@@ -7,9 +7,9 @@
 @class CalDAVCalendarServerScheduleChangesItem, CalDAVUpdateOwnerItem, NSString;
 
 @protocol CalDAVCalendarItemProtocol
-@property(retain) CalDAVUpdateOwnerItem *updatedBy;
-@property(retain) CalDAVUpdateOwnerItem *createdBy;
-@property(retain) CalDAVCalendarServerScheduleChangesItem *scheduleChanges;
-@property(retain) NSString *scheduleTag;
+@property(retain, nonatomic) CalDAVUpdateOwnerItem *updatedBy;
+@property(retain, nonatomic) CalDAVUpdateOwnerItem *createdBy;
+@property(retain, nonatomic) CalDAVCalendarServerScheduleChangesItem *scheduleChanges;
+@property(retain, nonatomic) NSString *scheduleTag;
 @end
 

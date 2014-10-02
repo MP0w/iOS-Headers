@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class GEONameInfo, NSMutableArray, NSString;
+@class GEONameInfo, GEOTimeCheckpoints, NSMutableArray, NSString;
 
 @interface GEOStep : PBCodable <NSCopying>
 {
@@ -35,6 +35,7 @@
     NSMutableArray *_signposts;
     unsigned int _stepID;
     NSMutableArray *_substeps;
+    GEOTimeCheckpoints *_timeCheckpoints;
     BOOL _endsOnFwy;
     BOOL _toFreeway;
     BOOL _tollAhead;
@@ -58,6 +59,7 @@
     } _has;
 }
 
+@property(retain, nonatomic) GEOTimeCheckpoints *timeCheckpoints; // @synthesize timeCheckpoints=_timeCheckpoints;
 @property(retain, nonatomic) NSString *notice; // @synthesize notice=_notice;
 @property(retain, nonatomic) NSString *instructions; // @synthesize instructions=_instructions;
 @property(retain, nonatomic) NSMutableArray *substeps; // @synthesize substeps=_substeps;
@@ -70,6 +72,7 @@
 @property(nonatomic) unsigned int expectedTime; // @synthesize expectedTime=_expectedTime;
 @property(nonatomic) unsigned int distance; // @synthesize distance=_distance;
 @property(nonatomic) unsigned int stepID; // @synthesize stepID=_stepID;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -78,6 +81,7 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) BOOL hasTimeCheckpoints;
 @property(readonly, nonatomic) BOOL hasNotice;
 @property(readonly, nonatomic) BOOL hasInstructions;
 @property(nonatomic) BOOL hasToFreeway;

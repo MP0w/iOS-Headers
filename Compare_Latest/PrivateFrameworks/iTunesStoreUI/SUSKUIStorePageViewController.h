@@ -9,7 +9,7 @@
 #import "SKStoreProductViewControllerDelegatePrivate.h"
 #import "SKUIIPhoneProductPageDelegate.h"
 
-@class SKStoreProductViewController, SKUIIPhoneProductPageViewController, SKUIStorePageViewController, UIViewController;
+@class NSString, SKStoreProductViewController, SKUIIPhoneProductPageViewController, SKUIStorePageViewController, UIViewController;
 
 @interface SUSKUIStorePageViewController : SUViewController <SKUIIPhoneProductPageDelegate, SKStoreProductViewControllerDelegatePrivate>
 {
@@ -34,6 +34,12 @@
 - (void)reloadWithStorePage:(id)arg1 forURL:(id)arg2;
 - (void)dealloc;
 - (id)initWithSection:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

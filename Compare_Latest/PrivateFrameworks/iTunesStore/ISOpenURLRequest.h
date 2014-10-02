@@ -16,6 +16,7 @@
     NSString *_targetIdentifier;
     NSString *_urlBagKey;
     NSURL *_url;
+    BOOL _interruptsKeybagRefresh;
 }
 
 + (id)openURLRequestWithURL:(id)arg1;
@@ -23,6 +24,7 @@
 @property(retain, nonatomic) NSURL *URL; // @synthesize URL=_url;
 @property(copy, nonatomic) NSString *targetIdentifier; // @synthesize targetIdentifier=_targetIdentifier;
 @property(nonatomic, getter=isITunesStoreURL) BOOL ITunesStoreURL; // @synthesize ITunesStoreURL=_isITunesStoreURL;
+@property(nonatomic) BOOL interruptsKeybagRefresh; // @synthesize interruptsKeybagRefresh=_interruptsKeybagRefresh;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

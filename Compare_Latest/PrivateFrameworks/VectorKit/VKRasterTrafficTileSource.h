@@ -11,12 +11,12 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (unsigned int)mapLayerForZoomLevelRange;
+- (unsigned long long)mapLayerForZoomLevelRange;
 - (BOOL)expires;
 - (BOOL)minimumZoomLevelBoundsCamera;
 - (BOOL)maximumZoomLevelBoundsCamera;
 - (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
-- (id)init;
+- (id)initWithTileSet:(id)arg1 tileGroupIdentifier:(unsigned int)arg2 locale:(id)arg3;
 
 @end
 

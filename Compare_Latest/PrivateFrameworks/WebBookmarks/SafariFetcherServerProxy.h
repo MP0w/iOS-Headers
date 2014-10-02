@@ -8,7 +8,7 @@
 
 #import "WebBookmarksXPCConnectionDelegate.h"
 
-@class WebBookmarksXPCConnection;
+@class NSString, WebBookmarksXPCConnection;
 
 @interface SafariFetcherServerProxy : NSObject <WebBookmarksXPCConnectionDelegate>
 {
@@ -29,6 +29,12 @@
 - (void)invalidate;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

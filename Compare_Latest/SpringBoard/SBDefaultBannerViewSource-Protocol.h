@@ -6,14 +6,15 @@
 
 #import "NSObject.h"
 
-@class NSDate, NSString, UIImage;
+@class BBAccessoryIcon, NSDate, NSString, UIImage;
 
 @protocol SBDefaultBannerViewSource <NSObject>
-- (_Bool)isVIP;
+- (BBAccessoryIcon *)accessoryIconMask;
 - (UIImage *)attachmentImage;
 - (NSString *)attachmentText;
 - (UIImage *)iconImage;
 - (NSDate *)sourceDate;
+- (NSString *)suppressedMessage;
 - (NSString *)message;
 - (NSString *)title;
 @end

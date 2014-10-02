@@ -14,15 +14,19 @@
     _Bool _awaitingKeybagRefetch;
     _Bool _appWasActivating;
     UIView *_staticAppView;
+    UIView *_hostView;
 }
 
 - (void)_cleanupAnimation;
 - (void)_startAnimation;
 - (_Bool)_shouldDismissBanner;
+- (void)_hideAppHostView;
 - (void)_prepareAnimation;
-- (_Bool)_animationShouldStart;
+- (void)_setupStartDependencies;
 - (_Bool)_willAnimate;
-@property(readonly, nonatomic) SBApplication *app;
+@property(readonly, retain, nonatomic) SBApplication *app;
+- (void)_applicationDependencyStateChanged;
+- (id)_animationProgressDependency;
 - (void)dealloc;
 - (id)initWithApp:(id)arg1 starkScreenController:(id)arg2;
 

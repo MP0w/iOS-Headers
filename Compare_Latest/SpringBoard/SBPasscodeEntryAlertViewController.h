@@ -8,6 +8,8 @@
 
 #import "SBUIPasscodeLockViewDelegate.h"
 
+@class NSString;
+
 @interface SBPasscodeEntryAlertViewController : SBAlert <SBUIPasscodeLockViewDelegate>
 {
     _Bool _attemptingUnlock;
@@ -18,9 +20,17 @@
 - (void)passcodeLockViewPasscodeEnteredViaMesa:(id)arg1;
 - (void)passcodeLockViewPasscodeEntered:(id)arg1;
 - (void)passcodeLockViewPasscodeDidChange:(id)arg1;
+- (void)animatePasscodeViewsToVisible:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (unsigned long long)supportedInterfaceOrientations;
 - (void)deactivate;
 - (_Bool)hasTranslucentBackground;
 - (id)alertDisplayViewWithSize:(struct CGSize)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

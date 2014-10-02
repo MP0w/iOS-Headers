@@ -6,14 +6,16 @@
 
 #import "NSObject.h"
 
+@class NSConnection, NSInvocation;
+
 @interface NSDistantObjectRequest : NSObject
 {
 }
 
 - (void)replyWithException:(id)arg1;
-- (id)conversation;
-- (id)connection;
-- (id)invocation;
+@property(readonly, retain) id conversation;
+@property(readonly, retain) NSConnection *connection;
+@property(readonly, retain) NSInvocation *invocation;
 
 @end
 

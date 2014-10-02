@@ -27,7 +27,7 @@
 - (id)accountWithLoginID:(id)arg1 service:(id)arg2;
 - (id)serviceName;
 - (id)enabledAccounts;
-@property(readonly, nonatomic) NSSet *accounts;
+@property(readonly, retain, nonatomic) NSSet *accounts;
 - (void)removeDelegate:(id)arg1;
 - (void)addDelegate:(id)arg1 queue:(id)arg2;
 - (id)_internal;

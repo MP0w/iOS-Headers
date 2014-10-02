@@ -14,9 +14,9 @@
 }
 
 - (id)description;
-@property(readonly, nonatomic) NSString *uniqueID;
+@property(readonly, retain, nonatomic) NSString *uniqueID;
 - (id)_AVAudioDevice;
-@property(readonly, nonatomic) NSString *name;
+@property(readonly, retain, nonatomic) NSString *name;
 - (void)dealloc;
 - (id)init;
 - (id)_initWithAVAudioDevice:(id)arg1;

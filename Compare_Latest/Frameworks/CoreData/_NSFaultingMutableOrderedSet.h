@@ -6,7 +6,7 @@
 
 #import "NSMutableOrderedSet.h"
 
-@class NSManagedObject;
+@class NSManagedObject, NSPropertyDescription;
 
 __attribute__((visibility("hidden")))
 @interface _NSFaultingMutableOrderedSet : NSMutableOrderedSet
@@ -66,23 +66,23 @@ __attribute__((visibility("hidden")))
 - (unsigned int)count;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)relationship;
-- (id)source;
+@property(readonly, nonatomic) NSPropertyDescription *relationship;
+@property(readonly, nonatomic) NSManagedObject *source;
 - (void)turnIntoFault;
 - (BOOL)_hasOrderKeys;
 - (id)_newOrderKeys;
 - (unsigned int)_orderKeyForObject:(id)arg1;
-- (void)_batchFulfillOrderKeysForObjectsIntoIndexes:(unsigned int **)arg1;
 - (void)_populateOrderKeysUsingSnapshot:(id)arg1 orderKeys:(id)arg2 newIndexes:(unsigned int **)arg3 reorderedIndexes:(char **)arg4;
 - (void)_updateOrderKeysFromOrderOfObjectIDs:(id)arg1;
 - (void)_assignOrderKeysUsingCount:(unsigned int)arg1;
 - (void)_setProcessingIdempotentKVO:(BOOL)arg1;
 - (BOOL)_shouldProcessKVOChange;
 - (void)willChange;
+- (void)willReadWithContents:(id)arg1;
 - (void)willRead;
 - (id)descriptionWithLocale:(id)arg1;
 - (id)description;
-- (BOOL)isFault;
+@property(readonly, nonatomic, getter=isFault) BOOL fault;
 - (void)dealloc;
 - (BOOL)_isDeallocating;
 - (BOOL)_tryRetain;

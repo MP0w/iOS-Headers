@@ -29,7 +29,7 @@
     BOOL _didReceiveData;
     BOOL _didFinishLoading;
     BOOL _finished;
-    void *_context;
+    id _context;
     BOOL _receivedBadPasswordResponse;
     BOOL _justTriedTokenAuth;
     BOOL _everTriedTokenAuth;
@@ -59,7 +59,7 @@
 
 + (id)stringFromDepth:(int)arg1;
 + (unsigned int)uniqueQueryID;
-@property(retain) NSDictionary *requestProperties; // @synthesize requestProperties=_requestProperties;
+@property(retain, nonatomic) NSDictionary *requestProperties; // @synthesize requestProperties=_requestProperties;
 @property(nonatomic) BOOL allowAutomaticRedirects; // @synthesize allowAutomaticRedirects=_allowAutomaticRedirects;
 @property(nonatomic) unsigned int totalBytesReceived; // @synthesize totalBytesReceived=_totalBytesReceived;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
@@ -67,11 +67,11 @@
 @property(copy, nonatomic) CDUnknownBlockType responseProgressBlock; // @synthesize responseProgressBlock=_responseProgressBlock;
 @property(copy, nonatomic) CDUnknownBlockType requestProgressBlock; // @synthesize requestProgressBlock=_requestProgressBlock;
 @property(nonatomic) int responseStatusCode; // @synthesize responseStatusCode=_responseStatusCode;
-@property(retain) id <CoreDAVResponseBodyParser> responseBodyParser; // @synthesize responseBodyParser=_responseBodyParser;
-@property double timeoutInterval; // @synthesize timeoutInterval=_timeoutInterval;
-@property int depth; // @synthesize depth=_depth;
-@property(readonly) NSURL *url; // @synthesize url=_url;
-@property(nonatomic) void *context; // @synthesize context=_context;
+@property(retain, nonatomic) id <CoreDAVResponseBodyParser> responseBodyParser; // @synthesize responseBodyParser=_responseBodyParser;
+@property(nonatomic) double timeoutInterval; // @synthesize timeoutInterval=_timeoutInterval;
+@property(nonatomic) int depth; // @synthesize depth=_depth;
+@property(readonly, nonatomic) NSURL *url; // @synthesize url=_url;
+@property(retain, nonatomic) id context; // @synthesize context=_context;
 @property(nonatomic) id <CoreDAVTaskDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) id <CoreDAVAccountInfoProvider> accountInfoProvider; // @synthesize accountInfoProvider=_accountInfoProvider;
 @property(nonatomic) id <CoreDAVTaskManager> taskManager; // @synthesize taskManager=_taskManager;
@@ -83,7 +83,7 @@
 - (void)submitWithTaskManager:(id)arg1;
 - (void)finishEarlyWithError:(id)arg1;
 - (void)startModal;
-@property(readonly) NSDictionary *responseHeaders;
+@property(readonly, nonatomic) NSDictionary *responseHeaders;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
 - (void)connectionDidFinishLoading:(id)arg1;
@@ -103,8 +103,9 @@
 - (id)_applyAuthenticationChain:(struct __CFArray *)arg1 toRequest:(id)arg2;
 - (id)credentialForOAuthChallenge:(id)arg1;
 - (BOOL)markAsFinished;
-@property(readonly, getter=isFinished) BOOL finished;
+@property(readonly, nonatomic, getter=isFinished) BOOL finished;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
+- (void)_sendTimeSpentInNetworkingToProvider;
 - (BOOL)validate:(id *)arg1;
 - (void)performCoreDAVTask;
 - (unsigned int)cachePolicy;
@@ -121,9 +122,14 @@
 - (id)requestBodyStream;
 - (BOOL)_includeGeneralHeaders;
 - (id)httpMethod;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

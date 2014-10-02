@@ -9,7 +9,7 @@
 #import "ISStoreURLOperationDelegate.h"
 #import "SUWebViewDelegate.h"
 
-@class ISStoreURLOperation, SUWebView;
+@class ISStoreURLOperation, NSString, SUWebView;
 
 @interface SUScriptExecutionContext : NSObject <ISStoreURLOperationDelegate, SUWebViewDelegate>
 {
@@ -30,6 +30,12 @@
 - (void)callWebScriptMethod:(id)arg1 withArguments:(id)arg2;
 - (BOOL)evaluateData:(id)arg1 MIMEType:(id)arg2 textEncodingName:(id)arg3 baseURL:(id)arg4;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -32,6 +32,7 @@
 - (id)_signingSession;
 - (void)shouldPresentUpgradeFlowWithCompletion:(CDUnknownBlockType)arg1;
 - (void)upgradeiCloudTermsIfNecessaryWithHandler:(CDUnknownBlockType)arg1;
+- (void)loginDelegatesWithParameters:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setupDelegateAccountsWithParameters:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)updateAppleIDWithParameters:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)createAppleIDWithParameters:(id)arg1 handler:(CDUnknownBlockType)arg2;

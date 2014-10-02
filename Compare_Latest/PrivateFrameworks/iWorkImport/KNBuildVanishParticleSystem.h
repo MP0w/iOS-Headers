@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
 - (CDStruct_b2fbf00d)lifeSpanAtIndexPoint:(struct CGPoint)arg1;
 - (float)scaleAtIndexPoint:(struct CGPoint)arg1;
 - (float)speedMax;
-- (CDStruct_03942939)speedAtIndexPoint:(struct CGPoint)arg1;
+- (CDStruct_869f9c67)speedAtIndexPoint:(struct CGPoint)arg1;
 
 @end
 

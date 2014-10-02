@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
+__attribute__((visibility("hidden")))
 @interface GEOETAProvider : NSObject
 {
 }
 
-+ (unsigned short)providerID;
 - (void)cancelRequest;
 - (void)startSimpleETARequest:(id)arg1 finished:(CDUnknownBlockType)arg2 error:(CDUnknownBlockType)arg3;
 - (void)updateRequest:(id)arg1 finished:(CDUnknownBlockType)arg2 error:(CDUnknownBlockType)arg3;

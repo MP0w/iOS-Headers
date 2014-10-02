@@ -8,14 +8,14 @@
 
 #import "MFObject.h"
 
-@class TSUColor;
+@class OITSUColor;
 
 __attribute__((visibility("hidden")))
 @interface MFPen : NSObject <MFObject>
 {
     int m_penStyle;
     int m_penWidth;
-    TSUColor *m_colour;
+    OITSUColor *m_colour;
     double *m_userStyleArray;
 }
 

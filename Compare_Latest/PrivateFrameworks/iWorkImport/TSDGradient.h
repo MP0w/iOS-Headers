@@ -46,8 +46,8 @@ __attribute__((visibility("hidden")))
 - (void)p_setGradientType:(unsigned int)arg1;
 - (void)p_evenlyDistributeStops;
 - (void)p_reverseStopOrder;
-- (void)p_insertStopAtFraction:(float)arg1 withColor:(id)arg2;
-- (void)p_insertStopAtFraction:(float)arg1;
+- (id)p_insertStopAtFraction:(float)arg1 withColor:(id)arg2;
+- (id)p_insertStopAtFraction:(float)arg1;
 - (id)p_removeStopAtIndex:(unsigned int)arg1;
 - (void)p_removeStop:(id)arg1;
 - (void)p_insertGradientStop:(id)arg1;
@@ -81,7 +81,7 @@ __attribute__((visibility("hidden")))
 - (id)referenceColor;
 @property(readonly, nonatomic) TSUColor *lastColor;
 @property(readonly, nonatomic) TSUColor *firstColor;
-@property(readonly, nonatomic) NSArray *gradientStops;
+@property(readonly, retain, nonatomic) NSArray *gradientStops;
 - (BOOL)isEqualIgnoringTransform:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;

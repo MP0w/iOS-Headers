@@ -8,6 +8,8 @@
 
 #import "PSSettingsBoolDetail.h"
 
+@class NSString;
+
 @interface PSDNDSettingsDetail : NSObject <PSSettingsBoolDetail>
 {
 }
@@ -17,6 +19,12 @@
 + (void)loadStateWithCompletion:(CDUnknownBlockType)arg1;
 + (id)iconImage;
 + (id)preferencesURL;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

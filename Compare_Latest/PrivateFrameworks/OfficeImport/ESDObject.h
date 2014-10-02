@@ -25,10 +25,10 @@ __attribute__((visibility("hidden")))
 - (id)initFromReader:(struct OcReader *)arg1 type:(unsigned short)arg2 version:(unsigned short)arg3;
 - (id)initWithType:(unsigned short)arg1;
 - (id)initWithEshObject:(struct EshObject *)arg1;
-- (id)ebInitWithType:(unsigned short)arg1 version:(unsigned short)arg2 state:(id)arg3;
 - (int)shapeID;
 - (struct EshGroup *)eshGroup;
 - (struct EshShape *)eshShape;
+- (id)ebInitWithType:(unsigned short)arg1 version:(unsigned short)arg2 state:(id)arg3;
 - (id)pbInitWithType:(unsigned short)arg1 version:(unsigned short)arg2 state:(id)arg3;
 
 @end

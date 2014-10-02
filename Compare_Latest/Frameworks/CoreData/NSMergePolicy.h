@@ -15,7 +15,6 @@
 
 + (BOOL)accessInstanceVariablesDirectly;
 + (void)load;
-@property(readonly) unsigned int mergeType; // @synthesize mergeType=_type;
 - (void)mergeToManyRelationshipForSourceObject:(id)arg1 withOldSnapshot:(id)arg2 newSnapshot:(id)arg3 andAncestor:(id)arg4 andLegacyPath:(BOOL)arg5;
 - (BOOL)resolveConflicts:(id)arg1 error:(id *)arg2;
 - (void)_mergeChangesObjectUpdatesTrumpForObject:(id)arg1 withRecord:(id)arg2;
@@ -28,6 +27,7 @@
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned int)type;
+@property(readonly) unsigned int mergeType;
 - (id)initWithMergeType:(unsigned int)arg1;
 - (id)initWithType:(unsigned int)arg1;
 

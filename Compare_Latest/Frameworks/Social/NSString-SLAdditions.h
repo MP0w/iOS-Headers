@@ -7,6 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (SLAdditions)
+- (BOOL)hasCaseInsensitiveSuffix:(id)arg1;
 - (id)urlEncodedString;
 @end
 

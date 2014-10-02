@@ -6,14 +6,14 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString, PKCatalog, PKLocalPass;
+@class NSArray, NSString, PKCatalog, PKPass;
 
 @protocol PDUbiquityManagerDelegate <NSObject>
 - (void)ubiquitousCatalogDidChange:(PKCatalog *)arg1;
 - (PKCatalog *)existingCatalog;
 - (void)ubiquitousCardWithUniqueIDRemoved:(NSString *)arg1;
-- (void)ubiquitousCardDidChange:(PKLocalPass *)arg1;
-- (PKLocalPass *)existingCardWithUniqueID:(NSString *)arg1;
+- (void)ubiquitousCardDidChange:(PKPass *)arg1;
+- (PKPass *)existingCardWithUniqueID:(NSString *)arg1;
 - (NSArray *)existingCardUniqueIDs;
 @end
 

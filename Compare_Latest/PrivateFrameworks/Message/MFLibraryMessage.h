@@ -18,6 +18,7 @@
     unsigned int _mailboxID;
     unsigned int _originalMailboxID;
     NSString *_messageID;
+    unsigned long long _conversationFlags;
     NSMutableDictionary *_metadata;
     NSMutableSet *_metadataChangedKeys;
     MFLock *_metadataLock;
@@ -37,6 +38,8 @@
 - (id)dataConsumerForMimePart:(id)arg1;
 - (void)setMessageData:(id)arg1 isPartial:(BOOL)arg2;
 - (void)setRemoteID:(const char *)arg1 flags:(unsigned long long)arg2 size:(unsigned int)arg3 mailboxID:(unsigned int)arg4 originalMailboxID:(unsigned int)arg5;
+- (unsigned long long)conversationFlags;
+- (void)setConversationFlags:(unsigned long long)arg1;
 - (id)preferredEmailAddressToReplyWith;
 - (void)markAsForwarded;
 - (void)markAsReplied;

@@ -21,6 +21,7 @@
 
 @property(retain, nonatomic) NSMutableArray *traversedRouteIDs; // @synthesize traversedRouteIDs=_traversedRouteIDs;
 @property(retain, nonatomic) NSData *directionResponseID; // @synthesize directionResponseID=_directionResponseID;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

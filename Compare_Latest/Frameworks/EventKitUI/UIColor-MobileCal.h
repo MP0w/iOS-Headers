@@ -7,7 +7,6 @@
 #import "UIColor.h"
 
 @interface UIColor (MobileCal)
-+ (id)tableViewBackgroundColor;
 + (id)tableViewBackgroundColorOpaque;
 - (id)burnWithColor:(id)arg1;
 - (id)overlayWithColor:(id)arg1;

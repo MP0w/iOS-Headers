@@ -13,18 +13,22 @@
 @interface BBActionResponse : NSObject <NSSecureCoding>
 {
     int _actionType;
-    NSString *_bulletinButtonID;
+    NSString *_actionID;
     NSString *_bulletinRecordID;
     NSString *_bulletinPublisherID;
     NSDictionary *_bulletinContext;
+    NSString *_bulletinButtonID;
+    NSDictionary *_context;
 }
 
 + (BOOL)supportsSecureCoding;
 + (id)actionResponseForResponse:(id)arg1 bulletinRequest:(id)arg2;
+@property(copy, nonatomic) NSDictionary *context; // @synthesize context=_context;
+@property(copy, nonatomic) NSString *bulletinButtonID; // @synthesize bulletinButtonID=_bulletinButtonID;
 @property(copy, nonatomic) NSDictionary *bulletinContext; // @synthesize bulletinContext=_bulletinContext;
 @property(copy, nonatomic) NSString *bulletinPublisherID; // @synthesize bulletinPublisherID=_bulletinPublisherID;
 @property(copy, nonatomic) NSString *bulletinRecordID; // @synthesize bulletinRecordID=_bulletinRecordID;
-@property(copy, nonatomic) NSString *bulletinButtonID; // @synthesize bulletinButtonID=_bulletinButtonID;
+@property(copy, nonatomic) NSString *actionID; // @synthesize actionID=_actionID;
 @property(nonatomic) int actionType; // @synthesize actionType=_actionType;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

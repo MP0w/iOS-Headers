@@ -13,6 +13,8 @@
     id _impl;
 }
 
+- (void)setMixToUplink:(BOOL)arg1;
+- (BOOL)mixToUplink;
 @property(copy, nonatomic) NSArray *channelAssignments;
 - (float)averagePowerForChannel:(unsigned int)arg1;
 - (float)peakPowerForChannel:(unsigned int)arg1;
@@ -48,7 +50,7 @@
 - (void)beginInterruption;
 - (void)decodeError:(id)arg1;
 - (void)finishedPlaying:(id)arg1;
-- (id)baseInit;
+- (id)initBase;
 - (id)impl;
 
 @end

@@ -6,7 +6,7 @@
 
 #import <OfficeImport/OCBReader.h>
 
-@class NSMutableArray, TSUNoCopyDictionary, WBOfficeArtReaderState, WDDocument;
+@class NSMutableArray, NSMutableDictionary, OITSUNoCopyDictionary, WBOfficeArtReaderState, WDDocument;
 
 __attribute__((visibility("hidden")))
 @interface WBReader : OCBReader
@@ -25,13 +25,14 @@ __attribute__((visibility("hidden")))
     struct WrdEshObjectFactory *mEshObjectFactory;
     struct WrdParagraphProperties *mLastRowParagraphProperties;
     NSMutableArray *mAnnotationOwners;
-    TSUNoCopyDictionary *mIndexToStyles;
-    TSUNoCopyDictionary *mIndexToFonts;
+    OITSUNoCopyDictionary *mIndexToStyles;
+    OITSUNoCopyDictionary *mIndexToFonts;
     WDDocument *mTargetDocument;
     WBOfficeArtReaderState *mOfficeArtState;
     struct vector<WBTextBoxReaderInfo, std::__1::allocator<WBTextBoxReaderInfo>> *mTextBoxes;
     BOOL mReportProgress;
     id mAnnotationRangeStart;
+    NSMutableDictionary *mBookmarkIndexToAnnotationRangeStartMap;
 }
 
 @property(nonatomic) WDDocument *targetDocument; // @synthesize targetDocument=mTargetDocument;
@@ -72,6 +73,8 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithCancelDelegate:(id)arg1 tracing:(id)arg2;
 - (void)initialize;
+- (void)setAnnotationRangeStart:(id)arg1 forBookmarkIndex:(unsigned int)arg2;
+- (id)annotationRangeStartForBookmarkIndex:(unsigned int)arg1;
 - (void)setAnnotationRangeStart:(id)arg1;
 - (id)annotationRangeStart;
 

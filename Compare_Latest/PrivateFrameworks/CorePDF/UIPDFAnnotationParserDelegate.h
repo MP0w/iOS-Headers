@@ -8,7 +8,7 @@
 
 #import "NSXMLParserDelegate.h"
 
-@class NSMutableString, UIPDFAnnotation;
+@class NSMutableString, NSString, UIPDFAnnotation;
 
 @interface UIPDFAnnotationParserDelegate : NSObject <NSXMLParserDelegate>
 {
@@ -26,6 +26,12 @@
 - (void)parser:(id)arg1 parseErrorOccurred:(id)arg2;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

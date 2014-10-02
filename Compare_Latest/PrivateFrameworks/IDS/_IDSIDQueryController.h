@@ -25,6 +25,7 @@
     id _delegateContext;
 }
 
++ (void)initialize;
 - (void)removeDelegate:(id)arg1 forService:(id)arg2 listenerID:(id)arg3;
 - (void)addDelegate:(id)arg1 forService:(id)arg2 listenerID:(id)arg3 queue:(id)arg4;
 - (BOOL)_flushQueryCacheForService:(id)arg1;
@@ -37,6 +38,7 @@
 - (BOOL)refreshIDStatusForDestinations:(id)arg1 service:(id)arg2 listenerID:(id)arg3 queue:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
 - (BOOL)_refreshIDStatusForDestinations:(id)arg1 service:(id)arg2 listenerID:(id)arg3 allowRefresh:(BOOL)arg4 queue:(id)arg5 completionBlock:(CDUnknownBlockType)arg6;
 - (void)_idStatusForDestinations:(id)arg1 service:(id)arg2 listenerID:(id)arg3 allowRenew:(BOOL)arg4 completionBlock:(CDUnknownBlockType)arg5;
+- (void)_setCurrentIDStatus:(int)arg1 forDestination:(id)arg2 service:(id)arg3;
 - (id)_delegateMapForListenerID:(id)arg1 service:(id)arg2;
 - (void)_callDelegatesWithBlock:(CDUnknownBlockType)arg1 delegateMap:(id)arg2;
 - (id)_reroutedPrototypeService:(id)arg1;
@@ -63,6 +65,12 @@
 - (void)_requestCachedStatusForDestinations:(id)arg1 service:(id)arg2 listenerID:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (void)_requestCacheForService:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)_disconnectFromQueryService;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "TSSPropertySource.h"
 
-@class TSDModifyPrototypeChange;
+@class NSString, TSDModifyPrototypeChange;
 
 __attribute__((visibility("hidden")))
 @interface TSDPropertySourceForModifyPrototypeChange : NSObject <TSSPropertySource>
@@ -26,6 +26,12 @@ __attribute__((visibility("hidden")))
 - (BOOL)containsProperty:(int)arg1;
 - (id)p_propertyMap;
 - (id)initWithPrototypeChange:(id)arg1 afterChange:(BOOL)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

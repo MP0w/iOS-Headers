@@ -12,9 +12,9 @@ __attribute__((visibility("hidden")))
 @interface CIBurstThumbnailCluster : NSObject
 {
     NSMutableArray *burstImages;
+    CDUnknownBlockType completionBlock;
     NSMutableDictionary *imageProps;
     CIBurstYUVImage *image;
-    CDUnknownBlockType completionBlock;
 }
 
 @property CDUnknownBlockType completionBlock; // @synthesize completionBlock;

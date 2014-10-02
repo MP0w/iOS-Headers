@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(copy, nonatomic) NSString *href; // @synthesize href=_href;
+- (int)smartFieldKind;
 - (BOOL)allowsPasteAsSmartField;
 - (id)copyWithContext:(id)arg1;
 - (void)saveToArchiver:(id)arg1;

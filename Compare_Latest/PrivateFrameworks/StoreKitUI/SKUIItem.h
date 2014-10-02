@@ -18,7 +18,9 @@
     SKUIArtworkList *_artworks;
     NSString *_bundleID;
     NSString *_categoryName;
+    NSString *_collectionName;
     unsigned int _deviceFamilies;
+    NSString *_editorialBage;
     long long _itemIdentifier;
     int _itemKind;
     NSString *_itemKindString;
@@ -38,10 +40,13 @@
     float _userRating;
     long long _versionIdentifier;
     NSString *_versionString;
+    NSArray *_videos;
+    NSString *_editorialBadge;
 }
 
 @property(readonly, nonatomic) NSString *itemKindString; // @synthesize itemKindString=_itemKindString;
 @property(readonly, nonatomic) int itemKind; // @synthesize itemKind=_itemKind;
+@property(readonly, nonatomic) NSArray *videos; // @synthesize videos=_videos;
 @property(readonly, nonatomic) NSString *versionString; // @synthesize versionString=_versionString;
 @property(readonly, nonatomic) long long versionIdentifier; // @synthesize versionIdentifier=_versionIdentifier;
 @property(readonly, nonatomic) float userRating; // @synthesize userRating=_userRating;
@@ -59,7 +64,9 @@
 @property(readonly, nonatomic) BOOL hasInAppPurchases; // @synthesize hasInAppPurchases=_hasInAppPurchases;
 @property(readonly, nonatomic, getter=isNewsstandApp) BOOL newsstandApp; // @synthesize newsstandApp=_newsstandApp;
 @property(readonly, nonatomic) long long itemIdentifier; // @synthesize itemIdentifier=_itemIdentifier;
+@property(readonly, nonatomic) NSString *editorialBadge; // @synthesize editorialBadge=_editorialBadge;
 @property(readonly, nonatomic) unsigned int deviceFamilies; // @synthesize deviceFamilies=_deviceFamilies;
+@property(readonly, nonatomic) NSString *collectionName; // @synthesize collectionName=_collectionName;
 @property(readonly, nonatomic) NSString *categoryName; // @synthesize categoryName=_categoryName;
 @property(readonly, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleID;
 @property(readonly, nonatomic) SKUIArtworkList *artworks; // @synthesize artworks=_artworks;
@@ -70,8 +77,10 @@
 @property(readonly, nonatomic) NSMutableDictionary *cacheRepresentation;
 - (id)initWithCacheRepresentation:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (void)_setHasInAppPurchases:(BOOL)arg1;
+@property(readonly, nonatomic) NSString *_downloadKind;
+- (id)lookupDictionary;
 - (void)addItemOfferParameterWithName:(id)arg1 value:(id)arg2;
 @property(readonly, nonatomic) NSArray *loadedChildItems;
 @property(readonly, nonatomic) NSURL *largestArtworkURL;
@@ -79,6 +88,12 @@
 - (id)childItemForIdentifier:(id)arg1;
 - (id)artworkURLForSize:(int)arg1;
 - (id)initWithLookupDictionary:(id)arg1;
+- (id)initContainerItemWithItem:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

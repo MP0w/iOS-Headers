@@ -4,53 +4,59 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <VectorKit/VGLScreenCanvas.h>
+#import "NSObject.h"
 
 #import "VKAnimationRunner.h"
 #import "VKCameraControllerDelegate.h"
 #import "VKCameraDelegate.h"
 #import "VKWorldDelegate.h"
 
-@class CADisplay, NSArray, NSMutableArray, VGLDisplayLink, VKCamera, VKDispatch, VKLayoutContext, VKMemoryObserver, VKScene, VKWorld;
+@class NSArray, NSMutableArray, NSString, VKCamera, VKDispatch, VKLayoutContext, VKMemoryObserver, VKScene, VKWorld;
 
 __attribute__((visibility("hidden")))
-@interface VKScreenCanvas : VGLScreenCanvas <VKWorldDelegate, VKAnimationRunner, VKCameraControllerDelegate, VKCameraDelegate>
+@interface VKScreenCanvas : NSObject <VKWorldDelegate, VKAnimationRunner, VKCameraControllerDelegate, VKCameraDelegate>
 {
     VKDispatch *_dispatch;
     VKWorld *_world;
     VKCamera *_camera;
     VKScene *_scene;
     VKLayoutContext *_layoutContext;
+    id <MDRenderTarget> _displayTarget;
     BOOL _needsLayout;
     unsigned int _wantsLayout;
     unsigned int _needsRepaint;
     BOOL _userIsGesturing;
     BOOL _iconsShouldAlignToPixels;
     NSMutableArray *_cameraControllers;
-    BOOL _debugPaintFrameRateGraph;
     float _debugFramesPerSecond;
     BOOL _rendersInBackground;
     NSMutableArray *_animations[2];
-    int _displayRate;
-    int _requestedRate;
     VKMemoryObserver *_memoryObserver;
-    VGLDisplayLink *_displayLink;
     BOOL _isInBackground;
+    BOOL _isHidden;
     struct VKEdgeInsets _edgeInsets;
     struct VKEdgeInsets _fullyOccludedEdgeInsets;
     struct VKEdgeInsets _labelEdgeInsets;
     BOOL _deallocing;
+    BOOL _needsInitialization;
+    struct unique_ptr<md::RenderQueue, std::__1::default_delete<md::RenderQueue>> _renderQueue;
+    struct MapCamera *_mapCamera;
+    struct RenderTree *_mapScene;
+    Matrix_5173352a _bgColor;
+    id <MDMapControllerDelegate> _mapDelegate;
 }
 
-+ (Class)contextClass;
 @property(readonly, nonatomic) NSArray *cameraControllers; // @synthesize cameraControllers=_cameraControllers;
+@property(readonly, nonatomic) Matrix_5173352a bgColor; // @synthesize bgColor=_bgColor;
+@property(readonly, nonatomic) BOOL needsInitialization; // @synthesize needsInitialization=_needsInitialization;
+@property(nonatomic) id <MDMapControllerDelegate> mapDelegate; // @synthesize mapDelegate=_mapDelegate;
 @property(nonatomic) struct VKEdgeInsets fullyOccludedEdgeInsets; // @synthesize fullyOccludedEdgeInsets=_fullyOccludedEdgeInsets;
 @property(nonatomic) BOOL iconsShouldAlignToPixels; // @synthesize iconsShouldAlignToPixels=_iconsShouldAlignToPixels;
 @property(readonly, nonatomic) VKCamera *camera; // @synthesize camera=_camera;
 @property(nonatomic) float debugFramesPerSecond; // @synthesize debugFramesPerSecond=_debugFramesPerSecond;
-@property(nonatomic) BOOL debugPaintFrameRateGraph; // @synthesize debugPaintFrameRateGraph=_debugPaintFrameRateGraph;
 @property(readonly, nonatomic) VKWorld *world; // @synthesize world=_world;
 - (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)edgeInsetsDidEndAnimating;
 - (void)edgeInsetsWillBeginAnimating;
 @property(nonatomic) BOOL rendersInBackground;
@@ -77,36 +83,38 @@ __attribute__((visibility("hidden")))
 - (void)_queueUpdateDisplayLinkStatus;
 - (void)setContentsScale:(float)arg1;
 - (void)forceLayout;
-- (void)layoutSublayers;
+- (void)resetRenderQueue:(shared_ptr_06328420)arg1;
 - (void)updateCameraForFrameResize;
-- (void)didDrawView;
-- (void)takeSnapshotIfNeeded;
-- (void)_renderCore:(double)arg1;
-- (void)drawWithTimestamp:(double)arg1;
+- (void)didPresent;
+- (void)layoutRenderQueue:(shared_ptr_06328420)arg1;
+- (void)gglWillDrawWithTimestamp;
 - (void)animateWithTimestamp:(double)arg1;
 @property(nonatomic) struct VKEdgeInsets labelEdgeInsets;
 @property(nonatomic) struct VKEdgeInsets edgeInsets;
-- (void)onTimerFired:(id)arg1;
+- (void)updateWithTimestamp:(double)arg1;
 - (void)didEnterBackground;
 - (void)willEnterForeground;
-@property(nonatomic) int displayRate;
-@property(nonatomic) BOOL debugEnableMultisampling; // @dynamic debugEnableMultisampling;
+- (BOOL)currentSceneRequiresMSAA;
 - (void)setNeedsDisplay;
 - (void)setNeedsLayout;
+- (BOOL)isHidden;
 - (void)setHidden:(BOOL)arg1;
 - (BOOL)updateDisplayLinkStatus;
-- (void)_updateDisplayRate;
 - (BOOL)wantsTimerTick;
 - (BOOL)wantsRender;
 - (BOOL)canRender;
-- (void)drawInContext:(struct CGContext *)arg1;
-- (void)didReceiveMemoryWarning;
+- (void)clearSceneIsEffectivelyHidden:(BOOL)arg1;
 - (void)transferAnimationsTo:(id)arg1;
 - (void)adoptAnimation:(id)arg1;
-@property(nonatomic) CADisplay *hostDisplay;
-@property(nonatomic) BOOL useTimerDisplayLink;
 - (void)dealloc;
-- (id)initWithContext:(id)arg1 inBackground:(BOOL)arg2;
+- (void)initializeWithRenderer:(struct GLRenderer *)arg1;
+- (id)initWithTarget:(id)arg1 device:(const shared_ptr_807ec9ac *)arg2 inBackground:(BOOL)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

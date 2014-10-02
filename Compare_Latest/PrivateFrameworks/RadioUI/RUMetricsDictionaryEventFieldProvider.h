@@ -8,17 +8,23 @@
 
 #import "SSMetricsEventFieldProvider.h"
 
-@class NSDictionary;
+@class NSDictionary, NSString;
 
 @interface RUMetricsDictionaryEventFieldProvider : NSObject <SSMetricsEventFieldProvider>
 {
     NSDictionary *_dictionary;
 }
 
-@property(readonly, nonatomic) NSDictionary *dictionary; // @synthesize dictionary=_dictionary;
+@property(readonly, copy, nonatomic) NSDictionary *dictionary; // @synthesize dictionary=_dictionary;
 - (void).cxx_destruct;
 - (id)valueForMetricsField:(id)arg1;
 - (id)initWithDictionary:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

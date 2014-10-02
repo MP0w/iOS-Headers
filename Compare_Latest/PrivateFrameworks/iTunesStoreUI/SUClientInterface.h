@@ -10,7 +10,9 @@
 
 @interface SUClientInterface : NSObject
 {
+    NSString *_askToBuyApprovalPrompt;
     SUUIAppearance *_appearance;
+    BOOL _inAskToBuyApprovalFlow;
     NSString *_clientIdentifier;
     UIColor *_darkKeyColor;
     id <SUClientInterfaceDelegatePrivate> _delegate;
@@ -24,23 +26,29 @@
     NSString *_userAgent;
     SUViewControllerFactory *_viewControllerFactory;
     BOOL _wasLaunchedFromLibrary;
+    BOOL inAskToBuyApprovalFlow;
 }
 
 @property(retain) SUViewControllerFactory *viewControllerFactory; // @synthesize viewControllerFactory=_viewControllerFactory;
 @property(copy, nonatomic) UIColor *lightKeyColor; // @synthesize lightKeyColor=_lightKeyColor;
 @property(nonatomic) id <SUClientInterfaceDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) UIColor *darkKeyColor; // @synthesize darkKeyColor=_darkKeyColor;
+@property BOOL inAskToBuyApprovalFlow; // @synthesize inAskToBuyApprovalFlow;
+@property(copy, nonatomic) NSString *askToBuyApprovalPrompt; // @synthesize askToBuyApprovalPrompt=_askToBuyApprovalPrompt;
 - (void)_showPreviewOverlayAnimated:(BOOL)arg1;
 @property(getter=_ignoresExpectedClientsProtocol, setter=_setIgnoresExpectedClientsProtocol:) BOOL _ignoresExpectedClientsProtocol;
 - (void)_setStatusBarStyle:(int)arg1 animated:(BOOL)arg2;
 - (void)_setStatusBarHidden:(BOOL)arg1 withAnimation:(int)arg2;
 - (void)_returnToLibrary;
 - (id)_newScriptInterface;
+- (id)_newUIAlertView;
 - (void)_presentViewController:(id)arg1 fromViewController:(id)arg2 withTransition:(int)arg3;
 - (void)_presentDialog:(id)arg1;
 - (void)_mediaPlayerViewControllerWillDismiss:(id)arg1 animated:(BOOL)arg2;
 - (void)_hidePreviewOverlayAnimated:(BOOL)arg1;
 - (void)_exitStoreWithReason:(int)arg1;
+- (void)_dispatchXEvent:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
+- (void)_dispatchOnPageResponseWithData:(id)arg1 response:(id)arg2;
 - (void)_dismissViewControllerFromViewController:(id)arg1 animated:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_dismissModalViewControllerFromViewController:(id)arg1 withTransition:(int)arg2;
 @property BOOL wasLaunchedFromLibrary;

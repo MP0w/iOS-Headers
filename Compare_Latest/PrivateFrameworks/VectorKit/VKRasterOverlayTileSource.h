@@ -25,14 +25,14 @@ __attribute__((visibility("hidden")))
 - (void)addOverlay:(id)arg1;
 - (void)invalidate;
 - (void)_flush;
-- (void)invalidateRect:(const CDStruct_d2b197d1 *)arg1 level:(int)arg2;
+- (void)invalidateRect:(const CDStruct_aca18c62 *)arg1 level:(int)arg2;
 - (void)_queueDraw:(const struct VKTileKey *)arg1;
 - (BOOL)cancelFetchForKey:(const struct VKTileKey *)arg1;
 - (void)fetchTileForKey:(const struct VKTileKey *)arg1 sourceKey:(const struct VKTileKey *)arg2;
 - (BOOL)maximumZoomLevelBoundsCamera;
 - (BOOL)minimumZoomLevelBoundsCamera;
-- (int)maximumDownloadZoomLevel;
-- (int)minimumDownloadZoomLevel;
+- (unsigned int)maximumDownloadZoomLevel;
+- (unsigned int)minimumDownloadZoomLevel;
 - (int)tileSize;
 - (BOOL)canFetchTileForKey:(const struct VKTileKey *)arg1;
 - (void)dealloc;

@@ -11,13 +11,12 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (id)delayAttributeKeyForTriggerType:(unsigned int)arg1;
 + (id)defaultAttributesForEffect:(id)arg1 buildType:(int)arg2;
 + (BOOL)customAttributeKeyIsValid:(id)arg1;
 + (id)supportedCustomAttributes;
 - (void)p_writeBuildAttributesToArchive:(struct BuildAttributesArchive *)arg1;
 - (void)p_writeSharedAttributesToArchive:(struct BuildAttributesArchive *)arg1;
-- (void)p_readDeprecatedAttributesForArchive:(const struct BuildAttributesArchive *)arg1 intoDictionary:(id)arg2;
+- (void)p_readTEFAttributesForArchive:(const struct BuildAttributesArchive *)arg1 intoDictionary:(id)arg2;
 - (void)p_readBuildAttributesForArchive:(const struct BuildAttributesArchive *)arg1 intoDictionary:(id)arg2;
 - (void)p_readSharedAttributesForArchive:(struct AnimationAttributesArchive *)arg1 intoDictionary:(id)arg2;
 - (void)encodeToArchive:(struct BuildAttributesArchive *)arg1;

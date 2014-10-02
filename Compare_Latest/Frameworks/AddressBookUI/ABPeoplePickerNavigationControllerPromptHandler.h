@@ -14,7 +14,7 @@
     NSMutableArray *_prompts;
 }
 
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)setPrompt:(id)arg1 forViewControllerType:(int)arg2;
 - (id)promptForViewControllerType:(int)arg1 orientation:(int)arg2;
 - (BOOL)_shouldShowPromptForOrientation:(int)arg1;

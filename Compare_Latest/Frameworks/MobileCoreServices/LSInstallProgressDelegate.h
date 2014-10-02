@@ -9,7 +9,7 @@
 #import "LSInstallProgressProtocol.h"
 #import "NSXPCListenerDelegate.h"
 
-@class LSInstallProgressList, LSObserverTimer, NSMutableDictionary, NSMutableOrderedSet, NSMutableSet, NSObject<OS_dispatch_queue>;
+@class LSInstallProgressList, LSObserverTimer, NSMutableDictionary, NSMutableOrderedSet, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface LSInstallProgressDelegate : NSObject <NSXPCListenerDelegate, LSInstallProgressProtocol>
@@ -20,17 +20,25 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_installIndexes;
     NSMutableSet *_inactiveInstalls;
     LSObserverTimer *installsStartedTimer;
+    LSObserverTimer *iconsUpdatedTimer;
     LSObserverTimer *installsUpdatedTimer;
     LSObserverTimer *installsFinishedTimer;
-    LSObserverTimer *appsUninstalledTimer;
+    LSObserverTimer *didUninstallTimer;
     NSObject<OS_dispatch_queue> *_installControlsQueue;
+    NSObject<OS_dispatch_queue> *_observersQueue;
     BOOL _usingNetwork;
 }
 
+- (void)endObservingConnection;
+- (void)beginObservingConnection;
 - (void)sendNetworkUsageChangedNotification;
 - (void)sendAppControlsNotificationForApp:(id)arg1 withName:(id)arg2;
+- (void)sendUninstalledNotificationForApp:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)sendUninstalledNotificationForApps:(id)arg1;
+- (void)sendInstalledNotificationForApp:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)sendInstalledNotificationForApps:(id)arg1;
+- (void)sendFailedNotificationForApp:(id)arg1 isUninstall:(BOOL)arg2;
+- (void)sendWillUninstallNotificationForApps:(id)arg1 Plugins:(id)arg2 isUpdate:(BOOL)arg3;
 - (void)sendChangeNotificationForApp:(id)arg1;
 - (void)placeholderInstalledForApp:(id)arg1;
 - (void)sendIconUpdatedNotificationForApp:(id)arg1;
@@ -39,7 +47,7 @@ __attribute__((visibility("hidden")))
 - (void)rebuildInstallIndexes;
 - (void)createInstallProgressForApplication:(id)arg1 withPhase:(unsigned int)arg2 andPublishingString:(id)arg3;
 - (id)parentProgressForApplication:(id)arg1 andPhase:(unsigned int)arg2 isActive:(BOOL)arg3;
-- (unsigned char)handleCancelInstallationForApp:(id)arg1;
+- (void)handleCancelInstallationForApp:(id)arg1;
 - (void)removeObserverWithUUID:(id)arg1;
 - (void)addObserver:(id)arg1 withUUID:(id)arg2;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
@@ -47,6 +55,12 @@ __attribute__((visibility("hidden")))
 - (void)restoreInactiveInstalls;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

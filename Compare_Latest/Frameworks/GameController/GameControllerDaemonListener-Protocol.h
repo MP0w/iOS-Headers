@@ -4,12 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "GameControllerDaemonControllerListener.h"
+#import "GameControllerDaemonRequestListener.h"
 
-@class GCController, NSData;
-
-@protocol GameControllerDaemonListener <NSObject>
-- (void)controllerIndex:(int)arg1 setData:(NSData *)arg2;
-- (void)addController:(GCController *)arg1;
+@protocol GameControllerDaemonListener <GameControllerDaemonControllerListener, GameControllerDaemonRequestListener>
 @end
 

@@ -8,14 +8,13 @@
 
 #import "RUIObjectModelDelegate.h"
 
-@class AAAutoAccountVerifier, AASetupAssistantService, NSMutableArray, RUILoader, UIAlertView, UINavigationController;
+@class AAAutoAccountVerifier, AASetupAssistantService, NSMutableArray, NSString, RUILoader, UIAlertView, UINavigationController;
 
 @interface AAUIAccountCreationRemoteUI : NSObject <RUIObjectModelDelegate>
 {
     BOOL _isModal;
     RUILoader *_loader;
     NSMutableArray *_objectModels;
-    id <AAUIAccountCreationDelegate> _delegate;
     UINavigationController *_parentNavController;
     UINavigationController *_createAccountNavController;
     UIAlertView *_tcConfirmationAlert;
@@ -23,8 +22,10 @@
     BOOL _over13;
     AASetupAssistantService *_aaService;
     AAAutoAccountVerifier *_verifier;
+    id <AAUIAccountCreationDelegate> _delegate;
 }
 
+@property(nonatomic) __weak id <AAUIAccountCreationDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (unsigned int)supportedInterfaceOrientationsForObjectModel:(id)arg1 page:(id)arg2;
 - (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
@@ -43,9 +44,15 @@
 - (void)_createAppleAccount;
 - (void)_addHeadersToRequest:(id)arg1;
 - (void)loadURLRequest:(id)arg1;
+- (void)loadURLRequest:(id)arg1 addHeaders:(BOOL)arg2;
 - (void)dealloc;
-- (void)setDelegate:(id)arg1;
 - (id)initWithNavController:(id)arg1 isModal:(BOOL)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

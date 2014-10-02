@@ -8,7 +8,7 @@
 
 #import "EKEventAttendeePickerDelegate.h"
 
-@class EKCalendarShareePicker, NSArray;
+@class EKCalendarShareePicker, NSArray, NSString;
 
 @interface EKShareePickerViewController : UIViewController <EKEventAttendeePickerDelegate>
 {
@@ -16,12 +16,12 @@
     id <EKShareePickerViewControllerDelegate> _delegate;
 }
 
++ (BOOL)_shouldForwardViewWillTransitionToSize;
 @property(nonatomic) __weak id <EKShareePickerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (int)eventAttendeePicker:(id)arg1 getValidationStatusForEmailAddress:(id)arg2;
 - (void)eventAttendeePicker:(id)arg1 cacheValidationStatus:(int)arg2 forEmail:(id)arg3;
 - (struct CGSize)preferredContentSize;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 @property(copy, nonatomic) NSArray *sharees;
 - (id)_recipientFromSharee:(id)arg1;
 - (id)_shareeFromRecipient:(id)arg1;
@@ -30,6 +30,12 @@
 - (void)viewDidLoad;
 - (void)setSearchAccountID:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

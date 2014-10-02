@@ -40,6 +40,7 @@
 - (void)_setCompositionValue:(id)arg1 forKey:(id)arg2;
 - (void)finalizeCompositionValues;
 - (id)addAttachmentData:(id)arg1 mimeType:(id)arg2 fileName:(id)arg3;
+- (void)setCaretPosition:(unsigned int)arg1;
 - (void)setContentVisible:(BOOL)arg1;
 - (void)setSourceAccountManagement:(int)arg1;
 - (void)setShowKeyboardImmediately:(BOOL)arg1;

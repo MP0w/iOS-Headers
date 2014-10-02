@@ -14,25 +14,32 @@
 {
     NSString *_dsid;
     NSString *_username;
+    NSString *_appServerHost;
     NSString *_appAuthToken;
-    int _appAuthTokenStatus;
     NSDictionary *_additionalInfo;
     NSString *_aosServerHost;
     NSString *_aosServerProtocolScheme;
     NSString *_aosAPSEnvironment;
     NSString *_internalAuthToken;
+    int _appAuthTokenStatus;
+    NSString *_legacyDsid;
+    NSString *_legacyUsername;
 }
 
 + (BOOL)supportsSecureCoding;
+@property(retain, nonatomic) NSString *legacyUsername; // @synthesize legacyUsername=_legacyUsername;
+@property(retain, nonatomic) NSString *legacyDsid; // @synthesize legacyDsid=_legacyDsid;
+@property(nonatomic) int appAuthTokenStatus; // @synthesize appAuthTokenStatus=_appAuthTokenStatus;
 @property(retain, nonatomic) NSString *internalAuthToken; // @synthesize internalAuthToken=_internalAuthToken;
 @property(retain, nonatomic) NSString *aosAPSEnvironment; // @synthesize aosAPSEnvironment=_aosAPSEnvironment;
 @property(retain, nonatomic) NSString *aosServerProtocolScheme; // @synthesize aosServerProtocolScheme=_aosServerProtocolScheme;
 @property(retain, nonatomic) NSString *aosServerHost; // @synthesize aosServerHost=_aosServerHost;
 @property(retain, nonatomic) NSDictionary *additionalInfo; // @synthesize additionalInfo=_additionalInfo;
-@property(nonatomic) int appAuthTokenStatus; // @synthesize appAuthTokenStatus=_appAuthTokenStatus;
 @property(retain, nonatomic) NSString *appAuthToken; // @synthesize appAuthToken=_appAuthToken;
+@property(retain, nonatomic) NSString *appServerHost; // @synthesize appServerHost=_appServerHost;
 @property(retain, nonatomic) NSString *username; // @synthesize username=_username;
 @property(retain, nonatomic) NSString *dsid; // @synthesize dsid=_dsid;
+- (void).cxx_destruct;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

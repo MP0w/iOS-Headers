@@ -6,17 +6,17 @@
 
 #import <UIKit/UIKBHandwritingPointFIFO.h>
 
-@class NSMutableArray, UIBezierPath, UIKBHandwritingStrokeView;
+@class NSMutableArray, UIBezierPath, UIView<UIKBHandwritingStrokeEnabled>;
 
 __attribute__((visibility("hidden")))
 @interface UIKBHandwritingQuadCurvePointFIFO : UIKBHandwritingPointFIFO
 {
     NSMutableArray *_prevPoints;
     UIBezierPath *_path;
-    UIKBHandwritingStrokeView *_strokeView;
+    UIView<UIKBHandwritingStrokeEnabled> *_strokeView;
 }
 
-@property(retain, nonatomic) UIKBHandwritingStrokeView *strokeView; // @synthesize strokeView=_strokeView;
+@property(retain, nonatomic) UIView<UIKBHandwritingStrokeEnabled> *strokeView; // @synthesize strokeView=_strokeView;
 @property(retain, nonatomic) UIBezierPath *path; // @synthesize path=_path;
 @property(retain, nonatomic) NSMutableArray *prevPoints; // @synthesize prevPoints=_prevPoints;
 - (void)clear;

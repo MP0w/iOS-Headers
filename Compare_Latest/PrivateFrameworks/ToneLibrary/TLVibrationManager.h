@@ -19,7 +19,7 @@
 }
 
 + (void)_handleVibrateOnRingOrSilentDidChangeNotification;
-+ (void)_handleSystemVibrationDidChangeNotification;
++ (void)_handleVibrationPreferencesDidChangeNotification;
 + (id)sharedVibrationManager;
 @property(retain, setter=_setAccessQueue:) TLAccessQueue *_accessQueue; // @synthesize _accessQueue;
 @property(retain, nonatomic, setter=_setCachedUserGeneratedVibrationPatterns:) NSDictionary *_cachedUserGeneratedVibrationPatterns; // @synthesize _cachedUserGeneratedVibrationPatterns;
@@ -36,19 +36,24 @@
 @property(readonly, nonatomic) BOOL shouldVibrateOnRing;
 @property(readonly, nonatomic) BOOL shouldVibrateForCurrentRingerSwitchState;
 - (BOOL)_booleanPreferenceForKey:(struct __CFString *)arg1 defaultValue:(BOOL)arg2;
+- (BOOL)_removeAllUserGeneratedVibrationPatternsUsingServiceWithError:(id *)arg1;
+- (BOOL)_setUserGeneratedVibrationPatternsUsingService:(id)arg1 error:(id *)arg2;
+- (id)_retrieveUserGeneratedVibrationPatternsUsingService;
+- (id)_newServiceConnection;
 - (BOOL)_removeAllUserGeneratedVibrationsWithError:(id *)arg1;
 - (unsigned int)_numberOfUserGeneratedVibrations;
 - (BOOL)deleteUserGeneratedVibrationPatternWithIdentifier:(id)arg1 error:(id *)arg2;
 - (BOOL)setName:(id)arg1 forUserGeneratedVibrationWithIdentifier:(id)arg2 error:(id *)arg3;
 - (id)addUserGeneratedVibrationPattern:(id)arg1 name:(id)arg2 error:(id *)arg3;
 - (BOOL)_saveUserGeneratedVibrationPatterns:(id)arg1 error:(id *)arg2;
-- (BOOL)_sendUserGeneratedVibrationPatternsAffectingMessage:(id)arg1 error:(id *)arg2;
+- (void)_didChangeUserGeneratedVibrationPatterns;
 @property(readonly, nonatomic) NSDictionary *_userGeneratedVibrationPatterns;
 - (void)_handleUserGeneratedVibrationsDidChangeNotification;
+- (BOOL)_vibrationIsSettableForAlertType:(int)arg1;
 - (id)_copySystemWideVibrationPatternPreferenceKeyForAlertType:(int)arg1 accountIdentifier:(id)arg2;
 - (BOOL)vibrationWithIdentifierIsValid:(id)arg1;
 - (id)allUserGeneratedVibrationIdentifiers;
-- (id)allSystemVibrationIdentifiers;
+- (id)allUserSelectableSystemVibrationIdentifiers;
 - (id)patternForVibrationWithIdentifier:(id)arg1 repeating:(BOOL)arg2;
 - (id)patternForVibrationWithIdentifier:(id)arg1;
 - (id)nameOfVibrationWithIdentifier:(id)arg1;
@@ -59,7 +64,6 @@
 @property(readonly, nonatomic, getter=_isUnitTestingModeEnabled) BOOL _unitTestingModeEnabled;
 - (id)noneVibrationPattern;
 - (id)noneVibrationName;
-- (id)noneVibrationIdentifier;
 - (id)defaultVibrationPatternForAlertType:(int)arg1;
 - (id)defaultVibrationNameForAlertType:(int)arg1;
 - (id)defaultVibrationIdentifierForAlertType:(int)arg1;
@@ -75,12 +79,6 @@
 - (void)dealloc;
 - (id)_initWithSpecialBehaviors:(unsigned int)arg1;
 - (id)init;
-- (id)currentVibrationPatternForType:(int)arg1;
-- (id)currentVibrationNameForType:(int)arg1;
-- (void)setCurrentVibrationIdentifier:(id)arg1 forType:(int)arg2 accountIdentifier:(id)arg3;
-- (id)currentVibrationIdentifierForType:(int)arg1 accountIdentifier:(id)arg2;
-- (void)setCurrentVibrationIdentifier:(id)arg1 forType:(int)arg2;
-- (id)currentVibrationIdentifierForType:(int)arg1;
 
 @end
 

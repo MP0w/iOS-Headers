@@ -6,17 +6,25 @@
 
 #import "NSObject.h"
 
+@class JSValue, NSMapTable;
+
 @interface JSManagedValue : NSObject
 {
     struct Weak<JSC::JSGlobalObject> m_globalObject;
+    struct RefPtr<JSC::JSLock> m_lock;
     struct WeakValueRef m_weakValue;
+    NSMapTable *m_owners;
 }
 
++ (id)managedValueWithValue:(id)arg1 andOwner:(id)arg2;
 + (id)managedValueWithValue:(id)arg1;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)disconnectValue;
-- (id)value;
+@property(readonly) JSValue *value;
+- (void)didRemoveOwner:(id)arg1;
+- (void)didAddOwner:(id)arg1;
+- (void)dealloc;
 - (id)initWithValue:(id)arg1;
 - (id)init;
 

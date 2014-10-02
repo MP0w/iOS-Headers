@@ -9,7 +9,7 @@
 #import "MPAVControllerNode.h"
 #import "MPControllerProtocol.h"
 
-@class MPAVController, MPAVItem, MPTransitionController, UIView;
+@class MPAVController, MPAVItem, MPTransitionController, NSString, UIView;
 
 @interface MPViewController : UIViewController <MPControllerProtocol, MPAVControllerNode>
 {
@@ -76,7 +76,11 @@
 - (id)init;
 
 // Remaining properties
-@property(readonly, nonatomic) UIView *view;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
+@property(readonly, retain, nonatomic) UIView *view;
 
 @end
 

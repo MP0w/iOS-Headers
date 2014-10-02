@@ -16,9 +16,9 @@
     BOOL _wasInvalidSyncToken;
 }
 
-@property(readonly) BOOL wasInvalidSyncToken; // @synthesize wasInvalidSyncToken=_wasInvalidSyncToken;
-@property(readonly) BOOL moreToSync; // @synthesize moreToSync=_moreToSync;
-@property(readonly) NSString *nextSyncToken; // @synthesize nextSyncToken=_nextSyncToken;
+@property(readonly, nonatomic) BOOL wasInvalidSyncToken; // @synthesize wasInvalidSyncToken=_wasInvalidSyncToken;
+@property(readonly, nonatomic) BOOL moreToSync; // @synthesize moreToSync=_moreToSync;
+@property(readonly, nonatomic) NSString *nextSyncToken; // @synthesize nextSyncToken=_nextSyncToken;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)copyDefaultParserForContentType:(id)arg1;
 - (id)notFoundHREFs;

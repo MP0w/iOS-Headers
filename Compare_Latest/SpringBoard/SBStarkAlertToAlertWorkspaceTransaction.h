@@ -15,16 +15,12 @@
     _Bool _activation;
 }
 
-- (_Bool)selfStarkAlertDidDeactivate:(id)arg1;
-- (_Bool)selfStarkAlertWillDeactivate:(id)arg1;
-- (_Bool)selfStarkAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
-- (_Bool)selfStarkAlertWillActivate:(id)arg1 overAlerts:(id)arg2;
-- (void)_commit;
+- (void)_begin;
 - (id)debugDescription;
 - (void)dealloc;
-- (id)_initWithWorkspace:(id)arg1 mainScreenAlertManager:(id)arg2 starkScreenController:(id)arg3 activatingAlert:(id)arg4 deactivatingAlert:(id)arg5 activation:(_Bool)arg6;
-- (id)initDeactivationWithWorkspace:(id)arg1 mainScreenAlertManager:(id)arg2 starkScreenController:(id)arg3 from:(id)arg4 to:(id)arg5;
-- (id)initActivationWithWorkspace:(id)arg1 mainScreenAlertManager:(id)arg2 starkScreenController:(id)arg3 from:(id)arg4 to:(id)arg5;
+- (id)_initWithMainScreenAlertManager:(id)arg1 starkScreenController:(id)arg2 activatingAlert:(id)arg3 deactivatingAlert:(id)arg4 activation:(_Bool)arg5;
+- (id)initDeactivationWithMainScreenAlertManager:(id)arg1 starkScreenController:(id)arg2 from:(id)arg3 to:(id)arg4;
+- (id)initActivationWithMainScreenAlertManager:(id)arg1 starkScreenController:(id)arg2 from:(id)arg3 to:(id)arg4;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AXNotificationHandler, AXTimer, NSArray, NSDictionary;
+@class AXNotificationHandler, AXTimer, NSArray, NSDictionary, NSMutableArray;
 
 @interface AXVisualAlertManager : NSObject
 {
@@ -30,6 +30,7 @@
     BOOL _captureSessionRunning;
     BOOL _videoConferenceCallRinging;
     BOOL _skipAutomaticStopOnUserInteraction;
+    NSMutableArray *_bulletins;
 }
 
 + (id)sharedVisualAlertManager;

@@ -8,7 +8,7 @@
 
 #import "UIApplicationDelegate.h"
 
-@class UIColor, UIWindow;
+@class NSString, UIColor, UIWindow;
 
 @interface SUApplication : UIApplication <UIApplicationDelegate>
 {
@@ -26,7 +26,7 @@
 - (void)_storeEnabledChangeNotification:(id)arg1;
 - (double)defaultImageSnapshotExpiration;
 - (void)applicationWillEnterForeground:(id)arg1;
-- (BOOL)applicationSuspend:(struct __GSEvent *)arg1 settings:(id)arg2;
+- (BOOL)applicationSuspendWithSettings:(id)arg1;
 - (void)applicationDidFinishLaunching:(id)arg1;
 - (void)applicationDidEnterBackground:(id)arg1;
 - (unsigned int)application:(id)arg1 supportedInterfaceOrientationsForWindow:(id)arg2;
@@ -39,6 +39,10 @@
 - (void)runTestInvocation:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 @property(retain, nonatomic) UIWindow *window;
 
 @end

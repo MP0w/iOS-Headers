@@ -8,7 +8,7 @@
 
 #import "_UISwitchInternalViewProtocol.h"
 
-@class UIColor, UIImage, UIImageView;
+@class NSString, UIColor, UIImage, UIImageView;
 
 __attribute__((visibility("hidden")))
 @interface _UISwitchInternalViewNeueStyle1 : UIView <_UISwitchInternalViewProtocol>
@@ -95,6 +95,12 @@ __attribute__((visibility("hidden")))
 - (void)_invalidateControl;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

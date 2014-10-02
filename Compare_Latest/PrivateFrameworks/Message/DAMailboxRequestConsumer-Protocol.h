@@ -9,6 +9,9 @@
 @class NSArray, NSString;
 
 @protocol DAMailboxRequestConsumer <DAActionConsumer>
+
+@optional
+- (void)resultsForMailbox:(NSString *)arg1 newTag:(NSString *)arg2 actions:(NSArray *)arg3 responses:(NSArray *)arg4 percentComplete:(double)arg5 moreAvailable:(BOOL)arg6 sentBytesCount:(unsigned int)arg7 receivedBytesCount:(unsigned int)arg8;
 - (void)resultsForMailbox:(NSString *)arg1 newTag:(NSString *)arg2 actions:(NSArray *)arg3 responses:(NSArray *)arg4 percentComplete:(double)arg5 moreAvailable:(BOOL)arg6;
 @end
 

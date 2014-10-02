@@ -11,8 +11,9 @@
 @protocol SKUIItemStateCenterObserver <NSObject>
 
 @optional
-- (void)itemStateCenter:(SKUIItemStateCenter *)arg1 didFinishPurchases:(NSArray *)arg2;
 - (void)itemStateCenterRestrictionsChanged:(SKUIItemStateCenter *)arg1;
+- (void)itemStateCenterMediaLibrariesDidChange:(SKUIItemStateCenter *)arg1;
+- (void)itemStateCenter:(SKUIItemStateCenter *)arg1 didFinishPurchases:(NSArray *)arg2;
 - (void)itemStateCenter:(SKUIItemStateCenter *)arg1 itemStatesChanged:(NSSet *)arg2;
 @end
 

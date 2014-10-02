@@ -8,7 +8,7 @@
 
 #import "SBIconIndexNodeObserver.h"
 
-@class SBFMappedImageCache;
+@class NSString, SBFMappedImageCache;
 
 @interface SBWallpaperPreviewSnapshotCache : NSObject <SBIconIndexNodeObserver>
 {
@@ -29,6 +29,12 @@
 - (void)invalidateSnapshotsForLocations:(long long)arg1;
 - (void)dealloc;
 - (id)initWithImageCache:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

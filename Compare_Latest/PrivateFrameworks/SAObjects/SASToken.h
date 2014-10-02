@@ -20,10 +20,18 @@
 @property(copy, nonatomic) NSNumber *startTime;
 @property(nonatomic) BOOL removeSpaceBefore;
 @property(nonatomic) BOOL removeSpaceAfter;
+@property(copy, nonatomic) NSString *recognitionStability;
+@property(copy, nonatomic) NSString *originalText;
 @property(copy, nonatomic) NSNumber *endTime;
 @property(copy, nonatomic) NSNumber *confidenceScore;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

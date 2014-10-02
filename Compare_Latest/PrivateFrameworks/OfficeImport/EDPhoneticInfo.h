@@ -27,19 +27,26 @@ __attribute__((visibility("hidden")))
 - (id)runs;
 - (void)setFont:(id)arg1;
 - (id)font;
+- (void)appendString:(id)arg1;
+- (void)prependString:(id)arg1;
 - (void)setString:(id)arg1;
 - (id)string;
 - (void)setAlign:(int)arg1;
 - (int)align;
 - (void)setType:(int)arg1;
 - (int)type;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isEqualToEDPhoneticInfo:(id)arg1;
 - (void)dealloc;
 - (id)initWithResources:(id)arg1;
 - (void)setFontIndex:(unsigned int)arg1;
 - (unsigned int)fontIndex;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

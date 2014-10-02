@@ -19,12 +19,12 @@
 }
 
 + (id)copyParseRules;
-@property(retain) CoreDAVItemWithNoChildren *selfItem; // @synthesize selfItem=_selfItem;
-@property(retain) CoreDAVItem *property; // @synthesize property=_property;
-@property(retain) CoreDAVItemWithNoChildren *unauthenticated; // @synthesize unauthenticated=_unauthenticated;
-@property(retain) CoreDAVItemWithNoChildren *authenticated; // @synthesize authenticated=_authenticated;
-@property(retain) CoreDAVItemWithNoChildren *all; // @synthesize all=_all;
-@property(retain) CoreDAVHrefItem *href; // @synthesize href=_href;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *selfItem; // @synthesize selfItem=_selfItem;
+@property(retain, nonatomic) CoreDAVItem *property; // @synthesize property=_property;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *unauthenticated; // @synthesize unauthenticated=_unauthenticated;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *authenticated; // @synthesize authenticated=_authenticated;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *all; // @synthesize all=_all;
+@property(retain, nonatomic) CoreDAVHrefItem *href; // @synthesize href=_href;
 - (id)hashString;
 - (void)write:(id)arg1;
 - (id)description;

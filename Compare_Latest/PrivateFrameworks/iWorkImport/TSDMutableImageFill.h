@@ -13,7 +13,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (void)setScale:(float)arg1;
+@property(nonatomic) BOOL interpretsUntaggedImageDataAsGeneric; // @dynamic interpretsUntaggedImageDataAsGeneric;
+@property(nonatomic) float scale; // @dynamic scale;
 @property(nonatomic) struct CGSize fillSize; // @dynamic fillSize;
 @property(retain, nonatomic) TSPData *imageData; // @dynamic imageData;
 @property(nonatomic) int technique; // @dynamic technique;

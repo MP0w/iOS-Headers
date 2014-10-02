@@ -6,9 +6,16 @@
 
 #import "NSObject.h"
 
+@class NSError;
+
 @interface NSStream : NSObject
 {
 }
 
+
+// Remaining properties
+@property id <NSStreamDelegate> delegate; // @dynamic delegate;
+@property(readonly, copy) NSError *streamError; // @dynamic streamError;
+@property(readonly) unsigned int streamStatus; // @dynamic streamStatus;
 @end
 

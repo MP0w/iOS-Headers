@@ -19,7 +19,7 @@
     BOOL _mismatchDetected;
 }
 
-@property(readonly) BOOL mismatchDetected; // @synthesize mismatchDetected=_mismatchDetected;
+@property(readonly, nonatomic) BOOL mismatchDetected; // @synthesize mismatchDetected=_mismatchDetected;
 @property(retain, nonatomic) CoreDAVItemParserMapping *bestServerChecksumVersion; // @synthesize bestServerChecksumVersion=_bestServerChecksumVersion;
 @property(retain, nonatomic) NSArray *preferredChecksumVersions; // @synthesize preferredChecksumVersions=_preferredChecksumVersions;
 - (void)deleteResourceURLs:(id)arg1;

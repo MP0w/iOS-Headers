@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <VectorKit/VKDrawStyle.h>
+#import <VectorKit/VKRenderStyle.h>
 
 __attribute__((visibility("hidden")))
-@interface VKRoadDrawStyle : VKDrawStyle
+@interface VKRoadDrawStyle : VKRenderStyle
 {
     struct VKProfileSparseRamp<float> width;
     struct VKProfileSparseRamp<float> strokeWidth;
@@ -20,27 +20,18 @@ __attribute__((visibility("hidden")))
     struct VKProfileSparseRamp<int> fillZIndices;
     struct VKProfileSparseRamp<signed char> strokeColorInterpolate;
     struct VKProfileSparseRamp<signed char> fillColorInterpolate;
-    int railroadPattern;
+    unsigned char railroadPattern;
     struct VKProfileSparseRamp<_VGLColor> alternateFillColor;
     struct VKProfileSparseRamp<float> patternScaler;
     struct VKProfileSparseRamp<float> patternScalerQuantizationFactor;
     struct VKProfileSparseRamp<signed char> renderEndCaps;
-    float trafficIncidentUnknownMinZ;
-    float trafficIncidentAccidentMinZ;
-    float trafficIncidentConstructionMinZ;
-    float trafficIncidentRoadClosureMinZ;
-    float trafficIncidentEventMinZ;
-    float trafficIncidentHazardMinZ;
-    float trafficIncidentLaneClosureMinZ;
-    float trafficIncidentRampClosureMinZ;
 }
 
++ (int)renderStyleID;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (int)railroadPattern;
-- (void)takeFromZoomInvariantProperties:(id)arg1;
-- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2 globals:(id)arg3;
-- (id)variant;
+- (BOOL)visibleAtZoom:(float)arg1;
+- (unsigned char)railroadPattern;
 
 @end
 

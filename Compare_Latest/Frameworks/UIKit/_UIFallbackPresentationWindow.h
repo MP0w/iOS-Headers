@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (BOOL)_isSystemWindow;
 - (BOOL)_includeInDefaultImageSnapshot;
 - (BOOL)_canAffectStatusBarAppearance;
 

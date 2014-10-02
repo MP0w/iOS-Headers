@@ -17,9 +17,17 @@ __attribute__((visibility("hidden")))
     int _lastLaidOutPosition;
 }
 
++ (float)detailsCellDefaultHeight;
++ (float)detailsPostLabelSpace;
++ (float)detailsBottomVerticalInset;
++ (float)detailsTopVerticalInset;
++ (float)_scaledDistanceCalculatedFromBottomToBaseline:(float)arg1;
++ (float)_scaledDistanceCalculatedFromTopFromBaseline:(float)arg1;
++ (id)_bodyFontAtDefaultSize;
 - (void).cxx_destruct;
 - (BOOL)needsLayoutForWidth:(float)arg1 position:(int)arg2;
 - (void)layoutForWidth:(float)arg1 position:(int)arg2;
+- (void)sizeToFit;
 - (BOOL)update;
 @property(readonly, nonatomic) BOOL isEditable;
 - (void)setEvent:(id)arg1;

@@ -4,18 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "SBSimplePreferenceFileLogger.h"
+#import "SBFileLogger.h"
 
-@interface SBIconLogger : SBSimplePreferenceFileLogger
+@interface SBIconLogger : SBFileLogger
 {
 }
 
-+ (_Bool)isIconLoggingEnabled;
-- (void)reloadFromDefaults;
-- (id)consoleFormat:(id)arg1 withArguments:(struct __va_list_tag [1])arg2;
+- (id)logPrefixForCategory:(id)arg1 destination:(unsigned long long)arg2;
 - (id)logPreferenceName;
 - (int)maxLogCount;
+- (void)_setEnabled:(_Bool)arg1;
 - (id)name;
+- (_Bool)isEnabled;
 
 @end
 

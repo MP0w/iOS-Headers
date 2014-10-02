@@ -25,8 +25,8 @@
 - (void)_didPrepareWithResult:(BOOL)arg1 error:(id)arg2;
 - (void)_didFinishWithResult:(BOOL)arg1 error:(id)arg2;
 - (void)viewDidAppear:(BOOL)arg1;
-- (void)prepareWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)loadView;
+- (void)prepareWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithCompositionURL:(id)arg1;

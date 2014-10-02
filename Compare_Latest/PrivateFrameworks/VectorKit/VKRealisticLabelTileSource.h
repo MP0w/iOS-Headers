@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (int)_labelTileType;
+- (unsigned char)_labelTileType;
 - (int)minimumZoomLevel;
 
 @end

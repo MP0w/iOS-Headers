@@ -6,7 +6,6 @@
 
 #import <MusicLibrary/ML3Entity.h>
 
-__attribute__((visibility("hidden")))
 @interface ML3StoreLink : ML3Entity
 {
 }

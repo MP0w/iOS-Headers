@@ -6,18 +6,22 @@
 
 #import "NSObject.h"
 
+@class NSObject<OS_xpc_object>;
+
 __attribute__((visibility("hidden")))
 @interface _NSXPCConnectionReplyTable : NSObject
 {
-    struct __CFDictionary *_replyTable;
+    NSObject<OS_xpc_object> *_replyTable;
+    struct __CFDictionary *_progressTable;
     int _replyTableLock;
     unsigned long long _sequence;
 }
 
-- (id)replyInfoForSequence:(unsigned long long)arg1;
-- (unsigned long long)sequenceForReplyBlock:(id)arg1 errorBlock:(CDUnknownBlockType)arg2 cleanupBlock:(CDUnknownBlockType)arg3 protocol:(id)arg4 selector:(SEL)arg5 proxyNumber:(unsigned long long)arg6 userInfo:(id)arg7;
-- (void)invokeErrorBlockForSequence:(unsigned long)arg1 withError:(id)arg2;
-- (void)cleanupReplyBlocksWithError:(id)arg1;
+- (id)progressForSequence:(unsigned long long)arg1;
+- (void)removeProgressSequence:(unsigned long long)arg1;
+- (unsigned long long)sequenceForProgress:(id)arg1;
+- (id)copyReplyDictionaryForSequence:(unsigned long long)arg1;
+- (unsigned long long)sequenceForEvent:(id)arg1;
 - (void)finalize;
 - (void)dealloc;
 - (id)init;

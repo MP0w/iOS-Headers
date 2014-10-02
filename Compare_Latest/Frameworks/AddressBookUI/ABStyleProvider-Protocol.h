@@ -5,10 +5,11 @@
 //
 
 #import "NSObject.h"
+#import "NSSecureCoding.h"
 
 @class NSIndexPath, NSString, UIButton, UIColor, UIFont, UIImage, UITableView, UITableViewCell, UIView, _UIGraphicsLetterpressStyle;
 
-@protocol ABStyleProvider <NSObject>
+@protocol ABStyleProvider <NSObject, NSSecureCoding>
 @property(readonly, nonatomic) int groupCellSelectionStyle;
 @property(readonly, nonatomic) struct CGSize groupCellShadowOffset;
 @property(readonly, nonatomic) UIColor *groupCellShadowColor;
@@ -37,6 +38,8 @@
 @property(readonly, nonatomic) int pickerTransitionStyle;
 @property(readonly, nonatomic) BOOL shouldPropagateStylesToPickers;
 @property(readonly, nonatomic) BOOL shouldPropagateStylesThroughUnknownPersonActions;
+@property(readonly, nonatomic) UIColor *membersSearchCellBackgroundColor;
+@property(readonly, nonatomic) UIColor *membersSearchBackgroundColor;
 @property(readonly, nonatomic) UIColor *membersBackgroundColor;
 @property(readonly, nonatomic) UIView *memberHeaderBackgroundView;
 @property(readonly, nonatomic) UIColor *membersHeaderBackgroundColor;
@@ -154,6 +157,7 @@
 @property(readonly, nonatomic) UIColor *cardLabelDisabledTextColor;
 @property(readonly, nonatomic) UIColor *cardLabelTextColor;
 @property(readonly, nonatomic) UIColor *cardLabelSelectedBackgroundColor;
+@property(readonly, nonatomic) UIColor *cardSectionBackgroundColor;
 @property(readonly, nonatomic) UIColor *cardTableBackgroundColor;
 @property(readonly, nonatomic) float cardHeaderEditingImageLeftMargin;
 @property(readonly, nonatomic) float cardHeaderEditingImageTopMargin;

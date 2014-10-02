@@ -8,7 +8,7 @@
 
 #import "UITextFieldDelegate.h"
 
-@class NSMutableArray;
+@class NSMutableArray, NSString;
 
 @interface ABMultiCellContentView_Rows : ABMultiCellContentView <UITextFieldDelegate>
 {
@@ -44,6 +44,12 @@
 - (id)keyboardSettingsForKey:(id)arg1;
 - (id)entryFieldForRow:(unsigned int)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -16,6 +16,10 @@
 + (id)attendeeWithName:(id)arg1 emailAddress:(id)arg2 address:(id)arg3;
 + (id)relations;
 + (id)defaultPropertiesToLoad;
+@property(nonatomic) BOOL statusChanged;
+@property(nonatomic) BOOL commentChanged;
+- (BOOL)_valueForFlag:(unsigned int)arg1;
+- (void)_setFlag:(unsigned int)arg1 value:(BOOL)arg2;
 @property(copy, nonatomic) NSDate *lastModified;
 - (id)owner;
 - (void)setOwner:(id)arg1;

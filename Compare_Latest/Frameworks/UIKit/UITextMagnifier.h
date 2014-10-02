@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
     int _autoscrollDirections;
 }
 
-+ (id)getLoupeBackgroundColorForViewService:(id)arg1;
++ (id)getLoupeBackgroundColor:(id)arg1;
 @property(retain, nonatomic) UIResponder<UITextInput> *text; // @synthesize text=_text;
 @property(nonatomic) struct CGPoint animationPoint; // @synthesize animationPoint=_animationPoint;
 @property(retain, nonatomic) UIView *target; // @synthesize target=_target;

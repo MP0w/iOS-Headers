@@ -12,24 +12,26 @@
 
 + (BOOL)wasLaunchedFromLibrary;
 + (id)tabBarController;
++ (BOOL)showPreviewOverlayAnimated:(BOOL)arg1;
++ (void)setClientBridge:(id)arg1;
 + (BOOL)sendActionForDialog:(id)arg1 button:(id)arg2;
 + (id)scriptExecutionContext;
++ (id)previewOverlayViewController;
 + (BOOL)presentOverlayBackgroundViewController:(id)arg1;
 + (id)overlayConfigurationForStorePage:(id)arg1;
 + (id)overlayBackgroundViewController;
-+ (BOOL)openClientURL:(id)arg1;
 + (id)newScriptInterface;
 + (BOOL)matchesClientApplication:(id)arg1;
 + (BOOL)isTabBarControllerLoaded;
 + (id)imagePool;
 + (id)imageCache;
++ (BOOL)hidePreviewOverlayAnimated:(BOOL)arg1;
 + (id)exitStoreButtonTitle;
 + (BOOL)enterAccountFlowWithViewController:(id)arg1 animated:(BOOL)arg2;
 + (void)dismissOverlayBackgroundViewController;
 + (BOOL)composeReviewWithViewController:(id)arg1 animated:(BOOL)arg2;
 + (void)composeEmailWithSubject:(id)arg1 body:(id)arg2;
 + (id)clientInterface;
-+ (struct __CFArray *)assetTypes;
 
 @end
 

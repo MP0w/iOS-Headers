@@ -8,7 +8,7 @@
 
 #import "SSMetricsEventFieldProvider.h"
 
-@class NSNumber, NSString, NSURL, SKUICountdown, SKUIItem;
+@class NSDictionary, NSNumber, NSString, NSURL, SKUICountdown, SKUIItem;
 
 @interface SKUILink : NSObject <SSMetricsEventFieldProvider>
 {
@@ -28,10 +28,18 @@
 - (void).cxx_destruct;
 - (void)_setItem:(id)arg1;
 - (id)valueForMetricsField:(id)arg1;
+@property(readonly, nonatomic) NSDictionary *linkDictionary;
 @property(readonly, nonatomic, getter=isActionable) BOOL actionable;
+- (id)initWithURL:(id)arg1 title:(id)arg2 targetString:(id)arg3;
 - (id)initWithURL:(id)arg1;
 - (id)initWithComponentContext:(id)arg1;
 - (id)initWithLinkDictionary:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

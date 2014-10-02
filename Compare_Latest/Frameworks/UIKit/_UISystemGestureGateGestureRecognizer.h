@@ -6,12 +6,15 @@
 
 #import <UIKit/UIGestureRecognizer.h>
 
+@class NSTimer;
+
 __attribute__((visibility("hidden")))
 @interface _UISystemGestureGateGestureRecognizer : UIGestureRecognizer
 {
     unsigned int _systemGesturesRecognitionPossible:1;
     unsigned int _waitingForSystemGestureStateNotification:1;
     double _lastTouchTime;
+    NSTimer *_delayTimeoutTimer;
 }
 
 - (id)_gateGestureTypeString;
@@ -22,10 +25,12 @@ __attribute__((visibility("hidden")))
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (void)_timeOut;
 - (int)_gateGestureType;
 - (void)_systemGestureStateChanged:(id)arg1;
 - (void)_resetGestureRecognizer;
 - (void)dealloc;
+- (id)initWithWindow:(id)arg1;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2;
 
 @end

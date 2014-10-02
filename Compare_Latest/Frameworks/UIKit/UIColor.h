@@ -116,6 +116,11 @@
 + (id)_alternateBackgroundColor2;
 + (id)_alternateBackgroundColor;
 + (id)_webContentBackgroundColor;
++ (id)_vibrantDarkFillDodgeColor;
++ (id)_vibrantLightFillDarkeningColor;
++ (id)_vibrantLightFillBurnColor;
++ (id)_vibrantLightDividerDarkeningColor;
++ (id)_vibrantLightDividerBurnColor;
 + (id)_systemSelectedColor;
 + (id)_externalBarBackgroundColor;
 + (id)_alternateGrayColorForFontSize:(float)arg1;

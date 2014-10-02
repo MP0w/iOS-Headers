@@ -8,6 +8,8 @@
 
 #import "UIElementProtocol.h"
 
+@class NSString;
+
 @interface AXUIElement : NSObject <UIElementProtocol>
 {
     struct __AXUIElement *_axElement;
@@ -18,6 +20,7 @@
 
 + (id)uiApplicationAtCoordinate:(struct CGPoint)arg1;
 + (id)uiElementAtCoordinate:(struct CGPoint)arg1 startWithElement:(id)arg2;
++ (id)uiElementAtCoordinate:(struct CGPoint)arg1 hitTestOrientation:(int)arg2;
 + (id)uiElementAtCoordinate:(struct CGPoint)arg1;
 + (id)uiElementWithAXElement:(struct __AXUIElement *)arg1 cache:(struct __CFDictionary *)arg2;
 + (id)uiElementWithAXElement:(struct __AXUIElement *)arg1;
@@ -82,11 +85,16 @@
 - (void)setAXElement:(struct __AXUIElement *)arg1;
 @property(readonly, nonatomic) struct __AXUIElement *axElement; // @synthesize axElement=_axElement;
 - (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (int)pid;
 - (void)dealloc;
 - (id)initWithAXElement:(struct __AXUIElement *)arg1;
 - (id)initWithAXElement:(struct __AXUIElement *)arg1 cache:(struct __CFDictionary *)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

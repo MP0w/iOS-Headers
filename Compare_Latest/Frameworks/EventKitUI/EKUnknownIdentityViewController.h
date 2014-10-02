@@ -8,7 +8,7 @@
 
 #import "ABUnknownPersonViewControllerDelegate.h"
 
-@class ABUnknownPersonViewController;
+@class ABUnknownPersonViewController, NSString;
 
 __attribute__((visibility("hidden")))
 @interface EKUnknownIdentityViewController : UIViewController <ABUnknownPersonViewControllerDelegate>
@@ -22,6 +22,12 @@ __attribute__((visibility("hidden")))
 - (void)setIdentity:(id)arg1;
 - (void)loadView;
 - (id)initWithIdentity:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

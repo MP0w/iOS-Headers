@@ -9,6 +9,8 @@
 @class ACAccount, ACAccountType, NSArray, NSDictionary, NSNumber, NSString, NSURL;
 
 @protocol ACDAccountStoreProtocol <NSObject>
+- (void)notifyRemoteDevicesOfModifiedAccount:(ACAccount *)arg1 withChangeType:(NSString *)arg2 completion:(void (^)(BOOL, NSError *))arg3;
+- (void)notifyRemoteDevicesOfModifiedAccount:(ACAccount *)arg1 withChangeType:(NSString *)arg2;
 - (void)openAuthenticationURL:(NSURL *)arg1 forAccount:(ACAccount *)arg2 shouldConfirm:(BOOL)arg3 completion:(void (^)(BOOL, NSError *))arg4;
 - (void)clientTokenForAccountIdentifier:(NSString *)arg1 completion:(void (^)(NSString *, NSError *))arg2;
 - (void)addClientToken:(NSString *)arg1 forAccountIdentifier:(NSString *)arg2 completion:(void (^)(BOOL, NSError *))arg3;
@@ -43,7 +45,7 @@
 - (void)dataclassesWithHandler:(void (^)(NSArray *, NSError *))arg1;
 - (void)provisionedDataclassesForAccountWithIdentifier:(NSString *)arg1 handler:(void (^)(NSSet *, NSError *))arg2;
 - (void)enabledDataclassesForAccountWithIdentifier:(NSString *)arg1 handler:(void (^)(NSSet *, NSError *))arg2;
-- (void)credentialForAccountWithIdentifier:(NSString *)arg1 bundleID:(NSString *)arg2 handler:(void (^)(ACAccountCredential *, NSError *))arg3;
+- (void)credentialForAccount:(ACAccount *)arg1 serviceID:(NSString *)arg2 handler:(void (^)(ACAccountCredential *, NSError *))arg3;
 - (void)credentialForAccountWithIdentifier:(NSString *)arg1 handler:(void (^)(ACAccountCredential *, NSError *))arg2;
 - (void)accountTypeWithIdentifier:(NSString *)arg1 handler:(void (^)(ACAccountType *, NSError *))arg2;
 - (void)displayAccountTypeForAccountWithIdentifier:(NSString *)arg1 handler:(void (^)(ACAccountType *, NSError *))arg2;
@@ -60,7 +62,7 @@
 - (void)accountWithIdentifier:(NSString *)arg1 handler:(void (^)(ACAccount *, NSError *))arg2;
 - (void)accountTypesWithHandler:(void (^)(NSArray *, NSError *))arg1;
 - (void)accountsWithHandler:(void (^)(NSArray *, NSError *))arg1;
-- (void)setNotificationsEnabledNum:(BOOL)arg1;
+- (void)setNotificationsEnabled:(BOOL)arg1;
 - (void)setClientBundleID:(NSString *)arg1 withHandler:(void (^)(BOOL, NSError *))arg2;
 @end
 

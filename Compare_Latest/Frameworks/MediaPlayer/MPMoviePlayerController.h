@@ -31,7 +31,7 @@
 - (double)duration;
 - (int)movieSourceType;
 - (void)setMovieSourceType:(int)arg1;
-- (int)movieMediaTypes;
+- (unsigned int)movieMediaTypes;
 - (void)skipToPreviousItem;
 - (void)skipToBeginning;
 - (void)skipToNextItem;
@@ -52,7 +52,7 @@
 @property(nonatomic) BOOL shouldAutoplay;
 @property(nonatomic) int repeatMode;
 @property(nonatomic) int controlStyle;
-@property(readonly, nonatomic) int loadState;
+@property(readonly, nonatomic) unsigned int loadState;
 @property(readonly, nonatomic) int playbackState;
 @property(readonly, nonatomic) UIView *backgroundView;
 @property(readonly, nonatomic) UIView *view;
@@ -60,9 +60,10 @@
 - (void)forwardInvocation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)dealloc;
-- (id)initWithContentURL:(id)arg1;
-- (id)initWithAsset:(id)arg1;
 - (id)init;
+- (id)initWithPlayerItem:(id)arg1;
+- (id)initWithAsset:(id)arg1;
+- (id)initWithContentURL:(id)arg1;
 
 @end
 

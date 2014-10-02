@@ -6,7 +6,7 @@
 
 #import <MapKit/MKSearchCompleter.h>
 
-@class GEOSearchRequest, NSArray, NSTimer;
+@class NSArray, NSTimer;
 
 @interface MKLocalSearchCompleter : MKSearchCompleter
 {
@@ -14,16 +14,14 @@
     BOOL _dirty;
     NSArray *_results;
     NSTimer *_timer;
-    GEOSearchRequest *_request;
+    id <GEOMapServiceCompletionTicket> _ticket;
     int _source;
 }
 
-+ (void)initialize;
 - (void).cxx_destruct;
 - (id)results;
 - (void)retry;
 - (void)cancel;
-- (void)_cancelRequest;
 - (void)_cancelTimer;
 - (BOOL)resultsAreCurrent;
 - (BOOL)isSearching;
@@ -35,8 +33,8 @@
 - (void)_markDirty;
 - (void)_schedulePendingRequest;
 - (void)_fireRequest;
-- (void)_handleError:(id)arg1 forRequest:(id)arg2;
-- (void)_handleResponse:(id)arg1 forRequest:(id)arg2;
+- (void)_handleError:(id)arg1 forTicket:(id)arg2;
+- (void)_handleCompletion:(id)arg1 forTicket:(id)arg2;
 - (void)dealloc;
 - (id)init;
 

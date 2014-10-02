@@ -8,7 +8,7 @@
 
 @protocol TSCH3DChartAnimationRendering
 - (void)renderAnimationFrame:(float)arg1 drawingFrame:(struct CGRect)arg2 chunkStage:(int)arg3;
-- (CALayer *)animationLayerWithFrame:(struct CGRect)arg1 scale:(float)arg2 colorSpace:(struct CGColorSpace *)arg3 returningDrawingFrame:(struct CGRect *)arg4 TSDGLLayer:(id *)arg5;
+- (CALayer *)animationLayerWithFrame:(struct CGRect)arg1 untransformedFrame:(struct CGRect)arg2 scale:(float)arg3 colorSpace:(struct CGColorSpace *)arg4 returningDrawingFrame:(struct CGRect *)arg5 TSDGLLayer:(id *)arg6;
 - (void)setAnimationType:(int)arg1 chunkStage:(int)arg2 buildType:(int)arg3 textureDeliveryStyle:(unsigned int)arg4 attributes:(NSDictionary *)arg5;
 - (void)animationDidEndForChunkStage:(int)arg1;
 - (void)animationWillBeginForChunkStage:(int)arg1;

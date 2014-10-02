@@ -11,6 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface VKMapMatch : NSObject
 {
+    CDStruct_153464bf *roadFeature;
     NSString *featureName;
     CDStruct_2c43369c coordinateOnFeature;
     double courseOnFeature;
@@ -25,10 +26,11 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) double courseOnFeature; // @synthesize courseOnFeature;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinateOnFeature; // @synthesize coordinateOnFeature;
 @property(readonly, nonatomic) NSString *featureName; // @synthesize featureName;
+@property(readonly, nonatomic) CDStruct_153464bf *roadFeature; // @synthesize roadFeature;
 - (id).cxx_construct;
 - (id)description;
 - (void)dealloc;
-- (id)initWithGEORoadFeature:(CDStruct_c272c4e8 *)arg1 pointOnFeature:(struct VKPoint)arg2 courseOnFeature:(float)arg3 distanceFromJunction:(float)arg4 junctionRadius:(float)arg5 roadWidth:(float)arg6;
+- (id)initWithGEORoadFeature:(CDStruct_153464bf *)arg1 pointOnFeature:(struct VKPoint)arg2 courseOnFeature:(float)arg3 distanceFromJunction:(float)arg4 junctionRadius:(float)arg5 roadWidth:(float)arg6;
 
 @end
 

@@ -9,7 +9,7 @@
 #import "NSSecureCoding.h"
 #import "NSXPCListenerDelegate.h"
 
-@class NSObject<OS_dispatch_queue>, NSXPCListener, NSXPCListenerEndpoint;
+@class NSObject<OS_dispatch_queue>, NSString, NSXPCListener, NSXPCListenerEndpoint;
 
 @interface VSGenericUpdateEndpoint : NSObject <NSXPCListenerDelegate, NSSecureCoding>
 {
@@ -32,6 +32,12 @@
 - (void)invalidate;
 - (BOOL)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -9,12 +9,12 @@
 #import "BBRemoteDataProvider.h"
 #import "SBPushStoreObserver.h"
 
-@class BBDataProviderProxy, BBSectionInfo, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
+@class BBDataProviderProxy, BBSectionInfo, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
 
 @interface RLNDataProvider : NSObject <SBPushStoreObserver, BBRemoteDataProvider>
 {
     NSString *_sectionID;
-    NSMutableSet *_publisherBulletinIDs;
+    NSMutableArray *_publisherBulletinIDs;
     BBSectionInfo *_defaultSectionInfo;
     NSString *_displayName;
     unsigned long long _pushSettings;
@@ -22,6 +22,7 @@
     NSObject<OS_dispatch_queue> *_queue;
 }
 
++ (struct CGSize)_sizeFromSizeConstraint:(id)arg1 originalSize:(struct CGSize)arg2;
 @property(retain, nonatomic) BBDataProviderProxy *proxy; // @synthesize proxy=_proxy;
 - (void)pushStoreUserDeclinedDelivery;
 - (void)pushStoreUserAcceptedDelivery;
@@ -39,6 +40,11 @@
 - (id)_allBulletinsWithLimit:(unsigned long long)arg1;
 - (void)_cleanupMigrationFromBrightonWithLastClearedDate:(id)arg1;
 - (id)_latestBulletinInSet:(id)arg1;
+- (unsigned long long)_bbActivationModeFromUIActivationMode:(unsigned long long)arg1;
+- (id)_bbActionFromUIUserNotificationAction:(id)arg1;
+- (id)_actionsForCategoryIdentifier:(id)arg1 context:(unsigned long long)arg2;
+- (id)_supplementaryActionsForPushStoreNotification:(id)arg1 context:(unsigned long long)arg2;
+- (id)_defaultActionWithTitle:(id)arg1;
 - (id)_bulletinForNotification:(id)arg1;
 - (id)_publisherBulletinIDForNotification:(id)arg1;
 - (id)sectionDisplayName;
@@ -50,6 +56,15 @@
 - (void)invalidate;
 - (void)dealloc;
 - (id)initWithSectionID:(id)arg1 displayName:(id)arg2 queue:(id)arg3;
+- (float)attachmentAspectRatioForRecordID:(id)arg1;
+- (id)attachmentPNGDataForRecordID:(id)arg1 sizeConstraints:(id)arg2;
+- (id)_imageForRecordID:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

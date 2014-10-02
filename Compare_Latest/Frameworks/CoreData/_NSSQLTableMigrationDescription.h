@@ -41,9 +41,11 @@ __attribute__((visibility("hidden")))
 - (id)createDeleteStatementForEntityMigrations:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
 - (void)appendStatementsToCompleteMigration:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
 - (void)appendStatementsToPerformMigration:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
-- (void)appendStatementsToPrepareForMigration:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
+- (void)appendStatementsToCreateOrDropTables:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
+- (void)appendStatementsToRenameTables:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
 - (BOOL)_hasTransformedTableSchema;
 - (void)addEntityMigrationDescription:(id)arg1;
+- (id)description;
 - (void)dealloc;
 - (id)initWithRootEntity:(id)arg1 migrationType:(int)arg2;
 

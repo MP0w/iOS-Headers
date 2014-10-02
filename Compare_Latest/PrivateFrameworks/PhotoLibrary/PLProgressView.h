@@ -10,6 +10,7 @@
 
 @interface PLProgressView : UIView
 {
+    UIButton *_cancelButton;
     UILabel *_labelView;
     UIProgressView *_progressView;
     UIView *_topDivider;
@@ -20,21 +21,18 @@
     UIView *_backgroundView;
     UIView *_backgroundTintedView;
     _UIBackdropView *_backgroundBlurredView;
-    UIButton *_cancelButton;
     BOOL _showsCancelButton;
-    float _percentComplete;
     CDUnknownBlockType _cancelationHandler;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType cancelationHandler; // @synthesize cancelationHandler=_cancelationHandler;
 @property(nonatomic) BOOL showsCancelButton; // @synthesize showsCancelButton=_showsCancelButton;
-@property(retain, nonatomic) UILabel *labelView; // @synthesize labelView=_labelView;
 @property(retain, nonatomic) _UIBackdropView *backgroundBlurredView; // @synthesize backgroundBlurredView=_backgroundBlurredView;
 @property(retain, nonatomic) UIView *backgroundTintedView; // @synthesize backgroundTintedView=_backgroundTintedView;
 @property(retain, nonatomic) UIView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(nonatomic) int backgroundType; // @synthesize backgroundType=_backgroundType;
 - (void)_cancel:(id)arg1;
-@property(nonatomic) float percentComplete; // @synthesize percentComplete=_percentComplete;
+@property(nonatomic) float percentComplete;
 - (void)setLabelText:(id)arg1;
 - (void)updateUIForPublishingAgent:(id)arg1;
 - (void)_removeBackgroundTintedView;

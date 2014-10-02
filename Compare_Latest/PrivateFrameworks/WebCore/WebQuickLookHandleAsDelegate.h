@@ -8,19 +8,28 @@
 
 #import "NSURLConnectionDelegate.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface WebQuickLookHandleAsDelegate : NSObject <NSURLConnectionDelegate>
 {
-    struct _CFURLConnection *m_connection;
-    struct ResourceHandle *m_handle;
+    struct RefPtr<WebCore::SynchronousResourceHandleCFURLConnectionDelegate> m_connectionDelegate;
 }
 
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)clearHandle;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2 lengthReceived:(long long)arg3;
 - (void)connection:(id)arg1 didReceiveDataArray:(id)arg2;
-- (id)initWithConnection:(struct _CFURLConnection *)arg1 handle:(struct ResourceHandle *)arg2;
+-     // Error parsing type: @12@0:4^{SynchronousResourceHandleCFURLConnectionDelegate=^^?{atomic<int>=Ai}^{ResourceHandle}{RetainPtr<const __CFString *>=^v}}8, name: initWithConnectionDelegate:
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

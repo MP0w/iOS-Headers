@@ -20,7 +20,7 @@
     NSMutableDictionary *_sectionIDsToOrderedBulletins;
 }
 
-- (_Bool)handleActionForBulletin:(id)arg1;
+- (_Bool)handleAction:(id)arg1 forBulletin:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (long long)bulletinViewController:(id)arg1 replacementAnimationForBulletin:(id)arg2 inSection:(id)arg3;
 - (long long)bulletinViewController:(id)arg1 removalAnimationForBulletin:(id)arg2 inSection:(id)arg3;
 - (long long)bulletinViewController:(id)arg1 insertionAnimationForBulletin:(id)arg2 inSection:(id)arg3;

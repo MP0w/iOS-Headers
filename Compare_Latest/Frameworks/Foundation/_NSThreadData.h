@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
     id argument;
     int seqNum;
     unsigned char qstate;
-    unsigned char ____;
+    BOOL qos;
     unsigned char cancel;
     unsigned char status;
     id performQ;
@@ -27,11 +27,9 @@ __attribute__((visibility("hidden")))
         long __sig;
         char __opaque[36];
     } attr;
-    struct _opaque_pthread_t {
-        long _field1;
-        struct __darwin_pthread_handler_rec *_field2;
-        char _field3[596];
-    } *tid;
+    struct _opaque_pthread_t *tid;
+    double pri;
+    double defpri;
 }
 
 @end

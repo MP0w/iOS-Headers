@@ -58,7 +58,7 @@
 + (id)sharedManager;
 @property(nonatomic) BOOL circleWasReset; // @synthesize circleWasReset=_circleWasReset;
 @property(readonly, nonatomic) int stagedSecurityCodeType; // @synthesize stagedSecurityCodeType=_stagedSecurityCodeType;
-@property(readonly, nonatomic) NSString *stagedSecurityCode; // @synthesize stagedSecurityCode=_stagedSecurityCode;
+@property(readonly, retain, nonatomic) NSString *stagedSecurityCode; // @synthesize stagedSecurityCode=_stagedSecurityCode;
 @property(retain, nonatomic) NSString *securityCodeRecoveryAttempt; // @synthesize securityCodeRecoveryAttempt=_securityCodeRecoveryAttempt;
 @property(retain, nonatomic) PSRootController *buddyNavigationController; // @synthesize buddyNavigationController=_buddyNavigationController;
 @property(retain, nonatomic) PSSetupController *settingsSetupController; // @synthesize settingsSetupController=_settingsSetupController;
@@ -128,6 +128,12 @@
 - (void)showEnableEscrowFlowWithSpecifier:(id)arg1 overController:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)showEnableSyncFlowWithSpecifier:(id)arg1 overController:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

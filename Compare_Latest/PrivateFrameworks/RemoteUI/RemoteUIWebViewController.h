@@ -8,25 +8,37 @@
 
 #import "UIWebViewDelegate.h"
 
-@class UIToolbar, UIWebView;
+@class NSString, UIToolbar, UIWebView, _UIBackdropView;
 
 @interface RemoteUIWebViewController : UIViewController <UIWebViewDelegate>
 {
     UIWebView *_webView;
     UIToolbar *_toolbar;
-    id _delegate;
+    CDUnknownBlockType _loadCompletion;
+    _UIBackdropView *_statusBarBackdrop;
     BOOL _scalesPageToFit;
+    id <RemoteUIWebViewControllerDelegate> _delegate;
 }
 
 @property(nonatomic) BOOL scalesPageToFit; // @synthesize scalesPageToFit=_scalesPageToFit;
+@property(nonatomic) __weak id <RemoteUIWebViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
+- (void)webView:(id)arg1 didFailLoadWithError:(id)arg2;
+- (void)webViewDidFinishLoad:(id)arg1;
 - (void)loadURL:(id)arg1;
+- (void)loadURL:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)donePressed:(id)arg1;
-- (void)setDelegate:(id)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)dealloc;
-@property(readonly, nonatomic) UIWebView *webView; // @synthesize webView=_webView;
-@property(readonly, nonatomic) UIToolbar *toolbar; // @synthesize toolbar=_toolbar;
-- (void)loadView;
+@property(readonly, nonatomic) UIWebView *webView;
+@property(readonly, nonatomic) UIToolbar *toolbar;
+- (void)viewDidLoad;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "SKUIClientStorePageViewController.h"
 
-@class SKStorePageViewController;
+@class NSString, SKStorePageViewController;
 
 __attribute__((visibility("hidden")))
 @interface SKRemoteStorePageViewController : _UIRemoteViewController <SKUIClientStorePageViewController>
@@ -21,6 +21,12 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak SKStorePageViewController *storePageViewController; // @synthesize storePageViewController=_storePageViewController;
 - (void)showProductPageWithItemIdentifier:(id)arg1;
 - (void)didFinishWithResult:(id)arg1 error:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

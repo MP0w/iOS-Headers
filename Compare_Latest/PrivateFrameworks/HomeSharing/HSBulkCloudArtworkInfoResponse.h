@@ -14,7 +14,7 @@
 }
 
 @property(copy, nonatomic) NSArray *artworkInfoDictionaries; // @synthesize artworkInfoDictionaries;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

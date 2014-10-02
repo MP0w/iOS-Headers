@@ -8,11 +8,12 @@
 
 #import "SBIconListPageControlDelegate.h"
 #import "SBIconScrollViewDelegate.h"
+#import "UIGestureRecognizerDelegate.h"
 #import "UITextFieldDelegate.h"
 
-@class NSArray, NSMutableArray, NSMutableSet, SBFolder, SBFolderTitleTextField, SBIconListPageControl, SBIconListView, SBIconScrollView, SBIconViewMap, _UILegibilitySettings;
+@class NSArray, NSMutableArray, NSMutableSet, NSString, SBFakeStatusBarView, SBFolder, SBFolderTitleTextField, SBIconListPageControl, SBIconListView, SBIconScrollView, SBIconViewMap, UISwipeGestureRecognizer, UITapGestureRecognizer, _UILegibilitySettings;
 
-@interface SBFolderView : UIView <SBIconScrollViewDelegate, SBIconListPageControlDelegate, UITextFieldDelegate>
+@interface SBFolderView : UIView <SBIconListPageControlDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate, SBIconScrollViewDelegate>
 {
     NSMutableArray *_iconListViews;
     NSMutableSet *_scrollingDisabledReasons;
@@ -28,11 +29,14 @@
     SBIconViewMap *_viewMap;
     NSMutableArray *_scrollFrames;
     unsigned long long _scrollFrameCount;
-    _Bool _isN90;
     SBIconListPageControl *_pageControl;
     SBIconScrollView *_scrollView;
     SBFolderTitleTextField *_titleTextField;
     UIView *_scalingView;
+    SBFakeStatusBarView *_reachabilityStatusBar;
+    UISwipeGestureRecognizer *_swipeToCancelReachabilityGestureRecognizer;
+    UISwipeGestureRecognizer *_swipeToRevealNotificationCenterGestureRecognizer;
+    UITapGestureRecognizer *_tapToCancelReachabilityGestureRecognizer;
     _Bool _isEditing;
     _Bool _isScrolling;
     long long _currentPageIndex;
@@ -41,8 +45,14 @@
     SBFolder *_folder;
     long long _orientation;
     _UILegibilitySettings *_legibilitySettings;
+    long long _animatingToOrientation;
+    struct UIEdgeInsets _reachabilityStatusBarEdgeInsets;
 }
 
++ (unsigned long long)_countOfAdditionalPagesToKeepVisibleInOneDirection;
++ (Class)_scrollViewClass;
+@property(nonatomic) struct UIEdgeInsets reachabilityStatusBarEdgeInsets; // @synthesize reachabilityStatusBarEdgeInsets=_reachabilityStatusBarEdgeInsets;
+@property(nonatomic) long long animatingToOrientation; // @synthesize animatingToOrientation=_animatingToOrientation;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
 @property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
 @property(retain, nonatomic) SBFolder *folder; // @synthesize folder=_folder;
@@ -50,6 +60,12 @@
 @property(nonatomic) double statusBarHeight; // @synthesize statusBarHeight=_statusBarHeight;
 @property(readonly, nonatomic) long long currentPageIndex; // @synthesize currentPageIndex=_currentPageIndex;
 @property(readonly, nonatomic, getter=isEditing) _Bool editing; // @synthesize editing=_isEditing;
+- (void)handleRevealNotificationCenterGesture:(id)arg1;
+- (void)handleCancelReachabilityGesture:(id)arg1;
+- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
+- (void)handleReachabilityActivated:(_Bool)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)repositionForReachabilityActivated:(_Bool)arg1 animated:(_Bool)arg2 actions:(CDUnknownBlockType)arg3 completion:(CDUnknownBlockType)arg4;
+- (double)reachabilityYOffset;
 - (void)willMoveToWindow:(id)arg1;
 - (void)_backgroundContrastDidChange:(id)arg1;
 - (void)_updateTitleLegibilitySettings;
@@ -69,8 +85,10 @@
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)didRotateFromInterfaceOrientation:(long long)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)willRotateToInterfaceOrientation:(long long)arg1;
+- (void)cleanUpAfterZoomAnimation;
+- (void)prepareForZoomAnimation;
 - (void)cleanupAfterClosing;
 - (void)prepareToOpen;
 - (_Bool)_scrollViewThinksItsScrolling;
@@ -78,6 +96,7 @@
 - (void)noteUserIsInteractingWithIcons;
 - (void)noteUserHasGrabbedIcon:(_Bool)arg1;
 - (void)updateIconListIndexAndVisibility:(_Bool)arg1;
+- (unsigned long long)_countOfAdditionalPagesToKeepAnimatingInOneDirection;
 - (long long)lowestVisibleIconListIndexAndColumn:(long long *)arg1 columnsOnScreen:(long long *)arg2 totalLists:(unsigned long long)arg3 columnsPerList:(unsigned long long)arg4;
 - (void)updateIconListIndexAndVisibility;
 - (void)_updateEditingStateAnimated:(_Bool)arg1;
@@ -90,7 +109,11 @@
 - (id)iconListViewAtPoint:(struct CGPoint)arg1;
 - (id)iconListViewAtIndex:(unsigned long long)arg1;
 - (long long)_pageIndexForOffset:(double)arg1;
+- (struct CGRect)_iconListFrameForPageRect:(struct CGRect)arg1 atIndex:(unsigned long long)arg2;
+- (struct CGSize)_scrollViewContentSize;
+- (_Bool)_updatesWallpaperRelativeCenter;
 - (void)_updateIconListFrames;
+- (void)_updateIconListContainment:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)_updateIconListViews;
 - (void)_resetIconListViews;
 - (void)_addIconListViewsForModels:(id)arg1;
@@ -125,17 +148,21 @@
 - (void)fadeContentForMagnificationFraction:(double)arg1;
 - (void)didAnimate;
 - (void)willAnimate;
-@property(readonly, nonatomic) SBIconViewMap *viewMap;
+@property(readonly, retain, nonatomic) SBIconViewMap *viewMap;
 - (_Bool)locationCountsAsInsideFolder:(struct CGPoint)arg1;
 - (void)returnScalingView;
 - (id)borrowScalingView;
 - (struct CGRect)scalingViewFrame;
+- (void)resetContentOffsetToCurrentPage;
 - (_Bool)setCurrentPageIndex:(long long)arg1 animated:(_Bool)arg2;
 - (_Bool)doesPageContainIconListView:(long long)arg1;
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 @property(readonly, nonatomic) unsigned long long iconListViewCount;
-@property(readonly, nonatomic) NSArray *iconListViews; // @synthesize iconListViews=_iconListViews;
+@property(readonly, copy, nonatomic) NSArray *iconListViews; // @synthesize iconListViews=_iconListViews;
+- (void)_orientationDidChange:(long long)arg1;
+- (void)setPageControlHidden:(_Bool)arg1;
 - (void)_updatePageControlToIndex:(long long)arg1;
+- (void)_currentPageIndexDidChange;
 - (void)_setCurrentPageIndex:(long long)arg1 deferringPageControlUpdate:(_Bool)arg2;
 - (void)_setCurrentPageIndex:(long long)arg1;
 - (void)_setAnimatedScrolling:(_Bool)arg1;
@@ -145,6 +172,12 @@
 - (id)scrollView;
 - (void)dealloc;
 - (id)initWithFolder:(id)arg1 orientation:(long long)arg2 viewMap:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

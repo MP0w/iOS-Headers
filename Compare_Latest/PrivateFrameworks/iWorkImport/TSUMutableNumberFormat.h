@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (void)setCustomFormatID:(unsigned int)arg1;
 - (void)setNilValueForKey:(id)arg1;
 - (void)setBasePlaces:(unsigned short)arg1;
 - (void)setBase:(unsigned char)arg1;

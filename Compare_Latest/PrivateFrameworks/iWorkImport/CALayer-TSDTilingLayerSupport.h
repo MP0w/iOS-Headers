@@ -12,6 +12,7 @@
 - (void)setNeedsDisplayForDirtyTiles:(id)arg1;
 - (BOOL)tilingSafeHasContents;
 - (void)tilingSafeSetSublayers:(id)arg1;
+- (void)cancelLayoutForTilingLayers;
 - (void)setNeedsLayoutForTilingLayers;
 @end
 

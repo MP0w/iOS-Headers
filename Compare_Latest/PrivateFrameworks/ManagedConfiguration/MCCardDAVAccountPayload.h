@@ -26,12 +26,13 @@
 @property(copy, nonatomic) NSString *accountPersistentUUID; // @synthesize accountPersistentUUID=_accountPersistentUUID;
 @property(readonly, nonatomic) int port; // @synthesize port=_port;
 @property(readonly, nonatomic) BOOL useSSL; // @synthesize useSSL=_useSSL;
-@property(readonly, nonatomic) NSString *principalURL; // @synthesize principalURL=_principalURL;
+@property(readonly, retain, nonatomic) NSString *principalURL; // @synthesize principalURL=_principalURL;
 @property(copy, nonatomic) NSString *password; // @synthesize password=_password;
 @property(copy, nonatomic) NSString *username; // @synthesize username=_username;
-@property(readonly, nonatomic) NSString *hostname; // @synthesize hostname=_hostname;
-@property(readonly, nonatomic) NSString *accountDescription; // @synthesize accountDescription=_accountDescription;
+@property(readonly, retain, nonatomic) NSString *hostname; // @synthesize hostname=_hostname;
+@property(readonly, retain, nonatomic) NSString *accountDescription; // @synthesize accountDescription=_accountDescription;
 - (void).cxx_destruct;
+- (id)payloadDescriptionKeyValueSections;
 - (id)subtitle2Description;
 - (id)subtitle2Label;
 - (id)subtitle1Description;

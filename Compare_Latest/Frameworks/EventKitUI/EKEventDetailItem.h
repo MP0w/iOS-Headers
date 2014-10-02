@@ -8,7 +8,7 @@
 
 #import "EKEditItemViewControllerDelegate.h"
 
-@class EKEvent, EKEventStore, EKUIRecurrenceAlertController, UIViewController, UIViewController<EKEditItemViewControllerProtocol>;
+@class EKEvent, EKEventStore, EKUIRecurrenceAlertController, NSString, UIViewController, UIViewController<EKEditItemViewControllerProtocol>;
 
 __attribute__((visibility("hidden")))
 @interface EKEventDetailItem : NSObject <EKEditItemViewControllerDelegate>
@@ -36,7 +36,10 @@ __attribute__((visibility("hidden")))
 - (void)notifySubitemDidCommit:(unsigned int)arg1;
 - (void)notifyDidEndEditing;
 - (void)notifyDidStartEditing;
+- (void)eventViewController:(id)arg1 didSelectReadOnlySubitem:(unsigned int)arg2;
 - (void)eventViewController:(id)arg1 didSelectSubitem:(unsigned int)arg2;
+- (void)eventViewController:(id)arg1 didUnhighlightSubitem:(unsigned int)arg2;
+- (void)eventViewController:(id)arg1 didHighlightSubitem:(unsigned int)arg2;
 - (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2;
 - (BOOL)hasDetailViewControllerAtIndex:(unsigned int)arg1;
 - (id)cellForSubitemAtIndex:(unsigned int)arg1;
@@ -47,6 +50,12 @@ __attribute__((visibility("hidden")))
 - (void)reset;
 - (void)setEvent:(id)arg1 store:(id)arg2;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

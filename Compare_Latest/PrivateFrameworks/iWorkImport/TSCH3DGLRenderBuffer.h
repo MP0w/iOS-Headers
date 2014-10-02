@@ -8,6 +8,8 @@
 
 #import "TSCH3DGLBindable.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TSCH3DGLRenderBuffer : NSObject <TSCH3DGLBindable>
 {
@@ -18,9 +20,14 @@ __attribute__((visibility("hidden")))
 - (void)bindInSession:(id)arg1;
 - (BOOL)valid;
 - (void)destroyResourcesInContext:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithGLBuffer:(unsigned int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

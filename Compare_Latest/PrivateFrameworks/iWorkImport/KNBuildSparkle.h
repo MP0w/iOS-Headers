@@ -8,7 +8,7 @@
 
 #import "KNFrameBuildAnimator.h"
 
-@class KNSparkleEffect;
+@class KNSparkleEffect, NSString;
 
 __attribute__((visibility("hidden")))
 @interface KNBuildSparkle : KNAnimationEffect <KNFrameBuildAnimator>
@@ -33,6 +33,12 @@ __attribute__((visibility("hidden")))
 - (void)renderFrameWithContext:(id)arg1;
 - (void)animationWillBeginWithContext:(id)arg1;
 - (struct CGRect)frameOfEffectWithFrame:(struct CGRect)arg1 context:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

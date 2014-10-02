@@ -6,26 +6,23 @@
 
 #import "NSObject.h"
 
-#import "VKObjectPoolObject.h"
-
-@class NSMutableArray, NSString, VGLIcon, VKObjectPool;
+@class NSMutableArray, VKImage;
 
 __attribute__((visibility("hidden")))
-@interface VKIconArtwork : NSObject <VKObjectPoolObject>
+@interface VKIconArtwork : NSObject
 {
     BOOL _hasIcon;
-    VGLIcon *_icon;
+    VKImage *_image;
+    float _contentScale;
     NSMutableArray *_completionHandlers;
-    VKObjectPool *_pool;
-    NSString *_poolKey;
 }
 
+@property(readonly, nonatomic) float contentScale; // @synthesize contentScale=_contentScale;
 - (void)_cleanUpAfterDrawing;
-- (id)_newIcon;
-- (void)getIcon:(CDUnknownBlockType)arg1;
-- (id)icon;
+- (id)_newImage;
+- (void)getImage:(CDUnknownBlockType)arg1;
+- (id)image;
 @property(readonly, nonatomic) struct CGSize size;
-- (void)setPool:(id)arg1 withKey:(id)arg2;
 - (void)dealloc;
 - (id)initWithImage:(struct CGImage *)arg1 contentScale:(float)arg2;
 

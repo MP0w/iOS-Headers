@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 - (void)didCallRenderInContextOnBackdropViewLayer;
 - (void)willCallRenderInContextOnBackdropViewLayer;
 - (void)layoutSubviews;
+- (void)_setRenderConfig:(id)arg1;
 - (void)applySettings:(id)arg1;
 - (void)triggerUpdate:(id)arg1;
 - (void)transitionToStyle:(int)arg1;

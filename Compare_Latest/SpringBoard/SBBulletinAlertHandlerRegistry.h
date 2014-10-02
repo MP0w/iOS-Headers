@@ -9,7 +9,7 @@
 #import "SBBulletinAlertHandlerRegistry.h"
 #import "_UISettingsKeyObserver.h"
 
-@class NSMutableDictionary, SBAlertItemsSettings;
+@class NSMutableDictionary, NSString, SBAlertItemsSettings;
 
 @interface SBBulletinAlertHandlerRegistry : NSObject <_UISettingsKeyObserver, SBBulletinAlertHandlerRegistry>
 {
@@ -23,6 +23,12 @@
 - (id)alertHandlersForSection:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

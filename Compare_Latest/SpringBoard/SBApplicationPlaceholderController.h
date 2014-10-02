@@ -6,20 +6,20 @@
 
 #import "NSObject.h"
 
+#import "SBApplicationPlaceholderLifecycleObserver.h"
 #import "SBIconObserver.h"
-#import "SBLSApplicationPlaceholderLifecycleObserver.h"
 
-@class NSMutableDictionary, NSMutableSet, SBApplicationController, SBLSApplicationWorkspaceObserver;
+@class NSMutableDictionary, NSMutableSet, NSString, SBApplicationController, SBApplicationLibraryObserver;
 
-@interface SBApplicationPlaceholderController : NSObject <SBIconObserver, SBLSApplicationPlaceholderLifecycleObserver>
+@interface SBApplicationPlaceholderController : NSObject <SBIconObserver, SBApplicationPlaceholderLifecycleObserver>
 {
     SBApplicationController *_appController;
-    SBLSApplicationWorkspaceObserver *_lsWorkspaceObserver;
+    SBApplicationLibraryObserver *_lsWorkspaceObserver;
     NSMutableDictionary *_placeholdersByBundleID;
     NSMutableSet *_pendingAdded;
     NSMutableSet *_pendingInstalled;
     NSMutableSet *_pendingCancelled;
-    NSMutableSet *_removingProxies;
+    NSMutableSet *_removingPlaceholderProxies;
     _Bool _hasDownloadedFromStore;
     _Bool _usingNetwork;
 }
@@ -31,13 +31,11 @@
 - (void)_finishPlaceholder:(id)arg1;
 - (void)_dropGrabbedIconIfNecessary:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_removeDownloadingIcons:(id)arg1 saveState:(_Bool)arg2;
-- (void)_swapDownloadingIcon:(id)arg1 forApplicationIcon:(id)arg2 proxy:(id)arg3;
+- (void)_swapDownloadingIcon:(id)arg1 forApplicationIcon:(id)arg2 placeholderProxy:(id)arg3;
 - (void)_removePlaceholders:(id)arg1 forInstall:(_Bool)arg2;
 - (void)_addPlaceholders:(id)arg1;
 - (void)_processPendingProxies;
 - (void)applicationPlaceholdersNetworkUsageChanged:(_Bool)arg1;
-- (void)applicationPlaceholdersIconUpdated:(id)arg1;
-- (void)applicationPlaceholdersModified:(id)arg1;
 - (void)applicationPlaceholdersCancelled:(id)arg1;
 - (void)applicationPlaceholdersInstalled:(id)arg1;
 - (void)applicationPlaceholdersAdded:(id)arg1;
@@ -47,6 +45,12 @@
 - (id)placeholdersByDisplayID;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

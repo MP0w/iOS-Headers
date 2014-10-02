@@ -4,52 +4,43 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <VectorKit/VKDrawStyle.h>
+#import <VectorKit/VKRenderStyle.h>
 
 @class NSString;
 
 __attribute__((visibility("hidden")))
-@interface VKRouteDrawStyle : VKDrawStyle
+@interface VKRouteDrawStyle : VKRenderStyle
 {
-    float _width;
-    float _strokeWidth;
-    struct _VGLColor _strokeColor;
-    struct _VGLColor _fillColor;
-    struct _VGLColor _travelledColor;
-    struct _VGLColor _glossColor;
-    NSString *_texture;
-    NSString *_obscuredTexture;
-    NSString *_travelledTexture;
-    float _enlargementStartZoom;
-    float _enlargementScale;
-    float _enlargementMaxScale;
-    float _brightness;
-    BOOL _hasBrightness;
-    float _arrowMinZoom;
-    float _selectedArrowMinZoom;
+    struct VKProfileSparseRamp<float> _width;
+    struct VKProfileSparseRamp<_VGLColor> _fillColor;
+    struct VKProfileSparseRamp<_VGLColor> _travelledColor;
 }
 
-@property(readonly, nonatomic) BOOL hasBrightness; // @synthesize hasBrightness=_hasBrightness;
-@property(readonly, nonatomic) NSString *travelledTexture; // @synthesize travelledTexture=_travelledTexture;
-@property(readonly, nonatomic) NSString *obscuredTexture; // @synthesize obscuredTexture=_obscuredTexture;
-@property(readonly, nonatomic) NSString *texture; // @synthesize texture=_texture;
++ (int)renderStyleID;
 - (id).cxx_construct;
-- (void)dealloc;
-@property(readonly, nonatomic) float selectedArrowMinZoom; // @synthesize selectedArrowMinZoom=_selectedArrowMinZoom;
-@property(readonly, nonatomic) float arrowMinZoom; // @synthesize arrowMinZoom=_arrowMinZoom;
-@property(readonly, nonatomic) float brightness; // @synthesize brightness=_brightness;
-@property(readonly, nonatomic) float enlargementMaxScale; // @synthesize enlargementMaxScale=_enlargementMaxScale;
-@property(readonly, nonatomic) float enlargementScale; // @synthesize enlargementScale=_enlargementScale;
-@property(readonly, nonatomic) float enlargementStartZoom; // @synthesize enlargementStartZoom=_enlargementStartZoom;
-@property(readonly, nonatomic) struct _VGLColor glossColor; // @synthesize glossColor=_glossColor;
-@property(readonly, nonatomic) struct _VGLColor travelledColor; // @synthesize travelledColor=_travelledColor;
-@property(readonly, nonatomic) struct _VGLColor fillColor; // @synthesize fillColor=_fillColor;
-@property(readonly, nonatomic) struct _VGLColor strokeColor; // @synthesize strokeColor=_strokeColor;
-@property(readonly, nonatomic) float strokeWidth; // @synthesize strokeWidth=_strokeWidth;
-@property(readonly, nonatomic) float width; // @synthesize width=_width;
-- (void)takeFromZoomInvariantProperties:(id)arg1;
-- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2 globals:(id)arg3;
-- (id)variant;
+- (void).cxx_destruct;
+- (BOOL)hasDashAtAnyZ;
+- (unsigned long long)fillDashPatternAtZoom:(float)arg1;
+@property(readonly, nonatomic) BOOL hasFillColor;
+@property(readonly, nonatomic) float selectedArrowMinZoom;
+@property(readonly, nonatomic) float arrowMinZoom;
+@property(readonly, nonatomic) BOOL hasBrightness;
+@property(readonly, nonatomic) float brightness;
+@property(readonly, nonatomic) float enlargementMaxScale;
+@property(readonly, nonatomic) float enlargementScale;
+@property(readonly, nonatomic) float enlargementStartZoom;
+@property(readonly, nonatomic) NSString *travelledTexture;
+@property(readonly, nonatomic) NSString *obscuredTexture;
+@property(readonly, nonatomic) NSString *texture;
+@property(readonly, nonatomic) BOOL hasTravelledTexture;
+@property(readonly, nonatomic) BOOL hasObscuredTexture;
+@property(readonly, nonatomic) BOOL hasTexture;
+- (Matrix_5173352a)glossColor;
+- (Matrix_5173352a)travelledColor;
+- (Matrix_5173352a)fillColor;
+- (Matrix_5173352a)strokeColor;
+- (float)strokeWidth;
+- (float)width;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import <OfficeImport/EDProcessor.h>
 
-@class EDFormula, EDName, EDRowBlocks, EDSheet;
+@class EDFormula, EDName, EDRowBlocks, EDSheet, OITSUIntDictionary;
 
 __attribute__((visibility("hidden")))
 @interface EPFormulaCleaner : EDProcessor
@@ -18,6 +18,8 @@ __attribute__((visibility("hidden")))
     int mRowOffset;
     int mColumnOffset;
     EDRowBlocks *mBaseFormulaRowBlocks;
+    OITSUIntDictionary *mNameArrayedTestCache;
+    OITSUIntDictionary *mNameCircularReferenceTestCache;
 }
 
 - (void)cleanFormula:(id)arg1 name:(id)arg2;
@@ -30,6 +32,8 @@ __attribute__((visibility("hidden")))
 - (void)reportWarning:(int)arg1 parameter:(id)arg2;
 - (void)reportWarning:(int)arg1;
 - (id)newFormulaToCleanFromSharedFormula:(id)arg1;
+- (BOOL)doesNameIndexContainCircularReferences:(unsigned int)arg1 sheetIndex:(unsigned int)arg2 previousNameIndexes:(set_0e951b36 *)arg3;
+- (BOOL)isArrayedFormulaSupported:(id)arg1 allowSimpleRanges:(BOOL)arg2;
 - (id)useEvaluationStackToGetParameter:(unsigned int)arg1 tokenIndex:(unsigned int)arg2 allReferencesAllowed:(_Bool)arg3 success:(_Bool *)arg4;
 - (unsigned int)useEvaluationStackToGetParameter:(unsigned int)arg1 tokenIndex:(unsigned int)arg2;
 - (_Bool)useEvaluationStackToCheckFunctionId:(int)arg1 functionName:(id)arg2 tokenIndex:(unsigned int)arg3;
@@ -38,16 +42,16 @@ __attribute__((visibility("hidden")))
 - (_Bool)checkCustomFunction:(unsigned int)arg1;
 - (_Bool)checkSupportedAddInName:(id)arg1 externalLink:(_Bool)arg2;
 - (_Bool)checkFunctionId:(int)arg1 tokenIndex:(unsigned int)arg2;
-- (_Bool)cleanName:(unsigned int)arg1 nameIndex:(unsigned int)arg2 sheetIndex:(unsigned int)arg3;
-- (id)worksheetFromLinkReferenceIndex:(unsigned int)arg1 loadIfNeeded:(_Bool)arg2;
+- (_Bool)cleanName:(unsigned int)arg1 nameIndex:(unsigned int)arg2 sheetIndex:(unsigned int)arg3 tokenOffset:(int *)arg4;
+- (id)worksheetFromLinkReferenceIndex:(unsigned int)arg1;
 - (_Bool)isLinkReferenceIndexSupported:(unsigned int)arg1 allowExternal:(_Bool)arg2;
-- (_Bool)combineCellReferences:(unsigned int)arg1 removedTokenCount:(unsigned int *)arg2;
-- (_Bool)cleanRange:(unsigned int)arg1 removedTokenCount:(unsigned int *)arg2;
+- (_Bool)combineCellReferences:(unsigned int)arg1 tokenOffset:(int *)arg2;
+- (_Bool)cleanRange:(unsigned int)arg1 tokenOffset:(int *)arg2;
 - (_Bool)cleanUnion:(unsigned int)arg1;
 - (_Bool)cleanFuncVar:(unsigned int)arg1;
 - (_Bool)cleanFunc:(unsigned int)arg1;
-- (_Bool)cleanNameX:(unsigned int)arg1;
-- (_Bool)cleanName:(unsigned int)arg1;
+- (_Bool)cleanNameX:(unsigned int)arg1 tokenOffset:(int *)arg2;
+- (_Bool)cleanName:(unsigned int)arg1 tokenOffset:(int *)arg2;
 - (_Bool)cleanArea3D:(unsigned int)arg1;
 - (_Bool)cleanRef3D:(unsigned int)arg1;
 - (_Bool)cleanArea:(unsigned int)arg1 updateSheet:(BOOL)arg2;
@@ -59,7 +63,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)isReferenceValidInLassoForSheet:(id)arg1 rowMin:(int)arg2 rowMinRelative:(_Bool)arg3 rowMax:(int)arg4 rowMaxRelative:(_Bool)arg5 columnMin:(int)arg6 columnMinRelative:(_Bool)arg7 columnMax:(int)arg8 columnMaxRelative:(_Bool)arg9;
 - (_Bool)isReferenceValidInLassoForRow:(int)arg1 rowRelative:(_Bool)arg2 column:(int)arg3 columnRelative:(_Bool)arg4;
 - (void)addOffsetsToRow:(int *)arg1 rowRelative:(_Bool)arg2 column:(int *)arg3 columnRelative:(_Bool)arg4;
-- (_Bool)cleanTokenAtIndex:(unsigned int)arg1 removedTokenCount:(unsigned int *)arg2;
+- (_Bool)cleanTokenAtIndex:(unsigned int)arg1 tokenOffset:(int *)arg2;
 - (void)cleanFormula:(id)arg1 sheet:(id)arg2 name:(id)arg3;
 
 @end

@@ -14,14 +14,14 @@ __attribute__((visibility("hidden")))
     KNShow *mShow;
     KNPlaybackSession *mSession;
     KNAnimatedSlideView *mAnimator;
-    CALayer *mBaseLayer;
+    struct CGSize mOutputSize;
     unsigned int mSlideIndex;
     BOOL mFirstEvent;
-    BOOL mIsCurrentEventRendered;
     BOOL mIsImageGenerationCancelled;
+    CALayer *_baseLayer;
 }
 
-@property(readonly, nonatomic) CALayer *baseLayer; // @synthesize baseLayer=mBaseLayer;
+@property(readonly, nonatomic) CALayer *baseLayer; // @synthesize baseLayer=_baseLayer;
 @property(readonly, nonatomic) KNAnimatedSlideView *animatedSlideView; // @synthesize animatedSlideView=mAnimator;
 @property(readonly, nonatomic) KNSlideNode *currentSlideNode;
 @property(readonly, nonatomic) KNSlide *currentSlide;
@@ -37,15 +37,14 @@ __attribute__((visibility("hidden")))
 - (void)cancelImageGeneration;
 - (void)drawCurrentEventIntoContext:(struct CGContext *)arg1 intoRect:(struct CGRect)arg2 ignoreBuildVisibility:(BOOL)arg3;
 - (void)generateImageOfCurrentEventWithCompletonHandler:(CDUnknownBlockType)arg1;
-- (struct CGImage *)copyImageOfCurrentEvent;
+- (struct CGImage *)copyImageOfCurrentEventIgnoringBuildVisilibity:(BOOL)arg1;
 - (BOOL)gotoLastSlide;
 - (BOOL)gotoPreviousSlide;
 - (BOOL)gotoFirstSlide;
-- (BOOL)gotoSlideNode:(id)arg1 andEvent:(unsigned int)arg2 render:(BOOL)arg3;
+- (BOOL)gotoSlideNode:(id)arg1 andEvent:(unsigned int)arg2;
 - (BOOL)gotoEventIndex:(unsigned int)arg1;
 - (BOOL)gotoNextEvent;
 - (BOOL)gotoNextSlide;
-- (void)p_renderIfNeeded;
 - (void)p_setAnimator:(id)arg1;
 - (id)initWithShow:(id)arg1 canvasDelegate:(id)arg2 outputSize:(struct CGSize)arg3;
 - (id)initWithShow:(id)arg1 canvasDelegate:(id)arg2;

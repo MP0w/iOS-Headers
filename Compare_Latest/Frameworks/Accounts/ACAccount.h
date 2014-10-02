@@ -68,7 +68,7 @@
 - (void)setProperties:(id)arg1 forDataclass:(id)arg2;
 - (id)propertiesForDataclass:(id)arg1;
 - (void)setDataclassProperties:(id)arg1;
-@property(readonly, nonatomic) NSDictionary *dataclassProperties;
+@property(readonly, nonatomic) __weak NSDictionary *dataclassProperties;
 - (BOOL)isProvisionedForDataclass:(id)arg1;
 - (void)setEnabled:(BOOL)arg1 forDataclass:(id)arg2;
 - (BOOL)isEnabledToSyncDataclass:(id)arg1;
@@ -79,7 +79,7 @@
 - (void)_clearCachedChildAccounts;
 - (id)childAccountsWithAccountTypeIdentifier:(id)arg1;
 @property(readonly, nonatomic) NSArray *childAccounts;
-@property(readonly, nonatomic) ACAccount *displayAccount;
+@property(readonly, nonatomic) __weak ACAccount *displayAccount;
 @property(retain, nonatomic) ACAccount *parentAccount;
 @property(readonly, nonatomic) NSString *parentAccountIdentifier;
 @property(retain, nonatomic) ACAccountType *accountType;
@@ -92,10 +92,14 @@
 @property(retain, nonatomic) NSDate *lastCredentialRenewalRejectionDate;
 @property(nonatomic, getter=isAuthenticated) BOOL authenticated;
 - (BOOL)authenticated;
+- (void)setObject:(id)arg1 forKeyedSubscript:(id)arg2;
+- (id)objectForKeyedSubscript:(id)arg1;
 - (void)setAccountProperty:(id)arg1 forKey:(id)arg2;
 - (id)accountPropertyForKey:(id)arg1;
+- (void)setProperty:(id)arg1 forKey:(id)arg2;
+- (id)propertyForKey:(id)arg1;
 - (void)setAccountProperties:(id)arg1;
-@property(readonly, nonatomic) NSDictionary *accountProperties;
+@property(readonly, nonatomic) __weak NSDictionary *accountProperties;
 @property(retain, nonatomic) NSDate *creationDate;
 - (void)setOwningBundleID:(id)arg1;
 - (id)owningBundleID;
@@ -109,7 +113,7 @@
 - (void)setAuthenticationType:(id)arg1;
 @property(readonly, nonatomic) NSString *authenticationType;
 - (void)setIdentifier:(id)arg1;
-@property(readonly, nonatomic) NSString *identifier;
+@property(readonly, nonatomic) __weak NSString *identifier;
 - (void)_clearDirtyProperties;
 - (void)_markCredentialDirty;
 - (void)_markAccountPropertyDirty:(id)arg1;
@@ -120,12 +124,14 @@
 @property(readonly, nonatomic, getter=isDirty) BOOL dirty;
 - (void)credentialsChanged:(id)arg1;
 - (void)_clearCachedCredentials;
+- (id)fullDescription;
 - (id)description;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)_installCredentialsChangedObserver;
 - (id)initWithCoder:(id)arg1;
+- (id)_initWithManagedAccount:(id)arg1 accountStore:(id)arg2 withDirtyStateFromAccount:(id)arg3;
 - (id)initWithManagedAccount:(id)arg1;
 - (id)initWithManagedAccount:(id)arg1 accountStore:(id)arg2;
 - (id)initWithAccountType:(id)arg1;

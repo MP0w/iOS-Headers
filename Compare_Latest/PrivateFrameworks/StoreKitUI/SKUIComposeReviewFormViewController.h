@@ -8,7 +8,7 @@
 
 #import "SKUIComposeReviewViewDelegate.h"
 
-@class SKUIComposeReviewView, SKUIReviewMetadata;
+@class NSString, SKUIComposeReviewView, SKUIReviewMetadata;
 
 @interface SKUIComposeReviewFormViewController : SUViewController <SKUIComposeReviewViewDelegate>
 {
@@ -25,9 +25,15 @@
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)loadView;
 - (void)setRating:(float)arg1;
-@property(readonly, nonatomic) SKUIReviewMetadata *editedReviewMetadata;
+@property(readonly, copy, nonatomic) SKUIReviewMetadata *editedReviewMetadata;
 - (void)dealloc;
 - (id)initWithReviewMetadata:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -14,7 +14,6 @@
     CDUnknownBlockType _errorHandler;
 }
 
-+ (unsigned short)providerID;
 @property(copy, nonatomic) CDUnknownBlockType errorHandler; // @synthesize errorHandler=_errorHandler;
 @property(copy, nonatomic) CDUnknownBlockType finishedHandler; // @synthesize finishedHandler=_finishedHandler;
 @property(nonatomic) BOOL isLoading; // @synthesize isLoading=_isLoading;

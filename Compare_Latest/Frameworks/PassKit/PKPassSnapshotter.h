@@ -27,7 +27,9 @@
 - (void)snapshotWithPass:(id)arg1 size:(struct CGSize)arg2 withCache:(BOOL)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)snapshotWithPass:(id)arg1 size:(struct CGSize)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)snapshotWithPass:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)passLibrary;
 - (void)dealloc;
+@property(nonatomic) BOOL runsInBackgroundProcess;
 - (id)init;
 
 @end

@@ -50,8 +50,6 @@ __attribute__((visibility("hidden")))
 - (CDStruct_90e2a262)_mapRectWithFractionOfVisible:(double)arg1;
 - (int)_drawableIndexForDrawable:(id)arg1 level:(int)arg2;
 - (id)_viewContainerForLevel:(int)arg1;
-- (void)setDrawingEnabled:(BOOL)arg1;
-- (void)setLevelCrossFade:(BOOL)arg1;
 - (void)visibleRectChanged;
 - (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)dealloc;

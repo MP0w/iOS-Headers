@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 
 @property(retain, nonatomic) NSMutableArray *shields; // @synthesize shields=_shields;
 @property(retain, nonatomic) NSMutableArray *atlas; // @synthesize atlas=_atlas;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

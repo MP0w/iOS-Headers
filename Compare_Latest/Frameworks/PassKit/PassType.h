@@ -10,10 +10,12 @@
 {
 }
 
++ (id)paymentPassTypeIDsInDatabase:(id)arg1;
 + (id)anyInDatabase:(id)arg1 withPassTypeID:(id)arg2;
 + (id)_passTypeIDPredicate:(id)arg1;
 + (id)insertPassTypeWithPassTypeID:(id)arg1 teamID:(id)arg2 inDatabase:(id)arg3;
 + (id)_insertionDictionaryWithPassTypeID:(id)arg1 teamID:(id)arg2;
++ (id)joinClauseForProperty:(id)arg1;
 + (id)associationPropertyForEntityClass:(Class)arg1;
 + (id)databaseTable;
 - (void)updateFrequencyScore:(double)arg1;

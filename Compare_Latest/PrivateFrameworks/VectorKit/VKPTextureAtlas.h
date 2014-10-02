@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned int quadHeight; // @synthesize quadHeight=_quadHeight;
 @property(nonatomic) unsigned int quadWidth; // @synthesize quadWidth=_quadWidth;
 @property(retain, nonatomic) NSData *texture; // @synthesize texture=_texture;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

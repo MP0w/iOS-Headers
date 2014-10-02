@@ -17,11 +17,10 @@
     EKCalendarDate *_originalOccurrenceStartDate;
     EKCalendarDate *_originalOccurrenceEndDate;
     NSNumber *_originalOccurrenceIsAllDay;
-    int _attendeeCount;
 }
 
++ (id)privacyLevelAsString:(int)arg1;
 + (id)eventWithEventStore:(id)arg1;
-@property(readonly) int attendeeCount; // @synthesize attendeeCount=_attendeeCount;
 @property(nonatomic) BOOL requiresDetachDueToSnoozedAlarm; // @synthesize requiresDetachDueToSnoozedAlarm=_requiresDetachDueToSnoozedAlarm;
 @property(copy, nonatomic) NSNumber *originalOccurrenceIsAllDay; // @synthesize originalOccurrenceIsAllDay=_originalOccurrenceIsAllDay;
 @property(copy, nonatomic) EKCalendarDate *originalOccurrenceEndDate; // @synthesize originalOccurrenceEndDate=_originalOccurrenceEndDate;
@@ -42,6 +41,7 @@
 - (BOOL)_validateAlarmIntervalConstrainedToRecurrenceInterval:(int)arg1;
 - (BOOL)_validateDurationConstrainedToRecurrenceInterval;
 - (BOOL)_validateDatesAndRecurrencesGivenSpan:(int)arg1 error:(id *)arg2;
+- (BOOL)validateRecurrenceRule:(id)arg1 error:(id *)arg2;
 - (id)_dateForNextOccurrence;
 - (void)rollback;
 - (void)revert;
@@ -56,32 +56,42 @@
 - (BOOL)allowsAlarmModifications;
 - (BOOL)hasSelfAttendee;
 @property(readonly, nonatomic) BOOL canSetAvailability;
-@property(readonly, nonatomic) NSString *uniqueId;
+@property(readonly, copy, nonatomic) NSString *uniqueId;
 @property(readonly, nonatomic) NSDate *participationStatusModifiedDate;
 @property(readonly, nonatomic) int pendingParticipationStatus;
+@property(readonly, nonatomic) BOOL travelAdvisoryBehaviorIsEffectivelyEnabled;
+@property(nonatomic) int travelAdvisoryBehavior;
+@property(readonly, nonatomic) BOOL eligibleForTravelAdvisories;
 - (BOOL)changingAllDayPropertyIsAllowed;
 @property(readonly) BOOL canDetachSingleOccurrence;
 - (BOOL)requiresDetach;
 @property(readonly, nonatomic) BOOL responseMustApplyToAll;
 - (BOOL)allowsCalendarModifications;
 - (BOOL)allowsRecurrenceModifications;
+@property(readonly) BOOL isEditable;
 @property(readonly, nonatomic) BOOL isDetached;
 - (int)compareStartDateWithEvent:(id)arg1;
 - (BOOL)canMoveToCalendar:(id)arg1 fromCalendar:(id)arg2 error:(id *)arg3;
 - (BOOL)isTentative;
+@property(readonly, nonatomic) BOOL attendeeReplyChanged;
 @property(readonly, nonatomic) BOOL locationChanged;
 @property(readonly, nonatomic) BOOL titleChanged;
 @property(readonly, nonatomic) BOOL timeChanged;
 @property(readonly, nonatomic) BOOL dateChanged;
+@property(nonatomic) int privacyLevel;
+@property(readonly, nonatomic) BOOL allowsPrivacyLevelModifications;
+@property(readonly) BOOL isTravelTimeEditable;
+@property(readonly) int travelRoutingMode;
+@property(nonatomic) double travelTime;
+@property(readonly) NSDate *startDateIncludingTravel;
+- (id)_travelTimeInternalDescription;
 - (void)clearInvitationStatus;
 @property(nonatomic) unsigned int invitationStatus;
 @property(copy) NSString *responseComment;
 @property(nonatomic) int availability;
+- (id)startDateForRecurrence;
 - (void)setRecurrenceRule:(id)arg1;
 - (id)recurrenceRule;
-@property(readonly, nonatomic) NSArray *attachments;
-@property(readonly, nonatomic) EKParticipant *organizer;
-- (id)attendees;
 @property(readonly, nonatomic) int birthdayPersonID;
 - (int)_parentParticipationStatus;
 @property(nonatomic) int participationStatus;
@@ -95,22 +105,23 @@
 @property(readonly, nonatomic) CDStruct_b0fa4487 endDateGr;
 @property(readonly, nonatomic) CDStruct_b0fa4487 startDateGr;
 - (CDStruct_b0fa4487)_gregorianDateCorrectedForTimeZoneFromCalendarDate:(id)arg1 orNSDate:(id)arg2;
-@property(readonly) NSDate *initialEndDate;
+@property(readonly, copy) NSDate *initialEndDate;
 @property(readonly, nonatomic) NSDate *occurrenceDate;
-@property(readonly) NSDate *initialStartDate;
+@property(readonly, copy) NSDate *initialStartDate;
 - (id)_effectiveTimeZone;
 - (void)setTimeZone:(id)arg1;
 @property(copy, nonatomic) NSDate *endDate;
 @property(readonly, nonatomic) EKCalendarDate *endCalendarDate;
+@property(readonly) double durationIncludingTravel;
 @property(readonly) double duration;
 @property(copy, nonatomic) NSDate *startDate;
 @property(readonly, nonatomic) EKCalendarDate *startCalendarDate;
+@property(readonly) EKCalendarDate *startCalendarDateIncludingTravelTime;
 @property(nonatomic, getter=isAllDay) BOOL allDay;
 - (BOOL)_isAllDay;
 - (id)title;
 - (id)committedValueForKey:(id)arg1;
 - (void)_sendModifiedNote;
-- (BOOL)isDirtyIgnoringCalendar;
 @property(readonly) BOOL isAllDayDirty;
 @property(readonly) BOOL isEndDateDirty;
 @property(readonly) BOOL isStartDateDirty;
@@ -131,7 +142,8 @@
 
 // Remaining properties
 @property(readonly, nonatomic) NSString *UUID;
-@property(readonly) BOOL isEditable;
+@property(readonly, nonatomic) NSArray *attachments;
+@property(readonly, nonatomic) EKParticipant *organizer;
 
 @end
 

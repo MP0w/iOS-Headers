@@ -10,9 +10,12 @@
 {
 }
 
++ (id)sharedManager;
 - (void)mainQueueDidReceiveAppWhitelistChangedNotification;
 - (void)cancelAllNotificationsCompletionBlock:(CDUnknownBlockType)arg1;
-- (void)displayUserNotificationWithTitle:(id)arg1 message:(id)arg2 defaultButtonText:(id)arg3 alternateButtonText:(id)arg4 displayOnLockScreen:(BOOL)arg5 displayInAppWhitelistModes:(BOOL)arg6 dismissAfterTimeInterval:(double)arg7 completionBlock:(CDUnknownBlockType)arg8;
+- (void)displayUserNotificationWithTitle:(id)arg1 message:(id)arg2 defaultButtonText:(id)arg3 alternateButtonText:(id)arg4 displayOnLockScreen:(BOOL)arg5 displayInAppWhitelistModes:(BOOL)arg6 dismissAfterTimeInterval:(double)arg7 assertion:(id)arg8 completionBlock:(CDUnknownBlockType)arg9;
+- (void)inviteUserToVPPWithTitle:(id)arg1 message:(id)arg2 assertion:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
+- (void)promptUserToLogIntoiTunesWithTitle:(id)arg1 message:(id)arg2 assertion:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
 @property(readonly, nonatomic) BOOL hasOutstandingNotifications;
 - (void)dealloc;
 - (id)init;

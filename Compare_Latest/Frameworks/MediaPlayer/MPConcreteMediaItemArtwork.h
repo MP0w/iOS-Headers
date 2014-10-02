@@ -6,37 +6,19 @@
 
 #import <MediaPlayer/MPMediaItemArtwork.h>
 
-#import "NSCoding.h"
+@class MPArtworkCatalog;
 
-@class MPMediaLibrary;
-
-@interface MPConcreteMediaItemArtwork : MPMediaItemArtwork <NSCoding>
+@interface MPConcreteMediaItemArtwork : MPMediaItemArtwork
 {
-    unsigned long long _itemPersistentID;
-    MPMediaLibrary *_library;
+    MPArtworkCatalog *_catalog;
     struct CGRect _bounds;
-    struct CGRect _cropRect;
 }
 
 - (void).cxx_destruct;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (id)_cacheIDAtPlaybackTime:(double)arg1;
-- (id)_imageDataForSize:(struct CGSize)arg1 playbackTime:(double)arg2;
-- (id)_imageForSize:(struct CGSize)arg1 artworkCacheID:(id)arg2 playbackTime:(double)arg3 scaleToSize:(BOOL)arg4;
-- (id)_imageWithFormat:(int)arg1 artworkCacheID:(id)arg2 canUseSurfaceBackedImage:(BOOL)arg3 scaleToSize:(struct CGSize)arg4;
-- (BOOL)shouldAsynchrounouslyLoadArtworkForItemWithIdentifier:(long long)arg1 artworkSize:(struct CGSize)arg2 artworkCacheID:(id)arg3;
-- (BOOL)shouldAsynchrounouslyLoadArtworkForItemWithIdentifier:(long long)arg1 artworkFormat:(int)arg2 artworkCacheID:(id)arg3;
-- (struct CGRect)imageCropRect;
+@property(readonly, nonatomic) MPArtworkCatalog *artworkCatalog;
 - (struct CGRect)bounds;
-- (id)albumImageDataWithSize:(struct CGSize)arg1;
-- (id)albumImageWithSize:(struct CGSize)arg1;
-- (id)imageDataWithSize:(struct CGSize)arg1 atPlaybackTime:(double)arg2;
-- (id)imageWithSize:(struct CGSize)arg1 atPlaybackTime:(double)arg2;
-- (id)imageWithSize:(struct CGSize)arg1 artworkCacheID:(id)arg2;
-- (id)imageWithFormat:(int)arg1 artworkCacheID:(id)arg2 canUseSurfaceBackedImage:(BOOL)arg3;
-- (BOOL)hasArtworkAvailable;
-- (id)_initWithItem:(id)arg1;
+- (id)imageWithSize:(struct CGSize)arg1;
+- (id)initWithArtworkCatalog:(id)arg1;
 
 @end
 

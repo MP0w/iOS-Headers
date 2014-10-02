@@ -6,7 +6,7 @@
 
 #import <IMCore/IMService.h>
 
-@class IDSService, IMAccount, NSArray, NSData, NSDictionary, NSMutableDictionary, NSString;
+@class IMAccount, NSArray, NSData, NSDictionary, NSMutableDictionary, NSString;
 
 @interface IMServiceImpl : IMService
 {
@@ -15,6 +15,7 @@
     NSString *_localizedShortName;
     NSMutableDictionary *_cardMap;
     NSDictionary *_personToIDMap;
+    NSString *_countryCode;
     IMAccount *_bestAccount;
     NSDictionary *_serviceDefaults;
     NSDictionary *_serviceProps;
@@ -22,7 +23,7 @@
     NSData *_imageData;
     NSArray *_abProperties;
     NSArray *_emailDomains;
-    IDSService *_idsService;
+    NSArray *_siblingServiceNames;
     unsigned int _screenNameSensitivity;
     BOOL _hasLoadedServiceProperties;
     BOOL _handlesChatInvites;
@@ -36,6 +37,7 @@
     BOOL _supportsPresence;
     BOOL _supportsIDStatusLookup;
     BOOL _supportsDatabaseStorage;
+    BOOL _supportsAudioMessages;
     BOOL _shouldInternationalizeNumbers;
     BOOL _supportsOfflineTransfers;
     BOOL _shouldDisableDeactivation;
@@ -45,6 +47,7 @@
     BOOL _allowsMultipleConnections;
 }
 
++ (BOOL)systemSupportsSendingAttachmentsOfTypes:(id)arg1 error:(int *)arg2;
 + (BOOL)systemSupportsSMSSending;
 + (id)supportedCountryCodes;
 + (id)operationalServicesWithCapability:(unsigned long long)arg1;
@@ -58,10 +61,10 @@
 + (id)allServices;
 + (void)setServiceClass:(Class)arg1;
 + (Class)serviceClass;
-@property(readonly, nonatomic) NSString *shortName; // @synthesize shortName=_localizedShortName;
-@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
-@property(readonly, nonatomic) NSArray *emailDomains; // @synthesize emailDomains=_emailDomains;
-@property(readonly, nonatomic) NSArray *addressBookProperties; // @synthesize addressBookProperties=_abProperties;
+@property(readonly, retain, nonatomic) NSString *shortName; // @synthesize shortName=_localizedShortName;
+@property(readonly, retain, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, retain, nonatomic) NSArray *emailDomains; // @synthesize emailDomains=_emailDomains;
+@property(readonly, retain, nonatomic) NSArray *addressBookProperties; // @synthesize addressBookProperties=_abProperties;
 @property(readonly, nonatomic) unsigned int IDSensitivity; // @synthesize IDSensitivity=_screenNameSensitivity;
 @property(readonly, nonatomic) BOOL shouldDisableDeactivation; // @synthesize shouldDisableDeactivation=_shouldDisableDeactivation;
 @property(readonly, nonatomic) BOOL allowsMultipleConnections; // @synthesize allowsMultipleConnections=_allowsMultipleConnections;
@@ -77,6 +80,7 @@
 @property(readonly, nonatomic) BOOL isPersistent; // @synthesize isPersistent=_isPersistent;
 @property(readonly, nonatomic) BOOL supportsAuthorization; // @synthesize supportsAuthorization=_supportsAuthorization;
 @property(readonly, nonatomic) BOOL supportsPhoneNumberMapping; // @synthesize supportsPhoneNumberMapping=_supportsPhoneNumberMapping;
+@property(readonly, nonatomic) BOOL supportsAudioMessages; // @synthesize supportsAudioMessages=_supportsAudioMessages;
 @property(readonly, nonatomic) BOOL supportsIDStatusLookup; // @synthesize supportsIDStatusLookup=_supportsIDStatusLookup;
 @property(retain, nonatomic) NSDictionary *defaultAccountSettings; // @synthesize defaultAccountSettings=_defaultSettings;
 @property(retain, nonatomic) NSDictionary *serviceDefaults; // @synthesize serviceDefaults=_serviceDefaults;
@@ -91,18 +95,20 @@
 - (id)imABPeopleWithScreenName:(id)arg1;
 - (id)imABPeopleWithScreenName:(id)arg1 identifier:(int *)arg2;
 - (id)imABPeopleWithScreenName:(id)arg1 countryCode:(id)arg2 identifier:(int *)arg3;
-@property(readonly, nonatomic) NSDictionary *cardMap;
+@property(readonly, retain, nonatomic) NSDictionary *cardMap;
 - (void)clearIDToCardMap;
+@property(retain, nonatomic) NSString *countryCode;
 - (void)updateIDToCardMapWithNotification:(id)arg1;
 - (id)_newIDToCardMap;
 - (void)_dumpCardMap;
 - (void)_addAddressBookCards:(id)arg1 toMap:(id)arg2;
 - (id)_IDsToMapForIMPerson:(id)arg1;
 - (id)description;
-@property(readonly, nonatomic) NSArray *accountIDs;
+@property(readonly, retain, nonatomic) NSArray *accountIDs;
 @property(readonly, nonatomic) int buddyNotesMaxByteLength;
-@property(readonly, nonatomic) NSString *internalName;
-@property(readonly, nonatomic) NSString *addressBookProperty;
+@property(readonly, retain, nonatomic) NSString *internalName;
+@property(readonly, retain, nonatomic) NSArray *siblingServices;
+@property(readonly, retain, nonatomic) NSString *addressBookProperty;
 - (id)localizedShortName;
 - (id)localizedName;
 @property(readonly, nonatomic) BOOL _wantsInternationizedNumbers;
@@ -110,9 +116,8 @@
 - (BOOL)isEnabled;
 @property(readonly, nonatomic) int maxAttachmentSize;
 @property(readonly, nonatomic) int maxChatParticipants;
-@property(readonly, nonatomic) NSData *serviceImageData;
+@property(readonly, retain, nonatomic) NSData *serviceImageData;
 - (id)subtypeInformationForAccount:(id)arg1;
-- (id)_accountForUniqueID:(id)arg1;
 @property(retain, nonatomic) NSDictionary *serviceProperties;
 - (void)_loadPropertiesIfNeeded;
 - (id)_abPropertiesBySanitizingABProperties:(id)arg1;

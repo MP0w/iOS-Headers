@@ -11,8 +11,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)readNode:(struct _xmlNode *)arg1 toShape:(id)arg2;
-+ (void)readAdjustmentListNode:(struct _xmlNode *)arg1 toShape:(id)arg2;
++ (void)readNode:(struct _xmlNode *)arg1 toShape:(id)arg2 state:(id)arg3;
++ (void)readAdjustmentListNode:(struct _xmlNode *)arg1 toShape:(id)arg2 state:(id)arg3;
 + (void)readTypeFromNode:(struct _xmlNode *)arg1 toShape:(id)arg2;
 
 @end

@@ -6,46 +6,45 @@
 
 #import "UIView.h"
 
-#import "TPStarkPhoneCallViewDelegate.h"
+#import "TPStarkPhoneCallContainerDataSource.h"
+#import "TPStarkPhoneCallContainerDelegate.h"
 
-@class NSArray, NSMutableArray, UILabel;
+@class NSString, TPStarkPhoneCallContainer;
 
-@interface TPStarkPhoneCallGalleryView : UIView <TPStarkPhoneCallViewDelegate>
+@interface TPStarkPhoneCallGalleryView : UIView <TPStarkPhoneCallContainerDataSource, TPStarkPhoneCallContainerDelegate>
 {
     id <TPStarkPhoneCallGalleryViewDelegate> _delegate;
-    NSMutableArray *_phoneCallViewsArray;
-    UILabel *_mergedCallNameLabel;
-    UILabel *_mergedCallNumberTypeOrDurationLabel;
-    UIView *_mergedCallPostioningContainerView;
-    NSArray *_constraintsForMergedCallContainerView;
+    TPStarkPhoneCallContainer *_container;
 }
 
-@property(retain) NSArray *constraintsForMergedCallContainerView; // @synthesize constraintsForMergedCallContainerView=_constraintsForMergedCallContainerView;
-@property(retain) UIView *mergedCallPostioningContainerView; // @synthesize mergedCallPostioningContainerView=_mergedCallPostioningContainerView;
-@property(retain) UILabel *mergedCallNumberTypeOrDurationLabel; // @synthesize mergedCallNumberTypeOrDurationLabel=_mergedCallNumberTypeOrDurationLabel;
-@property(retain) UILabel *mergedCallNameLabel; // @synthesize mergedCallNameLabel=_mergedCallNameLabel;
-@property(retain) NSMutableArray *phoneCallViewsArray; // @synthesize phoneCallViewsArray=_phoneCallViewsArray;
++ (id)statusStringForDisplayForCall:(id)arg1;
+@property(retain) TPStarkPhoneCallContainer *container; // @synthesize container=_container;
 @property id <TPStarkPhoneCallGalleryViewDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)updateClockTickNotification:(id)arg1;
+- (void)phoneCallDataDidChange:(id)arg1;
 - (void)setIsShowingCallFailure:(BOOL)arg1;
-- (id)conferencePhoneCallViews;
-- (id)phoneCallViewForPhoneCall:(id)arg1;
-- (id)anchorViewForRightCall;
-- (id)anchorViewForLeftCall;
-- (void)swapHeldPhoneCallsAnimated:(BOOL)arg1;
-- (void)removeMergedCallLabels;
-- (void)_updateMergedCallHorizontalSizeConstraints;
-- (void)updateAndShowMergedCallLabelsIfNecessary;
 - (void)endPhoneCall:(id)arg1 animated:(BOOL)arg2;
-- (void)unmergePhoneCallFromConference:(id)arg1 animated:(BOOL)arg2;
 - (void)mergePrimaryPhoneCallsAnimated:(BOOL)arg1;
 - (void)addPrimaryPhoneCall:(id)arg1 animated:(BOOL)arg2;
-- (void)addPhoneCall:(id)arg1 asParticipantToPrimaryPhoneCall:(id)arg2 animated:(BOOL)arg3;
-- (void)phoneCallViewWasTapped:(id)arg1;
-- (void)resetGalleryData;
+- (id)phoneCallForIndex:(unsigned int)arg1 isMerged:(char *)arg2;
+- (id)mergedStringForMergedCalls;
+- (void)phoneCallContainer:(id)arg1 phoneCallViewTappedAtIndex:(unsigned int)arg2;
+- (BOOL)phoneCallContainer:(id)arg1 cellIsDimmedAtIndex:(unsigned int)arg2;
+- (id)phoneCallContainer:(id)arg1 subtitleForViewCellAtIndex:(unsigned int)arg2;
+- (id)phoneCallContainer:(id)arg1 titleForViewCellAtIndex:(unsigned int)arg2;
+- (unsigned int)numberOfViewCellsForPhoneCallContainer:(id)arg1;
 - (void)reloadPhoneCallData;
+- (id)primaryCalls;
+- (id)mergedCalls;
+- (void)stopListeningForCallNotifications;
+- (void)startListeningForCallNotifications;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

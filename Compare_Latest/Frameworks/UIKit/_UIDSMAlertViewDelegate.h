@@ -8,6 +8,8 @@
 
 #import "UIAlertViewDelegate.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface _UIDSMAlertViewDelegate : NSObject <UIAlertViewDelegate>
 {
@@ -17,6 +19,12 @@ __attribute__((visibility("hidden")))
 @property(copy) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 - (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)willPresentAlertView:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

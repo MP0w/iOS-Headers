@@ -19,7 +19,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) ML3StatementCacheNode *firstNode; // @synthesize firstNode=_firstNode;
 - (void).cxx_destruct;
 - (void)deleteAllNodes;
-- (id)deleteOldestNode;
+- (void)deleteOldestNode;
+- (id)oldestNode;
 - (void)promoteNodeWithDictionaryKey:(id)arg1;
 - (void)appendNode:(id)arg1;
 @property(readonly, nonatomic) unsigned int count;

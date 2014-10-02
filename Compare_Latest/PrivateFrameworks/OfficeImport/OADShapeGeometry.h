@@ -15,6 +15,8 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *mAdjustValues;
 }
 
+- (id)description;
+- (unsigned int)adjustValueCount;
 - (BOOL)hasAdjustValueAtIndex:(unsigned int)arg1;
 - (long)adjustValueAtIndex:(unsigned int)arg1;
 - (void)setAdjustValue:(long)arg1 atIndex:(unsigned int)arg2;

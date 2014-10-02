@@ -8,7 +8,7 @@
 
 #import "UIGestureRecognizerDelegate.h"
 
-@class UIDimmingView;
+@class NSString, UIDimmingView;
 
 __attribute__((visibility("hidden")))
 @interface UIDictationFloatingStarkView : UIDictationView <UIGestureRecognizerDelegate>
@@ -28,6 +28,12 @@ __attribute__((visibility("hidden")))
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

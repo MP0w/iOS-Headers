@@ -10,6 +10,7 @@
 #import "TSCHStyleSwapSupporting.h"
 #import "TSDMixing.h"
 #import "TSDReducableInfo.h"
+#import "TSKCustomFormatContainingInfo.h"
 #import "TSKModel.h"
 #import "TSKSearchable.h"
 #import "TSPCopying.h"
@@ -17,10 +18,10 @@
 #import "TSSStyleClient.h"
 #import "TSSThemedObject.h"
 
-@class TSCHChartInfo, TSCHChunkManager, TSPObject<TSCHMediatorProvider>;
+@class NSString, TSCHChartInfo, TSCHChunkManager, TSPObject<TSCHMediatorProvider>;
 
 __attribute__((visibility("hidden")))
-@interface TSCHChartDrawableInfo : TSDDrawableInfo <TSCECalculationEngineRegistration, TSDReducableInfo, TSPCopying, TSKSearchable, TSKModel, TSSPresetSource, TSSThemedObject, TSCHStyleSwapSupporting, TSDMixing, TSSStyleClient>
+@interface TSCHChartDrawableInfo : TSDDrawableInfo <TSCECalculationEngineRegistration, TSDReducableInfo, TSKCustomFormatContainingInfo, TSPCopying, TSKSearchable, TSKModel, TSSPresetSource, TSSThemedObject, TSCHStyleSwapSupporting, TSDMixing, TSSStyleClient>
 {
     TSCHChartInfo *mChart;
     TSPObject<TSCHMediatorProvider> *mMediatorPersistentObject;
@@ -30,6 +31,10 @@ __attribute__((visibility("hidden")))
 + (void)bootstrapPresetsOfKind:(id)arg1 inTheme:(id)arg2 alternate:(int)arg3;
 + (id)presetKinds;
 @property(readonly, nonatomic) TSCHChartInfo *chart; // @synthesize chart=mChart;
+- (id)commandToReplaceCustomFormat:(id)arg1 withReplacementFormat:(id)arg2;
+- (BOOL)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
+- (id)changeDetailsForCustomFormatListDidUpdateToCustomFormatWrapper:(id)arg1;
+- (void)performBlockWithStylesheetForAddingStyles:(CDUnknownBlockType)arg1;
 - (id)commandToReplaceImageData:(id)arg1 withReducedImageData:(id)arg2 associatedHint:(id)arg3;
 - (struct CGSize)targetSizeForImageData:(id)arg1 associatedHint:(id)arg2;
 - (id)imageDatasForReducingFileSizeWithAssociatedHints;
@@ -40,11 +45,11 @@ __attribute__((visibility("hidden")))
 - (void)modelDidInvalidateWithDetails:(id)arg1;
 - (void)chartDidInvalidateWithProperties:(id)arg1;
 - (void)p_sendInvalidationWithKind:(int)arg1 details:(id)arg2;
+- (int)elementKind;
 - (BOOL)aspectRatioLocked;
 - (BOOL)canSizeBeChangedIncrementally;
 - (BOOL)canAspectRatioLockBeChangedByUser;
 - (BOOL)supportsHyperlinks;
-- (Class)editorClass;
 - (Class)layoutClass;
 - (Class)repClass;
 - (id)commandForTransformingByTransform:(struct CGAffineTransform)arg1 context:(id)arg2 transformedObjects:(id)arg3 inBounds:(struct CGRect)arg4;
@@ -59,6 +64,8 @@ __attribute__((visibility("hidden")))
 - (id)childCommandForApplyThemeCommand:(id)arg1;
 - (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
 - (int)mixingTypeWithObject:(id)arg1;
+- (id)localizedChunkNameForTextureDeliveryStyle:(unsigned int)arg1 animationFilter:(id)arg2 chunkIndex:(unsigned int)arg3;
+- (BOOL)isVisibleAtBeginningOfMagicChartBuildForDeliveryStyle:(unsigned int)arg1 animationFilter:(id)arg2;
 - (BOOL)hasBackgroundLayerForPieChart;
 - (BOOL)shouldAddMultiDataBuildWhenAddingToDocument;
 - (BOOL)reverseChunkingIsSupported;
@@ -94,18 +101,23 @@ __attribute__((visibility("hidden")))
 - (id)initWithContext:(id)arg1 chartType:(id)arg2 chartBodyFrame:(id)arg3 stylePreset:(id)arg4 privateSeriesStyles:(id)arg5;
 - (id)initWithContext:(id)arg1 chartType:(id)arg2 legendShowing:(id)arg3 chartBodyFrame:(id)arg4 stylePreset:(id)arg5 privateSeriesStyles:(id)arg6 chartNonStyle:(id)arg7 legendNonStyle:(id)arg8 valueAxisNonStyles:(id)arg9 categoryAxisNonStyles:(id)arg10 seriesNonStyles:(id)arg11;
 - (id)initWithContext:(id)arg1 chartType:(id)arg2 legendShowing:(id)arg3 chartBodyFrame:(id)arg4 chartAreaFrame:(id)arg5 circumscribingFrame:(id)arg6 legendFrame:(id)arg7 stylePreset:(id)arg8 privateSeriesStyles:(id)arg9 chartNonStyle:(id)arg10 legendNonStyle:(id)arg11 valueAxisNonStyles:(id)arg12 categoryAxisNonStyles:(id)arg13 seriesNonStyles:(id)arg14;
+- (id)initWithContext:(id)arg1 chart:(id)arg2;
 - (id)p_copyFor3DAs2DWithContext:(id)arg1 chartFrame:(struct CGRect)arg2 legendFrame:(struct CGRect)arg3;
 - (id)initFromPreUFFArchiveWithUnarchiver:(id)arg1;
 - (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
 - (id)initFromUnarchiver:(id)arg1;
-- (id)buildImageTitle;
-- (id)titleForBuildChunk:(id)arg1;
 - (id)objectToArchiveInDependencyTracker;
 - (id)componentRootObject;
 - (BOOL)registerLast;
 - (void)unregisterFromCalculationEngine:(id)arg1;
 - (void)registerWithCalculationEngineForDocumentLoad:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

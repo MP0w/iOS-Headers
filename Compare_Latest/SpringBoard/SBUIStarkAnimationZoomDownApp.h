@@ -21,7 +21,7 @@
 - (double)animationStartTime;
 - (double)animationDuration;
 - (void)_prepareAnimation;
-- (id)appContext;
+- (id)appSettings;
 - (_Bool)prefersLayerHostSnapshot;
 - (void)dealloc;
 - (id)initWithDeactivatingApp:(id)arg1 withAlertImpersonator:(id)arg2 starkScreenController:(id)arg3;

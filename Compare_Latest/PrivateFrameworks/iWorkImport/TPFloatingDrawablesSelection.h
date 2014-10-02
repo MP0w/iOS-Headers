@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)selectionWithInfos:(id)arg1;
-@property(readonly, nonatomic) NSSet *drawables; // @synthesize drawables=_selectedInfos;
+@property(readonly, retain, nonatomic) NSSet *drawables; // @synthesize drawables=_selectedInfos;
 - (BOOL)containsInfo:(id)arg1;
 - (id)infos;
 - (unsigned int)count;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString, NSURL;
+@class NSArray, NSSet, NSString, NSURL;
 
 @interface SKUIChart : NSObject
 {
@@ -15,9 +15,11 @@
     NSURL *_seeAllURL;
     BOOL _showsIndexNumbers;
     NSString *_title;
+    NSSet *_unavailableItemIdentifiers;
 }
 
 @property(readonly, nonatomic) NSURL *seeAllURL; // @synthesize seeAllURL=_seeAllURL;
+@property(copy, nonatomic) NSSet *unavailableItemIdentifiers; // @synthesize unavailableItemIdentifiers=_unavailableItemIdentifiers;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, nonatomic) BOOL showsIndexNumbers; // @synthesize showsIndexNumbers=_showsIndexNumbers;
 @property(readonly, nonatomic) NSArray *items; // @synthesize items=_items;

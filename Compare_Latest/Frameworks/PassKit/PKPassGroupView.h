@@ -11,7 +11,7 @@
 #import "UIScrollViewDelegate.h"
 #import "WLCardViewDelegate.h"
 
-@class NSMutableDictionary, PKGroup, PKPassView, PKReusablePassViewQueue, UIInterpolatingMotionEffect, UILongPressGestureRecognizer, UIPageControl, UIPanGestureRecognizer, UIScrollView;
+@class NSMutableDictionary, NSString, PKGroup, PKPassView, PKReusablePassViewQueue, UIInterpolatingMotionEffect, UILongPressGestureRecognizer, UIPageControl, UIPanGestureRecognizer, UIScrollView;
 
 @interface PKPassGroupView : UIView <WLCardViewDelegate, PKGroupDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegate>
 {
@@ -30,16 +30,18 @@
     UIInterpolatingMotionEffect *_horizontalMotionEffect;
     UIInterpolatingMotionEffect *_verticalMotionEffect;
     PKGroup *_group;
-    id <PKPassGroupViewDelegate> _delegate;
+    PKPassView *_frontmostPassView;
     float _verticalMotionRelativeValue;
     float _horizontalMotionRelativeValue;
+    id <PKPassGroupViewDelegate> _delegate;
 }
 
+@property(readonly, nonatomic) id <PKPassGroupViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) float horizontalMotionRelativeValue; // @synthesize horizontalMotionRelativeValue=_horizontalMotionRelativeValue;
 @property(nonatomic) float verticalMotionRelativeValue; // @synthesize verticalMotionRelativeValue=_verticalMotionRelativeValue;
-@property(readonly, nonatomic) id <PKPassGroupViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) int presentationState; // @synthesize presentationState=_presentationState;
 @property(nonatomic) PKReusablePassViewQueue *passViewQueue; // @synthesize passViewQueue=_passViewQueue;
+@property(nonatomic) PKPassView *frontmostPassView; // @synthesize frontmostPassView=_frontmostPassView;
 @property(retain, nonatomic) PKGroup *group; // @synthesize group=_group;
 - (BOOL)passViewBackGrowsCentered:(id)arg1;
 - (void)passView:(id)arg1 flipButtonPressedForPass:(id)arg2;
@@ -83,26 +85,34 @@
 - (void)_setupViewsForFanningWithAnimation:(BOOL)arg1 resizeCards:(BOOL)arg2;
 - (void)_setupViewsForPagingWithAnimation:(BOOL)arg1 resizeCards:(BOOL)arg2;
 - (void)_setupViewsForStackingWithAnimation:(BOOL)arg1 resizeCards:(BOOL)arg2;
+@property(readonly, nonatomic) struct UIOffset offsetForFrontmostPassWhileStacked;
 - (struct CGSize)_contentSize;
 - (void)setHorizontalMotionEnabled:(BOOL)arg1;
 - (void)setVerticalMotionEnabled:(BOOL)arg1;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)sizeToFit;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)flipPassViewForPass:(id)arg1 animated:(BOOL)arg2 fromLeft:(BOOL)arg3;
 - (void)setDimmer:(float)arg1 animated:(BOOL)arg2;
 - (void)presentPassWithUniqueID:(id)arg1;
 - (void)presentDiff:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)applyDefaultModeForPassesWithDuration:(double)arg1;
+- (void)applyDefaultModeForPasses;
 - (void)setPresentationState:(int)arg1 animated:(BOOL)arg2 resizePasses:(BOOL)arg3;
 - (void)setPresentationState:(int)arg1 animated:(BOOL)arg2;
 - (void)setShowPageControlWithAnimation:(BOOL)arg1 duration:(double)arg2 delay:(double)arg3;
-@property(readonly, nonatomic) unsigned int displayIndex; // @synthesize displayIndex=_displayIndex;
+- (void)setFrontmostPassViewFromPassIndex:(int)arg1;
+@property(readonly, nonatomic) unsigned int displayIndex;
 @property(readonly, nonatomic) UIPageControl *pageControl;
-@property(readonly, nonatomic) PKPassView *frontmostPassView;
 - (id)groupID;
 - (void)dealloc;
 - (void)removeFromSuperview;
 - (id)initWithGroup:(id)arg1 delegate:(id)arg2 contentMode:(int)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

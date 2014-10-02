@@ -15,8 +15,10 @@ __attribute__((visibility("hidden")))
 + (id)readStringWithAsciiCodeFromXmlStringElement:(struct _xmlNode *)arg1;
 + (id)edStringWithRunsFromXmlDivElement:(struct _xmlNode *)arg1 state:(id)arg2;
 + (id)edStringWithRunsFromXmlStringElement:(struct _xmlNode *)arg1 state:(id)arg2;
-+ (id)edTextFromXmlStringElement:(struct _xmlNode *)arg1;
++ (id)edTextFromXmlStringElement:(struct _xmlNode *)arg1 state:(id)arg2;
 + (id)cleanupWhitespace:(id)arg1;
++ (id)stringInEDString:(id)arg1 forRunIndex:(unsigned int)arg2;
++ (id)stringInEDString:(id)arg1 start:(unsigned int)arg2 end:(unsigned int)arg3;
 + (void)buildEDString:(id)arg1 fromText:(id)arg2 edFont:(id)arg3 keepWhitespace:(_Bool)arg4 state:(id)arg5;
 + (void)buildEDString:(id)arg1 fromNode:(struct _xmlNode *)arg2 edFont:(id)arg3 keepWhitespace:(_Bool)arg4 state:(id)arg5;
 + (void)buildEDString:(id)arg1 fromChildrenOfNode:(struct _xmlNode *)arg2 edFont:(id)arg3 keepWhitespace:(_Bool)arg4 state:(id)arg5;

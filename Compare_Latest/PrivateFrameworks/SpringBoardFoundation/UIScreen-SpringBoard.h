@@ -12,8 +12,6 @@
 + (id)sbs_screenTypes;
 - (id)sbs_snapshotImagePathComponent;
 - (id)sbs_launchImageInfoPlistKeyModifier;
-- (id)_display;
-- (BOOL)sbs_isCloned;
 - (BOOL)sbs_isMainScreen;
 - (BOOL)sbs_isCarScreen;
 @end

@@ -6,17 +6,21 @@
 
 #import "NSObject.h"
 
+@class NSMapTable;
+
 @interface DAPriorityManager : NSObject
 {
-    struct __CFDictionary *_clientsToPriorityRequests;
-    int _foregroundDataclasses;
+    NSMapTable *_clientsToPriorityRequests;
     int _currentPriority;
+    int _foregroundDataclasses;
 }
 
 + (id)sharedManager;
 + (void)vendPriorityManagers;
-@property(readonly) int currentPriority; // @synthesize currentPriority=_currentPriority;
-@property(readonly) struct __CFDictionary *clientsToPriorityRequests; // @synthesize clientsToPriorityRequests=_clientsToPriorityRequests;
+@property(nonatomic) int foregroundDataclasses; // @synthesize foregroundDataclasses=_foregroundDataclasses;
+@property(readonly, nonatomic) int currentPriority; // @synthesize currentPriority=_currentPriority;
+@property(retain, nonatomic) NSMapTable *clientsToPriorityRequests; // @synthesize clientsToPriorityRequests=_clientsToPriorityRequests;
+- (void).cxx_destruct;
 - (void)bumpDataclassesToUIPriority:(int)arg1;
 - (void)requestPriority:(int)arg1 forClient:(id)arg2 dataclasses:(int)arg3;
 - (void)_setNewPriority;
@@ -26,7 +30,7 @@
 - (void)dealloc;
 - (id)init;
 - (void)_SBApplicationStateChanged:(id)arg1;
-- (id)_appIDsToDataclasses;
+- (id)appIDsToDataclasses;
 
 @end
 

@@ -10,11 +10,35 @@
 {
 }
 
++ (struct UIEdgeInsets)notificationListInsets;
++ (float)_notificationListTopPadding;
++ (float)_notificationListSideOffset;
++ (float)_notificationListBottomOffset;
 + (struct UIEdgeInsets)slideToUnlockInsets;
 + (float)slideToUnlockOverlayMargin;
 + (float)slideToUnlockFontSize;
-+ (float)cameraGrabberInset;
++ (float)slideUpGrabberInset;
++ (float)dateLabelFontSize;
++ (float)subtitleBaselineOffsetFromTopOfScreen;
++ (float)dateBaselineOffsetFromTime;
 + (float)dateViewBaselineY;
++ (float)pinKeypadStatusTitleBaselineOffsetFromTitle;
++ (float)pinKeypadStatusTitleBaselineOffsetIncludingSubtitle:(BOOL)arg1;
++ (float)pinKeypadStatusTitleBaselineOffset:(BOOL)arg1;
++ (float)pinKeypadEntryFieldOffsetForSubtitle;
++ (id)pinKeypadStatusSubtitleViewTitleFont;
++ (id)pinKeypadStatusTitleViewTitleFont;
++ (float)pinLongNumericEntryFieldBottomYDistanceFromNumberPadTopButton;
++ (float)pinFourDigitEntryFieldBottomYDistanceFromNumberPadTopButton:(BOOL)arg1;
++ (float)pinNumberPadBaseOffsetFromTopOfScreen:(BOOL)arg1;
++ (float)pinNumberPadButtonOuterCircleDiameter;
++ (float)pinNumberPadButtonPaddingWidth;
++ (float)pinNumberPadButtonPaddingHeight;
++ (float)pinNumberPadAncillaryButtonOffset;
++ (float)pinNumberPadBottomPaddingHeight;
++ (float)pinNumberPadWidth;
++ (float)pinFourDigitEntryFieldIndicatorPaddingWidth;
++ (float)pinFourDigitEntryFieldIndicatorDiameter;
 
 @end
 

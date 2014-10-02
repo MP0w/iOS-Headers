@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)copyToPasteboardIsSmartCopy:(BOOL)arg1;
 - (void)copyToPasteboard;
-- (void)loadNativeData;
+- (void)loadData;
 - (id)initWithPasteboard:(id)arg1 sourceContext:(id)arg2;
 - (id)initWithContext:(id)arg1;
 

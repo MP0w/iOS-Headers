@@ -9,11 +9,12 @@
 #import "CNFRegRegionChooserDelegate.h"
 #import "PSController.h"
 #import "UISearchBarDelegate.h"
-#import "UISearchDisplayDelegate.h"
+#import "UISearchControllerDelegate.h"
+#import "UISearchResultsUpdating.h"
 
-@class NSArray, NSString, PSRootController, PSSpecifier, UISearchDisplayController, UIViewController<PSController>;
+@class NSArray, NSString, PSRootController, PSSpecifier, UISearchController, UIViewController<PSController>;
 
-@interface CNFRegRegionChooserController : UITableViewController <UISearchDisplayDelegate, UISearchBarDelegate, CNFRegRegionChooserDelegate, PSController>
+@interface CNFRegRegionChooserController : UITableViewController <UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate, CNFRegRegionChooserDelegate, PSController>
 {
     NSString *_selectedRegionID;
     NSArray *_regionList;
@@ -22,10 +23,10 @@
     UIViewController<PSController> *_parentController;
     PSRootController *_rootController;
     PSSpecifier *_specifier;
-    UISearchDisplayController *_sdc;
+    UISearchController *_searchController;
 }
 
-@property(retain, nonatomic) UISearchDisplayController *sdc; // @synthesize sdc=_sdc;
+@property(retain, nonatomic) UISearchController *searchController; // @synthesize searchController=_searchController;
 @property(retain, nonatomic) NSArray *filteredRegionList; // @synthesize filteredRegionList=_filteredRegionList;
 @property(nonatomic) id <CNFRegRegionChooserDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSString *selectedRegionID; // @synthesize selectedRegionID=_selectedRegionID;
@@ -40,7 +41,8 @@
 - (void)willResignActive;
 - (BOOL)canBeShownFromSuspendedState;
 - (void)handleURL:(id)arg1;
-- (void)pushController:(id)arg1;
+- (void)showController:(id)arg1 animate:(BOOL)arg2;
+- (void)showController:(id)arg1;
 - (id)readPreferenceValue:(id)arg1;
 - (void)setPreferenceValue:(id)arg1 specifier:(id)arg2;
 - (id)specifier;
@@ -50,12 +52,11 @@
 - (id)parentController;
 - (void)setParentController:(id)arg1;
 - (void)regionChooser:(id)arg1 selectedRegionID:(id)arg2;
-- (void)searchDisplayController:(id)arg1 willUnloadSearchResultsTableView:(id)arg2;
-- (void)searchDisplayController:(id)arg1 didHideSearchResultsTableView:(id)arg2;
-- (void)searchDisplayController:(id)arg1 willShowSearchResultsTableView:(id)arg2;
+- (void)didPresentSearchController:(id)arg1;
+- (void)willPresentSearchController:(id)arg1;
 - (void)_showTableViewCells;
 - (void)_hideTableViewCells;
-- (BOOL)searchDisplayController:(id)arg1 shouldReloadTableForSearchString:(id)arg2;
+- (void)updateSearchResultsForSearchController:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)_selectRegionID:(id)arg1;
 - (void)_selectRegionList:(id)arg1;
@@ -71,6 +72,12 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (id)initWithRegionList:(id)arg1 selectedRegionID:(id)arg2;
 - (id)initWithStyle:(int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

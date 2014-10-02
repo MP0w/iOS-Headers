@@ -7,6 +7,6 @@
 #import "NSObject.h"
 
 @interface NSObject (AccessibilityCalDetailStringAccessors)
-+ (void)_accessibilityCalDetailStringForEvent:(id)arg1 inDateString:(id *)arg2 inTimeString:(id *)arg3;
++ (void)_accessibilityCalDetailStringForEvent:(id)arg1 inLine1:(id *)arg2 inLine2:(id *)arg3 inLine3:(id *)arg4 inLine4:(id *)arg5;
 @end
 

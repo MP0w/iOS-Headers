@@ -7,8 +7,6 @@
 #import "IMService.h"
 
 @interface IMService (CKAdditions)
-+ (void)flushAttributedTranscriptText;
-- (id)attributedTranscriptText;
 - (BOOL)__ck_displayColor;
 - (int)__ck_maxRecipientCount;
 - (id)__ck_displayName;

@@ -9,7 +9,7 @@
 #import "KNAnimationPluginArchiving.h"
 #import "KNFrameBuildAnimator.h"
 
-@class KNAnimParameterGroup, KNBuildCrumbleSystem, KNBuildSmokeSystem, TSDGLDataBuffer, TSDGLFrameBuffer, TSDGLShader, TSDGLTextureInfo;
+@class KNAnimParameterGroup, KNBuildCrumbleSystem, KNBuildSmokeSystem, NSString, TSDGLDataBuffer, TSDGLFrameBuffer, TSDGLShader, TSDGLTextureInfo;
 
 __attribute__((visibility("hidden")))
 @interface KNBuildCrumble : KNAnimationEffect <KNFrameBuildAnimator, KNAnimationPluginArchiving>
@@ -29,8 +29,6 @@ __attribute__((visibility("hidden")))
     struct CATransform3D _shadowFBOProjectionMatrix;
     struct CGRect _drawableFrame;
     struct CGRect _animationRect;
-    int _oldViewportRect[4];
-    BOOL _oldViewportRectInitialized;
 }
 
 + (void)downgradeAttributes:(id *)arg1 animationName:(id *)arg2 warning:(id *)arg3 type:(int)arg4 isToClassic:(BOOL)arg5 version:(unsigned long long)arg6;
@@ -55,6 +53,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (void)teardown;
 - (id)initWithAnimationContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

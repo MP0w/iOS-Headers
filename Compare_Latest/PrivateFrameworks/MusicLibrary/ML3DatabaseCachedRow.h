@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 - (void)getBlobBytes:(const void **)arg1 outLength:(int *)arg2 forColumnName:(id)arg3;
 - (id)numberForColumnName:(id)arg1;
 - (id)stringForColumnName:(id)arg1;
+- (const char *)cStringForColumnName:(id)arg1;
 - (long long)int64ForColumnName:(id)arg1;
 - (int)intForColumnName:(id)arg1;
 - (double)doubleForColumnName:(id)arg1;
@@ -30,6 +31,7 @@ __attribute__((visibility("hidden")))
 - (void)getBlobBytes:(const void **)arg1 outLength:(int *)arg2 forColumnIndex:(unsigned int)arg3;
 - (id)numberForColumnIndex:(unsigned int)arg1;
 - (id)stringForColumnIndex:(unsigned int)arg1;
+- (const char *)cStringForColumnIndex:(unsigned int)arg1;
 - (long long)int64ForColumnIndex:(unsigned int)arg1;
 - (int)intForColumnIndex:(unsigned int)arg1;
 - (double)doubleForColumnIndex:(unsigned int)arg1;

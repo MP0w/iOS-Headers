@@ -20,14 +20,14 @@
     NSURL *_acceptedURL;
 }
 
-@property(retain) NSURL *acceptedURL; // @synthesize acceptedURL=_acceptedURL;
-@property(retain) NSString *lastName; // @synthesize lastName=_lastName;
-@property(retain) NSString *firstName; // @synthesize firstName=_firstName;
-@property(retain) CoreDAVLeafItem *summary; // @synthesize summary=_summary;
-@property(retain) CalDAVCalendarServerAccessItem *access; // @synthesize access=_access;
-@property(retain) CoreDAVItemWithNoChildren *inviteStatus; // @synthesize inviteStatus=_inviteStatus;
-@property(retain) CoreDAVLeafItem *commonName; // @synthesize commonName=_commonName;
-@property(retain) CoreDAVHrefItem *href; // @synthesize href=_href;
+@property(retain, nonatomic) NSURL *acceptedURL; // @synthesize acceptedURL=_acceptedURL;
+@property(retain, nonatomic) NSString *lastName; // @synthesize lastName=_lastName;
+@property(retain, nonatomic) NSString *firstName; // @synthesize firstName=_firstName;
+@property(retain, nonatomic) CoreDAVLeafItem *summary; // @synthesize summary=_summary;
+@property(retain, nonatomic) CalDAVCalendarServerAccessItem *access; // @synthesize access=_access;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *inviteStatus; // @synthesize inviteStatus=_inviteStatus;
+@property(retain, nonatomic) CoreDAVLeafItem *commonName; // @synthesize commonName=_commonName;
+@property(retain, nonatomic) CoreDAVHrefItem *href; // @synthesize href=_href;
 - (int)compare:(id)arg1;
 - (id)copyParseRules;
 - (void)setAcceptedURLItem:(id)arg1;

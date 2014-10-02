@@ -20,6 +20,7 @@
 @property(retain, nonatomic) NSString *sourceVersion; // @synthesize sourceVersion=_sourceVersion;
 @property(retain, nonatomic) NSString *sourceId; // @synthesize sourceId=_sourceId;
 @property(retain, nonatomic) NSString *sourceName; // @synthesize sourceName=_sourceName;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -30,6 +31,7 @@
 - (id)description;
 @property(readonly, nonatomic) BOOL hasSourceVersion;
 - (void)dealloc;
+- (id)initWithAttributionID:(id)arg1;
 
 @end
 

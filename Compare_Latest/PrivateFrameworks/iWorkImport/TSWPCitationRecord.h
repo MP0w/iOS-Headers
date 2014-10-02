@@ -13,6 +13,8 @@ __attribute__((visibility("hidden")))
 {
     BOOL _hideAuthorNames;
     BOOL _hideYear;
+    BOOL _shouldRemove;
+    BOOL _recordXMLApplied;
     NSString *_endNoteXML;
     NSString *_pageRange;
     NSString *_prefix;
@@ -23,6 +25,8 @@ __attribute__((visibility("hidden")))
     NSString *_type;
 }
 
+@property(nonatomic) BOOL recordXMLApplied; // @synthesize recordXMLApplied=_recordXMLApplied;
+@property(nonatomic) BOOL shouldRemove; // @synthesize shouldRemove=_shouldRemove;
 @property(copy, nonatomic) NSString *type; // @synthesize type=_type;
 @property(copy, nonatomic) NSString *year; // @synthesize year=_year;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
@@ -33,7 +37,12 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) BOOL hideYear; // @synthesize hideYear=_hideYear;
 @property(nonatomic) BOOL hideAuthorNames; // @synthesize hideAuthorNames=_hideAuthorNames;
 @property(copy, nonatomic) NSString *endNoteXML; // @synthesize endNoteXML=_endNoteXML;
-- (id)p_copyPropertiesToObject:(id)arg1;
+- (void)p_applyEndNoteXML;
+- (void)p_copyPropertiesToObject:(id)arg1;
+- (id)description;
+- (id)authorYearString;
+- (BOOL)isRecordEqual:(id)arg1;
+@property(readonly, nonatomic) NSString *cacheKey;
 - (id)copyWithContext:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initFromUnarchiver:(id)arg1;

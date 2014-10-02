@@ -35,7 +35,7 @@
 @property(copy, nonatomic) MLMovieProperties *movieProperties;
 @property(nonatomic) unsigned long mediaType;
 @property(copy, nonatomic) MLContentRating *contentRating;
-@property(readonly, nonatomic) NSDictionary *entityProperties;
+@property(readonly, copy, nonatomic) NSDictionary *entityProperties;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 

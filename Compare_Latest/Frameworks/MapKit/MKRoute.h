@@ -15,6 +15,7 @@
     NSArray *_steps;
 }
 
+@property(readonly, nonatomic, getter=_geoRoute) GEORoute *geoRoute; // @synthesize geoRoute=_geoRoute;
 @property(readonly, nonatomic) NSArray *steps; // @synthesize steps=_steps;
 @property(readonly, nonatomic) MKPolyline *polyline; // @synthesize polyline=_polyline;
 - (void).cxx_destruct;
@@ -24,6 +25,7 @@
 @property(readonly, nonatomic) NSString *name;
 @property(readonly, nonatomic) unsigned int transportType;
 - (id)_initWithGEORoute:(id)arg1;
+- (id)_maneuverImageForStep:(id)arg1 size:(struct CGSize)arg2 scale:(float)arg3;
 
 @end
 

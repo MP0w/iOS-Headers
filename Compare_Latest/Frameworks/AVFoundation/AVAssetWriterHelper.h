@@ -38,6 +38,7 @@
 @property(nonatomic) struct CGAffineTransform preferredTransform;
 @property(copy, nonatomic) NSArray *metadata;
 @property(nonatomic) int movieTimeScale;
+@property(copy, nonatomic) NSURL *directoryForTemporaryFiles;
 @property(nonatomic) BOOL shouldOptimizeForNetworkUse;
 @property(nonatomic) CDStruct_1b6d18a9 movieFragmentInterval;
 @property(readonly, nonatomic) NSError *error;

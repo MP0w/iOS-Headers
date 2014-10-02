@@ -8,7 +8,7 @@
 
 #import "SBCountedMapValue.h"
 
-@class SBIconLabelImageParameters;
+@class NSString, SBIconLabelImageParameters;
 
 @interface SBIconLabelLegibilityImage : UIImage <SBCountedMapValue>
 {
@@ -27,6 +27,12 @@
 - (id)countedMapKey;
 - (void)dealloc;
 - (id)_initWithCGImage:(struct CGImage *)arg1 scale:(double)arg2 orientation:(long long)arg3 parameters:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

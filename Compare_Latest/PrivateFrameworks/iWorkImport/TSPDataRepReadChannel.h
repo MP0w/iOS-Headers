@@ -8,7 +8,7 @@
 
 #import "TSUStreamReadChannel.h"
 
-@class NSObject<OS_dispatch_queue>, SFUDataRepresentation;
+@class NSObject<OS_dispatch_queue>, NSString, SFUDataRepresentation;
 
 __attribute__((visibility("hidden")))
 @interface TSPDataRepReadChannel : NSObject <TSUStreamReadChannel>
@@ -23,6 +23,12 @@ __attribute__((visibility("hidden")))
 - (void)readWithQueue:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)initWithRepresentation:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

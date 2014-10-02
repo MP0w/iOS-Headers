@@ -79,6 +79,8 @@ __attribute__((visibility("hidden")))
 - (void)_didScroll;
 - (void)updateAutoscrollForHandle:(id)arg1;
 - (int)autoscrollDirectionsForHandle:(id)arg1;
+- (struct CGRect)visibleRect;
+- (id)scroller;
 - (void)contractForActiveHandle;
 - (void)expandForActiveHandle;
 - (BOOL)shouldContractForActiveHandle;

@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
-@class NSCache;
+@class NSCache, NSObject<OS_dispatch_queue>;
 
 @interface PLPlaceholderThumbnailManager : NSObject
 {
     NSCache *_placeholderDataCache;
     NSCache *_placeholderImageCache;
+    NSObject<OS_dispatch_queue> *_isolation;
 }
 
 + (id)sharedManager;

@@ -11,7 +11,7 @@
 #import "TSKSearchable.h"
 #import "TSSThemedObject.h"
 
-@class TSDFill, TSDLineEnd, TSDPathSource, TSDShapeStyle;
+@class NSString, TSDFill, TSDLineEnd, TSDPathSource, TSDShapeStyle;
 
 __attribute__((visibility("hidden")))
 @interface TSDShapeInfo : TSDStyledInfo <TSSThemedObject, TSDMixing, TSDReducableInfo, TSKSearchable>
@@ -25,7 +25,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSDPathSource *pathSource; // @synthesize pathSource=mPathSource;
 - (id)style;
 - (id)objectForProperty:(int)arg1;
-- (id)commandForTransformingByTransform:(struct CGAffineTransform)arg1 context:(id)arg2 transformedObjects:(id)arg3 inBounds:(struct CGRect)arg4;
+- (id)commandForSettingBoxedValue:(id)arg1 forProperty:(int)arg2;
 - (id)childCommandForApplyThemeCommand:(id)arg1;
 - (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
 - (int)mixingTypeWithObject:(id)arg1;
@@ -42,7 +42,6 @@ __attribute__((visibility("hidden")))
 - (void)setGeometry:(id)arg1;
 @property(readonly, nonatomic) TSDShapeStyle *shapeStyle;
 - (Class)styleClass;
-- (Class)editorClass;
 - (Class)repClass;
 - (Class)layoutClass;
 - (id)copyWithContext:(id)arg1;
@@ -60,6 +59,13 @@ __attribute__((visibility("hidden")))
 - (void)p_correctNearZeroWidthLines;
 - (void)p_correctLineSegmentGeometry;
 - (int)elementKind;
+- (BOOL)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,30 +6,62 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>;
+@class NSArray, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>;
 
 @interface PLGatekeeperClient : NSObject
 {
     NSObject<OS_dispatch_queue> *_serialReplyQueue;
+    NSArray *_previewRenderedContentURLs;
     NSObject<OS_xpc_object> *connection;
+    NSArray *_previewAssetLocalIdentifiers;
+    CDUnknownBlockType _CPLDownloadTransactionsLostHandler;
 }
 
 + (id)securityPolicyErrorForMissingEntitlement:(id)arg1;
 + (id)sharedInstance;
+@property(copy, nonatomic) CDUnknownBlockType CPLDownloadTransactionsLostHandler; // @synthesize CPLDownloadTransactionsLostHandler=_CPLDownloadTransactionsLostHandler;
 @property(nonatomic) NSObject<OS_xpc_object> *connection; // @synthesize connection;
-- (id)videoMetadataAtPath:(id)arg1;
+- (id)getCPLState;
+@property(retain, nonatomic) NSArray *previewAssetLocalIdentifiers; // @synthesize previewAssetLocalIdentifiers=_previewAssetLocalIdentifiers;
+- (id)previewRenderedContentURLAtIndex:(unsigned int)arg1;
+@property(readonly, nonatomic) unsigned int previewRenderedContentURLCount;
+- (void)setPreviewRenderedContentURLs:(id)arg1;
+- (id)cacheDeleteDebug:(id)arg1;
+- (void)privateDownloadCloudPhotoLibraryAsset:(id)arg1 resourceType:(unsigned int)arg2 highPriority:(BOOL)arg3;
+- (void)downloadCloudPhotoLibraryAsset:(id)arg1 resourceType:(unsigned int)arg2 highPriority:(BOOL)arg3;
+- (void)addLogMark:(id)arg1;
+- (BOOL)setKeywords:(id)arg1 forAssetWithUUID:(id)arg2;
+- (id)getKeywordsForAssetWithUUID:(id)arg1;
+- (void)takeStatisticsSnapshotSinceDate:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)removeLocalDuplicates;
+- (void)dumpCloudPhotosStatusIncludingDaemon:(BOOL)arg1;
+- (void)unpauseCloudPhotos;
+- (void)pauseCloudPhotos;
+- (void)enableCloudPhotos:(BOOL)arg1;
+- (id)dictionaryWithContentsOfMediaFilePath:(id)arg1;
+- (void)softResetSyncStatusWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)syncWithCloudPhotoLibrary;
 - (long long)estimatedOutputFileLengthForVideoURL:(id)arg1 fallbackFilePath:(id)arg2 exportPreset:(id)arg3 exportProperties:(id)arg4;
 - (int)getCurrentModelVersion;
 - (void)downloadAsset:(id)arg1 requestThumbnail:(BOOL)arg2 shouldPrioritize:(BOOL)arg3 shouldExtendTimer:(BOOL)arg4;
 - (void)rebuildAllThumbnails;
 - (void)resetDupesAnalysis;
 - (void)rebuildCloudFeed;
-- (void)analyzeMomentList:(id)arg1;
-- (void)analyzeMoment:(id)arg1;
+- (void)getNonLocalResourceInfo:(CDUnknownBlockType)arg1;
+- (void)getSearchIndexProgress:(CDUnknownBlockType)arg1;
+- (void)setSearchIndexPaused:(BOOL)arg1 andWait:(BOOL)arg2;
+- (void)dropSearchIndexWithCompletion:(CDUnknownBlockType)arg1;
+- (void)analyzeMomentListID:(id)arg1;
+- (void)analyzeMomentID:(id)arg1;
 - (void)analyzeInvalidMomentsAndDupesIfNeeded;
+- (void)clearUserInfluencedMoments;
+- (id)allMomentsMetadataWithOutputPath:(id)arg1;
+- (id)dumpMetadataForMomentsWithOutputPath:(id)arg1;
 - (void)analyzeAllMoments;
 - (void)rebuildMomentLists;
 - (void)rebuildMomentsIncremental:(BOOL)arg1;
+- (void)reloadMomentGenerationOptions;
+- (void)deleteExpiredTrashBinObjects;
 - (void)automaticallyDeleteEmptyAlbum:(id)arg1;
 - (void)setPersonInfoDictionary:(id)arg1 forPersonID:(id)arg2;
 - (id)personInfoDictionaryForPersonID:(id)arg1;
@@ -51,6 +83,7 @@
 - (void)recoverFromCrashIfNeeded;
 - (void)clearChangeStore;
 - (BOOL)hasCompletedMomentAnalysis;
+- (id)incompleteRestoreProcesses;
 - (BOOL)hasCompletedRestorePostProcessing;
 - (void)recalculateCachedAlbumCounts;
 - (void)notifyAboutTerminationDueToUncaughtException:(id)arg1;
@@ -74,14 +107,22 @@
 - (void)deleteAssetWithURL:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)addAssetWithURL:(id)arg1 toAlbumWithUUID:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)addGroupWithName:(id)arg1 handler:(CDUnknownBlockType)arg2;
-- (id)imageDataForAsset:(id)arg1 format:(int)arg2;
-- (void)requestImageDataForAsset:(id)arg1 format:(int)arg2 handler:(CDUnknownBlockType)arg3;
+- (void)cancelCPLDownloadWithContext:(id)arg1;
+- (void)updateStatusOfCPLDownloadWithContext:(id)arg1;
+- (void)revertToOriginalForAsset:(id)arg1;
+- (void)requestAdjustmentDataForAsset:(id)arg1 withDataBlob:(BOOL)arg2 networkAccessAllowed:(BOOL)arg3 trackCPLDownload:(BOOL)arg4 handler:(CDUnknownBlockType)arg5;
+- (void)requestVideoURLForAsset:(id)arg1 format:(int)arg2 networkAccessAllowed:(BOOL)arg3 streamingAllowed:(BOOL)arg4 trackCPLDownload:(BOOL)arg5 handler:(CDUnknownBlockType)arg6;
+- (void)requestImageDataForAsset:(id)arg1 format:(int)arg2 allowPlaceholder:(BOOL)arg3 wantURLOnly:(BOOL)arg4 networkAccessAllowed:(BOOL)arg5 trackCPLDownload:(BOOL)arg6 handler:(CDUnknownBlockType)arg7;
+- (id)imageDataForAsset:(id)arg1 format:(int)arg2 allowPlaceholder:(BOOL)arg3 wantURLOnly:(BOOL)arg4 networkAccessAllowed:(BOOL)arg5 trackCPLDownload:(BOOL)arg6 outImageDataInfo:(id *)arg7 outCPLDownloadContext:(id *)arg8;
 - (id)fileURLForNewAssetWithType:(unsigned int)arg1 extension:(id)arg2;
+- (void)updateLocationDataForAssetUUID:(id)arg1;
 - (void)batchSaveAssetsWithJobDictionaries:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)saveAssetWithJobDictionary:(id)arg1 handler:(CDUnknownBlockType)arg2 imageSurface:(void *)arg3 previewImageSurface:(void *)arg4;
 - (id)fileURLForAssetURL:(id)arg1 withAdjustments:(BOOL)arg2;
+- (int)fileDescriptorForAssetURL:(id)arg1 withAdjustments:(BOOL)arg2 outFileExtension:(id *)arg3;
 - (int)fileDescriptorForAssetURL:(id)arg1;
 - (void)requestAccessWithHandler:(CDUnknownBlockType)arg1;
+- (void)dealloc;
 - (id)init;
 - (id)deviceSpecificReplyQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *replyQueue;

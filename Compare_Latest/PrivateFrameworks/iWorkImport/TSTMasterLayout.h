@@ -8,7 +8,7 @@
 
 #import "TSKChangeSourceObserver.h"
 
-@class NSIndexSet, NSLock, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_semaphore>, NSRecursiveLock, TSDFill, TSDInfoGeometry, TSDLayoutGeometry, TSKChangeNotifier, TSTCellRegion, TSTDupContentCache, TSTHiddenRowsColumnsCache, TSTLayout, TSTLayoutDynamicResizeInfo, TSTLayoutTask, TSTMergeRangeSortedSet, TSTTableInfo, TSTTableModel, TSTWPColumnCache, TSTWidthHeightCache, TSUColor, TSUReadWriteQueue, TSURetainedPointerKeyDictionary, TSWPEditingController;
+@class NSIndexSet, NSLock, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_group>, NSPointerArray, NSString, TSDFill, TSDInfoGeometry, TSDLayoutGeometry, TSKChangeNotifier, TSTCellRegion, TSTConcurrentMutableIndexSet, TSTDupContentCache, TSTHiddenRowsColumnsCache, TSTLayout, TSTLayoutDynamicResizeInfo, TSTMergeRangeSortedSet, TSTRWRetainedPointerKeyDictionary, TSTStrokeDefaultVendor, TSTStrokeWidthCache, TSTTableInfo, TSTTableModel, TSTWPColumnCache, TSTWidthHeightCache, TSUColor, TSUWidthLimitedQueue, TSWPEditingController;
 
 __attribute__((visibility("hidden")))
 @interface TSTMasterLayout : NSObject <TSKChangeSourceObserver>
@@ -20,12 +20,10 @@ __attribute__((visibility("hidden")))
     TSTDupContentCache *mDupContentCache;
     TSTWPColumnCache *mTempWPColumnCache;
     TSTWidthHeightCache *mWidthHeightCache;
-    TSUReadWriteQueue *mWHCacheQueue;
     TSTHiddenRowsColumnsCache *mHiddenRowsColumnsCache;
     NSMutableArray *mChangeDescriptors;
     NSObject<OS_dispatch_group> *mLayoutInFlight;
-    TSTLayoutTask *mCurrentLayoutTask;
-    NSObject<OS_dispatch_semaphore> *mLayoutSemaphore;
+    TSUWidthLimitedQueue *mLayoutQueue;
     unsigned int mMaxConcurrentTasks;
     unsigned int mNumCellsPerTask;
     BOOL mHeaderColumnsFrozen;
@@ -40,13 +38,16 @@ __attribute__((visibility("hidden")))
     unsigned short mCachedNumberOfHeaderRows;
     unsigned short mCachedNumberOfFooterRows;
     unsigned int mCachedMaxNumberOfRows;
-    struct TSTTableStrokeDefaults *mDefaultStrokes;
-    NSMutableArray *mTopRowStrokes;
-    NSMutableArray *mBottomRowStrokes;
-    NSMutableArray *mLeftColumnStrokes;
-    NSMutableArray *mRightColumnStrokes;
-    NSRecursiveLock *mStrokesLock;
-    TSURetainedPointerKeyDictionary *mParaStyleToHeightCache;
+    TSTStrokeDefaultVendor *mStrokesDefaultVendor;
+    NSPointerArray *mTopRowStrokes;
+    NSPointerArray *mBottomRowStrokes;
+    NSPointerArray *mLeftColumnStrokes;
+    NSPointerArray *mRightColumnStrokes;
+    TSTConcurrentMutableIndexSet *mSpillStrokeColumns;
+    struct _opaque_pthread_rwlock_t mStrokesRWLock;
+    TSTStrokeWidthCache *mColumnToStrokeWidthCache;
+    TSTStrokeWidthCache *mRowToStrokeHeightCache;
+    TSTRWRetainedPointerKeyDictionary *mParaStyleToHeightCache;
     NSLock *mLock;
     BOOL mBandedFillIsValid;
     BOOL mUseBandedFill;
@@ -92,18 +93,18 @@ __attribute__((visibility("hidden")))
     float mDynamicTableNameResize;
     TSTLayoutDynamicResizeInfo *mDynamicResizeInfo;
     CDStruct_0441cfb5 mDynamicSuppressingConditionalStylesCellID;
+    id <TSTLayoutDynamicCellFillProtocol> mDynamicCellFillDelegate;
     BOOL mEmptyFilteredTable;
     TSWPEditingController *mContainedTextEditor;
     TSTMergeRangeSortedSet *mMergeRanges;
     BOOL mProcessHiddenRowsForExport;
-    TSKChangeNotifier *_changeNotifier;
     struct CGSize mMaximumPartitionSize;
 }
 
 + (float)effectiveTableNameHeightForModel:(id)arg1;
 + (struct CGSize)tableNameTextSize:(id)arg1;
 + (id)tableNameTextEngine:(id)arg1;
-@property(nonatomic) TSKChangeNotifier *changeNotifier; // @synthesize changeNotifier=_changeNotifier;
+@property(nonatomic) TSKChangeNotifier *changeNotifier; // @synthesize changeNotifier=mChangeNotifier;
 @property(nonatomic) struct CGSize maximumPartitionSize; // @synthesize maximumPartitionSize=mMaximumPartitionSize;
 @property(nonatomic) BOOL processHiddenRowsForExport; // @synthesize processHiddenRowsForExport=mProcessHiddenRowsForExport;
 @property(nonatomic) TSTMergeRangeSortedSet *mergeRanges; // @synthesize mergeRanges=mMergeRanges;
@@ -137,7 +138,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL inDynamicLayoutMode; // @synthesize inDynamicLayoutMode=mInDynamicLayoutMode;
 @property(nonatomic) unsigned int numCellsPerTask; // @synthesize numCellsPerTask=mNumCellsPerTask;
 @property(nonatomic) unsigned int maxConcurrentTasks; // @synthesize maxConcurrentTasks=mMaxConcurrentTasks;
-@property(readonly, nonatomic) TSUReadWriteQueue *whCacheQueue; // @synthesize whCacheQueue=mWHCacheQueue;
 @property(readonly, nonatomic) int tableRowsBehavior; // @synthesize tableRowsBehavior=mTableRowsBehavior;
 @property(nonatomic) int tableEnvironment; // @synthesize tableEnvironment=mTableEnvironment;
 @property(readonly, nonatomic) TSDFill *bandedFillObject; // @synthesize bandedFillObject=mBandedFillObject;
@@ -146,6 +146,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSTWPColumnCache *tempWPColumnCache; // @synthesize tempWPColumnCache=mTempWPColumnCache;
 @property(readonly, nonatomic) TSTDupContentCache *dupContentCache; // @synthesize dupContentCache=mDupContentCache;
 @property(readonly, nonatomic) TSTWPColumnCache *cellIDToWPColumnCache; // @synthesize cellIDToWPColumnCache=mCellIDToWPColumnCache;
+@property(readonly, nonatomic) TSTStrokeDefaultVendor *strokesDefaultVendor; // @synthesize strokesDefaultVendor=mStrokesDefaultVendor;
 @property(nonatomic) TSTTableInfo *tableInfo; // @synthesize tableInfo=mTableInfo;
 - (id).cxx_construct;
 - (float)fontHeightOfParagraphStyle:(id)arg1;
@@ -157,20 +158,24 @@ __attribute__((visibility("hidden")))
 - (void)waitForLayoutToComplete;
 - (void)processLayoutTask:(id)arg1;
 - (void)measureTextForLayoutState:(id)arg1;
-- (void)queueCellForValidation:(CDStruct_5f1f7aa9)arg1 cell:(id)arg2 mergeRange:(CDStruct_5f1f7aa9)arg3 wrap:(BOOL)arg4 verticalAlignment:(int)arg5 padding:(id)arg6 prop:(BOOL)arg7 layoutCacheFlags:(int)arg8;
+- (void)queueCellForValidation:(CDStruct_5f1f7aa9)arg1 cell:(id)arg2 mergeRange:(CDStruct_5f1f7aa9)arg3 wrap:(BOOL)arg4 verticalAlignment:(int)arg5 padding:(id)arg6 prop:(BOOL)arg7 layoutCacheFlags:(int)arg8 layoutTask:(id)arg9;
 - (id)validateCellForDrawing:(CDStruct_0441cfb5)arg1 cell:(id)arg2 contents:(id)arg3 wrap:(BOOL)arg4 verticalAlignment:(int)arg5 padding:(id)arg6 layoutCacheFlags:(int)arg7 pageNumber:(unsigned int)arg8 pageCount:(unsigned int)arg9;
 - (void)validateFittingWidthsForRegion:(id)arg1;
-- (id)validateFittingInfoForChangeDescriptors:(id)arg1 rowsNeedingFittingInfo:(id)arg2;
+- (id)validateFittingInfoForChangeDescriptors:(id)arg1 rowsNeedingFittingInfo:(id)arg2 regionForStrokeValidation:(id)arg3;
+- (id)p_newCellRegionForValidatingFittingInfoForRegion:(id)arg1 inserting:(BOOL)arg2 rowsCols:(int)arg3 inRange:(CDStruct_5f1f7aa9)arg4;
 - (void)p_validateFittingInfoForCellID:(CDStruct_0441cfb5)arg1 inMergeRange:(CDStruct_5f1f7aa9)arg2;
-- (CDStruct_0441cfb5)p_validateFittingInfoForEmptyCellsBetween:(CDStruct_0441cfb5)arg1 andCellID:(CDStruct_0441cfb5)arg2 inRange:(CDStruct_5f1f7aa9)arg3;
-- (void)p_validateFittingInfoForEmptyCellsOnSingleRowBetween:(CDStruct_0441cfb5)arg1 andEndCellID:(CDStruct_0441cfb5)arg2;
-- (void)validateFittingInfoWithCellRange:(CDStruct_5f1f7aa9)arg1;
-- (void)validateFittingInfoForCell:(id)arg1 cellID:(CDStruct_0441cfb5)arg2 mergeRange:(CDStruct_5f1f7aa9)arg3 setFitting:(BOOL)arg4;
+- (CDStruct_0441cfb5)p_validateFittingInfoForEmptyCellsBetween:(CDStruct_0441cfb5)arg1 andCellID:(CDStruct_0441cfb5)arg2 inRange:(CDStruct_5f1f7aa9)arg3 widthHeightCollection:(id)arg4;
+- (void)p_validateFittingInfoForEmptyCellsOnSingleRowBetween:(CDStruct_0441cfb5)arg1 andEndCellID:(CDStruct_0441cfb5)arg2 widthHeightCollection:(id)arg3;
+- (void)validateFittingInfoWithCellRange:(CDStruct_5f1f7aa9)arg1 regionForStrokeValidation:(id)arg2;
+- (void)validateFittingInfoWithCellRangeWorker:(CDStruct_5f1f7aa9)arg1 regionForStrokeValidation:(id)arg2;
+- (void)validateFittingInfoForCell:(id)arg1 cellID:(CDStruct_0441cfb5)arg2 mergeRange:(CDStruct_5f1f7aa9)arg3 setFitting:(BOOL)arg4 layoutTask:(id)arg5 widthHeightCollection:(id)arg6;
 - (void)validateRowVisibility:(id)arg1;
 - (void)updateWHCForMergeRanges;
 - (void)validateChangeDescriptorQueue;
 - (void)validateMasterLayoutForChangeDescriptors:(id)arg1;
 - (void)validate;
+- (void)wasRemovedFromDocumentRoot;
+- (void)willBeAddedToDocumentRoot:(id)arg1;
 - (void)addChangeDescriptor:(id)arg1;
 - (void)addChangeDescriptorWithType:(int)arg1 andCellRange:(CDStruct_5f1f7aa9)arg2 andStrokeRange:(CDStruct_5f1f7aa9)arg3;
 - (void)addChangeDescriptorWithType:(int)arg1 andCellRange:(CDStruct_5f1f7aa9)arg2;
@@ -190,6 +195,9 @@ __attribute__((visibility("hidden")))
 - (BOOL)isDynamicallyChangingFontColorOfCellID:(CDStruct_0441cfb5)arg1;
 - (BOOL)isDynamicallyChangingContent;
 @property(readonly, nonatomic) id <TSTLayoutDynamicContentProtocol> dynamicContentDelegate; // @synthesize dynamicContentDelegate=mDynamicContentDelegate;
+- (BOOL)isDynamicallyChangingCellFill;
+@property(readonly, nonatomic) id <TSTLayoutDynamicCellFillProtocol> dynamicCellFillDelegate;
+- (void)updateDynamicCellFillDelegate:(id)arg1;
 - (void)updateDynamicSuppressingConditionalStylesCellID:(CDStruct_0441cfb5)arg1;
 - (void)updateDynamicColumnSwapDelegate:(id)arg1;
 - (void)updateDynamicRowSwapDelegate:(id)arg1;
@@ -226,12 +234,16 @@ __attribute__((visibility("hidden")))
 - (BOOL)isDynamicallyHidingRowsCols:(int)arg1 rowColIndex:(unsigned short)arg2;
 - (BOOL)isDynamicallyHidingRowsCols;
 @property(readonly, nonatomic) TSTLayout *dynamicLayout;
+- (BOOL)containsAnyContentInRange:(CDStruct_5f1f7aa9)arg1;
+- (unsigned short)firstEmptyBodyRow;
+- (CDStruct_5f1f7aa9)expandCellRangeToVisibleNeighbors:(CDStruct_5f1f7aa9)arg1;
 @property(readonly, nonatomic) NSIndexSet *visibleColumnIndices;
 @property(readonly, nonatomic) NSIndexSet *visibleRowIndices;
 - (BOOL)isDynamicallyResizingCellID:(CDStruct_0441cfb5)arg1;
 - (BOOL)isDynamicallyResizing:(int)arg1 rowColIndex:(unsigned short)arg2;
 - (BOOL)isDynamicallyResizing:(int)arg1;
 - (CDStruct_0441cfb5)layoutCellIDForModelCellID:(CDStruct_0441cfb5)arg1;
+- (CDStruct_0441cfb5)modelCellIDForStrokesOfLayoutCellID:(CDStruct_0441cfb5)arg1;
 - (CDStruct_0441cfb5)modelCellIDForLayoutCellID:(CDStruct_0441cfb5)arg1;
 - (BOOL)cell:(id *)arg1 forCellID:(CDStruct_0441cfb5)arg2;
 - (void)removeDynamicLayoutEndIfNecessary:(id)arg1;
@@ -250,6 +262,33 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL useBandedFill;
 - (void)validateStrokesForRegion:(id)arg1 regionAlreadyValidated:(id)arg2;
 - (id)regionForStrokeValidationFromChangeDescriptors:(id)arg1;
+- (void)updateStrokesForCell:(id)arg1 atCellID:(CDStruct_0441cfb5)arg2;
+- (void)enumerateMergedStrokesAndCapsForGridRow:(unsigned int)arg1 from:(unsigned int)arg2 to:(unsigned int)arg3 usingBlock:(CDUnknownBlockType)arg4;
+- (void)enumerateMergedStrokesAndCapsForGridColumn:(unsigned int)arg1 from:(unsigned int)arg2 to:(unsigned int)arg3 usingBlock:(CDUnknownBlockType)arg4;
+- (void)enumerateMergedStrokesForGridRow:(unsigned int)arg1 from:(unsigned int)arg2 to:(unsigned int)arg3 usingBlock:(CDUnknownBlockType)arg4;
+- (void)enumerateMergedStrokesForGridColumn:(unsigned int)arg1 from:(unsigned int)arg2 to:(unsigned int)arg3 usingBlock:(CDUnknownBlockType)arg4;
+- (void)clearDynamicStrokesForCellRange:(CDStruct_5f1f7aa9)arg1;
+- (void)strokesForCellID:(CDStruct_0441cfb5)arg1 top:(id *)arg2 left:(id *)arg3 bottom:(id *)arg4 right:(id *)arg5;
+- (void)setDynamicStrokesForCellID:(CDStruct_0441cfb5)arg1 topStroke:(id)arg2 bottomStroke:(id)arg3 rightStroke:(id)arg4 leftStroke:(id)arg5;
+- (void)setCustomStrokesForCellID:(CDStruct_0441cfb5)arg1 topStroke:(id)arg2 bottomStroke:(id)arg3 rightStroke:(id)arg4 leftStroke:(id)arg5;
+- (void)setStrokesForCellID:(CDStruct_0441cfb5)arg1 atLayerIndex:(int)arg2 topStroke:(id)arg3 bottomStroke:(id)arg4 rightStroke:(id)arg5 leftStroke:(id)arg6;
+- (float)strokeHeightOfGridRow:(unsigned int)arg1 atColumnIndex:(unsigned int)arg2;
+- (float)strokeHeightOfGridRow:(unsigned int)arg1 beginColumn:(unsigned int)arg2 endColumn:(unsigned int)arg3;
+- (id)mergedStrokesForGridRow:(unsigned int)arg1;
+- (id)p_strokesForGridRow:(unsigned int)arg1 isTop:(BOOL)arg2 takeStrokeWriteLock:(BOOL)arg3;
+- (BOOL)adjustGridRowForVisibility:(unsigned int *)arg1 isTop:(BOOL)arg2;
+- (void)setStroke:(id)arg1 forGridRow:(unsigned int)arg2 atLayerIndex:(int)arg3 isTop:(BOOL)arg4 beginColumn:(unsigned int)arg5 endColumn:(unsigned int)arg6;
+- (float)strokeWidthOfGridColumn:(unsigned int)arg1 atRowIndex:(unsigned int)arg2;
+- (float)strokeWidthOfGridColumn:(unsigned int)arg1 beginRow:(unsigned int)arg2 endRow:(unsigned int)arg3;
+- (id)mergedStrokesForGridColumn:(unsigned int)arg1;
+- (id)p_strokesForGridColumn:(unsigned int)arg1 isLeft:(BOOL)arg2 takeStrokeWriteLock:(BOOL)arg3;
+- (BOOL)adjustGridColumnForVisibility:(unsigned int *)arg1 isLeft:(BOOL)arg2;
+- (void)setStrokeSpillForGridColumn:(unsigned int)arg1 beginRow:(unsigned int)arg2 endRow:(unsigned int)arg3;
+- (void)setStroke:(id)arg1 forGridColumn:(unsigned int)arg2 atLayerIndex:(int)arg3 isLeft:(BOOL)arg4 beginRow:(unsigned int)arg5 endRow:(unsigned int)arg6;
+- (void)validateStrokesArrays;
+- (void)invalidateStrokeSpills;
+- (void)invalidateStrokeRange:(CDStruct_5f1f7aa9)arg1 atLayerIndex:(int)arg2;
+- (void)invalidateStrokeDefaults;
 - (int)tableAreaForCellID:(CDStruct_0441cfb5)arg1;
 - (void)invalidateTableNameHeight;
 - (float)calculatedTableNameHeightIncludingDynamicResize:(BOOL)arg1;
@@ -262,11 +301,16 @@ __attribute__((visibility("hidden")))
 - (void)validateLayoutHint:(id)arg1;
 - (BOOL)hintIsValid:(id)arg1;
 - (id)newLayoutHint;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithInfo:(id)arg1;
 @property(readonly, nonatomic) BOOL emptyFilteredTable; // @synthesize emptyFilteredTable=mEmptyFilteredTable;
 @property(readonly, nonatomic) TSTTableModel *tableModel;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "UITextFieldDelegate.h"
 
-@class PSSpecifier;
+@class NSString, PSSpecifier;
 
 @interface HangTracerController : PSListController <UITextFieldDelegate>
 {
@@ -39,6 +39,12 @@
 - (void)setTracingEnabled:(id)arg1 specifier:(id)arg2;
 - (id)tracingEnabled:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

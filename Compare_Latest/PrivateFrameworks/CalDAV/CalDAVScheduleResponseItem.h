@@ -15,9 +15,9 @@
     NSMutableSet *_failedResponseItems;
 }
 
-@property(retain) NSMutableSet *failedResponseItems; // @synthesize failedResponseItems=_failedResponseItems;
-@property(retain) NSMutableSet *successfulICS; // @synthesize successfulICS=_successfulICS;
-@property(retain) NSMutableSet *responses; // @synthesize responses=_responses;
+@property(retain, nonatomic) NSMutableSet *failedResponseItems; // @synthesize failedResponseItems=_failedResponseItems;
+@property(retain, nonatomic) NSMutableSet *successfulICS; // @synthesize successfulICS=_successfulICS;
+@property(retain, nonatomic) NSMutableSet *responses; // @synthesize responses=_responses;
 - (id)description;
 - (void)addNewTopLevelItem:(id)arg1;
 - (id)copyParseRules;

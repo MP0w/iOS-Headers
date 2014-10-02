@@ -26,7 +26,8 @@
 - (int)performMoveRequests:(NSArray *)arg1 consumer:(id <DAMessageMoveRequestConsumer>)arg2;
 - (int)performMailboxRequests:(NSArray *)arg1 mailbox:(NSString *)arg2 previousTag:(NSString *)arg3 isUserRequested:(BOOL)arg4 consumer:(id <DAMailboxRequestConsumer>)arg5;
 - (int)performMailboxRequest:(DAMailboxRequest *)arg1 mailbox:(NSString *)arg2 previousTag:(NSString *)arg3 isUserRequested:(BOOL)arg4 consumer:(id <DAMailboxRequestConsumer>)arg5;
-- (int)sendMessageWithRFC822Data:(NSData *)arg1 messageID:(NSString *)arg2 outgoingMessageType:(int)arg3 originalMessageFolderID:(NSString *)arg4 originalMessageItemID:(NSString *)arg5 originalMessageLongID:(NSString *)arg6 originalAccountID:(NSString *)arg7 useSmartTasksIfPossible:(BOOL)arg8 consumer:(id <DAMessageSendConsumer>)arg9 context:(void *)arg10;
+- (int)sendMessageWithRFC822Data:(NSData *)arg1 messageID:(NSString *)arg2 outgoingMessageType:(int)arg3 originalMessageFolderID:(NSString *)arg4 originalMessageItemID:(NSString *)arg5 originalMessageLongID:(NSString *)arg6 originalAccountID:(NSString *)arg7 useSmartTasksIfPossible:(BOOL)arg8 isUserRequested:(BOOL)arg9 consumer:(id <DAMessageSendConsumer>)arg10 context:(id)arg11;
+- (int)sendMessageWithRFC822Data:(NSData *)arg1 messageID:(NSString *)arg2 outgoingMessageType:(int)arg3 originalMessageFolderID:(NSString *)arg4 originalMessageItemID:(NSString *)arg5 originalMessageLongID:(NSString *)arg6 originalAccountID:(NSString *)arg7 useSmartTasksIfPossible:(BOOL)arg8 consumer:(id <DAMessageSendConsumer>)arg9 context:(id)arg10;
 - (BOOL)setFolderIdsThatExternalClientsCareAboutAdded:(NSSet *)arg1 deleted:(NSSet *)arg2 foldersTag:(NSString *)arg3;
 - (NSSet *)folderIDsThatExternalClientsCareAboutForDataclasses:(int)arg1 withTag:(id *)arg2;
 - (NSSet *)folderIDsThatExternalClientsCareAboutWithTag:(id *)arg1;
@@ -41,6 +42,7 @@
 - (NSData *)signingIdentityPersistentReference;
 - (oneway void)setGeneratesBulletins:(BOOL)arg1;
 - (BOOL)generatesBulletins;
+- (int)supportsConversations;
 - (int)supportsEmailFlagging;
 - (int)supportsMailboxSearch;
 - (oneway void)setMailNumberOfPastDaysToSync:(int)arg1;

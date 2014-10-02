@@ -10,6 +10,8 @@
 {
 }
 
+- (BOOL)supportsSettingCurrentTime;
+- (BOOL)isCloudItem;
 - (BOOL)isAd;
 
 @end

@@ -6,19 +6,18 @@
 
 #import "UINavigationController.h"
 
-@class UIView;
+@class TKTonePickerViewController;
 
 @interface ABTonePickerController : UINavigationController
 {
-    UIView *_tonePicker;
+    TKTonePickerViewController *_tonePicker;
 }
 
-@property(retain, nonatomic) UIView *tonePicker; // @synthesize tonePicker=_tonePicker;
-- (void)viewWillDisappear:(BOOL)arg1;
+@property(retain, nonatomic) TKTonePickerViewController *tonePicker; // @synthesize tonePicker=_tonePicker;
 - (void)cancelButton:(id)arg1;
 - (void)doneButton:(id)arg1;
 - (void)dealloc;
-- (id)initWithAlertType:(int)arg1 selectedAlert:(id)arg2;
+- (id)initWithAlertType:(int)arg1 selectedToneIdentifier:(id)arg2 selectedVibrationIdentifier:(id)arg3;
 
 // Remaining properties
 @property(nonatomic) id <ABPickerControllerDelegate> delegate;

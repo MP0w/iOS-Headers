@@ -8,7 +8,7 @@
 
 #import "MFReader.h"
 
-@class WMFPlayer;
+@class NSString, WMFPlayer;
 
 __attribute__((visibility("hidden")))
 @interface WMFReader : NSObject <MFReader>
@@ -28,6 +28,12 @@ __attribute__((visibility("hidden")))
 - (oneway void)release;
 - (void)dealloc;
 - (id)initWithWMFPlayer:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

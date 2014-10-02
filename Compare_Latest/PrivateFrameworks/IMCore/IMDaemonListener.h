@@ -39,7 +39,7 @@
 @property(readonly, nonatomic) BOOL isSetupComplete; // @synthesize isSetupComplete=_setupComplete;
 @property(readonly, nonatomic) NSArray *handlers; // @synthesize handlers=_handlers;
 @property(nonatomic, setter=_setHidingDisconnect:) BOOL _hidingDisconnect; // @synthesize _hidingDisconnect;
-@property(readonly, nonatomic) NSMutableDictionary *_contexts; // @synthesize _contexts;
+@property(readonly, retain, nonatomic) NSMutableDictionary *_contexts; // @synthesize _contexts;
 - (void)forwardInvocation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)databaseNoLongerFull;

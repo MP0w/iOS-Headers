@@ -13,6 +13,7 @@
     _IDSAccount *_internal;
 }
 
+- (void)_callNearbyDevicesChanged;
 - (void)deactivateAndPurgeIdentify;
 - (void)_reregisterAndReidentify:(BOOL)arg1;
 - (void)unregisterAccount;
@@ -46,17 +47,20 @@
 - (BOOL)_isEnabled;
 - (void)setAuthToken:(id)arg1;
 - (void)setPassword:(id)arg1;
-@property(readonly, nonatomic) NSArray *vettedAliases;
-@property(readonly, nonatomic) NSArray *aliasStrings;
-@property(readonly, nonatomic) NSArray *aliases;
-@property(readonly, nonatomic) NSDictionary *profileInfo;
-@property(readonly, nonatomic) NSArray *devices;
+@property(readonly, retain, nonatomic) NSArray *vettedAliases;
+@property(readonly, retain, nonatomic) NSArray *aliasStrings;
+@property(readonly, retain, nonatomic) NSArray *aliases;
+@property(readonly, retain, nonatomic) NSDictionary *profileInfo;
+@property(readonly, retain, nonatomic) NSArray *nearbyDevices;
+@property(readonly, retain, nonatomic) NSArray *devices;
 @property(readonly, nonatomic) BOOL canSend;
 @property(readonly, nonatomic) BOOL isActive;
 @property(readonly, nonatomic) int accountType;
-@property(readonly, nonatomic) NSString *serviceName;
+@property(readonly, retain, nonatomic) NSString *primaryServiceName;
+@property(readonly, retain, nonatomic) NSString *serviceName;
 @property(retain, nonatomic) NSString *loginID;
-@property(readonly, nonatomic) NSString *uniqueID;
+@property(readonly, retain, nonatomic) NSString *displayName;
+@property(readonly, retain, nonatomic) NSString *uniqueID;
 - (id)_internal;
 - (void)dealloc;
 - (id)initWithLoginID:(id)arg1 uniqueID:(id)arg2 serviceName:(id)arg3;

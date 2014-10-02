@@ -9,7 +9,7 @@
 #import "SKUIMenuViewControllerDelegate.h"
 #import "UIPopoverControllerDelegate.h"
 
-@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, SKUIClientContext, UIPopoverController;
+@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, SKUIClientContext, UIPopoverController;
 
 @interface SKUIIPadSearchHeaderView : UIView <SKUIMenuViewControllerDelegate, UIPopoverControllerDelegate>
 {
@@ -37,6 +37,12 @@
 - (void)setSearchFacets:(id)arg1 selections:(id)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 clientContext:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

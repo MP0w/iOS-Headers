@@ -10,18 +10,18 @@
 
 @interface DAContactsSearchQuery : DASearchQuery
 {
+    BOOL _includePhotos;
     NSString *_searchBase;
     NSString *_searchScope;
-    BOOL _includePhotos;
 }
 
 + (id)contactsSearchQueryWithSearchString:(id)arg1 searchBase:(id)arg2 searchScope:(id)arg3 consumer:(id)arg4;
-@property BOOL includePhotos; // @synthesize includePhotos=_includePhotos;
-@property(retain) NSString *searchScope; // @synthesize searchScope=_searchScope;
-@property(retain) NSString *searchBase; // @synthesize searchBase=_searchBase;
+@property(nonatomic) BOOL includePhotos; // @synthesize includePhotos=_includePhotos;
+@property(copy, nonatomic) NSString *searchScope; // @synthesize searchScope=_searchScope;
+@property(copy, nonatomic) NSString *searchBase; // @synthesize searchBase=_searchBase;
+- (void).cxx_destruct;
 - (id)dictionaryRepresentation;
 - (id)initWithDictionaryRepresentation:(id)arg1 consumer:(id)arg2;
-- (void)dealloc;
 - (id)initWithSearchString:(id)arg1 searchBase:(id)arg2 searchScope:(id)arg3 consumer:(id)arg4;
 
 @end

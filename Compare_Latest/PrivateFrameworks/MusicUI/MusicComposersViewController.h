@@ -12,6 +12,7 @@
 
 + (id)persistentIDProperty;
 + (id)itemPersistentIDProperty;
++ (int)containerItemType;
 - (void)defaultsDidChange;
 
 @end

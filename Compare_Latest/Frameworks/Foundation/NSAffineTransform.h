@@ -17,8 +17,7 @@
 + (id)transform;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (void)setTransformStruct:(CDStruct_a65eae4f)arg1;
-- (CDStruct_a65eae4f)transformStruct;
+@property CDStruct_a65eae4f transformStruct;
 - (struct CGSize)transformSize:(struct CGSize)arg1;
 - (struct CGPoint)transformPoint:(struct CGPoint)arg1;
 - (void)prependTransform:(id)arg1;

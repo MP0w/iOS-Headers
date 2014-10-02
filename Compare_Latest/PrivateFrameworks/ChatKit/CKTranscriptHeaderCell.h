@@ -6,15 +6,16 @@
 
 #import <ChatKit/CKTranscriptCell.h>
 
-@class UIButton;
+@class UIActivityIndicatorView;
 
 @interface CKTranscriptHeaderCell : CKTranscriptCell
 {
-    UIButton *_loadMoreButton;
+    UIActivityIndicatorView *_loadingIndicator;
 }
 
-@property(retain, nonatomic) UIButton *loadMoreButton; // @synthesize loadMoreButton=_loadMoreButton;
-- (void)layoutSubviewsForContents;
++ (float)defaultCellHeight;
+@property(retain, nonatomic) UIActivityIndicatorView *loadingIndicator; // @synthesize loadingIndicator=_loadingIndicator;
+- (void)layoutSubviewsForAlignmentContents;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)dealloc;
 

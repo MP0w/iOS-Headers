@@ -8,7 +8,7 @@
 
 #import "_UIScreenEdgePanRecognizerDelegate.h"
 
-@class _UIScreenEdgePanRecognizer;
+@class NSString, _UIScreenEdgePanRecognizer;
 
 @interface UIScreenEdgePanGestureRecognizer : UIPanGestureRecognizer <_UIScreenEdgePanRecognizerDelegate>
 {
@@ -26,6 +26,12 @@
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)dealloc;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

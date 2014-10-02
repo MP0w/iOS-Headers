@@ -6,12 +6,12 @@
 
 #import <OfficeImport/EDCollection.h>
 
-@class TSUPointerKeyDictionary;
+@class OITSUPointerKeyDictionary;
 
 __attribute__((visibility("hidden")))
 @interface EDKeyedCollection : EDCollection
 {
-    TSUPointerKeyDictionary *mMap;
+    OITSUPointerKeyDictionary *mMap;
 }
 
 - (id)objectWithKey:(int)arg1;

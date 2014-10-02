@@ -6,21 +6,25 @@
 
 #import <StoreKitUI/SKUIImageDataConsumer.h>
 
-@class UIColor;
+@class SKUIColorScheme, UIColor;
 
 @interface SKUIVideoImageDataConsumer : SKUIImageDataConsumer
 {
-    struct CGSize _constraintSize;
+    unsigned int _allowedOrientations;
     UIColor *_backgroundColor;
-    BOOL _forcesPortrait;
+    SKUIColorScheme *_colorScheme;
+    struct CGSize _landscapeSize;
+    struct CGSize _portraitSize;
 }
 
+@property(nonatomic) struct CGSize portraitSize; // @synthesize portraitSize=_portraitSize;
+@property(nonatomic) struct CGSize landscapeSize; // @synthesize landscapeSize=_landscapeSize;
+@property(retain, nonatomic) SKUIColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
 @property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
-@property(nonatomic) struct CGSize constraintSize; // @synthesize constraintSize=_constraintSize;
-@property(nonatomic) BOOL forcesPortrait; // @synthesize forcesPortrait=_forcesPortrait;
+@property(nonatomic) unsigned int allowedOrientations; // @synthesize allowedOrientations=_allowedOrientations;
 - (void).cxx_destruct;
 - (id)imageForImage:(id)arg1;
-- (id)imageForColor:(id)arg1 size:(struct CGSize)arg2;
+- (id)imageForColor:(id)arg1 orientation:(unsigned int)arg2;
 
 @end
 

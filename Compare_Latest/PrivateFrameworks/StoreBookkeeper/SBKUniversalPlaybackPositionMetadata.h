@@ -7,11 +7,11 @@
 #import "NSObject.h"
 
 #import "NSCopying.h"
-#import "SBKSyncKeyValuePair.h"
+#import "SBKKeyValuePayloadPair.h"
 
 @class NSString;
 
-@interface SBKUniversalPlaybackPositionMetadata : NSObject <SBKSyncKeyValuePair, NSCopying>
+@interface SBKUniversalPlaybackPositionMetadata : NSObject <SBKKeyValuePayloadPair, NSCopying>
 {
     BOOL _hasBeenPlayed;
     NSString *_itemIdentifier;
@@ -22,9 +22,12 @@
 
 + (id)metadataWithItemIdentifier:(id)arg1 keyValueStorePayload:(id)arg2 failuresOkay:(BOOL)arg3;
 + (id)metadataWithItemIdentifier:(id)arg1 keyValueStorePayload:(id)arg2;
++ (id)metadataWithItemIdentifier:(id)arg1 bookmarkTime:(double)arg2 bookmarkTimestamp:(double)arg3 hasBeenPlayed:(BOOL)arg4 playCount:(unsigned int)arg5;
 + (id)metadataWithValuesFromDataSourceItem:(id)arg1;
++ (id)keyValueStoreItemIdentifierForUniqueStoreID:(long long)arg1 itemTitle:(id)arg2 albumName:(id)arg3 itemArtistName:(id)arg4 feedURL:(id)arg5 feedGUID:(id)arg6;
 + (id)keyValueStoreItemIdentifierForItem:(id)arg1;
 + (id)_testableMetadataItem_1;
++ (id)pairWithKVSKey:(id)arg1 kvsPayload:(id)arg2;
 @property unsigned int playCount; // @synthesize playCount=_playCount;
 @property BOOL hasBeenPlayed; // @synthesize hasBeenPlayed=_hasBeenPlayed;
 @property double bookmarkTime; // @synthesize bookmarkTime=_bookmarkTime;
@@ -35,12 +38,16 @@
 - (id)kvsKey;
 - (id)keyValueStorePayload;
 - (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 @property double timestamp; // @synthesize timestamp=_timestamp;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)initAsTestableItem;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)readNode:(struct _xmlNode *)arg1 transform:(id)arg2;
++ (void)readNode:(struct _xmlNode *)arg1 transform:(id)arg2 state:(id)arg3;
 
 @end
 

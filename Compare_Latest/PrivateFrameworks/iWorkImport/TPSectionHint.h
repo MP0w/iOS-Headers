@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned int lastPageIndex;
 @property(readonly, nonatomic) unsigned int pageCountWithoutFillerPage;
 @property(readonly, nonatomic) unsigned int pageCount;
+- (id)copyForArchiving;
 - (void)dealloc;
 - (id)init;
 

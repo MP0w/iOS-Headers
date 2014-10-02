@@ -14,6 +14,7 @@
 }
 
 + (BOOL)hasCreditCardData;
+- (void).cxx_destruct;
 - (void)invalidateCreditCardData;
 - (void)clearCreditCardData;
 - (void)creditCardDataDidChange;
@@ -33,7 +34,6 @@
 - (id)existingCardWithNumber:(id)arg1;
 - (BOOL)shouldNeverSaveCardWithNumber:(id)arg1;
 @property(readonly, nonatomic) NSArray *creditCardData;
-- (void)dealloc;
 - (id)init;
 
 @end

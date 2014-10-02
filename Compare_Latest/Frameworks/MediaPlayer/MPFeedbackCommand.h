@@ -10,6 +10,7 @@
 
 @interface MPFeedbackCommand : MPRemoteCommand
 {
+    NSString *_localizedShortTitle;
     BOOL _active;
     NSString *_localizedTitle;
 }
@@ -19,6 +20,8 @@
 - (void).cxx_destruct;
 - (id)_mediaRemoteCommandInfoOptions;
 - (id)keyPathsForValuesTriggeringCommandsChanged;
+- (void)setLocalizedShortTitle:(id)arg1;
+- (id)localizedShortTitle;
 
 @end
 

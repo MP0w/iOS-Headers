@@ -6,18 +6,25 @@
 
 #import "NSObject.h"
 
-@class AXHearingAidMode, AXTimer, NSArray, NSDate, NSString;
+#import "AXHADeviceProtocol.h"
 
-@interface AXRemoteHearingAidDevice : NSObject
+@class AXHATimer, AXHearingAidMode, NSArray, NSDate, NSString;
+
+@interface AXRemoteHearingAidDevice : NSObject <AXHADeviceProtocol>
 {
-    AXTimer *_propertyWriteTimer;
+    AXHATimer *_propertyWriteTimer;
     BOOL _keepInSync;
+    BOOL _isBluetoothPaired;
     BOOL _isPaired;
     BOOL _isConnecting;
+    BOOL _leftConnected;
+    BOOL _rightConnected;
     float _rightMicrophoneVolume;
     float _leftMicrophoneVolume;
     float _rightStreamVolume;
     float _leftStreamVolume;
+    int availableEars;
+    id <AXHARemoteUpdateProtocol> _updateDelegate;
     NSString *_name;
     NSString *_manufacturer;
     NSString *_model;
@@ -38,14 +45,12 @@
     AXHearingAidMode *_leftSelectedProgram;
     AXHearingAidMode *_rightSelectedProgram;
     NSString *_deviceUUID;
-    int _availableEars;
     int _loadedProperties;
     int _pendingPropertyWrites;
 }
 
 @property(nonatomic) int pendingPropertyWrites; // @synthesize pendingPropertyWrites=_pendingPropertyWrites;
 @property(nonatomic) int loadedProperties; // @synthesize loadedProperties=_loadedProperties;
-@property(nonatomic) int availableEars; // @synthesize availableEars=_availableEars;
 @property(retain, nonatomic) NSString *deviceUUID; // @synthesize deviceUUID=_deviceUUID;
 @property(retain, nonatomic) AXHearingAidMode *rightSelectedProgram; // @synthesize rightSelectedProgram=_rightSelectedProgram;
 @property(retain, nonatomic) AXHearingAidMode *leftSelectedProgram; // @synthesize leftSelectedProgram=_leftSelectedProgram;
@@ -66,14 +71,20 @@
 @property(retain, nonatomic) NSString *model; // @synthesize model=_model;
 @property(retain, nonatomic) NSString *manufacturer; // @synthesize manufacturer=_manufacturer;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
+@property(nonatomic) BOOL rightConnected; // @synthesize rightConnected=_rightConnected;
+@property(nonatomic) BOOL leftConnected; // @synthesize leftConnected=_leftConnected;
 @property(nonatomic) BOOL isConnecting; // @synthesize isConnecting=_isConnecting;
 @property(nonatomic) BOOL isPaired; // @synthesize isPaired=_isPaired;
+@property(nonatomic) BOOL isBluetoothPaired; // @synthesize isBluetoothPaired=_isBluetoothPaired;
+@property(nonatomic) id <AXHARemoteUpdateProtocol> updateDelegate; // @synthesize updateDelegate=_updateDelegate;
+@property(nonatomic) int availableEars; // @synthesize availableEars;
 @property(nonatomic) float leftStreamVolume; // @synthesize leftStreamVolume=_leftStreamVolume;
 @property(nonatomic) float rightStreamVolume; // @synthesize rightStreamVolume=_rightStreamVolume;
 @property(nonatomic) float leftMicrophoneVolume; // @synthesize leftMicrophoneVolume=_leftMicrophoneVolume;
 @property(nonatomic) float rightMicrophoneVolume; // @synthesize rightMicrophoneVolume=_rightMicrophoneVolume;
 @property(nonatomic) BOOL keepInSync; // @synthesize keepInSync=_keepInSync;
-- (id)description;
+@property(readonly, copy) NSString *description;
+- (id)valueForProperty:(int)arg1;
 - (void)setValue:(id)arg1 forProperty:(int)arg2;
 - (id)selectedProgramIndexes;
 - (id)selectedPrograms;
@@ -88,13 +99,21 @@
 - (BOOL)containsPeripheralWithUUID:(id)arg1;
 - (BOOL)isRightConnected;
 - (BOOL)isLeftConnected;
+- (BOOL)hasConnection;
 - (BOOL)isConnected;
 - (BOOL)rightAvailable;
 - (BOOL)leftAvailable;
 - (void)disconnect;
 - (void)connect;
 - (void)dealloc;
+- (id)initWithPersistentRepresentation:(id)arg1;
 - (id)initWithRemoteRepresentation:(id)arg1 andDeviceID:(id)arg2;
+- (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -12,7 +12,7 @@
 {
     NSMutableSet *_servers;
     NSMutableSet *_peers;
-    NSObject<OS_dispatch_source> *_sigUSR1Src;
+    NSObject<OS_dispatch_source> *_sigInfoSrc;
     NSObject<OS_xpc_object> *_listener;
 }
 

@@ -6,20 +6,48 @@
 
 #import "NSObject.h"
 
-@class NSString, _IDSDevice;
+@class NSArray, NSData, NSString, NSUUID, _IDSDevice;
 
 @interface IDSDevice : NSObject
 {
     _IDSDevice *_internal;
 }
 
+- (void)closeSocketForDomain:(id)arg1;
+- (int)openSocketForDomain:(id)arg1 transportType:(int)arg2;
+- (int)openSocketForDomain:(id)arg1;
+- (int)socketForDomain:(id)arg1;
+- (void)cleanupStreamPairWithInputStream:(id)arg1 outputStream:(id)arg2;
+- (void)establishStreamPairWithOptions:(id)arg1 completionHandler:(CDUnknownBlockType)arg2 onQueue:(id)arg3;
+- (void)closeSocket:(int)arg1;
+- (void)openSocketWithOptions:(id)arg1 completionHandler:(CDUnknownBlockType)arg2 onQueue:(id)arg3;
 - (id)_internal;
+- (void)_setAccount:(id)arg1;
+- (BOOL)isDefaultLocalDevice;
 - (void)_addIdentity:(id)arg1;
-- (id)_identities;
-- (id)_pushToken;
-@property(readonly, nonatomic) NSString *service;
-@property(readonly, nonatomic) NSString *name;
-@property(readonly, nonatomic) NSString *modelIdentifier;
+@property(readonly, retain, nonatomic) NSArray *identities;
+@property(readonly, retain, nonatomic) NSData *pushToken;
+@property(readonly, retain, nonatomic) NSString *enclosureColor;
+@property(readonly, retain, nonatomic) NSString *deviceColor;
+@property(readonly, nonatomic) BOOL supportsPhoneCalls;
+@property(readonly, nonatomic) BOOL supportsMMSRelay;
+@property(readonly, nonatomic) BOOL supportsSMSRelay;
+@property(readonly, nonatomic) BOOL supportsHandoff;
+@property(readonly, nonatomic) BOOL supportsTethering;
+@property(readonly, nonatomic) BOOL supportsiCloudPairing;
+- (void)_updateNSUUID:(id)arg1;
+@property(retain, nonatomic, setter=setNSUUID:) NSUUID *nsuuid;
+@property(readonly, retain, nonatomic) NSArray *linkedUserURIs;
+@property(readonly, nonatomic) BOOL isDefaultPairedDevice;
+@property(readonly, nonatomic) BOOL locallyPresent;
+@property(readonly, nonatomic, getter=isNearby) BOOL nearby;
+@property(readonly, retain, nonatomic) NSString *service;
+@property(readonly, retain, nonatomic) NSString *name;
+@property(readonly, retain, nonatomic) NSString *modelIdentifier;
+@property(readonly, nonatomic) NSString *productBuildVersion;
+@property(readonly, nonatomic) NSString *productName;
+@property(readonly, nonatomic) NSString *productVersion;
+@property(readonly, retain, nonatomic) NSString *uniqueID;
 - (id)description;
 - (void)dealloc;
 - (id)initWithDictionary:(id)arg1;

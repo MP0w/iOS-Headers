@@ -8,7 +8,7 @@
 
 #import "SKUICacheCoding.h"
 
-@class NSMutableDictionary, NSString;
+@class NSDictionary, NSMutableDictionary, NSString;
 
 @interface SKUIItemOffer : NSObject <SKUICacheCoding>
 {
@@ -17,12 +17,13 @@
     NSString *_confirmationText;
     long long _fileSize;
     NSString *_fileSizeText;
-    int _offerType;
+    NSString *_offerTypeString;
     float _price;
+    NSString *_variantIdentifier;
 }
 
+@property(readonly, nonatomic) NSString *variantIdentifier; // @synthesize variantIdentifier=_variantIdentifier;
 @property(readonly, nonatomic) float price; // @synthesize price=_price;
-@property(readonly, nonatomic) int offerType; // @synthesize offerType=_offerType;
 @property(readonly, nonatomic) long long fileSize; // @synthesize fileSize=_fileSize;
 @property(readonly, nonatomic) NSString *confirmationText; // @synthesize confirmationText=_confirmationText;
 @property(readonly, nonatomic) NSString *buttonText; // @synthesize buttonText=_buttonText;
@@ -33,11 +34,19 @@
 @property(readonly, nonatomic) NSMutableDictionary *cacheRepresentation;
 - (id)initWithCacheRepresentation:(id)arg1;
 - (void)_addActionParameterWithName:(id)arg1 value:(id)arg2;
+@property(readonly, nonatomic) int offerType;
+@property(readonly, nonatomic) NSDictionary *lookupDictionary;
 @property(readonly, nonatomic) NSString *fileSizeText;
 - (id)initWithRedownloadToken:(id)arg1;
 - (id)initWithOfferDictionary:(id)arg1;
 - (id)initWithLookupDictionary:(id)arg1;
 - (id)initWithButtonText:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

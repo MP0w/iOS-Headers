@@ -6,22 +6,31 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
-@class BBAssertion, NSArray, NSString;
+@class BBAssertion, NSArray, NSDictionary, NSString;
 
-@interface BBResponse : NSObject <NSCoding>
+@interface BBResponse : NSObject <NSSecureCoding>
 {
     BBAssertion *_lifeAssertion;
     CDUnknownBlockType _sendBlock;
     NSString *_bulletinID;
     BOOL _sent;
     NSString *_replyText;
+    BOOL _activated;
     NSArray *_lifeAssertions;
     int _actionType;
     NSString *_buttonID;
+    NSString *_actionID;
+    NSString *_originID;
+    NSDictionary *_context;
 }
 
++ (BOOL)supportsSecureCoding;
+@property(copy, nonatomic) NSDictionary *context; // @synthesize context=_context;
+@property(nonatomic) BOOL activated; // @synthesize activated=_activated;
+@property(copy, nonatomic) NSString *originID; // @synthesize originID=_originID;
+@property(copy, nonatomic) NSString *actionID; // @synthesize actionID=_actionID;
 @property(copy, nonatomic) NSString *buttonID; // @synthesize buttonID=_buttonID;
 @property(copy, nonatomic) NSString *replyText; // @synthesize replyText=_replyText;
 @property(nonatomic) int actionType; // @synthesize actionType=_actionType;

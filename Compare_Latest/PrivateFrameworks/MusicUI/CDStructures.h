@@ -21,15 +21,20 @@ struct CGRect {
 };
 
 struct CGSize {
-    float _field1;
-    float _field2;
+    float width;
+    float height;
 };
 
 struct UIEdgeInsets {
-    float _field1;
-    float _field2;
-    float _field3;
-    float _field4;
+    float top;
+    float left;
+    float bottom;
+    float right;
+};
+
+struct UIOffset {
+    float horizontal;
+    float vertical;
 };
 
 struct _NSRange {

@@ -26,7 +26,7 @@
 - (BOOL)shouldInsertPasscodeText:(id)arg1;
 - (BOOL)resignFirstResponder;
 - (void)dealloc;
-- (id)initWithDefaultSize;
+- (id)initWithDefaultSizeAndLightStyle:(BOOL)arg1;
 
 @end
 

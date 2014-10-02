@@ -8,7 +8,7 @@
 
 #import "UIAlertViewDelegate.h"
 
-@class SKUIClientContext, SKUIRedeemConfiguration, UIViewController;
+@class NSString, SKUIClientContext, SKUIRedeemConfiguration, UIViewController;
 
 @interface SKUIITunesPassLearnMoreAlertDelegate : NSObject <UIAlertViewDelegate>
 {
@@ -24,6 +24,12 @@
 - (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)show;
 - (id)initWithRedeemConfiguration:(id)arg1 clientContext:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

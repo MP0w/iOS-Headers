@@ -8,7 +8,7 @@
 
 #import "SSXPCCoding.h"
 
-@class NSArray, NSNumber;
+@class NSArray, NSNumber, NSString;
 
 @interface SSRentalCheckoutRequest : SSRequest <SSXPCCoding>
 {
@@ -33,6 +33,12 @@
 - (id)initWithDownloadIdentifier:(long long)arg1;
 - (id)initWithAccountIdentifier:(id)arg1 rentalKeyIdentifier:(id)arg2;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

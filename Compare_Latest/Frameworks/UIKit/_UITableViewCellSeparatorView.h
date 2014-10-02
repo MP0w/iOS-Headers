@@ -6,14 +6,19 @@
 
 #import <UIKit/UIView.h>
 
+@class UIVisualEffect, UIVisualEffectView;
+
 __attribute__((visibility("hidden")))
 @interface _UITableViewCellSeparatorView : UIView
 {
     BOOL _drawsWithVibrantLightMode;
     UIView *_backgroundView;
     UIView *_overlayView;
+    UIVisualEffect *_separatorEffect;
+    UIVisualEffectView *_effectView;
 }
 
+@property(retain, nonatomic) UIVisualEffect *separatorEffect; // @synthesize separatorEffect=_separatorEffect;
 @property(nonatomic) BOOL drawsWithVibrantLightMode; // @synthesize drawsWithVibrantLightMode=_drawsWithVibrantLightMode;
 - (void)layoutSubviews;
 - (void)dealloc;

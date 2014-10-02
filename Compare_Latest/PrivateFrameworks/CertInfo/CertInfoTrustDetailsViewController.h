@@ -14,9 +14,9 @@
 }
 
 @property(retain, nonatomic) NSArray *trustProperties; // @synthesize trustProperties=_trustProperties;
+- (void).cxx_destruct;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)_setupNavItem;
-- (void)dealloc;
 - (void)loadView;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 

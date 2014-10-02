@@ -66,6 +66,7 @@
 - (long long)databaseVersion;
 - (void)copySkipHistoryFromStationHash:(id)arg1 toStationID:(long long)arg2;
 - (id)context;
+@property(readonly, nonatomic) NSArray *userStations;
 - (id)stationWithPersistentID:(long long)arg1;
 - (id)stationWithID:(long long)arg1;
 - (id)stationWithHash:(id)arg1;
@@ -77,7 +78,7 @@
 @property(nonatomic) unsigned long long globalVersion;
 @property(copy, nonatomic) NSString *globalHash;
 @property(nonatomic) unsigned long long authenticatedAccountIdentifier;
-@property(readonly, nonatomic) NSArray *reportProblemIssueTypes;
+@property(readonly, copy, nonatomic) NSArray *reportProblemIssueTypes;
 - (void)removeTrackPlaybackDescriptorQueuesForAllStations;
 - (void)removeTrackPlaybackDescriptor:(id)arg1 fromStation:(id)arg2;
 @property(readonly, nonatomic) NSArray *previewStations;
@@ -100,6 +101,7 @@
 - (id)convertObjects:(id)arg1;
 - (id)convertObject:(id)arg1;
 - (BOOL)canSkipTracksForStation:(id)arg1;
+@property(readonly, nonatomic) NSArray *allStations;
 - (void)_contextDidSaveNotification:(id)arg1;
 - (void)controllerDidChangeContent:(id)arg1;
 - (void)controller:(id)arg1 didChangeObject:(id)arg2 atIndexPath:(id)arg3 forChangeType:(unsigned int)arg4 newIndexPath:(id)arg5;

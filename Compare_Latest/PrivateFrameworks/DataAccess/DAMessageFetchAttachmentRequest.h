@@ -14,9 +14,9 @@
     NSString *_attachmentName;
 }
 
-- (id)attachmentName;
-- (id)messageID;
-- (void)dealloc;
+@property(copy, nonatomic) NSString *attachmentName; // @synthesize attachmentName=_attachmentName;
+@property(copy, nonatomic) NSString *messageID; // @synthesize messageID=_messageID;
+- (void).cxx_destruct;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;

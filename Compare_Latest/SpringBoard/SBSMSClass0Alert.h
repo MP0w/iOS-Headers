@@ -10,6 +10,7 @@
 {
 }
 
++ (void)alertWithString:(id)arg1 address:(id)arg2;
 + (void)playMessageReceived;
 + (void)registerForAlerts;
 - (_Bool)allowsStackingOfAlert:(id)arg1;

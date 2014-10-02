@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
-@class BKSProcessAssertion, NSError, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection, _UIAsyncInvocation;
+@class BKSProcessAssertion, NSError, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection, _UIAsyncInvocation, _UIRemoteViewService;
 
 __attribute__((visibility("hidden")))
 @interface _UIViewServiceInterfaceConnectionRequest : NSObject
 {
     CDUnknownBlockType _connectionHandler;
     NSString *_serviceBundleIdentifier;
+    _UIRemoteViewService *_service;
     NSObject<OS_dispatch_queue> *_queue;
     BOOL _isCancelled;
     NSError *_cancellationError;
@@ -24,12 +25,16 @@ __attribute__((visibility("hidden")))
     BOOL __automatic_invalidation_invalidated;
 }
 
-+ (id)connectToViewServiceViaXPCObjectsWithBundleIdentifier:(id)arg1 connectionHandler:(CDUnknownBlockType)arg2;
++ (id)connectToViewService:(id)arg1 connectionHandler:(CDUnknownBlockType)arg2;
++ (id)_connectToViewServiceWithBundleIdentifier:(id)arg1 service:(id)arg2 connectionHandler:(CDUnknownBlockType)arg3;
 + (id)connectToViewServiceWithBundleIdentifier:(id)arg1 connectionHandler:(CDUnknownBlockType)arg2;
 - (void)_cancelUnconditionallyThen:(CDUnknownBlockType)arg1;
 - (void)_cancelWithError:(id)arg1;
 - (void)_didConnectToService;
 - (void)_establishConnection;
+- (void)_createAndEstablishConnection;
+- (void)_createPlugInProcessAssertion;
+- (void)_createProcessAssertionForPID:(int)arg1 aquiredHandler:(CDUnknownBlockType)arg2;
 - (void)_createProcessAssertion;
 - (void)_launchService;
 - (void)dealloc;

@@ -12,6 +12,7 @@
 
 + (id)weekdayTemplateCharacters;
 + (id)relativeStringFromDate:(id)arg1;
++ (id)relativeDateFormatter;
 - (id)stringFromDate:(id)arg1 isRelative:(char *)arg2;
 - (id)stringFromDate:(id)arg1;
 

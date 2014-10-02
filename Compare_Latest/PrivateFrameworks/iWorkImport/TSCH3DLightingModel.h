@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 - (id)diffuseTextureTiling;
 - (id)lightingModelWithLightings:(id)arg1;
 - (void)affect:(id)arg1 states:(id)arg2 scene:(id)arg3 texturePool:(id)arg4;
+- (BOOL)hasCompleteData;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)clone;

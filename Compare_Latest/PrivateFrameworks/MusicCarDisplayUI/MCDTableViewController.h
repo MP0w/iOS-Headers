@@ -20,9 +20,10 @@
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)sectionIndexTitlesForTableView:(id)arg1;
-- (id)music_createNowPlayingButton;
 - (id)_createTableView;
+- (void)_MCD_nowPlayingButtonAction:(id)arg1;
 - (BOOL)_viewControllerWasSelected;
+- (id)MPU_createNowPlayingButton;
 - (BOOL)shouldScrollToFirstDataSourceSectionOnInitialAppearance;
 - (void)reloadData;
 - (void)viewWillDisappear:(BOOL)arg1;

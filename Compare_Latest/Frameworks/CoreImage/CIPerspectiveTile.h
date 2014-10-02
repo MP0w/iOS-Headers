@@ -26,7 +26,6 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
 - (id)_kernel;
-- (void)setDefaults;
 
 @end
 

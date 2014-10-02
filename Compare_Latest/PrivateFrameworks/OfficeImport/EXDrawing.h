@@ -11,10 +11,10 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (struct EDCellAnchorMarker)readAnchorMarkerFromNode:(struct _xmlNode *)arg1 state:(id)arg2;
 + (void)readFromPart:(id)arg1 state:(id)arg2;
-+ (void)readClientDataFromParentNode:(struct _xmlNode *)arg1 state:(id)arg2;
++ (void)initialize;
 + (void)readDrawableNode:(struct _xmlNode *)arg1 anchor:(id)arg2 state:(id)arg3;
-+ (struct EDCellAnchorMarker)readAnchorMarkerFromNode:(struct _xmlNode *)arg1;
 + (void)readAbsoluteAnchorNode:(struct _xmlNode *)arg1 state:(id)arg2;
 + (void)readOneCellAnchorNode:(struct _xmlNode *)arg1 state:(id)arg2;
 + (void)readTwoCellAnchorNode:(struct _xmlNode *)arg1 state:(id)arg2;

@@ -8,7 +8,6 @@
 
 @class WFUserSettings;
 
-__attribute__((visibility("hidden")))
 @interface WebBookmarkWebFilterSettings : NSObject
 {
     WFUserSettings *_userSettings;
@@ -17,7 +16,7 @@ __attribute__((visibility("hidden")))
 + (id)sharedWebFilterSettings;
 @property(readonly, nonatomic, getter=isWebFilterWhiteListOnlyModeEnabled) BOOL webFilterWhiteListOnlyModeEnabled;
 @property(readonly, nonatomic, getter=isWebFilterEnabled) BOOL webFilterEnabled;
-- (void)clearUserSettings;
+- (void)reloadSettings;
 @property(readonly, nonatomic) WFUserSettings *userSettings;
 - (void)dealloc;
 - (id)init;

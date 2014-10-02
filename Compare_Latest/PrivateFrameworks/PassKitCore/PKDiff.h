@@ -21,6 +21,10 @@
 - (unsigned int)_hunkIndexForKey:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (int)compare:(id)arg1;
+- (BOOL)isEqualToDiff:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
 - (id)anyKey;
 - (void)addHunksFromDiff:(id)arg1;
 - (void)removeHunkForKey:(id)arg1;

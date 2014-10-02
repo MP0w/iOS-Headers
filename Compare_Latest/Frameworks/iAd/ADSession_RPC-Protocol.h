@@ -4,10 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSArray, NSData, NSDictionary, NSError;
+@class NSData, NSDictionary, NSError;
 
 @protocol ADSession_RPC
-- (void)_remote_gatewayEnabledStationIDsDidChange:(NSArray *)arg1;
 - (void)_remote_policyEngineTestStationDescriptionsComputed:(NSDictionary *)arg1;
 - (void)_remote_heartbeatTokenDidChange:(NSData *)arg1 expirationDate:(double)arg2 error:(NSError *)arg3;
 @end

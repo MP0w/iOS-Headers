@@ -6,17 +6,22 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSCoder, NSData, NSDictionary, NSError, NSString, NSURL, UIApplication, UILocalNotification, UIViewController, UIWindow;
+@class NSArray, NSCoder, NSData, NSDictionary, NSError, NSString, NSURL, NSUserActivity, UIApplication, UILocalNotification, UIUserNotificationSettings, UIViewController, UIWindow;
 
 @protocol UIApplicationDelegate <NSObject>
 
 @optional
 @property(retain, nonatomic) UIWindow *window;
+- (void)application:(UIApplication *)arg1 didUpdateUserActivity:(NSUserActivity *)arg2;
+- (void)application:(UIApplication *)arg1 didFailToContinueUserActivityWithType:(NSString *)arg2 error:(NSError *)arg3;
+- (_Bool)application:(UIApplication *)arg1 continueUserActivity:(NSUserActivity *)arg2 restorationHandler:(void (^)(NSArray *))arg3;
+- (_Bool)application:(UIApplication *)arg1 willContinueUserActivityWithType:(NSString *)arg2;
 - (void)application:(UIApplication *)arg1 didDecodeRestorableStateWithCoder:(NSCoder *)arg2;
 - (void)application:(UIApplication *)arg1 willEncodeRestorableStateWithCoder:(NSCoder *)arg2;
 - (_Bool)application:(UIApplication *)arg1 shouldRestoreApplicationState:(NSCoder *)arg2;
 - (_Bool)application:(UIApplication *)arg1 shouldSaveApplicationState:(NSCoder *)arg2;
 - (UIViewController *)application:(UIApplication *)arg1 viewControllerWithRestorationIdentifierPath:(NSArray *)arg2 coder:(NSCoder *)arg3;
+- (_Bool)application:(UIApplication *)arg1 shouldAllowExtensionPointIdentifier:(NSString *)arg2;
 - (unsigned long long)application:(UIApplication *)arg1 supportedInterfaceOrientationsForWindow:(UIWindow *)arg2;
 - (void)applicationProtectedDataDidBecomeAvailable:(UIApplication *)arg1;
 - (void)applicationProtectedDataWillBecomeUnavailable:(UIApplication *)arg1;
@@ -25,10 +30,13 @@
 - (void)application:(UIApplication *)arg1 handleEventsForBackgroundURLSession:(NSString *)arg2 completionHandler:(void (^)(void))arg3;
 - (void)application:(UIApplication *)arg1 performFetchWithCompletionHandler:(void (^)(unsigned long long))arg2;
 - (void)application:(UIApplication *)arg1 didReceiveRemoteNotification:(NSDictionary *)arg2 fetchCompletionHandler:(void (^)(unsigned long long))arg3;
+- (void)application:(UIApplication *)arg1 handleActionWithIdentifier:(NSString *)arg2 forRemoteNotification:(NSDictionary *)arg3 completionHandler:(void (^)(void))arg4;
+- (void)application:(UIApplication *)arg1 handleActionWithIdentifier:(NSString *)arg2 forLocalNotification:(UILocalNotification *)arg3 completionHandler:(void (^)(void))arg4;
 - (void)application:(UIApplication *)arg1 didReceiveLocalNotification:(UILocalNotification *)arg2;
 - (void)application:(UIApplication *)arg1 didReceiveRemoteNotification:(NSDictionary *)arg2;
 - (void)application:(UIApplication *)arg1 didFailToRegisterForRemoteNotificationsWithError:(NSError *)arg2;
 - (void)application:(UIApplication *)arg1 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)arg2;
+- (void)application:(UIApplication *)arg1 didRegisterUserNotificationSettings:(UIUserNotificationSettings *)arg2;
 - (void)application:(UIApplication *)arg1 didChangeStatusBarFrame:(struct CGRect)arg2;
 - (void)application:(UIApplication *)arg1 willChangeStatusBarFrame:(struct CGRect)arg2;
 - (void)application:(UIApplication *)arg1 didChangeStatusBarOrientation:(long long)arg2;

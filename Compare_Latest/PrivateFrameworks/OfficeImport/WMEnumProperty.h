@@ -9,7 +9,7 @@
 __attribute__((visibility("hidden")))
 @interface WMEnumProperty : CMProperty
 {
-    int wdValue;
+    unsigned int wdValue;
 }
 
 - (id)cssStringForName:(id)arg1;
@@ -17,8 +17,9 @@ __attribute__((visibility("hidden")))
 - (id)mapVerticalAlign;
 - (id)mapUnderline;
 - (id)mapJustification;
-- (int)value;
-- (id)initWithEnum:(int)arg1;
+- (unsigned int)value;
+- (id)description;
+- (id)initWithEnum:(unsigned int)arg1;
 
 @end
 

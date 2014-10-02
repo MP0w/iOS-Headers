@@ -18,7 +18,7 @@
 
 @property(retain, nonatomic) NSURL *priorOrderedURL; // @synthesize priorOrderedURL=_priorOrderedURL;
 @property(nonatomic) int absoluteOrder; // @synthesize absoluteOrder=_absoluteOrder;
-@property(retain) NSSet *propertiesToSet; // @synthesize propertiesToSet=_propertiesToSet;
+@property(retain, nonatomic) NSSet *propertiesToSet; // @synthesize propertiesToSet=_propertiesToSet;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)copyDefaultParserForContentType:(id)arg1;
 - (id)requestBody;

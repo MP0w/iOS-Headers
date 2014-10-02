@@ -53,6 +53,7 @@
 - (void)setShowsPlaceholder:(BOOL)arg1;
 @property(readonly, nonatomic) BOOL showsPlaceholder;
 @property(copy, nonatomic) NSString *name;
+- (void)setFullSizeImageJPEGData:(id)arg1 size:(struct CGSize)arg2 orientation:(int)arg3;
 - (void)setPosterImage:(id)arg1 regionOfInterest:(struct CGRect)arg2;
 - (id)image;
 - (void)setImage:(id)arg1;

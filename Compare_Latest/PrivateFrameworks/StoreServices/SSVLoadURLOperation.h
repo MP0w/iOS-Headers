@@ -8,7 +8,7 @@
 
 #import "NSURLConnectionDelegate.h"
 
-@class NSCachedURLResponse, NSHTTPURLResponse, NSMutableData, NSMutableSet, NSObject<OS_dispatch_queue>, NSRunLoop, NSString, NSURL, NSURLRequest, SSMetricsPageEvent, SSVURLDataConsumer;
+@class NSCachedURLResponse, NSData, NSHTTPURLResponse, NSMutableData, NSMutableSet, NSObject<OS_dispatch_queue>, NSRunLoop, NSString, NSURL, NSURLRequest, SSMetricsPageEvent, SSVURLDataConsumer;
 
 @interface SSVLoadURLOperation : NSOperation <NSURLConnectionDelegate>
 {
@@ -16,12 +16,15 @@
     SSVURLDataConsumer *_dataConsumer;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     CDUnknownBlockType _expiredOutputBlock;
+    NSData *_inputData;
     BOOL _iTunesStoreRequest;
     SSMetricsPageEvent *_metricsPageEvent;
     CDUnknownBlockType _outputBlock;
     NSMutableSet *_protocolRedirectURLs;
     BOOL _recordsMetrics;
     NSURL *_redirectURL;
+    NSString *_referrerApplicationName;
+    NSString *_referrerURLString;
     NSHTTPURLResponse *_response;
     NSRunLoop *_runLoop;
     NSString *_storeFrontSuffix;
@@ -35,7 +38,6 @@
 - (long)_runRunLoopUntilStopped;
 - (void)_runOnce;
 - (void)_releaseOutputBlocks;
-- (id)_redirectURLForStoreResponse:(id)arg1 data:(id)arg2;
 - (id)_outputForData:(id)arg1 error:(id *)arg2;
 - (id)_newURLRequestWithRedirectURL:(id)arg1;
 - (void)_keepAliveTimer:(id)arg1;
@@ -53,6 +55,8 @@
 @property(readonly) NSURLRequest *URLRequest;
 @property(readonly) NSURL *URL;
 @property(copy) NSString *storeFrontSuffix;
+@property(copy) NSString *referrerURLString;
+@property(copy) NSString *referrerApplicationName;
 @property BOOL recordsMetrics;
 @property(copy) CDUnknownBlockType outputBlock;
 @property(getter=isITunesStoreRequest) BOOL ITunesStoreRequest;
@@ -65,8 +69,15 @@
 - (id)initWithURLRequestProperties:(id)arg1;
 - (id)initWithURLRequest:(id)arg1;
 - (id)initWithURL:(id)arg1;
+- (id)initWithData:(id)arg1 fromOperation:(id)arg2;
 - (id)init;
 - (id)_initSSVLoadURLOperation;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

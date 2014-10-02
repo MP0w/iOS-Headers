@@ -41,7 +41,6 @@
 - (void)touchesEnded:(struct __SBGestureContext *)arg1;
 - (void)touchesMoved:(struct __SBGestureContext *)arg1;
 - (void)touchesBegan:(struct __SBGestureContext *)arg1;
-- (void)updateActiveTouches:(struct __SBGestureContext *)arg1;
 - (void)updateForEndedOrCancelledTouches:(struct __SBGestureContext *)arg1;
 - (void)updateForBeganOrMovedTouches:(struct __SBGestureContext *)arg1;
 - (void)setState:(int)arg1;

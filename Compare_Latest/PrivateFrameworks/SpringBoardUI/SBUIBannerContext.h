@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class SBUIBannerItem;
+@class NSString, SBUIBannerAction, SBUIBannerItem;
 
 @interface SBUIBannerContext : NSObject
 {
@@ -14,15 +14,21 @@
     id <SBUIBannerSource> _source;
     id <SBUIBannerTarget> _target;
     BOOL _isValid;
+    BOOL _requestsModalPresentation;
+    NSString *_presentingActionIdentifier;
 }
 
+@property(copy, nonatomic) NSString *presentingActionIdentifier; // @synthesize presentingActionIdentifier=_presentingActionIdentifier;
+@property(nonatomic) BOOL requestsModalPresentation; // @synthesize requestsModalPresentation=_requestsModalPresentation;
 @property(readonly, nonatomic, getter=isValid) BOOL valid; // @synthesize valid=_isValid;
-@property(readonly, nonatomic) id <SBUIBannerTarget> target; // @synthesize target=_target;
-@property(readonly, nonatomic) id <SBUIBannerSource> source; // @synthesize source=_source;
-@property(readonly, nonatomic) SBUIBannerItem *item; // @synthesize item=_item;
+@property(readonly, retain, nonatomic) id <SBUIBannerTarget> target; // @synthesize target=_target;
+@property(readonly, retain, nonatomic) id <SBUIBannerSource> source; // @synthesize source=_source;
+@property(readonly, retain, nonatomic) SBUIBannerItem *item; // @synthesize item=_item;
 - (id)description;
 - (void)invalidate;
+@property(readonly, nonatomic) SBUIBannerAction *interactiveAction;
 - (void)dealloc;
+- (id)initWithItem:(id)arg1 source:(id)arg2 target:(id)arg3 presentingActionIdentifier:(id)arg4 requestModalPresentation:(BOOL)arg5;
 - (id)initWithItem:(id)arg1 source:(id)arg2 target:(id)arg3;
 
 @end

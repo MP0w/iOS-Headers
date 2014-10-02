@@ -8,7 +8,7 @@
 
 #import "UITextFieldDelegate.h"
 
-@class NSObject<OS_xpc_object>, PSSpecifier;
+@class NSObject<OS_xpc_object>, NSString, PSSpecifier;
 
 @interface DeadlockMakerController : PSListController <UITextFieldDelegate>
 {
@@ -26,6 +26,9 @@
 }
 
 - (void)launchSpinForeverD:(id)arg1;
+- (void)triggerTimeout;
+- (BOOL)startConnectionIfNeeded;
+- (void)stopConnectionIfNeeded;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)handleSliderTouchUpEvent:(id)arg1;
 - (void)handleSliderChangedEvent:(id)arg1;
@@ -37,6 +40,12 @@
 - (id)priority:(id)arg1;
 - (void)setPriority:(id)arg1 specifier:(id)arg2;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

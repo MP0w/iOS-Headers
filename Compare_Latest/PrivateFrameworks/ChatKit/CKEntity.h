@@ -6,50 +6,37 @@
 
 #import "NSObject.h"
 
-#import "CKTranscriptDataRowObject.h"
+@class IMHandle, NSString, UIImage;
 
-@class IMHandle, NSAttributedString, NSString, UIImage;
-
-@interface CKEntity : NSObject <CKTranscriptDataRowObject>
+@interface CKEntity : NSObject
 {
-    NSAttributedString *_attributedTranscriptText;
     IMHandle *_handle;
 }
 
 + (id)copyEntityForAddressString:(id)arg1;
 + (id)_copyEntityForAddressString:(id)arg1 onAccount:(id)arg2;
 @property(retain, nonatomic) IMHandle *handle; // @synthesize handle=_handle;
-- (void)contentSizeCategoryDidChange:(id)arg1;
-- (void)addressBookChanged:(id)arg1;
-@property(readonly, nonatomic) NSAttributedString *attributedTranscriptText; // @synthesize attributedTranscriptText=_attributedTranscriptText;
-@property(readonly, nonatomic) UIImage *transcriptContactImage;
-@property(readonly, nonatomic) NSString *textVibrationIdentifier;
-@property(readonly, nonatomic) NSString *textToneIdentifier;
-@property(readonly, nonatomic) NSString *name;
-@property(readonly, nonatomic) NSString *fullName;
-@property(readonly, nonatomic) NSString *originalAddress;
-@property(readonly, nonatomic) NSString *rawAddress;
+@property(readonly, retain, nonatomic) UIImage *locationShareBalloonContactImage;
+@property(readonly, retain, nonatomic) UIImage *locationMapViewContactImage;
+@property(readonly, retain, nonatomic) UIImage *transcriptDrawerContactImage;
+@property(readonly, retain, nonatomic) UIImage *transcriptContactImage;
+@property(readonly, copy, nonatomic) NSString *textVibrationIdentifier;
+@property(readonly, copy, nonatomic) NSString *textToneIdentifier;
+@property(readonly, copy, nonatomic) NSString *name;
+@property(readonly, copy, nonatomic) NSString *fullName;
+@property(readonly, copy, nonatomic) NSString *IDSCanonicalAddress;
+@property(readonly, copy, nonatomic) NSString *originalAddress;
+@property(readonly, copy, nonatomic) NSString *rawAddress;
 @property(readonly, nonatomic) int propertyType;
 @property(readonly, nonatomic) int identifier;
 @property(readonly, nonatomic) void *abRecord;
-@property(readonly, nonatomic) IMHandle *defaultIMHandle;
+@property(readonly, retain, nonatomic) IMHandle *defaultIMHandle;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)initWithIMHandle:(id)arg1;
 - (id)personViewControllerWithDelegate:(id)arg1;
-- (id)__ck_displayContactImage;
-- (void)__ck_prewarmForDisplay;
-- (BOOL)__ck_wantsDrawerLayout;
-- (BOOL)__ck_displayDuringSend;
-- (BOOL)__ck_transcriptUsesTextAlignmentInsets;
-- (BOOL)__ck_displayTranscriptOrientation;
-- (struct UIEdgeInsets)__ck_displayContentAlignmentInsets;
-- (struct CGSize)__ck_displaySize:(struct UIEdgeInsets *)arg1;
-- (id)__ck_displayCellIdentifier;
-- (Class)__ck_displayCellClass;
-- (id)__ck_displayGUIDWithMessage:(id)arg1;
 
 @end
 

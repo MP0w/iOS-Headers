@@ -8,6 +8,8 @@
 
 #import "_UIBasicAnimationFactory.h"
 
+@class NSString;
+
 @interface SpringFactory : NSObject <_UIBasicAnimationFactory>
 {
 }
@@ -15,6 +17,12 @@
 + (id)sharedFactory;
 - (id)_timingFunctionForAnimation;
 - (id)_basicAnimationForView:(id)arg1 withKeyPath:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

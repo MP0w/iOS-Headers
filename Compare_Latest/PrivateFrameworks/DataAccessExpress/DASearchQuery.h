@@ -10,29 +10,29 @@
 
 @interface DASearchQuery : NSObject
 {
-    int _state;
     NSString *_searchString;
-    struct _NSRange _range;
     int _timeLimit;
-    NSString *_searchID;
     id <DASearchQueryConsumer> _consumer;
+    NSString *_searchID;
+    int _state;
+    struct _NSRange _range;
 }
 
 + (id)searchQueryWithSearchString:(id)arg1 consumer:(id)arg2;
-@property id <DASearchQueryConsumer> consumer; // @synthesize consumer=_consumer;
-@property int state; // @synthesize state=_state;
-@property int timeLimit; // @synthesize timeLimit=_timeLimit;
-@property struct _NSRange range; // @synthesize range=_range;
-@property(readonly) NSString *searchString; // @synthesize searchString=_searchString;
-@property(copy) NSString *searchID; // @synthesize searchID=_searchID;
-@property unsigned int maxResults;
+@property(nonatomic) int state; // @synthesize state=_state;
+@property(copy, nonatomic) NSString *searchID; // @synthesize searchID=_searchID;
+@property(nonatomic) __weak id <DASearchQueryConsumer> consumer; // @synthesize consumer=_consumer;
+@property(nonatomic) int timeLimit; // @synthesize timeLimit=_timeLimit;
+@property(nonatomic) struct _NSRange range; // @synthesize range=_range;
+@property(copy, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
+- (void).cxx_destruct;
+@property(nonatomic) unsigned int maxResults;
 - (id)dictionaryRepresentation;
 - (void)sendFinishedToConsumerWithError:(id)arg1;
 - (void)sendResultsToConsumer:(id)arg1;
 - (BOOL)isQueryRunning;
 - (id)initWithDictionaryRepresentation:(id)arg1 consumer:(id)arg2;
 - (id)description;
-- (void)dealloc;
 - (id)initWithSearchString:(id)arg1 consumer:(id)arg2;
 
 @end

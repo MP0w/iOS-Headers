@@ -8,7 +8,7 @@
 
 #import "SASettingSupplier.h"
 
-@class SASettingEntity;
+@class NSString, SASettingEntity;
 
 @interface SASettingSetValueResponse : SASettingResponse <SASettingSupplier>
 {
@@ -20,7 +20,11 @@
 - (id)groupIdentifier;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(retain, nonatomic) SASettingEntity *setting; // @dynamic setting;
+@property(readonly) Class superclass;
 
 @end
 

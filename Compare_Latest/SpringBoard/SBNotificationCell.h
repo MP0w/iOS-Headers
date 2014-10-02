@@ -7,10 +7,11 @@
 #import "_SBFVibrantTableViewCell.h"
 
 #import "SBDateLabelDelegate.h"
+#import "SBModalLayoutCaching.h"
 
-@class NSString, UIButton, UIColor, UIImage, UIImageView, UILabel, UILabel<SBBulletinDateLabel>, UIView;
+@class NSString, UIButton, UIColor, UIImage, UIImageView, UILabel, UILabel<SBBulletinDateLabel>, UIView, UIViewController;
 
-@interface SBNotificationCell : _SBFVibrantTableViewCell <SBDateLabelDelegate>
+@interface SBNotificationCell : _SBFVibrantTableViewCell <SBDateLabelDelegate, SBModalLayoutCaching>
 {
     UIView *_realContentView;
     UIImageView *_iconImageView;
@@ -22,6 +23,8 @@
     UIButton *_actionButton;
     UIImageView *_attachmentView;
     struct CGSize _attachmentSize;
+    long long _layoutMode;
+    UIViewController *_secondaryContentViewController;
     _Bool _secondaryTextNumberOfLinesIsUpperBound;
     unsigned long long _secondaryTextNumberOfLines;
     double _secondaryTextHeight;
@@ -29,8 +32,7 @@
 }
 
 + (double)paddingBetweenTitleAndRelevanceDate;
-+ (double)xInsetForOrientation:(long long)arg1;
-+ (double)contentWidthWithRowWidth:(double)arg1 andAttachmentSize:(struct CGSize)arg2;
++ (double)contentWidthWithRowWidth:(double)arg1 andAttachmentSize:(struct CGSize)arg2 forLayoutMode:(long long)arg3;
 + (void)setupEventDateLabel:(id)arg1;
 + (void)setupRelevanceDateLabel:(id)arg1;
 + (id)defaultColorForEventDate;
@@ -43,11 +45,14 @@
 + (id)defaultFontForSecondaryText;
 + (id)defaultFontForSubtitleText;
 + (id)defaultFontForPrimaryText;
++ (id)preferredFontForTextStyle:(id)arg1 symbolicTraits:(unsigned int)arg2;
 + (double)actionButtonPaddingLeft;
-+ (double)iconPaddingLeft;
-+ (double)primaryPaddingRight;
-+ (double)primaryPaddingLeft;
++ (double)secondLineBaselineOffsetFromFirstLine;
++ (double)firstLineBaselineOffsetFromTop;
++ (double)firstLineBaselineOffsetFromTopNoIcon;
 @property(retain, nonatomic) UIImage *icon; // @synthesize icon=_icon;
+@property(retain, nonatomic) UIViewController *secondaryContentViewController; // @synthesize secondaryContentViewController=_secondaryContentViewController;
+@property(nonatomic) long long layoutMode; // @synthesize layoutMode=_layoutMode;
 @property(nonatomic) double secondaryTextHeight; // @synthesize secondaryTextHeight=_secondaryTextHeight;
 @property(readonly, nonatomic) UIView *attachmentView; // @synthesize attachmentView=_attachmentView;
 @property(retain, nonatomic) UIButton *actionButton; // @synthesize actionButton=_actionButton;
@@ -58,7 +63,10 @@
 @property(readonly, nonatomic) UIView *realContentView; // @synthesize realContentView=_realContentView;
 @property(readonly, nonatomic) _Bool secondaryTextNumberOfLinesIsUpperBound; // @synthesize secondaryTextNumberOfLinesIsUpperBound=_secondaryTextNumberOfLinesIsUpperBound;
 @property(readonly, nonatomic) unsigned long long secondaryTextNumberOfLines; // @synthesize secondaryTextNumberOfLines=_secondaryTextNumberOfLines;
+- (void)_setShouldHaveFullLengthBottomSeparator:(_Bool)arg1;
+- (void)_setShouldHaveFullLengthTopSeparator:(_Bool)arg1;
 - (void)layoutSubviews;
+@property(readonly, nonatomic) _Bool shouldVerticallyCenterContent;
 @property(nonatomic) double attachmentAlpha;
 @property(nonatomic) double iconAlpha;
 @property(nonatomic) double eventDateAlpha;
@@ -82,6 +90,12 @@
 - (void)dealloc;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 @property(readonly, nonatomic) struct CGRect contentBounds;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,11 +6,15 @@
 
 #import "NSObject.h"
 
-@class GEOTileKeyList, NSData, NSString, NSThread;
+@class GEOResourceManifestConfiguration, GEOTileKeyList, GEOTileKeyMap, NSData, NSLocale, NSString, NSThread;
 
 @interface GEOTileRequester : NSObject
 {
+    GEOResourceManifestConfiguration *_manifestConfiguration;
+    NSLocale *_locale;
     GEOTileKeyList *_keyList;
+    GEOTileKeyMap *_cachedEtags;
+    GEOTileKeyMap *_cachedData;
     id <GEOTileRequesterDelegate> _delegate;
     id _context;
     NSThread *_thread;
@@ -30,13 +34,15 @@
 @property(retain, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 @property(retain, nonatomic) id context; // @synthesize context=_context;
 @property(retain, nonatomic) NSThread *thread; // @synthesize thread=_thread;
+@property(readonly, nonatomic) GEOTileKeyMap *cachedData; // @synthesize cachedData=_cachedData;
+@property(readonly, nonatomic) GEOTileKeyMap *cachedEtags; // @synthesize cachedEtags=_cachedEtags;
 @property(readonly, nonatomic) GEOTileKeyList *keyList; // @synthesize keyList=_keyList;
 @property(retain, nonatomic) id <GEOTileRequesterDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)dealloc;
 - (unsigned int)tileSetForKey:(const struct _GEOTileKey *)arg1;
 - (void)cancel;
 - (void)start;
-- (id)initWithKeyList:(id)arg1;
+- (id)initWithKeyList:(id)arg1 manifestConfiguration:(id)arg2 locale:(id)arg3 cachedEtags:(id)arg4 cachedData:(id)arg5;
 
 @end
 

@@ -21,6 +21,10 @@ __attribute__((visibility("hidden")))
 + (id)p_allNonLocalizedChartDeliveryStyles;
 + (id)p_allLocalizedChartDeliveryStyles;
 + (id)p_makeAllChartDeliveryStylesLocalized:(BOOL)arg1;
+- (id)containedTextForChartDeliveryStyle:(unsigned int)arg1 chunkIndex:(unsigned int)arg2;
+- (id)p_nameForMultiDataSetCategory:(unsigned int)arg1;
+- (id)p_seriesNameForSeriesAtIndex:(unsigned int)arg1 withPrefix:(id)arg2;
+- (id)p_backgroundStringForChartWithTitle:(id)arg1;
 - (void)p_updateCacheForElementsInSets;
 - (void)p_updateCacheForElementsInSeries;
 - (void)p_updateCacheForSets;
@@ -33,6 +37,7 @@ __attribute__((visibility("hidden")))
 - (void)adjustRangeForRep:(id)arg1 chunkIndex:(unsigned int)arg2 finalTexture:(BOOL)arg3 seriesStart:(int *)arg4 seriesCount:(int *)arg5;
 - (unsigned int)p_chunkCountForChartDeliveryStyle:(unsigned int)arg1;
 - (unsigned int)chunkCountForChartDeliveryStyle:(unsigned int)arg1;
+- (BOOL)isVisibleAtBeginningOfMagicChartBuildForDeliveryStyle:(unsigned int)arg1 animationFilter:(id)arg2;
 - (id)textureDeliveryStylesLocalized:(BOOL)arg1 animationFilter:(id)arg2;
 - (unsigned int)textureDeliveryStyleFromDeliveryString:(id)arg1;
 - (unsigned int)chartDeliveryStyleFromTSDDeliveryStyle:(unsigned int)arg1 animationFilter:(id)arg2;

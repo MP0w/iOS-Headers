@@ -8,6 +8,6 @@
 
 @interface NSString (UIKitAdditions)
 - (id)queryKeysAndValues;
-- (id)unescapedQueryValue;
+- (id)_uikit_unescapedQueryValue;
 @end
 

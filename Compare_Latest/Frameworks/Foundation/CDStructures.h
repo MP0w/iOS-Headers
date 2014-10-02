@@ -14,18 +14,6 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
-struct CFURLProtocolImplementation_V0 {
-    int _field1;
-    void *_field2;
-    CDUnknownFunctionPointerType _field3;
-    CDUnknownFunctionPointerType _field4;
-    CDUnknownFunctionPointerType _field5;
-    CDUnknownFunctionPointerType _field6;
-    CDUnknownFunctionPointerType _field7;
-    CDUnknownFunctionPointerType _field8;
-    CDUnknownFunctionPointerType _field9;
-};
-
 struct CGPoint {
     float _field1;
     float _field2;
@@ -41,13 +29,15 @@ struct CGSize {
     float height;
 };
 
-struct InternalInit {
-    id _field1;
-    id _field2;
-    id _field3;
-    id _field4;
-    char _field5;
-    long long _field6;
+struct NSEdgeInsets {
+    float _field1;
+    float _field2;
+    float _field3;
+    float _field4;
+};
+
+struct NSObject {
+    Class _field1;
 };
 
 struct NSSlice {
@@ -160,6 +150,17 @@ struct _ftsent {
     unsigned short _field18;
     struct stat *_field19;
     char _field20[1];
+};
+
+struct _opaque_pthread_mutex_t {
+    long __sig;
+    char __opaque[40];
+};
+
+struct _opaque_pthread_t {
+    long _field1;
+    struct __darwin_pthread_handler_rec *_field2;
+    char _field3[4088];
 };
 
 struct _xmlDoc;
@@ -295,7 +296,23 @@ struct _xmlParserCtxt {
     unsigned long _field89;
 };
 
-struct _xmlParserInput;
+struct _xmlParserInput {
+    struct _xmlParserInputBuffer *_field1;
+    char *_field2;
+    char *_field3;
+    char *_field4;
+    char *_field5;
+    char *_field6;
+    int _field7;
+    int _field8;
+    int _field9;
+    unsigned long _field10;
+    CDUnknownFunctionPointerType _field11;
+    char *_field12;
+    char *_field13;
+    int _field14;
+    int _field15;
+};
 
 struct _xmlParserNodeInfo;
 
@@ -347,8 +364,6 @@ struct addrinfo {
     struct addrinfo *_field8;
 };
 
-struct internal_state;
-
 struct objc_method_description {
     SEL _field1;
     char *_field2;
@@ -380,23 +395,6 @@ struct stat {
 struct timespec {
     int tv_sec;
     long tv_nsec;
-};
-
-struct z_stream_s {
-    char *next_in;
-    unsigned int avail_in;
-    unsigned int total_in;
-    char *next_out;
-    unsigned int avail_out;
-    unsigned int total_out;
-    char *msg;
-    struct internal_state *state;
-    CDUnknownFunctionPointerType zalloc;
-    CDUnknownFunctionPointerType zfree;
-    void *opaque;
-    int data_type;
-    unsigned int adler;
-    unsigned int reserved;
 };
 
 #pragma mark Typedef'd Structures
@@ -475,6 +473,15 @@ typedef struct {
 } CDStruct_5fe7aead;
 
 typedef struct {
+    char _field1;
+    char _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    unsigned int _field5;
+    unsigned int _field6;
+} CDStruct_c835aa66;
+
+typedef struct {
     float m11;
     float m12;
     float m21;
@@ -490,6 +497,12 @@ typedef struct {
     CDUnknownFunctionPointerType _field4;
     CDUnknownFunctionPointerType _field5;
 } CDStruct_60d14f2d;
+
+typedef struct {
+    int _field1;
+    int _field2;
+    int _field3;
+} CDStruct_77932685;
 
 typedef struct {
     int _field1;

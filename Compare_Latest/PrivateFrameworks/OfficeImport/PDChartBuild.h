@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
     int mChartBuildType;
 }
 
+- (BOOL)isEqual:(id)arg1;
 - (void)setType:(int)arg1;
 - (int)type;
 - (id)initWithBuildType:(int)arg1;

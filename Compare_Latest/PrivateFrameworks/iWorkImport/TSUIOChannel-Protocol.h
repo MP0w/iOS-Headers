@@ -7,6 +7,7 @@
 #import "NSObject.h"
 
 @protocol TSUIOChannel <NSObject>
+@property(readonly, nonatomic) BOOL isValid;
 - (void)addBarrier:(void (^)(void))arg1;
 - (void)setLowWater:(unsigned long)arg1;
 - (void)close;

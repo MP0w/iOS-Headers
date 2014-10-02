@@ -6,13 +6,18 @@
 
 #import "NSPredicate.h"
 
-@class NSArray;
+#import "NSSecureCoding.h"
 
-@interface EKPredicate : NSPredicate
+@class NSArray, NSSet;
+
+@interface EKPredicate : NSPredicate <NSSecureCoding>
 {
     NSArray *_calendars;
+    NSSet *_restrictedCalendarRowIDs;
 }
 
++ (BOOL)supportsSecureCoding;
+@property(retain, nonatomic) NSSet *restrictedCalendarRowIDs; // @synthesize restrictedCalendarRowIDs=_restrictedCalendarRowIDs;
 @property(readonly, nonatomic) NSArray *calendars;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

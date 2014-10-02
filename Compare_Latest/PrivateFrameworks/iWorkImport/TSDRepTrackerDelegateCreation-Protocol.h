@@ -4,10 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
+@class TSDRep;
+
 @protocol TSDRepTrackerDelegateCreation
 
 @optional
 - (id <TSDRepTrackerDelegate>)repTrackerDelegate;
-- (id <TSDRepDragTrackerDelegate>)repDragTrackerDelegate;
+- (id <TSDRepDragTrackerDelegate>)repDragTrackerDelegateForRep:(TSDRep *)arg1;
 @end
 

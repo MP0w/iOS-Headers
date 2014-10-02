@@ -13,6 +13,7 @@
     NSArray *_propertyItems;
     NSArray *_displayItems;
     NSArray *_editingItems;
+    NSArray *_originalEditingItems;
     BOOL _showActionsWhenEmpty;
     BOOL _isAdded;
     NSString *_property;
@@ -31,10 +32,13 @@
 - (id)_nextAvailableInstantMessageService;
 - (id)_nextAvailableLabel;
 - (id)_nextAvailableLabelInLabels:(id)arg1 withValueSelector:(SEL)arg2;
+- (id)_availableLabelsInLabels:(id)arg1 forItem:(id)arg2 withValueSelector:(SEL)arg3 usedLabelsCount:(int *)arg4;
+- (id)supportedLabelsForItem:(id)arg1;
 - (void)saveChangesForItems:(id)arg1;
 - (void)_updateNameValuesForItems:(id)arg1;
 - (BOOL)_arrayContainsMaxAllowedItems:(id)arg1;
 - (BOOL)canAddEditingItem;
+- (BOOL)labelsAreUnique;
 - (BOOL)isRequired;
 - (BOOL)_shoulShowGroupWhenEditing:(BOOL)arg1;
 - (id)_itemToBeMergedWith:(id)arg1 fromItems:(id)arg2 forEditing:(BOOL)arg3;
@@ -43,11 +47,12 @@
 @property(retain, nonatomic) NSArray *editingItems;
 - (id)displayItems;
 - (void)saveChanges;
-- (void)reloadData;
+- (void)reloadDataPreservingChanges:(BOOL)arg1;
 - (void)removeEditingItem:(id)arg1;
 - (BOOL)addEditingItem;
 - (id)emptyLabeledValue;
 - (id)nextAvailableLabel;
+@property(readonly, nonatomic) BOOL modified;
 @property(readonly, nonatomic, getter=isMultiLine) BOOL multiLine;
 @property(readonly, nonatomic, getter=isFixedValue) BOOL fixedValue;
 @property(readonly, nonatomic, getter=isMultiValue) BOOL multiValue;

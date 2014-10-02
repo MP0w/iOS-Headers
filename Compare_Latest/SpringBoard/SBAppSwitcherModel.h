@@ -10,17 +10,19 @@
 
 @interface SBAppSwitcherModel : NSObject
 {
-    NSMutableArray *_recentDisplayIdentifiers;
+    NSMutableArray *_recentDisplayLayouts;
     NSTimer *_saveTimer;
 }
 
 + (id)sharedInstance;
+- (id)snapshotOfFlattenedArrayOfAppIdentifiersWhichIsOnlyTemporary;
 - (id)snapshot;
-- (void)appsRemoved:(id)arg1 added:(id)arg2;
-- (id)identifiers;
 - (void)remove:(id)arg1;
+- (void)removeDisplayItem:(id)arg1;
 - (void)addToFront:(id)arg1;
+- (void)_verifyAppList;
 - (id)_recentsFromPrefs;
+- (id)_recentsFromLegacyPrefs;
 - (void)_saveRecents;
 - (void)_saveRecentsDelayed;
 - (void)_invalidateSaveTimer;

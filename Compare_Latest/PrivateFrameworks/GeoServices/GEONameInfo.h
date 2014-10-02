@@ -12,6 +12,7 @@
 
 @interface GEONameInfo : PBCodable <NSCopying>
 {
+    NSString *_locale;
     NSString *_name;
     NSString *_phoneticName;
     int _phoneticType;
@@ -25,12 +26,14 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSString *locale; // @synthesize locale=_locale;
 @property(nonatomic) int signType; // @synthesize signType=_signType;
 @property(nonatomic) int phoneticType; // @synthesize phoneticType=_phoneticType;
 @property(nonatomic) int shieldType; // @synthesize shieldType=_shieldType;
 @property(retain, nonatomic) NSString *shield; // @synthesize shield=_shield;
 @property(retain, nonatomic) NSString *phoneticName; // @synthesize phoneticName=_phoneticName;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -39,6 +42,7 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) BOOL hasLocale;
 @property(nonatomic) BOOL hasSignType;
 @property(nonatomic) BOOL hasPhoneticType;
 @property(nonatomic) BOOL hasShieldType;

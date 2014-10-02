@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "SSXPCCoding.h"
+
 @class NSArray, NSLock, NSMutableDictionary, NSString, SSAuthenticationContext;
 
-@interface ISDialog : NSObject
+@interface ISDialog : NSObject <SSXPCCoding>
 {
     BOOL _allowsBioAuthorization;
     BOOL _allowDuplicates;
@@ -34,9 +36,11 @@
     int _unlockActionButtonIndex;
     NSMutableDictionary *_userInfo;
     struct __CFDictionary *_userNotificationValues;
+    BOOL _displaysOnLockscreen;
 }
 
 + (int)displayCountForKey:(id)arg1;
+@property BOOL displaysOnLockscreen; // @synthesize displaysOnLockscreen=_displaysOnLockscreen;
 @property int unlockActionButtonIndex; // @synthesize unlockActionButtonIndex=_unlockActionButtonIndex;
 @property(retain) NSString *title; // @synthesize title=_title;
 @property(retain) NSArray *textFields; // @synthesize textFields=_textFields;
@@ -55,6 +59,8 @@
 @property BOOL authorizationIsForced; // @synthesize authorizationIsForced=_authorizationIsForced;
 @property(copy) SSAuthenticationContext *authenticationContext; // @synthesize authenticationContext=_authenticationContext;
 @property BOOL allowDuplicates; // @synthesize allowDuplicates=_allowDuplicates;
+- (id)copyXPCEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
 - (int)_kindForString:(id)arg1;
 @property(readonly) BOOL allowsBioAuthorization;
 - (id)valueForUserInfoKey:(id)arg1;
@@ -74,6 +80,12 @@
 - (id)initWithDialogDictionary:(id)arg1;
 - (id)init;
 - (id)initWithAuthenticationChallege:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

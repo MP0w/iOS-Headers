@@ -16,6 +16,7 @@
     struct CGSize *_sizes;
 }
 
+- (void).cxx_destruct;
 - (void)layoutSubviews;
 - (void)drawRect:(struct CGRect)arg1;
 - (float)rowHeight;

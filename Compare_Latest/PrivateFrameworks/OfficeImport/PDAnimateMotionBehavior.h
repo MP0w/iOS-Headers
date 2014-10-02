@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (id).cxx_construct;
+- (BOOL)isEqual:(id)arg1;
 - (void)setRotationCenter:(struct CGPoint)arg1;
 - (struct CGPoint)rotationCenter;
 - (BOOL)hasRotationCenter;

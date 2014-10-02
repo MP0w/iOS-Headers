@@ -6,27 +6,29 @@
 
 #import "NSObject.h"
 
-@class CBCentral, CBCharacteristic, NSData, NSNumber;
+@class CBCentral, CBCharacteristic, NSData, NSMutableData, NSNumber;
 
 @interface CBATTRequest : NSObject
 {
-    NSNumber *_transactionID;
-    BOOL _ignoreResponse;
     CBCentral *_central;
     CBCharacteristic *_characteristic;
     unsigned int _offset;
-    NSData *_value;
+    NSNumber *_transactionID;
+    NSMutableData *_value;
+    BOOL _ignoreResponse;
 }
 
 @property(nonatomic) BOOL ignoreResponse; // @synthesize ignoreResponse=_ignoreResponse;
-@property(retain, nonatomic) NSNumber *transactionID; // @synthesize transactionID=_transactionID;
+@property(readonly, nonatomic) NSNumber *transactionID; // @synthesize transactionID=_transactionID;
 @property(copy) NSData *value; // @synthesize value=_value;
-@property(nonatomic) unsigned int offset; // @synthesize offset=_offset;
+@property(readonly, nonatomic) unsigned int offset; // @synthesize offset=_offset;
 @property(retain, nonatomic) CBCharacteristic *characteristic; // @synthesize characteristic=_characteristic;
-@property(retain, nonatomic) CBCentral *central; // @synthesize central=_central;
+@property(readonly, retain, nonatomic) CBCentral *central; // @synthesize central=_central;
 - (id)description;
+- (void)appendValueData:(id)arg1;
+- (unsigned int)endOffset;
 - (void)dealloc;
-- (id)initWithCentral:(id)arg1 characteristic:(id)arg2 offset:(unsigned int)arg3 value:(id)arg4 transactionID:(id)arg5;
+- (id)initWithCentral:(id)arg1 characteristic:(id)arg2 offset:(unsigned int)arg3 transactionID:(id)arg4;
 
 @end
 

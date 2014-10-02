@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     NSString *_definitionLanguage;
 }
 
++ (id)_normalizedLanguageStringForLanguageCode:(id)arg1;
 @property BOOL activated; // @synthesize activated=_activated;
 @property(readonly) NSString *definitionLanguage; // @synthesize definitionLanguage=_definitionLanguage;
 @property(readonly) ASAsset *rawAsset; // @synthesize rawAsset=_rawAsset;
@@ -28,6 +29,7 @@ __attribute__((visibility("hidden")))
 - (id)_HTMLDefinitionForTerm:(id)arg1 type:(long)arg2;
 - (BOOL)_hasDefinitionForTerm:(id)arg1;
 @property(readonly) NSString *localizedDictionaryName;
+@property(readonly) NSString *localizedLanguageName;
 - (void)dealloc;
 - (id)initWithAsset:(id)arg1;
 

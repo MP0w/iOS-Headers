@@ -76,8 +76,11 @@
 @property(nonatomic) BOOL isHidden; // @synthesize isHidden=_isHidden;
 @property(retain, nonatomic) NSString *ssid; // @synthesize ssid=_ssid;
 - (void).cxx_destruct;
+- (id)installationWarnings;
 - (id)description;
+- (id)payloadDescriptionKeyValueSections;
 - (id)subtitle2Description;
+- (id)_localizedEncryptionTypeString;
 - (id)subtitle2Label;
 - (id)subtitle1Description;
 - (id)subtitle1Label;

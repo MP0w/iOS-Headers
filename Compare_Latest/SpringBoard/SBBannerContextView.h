@@ -9,45 +9,95 @@
 #import "SBUIBannerView.h"
 #import "SBVibrantBannerView.h"
 
-@class SBBannerViewCallbackManager, SBUIBannerContext, UIImage, UIImageView, UIView<SBUIBannerView>, _UIBackdropView;
+@class NSString, SBBannerViewCallbackManager, SBNotificationSeparatorView, SBUIBannerContext, UIImage, UIImageView, UIView<SBUIBannerView>, _UIBackdropView;
 
 @interface SBBannerContextView : UIView <SBUIBannerView, SBVibrantBannerView>
 {
-    struct UIEdgeInsets _clippingInsets;
-    UIView *_clippingView;
-    SBUIBannerContext *_context;
-    UIView<SBUIBannerView> *_contentView;
-    SBBannerViewCallbackManager *_callbacks;
-    SBBannerViewCallbackManager *_wrapperCallbacks;
     _UIBackdropView *_backdropView;
     UIImageView *_backgroundImageView;
+    UIView *_contentContainerView;
+    UIView<SBUIBannerView> *_contentView;
+    UIView *_accessoryView;
+    UIView *_pullDownView;
+    UIView *_pullDownContainerView;
+    UIView *_secondaryContentView;
+    SBNotificationSeparatorView *_separatorView;
+    SBUIBannerContext *_context;
+    SBBannerViewCallbackManager *_callbacks;
+    SBBannerViewCallbackManager *_wrapperCallbacks;
     _Bool _isDismissing;
+    struct CGSize _grabberSize;
+    UIView *_grabberView;
+    _Bool _hidesGrabberOnPullDown;
+    double _minimumHeight;
     struct {
         unsigned int providesDefaultElementColors:1;
         unsigned int supportsElementColors:1;
     } _contentViewFlags;
+    _Bool _grabberVisible;
+    _Bool _separatorVisible;
+    double _maximumHeight;
+    double _pullDownViewHeight;
+    double _pullDownBottomOverhangHeight;
 }
 
 + (id)defaultColorForElement:(long long)arg1;
++ (id)_defaultButtonTextColor;
++ (id)_defaultButtonColor;
++ (id)_defaultGrabberColor;
+@property(retain, nonatomic) UIView *secondaryContentView; // @synthesize secondaryContentView=_secondaryContentView;
+@property(retain, nonatomic) UIView *accessoryView; // @synthesize accessoryView=_accessoryView;
+@property(nonatomic) double pullDownBottomOverhangHeight; // @synthesize pullDownBottomOverhangHeight=_pullDownBottomOverhangHeight;
+@property(nonatomic) double pullDownViewHeight; // @synthesize pullDownViewHeight=_pullDownViewHeight;
+@property(retain, nonatomic) UIView *pullDownView; // @synthesize pullDownView=_pullDownView;
+@property(nonatomic) _Bool separatorVisible; // @synthesize separatorVisible=_separatorVisible;
+@property(nonatomic) _Bool grabberVisible; // @synthesize grabberVisible=_grabberVisible;
+@property(nonatomic) double maximumHeight; // @synthesize maximumHeight=_maximumHeight;
 @property(readonly, nonatomic, getter=isDismissing) _Bool dismissing; // @synthesize dismissing=_isDismissing;
+- (double)_grabberAlpha;
+- (id)_newGrabberView:(_Bool)arg1;
+- (void)_setGrabberColor:(id)arg1;
+- (id)_grabberColor;
+- (_Bool)shouldBorrowScreen;
 - (id)bannerContext;
+- (struct CGSize)_contentSizeThatFits:(struct CGSize)arg1;
+- (struct CGRect)_centeredBoundsForRect:(struct CGRect)arg1;
+- (struct CGRect)_centeredBounds;
+- (void)_layoutGrabber;
+- (void)_layoutPullDownContainerView;
+- (void)_layoutAccessoryView;
+- (void)_updateContentAlpha;
+- (void)_layoutSeparatorView;
+- (void)_layoutContentView;
+- (void)_layoutContentContainerView;
+- (void)_layoutBackdropView;
+- (void)_layoutBackgroundView;
 - (void)layoutSubviews;
-- (struct CGRect)_frameInClippingViewForFrame:(struct CGRect)arg1;
-- (void)noteDidDismissWithReason:(int)arg1;
-- (void)noteWillDismissWithReason:(int)arg1;
-- (void)noteDidAppear;
-- (void)noteWillAppear;
+- (_Bool)_canPullDown;
+- (double)_pullDownContentAlpha;
 - (void)setColor:(id)arg1 forElement:(long long)arg2;
 - (id)colorForElement:(long long)arg1;
 - (id)_vibrantContentView;
 - (id)defaultColorForElement:(long long)arg1;
+- (void)noteDidDismissWithReason:(int)arg1;
+- (void)noteWillDismissWithReason:(int)arg1;
+- (void)noteDidAppear;
+- (void)noteWillAppear;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setBannerContext:(id)arg1 withReplaceReason:(int)arg2;
-- (struct CGRect)_contentFrame;
+- (double)minimumHeight;
+- (double)percentPulledDown;
+- (_Bool)isPulledDown;
 @property(retain, nonatomic) UIImage *backgroundImage;
-@property(readonly, nonatomic) _UIBackdropView *backdrop;
-@property(nonatomic) struct UIEdgeInsets clippingInsets;
+@property(readonly, retain, nonatomic) _UIBackdropView *backdrop;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

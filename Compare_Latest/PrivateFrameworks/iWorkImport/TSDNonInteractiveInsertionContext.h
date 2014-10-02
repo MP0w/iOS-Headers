@@ -13,7 +13,6 @@ __attribute__((visibility("hidden")))
 
 - (BOOL)isInteractive;
 - (struct CGPoint)preferredCenter;
-- (BOOL)insertWillBeDiscarded;
 - (BOOL)fromDragToInsertController;
 - (BOOL)insertFromDrag;
 - (BOOL)insertFloating;

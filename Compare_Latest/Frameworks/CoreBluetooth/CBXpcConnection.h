@@ -6,37 +6,37 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSObject<OS_xpc_object>, NSRecursiveLock;
+@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSObject<OS_xpc_object>;
 
 @interface CBXpcConnection : NSObject
 {
     id <CBXpcConnectionDelegate> _delegate;
-    NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_clientQueue;
+    NSObject<OS_dispatch_queue> *_eventQueue;
     NSMutableDictionary *_options;
     int _type;
-    NSRecursiveLock *_delegateLock;
     NSObject<OS_dispatch_semaphore> *_xpcSendBarrier;
     NSObject<OS_xpc_object> *_xpcConnection;
 }
 
-@property(nonatomic) __weak id <CBXpcConnectionDelegate> delegate; // @synthesize delegate=_delegate;
-- (id)nsDictionaryFromXpcDictionary:(id)arg1;
+- (id)nsDictionaryFromXpcDictionary:(id)arg1 extraCapacity:(unsigned int)arg2;
 - (id)nsArrayWithXpcArray:(id)arg1;
 - (id)nsObjectWithXpcObject:(id)arg1;
 - (id)allocXpcDictionaryWithNSDictionary:(id)arg1;
 - (id)allocXpcArrayWithNSArray:(id)arg1;
 - (id)allocXpcObjectWithNSObject:(id)arg1;
 - (void)handleConnectionEvent:(id)arg1;
+- (void)handleFinalized;
 - (void)handleInvalid;
 - (void)handleReset;
-- (void)handleMsg:(int)arg1 args:(id)arg2;
-- (id)sendSyncMsg:(int)arg1 args:(id)arg2;
-- (void)sendMsg:(int)arg1 args:(id)arg2;
-- (void)sendAsyncMsg:(int)arg1 args:(id)arg2;
-- (id)allocXpcMsg:(int)arg1 args:(id)arg2;
+- (void)handleMsg:(unsigned short)arg1 args:(id)arg2;
+- (id)sendSyncMsg:(unsigned short)arg1 args:(id)arg2;
+- (void)sendMsg:(unsigned short)arg1 args:(id)arg2;
+- (void)sendAsyncMsg:(unsigned short)arg1 args:(id)arg2;
+- (id)allocXpcMsg:(unsigned short)arg1 args:(id)arg2;
 - (void)checkOut;
 - (void)checkIn;
-- (BOOL)isSetupOnUIThread;
+@property(readonly, nonatomic, getter=isSetupOnUIThread) BOOL setupOnUIThread;
 - (void)disconnect;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1 queue:(id)arg2 options:(id)arg3 sessionType:(int)arg4;

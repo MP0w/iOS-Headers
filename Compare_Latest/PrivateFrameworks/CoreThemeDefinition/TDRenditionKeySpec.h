@@ -8,7 +8,7 @@
 
 #import "TDElementAttributes.h"
 
-@class TDThemeDirection, TDThemeDrawingLayer, TDThemeElement, TDThemeIdiom, TDThemePart, TDThemePresentationState, TDThemeSize, TDThemeState, TDThemeValue;
+@class TDThemeDirection, TDThemeDrawingLayer, TDThemeElement, TDThemeIdiom, TDThemePart, TDThemePresentationState, TDThemeSize, TDThemeState, TDThemeUISizeClass, TDThemeValue;
 
 @interface TDRenditionKeySpec : NSManagedObject <TDElementAttributes>
 {
@@ -17,6 +17,8 @@
     unsigned int _scaleFactor;
     unsigned int _subtype;
     unsigned int _nameIdentifier;
+    unsigned int _memoryClass;
+    unsigned int _graphicsClass;
     struct _renditionkeytoken _stackScratchKey[16];
     struct _renditionkeytoken *_scratchKey;
 }
@@ -36,6 +38,10 @@
 - (id)debugDescription;
 - (void)setScaleFactorString:(id)arg1;
 - (id)scaleFactorString;
+- (unsigned int)graphicsClass;
+- (void)setGraphicsClass:(unsigned int)arg1;
+- (unsigned int)memoryClass;
+- (void)setMemoryClass:(unsigned int)arg1;
 - (unsigned int)nameIdentifier;
 - (void)setNameIdentifier:(unsigned int)arg1;
 - (unsigned int)subtype;
@@ -56,7 +62,11 @@
 @property(retain, nonatomic) TDThemeDrawingLayer *layer; // @dynamic layer;
 @property(retain, nonatomic) TDThemePart *part; // @dynamic part;
 @property(retain, nonatomic) TDThemePresentationState *presentationState; // @dynamic presentationState;
+@property(retain, nonatomic) TDThemeState *previousState; // @dynamic previousState;
+@property(retain, nonatomic) TDThemeValue *previousValue; // @dynamic previousValue;
 @property(retain, nonatomic) TDThemeSize *size; // @dynamic size;
+@property(retain, nonatomic) TDThemeUISizeClass *sizeClassHorizontal; // @dynamic sizeClassHorizontal;
+@property(retain, nonatomic) TDThemeUISizeClass *sizeClassVertical; // @dynamic sizeClassVertical;
 @property(retain, nonatomic) TDThemeState *state; // @dynamic state;
 @property(retain, nonatomic) TDThemeValue *value; // @dynamic value;
 

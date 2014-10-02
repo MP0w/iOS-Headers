@@ -14,8 +14,8 @@
     NSString *_foreignPersistentIDProperty;
 }
 
-@property(readonly) NSString *foreignPersistentIDProperty; // @synthesize foreignPersistentIDProperty=_foreignPersistentIDProperty;
-@property(readonly) Class aggregateEntityClass; // @synthesize aggregateEntityClass=_aggregateEntityClass;
+@property(readonly, nonatomic) NSString *foreignPersistentIDProperty; // @synthesize foreignPersistentIDProperty=_foreignPersistentIDProperty;
+@property(readonly, nonatomic) Class aggregateEntityClass; // @synthesize aggregateEntityClass=_aggregateEntityClass;
 - (void).cxx_destruct;
 - (BOOL)sectionsPersistentIDColumnIsDistinct;
 - (id)selectPersistentIDsSQLAndProperties:(id)arg1 ordered:(BOOL)arg2;

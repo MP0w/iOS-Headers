@@ -6,10 +6,9 @@
 
 #import "NSObject.h"
 
-@class AVPlayerItem, AVPlayerItemLegibleOutput;
+@class AVPlayerItem;
 
 @protocol AVPlayerItemLegibleOutputDependencyFactory <NSObject>
-- (id <AVLegibleOutputDataSource>)legibleOutputDataSourceForPlayerItem:(AVPlayerItem *)arg1 legibleOutput:(AVPlayerItemLegibleOutput *)arg2;
 - (id <AVPlayerItemOutputHost>)playerItemOutputHostForPlayerItem:(AVPlayerItem *)arg1;
 @end
 

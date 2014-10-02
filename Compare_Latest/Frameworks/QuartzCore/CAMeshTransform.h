@@ -36,7 +36,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (struct Object *)CA_copyRenderValue;
 @property(readonly) int subdivisionSteps;
-@property(readonly) NSString *depthNormalization;
+@property(readonly, copy) NSString *depthNormalization;
 - (struct CAMeshFace)faceAtIndex:(unsigned long)arg1;
 @property(readonly) unsigned long faceCount;
 - (struct CAMeshVertex)vertexAtIndex:(unsigned long)arg1;

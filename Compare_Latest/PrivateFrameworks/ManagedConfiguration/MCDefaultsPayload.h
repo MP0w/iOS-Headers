@@ -17,7 +17,7 @@
 + (id)localizedSingularForm;
 + (id)typeStrings;
 - (void).cxx_destruct;
-- (id)subtitle1Description;
+- (id)title;
 - (id)defaultsForDomain:(id)arg1;
 - (id)domains;
 - (id)description;

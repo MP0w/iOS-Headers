@@ -22,7 +22,6 @@
 - (void)webView:(WebView *)arg1 didFailProvisionalLoadWithError:(NSError *)arg2 forFrame:(WebFrame *)arg3;
 - (void)webView:(WebView *)arg1 didReceiveServerRedirectForProvisionalLoadForFrame:(WebFrame *)arg2;
 - (void)webView:(WebView *)arg1 didStartProvisionalLoadForFrame:(WebFrame *)arg2;
-- (void)browserLoadingController:(WebUIBrowserLoadingController *)arg1 reportNetworkDataUsage:(struct _WBUNetworkDataUsage)arg2;
 - (BOOL)browserLoadingControllerShouldEvaluateUserEnteredJavaScript:(WebUIBrowserLoadingController *)arg1;
 - (NSString *)browserLoadingController:(WebUIBrowserLoadingController *)arg1 userVisibleStringForURL:(NSURL *)arg2;
 - (void)browserLoadingControllerDidUpdateLoadingState:(WebUIBrowserLoadingController *)arg1;

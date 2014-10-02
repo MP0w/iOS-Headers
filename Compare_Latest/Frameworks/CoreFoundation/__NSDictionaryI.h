@@ -16,6 +16,8 @@ __attribute__((visibility("hidden")))
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)__new:(const id *)arg1:(const id *)arg2:(unsigned int)arg3:(BOOL)arg4:(BOOL)arg5;
+- (double)_clumpingInterestingThreshold;
+- (double)_clumpingFactor;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (void)finalize;
 - (void)dealloc;

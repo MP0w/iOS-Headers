@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (id)description;
 - (id)valueForAttributeKey:(id)arg1;
 - (BOOL)containsAttributeForKey:(id)arg1;
+- (id)attributesByRemovingAttributeForKey:(id)arg1;
 - (id)attributesByAddingMissingAttributesFromDictionary:(id)arg1;
 - (id)attributesByAddingAttributesFromDictionary:(id)arg1;
 - (id)attributesByChangingEffectToEffect:(id)arg1;

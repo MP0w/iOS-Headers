@@ -20,6 +20,7 @@
     BOOL _prePrintDataDetectionPending;
     BOOL _showRemoteImages;
     BOOL _hasUnloadedRemoteImages;
+    BOOL _isReformatting;
     CDUnknownBlockType _postDisplayOperationBlock;
     CDUnknownBlockType _postDisplayCancellationBlock;
     NSString *_mainFrameURL;
@@ -119,6 +120,7 @@
 - (void)_willBeginReformattingMessage;
 - (void)clearMessageReformattingCache;
 - (void)reformatMessage:(id)arg1;
+- (void)reformatAttachments:(id)arg1;
 - (BOOL)canReformatMessageWithoutSubresources:(id)arg1 resultCanBeCached:(char *)arg2;
 
 @end

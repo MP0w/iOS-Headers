@@ -8,6 +8,8 @@
 
 #import "GQBodyStorageGenerator.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface GQHBodyStorage : NSObject <GQBodyStorageGenerator>
 {
@@ -21,6 +23,12 @@ __attribute__((visibility("hidden")))
 + (int)handleLayout:(id)arg1 state:(id)arg2;
 + (int)handlePageStart:(id)arg1 state:(id)arg2;
 + (int)handleSection:(id)arg1 state:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (void)setImage:(id)arg1;
 - (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
 
 @end

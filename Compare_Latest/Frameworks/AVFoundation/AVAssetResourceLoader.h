@@ -6,19 +6,23 @@
 
 #import "NSObject.h"
 
-@class AVAssetResourceLoaderInternal, NSObject<OS_dispatch_queue>;
+#import "NSURLAuthenticationChallengeSender.h"
 
-@interface AVAssetResourceLoader : NSObject
+@class AVAssetResourceLoaderInternal, NSObject<OS_dispatch_queue>, NSString;
+
+@interface AVAssetResourceLoader : NSObject <NSURLAuthenticationChallengeSender>
 {
     AVAssetResourceLoaderInternal *_resourceLoader;
 }
 
-- (id)cachedContentInformationForURL:(id)arg1;
-- (void)cacheContentInformation:(id)arg1 forURL:(id)arg2;
-- (id)asset;
-- (void)_noteFinishingOfLoadingRequest:(id)arg1;
-- (void)_attemptDelegateHandlingOfRequestWithDictionary:(id)arg1 fallbackBlock:(CDUnknownBlockType)arg2;
+- (void)_noteFinishingOfRequest:(id)arg1;
+- (void)_poseAuthenticationChallengeWithKey:(id)arg1 data:(id)arg2 requestDictionary:(id)arg3 fallbackHandler:(CDUnknownBlockType)arg4;
+- (void)_issueLoadingRequestWithKey:(id)arg1 requestDictionary:(id)arg2 fallbackHandler:(CDUnknownBlockType)arg3;
+- (void)_cancelRequestWithKey:(id)arg1 requestDictionary:(id)arg2 fallbackHandler:(CDUnknownBlockType)arg3;
+- (void)_performDelegateSelector:(SEL)arg1 withObject:(id)arg2 representingNewRequest:(BOOL)arg3 key:(id)arg4 fallbackHandler:(CDUnknownBlockType)arg5;
 - (void)_performDelegateCallbackSynchronouslyIfCurrentDelegateQueueIsQueue:(id)arg1 delegateCallbackBlock:(CDUnknownBlockType)arg2;
+- (void)cancelLoading;
+- (id)asset;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue;
 @property(readonly, nonatomic) id <AVAssetResourceLoaderDelegate> delegate;
 - (id)stateQueue;
@@ -28,6 +32,21 @@
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithAsset:(id)arg1;
+- (id)init;
+- (void)performDefaultHandlingForAuthenticationChallenge:(id)arg1;
+- (void)rejectProtectionSpaceAndContinueWithChallenge:(id)arg1;
+- (void)continueWithoutCredentialForAuthenticationChallenge:(id)arg1;
+- (void)cancelAuthenticationChallenge:(id)arg1;
+- (void)_rejectChallenge:(id)arg1 withError:(id)arg2;
+- (void)useCredential:(id)arg1 forAuthenticationChallenge:(id)arg2;
+- (id)cachedContentInformationForURL:(id)arg1;
+- (void)cacheContentInformation:(id)arg1 forURL:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

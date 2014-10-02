@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 
 + (id)textureWithTSDFill:(id)arg1;
 - (id)databufferForDataCache:(id)arg1;
+- (BOOL)hasCompleteData;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (void)dealloc;

@@ -72,19 +72,6 @@
 - (void)dealloc;
 - (void)_load;
 - (void)_loadUsingWebKitOnMainThread;
-- (void)_loadUsingLibXML2;
-- (void)_parseLibXML2Node:(struct _xmlNode *)arg1;
-- (void)_traverseLibXML2Node:(struct _xmlNode *)arg1 depth:(int)arg2;
-- (void)_processLibXML2TextNode:(struct _xmlNode *)arg1 content:(id)arg2;
-- (void)_exitLibXML2ElementNode:(struct _xmlNode *)arg1 tag:(id)arg2 startIndex:(unsigned int)arg3;
-- (BOOL)_processLibXML2ElementNode:(struct _xmlNode *)arg1 tag:(id)arg2;
-- (BOOL)_enterLibXML2ElementNode:(struct _xmlNode *)arg1 tag:(id)arg2;
-- (void)_processLibXML2HeadElementNode:(struct _xmlNode *)arg1;
-- (void)_processLibXML2MetaNode:(struct _xmlNode *)arg1;
-- (void)_processLibXML2TitleNode:(struct _xmlNode *)arg1;
-- (void)_addQuoteForLibXML2ElementNode:(struct _xmlNode *)arg1 opening:(BOOL)arg2 level:(int)arg3;
-- (void)_newLineForLibXML2ElementNode:(struct _xmlNode *)arg1;
-- (void)_newParagraphForLibXML2ElementNode:(struct _xmlNode *)arg1 tag:(id)arg2 allowEmpty:(BOOL)arg3 suppressTrailingSpace:(BOOL)arg4;
 - (void)_loadFromDOMRange;
 - (void)_loadUsingWebKit;
 - (id)_createWebArchiveForData:(id)arg1;
@@ -129,8 +116,6 @@
 - (Class)_DOMHTMLTableCellElementClass;
 - (Class)_webArchiveClass;
 - (Class)_webViewClass;
-- (void)_loadWebKit;
-- (id)_webKitBundle;
 
 @end
 

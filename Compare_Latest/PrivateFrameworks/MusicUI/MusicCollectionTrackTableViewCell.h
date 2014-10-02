@@ -4,22 +4,21 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <MusicUI/MusicSongTableViewCell.h>
+#import <MusicUI/MusicMediaTableViewCell.h>
 
 @class NSString;
 
-@interface MusicCollectionTrackTableViewCell : MusicSongTableViewCell
+@interface MusicCollectionTrackTableViewCell : MusicMediaTableViewCell
 {
 }
 
++ (struct CGSize)sizeForDuration:(double)arg1;
 + (Class)contentViewClass;
-- (id)_collectionTrackCellContentView;
+- (id)_collectionTrackContentView;
 @property(copy, nonatomic) NSString *trackNumberText;
-@property(copy, nonatomic) NSString *title;
-@property(copy, nonatomic) NSString *subtitle;
 @property(nonatomic) float maximumDurationWidth;
 @property(copy, nonatomic) NSString *durationText;
-- (void)setDisplayAsDisabled:(BOOL)arg1;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

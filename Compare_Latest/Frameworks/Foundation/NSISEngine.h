@@ -8,7 +8,7 @@
 
 #import "NSISVariableDelegate.h"
 
-@class NSISVariable, NSMapTable, NSMutableArray, NSMutableDictionary, NSMutableSet;
+@class NSISVariable, NSMapTable, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString;
 
 @interface NSISEngine : NSObject <NSISVariableDelegate>
 {
@@ -52,7 +52,7 @@
 - (id)candidateRedundantConstraints;
 - (id)constraintsAffectingValueOfVariable:(id)arg1;
 - (void)verifyInternalIntegrity;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (unsigned int)pivotCount;
 - (id)constraints;
 - (void)enumerateOriginalConstraints:(CDUnknownBlockType)arg1;
@@ -134,6 +134,11 @@
 - (id)rowBodyForNonObjectiveHead:(id)arg1;
 - (id)rowBodyForHead:(id)arg1;
 @property struct __CFDictionary *integralizationAdjustmentsForConstraintMarkers;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

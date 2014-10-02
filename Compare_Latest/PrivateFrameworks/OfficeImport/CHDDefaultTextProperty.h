@@ -8,7 +8,7 @@
 
 #import "EDKeyedObject.h"
 
-@class EDResources, EDRunsCollection;
+@class EDResources, EDRunsCollection, NSString;
 
 __attribute__((visibility("hidden")))
 @interface CHDDefaultTextProperty : NSObject <EDKeyedObject>
@@ -22,11 +22,14 @@ __attribute__((visibility("hidden")))
     _Bool mShowValueLabel;
     _Bool mShowPercentageLabel;
     _Bool mShowSeriesLabel;
+    _Bool mShowBubbleSizeLabel;
 }
 
 + (id)defaultTextPropertyWithResources:(id)arg1;
 - (void)setIsShowSeriesLabel:(_Bool)arg1;
 - (_Bool)isShowSeriesLabel;
+- (void)setIsShowBubbleSizeLabel:(_Bool)arg1;
+- (_Bool)isShowBubbleSizeLabel;
 - (void)setIsShowPercentageLabel:(_Bool)arg1;
 - (_Bool)isShowPercentageLabel;
 - (void)setIsShowValueLabel:(_Bool)arg1;
@@ -46,6 +49,12 @@ __attribute__((visibility("hidden")))
 - (id)initWithResources:(id)arg1;
 - (void)setContentFormatId:(unsigned int)arg1;
 - (unsigned int)contentFormatId;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

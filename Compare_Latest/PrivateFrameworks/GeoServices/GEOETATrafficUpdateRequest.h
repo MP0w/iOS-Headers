@@ -15,7 +15,7 @@
     CDStruct_612aec5b _sessionID;
     GEOClientCapabilities *_clientCapabilities;
     GEOLocation *_currentUserLocation;
-    NSMutableArray *_destinationWaypoints;
+    NSMutableArray *_destinationWaypointTypeds;
     NSData *_directionsResponseID;
     GEORouteAttributes *_routeAttributes;
     NSMutableArray *_routes;
@@ -28,13 +28,14 @@
 }
 
 @property(retain, nonatomic) NSMutableArray *serviceTags; // @synthesize serviceTags=_serviceTags;
+@property(retain, nonatomic) NSMutableArray *destinationWaypointTypeds; // @synthesize destinationWaypointTypeds=_destinationWaypointTypeds;
 @property(nonatomic) CDStruct_612aec5b sessionID; // @synthesize sessionID=_sessionID;
 @property(retain, nonatomic) NSData *directionsResponseID; // @synthesize directionsResponseID=_directionsResponseID;
 @property(retain, nonatomic) GEOClientCapabilities *clientCapabilities; // @synthesize clientCapabilities=_clientCapabilities;
 @property(retain, nonatomic) NSMutableArray *routes; // @synthesize routes=_routes;
-@property(retain, nonatomic) NSMutableArray *destinationWaypoints; // @synthesize destinationWaypoints=_destinationWaypoints;
 @property(retain, nonatomic) GEORouteAttributes *routeAttributes; // @synthesize routeAttributes=_routeAttributes;
 @property(retain, nonatomic) GEOLocation *currentUserLocation; // @synthesize currentUserLocation=_currentUserLocation;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -49,6 +50,10 @@
 - (unsigned int)serviceTagsCount;
 - (void)addServiceTag:(id)arg1;
 - (void)clearServiceTags;
+- (id)destinationWaypointTypedAtIndex:(unsigned int)arg1;
+- (unsigned int)destinationWaypointTypedsCount;
+- (void)addDestinationWaypointTyped:(id)arg1;
+- (void)clearDestinationWaypointTypeds;
 @property(nonatomic) BOOL hasSessionID;
 @property(readonly, nonatomic) BOOL hasDirectionsResponseID;
 @property(readonly, nonatomic) BOOL hasClientCapabilities;
@@ -56,10 +61,6 @@
 - (unsigned int)routesCount;
 - (void)addRoute:(id)arg1;
 - (void)clearRoutes;
-- (id)destinationWaypointAtIndex:(unsigned int)arg1;
-- (unsigned int)destinationWaypointsCount;
-- (void)addDestinationWaypoint:(id)arg1;
-- (void)clearDestinationWaypoints;
 @property(nonatomic) BOOL hasIncludeBetterRouteSuggestion;
 @property(nonatomic) BOOL includeBetterRouteSuggestion; // @synthesize includeBetterRouteSuggestion=_includeBetterRouteSuggestion;
 @property(readonly, nonatomic) BOOL hasRouteAttributes;

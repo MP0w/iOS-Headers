@@ -11,12 +11,14 @@
 __attribute__((visibility("hidden")))
 @interface TSPDocumentResourceInfo : NSObject
 {
+    BOOL _isDownloadable;
     NSString *_digestString;
     NSString *_locator;
     NSString *_extension;
     long long _fileSize;
 }
 
+@property(readonly, nonatomic) BOOL isDownloadable; // @synthesize isDownloadable=_isDownloadable;
 @property(readonly, nonatomic) long long fileSize; // @synthesize fileSize=_fileSize;
 @property(readonly, nonatomic) NSString *extension; // @synthesize extension=_extension;
 @property(readonly, nonatomic) NSString *locator; // @synthesize locator=_locator;
@@ -24,7 +26,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
-- (id)initWithDigestString:(id)arg1 locator:(id)arg2 extension:(id)arg3 fileSize:(long long)arg4;
+- (id)initWithDigestString:(id)arg1 locator:(id)arg2 extension:(id)arg3 fileSize:(long long)arg4 isDownloadable:(BOOL)arg5;
 - (id)init;
 
 @end

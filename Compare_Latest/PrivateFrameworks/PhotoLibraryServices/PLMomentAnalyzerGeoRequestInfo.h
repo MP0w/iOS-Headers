@@ -6,15 +6,15 @@
 
 #import "NSObject.h"
 
-@class GEOBatchReverseGeocodeRequest, NSArray, NSManagedObjectID, NSString, PLRevGeoLocationInfo;
+@class NSArray, NSObject<NSCopying>, NSString, PLRevGeoLocationInfo;
 
 @interface PLMomentAnalyzerGeoRequestInfo : NSObject
 {
     unsigned int _requestType;
-    NSManagedObjectID *_momentId;
+    NSObject<NSCopying> *_momentId;
     NSString *_momentUuid;
     NSArray *_assetIds;
-    GEOBatchReverseGeocodeRequest *_reverseGeocodeRequest;
+    id <GEOMapServiceTicket> _reverseGeocodeRequest;
     unsigned int _failureCount;
     NSArray *_extraAssetIds;
     NSArray *_extraLocations;
@@ -25,10 +25,10 @@
 @property(copy, nonatomic) NSArray *extraLocations; // @synthesize extraLocations=_extraLocations;
 @property(copy, nonatomic) NSArray *extraAssetIds; // @synthesize extraAssetIds=_extraAssetIds;
 @property(nonatomic) unsigned int failureCount; // @synthesize failureCount=_failureCount;
-@property(retain, nonatomic) GEOBatchReverseGeocodeRequest *reverseGeocodeRequest; // @synthesize reverseGeocodeRequest=_reverseGeocodeRequest;
+@property(retain, nonatomic) id <GEOMapServiceTicket> reverseGeocodeRequest; // @synthesize reverseGeocodeRequest=_reverseGeocodeRequest;
 @property(copy, nonatomic) NSArray *assetIds; // @synthesize assetIds=_assetIds;
 @property(copy, nonatomic) NSString *momentUuid; // @synthesize momentUuid=_momentUuid;
-@property(retain, nonatomic) NSManagedObjectID *momentId; // @synthesize momentId=_momentId;
+@property(retain, nonatomic) NSObject<NSCopying> *momentId; // @synthesize momentId=_momentId;
 @property(nonatomic) unsigned int requestType; // @synthesize requestType=_requestType;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;

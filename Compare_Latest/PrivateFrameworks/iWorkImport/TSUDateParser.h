@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 - (struct __CFDate *)newDateFromStringTryingFormats:(struct __CFString *)arg1 locale:(struct __CFLocale *)arg2 formats:(id)arg3 outSuccessfulFormatString:(const struct __CFString **)arg4;
 - (struct __CFDateFormatter *)specialCaseDateFormatterForLocale:(struct __CFLocale *)arg1;
 - (void)dealloc;
+- (id)formatStringsDictionary;
 - (id)initWithLocale:(struct __CFLocale *)arg1;
 - (void)datePreferencesChanged:(id)arg1;
 - (void)parseFormat:(id)arg1 initialPattern:(id *)arg2 separator:(unsigned short *)arg3;

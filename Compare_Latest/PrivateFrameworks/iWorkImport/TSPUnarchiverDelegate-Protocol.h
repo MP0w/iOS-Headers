@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
-@class TSPData, TSPLazyReference, TSPUnarchiver;
+@class NSUUID, TSPData, TSPLazyReference, TSPUnarchiver;
 
 @protocol TSPUnarchiverDelegate <NSObject>
 @property(readonly, nonatomic) BOOL didFinishResolvingReferences;
-@property(readonly, nonatomic) BOOL documentHasCurrentFileFormatVersion;
+@property(readonly, nonatomic) unsigned long long fileFormatVersion;
 - (TSPData *)dataForIdentifier:(long long)arg1;
+- (NSUUID *)UUIDForObjectIdentifier:(long long)arg1;
 - (void)unarchiver:(TSPUnarchiver *)arg1 didReadLazyReference:(TSPLazyReference *)arg2 isExternal:(char *)arg3;
 
 @optional

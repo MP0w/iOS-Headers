@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVVideoComposition, NSDictionary, NSObject<OS_dispatch_queue>;
+@class AVVideoComposition, NSDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface AVVideoCompositionRenderContextInternal : NSObject
 {
@@ -22,6 +22,10 @@
     BOOL _highQualityRendering;
     NSDictionary *_clientRequiredPixelBufferAttributes;
     NSDictionary *_destinationDesiredPixelBufferAttributes;
+    NSString *_destinationDesiredPixelBufferYCbCrMatrix;
+    NSString *_destinationDesiredPixelBufferColorPrimaries;
+    NSString *_destinationDesiredPixelBufferTransferFunction;
+    int pixelFormatFamily;
     struct __CFDictionary *_pixelAspectRatioDict;
     struct __CFDictionary *_cleanApertureDict;
     struct {

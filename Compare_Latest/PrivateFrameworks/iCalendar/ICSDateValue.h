@@ -25,6 +25,7 @@
 - (id)description;
 - (id)icsString;
 - (int)compare:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)components;
 - (id)initWithYear:(int)arg1 month:(int)arg2 day:(int)arg3;
 - (void)_ICSStringWithOptions:(unsigned int)arg1 appendingToString:(id)arg2;

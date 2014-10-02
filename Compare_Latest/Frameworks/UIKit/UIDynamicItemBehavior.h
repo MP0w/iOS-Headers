@@ -59,7 +59,7 @@
 - (void)_setPosition:(struct CGPoint)arg1 forItem:(id)arg2;
 - (struct CGPoint)linearVelocityForItem:(id)arg1;
 - (void)addLinearVelocity:(struct CGPoint)arg1 forItem:(id)arg2;
-@property(readonly, nonatomic) NSArray *items;
+@property(readonly, copy, nonatomic) NSArray *items;
 - (void)removeItem:(id)arg1;
 - (void)addItem:(id)arg1;
 - (void)_configureBody:(id)arg1 forView:(id)arg2;

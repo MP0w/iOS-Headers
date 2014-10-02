@@ -9,7 +9,7 @@
 #import "UICollectionViewDelegate.h"
 #import "UIKeyboardCandidateBarDelegate.h"
 
-@class UIKeyboardCandidatePageControl;
+@class NSString, UIKeyboardCandidatePageControl;
 
 __attribute__((visibility("hidden")))
 @interface UIKeyboardCandidateView_iPad : UIKeyboardCandidateView <UICollectionViewDelegate, UIKeyboardCandidateBarDelegate>
@@ -30,6 +30,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (float)rightButtonYOffset;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

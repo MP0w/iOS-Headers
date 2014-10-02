@@ -8,7 +8,7 @@
 
 #import "SABackgroundContextObject.h"
 
-@class NSData;
+@class NSData, NSString;
 
 @interface SALocalSearchRoute : AceObject <SABackgroundContextObject>
 {
@@ -19,6 +19,12 @@
 @property(copy, nonatomic) NSData *routeAsZilchBinary;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

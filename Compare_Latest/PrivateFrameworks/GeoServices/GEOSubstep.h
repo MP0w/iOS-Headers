@@ -25,6 +25,7 @@
 @property(retain, nonatomic) NSMutableArray *signposts; // @synthesize signposts=_signposts;
 @property(retain, nonatomic) GEONameInfo *name; // @synthesize name=_name;
 @property(nonatomic) int maneuverType; // @synthesize maneuverType=_maneuverType;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

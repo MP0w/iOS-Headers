@@ -46,8 +46,6 @@ __attribute__((visibility("hidden")))
 + (id)description;
 + (id)properties;
 + (int)muxDefaultPropertyForSpecificProperty:(int)arg1;
-+ (id)coalesceWarning:(id)arg1 newWarning:(id)arg2;
-+ (id)coalescableWarning:(id)arg1 withWarningList:(id)arg2;
 + (id)validateFontInPropertyMap:(id)arg1 parentStyle:(id)arg2 checkedFontMap:(id)arg3;
 + (id)validateFontName:(id)arg1 size:(float)arg2 bold:(BOOL)arg3 italic:(BOOL)arg4 checkedFontMap:(id)arg5 newFontName:(id *)arg6 newBold:(char *)arg7 newItalic:(char *)arg8;
 + (struct __CTFont *)pCreateFontWithName:(id)arg1 fontSize:(float)arg2;
@@ -57,6 +55,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSSStyle *parent; // @synthesize parent=mParent;
 - (void)replaceReferencedStylesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)referencedStyles;
+- (id)propertyMapThatNeedsToBeTransformedWithTransformedObjects:(id)arg1;
 - (id)commandForTransformingByTransform:(struct CGAffineTransform)arg1 context:(id)arg2 transformedObjects:(id)arg3 inBounds:(struct CGRect)arg4;
 - (id)boxedValueForProperty:(int)arg1 oldBoxedValue:(id)arg2 transformedByTransform:(struct CGAffineTransform)arg3;
 - (BOOL)transformsFontSizes;
@@ -102,6 +101,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)overridesAnyProperty;
 - (BOOL)overridesProperty:(int)arg1;
 - (BOOL)containsProperty:(int)arg1;
+@property(readonly, nonatomic) NSString *contentTag;
 - (BOOL)definesProperty:(int)arg1;
 @property(readonly, nonatomic) BOOL isIdentified;
 @property(readonly, nonatomic) BOOL isNamed;
@@ -127,8 +127,9 @@ __attribute__((visibility("hidden")))
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1 context:(id)arg2;
 - (id)copyFlattenedWithContext:(id)arg1;
+- (BOOL)isEqualToStyle:(id)arg1 ignoreObjectContext:(BOOL)arg2;
 - (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (void)dealloc;
 - (id)init;
 - (id)initWithContext:(id)arg1;
@@ -153,6 +154,12 @@ __attribute__((visibility("hidden")))
 - (void)setBoolValue:(BOOL)arg1 forProperty:(int)arg2;
 - (BOOL)boolValueForProperty:(int)arg1 defaultValue:(BOOL)arg2;
 - (id)validateFontWithCheckedFontMap:(id)arg1;
+- (BOOL)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

@@ -30,7 +30,7 @@ __attribute__((visibility("hidden")))
 - (void)willBeRemovedFromDocumentRoot:(id)arg1;
 - (void)wasAddedToDocumentRoot:(id)arg1 context:(id)arg2;
 - (void)willBeAddedToDocumentRoot:(id)arg1 context:(id)arg2;
-- (void)p_invalidateAnnotationResultsForDocumentRoot:(id)arg1;
+- (void)p_invalidateAnnotationResultsForDocumentRoot:(id)arg1 key:(id)arg2;
 - (void)trackedTextDidChange;
 - (void)saveToArchiver:(id)arg1;
 - (id)initFromUnarchiver:(id)arg1;

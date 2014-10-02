@@ -24,7 +24,6 @@
 - (id)entities;
 - (int)editingTypeForEntityAtIndex:(unsigned int)arg1;
 - (void)deleteEntityAtIndex:(unsigned int)arg1;
-- (id)dataSourceFromEntityAtIndex:(unsigned int)arg1;
 - (BOOL)canSelectEntityAtIndex:(unsigned int)arg1;
 
 @end

@@ -65,8 +65,7 @@
 - (id)_allowedClassNames;
 - (Class)classForClassName:(id)arg1;
 - (void)setClass:(Class)arg1 forClassName:(id)arg2;
-- (id)delegate;
-- (void)setDelegate:(id)arg1;
+@property id <NSKeyedUnarchiverDelegate> delegate;
 - (BOOL)allowsKeyedCoding;
 - (id)description;
 - (void)finalize;

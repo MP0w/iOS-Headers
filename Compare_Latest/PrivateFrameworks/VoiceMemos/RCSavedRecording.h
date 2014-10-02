@@ -8,41 +8,54 @@
 
 #import "UIActivityItemSource.h"
 
-@class AVItem, NSDate, NSString, NSURL;
+@class AVAsset, NSDate, NSString, NSURL;
 
 @interface RCSavedRecording : NSManagedObject <UIActivityItemSource>
 {
-    AVItem *_avItem;
+    AVAsset *_avAsset;
     NSString *_path;
+    BOOL _pathWasInvalid;
+    BOOL _ignoreChangeForEntityRevision;
+    BOOL _hasPendingChangeAffectingEntityRevision;
 }
 
 + (id)localizedStringForRecordingLabel:(int)arg1;
++ (id)propertiesAffectingEntityRevision;
+@property(readonly, nonatomic) BOOL hasPendingChangeAffectingEntityRevision; // @synthesize hasPendingChangeAffectingEntityRevision=_hasPendingChangeAffectingEntityRevision;
 - (void).cxx_destruct;
 - (id)activityViewController:(id)arg1 thumbnailImageForActivityType:(id)arg2 suggestedSize:(struct CGSize)arg3;
 - (id)activityViewController:(id)arg1 subjectForActivityType:(id)arg2;
 - (id)activityViewController:(id)arg1 itemForActivityType:(id)arg2;
 - (id)activityViewControllerPlaceholderItem:(id)arg1;
 - (id)_activityURLCreateIfNecessary:(BOOL)arg1;
+- (void)_validatePath;
 @property(nonatomic, getter=isBeingMade) BOOL beingMade; // @dynamic beingMade;
 - (id)_inProgressBeingMadeLockfilePath;
-- (id)_temporaryDirectoryCreateIfNecessary:(BOOL)arg1;
-@property(readonly, nonatomic) AVItem *avItem;
+@property(readonly, nonatomic) AVAsset *avAsset;
 @property(readonly, nonatomic) NSString *detailLabel;
 @property(readonly, nonatomic) NSString *label;
-@property(readonly, nonatomic) NSURL *url;
+- (id)_labelAllowingEmptyString:(BOOL)arg1;
+@property(readonly, copy, nonatomic) NSURL *URIRepresentation;
+@property(readonly, copy, nonatomic) NSURL *url;
 @property(copy, nonatomic) NSString *path; // @dynamic path;
 @property(nonatomic, getter=isSynced) BOOL synced;
 @property(nonatomic, getter=isPendingRestore) BOOL pendingRestore; // @dynamic pendingRestore;
+@property(nonatomic) long long recordingID;
 @property(nonatomic) long long iTunesPersistentID;
+@property(copy, nonatomic) NSString *customLabel; // @dynamic customLabel;
 @property(nonatomic) int labelPreset;
 @property(nonatomic) double duration;
 - (void)willSave;
+- (void)willChangeValueForKey:(id)arg1;
 - (void)awakeFromFetch;
 - (void)awakeFromInsert;
 
 // Remaining properties
-@property(copy, nonatomic) NSString *customLabel; // @dynamic customLabel;
 @property(copy, nonatomic) NSDate *date; // @dynamic date;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

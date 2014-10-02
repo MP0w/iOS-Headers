@@ -16,8 +16,8 @@
 
 - (void)forwardInvocation:(id)arg1;
 @property(readonly, nonatomic) BOOL _inviteDelivered;
-@property(readonly, nonatomic) NSString *name;
-@property(readonly, nonatomic) IMAVChat *avChat;
+@property(readonly, retain, nonatomic) NSString *name;
+@property(readonly, retain, nonatomic) IMAVChat *avChat;
 - (void)dealloc;
 - (id)initWithDictionary:(id)arg1 chat:(id)arg2;
 

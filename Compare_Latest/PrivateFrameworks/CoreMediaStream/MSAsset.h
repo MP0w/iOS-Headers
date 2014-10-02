@@ -65,7 +65,7 @@
 - (void)setMetadataValue:(id)arg1 forKey:(id)arg2;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned long long)_fileSizeOnDisk;
 - (void)setMMCSAccessHeader:(id)arg1 andTimeStamp:(id)arg2;
@@ -76,7 +76,7 @@
 - (unsigned long long)_fileSize;
 - (BOOL)isVideo;
 - (BOOL)isPhoto;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)init;
 - (id)initWithGUID:(id)arg1;
 @property(retain, nonatomic) NSError *MMCSError;
@@ -84,6 +84,10 @@
 @property(retain, nonatomic) NSString *type;
 @property(retain, nonatomic) NSData *fileHash;
 - (id)MSASPProtocolDictionary;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,20 +8,27 @@
 
 #import "NSCopying.h"
 
+@class GEOTimeCheckpoints;
+
 @interface GEOETAStep : PBCodable <NSCopying>
 {
+    unsigned int _distanceRemaining;
     unsigned int _expectedTime;
     unsigned int _stepID;
+    GEOTimeCheckpoints *_timeCheckpoints;
     int _zilchPointIndex;
     struct {
+        unsigned int distanceRemaining:1;
         unsigned int expectedTime:1;
         unsigned int stepID:1;
         unsigned int zilchPointIndex:1;
     } _has;
 }
 
+@property(retain, nonatomic) GEOTimeCheckpoints *timeCheckpoints; // @synthesize timeCheckpoints=_timeCheckpoints;
 @property(nonatomic) unsigned int expectedTime; // @synthesize expectedTime=_expectedTime;
 @property(nonatomic) unsigned int stepID; // @synthesize stepID=_stepID;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -30,10 +37,14 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) BOOL hasTimeCheckpoints;
 @property(nonatomic) BOOL hasZilchPointIndex;
 @property(nonatomic) int zilchPointIndex; // @synthesize zilchPointIndex=_zilchPointIndex;
 @property(nonatomic) BOOL hasExpectedTime;
 @property(nonatomic) BOOL hasStepID;
+- (void)dealloc;
+@property(nonatomic) BOOL hasDistanceRemaining;
+@property(nonatomic) unsigned int distanceRemaining;
 
 @end
 

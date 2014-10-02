@@ -11,8 +11,15 @@
 }
 
 + (id)sharedInstance;
-- (id)init;
++ (id)allocWithZone:(struct _NSZone *)arg1;
++ (void)initialize;
 - (id)evaluateImage:(struct CGImage *)arg1 forCriteria:(int)arg2 inRect:(struct CGRect)arg3;
+- (void)dealloc;
+- (id)autorelease;
+- (oneway void)release;
+- (unsigned int)retainCount;
+- (id)retain;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

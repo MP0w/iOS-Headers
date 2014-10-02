@@ -9,7 +9,7 @@
 #import "GEOURLSerializable.h"
 #import "NSCopying.h"
 
-@class GEOStructuredAddress, NSMutableArray;
+@class GEOStructuredAddress, NSMutableArray, NSString;
 
 @interface GEOAddress : PBCodable <GEOURLSerializable, NSCopying>
 {
@@ -21,16 +21,18 @@
     } _has;
 }
 
++ (id)geoAddressForPlaceData:(id)arg1;
 @property(retain, nonatomic) GEOStructuredAddress *structuredAddress; // @synthesize structuredAddress=_structuredAddress;
 @property(retain, nonatomic) NSMutableArray *formattedAddressLines; // @synthesize formattedAddressLines=_formattedAddressLines;
-- (unsigned int)hash;
+- (void)mergeFrom:(id)arg1;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
-- (id)description;
+@property(readonly, copy) NSString *description;
 @property(nonatomic) BOOL hasFormattedAddressType;
 @property(nonatomic) int formattedAddressType; // @synthesize formattedAddressType=_formattedAddressType;
 @property(readonly, nonatomic) BOOL hasStructuredAddress;
@@ -39,12 +41,17 @@
 - (void)addFormattedAddressLine:(id)arg1;
 - (void)clearFormattedAddressLines;
 - (void)dealloc;
+- (id)bestName;
 - (id)addressDictionary;
 - (id)initWithAddressDictionary:(id)arg1;
 - (id)initWithAddressString:(id)arg1;
 - (BOOL)_isEquivalentURLRepresentationTo:(id)arg1;
 - (id)urlRepresentation;
 - (id)initWithUrlRepresentation:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

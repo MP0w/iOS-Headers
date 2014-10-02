@@ -6,19 +6,17 @@
 
 #import "UIView.h"
 
-@class NSString, UIImageView, UILabel;
+@class NSString, UILabel;
 
 @interface MFMailComposeNavigationBarTitleView : UIView
 {
     UILabel *_titleLabel;
     UILabel *_subtitleLabel;
-    UIImageView *_subtitleImageView;
     unsigned int _style;
 }
 
 - (id)_subtitleTextColor;
-- (id)_subtitleImageWhenMini:(BOOL)arg1;
-- (float)_verticalOffsetForSubtitleImageWhenMini:(BOOL)arg1;
+- (float)_verticalOffsetForSubtitleWhenMini:(BOOL)arg1;
 - (void)layoutSubviews;
 - (void)setSubtitleText:(id)arg1 withStyle:(unsigned int)arg2;
 @property(copy, nonatomic) NSString *title;

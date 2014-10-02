@@ -8,7 +8,7 @@
 
 #import "SFUSimpleOutputStream.h"
 
-@class NSData, NSMutableArray, SFUCryptoKey, SFUMoveableFileOutputStream, SFUZipFreeSpaceEntry, SFUZipOutputEntry;
+@class NSData, NSMutableArray, NSString, SFUCryptoKey, SFUMoveableFileOutputStream, SFUZipFreeSpaceEntry, SFUZipOutputEntry;
 
 __attribute__((visibility("hidden")))
 @interface SFUZipArchiveOutputStream : NSObject <SFUSimpleOutputStream>
@@ -55,6 +55,12 @@ __attribute__((visibility("hidden")))
 - (unsigned long)writeLocalFileHeaderForEntry:(id)arg1;
 - (void)coalesceAndTruncateFreeSpace;
 - (void)finishEntry;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

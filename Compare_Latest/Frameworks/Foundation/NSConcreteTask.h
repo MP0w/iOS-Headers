@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
     BOOL _isRunning;
     BOOL _hasPostedDeathNotification;
     BOOL _terminationRun;
+    BOOL _qos;
 }
 
 - (void)setStartsNewProcessGroup:(BOOL)arg1;
@@ -64,7 +65,10 @@ __attribute__((visibility("hidden")))
 - (int)_platformExitInformation;
 - (int)terminationStatus;
 - (void)setTerminationHandler:(CDUnknownBlockType)arg1;
+- (void)_setTerminationHandler:(CDUnknownBlockType)arg1;
 - (CDUnknownBlockType)terminationHandler;
+- (void)setQualityOfService:(int)arg1;
+- (int)qualityOfService;
 
 @end
 

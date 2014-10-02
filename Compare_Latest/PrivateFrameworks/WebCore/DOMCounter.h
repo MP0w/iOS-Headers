@@ -13,9 +13,9 @@ __attribute__((visibility("hidden")))
 {
 }
 
-@property(readonly) NSString *separator;
-@property(readonly) NSString *listStyle;
-@property(readonly) NSString *identifier;
+@property(readonly, copy) NSString *separator;
+@property(readonly, copy) NSString *listStyle;
+@property(readonly, copy) NSString *identifier;
 - (void)finalize;
 - (void)dealloc;
 

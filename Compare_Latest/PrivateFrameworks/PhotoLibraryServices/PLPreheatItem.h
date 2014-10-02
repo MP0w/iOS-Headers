@@ -8,16 +8,27 @@
 
 @interface PLPreheatItem : NSObject
 {
+    int _format;
+    int _imageType;
+    struct CGSize _optimalSourcePixelSize;
     int _prefetchCount;
+    BOOL _heated;
+    int _bestFormat;
 }
 
+@property(readonly, nonatomic) int imageType; // @synthesize imageType=_imageType;
+@property BOOL heated; // @synthesize heated=_heated;
+@property(nonatomic) int bestFormat; // @synthesize bestFormat=_bestFormat;
+@property(readonly, nonatomic) struct CGSize optimalSourcePixelSize; // @synthesize optimalSourcePixelSize=_optimalSourcePixelSize;
+@property(readonly, nonatomic) int format; // @synthesize format=_format;
 - (int)decrementPrefetchCount;
 - (int)incrementPrefetchCount;
+- (BOOL)isCancelled;
 - (void)cancelPreheatRequest;
-- (void)startPreheatRequest;
+- (void)startPreheatRequestWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (BOOL)addImageHandler:(CDUnknownBlockType)arg1;
-- (id)cachedImageIfAvailable;
-- (id)cachedImage;
+- (id)cachedImageIfAvailable:(char *)arg1;
+- (id)cachedImage:(char *)arg1;
 
 @end
 

@@ -8,6 +8,7 @@
 
 @class CUIThemeGradient;
 
+__attribute__((visibility("hidden")))
 @interface _CUIThemeGradientRendition : CUIThemeRendition
 {
     CUIThemeGradient *gradient;

@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
     int mType;
 }
 
+- (id)description;
 - (id)equivalentCustomGeometry;
 - (id)escherEquivalentCustomGeometry;
 - (id)oa12EquivalentCustomGeometry;

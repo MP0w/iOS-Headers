@@ -61,15 +61,7 @@ __attribute__((visibility("hidden")))
 - (Class)chartLayoutItemClass;
 - (unsigned int)presentationDimension;
 - (tvec3_17f03ce0)adjustedScaleForInfoChartScale:(const tvec3_17f03ce0 *)arg1 barShape:(int)arg2;
-- (struct CGRect)adjustChartFrame:(struct CGRect)arg1 forPresetImageTarget:(int)arg2;
-- (void)setupPresetImageChart:(id)arg1;
-- (id)drawableChartInfoForIconWithPreset:(id)arg1 target:(int)arg2 inFrame:(struct CGRect)arg3 offset:(struct CGPoint)arg4;
-- (void)p_layoutInwardForSwatchFrame:(struct CGRect)arg1 chart:(id)arg2 offset:(struct CGPoint)arg3;
-- (id)p_activateLayoutCacheForTarget:(int)arg1;
-- (int)p_layoutCachePlatform;
-- (BOOL)p_isIPhone;
-- (id)p_layoutCacheForCacheType:(struct TSCH3DPrecalculatedLayoutCacheType)arg1;
-- (void)didRenderIconForInfo:(id)arg1;
+- (BOOL)layoutFrameShouldEncloseInfoGeometry;
 - (int)deprecated3DShadowSpecificProperty;
 - (int)deprecated3DBevelEdgesSpecificProperty;
 

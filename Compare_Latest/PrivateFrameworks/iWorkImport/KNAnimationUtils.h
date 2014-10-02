@@ -15,12 +15,15 @@ __attribute__((visibility("hidden")))
 + (struct CGRect)recommendedLayerBoundsForPlaybackOfShow:(id)arg1 inContainerWithBounds:(struct CGRect)arg2 contentsScale:(float)arg3 isExternalDisplay:(BOOL)arg4;
 + (id)CAAccelerationFromSFXActionAcceleration:(unsigned int)arg1;
 + (BOOL)isMotionBlurCapableWithAnimationContext:(id)arg1;
-+ (id)p_motionBlurMaximumDisplaySizeDictionary;
++ (BOOL)isMotionBlurBlacklistedWithCapabilities:(id)arg1;
 + (BOOL)shouldForceDisplayPreferredMode;
 + (BOOL)isSOATSAnimationTestingEnabled;
 + (BOOL)isDisplayLoggingEnabled;
++ (BOOL)isGLStateValidationEnabled;
 + (BOOL)isFPSGraphEnabled;
++ (BOOL)isFPSLoggingTimerDisabled;
 + (BOOL)isFPSLoggingEnabled;
++ (unsigned int)randomBasicDirection;
 + (unsigned int)randomDirection;
 + (unsigned int)directionFromCustomAttributesDeliveryOption:(unsigned int)arg1;
 + (id)customAttributesArrayWithJiggleIntensityOptions:(id)arg1;
@@ -28,6 +31,7 @@ __attribute__((visibility("hidden")))
 + (id)customAttributesArrayWithTextDeliveryOptions:(id)arg1;
 + (id)timingsArrayWithDirection:(unsigned int)arg1 duration:(float)arg2 count:(unsigned int)arg3 chunkDuration:(float)arg4 randomness:(float)arg5;
 + (void)initialize;
++ (void)updateDefaultsValues;
 
 @end
 

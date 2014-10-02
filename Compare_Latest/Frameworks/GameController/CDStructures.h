@@ -8,3 +8,24 @@
 
 typedef void (^CDUnknownBlockType)(void); // return type and parameters are unknown
 
+#pragma mark Named Structures
+
+struct GCQuaternion {
+    double x;
+    double y;
+    double z;
+    double w;
+};
+
+#pragma mark Typedef'd Structures
+
+typedef struct {
+    float _field1[4];
+} CDStruct_212a8bf9;
+
+typedef struct {
+    double x;
+    double y;
+    double z;
+} CDStruct_31142d93;
+

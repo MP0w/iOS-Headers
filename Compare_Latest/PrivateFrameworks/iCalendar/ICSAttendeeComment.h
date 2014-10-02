@@ -12,8 +12,10 @@
 {
 }
 
-@property(retain) ICSDateValue *x_calendarserver_dtstamp;
-@property(retain) NSString *x_calendarserver_attendee_ref;
+- (BOOL)shouldObscureValue;
+- (id)parametersToObscure;
+@property(retain, nonatomic) ICSDateValue *x_calendarserver_dtstamp;
+@property(retain, nonatomic) NSString *x_calendarserver_attendee_ref;
 - (void)setComment:(id)arg1;
 - (id)initWithComment:(id)arg1;
 

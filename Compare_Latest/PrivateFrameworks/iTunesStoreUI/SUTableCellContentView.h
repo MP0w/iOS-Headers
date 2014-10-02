@@ -8,7 +8,7 @@
 
 #import "SUCellConfigurationView.h"
 
-@class NSMutableArray, SUCellConfiguration, UIBezierPath;
+@class NSMutableArray, NSString, SUCellConfiguration, UIBezierPath;
 
 @interface SUTableCellContentView : UIView <SUCellConfigurationView>
 {
@@ -45,6 +45,12 @@
 - (void)layoutSubviews;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -12,13 +12,20 @@
 
 @interface SKPhysicsJoint : NSObject <NSCoding>
 {
+    BOOL __implicit;
     SKPhysicsBody *bodyA;
     SKPhysicsBody *bodyB;
+    float reactionTorque;
+    struct CGVector reactionForce;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
+@property(nonatomic) BOOL _implicit; // @synthesize _implicit=__implicit;
+@property(readonly, nonatomic) float reactionTorque; // @synthesize reactionTorque;
+@property(readonly, nonatomic) struct CGVector reactionForce; // @synthesize reactionForce;
 @property(retain, nonatomic) SKPhysicsBody *bodyB; // @synthesize bodyB;
 @property(retain, nonatomic) SKPhysicsBody *bodyA; // @synthesize bodyA;
+- (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

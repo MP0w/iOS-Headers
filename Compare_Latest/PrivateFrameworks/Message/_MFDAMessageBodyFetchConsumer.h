@@ -9,7 +9,7 @@
 #import "DAMailAccountStreamConsumerFactory.h"
 #import "MFRequestQueueResponseConsumer.h"
 
-@class MFError, NSData;
+@class MFError, NSData, NSString;
 
 @interface _MFDAMessageBodyFetchConsumer : NSObject <MFRequestQueueResponseConsumer, DAMailAccountStreamConsumerFactory>
 {
@@ -27,6 +27,12 @@
 @property(readonly, nonatomic) BOOL succeeded; // @synthesize succeeded=_succeeded;
 - (void)handleResponse:(id)arg1 error:(id)arg2;
 - (BOOL)wantsData;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

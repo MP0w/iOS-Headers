@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (struct CGRect)readChildrenBoundsFromParentXmlNode:(struct _xmlNode *)arg1 inNamespace:(id)arg2;
++ (struct CGRect)readChildrenBoundsFromParentXmlNode:(struct _xmlNode *)arg1 inNamespace:(id)arg2 drawingState:(id)arg3;
 + (void)readFromParentXmlNode:(struct _xmlNode *)arg1 inNamespace:(id)arg2 toDrawable:(id)arg3 drawingState:(id)arg4;
 
 @end

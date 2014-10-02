@@ -9,14 +9,14 @@
 #import "PCInterfaceUsabilityMonitorDelegate.h"
 #import "PCInterfaceUsabilityMonitorProtocol.h"
 
-@class CUTWeakReference, NSMutableArray, NSString;
+@class CUTWeakReference, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface PCNonCellularUsabilityMonitor : NSObject <PCInterfaceUsabilityMonitorProtocol, PCInterfaceUsabilityMonitorDelegate>
 {
-    struct dispatch_queue_s *_delegateQueue;
-    struct dispatch_queue_s *_ivarQueue;
-    struct dispatch_queue_s *_monitorDelegateQueue;
+    NSObject<OS_dispatch_queue> *_delegateQueue;
+    NSObject<OS_dispatch_queue> *_ivarQueue;
+    NSObject<OS_dispatch_queue> *_monitorDelegateQueue;
     CUTWeakReference *_delegateReference;
     NSString *_demoOverrideInterface;
     int _previousLinkQuality;
@@ -31,8 +31,9 @@ __attribute__((visibility("hidden")))
 - (void)_callDelegateOnIvarQueueWithBlock:(CDUnknownBlockType)arg1;
 @property(nonatomic) id <PCInterfaceUsabilityMonitorDelegate> delegate;
 @property(readonly, nonatomic) BOOL isRadioHot;
+@property(readonly, nonatomic) BOOL isBadLinkQuality;
 @property(readonly, nonatomic) BOOL isPoorLinkQuality;
-@property(readonly, nonatomic) NSString *linkQualityString;
+@property(readonly, retain, nonatomic) NSString *linkQualityString;
 @property(readonly, nonatomic) BOOL isInternetReachable;
 @property(readonly, nonatomic) BOOL isInterfaceHistoricallyUsable;
 @property(readonly, nonatomic) BOOL isInterfaceUsable;
@@ -45,11 +46,15 @@ __attribute__((visibility("hidden")))
 - (void)_forwardConfigurationOnIvarQueue;
 - (void)_addMonitorWithInterfaceName:(id)arg1;
 - (void)dealloc;
-- (id)initWithDelegateQueue:(struct dispatch_queue_s *)arg1;
+- (id)initWithDelegateQueue:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) struct __CFString *currentRAT;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) BOOL isLTEWithCDRX;
+@property(readonly) Class superclass;
 @property(readonly, nonatomic) struct __CFString *wwanInterfaceName;
 
 @end

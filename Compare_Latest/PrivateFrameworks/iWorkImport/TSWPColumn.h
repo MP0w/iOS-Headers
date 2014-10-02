@@ -8,7 +8,7 @@
 
 #import "TSWPOffscreenColumn.h"
 
-@class TSWPStorage;
+@class NSString, TSWPStorage;
 
 __attribute__((visibility("hidden")))
 @interface TSWPColumn : NSObject <TSWPOffscreenColumn>
@@ -64,6 +64,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSWPStorage *storage; // @synthesize storage=_storage;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (BOOL)hasPartitionedAttachmentAtStart:(BOOL)arg1;
+- (BOOL)onlyHasPartitionedAttachments;
 - (BOOL)onlyHasAnchoredDrawable;
 - (id)singleLinePartitionedInfoAtStart:(BOOL)arg1;
 - (id)partitionedLayoutForInfo:(id)arg1;
@@ -88,13 +90,15 @@ __attribute__((visibility("hidden")))
 - (id)rectsForSelection:(id)arg1;
 - (struct CGRect)firstRectForSelection:(id)arg1 includeSpaceAfter:(BOOL)arg2 includeSpaceBefore:(BOOL)arg3 includeLeading:(BOOL)arg4;
 - (id)lineSelectionsForSelection:(id)arg1;
-@property(readonly, nonatomic) struct CGRect typographicBounds;
+@property(readonly, nonatomic) struct CGRect typographicBoundsForCell;
 - (struct CGRect)columnRectForRange:(struct _NSRange)arg1;
 - (unsigned int)glyphCountForRubyFieldAtCharIndex:(unsigned int)arg1;
 - (struct CGRect)glyphRectForRubyFieldAtCharIndex:(unsigned int)arg1 glyphRange:(struct _NSRange)arg2;
+- (unsigned int)fontTraitsForRange:(struct _NSRange)arg1 includingLabel:(BOOL)arg2;
 - (struct CGRect)glyphRectForRange:(struct _NSRange)arg1 includingLabel:(BOOL)arg2;
 - (struct CGRect)caretRectForSelection:(id)arg1;
 - (unsigned int)lineIndexForCharIndex:(unsigned int)arg1 eol:(BOOL)arg2;
+- (const struct TSWPLineFragment *)nearestLineFragmentWithSameVerticalPositionAs:(unsigned int)arg1 xPos:(float)arg2;
 - (const struct TSWPLineFragment *)lineFragmentForCharIndex:(unsigned int)arg1 knobTag:(unsigned int)arg2 selectionType:(int)arg3;
 - (const struct TSWPLineFragment *)lineFragmentClosestToPoint:(struct CGPoint)arg1 knobTag:(unsigned int)arg2;
 - (float)horizontalOffsetForCharIndex:(unsigned int)arg1 lineFragmentIndex:(unsigned int)arg2 bumpPastHyphen:(BOOL)arg3 allowPastLineBounds:(BOOL)arg4;
@@ -113,12 +117,13 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct CGRect frameBounds;
 - (void)clearAdornments;
 - (void)addAdornmentRect:(const struct TSWPAdornmentRect *)arg1;
+- (struct CGRect)changeBarRectForLineFragment:(const struct TSWPLineFragment *)arg1;
 - (BOOL)requiresGlyphVectorsForHeightMeasurement;
 - (float)textHeight;
 @property(readonly, nonatomic) float textBottom;
 - (struct CGRect)erasableBounds:(unsigned int)arg1;
 - (float)minimumHeightForLayoutOnPage;
-- (void)trimToCharIndex:(unsigned int)arg1 inTarget:(id)arg2 removeAutoNumberFootnoteCount:(unsigned int)arg3;
+- (void)trimToCharIndex:(unsigned int)arg1 inTarget:(id)arg2 removeFootnoteLayoutCount:(unsigned int)arg3 removeAutoNumberFootnoteCount:(unsigned int)arg4;
 - (struct CGSize)maxSize;
 - (void)incrementRanges:(int)arg1;
 @property(nonatomic) struct _NSRange anchoredRange;
@@ -127,6 +132,12 @@ __attribute__((visibility("hidden")))
 - (float)logicalBoundsTop;
 - (void)dealloc;
 - (id)initWithStorage:(id)arg1 frameBounds:(struct CGRect)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -16,7 +16,7 @@
 - (id)description;
 - (void)_dissociate;
 - (void)_associate;
-@property(readonly, nonatomic) NSArray *items;
+@property(readonly, copy, nonatomic) NSArray *items;
 - (void)setGravity:(struct CGPoint)arg1;
 - (void)setAngle:(float)arg1 magnitude:(float)arg2;
 - (void)_setAngle:(float)arg1 magnitude:(float)arg2;

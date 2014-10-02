@@ -13,8 +13,8 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _animationDidStopBlock;
 }
 
-@property(copy, nonatomic) CDUnknownBlockType animationDidStopBlock; // @synthesize animationDidStopBlock=_animationDidStopBlock;
-@property(copy, nonatomic) CDUnknownBlockType animationDidStartBlock; // @synthesize animationDidStartBlock=_animationDidStartBlock;
+@property(copy) CDUnknownBlockType animationDidStopBlock; // @synthesize animationDidStopBlock=_animationDidStopBlock;
+@property(copy) CDUnknownBlockType animationDidStartBlock; // @synthesize animationDidStartBlock=_animationDidStartBlock;
 - (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
 - (void)animationDidStart:(id)arg1;
 - (void)dealloc;

@@ -12,7 +12,7 @@
 #import "_UIBackdropViewObserver.h"
 #import "_UISettingsKeyObserver.h"
 
-@class NSMutableArray, SBControlCenterContainerView, SBControlCenterContentView, SBControlCenterSettings, UIPanGestureRecognizer, UITapGestureRecognizer;
+@class NSMutableArray, NSString, SBControlCenterContainerView, SBControlCenterContentView, SBControlCenterSettings, UIPanGestureRecognizer, UITapGestureRecognizer;
 
 @interface SBControlCenterViewController : UIViewController <UIGestureRecognizerDelegate, SBControlCenterSectionViewControllerDelegate, _UISettingsKeyObserver, _UIBackdropViewObserver, SBControlCenterObserver>
 {
@@ -43,6 +43,8 @@
 - (void)loadView;
 - (id)view;
 - (void)abortAnimatedTransition;
+- (void)_noteControlCenterControlDidDeactivate:(id)arg1;
+- (void)_noteControlCenterControlDidActivate:(id)arg1;
 @property(nonatomic) double revealPercentage;
 - (void)controlCenterDidFinishTransition;
 - (void)controlCenterWillFinishTransitionOpen:(_Bool)arg1 withDuration:(double)arg2;
@@ -54,6 +56,12 @@
 - (id)chevronView;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

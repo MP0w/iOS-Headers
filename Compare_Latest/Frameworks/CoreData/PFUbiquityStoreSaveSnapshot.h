@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSNumber, NSString, PFUbiquityGlobalObjectIDCache, PFUbiquityKnowledgeVector;
+@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSNumber, NSObject<OS_dispatch_queue>, NSString, PFUbiquityGlobalObjectIDCache, PFUbiquityKnowledgeVector;
 
 __attribute__((visibility("hidden")))
 @interface PFUbiquityStoreSaveSnapshot : NSObject
@@ -33,6 +33,7 @@ __attribute__((visibility("hidden")))
     NSArray *_filesDeletedInTransaction;
     PFUbiquityKnowledgeVector *_storeKV;
     PFUbiquityGlobalObjectIDCache *_gidCache;
+    NSObject<OS_dispatch_queue> *_queue;
 }
 
 @property(retain, nonatomic) PFUbiquityGlobalObjectIDCache *globalObjectIDCache; // @synthesize globalObjectIDCache=_gidCache;
@@ -58,7 +59,6 @@ __attribute__((visibility("hidden")))
 - (void)finishGlobalIDReplacement;
 - (void)replaceGlobalObjectID:(id)arg1 withGlobalObjectID:(id)arg2;
 - (void)prepareForGlobalIDReplacement;
-- (void)replaceGlobalObjectIDsAtIndexes:(id)arg1 withGlobalObjectIDs:(id)arg2;
 - (void)setDeletedObjects:(id)arg1;
 - (void)setUpdatedObjects:(id)arg1;
 - (void)setInsertedObjects:(id)arg1;
@@ -71,8 +71,10 @@ __attribute__((visibility("hidden")))
 - (void)reserveTransactionNumberWithStoreExportContext:(id)arg1;
 - (id)addManagedObject:(id)arg1 withTransactionType:(int)arg2 andStoreExportContext:(id)arg3 withError:(id *)arg4;
 - (id)globalObjectIDFromCompressedObjectID:(id)arg1;
+- (id)checkIndecies:(id)arg1;
 - (id)compressedGlobalObjectIDFromGlobalObjectID:(id)arg1;
 - (id)globalObjectIDForManagedObject:(id)arg1 withStoreExportContext:(id)arg2;
+- (id)noSyncCheckIndex:(id)arg1 forValue:(id)arg2 fromArrayOfValues:(id)arg3;
 - (id)checkIndex:(id)arg1 forValue:(id)arg2 fromArrayOfValues:(id)arg3;
 - (void)_setFilesDeletedInTransaction:(id)arg1;
 - (id)filesDeletedInTransaction;

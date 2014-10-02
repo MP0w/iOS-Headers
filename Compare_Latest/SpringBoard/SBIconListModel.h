@@ -9,7 +9,7 @@
 #import "NSFastEnumeration.h"
 #import "SBIconIndexNode.h"
 
-@class NSHashTable, SBFolder, SBIconIndexMutableList;
+@class NSHashTable, NSString, SBFolder, SBIconIndexMutableList;
 
 @interface SBIconListModel : NSObject <SBIconIndexNode, NSFastEnumeration>
 {
@@ -36,7 +36,7 @@
 - (void)removeListObserver:(id)arg1;
 - (void)addListObserver:(id)arg1;
 - (void)warmUpIconImagesForLocation:(int)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)markIconStateClean;
 - (_Bool)isIconStateDirty;
 - (id)iconsOfClass:(Class)arg1;
@@ -65,6 +65,11 @@
 - (void)dealloc;
 - (id)init;
 - (id)initWithFolder:(id)arg1 maxIconCount:(unsigned long long)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

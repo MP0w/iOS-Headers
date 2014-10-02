@@ -28,7 +28,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) NSArray *deletedKeys; // @synthesize deletedKeys=_deletedKeys;
 @property(readonly) NSArray *conflictedKeys; // @synthesize conflictedKeys=_conflictedKeys;
 @property(readonly) NSArray *updatedKeys; // @synthesize updatedKeys=_updatedKeys;
-@property(readonly) NSString *syncAnchor; // @synthesize syncAnchor=_syncAnchor;
+@property(readonly, copy) NSString *syncAnchor; // @synthesize syncAnchor=_syncAnchor;
 @property(readonly) SBKSyncTransaction *transaction; // @synthesize transaction=_transaction;
 - (void).cxx_destruct;
 - (void)_deserializeResponseDictionary:(id)arg1 response:(id)arg2;

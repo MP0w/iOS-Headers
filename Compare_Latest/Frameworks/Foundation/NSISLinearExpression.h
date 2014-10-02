@@ -9,6 +9,8 @@
 #import "NSFastEnumeration.h"
 #import "NSISRowBody.h"
 
+@class NSString;
+
 @interface NSISLinearExpression : NSObject <NSISRowBody, NSFastEnumeration>
 {
     unsigned int inline_capacity;
@@ -42,7 +44,7 @@
 - (BOOL)enumerateVariablesAndCoefficientsUntil:(CDUnknownBlockType)arg1;
 - (void)enumerateVariables:(CDUnknownBlockType)arg1;
 - (void)enumerateVariablesAndCoefficients:(CDUnknownBlockType)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)replaceVariable:(id)arg1 withExpression:(id)arg2 processVariableNewToReceiver:(CDUnknownBlockType)arg3 processVariableDroppedFromReceiver:(CDUnknownBlockType)arg4;
 - (void)replaceVariable:(id)arg1 withVariablePlusDelta:(double)arg2 timesVariable:(id)arg3 processVariableNewToReceiver:(CDUnknownBlockType)arg4 processVariableDroppedFromReceiver:(CDUnknownBlockType)arg5;
 - (void)replaceVariable:(id)arg1 withVariablePlusDelta:(double)arg2;
@@ -59,6 +61,11 @@
 - (double)coefficientForVariable:(id)arg1;
 - (void)removeVariable:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

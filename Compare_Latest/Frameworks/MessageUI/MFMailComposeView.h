@@ -7,6 +7,7 @@
 #import "UITransitionView.h"
 
 #import "MFComposeBodyFieldDelegate.h"
+#import "MFComposeHeaderViewDelegate.h"
 #import "MFDragContext.h"
 #import "MFMailComposeContactsSearchControllerDelegate.h"
 #import "UIScrollViewDelegate.h"
@@ -14,9 +15,9 @@
 #import "UITableViewDelegate.h"
 #import "UITextContentViewDelegate.h"
 
-@class MFComposeBodyField, MFComposeFromView, MFComposeImageSizeView, MFComposeMultiView, MFComposeScrollView, MFComposeSubjectView, MFComposeTextContentView, MFFromAddressViewController, MFMailComposeContactsSearchController, MFMailComposeRecipientView, MFSearchResultsViewController, NSArray, NSInvocation, UIPickerView, UIResponder, UITableView, UIView;
+@class MFComposeBodyField, MFComposeFromView, MFComposeImageSizeView, MFComposeMultiView, MFComposeScrollView, MFComposeSubjectView, MFComposeTextContentView, MFFromAddressViewController, MFMailComposeContactsSearchController, MFMailComposeRecipientView, MFSearchResultsViewController, NSArray, NSInvocation, NSString, UIPickerView, UIResponder, UITableView, UIView;
 
-@interface MFMailComposeView : UITransitionView <UITextContentViewDelegate, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, MFMailComposeContactsSearchControllerDelegate, MFComposeBodyFieldDelegate, MFDragContext>
+@interface MFMailComposeView : UITransitionView <MFComposeHeaderViewDelegate, UITextContentViewDelegate, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, MFMailComposeContactsSearchControllerDelegate, MFComposeBodyFieldDelegate, MFDragContext>
 {
     id <MFMailPopoverManagerDelegate> _popoverOwner;
     id <MFMailComposeViewDelegate> _mailComposeViewDelegate;
@@ -50,6 +51,7 @@
     float _keyboardIntersection;
     unsigned int _options;
     struct CGSize _currentContentSize;
+    unsigned int _notifyingBodyField;
     unsigned int _isChangingRecipients:1;
     unsigned int _isLoading:1;
     unsigned int _isShowingPeoplePicker:1;
@@ -61,9 +63,10 @@
     unsigned int _shouldShowOptionalHeaders:1;
     unsigned int _isDraggingRecipients:1;
     unsigned int _hasAppeared:1;
-    unsigned int _notifyingBodyField;
+    id <MFMailComposeToFieldDelegate> _toFieldDelegate;
 }
 
+@property(readonly, nonatomic) MFSearchResultsViewController *searchViewController; // @synthesize searchViewController=_searchViewController;
 @property(readonly, nonatomic) MFComposeTextContentView *bodyTextView; // @synthesize bodyTextView=_textView;
 @property(readonly, nonatomic) MFComposeScrollView *bodyScroller; // @synthesize bodyScroller=_bodyScroller;
 @property(readonly, nonatomic) MFComposeBodyField *bodyField; // @synthesize bodyField=_bodyField;
@@ -74,6 +77,7 @@
 @property(readonly, nonatomic) MFMailComposeRecipientView *bccField; // @synthesize bccField=_bccField;
 @property(readonly, nonatomic) MFMailComposeRecipientView *ccField; // @synthesize ccField=_ccField;
 @property(readonly, nonatomic) MFMailComposeRecipientView *toField; // @synthesize toField=_toField;
+@property(nonatomic) id <MFMailComposeToFieldDelegate> toFieldDelegate; // @synthesize toFieldDelegate=_toFieldDelegate;
 @property(nonatomic) id <MFMailPopoverManagerDelegate> popoverOwner; // @synthesize popoverOwner=_popoverOwner;
 @property(nonatomic) id <MFComposeRecipientTextViewDelegate> composeRecipientDelegate; // @synthesize composeRecipientDelegate=_composeRecipientViewDelegate;
 @property(nonatomic) id <MFMailComposeViewDelegate> composeViewDelegate; // @synthesize composeViewDelegate=_mailComposeViewDelegate;
@@ -185,6 +189,12 @@
 - (id)_searchResultsTable;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 options:(unsigned int)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

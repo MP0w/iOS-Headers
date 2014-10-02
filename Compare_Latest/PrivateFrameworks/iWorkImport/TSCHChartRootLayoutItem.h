@@ -40,6 +40,9 @@ __attribute__((visibility("hidden")))
 - (void)p_layoutOutward;
 - (void)setChartBodySize:(struct CGSize)arg1;
 - (void)p_layoutInward;
+- (void)updateLayoutOffset;
+- (void)updateLayoutSize;
+- (void)setLegendSize:(struct CGSize)arg1;
 - (void)setChartInnerFrame:(struct CGRect)arg1 legendInnerFrame:(struct CGRect)arg2;
 - (struct CGRect)calcOverhangRect;
 - (struct CGRect)calcDrawingRect;

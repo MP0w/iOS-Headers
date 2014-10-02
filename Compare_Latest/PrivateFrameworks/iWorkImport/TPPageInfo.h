@@ -8,7 +8,7 @@
 
 #import "TSDContainerInfo.h"
 
-@class NSObject<TSDContainerInfo>, TPBodyInfo, TPDocumentRoot, TSDInfoGeometry, TSPObject<TSDOwningAttachment>;
+@class NSObject<TSDContainerInfo>, NSString, TPBodyInfo, TPDocumentRoot, TSDInfoGeometry, TSPObject<TSDOwningAttachment>;
 
 __attribute__((visibility("hidden")))
 @interface TPPageInfo : NSObject <TSDContainerInfo>
@@ -20,7 +20,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, nonatomic) id <TPPageLayoutInfoProvider> layoutInfoProvider; // @synthesize layoutInfoProvider=_layoutInfoProvider;
-@property(readonly, nonatomic) TPBodyInfo *bodyInfo; // @synthesize bodyInfo=_bodyInfo;
+@property(readonly, retain, nonatomic) TPBodyInfo *bodyInfo; // @synthesize bodyInfo=_bodyInfo;
 @property(readonly, nonatomic) TPDocumentRoot *documentRoot; // @synthesize documentRoot=_documentRoot;
 @property(readonly, nonatomic) unsigned int pageIndex; // @synthesize pageIndex=_pageIndex;
 - (id)childInfos;
@@ -34,13 +34,18 @@ __attribute__((visibility("hidden")))
 - (BOOL)isThemeContent;
 - (Class)repClass;
 @property(copy, nonatomic) TSDInfoGeometry *geometry;
+- (void)clearBackPointerToParentInfoIfNeeded:(id)arg1;
 @property(nonatomic) NSObject<TSDContainerInfo> *parentInfo;
 - (id)copyWithContext:(id)arg1;
 - (void)dealloc;
 - (id)initWithPageIndex:(unsigned int)arg1 documentRoot:(id)arg2 layoutInfoProvider:(id)arg3;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(nonatomic) BOOL matchesObjectPlaceholderGeometry;
+@property(readonly) Class superclass;
 
 @end
 

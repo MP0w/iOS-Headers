@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 - (unsigned int)textureCount;
 - (id)tilings;
 - (id)textures;
+- (BOOL)hasCompleteData;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

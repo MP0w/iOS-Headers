@@ -8,21 +8,23 @@
 
 #import "NSTextStorageDelegate.h"
 
-@class NSArray, NSMutableDictionary;
+@class CKComposition, NSMutableDictionary, NSString;
 
 @interface CKMessageEntryRichTextView : CKMessageEntryTextView <NSTextStorageDelegate>
 {
     BOOL _balloonColor;
     NSMutableDictionary *_mediaObjects;
     NSMutableDictionary *_composeImages;
-    NSArray *_pasteboardValues;
+    CKComposition *_pasteboardComposition;
+    int _pasteboardChangeCount;
 }
 
-@property(retain, nonatomic) NSArray *pasteboardValues; // @synthesize pasteboardValues=_pasteboardValues;
+@property(nonatomic) int pasteboardChangeCount; // @synthesize pasteboardChangeCount=_pasteboardChangeCount;
+@property(retain, nonatomic) CKComposition *pasteboardComposition; // @synthesize pasteboardComposition=_pasteboardComposition;
 @property(retain, nonatomic) NSMutableDictionary *composeImages; // @synthesize composeImages=_composeImages;
 @property(retain, nonatomic) NSMutableDictionary *mediaObjects; // @synthesize mediaObjects=_mediaObjects;
 @property(nonatomic) BOOL balloonColor; // @synthesize balloonColor=_balloonColor;
-- (id)pasteboardTextForPasteboardValues:(id)arg1;
+- (id)attributedTextForCompositionText:(id)arg1;
 - (id)composeImageForTransferGUID:(id)arg1;
 - (void)previewDidChange:(id)arg1;
 - (void)updateComposeImages;
@@ -35,6 +37,12 @@
 - (void)copy:(id)arg1;
 - (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

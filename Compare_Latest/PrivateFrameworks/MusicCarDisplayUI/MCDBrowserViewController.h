@@ -8,7 +8,7 @@
 
 #import "UITabBarControllerDelegate.h"
 
-@class MPAVController, UIButton, UITabBarController;
+@class MPAVController, NSMapTable, NSString, UIButton, UITabBarController;
 
 @interface MCDBrowserViewController : UINavigationController <UITabBarControllerDelegate>
 {
@@ -16,6 +16,7 @@
     BOOL _libraryHasSongs;
     UITabBarController *_tabBarController;
     UIButton *_nowPlayingButton;
+    NSMapTable *_noContentViews;
     MPAVController *_player;
     id <MCDCarDisplayServiceProvider> _serviceProvider;
     UITabBarController *_hostTabBarController;
@@ -39,9 +40,16 @@
 - (void)refreshNavigationPath;
 - (void)pushNowPlaying:(BOOL)arg1;
 - (void)reloadWithTabs:(id)arg1 forceReload:(BOOL)arg2;
+- (id)_createViewControllerForIdentifier:(id)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)dealloc;
 - (id)initWithHostTabBarController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -10,7 +10,7 @@
 #import "SKUIMetricsViewController.h"
 #import "SKUIViewControllerTesting.h"
 
-@class NSURL, SKUICategoryController, SKUIStorePageViewController;
+@class NSString, NSURL, SKUICategoryController, SKUIStorePageViewController;
 
 @interface SKUIChartsViewController : SKUIViewController <SKUICategoryControllerDelegate, SKUIMetricsViewController, SKUIViewControllerTesting>
 {
@@ -21,6 +21,7 @@
 }
 
 + (id)_defaultURL;
++ (BOOL)_shouldForwardViewWillTransitionToSize;
 - (void).cxx_destruct;
 - (id)_storePageViewController;
 - (void)_reloadNavigationItem;
@@ -32,14 +33,18 @@
 - (id)activeMetricsController;
 - (void)categoryController:(id)arg1 didSelectCategory:(id)arg2;
 - (void)viewWillAppear:(BOOL)arg1;
-- (unsigned int)supportedInterfaceOrientations;
 - (void)loadView;
 - (void)encodeRestorableStateWithCoder:(id)arg1;
 - (void)decodeRestorableStateWithCoder:(id)arg1;
 - (void)reloadData;
-- (void)setClientContext:(id)arg1;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

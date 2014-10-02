@@ -134,6 +134,8 @@ __attribute__((visibility("hidden")))
 - (void)fill;
 - (void)stroke;
 - (void)_doPath;
+- (struct CGPoint)_checkPointForValidity:(struct CGPoint)arg1;
+- (BOOL)_isValid:(float)arg1;
 - (void)getLineDash:(float *)arg1 count:(int *)arg2 phase:(float *)arg3;
 - (void)setLineDash:(const float *)arg1 count:(int)arg2 phase:(float)arg3;
 - (void)setFlatness:(float)arg1;

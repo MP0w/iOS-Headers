@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
     NSArray *mRules;
     BOOL mNeedsFormulaRewriteForImport;
     vector_a9c0768e mFilterOffsets;
-    struct vector<bool, std::__1::allocator<bool>> mFilterEnabled;
+    vector_b86883bc mFilterEnabled;
 }
 
 - (id).cxx_construct;

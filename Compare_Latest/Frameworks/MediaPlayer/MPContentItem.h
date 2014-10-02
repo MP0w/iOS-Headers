@@ -23,11 +23,11 @@
 @property(retain, nonatomic) MPMediaItemArtwork *artwork;
 @property(copy, nonatomic) NSString *subtitle;
 @property(copy, nonatomic) NSString *title;
-@property(readonly, nonatomic) NSString *identifier;
+@property(readonly, copy, nonatomic) NSString *identifier;
 - (id)description;
 - (void)dealloc;
-- (id)initWithIdentifier:(id)arg1;
 - (id)_initWithMediaRemoteContentItem:(struct _MRContentItem *)arg1;
+- (id)initWithIdentifier:(id)arg1;
 
 @end
 

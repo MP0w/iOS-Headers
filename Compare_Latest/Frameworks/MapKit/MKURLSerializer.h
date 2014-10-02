@@ -11,9 +11,9 @@
 }
 
 - (id)mapItemsFromUrl:(id)arg1 options:(id *)arg2;
-- (id)urlToPresentDirectionsFromMapItem:(id)arg1 toMapItem:(id)arg2 directionsMode:(int)arg3 options:(id)arg4;
-- (id)urlForDirectionsFromMapItem:(id)arg1 toMapItem:(id)arg2 directionsMode:(int)arg3 options:(id)arg4;
-- (id)_urlForDirectionsFromMapItem:(id)arg1 toMapItem:(id)arg2 directionsMode:(int)arg3 options:(id)arg4 precision:(BOOL)arg5;
+- (id)urlToPresentDirectionsFromMapItem:(id)arg1 toMapItem:(id)arg2 transportType:(unsigned int)arg3 options:(id)arg4;
+- (id)urlForDirectionsFromMapItem:(id)arg1 toMapItem:(id)arg2 transportType:(unsigned int)arg3 options:(id)arg4;
+- (id)_urlForDirectionsFromMapItem:(id)arg1 toMapItem:(id)arg2 transportType:(unsigned int)arg3 options:(id)arg4 precision:(BOOL)arg5;
 - (id)urlToPresentMapItems:(id)arg1 options:(id)arg2;
 - (id)urlForOpeningMapItems:(id)arg1 options:(id)arg2;
 - (id)_urlForOpeningMapItems:(id)arg1 options:(id)arg2 precision:(BOOL)arg3;

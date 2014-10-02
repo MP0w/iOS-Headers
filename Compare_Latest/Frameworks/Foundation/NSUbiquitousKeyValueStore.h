@@ -6,6 +6,8 @@
 
 #import "NSObject.h"
 
+@class NSDictionary;
+
 @interface NSUbiquitousKeyValueStore : NSObject
 {
     id _private1;
@@ -47,7 +49,7 @@
 - (BOOL)_synchronizeForced:(BOOL)arg1 notificationQueue:(id)arg2;
 - (void)synchronizeWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_scheduleRemoteSynchronization;
-- (id)dictionaryRepresentation;
+@property(readonly, copy) NSDictionary *dictionaryRepresentation;
 - (void)registerDefaultValues:(id)arg1;
 - (void)removeObjectForKey:(id)arg1;
 - (void)setObject:(id)arg1 forKey:(id)arg2;

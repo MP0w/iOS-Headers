@@ -15,7 +15,6 @@
     NSString *_reason;
 }
 
-@property(readonly, nonatomic) AVExternalDevice *externalDevice; // @synthesize externalDevice=_externalDevice;
 @property(readonly, nonatomic) NSString *reason; // @synthesize reason=_reason;
 @property(readonly, nonatomic) NSString *client; // @synthesize client=_client;
 - (void)finalize;

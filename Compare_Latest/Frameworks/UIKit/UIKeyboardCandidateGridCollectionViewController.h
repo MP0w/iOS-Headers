@@ -10,7 +10,7 @@
 #import "UIKeyboardCandidateGridLayoutDelegate.h"
 #import "UIKeyboardCandidateList.h"
 
-@class NSArray, TIKeyboardCandidateResultSet, UIButton, UIKBCandidateCollectionView, UIKeyboardCandidateGridCollectionView, UIKeyboardCandidateGridLayout, UIView;
+@class NSArray, NSString, TIKeyboardCandidateResultSet, UIButton, UIKBCandidateCollectionView, UIKeyboardCandidateGridCollectionView, UIKeyboardCandidateGridLayout, UIView;
 
 __attribute__((visibility("hidden")))
 @interface UIKeyboardCandidateGridCollectionViewController : UIViewController <UICollectionViewDataSource, UIKeyboardCandidateList, UIKeyboardCandidateGridLayoutDelegate>
@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
     BOOL _showsExtensionCandidates;
     BOOL _supportsNumberKeySelection;
     BOOL _secondaryCandidatesViewIsCurrent;
+    BOOL __usesDeemphasizedTextAppearance;
     id <UIKeyboardCandidateGridCollectionViewControllerDelegate> _delegate;
     id <UIKeyboardCandidateListDelegate> _candidateListDelegate;
     TIKeyboardCandidateResultSet *_candidateSet;
@@ -35,6 +36,7 @@ __attribute__((visibility("hidden")))
     float _groupBarWidth;
 }
 
+@property(nonatomic) BOOL _usesDeemphasizedTextAppearance; // @synthesize _usesDeemphasizedTextAppearance=__usesDeemphasizedTextAppearance;
 @property(nonatomic) BOOL secondaryCandidatesViewIsCurrent; // @synthesize secondaryCandidatesViewIsCurrent=_secondaryCandidatesViewIsCurrent;
 @property(nonatomic) BOOL supportsNumberKeySelection; // @synthesize supportsNumberKeySelection=_supportsNumberKeySelection;
 @property(nonatomic) BOOL showsExtensionCandidates; // @synthesize showsExtensionCandidates=_showsExtensionCandidates;
@@ -80,7 +82,7 @@ __attribute__((visibility("hidden")))
 - (void)showPreviousCandidate;
 - (void)showNextCandidate;
 - (void)showCandidateAtIndex:(unsigned int)arg1;
-- (void)showCandidate:(id)arg1;
+- (BOOL)showCandidate:(id)arg1;
 - (BOOL)isHiddenCandidatesList;
 - (BOOL)isExtendedList;
 - (void)scrollViewIndexChanged:(id)arg1;
@@ -110,6 +112,8 @@ __attribute__((visibility("hidden")))
 - (unsigned int)padInlineHighlightedRowIndex;
 - (void)padInlineFloatingExpand;
 - (BOOL)padInlineFloatingIsExpanded;
+- (void)candidateViewDidFinishExtending;
+- (void)candidateViewWillBeginExtendingWithVisibleCandidates:(id)arg1;
 - (void)scrollToBottomWithAnimation:(BOOL)arg1;
 - (void)scrollToTopWithAnimation:(BOOL)arg1;
 - (void)scrollToTopWithAnimation:(BOOL)arg1 revealHeaderView:(BOOL)arg2;
@@ -118,6 +122,12 @@ __attribute__((visibility("hidden")))
 - (void)loadSecondaryCandidatesView;
 - (void)loadView;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

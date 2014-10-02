@@ -25,6 +25,7 @@
 - (BOOL)_shouldUseDefaultFirstResponder;
 - (void)_conversationListDidFinishLoading:(id)arg1;
 - (void)registerForNotifications;
+- (void)viewServiceWillAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)_setConversation:(id)arg1;
 - (void)transitionFromNewMessageToConversation;
 - (BOOL)shouldDismissAfterSend;
@@ -33,16 +34,11 @@
 - (void)disableCameraAttachments;
 - (void)setCanEditRecipients:(BOOL)arg1;
 - (void)setPendingAddresses:(id)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (BOOL)getContainerWidth:(float *)arg1 offset:(float *)arg2;
-- (void)insertTextPart:(id)arg1;
 - (void)insertData:(id)arg1 MIMEType:(id)arg2 exportedFilename:(id)arg3;
-- (void)insertFilename:(id)arg1 MIMEType:(id)arg2 exportedFilename:(id)arg3 options:(id)arg4;
-- (void)insertFilename:(id)arg1 MIMEType:(id)arg2 exportedFilename:(id)arg3;
 - (void)insertFileURL:(id)arg1 filename:(id)arg2 transcoderUserInfo:(id)arg3;
 - (BOOL)_insertMediaObject:(id)arg1;
-- (void)_addPart:(id)arg1;
 - (void)dealloc;
 
 @end

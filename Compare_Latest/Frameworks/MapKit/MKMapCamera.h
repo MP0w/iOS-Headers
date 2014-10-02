@@ -15,7 +15,7 @@
 {
     CDStruct_2c43369c _centerCoordinate;
     double _heading;
-    float _pitch;
+    double _pitch;
     double _altitude;
     MKMapView *_mapView;
 }
@@ -26,13 +26,14 @@
 + (id)cameraLookingAtCenterCoordinate:(CDStruct_c3b9c2ee)arg1 fromEyeCoordinate:(CDStruct_c3b9c2ee)arg2 eyeAltitude:(double)arg3;
 + (id)camera;
 @property(nonatomic) double altitude; // @synthesize altitude=_altitude;
-@property(nonatomic) float pitch; // @synthesize pitch=_pitch;
+@property(nonatomic, getter=_precisePitch, setter=_setPrecisePitch:) double precisePitch; // @synthesize precisePitch=_pitch;
 @property(nonatomic) double heading; // @synthesize heading=_heading;
 @property(nonatomic) CDStruct_c3b9c2ee centerCoordinate; // @synthesize centerCoordinate=_centerCoordinate;
 - (void).cxx_destruct;
 - (BOOL)_validate;
 - (id)description;
 - (void)_updateState;
+@property(nonatomic) float pitch;
 - (void)_setMapView:(id)arg1;
 - (id)_mapView;
 - (BOOL)isEqual:(id)arg1;

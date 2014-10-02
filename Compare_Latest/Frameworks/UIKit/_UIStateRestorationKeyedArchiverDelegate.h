@@ -8,6 +8,8 @@
 
 #import "NSKeyedArchiverDelegate.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface _UIStateRestorationKeyedArchiverDelegate : NSObject <NSKeyedArchiverDelegate>
 {
@@ -15,6 +17,12 @@ __attribute__((visibility("hidden")))
 
 + (id)sharedDelegate;
 - (id)archiver:(id)arg1 willEncodeObject:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

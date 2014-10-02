@@ -8,26 +8,38 @@
 
 #import "SBCPlaybackPositionServiceProtocol.h"
 
-@class NSString;
+@class NSString, SBCPlaybackPositionDomain;
 
 @interface SBCPlaybackPositionService : SBCXPCService <SBCPlaybackPositionServiceProtocol>
 {
-    NSString *_databasePath;
+    BOOL _usingPlaybackPositions;
+    SBCPlaybackPositionDomain *_playbackPositionDomain;
 }
 
-+ (id)bookkeeperForDatabasePath:(id)arg1;
-@property(readonly) NSString *databasePath; // @synthesize databasePath=_databasePath;
++ (Class)XPCServiceInterfaceClass;
++ (id)serviceForValueDomain:(id)arg1;
++ (id)serviceForSyncDomain:(id)arg1;
++ (id)_serviceForPlaybackPositionDomain:(id)arg1;
+@property(readonly) BOOL usingPlaybackPositions; // @synthesize usingPlaybackPositions=_usingPlaybackPositions;
+@property(readonly, nonatomic) SBCPlaybackPositionDomain *playbackPositionDomain; // @synthesize playbackPositionDomain=_playbackPositionDomain;
 - (void).cxx_destruct;
-- (oneway void)synchronizeImmediately;
-- (oneway void)synchronizeLocalChangesSoon;
-- (oneway void)noteChangedPlaybackPositionMetadataForTrackPersistentID:(long long)arg1 isCheckpoint:(BOOL)arg2;
-- (oneway void)noteChangedNowPlayingTrackPersistentID:(long long)arg1;
-- (oneway void)updateMusicLibraryByApplyingUbiquitousBookmarkMetadataToTrackWithPersistentID:(long long)arg1;
-- (oneway void)updateUbiquitousDatabaseByRemovingUbiquitousMetadataFromTrackWithPersistentID:(long long)arg1;
-- (oneway void)endUsingPlaybackPositions;
-- (oneway void)beginUsingPlaybackPositions;
+- (oneway void)pushPlaybackPositionEntity:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (oneway void)pullPlaybackPositionEntity:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (oneway void)synchronizeImmediatelyWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (oneway void)updateForeignDatabaseWithValuesFromPlaybackPositionEntity:(id)arg1;
+- (oneway void)deletePlaybackPositionEntities;
+- (oneway void)deletePlaybackPositionEntity:(id)arg1;
+- (oneway void)savePlaybackPositionEntity:(id)arg1 isCheckpoint:(BOOL)arg2;
+- (oneway void)endAccessingPlaybackPositionEntities;
+- (oneway void)beginAccessingPlaybackPositionEntities;
 - (void)didConnectToService;
-- (id)initWithServiceInterfaceClass:(Class)arg1 databasePath:(id)arg2;
+- (id)initWithPlaybackPositionDomain:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

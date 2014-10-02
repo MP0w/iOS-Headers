@@ -9,7 +9,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class NSIndexPath, SUTableDataSource, SUTableView, UITableView;
+@class NSIndexPath, NSString, SUTableDataSource, SUTableView, UITableView;
 
 @interface SUTableViewController : SUViewController <UITableViewDataSource, UITableViewDelegate>
 {
@@ -70,6 +70,12 @@
 - (BOOL)canSelectRowAtIndexPath:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

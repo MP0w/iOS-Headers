@@ -24,6 +24,7 @@
 @property(retain, nonatomic) GEOPlaceSearchResponse *originPlaceSearchResponse; // @synthesize originPlaceSearchResponse=_originPlaceSearchResponse;
 @property(retain, nonatomic) NSMutableArray *etaResults; // @synthesize etaResults=_etaResults;
 @property(nonatomic) int status; // @synthesize status=_status;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

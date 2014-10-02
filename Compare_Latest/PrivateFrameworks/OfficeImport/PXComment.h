@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)readComments:(id)arg1 slide:(id)arg2;
++ (void)readComments:(id)arg1 slide:(id)arg2 state:(id)arg3;
 
 @end
 

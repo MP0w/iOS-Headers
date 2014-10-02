@@ -23,13 +23,13 @@
 - (int)localizedCaseInsensitiveCompare:(id)arg1;
 - (id)description;
 - (void)setDisplayName:(id)arg1;
-@property(readonly, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
+@property(readonly, copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 - (int)validationErrorReason;
 - (int)validationStatus;
 - (BOOL)validate;
 - (BOOL)isPhoneNumberAliasOnPhoneNumberAccount;
 @property(readonly, nonatomic) int type; // @dynamic type;
-@property(readonly, nonatomic) NSString *identifier; // @dynamic identifier;
+@property(readonly, retain, nonatomic) NSString *identifier; // @dynamic identifier;
 - (void)dealloc;
 - (id)initWithAccount:(id)arg1 alias:(id)arg2;
 

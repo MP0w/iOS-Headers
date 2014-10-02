@@ -29,13 +29,18 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (void)unionPolicyRule:(id)arg1;
 - (void)unionNetworkConstraints:(id)arg1;
 - (void)setPolicyRule:(id)arg1;
 - (void)dealloc;
 - (id)initWithNetworkConstraints:(id)arg1;
 - (id)initWithDownloadKind:(id)arg1 URLBagType:(int)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

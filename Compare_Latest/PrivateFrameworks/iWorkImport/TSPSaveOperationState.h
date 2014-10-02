@@ -12,18 +12,19 @@ __attribute__((visibility("hidden")))
 @interface TSPSaveOperationState : NSObject
 {
     NSMapTable *_newDataStorages;
-    unsigned int _updateType;
+    int _updateType;
     int _sampleID;
 }
 
 @property(nonatomic) int sampleID; // @synthesize sampleID=_sampleID;
-@property(readonly, nonatomic) unsigned int updateType; // @synthesize updateType=_updateType;
+@property(readonly, nonatomic) int updateType; // @synthesize updateType=_updateType;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL preserveDocumentUUID;
 @property(readonly, nonatomic) BOOL shouldUpdate;
 - (void)enumerateDatasAndStoragesUsingBlock:(CDUnknownBlockType)arg1;
 - (BOOL)hasNewStorageForData:(id)arg1;
 - (void)addNewStorage:(id)arg1 forData:(id)arg2;
-- (id)initWithUpdateType:(unsigned int)arg1;
+- (id)initWithUpdateType:(int)arg1;
 - (id)init;
 
 @end

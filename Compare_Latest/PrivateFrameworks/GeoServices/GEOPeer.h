@@ -14,6 +14,7 @@
     NSObject<OS_xpc_object> *_connection;
     GEOProxyClient *_clientIdentifier;
     BOOL _preloading;
+    BOOL _preloadingExclusively;
     NSString *_peerID;
     NSString *_debugIdentifier;
     NSMutableDictionary *_entitlementCache;
@@ -21,6 +22,7 @@
 
 @property(copy, nonatomic) NSString *debugIdentifier; // @synthesize debugIdentifier=_debugIdentifier;
 @property(readonly, nonatomic) NSString *peerID; // @synthesize peerID=_peerID;
+@property(nonatomic) BOOL preloadingExclusively; // @synthesize preloadingExclusively=_preloadingExclusively;
 @property(nonatomic) BOOL preloading; // @synthesize preloading=_preloading;
 @property(readonly, nonatomic) NSObject<OS_xpc_object> *connection; // @synthesize connection=_connection;
 - (BOOL)hasEntitlement:(id)arg1;

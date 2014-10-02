@@ -8,25 +8,31 @@
 
 #import "AVAssetWriterInputMediaDataRequesterDelegate.h"
 
-@class AVAssetWriterInputMediaDataRequester, AVFigAssetWriterTrack;
+@class AVAssetWriterInputMediaDataRequester, AVAssetWriterInputPassDescription, AVFigAssetWriterTrack, NSString;
 
 @interface AVAssetWriterInputWritingHelper : AVAssetWriterInputHelper <AVAssetWriterInputMediaDataRequesterDelegate>
 {
     AVFigAssetWriterTrack *_assetWriterTrack;
     AVAssetWriterInputMediaDataRequester *_mediaDataRequester;
     struct __CVPixelBufferPool *_pixelBufferPool;
+    AVAssetWriterInputPassDescription *_currentPassDescription;
 }
 
 + (id)keyPathsForValuesAffectingReadyForMoreMediaData;
+@property(retain, nonatomic) AVAssetWriterInputPassDescription *currentPassDescription; // @synthesize currentPassDescription=_currentPassDescription;
 @property(readonly, nonatomic, getter=_assetWriterTrack) AVFigAssetWriterTrack *assetWriterTrack; // @synthesize assetWriterTrack=_assetWriterTrack;
 - (struct __CVPixelBufferPool *)pixelBufferPool;
 - (id)transitionToAndReturnTerminalHelperWithTerminalStatus:(int)arg1;
 - (int)trackID;
+- (void)markAsFinishedAndTransitionCurrentHelper:(id)arg1;
 - (void)markAsFinished;
+- (void)markCurrentPassAsFinished;
 - (BOOL)prepareToFinishWritingReturningError:(id *)arg1;
 - (void)prepareToEndSession;
 - (BOOL)appendPixelBuffer:(struct __CVBuffer *)arg1 withPresentationTime:(CDStruct_1b6d18a9)arg2;
 - (BOOL)appendSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
+- (void)beginPassIfAppropriate;
+- (void)didStartInitialSession;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_detachFromMediaDataRequester:(id)arg1;
 - (void)_attachToMediaDataRequester:(id)arg1;
@@ -34,11 +40,18 @@
 - (void)_nudgeMediaDataRequesterIfAppropriate;
 - (void)requestMediaDataWhenReadyOnQueue:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (BOOL)isReadyForMoreMediaData;
+- (BOOL)canPerformMultiplePasses;
 - (int)status;
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithConfigurationState:(id)arg1 assetWriterTrack:(id)arg2 error:(id *)arg3;
 - (id)initWithConfigurationState:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

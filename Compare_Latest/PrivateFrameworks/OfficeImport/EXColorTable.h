@@ -13,7 +13,7 @@ __attribute__((visibility("hidden")))
 
 + (void)readFrom:(struct _xmlNode *)arg1 state:(id)arg2;
 + (void)readOADThemeFrom:(id)arg1 toEDThemeColors:(id)arg2;
-+ (void)readColorsFrom:(struct _xmlNode *)arg1 toEDColors:(id)arg2;
++ (void)readColorsFrom:(struct _xmlNode *)arg1 toEDColors:(id)arg2 state:(id)arg3;
 
 @end
 

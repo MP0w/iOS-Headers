@@ -6,6 +6,8 @@
 
 #import "NSObject.h"
 
+@class NSString;
+
 @interface NSMetadataQueryAttributeValueTuple : NSObject
 {
     id _attr;
@@ -14,9 +16,9 @@
     void *_reserved;
 }
 
-- (unsigned int)count;
-- (id)value;
-- (id)attribute;
+@property(readonly) unsigned int count;
+@property(readonly, retain) id value;
+@property(readonly, copy) NSString *attribute;
 - (void)dealloc;
 - (id)_init:(id)arg1 attribute:(id)arg2 value:(id)arg3 count:(unsigned int)arg4;
 

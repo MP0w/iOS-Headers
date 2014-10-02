@@ -8,7 +8,7 @@
 
 #import "TKVibrationRecorderStyleProvider.h"
 
-@class NSBundle, NSMutableDictionary, UIColor, UIFont, UIImage, UIScreen;
+@class NSBundle, NSMutableDictionary, NSString, UIColor, UIFont, UIImage, UIScreen;
 
 @interface TKStyleProvider : NSObject <TKVibrationRecorderStyleProvider>
 {
@@ -53,6 +53,12 @@
 - (id)_cachedStyleObjectForPropertyWithSelector:(SEL)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

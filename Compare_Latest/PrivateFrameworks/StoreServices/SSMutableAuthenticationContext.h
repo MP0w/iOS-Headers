@@ -22,6 +22,7 @@
 @property(nonatomic) BOOL persistsAcrossDeviceLock; // @dynamic persistsAcrossDeviceLock;
 @property(copy, nonatomic) NSDictionary *HTTPHeaders; // @dynamic HTTPHeaders;
 @property(nonatomic, getter=isDemoAccount) BOOL demoAccount; // @dynamic demoAccount;
+@property(nonatomic) BOOL displaysOnLockScreen; // @dynamic displaysOnLockScreen;
 @property(copy, nonatomic) NSString *clientIdentifierHeader; // @dynamic clientIdentifierHeader;
 @property(nonatomic) BOOL allowsBootstrapCellularData; // @dynamic allowsBootstrapCellularData;
 @property(nonatomic) BOOL allowsBioAuthentication; // @dynamic allowsBioAuthentication;
@@ -46,6 +47,12 @@
 @property(copy, nonatomic) NSString *accountName; // @dynamic accountName;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

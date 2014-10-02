@@ -24,5 +24,8 @@
 - (void)teardown;
 - (void)setup;
 - (BOOL)exportToURL:(NSURL *)arg1 pageNumber:(unsigned int)arg2 delegate:(id <TSKImportExportDelegate>)arg3 error:(id *)arg4;
+
+@optional
+- (void)setMaxPixels:(float)arg1;
 @end
 

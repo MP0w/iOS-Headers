@@ -38,6 +38,9 @@
 + (int)keyboardTypeForString:(id)arg1;
 + (int)autoCapsTypeForString:(id)arg1;
 + (int)autoCorrectionTypeForNumber:(id)arg1;
++ (id)specifierWithSpecifier:(id)arg1;
++ (id)groupSpecifierWithID:(id)arg1 name:(id)arg2;
++ (id)groupSpecifierWithID:(id)arg1;
 + (id)emptyGroupSpecifier;
 + (id)groupSpecifierWithName:(id)arg1;
 + (id)preferenceSpecifierNamed:(id)arg1 target:(id)arg2 set:(SEL)arg3 get:(SEL)arg4 detail:(Class)arg5 cell:(int)arg6 edit:(Class)arg7;
@@ -56,6 +59,7 @@
 @property(nonatomic) int cellType; // @synthesize cellType;
 @property(nonatomic) Class detailControllerClass; // @synthesize detailControllerClass;
 @property(nonatomic) id target; // @synthesize target;
+- (BOOL)isEqualToSpecifier:(id)arg1;
 - (int)titleCompare:(id)arg1;
 - (void)setKeyboardType:(int)arg1 autoCaps:(int)arg2 autoCorrection:(int)arg3;
 @property(retain, nonatomic) NSString *identifier;
@@ -67,6 +71,8 @@
 - (void)setValues:(id)arg1 titles:(id)arg2 shortTitles:(id)arg3;
 - (void)setValues:(id)arg1 titles:(id)arg2;
 - (void)loadValuesAndTitlesFromDataSource;
+- (void)setObject:(id)arg1 forKeyedSubscript:(id)arg2;
+- (id)objectForKeyedSubscript:(id)arg1;
 - (id)properties;
 - (void)setProperties:(id)arg1;
 - (void)removePropertyForKey:(id)arg1;

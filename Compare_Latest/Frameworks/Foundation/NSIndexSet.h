@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
 #import "NSMutableCopying.h"
+#import "NSSecureCoding.h"
 
-@interface NSIndexSet : NSObject <NSCopying, NSMutableCopying, NSCoding>
+@interface NSIndexSet : NSObject <NSCopying, NSMutableCopying, NSSecureCoding>
 {
     struct {
         unsigned int _isEmpty:1;
@@ -29,6 +29,7 @@
     } _internal;
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)indexSetWithIndexes:(const unsigned int *)arg1 count:(unsigned int)arg2;
 + (id)indexSetWithIndexesInRange:(struct _NSRange)arg1;
 + (id)indexSetWithIndex:(unsigned int)arg1;
@@ -61,9 +62,9 @@
 - (unsigned int)indexLessThanIndex:(unsigned int)arg1;
 - (unsigned int)indexGreaterThanIndex:(unsigned int)arg1;
 - (unsigned int)_indexClosestToIndex:(unsigned int)arg1 equalAllowed:(BOOL)arg2 following:(BOOL)arg3;
-- (unsigned int)lastIndex;
-- (unsigned int)firstIndex;
-- (unsigned int)count;
+@property(readonly) unsigned int lastIndex;
+@property(readonly) unsigned int firstIndex;
+@property(readonly) unsigned int count;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (BOOL)isEqual:(id)arg1;

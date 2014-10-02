@@ -17,7 +17,6 @@ __attribute__((visibility("hidden")))
 
 + (id)colorForResource:(id)arg1;
 + (BOOL)hasAppAssets;
-+ (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)quicklookAssetMap;
 @property(retain, nonatomic) NSString *appAssetPath; // @synthesize appAssetPath=mAppAssetPath;
 @property(retain, nonatomic) NSMutableDictionary *assetMap; // @synthesize assetMap=mAssetMap;

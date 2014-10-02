@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     NSMutableArray *mFormulas;
     unsigned int mDifferentialStyleIndex;
     _Bool mStopIfTrue;
+    _Bool mAppliesToDateOnly;
     long mPriority;
     _Bool mAboveAverage;
     _Bool mBottom;
@@ -29,6 +30,8 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)conditionalFormattingRuleWithResources:(id)arg1;
+- (void)setAppliesToDateOnly:(_Bool)arg1;
+- (_Bool)appliesToDateOnly;
 - (void)setTimePeriod:(int)arg1;
 - (int)timePeriod;
 - (void)setText:(id)arg1;

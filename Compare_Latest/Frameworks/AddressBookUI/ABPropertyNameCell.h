@@ -12,16 +12,16 @@
 {
     UITextField *_textField;
     UIResponder *_firstResponderItem;
+    id <ABPropertyCellDelegate> _delegate;
 }
 
-+ (BOOL)requiresConstraintBasedLayout;
+@property(nonatomic) id <ABPropertyCellDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) UIResponder *firstResponderItem; // @synthesize firstResponderItem=_firstResponderItem;
 @property(readonly, nonatomic) UITextField *textField; // @synthesize textField=_textField;
 - (void)setBackgroundColor:(id)arg1;
-- (void)layoutSubviews;
 @property(retain, nonatomic) ABPropertyGroupItem *propertyItem;
 - (void)setCardGroupItem:(id)arg1;
-- (void)updateConstraints;
+- (id)constantConstraints;
 - (void)textFieldChanged:(id)arg1;
 - (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;

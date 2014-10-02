@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)weakReferenceWithObject:(id)arg1;
-- (id)object;
+@property(readonly, nonatomic) id object;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (void)dealloc;

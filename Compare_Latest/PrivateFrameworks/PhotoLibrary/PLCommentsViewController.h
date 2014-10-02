@@ -12,7 +12,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class CAGradientLayer, NSCache, PLCloudSharedComment, PLManagedAsset, PLPhotoCommentEntryView, UIBarButtonItem, UIImageView, UITableView, UIView, _UIBackdropView;
+@class CAGradientLayer, NSCache, NSString, PLCloudSharedComment, PLManagedAsset, PLPhotoCommentEntryView, UIBarButtonItem, UIImageView, UITableView, UIView, _UIBackdropView;
 
 @interface PLCommentsViewController : UIViewController <PLCloudCommentsChangeObserver, PLPhotoCommentEntryViewDelegate, PLDismissableViewController, UITableViewDelegate, UITableViewDataSource>
 {
@@ -33,8 +33,12 @@
     UIImageView *_gradientView;
     _UIBackdropView *_backdropView;
     UIBarButtonItem *_cancelButton;
+    BOOL _isCompact;
+    struct CGRect _availableBounds;
 }
 
+@property(nonatomic) struct CGRect availableBounds; // @synthesize availableBounds=_availableBounds;
+@property(nonatomic) BOOL isCompact; // @synthesize isCompact=_isCompact;
 @property(nonatomic) BOOL editMode; // @synthesize editMode=_editMode;
 @property(retain, nonatomic) PLCloudSharedComment *justInsertedComment; // @synthesize justInsertedComment=_justInsertedComment;
 @property(retain, nonatomic) PLManagedAsset *asset; // @synthesize asset=_asset;
@@ -91,6 +95,12 @@
 - (float)_heightForComment:(id)arg1 forWidth:(float)arg2 forInterfaceOrientation:(int)arg3;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

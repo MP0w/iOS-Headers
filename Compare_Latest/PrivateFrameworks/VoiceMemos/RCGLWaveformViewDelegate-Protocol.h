@@ -9,9 +9,9 @@
 @class RCGLWaveformViewController;
 
 @protocol RCGLWaveformViewDelegate <NSObject>
-
-@optional
-- (void)waveformViewControllerDidChangeSelectedTimeRange:(RCGLWaveformViewController *)arg1;
-- (void)waveformViewController:(RCGLWaveformViewController *)arg1 didScrubToTime:(double)arg2;
+- (void)waveformViewController:(RCGLWaveformViewController *)arg1 didChangeToSelectedTimeRange:(CDStruct_73a5d3ca)arg2;
+- (void)waveformViewControllerDidEndEditingSelectedTimeRange:(RCGLWaveformViewController *)arg1;
+- (void)waveformViewControllerWillBeginEditingSelectedTimeRange:(RCGLWaveformViewController *)arg1;
+- (void)waveformViewController:(RCGLWaveformViewController *)arg1 didScrubToTime:(double)arg2 finished:(BOOL)arg3;
 @end
 

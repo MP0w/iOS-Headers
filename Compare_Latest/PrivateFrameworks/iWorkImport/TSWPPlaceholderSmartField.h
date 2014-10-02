@@ -6,17 +6,21 @@
 
 #import <iWorkImport/TSWPSmartField.h>
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TSWPPlaceholderSmartField : TSWPSmartField
 {
     BOOL _localizable;
+    NSString *_scriptTag;
 }
 
+@property(copy, nonatomic) NSString *scriptTag; // @synthesize scriptTag=_scriptTag;
 @property(nonatomic) BOOL isLocalizable; // @synthesize isLocalizable=_localizable;
 - (void)saveToArchive:(struct PlaceholderSmartFieldArchive *)arg1 archiver:(id)arg2;
 - (void)loadFromArchive:(const struct PlaceholderSmartFieldArchive *)arg1 unarchiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
-- (int)elementKind;
+- (int)smartFieldKind;
 - (id)copyWithContext:(id)arg1;
 - (void)dealloc;
 - (id)initFromUnarchiver:(id)arg1;

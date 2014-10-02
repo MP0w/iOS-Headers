@@ -8,25 +8,32 @@
 
 #import "TSDPrototypeChange.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TSDNoChangePrototypeChange : NSObject <TSDPrototypeChange>
 {
     id mPrototype;
 }
 
-@property(readonly) id prototype; // @synthesize prototype=mPrototype;
+@property(readonly, retain) id prototype; // @synthesize prototype=mPrototype;
 - (BOOL)propertiesAreChanging:(id)arg1;
 - (BOOL)propertyIsChanging:(int)arg1;
-@property(readonly) id <TSSPropertySource> propertiesAfterChange;
-@property(readonly) id <TSSPropertySource> propertiesBeforeChange;
-@property(readonly) id replacement;
+@property(readonly, retain) id <TSSPropertySource> propertiesAfterChange;
+@property(readonly, retain) id <TSSPropertySource> propertiesBeforeChange;
+@property(readonly, retain) id replacement;
 - (id)changedPropertySet;
 @property(readonly) BOOL prototypeIsBeingDeleted;
 @property(readonly) BOOL prototypeIsBeingReplaced;
 @property(readonly) BOOL prototypeIsBeingModified;
 - (void)dealloc;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)initNoChangePrototypeChangeForPrototype:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

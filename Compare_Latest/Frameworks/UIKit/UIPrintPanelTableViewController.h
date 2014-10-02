@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     int _duplexRow;
     int _paperRow;
     BOOL _contactingPrinter;
+    BOOL _printerWarningWasShown;
 }
 
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
@@ -25,6 +26,7 @@ __attribute__((visibility("hidden")))
 - (void)updateCopies:(id)arg1;
 - (void)updatePageRange:(struct _NSRange)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 titleForFooterInSection:(int)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
 - (unsigned int)supportedInterfaceOrientations;

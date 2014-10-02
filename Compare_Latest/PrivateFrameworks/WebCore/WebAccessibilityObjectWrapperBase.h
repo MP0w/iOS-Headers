@@ -9,16 +9,7 @@
 __attribute__((visibility("hidden")))
 @interface WebAccessibilityObjectWrapperBase : NSObject
 {
-    struct AccessibilityObject {
-        CDUnknownFunctionPointerType *;
-        unsigned int;
-        unsigned int;
-        struct Vector<WTF::RefPtr<WebCore::AccessibilityObject>, 0, WTF::CrashOnOverflow>;
-        _Bool;
-        int;
-        int;
-        RetainPtr_0f0c9752;
-    } *m_object;
+    struct AccessibilityObject *m_object;
 }
 
 + (void)accessibilitySetShouldRepostNotifications:(BOOL)arg1;
@@ -35,11 +26,11 @@ __attribute__((visibility("hidden")))
 - (id)accessibilityTitle;
 - (BOOL)fileUploadButtonReturnsValueInTitle;
 - (BOOL)titleTagShouldBeUsedInDescriptionField;
-- (AccessibilityObject_acca7b3e *)accessibilityObject;
+- (struct AccessibilityObject *)accessibilityObject;
 - (id)attachmentView;
 - (BOOL)updateObjectBackingStore;
 - (void)detach;
-- (id)initWithAccessibilityObject:(AccessibilityObject_acca7b3e *)arg1;
+- (id)initWithAccessibilityObject:(struct AccessibilityObject *)arg1;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "SKUIDonationConfigurationObserver.h"
 
-@class SKUIDonationAmountView, SKUIGiftPurchaseRequest, SKUIGiftValidationResponse, SKUIGiftValidator;
+@class NSString, SKUIDonationAmountView, SKUIGiftPurchaseRequest, SKUIGiftValidationResponse, SKUIGiftValidator;
 
 @interface SKUIDonationAmountViewController : SKUIDonationStepViewController <SKUIDonationConfigurationObserver>
 {
@@ -33,6 +33,12 @@
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithCharity:(id)arg1 configuration:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

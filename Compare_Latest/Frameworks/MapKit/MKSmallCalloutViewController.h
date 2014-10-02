@@ -13,11 +13,14 @@
 @interface MKSmallCalloutViewController : UIViewController <CalloutViewControllerProtocol>
 {
     MKSmallCalloutView *_smallCalloutView;
+    id <MKSmallCalloutViewControllerDelegate> _delegate;
 }
 
 + (struct CGSize)defaultSize;
+@property(nonatomic) __weak id <MKSmallCalloutViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-@property(nonatomic) int mapDisplayStyle;
+- (void)viewDidLoad;
+@property(nonatomic) unsigned int mapDisplayStyle;
 @property(retain, nonatomic) MKCalloutBackgroundView *calloutBackgroundView;
 - (BOOL)canDisplayCompleteTitleWhenExpanded;
 - (void)setDetailView:(id)arg1 animated:(BOOL)arg2;
@@ -31,12 +34,19 @@
 @property(copy, nonatomic) NSString *calloutTitle;
 - (struct CGSize)preferredContentSize;
 - (id)_smallCalloutView;
+- (void)viewDidAppear:(BOOL)arg1;
 - (void)beginMapsTransitionMovingSideways;
-- (void)viewWillAppear:(BOOL)arg1;
 - (void)loadView;
 - (void)reset;
 - (void)updatePreferredContentSize;
+@property(nonatomic) float maximumWidth;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -20,13 +20,15 @@ __attribute__((visibility("hidden")))
     EDReference *mVisibleRange;
     unsigned int mActiveSheetIndex;
     NSDate *mDateBaseDate;
-    unsigned int mDateBase;
+    int mDateBase;
     NSString *mFileName;
     NSString *mTemporaryDirectory;
     OADTheme *mTheme;
+    NSMutableArray *mBulletBlips;
     ESDContainer *mEscherDrawingGroup;
 }
 
+- (id)bulletBlips;
 - (void)setTheme:(id)arg1;
 - (id)theme;
 - (id)warnings;
@@ -39,13 +41,15 @@ __attribute__((visibility("hidden")))
 - (void)addSheet:(id)arg1;
 - (unsigned int)indexOfSheetWithName:(id)arg1;
 - (unsigned int)indexOfSheet:(id)arg1;
+- (void)removeSheetAtIndex:(unsigned int)arg1;
 - (id)sheetAtIndex:(unsigned int)arg1 loadIfNeeded:(_Bool)arg2;
 - (id)sheetAtIndex:(unsigned int)arg1;
 - (unsigned int)sheetCount;
 - (void)setVisibleRange:(id)arg1;
 - (id)visibleRange;
-- (void)setDateBase:(unsigned int)arg1;
-- (unsigned int)dateBase;
+- (unsigned int)legacyDateBase;
+- (void)setDateBase:(int)arg1;
+- (int)dateBase;
 - (id)dateBaseDate;
 - (void)setTemporaryDirectory:(id)arg1;
 - (id)temporaryDirectory;

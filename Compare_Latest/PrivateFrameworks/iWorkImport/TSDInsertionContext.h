@@ -11,12 +11,11 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (id)dragInsertionContextWithPreferredCenter:(struct CGPoint)arg1 required:(BOOL)arg2 shouldEndEditing:(BOOL)arg3 fromDragToInsertController:(BOOL)arg4 insertWillBeDiscarded:(BOOL)arg5;
-+ (id)dragInsertionContextWithPreferredCenter:(struct CGPoint)arg1 required:(BOOL)arg2 fromDragToInsertController:(BOOL)arg3 insertWillBeDiscarded:(BOOL)arg4;
++ (id)dragInsertionContextWithPreferredCenter:(struct CGPoint)arg1 required:(BOOL)arg2 shouldEndEditing:(BOOL)arg3 fromDragToInsertController:(BOOL)arg4 insertFloating:(BOOL)arg5;
++ (id)dragInsertionContextWithPreferredCenter:(struct CGPoint)arg1 required:(BOOL)arg2 fromDragToInsertController:(BOOL)arg3 insertFloating:(BOOL)arg4;
 + (id)nonInteractiveFloatingInsertionContext;
 + (id)nonInteractiveInsertionContext;
 @property(readonly, nonatomic, getter=isInteractive) BOOL interactive;
-@property(readonly, nonatomic) BOOL insertWillBeDiscarded;
 @property(readonly, nonatomic) BOOL fromDragToInsertController;
 @property(readonly, nonatomic) BOOL insertFromDrag;
 @property(readonly, nonatomic) BOOL insertFloating;

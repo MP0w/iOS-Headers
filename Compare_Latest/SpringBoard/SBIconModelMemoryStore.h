@@ -8,7 +8,7 @@
 
 #import "SBIconModelStore.h"
 
-@class NSDictionary;
+@class NSDictionary, NSString;
 
 @interface SBIconModelMemoryStore : NSObject <SBIconModelStore>
 {
@@ -26,6 +26,12 @@
 - (_Bool)saveCurrentIconState:(id)arg1 error:(id *)arg2;
 - (void)dealloc;
 - (id)initWithCurrentState:(id)arg1 desiredState:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

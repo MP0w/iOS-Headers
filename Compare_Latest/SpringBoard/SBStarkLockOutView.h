@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class NSArray, UIImageView, UILabel;
+@class NSArray, UIButton, UIImageView, UILabel, UITapGestureRecognizer;
 
 @interface SBStarkLockOutView : UIView
 {
@@ -18,17 +18,21 @@
     UILabel *_messageLabel;
     double _messageAscender;
     double _messageDescender;
+    UIButton *_backToOEMButton;
+    UITapGestureRecognizer *_backToOEMGestureRecognizer;
     NSArray *_baselineSeparations;
 }
 
-@property(readonly, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
-@property(readonly, nonatomic) UILabel *messageLabel; // @synthesize messageLabel=_messageLabel;
-@property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
+@property(readonly, retain, nonatomic) UIButton *backToOEMButton; // @synthesize backToOEMButton=_backToOEMButton;
+@property(readonly, retain, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
+@property(readonly, retain, nonatomic) UILabel *messageLabel; // @synthesize messageLabel=_messageLabel;
+@property(readonly, retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 - (void)_sizeMessageToFitInFrame:(struct CGRect)arg1;
 - (id)_messageFontOfSize:(double)arg1;
 - (void)_sizeTitleToFitInFrame:(struct CGRect)arg1;
 - (id)_titleFontOfSize:(double)arg1;
 - (void)layoutSubviews;
+- (void)_backToOEM;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 title:(id)arg2 image:(id)arg3 message:(id)arg4 baselineSeparations:(id)arg5;

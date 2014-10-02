@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)reportWorksheetWarning:(struct CPTaggedMessageStructure *)arg1;
+- (void)reportWorksheetWarning:(struct TCTaggedMessageStructure *)arg1;
 - (unsigned int)nextChartIndex;
 - (void)setSharedFormulaIndex:(unsigned int)arg1 forRowCol:(int)arg2;
 - (unsigned int)sharedFormulaIndexForRowCol:(int)arg1;

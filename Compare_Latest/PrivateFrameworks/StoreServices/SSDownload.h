@@ -8,7 +8,7 @@
 
 #import "SSXPCCoding.h"
 
-@class NSArray, NSMutableDictionary, NSNumber, SSDownloadMetadata, SSDownloadPolicy, SSDownloadStatus, SSXPCConnection;
+@class NSArray, NSMutableDictionary, NSNumber, NSString, SSDownloadMetadata, SSDownloadPolicy, SSDownloadStatus, SSXPCConnection;
 
 @interface SSDownload : SSEntity <SSXPCCoding>
 {
@@ -18,25 +18,20 @@
     SSDownloadStatus *_status;
 }
 
-+ (void)loadThumbnailImageDataForDownloadID:(long long)arg1 connection:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 + (long long)_setValuesMessage;
 + (long long)_setExternalValuesMessage;
 + (long long)_getValueMessage;
 + (long long)_getExternalValuesMessage;
 + (long long)_existsMessage;
-- (id)_thumbnailImageURL;
-- (void)_legacyLoadArtworkData;
 - (id)_errorWithXPCReply:(id)arg1;
 - (id)_errorWithData:(id)arg1;
 - (void)_applyPhase:(id)arg1 toStatus:(id)arg2;
 @property(readonly, getter=_XPCConnection) SSXPCConnection *_XPCConnection;
 - (void)_resetStatus;
-- (id)thumbnailImageData;
 @property(retain, nonatomic) SSDownloadStatus *status;
 @property(copy, nonatomic) SSDownloadMetadata *metadata;
 - (void)setBackgroundNetworkingUserInitiated:(BOOL)arg1;
 @property(retain, nonatomic) NSArray *assets;
-- (BOOL)loadThumbnailImageData;
 @property(readonly, nonatomic, getter=isExternal) BOOL external;
 - (BOOL)isBackgroundNetworkingUserInitiated;
 - (void)handleWithDownloadHandler:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
@@ -59,7 +54,6 @@
 - (double)percentComplete;
 - (void)pause;
 - (id)networkConstraints;
-- (void)loadThumbnailImageDataWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (BOOL)isEligibleForRestore:(id *)arg1;
 @property(readonly, getter=isCancelable) BOOL cancelable;
 - (id)failureError;
@@ -74,6 +68,12 @@
 - (void)dealloc;
 - (id)_initWithLocalPropertyValues:(id)arg1;
 - (id)initWithPersistentIdentifier:(long long)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

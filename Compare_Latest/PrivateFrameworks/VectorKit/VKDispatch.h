@@ -17,6 +17,12 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)defaultDispatch;
++ (id)stylesheetLoadQueue;
++ (id)preemptiveLoadQueue;
++ (id)textureManagerRootQueue;
++ (id)iconRenderQueue;
++ (id)tileDecodeStylingQueue;
++ (id)tileDecodeQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *renderQueue; // @synthesize renderQueue=_renderQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *layoutQueue; // @synthesize layoutQueue=_layoutQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *homeQueue; // @synthesize homeQueue=_homeQueue;

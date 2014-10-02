@@ -7,42 +7,50 @@
 #import "NSObject.h"
 
 #import "UIActionSheetDelegate.h"
+#import "UIAlertViewDelegate.h"
 
-@class NSArray, PLPhotoLibrary, UIActionSheet;
+@class NSArray, NSString, PLPhotoLibrary, UIActionSheet, UIAlertView;
 
-@interface PLDeletePhotosActionController : NSObject <UIActionSheetDelegate>
+@interface PLDeletePhotosActionController : NSObject <UIActionSheetDelegate, UIAlertViewDelegate>
 {
     UIActionSheet *_actionSheet;
+    UIAlertView *_onetimeConfirmationSheet;
     NSArray *_additionalAssetsToDelete;
     CDUnknownBlockType _completionHandler;
     CDUnknownBlockType _willDeleteHandler;
     int _actionSheetStyle;
-    BOOL _deleteDuplicates;
+    int _action;
+    BOOL _needsOnetimeConfirmationSheet;
+    BOOL _handlesDuplicates;
     PLPhotoLibrary *_photoLibrary;
     NSArray *_assets;
-    id <PLDeletePhotosActionControllerDelegate> _delegate;
 }
 
-+ (id)allUsedElsewhereMessageCombinations;
-+ (id)_usedElsewhereWarningTextForAssetCount:(int)arg1 inPhotoStreamCount:(int)arg2 iniPhotoCount:(int)arg3 inSomeAlbumCount:(int)arg4 affectedLocalAlbumsCount:(int)arg5 itemKindSuffix:(id)arg6 actualDeletionCount:(int)arg7;
-@property(nonatomic) id <PLDeletePhotosActionControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) BOOL deleteDuplicates; // @synthesize deleteDuplicates=_deleteDuplicates;
+@property(readonly, nonatomic) BOOL handlesDuplicates; // @synthesize handlesDuplicates=_handlesDuplicates;
+@property(readonly, nonatomic) int action; // @synthesize action=_action;
 @property(readonly, nonatomic) NSArray *assets; // @synthesize assets=_assets;
 @property(readonly, nonatomic) PLPhotoLibrary *photoLibrary; // @synthesize photoLibrary=_photoLibrary;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)actionSheet:(id)arg1 willDismissWithButtonIndex:(int)arg2;
+- (void)_didCompleteWithDestructiveAction:(BOOL)arg1;
+- (void)_showOnetimeConfirmation;
 - (void)redisplayFromObject:(id)arg1 animated:(BOOL)arg2;
 - (void)dismissAnimated:(BOOL)arg1;
 - (void)showInView:(id)arg1 willDeleteHandler:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)showFromObject:(id)arg1 animated:(BOOL)arg2 willDeleteHandler:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)_setupOnetimeConfirmationSheet;
 - (void)_setupActionSheet;
-- (id)_usedElsewhereWarningTextForAssets:(id)arg1 additionalPhotoStreamAssets:(id)arg2 actualDeletionCount:(int)arg3;
-- (id)_cloudSharedWarningTextForAssets:(id)arg1;
-- (id)_avalancheDeleteWarningForAssets:(id)arg1 actualDeletionCount:(int *)arg2;
 - (void)_getDeleteActionSheetTitle:(id *)arg1 destructiveButtonTitle:(id *)arg2 cancelButtonTitle:(id *)arg3 forAssets:(id)arg4 additionalPhotoStreamAssets:(id)arg5;
 @property(nonatomic) int actionSheetStyle;
 - (void)dealloc;
-- (id)initWithPhotoLibrary:(id)arg1 assets:(id)arg2 deleteDuplicates:(BOOL)arg3;
+- (id)initWithPhotoLibrary:(id)arg1 assets:(id)arg2 action:(int)arg3 handleDuplicates:(BOOL)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

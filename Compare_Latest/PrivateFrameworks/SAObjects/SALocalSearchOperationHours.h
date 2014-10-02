@@ -8,7 +8,7 @@
 
 #import "SAAceSerializable.h"
 
-@class NSDictionary;
+@class NSDictionary, NSString;
 
 @interface SALocalSearchOperationHours : AceObject <SAAceSerializable>
 {
@@ -19,6 +19,12 @@
 @property(copy, nonatomic) NSDictionary *operationPeriods;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "VKAnchorDelegate.h"
 
-@class VKAnchor, VKLayoutContext, VKScreenCanvas;
+@class MDDisplayLayer, NSString, VKAnchor, VKLayoutContext;
 
 @interface VKAnchorWrapper : NSObject <VKAnchorDelegate>
 {
@@ -19,10 +19,10 @@
     CDStruct_2c43369c _lastCoordinate;
     BOOL _isUpdating;
     double _pointsPerMeter;
-    VKScreenCanvas *_canvas;
+    MDDisplayLayer *_displayLayer;
 }
 
-@property(nonatomic) VKScreenCanvas *canvas; // @synthesize canvas=_canvas;
+@property(nonatomic) MDDisplayLayer *displayLayer; // @synthesize displayLayer=_displayLayer;
 @property(nonatomic) BOOL followsTerrain; // @synthesize followsTerrain=_followsTerrain;
 - (id).cxx_construct;
 - (void)anchorWorldPointDidChange:(void *)arg1;
@@ -34,6 +34,12 @@
 - (struct CGPoint)pointInLayer:(id)arg1;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

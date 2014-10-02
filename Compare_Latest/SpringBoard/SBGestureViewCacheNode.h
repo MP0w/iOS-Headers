@@ -15,9 +15,11 @@
     NSString *m_contextHostViewRequester;
     long long m_orientation;
     NSString *m_bundleIdentifier;
+    _Bool m_includesStatusBar;
 }
 
 + (id)node;
+@property(nonatomic) _Bool includesStatusBar; // @synthesize includesStatusBar=m_includesStatusBar;
 @property(copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=m_bundleIdentifier;
 @property(nonatomic) long long orientation; // @synthesize orientation=m_orientation;
 @property(copy, nonatomic) NSString *contextHostViewRequester; // @synthesize contextHostViewRequester=m_contextHostViewRequester;

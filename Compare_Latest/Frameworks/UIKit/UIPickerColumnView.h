@@ -9,7 +9,7 @@
 #import "UIPickerTableViewContainerDelegate.h"
 #import "UITableViewDataSource.h"
 
-@class UIColor, UIPickerTableView, UIPickerView;
+@class NSString, UIColor, UIPickerTableView, UIPickerView;
 
 __attribute__((visibility("hidden")))
 @interface UIPickerColumnView : UIView <UIPickerTableViewContainerDelegate, UITableViewDataSource>
@@ -70,6 +70,12 @@ __attribute__((visibility("hidden")))
 - (id)_createContainerViewWithFrame:(struct CGRect)arg1;
 - (void)_centerTableInContainer:(id)arg1;
 - (id)_createTableViewWithFrame:(struct CGRect)arg1 containingFrame:(struct CGRect)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

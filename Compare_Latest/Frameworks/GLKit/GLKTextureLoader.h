@@ -31,13 +31,13 @@
 + (id)lockAndSwitchContext:(id)arg1 glContext:(id)arg2;
 @property(retain) NSLock *nsLock; // @synthesize nsLock=_nsLock;
 @property(retain) EAGLContext *glContext; // @synthesize glContext=_glContext;
-- (void)cubeMapWithContentsOfURL:(id)arg1 options:(id)arg2 queue:(struct dispatch_queue_s *)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)cubeMapWithContentsOfFile:(id)arg1 options:(id)arg2 queue:(struct dispatch_queue_s *)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)cubeMapWithContentsOfFiles:(id)arg1 options:(id)arg2 queue:(struct dispatch_queue_s *)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)textureWithCGImage:(struct CGImage *)arg1 options:(id)arg2 queue:(struct dispatch_queue_s *)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)textureWithContentsOfData:(id)arg1 options:(id)arg2 queue:(struct dispatch_queue_s *)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)textureWithContentsOfURL:(id)arg1 options:(id)arg2 queue:(struct dispatch_queue_s *)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)textureWithContentsOfFile:(id)arg1 options:(id)arg2 queue:(struct dispatch_queue_s *)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)cubeMapWithContentsOfURL:(id)arg1 options:(id)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)cubeMapWithContentsOfFile:(id)arg1 options:(id)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)cubeMapWithContentsOfFiles:(id)arg1 options:(id)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)textureWithCGImage:(struct CGImage *)arg1 options:(id)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)textureWithContentsOfData:(id)arg1 options:(id)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)textureWithContentsOfURL:(id)arg1 options:(id)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)textureWithContentsOfFile:(id)arg1 options:(id)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)dealloc;
 - (id)initWithSharegroup:(id)arg1;
 

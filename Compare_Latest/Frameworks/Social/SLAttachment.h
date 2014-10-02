@@ -8,25 +8,35 @@
 
 #import "NSSecureCoding.h"
 
-@class NSString, UIImage;
+@class NSItemProvider, NSString, NSURL, UIImage;
 
 @interface SLAttachment : NSObject <NSSecureCoding>
 {
     CDUnknownBlockType _previewUpdateObserver;
     CDUnknownBlockType _payloadUpdateObserver;
     NSString *_identifier;
-    BOOL _pendingPreviewProxy;
+    BOOL _startedPayloadLoad;
+    BOOL _needsAnotherPreviewGeneration;
     int _previewType;
     UIImage *_previewImage;
     int _type;
     id _payload;
+    NSURL *_payloadSourceFileURL;
+    NSItemProvider *_itemProvider;
+    NSString *_typeIdentifier;
+    int _itemProviderPreviewType;
     int _downsampleStatus;
 }
 
 + (BOOL)attachmentTypeRepresentsAnImage:(int)arg1;
 + (BOOL)supportsSecureCoding;
-@property(nonatomic) BOOL pendingPreviewProxy; // @synthesize pendingPreviewProxy=_pendingPreviewProxy;
+@property(nonatomic) BOOL needsAnotherPreviewGeneration; // @synthesize needsAnotherPreviewGeneration=_needsAnotherPreviewGeneration;
+@property(nonatomic) BOOL startedPayloadLoad; // @synthesize startedPayloadLoad=_startedPayloadLoad;
 @property(nonatomic) int downsampleStatus; // @synthesize downsampleStatus=_downsampleStatus;
+@property(readonly, nonatomic) int itemProviderPreviewType; // @synthesize itemProviderPreviewType=_itemProviderPreviewType;
+@property(copy, nonatomic) NSString *typeIdentifier; // @synthesize typeIdentifier=_typeIdentifier;
+@property(retain, nonatomic) NSItemProvider *itemProvider; // @synthesize itemProvider=_itemProvider;
+@property(copy, nonatomic) NSURL *payloadSourceFileURL; // @synthesize payloadSourceFileURL=_payloadSourceFileURL;
 @property(copy, nonatomic) id payload; // @synthesize payload=_payload;
 @property(nonatomic) int type; // @synthesize type=_type;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;

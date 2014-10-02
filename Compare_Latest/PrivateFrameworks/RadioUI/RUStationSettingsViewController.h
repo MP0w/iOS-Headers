@@ -10,7 +10,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class MPImageCache, NSArray, NSMutableArray, RUAddSeedViewController, RUMetricsController, RUParallelScrollView, RUStationTuningView, RadioStation, UIAlertView, UIImage, UITableViewCell, UITextField, UIView, _RUStationSettingsTableView;
+@class NSArray, NSMutableArray, NSString, RUAddSeedViewController, RUMetricsController, RUParallelScrollView, RUStationTuningView, RadioStation, UIAlertView, UIImage, UITableViewCell, UITextField, UIView, _RUStationSettingsTableView;
 
 @interface RUStationSettingsViewController : UIViewController <RUAddSeedViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 {
@@ -21,7 +21,6 @@
     RUParallelScrollView *_containerScrollView;
     UIView *_deleteTintView;
     UIAlertView *_deletionAlertView;
-    MPImageCache *_imageCache;
     BOOL _isEditing;
     NSArray *_likedItems;
     RUMetricsController *_metricsController;
@@ -38,11 +37,17 @@
 }
 
 - (void).cxx_destruct;
+- (void)_updateViewForHorizontalSizeClassChangeAllowingTableReload:(BOOL)arg1;
+- (void)_updateStationNameTextFieldFrame;
 - (void)_updateEditingStateAnimated:(BOOL)arg1;
 - (void)_updateLikesAndBans;
 - (id)_titleForSettingsSection:(int)arg1;
+- (float)_nameTextFieldHeight;
+- (id)_nameTextFieldFont;
 - (int)_tableViewSectionForSettingsSection:(int)arg1;
 - (int)_settingsSectionForTableViewSection:(int)arg1;
+- (id)_sectionHeaderTitleLabelFont;
+- (float)_sectionHeaderHeight;
 - (void)_presentAddSeedController;
 - (id)_newPageEvent;
 - (id)_newTextField;
@@ -53,11 +58,13 @@
 - (int)_countOfSettingsSections;
 - (void)_addMetricsControllerOperationBlock:(CDUnknownBlockType)arg1;
 - (id)_addLikeBanImage;
-- (void)_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_radioModelDidChangeNotification:(id)arg1;
+- (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
+- (void)_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_toggleEditAction:(id)arg1;
 - (void)_stationNameTextFieldValueDidEndEditingAction:(id)arg1;
 - (void)_stationNameTextFieldEditingDidBeginAction:(id)arg1;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)tableView:(id)arg1 willDisplayFooterView:(id)arg2 forSection:(int)arg3;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
@@ -80,9 +87,14 @@
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidLoad;
 - (void)dismissViewControllerAnimated:(BOOL)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)dealloc;
 - (id)initWithStation:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

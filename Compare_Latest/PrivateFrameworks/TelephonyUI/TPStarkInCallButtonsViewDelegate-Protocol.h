@@ -8,6 +8,7 @@
 
 @protocol TPStarkInCallButtonsViewDelegate <NSObject>
 - (BOOL)canSendMessage;
+- (BOOL)isKeypadAllowed;
 - (BOOL)isSwapCallsAllowed;
 - (BOOL)isMergeCallsAllowed;
 - (BOOL)isAddCallAllowed;

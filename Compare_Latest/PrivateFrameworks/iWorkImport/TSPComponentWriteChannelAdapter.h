@@ -8,7 +8,7 @@
 
 #import "TSPComponentWriteChannel.h"
 
-@class NSError, NSObject<OS_dispatch_queue>, TSUFileIOChannel;
+@class NSError, NSObject<OS_dispatch_queue>, NSString, TSUFileIOChannel;
 
 __attribute__((visibility("hidden")))
 @interface TSPComponentWriteChannelAdapter : NSObject <TSPComponentWriteChannel>
@@ -24,6 +24,12 @@ __attribute__((visibility("hidden")))
 - (void)setError:(id)arg1;
 - (void)writeData:(id)arg1;
 - (id)initWithQueue:(id)arg1 channel:(id)arg2 handler:(CDUnknownBlockType)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

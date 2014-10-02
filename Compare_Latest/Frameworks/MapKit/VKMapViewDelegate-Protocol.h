@@ -6,14 +6,18 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSError, VKAnnotationMarker, VKLabelMarker, VKMapView, VKOverlayPainter;
+@class NSError, NSString, VKAnnotationMarker, VKLabelMarker, VKMapView, VKOverlayPainter;
 
 @protocol VKMapViewDelegate <NSObject>
 
 @optional
+- (void)mapLayer:(VKMapView *)arg1 didUpdateVerticalYawTo:(double)arg2;
 - (void)mapLayer:(VKMapView *)arg1 willTransitionFrom:(int)arg2 to:(int)arg3 duration:(double)arg4;
 - (void)mapLayer:(VKMapView *)arg1 selectedLabelMarkerWillDisappear:(VKLabelMarker *)arg2;
-- (void)mapLayer:(VKMapView *)arg1 didFinishChangingMapDisplayStyle:(int)arg2;
+- (void)mapLayer:(VKMapView *)arg1 didFinishChangingMapDisplayStyle:(unsigned int)arg2;
+- (void)mapLayer:(VKMapView *)arg1 flyoverTourLabelDidChange:(NSString *)arg2;
+- (void)mapLayer:(VKMapView *)arg1 didStopFlyoverTourCompleted:(BOOL)arg2;
+- (void)mapLayerWillStartFlyoverTour:(VKMapView *)arg1;
 - (void)mapLayer:(VKMapView *)arg1 canShowFlyoverDidChange:(BOOL)arg2;
 - (void)mapLayer:(VKMapView *)arg1 showingFlyoverDidChange:(BOOL)arg2;
 - (void)mapLayer:(VKMapView *)arg1 canZoomOutDidChange:(BOOL)arg2;
@@ -21,9 +25,6 @@
 - (void)mapLayer:(VKMapView *)arg1 canEnter3DModeDidChange:(BOOL)arg2;
 - (void)mapLayer:(VKMapView *)arg1 didBecomePitched:(BOOL)arg2;
 - (VKOverlayPainter *)mapLayer:(VKMapView *)arg1 painterForOverlay:(id <VKOverlay>)arg2;
-- (void)mapLayer:(VKMapView *)arg1 didFinishAddingAnnotationMarkers:(NSArray *)arg2;
-- (void)mapLayer:(VKMapView *)arg1 didAnimateInAnnotationMarkers:(NSArray *)arg2;
-- (void)mapLayer:(VKMapView *)arg1 willAnimateInAnnotationMarkers:(NSArray *)arg2;
 - (void)mapLayer:(VKMapView *)arg1 annotationMarker:(VKAnnotationMarker *)arg2 didChangeDragState:(int)arg3 fromOldState:(int)arg4;
 - (id <VKTrackableAnnotationPresentation>)mapLayer:(VKMapView *)arg1 presentationForAnnotation:(id <VKTrackableAnnotation>)arg2;
 - (void)mapLayerDidBecomeFullyDrawn:(VKMapView *)arg1 hasFailedTiles:(BOOL)arg2;

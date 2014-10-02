@@ -7,6 +7,7 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (SBS)
+- (id)sbs_dictionaryByAddingEntriesFromDictionary:(id)arg1;
 - (id)sbs_safeObjectForKey:(id)arg1 ofType:(Class)arg2;
 @end
 

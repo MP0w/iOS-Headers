@@ -11,7 +11,7 @@
 + (id)keyPathsForValuesAffectingInstallState;
 + (id)publishingKeyForApp:(id)arg1 withPhase:(unsigned int)arg2;
 + (id)childProgressForBundleID:(id)arg1 andPhase:(unsigned int)arg2;
-- (id)description;
+- (id)_LSDescription;
 - (void)resume;
 @property(nonatomic) unsigned int installPhase;
 @property(nonatomic) unsigned int installState;

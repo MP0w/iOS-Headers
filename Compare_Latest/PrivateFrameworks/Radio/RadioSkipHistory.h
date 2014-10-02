@@ -31,9 +31,14 @@
 @property(copy, nonatomic) NSString *skipIdentifier; // @synthesize skipIdentifier=_skipIdentifier;
 - (void)_radioModelWasDeletedNotification:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (void)dealloc;
 - (id)initWithModel:(id)arg1 managedObject:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

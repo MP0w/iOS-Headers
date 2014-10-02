@@ -10,7 +10,7 @@
 #import "CNFRegViewAccountControllerDelegate.h"
 #import "CNFRegWizardControllerDelegate.h"
 
-@class NSArray, NSMutableArray, NSNumber, NSString, PSSpecifier;
+@class NSArray, NSMutableArray, NSNumber, NSString, PSSpecifier, TUAccountsController;
 
 @interface CNFRegSettingsController : CNFRegListController <CNFRegWizardControllerDelegate, CNFRegViewAccountControllerDelegate, CNFRegFirstRunDelegate>
 {
@@ -22,6 +22,7 @@
     PSSpecifier *_addAddressButtonSpecifier;
     NSArray *_replyWithMessageGroupSpecifiers;
     NSArray *_blacklistGroupSpecifiers;
+    NSArray *_receiveRelayCallsGroupSpecifiers;
     PSSpecifier *_blankAddressSpecifier;
     NSString *_pendingAddress;
     NSMutableArray *_addresses;
@@ -34,10 +35,17 @@
         unsigned int showEnableSwitch:1;
         unsigned int refreshingCallerIdValues:1;
     } _settingsFlags;
+    BOOL _showReceiveRelayCalls;
+    TUAccountsController *_accountsController;
 }
 
++ (BOOL)_shouldForwardViewWillTransitionToSize;
+@property(retain, nonatomic) TUAccountsController *accountsController; // @synthesize accountsController=_accountsController;
+@property(readonly, nonatomic) BOOL showReceiveRelayCalls; // @synthesize showReceiveRelayCalls=_showReceiveRelayCalls;
 @property(copy, nonatomic) NSString *pendingAddress; // @synthesize pendingAddress=_pendingAddress;
 @property(copy, nonatomic) CDUnknownBlockType alertHandler; // @synthesize alertHandler=_alertHandler;
+- (void)_handleOutgoingRelayCallerIDChanged;
+- (void)_handleRelayCapabilitiesChanged;
 - (void)_handleFaceTimeEntitlementStatusChanged;
 - (void)_handleFaceTimeCTRegistrationStatusChanged;
 - (void)_handleFaceTimeStateChanged;
@@ -121,11 +129,16 @@
 - (void)_showAccountAlertForAccount:(id)arg1;
 - (id)getAccountNameForSpecifier:(id)arg1;
 - (void)showAllSettings:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)refreshReceiveRelayCallsSettingsAnimated:(BOOL)arg1;
+- (void)showReceiveRelayCallsSettings:(BOOL)arg1 animated:(BOOL)arg2;
+- (BOOL)shouldShowReceiveRelayCalls;
 @property(nonatomic) BOOL showEnableSwitch;
 - (void)refreshEnabledStateAnimated:(BOOL)arg1;
 - (void)refreshFaceTimeSettingsAnimated:(BOOL)arg1;
 - (void)refreshFaceTimeSettingsWithDelayAnimated:(BOOL)arg1;
 - (void)_refreshFaceTimeSettingsDelayed:(id)arg1;
+- (id)getReceiveRelayedCallsEnabledForSpecifier:(id)arg1;
+- (void)setReceiveRelayedCallsEnabled:(id)arg1 specifier:(id)arg2;
 - (id)getFaceTimeEnabledForSpecifier:(id)arg1;
 - (void)setFaceTimeEnabled:(id)arg1 specifier:(id)arg2;
 - (void)setFaceTimeEnabled:(id)arg1 specifier:(id)arg2 animated:(BOOL)arg3;
@@ -155,7 +168,7 @@
 - (id)_operationalAccounts;
 - (id)_appleIDAccounts;
 - (id)_useableAccounts;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
@@ -167,6 +180,12 @@
 - (id)bundle;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

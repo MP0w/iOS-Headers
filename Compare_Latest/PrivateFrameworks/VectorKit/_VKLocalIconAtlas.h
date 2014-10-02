@@ -6,13 +6,19 @@
 
 #import <VectorKit/VKIconAtlas.h>
 
+@class VKResourceManager;
+
 __attribute__((visibility("hidden")))
 @interface _VKLocalIconAtlas : VKIconAtlas
 {
+    VKResourceManager *_resourceManager;
 }
 
-- (struct CGImage *)_createImageForStyleAttributeKey:(unsigned int)arg1 value:(int)arg2 contentScale:(float)arg3;
-- (struct CGImage *)_createImageForName:(id)arg1 contentScale:(float)arg2;
+- (id)artworkForStyleAttributeKey:(unsigned int)arg1 longValue:(unsigned long long)arg2 style:(CDStruct_5977520b *)arg3 contentScale:(float)arg4 size:(int)arg5;
+- (id)artworkForStyleAttributeKey:(unsigned int)arg1 value:(unsigned int)arg2 style:(CDStruct_5977520b *)arg3 contentScale:(float)arg4 size:(int)arg5;
+- (struct CGImage *)_createImageForName:(id)arg1 contentScale:(float)arg2 size:(int)arg3;
+- (void)dealloc;
+- (id)initWithResourceManager:(id)arg1;
 
 @end
 

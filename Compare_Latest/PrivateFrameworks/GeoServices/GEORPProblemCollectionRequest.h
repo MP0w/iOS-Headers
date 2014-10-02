@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class GEORPUserCredentials, NSData, NSMutableArray, NSString;
+@class GEOLocation, GEORPUserCredentials, NSData, NSMutableArray, NSString;
 
 @interface GEORPProblemCollectionRequest : PBRequest <NSCopying>
 {
@@ -19,8 +19,12 @@
     NSString *_osRelease;
     NSMutableArray *_requestElements;
     GEORPUserCredentials *_userCredentials;
+    NSString *_userEmail;
+    GEOLocation *_userLocation;
 }
 
+@property(retain, nonatomic) GEOLocation *userLocation; // @synthesize userLocation=_userLocation;
+@property(retain, nonatomic) NSString *userEmail; // @synthesize userEmail=_userEmail;
 @property(retain, nonatomic) NSData *devicePushToken; // @synthesize devicePushToken=_devicePushToken;
 @property(retain, nonatomic) GEORPUserCredentials *userCredentials; // @synthesize userCredentials=_userCredentials;
 @property(retain, nonatomic) NSString *inputLanguage; // @synthesize inputLanguage=_inputLanguage;
@@ -28,6 +32,7 @@
 @property(retain, nonatomic) NSString *osRelease; // @synthesize osRelease=_osRelease;
 @property(retain, nonatomic) NSString *hwMachine; // @synthesize hwMachine=_hwMachine;
 @property(retain, nonatomic) NSMutableArray *requestElements; // @synthesize requestElements=_requestElements;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -38,6 +43,8 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) BOOL hasUserLocation;
+@property(readonly, nonatomic) BOOL hasUserEmail;
 @property(readonly, nonatomic) BOOL hasDevicePushToken;
 @property(readonly, nonatomic) BOOL hasUserCredentials;
 @property(readonly, nonatomic) BOOL hasInputLanguage;

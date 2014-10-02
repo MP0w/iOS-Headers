@@ -13,7 +13,7 @@ __attribute__((visibility("hidden")))
 
 + (struct MeshData)createMeshForSeries:(id)arg1;
 + (id)chartSeriesType;
-+ (float)chartSeriesDepthOffsetFactor;
++ (BOOL)supportsChartSeriesDepthOffset;
 + (float)chartSeriesDepth;
 - (void)postAddDataToGeometryResourceAnimationData:(id)arg1;
 - (BOOL)alwaysRenderForElementBlendAnimationClip;

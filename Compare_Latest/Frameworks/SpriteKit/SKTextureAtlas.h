@@ -18,6 +18,8 @@
 
 + (void)preloadTextureAtlases:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 + (id)atlasNamed:(id)arg1;
++ (id)atlasWithDictionary:(id)arg1;
++ (BOOL)canUseObjectForAtlas:(id)arg1;
 + (id)findTextureNamed:(id)arg1;
 + (id)getSupportedPostfixes;
 - (void).cxx_destruct;
@@ -27,12 +29,14 @@
 - (id)description;
 - (void)preloadWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)loadTextures;
+- (void)parseAtlasPropertyList:(id)arg1 withPath:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 @property(readonly, nonatomic) NSArray *textureNames;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 - (void)unload;
 - (void)preload;
+- (id)_copyImageData;
 
 @end
 

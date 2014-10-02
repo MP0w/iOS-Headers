@@ -53,6 +53,7 @@ __attribute__((visibility("hidden")))
 + (id)_coalescedPrefetchKeypaths:(id)arg1;
 + (id)_groupObjectsByRootEntity:(id)arg1;
 + (id)_getPFBundleVersionNumber;
++ (id)_frameworkHash;
 + (id)_newObjectIDsArrayWithMapping:(id)arg1 andEntries:(id)arg2 andCoordinator:(id)arg3;
 + (BOOL)_generateObjectIDMaptableForArray:(id)arg1 withMapping:(id *)arg2 andEntries:(id *)arg3;
 + (void)initialize;

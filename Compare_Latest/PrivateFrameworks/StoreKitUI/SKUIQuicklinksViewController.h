@@ -9,7 +9,7 @@
 #import "UICollectionViewDataSource.h"
 #import "UICollectionViewDelegate.h"
 
-@class NSArray, SKUIColorScheme, SKUIQuicklinksView, UICollectionView;
+@class NSArray, NSString, SKUIColorScheme, SKUIQuicklinksView, UICollectionView;
 
 @interface SKUIQuicklinksViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 {
@@ -23,19 +23,24 @@
 @property(copy, nonatomic) NSArray *links; // @synthesize links=_links;
 @property(nonatomic) __weak id <SKUIQuicklinksViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)_reloadForInterfaceOrientation:(int)arg1;
 - (int)_numberOfRows;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)setTitle:(id)arg1;
 - (void)loadView;
+- (void)willTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)setColoringWithColorScheme:(id)arg1;
 @property(readonly, nonatomic) NSArray *indexPathsForVisibleItems;
 - (struct CGRect)frameForLinkAtIndex:(int)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

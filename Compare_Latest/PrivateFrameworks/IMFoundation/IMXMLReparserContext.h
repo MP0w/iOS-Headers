@@ -21,7 +21,7 @@
 @property(readonly, nonatomic) NSArray *attributesToPreserve; // @synthesize attributesToPreserve=_attributesToPreserve;
 @property(readonly, nonatomic) NSString *outContent; // @synthesize outContent=_outContent;
 @property(readonly, nonatomic) NSError *error; // @synthesize error=_error;
-@property(readonly) NSString *_inContent; // @synthesize _inContent;
+@property(readonly, retain) NSString *_inContent; // @synthesize _inContent;
 - (void)_setOutContent:(id)arg1 error:(id)arg2;
 - (void)dealloc;
 - (id)initWithContent:(id)arg1 attributesToPreserve:(id)arg2 attributesToMerge:(id)arg3;

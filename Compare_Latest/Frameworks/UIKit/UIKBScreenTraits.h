@@ -6,23 +6,22 @@
 
 #import "NSObject.h"
 
-@class NSString, UIScreen;
+@class UIScreen;
 
 @interface UIKBScreenTraits : NSObject
 {
     BOOL _knobInput;
     UIScreen *_screen;
     int _orientation;
-    NSString *_orientationKey;
+    float _keyboardWidth;
 }
 
 + (id)traitsWithScreen:(id)arg1 orientation:(int)arg2;
+@property(nonatomic) float keyboardWidth; // @synthesize keyboardWidth=_keyboardWidth;
 @property(readonly, nonatomic) BOOL knobInput; // @synthesize knobInput=_knobInput;
-@property(retain, nonatomic) NSString *orientationKey; // @synthesize orientationKey=_orientationKey;
 @property(nonatomic) int orientation; // @synthesize orientation=_orientation;
 @property(readonly, nonatomic) UIScreen *screen; // @synthesize screen=_screen;
 @property(readonly, nonatomic) int idiom;
-- (void)dealloc;
 - (id)initWithScreen:(id)arg1 orientation:(int)arg2;
 
 @end

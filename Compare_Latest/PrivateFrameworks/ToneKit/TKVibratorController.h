@@ -12,8 +12,6 @@
 
 - (void)turnOff;
 - (void)turnOnWithVibrationPattern:(id)arg1;
-- (void)_turnOff;
-- (void)_turnOnWithVibrationPattern:(id)arg1;
 
 @end
 

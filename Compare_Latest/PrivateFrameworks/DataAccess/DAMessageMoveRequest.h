@@ -16,11 +16,11 @@
     id _context;
 }
 
-@property(retain) id context; // @synthesize context=_context;
-@property(readonly) NSString *toFolder; // @synthesize toFolder=_toFolder;
-@property(readonly) NSString *fromFolder; // @synthesize fromFolder=_fromFolder;
-@property(readonly) NSString *message; // @synthesize message=_message;
-- (void)dealloc;
+@property(retain, nonatomic) id context; // @synthesize context=_context;
+@property(copy, nonatomic) NSString *toFolder; // @synthesize toFolder=_toFolder;
+@property(copy, nonatomic) NSString *fromFolder; // @synthesize fromFolder=_fromFolder;
+@property(copy, nonatomic) NSString *message; // @synthesize message=_message;
+- (void).cxx_destruct;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;

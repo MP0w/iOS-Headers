@@ -16,6 +16,7 @@
 @property(retain) NSNumber *ID; // @synthesize ID=_ID;
 @property(retain) NSArray *characteristics;
 - (id)description;
+- (void)handlePowerNotOn;
 - (void)dealloc;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithType:(id)arg1 primary:(BOOL)arg2;

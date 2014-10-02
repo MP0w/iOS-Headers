@@ -8,7 +8,7 @@
 
 #import "TSUStreamReadChannel.h"
 
-@class ALAssetRepresentation, ALAssetsLibrary, NSObject<OS_dispatch_queue>;
+@class ALAssetRepresentation, ALAssetsLibrary, NSObject<OS_dispatch_queue>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface TSPAssetReadChannel : NSObject <TSUStreamReadChannel>
@@ -22,6 +22,12 @@ __attribute__((visibility("hidden")))
 - (void)close;
 - (void)readWithQueue:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (id)initWithRepresentation:(id)arg1 library:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -31,11 +31,13 @@ __attribute__((visibility("hidden")))
     NSIndexPath *_reorderedIndexPath;
     NSIndexPath *_gapIndexPath;
     float _reorderedRowHeight;
+    BOOL _estimatesRowHeights;
 }
 
 @property(nonatomic) float tableBottomPadding; // @synthesize tableBottomPadding=_tableBottomPadding;
 @property(nonatomic) float tableTopPadding; // @synthesize tableTopPadding=_tableTopPadding;
 @property(nonatomic) float minimumRowHeight; // @synthesize minimumRowHeight=_minimumRowHeight;
+@property(nonatomic) BOOL estimatesRowHeights; // @synthesize estimatesRowHeights=_estimatesRowHeights;
 @property(readonly, nonatomic) float reorderedRowHeight; // @synthesize reorderedRowHeight=_reorderedRowHeight;
 @property(readonly, nonatomic) NSIndexPath *reorderGapIndexPath; // @synthesize reorderGapIndexPath=_gapIndexPath;
 - (int)sectionForSectionRowData:(id)arg1;
@@ -65,6 +67,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) float tableSidePadding;
 - (int)sectionLocationForReorderedRow:(int)arg1 inSection:(int)arg2;
 - (int)sectionLocationForRow:(int)arg1 inSection:(int)arg2;
+- (void)setHeight:(float)arg1 forRowAtIndexPath:(id)arg2;
 - (float)heightForRow:(int)arg1 inSection:(int)arg2 canGuess:(BOOL)arg3 adjustForReorderedRow:(BOOL)arg4;
 - (float)heightForRow:(int)arg1 inSection:(int)arg2 canGuess:(BOOL)arg3;
 - (float)heightForFooterInSection:(int)arg1 canGuess:(BOOL)arg2;
@@ -94,16 +97,16 @@ __attribute__((visibility("hidden")))
 - (void)invalidateAllSections;
 - (void)_updateTopAndBottomPadding;
 - (void)ensureAllSectionsAreValid;
-- (void)dealloc;
 - (void)tableFooterHeightDidChangeToHeight:(float)arg1;
 - (void)tableHeaderHeightDidChangeToHeight:(float)arg1;
 - (void)adjustSectionOffsetsBeginningAtIndex:(int)arg1 count:(int)arg2 delta:(float)arg3 rowDelta:(int)arg4;
 - (void)tableViewWidthDidChangeToWidth:(float)arg1;
-- (id)initWithTableView:(id)arg1;
 - (int)_sectionRowForGlobalRow:(int)arg1 inSection:(int *)arg2;
 - (void)_ensureSectionOffsetIsValidForSection:(int)arg1;
 - (void)_updateSectionRowDataArrayForNumSections:(int)arg1;
 - (void)_updateNumSections;
+- (void)dealloc;
+- (id)initWithTableView:(id)arg1;
 
 @end
 

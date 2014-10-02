@@ -14,8 +14,8 @@
 
 - (void)dealloc;
 - (id)initWithSerializer:(id)arg1;
-- (id)initWithMallocRegion:(unsigned int)arg1 length:(unsigned int)arg2;
-- (id)initWithMappedRegion:(unsigned int)arg1 length:(unsigned int)arg2;
+- (id)initWithMallocRegion:(unsigned int)arg1 length:(unsigned long)arg2;
+- (id)initWithMappedRegion:(unsigned int)arg1 length:(unsigned long)arg2;
 - (BOOL)deserializeNextSection:(id *)arg1;
 
 @end

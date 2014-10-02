@@ -18,8 +18,9 @@
 + (id)localizedSingularForm;
 + (id)typeStrings;
 @property(readonly, nonatomic) BOOL nonChaperonePairingAllowed; // @synthesize nonChaperonePairingAllowed=_nonChaperonePairingAllowed;
-@property(readonly, nonatomic) NSData *pairingCertificateData; // @synthesize pairingCertificateData=_pairingCertificateData;
+@property(readonly, retain, nonatomic) NSData *pairingCertificateData; // @synthesize pairingCertificateData=_pairingCertificateData;
 - (void).cxx_destruct;
+- (id)payloadDescriptionKeyValueSections;
 - (id)description;
 - (id)subtitle2Description;
 - (id)subtitle2Label;

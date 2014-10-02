@@ -7,6 +7,8 @@
 #import "NSData.h"
 
 @interface NSData (PhotoLibraryAdditions)
++ (id)pl_dataWithMappedContentsOfFileDescriptor:(int)arg1;
++ (id)pl_dataWithMappedContentsOfFileHandle:(id)arg1;
 - (void)pl_adviceDoNotNeed;
 - (void)pl_adviceWillNeed;
 - (unsigned int)pl_advisoryLength;

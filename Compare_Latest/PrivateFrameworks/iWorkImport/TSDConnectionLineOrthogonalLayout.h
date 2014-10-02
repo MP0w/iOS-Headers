@@ -11,7 +11,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (void)dynamicallyMovedSmartShapeKnobTo:(struct CGPoint)arg1 withTracker:(id)arg2;
 - (struct CGPoint)getControlKnobPosition:(unsigned int)arg1;
 - (void)addEndpointSnapsToXs:(vector_ec52ae8c *)arg1 andYs:(vector_ec52ae8c *)arg2;
 - (struct CGPoint)axisSnapPoint:(struct CGPoint)arg1 toXs:(vector_ec52ae8c)arg2 toYs:(vector_ec52ae8c)arg3 withThreshold:(float)arg4;

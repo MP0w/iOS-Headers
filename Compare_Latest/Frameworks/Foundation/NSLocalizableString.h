@@ -14,9 +14,9 @@
 
 + (id)localizableStringWithStringsFileKey:(id)arg1 developmentLanguageString:(id)arg2;
 - (void)setDevelopmentLanguageString:(id)arg1;
-@property(readonly) NSString *developmentLanguageString;
+@property(readonly, copy) NSString *developmentLanguageString;
 - (void)setStringsFileKey:(id)arg1;
-@property(readonly) NSString *stringsFileKey;
+@property(readonly, copy) NSString *stringsFileKey;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithStringsFileKey:(id)arg1 developmentLanguageString:(id)arg2;

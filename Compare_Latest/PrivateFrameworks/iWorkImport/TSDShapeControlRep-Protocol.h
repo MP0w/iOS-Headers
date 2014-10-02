@@ -4,11 +4,6 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class TSDKnobTracker;
-
 @protocol TSDShapeControlRep
-- (void)dynamicMoveSmartShapeKnobDidEndWithTracker:(TSDKnobTracker *)arg1;
-- (void)dynamicallyMovedSmartShapeKnobTo:(struct CGPoint)arg1 withTracker:(TSDKnobTracker *)arg2;
-- (void)dynamicMoveSmartShapeKnobDidBegin;
 @end
 

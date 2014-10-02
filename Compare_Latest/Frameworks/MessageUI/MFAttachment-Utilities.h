@@ -13,7 +13,8 @@
 @property(retain, nonatomic) NSString *icsRepresentation;
 @property(retain, nonatomic) NSString *meetingStorePersistentID;
 @property(retain, nonatomic) NSString *eventID;
-- (void)writeToDiskWithData:(id)arg1;
+- (id)markupStringForDisplayWithData:(id)arg1 displayStyle:(int)arg2 printableWidth:(float)arg3;
+- (id)markupStringForCompositionWithPrependedBlankLine:(BOOL)arg1 imageScale:(unsigned int)arg2;
 - (id)filenameStrippingZipIfNeededUseApplications:(BOOL)arg1;
 - (BOOL)isDisplayableInlineWithData:(id)arg1;
 - (BOOL)isDisplayableInsidePluginWithData:(id)arg1;
@@ -21,16 +22,25 @@
 - (BOOL)isDisplayableInsidePlugin;
 - (BOOL)isDisplayableByWebKit;
 - (BOOL)isDisplayableImage;
+- (BOOL)isSupportedImageType;
+- (void)enqueueScaleAttachmentWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (unsigned int)scaleImageToFit:(unsigned int)arg1 saveScaledImage:(BOOL)arg2;
+- (id)_imageScalingKeyForImageScale:(unsigned int)arg1;
+- (unsigned int)imageScalingFlags;
+- (float)constrainedWidth;
+- (struct CGSize)markupSizeForImageScale:(unsigned int)arg1;
+@property(nonatomic) struct CGSize imageDimensions;
+- (struct CGSize)imageDimensionsWithData:(id)arg1;
 - (BOOL)isContentOpenable;
 - (BOOL)isContentTypeDisplayableByMobileMail;
+- (BOOL)conformsToType:(id)arg1;
 - (BOOL)isCalendarFile;
 - (BOOL)isRFC822;
 - (BOOL)isPDFFile;
 - (BOOL)isMedia;
-- (BOOL)isImageFile;
 - (BOOL)isRestrictedMIMEType;
-- (id)fileAttributes;
 - (id)contentType;
+- (id)className;
 - (id)_contentTypeByStrippingZipIfNeeded:(BOOL)arg1;
 @end
 

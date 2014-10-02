@@ -12,6 +12,7 @@
 
 + (id)sharedInstance;
 - (BOOL)overrideBlurStyle;
+- (BOOL)openURL:(id)arg1 bundleIdentifier:(id)arg2;
 - (BOOL)openURL:(id)arg1;
 - (BOOL)shouldRateLimitSearchCompletions;
 - (BOOL)supports3DImagery;
@@ -22,6 +23,7 @@
 - (BOOL)isHiDPI;
 - (struct CGSize)screenSize;
 - (float)screenScale;
+- (BOOL)isDevicePluggedIn;
 - (BOOL)isWifiEnabled;
 
 @end

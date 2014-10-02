@@ -13,9 +13,9 @@
     int _deleted;
 }
 
-@property int deleted; // @synthesize deleted=_deleted;
-@property int updated; // @synthesize updated=_updated;
-@property int created; // @synthesize created=_created;
+@property(nonatomic) int deleted; // @synthesize deleted=_deleted;
+@property(nonatomic) int updated; // @synthesize updated=_updated;
+@property(nonatomic) int created; // @synthesize created=_created;
 - (id)copyParseRules;
 - (void)setDeletedItem:(id)arg1;
 - (void)setUpdatedItem:(id)arg1;

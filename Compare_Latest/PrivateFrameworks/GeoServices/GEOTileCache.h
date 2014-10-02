@@ -33,6 +33,8 @@
 - (id)_description;
 - (void)dealloc;
 - (id)init;
+@property(readonly) unsigned int currentCost;
+@property(readonly) unsigned int currentCount;
 
 @end
 

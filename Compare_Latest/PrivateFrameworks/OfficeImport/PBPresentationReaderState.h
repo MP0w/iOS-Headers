@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class ESDContainer, ESDObject, ESDRoot, NSMutableArray, NSMutableDictionary, PBOfficeArtReaderState, PBOutlineBulletDictionary, PBSlideState, PDPresentation, PDSlideBase, TSUNoCopyDictionary;
+@class ESDContainer, ESDObject, ESDRoot, NSMutableArray, NSMutableDictionary, OITSUNoCopyDictionary, PBOfficeArtReaderState, PBOutlineBulletDictionary, PBSlideState, PDPresentation, PDSlideBase;
 
 __attribute__((visibility("hidden")))
 @interface PBPresentationReaderState : NSObject
@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
     ChVector_fe49fc78 *mCurrentSlideTextBlockStartIndexVector;
     unsigned long mSrcSlideId;
     NSMutableArray *mSlideIndexes;
-    TSUNoCopyDictionary *mSlideMasterToMasterStyles;
+    OITSUNoCopyDictionary *mSlideMasterToMasterStyles;
     struct __CFDictionary *mHyperlinkMap;
     PBOfficeArtReaderState *mOfficeArtState;
     NSMutableArray *mFontEntities;
@@ -33,13 +33,13 @@ __attribute__((visibility("hidden")))
     ChVector_b45fc7a7 *mSrcDocMasterStyleInfoVector;
     ChVector_b45fc7a7 *mSrcCurrentMasterStyleInfoVector;
     PBSlideState *mSlideState;
-    id <OCCancelDelegate> mCancel;
+    id <TCCancelDelegate> mCancel;
     BOOL mHasSlideNumberPlaceholder;
     NSMutableDictionary *mTargetShapeToSourceTextBoxContainerHolderMap;
 }
 
 @property BOOL hasSlideNumberPlaceholder; // @synthesize hasSlideNumberPlaceholder=mHasSlideNumberPlaceholder;
-@property(retain, nonatomic) id <OCCancelDelegate> cancelDelegate; // @synthesize cancelDelegate=mCancel;
+@property(retain, nonatomic) id <TCCancelDelegate> cancelDelegate; // @synthesize cancelDelegate=mCancel;
 @property ESDContainer *sourceSlideListHolder; // @synthesize sourceSlideListHolder=mSrcSlideListHolder;
 - (void)setSourceTextBoxContainerHolder:(id)arg1 forTargetShape:(id)arg2;
 - (id)sourceTextBoxContainerHolderForTargetShape:(id)arg1;

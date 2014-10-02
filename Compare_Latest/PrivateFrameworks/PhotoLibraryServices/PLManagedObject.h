@@ -12,10 +12,11 @@
 {
 }
 
-@property(readonly, nonatomic) NSString *pl_shortDescription;
-@property(readonly, nonatomic) NSString *shortObjectIDURI;
+- (void)willSave;
+@property(readonly, copy, nonatomic) NSString *pl_shortDescription;
+@property(readonly, copy, nonatomic) NSString *shortObjectIDURI;
 @property(readonly, nonatomic) BOOL isRegisteredWithUserInterfaceContext;
-@property(readonly, nonatomic) PLPhotoLibrary *photoLibrary;
+@property(readonly, retain, nonatomic) PLPhotoLibrary *photoLibrary;
 
 @end
 

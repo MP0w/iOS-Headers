@@ -24,10 +24,10 @@
     NSString *_requestDataContentType;
 }
 
-@property(readonly) NSSet *bulkChangeResponses; // @synthesize bulkChangeResponses=_bulkChangeResponses;
-@property(readonly) NSString *nextCTag; // @synthesize nextCTag=_nextCTag;
-@property(readonly) NSDictionary *hrefsToModDeleteActions; // @synthesize hrefsToModDeleteActions=_hrefsToModDeleteActions;
-@property(readonly) NSDictionary *uuidsToAddActions; // @synthesize uuidsToAddActions=_uuidsToAddActions;
+@property(readonly, nonatomic) NSSet *bulkChangeResponses; // @synthesize bulkChangeResponses=_bulkChangeResponses;
+@property(readonly, nonatomic) NSString *nextCTag; // @synthesize nextCTag=_nextCTag;
+@property(readonly, nonatomic) NSDictionary *hrefsToModDeleteActions; // @synthesize hrefsToModDeleteActions=_hrefsToModDeleteActions;
+@property(readonly, nonatomic) NSDictionary *uuidsToAddActions; // @synthesize uuidsToAddActions=_uuidsToAddActions;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)copyDefaultParserForContentType:(id)arg1;
 - (void)fillOutDataWithUUIDsToAddActions:(id)arg1 hrefsToModDeleteActions:(id)arg2;

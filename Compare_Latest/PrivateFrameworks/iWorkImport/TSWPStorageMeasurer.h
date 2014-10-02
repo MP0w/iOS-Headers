@@ -10,7 +10,7 @@
 #import "TSWPLayoutOwner.h"
 #import "TSWPLayoutTarget.h"
 
-@class NSMutableArray, TSDCanvas, TSDLayout, TSPObject<TSDHint>, TSWPPadding, TSWPStorage;
+@class NSMutableArray, NSString, TSDCanvas, TSDLayout, TSPObject<TSDHint>, TSWPPadding, TSWPStorage;
 
 __attribute__((visibility("hidden")))
 @interface TSWPStorageMeasurer : NSObject <TSWPLayoutTarget, TSWPLayoutOwner, TSWPColumnMetrics>
@@ -23,17 +23,17 @@ __attribute__((visibility("hidden")))
     struct CGPoint _anchor;
 }
 
-@property(readonly, nonatomic) NSMutableArray *columns; // @synthesize columns=_columns;
+@property(readonly, retain, nonatomic) NSMutableArray *columns; // @synthesize columns=_columns;
 - (id).cxx_construct;
 @property(readonly, nonatomic) BOOL columnsAreLeftToRight;
 @property(readonly, nonatomic) BOOL shrinkTextToFit;
 @property(readonly, nonatomic) BOOL alwaysStartsNewTarget;
-- (float)positionForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2 outWidth:(float *)arg3 outGap:(float *)arg4;
+- (float)positionForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2 target:(id)arg3 outWidth:(float *)arg4 outGap:(float *)arg5;
 - (float)gapForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2;
 - (float)widthForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2;
 @property(readonly, nonatomic) unsigned int columnCount;
 @property(readonly, nonatomic) TSWPPadding *layoutMargins;
-@property(readonly, nonatomic) struct CGSize adjustedInsets;
+- (struct CGSize)adjustedInsetsForTarget:(id)arg1;
 - (id)textWrapper;
 - (void)layoutManager:(id)arg1 didClearDirtyRangeWithDelta:(int)arg2 afterCharIndex:(unsigned int)arg3;
 - (void)layoutManagerNeedsLayout:(id)arg1;
@@ -65,10 +65,10 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSPObject<TSDHint> *nextTargetFirstChildHint;
 @property(readonly, nonatomic) id <TSWPFootnoteMarkProvider> footnoteMarkProvider;
 @property(readonly, nonatomic) id <TSWPFootnoteHeightMeasurer> footnoteHeightMeasurer;
-@property(readonly, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
+@property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
 @property(readonly, nonatomic) const struct TSWPTopicNumberHints *nextTargetTopicNumbers;
 @property(readonly, nonatomic) const struct TSWPTopicNumberHints *previousTargetTopicNumbers;
-@property(readonly, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
+@property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
 - (id)columnMetricsForCharIndex:(unsigned int)arg1 outRange:(struct _NSRange *)arg2;
 - (struct CGSize)measuredSizeWithFlags:(unsigned int)arg1;
 - (id)pLayoutWithMinSize:(struct CGSize)arg1 maxSize:(struct CGSize)arg2 anchor:(struct CGPoint)arg3 flags:(unsigned int)arg4;
@@ -78,10 +78,14 @@ __attribute__((visibility("hidden")))
 // Remaining properties
 @property(retain, nonatomic) NSMutableArray *anchoredDrawablesForRelayout;
 @property(readonly, nonatomic) TSDCanvas *canvas;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) struct __CFLocale *hyphenationLocale;
 @property(readonly, nonatomic) struct CGRect maskRect;
 @property(readonly, nonatomic) TSDLayout *parentLayoutForInlineAttachments;
 @property(readonly, nonatomic) BOOL shouldHyphenate;
+@property(readonly) Class superclass;
 @property(readonly, nonatomic) float textScaleFactor;
 
 @end

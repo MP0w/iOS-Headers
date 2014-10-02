@@ -6,18 +6,22 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDate, NSMutableArray;
+@class NSArray, NSDate, NSMutableArray, NSTimer;
 
 @interface WorldClockManager : NSObject
 {
     BOOL _dirty;
     NSMutableArray *_cities;
+    NSTimer *_weatherUpdateTimer;
     NSDate *lastModified;
 }
 
 + (id)sharedManager;
 @property(retain, nonatomic) NSDate *lastModified; // @synthesize lastModified;
-@property(readonly, nonatomic) NSArray *cities; // @synthesize cities=_cities;
+@property(readonly, retain, nonatomic) NSArray *cities; // @synthesize cities=_cities;
+- (id)weatherReachabilityURL;
+- (void)updateWeatherDataWithCompletion:(CDUnknownBlockType)arg1;
+- (void)updateWeatherDataForCities:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)moveCityFromIndex:(unsigned int)arg1 toIndex:(unsigned int)arg2;
 - (void)removeAllCities;
 - (void)removeCityAtIndex:(unsigned int)arg1;

@@ -8,6 +8,8 @@
 
 #import "UIDocumentInteractionControllerDelegate.h"
 
+@class NSString;
+
 @interface SUScriptDocumentInteractionControllerNativeObject : SUScriptNativeObject <UIDocumentInteractionControllerDelegate>
 {
     BOOL _didPickApplication;
@@ -26,6 +28,12 @@
 - (void)destroyNativeObject;
 - (void)presentUsingBlock:(CDUnknownBlockType)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -39,11 +39,9 @@ __attribute__((visibility("hidden")))
 - (id)valuesForPasteboardType:(id)arg1 inItemSet:(id)arg2;
 - (id)dataForPasteboardType:(id)arg1 inItemSet:(id)arg2;
 - (id)pasteboardTypesForItemSet:(id)arg1;
-- (void)endTransaction;
 - (void)addData:(id)arg1 forPasteboardType:(id)arg2;
 - (void)addItems:(id)arg1 isSmartCopy:(BOOL)arg2;
 - (void)addItems:(id)arg1;
-- (void)beginTransaction;
 - (void)performAsynchronousWriteUsingBlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) int numberOfItems;
 - (id)valueForPasteboardType:(id)arg1;
@@ -59,6 +57,8 @@ __attribute__((visibility("hidden")))
 - (id)initWithUniquePasteboardName;
 - (id)initWithPasteboardName:(id)arg1 create:(BOOL)arg2;
 - (id)initWithGeneralPasteboard;
+- (BOOL)fromIWorkSageDataSource;
+- (BOOL)fromExcelDataSource;
 
 @end
 

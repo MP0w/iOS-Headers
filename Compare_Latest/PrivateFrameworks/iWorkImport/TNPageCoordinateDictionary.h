@@ -10,13 +10,17 @@ __attribute__((visibility("hidden")))
 @interface TNPageCoordinateDictionary : NSObject
 {
     struct map<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<NSObject>, std::__1::less<TSUColumnRowCoordinate>, std::__1::allocator<std::__1::pair<const TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<NSObject>>>> _pageCoordinateDictionary;
+    struct _opaque_pthread_rwlock_t _rwlock;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (id)allObjects;
 - (void)removeAllObjects;
 - (id)objectForPageCoordinate:(CDStruct_0441cfb5)arg1;
 - (void)setObject:(id)arg1 forPageCoordinate:(CDStruct_0441cfb5)arg2;
+- (void)dealloc;
+- (id)init;
 
 @end
 

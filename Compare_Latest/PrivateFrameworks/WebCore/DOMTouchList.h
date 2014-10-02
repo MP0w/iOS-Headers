@@ -6,6 +6,7 @@
 
 #import <WebCore/DOMObject.h>
 
+__attribute__((visibility("hidden")))
 @interface DOMTouchList : DOMObject
 {
 }

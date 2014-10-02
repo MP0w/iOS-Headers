@@ -8,7 +8,7 @@
 
 #import "SSXPCCoding.h"
 
-@class NSArray, NSDictionary;
+@class NSArray, NSDictionary, NSString;
 
 @interface SSRedeemCodesResponse : NSObject <SSXPCCoding>
 {
@@ -20,11 +20,17 @@
 - (id)initWithXPCEncoding:(id)arg1;
 - (void)setRedeemedCodes:(id)arg1;
 - (void)setFailedCodes:(id)arg1;
-@property(readonly, nonatomic) NSArray *redeemedCodes;
+@property(readonly, copy, nonatomic) NSArray *redeemedCodes;
 @property(readonly, nonatomic) NSArray *failedCodes;
 - (id)errorForCode:(id)arg1;
 - (id)dictionaryForCode:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

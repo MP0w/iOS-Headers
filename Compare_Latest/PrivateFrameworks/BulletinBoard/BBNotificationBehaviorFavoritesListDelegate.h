@@ -8,6 +8,8 @@
 
 #import "ABPredicateDelegate.h"
 
+@class NSString;
+
 @interface BBNotificationBehaviorFavoritesListDelegate : NSObject <ABPredicateDelegate>
 {
     CDUnknownBlockType _handlerBlock;
@@ -17,6 +19,12 @@
 - (BOOL)predicateShouldContinue:(id)arg1;
 - (void)dealloc;
 - (id)initWithHandlerBlock:(CDUnknownBlockType)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

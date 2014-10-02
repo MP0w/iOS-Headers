@@ -13,24 +13,23 @@
     UICollectionViewLayoutAttributes *_layoutAttributes;
     NSString *_reuseIdentifier;
     UICollectionView *_collectionView;
+    int _updateAnimationCount;
     struct {
-        unsigned int updateAnimationCount:5;
         unsigned int wasDequeued:1;
     } _reusableViewFlags;
 }
 
-@property(readonly, nonatomic) NSString *reuseIdentifier; // @synthesize reuseIdentifier=_reuseIdentifier;
+@property(copy, nonatomic) NSString *reuseIdentifier; // @synthesize reuseIdentifier=_reuseIdentifier;
+- (id)preferredLayoutAttributesFittingAttributes:(id)arg1;
 - (BOOL)_disableRasterizeInAnimations;
 - (BOOL)_wasDequeued;
 - (void)_markAsDequeued;
 - (void)_clearUpdateAnimation;
 - (void)_addUpdateAnimation;
-- (BOOL)_isInUpdateAnimation;
-- (void)_setCollectionView:(id)arg1;
-- (id)_collectionView;
+@property(readonly, nonatomic, getter=_isInUpdateAnimation) BOOL inUpdateAnimation;
+@property(nonatomic, getter=_collectionView, setter=_setCollectionView:) UICollectionView *collectionView;
 - (void)_setReuseIdentifier:(id)arg1;
-- (id)_layoutAttributes;
-- (void)_setLayoutAttributes:(id)arg1;
+@property(copy, nonatomic, getter=_layoutAttributes, setter=_setLayoutAttributes:) UICollectionViewLayoutAttributes *layoutAttributes;
 - (void)_setBaseLayoutAttributes:(id)arg1;
 - (void)didTransitionFromLayout:(id)arg1 toLayout:(id)arg2;
 - (void)willTransitionFromLayout:(id)arg1 toLayout:(id)arg2;

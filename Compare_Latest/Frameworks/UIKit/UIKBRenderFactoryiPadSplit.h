@@ -30,6 +30,7 @@ __attribute__((visibility("hidden")))
 - (id)multitapCompleteKeyImageName;
 - (id)dismissKeyImageName;
 - (id)dictationKeyImageName;
+- (id)globalEmojiKeyImageName;
 - (id)globalKeyImageName;
 - (struct CGPoint)shiftKeyOffset;
 - (struct CGPoint)deleteKeyOffset;

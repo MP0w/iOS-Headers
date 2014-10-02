@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 + (void)initialize;
 - (void)dealloc;
 - (void)dismissWithClickedButtonIndex:(int)arg1 animated:(BOOL)arg2;
+- (void)_removeObservervations;
 - (void)_cancelUserNotification;
 - (void)cancelAlertView;
 - (void)setRemoteViewController:(id)arg1;

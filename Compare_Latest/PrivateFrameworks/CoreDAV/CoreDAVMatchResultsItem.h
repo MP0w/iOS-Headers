@@ -17,10 +17,10 @@
 }
 
 + (id)copyParseRules;
-@property(retain) CoreDAVLeafItem *calendarDescription; // @synthesize calendarDescription=_calendarDescription;
-@property(retain) CoreDAVLeafItem *region; // @synthesize region=_region;
-@property(retain) CoreDAVLeafItem *language; // @synthesize language=_language;
-@property(retain) CoreDAVLeafItem *rank; // @synthesize rank=_rank;
+@property(retain, nonatomic) CoreDAVLeafItem *calendarDescription; // @synthesize calendarDescription=_calendarDescription;
+@property(retain, nonatomic) CoreDAVLeafItem *region; // @synthesize region=_region;
+@property(retain, nonatomic) CoreDAVLeafItem *language; // @synthesize language=_language;
+@property(retain, nonatomic) CoreDAVLeafItem *rank; // @synthesize rank=_rank;
 - (id)description;
 - (void)dealloc;
 

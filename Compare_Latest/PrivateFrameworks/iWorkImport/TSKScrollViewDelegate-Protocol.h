@@ -17,5 +17,6 @@
 - (void)scrollViewWillBeginDragging:(TSKScrollView *)arg1;
 - (void)scrollViewDidScroll:(TSKScrollView *)arg1;
 - (void)scrollViewWillScroll:(TSKScrollView *)arg1;
+- (BOOL)scrollViewShouldAnchorToRightEdge:(TSKScrollView *)arg1;
 @end
 

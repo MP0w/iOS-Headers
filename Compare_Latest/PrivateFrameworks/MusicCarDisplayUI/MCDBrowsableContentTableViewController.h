@@ -11,7 +11,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class MCDBrowsableContentModel, MCDNowPlayingButton, NSArray, NSIndexPath, NSMutableSet, NSObject<OS_dispatch_queue>, UIActivityIndicatorView, UITableView, UITapGestureRecognizer, _UIFilteredDataSource;
+@class MCDBrowsableContentModel, MCDNowPlayingButton, NSArray, NSIndexPath, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, UIActivityIndicatorView, UITableView, UITapGestureRecognizer, _UIFilteredDataSource;
 
 @interface MCDBrowsableContentTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MCDBrowsableContentModelListener, UIGestureRecognizerDelegate>
 {
@@ -63,6 +63,12 @@
 - (void)dealloc;
 - (id)initWithModel:(id)arg1 indexPath:(id)arg2;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

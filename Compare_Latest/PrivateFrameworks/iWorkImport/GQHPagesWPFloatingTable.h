@@ -8,6 +8,8 @@
 
 #import "GQTableGenerator.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface GQHPagesWPFloatingTable : NSObject <GQTableGenerator>
 {
@@ -18,6 +20,12 @@ __attribute__((visibility("hidden")))
 + (int)beginCells:(id)arg1 state:(id)arg2;
 + (int)endTable:(id)arg1 state:(id)arg2;
 + (int)beginTable:(id)arg1 state:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

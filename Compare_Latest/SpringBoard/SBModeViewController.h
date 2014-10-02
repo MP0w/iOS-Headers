@@ -6,12 +6,12 @@
 
 #import "UIViewController.h"
 
-#import "SBSizeObservingViewDelegate.h"
+#import "SBUISizeObservingViewDelegate.h"
 #import "_UISettingsKeyPathObserver.h"
 
-@class NSArray, SBBulletinObserverViewController, SBModeControlManager, SBNotificationCenterSeparatorView, UIScrollView, UISwipeGestureRecognizer, UIView;
+@class NSArray, NSString, SBBulletinObserverViewController, SBModeControlManager, SBNotificationSeparatorView, UIScrollView, UISwipeGestureRecognizer, UIView, UIViewController<SBModeViewControllerContentProviding>;
 
-@interface SBModeViewController : UIViewController <SBSizeObservingViewDelegate, _UISettingsKeyPathObserver>
+@interface SBModeViewController : UIViewController <SBUISizeObservingViewDelegate, _UISettingsKeyPathObserver>
 {
     id <SBBulletinActionHandler> _delegate;
     SBBulletinObserverViewController *_selectedViewController;
@@ -21,7 +21,7 @@
     SBModeControlManager *_modeControl;
     UISwipeGestureRecognizer *_leftSwipeGestureRecognizer;
     UISwipeGestureRecognizer *_rightSwipeGestureRecognizer;
-    SBNotificationCenterSeparatorView *_separator;
+    SBNotificationSeparatorView *_separator;
     struct {
         unsigned int isContentLayoutValid:1;
         unsigned int isSegmentLayoutValid:1;
@@ -40,13 +40,13 @@
 - (void)hostWillPresent;
 - (void)setWidgetDelegate:(id)arg1;
 - (id)widgetDelegate;
-- (_Bool)handleActionForBulletin:(id)arg1;
+- (_Bool)handleAction:(id)arg1 forBulletin:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (struct CGRect)rectForBulletin:(id)arg1;
 @property(nonatomic, getter=isRequestHandlingEnabled) _Bool requestHandlingEnabled;
 - (_Bool)_isRequestHandlingEnabled;
 - (void)handleModeChange:(id)arg1;
 @property(retain, nonatomic) NSArray *viewControllers;
-@property(nonatomic) UIViewController *selectedViewController;
+@property(nonatomic) UIViewController<SBModeViewControllerContentProviding> *selectedViewController;
 - (void)setSelectedViewController:(id)arg1 animated:(_Bool)arg2;
 - (void)_setSelectedBulletinObserverViewController:(id)arg1 animated:(_Bool)arg2;
 - (_Bool)_contentOffset:(struct CGPoint *)arg1 forChildViewController:(id)arg2;
@@ -79,6 +79,12 @@
 - (double)_headerViewHeightForMode:(long long)arg1;
 - (struct CGRect)_modeControlFrameWithHeaderBounds:(struct CGRect)arg1 forMode:(long long)arg2;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

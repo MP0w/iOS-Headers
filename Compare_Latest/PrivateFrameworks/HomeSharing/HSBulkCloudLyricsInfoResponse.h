@@ -14,6 +14,7 @@
 }
 
 @property(copy, nonatomic) NSArray *lyricsInfoDictionaries; // @synthesize lyricsInfoDictionaries;
+- (void).cxx_destruct;
 - (void)dealloc;
 
 @end

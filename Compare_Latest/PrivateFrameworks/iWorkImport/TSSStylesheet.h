@@ -8,7 +8,7 @@
 
 #import "TSKTransformableObject.h"
 
-@class NSMutableDictionary, NSSet, TSUMutableRetainedPointerSet, TSURetainedPointerKeyDictionary, TSWPParagraphStyle;
+@class NSMutableDictionary, NSSet, NSString, TSUMutableRetainedPointerSet, TSURetainedPointerKeyDictionary, TSWPParagraphStyle;
 
 __attribute__((visibility("hidden")))
 @interface TSSStylesheet : TSPObject <TSKTransformableObject>
@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
     BOOL mCanCullStyles;
 }
 
++ (id)variationMapForVaryingCharacterStyle:(id)arg1 overParagraphStyle:(id)arg2 withPropertyMap:(id)arg3;
 + (id)p_presenterNotesListStyleIdentifierForListLabelType:(int)arg1;
 + (id)presenterNotesParagraphStyleIdentifier;
 @property(readonly, nonatomic) TSSStylesheet *child; // @synthesize child=mChild;
@@ -44,16 +45,16 @@ __attribute__((visibility("hidden")))
 - (id)variationOfStyle:(id)arg1 propertyMap:(id)arg2;
 - (id)firstRootlessStyleOfClass:(Class)arg1 withOverridePropertyMap:(id)arg2;
 - (id)namedStylesOfClass:(Class)arg1;
+- (id)firstCascadedStylePassingTest:(CDUnknownBlockType)arg1;
+- (id)cascadedStylesPassingTest:(CDUnknownBlockType)arg1;
 - (id)stylesPassingTest:(CDUnknownBlockType)arg1;
+- (id)p_stylesPassingTest:(CDUnknownBlockType)arg1 cascade:(BOOL)arg2;
 - (void)enumerateCascadedStylesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateStylesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)identifiedStylesOfClass:(Class)arg1;
 - (id)identifiedStyles;
 - (id)stylesOfClass:(Class)arg1;
-- (id)stylesWithName:(id)arg1 ofClass:(Class)arg2;
 - (id)stylesWithName:(id)arg1;
-- (id)cascadedFirstStyleWithName:(id)arg1;
-- (id)firstStyleWithName:(id)arg1;
 - (id)childrenOfStyle:(id)arg1;
 - (void)setParent:(id)arg1 ofStyle:(id)arg2;
 - (void)setIdentifier:(id)arg1 ofStyle:(id)arg2;
@@ -61,6 +62,7 @@ __attribute__((visibility("hidden")))
 - (id)styleWithIdentifier:(id)arg1 componentMask:(int)arg2;
 - (id)cascadedStyleWithIdentifier:(id)arg1;
 - (id)styleWithIdentifier:(id)arg1;
+- (BOOL)cascadedContainsStyle:(id)arg1;
 - (BOOL)containsStyle:(id)arg1;
 - (void)removeStyle:(id)arg1;
 - (void)addStyle:(id)arg1 withParent:(id)arg2 identifier:(id)arg3;
@@ -97,7 +99,6 @@ __attribute__((visibility("hidden")))
 - (id)hyperlinkStyle;
 - (id)defaultCharacterStyle;
 - (id)variationOfCharacterStyle:(id)arg1 paragraphStyle:(id)arg2 propertyMap:(id)arg3;
-- (id)p_variationMapForVaryingCharacterStyle:(id)arg1 overParagraphStyle:(id)arg2 withPropertyMap:(id)arg3;
 - (id)_defaultStyleOfClass:(Class)arg1 withIdentifier:(id)arg2 wasCreated:(char *)arg3 usingBlock:(CDUnknownBlockType)arg4;
 - (id)_defaultColumnStyleWasCreated:(char *)arg1;
 - (id)_defaultListStyleWasCreated:(char *)arg1;
@@ -106,12 +107,18 @@ __attribute__((visibility("hidden")))
 - (id)_defaultCharacterStyleWasCreated:(char *)arg1;
 - (id)p_newDefaultPresenterNotesListStyleWithContext:(id)arg1 forListLabelType:(int)arg2;
 - (id)p_defaultPresenterNotesListStylePropertyMapForListLabelType:(int)arg1;
-- (id)p_newDefaultPresenterNotesParagraphStyleWithContext:(id)arg1;
+- (id)p_defaultPresenterNotesParagraphStyleWithContext:(id)arg1;
 - (id)p_defaultPresenterNotesParagraphStylePropertyMap;
 - (void)p_upgradeDefaultPresenterNotesStylesResetExisting:(BOOL)arg1;
 - (void)upgradeDefaultPresenterNotesStyles;
 - (void)addDefaultPresenterNotesStylesIfAbsent;
 @property(readonly, nonatomic) TSWPParagraphStyle *defaultPresenterNotesParagraphStyle;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

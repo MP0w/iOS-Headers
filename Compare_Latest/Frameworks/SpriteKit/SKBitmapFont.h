@@ -8,7 +8,7 @@
 
 #import "NSCoding.h"
 
-@class NSDictionary, NSString;
+@class NSArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface SKBitmapFont : NSObject <NSCoding>
@@ -17,9 +17,10 @@ __attribute__((visibility("hidden")))
     NSString *_filePath;
     float _lineHeight;
     float _baseLine;
-    NSDictionary *_characterSprites;
-    NSDictionary *_characterAdvances;
-    NSDictionary *_characterKerning;
+    NSArray *_characterSprites;
+    struct map<unsigned short, SKSpriteNode *, std::__1::less<unsigned short>, std::__1::allocator<std::__1::pair<const unsigned short, SKSpriteNode *>>> _characterSpriteByChar;
+    struct map<unsigned short, float, std::__1::less<unsigned short>, std::__1::allocator<std::__1::pair<const unsigned short, float>>> _characterAdvanceByChar;
+    struct map<unsigned int, float, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, float>>> _characterKerningByCharPair;
     BOOL _internal;
     NSString *_fileName;
 }
@@ -27,11 +28,12 @@ __attribute__((visibility("hidden")))
 + (id)fontWithTexture:(id)arg1 fontDataString:(id)arg2;
 + (id)fontForFileNamed:(id)arg1;
 + (id)_fontForFileNamed:(id)arg1;
+- (id).cxx_construct;
 - (void).cxx_destruct;
-- (float)kerningForCharacterNamed:(id)arg1 followedBy:(id)arg2;
-- (float)advanceForCharacterNamed:(id)arg1;
+- (float)kerningForCharacterNamed:(unsigned short)arg1 followedBy:(unsigned short)arg2;
+- (float)advanceForCharacterNamed:(unsigned short)arg1;
 - (float)lineHeight;
-- (id)spriteForCharacterNamed:(id)arg1;
+- (id)spriteForCharacterNamed:(unsigned short)arg1;
 - (BOOL)loadFontWithTexture:(id)arg1 fontDataString:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

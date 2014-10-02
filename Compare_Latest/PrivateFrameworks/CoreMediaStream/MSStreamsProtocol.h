@@ -22,12 +22,12 @@
 - (void)_didFindServerSideConfigurationVersion:(id)arg1;
 - (id)deviceInfoDict;
 - (void)abort;
-@property(readonly, nonatomic) NSURL *deleteURL;
-@property(readonly, nonatomic) NSURL *uploadCompleteURL;
-@property(readonly, nonatomic) NSURL *reauthorizeURL;
-@property(readonly, nonatomic) NSURL *resetURL;
-@property(readonly, nonatomic) NSURL *putURL;
-@property(readonly, nonatomic) NSURL *getURL;
+@property(readonly, nonatomic) __weak NSURL *deleteURL;
+@property(readonly, nonatomic) __weak NSURL *uploadCompleteURL;
+@property(readonly, nonatomic) __weak NSURL *reauthorizeURL;
+@property(readonly, nonatomic) __weak NSURL *resetURL;
+@property(readonly, nonatomic) __weak NSURL *putURL;
+@property(readonly, nonatomic) __weak NSURL *getURL;
 - (id)initWithPersonID:(id)arg1 baseURL:(id)arg2;
 
 @end

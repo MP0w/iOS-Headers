@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 - (unsigned int)p_dataSetIndexForBuildStage:(unsigned int)arg1;
 - (BOOL)planeIsVisible:(int)arg1;
 - (BOOL)buildShouldUseRenderer:(id)arg1;
+- (id)interpolations;
 - (void)animationDidEndForChunkStage:(int)arg1;
 - (id)createAnimatedLayersDictionaryWithScale:(float)arg1 forBuildStage:(unsigned int)arg2 buildIn:(BOOL)arg3 duration:(float)arg4 returningAnimatedLayers:(id *)arg5;
 - (id)p_buildEngineAnimationDictionaryForAnimationInfosArray:(id)arg1 duration:(float)arg2;
@@ -52,12 +53,16 @@ __attribute__((visibility("hidden")))
 - (BOOL)directlyManagesVisibilityOfKnob:(id)arg1;
 - (void)updatePositionsOfKnobs:(id)arg1;
 - (void)addKnobsToArray:(id)arg1;
+- (BOOL)shouldUseChartAreaRectForEditMenuTargetRectMinY;
 - (void)drawInLayerContext:(struct CGContext *)arg1;
 - (void)p_updateAnimatedLayers;
 - (void)p_createElementLayersIfNecessary;
 - (void)p_addElementLayersToLayerTreeIfNecessary;
 - (void)p_applyAnimationsFromAnimationInfos:(id)arg1;
 - (id)p_updateAnimatedLayerLayoutsWithAnimationDuration:(float)arg1;
+- (BOOL)p_shouldAnimate;
+- (BOOL)shouldPostCommandForChangingDataSetIndex;
+@property(readonly, nonatomic) BOOL shouldDisableMultiDataControls;
 - (void)updateElementLabelLayerLayoutForCurrentRepElementIndexAnimationInfo:(id)arg1;
 - (void)p_addAnimationsForLabelLayer:(id)arg1 contents:(id)arg2 frame:(struct CGRect)arg3 animationInfo:(id)arg4;
 - (void)updateElementFrame:(struct CGRect)arg1 forElementLayer:(id)arg2 series:(id)arg3 addingAnimationsToAnimationInfo:(id)arg4;
@@ -78,7 +83,6 @@ __attribute__((visibility("hidden")))
 - (void)updateAppearanceForElementLayer:(id)arg1 seriesIndex:(unsigned int)arg2;
 - (id)createMultiDataElementShapeLayerForSeriesIndex:(unsigned int)arg1;
 - (BOOL)canDrawInParallel;
-- (BOOL)canDrawInBackgroundDuringScroll;
 - (BOOL)shouldUseRenderer:(id)arg1;
 - (BOOL)p_isDataSetNameRenderer:(id)arg1;
 - (BOOL)renderLabels;
@@ -91,6 +95,7 @@ __attribute__((visibility("hidden")))
 - (void)didUpdateLayer:(id)arg1;
 - (void)addAdditionalChildLayersToArray:(id)arg1;
 - (id)newDataSetNameLayer;
+- (BOOL)overlayLabelsForSeriesIndex:(unsigned int)arg1;
 - (BOOL)shouldUseLegendLayerForLayerBasedRep;
 - (void)clearDragHighlightAndPreviewState;
 - (void)showHitFeedbackForSelectionPath:(id)arg1;
@@ -105,6 +110,7 @@ __attribute__((visibility("hidden")))
 - (id)p_chartModel;
 - (void)dealloc;
 - (id)initWithLayout:(id)arg1 canvas:(id)arg2;
+- (BOOL)requireSeparateLabelLayer;
 
 @end
 

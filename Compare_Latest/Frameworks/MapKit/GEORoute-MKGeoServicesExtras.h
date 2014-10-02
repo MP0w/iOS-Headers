@@ -7,9 +7,6 @@
 #import "GEORoute.h"
 
 @interface GEORoute (MKGeoServicesExtras)
-- (double)distanceBetweenStep:(id)arg1 andStep:(id)arg2;
-- (double)distanceBetweenLocation:(CDStruct_c3b9c2ee)arg1 nextPointIndex:(unsigned int)arg2 toPointIndex:(unsigned int)arg3;
-- (double)distanceBetweenRoutePointIndex:(unsigned int)arg1 toPointIndex:(unsigned int)arg2;
 - (struct CGImage *)_mapKitImage;
 @end
 

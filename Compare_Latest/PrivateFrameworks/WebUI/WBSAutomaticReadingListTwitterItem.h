@@ -22,6 +22,7 @@
 @property(copy, nonatomic) NSString *expandedURLString; // @synthesize expandedURLString=_expandedURLString;
 @property(copy, nonatomic) NSString *displayURLString; // @synthesize displayURLString=_displayURLString;
 @property(copy, nonatomic) NSString *originatorScreenName; // @synthesize originatorScreenName=_originatorScreenName;
+- (void).cxx_destruct;
 - (id)description;
 - (id)sourceRecordCreationDate;
 - (id)retweeterProfileURL;
@@ -34,7 +35,6 @@
 - (id)sourceRecordURL;
 - (id)domainString;
 - (id)socialSource;
-- (void)dealloc;
 - (id)initWithDictionary:(id)arg1 socialSourceAccountIdentifier:(id)arg2;
 
 @end

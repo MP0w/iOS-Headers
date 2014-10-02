@@ -29,12 +29,19 @@
 - (void)_textChanged:(id)arg1;
 - (BOOL)textField:(id)arg1 shouldInsertText:(id)arg2 replacingRange:(struct _NSRange)arg3;
 - (void)layoutSubviews;
+- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)drawRect:(struct CGRect)arg1;
 @property(copy, nonatomic) NSString *text;
 @property(readonly, nonatomic, getter=isValid) BOOL valid;
 @property(readonly, nonatomic) SKUIComposeTextFieldConfiguration *configuration;
 - (void)dealloc;
 - (id)initWithConfiguration:(id)arg1 style:(int)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -19,6 +19,7 @@
 - (BOOL)_isNTSCOrPAL;
 @property(readonly, nonatomic) float pixelAspectRatio;
 @property(readonly, nonatomic) struct CGSize size;
+- (struct CGSize)_sizeWithLevel:(unsigned int)arg1;
 - (id)initWithDisplayMode:(id)arg1 mainScreen:(BOOL)arg2;
 
 @end

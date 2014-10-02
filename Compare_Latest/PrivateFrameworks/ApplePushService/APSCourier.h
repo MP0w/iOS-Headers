@@ -11,36 +11,42 @@
 #import "APSCourierConnectionDelegate.h"
 #import "APSNetworkMonitorDelegate.h"
 #import "APSOutgoingMessageQueueDelegate.h"
+#import "APSProxyMasterDelegate.h"
+#import "APSProxySlaveDelegate.h"
 #import "APSSystemMonitorListener.h"
 #import "APSTopicManagerDelegate.h"
 #import "PCInterfaceMonitorDelegate.h"
 
-@class APSCourierConnection, APSEnvironment, APSNetworkMonitor, APSOutgoingMessageQueue, APSOutgoingQueue, APSProtocolParser, APSPushHistory, APSTopicManager, NSData, NSDate, NSMutableArray, NSMutableDictionary, NSString, NSTimer, PCPersistentTimer;
+@class APSCourierConnection, APSEnvironment, APSNetworkMonitor, APSOutgoingMessageQueue, APSOutgoingQueue, APSProtocolParser, APSProxyMaster, APSProxySlave, APSPushHistory, APSTopicManager, NSData, NSDate, NSMutableArray, NSMutableDictionary, NSString, NSTimer, PCPersistentTimer;
 
-@interface APSCourier : NSObject <APSTopicManagerDelegate, APSNetworkMonitorDelegate, APSCourierConnectionDelegate, APSConnectionServerDelegate, APSOutgoingMessageQueueDelegate, APSSystemMonitorListener, PCInterfaceMonitorDelegate, APSAppLaunchStatsDelegate>
+@interface APSCourier : NSObject <APSTopicManagerDelegate, APSNetworkMonitorDelegate, APSCourierConnectionDelegate, APSConnectionServerDelegate, APSOutgoingMessageQueueDelegate, APSSystemMonitorListener, PCInterfaceMonitorDelegate, APSAppLaunchStatsDelegate, APSProxyMasterDelegate, APSProxySlaveDelegate>
 {
     id <APSCourierDelegate> _delegate;
     APSEnvironment *_environment;
     NSMutableArray *_connections;
     struct __SecIdentity *_clientIdentity;
+    NSMutableDictionary *_proxySlaves;
+    APSProxySlave *_proxySlaveWithOutstandingPresence;
+    APSProxyMaster *_proxyMaster;
     APSPushHistory *_pushHistory;
     APSCourierConnection *_courierConnection;
     APSProtocolParser *_protocolParser;
     NSData *_cachedPublicToken;
+    BOOL _shouldUseInternet;
     BOOL _shouldRun;
     BOOL _enabled;
     BOOL _enableCriticalReliability;
     NSTimer *_criticalFlushTimer;
-    BOOL _isConnectedToService;
     BOOL _useAlternatePort;
-    unsigned int _consecutiveConnectionFailureCount;
-    NSDate *_lastConnectionAttempt;
     PCPersistentTimer *_pendingMessageReconnectTimer;
-    double _lastClientRequestedKeepaliveTime;
-    double _lastLateCriticalOutgoingMessageAcknowledgmentReconnectTime;
     APSNetworkMonitor *_networkMonitor;
     NSString *_lastPushRAT;
     int _lastPushLQ;
+    BOOL _isConnectedToService;
+    unsigned int _consecutiveConnectionFailureCount;
+    NSDate *_lastConnectionAttempt;
+    double _lastClientRequestedKeepaliveTime;
+    double _lastLateCriticalOutgoingMessageAcknowledgmentReconnectTime;
     NSMutableDictionary *_connectionPortNamesToConnections;
     NSMutableDictionary *_hashesToEnabledTopics;
     NSMutableDictionary *_hashesToIgnoredTopics;
@@ -53,10 +59,10 @@
     double _slowReceiveThreshold;
 }
 
-@property(readonly, nonatomic) APSEnvironment *environment; // @synthesize environment=_environment;
+@property(readonly, retain, nonatomic) APSEnvironment *environment; // @synthesize environment=_environment;
 @property(nonatomic) BOOL isConnectedToService; // @synthesize isConnectedToService=_isConnectedToService;
 - (void)_clearKeepAliveResponseTimerOnInterface:(int)arg1;
-- (void)_startKeepAliveResponseTimerOnInterface:(int)arg1;
+- (void)_startKeepAliveResponseTimerOnInterface:(int)arg1 shortInterval:(BOOL)arg2;
 - (void)_clearConnectionEstablishTimerOnInterface:(int)arg1;
 - (void)_startConnectionEstablishTimerOnInterface:(int)arg1;
 - (BOOL)shouldForceShortTimeouts;
@@ -65,17 +71,19 @@
 - (void)outgoingMessageQueue:(id)arg1 lateAcknowledgmentForCriticalOutgoingMessage:(id)arg2;
 - (void)_handleOutgoingMessageAcknowledgment:(id)arg1 onInterface:(int)arg2;
 - (void)_sendQueuedOutgoingMessages;
+- (void)_sendQueuedOutgoingMessagesForTokenState:(id)arg1;
 - (void)_sendOutgoingMessage:(id)arg1;
 - (void)_handleAppTokenGenerateResponse:(id)arg1 onInterface:(int)arg2;
 - (void)_handleFlushMessage:(id)arg1 onInterface:(int)arg2;
 - (void)_handleKeepAliveResponseMessage:(id)arg1 onInterface:(int)arg2;
-- (void)_performKeepAliveOnInterface:(int)arg1;
+- (void)_performKeepAliveOnInterface:(int)arg1 shortInterval:(BOOL)arg2;
 - (void)_performFlushWithPaddingLength:(unsigned int)arg1;
 - (id)_copyParsedPayload:(id)arg1 messageId:(id *)arg2 errorString:(id *)arg3;
-- (void)_handleMessageMessage:(id)arg1 onInterface:(int)arg2;
+- (void)_handleMessageMessage:(id)arg1 onInterface:(int)arg2 fromMaster:(BOOL)arg3;
 - (void)_notePush;
 - (void)_notifyForIncomingMessage:(id)arg1;
 - (void)_sendFilterMessageOnInterface:(int)arg1;
+- (void)_forceReconnections;
 - (void)_processInvalidIdentity;
 - (void)_handleConnectedMessage:(id)arg1 onInterface:(int)arg2;
 - (void)_pendingMessageReconnectTimerFired;
@@ -110,54 +118,88 @@
 - (BOOL)_isWiFiLinkQualityBetter;
 - (void)_deleteClientIdentityRequestingReplacement;
 - (struct __SecIdentity *)_getClientIdentity;
+- (void)_processIdentityChanged;
 - (void)_disconnectStreamForInterface:(int)arg1;
 - (void)_disconnectAllStreams;
 - (BOOL)_connectStreamWithInterfacePreference:(int)arg1;
 - (void)_adjustConnection;
 - (BOOL)_adjustConnectionWithInterfacePreference:(int)arg1;
-@property(readonly, nonatomic) BOOL shouldRun;
+@property(readonly, nonatomic) BOOL shouldUseInternet;
+- (void)_processShouldUseInternetChangeIfNecessary;
+- (BOOL)shouldRun;
 - (void)_processShouldRunChangeIfNecessary;
 - (void)setEnabled:(BOOL)arg1;
 - (void)_processStoredOutgoingMessages;
 - (void)_processStoredIncomingMessages;
 @property(readonly, nonatomic) double currentKeepAliveInterval; // @dynamic currentKeepAliveInterval;
+- (void)setLargeMessageSize:(unsigned int)arg1;
+- (unsigned int)largeMessageSize;
 - (void)setMessageSize:(unsigned int)arg1;
 @property(readonly, nonatomic) unsigned int messageSize; // @dynamic messageSize;
 - (void)setPublicToken:(id)arg1 fromServer:(BOOL)arg2;
-@property(readonly, nonatomic) NSData *publicToken; // @dynamic publicToken;
-@property(readonly, nonatomic) NSString *ifname;
+@property(readonly, retain, nonatomic) NSData *publicToken; // @dynamic publicToken;
+@property(readonly, copy, nonatomic) NSString *ifname;
 - (void)_recreateCacheDictionaries;
 - (void)_setTopicsForCategory:(int)arg1;
 - (void)_processIsPowerEfficientToSendChange;
+- (void)slave:(id)arg1 requestSendOutgoingMessage:(id)arg2;
+- (void)slave:(id)arg1 requestPushAckResponse:(id)arg2 messageId:(id)arg3 token:(id)arg4 interface:(id)arg5;
+- (void)slaveBecameInactive:(id)arg1;
+- (void)requestFilterForSlave:(id)arg1;
+- (void)pushTokenBecameInvalidForSlave:(id)arg1;
+- (void)proxyMasterReceivedPush:(id)arg1 interface:(id)arg2;
+- (void)proxyMasterRequestFilter;
+- (void)receivedMessageSize:(id)arg1 largeMessageSize:(id)arg2;
+- (void)receivedPushToken:(id)arg1;
+- (void)generateCert:(id *)arg1 nonce:(id *)arg2 sig:(id *)arg3 time:(id)arg4;
+- (void)_sendSlaveFilter:(id)arg1 onInterface:(int)arg2;
+- (void)_processPendingProxyPresences;
+- (void)_clearPendingProxyPresence;
+- (void)incomingPresenceWithGuid:(id)arg1 token:(id)arg2 certificate:(id)arg3 nonce:(id)arg4 signature:(id)arg5;
+- (void)canUseProxyChanged;
+- (unsigned int)_countConnectedSlaves;
+- (unsigned int)_countActiveSlaves;
+- (id)_findSlaveWithToken:(id)arg1;
+- (id)_findConnectedSlaveWithToken:(id)arg1 onInterface:(int)arg2;
+- (id)_findActiveSlaveWithToken:(id)arg1;
 - (void)periodicSignalFired;
 - (void)invalidateDeviceIdentity;
 - (void)requestConnectionIfNeeded;
 - (void)_criticalReliabilityTimerFired;
+- (void)_refreshCriticalReliabilityTimerWithShortKeepAlive:(BOOL)arg1;
 - (void)_criticalReliabilityFlushTimerFired;
 - (void)_requestKeepAlive:(BOOL)arg1 orConnection:(BOOL)arg2;
-- (void)_requestKeepAlive:(BOOL)arg1 orConnection:(BOOL)arg2 onInterface:(int)arg3;
+- (void)_requestKeepAlive:(BOOL)arg1 orConnection:(BOOL)arg2 shortInterval:(BOOL)arg3 onInterface:(int)arg4;
 - (void)_recalculateCriticalReliability;
 - (void)connection:(id)arg1 handleAckIncomingMessageWithGuid:(id)arg2;
-- (void)connection:(id)arg1 didInvalidatePublicTokenForTopic:(id)arg2 identifier:(id)arg3;
-- (void)connection:(id)arg1 didRequestPublicTokenForTopic:(id)arg2 identifier:(id)arg3;
+- (void)connection:(id)arg1 didInvalidatePerAppTokenForTopic:(id)arg2 identifier:(id)arg3;
+- (void)connection:(id)arg1 didRequestPerAppTokenForTopic:(id)arg2 identifier:(id)arg3;
 - (void)connection:(id)arg1 didReceiveFakeMessageToSend:(id)arg2;
 - (void)connection:(id)arg1 didReceiveCancellationForOutgoingMessageWithID:(unsigned int)arg2;
 - (void)connection:(id)arg1 didReceiveOutgoingMessageToSend:(id)arg2;
+- (void)_enqueueMessage:(id)arg1 forOriginator:(id)arg2;
 - (void)connectionChangedCriticalReliability:(id)arg1;
 - (BOOL)connectionDelegateIsConnectedToService:(id)arg1;
 - (BOOL)connectionDelegateHasIdentity:(id)arg1;
+- (void)__performIdleCheck;
+- (void)_performIdleCheck;
 - (void)connectionWasClosed:(id)arg1;
 - (void)connectionTopicsChanged:(id)arg1;
-- (void)removeConnectionForConnectionPortName:(id)arg1;
 - (BOOL)isInternetReachableOnInterface:(int)arg1;
 - (int)linkQualityForInterface:(int)arg1;
 - (unsigned int)connectionTypeForInterface:(int)arg1;
+- (void)removeConnectionForConnectionPortName:(id)arg1;
 - (id)connectionForConnectionPortName:(id)arg1;
 @property(readonly, nonatomic) BOOL hasIdentity;
 - (void)addConnection:(id)arg1;
-- (id)debugDescription;
+@property(readonly, copy) NSString *debugDescription;
 - (void)dealloc;
 - (id)initWithEnvironment:(id)arg1 delegate:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

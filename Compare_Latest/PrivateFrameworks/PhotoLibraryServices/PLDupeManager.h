@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSMutableDictionary, NSMutableSet, PLPhotoLibrary;
+@class NSCountedSet, NSMutableArray, NSMutableDictionary, NSMutableSet, NSSet, PLPhotoLibrary;
 
 @interface PLDupeManager : NSObject
 {
@@ -19,7 +19,8 @@
     NSMutableSet *_cloudInserts;
     PLPhotoLibrary *_photoLibrary;
     long _once;
-    int _pauseCount;
+    NSCountedSet *_pauseReasons;
+    NSSet *_softPauseReasons;
     double _rebuildStartTime;
 }
 
@@ -31,8 +32,9 @@
 + (BOOL)resetDupesAnalysisForOfflineStore:(id)arg1 resetHashes:(BOOL)arg2;
 + (BOOL)_resetDupesAnalysisInManagedObjectContext:(id)arg1 resetHashes:(BOOL)arg2;
 + (id)sharedInstance;
-- (void)resumeAnalysis;
-- (void)pauseAnalysis;
+- (void)resumeAnalysisWithReason:(id)arg1;
+- (void)pauseAnalysisWithReason:(id)arg1;
+- (void)_resetSoftPauseReasons;
 - (void)persistPublicGlobalUUIDsForAssets:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)launchDupeAnalysisIfNeeded;
 - (void)analyzeDupesWithNormalInserts:(id)arg1 cloudInserts:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
@@ -58,6 +60,7 @@
 - (short)_computeCloudAssetHashesForManagedObjectContext:(id)arg1;
 @property(readonly, nonatomic) PLPhotoLibrary *photoLibrary;
 - (void)dealloc;
+- (id)init;
 
 @end
 

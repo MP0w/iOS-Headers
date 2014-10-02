@@ -21,15 +21,15 @@
     CalDAVSupportedCalendarComponentSet *_supportedCalendarComponentSet;
 }
 
-@property(retain) CalDAVSupportedCalendarComponentSet *supportedCalendarComponentSet; // @synthesize supportedCalendarComponentSet=_supportedCalendarComponentSet;
-@property(retain) CoreDAVLeafItem *summary; // @synthesize summary=_summary;
-@property(retain) CalDAVCalendarServerOrganizerItem *organizer; // @synthesize organizer=_organizer;
-@property(retain) CoreDAVItemWithHrefChildItem *hostURL; // @synthesize hostURL=_hostURL;
-@property(retain) CalDAVCalendarServerAccessItem *access; // @synthesize access=_access;
-@property(retain) CoreDAVItemWithNoChildren *calendarPublic; // @synthesize calendarPublic=_calendarPublic;
-@property(retain) CoreDAVItemWithNoChildren *inviteStatus; // @synthesize inviteStatus=_inviteStatus;
-@property(retain) CoreDAVHrefItem *href; // @synthesize href=_href;
-@property(retain) CoreDAVLeafItem *uid; // @synthesize uid=_uid;
+@property(retain, nonatomic) CalDAVSupportedCalendarComponentSet *supportedCalendarComponentSet; // @synthesize supportedCalendarComponentSet=_supportedCalendarComponentSet;
+@property(retain, nonatomic) CoreDAVLeafItem *summary; // @synthesize summary=_summary;
+@property(retain, nonatomic) CalDAVCalendarServerOrganizerItem *organizer; // @synthesize organizer=_organizer;
+@property(retain, nonatomic) CoreDAVItemWithHrefChildItem *hostURL; // @synthesize hostURL=_hostURL;
+@property(retain, nonatomic) CalDAVCalendarServerAccessItem *access; // @synthesize access=_access;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *calendarPublic; // @synthesize calendarPublic=_calendarPublic;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *inviteStatus; // @synthesize inviteStatus=_inviteStatus;
+@property(retain, nonatomic) CoreDAVHrefItem *href; // @synthesize href=_href;
+@property(retain, nonatomic) CoreDAVLeafItem *uid; // @synthesize uid=_uid;
 - (BOOL)isComponentSupportedForString:(id)arg1;
 - (id)copyParseRules;
 - (id)description;

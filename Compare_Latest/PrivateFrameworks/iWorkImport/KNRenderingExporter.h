@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
     BOOL mPrintingSkippedSlides;
     BOOL mPrintingSelectedSlides;
     BOOL mPrintingPageMargins;
+    BOOL mPrintingDraftQuality;
     unsigned int mSlidesPerPage;
     unsigned int mCurrentPage;
     NSString *mPrintTitle;
@@ -42,6 +43,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic, getter=isPrintingPageMargins) BOOL printingPageMargins; // @synthesize printingPageMargins=mPrintingPageMargins;
 @property(nonatomic) unsigned int slidesPerPage; // @synthesize slidesPerPage=mSlidesPerPage;
 @property(nonatomic, getter=isPrintingSelectedSlides) BOOL printingSelectedSlides; // @synthesize printingSelectedSlides=mPrintingSelectedSlides;
+@property(nonatomic, getter=isPrintingDraftQuality) BOOL printingDraftQuality; // @synthesize printingDraftQuality=mPrintingDraftQuality;
 @property(nonatomic, getter=isPrintingSkippedSlides) BOOL printingSkippedSlides; // @synthesize printingSkippedSlides=mPrintingSkippedSlides;
 @property(nonatomic, getter=isPrintingDate) BOOL printingDate; // @synthesize printingDate=mPrintingDate;
 @property(nonatomic, getter=isPrintingSlideNumbers) BOOL printingSlideNumbers; // @synthesize printingSlideNumbers=mPrintingSlideNumbers;
@@ -51,6 +53,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) int printLayout; // @synthesize printLayout=mPrintLayout;
 @property(retain, nonatomic) KNSlideNode *currentSlideNode; // @synthesize currentSlideNode=mCurrentSlideNode;
 @property(retain, nonatomic) KNOffscreenController *offscreenController; // @synthesize offscreenController=mOffscreenController;
+- (void)enableRenderAllContent;
 - (void)setOptions:(id)arg1;
 - (void)drawInView:(id)arg1 rect:(struct CGRect)arg2;
 @property(readonly, nonatomic) BOOL usesViewForDrawing;
@@ -82,6 +85,12 @@ __attribute__((visibility("hidden")))
 - (id)documentRoot;
 - (id)p_slideNumberStringForSlideNode:(id)arg1 buildIndex:(unsigned int)arg2;
 - (unsigned int)p_slideNumberForSlideNode:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

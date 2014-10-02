@@ -10,7 +10,7 @@
 #import "MPVideoControllerProtocol.h"
 #import "UIModalViewDelegate.h"
 
-@class MPAVController, MPAVItem, MPClosedCaptionDisplay, MPImageCache, MPImageCacheRequest, MPSwipableView, MPTVOutWindow, MPVideoBackgroundView, MPVideoView, UIActivityIndicatorView, UIAlertView, UIColor, UIImage, UIView, UIView<MPVideoOverlay>, _UIHostedWindow;
+@class MPAVController, MPAVItem, MPClosedCaptionDisplay, MPSwipableView, MPTVOutWindow, MPVideoBackgroundView, MPVideoView, NSString, UIActivityIndicatorView, UIAlertView, UIColor, UIImage, UIView, UIView<MPVideoOverlay>, _UIHostedWindow;
 
 @interface MPVideoViewController : MPViewController <MPVideoControllerProtocol, MPSwipableViewDelegate, UIModalViewDelegate>
 {
@@ -27,8 +27,6 @@
     unsigned int _scaleMode;
     unsigned int _scaleModeOverride;
     UIAlertView *_alertSheet;
-    MPImageCache *_artworkImageCache;
-    MPImageCacheRequest *_artworkImageRequest;
     UIColor *_backstopColor;
     UIActivityIndicatorView *_loadingIndicator;
     MPTVOutWindow *_tvOutWindow;
@@ -67,10 +65,8 @@
 - (void)_hideLoadingIndicator;
 - (void)_delayedUpdateBackgroundView;
 - (BOOL)_canEnableAirPlayVideoRoutes;
-- (void)_cancelArtworkImageRequest;
 - (unsigned long long)disabledPartsForProposedParts:(unsigned long long)arg1;
 - (void)backgroundViewDidUpdate;
-- (id)createChapterFlipTransition;
 - (id)newAlternateTracksTransition;
 @property(nonatomic) BOOL alwaysAllowHidingControlsOverlay;
 - (void)setControlsOverlayVisible:(BOOL)arg1 animate:(BOOL)arg2 force:(BOOL)arg3;
@@ -113,8 +109,6 @@
 - (void)_endBackgroundTask;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
 @property(readonly, nonatomic) BOOL viewControllerWillRequestExit;
-- (void)chapterListDidDisappear:(id)arg1;
-- (void)chapterList:(id)arg1 selectedChapter:(unsigned int)arg2;
 @property(readonly, nonatomic) BOOL canShowQTAudioOnlyUI;
 - (void)setFullscreen:(BOOL)arg1 animated:(BOOL)arg2;
 @property(nonatomic, getter=isFullscreen) BOOL fullscreen;
@@ -122,8 +116,8 @@
 @property(readonly, nonatomic, getter=isTransitioningToFullscreen) BOOL transitioningToFullscreen;
 @property(nonatomic) BOOL displayPlaybackErrorAlerts;
 @property(readonly, nonatomic) UIView<MPVideoOverlay> *videoOverlayViewIfLoaded;
-@property(readonly, nonatomic) UIView<MPVideoOverlay> *videoOverlayView;
-@property(readonly, nonatomic) MPVideoView *videoView;
+@property(readonly, retain, nonatomic) UIView<MPVideoOverlay> *videoOverlayView;
+@property(readonly, retain, nonatomic) MPVideoView *videoView;
 @property(nonatomic) BOOL allowsTVOutInBackground;
 @property(nonatomic) BOOL TVOutEnabled;
 @property(retain, nonatomic) MPAVController *player;
@@ -171,8 +165,6 @@
 - (int)displayArtworkImageStyle;
 - (BOOL)isFullscreenForLayoutPurposes;
 - (void)crossedTimeMakerWithEvent:(id)arg1;
-- (void)showChaptersController;
-- (void)showChaptersControllerAndFadeViews:(id)arg1;
 - (void)_updateClosedCaptionDisplay;
 - (void)willChangeToInterfaceOrientation:(int)arg1;
 - (void)showAlternateTracksController:(id)arg1;
@@ -185,9 +177,13 @@
 - (id)init;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) __weak id delegate;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(nonatomic) int orientation;
-@property(readonly, nonatomic) UIView *view;
+@property(readonly) Class superclass;
+@property(readonly, retain, nonatomic) UIView *view;
 
 @end
 

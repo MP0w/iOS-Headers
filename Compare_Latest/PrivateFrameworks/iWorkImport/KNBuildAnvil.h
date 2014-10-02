@@ -6,12 +6,13 @@
 
 #import <iWorkImport/KNAnimationEffect.h>
 
+#import "KNAnimationPluginArchiving.h"
 #import "KNFrameBuildAnimator.h"
 
-@class TSDGLDataBuffer, TSDGLParticleSystem, TSDGLShader, TSDGLTextureInfo;
+@class NSString, TSDGLDataBuffer, TSDGLParticleSystem, TSDGLShader, TSDGLTextureInfo;
 
 __attribute__((visibility("hidden")))
-@interface KNBuildAnvil : KNAnimationEffect <KNFrameBuildAnimator>
+@interface KNBuildAnvil : KNAnimationEffect <KNFrameBuildAnimator, KNAnimationPluginArchiving>
 {
     TSDGLParticleSystem *_smokeSystem;
     TSDGLShader *_smokeShader;
@@ -27,9 +28,10 @@ __attribute__((visibility("hidden")))
     TSDGLDataBuffer *_objectBlurDataBuffer;
     struct CGRect _drawableFrame;
     struct CGRect _frameRect;
-    BOOL _shouldDrawMotionBlur;
 }
 
++ (void)downgradeAttributes:(id *)arg1 animationName:(id *)arg2 warning:(id *)arg3 type:(int)arg4 isToClassic:(BOOL)arg5 version:(unsigned long long)arg6;
++ (void)upgradeAttributes:(id *)arg1 animationName:(id)arg2 warning:(id *)arg3 type:(int)arg4 isFromClassic:(BOOL)arg5 version:(unsigned long long)arg6;
 + (BOOL)requiresSingleTexturePerStage;
 + (id)thumbnailImageNameForType:(int)arg1;
 + (id)defaultAttributes;
@@ -49,6 +51,12 @@ __attribute__((visibility("hidden")))
 - (struct CGPoint *)p_cameraShakePoints;
 - (struct CGRect)frameOfEffectWithFrame:(struct CGRect)arg1 context:(id)arg2;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

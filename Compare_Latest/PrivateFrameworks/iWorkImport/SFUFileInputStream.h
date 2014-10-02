@@ -8,6 +8,8 @@
 
 #import "SFUInputStream.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface SFUFileInputStream : NSObject <SFUInputStream>
 {
@@ -30,6 +32,12 @@ __attribute__((visibility("hidden")))
 - (id)initWithPath:(id)arg1 offset:(long long)arg2;
 - (id)initWithPath:(id)arg1 offset:(long long)arg2 length:(long long)arg3;
 - (id)initWithFileDescriptor:(int)arg1 offset:(long long)arg2 length:(long long)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

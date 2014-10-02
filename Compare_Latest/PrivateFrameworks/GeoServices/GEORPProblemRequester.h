@@ -4,26 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <GeoServices/GEOServiceRequester.h>
 
-@class NSLock, NSMapTable;
-
-@interface GEORPProblemRequester : NSObject
+__attribute__((visibility("hidden")))
+@interface GEORPProblemRequester : GEOServiceRequester
 {
-    NSMapTable *_pendingRequests;
-    NSLock *_pendingRequestsLock;
-    NSMapTable *_providers;
 }
 
-+ (id)sharedRequester;
-- (Class)classForProviderID:(short)arg1;
-- (void)registerProvider:(Class)arg1;
++ (id)sharedInstance;
++ (unsigned int)_urlType;
+- (id)_validateResponse:(id)arg1;
 - (void)cancelRequest:(id)arg1;
-- (void)startNotificationAvailabilityRequest:(id)arg1 finished:(CDUnknownBlockType)arg2 networkActivity:(CDUnknownBlockType)arg3 error:(CDUnknownBlockType)arg4;
-- (void)startStatusRequest:(id)arg1 finished:(CDUnknownBlockType)arg2 networkActivity:(CDUnknownBlockType)arg3 error:(CDUnknownBlockType)arg4;
-- (void)startSubmissionRequest:(id)arg1 finished:(CDUnknownBlockType)arg2 networkActivity:(CDUnknownBlockType)arg3 error:(CDUnknownBlockType)arg4;
-- (void)dealloc;
-- (id)init;
+- (void)startWithRequest:(id)arg1 traits:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 
 @end
 

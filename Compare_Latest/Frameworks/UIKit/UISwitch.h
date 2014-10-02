@@ -9,7 +9,7 @@
 #import "NSCoding.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class UIColor, UIImage, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIView<_UISwitchInternalViewProtocol>;
+@class NSString, UIColor, UIImage, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIView<_UISwitchInternalViewProtocol>;
 
 @interface UISwitch : UIControl <UIGestureRecognizerDelegate, NSCoding>
 {
@@ -22,6 +22,7 @@
     float _enabledAlpha;
 }
 
++ (Class)_internalViewClass;
 @property(nonatomic, getter=isOn) BOOL on; // @synthesize on=_on;
 @property(nonatomic) float enabledAlpha; // @synthesize enabledAlpha=_enabledAlpha;
 @property(nonatomic, getter=_alwaysShowOnOffLabel, setter=_setAlwaysShowsOnOffLabel:) BOOL alwaysShowOnOffLabel;
@@ -74,6 +75,12 @@
 - (BOOL)isElementAccessibilityExposedToInterfaceBuilder;
 - (unsigned long long)defaultAccessibilityTraits;
 - (BOOL)isAccessibilityElementByDefault;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -22,7 +22,7 @@
 - (void)_handleEntitlementNotification:(struct __CFDictionary *)arg1;
 - (void)_registrationStateChanged;
 - (id)_rawEntitlementValue;
-@property(readonly, nonatomic) NSDictionary *registrationState;
+@property(readonly, retain, nonatomic) NSDictionary *registrationState;
 @property(readonly, nonatomic) BOOL faceTimeNonWiFiEntitled;
 - (id)init;
 

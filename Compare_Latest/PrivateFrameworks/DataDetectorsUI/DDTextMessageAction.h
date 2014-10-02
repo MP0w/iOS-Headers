@@ -8,6 +8,8 @@
 
 #import "MFMessageComposeViewControllerDelegate.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface DDTextMessageAction : DDTelephoneNumberAction <MFMessageComposeViewControllerDelegate>
 {
@@ -18,6 +20,12 @@ __attribute__((visibility("hidden")))
 - (void)perform;
 - (int)interactionType;
 - (id)localizedName;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

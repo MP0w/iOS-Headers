@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDate, NSMutableArray, NSString;
+@class NSDate, NSMutableArray, NSString, NSTimer;
 
 @interface IMSystemMonitor : NSObject
 {
@@ -30,6 +30,7 @@
     int _dataProtectionState;
     NSMutableArray *_listeners;
     NSDate *_idleStart;
+    NSTimer *_timer;
     NSDate *_dateScreenLightLastChanged;
     NSDate *_dateSystemLockLastChanged;
     NSString *_userID;
@@ -48,9 +49,10 @@
 @property(nonatomic) double _delayTime; // @synthesize _delayTime;
 @property(retain, nonatomic) NSString *_userID; // @synthesize _userID;
 @property(readonly, nonatomic) BOOL isSystemLocked; // @synthesize isSystemLocked=_systemLocked;
-@property(readonly, nonatomic) NSDate *dateSystemLockLastChanged; // @synthesize dateSystemLockLastChanged=_dateSystemLockLastChanged;
-@property(readonly, nonatomic) NSDate *dateScreenLightLastChanged; // @synthesize dateScreenLightLastChanged=_dateScreenLightLastChanged;
+@property(readonly, retain, nonatomic) NSDate *dateSystemLockLastChanged; // @synthesize dateSystemLockLastChanged=_dateSystemLockLastChanged;
+@property(readonly, retain, nonatomic) NSDate *dateScreenLightLastChanged; // @synthesize dateScreenLightLastChanged=_dateScreenLightLastChanged;
 @property(readonly, nonatomic) BOOL isScreenLit; // @synthesize isScreenLit=_screenLit;
+@property(retain, nonatomic) NSTimer *_timer; // @synthesize _timer;
 @property(retain, nonatomic) NSDate *_idleStart; // @synthesize _idleStart;
 @property(retain, nonatomic) NSMutableArray *_listeners; // @synthesize _listeners;
 @property(nonatomic) BOOL isFastUserSwitched; // @synthesize isFastUserSwitched=_switchedOut;
@@ -60,7 +62,6 @@
 @property(nonatomic) int _dataProtectionState; // @synthesize _dataProtectionState;
 @property(nonatomic) BOOL watchesSystemLockState; // @synthesize watchesSystemLockState=_watchesSystemLockState;
 @property(readonly, nonatomic) BOOL isScreenSaverActive; // @synthesize isScreenSaverActive=_screensaverActive;
-@property(readonly, nonatomic) BOOL isScreenLocked; // @synthesize isScreenLocked=_screenLocked;
 @property(readonly, nonatomic) BOOL systemIsSleeping; // @synthesize systemIsSleeping=_willSleep;
 @property(nonatomic) BOOL receivesMemoryWarnings; // @synthesize receivesMemoryWarnings=_receivesMemoryWarnings;
 @property(nonatomic) BOOL watchesScreenLightState; // @synthesize watchesScreenLightState=_watchesScreenLightState;
@@ -69,6 +70,7 @@
 - (void)_unregisterForLoginWindowNotifications;
 - (void)_registerForLoginWindowNotifications;
 - (void)_handleLoginWindowNotification:(id)arg1;
+- (void)_forceSuspended;
 - (void)_forceResumed;
 @property(readonly, nonatomic) BOOL isSetup;
 - (void)_unregisterForRestoreNotifications;
@@ -85,6 +87,9 @@
 @property(readonly, nonatomic) BOOL systemIsShuttingDown;
 @property(readonly, nonatomic) double systemIdleTime;
 @property(readonly, nonatomic) BOOL isSystemIdle;
+- (void)_checkIdleTime:(id)arg1;
+- (void)_clearIdleTimer;
+- (void)_armIdleTimer;
 - (void)_overrideAndDisableIdleTimer:(BOOL)arg1;
 - (void)_setIdleState:(BOOL)arg1;
 - (void)_updateIdleState;
@@ -108,6 +113,7 @@
 - (void)_suspendEventsOnly:(id)arg1;
 - (void)_applicationDidBecomeActive:(id)arg1;
 - (void)_applicationWillResignActive:(id)arg1;
+@property(readonly, nonatomic) BOOL isScreenLocked; // @synthesize isScreenLocked=_screenLocked;
 - (void)_screenUnlocked:(id)arg1;
 - (void)_screenLocked:(id)arg1;
 - (void)_postScreenLocked;

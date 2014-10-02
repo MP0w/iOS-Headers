@@ -9,7 +9,7 @@
 #import "OADEffectsParent.h"
 #import "OADProperties3DParent.h"
 
-@class NSArray, OADFill, OADScene3D, OADShape3D;
+@class NSArray, NSString, OADFill, OADScene3D, OADShape3D;
 
 __attribute__((visibility("hidden")))
 @interface OADGroupProperties : OADDrawableProperties <OADEffectsParent, OADProperties3DParent>
@@ -35,6 +35,12 @@ __attribute__((visibility("hidden")))
 - (id)fill;
 - (void)dealloc;
 - (id)initWithDefaults;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

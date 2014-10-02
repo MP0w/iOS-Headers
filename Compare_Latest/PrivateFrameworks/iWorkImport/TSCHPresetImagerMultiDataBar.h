@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (id)p_shadow;
-- (void)p_drawShadowedContentIntoContext:(struct CGContext *)arg1 size:(struct CGSize)arg2 contentsScale:(float)arg3 preset:(id)arg4;
+- (void)p_drawShadowedContentIntoContext:(struct CGContext *)arg1 size:(struct CGSize)arg2 contentsScale:(float)arg3 preset:(id)arg4 shouldCache:(char *)arg5;
 
 @end
 

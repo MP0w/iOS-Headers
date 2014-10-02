@@ -6,13 +6,27 @@
 
 #import <DataMigration/DMXPCConnection.h>
 
-@interface DMConnection : DMXPCConnection
+#import "DMMigratorServiceProtocol.h"
+
+@class NSString;
+
+@interface DMConnection : DMXPCConnection <DMMigratorServiceProtocol>
 {
+    NSString *_lastPlugin;
 }
 
+@property(readonly, nonatomic) NSString *lastPlugin; // @synthesize lastPlugin=_lastPlugin;
+- (void).cxx_destruct;
+- (void)handleMessage:(id)arg1;
 - (void)testMigrationUIWithProgress:(BOOL)arg1 forceInvert:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)orderedPluginIdentifiersWithCompletion:(CDUnknownBlockType)arg1;
 - (void)migrateWithCompletion:(CDUnknownBlockType)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

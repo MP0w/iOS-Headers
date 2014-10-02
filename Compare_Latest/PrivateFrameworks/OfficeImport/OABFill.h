@@ -11,7 +11,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)writeFill:(id)arg1 toFill:(struct EshFill *)arg2 state:(id)arg3;
 + (id)readFillFromFillPropertiesManager:(id)arg1 colorPalette:(id)arg2;
 + (void)readImageFill:(id)arg1 fromFillPropertiesManager:(id)arg2 colorPalette:(id)arg3;
 + (void)readGradientFill:(id)arg1 fromFillPropertiesManager:(id)arg2 colorPalette:(id)arg3;

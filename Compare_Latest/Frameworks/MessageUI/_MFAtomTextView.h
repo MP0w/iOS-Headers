@@ -10,11 +10,13 @@
 
 @interface _MFAtomTextView : UITextView
 {
+    unsigned int _textStorageEditingDepth;
     MFComposeRecipientTextView *_hostRecipientView;
 }
 
 @property MFComposeRecipientTextView *hostRecipientView; // @synthesize hostRecipientView=_hostRecipientView;
 - (void)_handleKeyUIEvent:(id)arg1;
+- (BOOL)_delegateSupportsKeyboardEvents;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)undoManager;
 - (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
@@ -29,6 +31,8 @@
 - (id)selectionRectsForRange:(id)arg1;
 - (BOOL)resignFirstResponder;
 - (BOOL)becomeFirstResponder;
+- (void)batchTextStorageUpdates:(CDUnknownBlockType)arg1;
+- (BOOL)isEditingTextStorage;
 - (void)enumerateAtomAttachments:(CDUnknownBlockType)arg1;
 - (void)enumerateAtomsInCharacterRange:(struct _NSRange)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateAtoms:(CDUnknownBlockType)arg1;

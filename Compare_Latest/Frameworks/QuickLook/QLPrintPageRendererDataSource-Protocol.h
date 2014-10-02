@@ -9,8 +9,8 @@
 @class NSData, QLPrintPageRenderer;
 
 @protocol QLPrintPageRendererDataSource <NSObject>
-- (NSData *)printPageRenderer:(QLPrintPageRenderer *)arg1 pdfDataForPageAtIndex:(int)arg2 withSize:(struct CGSize)arg3 printingDone:(char *)arg4;
+- (NSData *)printPageRenderer:(QLPrintPageRenderer *)arg1 pdfDataForPageAtIndex:(int)arg2 printingDone:(char *)arg3;
 - (void)printPageRenderer:(QLPrintPageRenderer *)arg1 prepareForDrawingPages:(struct _NSRange)arg2;
-- (int)numberOfPageInPrintPageRenderer:(QLPrintPageRenderer *)arg1 withSize:(struct CGSize)arg2;
+- (int)numberOfPagesInPrintPageRenderer:(QLPrintPageRenderer *)arg1;
 @end
 

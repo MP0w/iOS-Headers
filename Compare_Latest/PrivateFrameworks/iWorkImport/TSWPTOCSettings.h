@@ -6,12 +6,13 @@
 
 #import <iWorkImport/TSPObject.h>
 
+#import "TSPCopying.h"
 #import "TSSPreset.h"
 
 @class NSSet, NSString, TSURetainedPointerKeyDictionary;
 
 __attribute__((visibility("hidden")))
-@interface TSWPTOCSettings : TSPObject <TSSPreset>
+@interface TSWPTOCSettings : TSPObject <TSPCopying, TSSPreset>
 {
     NSString *_displayName;
     int _scope;
@@ -36,6 +37,7 @@ __attribute__((visibility("hidden")))
 - (void)loadFromArchive:(const struct TOCSettingsArchive *)arg1 unarchiver:(id)arg2;
 @property(readonly, nonatomic) NSString *presetKind;
 - (BOOL)isThemeEquivalent:(id)arg1;
+- (id)copyWithContext:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1;

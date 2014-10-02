@@ -16,8 +16,9 @@
 
 + (id)transactionWithBulletinID:(id)arg1;
 @property(readonly, nonatomic) unsigned int transactionID; // @synthesize transactionID=_transactionID;
-@property(readonly, nonatomic) NSString *bulletinID; // @synthesize bulletinID=_bulletinID;
+@property(readonly, copy, nonatomic) NSString *bulletinID; // @synthesize bulletinID=_bulletinID;
 - (unsigned int)incrementTransactionID;
+- (id)description;
 - (void)dealloc;
 - (id)initWithBulletinID:(id)arg1;
 

@@ -26,7 +26,6 @@ __attribute__((visibility("hidden")))
 - (id)paragraphStylesBetweenCharIndex:(unsigned int)arg1 andCharIndex:(unsigned int)arg2;
 - (unsigned int)charIndexAtPoint:(struct CGPoint)arg1;
 - (id)tocInfo;
-- (BOOL)handleSingleTapAtPoint:(struct CGPoint)arg1;
 
 @end
 

@@ -32,7 +32,7 @@
 @property(readonly) double height; // @dynamic height;
 @property(readonly) double width; // @dynamic width;
 @property(readonly) BOOL isRoll; // @dynamic isRoll;
-@property(readonly) NSString *unitStr; // @dynamic unitStr;
+@property(readonly, retain) NSString *unitStr; // @dynamic unitStr;
 - (void)parseMediaName:(id)arg1;
 - (void)dealloc;
 - (id)initWithString:(id)arg1;

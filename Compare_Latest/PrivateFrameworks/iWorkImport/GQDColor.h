@@ -8,6 +8,8 @@
 
 #import "GQDNameMappable.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface GQDColor : NSObject <GQDNameMappable>
 {
@@ -30,11 +32,16 @@ __attribute__((visibility("hidden")))
 - (float)greenComponent;
 - (float)redComponent;
 - (void)getRed:(float *)arg1 green:(float *)arg2 blue:(float *)arg3 alpha:(float *)arg4;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)initWithCalibratedRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4;
 - (int)htmlBlue;
 - (int)htmlGreen;
 - (int)htmlRed;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "EKExpandingTextViewDelegate.h"
 
-@class EKReminderInlineEditItemCell;
+@class EKReminderInlineEditItemCell, NSString;
 
 @interface EKReminderInlineEditItem : EKReminderEditItem <EKExpandingTextViewDelegate>
 {
@@ -23,10 +23,10 @@
 - (void)textViewDidBeginEditing:(id)arg1;
 - (id)textFromReminder;
 - (int)cellStyle;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
-- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2 forWidth:(float)arg3;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1;
+- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
 - (id)newCell;
-- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
+- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(unsigned int)arg2;
 - (void)_applyStylesFromStyleProviderToTextView:(id)arg1;
 - (BOOL)shouldPinKeyboard;
 - (BOOL)isInline;
@@ -34,6 +34,12 @@
 - (id)init;
 - (void)_keyboardDidShow:(id)arg1;
 - (void)_keyboardWillShow:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

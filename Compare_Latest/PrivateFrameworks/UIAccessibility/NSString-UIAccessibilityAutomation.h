@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (UIAccessibilityAutomation)
-- (void)_setAccessibilityLocalizedStringLookupInfo:(id)arg1;
-- (id)_accessibilityLocalizedStringLookupInfo;
+- (void)_setAccessibilityAttributedLocalizedString:(id)arg1;
+- (id)_accessibilityAttributedLocalizedString;
 @end
 

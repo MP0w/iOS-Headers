@@ -12,8 +12,8 @@
 - (void)addObjectsFromNonNilArray:(id)arg1;
 - (void)addNonNilObject:(id)arg1;
 - (void)addObjects:(id)arg1;
-- (id)pop;
-- (void)push:(id)arg1;
+- (id)pop_tsu;
+- (void)push_tsu:(id)arg1;
 - (id)dequeue;
 - (void)enqueue:(id)arg1;
 @end

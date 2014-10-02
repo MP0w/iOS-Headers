@@ -8,14 +8,13 @@
 
 #import "MKAnnotationCalloutControllerDelegate.h"
 
-@class MKAnnotationCalloutController, MKAnnotationView, MKPinAnnotationView, NSMutableArray, NSMutableSet, UIPopoverController;
+@class MKAnnotationCalloutController, MKAnnotationView, MKPinAnnotationView, NSMutableArray, NSMutableSet, NSString, UIPopoverController;
 
 __attribute__((visibility("hidden")))
 @interface MKAnnotationContainerView : UIView <MKAnnotationCalloutControllerDelegate>
 {
     NSMutableArray *_annotationViews;
     NSMutableArray *_awaitingDropPins;
-    BOOL _registeredForAddressBookChanges;
     MKAnnotationView *_selectedAnnotationView;
     MKAnnotationView *_annotationViewToSelect;
     id <MKAnnotationContainerViewDelegate> _delegate;
@@ -32,12 +31,13 @@ __attribute__((visibility("hidden")))
     NSMutableSet *_viewsToAnimate;
     MKAnnotationCalloutController *_calloutController;
     float _mapPitchRadians;
-    int _mapDisplayStyle;
+    unsigned int _mapDisplayStyle;
 }
 
 - (void).cxx_destruct;
 - (CDStruct_90e2a262)_mapRectWithFraction:(double)arg1 ofVisible:(CDStruct_90e2a262)arg2;
 - (void)calloutControllerDidFinishMapsTransitionExpanding:(id)arg1;
+- (void)calloutDidAppearForAnnotationView:(id)arg1 inCalloutController:(id)arg2;
 - (void)calloutController:(id)arg1 annotationView:(id)arg2 calloutAccessoryControlTapped:(id)arg3;
 - (void)calloutController:(id)arg1 scrollToRevealCalloutWithOffset:(struct CGPoint)arg2 annotationCoordinate:(CDStruct_c3b9c2ee)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (struct CGRect)calloutController:(id)arg1 visibleCenteringRectInAnnotationView:(id)arg2;
@@ -98,8 +98,7 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)_visibleCenteringRect;
 - (BOOL)isCalloutExpanded;
 - (BOOL)calloutContainsPoint:(struct CGPoint)arg1;
-@property(nonatomic) __weak Class calloutViewClass;
-- (void)setMapDisplayStyle:(int)arg1;
+- (void)setMapDisplayStyle:(unsigned int)arg1;
 @property(nonatomic) unsigned int mapType;
 @property(nonatomic) BOOL allowsPopoverWhenNotInWindow;
 @property(readonly, nonatomic) UIPopoverController *popoverController;
@@ -107,6 +106,12 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak id <MKAnnotationContainerViewDelegate> delegate;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

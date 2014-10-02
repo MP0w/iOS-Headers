@@ -9,7 +9,7 @@
 #import "TSCHChartRepPlatformProtocols.h"
 #import "TSCHSupportsRendering.h"
 
-@class CALayer, CAShapeLayer, NSArray, NSString, TSCHChartDrawableInfo, TSCHChartLayout, TSCHLegendMoveKnob, TSCHMessageView, TSCHRendererLayer, TSCHSearchSelection, TSCHSelectionPath;
+@class CALayer, CAShapeLayer, NSArray, NSString, TSCHChartDrawableInfo, TSCHChartLayout, TSCHMessageView, TSCHRendererLayer, TSCHSearchSelection, TSCHSelectionPath;
 
 __attribute__((visibility("hidden")))
 @interface TSCHChartRep : TSWPTextHostRep <TSCHChartRepPlatformProtocols, TSCHSupportsRendering>
@@ -45,10 +45,11 @@ __attribute__((visibility("hidden")))
     BOOL mDrawingSearchReference;
     CALayer *mSubselectionKnobLayer;
     BOOL mFinishedBecomingSelected;
-    TSCHLegendMoveKnob *mDynamicLegendKnob;
     CDUnknownBlockType mDrawingOpStartBlock;
     CDUnknownBlockType mDrawingOpEndBlock;
+    BOOL mAwaitingLegendSubselection;
     int mRenderPassChunkPhase;
+    struct CGPoint mLastSubselectionLayerRelativeReferencePosition;
 }
 
 + (float)magicMoveAttributeMatchPercentBetweenOutgoingObject:(id)arg1 incomingObject:(id)arg2;
@@ -56,10 +57,9 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) CDUnknownBlockType drawingOpStartBlock; // @synthesize drawingOpStartBlock=mDrawingOpStartBlock;
 @property(readonly, nonatomic) int currentChunk; // @synthesize currentChunk=mCurrentChunk;
 @property(readonly, nonatomic) BOOL chartRepGoingAway; // @synthesize chartRepGoingAway=mChartRepGoingAway;
-@property(readonly, nonatomic) TSCHSelectionPath *activeTextEditingPath; // @synthesize activeTextEditingPath=mActiveTextEditingPath;
+@property(readonly, retain, nonatomic) TSCHSelectionPath *activeTextEditingPath; // @synthesize activeTextEditingPath=mActiveTextEditingPath;
 @property(nonatomic) BOOL chunkTexturesValid; // @synthesize chunkTexturesValid=mChunkTexturesValid;
 @property(readonly, nonatomic) BOOL drawingSearchReference; // @synthesize drawingSearchReference=mDrawingSearchReference;
-@property(retain, nonatomic) TSCHLegendMoveKnob *dynamicLegendKnob; // @synthesize dynamicLegendKnob=mDynamicLegendKnob;
 @property(nonatomic) BOOL forceSeparateLegendLayer; // @synthesize forceSeparateLegendLayer=mForceSeparateLegendLayer;
 - (void)endDrawingOperation;
 - (void)beginDrawingOperation;
@@ -78,6 +78,7 @@ __attribute__((visibility("hidden")))
 - (void)setNeedsDisplay;
 - (BOOL)hasSubselection;
 - (void)invalidateSubselectionKnobs;
+- (id)selectedSeriesIndices;
 - (id)subselectionLayer;
 - (id)protected_haloLayersForHaloPositions:(id)arg1;
 - (id)protected_knobLayersForKnobPositions:(id)arg1;
@@ -125,12 +126,12 @@ __attribute__((visibility("hidden")))
 - (BOOL)p_legendIsBeingMoved;
 - (BOOL)p_legendIsBeingResized;
 - (BOOL)p_legendIsSelected;
-- (id)p_primaryChartEditor;
-- (id)p_currentChartEditor;
 - (BOOL)rotationKnobHitByNaturalPoint:(struct CGPoint)arg1;
+- (BOOL)intersectsUnscaledRect:(struct CGRect)arg1;
 - (BOOL)containsPoint:(struct CGPoint)arg1;
 - (BOOL)p_legendHitByLayoutPoint:(struct CGPoint)arg1;
 - (BOOL)shadowsEnabled;
+- (void)dynamicallyUpdatingLegendFrameWithTracker:(id)arg1;
 - (void)knobTrackingDidEnd:(id)arg1;
 - (void)knobTrackingDidBegin:(id)arg1;
 - (void)setCurrentKnobTracker:(id)arg1;
@@ -138,12 +139,6 @@ __attribute__((visibility("hidden")))
 - (void)updatePositionsOfKnobs:(id)arg1;
 - (void)p_updatePositionsOfLegendKnobs:(id)arg1;
 - (void)p_updatePositionOfLegendKnob:(id)arg1;
-- (void)p_updatePositionForLegendMoveKnob:(id)arg1;
-- (void)p_centerToLegendFrameForNonactiveLegendMoveKnob:(id)arg1 legendDrawingFrameInNaturalSpace:(struct CGRect)arg2;
-- (void)p_updateLegendLayerPositionForLegendMoveKnobUsingRelativePosition:(id)arg1;
-- (void)p_updateLegendLayerPositionForLegendMoveKnobUsingUnscaledPosition:(id)arg1;
-- (void)p_centerToLegendFrameEdgeForNonactiveLegendResizeKnob:(id)arg1 legendFrameInNaturalSpace:(struct CGRect)arg2;
-- (void)p_updatePositionOfLegendResizeKnob:(id)arg1;
 - (void)viewScaleDidChange;
 - (void)invalidateKnobs;
 - (void)invalidateKnobPositions;
@@ -155,7 +150,6 @@ __attribute__((visibility("hidden")))
 - (id)knobForDynamicStyleChangeKey:(id)arg1;
 - (BOOL)shouldShowKnobs;
 - (void)updateKnobs;
-- (id)newCommandToApplyGeometry:(id)arg1 toInfo:(id)arg2;
 - (void)dynamicResizeDidEndWithTracker:(id)arg1;
 - (void)dynamicallyResizingWithTracker:(id)arg1;
 - (id)dynamicResizeDidBegin;
@@ -186,8 +180,8 @@ __attribute__((visibility("hidden")))
 - (void)p_invalidateMediatorEditingHaloLayer;
 - (void)becameNotSelected;
 - (void)becameSelected;
-- (void)editorIsDeselectingInfo;
-- (void)editorIsSelectingInfos:(id)arg1;
+- (void)editor:(id)arg1 isDeselectingInfos:(id)arg2;
+- (void)editor:(id)arg1 isSelectingInfos:(id)arg2;
 - (BOOL)isEditing;
 - (id)itemsToAddToEditMenu;
 - (BOOL)shouldShowLegendHighlight;
@@ -203,6 +197,8 @@ __attribute__((visibility("hidden")))
 - (void)p_forceDismissTransientMessage;
 - (BOOL)p_chartShouldDisplayMessage;
 - (void)p_positionMessageView;
+- (struct CGRect)targetRectForEditMenu;
+- (BOOL)shouldUseChartAreaRectForEditMenuTargetRectMinY;
 - (void)p_deleteMessageView;
 - (int)tilingMode;
 - (void)renderIntoContext:(struct CGContext *)arg1 visible:(struct CGRect)arg2;
@@ -220,6 +216,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)directlyManagesLayerContent;
 - (BOOL)p_hasBackgroundLayerForPieChart;
 - (BOOL)p_hasBackgroundFill;
+- (id)additionalRectsForSnappingWithOffset:(struct CGPoint)arg1;
 - (struct CGRect)snapRectForDynamicDragWithOffset:(struct CGPoint)arg1;
 - (BOOL)isDrawingIntoPDF;
 - (id)commandController;
@@ -232,7 +229,6 @@ __attribute__((visibility("hidden")))
 - (void)clearRenderers;
 - (id)renderers;
 - (BOOL)canDrawInParallel;
-- (BOOL)canDrawInBackgroundDuringScroll;
 - (void)willBeRemoved;
 @property(readonly, nonatomic) BOOL forceRenderBlankBackground;
 - (id)p_legendRenderer;
@@ -242,6 +238,13 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSCHChartDrawableInfo *chartInfo;
 - (void)dealloc;
 - (id)initWithLayout:(id)arg1 canvas:(id)arg2;
+- (BOOL)requireSeparateLabelLayer;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

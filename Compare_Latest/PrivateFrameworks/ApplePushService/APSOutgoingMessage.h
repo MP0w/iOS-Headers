@@ -10,6 +10,8 @@
 {
 }
 
+- (void)setSenderTokenName:(id)arg1;
+- (id)senderTokenName;
 - (void)setPriority:(int)arg1;
 - (int)priority;
 @property(nonatomic) unsigned int payloadLength;
@@ -23,6 +25,8 @@
 - (void)setSent:(BOOL)arg1;
 - (BOOL)wasSent;
 @property(nonatomic, getter=isCritical) BOOL critical;
+- (BOOL)isEager;
+- (id)eagernessTimeoutTime;
 - (id)sendTimeoutTime;
 - (unsigned int)_effectiveSendTimeout;
 @property(nonatomic) unsigned int timeout;

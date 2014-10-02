@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
     unsigned long long _genericIndex;
 }
 
++ (id)_dataWithXPCObject:(id)arg1;
 @property id <NSXPCEncoderDelegate> delegate; // @synthesize delegate=_delegate;
 @property NSXPCConnection *_connection; // @synthesize _connection;
 - (void)encodeConditionalObject:(id)arg1 forKey:(id)arg2;
@@ -45,6 +46,7 @@ __attribute__((visibility("hidden")))
 - (void)encodeValueOfObjCType:(const char *)arg1 at:(const void *)arg2;
 - (BOOL)allowsKeyedCoding;
 - (id)_createRootXPCObject;
+- (void)_insertIntoXPCObject:(id)arg1;
 - (id)debugDescription;
 - (void)finalize;
 - (void)dealloc;

@@ -6,26 +6,23 @@
 
 #import "SBStarkAlertToAppWorkspaceTransaction.h"
 
-@class SBAlert, SBApplication, SBUIAnimationController;
+@class SBAlert, SBApplication;
 
 @interface SBStarkAlertToImpersonatedAppWorkspaceTransaction : SBStarkAlertToAppWorkspaceTransaction
 {
     SBAlert *_fromAlert;
     SBAlert *_toAlert;
     SBApplication *_toApplication;
-    SBUIAnimationController *_animation;
 }
 
 - (void)_activateAlert;
 - (_Bool)_shouldDisallowSuspension;
-- (_Bool)selfStarkAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
-- (_Bool)selfStarkAlertWillActivate:(id)arg1 overAlerts:(id)arg2;
-- (_Bool)selfStarkAlertDidDeactivate:(id)arg1;
-- (int)_setupMilestonesFrom:(id)arg1 to:(id)arg2;
+- (void)_setupMilestonesFrom:(id)arg1 to:(id)arg2;
+- (void)_alertDidDeactivate;
 - (void)_beginAnimation;
 - (id)debugDescription;
 - (void)dealloc;
-- (id)initWithWorkspace:(id)arg1 mainScreenAlertManager:(id)arg2 starkScreenController:(id)arg3 alert:(id)arg4 toApplication:(id)arg5;
+- (id)initWithMainScreenAlertManager:(id)arg1 starkScreenController:(id)arg2 alert:(id)arg3 toApplication:(id)arg4;
 
 @end
 

@@ -9,7 +9,7 @@
 #import "UICollisionBehaviorDelegate.h"
 #import "UIDynamicAnimatorDelegate.h"
 
-@class UIDynamicItemBehavior, UIGravityBehavior, UIPushBehavior, UIView, _UIDynamicSliderAnimator;
+@class NSString, UIDynamicItemBehavior, UIGravityBehavior, UIPushBehavior, UIView, _UIDynamicSliderAnimator;
 
 @interface _UIDynamicSlider : UISlider <UIDynamicAnimatorDelegate, UICollisionBehaviorDelegate>
 {
@@ -35,6 +35,12 @@
 - (void)_updateDynamicsTracking:(id)arg1;
 - (void)_initializeDynamicsTracking:(id)arg1;
 - (void)_clearDynamics;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -33,6 +33,7 @@
 - (void)_updateLibraryForPlaylistEdit:(id)arg1;
 - (id)valuesForProperties:(id)arg1;
 - (id)valueForProperty:(id)arg1;
+- (id)multiverseIdentifier;
 - (unsigned int)mediaTypes;
 - (unsigned int)count;
 - (id)representativeItem;

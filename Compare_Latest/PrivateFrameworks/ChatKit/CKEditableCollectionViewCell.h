@@ -6,26 +6,28 @@
 
 #import "UICollectionViewCell.h"
 
-@class UIImageView, UIView;
+@class UIImageView;
 
 @interface CKEditableCollectionViewCell : UICollectionViewCell
 {
     BOOL _editing;
-    UIView *_contentAlignmentView;
     UIImageView *_checkmark;
-    struct UIEdgeInsets _contentAlignmentInsets;
+    struct CGRect _contentAlignmentRect;
+    struct UIEdgeInsets _contentInsets;
+    struct UIEdgeInsets _marginInsets;
 }
 
 @property(retain, nonatomic) UIImageView *checkmark; // @synthesize checkmark=_checkmark;
 @property(nonatomic, getter=isEditing) BOOL editing; // @synthesize editing=_editing;
-@property(nonatomic) struct UIEdgeInsets contentAlignmentInsets; // @synthesize contentAlignmentInsets=_contentAlignmentInsets;
-@property(retain, nonatomic) UIView *contentAlignmentView; // @synthesize contentAlignmentView=_contentAlignmentView;
+@property(nonatomic) struct UIEdgeInsets marginInsets; // @synthesize marginInsets=_marginInsets;
+@property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
+@property(nonatomic) struct CGRect contentAlignmentRect; // @synthesize contentAlignmentRect=_contentAlignmentRect;
 - (void)updateCheckmarkImage;
+@property(readonly, nonatomic) struct UIEdgeInsets contentAlignmentInsets;
 - (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)setHighlighted:(BOOL)arg1;
 - (void)setSelected:(BOOL)arg1;
 - (void)layoutSubviews;
-- (id)initWithFrame:(struct CGRect)arg1;
 - (id)description;
 - (void)dealloc;
 

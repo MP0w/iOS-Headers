@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     NSFileAccessNode *_itemLocation;
 }
 
+- (void)collectDebuggingInformationWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)description;
 - (id)descriptionWithIndenting:(id)arg1;
 - (void)forwardUsingMessageSender:(CDUnknownBlockType)arg1;

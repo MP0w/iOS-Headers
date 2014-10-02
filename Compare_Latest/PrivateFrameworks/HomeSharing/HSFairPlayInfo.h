@@ -14,6 +14,7 @@
     void *_hwInfo;
 }
 
+- (void).cxx_destruct;
 - (id)_hexStringForData:(id)arg1;
 - (id)securityInfoForURL:(id)arg1;
 - (void)endSecuritySession;

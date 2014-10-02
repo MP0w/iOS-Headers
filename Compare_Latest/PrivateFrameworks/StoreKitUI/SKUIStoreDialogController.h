@@ -8,7 +8,7 @@
 
 #import "UIAlertViewDelegate.h"
 
-@class NSMutableArray;
+@class NSMutableArray, NSString;
 
 @interface SKUIStoreDialogController : NSObject <UIAlertViewDelegate>
 {
@@ -22,6 +22,12 @@
 - (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)presentDialog:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

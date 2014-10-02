@@ -8,7 +8,7 @@
 
 #import "MFCollectingDataConsumer.h"
 
-@class NSArray;
+@class NSArray, NSString;
 
 @interface _MFSecCMSDecoder : NSObject <MFCollectingDataConsumer>
 {
@@ -32,6 +32,12 @@
 - (int)appendData:(id)arg1;
 - (void)dealloc;
 - (id)initWithPartData:(id)arg1 error:(id *)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -9,7 +9,7 @@
 #import "KNAnimationPluginArchiving.h"
 #import "KNFrameBuildAnimator.h"
 
-@class KNAnimParameterGroup, NSArray, TSDGLBloomEffect, TSDGLDataBuffer, TSDGLFrameBuffer, TSDGLShader, TSDGLTextureInfo;
+@class KNAnimParameterGroup, NSArray, NSString, TSDGLBloomEffect, TSDGLDataBuffer, TSDGLFrameBuffer, TSDGLShader, TSDGLTextureInfo;
 
 __attribute__((visibility("hidden")))
 @interface KNBuildFireworks : KNAnimationEffect <KNFrameBuildAnimator, KNAnimationPluginArchiving>
@@ -19,7 +19,6 @@ __attribute__((visibility("hidden")))
     struct CGRect _frameRect;
     struct CATransform3D _baseOrthoTransform;
     struct CATransform3D _baseTransform;
-    int _oldViewportRect[4];
     NSArray *_fireworksSystems;
     TSDGLShader *_fireworksShader;
     TSDGLShader *_objectShader;
@@ -59,6 +58,12 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)frameOfEffectWithFrame:(struct CGRect)arg1 context:(id)arg2;
 - (void)dealloc;
 - (id)initWithAnimationContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

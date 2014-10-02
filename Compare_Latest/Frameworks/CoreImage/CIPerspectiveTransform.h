@@ -25,7 +25,6 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) CIVector *inputTopLeft; // @synthesize inputTopLeft;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
-- (void)setDefaults;
 
 @end
 

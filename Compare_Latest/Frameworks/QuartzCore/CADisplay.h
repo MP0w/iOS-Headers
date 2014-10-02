@@ -28,6 +28,7 @@
 @property(readonly, getter=isSupported) BOOL supported;
 @property(readonly) int tag;
 @property(readonly, nonatomic) struct CGRect safeBounds;
+@property(readonly, nonatomic) struct CGRect frame;
 @property(readonly, nonatomic) struct CGRect bounds;
 @property BOOL allowsVirtualModes;
 @property(copy, nonatomic) NSString *colorMode;

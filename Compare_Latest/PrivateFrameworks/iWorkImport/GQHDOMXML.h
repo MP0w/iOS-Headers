@@ -8,6 +8,8 @@
 
 #import "GQHXMLOutput.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface GQHDOMXML : NSObject <GQHXMLOutput>
 {
@@ -28,6 +30,12 @@ __attribute__((visibility("hidden")))
 - (id)initWithHead;
 - (id)initEmpty;
 - (void)removeStyleSheetLinkNodeAndAddStyle:(struct __CFString *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -15,11 +15,11 @@
 }
 
 @property(retain, nonatomic) UIButton *termsButton; // @synthesize termsButton=_termsButton;
-@property(nonatomic) id delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)layoutSubviews;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1 bypassDelegate:(BOOL)arg2;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

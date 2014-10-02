@@ -8,22 +8,30 @@
 
 #import "RTFrameworkProtocol.h"
 
-@class NSObject<OS_dispatch_queue>, NSXPCConnection, _RTRoutineManagerProxy;
+@class NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
 
 @interface RTRoutineManager : NSObject <RTFrameworkProtocol>
 {
     NSObject<OS_dispatch_queue> *_queue;
-    _RTRoutineManagerProxy *_routineManagerProxy;
     NSXPCConnection *_xpcConnection;
+    CDUnknownBlockType _visitHandler;
 }
 
++ (id)modeOfTransportationToString:(int)arg1;
 + (id)routineModeToString:(int)arg1;
 + (id)defaultManager;
+@property(copy, nonatomic) CDUnknownBlockType visitHandler; // @synthesize visitHandler=_visitHandler;
 @property(retain, nonatomic) NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
-@property(retain, nonatomic) _RTRoutineManagerProxy *routineManagerProxy; // @synthesize routineManagerProxy=_routineManagerProxy;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 - (void).cxx_destruct;
+- (void)fetchPathToDiagnosticFilesWithHandler:(CDUnknownBlockType)arg1;
+- (void)onVisit:(id)arg1 withError:(id)arg2;
+- (void)stopMonitoringVisits;
+- (void)startMonitoringVisitsWithHandler:(CDUnknownBlockType)arg1;
+- (void)fetchPredictedLocationsOfInterestOnDate:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
+- (void)fetchLocationsOfInterestAssociatedToIdentifier:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)fetchRoutineModeFromLocation:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
+- (void)fetchPredictedConditionsForAction:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)clearRoutine;
 - (void)setRoutineEnabled:(BOOL)arg1;
 - (void)fetchBBPluginSupportedWithHandler:(CDUnknownBlockType)arg1;
@@ -38,6 +46,12 @@
 - (void)createConnection;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

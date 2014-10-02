@@ -8,7 +8,7 @@
 
 #import "_UIResponderForwardable.h"
 
-@class NSArray, NSMutableArray, UIResponder, UIWindow;
+@class NSArray, NSMutableArray, NSString, UIResponder, UIWindow;
 
 @interface _UIPhysicalButton : NSObject <_UIResponderForwardable>
 {
@@ -38,6 +38,12 @@
 - (void)_removeGestureRecognizer:(id)arg1;
 @property(copy, nonatomic) NSArray *gestureRecognizers;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

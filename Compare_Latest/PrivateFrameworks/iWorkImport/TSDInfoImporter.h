@@ -13,7 +13,7 @@ __attribute__((visibility("hidden")))
 {
     TSPObjectContext *mContext;
     NSURL *mURL;
-    TSPData *mImageData;
+    TSPData *mData;
     TSSTheme *mTheme;
     id <TSDInfoImporterDelegate> mDelegate;
 }
@@ -21,6 +21,8 @@ __attribute__((visibility("hidden")))
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (Class)p_classForTSPData:(id)arg1;
 + (Class)p_classForURL:(id)arg1;
++ (BOOL)i_canImportFileWithData:(id)arg1 type:(id)arg2;
++ (BOOL)i_canImportFileAtURL:(id)arg1 type:(id)arg2;
 + (id)i_supportedFileTypesForSubclass;
 + (id)supportedRemoteURLSchemes;
 + (id)supportedImageFileTypes;
@@ -28,7 +30,7 @@ __attribute__((visibility("hidden")))
 + (id)p_registeredSubclasses;
 @property(nonatomic) id <TSDInfoImporterDelegate> delegate; // @synthesize delegate=mDelegate;
 @property(readonly, nonatomic) TSSTheme *theme; // @synthesize theme=mTheme;
-@property(readonly, nonatomic) TSPData *imageData; // @synthesize imageData=mImageData;
+@property(readonly, nonatomic) TSPData *data; // @synthesize data=mData;
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=mURL;
 @property(readonly, nonatomic) TSPObjectContext *context; // @synthesize context=mContext;
 @property(readonly, nonatomic) NSError *error;
@@ -38,7 +40,7 @@ __attribute__((visibility("hidden")))
 - (void)importInfoWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)init;
-- (id)initWithContext:(id)arg1 imageData:(id)arg2 theme:(id)arg3;
+- (id)initWithContext:(id)arg1 data:(id)arg2 theme:(id)arg3;
 - (id)initWithContext:(id)arg1 URL:(id)arg2 theme:(id)arg3;
 
 @end

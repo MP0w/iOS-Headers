@@ -12,10 +12,12 @@
 + (id)safari_URLWithDataAsString:(id)arg1 relativeToURL:(id)arg2;
 + (id)safari_URLWithDataAsString:(id)arg1;
 + (id)safari_URLWithUserTypedString:(id)arg1;
+- (id)safari_userVisibleHostWithoutWWWSubdomain;
 - (id)safari_userVisibleHost;
 - (id)safari_userVisibleString;
 - (id)safari_originalDataAsString;
 - (BOOL)safari_hasCharactersBeyondPath;
+- (id)safari_canonicalURL;
 - (id)safari_URLByDeletingPort;
 - (id)safari_URLByReplacingQueryWithString:(id)arg1;
 - (id)safari_URLByReplacingSchemeWithString:(id)arg1;
@@ -24,5 +26,6 @@
 - (id)_safari_URLByReplacingComponent:(long)arg1 includingSeparators:(BOOL)arg2 withString:(id)arg3;
 - (BOOL)safari_isDataURL;
 - (BOOL)safari_isHTTPFamilyURL;
+- (BOOL)safari_hasScheme:(id)arg1;
 @end
 

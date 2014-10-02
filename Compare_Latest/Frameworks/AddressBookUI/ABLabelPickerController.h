@@ -6,17 +6,18 @@
 
 #import <AddressBookUI/ABPickerController.h>
 
-@class NSString;
+@class ABPropertyGroupItem;
 
 @interface ABLabelPickerController : ABPickerController
 {
-    NSString *_property;
+    ABPropertyGroupItem *_item;
 }
 
-@property(readonly, nonatomic) NSString *property; // @synthesize property=_property;
+@property(readonly, nonatomic) ABPropertyGroupItem *item; // @synthesize item=_item;
 - (void)viewWillAppear:(BOOL)arg1;
+- (void)removeCustomItem:(id)arg1;
 - (void)dealloc;
-- (id)initForContact:(id)arg1 property:(id)arg2;
+- (id)initForPropertyItem:(id)arg1;
 
 @end
 

@@ -9,18 +9,20 @@
 @class NSString, TIKeyboardCandidate, TIKeyboardInput, TIKeyboardLayout, TIKeyboardState, TIKeyboardTouchEvent;
 
 @protocol TIKeyboardInputManager <NSObject>
-- (void)removeAllDynamicDictionaries;
+- (void)writeTypologyLogWithCompletionHandler:(void (^)(NSURL *))arg1;
 - (void)lastAcceptedCandidateCorrected;
 - (void)candidateRejected:(TIKeyboardCandidate *)arg1;
 - (void)textAccepted:(TIKeyboardCandidate *)arg1;
 - (void)setOriginalInput:(NSString *)arg1;
-- (void)adjustPhraseBoundaryInForwardDirection:(BOOL)arg1 keyboardState:(TIKeyboardState *)arg2 continuation:(void (^)(NSArray *))arg3;
+- (void)adjustPhraseBoundaryInForwardDirection:(BOOL)arg1 keyboardState:(TIKeyboardState *)arg2 completionHandler:(void (^)(TIKeyboardConfiguration *))arg3;
 - (void)skipHitTestForTouchEvent:(TIKeyboardTouchEvent *)arg1 keyboardState:(TIKeyboardState *)arg2;
 - (void)performHitTestForTouchEvent:(TIKeyboardTouchEvent *)arg1 keyboardState:(TIKeyboardState *)arg2 continuation:(void (^)(int))arg3;
+- (void)generateRefinementsForCandidate:(TIKeyboardCandidate *)arg1 keyboardState:(TIKeyboardState *)arg2 completionHandler:(void (^)(TIAutocorrectionList *))arg3;
 - (void)generateReplacementsForString:(NSString *)arg1 keyLayout:(TIKeyboardLayout *)arg2 continuation:(void (^)(NSArray *))arg3;
-- (void)handleAcceptedCandidate:(TIKeyboardCandidate *)arg1 keyboardState:(TIKeyboardState *)arg2 continuation:(void (^)(NSArray *))arg3;
-- (void)generateCandidatesWithKeyboardState:(TIKeyboardState *)arg1 candidateRange:(struct _NSRange)arg2 continuation:(void (^)(NSArray *))arg3;
-- (void)handleKeyboardInput:(TIKeyboardInput *)arg1 keyboardState:(TIKeyboardState *)arg2 continuation:(void (^)(NSArray *))arg3;
-- (void)syncToKeyboardState:(TIKeyboardState *)arg1 continuation:(void (^)(NSArray *))arg2;
+- (void)handleAcceptedCandidate:(TIKeyboardCandidate *)arg1 keyboardState:(TIKeyboardState *)arg2 completionHandler:(void (^)(TIKeyboardConfiguration *, NSString *))arg3;
+- (void)generateCandidatesWithKeyboardState:(TIKeyboardState *)arg1 candidateRange:(struct _NSRange)arg2 completionHandler:(void (^)(TIKeyboardCandidateResultSet *))arg3;
+- (void)generateAutocorrectionsWithKeyboardState:(TIKeyboardState *)arg1 completionHandler:(void (^)(TIAutocorrectionList *))arg2;
+- (void)handleKeyboardInput:(TIKeyboardInput *)arg1 keyboardState:(TIKeyboardState *)arg2 completionHandler:(void (^)(TIKeyboardOutput *, TIKeyboardConfiguration *))arg3;
+- (void)syncToKeyboardState:(TIKeyboardState *)arg1 completionHandler:(void (^)(TIKeyboardConfiguration *))arg2;
 @end
 

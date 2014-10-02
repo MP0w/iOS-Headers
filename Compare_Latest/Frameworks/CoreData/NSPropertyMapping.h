@@ -23,12 +23,9 @@
 }
 
 + (void)initialize;
-- (void)setUserInfo:(id)arg1;
-- (id)userInfo;
-- (void)setValueExpression:(id)arg1;
-- (id)valueExpression;
-- (void)setName:(id)arg1;
-- (id)name;
+@property(retain) NSDictionary *userInfo;
+@property(retain) NSExpression *valueExpression;
+@property(copy) NSString *name;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

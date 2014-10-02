@@ -8,7 +8,7 @@
 
 #import "TSUStreamReadChannel.h"
 
-@class TSUBufferedReadChannel;
+@class NSString, TSUBufferedReadChannel;
 
 __attribute__((visibility("hidden")))
 @interface TSUBufferedReadChannelHelper : NSObject <TSUStreamReadChannel>
@@ -20,6 +20,12 @@ __attribute__((visibility("hidden")))
 - (void)close;
 - (void)readWithQueue:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (id)initWithBufferedReadChannel:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

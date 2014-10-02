@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (BOOL)approximatesTitleAccommodationUsingLegendSize;
-- (id)imageWithPreset:(id)arg1 target:(int)arg2 imageSize:(struct CGSize)arg3 imageScale:(float)arg4 swatchFrame:(struct CGRect)arg5 documentRoot:(id)arg6;
+- (id)imageWithPreset:(id)arg1 target:(int)arg2 imageSize:(struct CGSize)arg3 imageScale:(float)arg4 swatchFrame:(struct CGRect)arg5 documentRoot:(id)arg6 shouldCache:(char *)arg7;
 - (id)categoryLabelPositioner;
 - (id)valueLabelPositioner;
 - (id)animationDeliveryStylesForFilter:(id)arg1;
@@ -25,9 +25,6 @@ __attribute__((visibility("hidden")))
 - (id)cascadeTimeSliceWithChartInfo:(id)arg1 renderSeriesProvider:(id)arg2 animationClass:(Class)arg3;
 - (id)timeSliceWithChartInfo:(id)arg1 renderSeriesProvider:(id)arg2 animationClass:(Class)arg3 deliveryStyle:(unsigned int)arg4;
 - (id)titlePositionerWithInfo:(id)arg1 scene:(id)arg2;
-- (void)setupPresetImageChart:(id)arg1;
-- (struct CGRect)adjustChartFrame:(struct CGRect)arg1 forPresetImageTarget:(int)arg2;
-- (struct TSCH3DChartRotationLimit)rotation3DLimit;
 
 @end
 

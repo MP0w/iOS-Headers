@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (CDStruct_aa5aacbc)orientationMatrixAtWorldPoint:(struct VKPoint)arg1;
 - (struct VKPoint)groundPointFromScreenPoint:(struct CGPoint)arg1;
-- (struct VKPoint)groundPointFromPixel:(Vec2Imp_1782d7e3)arg1;
+- (struct VKPoint)groundPointFromPixel:(Matrix_8746f91e)arg1;
 - (void)setCoordinateSpace:(int)arg1 screenSizeInPixels:(struct CGSize)arg2 contentScale:(float)arg3 frustum:(CDStruct_17faa5b0)arg4 position:(struct VKPoint)arg5 orientation:(const CDStruct_aa5aacbc *)arg6 horizontalOffset:(float)arg7;
 @property(readonly, nonatomic) double focusDistance;
 @property(readonly, nonatomic) double farPlaneDistance;
@@ -38,9 +38,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) const CDStruct_aa5aacbc *viewProjectionMatrix;
 @property(readonly, nonatomic) float degreesFromPlumb;
 @property(readonly, nonatomic) float heading;
-@property(readonly, nonatomic) Vec3Imp_f658403c forwardVector;
-@property(readonly, nonatomic) Vec3Imp_f658403c rightVector;
-@property(readonly, nonatomic) Vec3Imp_f658403c upVector;
+@property(readonly, nonatomic) Matrix_6e1d3589 forwardVector;
+@property(readonly, nonatomic) Matrix_6e1d3589 rightVector;
+@property(readonly, nonatomic) Matrix_6e1d3589 upVector;
 - (shared_ptr_d1ecf7a2)viewTransform;
 - (id)init;
 

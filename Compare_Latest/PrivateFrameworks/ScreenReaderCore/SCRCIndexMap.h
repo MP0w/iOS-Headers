@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
+#import "NSCoding.h"
 #import "NSCopying.h"
 
-@interface SCRCIndexMap : NSObject <NSCopying>
+@interface SCRCIndexMap : NSObject <NSCopying, NSCoding>
 {
     struct __CFDictionary *_map;
 }
@@ -23,6 +24,8 @@
 - (void)removeObjectForIndex:(unsigned long)arg1;
 - (void)setObject:(id)arg1 forIndex:(unsigned long)arg2;
 - (void)dealloc;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)deepCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)_initAndDeepCopyIndexMap:(id)arg1;

@@ -19,7 +19,7 @@
 - (void).cxx_destruct;
 @property(nonatomic) BOOL showsLocalLibrary;
 - (void)dismissSharedLibrariesViewController:(BOOL)arg1;
-- (void)presentSharedLibarariesViewController:(BOOL)arg1;
+- (void)presentSharedLibrariesViewController:(BOOL)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end

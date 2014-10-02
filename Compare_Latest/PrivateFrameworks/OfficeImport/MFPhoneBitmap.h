@@ -6,12 +6,12 @@
 
 #import <OfficeImport/MFBitmap.h>
 
-@class TSUImage;
+@class OITSUImage;
 
 __attribute__((visibility("hidden")))
 @interface MFPhoneBitmap : MFBitmap
 {
-    TSUImage *m_image;
+    OITSUImage *m_image;
 }
 
 - (id)getImage;

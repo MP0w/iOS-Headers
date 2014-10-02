@@ -9,7 +9,7 @@
 #import "AVAssetWriterFigAssetWriterNotificationHandlerDelegate.h"
 #import "AVAssetWriterFinishWritingHelperDelegate.h"
 
-@class AVAssetWriterFigAssetWriterNotificationHandler, AVWeakReference;
+@class AVAssetWriterFigAssetWriterNotificationHandler, AVWeakReference, NSString;
 
 @interface AVAssetWriterAsynchronousFinishWritingDelegate : NSObject <AVAssetWriterFigAssetWriterNotificationHandlerDelegate, AVAssetWriterFinishWritingHelperDelegate>
 {
@@ -28,6 +28,12 @@
 - (void)didReceiveFigAssetWriterNotificationWithSuccess:(BOOL)arg1 error:(id)arg2;
 - (void)dealloc;
 - (id)initWithHandler:(CDUnknownBlockType)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

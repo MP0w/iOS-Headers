@@ -6,7 +6,7 @@
 
 #import <MediaPlayer/MPMediaEntity.h>
 
-@class MPMediaItemArtwork, NSArray, NSDate, NSString;
+@class MPMediaItemArtwork, NSArray, NSDate, NSString, NSURL;
 
 @interface MPMediaItem : MPMediaEntity
 {
@@ -19,6 +19,8 @@
 + (id)titlePropertyForGroupingType:(int)arg1;
 + (id)persistentIDPropertyForGroupingType:(int)arg1;
 + (BOOL)canFilterByProperty:(id)arg1;
++ (id)screenshotArtworkCatalogCacheProperties;
++ (id)artworkCatalogCacheProperties;
 + (id)MPSD_mediaItemPropertiesForDownloadability;
 - (id)_libraryLinkURL;
 - (id)_libraryLinkPlaylistName;
@@ -31,39 +33,58 @@
 - (id)chapterOfType:(int)arg1 atTime:(double)arg2;
 - (id)chapterOfType:(int)arg1 atIndex:(unsigned int)arg2;
 - (id)chaptersOfType:(int)arg1;
+@property(readonly, nonatomic) NSString *userGrouping;
+@property(readonly, nonatomic) NSString *lyrics;
+@property(readonly, nonatomic) unsigned int discCount;
 @property(readonly, nonatomic) unsigned int discNumber;
 @property(readonly, nonatomic) unsigned int albumTrackNumber;
 @property(readonly, nonatomic) BOOL rememberBookmarkTime;
 @property(nonatomic) BOOL hasBeenPlayed;
 @property(copy, nonatomic) NSDate *lastSkippedDate;
 @property(nonatomic) unsigned int skipCountSinceSync;
-@property(nonatomic) unsigned int skipCount;
+- (void)setSkipCount:(unsigned int)arg1;
+@property(readonly, nonatomic) unsigned int skipCount;
 @property(copy, nonatomic) NSDate *dateAccessed;
 @property(copy, nonatomic) NSDate *lastPlayedDate;
 @property(nonatomic) unsigned int playCountSinceSync;
-@property(nonatomic) unsigned int playCount;
+- (void)setPlayCount:(unsigned int)arg1;
+@property(readonly, nonatomic) unsigned int playCount;
 - (id)predicateForProperty:(id)arg1;
 @property(readonly, nonatomic) unsigned int year;
 @property(readonly, nonatomic) NSString *title;
 @property(readonly, nonatomic) NSDate *releaseDate;
-@property(nonatomic) unsigned int rating;
+- (void)setRating:(unsigned int)arg1;
+@property(readonly, nonatomic) unsigned int rating;
+@property(readonly, nonatomic) unsigned long long podcastPersistentID;
 @property(readonly, nonatomic) NSString *podcastTitle;
 @property(readonly, nonatomic) double effectiveStopTime;
 @property(readonly, nonatomic) double stopTime;
 @property(readonly, nonatomic) double startTime;
 @property(readonly, nonatomic) double playbackDuration;
 @property(readonly, nonatomic) unsigned int mediaType;
+@property(readonly, nonatomic, getter=isCloudItem) BOOL cloudItem;
+@property(readonly, nonatomic, getter=isCompilation) BOOL compilation;
 @property(readonly, nonatomic) BOOL isITunesU;
 @property(readonly, nonatomic) BOOL isRental;
+@property(readonly, nonatomic) unsigned long long genrePersistentID;
 @property(readonly, nonatomic) NSString *genre;
+@property(readonly, nonatomic) unsigned long long composerPersistentID;
 @property(readonly, nonatomic) NSString *composer;
+@property(readonly, nonatomic) NSString *comments;
 @property(readonly, nonatomic) double bookmarkTime;
+@property(readonly, nonatomic) unsigned int beatsPerMinute;
+@property(readonly, nonatomic) NSURL *assetURL;
 @property(readonly, nonatomic) MPMediaItemArtwork *artwork;
+@property(readonly, nonatomic) unsigned long long artistPersistentID;
 @property(readonly, nonatomic) NSString *artist;
+@property(readonly, nonatomic) unsigned int albumTrackCount;
 @property(readonly, nonatomic) NSString *albumTitle;
+@property(readonly, nonatomic) unsigned long long albumArtistPersistentID;
+@property(readonly, nonatomic) unsigned long long albumPersistentID;
 @property(readonly, nonatomic) NSString *effectiveAlbumArtist;
 @property(readonly, nonatomic) NSString *albumArtist;
 @property(readonly, nonatomic) NSArray *chapters;
+- (id)multiverseIdentifier;
 - (void)populateLocationPropertiesWithPath:(id)arg1;
 - (BOOL)existsInLibrary;
 - (id)representativeItem;
@@ -83,10 +104,16 @@
 - (id)initWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
+- (id)initWithMultiverseIdentifier:(id)arg1;
 - (id)initWithPersistentID:(unsigned long long)arg1;
+- (id)screenshotArtworkCatalog;
+- (id)artworkCatalog;
 @property(readonly, nonatomic) BOOL mediaTypeCanSeedGenius;
 - (BOOL)MPSD_isDownloadInProgress;
 - (BOOL)MPSD_isDownloadable;
+
+// Remaining properties
+@property(readonly, nonatomic) unsigned long long persistentID;
 
 @end
 

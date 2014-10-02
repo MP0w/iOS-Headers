@@ -9,7 +9,7 @@
 #import "CoreDAVTaskDelegate.h"
 #import "CoreDAVTaskGroupDelegate.h"
 
-@class NSMutableArray, NSMutableSet, NSSet, NSURL;
+@class NSMutableArray, NSMutableSet, NSSet, NSString, NSURL;
 
 @interface CalDAVGetDelegatesBaseTaskGroup : CoreDAVTaskGroup <CoreDAVTaskDelegate, CoreDAVTaskGroupDelegate>
 {
@@ -21,14 +21,14 @@
     NSMutableSet *_readDetails;
 }
 
-@property(retain) NSMutableSet *readDetails; // @synthesize readDetails=_readDetails;
-@property(retain) NSMutableSet *writeDetails; // @synthesize writeDetails=_writeDetails;
-@property(retain) NSMutableArray *writePrincipalURLs; // @synthesize writePrincipalURLs=_writePrincipalURLs;
-@property(retain) NSMutableArray *readPrincipalURLs; // @synthesize readPrincipalURLs=_readPrincipalURLs;
-@property(retain) NSURL *principalURL; // @synthesize principalURL=_principalURL;
-@property BOOL serverSupportsExpandPropertyReport; // @synthesize serverSupportsExpandPropertyReport=_serverSupportsExpandPropertyReport;
-@property(readonly) NSSet *readWritePrincipalDetails;
-@property(readonly) NSSet *readOnlyPrincipalDetails;
+@property(retain, nonatomic) NSMutableSet *readDetails; // @synthesize readDetails=_readDetails;
+@property(retain, nonatomic) NSMutableSet *writeDetails; // @synthesize writeDetails=_writeDetails;
+@property(retain, nonatomic) NSMutableArray *writePrincipalURLs; // @synthesize writePrincipalURLs=_writePrincipalURLs;
+@property(retain, nonatomic) NSMutableArray *readPrincipalURLs; // @synthesize readPrincipalURLs=_readPrincipalURLs;
+@property(retain, nonatomic) NSURL *principalURL; // @synthesize principalURL=_principalURL;
+@property(nonatomic) BOOL serverSupportsExpandPropertyReport; // @synthesize serverSupportsExpandPropertyReport=_serverSupportsExpandPropertyReport;
+@property(readonly, retain, nonatomic) NSSet *readWritePrincipalDetails;
+@property(readonly, retain, nonatomic) NSSet *readOnlyPrincipalDetails;
 - (void)taskGroup:(id)arg1 didFinishWithError:(id)arg2;
 - (void)task:(id)arg1 didFinishWithError:(id)arg2;
 - (id)_popFromArray:(id)arg1;
@@ -37,6 +37,12 @@
 - (id)_mappingsForPrincipalDetails;
 - (id)initWithAccountInfoProvider:(id)arg1 principalURL:(id)arg2 taskManager:(id)arg3;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

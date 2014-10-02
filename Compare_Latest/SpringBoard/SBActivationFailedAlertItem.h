@@ -8,6 +8,8 @@
 
 #import "UIAlertViewDelegate.h"
 
+@class NSString;
+
 @interface SBActivationFailedAlertItem : SBAlertItem <UIAlertViewDelegate>
 {
     _Bool _showRetryButton;
@@ -18,6 +20,12 @@
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)performUnlockAction;
 - (id)initWithFailureCount:(int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

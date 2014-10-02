@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     float mRadius;
 }
 
+- (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (void)setRadius:(float)arg1;

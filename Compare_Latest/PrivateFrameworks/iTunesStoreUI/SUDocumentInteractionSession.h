@@ -8,7 +8,7 @@
 
 #import "UIDocumentInteractionControllerDelegate.h"
 
-@class UIDocumentInteractionController;
+@class NSString, UIDocumentInteractionController;
 
 @interface SUDocumentInteractionSession : NSObject <UIDocumentInteractionControllerDelegate>
 {
@@ -22,6 +22,12 @@
 - (void)cancel;
 - (void)dealloc;
 - (id)initWithDocumentInteractionController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

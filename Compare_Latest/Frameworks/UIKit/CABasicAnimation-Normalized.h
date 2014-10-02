@@ -7,6 +7,6 @@
 #import "CABasicAnimation.h"
 
 @interface CABasicAnimation (Normalized)
-+ (id)normalizedAnimationWithKeyPath:(id)arg1;
++ (id)normalizedAnimationWithKeyPath:(id)arg1 fromValue:(id)arg2 toValue:(id)arg3;
 @end
 

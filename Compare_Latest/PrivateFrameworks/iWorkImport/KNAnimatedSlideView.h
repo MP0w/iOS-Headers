@@ -9,7 +9,7 @@
 #import "TSDCanvasDelegate.h"
 #import "TSDConnectedInfoReplacing.h"
 
-@class KNAnimatedSlideModel, KNPlaybackSession, KNSlide, KNSlideNode, NSIndexSet, NSMutableArray, NSMutableSet, NSSet, TSDCanvas, TSUNoCopyDictionary;
+@class KNAnimatedSlideModel, KNPlaybackSession, KNSlide, KNSlideNode, NSIndexSet, NSMutableArray, NSMutableSet, NSSet, NSString, TSDCanvas, TSUNoCopyDictionary;
 
 __attribute__((visibility("hidden")))
 @interface KNAnimatedSlideView : NSObject <TSDCanvasDelegate, TSDConnectedInfoReplacing>
@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
     BOOL mTransitionInitialized;
     BOOL mShouldStopAnimations;
     NSMutableSet *mMovieRenderers;
-    NSMutableSet *mBuildRenderers;
+    NSMutableSet *mActiveAnimatedBuilds;
     unsigned int mSlideNumber;
     double mTransitionStartTime;
     unsigned int mAnimationsActive;
@@ -32,13 +32,15 @@ __attribute__((visibility("hidden")))
     BOOL mIsInDelayBeforeActiveAnimations;
     NSMutableArray *mChunks;
     TSUNoCopyDictionary *mBuildsToStartAfterMovieStartsMap;
-    TSUNoCopyDictionary *mTextureSetForInfoMap;
+    TSUNoCopyDictionary *mTextureSetForRepMap;
     id mEventStartCallbackTarget;
     SEL mEventStartCallbackSelector;
     id mEventAnimationActiveCallbackTarget;
     SEL mEventAnimationActiveCallbackSelector;
     id mEventEndCallbackTarget;
     SEL mEventEndCallbackSelector;
+    id mEventImmediateEndCallbackTarget;
+    SEL mEventImmediateEndCallbackSelector;
     id mMovieStartCallbackTarget;
     SEL mMovieStartCallbackSelector;
     id mMovieEndCallbackTarget;
@@ -46,6 +48,7 @@ __attribute__((visibility("hidden")))
     BOOL mEventTriggered;
     BOOL mQueuedTrigger;
     BOOL mSkipDelayOnTransition;
+    BOOL mPlaysAutomaticTransitions;
     TSDCanvas *mCanvas;
     int mIsTexturePreloadingCancelled;
     NSMutableSet *mTextureSets;
@@ -54,15 +57,16 @@ __attribute__((visibility("hidden")))
 + (void)registerUserDefaults;
 + (void)initialize;
 @property(nonatomic) BOOL triggerQueued; // @synthesize triggerQueued=mQueuedTrigger;
+@property(nonatomic) BOOL playsAutomaticTransitions; // @synthesize playsAutomaticTransitions=mPlaysAutomaticTransitions;
 @property(nonatomic) BOOL skipDelayOnTransition; // @synthesize skipDelayOnTransition=mSkipDelayOnTransition;
 @property(readonly, nonatomic) KNPlaybackSession *session; // @synthesize session=mSession;
 @property(readonly, nonatomic) KNAnimatedSlideModel *model; // @synthesize model=mAnimatedSlideModel;
 @property(copy, nonatomic) NSIndexSet *eventIndexesToAnimate; // @synthesize eventIndexesToAnimate=mEventIndexesToAnimate;
 @property(nonatomic) BOOL eventHasTriggered; // @synthesize eventHasTriggered=mEventTriggered;
-@property(readonly, nonatomic) NSSet *animatingBuildRenderers; // @synthesize animatingBuildRenderers=mBuildRenderers;
-- (void)clearAnimatedBuilds;
-- (void)removeAnimatedBuild:(id)arg1;
-- (void)addAnimatedBuild:(id)arg1;
+@property(readonly, nonatomic) NSSet *activeAnimatedBuilds; // @synthesize activeAnimatedBuilds=mActiveAnimatedBuilds;
+- (void)clearActiveAnimatedBuilds;
+- (void)removeActiveAnimatedBuild:(id)arg1;
+- (void)addActiveAnimatedBuild:(id)arg1;
 - (id)textureSetForRep:(id)arg1;
 - (void)setTexture:(id)arg1 forRep:(id)arg2;
 - (void)p_resetMovieTextures;
@@ -75,35 +79,40 @@ __attribute__((visibility("hidden")))
 - (BOOL)p_shouldSkipActionBuild:(id)arg1 onMovieInfo:(id)arg2;
 - (void)p_animateBuild:(id)arg1 isMoviePlayback:(BOOL)arg2;
 - (void)p_animateTransition:(id)arg1;
-- (void)p_animateCurrentEventIgnoringDelays:(BOOL)arg1;
-- (id)p_getRenderersAtEventIndex:(int)arg1;
-- (id)p_infosForSlide;
-- (BOOL)p_shouldAddInfoToTree:(id)arg1;
+- (void)setupTransition;
+- (void)p_setupTransitionStartTime;
 - (void)resumeAnimationsIfPaused;
 - (void)pauseAnimations;
 - (void)stopAnimations;
 - (void)p_stopAllMovieRenderers;
 - (void)interruptAndReset;
-@property(readonly, nonatomic) BOOL isDoneAnimating;
-- (BOOL)hasTransitionAtEventIndex:(int)arg1;
-@property(readonly, nonatomic) BOOL hasBuilds;
+- (void)reset;
 @property(readonly, nonatomic) unsigned int eventCount;
 - (void)setNewDestinationSlideNode:(id)arg1;
 - (BOOL)isAtFirstEvent;
 @property(nonatomic) unsigned int eventIndex;
+- (void)p_animateCurrentEventIgnoringDelays:(BOOL)arg1;
+- (double)p_minimumDelay;
 - (void)triggerNextEventIgnoringDelay:(BOOL)arg1;
 - (void)triggerNextEvent;
 - (BOOL)playAutomaticEvents;
-- (struct CGImage *)copyImageOfCurrentEvent;
 - (void)renderEvent:(unsigned int)arg1 intoContext:(struct CGContext *)arg2 ignoreBuildVisibility:(BOOL)arg3;
 - (void)renderCurrentEventPreparingNextEvent:(BOOL)arg1;
 - (void)renderCurrentEvent;
 - (void)renderEvent:(unsigned int)arg1 shouldPrepareBuildAnimation:(BOOL)arg2 shouldPrepareTransition:(BOOL)arg3;
+- (void)renderEvent:(unsigned int)arg1 onBaseLayer:(id)arg2 shouldPrepareBuildAnimation:(BOOL)arg3 isIncomingSlideInTransition:(BOOL)arg4;
 - (void)renderEvent:(unsigned int)arg1 onBaseLayer:(id)arg2 shouldPrepareBuildAnimation:(BOOL)arg3;
-- (void)cancelRendering;
-- (void)beginRenderingEvent:(unsigned int)arg1 onBaseLayer:(id)arg2 shouldPrepareBuildAnimation:(BOOL)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)p_renderTexturesForEvent:(unsigned int)arg1 onBaseLayer:(id)arg2 intoContext:(struct CGContext *)arg3 shouldPrepareBuildAnimation:(BOOL)arg4 ignoreBuildVisibility:(BOOL)arg5;
-- (void)p_preloadTexturesForEvent:(unsigned int)arg1 ignoreBuildVisibility:(BOOL)arg2 priority:(long)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)preloadTexturesForEvent:(unsigned int)arg1 ignoreBuildVisibility:(BOOL)arg2;
+- (void)preloadTexturesForEvent:(unsigned int)arg1 ignoreBuildVisibility:(BOOL)arg2 priority:(long)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)cancelTexturePreloading;
+- (BOOL)slideContainsRepsThatMustDrawOnMainThread;
+- (id)p_getRenderersAtEventIndex:(int)arg1;
+- (BOOL)p_shouldAddInfoToTree:(id)arg1;
+- (id)p_infosForSlide;
+@property(readonly, nonatomic) BOOL isDoneAnimating;
+- (BOOL)hasTransitionAtEventIndex:(int)arg1;
+@property(readonly, nonatomic) BOOL hasBuilds;
 - (id)infosVisibleAtEvent:(unsigned int)arg1 ignoreBuildVisibility:(BOOL)arg2;
 - (id)repsCurrentlyVisible;
 - (id)infosCurrentlyVisible;
@@ -111,19 +120,18 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL isNonMovieAnimationAnimating;
 @property(readonly, nonatomic) BOOL isNonMovieAnimationActive;
 @property(readonly, nonatomic) BOOL isAnimating;
+@property(readonly, nonatomic) TSDCanvas *canvas;
 - (void)buildHasFinishedAnimating:(id)arg1;
 - (void)movieHasFinishedPlayback:(id)arg1;
 - (void)p_movieStarted:(id)arg1;
 - (void)transitionHasFinishedAnimating:(id)arg1;
+- (void)transitionHasImmediatelyFinishedAnimating:(id)arg1;
 - (void)registerForMovieEndCallback:(SEL)arg1 target:(id)arg2;
 - (void)registerForMovieStartCallback:(SEL)arg1 target:(id)arg2;
+- (void)registerForEventImmediateEndCallback:(SEL)arg1 target:(id)arg2;
 - (void)registerForEventEndCallback:(SEL)arg1 target:(id)arg2;
 - (void)registerForEventAnimationActiveCallback:(SEL)arg1 target:(id)arg2;
 - (void)registerForEventStartCallback:(SEL)arg1 target:(id)arg2;
-- (void)reset;
-- (void)setupTransition;
-- (void)p_setupTransitionStartTime;
-@property(readonly, nonatomic) TSDCanvas *canvas;
 - (id)infoToConnectToForConnectionLineConnectedToInfo:(id)arg1;
 - (unsigned int)slideNumber;
 - (BOOL)isCanvasDrawingIntoPDF:(id)arg1;
@@ -131,9 +139,16 @@ __attribute__((visibility("hidden")))
 - (BOOL)shouldSuppressBackgrounds;
 - (BOOL)isPrintingCanvas;
 - (id)documentRoot;
-- (void)p_tearDownTextures;
+- (void)p_tearDownTexturesIsExitingShow:(BOOL)arg1;
+- (void)p_recursivelyRemoveCallbackObserversFromAnimatedBuilds:(id)arg1;
 - (void)dealloc;
 - (id)initForSlideNode:(id)arg1 session:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

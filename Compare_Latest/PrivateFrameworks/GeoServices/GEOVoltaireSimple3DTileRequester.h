@@ -15,7 +15,6 @@
 - (unsigned int)tileEditionForKey:(struct _GEOTileKey *)arg1;
 - (unsigned int)tileSetForKey:(const struct _GEOTileKey *)arg1;
 - (id)_baseURLStringForTileKey:(struct _GEOTileKey *)arg1;
-- (struct _GEOTileKey)_patchTileKey:(struct _GEOTileKey *)arg1;
 
 @end
 

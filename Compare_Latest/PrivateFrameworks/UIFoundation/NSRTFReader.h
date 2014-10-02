@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSCalendar, NSData, NSFileWrapper, NSMapTable, NSMutableArray, NSMutableAttributedString, NSMutableData, NSMutableDictionary, NSTextTable, UIColor;
+@class NSArray, NSCalendar, NSColor, NSData, NSFileWrapper, NSMapTable, NSMutableArray, NSMutableAttributedString, NSMutableData, NSMutableDictionary, NSTextTable;
 
 __attribute__((visibility("hidden")))
 @interface NSRTFReader : NSObject
@@ -44,7 +44,7 @@ __attribute__((visibility("hidden")))
     NSMapTable *_cachedRTFFontTable;
     float _hyphenationFactor;
     float _defaultTabInterval;
-    UIColor *_documentBackgroundColor;
+    NSColor *_documentBackgroundColor;
     struct _NSRTFPriv _private;
     BOOL _textBufferContentsIsFat;
     BOOL _explicitCharSetEncountered;

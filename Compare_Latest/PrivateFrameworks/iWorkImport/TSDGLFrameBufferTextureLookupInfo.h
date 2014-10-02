@@ -6,19 +6,27 @@
 
 #import "NSObject.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TSDGLFrameBufferTextureLookupInfo : NSObject
 {
     unsigned int _attachment;
-    int _index;
-    unsigned int _name;
+    int _indexOnAttachment;
+    unsigned int _textureName;
+    NSString *_name;
+    struct CGSize _textureSize;
 }
 
-+ (id)textureLookupInfoWithAttachment:(unsigned int)arg1 index:(int)arg2 name:(unsigned int)arg3;
-@property(readonly, nonatomic) unsigned int name; // @synthesize name=_name;
-@property(readonly, nonatomic) int index; // @synthesize index=_index;
-@property(readonly, nonatomic) unsigned int attachment; // @synthesize attachment=_attachment;
-- (id)initWithAttachment:(unsigned int)arg1 index:(int)arg2 name:(unsigned int)arg3;
++ (id)textureLookupInfoWithAttachment:(unsigned int)arg1 indexOnAttachment:(int)arg2 textureName:(unsigned int)arg3 textureSize:(struct CGSize)arg4 name:(id)arg5;
+@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, nonatomic) struct CGSize textureSize; // @synthesize textureSize=_textureSize;
+@property(readonly, nonatomic) unsigned int textureName; // @synthesize textureName=_textureName;
+@property(nonatomic) int indexOnAttachment; // @synthesize indexOnAttachment=_indexOnAttachment;
+@property(nonatomic) unsigned int attachment; // @synthesize attachment=_attachment;
+- (id)description;
+- (void)dealloc;
+- (id)initWithAttachment:(unsigned int)arg1 indexOnAttachment:(int)arg2 textureName:(unsigned int)arg3 textureSize:(struct CGSize)arg4 name:(id)arg5;
 
 @end
 

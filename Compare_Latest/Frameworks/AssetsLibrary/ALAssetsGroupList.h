@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
     id <PLAssetContainerList> _containerList;
 }
 
-@property(readonly, nonatomic) id <PLAssetContainerList> containerList; // @synthesize containerList=_containerList;
+@property(readonly, retain, nonatomic) id <PLAssetContainerList> containerList; // @synthesize containerList=_containerList;
 - (id)valueForProperty:(id)arg1;
 - (void)_enumerateAssetsAtIndexes:(id)arg1 options:(unsigned int)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (void)dealloc;

@@ -12,7 +12,7 @@
 @property(nonatomic) double maxGroupedCallbackEventStaleness;
 @property(nonatomic) double maxGroupedCallbackEventIdleInterval;
 @property(nonatomic) int maxGroupedCallbackEventBatchCount;
-@property(readonly, nonatomic) NSString *personID;
+@property(readonly, retain, nonatomic) NSString *personID;
 - (BOOL)errorIsCancellation:(NSError *)arg1;
 - (NSString *)focusAssetCollectionGUID;
 - (void)setFocusAssetCollectionGUID:(NSString *)arg1;

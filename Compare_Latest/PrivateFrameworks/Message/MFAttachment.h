@@ -18,10 +18,7 @@
     BOOL _isUserFacing;
     NSURL *_url;
     MFMimePart *_part;
-    NSString *_path;
-    NSString *_mimeType;
     NSString *_disposition;
-    unsigned int _decodedFileSize;
     unsigned int _encodedFileSize;
     unsigned int _progressInterval;
     CDUnknownBlockType _fetchCompletionBlock;
@@ -42,33 +39,48 @@
 @property(nonatomic) double progressTimeInterval; // @synthesize progressTimeInterval=_progressTimeInterval;
 @property(nonatomic) unsigned int progressInterval; // @synthesize progressInterval=_progressInterval;
 @property(nonatomic) unsigned int encodedFileSize; // @synthesize encodedFileSize=_encodedFileSize;
-@property(nonatomic) unsigned int decodedFileSize; // @synthesize decodedFileSize=_decodedFileSize;
 @property(copy, nonatomic) NSString *disposition; // @synthesize disposition=_disposition;
-@property(copy, nonatomic) NSString *mimeType; // @synthesize mimeType=_mimeType;
-@property(copy, nonatomic) NSString *path; // @synthesize path=_path;
 @property(retain, nonatomic) MFMimePart *part; // @synthesize part=_part;
 @property(copy, nonatomic) NSURL *url; // @synthesize url=_url;
 - (id)textEncodingGuessWithData:(id)arg1;
 - (id)textEncodingNameForData:(id)arg1 mimeType:(id)arg2;
+- (id)readFromDisk;
+- (void)writeToDiskWithData:(id)arg1;
+- (id)fileAttributes;
 - (id)storageLocationWithMessage:(id)arg1;
+@property(nonatomic) unsigned int decodedFileSize;
+@property(copy, nonatomic) NSString *mimeType;
 - (void)setContentID:(id)arg1;
 @property(readonly) NSString *contentID;
+@property(nonatomic) unsigned int setupComplete;
+@property(copy, nonatomic) NSString *path;
 @property(retain, nonatomic) NSString *fileName;
+- (BOOL)isImageFile;
+@property(readonly) BOOL isContainedInCompose;
 @property(readonly) BOOL isContainedInRFC822;
 @property(readonly) NSString *previewItemTitle;
 @property(readonly) NSURL *previewItemURL;
+@property(readonly) NSString *inferredMimeType;
 @property(readonly) BOOL shouldAutoDownload;
+@property(readonly) unsigned int maxSizeAllowedOverCurrentNetwork;
 @property(readonly) BOOL isDataAvailableLocally;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (void)cancel;
+- (id)fetchDataSynchronously:(id *)arg1 stripPrivateMetadata:(BOOL)arg2;
 - (id)fetchDataSynchronously:(id *)arg1;
-- (void)fetchDataSynchronously;
+- (id)fetchLocalData:(id *)arg1 stripPrivateMetadata:(BOOL)arg2;
+- (id)fetchLocalData;
 - (void)fetchData;
 - (id)decodeFilterWithDataConsumer:(id)arg1;
 - (void)setMetadataValue:(id)arg1 forKey:(id)arg2;
 - (id)metadataValueForKey:(id)arg1;
 - (id)initWithURL:(id)arg1 attachmentManager:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

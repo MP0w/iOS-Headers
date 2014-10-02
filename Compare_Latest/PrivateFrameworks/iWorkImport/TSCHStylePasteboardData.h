@@ -24,7 +24,6 @@ __attribute__((visibility("hidden")))
 - (void)saveToArchiver:(id)arg1;
 - (id)initFromUnarchiver:(id)arg1;
 - (id)chartStyleStateWithMapper:(id)arg1;
-- (id)stylesheet;
 - (id)pasteboardDescription;
 - (id)allStyles;
 @property(copy, nonatomic) NSArray *paragraphStyles;

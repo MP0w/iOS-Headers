@@ -11,7 +11,7 @@
 #import "UIPageViewControllerDelegate.h"
 #import "UIViewControllerTransitioningDelegate.h"
 
-@class NSMutableDictionary, NSOperationQueue, SKUIClientContext, UIPageViewController, UIPercentDrivenInteractiveTransition;
+@class NSMutableDictionary, NSOperationQueue, NSString, SKUIClientContext, UIPageViewController, UIPercentDrivenInteractiveTransition;
 
 @interface SKUISlideshowViewController : UIViewController <UIPageViewControllerDataSource, UIPageViewControllerDelegate, SKUISlideshowItemViewControllerDelegate, UIViewControllerTransitioningDelegate>
 {
@@ -69,6 +69,12 @@
 - (id)animatorForPresentedController:(id)arg1 presentingController:(id)arg2 sourceController:(id)arg3;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,10 +6,12 @@
 
 #import <UIKit/UIView.h>
 
-@class NSArray, UIBarButtonItem, UIColor, UIImageView;
+#import "UIGestureRecognizerDelegate.h"
+
+@class NSArray, NSString, UIBarButtonItem, UIColor, UIImageView, UITapGestureRecognizer;
 
 __attribute__((visibility("hidden")))
-@interface UIDimmingView : UIView
+@interface UIDimmingView : UIView <UIGestureRecognizerDelegate>
 {
     id _delegate;
     UIBarButtonItem *_highlightedBarButtonItem;
@@ -20,6 +22,7 @@ __attribute__((visibility("hidden")))
     BOOL _displayed;
     BOOL _inPassthroughHitTest;
     UIColor *_dimmingColor;
+    UITapGestureRecognizer *_singleFingerTapRecognizer;
     BOOL _suppressesBackdrops;
 }
 
@@ -32,15 +35,24 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) id delegate; // @synthesize delegate=_delegate;
 - (void)_simulateTap;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
+- (void)handleSingleTap:(id)arg1;
+- (BOOL)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (id)hitTest:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)mouseUp:(struct __GSEvent *)arg1;
 - (void)display:(BOOL)arg1 withAnimationDuration:(float)arg2 afterDelay:(float)arg3;
+- (void)display:(BOOL)arg1;
 - (id)_backdropViewsToAnimate;
 @property(retain, nonatomic) UIBarButtonItem *highlightedBarButtonItem;
 - (void)dimmingRemovalAnimationDidStop;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "TSDContainerInfo.h"
 
-@class NSObject<TSDContainerInfo>, TNPageController, TSDInfoGeometry, TSPObject<TSDOwningAttachment>;
+@class NSObject<TSDContainerInfo>, NSString, TNPageController, TSDInfoGeometry, TSPObject<TSDOwningAttachment>;
 
 __attribute__((visibility("hidden")))
 @interface TNPageInfoContainer : NSObject <TSDContainerInfo>
@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)isThemeContent;
 - (Class)repClass;
 @property(copy, nonatomic) TSDInfoGeometry *geometry;
+- (void)clearBackPointerToParentInfoIfNeeded:(id)arg1;
 @property(nonatomic) NSObject<TSDContainerInfo> *parentInfo;
 - (id)pageController;
 - (unsigned int)pageIndex;
@@ -36,7 +37,11 @@ __attribute__((visibility("hidden")))
 - (id)initWithPageIndex:(unsigned int)arg1 pageController:(id)arg2;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(nonatomic) BOOL matchesObjectPlaceholderGeometry;
+@property(readonly) Class superclass;
 
 @end
 

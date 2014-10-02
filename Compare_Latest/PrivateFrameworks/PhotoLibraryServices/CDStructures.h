@@ -22,13 +22,13 @@ struct CGAffineTransform {
 };
 
 struct CGPoint {
-    float _field1;
-    float _field2;
+    float x;
+    float y;
 };
 
 struct CGRect {
-    struct CGPoint _field1;
-    struct CGSize _field2;
+    struct CGPoint origin;
+    struct CGSize size;
 };
 
 struct CGSize {
@@ -65,8 +65,8 @@ struct PLImageTableEntryFooter_s {
 };
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned int location;
+    unsigned int length;
 };
 
 struct changeList_s {
@@ -103,21 +103,22 @@ typedef struct {
 } CDStruct_c3b9c2ee;
 
 typedef struct {
+    float _field1;
+    float _field2;
+    float _field3;
+} CDStruct_869f9c67;
+
+typedef struct {
+    int retries;
+    int state;
+} CDStruct_691a9b3b;
+
+typedef struct {
     long long _field1;
     int _field2;
     unsigned int _field3;
     long long _field4;
 } CDStruct_198678f7;
-
-typedef struct {
-    CDStruct_c3b9c2ee _field1;
-    CDStruct_c3b9c2ee _field2;
-} CDStruct_90e2a262;
-
-typedef struct {
-    CDStruct_198678f7 _field1;
-    CDStruct_198678f7 _field2;
-} CDStruct_3c1748cc;
 
 typedef struct {
     int _field1;
@@ -130,5 +131,5 @@ typedef struct {
     float _field8[4];
     float _field9[4];
     unsigned int _field10;
-} CDStruct_064f6571;
+} CDStruct_39c0191a;
 

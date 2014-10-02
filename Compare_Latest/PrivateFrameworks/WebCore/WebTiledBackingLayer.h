@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 - (void)setBorderColor:(struct CGColor *)arg1;
 - (void)invalidate;
 - (struct TiledBacking *)tiledBacking;
-- (id)tileContainerLayer;
+- (float)contentsScale;
 - (void)setContentsScale:(float)arg1;
 - (BOOL)acceleratesDrawing;
 - (void)setAcceleratesDrawing:(BOOL)arg1;
@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 - (void)setOpaque:(BOOL)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (id)actionForKey:(id)arg1;
+- (struct TileController *)createTileController:(struct PlatformCALayer *)arg1;
 - (id)initWithLayer:(id)arg1;
 - (void)dealloc;
 - (id)init;

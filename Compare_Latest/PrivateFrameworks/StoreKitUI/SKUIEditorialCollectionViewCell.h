@@ -8,7 +8,7 @@
 
 #import "SKUICellLayoutParentView.h"
 
-@class SKUIEditorialCellLayout;
+@class NSString, SKUIEditorialCellLayout;
 
 @interface SKUIEditorialCollectionViewCell : SKUICollectionViewCell <SKUICellLayoutParentView>
 {
@@ -24,6 +24,12 @@
 - (void)applyLayoutAttributes:(id)arg1;
 - (void)setCellLayoutNeedsLayout;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

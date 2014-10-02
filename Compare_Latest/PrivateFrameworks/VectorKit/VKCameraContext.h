@@ -20,11 +20,13 @@
     double _lastCameraFocusCourse;
     BOOL _animated;
     BOOL _applied;
-    struct vector<GEOLocationCoordinate2D, vk_allocator<GEOLocationCoordinate2D>> _pois;
+    struct vector<GEOLocationCoordinate2D, std::__1::allocator<GEOLocationCoordinate2D>> _pois;
     VKPuckAnimatorLocationProjector *_locationProjector;
     double _verticalGroundspanScale;
+    BOOL _allowVerticalPanning;
 }
 
+@property(readonly, nonatomic) BOOL allowVerticalPanning; // @synthesize allowVerticalPanning=_allowVerticalPanning;
 @property(readonly, nonatomic) double verticalGroundspanScale; // @synthesize verticalGroundspanScale=_verticalGroundspanScale;
 @property(nonatomic) BOOL applied; // @synthesize applied=_applied;
 @property(readonly, nonatomic) BOOL animated; // @synthesize animated=_animated;

@@ -10,6 +10,7 @@
 {
 }
 
+- (void)setEnabled:(BOOL)arg1;
 - (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
 - (void)setHighlighted:(BOOL)arg1;
 - (struct CGRect)titleRectForContentRect:(struct CGRect)arg1;

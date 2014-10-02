@@ -24,6 +24,7 @@
 }
 
 + (id)predicateWithCalendars:(id)arg1;
++ (BOOL)supportsSecureCoding;
 @property(nonatomic) unsigned int maxResults; // @synthesize maxResults=_maxResults;
 @property(nonatomic) int sortOrder; // @synthesize sortOrder=_sortOrder;
 @property(retain, nonatomic) NSString *searchTerm; // @synthesize searchTerm=_searchTerm;

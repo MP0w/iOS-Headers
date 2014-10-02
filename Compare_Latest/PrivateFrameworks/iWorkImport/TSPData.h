@@ -13,16 +13,18 @@
 __attribute__((visibility("hidden")))
 @interface TSPData : NSObject <TSPSplitableData>
 {
+    int _didCull;
     long long _identifier;
     NSObject<OS_dispatch_queue> *_accessQueue;
     id <TSPDataStorage> _storage;
     NSString *_filename;
     TSPDataManager *_manager;
     array_019f9a10 _digest;
-    BOOL _isCulling;
+    BOOL _isDeallocating;
 }
 
 + (BOOL)updateDigest:(array_019f9a10 *)arg1 withProtobufString:(const basic_string_9db06383 *)arg2;
++ (BOOL)writeStorage:(id)arg1 toURL:(id)arg2 error:(id *)arg3;
 + (id)requiredAVAssetOptions;
 + (id)cullingListeners;
 + (void)removeCullingListener:(id)arg1;
@@ -34,6 +36,7 @@ __attribute__((visibility("hidden")))
 + (id)dataFromReadChannel:(id)arg1 filename:(id)arg2 context:(id)arg3;
 + (id)dataFromDataRep:(id)arg1 filename:(id)arg2 context:(id)arg3;
 + (id)dataFromNSData:(id)arg1 filename:(id)arg2 context:(id)arg3;
++ (id)dataFromURL:(id)arg1 useExternalReferenceIfAllowed:(BOOL)arg2 useFileCoordination:(BOOL)arg3 context:(id)arg4;
 + (id)dataFromURL:(id)arg1 useExternalReferenceIfAllowed:(BOOL)arg2 context:(id)arg3;
 + (id)dataFromURL:(id)arg1 context:(id)arg2;
 + (void)dataForAssetsLibraryURL:(id)arg1 context:(id)arg2 queue:(id)arg3 completion:(CDUnknownBlockType)arg4;
@@ -41,7 +44,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) long long identifier; // @synthesize identifier=_identifier;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (BOOL)gilligan_isRemote;
+@property(readonly, nonatomic) BOOL gilligan_isRemote;
 - (void)archiveInfoMessage:(struct DataInfo *)arg1 archiver:(id)arg2;
 - (BOOL)isStorageInPackage:(id)arg1;
 - (const array_019f9a10 *)digest;
@@ -49,6 +52,7 @@ __attribute__((visibility("hidden")))
 - (void)setFilename:(id)arg1 storage:(id)arg2;
 @property(retain, nonatomic) id <TSPDataStorage> storage;
 - (id)initWithIdentifier:(long long)arg1 digest:(const array_019f9a10 *)arg2 filename:(id)arg3 storage:(id)arg4 manager:(id)arg5;
+@property(readonly, nonatomic) unsigned long long encodedLengthIfLocal;
 @property(readonly, nonatomic) unsigned long long encodedLength;
 - (BOOL)isLengthLikelyToBeGreaterThan:(unsigned long long)arg1;
 - (BOOL)writeToURL:(id)arg1 error:(id *)arg2;
@@ -65,6 +69,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned char packageIdentifier;
 @property(readonly, nonatomic) NSString *packageLocator;
 @property(readonly, nonatomic) NSString *documentResourceLocator;
+@property(readonly, nonatomic) BOOL isEncrypted;
 @property(readonly, nonatomic) BOOL isExternalData;
 @property(readonly, nonatomic) BOOL isApplicationData;
 @property(readonly, nonatomic) BOOL isReadable;
@@ -76,10 +81,12 @@ __attribute__((visibility("hidden")))
 - (struct CGImageSource *)newCGImageSource;
 - (struct CGDataProvider *)newCGDataProvider;
 - (id)NSData;
+- (BOOL)bookmarkDataNeedsWrite;
 - (id)bookmarkData;
+- (void)willCull;
 - (void)dealloc;
 - (id)UIImage;
-- (void)splitDataWithMaxSize:(unsigned long)arg1 subdataHandlerBlock:(CDUnknownBlockType)arg2;
+- (void)tsp_splitDataWithMaxSize:(unsigned long)arg1 subdataHandlerBlock:(CDUnknownBlockType)arg2;
 - (id)pasteboardType;
 
 @end

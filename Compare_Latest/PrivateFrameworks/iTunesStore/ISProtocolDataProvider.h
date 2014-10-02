@@ -31,6 +31,7 @@
 - (void)_performActionsForResponse:(id)arg1;
 - (void)_checkInAppPurchaseQueueForAction:(id)arg1;
 - (void)_checkDownloadQueues;
+- (void)_presentDialog:(id)arg1;
 - (BOOL)parseData:(id)arg1 returningError:(id *)arg2;
 - (BOOL)processDictionary:(id)arg1 error:(id *)arg2;
 - (BOOL)processDialogFromDictionary:(id)arg1 error:(id *)arg2;

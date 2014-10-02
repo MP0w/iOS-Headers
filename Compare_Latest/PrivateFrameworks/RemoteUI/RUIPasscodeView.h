@@ -7,10 +7,11 @@
 #import <RemoteUI/RUIElement.h>
 
 #import "RUIPasscodeFieldDelegate.h"
+#import "RUITableFooterDelegate.h"
 
 @class RUIObjectModel, RUIPasscodeField, UILabel, UIView;
 
-@interface RUIPasscodeView : RUIElement <RUIPasscodeFieldDelegate>
+@interface RUIPasscodeView : RUIElement <RUITableFooterDelegate, RUIPasscodeFieldDelegate>
 {
     UIView *_view;
     UILabel *_label;
@@ -20,11 +21,11 @@
 }
 
 @property(readonly, nonatomic) RUIPasscodeField *passcodeField; // @synthesize passcodeField=_passcodeField;
-@property(nonatomic) RUIObjectModel *objectModel; // @synthesize objectModel=_objectModel;
-- (void)dealloc;
+@property(nonatomic) __weak RUIObjectModel *objectModel; // @synthesize objectModel=_objectModel;
+- (void).cxx_destruct;
 - (void)submitPIN;
 - (void)passcodeField:(id)arg1 enteredPasscode:(id)arg2;
-- (void)remoteUILinkFooterActivatedLink:(id)arg1;
+- (void)footerView:(id)arg1 activatedLinkWithURL:(id)arg2;
 - (void)viewDidLayout;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;

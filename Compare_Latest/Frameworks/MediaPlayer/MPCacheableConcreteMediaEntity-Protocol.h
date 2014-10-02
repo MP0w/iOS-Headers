@@ -7,6 +7,6 @@
 @class MPConcreteMediaEntityPropertiesCache;
 
 @protocol MPCacheableConcreteMediaEntity
-@property(readonly, nonatomic) MPConcreteMediaEntityPropertiesCache *cachedPropertyValues;
+@property(readonly, retain, nonatomic) MPConcreteMediaEntityPropertiesCache *cachedPropertyValues;
 @end
 

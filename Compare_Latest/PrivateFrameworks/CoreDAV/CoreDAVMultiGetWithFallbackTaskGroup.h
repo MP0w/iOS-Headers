@@ -8,7 +8,7 @@
 
 #import "CoreDAVContainerMultiGetSubmittable.h"
 
-@class CoreDAVContainerMultiGetTask, NSError, NSMutableSet, NSSet;
+@class CoreDAVContainerMultiGetTask, NSError, NSMutableSet, NSSet, NSString;
 
 @interface CoreDAVMultiGetWithFallbackTaskGroup : CoreDAVTaskGroup <CoreDAVContainerMultiGetSubmittable>
 {
@@ -35,8 +35,12 @@
 // Remaining properties
 @property(nonatomic) id <CoreDAVAccountInfoProvider> accountInfoProvider;
 @property(copy, nonatomic) CDUnknownBlockType completionBlock;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 @property(nonatomic) id <CoreDAVTaskManager> taskManager;
-@property double timeoutInterval;
+@property(nonatomic) double timeoutInterval;
 
 @end
 

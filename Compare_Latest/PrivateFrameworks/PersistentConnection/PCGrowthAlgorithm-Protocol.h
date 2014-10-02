@@ -10,7 +10,7 @@
 @class NSDictionary, NSString;
 
 @protocol PCGrowthAlgorithm <PCLoggingDelegate, NSObject>
-@property(readonly, nonatomic) NSDictionary *cacheInfo;
+@property(readonly, copy, nonatomic) NSDictionary *cacheInfo;
 @property(readonly, nonatomic) unsigned int countOfGrowthActions;
 @property(nonatomic) double maximumKeepAliveInterval;
 @property(nonatomic) double minimumKeepAliveInterval;

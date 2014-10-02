@@ -9,7 +9,7 @@
 #import "TSPFileCoordinatorDelegate.h"
 #import "TSPObjectContextDelegate.h"
 
-@class NSError, NSMutableSet, NSSet, NSURL;
+@class NSError, NSMutableSet, NSSet, NSString, NSURL, NSUUID;
 
 __attribute__((visibility("hidden")))
 @interface TSPTemporaryObjectContextDelegate : NSObject <TSPFileCoordinatorDelegate, TSPObjectContextDelegate>
@@ -34,8 +34,15 @@ __attribute__((visibility("hidden")))
 
 // Remaining properties
 @property(readonly, nonatomic) BOOL areNewExternalReferencesToDataAllowed;
+@property(readonly, nonatomic) NSUUID *baseUUIDForObjectUUID;
+@property(readonly, nonatomic) BOOL canUpgradeDocumentSupport;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) id <NSFilePresenter> filePresenter;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) BOOL isDocumentSupportTemporary;
+@property(readonly, nonatomic) BOOL preserveDocumentRevisionIdentifierForSequenceZero;
+@property(readonly) Class superclass;
 
 @end
 

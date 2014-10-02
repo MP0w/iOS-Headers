@@ -9,7 +9,7 @@
 #import "TSDMutableContainerInfo.h"
 #import "TSKDocumentObject.h"
 
-@class NSMutableArray, NSObject<TSDContainerInfo>, TSDInfoGeometry, TSPObject<TSDOwningAttachment>;
+@class NSMutableArray, NSObject<TSDContainerInfo>, NSString, TSDInfoGeometry, TSPObject<TSDOwningAttachment>;
 
 __attribute__((visibility("hidden")))
 @interface TSDContainerInfo : TSPObject <TSDMutableContainerInfo, TSKDocumentObject>
@@ -46,6 +46,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=isFloatingAboveText) BOOL floatingAboveText;
 @property(readonly, nonatomic) TSPObject<TSDOwningAttachment> *owningAttachmentNoRecurse;
 @property(nonatomic) TSPObject<TSDOwningAttachment> *owningAttachment;
+- (void)clearBackPointerToParentInfoIfNeeded:(id)arg1;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1 geometry:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
@@ -54,7 +55,11 @@ __attribute__((visibility("hidden")))
 - (void)loadFromArchive:(const struct ContainerArchive *)arg1 unarchiver:(id)arg2;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(nonatomic) BOOL matchesObjectPlaceholderGeometry;
+@property(readonly) Class superclass;
 
 @end
 

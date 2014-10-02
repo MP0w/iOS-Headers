@@ -18,6 +18,7 @@
 - (id)initWithDocumentRoot:(TSKDocumentRoot *)arg1;
 
 @optional
+- (void)enableRenderAllContent;
 - (BOOL)isExportSupported;
 - (NSString *)documentSpecificTypeUTI;
 - (NSString *)savePanelMessage;

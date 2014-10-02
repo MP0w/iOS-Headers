@@ -8,15 +8,17 @@
 
 @interface RUParallelScrollView : UIScrollView
 {
+    float _displayScale;
     UIScrollView *_targetScrollView;
+    float _targetScrollViewWidth;
 }
 
-@property(nonatomic) __weak UIScrollView *targetScrollView; // @synthesize targetScrollView=_targetScrollView;
+@property(nonatomic) float targetScrollViewWidth; // @synthesize targetScrollViewWidth=_targetScrollViewWidth;
+@property(retain, nonatomic) UIScrollView *targetScrollView; // @synthesize targetScrollView=_targetScrollView;
 - (void).cxx_destruct;
-- (void)_layoutTargetScrollView;
-- (void)setContentOffset:(struct CGPoint)arg1;
-- (void)setContentInset:(struct UIEdgeInsets)arg1;
-- (void)setBounds:(struct CGRect)arg1;
+- (void)traitCollectionDidChange:(id)arg1;
+- (void)layoutSubviews;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

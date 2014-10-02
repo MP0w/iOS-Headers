@@ -10,32 +10,43 @@
 
 @interface TLITunesTone : NSObject
 {
+    BOOL _purchased;
+    BOOL _ringtone;
+    BOOL _protected;
+    BOOL _private;
     NSString *_identifier;
     NSString *_name;
     NSString *_filePath;
-    NSString *_artworkFile;
-    NSDictionary *_playbackProperties;
     NSNumber *_pid;
+    NSString *_artworkFile;
     unsigned int _duration;
-    BOOL _ringtone;
-    BOOL _purchased;
-    BOOL _protected;
-    BOOL _private;
+    NSDictionary *_playbackProperties;
 }
 
-@property(nonatomic) BOOL private; // @synthesize private=_private;
-@property(nonatomic) BOOL protected; // @synthesize protected=_protected;
+- (void)_setPlaybackProperties:(id)arg1;
+@property(copy, nonatomic) NSDictionary *playbackProperties; // @synthesize playbackProperties=_playbackProperties;
+- (void)_setPrivate:(BOOL)arg1;
+@property(nonatomic, getter=isPrivate) BOOL private; // @synthesize private=_private;
+- (void)_setProtected:(BOOL)arg1;
+@property(nonatomic, getter=isProtected) BOOL protected; // @synthesize protected=_protected;
+- (void)_setDuration:(unsigned int)arg1;
 @property(nonatomic) unsigned int duration; // @synthesize duration=_duration;
-@property(retain, nonatomic) NSString *artworkFile; // @synthesize artworkFile=_artworkFile;
-@property(retain, nonatomic) NSNumber *pid; // @synthesize pid=_pid;
+- (void)_setArtworkFile:(id)arg1;
+@property(copy, nonatomic) NSString *artworkFile; // @synthesize artworkFile=_artworkFile;
+- (void)_setPid:(id)arg1;
+@property(copy, nonatomic) NSNumber *pid; // @synthesize pid=_pid;
+- (void)_setRingtone:(BOOL)arg1;
 @property(nonatomic, getter=isRingtone) BOOL ringtone; // @synthesize ringtone=_ringtone;
+- (void)_setPurchased:(BOOL)arg1;
 @property(nonatomic, getter=isPurchased) BOOL purchased; // @synthesize purchased=_purchased;
-@property(retain, nonatomic) NSDictionary *playbackProperties; // @synthesize playbackProperties=_playbackProperties;
-@property(retain, nonatomic) NSString *filePath; // @synthesize filePath=_filePath;
-@property(retain, nonatomic) NSString *name; // @synthesize name=_name;
-@property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-- (BOOL)loadFromPropertyList:(id)arg1;
+- (void)_setFilePath:(id)arg1;
+@property(copy, nonatomic) NSString *filePath; // @synthesize filePath=_filePath;
+- (void)_setName:(id)arg1;
+@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
+- (void)_setIdentifier:(id)arg1;
+@property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void)dealloc;
+- (id)initWithPropertyListRepresentation:(id)arg1 filePath:(id)arg2;
 
 @end
 

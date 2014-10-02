@@ -10,10 +10,12 @@
 {
 }
 
-+ (id)themeAssetCache;
-+ (id)explicitGlyphLargeImage;
-+ (id)explicitGlyphMediumImage;
-+ (id)explicitGlyphSmallImage;
++ (id)_themeAssetCache;
++ (float)tableViewContentLeftInset;
++ (id)disabledPlaybackControlColor;
++ (float)explicitGlyphImageBaselineOffsetFromBottomForSizeCategory:(unsigned int)arg1;
++ (id)explicitGlyphImageForSizeCategory:(unsigned int)arg1;
++ (id)cloudGlyph;
 + (id)cachedObjectWithKey:(id)arg1 block:(CDUnknownBlockType)arg2;
 
 @end

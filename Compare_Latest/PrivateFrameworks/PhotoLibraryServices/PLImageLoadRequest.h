@@ -19,7 +19,7 @@
 }
 
 + (id)requestWithAsset:(id)arg1 source:(id)arg2 priority:(int)arg3 completion:(CDUnknownBlockType)arg4 loadingQueue:(id)arg5;
-@property(readonly, nonatomic) PLImageSource *source; // @synthesize source=_source;
+@property(readonly, retain, nonatomic) PLImageSource *source; // @synthesize source=_source;
 @property(nonatomic) int priority; // @synthesize priority=_priority;
 - (void)notifyImageLoadingQueuesOfImageAvailability:(id)arg1;
 - (BOOL)someImageLoadingQueuesRegistered;
@@ -30,7 +30,7 @@
 - (void)addCompletionBlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) NSArray *completionBlocks;
 - (BOOL)isEqual:(id)arg1;
-@property(readonly, nonatomic) PLLoadRequestKey *key;
+@property(readonly, retain, nonatomic) PLLoadRequestKey *key;
 - (id)assetInPhotoLibrary:(id)arg1;
 - (void)dealloc;
 - (id)initWithAsset:(id)arg1 source:(id)arg2 priority:(int)arg3;

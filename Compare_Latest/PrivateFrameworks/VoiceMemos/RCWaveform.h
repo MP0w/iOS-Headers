@@ -19,20 +19,23 @@
 }
 
 + (id)waveformWithContentsOfURL:(id)arg1 minimumRequiredVersion:(unsigned int)arg2;
-+ (id)waveformPathForSavedRecordingPath:(id)arg1;
++ (id)waveformURLForAVURL:(id)arg1;
 + (void)initialize;
 @property(readonly, nonatomic) NSArray *segments; // @synthesize segments=_segments;
 - (void).cxx_destruct;
+- (void)_mergeBoundarySegmentsInArray:(id)arg1;
+- (id)_mutableSegmentsIntersectingTimeRange:(CDStruct_73a5d3ca)arg1 intersectionRange:(struct _NSRange *)arg2;
+- (id)_mutableSegmentsByClippingToTimeRange:(CDStruct_73a5d3ca)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (struct _NSRange)rangeOfSegmentsInTimeRange:(CDStruct_73a5d3ca)arg1;
-- (id)segmentsFromTime:(double)arg1;
-- (id)segmentsInTimeRange:(CDStruct_73a5d3ca)arg1;
+- (struct _NSRange)rangeOfSegmentsIntersectingTimeRange:(CDStruct_73a5d3ca)arg1;
+- (id)segmentsByClippingToTimeRange:(CDStruct_73a5d3ca)arg1;
 - (BOOL)saveContentsToURL:(id)arg1;
 @property(readonly, nonatomic) unsigned int averagePowerLevelsRate;
 - (BOOL)isWaveformDataEqualToDataInWaveform:(id)arg1;
+- (BOOL)hasUniformPowerLevel:(float)arg1;
 - (id)initWithSegments:(id)arg1;
 - (id)init;
 

@@ -8,11 +8,14 @@
 
 #import "SBControlCenterObserver.h"
 
+@class NSString;
+
 @interface SBLiveIconImageView : SBIconImageView <SBControlCenterObserver>
 {
     unsigned long long _pauseCauses;
 }
 
++ (void)_applicationDidExit:(id)arg1;
 + (void)_displayDidDeactivate:(id)arg1;
 + (void)_displayWillActivate:(id)arg1;
 + (void)initialize;
@@ -39,9 +42,14 @@
 - (id)_stringForPauseCause:(unsigned long long)arg1;
 - (_Bool)isAnimationAllowed;
 - (void)setIcon:(id)arg1 location:(int)arg2 animated:(_Bool)arg3;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

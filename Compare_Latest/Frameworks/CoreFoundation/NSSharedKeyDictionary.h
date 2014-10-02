@@ -30,6 +30,7 @@
 - (id)keySet;
 - (void)removeObjectForKey:(id)arg1;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
+- (void)enumerateKeysAndObjectsWithOptions:(unsigned int)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
 - (id)keyEnumerator;
 - (void)getObjects:(id *)arg1 andKeys:(id *)arg2 count:(unsigned int)arg3;

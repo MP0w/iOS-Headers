@@ -14,7 +14,7 @@
 }
 
 + (id)copyParseRules;
-@property(readonly) NSString *syncToken; // @synthesize syncToken=_syncToken;
+@property(readonly, nonatomic) NSString *syncToken; // @synthesize syncToken=_syncToken;
 - (void)_setSyncTokenItem:(id)arg1;
 - (id)description;
 - (void)dealloc;

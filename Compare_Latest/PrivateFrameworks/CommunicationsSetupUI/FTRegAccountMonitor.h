@@ -17,7 +17,7 @@
     CDStruct_34e8bc21 _monitorFlags;
 }
 
-@property(readonly, nonatomic) NSArray *activeAccounts; // @synthesize activeAccounts=_accounts;
+@property(readonly, retain, nonatomic) NSArray *activeAccounts; // @synthesize activeAccounts=_accounts;
 @property(nonatomic) int serviceType; // @synthesize serviceType=_serviceType;
 @property(retain, nonatomic) IMServiceImpl *service; // @synthesize service=_service;
 - (void)_handleDaemonConnected:(id)arg1;

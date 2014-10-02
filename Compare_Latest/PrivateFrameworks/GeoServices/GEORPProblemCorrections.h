@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class GEORPCorrectedCoordinate, GEORPCorrectedLabel, GEORPCorrectedSearch, GEORPMapLocation, NSMutableArray, NSString;
+@class GEORPCorrectedCoordinate, GEORPCorrectedLabel, GEORPCorrectedSearch, GEORPDirectionsProblem, GEORPMapLocation, GEORPPlaceProblem, NSMutableArray, NSString;
 
 @interface GEORPProblemCorrections : PBCodable <NSCopying>
 {
@@ -18,14 +18,21 @@
     GEORPCorrectedLabel *_correctedLabel;
     GEORPMapLocation *_correctedMapLocation;
     GEORPCorrectedSearch *_correctedSearch;
+    GEORPDirectionsProblem *_directionsProblem;
+    NSMutableArray *_photos;
+    GEORPPlaceProblem *_placeProblem;
 }
 
+@property(retain, nonatomic) GEORPDirectionsProblem *directionsProblem; // @synthesize directionsProblem=_directionsProblem;
+@property(retain, nonatomic) GEORPPlaceProblem *placeProblem; // @synthesize placeProblem=_placeProblem;
+@property(retain, nonatomic) NSMutableArray *photos; // @synthesize photos=_photos;
 @property(retain, nonatomic) NSString *comments; // @synthesize comments=_comments;
 @property(retain, nonatomic) GEORPMapLocation *correctedMapLocation; // @synthesize correctedMapLocation=_correctedMapLocation;
 @property(retain, nonatomic) GEORPCorrectedSearch *correctedSearch; // @synthesize correctedSearch=_correctedSearch;
 @property(retain, nonatomic) GEORPCorrectedCoordinate *correctedCoordinate; // @synthesize correctedCoordinate=_correctedCoordinate;
 @property(retain, nonatomic) GEORPCorrectedLabel *correctedLabel; // @synthesize correctedLabel=_correctedLabel;
 @property(retain, nonatomic) NSMutableArray *correctedFields; // @synthesize correctedFields=_correctedFields;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -34,14 +41,20 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) BOOL hasDirectionsProblem;
+@property(readonly, nonatomic) BOOL hasPlaceProblem;
+- (id)photoAtIndex:(unsigned int)arg1;
+- (unsigned int)photosCount;
+- (void)addPhoto:(id)arg1;
+- (void)clearPhotos;
 @property(readonly, nonatomic) BOOL hasComments;
 @property(readonly, nonatomic) BOOL hasCorrectedMapLocation;
 @property(readonly, nonatomic) BOOL hasCorrectedSearch;
 @property(readonly, nonatomic) BOOL hasCorrectedCoordinate;
 @property(readonly, nonatomic) BOOL hasCorrectedLabel;
-- (id)correctedFieldsAtIndex:(unsigned int)arg1;
+- (id)correctedFieldAtIndex:(unsigned int)arg1;
 - (unsigned int)correctedFieldsCount;
-- (void)addCorrectedFields:(id)arg1;
+- (void)addCorrectedField:(id)arg1;
 - (void)clearCorrectedFields;
 - (void)dealloc;
 

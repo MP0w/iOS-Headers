@@ -28,7 +28,7 @@
 @property(readonly) NSError *error;
 - (void)_transitionToStatus:(int)arg1 failureError:(id)arg2;
 @property(readonly) int status;
-@property(readonly, nonatomic) AVAsset *asset;
+@property(readonly, retain, nonatomic) AVAsset *asset;
 - (id)description;
 - (void)_tearDownFigAssetReader;
 - (void)finalize;

@@ -12,8 +12,10 @@
 {
     UILabel *_accountLabel;
     UIView *_background;
+    BOOL _accountHasUnsafeDomain;
 }
 
+@property(nonatomic) BOOL accountHasUnsafeDomain; // @synthesize accountHasUnsafeDomain=_accountHasUnsafeDomain;
 - (void)tintColorDidChange;
 - (void)setLabelHighlighted:(BOOL)arg1;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
@@ -22,6 +24,7 @@
 - (void)_setBackgroundVisible:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)setAccountLabel:(id)arg1;
 - (struct CGRect)accountLabelRect;
+- (void)layoutSubviews;
 - (id)_accountLabel;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

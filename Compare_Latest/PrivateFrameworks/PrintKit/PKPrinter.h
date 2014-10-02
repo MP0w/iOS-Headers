@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSMutableSet, NSNumber, NSString;
+@class NSArray, NSDictionary, NSMutableDictionary, NSNumber, NSString, NSURL, PKPaperList;
 
 @interface PKPrinter : NSObject
 {
@@ -72,8 +72,6 @@
         char *_field51;
     } *job_http;
     NSMutableDictionary *privateData;
-    NSMutableSet *mediaReady;
-    NSMutableArray *rolls;
     NSMutableDictionary *specialFeedOrientation;
     NSArray *printScalingSupported;
     NSArray *mandatoryJobAttributes;
@@ -84,25 +82,29 @@
     int maxJPEGYDimension;
     int maxCopies;
     int preferred_landscape;
+    int printerStateReasons;
     BOOL isLocal;
     BOOL hasIdentifyPrinterOp;
     BOOL connectionShouldNotBeTrusted;
     BOOL isFromMCProfile;
     int kind;
+    PKPaperList *_paperList;
 }
 
 + (id)nameForHardcodedURI:(id)arg1;
 + (id)hardcodedURIs;
 + (BOOL)printerLookupWithName:(id)arg1 andTimeout:(double)arg2;
++ (id)printerWithName:(id)arg1 discoveryTimeout:(double)arg2;
 + (id)printerWithName:(id)arg1;
 + (id)requiredPDL;
 + (BOOL)urfIsOptional;
 + (struct _ipp_s *)getAttributes:(const char **)arg1 count:(int)arg2 fromURI:(id)arg3;
+@property(retain) PKPaperList *paperList; // @synthesize paperList=_paperList;
+@property(readonly) int type; // @synthesize type;
 @property(readonly) BOOL hasIdentifyPrinterOp; // @synthesize hasIdentifyPrinterOp;
 @property BOOL isFromMCProfile; // @synthesize isFromMCProfile;
 @property BOOL isLocal; // @synthesize isLocal;
 @property(readonly) int accessState; // @synthesize accessState;
-@property(readonly) int type; // @synthesize type;
 @property(readonly) int kind; // @synthesize kind;
 @property(readonly) NSString *name; // @synthesize name;
 - (void)setupWithOptions:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -113,18 +115,20 @@
 - (void)reconfirmWithForce:(BOOL)arg1;
 - (void)cancelUnlock;
 - (void)unlockWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (id)matchedPaper:(id)arg1 preferBorderless:(BOOL)arg2 withDuplexMode:(id)arg3 didMatch:(char *)arg4;
-- (BOOL)hasMatchingLoadedRoll:(id)arg1;
 - (int)startJob:(id)arg1 ofType:(id)arg2;
 - (int)sendData:(const char *)arg1 ofLength:(int)arg2;
 - (int)printURL:(id)arg1 ofType:(id)arg2 printSettings:(id)arg3;
 - (int)finishJob;
 - (int)abortJob;
+- (void)doMedia2:(struct _ipp_s *)arg1;
+- (id)matchedPaper:(id)arg1 preferBorderless:(BOOL)arg2 withDuplexMode:(id)arg3 didMatch:(char *)arg4;
+- (id)papersForDocumentWithSize:(struct CGSize)arg1 andDuplex:(BOOL)arg2;
+- (id)papersForPhotoWithSize:(struct CGSize)arg1;
 - (id)paperListForDuplexMode:(id)arg1;
-- (id)rollReadyPaperListForPhotoWithContentSize:(struct CGSize)arg1;
-- (id)rollReadyPaperListForDocumentWithContentSize:(struct CGSize)arg1;
 - (id)rollReadyPaperListWithContentSize:(struct CGSize)arg1 forPhoto:(BOOL)arg2;
 - (id)rollReadyPaperListWithContentSize:(struct CGSize)arg1;
+- (BOOL)knowsReadyPaperList;
+- (BOOL)isPaperReady:(id)arg1;
 @property(readonly) NSString *uuid; // @dynamic uuid;
 @property(readonly) BOOL isIPPS; // @dynamic isIPPS;
 @property(readonly) BOOL isAdobeRGBSupported; // @dynamic isAdobeRGBSupported;
@@ -132,19 +136,19 @@
 - (void)checkOperations:(struct _ipp_s *)arg1;
 - (void)identifySelf;
 @property(readonly) BOOL hasPrintInfoSupported; // @dynamic hasPrintInfoSupported;
-- (BOOL)knowsReadyPaperList;
-- (BOOL)isPaperReady:(id)arg1;
 - (int)feedOrientation:(id)arg1;
 - (void)aggdAppsAndPrinters;
-- (void)createMediaReadyFromAttrs:(struct _ipp_s *)arg1;
 - (id)availableRollPapersPreferBorderless:(BOOL)arg1;
-- (id)rollFromAttrs:(struct _ipp_s *)arg1;
 @property(readonly) int jobTypesSupported;
+- (id)localizedPrinterWarnings;
+- (void)handlePrinterStateReasonsFromResponse:(struct _ipp_s *)arg1;
+- (id)makeAndModel;
 - (id)location;
 - (id)displayName;
 - (id)description;
 - (void)dealloc;
 - (BOOL)isBonjour;
+@property(readonly) NSURL *printerURL;
 - (void)setPrivateObject:(id)arg1 forKey:(id)arg2;
 - (id)privateObjectForKey:(id)arg1;
 - (id)localName;
@@ -152,14 +156,17 @@
 - (struct _ipp_s *)createRequest:(id)arg1 ofType:(id)arg2 url:(id)arg3;
 - (BOOL)resolveWithTimeout:(int)arg1;
 - (void)resolve;
-@property(readonly) NSString *scheme;
+@property(readonly, retain) NSString *scheme;
 @property(retain) NSNumber *port; // @dynamic port;
 @property(retain) NSString *hostname; // @dynamic hostname;
 @property(retain) NSDictionary *TXTRecord; // @dynamic TXTRecord;
-- (void)setAccessStateFromTXT:(id)arg1;
+- (id)TXTRecordWithTimeout:(int)arg1;
+- (id)txtRecordObjectForKey:(id)arg1;
+- (void)setAccessStateFromTXT;
 - (void)updateType;
 - (id)initWithName:(id)arg1 TXTRecord:(id)arg2;
 - (id)initWithName:(id)arg1 TXT:(id)arg2;
+- (struct _ipp_s *)getAttributes:(const char **)arg1 count:(int)arg2;
 - (struct _ipp_s *)getPrinterAttributes;
 
 @end

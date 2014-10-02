@@ -9,7 +9,7 @@
 #import "SBFLegibilitySettingsProvider.h"
 #import "SBFWallpaperViewLegibilityObserver.h"
 
-@class NSDictionary, NSTimer, SBFLockScreenSimpleDateFormatter, UIImage, _UILegibilitySettings;
+@class NSDictionary, NSString, NSTimer, SBFLockScreenSimpleDateFormatter, UIImage, _UILegibilitySettings;
 
 @interface SBSUIWallpaperPreviewViewController : UIViewController <SBFWallpaperViewLegibilityObserver, SBFLegibilitySettingsProvider>
 {
@@ -22,6 +22,7 @@
     BOOL _allowScrolling;
     SBFLockScreenSimpleDateFormatter *_dateFormatter;
     int _variant;
+    NSString *_name;
     BOOL _motionEnabled;
 }
 
@@ -40,7 +41,7 @@
 - (id)_wallpaperViewWithFrame:(struct CGRect)arg1;
 - (id)_backdropWallpaperView;
 - (void)wallpaperView:(id)arg1 legibilitySettingsDidChange:(id)arg2;
-@property(readonly, nonatomic) _UILegibilitySettings *legibilitySettings;
+@property(readonly, retain, nonatomic) _UILegibilitySettings *legibilitySettings;
 - (void)setWallpaperForLocations:(int)arg1;
 - (float)_parallaxFactor;
 @property(readonly) UIImage *wallpaperImage;
@@ -50,11 +51,18 @@
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithScrollableImage:(id)arg1;
+- (id)initWithImage:(id)arg1 name:(id)arg2;
 - (id)initWithProceduralWallpaper:(id)arg1 options:(id)arg2;
 - (id)initWithWallpaperVariant:(int)arg1;
 - (id)initWithColorSamplingEnabled:(BOOL)arg1;
 - (id)initWithImage:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

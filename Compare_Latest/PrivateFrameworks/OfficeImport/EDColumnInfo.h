@@ -9,7 +9,7 @@
 #import "EDKeyedObject.h"
 #import "NSCopying.h"
 
-@class EDReference, EDResources, EDWorksheet;
+@class EDReference, EDResources, EDWorksheet, NSString;
 
 __attribute__((visibility("hidden")))
 @interface EDColumnInfo : NSObject <NSCopying, EDKeyedObject>
@@ -43,6 +43,12 @@ __attribute__((visibility("hidden")))
 - (unsigned int)styleIndex;
 - (void)setWidthInXlUnits:(int)arg1;
 - (int)widthInXlUnits;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

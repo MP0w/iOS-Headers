@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSData, NSObject<OS_dispatch_semaphore>, _UIAsyncInvocation;
+@class NSData, NSObject<OS_dispatch_semaphore>;
 
 __attribute__((visibility("hidden")))
 @interface _UIDecompressionInfo : NSObject
@@ -16,7 +16,6 @@ __attribute__((visibility("hidden")))
     NSData *imageData;
     struct CGSize maxSize;
     int renderingIntent;
-    _UIAsyncInvocation *terminationInvocation;
     BOOL decompressionComplete;
     BOOL metadataComplete;
 }

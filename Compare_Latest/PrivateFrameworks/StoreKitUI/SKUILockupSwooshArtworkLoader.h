@@ -6,18 +6,23 @@
 
 #import <StoreKitUI/SKUISwooshArtworkLoader.h>
 
-@class SKUIItemArtworkContext, SKUILockupSwooshViewController;
+@class SKUIItemArtworkContext, SKUILockupSwooshViewController, SKUIVideoImageDataConsumer, UIImage;
 
 @interface SKUILockupSwooshArtworkLoader : SKUISwooshArtworkLoader
 {
     SKUIItemArtworkContext *_context;
+    SKUIVideoImageDataConsumer *_videoImageConsumer;
+    UIImage *_videoPlaceholderImage;
 }
 
 - (void).cxx_destruct;
 - (void)setImage:(id)arg1 forRequest:(id)arg2;
 - (void)loadImagesForNextPageWithReason:(int)arg1;
+- (id)placeholderImageForVideo:(id)arg1;
 - (id)placeholderImageForItem:(id)arg1;
+- (BOOL)loadImageForVideo:(id)arg1 reason:(int)arg2;
 - (BOOL)loadImageForItem:(id)arg1 reason:(int)arg2;
+- (id)cachedImageForVideo:(id)arg1;
 - (id)cachedImageForItem:(id)arg1;
 - (id)initWithArtworkLoader:(id)arg1 swoosh:(id)arg2;
 

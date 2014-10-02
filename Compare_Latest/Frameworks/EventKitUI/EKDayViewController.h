@@ -12,7 +12,7 @@
 #import "EKEventGestureControllerDelegate.h"
 #import "UIScrollViewDelegate.h"
 
-@class CalendarOccurrencesCollection, EKDayView, EKDayViewWithGutters, EKEventEditViewController, EKEventGestureController, NSCalendar, NSDateComponents, ScrollSpringFactory, UIScrollView, UIView;
+@class CalendarOccurrencesCollection, EKDayView, EKDayViewWithGutters, EKEventEditViewController, EKEventGestureController, NSCalendar, NSDateComponents, NSString, ScrollSpringFactory, UIScrollView, UIView;
 
 @interface EKDayViewController : UIViewController <BlockableScrollViewDelegate, EKDayViewDataSource, EKDayViewDelegate, EKEventGestureControllerDelegate, UIScrollViewDelegate>
 {
@@ -58,6 +58,7 @@
     BOOL _disableGestureDayChange;
     BOOL _disableNotifyDateChangeDuringTracking;
     BOOL _animateAllDayAreaHeight;
+    BOOL _shouldAutoscrollAfterAppearance;
     BOOL _notifyWhenTapOtherEventDuringDragging;
     id <EKDayViewControllerDelegate> _delegate;
     id <EKDayViewControllerDataSource> _dataSource;
@@ -69,6 +70,7 @@
     struct CGPoint _normalizedContentOffset;
 }
 
++ (BOOL)_shouldForwardViewWillTransitionToSize;
 @property(copy, nonatomic) NSDateComponents *pendingPreviousDate; // @synthesize pendingPreviousDate=_pendingPreviousDate;
 @property(copy, nonatomic) NSDateComponents *pendingNextDate; // @synthesize pendingNextDate=_pendingNextDate;
 @property(nonatomic) struct CGPoint normalizedContentOffset; // @synthesize normalizedContentOffset=_normalizedContentOffset;
@@ -76,6 +78,7 @@
 @property(retain, nonatomic) UIView *gestureOccurrenceSuperview; // @synthesize gestureOccurrenceSuperview=_gestureOccurrenceSuperview;
 @property(nonatomic) float gutterWidth; // @synthesize gutterWidth=_gutterWidth;
 @property(nonatomic) BOOL notifyWhenTapOtherEventDuringDragging; // @synthesize notifyWhenTapOtherEventDuringDragging=_notifyWhenTapOtherEventDuringDragging;
+@property(nonatomic) BOOL shouldAutoscrollAfterAppearance; // @synthesize shouldAutoscrollAfterAppearance=_shouldAutoscrollAfterAppearance;
 @property(nonatomic) BOOL animateAllDayAreaHeight; // @synthesize animateAllDayAreaHeight=_animateAllDayAreaHeight;
 @property(nonatomic) BOOL disableNotifyDateChangeDuringTracking; // @synthesize disableNotifyDateChangeDuringTracking=_disableNotifyDateChangeDuringTracking;
 @property(nonatomic) BOOL disableGestureDayChange; // @synthesize disableGestureDayChange=_disableGestureDayChange;
@@ -96,7 +99,8 @@
 - (void)beginExternallyControlledScrolling;
 - (void)applicationWillResignActive;
 - (void)applicationDidBecomeActive;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
+- (void)viewDidLayoutSubviews;
 - (BOOL)blockableScrollViewShouldAllowScrolling;
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(BOOL)arg2;
 - (void)scrollViewWillBeginDragging:(id)arg1;
@@ -132,6 +136,7 @@
 - (struct CGPoint)eventGestureController:(id)arg1 pointAtDate:(double)arg2 isAllDay:(BOOL)arg3;
 - (double)eventGestureController:(id)arg1 dateAtPoint:(struct CGPoint)arg2;
 - (BOOL)eventGestureController:(id)arg1 isAllDayAtPoint:(struct CGPoint)arg2 requireInsistence:(BOOL)arg3;
+- (id)eventGestureController:(id)arg1 occurrenceViewForOccurrence:(id)arg2;
 - (id)eventGestureController:(id)arg1 occurrenceViewAtPoint:(struct CGPoint)arg2;
 - (void)eventGestureController:(id)arg1 addViewToScroller:(id)arg2 isAllDay:(BOOL)arg3;
 - (float)eventGestureController:(id)arg1 yPositionPerhapsMatchingAllDayOccurrence:(id)arg2 atPoint:(struct CGPoint)arg3;
@@ -149,6 +154,7 @@
 - (void)_localeChanged:(id)arg1;
 - (id)dayView:(id)arg1 eventsForStartDate:(id)arg2 endDate:(id)arg3;
 - (id)_occurrencesForDayView:(id)arg1;
+- (void)dayView:(id)arg1 didUpdateScrollPosition:(struct CGPoint)arg2;
 - (void)significantTimeChangeOccurred;
 - (void)reloadDataBetweenStart:(id)arg1 end:(id)arg2;
 - (void)reloadData;
@@ -168,10 +174,13 @@
 - (void)dayView:(id)arg1 firstVisibleSecondChanged:(unsigned int)arg2;
 - (void)_setNextAndPreviousFirstVisibleSecondToCurrent;
 - (void)_setDisplayDateInternal:(id)arg1;
+- (void)dayView:(id)arg1 isPinchingDayViewWithScale:(float)arg2;
+- (void)dayView:(id)arg1 didScaleDayViewWithScale:(float)arg2;
 - (void)dayView:(id)arg1 didCreateOccurrenceViews:(id)arg2;
 - (void)dayView:(id)arg1 didSelectEvent:(id)arg2;
 - (id)preferredEventToSelectOnDate:(id)arg1;
 - (BOOL)_isCalendarDate:(id)arg1 sameDayAsComponents:(id)arg2;
+@property(readonly, nonatomic) BOOL currentDayContainsOccurrences;
 @property(readonly, nonatomic) UIView *currentAllDayView;
 - (id)gestureController;
 - (id)occurrenceViewForEvent:(id)arg1 includeNextAndPreviousDays:(BOOL)arg2;
@@ -183,11 +192,17 @@
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
-- (void)_delayedScrollDayViewAfterAppearence;
+- (void)_scrollDayViewAfterAppearenceIfNeeded;
 - (void)_scrollDayViewAfterAppearence:(BOOL)arg1;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

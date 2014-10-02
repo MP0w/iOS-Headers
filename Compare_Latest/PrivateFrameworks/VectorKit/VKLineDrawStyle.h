@@ -4,40 +4,30 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <VectorKit/VKDrawStyle.h>
+#import <VectorKit/VKRenderStyle.h>
 
 __attribute__((visibility("hidden")))
-@interface VKLineDrawStyle : VKDrawStyle
+@interface VKLineDrawStyle : VKRenderStyle
 {
-    struct vector<LineDash, vk_allocator<LineDash>> fillDashes;
-    struct vector<LineStipple, vk_allocator<LineStipple>> stipples;
-    struct vector<LineDash, vk_allocator<LineDash>> strokeDashes;
-    BOOL hasDashAtAnyZ;
-    struct VKProfileSparseRamp<float> insetShadowHeight;
-    struct VKProfileSparseRamp<float> insetShadowAngle;
-    struct VKProfileSparseRamp<_VGLColor> insetShadowColor;
-    struct VKProfileSparseRamp<geo::Vec2Imp<float>> dropShadowOffset;
-    struct VKProfileSparseRamp<float> dropShadowWidth;
-    struct VKProfileSparseRamp<_VGLColor> dropShadowColor;
 }
 
-- (id).cxx_construct;
-- (void).cxx_destruct;
-- (struct _VGLColor)dropShadowColorAtZoom:(float)arg1;
-- (Vec2Imp_1782d7e3)dropShadowOffsetAtZoom:(float)arg1;
-- (float)dropShadowWidthAtZoom:(float)arg1;
++ (int)renderStyleID;
+- (Matrix_5173352a)outerGlowColorAtZoom:(float)arg1;
+- (float)outerGlowRadiusAtZoom:(float)arg1;
+- (Matrix_5173352a)innerGlowColorAtZoom:(float)arg1;
+- (float)innerGlowRadiusAtZoom:(float)arg1;
+- (Matrix_5173352a)dropShadowColorAtZoom:(float)arg1;
+- (Matrix_8746f91e)dropShadowOffsetAtZoom:(float)arg1;
 - (BOOL)hasDropShadowAtZoom:(float)arg1;
-- (struct _VGLColor)insetShadowColorAtZoom:(float)arg1;
+- (float)dropShadowWidthAtZoom:(float)arg1;
+- (Matrix_5173352a)insetShadowColorAtZoom:(float)arg1;
 - (float)insetShadowAngleAtZoom:(float)arg1;
 - (float)insetShadowHeightAtZoom:(float)arg1;
 - (BOOL)hasStrokeDashAtZoom:(int)arg1;
 - (BOOL)hasFillDashAtZoom:(int)arg1;
-- (void)strokeDashPattern:(float **)arg1 length:(unsigned int *)arg2 atZoom:(float)arg3;
-- (void)stippleArray:(float **)arg1 length:(unsigned int *)arg2 atZoom:(float)arg3;
-- (void)fillDashPattern:(float **)arg1 length:(unsigned int *)arg2 atZoom:(float)arg3;
+- (unsigned long long)strokeDashPatternAtZoom:(float)arg1;
+- (unsigned long long)fillDashPatternAtZoom:(float)arg1;
 - (BOOL)hasDashAtAnyZ;
-- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2 globals:(id)arg3;
-- (id)variant;
 
 @end
 

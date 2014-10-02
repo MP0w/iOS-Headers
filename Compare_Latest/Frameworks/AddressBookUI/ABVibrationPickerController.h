@@ -6,18 +6,18 @@
 
 #import "UINavigationController.h"
 
-@class UIViewController;
+@class TKVibrationPickerViewController;
 
 @interface ABVibrationPickerController : UINavigationController
 {
-    UIViewController *_vibrationPicker;
+    TKVibrationPickerViewController *_vibrationPicker;
 }
 
-@property(readonly, nonatomic) UIViewController *vibrationPicker; // @synthesize vibrationPicker=_vibrationPicker;
+@property(readonly, nonatomic) TKVibrationPickerViewController *vibrationPicker; // @synthesize vibrationPicker=_vibrationPicker;
 - (void)cancelButton:(id)arg1;
 - (void)doneButton:(id)arg1;
 - (void)dealloc;
-- (id)initWithAlertType:(int)arg1 selectedAlert:(id)arg2;
+- (id)initWithAlertType:(int)arg1 selectedVibrationIdentifier:(id)arg2;
 
 // Remaining properties
 @property(nonatomic) id <ABPickerControllerDelegate> delegate;

@@ -8,7 +8,7 @@
 
 #import "ABPersonTabsScrollView.h"
 
-@class UIView;
+@class NSString, UIView;
 
 @interface ABPersonOverlayingContainerView : UIScrollView <ABPersonTabsScrollView>
 {
@@ -29,6 +29,12 @@
 @property(nonatomic) float minimumBottomInset;
 - (void)setContentOffset:(struct CGPoint)arg1;
 - (void)_updateContentFrameAndSize;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -25,6 +25,12 @@
 + (id)distantPast;
 + (id)distantFuture;
 + (double)timeIntervalSinceReferenceDate;
+- (int)compare:(id)arg1 toUnitGranularity:(unsigned int)arg2;
+- (BOOL)isEqual:(id)arg1 toUnitGranularity:(unsigned int)arg2;
+- (BOOL)isInSameDayAsDate:(id)arg1;
+- (BOOL)isInYesterday;
+- (BOOL)isInTomorrow;
+- (BOOL)isInToday;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -49,7 +55,7 @@
 - (int)compare:(id)arg1;
 - (unsigned long)_cfTypeID;
 - (BOOL)isNSDate__;
-- (double)timeIntervalSinceReferenceDate;
+@property(readonly) double timeIntervalSinceReferenceDate;
 
 @end
 

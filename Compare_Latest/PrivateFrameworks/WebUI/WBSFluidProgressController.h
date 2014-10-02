@@ -12,8 +12,9 @@
     id <WBSFluidProgressControllerWindowDelegate> _windowDelegate;
 }
 
-@property id <WBSFluidProgressControllerWindowDelegate> windowDelegate; // @synthesize windowDelegate=_windowDelegate;
-@property id <WBSFluidProgressControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property __weak id <WBSFluidProgressControllerWindowDelegate> windowDelegate; // @synthesize windowDelegate=_windowDelegate;
+@property __weak id <WBSFluidProgressControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)progressStateSourceDidCommitLoad:(id)arg1 loadingSingleResource:(BOOL)arg2;
 - (void)animationStepCompleted:(id)arg1;
 - (void)frontmostTabDidChange;

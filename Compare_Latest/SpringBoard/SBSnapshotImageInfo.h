@@ -6,25 +6,27 @@
 
 #import "NSObject.h"
 
-@class NSString, UIScreen;
+@class NSString;
 
 @interface SBSnapshotImageInfo : NSObject
 {
     _Bool _defaultPNG;
     NSString *_path;
     NSString *_downscaledPath;
-    UIScreen *_screen;
+    NSString *_sceneID;
     double _scale;
     long long _launchingOrientation;
     long long _originalOrientation;
+    struct CGSize _size;
 }
 
-+ (id)snapshotImageInfoWithPath:(id)arg1 downscaledPath:(id)arg2 launchingOrientation:(long long)arg3 originalOrientation:(long long)arg4 forScreen:(id)arg5;
++ (id)snapshotImageInfoWithPath:(id)arg1 downscaledPath:(id)arg2 launchingOrientation:(long long)arg3 originalOrientation:(long long)arg4 forSceneID:(id)arg5 size:(struct CGSize)arg6 scale:(double)arg7;
 @property(nonatomic) _Bool defaultPNG; // @synthesize defaultPNG=_defaultPNG;
 @property(nonatomic) long long originalOrientation; // @synthesize originalOrientation=_originalOrientation;
 @property(nonatomic) long long launchingOrientation; // @synthesize launchingOrientation=_launchingOrientation;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
-@property(retain, nonatomic) UIScreen *screen; // @synthesize screen=_screen;
+@property(nonatomic) struct CGSize size; // @synthesize size=_size;
+@property(retain, nonatomic) NSString *sceneID; // @synthesize sceneID=_sceneID;
 @property(copy, nonatomic) NSString *downscaledPath; // @synthesize downscaledPath=_downscaledPath;
 @property(copy, nonatomic) NSString *path; // @synthesize path=_path;
 - (id)description;

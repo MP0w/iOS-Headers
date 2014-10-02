@@ -9,7 +9,7 @@
 #import "OADClient.h"
 #import "OADTextClient.h"
 
-@class OADDrawable, WDAAnchor, WDATextBox;
+@class NSString, OADDrawable, WDAAnchor, WDATextBox;
 
 __attribute__((visibility("hidden")))
 @interface WDAContent : NSObject <OADClient, OADTextClient>
@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 
 + (Class)classForType:(unsigned short)arg1;
 @property(readonly, nonatomic) WDAAnchor *anchor; // @synthesize anchor=mAnchor;
+@property(readonly, copy) NSString *description;
 - (BOOL)hasText;
 - (BOOL)floating;
 - (void)setTextType:(int)arg1;
@@ -41,6 +42,11 @@ __attribute__((visibility("hidden")))
 - (id)createAnchor;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

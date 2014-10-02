@@ -7,6 +7,7 @@
 #import "NSCalendar.h"
 
 @interface NSCalendar (CKUtilities)
++ (void)__ck_setTestCalendar:(id)arg1;
 + (id)__ck_currentCalendar;
 - (unsigned int)__ck_unitOfDisambiguityFromDate:(id)arg1 toDate:(id)arg2;
 @end

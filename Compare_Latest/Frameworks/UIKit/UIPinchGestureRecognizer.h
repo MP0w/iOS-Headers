@@ -17,7 +17,7 @@
     float _previousVelocity;
     float _scaleThreshold;
     struct CGAffineTransform _transform;
-    struct CGPoint _anchorPoint;
+    struct CGPoint _anchorSceneReferencePoint;
     UITouch *_touches[2];
     float _hysteresis;
     id _transformAnalyzer;

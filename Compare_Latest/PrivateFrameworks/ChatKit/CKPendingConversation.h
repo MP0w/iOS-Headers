@@ -6,9 +6,21 @@
 
 #import <ChatKit/CKConversation.h>
 
+@class IMService;
+
 @interface CKPendingConversation : CKConversation
 {
+    BOOL _noAvailableServices;
+    IMService *_previousSendingService;
+    IMService *_composeSendingService;
 }
+
+@property(nonatomic) IMService *composeSendingService; // @synthesize composeSendingService=_composeSendingService;
+@property(nonatomic) IMService *previousSendingService; // @synthesize previousSendingService=_previousSendingService;
+@property(nonatomic) BOOL noAvailableServices; // @synthesize noAvailableServices=_noAvailableServices;
+- (void)refreshComposeSendingServiceForAddresses:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
+- (void)refreshStatusForAddresses:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
+- (id)sendingService;
 
 @end
 

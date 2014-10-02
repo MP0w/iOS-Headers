@@ -6,13 +6,48 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary, NSError, NSNumber, NSString;
+@class NSArray, NSData, NSDictionary, NSError, NSNumber, NSObject<OS_xpc_object>, NSString;
 
 @protocol IDSDaemonListenerProtocol <NSObject>
 
 @optional
-- (void)account:(NSString *)arg1 dependentDevicesUpdated:(NSArray *)arg2;
+- (void)continuityDidDisconnectFromPeer:(NSString *)arg1 withError:(NSError *)arg2;
+- (void)continuityDidConnectToPeer:(NSString *)arg1 withError:(NSError *)arg2;
+- (void)continuityDidDiscoverPeerWithData:(NSData *)arg1 fromPeer:(NSString *)arg2;
+- (void)continuityDidDiscoverType:(int)arg1 withData:(NSData *)arg2 fromPeer:(NSString *)arg3;
+- (void)continuityDidFailToStartScanningForType:(int)arg1 withError:(NSError *)arg2;
+- (void)continuityDidStopScanningForType:(int)arg1;
+- (void)continuityDidStartScanningForType:(int)arg1;
+- (void)continuityDidFailToStartAdvertisingOfType:(int)arg1 withError:(NSError *)arg2;
+- (void)continuityDidStopAdvertisingOfType:(int)arg1;
+- (void)continuityDidStartAdvertisingOfType:(int)arg1;
+- (void)continuityDidStopTrackingPeer:(NSString *)arg1 forType:(int)arg2;
+- (void)continuityDidStopTrackingPeer:(NSString *)arg1;
+- (void)continuityDidStartTrackingPeer:(NSString *)arg1 forType:(int)arg2 error:(NSError *)arg3;
+- (void)continuityDidStartTrackingPeer:(NSString *)arg1 error:(NSError *)arg2;
+- (void)continuityDidLosePeer:(NSString *)arg1 forType:(int)arg2;
+- (void)continuityDidLosePeer:(NSString *)arg1;
+- (void)continuityDidUpdateState:(int)arg1;
+- (void)device:(NSString *)arg1 pairingAdded:(BOOL)arg2;
+- (void)device:(NSString *)arg1 pairingDeleted:(BOOL)arg2;
+- (void)device:(NSString *)arg1 nsuuidChanged:(NSString *)arg2;
+- (void)pairedDeviceInfo:(NSDictionary *)arg1;
+- (void)localDeviceInfo:(NSDictionary *)arg1;
+- (void)xpcObject:(NSObject<OS_xpc_object> *)arg1 objectContext:(NSDictionary *)arg2;
+- (void)openedSocket:(NSObject<OS_xpc_object> *)arg1 forHandlerID:(NSString *)arg2 error:(NSError *)arg3;
+- (void)session:(NSString *)arg1 audioEnabled:(BOOL)arg2;
+- (void)sessionEnded:(NSString *)arg1 withReason:(unsigned int)arg2 error:(NSError *)arg3;
+- (void)sessionStarted:(NSString *)arg1;
+- (void)sessionEndReceived:(NSString *)arg1 fromID:(NSString *)arg2 withData:(NSData *)arg3;
+- (void)sessionMessageReceived:(NSString *)arg1 fromID:(NSString *)arg2 withData:(NSData *)arg3;
+- (void)sessionCancelReceived:(NSString *)arg1 fromID:(NSString *)arg2 withData:(NSData *)arg3;
+- (void)sessionDeclineReceived:(NSString *)arg1 fromID:(NSString *)arg2 withData:(NSData *)arg3;
+- (void)sessionAcceptReceived:(NSString *)arg1 fromID:(NSString *)arg2 withData:(NSData *)arg3;
+- (void)sessionInvitationReceivedWithPayload:(NSDictionary *)arg1 forTopic:(NSString *)arg2 sessionID:(NSString *)arg3 toIdentifier:(NSString *)arg4 fromID:(NSString *)arg5 transportType:(NSNumber *)arg6;
 - (void)IDQueryCompletedWithFromURI:(NSString *)arg1 idStatusUpdates:(NSDictionary *)arg2 service:(NSString *)arg3 success:(BOOL)arg4 error:(NSError *)arg5;
+- (void)account:(NSString *)arg1 localDeviceRemoved:(NSDictionary *)arg2;
+- (void)account:(NSString *)arg1 localDeviceAdded:(NSDictionary *)arg2;
+- (void)account:(NSString *)arg1 dependentDevicesUpdated:(NSArray *)arg2;
 - (void)activeDevicesUpdatedForAccount:(NSString *)arg1;
 - (void)refreshRegistrationForAccount:(NSString *)arg1;
 - (void)registrationFailedForAccount:(NSString *)arg1 needsDeletion:(NSNumber *)arg2;
@@ -30,8 +65,12 @@
 - (void)accountUpdated:(NSDictionary *)arg1;
 - (void)accountRemoved:(NSDictionary *)arg1;
 - (void)accountAdded:(NSDictionary *)arg1;
-- (void)messageIdentifier:(NSString *)arg1 updatedWithResponseCode:(int)arg2 error:(NSError *)arg3 lastCall:(BOOL)arg4;
-- (void)messageReceived:(NSDictionary *)arg1 withGUID:(NSString *)arg2 withPayload:(NSDictionary *)arg3 forTopic:(NSString *)arg4 fromID:(NSString *)arg5;
+- (void)protobufReceived:(NSDictionary *)arg1 withGUID:(NSString *)arg2 forTopic:(NSString *)arg3 toIdentifier:(NSString *)arg4 fromID:(NSString *)arg5 context:(NSDictionary *)arg6;
+- (void)messageIdentifier:(NSString *)arg1 forTopic:(NSString *)arg2 toIdentifier:(NSString *)arg3 hasBeenDeliveredWithContext:(id)arg4;
+- (void)messageIdentifier:(NSString *)arg1 alternateCallbackID:(NSString *)arg2 forAccount:(NSString *)arg3 willSendToDestinations:(NSArray *)arg4 skippedDestinations:(NSArray *)arg5 registrationPropertyToDestinations:(NSDictionary *)arg6;
+- (void)messageIdentifier:(NSString *)arg1 alternateCallbackID:(NSString *)arg2 forAccount:(NSString *)arg3 updatedWithResponseCode:(int)arg4 error:(NSError *)arg5 lastCall:(BOOL)arg6;
+- (void)dataReceived:(NSData *)arg1 withGUID:(NSString *)arg2 forTopic:(NSString *)arg3 toIdentifier:(NSString *)arg4 fromID:(NSString *)arg5 context:(NSDictionary *)arg6;
+- (void)messageReceived:(NSDictionary *)arg1 withGUID:(NSString *)arg2 withPayload:(NSDictionary *)arg3 forTopic:(NSString *)arg4 toIdentifier:(NSString *)arg5 fromID:(NSString *)arg6 context:(NSDictionary *)arg7;
 - (void)daemonDisconnected;
 - (void)daemonConnected;
 - (void)setupComplete:(BOOL)arg1 info:(NSDictionary *)arg2;

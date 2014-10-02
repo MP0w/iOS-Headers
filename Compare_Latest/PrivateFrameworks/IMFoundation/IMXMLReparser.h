@@ -8,7 +8,7 @@
 
 #import "NSXMLParserDelegate.h"
 
-@class IMXMLReparserContext, NSError, NSMutableString, NSXMLParser;
+@class IMXMLReparserContext, NSError, NSMutableString, NSString, NSXMLParser;
 
 @interface IMXMLReparser : NSObject <NSXMLParserDelegate>
 {
@@ -24,6 +24,12 @@
 - (void)parser:(id)arg1 didEndElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4;
 - (void)parser:(id)arg1 didStartElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4 attributes:(id)arg5;
 - (BOOL)parseWithContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

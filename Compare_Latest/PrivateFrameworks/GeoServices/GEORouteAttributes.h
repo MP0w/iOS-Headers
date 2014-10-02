@@ -12,8 +12,8 @@
 
 @interface GEORouteAttributes : PBCodable <NSCopying>
 {
+    CDStruct_8c2f87f5 _timepoint;
     CDStruct_56d48c16 _additionalTransportTypes;
-    CDStruct_4db06779 _timepoint;
     int _basicPointsToBeIncluded;
     int _mainTransportType;
     NSString *_phoneticLocaleIdentifier;
@@ -46,8 +46,9 @@
     } _has;
 }
 
-@property(nonatomic) CDStruct_4db06779 timepoint; // @synthesize timepoint=_timepoint;
+@property(nonatomic) CDStruct_8c2f87f5 timepoint; // @synthesize timepoint=_timepoint;
 @property(retain, nonatomic) NSString *phoneticLocaleIdentifier; // @synthesize phoneticLocaleIdentifier=_phoneticLocaleIdentifier;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

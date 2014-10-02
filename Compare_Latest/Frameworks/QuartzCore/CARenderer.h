@@ -26,7 +26,7 @@
 - (void)dealloc;
 - (id)_initWithEAGLContext:(id)arg1 options:(id)arg2;
 - (id)_initWithOptions:(id)arg1;
-@property id <CARendererDelegate> delegate;
+@property __weak id <CARendererDelegate> delegate;
 @property(retain) CAContext *context;
 
 @end

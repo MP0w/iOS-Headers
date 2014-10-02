@@ -8,7 +8,7 @@
 
 #import "GEOResourceManifestServerProxyDelegate.h"
 
-@class GEOActiveTileGroup, GEOLocalizationRegionsInfo, NSDictionary, NSHashTable, NSLock, NSMutableArray;
+@class GEOActiveTileGroup, GEOLocalizationRegionsInfo, GEOResourceManifestConfiguration, NSDictionary, NSHashTable, NSLock, NSMutableArray, NSSet, NSString;
 
 @interface GEOResourceManifestManager : NSObject <GEOResourceManifestServerProxyDelegate>
 {
@@ -17,6 +17,7 @@
     GEOActiveTileGroup *_activeTileGroup;
     NSLock *_activeTileGroupLock;
     NSDictionary *_resourceNamesToPaths;
+    NSSet *_allResourceNames;
     BOOL _needsToLoadTileGroupFromDisk;
     NSMutableArray *_tileGroupObservers;
     NSLock *_tileGroupObserversLock;
@@ -27,14 +28,17 @@
     BOOL _isUpdatingManifest;
     BOOL _isLoadingResources;
     NSLock *_resourceNamesToPathsLock;
+    GEOResourceManifestConfiguration *_configuration;
 }
 
++ (id)modernManagerForConfiguration:(id)arg1;
++ (id)modernManagerForTileGroupIdentifier:(unsigned int)arg1;
 + (id)modernManager;
 + (id)sharedManager;
-+ (void)setCallerWillStartServer;
 + (void)setHiDPI:(BOOL)arg1;
 + (void)useLocalProxy;
 + (void)useRemoteProxy;
++ (void)setServerProxyClass:(Class)arg1;
 + (void)disableServerConnection;
 @property(readonly, nonatomic) id <GEOResourceManifestServerProxy> serverProxy; // @synthesize serverProxy=_serverProxy;
 - (void)devResourcesFolderDidChange;
@@ -49,22 +53,24 @@
 - (BOOL)hasResourceManifest;
 - (id)detailedDescription;
 - (void)updateManifest:(CDUnknownBlockType)arg1;
+- (void)updateManifestIfNecessary:(CDUnknownBlockType)arg1;
 - (void)setManifestToken:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (oneway void)serverProxyDidChangeActiveTileGroup:(id)arg1 finishedCallback:(CDUnknownBlockType)arg2;
-- (oneway void)serverProxyDidStopLoadingResources;
-- (oneway void)serverProxyWillStartLoadingResources;
-- (oneway void)serverProxyDidStopUpdatingResourceManifest;
-- (oneway void)serverProxyWillStartUpdatingResourceManifest;
+- (oneway void)serverProxy:(id)arg1 didChangeActiveTileGroup:(id)arg2 finishedCallback:(CDUnknownBlockType)arg3;
+- (oneway void)serverProxyDidStopLoadingResources:(id)arg1;
+- (oneway void)serverProxyWillStartLoadingResources:(id)arg1;
+- (oneway void)serverProxyDidStopUpdatingResourceManifest:(id)arg1;
+- (oneway void)serverProxyWillStartUpdatingResourceManifest:(id)arg1;
 - (void)addNetworkActivityHandler:(CDUnknownBlockType)arg1;
 - (id)pathForResourceWithName:(id)arg1;
 - (void)_buildResourceNamesToPaths;
 - (id)allResourceNames;
 - (BOOL)supportsTileStyle:(int)arg1 size:(int)arg2 scale:(int)arg3;
+- (id)languageForTileKey:(const struct _GEOTileKey *)arg1 overrideLocale:(id)arg2;
 - (id)languageForTileKey:(const struct _GEOTileKey *)arg1;
 - (BOOL)isAvailableForTileKey:(const struct _GEOTileKey *)arg1;
 - (double)timeToLiveForTileKey:(const struct _GEOTileKey *)arg1;
 - (unsigned int)versionForTileKey:(const struct _GEOTileKey *)arg1;
-- (id)localizationURLStringIfNecessaryForTileKey:(const struct _GEOTileKey *)arg1;
+- (id)localizationURLStringIfNecessaryForTileKey:(const struct _GEOTileKey *)arg1 overrideLocale:(id)arg2;
 - (id)multiTileURLStringForTileKey:(const struct _GEOTileKey *)arg1 useStatusCodes:(char *)arg2;
 - (id)baseURLStringForTileKey:(const struct _GEOTileKey *)arg1;
 - (id)_activeTileSetForKey:(const struct _GEOTileKey *)arg1;
@@ -82,6 +88,13 @@
 @property(readonly, nonatomic) GEOActiveTileGroup *activeTileGroup;
 - (void)dealloc;
 - (id)init;
+- (id)initWithConfiguration:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -7,7 +7,6 @@
 #import "NSObject.h"
 
 @protocol MPDetailedScrubbing <NSObject>
-- (struct CGRect)thumbViewRect;
 - (struct CGRect)thumbHitRect;
 - (float)maximumValue;
 - (float)minimumValue;

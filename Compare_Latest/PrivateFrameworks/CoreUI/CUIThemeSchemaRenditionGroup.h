@@ -12,21 +12,26 @@
 {
     CUIRenditionKey *_baseKey;
     NSArray *_renditions;
-    int _partFeatures;
+    CDStruct_77d6184b *_part;
 }
 
-+ (id)renditionGroupsForRenditions:(id)arg1 partFeatures:(int)arg2;
++ (id)renditionGroupsForRenditions:(id)arg1 part:(CDStruct_77d6184b *)arg2;
 @property(retain, nonatomic) NSArray *renditions; // @synthesize renditions=_renditions;
 - (void)dealloc;
 - (int)partFeatures;
+- (void)addValueOrDim1LayersToPSDLayers:(id)arg1 forPresentationState:(unsigned int)arg2 state:(unsigned int)arg3 drawingLayer:(unsigned int)arg4;
+- (void)addStatesAndDrawingLayersToPSDLayers:(id)arg1 forPresentationState:(unsigned int)arg2;
+- (id)schemaLayersAndLayerGroups;
 - (id)themeSchemaLayers;
 - (id)_layerNameForDrawingLayer:(int)arg1;
 - (id)_layerNameForState:(int)arg1;
 - (id)_renditionsSortedIntoLayers;
 - (id)description;
+- (id)mutablePSDImageRefColumnStyle;
 - (id)mutablePSDImageRef;
+- (void)addLayoutMetricsToPSDImageRef:(id)arg1 withRendition:(id)arg2;
 - (id)baseKey;
-- (id)initWithRenditions:(id)arg1 partFeatures:(int)arg2;
+- (id)initWithRenditions:(id)arg1 part:(CDStruct_77d6184b *)arg2;
 
 @end
 

@@ -12,11 +12,12 @@
 
 + (void)handleSpecificHardwareKeyboard;
 + (id)sharedPreferencesController;
+@property int handBias;
 - (BOOL)spaceConfirmationEnabled;
 - (float)rivenSizeFactor:(float)arg1;
 - (BOOL)costlyCapture;
 - (BOOL)typologyEnabled;
-- (void)setInputModeLastUsed:(id)arg1;
+- (void)setLanguageAwareInputModeLastUsed:(id)arg1;
 - (void)saveInputModes:(id)arg1;
 - (void)setValue:(id)arg1 forKey:(int)arg2;
 - (void)touchSynchronizePreferencesTimer;
@@ -27,6 +28,7 @@
 - (void)preferencesControllerChanged:(id)arg1;
 - (void)dealloc;
 - (id)init;
+- (void)setInputModeLastUsed:(id)arg1;
 
 @end
 

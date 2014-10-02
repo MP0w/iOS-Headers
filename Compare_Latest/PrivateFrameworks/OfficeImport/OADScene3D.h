@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)nullScene3D;
+- (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (void)setBackdrop:(id)arg1;

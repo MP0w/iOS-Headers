@@ -9,7 +9,7 @@
 #import "TKTonePickerStyleProvider.h"
 #import "TKVibrationPickerStyleProvider.h"
 
-@class UIColor, UIFont;
+@class NSString, UIColor, UIFont;
 
 @interface ABFaceTimeStyleProvider : ABTabletStyleProvider <TKTonePickerStyleProvider, TKVibrationPickerStyleProvider>
 {
@@ -122,6 +122,9 @@
 - (id)memberNameShadowColor;
 - (id)memberNameSelectedColor;
 - (id)memberNameTextColor;
+- (id)cardSectionBackgroundColor;
+- (id)membersSearchCellBackgroundColor;
+- (id)membersSearchBackgroundColor;
 - (id)membersBackgroundColor;
 - (id)memberHeaderBackgroundView;
 - (id)membersHeaderBackgroundColor;
@@ -144,6 +147,7 @@
 - (float)personViewHeaderImageHeight;
 - (float)personViewHeaderImageWidth;
 - (BOOL)shouldUseCardContentProviderWhenAvailable;
+@property(readonly, nonatomic) BOOL vibrationPickerHeaderTextShouldBeUppercase;
 @property(readonly, nonatomic) struct UIEdgeInsets vibrationPickerHeaderTextPaddingInsets;
 @property(readonly, nonatomic) struct UIOffset vibrationPickerHeaderTextShadowOffset;
 @property(readonly, nonatomic) UIColor *vibrationPickerHeaderTextShadowColor;
@@ -159,6 +163,7 @@
 @property(readonly, nonatomic) UIFont *vibrationPickerCellTextFont;
 @property(readonly, nonatomic) int vibrationPickerTableViewSeparatorStyle;
 @property(readonly, nonatomic) BOOL vibrationPickerUsesOpaqueBackground;
+@property(readonly, nonatomic) BOOL tonePickerHeaderTextShouldBeUppercase;
 @property(readonly, nonatomic) struct UIEdgeInsets tonePickerHeaderTextPaddingInsets;
 @property(readonly, nonatomic) struct UIOffset tonePickerHeaderTextShadowOffset;
 @property(readonly, nonatomic) UIColor *tonePickerHeaderTextShadowColor;
@@ -174,6 +179,16 @@
 @property(readonly, nonatomic) UIFont *tonePickerCellTextFont;
 @property(readonly, nonatomic) int tonePickerTableViewSeparatorStyle;
 @property(readonly, nonatomic) BOOL tonePickerUsesOpaqueBackground;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
+@property(readonly, nonatomic) int tonePickerCustomTableSeparatorBackdropOverlayBlendMode;
+@property(readonly, nonatomic) UIColor *tonePickerCustomTableSeparatorColor;
+@property(readonly, nonatomic) int vibrationPickerCustomTableSeparatorBackdropOverlayBlendMode;
+@property(readonly, nonatomic) UIColor *vibrationPickerCustomTableSeparatorColor;
 
 @end
 

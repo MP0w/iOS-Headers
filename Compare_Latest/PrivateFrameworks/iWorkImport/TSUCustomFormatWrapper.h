@@ -6,18 +6,27 @@
 
 #import "NSObject.h"
 
+#import "NSCopying.h"
+
 __attribute__((visibility("hidden")))
-@interface TSUCustomFormatWrapper : NSObject
+@interface TSUCustomFormatWrapper : NSObject <NSCopying>
 {
     struct TSUCustomFormat *mCustomFormat;
+    BOOL mHasOwnership;
 }
 
-- (const CDStruct_8acff13f *)conditionalFormatDataForValue:(double)arg1;
-- (const CDStruct_8acff13f *)defaultFormatData;
+- (const CDStruct_b87b2d04 *)conditionalFormatDataForValue:(double)arg1;
+- (const CDStruct_b87b2d04 *)defaultFormatData;
 - (int)formatType;
 - (id)formatName;
 - (const struct TSUCustomFormat *)pointerToTSUCustomFormat;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)initWithCustomFormat:(struct TSUCustomFormat *)arg1 takeOwnership:(BOOL)arg2;
 - (id)initWithCustomFormat:(struct TSUCustomFormat *)arg1;
+- (id)formattedBodyStringForDoubleValue:(double)arg1 customFormatListKey:(unsigned int)arg2 formatType:(int)arg3;
 
 @end
 

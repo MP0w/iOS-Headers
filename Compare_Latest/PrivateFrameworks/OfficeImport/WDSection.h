@@ -22,8 +22,8 @@ __attribute__((visibility("hidden")))
     WDText *mEvenPageFooter;
     WDText *mOddPageFooter;
     WDText *mFirstPageFooter;
-    CDStruct_9384fd93 mOriginalProperties;
-    CDStruct_9384fd93 mTrackedProperties;
+    CDStruct_b878274a mOriginalProperties;
+    CDStruct_b878274a mTrackedProperties;
 }
 
 - (id).cxx_construct;
@@ -36,6 +36,9 @@ __attribute__((visibility("hidden")))
 - (BOOL)isFormattingChangedOverridden;
 - (void)setFormattingChanged:(BOOL)arg1;
 - (BOOL)formattingChanged;
+- (BOOL)isBidiOverridden;
+- (void)setBidi:(BOOL)arg1;
+- (BOOL)bidi;
 - (BOOL)isTitlePageOverridden;
 - (void)setTitlePage:(BOOL)arg1;
 - (BOOL)titlePage;
@@ -50,6 +53,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)columnsEqualWidth;
 - (void)appendColumnSpace:(long)arg1;
 - (long)columnSpaceAt:(unsigned int)arg1;
+- (BOOL)isColumnWidthDefinedAt:(unsigned int)arg1;
 - (BOOL)isLastColumnWidthDefined;
 - (void)appendColumnWidth:(long)arg1;
 - (long)columnWidthAt:(unsigned int)arg1;
@@ -101,6 +105,9 @@ __attribute__((visibility("hidden")))
 - (BOOL)isTopBorderOverridden;
 - (id)mutableTopBorder;
 - (id)topBorder;
+- (BOOL)isRtlGutterOverridden;
+- (void)setRtlGutter:(BOOL)arg1;
+- (BOOL)rtlGutter;
 - (BOOL)isGutterMarginOverridden;
 - (void)setGutterMargin:(long)arg1;
 - (long)gutterMargin;

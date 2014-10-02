@@ -15,13 +15,9 @@
     unsigned int *_nameCookieIndexMap;
 }
 
++ (void)enumerateChapterTimesInFlattenedChapterData:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 + (void)enumerateArtworkCacheIDsInFlattenedChapterData:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
-+ (id)imageCacheKeyForTrackWithPID:(long long)arg1 startTimeMS:(unsigned int)arg2;
 + (unsigned int **)_chapterDataCookieIndexMapForProperty:(int)arg1 ofChapterTOC:(id)arg2;
-- (id)bestImageDataForSize:(struct CGSize)arg1 chapterIndex:(unsigned int)arg2 artworkInstanceInfo:(struct MLArtworkInstanceInfo *)arg3;
-- (id)imageDataForArtworkFormatID:(unsigned int)arg1 chapterIndex:(unsigned int)arg2 artworkInstanceInfo:(struct MLArtworkInstanceInfo *)arg3;
-- (id)getImageWithArtworkFormatID:(unsigned int)arg1 size:(struct CGSize)arg2 chapterIndex:(unsigned int)arg3 artworkInstanceInfo:(struct MLArtworkInstanceInfo *)arg4;
-- (id)imageDataForArtworkFormatID:(unsigned int)arg1 size:(struct CGSize)arg2 artworkChapterIndex:(unsigned int)arg3 artworkInstanceInfo:(struct MLArtworkInstanceInfo *)arg4;
 - (id)urlPropertyOfChapterAtIndex:(unsigned int)arg1;
 - (id)urlTitlePropertyOfChapterAtIndex:(unsigned int)arg1;
 - (id)urlTitleTrimmingCharacterSet;

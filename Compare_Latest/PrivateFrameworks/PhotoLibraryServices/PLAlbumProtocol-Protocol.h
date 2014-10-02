@@ -6,20 +6,23 @@
 
 #import "PLAssetContainer.h"
 
-@class NSDictionary, NSIndexSet, NSMutableIndexSet, NSMutableOrderedSet, NSNumber, NSOrderedSet, NSPredicate, NSString, NSURL, UIImage;
+@class NSDictionary, NSMutableIndexSet, NSMutableOrderedSet, NSNumber, NSOrderedSet, NSPredicate, NSString, NSURL, UIImage;
 
 @protocol PLAlbumProtocol <PLAssetContainer>
 @property(nonatomic) int pendingItemsType;
 @property(nonatomic) int pendingItemsCount;
-@property(readonly, nonatomic) CDUnknownBlockType sectioningComparator;
-@property(readonly, nonatomic) CDUnknownBlockType sortingComparator;
-@property(readonly, nonatomic) NSURL *groupURL;
+@property(readonly, copy, nonatomic) CDUnknownBlockType sortingComparator;
+@property(readonly, retain, nonatomic) NSURL *groupURL;
 @property(retain, nonatomic) NSString *importSessionID;
 @property(retain, nonatomic) NSDictionary *slideshowSettings;
 @property(readonly, nonatomic) BOOL shouldDeleteWhenEmpty;
 @property(readonly, nonatomic) BOOL canContributeToCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isRecentlyAddedAlbum;
 @property(readonly, nonatomic) BOOL isMultipleContributorCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isFamilyCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL isOwnedCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isInTrash;
+@property(readonly, nonatomic) BOOL isFolder;
 @property(readonly, nonatomic) BOOL isStandInAlbum;
 @property(readonly, nonatomic) BOOL isPendingPhotoStreamAlbum;
 @property(readonly, nonatomic) BOOL isCloudSharedAlbum;
@@ -28,18 +31,16 @@
 @property(readonly, nonatomic) BOOL isPanoramasAlbum;
 @property(readonly, nonatomic) BOOL isCameraAlbum;
 @property(readonly, nonatomic) BOOL isLibrary;
-@property(readonly, nonatomic) UIImage *posterImage;
+@property(readonly, retain, nonatomic) UIImage *posterImage;
 @property(nonatomic) BOOL hasUnseenContentBoolValue;
-@property(readonly, nonatomic) NSMutableOrderedSet *mutableAssets;
+@property(readonly, retain, nonatomic) NSMutableOrderedSet *mutableAssets;
 @property(readonly, nonatomic) int kindValue;
-@property(readonly, nonatomic) NSNumber *kind;
+@property(readonly, retain, nonatomic) NSNumber *kind;
 - (void)batchFetchAssets:(NSOrderedSet *)arg1;
 - (void)reducePendingItemsCountBy:(unsigned int)arg1;
-- (NSIndexSet *)displayableIndexesForCount:(unsigned int)arg1;
-- (NSString *)titleForSectionStartingAtIndex:(unsigned int)arg1;
 
 @optional
-@property(readonly, nonatomic) NSString *name;
+@property(readonly, copy, nonatomic) NSString *name;
 - (void)setUINotificationsEnabled:(BOOL)arg1;
 - (NSMutableIndexSet *)filteredIndexesForPredicate:(NSPredicate *)arg1;
 @end

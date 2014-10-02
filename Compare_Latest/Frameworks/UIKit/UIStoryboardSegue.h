@@ -14,13 +14,16 @@
     id _sourceViewController;
     id _destinationViewController;
     CDUnknownBlockType _performHandler;
+    id _sender;
 }
 
 + (id)segueWithIdentifier:(id)arg1 source:(id)arg2 destination:(id)arg3 performHandler:(CDUnknownBlockType)arg4;
+@property(retain, nonatomic) id sender; // @synthesize sender=_sender;
 @property(copy, nonatomic) CDUnknownBlockType performHandler; // @synthesize performHandler=_performHandler;
 @property(readonly, nonatomic) id destinationViewController; // @synthesize destinationViewController=_destinationViewController;
 @property(readonly, nonatomic) id sourceViewController; // @synthesize sourceViewController=_sourceViewController;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+- (void)_prepare;
 - (void)perform;
 - (id)initWithIdentifier:(id)arg1 source:(id)arg2 destination:(id)arg3;
 - (void)dealloc;

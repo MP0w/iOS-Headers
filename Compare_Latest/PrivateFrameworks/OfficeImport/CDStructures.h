@@ -64,26 +64,6 @@ struct CHDDataPoint {
     unsigned int contentFormatId;
 };
 
-struct CPDumpEnumPair {
-    int _field1;
-    id _field2;
-};
-
-struct CPEnumerationStruct {
-    int _field1;
-    id _field2;
-};
-
-struct CPTaggedMessageStructure {
-    int _field1;
-    id _field2;
-};
-
-struct CPXmlEnumDescription {
-    int _field1;
-    char *_field2;
-};
-
 struct ChMap<unsigned int, EshOpt::Value, CsLess<unsigned int>> {
     struct map<unsigned int, EshOpt::Value, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, EshOpt::Value>>> _field1;
 };
@@ -182,14 +162,6 @@ struct ChVector<EshPathCommand> {
     unsigned int _field5;
 };
 
-struct ChVector<OcHyperlink *> {
-    struct OcHyperlink **_field1;
-    struct OcHyperlink **_field2;
-    unsigned int _field3;
-    unsigned int _field4;
-    unsigned int _field5;
-};
-
 struct ChVector<OcText> {
     struct OcText *_field1;
     struct OcText *_field2;
@@ -223,14 +195,6 @@ struct ChVector<PptParaRun *> {
 };
 
 struct ChVector<PptTab>;
-
-struct ChVector<PptTextBlockStyling9Atom::Style *> {
-    struct Style **_field1;
-    struct Style **_field2;
-    unsigned int _field3;
-    unsigned int _field4;
-    unsigned int _field5;
-};
 
 struct ChVector<PptTextMasterStyle9Atom::Level *> {
     struct Level **_field1;
@@ -540,6 +504,20 @@ struct EDAreaReference {
     int lastColumn;
 };
 
+struct EDBuildablePtg {
+    CDUnknownFunctionPointerType *_field1;
+    char *_field2;
+    int _field3;
+    unsigned int _field4;
+    unsigned short _field5;
+    struct EDBuildablePtg *_field6;
+    struct EDBuildablePtg *_field7;
+    _Bool _field8;
+    int _field9;
+    unsigned short _field10;
+    unsigned short _field11;
+};
+
 struct EDCellAnchorMarker {
     int columnIndex;
     float columnAdjustment;
@@ -548,29 +526,16 @@ struct EDCellAnchorMarker {
 };
 
 struct EDCellHeader {
-    unsigned short _field1;
+    unsigned int _field1;
     unsigned int _field2;
-};
-
-struct EDFormulaPtg {
-    CDUnknownFunctionPointerType *_field1;
-    int _field2;
-    char *_field3;
-    unsigned int _field4;
-    struct EDFormulaPtg *_field5;
-    struct EDFormulaPtg *_field6;
-    _Bool _field7;
-    int _field8;
-    unsigned short _field9;
-    unsigned short _field10;
 };
 
 struct EDRowInfo {
     unsigned int _field1;
     unsigned int _field2;
-    unsigned short _field3;
-    unsigned short _field4;
-    unsigned short _field5;
+    unsigned int _field3;
+    unsigned int _field4;
+    unsigned int _field5;
     unsigned short _field6;
     unsigned char _field7;
     unsigned int :1;
@@ -860,34 +825,6 @@ struct EshShapeBase {
     struct EshCallout _field9;
 };
 
-struct EshShapeDefaults {
-    CDUnknownFunctionPointerType *_field1;
-    unsigned short _field2;
-    struct EshContentData _field3;
-    struct EshTextBox _field4;
-    struct EshFill _field5;
-    struct EshStroke _field6;
-    struct EshShadow _field7;
-    struct EshExtrusion _field8;
-    struct EshCallout _field9;
-    struct EshShapeDefaultsPropertiesImpl _field10;
-    struct EshShapeDefaultsImageData _field11;
-};
-
-struct EshShapeDefaultsImageData {
-    CDUnknownFunctionPointerType *_field1;
-    unsigned short _field2;
-    struct EshContentData *_field3;
-};
-
-struct EshShapeDefaultsPropertiesImpl {
-    CDUnknownFunctionPointerType *_field1;
-    unsigned short _field2;
-    struct EshContentData *_field3;
-    CDUnknownFunctionPointerType *_field4;
-    CDUnknownFunctionPointerType *_field5;
-};
-
 struct EshShapeImageData {
     CDUnknownFunctionPointerType *_field1;
     unsigned short _field2;
@@ -1029,6 +966,18 @@ struct OADFormulaArg {
     int value;
 };
 
+struct OADTFTemplateMatrix<OADTableCell *> {
+    int _field1;
+    int _field2;
+    struct vector<OADTableCell *, std::__1::allocator<OADTableCell *>> _field3;
+};
+
+struct OADTFTemplateMatrix<OADTablePartStyle *> {
+    int _field1;
+    int _field2;
+    struct vector<OADTablePartStyle *, std::__1::allocator<OADTablePartStyle *>> _field3;
+};
+
 struct OADTMatrixPos {
     int _field1;
     int _field2;
@@ -1098,6 +1047,10 @@ struct ODIPointIteratorState {
     id _field5;
 };
 
+struct ObjcSharedPtr<NSString> {
+    id _field1;
+};
+
 struct OcBinaryData {
     CDUnknownFunctionPointerType *_field1;
     unsigned int _field2;
@@ -1113,37 +1066,9 @@ struct OcBinaryReader {
     CDUnknownFunctionPointerType *_field1;
 };
 
-struct OcHyperlink;
-
 struct OcReader {
     CDUnknownFunctionPointerType *_field1;
     struct EshObjectFactory *_field2;
-};
-
-struct OcSummary {
-    CDUnknownFunctionPointerType *_field1;
-    struct OcText _field2;
-    struct OcText _field3;
-    struct OcText _field4;
-    struct OcText _field5;
-    struct OcText _field6;
-    struct OcText _field7;
-    struct OcText _field8;
-    struct OcText _field9;
-    struct OcText _field10;
-    struct OcText _field11;
-    struct OcText _field12;
-    struct OcText _field13;
-    struct OcText _field14;
-    struct OcText _field15;
-    struct tagChWinTime _field16;
-    struct tagChWinTime _field17;
-    struct tagChWinTime _field18;
-    struct tagChWinTime _field19;
-    struct OcBinaryData _field20;
-    _Bool _field21;
-    _Bool _field22;
-    struct ChVector<OcHyperlink *> _field23;
 };
 
 struct OcText {
@@ -1161,6 +1086,12 @@ struct OcWriter {
     CDUnknownFunctionPointerType *_field1;
 };
 
+struct PATHSEGMENT {
+    unsigned int :4;
+    unsigned int :28;
+    struct CGPoint _field1;
+};
+
 struct PBReaderMasterStyleInfo {
     struct PptTextMasterStyleAtom *_field1;
     struct PptTextMasterStyle9Atom *_field2;
@@ -1172,17 +1103,6 @@ struct PBTextFormatProgTagInfo {
     unsigned short _field3;
     unsigned short _field4;
     unsigned short _field5;
-};
-
-struct PBWriterMasterSlideInfo {
-    struct PptSlidePersistAtom *_field1;
-    struct vector<PBWriterMasterStyleInfo, std::__1::allocator<PBWriterMasterStyleInfo>> _field2;
-    struct map<PptPlaceholder, OADDrawable *, std::__1::less<PptPlaceholder>, std::__1::allocator<std::__1::pair<const PptPlaceholder, OADDrawable *>>> _field3;
-};
-
-struct PBWriterMasterStyleInfo {
-    struct PptTextMasterStyleAtom *_field1;
-    struct PptTextMasterStyle9Atom *_field2;
 };
 
 struct PlotDescriptor;
@@ -1425,37 +1345,9 @@ struct PptSSSlideInfoAtom {
     int _field12;
 };
 
-struct PptSlideAtom {
-    CDUnknownFunctionPointerType *_field1;
-    unsigned short _field2;
-    struct EshHeader _field3;
-    CDUnknownFunctionPointerType *_field4;
-    int _field5;
-    _Bool _field6;
-    int _field7;
-    int _field8[8];
-    int _field9;
-    unsigned int _field10;
-    _Bool _field11;
-    _Bool _field12;
-    _Bool _field13;
-};
-
-struct PptSlidePersistAtom;
-
 struct PptTextAutoNumberScheme {
     unsigned int :6;
     short _field1;
-};
-
-struct PptTextBlockStyling9Atom {
-    CDUnknownFunctionPointerType *_field1;
-    unsigned short _field2;
-    struct EshHeader _field3;
-    CDUnknownFunctionPointerType *_field4;
-    int _field5;
-    _Bool _field6;
-    struct ChVector<PptTextBlockStyling9Atom::Style *> _field7;
 };
 
 struct PptTextBlockStylingAtom {
@@ -1553,7 +1445,40 @@ struct SsrwOOStream {
     CDUnknownFunctionPointerType *_field1;
 };
 
-struct Style;
+struct TCDumpEnumPair {
+    int _field1;
+    id _field2;
+};
+
+struct TCEnumerationStruct {
+    int _field1;
+    id _field2;
+};
+
+struct TCFontStyling {
+    int fontClass;
+    unsigned int stringEncoding;
+    char weight;
+    char italic;
+    int width;
+};
+
+struct TCTaggedMessageStructure {
+    int _field1;
+    id _field2;
+};
+
+struct TCXmlEnumDescription {
+    int _field1;
+    char *_field2;
+};
+
+struct TSUCustomFormat {
+    struct ObjcSharedPtr<NSString> _field1;
+    int _field2;
+    CDStruct_b87b2d04 _field3;
+    struct vector<TSUCustomFormatCondition, std::__1::allocator<TSUCustomFormatCondition>> _field4;
+};
 
 struct TSUFlushableObjectInfo {
     id _field1;
@@ -1561,6 +1486,15 @@ struct TSUFlushableObjectInfo {
     int _field3;
     int _field4;
     unsigned long _field5[2];
+};
+
+struct TSUOpstat_s {
+    char running;
+    unsigned long long count;
+    struct timeval min_time;
+    struct timeval max_time;
+    struct timeval total_time;
+    struct timeval last_time;
 };
 
 struct TextRun;
@@ -2325,7 +2259,7 @@ struct WrdParagraphProperties {
     short _field18;
     unsigned short _field19;
     unsigned short _field20;
-    unsigned short _field21;
+    int _field21;
     int _field22;
     int _field23;
     int _field24;
@@ -2333,11 +2267,11 @@ struct WrdParagraphProperties {
     int _field26;
     int _field27;
     int _field28;
-    int _field29;
-    struct ChVector<WrdTabDescriptor *> _field30;
+    struct ChVector<WrdTabDescriptor *> _field29;
+    short *_field30;
     short *_field31;
     short *_field32;
-    short *_field33;
+    int _field33;
     int _field34;
     int _field35;
     int _field36;
@@ -2349,17 +2283,15 @@ struct WrdParagraphProperties {
     int _field42;
     int _field43;
     int _field44;
-    int _field45;
+    unsigned int _field45;
     unsigned int _field46;
-    unsigned int _field47;
+    short _field47;
     short _field48;
     short _field49;
     short _field50;
     short _field51;
-    short _field52;
+    unsigned short _field52;
     unsigned short _field53;
-    unsigned short _field54;
-    unsigned short _field55;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
@@ -2390,16 +2322,12 @@ struct WrdParagraphProperties {
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
+    unsigned char _field54;
+    unsigned char _field55;
     unsigned char _field56;
-    unsigned char _field57;
-    unsigned char _field58;
-    unsigned char _field59;
 };
 
 struct WrdParagraphPropertiesOverridden {
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
@@ -3641,25 +3569,24 @@ struct XlDXfBorders;
 
 struct XlDXfFont {
     CDUnknownFunctionPointerType *_field1;
-    unsigned char _field2;
-    struct XlString *_field3;
+    struct XlString *_field2;
+    int _field3;
     int _field4;
-    int _field5;
-    short _field6;
+    short _field5;
+    int _field6;
     int _field7;
-    int _field8;
+    unsigned char _field8;
     unsigned char _field9;
-    unsigned char _field10;
+    int _field10;
     int _field11;
-    int _field12;
+    unsigned int _field12;
     unsigned int _field13;
     unsigned int _field14;
-    unsigned int _field15;
+    int _field15;
     int _field16;
     int _field17;
     int _field18;
-    int _field19;
-    short _field20;
+    short _field19;
 };
 
 struct XlDXfPattern;
@@ -3981,9 +3908,8 @@ struct XlPhoneticInfo;
 struct XlPtg {
     char *_field1;
     int _field2;
-    int _field3;
-    unsigned int _field4;
-    unsigned short _field5;
+    unsigned int _field3;
+    unsigned short _field4;
 };
 
 struct XlReadStgStream;
@@ -4257,11 +4183,9 @@ struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<vo
     struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
 };
 
-struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, unsigned int>, void *>>> {
+struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned int, unsigned int>, void *>>> {
     struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
 };
-
-struct __hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>;
 
 struct __sFILE {
     char *_field1;
@@ -4297,7 +4221,7 @@ struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
 
 struct __tree_node<TSUFlushableObjectInfo *, void *>;
 
-struct __tree_node<std::__1::pair<unsigned int, unsigned int>, void *>;
+struct __tree_node<std::__1::__value_type<unsigned int, unsigned int>, void *>;
 
 struct _tagLevelItem {
     struct _tagLevelItem *_field1;
@@ -4422,160 +4346,131 @@ struct basic_ostream<char, std::__1::char_traits<char>>;
 
 struct basic_stringbuf<char, std::__1::char_traits<char>, std::__1::allocator<char>>;
 
-struct hash_map<PDSlideBase *, PBWriterMasterSlideInfo, PBPointerHash, std::__1::equal_to<PDSlideBase *>, std::__1::allocator<std::__1::pair<PDSlideBase *const, PBWriterMasterSlideInfo>>> {
-    struct __hash_table<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, __gnu_cxx::__hash_map_hasher<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, PBPointerHash, true>, __gnu_cxx::__hash_map_equal<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, std::__1::equal_to<PDSlideBase *>, true>, std::__1::allocator<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>*>>> _field1;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>*> {
-                struct __hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *> *_field1;
-            } _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, __gnu_cxx::__hash_map_hasher<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, PBPointerHash, true>> {
-            unsigned long _field1;
-        } _field3;
-        struct __compressed_pair<float, __gnu_cxx::__hash_map_equal<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, std::__1::equal_to<PDSlideBase *>, true>> {
-            float _field1;
-        } _field4;
-    } _field1;
-};
-
 struct internal_state;
 
-struct map<PptPlaceholder, OADDrawable *, std::__1::less<PptPlaceholder>, std::__1::allocator<std::__1::pair<const PptPlaceholder, OADDrawable *>>> {
-    struct __tree<std::__1::pair<PptPlaceholder, OADDrawable *>, std::__1::__map_value_compare<PptPlaceholder, OADDrawable *, std::__1::less<PptPlaceholder>, true>, std::__1::allocator<std::__1::pair<PptPlaceholder, OADDrawable *>>> {
-        struct __tree_node<std::__1::pair<PptPlaceholder, OADDrawable *>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<PptPlaceholder, OADDrawable *>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<PptPlaceholder, OADDrawable *, std::__1::less<PptPlaceholder>, true>> {
-            unsigned long _field1;
-        } _field3;
-    } _field1;
-};
-
 struct map<int, unsigned int, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, unsigned int>>> {
-    struct __tree<std::__1::pair<int, unsigned int>, std::__1::__map_value_compare<int, unsigned int, std::__1::less<int>, true>, std::__1::allocator<std::__1::pair<int, unsigned int>>> {
-        struct __tree_node<std::__1::pair<int, unsigned int>, void *> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<int, unsigned int>, void *>>> {
+    struct __tree<std::__1::__value_type<int, unsigned int>, std::__1::__map_value_compare<int, std::__1::__value_type<int, unsigned int>, std::__1::less<int>, true>, std::__1::allocator<std::__1::__value_type<int, unsigned int>>> {
+        struct __tree_node<std::__1::__value_type<int, unsigned int>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<int, unsigned int>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<int, unsigned int, std::__1::less<int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<int, std::__1::__value_type<int, unsigned int>, std::__1::less<int>, true>> {
             unsigned long __first_;
         } __pair3_;
     } __tree_;
 };
 
 struct map<long, unsigned int, std::__1::less<long>, std::__1::allocator<std::__1::pair<const long, unsigned int>>> {
-    struct __tree<std::__1::pair<long, unsigned int>, std::__1::__map_value_compare<long, unsigned int, std::__1::less<long>, true>, std::__1::allocator<std::__1::pair<long, unsigned int>>> {
-        struct __tree_node<std::__1::pair<long, unsigned int>, void *> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<long, unsigned int>, void *>>> {
+    struct __tree<std::__1::__value_type<long, unsigned int>, std::__1::__map_value_compare<long, std::__1::__value_type<long, unsigned int>, std::__1::less<long>, true>, std::__1::allocator<std::__1::__value_type<long, unsigned int>>> {
+        struct __tree_node<std::__1::__value_type<long, unsigned int>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<long, unsigned int>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<long, unsigned int, std::__1::less<long>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<long, std::__1::__value_type<long, unsigned int>, std::__1::less<long>, true>> {
             unsigned long __first_;
         } __pair3_;
     } __tree_;
 };
 
 struct map<unsigned int, EshOpt::Value, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, EshOpt::Value>>> {
-    struct __tree<std::__1::pair<unsigned int, EshOpt::Value>, std::__1::__map_value_compare<unsigned int, EshOpt::Value, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, EshOpt::Value>>> {
-        struct __tree_node<std::__1::pair<unsigned int, EshOpt::Value>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, EshOpt::Value>, void *>>> {
+    struct __tree<std::__1::__value_type<unsigned int, EshOpt::Value>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, EshOpt::Value>, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, EshOpt::Value>>> {
+        struct __tree_node<std::__1::__value_type<unsigned int, EshOpt::Value>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned int, EshOpt::Value>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, EshOpt::Value, CsLess<unsigned int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, EshOpt::Value>, CsLess<unsigned int>, true>> {
             unsigned long _field1;
         } _field3;
     } _field1;
 };
 
 struct map<unsigned int, PptBinaryReader::SKIP_CONDITIONS, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, PptBinaryReader::SKIP_CONDITIONS>>> {
-    struct __tree<std::__1::pair<unsigned int, PptBinaryReader::SKIP_CONDITIONS>, std::__1::__map_value_compare<unsigned int, PptBinaryReader::SKIP_CONDITIONS, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, PptBinaryReader::SKIP_CONDITIONS>>> {
-        struct __tree_node<std::__1::pair<unsigned int, PptBinaryReader::SKIP_CONDITIONS>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, PptBinaryReader::SKIP_CONDITIONS>, void *>>> {
+    struct __tree<std::__1::__value_type<unsigned int, PptBinaryReader::SKIP_CONDITIONS>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, PptBinaryReader::SKIP_CONDITIONS>, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, PptBinaryReader::SKIP_CONDITIONS>>> {
+        struct __tree_node<std::__1::__value_type<unsigned int, PptBinaryReader::SKIP_CONDITIONS>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned int, PptBinaryReader::SKIP_CONDITIONS>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, PptBinaryReader::SKIP_CONDITIONS, CsLess<unsigned int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, PptBinaryReader::SKIP_CONDITIONS>, CsLess<unsigned int>, true>> {
             unsigned long _field1;
         } _field3;
     } _field1;
 };
 
 struct map<unsigned int, WrdCharacterProperties *, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, WrdCharacterProperties *>>> {
-    struct __tree<std::__1::pair<unsigned int, WrdCharacterProperties *>, std::__1::__map_value_compare<unsigned int, WrdCharacterProperties *, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, WrdCharacterProperties *>>> {
-        struct __tree_node<std::__1::pair<unsigned int, WrdCharacterProperties *>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, WrdCharacterProperties *>, void *>>> {
+    struct __tree<std::__1::__value_type<unsigned int, WrdCharacterProperties *>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, WrdCharacterProperties *>, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, WrdCharacterProperties *>>> {
+        struct __tree_node<std::__1::__value_type<unsigned int, WrdCharacterProperties *>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned int, WrdCharacterProperties *>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, WrdCharacterProperties *, CsLess<unsigned int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, WrdCharacterProperties *>, CsLess<unsigned int>, true>> {
             unsigned long _field1;
         } _field3;
     } _field1;
 };
 
 struct map<unsigned int, WrdParagraphProperties *, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, WrdParagraphProperties *>>> {
-    struct __tree<std::__1::pair<unsigned int, WrdParagraphProperties *>, std::__1::__map_value_compare<unsigned int, WrdParagraphProperties *, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, WrdParagraphProperties *>>> {
-        struct __tree_node<std::__1::pair<unsigned int, WrdParagraphProperties *>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, WrdParagraphProperties *>, void *>>> {
+    struct __tree<std::__1::__value_type<unsigned int, WrdParagraphProperties *>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, WrdParagraphProperties *>, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, WrdParagraphProperties *>>> {
+        struct __tree_node<std::__1::__value_type<unsigned int, WrdParagraphProperties *>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned int, WrdParagraphProperties *>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, WrdParagraphProperties *, CsLess<unsigned int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, WrdParagraphProperties *>, CsLess<unsigned int>, true>> {
             unsigned long _field1;
         } _field3;
     } _field1;
 };
 
 struct map<unsigned int, WrdTableProperties *, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, WrdTableProperties *>>> {
-    struct __tree<std::__1::pair<unsigned int, WrdTableProperties *>, std::__1::__map_value_compare<unsigned int, WrdTableProperties *, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, WrdTableProperties *>>> {
-        struct __tree_node<std::__1::pair<unsigned int, WrdTableProperties *>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, WrdTableProperties *>, void *>>> {
+    struct __tree<std::__1::__value_type<unsigned int, WrdTableProperties *>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, WrdTableProperties *>, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, WrdTableProperties *>>> {
+        struct __tree_node<std::__1::__value_type<unsigned int, WrdTableProperties *>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned int, WrdTableProperties *>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, WrdTableProperties *, CsLess<unsigned int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, WrdTableProperties *>, CsLess<unsigned int>, true>> {
             unsigned long _field1;
         } _field3;
     } _field1;
 };
 
 struct map<unsigned int, XlChartEnteredData *, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, XlChartEnteredData *>>> {
-    struct __tree<std::__1::pair<unsigned int, XlChartEnteredData *>, std::__1::__map_value_compare<unsigned int, XlChartEnteredData *, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, XlChartEnteredData *>>> {
-        struct __tree_node<std::__1::pair<unsigned int, XlChartEnteredData *>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, XlChartEnteredData *>, void *>>> {
+    struct __tree<std::__1::__value_type<unsigned int, XlChartEnteredData *>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, XlChartEnteredData *>, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, XlChartEnteredData *>>> {
+        struct __tree_node<std::__1::__value_type<unsigned int, XlChartEnteredData *>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned int, XlChartEnteredData *>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, XlChartEnteredData *, CsLess<unsigned int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, XlChartEnteredData *>, CsLess<unsigned int>, true>> {
             unsigned long _field1;
         } _field3;
     } _field1;
 };
 
 struct map<unsigned int, int, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, int>>> {
-    struct __tree<std::__1::pair<unsigned int, int>, std::__1::__map_value_compare<unsigned int, int, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, int>>> {
-        struct __tree_node<std::__1::pair<unsigned int, int>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, int>, void *>>> {
+    struct __tree<std::__1::__value_type<unsigned int, int>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, int>, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, int>>> {
+        struct __tree_node<std::__1::__value_type<unsigned int, int>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned int, int>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, int, CsLess<unsigned int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, int>, CsLess<unsigned int>, true>> {
             unsigned long _field1;
         } _field3;
     } _field1;
 };
 
 struct map<unsigned int, unsigned int, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, unsigned int>>> {
-    struct __tree<std::__1::pair<unsigned int, unsigned int>, std::__1::__map_value_compare<unsigned int, unsigned int, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, unsigned int>>> {
-        struct __tree_node<std::__1::pair<unsigned int, unsigned int>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, unsigned int>, void *>>> _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, unsigned int, CsLess<unsigned int>, true>> {
+    struct __tree<std::__1::__value_type<unsigned int, unsigned int>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, unsigned int>, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, unsigned int>>> {
+        struct __tree_node<std::__1::__value_type<unsigned int, unsigned int>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned int, unsigned int>, void *>>> _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, unsigned int>, CsLess<unsigned int>, true>> {
             unsigned long _field1;
         } _field3;
     } _field1;
 };
 
 struct map<unsigned int, unsigned int, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, unsigned int>>> {
-    struct __tree<std::__1::pair<unsigned int, unsigned int>, std::__1::__map_value_compare<unsigned int, unsigned int, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, unsigned int>>> {
-        struct __tree_node<std::__1::pair<unsigned int, unsigned int>, void *> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, unsigned int>, void *>>> __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, unsigned int, std::__1::less<unsigned int>, true>> {
+    struct __tree<std::__1::__value_type<unsigned int, unsigned int>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, unsigned int>, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, unsigned int>>> {
+        struct __tree_node<std::__1::__value_type<unsigned int, unsigned int>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned int, unsigned int>, void *>>> __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, unsigned int>, std::__1::less<unsigned int>, true>> {
             unsigned long __first_;
         } __pair3_;
     } __tree_;
@@ -4601,20 +4496,23 @@ struct set<TSUFlushableObjectInfo *, TSUFlushableObjectInfoPointerTimeStampLess,
     } _field1;
 };
 
-struct tagChWinTime {
-    unsigned int _field1;
-    unsigned int _field2;
+struct set<unsigned int, std::__1::less<unsigned int>, std::__1::allocator<unsigned int>> {
+    struct __tree<unsigned int, std::__1::less<unsigned int>, std::__1::allocator<unsigned int>> {
+        struct __tree_node<unsigned int, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<unsigned int, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::less<unsigned int>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
 };
 
-struct unique_ptr<std::__1::__hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>*>>> {
-    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>*>>> {
-        struct __hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *> **_field1;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>*>> {
-                unsigned long _field1;
-            } _field1;
-        } _field2;
-    } _field1;
+struct shared_ptr<TSUStringChunk>;
+
+struct timeval {
+    int tv_sec;
+    int tv_usec;
 };
 
 struct vector<CGRect, std::__1::allocator<CGRect>> {
@@ -4625,11 +4523,27 @@ struct vector<CGRect, std::__1::allocator<CGRect>> {
     } _field3;
 };
 
-struct vector<PBWriterMasterStyleInfo, std::__1::allocator<PBWriterMasterStyleInfo>> {
-    struct PBWriterMasterStyleInfo *_field1;
-    struct PBWriterMasterStyleInfo *_field2;
-    struct __compressed_pair<PBWriterMasterStyleInfo *, std::__1::allocator<PBWriterMasterStyleInfo>> {
-        struct PBWriterMasterStyleInfo *_field1;
+struct vector<OADTableCell *, std::__1::allocator<OADTableCell *>> {
+    id *_field1;
+    id *_field2;
+    struct __compressed_pair<OADTableCell **, std::__1::allocator<OADTableCell *>> {
+        id *_field1;
+    } _field3;
+};
+
+struct vector<OADTablePartStyle *, std::__1::allocator<OADTablePartStyle *>> {
+    id *_field1;
+    id *_field2;
+    struct __compressed_pair<OADTablePartStyle **, std::__1::allocator<OADTablePartStyle *>> {
+        id *_field1;
+    } _field3;
+};
+
+struct vector<TSUCustomFormatCondition, std::__1::allocator<TSUCustomFormatCondition>> {
+    CDStruct_183601bc *_field1;
+    CDStruct_183601bc *_field2;
+    struct __compressed_pair<TSUCustomFormatCondition *, std::__1::allocator<TSUCustomFormatCondition>> {
+        CDStruct_183601bc *_field1;
     } _field3;
 };
 
@@ -4641,12 +4555,12 @@ struct vector<WBTextBoxReaderInfo, std::__1::allocator<WBTextBoxReaderInfo>> {
     } _field3;
 };
 
-struct vector<long, std::__1::allocator<long>> {
-    long *_field1;
-    long *_field2;
-    struct __compressed_pair<long *, std::__1::allocator<long>> {
-        long *_field1;
-    } _field3;
+struct vector<boost::shared_ptr<TSUStringChunk>, std::__1::allocator<boost::shared_ptr<TSUStringChunk>>> {
+    struct shared_ptr<TSUStringChunk> *__begin_;
+    struct shared_ptr<TSUStringChunk> *__end_;
+    struct __compressed_pair<boost::shared_ptr<TSUStringChunk>*, std::__1::allocator<boost::shared_ptr<TSUStringChunk>>> {
+        struct shared_ptr<TSUStringChunk> *__first_;
+    } __end_cap_;
 };
 
 struct vector<unsigned int, std::__1::allocator<unsigned int>> {
@@ -4746,7 +4660,249 @@ typedef struct {
 } CDStruct_dbdf0818;
 
 typedef struct {
+    id _field1;
+    id _field2;
+    id _field3;
+    id _field4;
+    id _field5;
+    id _field6;
+    id _field7;
+    int _field8;
+    int _field9;
+    int _field10;
+    int _field11;
+    id _field12;
+    id _field13;
+    id _field14;
+    id _field15;
+    id _field16;
+    int _field17;
+    int _field18;
+    int _field19;
+    short _field20;
+    short _field21;
+    id _field22;
+    id _field23;
+    float _field24;
+    unsigned short _field25;
+    unsigned short _field26;
+    unsigned short _field27;
+    unsigned short _field28;
+    unsigned short _field29;
+    unsigned short _field30;
+    unsigned short _field31;
+    unsigned char _field32;
+    unsigned char _field33;
+    float _field34;
+    unsigned char _field35;
+    unsigned char _field36;
+    unsigned char _field37;
+    unsigned char _field38;
+    unsigned char _field39;
+    unsigned char _field40;
+    unsigned char _field41;
+    unsigned char _field42;
+    int _field43;
+    unsigned char _field44;
+    unsigned char _field45;
+    char _field46;
+    unsigned char _field47;
+    unsigned char _field48;
+    unsigned char _field49;
+    unsigned char _field50;
+    unsigned char _field51;
+    unsigned char _field52;
+    unsigned char _field53;
+    unsigned char _field54;
+    unsigned char _field55;
+    unsigned char _field56;
+    unsigned short _field57;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+} CDStruct_2bc0833e;
+
+typedef struct {
+    id _field1;
+    id _field2;
+    id _field3;
+    id _field4;
+    double _field5;
+    unsigned int :8;
+    unsigned char _field6;
+    unsigned char _field7;
+    unsigned char _field8;
+    unsigned char _field9;
+    unsigned char _field10;
+    unsigned char _field11;
+    unsigned char _field12;
+    unsigned short _field13;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+} CDStruct_b87b2d04;
+
+typedef struct {
+    WDBorder *topBorder;
+    WDBorder *leftBorder;
+    WDBorder *bottomBorder;
+    WDBorder *rightBorder;
+    int breakType;
+    long pageWidth;
+    long pageHeight;
+    unsigned int pageScale;
+    int pageOrientation;
+    int textDirection;
+    long leftMargin;
+    long rightMargin;
+    long topMargin;
+    long bottomMargin;
+    long headerMargin;
+    long footerMargin;
+    long gutterMargin;
+    char rtlGutter;
+    int borderDepth;
+    int borderDisplay;
+    int borderOffset;
+    short lineNumberStart;
+    unsigned short lineNumberIncrement;
+    short lineNumberDistance;
+    int lineNumberRestart;
+    int pageNumberFormat;
+    unsigned short pageNumberStart;
+    int chapterNumberSeparator;
+    NSMutableArray *columnWidths;
+    NSMutableArray *columnSpaces;
+    unsigned short columnCount;
+    long columnSpace;
+    int verticalJustification;
+    unsigned short indexToAuthorIDOfFormattingChange;
+    NSDate *formattingChangeDate;
+    unsigned int bidi:1;
+    unsigned int topBorderOverridden:1;
+    unsigned int leftBorderOverridden:1;
+    unsigned int bottomBorderOverridden:1;
+    unsigned int rightBorderOverridden:1;
+    unsigned int breakTypeOverridden:1;
+    unsigned int pageWidthOverridden:1;
+    unsigned int pageHeightOverridden:1;
+    unsigned int pageScaleOverridden:1;
+    unsigned int pageOrientationOverridden:1;
+    unsigned int textDirectionOverridden:1;
+    unsigned int leftMarginOverridden:1;
+    unsigned int rightMarginOverridden:1;
+    unsigned int topMarginOverridden:1;
+    unsigned int bottomMarginOverridden:1;
+    unsigned int headerMarginOverridden:1;
+    unsigned int footerMarginOverridden:1;
+    unsigned int gutterMarginOverridden:1;
+    unsigned int rtlGutterOverridden:1;
+    unsigned int borderDepthOverridden:1;
+    unsigned int borderDisplayOverridden:1;
+    unsigned int borderOffsetOverridden:1;
+    unsigned int lineNumberStartOverridden:1;
+    unsigned int lineNumberIncrementOverridden:1;
+    unsigned int lineNumberDistanceOverridden:1;
+    unsigned int lineNumberRestartOverridden:1;
+    unsigned int pageNumberFormatOverridden:1;
+    unsigned int pageNumberStartOverridden:1;
+    unsigned int pageNumberRestart:1;
+    unsigned int pageNumberRestartOverridden:1;
+    unsigned int chapterNumberSeparatorOverridden:1;
+    unsigned int columnCountOverridden:1;
+    unsigned int columnsEqualWidth:1;
+    unsigned int columnsEqualWidthOverridden:1;
+    unsigned int columnSpaceOverridden:1;
+    unsigned int verticalJustificationOverridden:1;
+    unsigned int titlePage:1;
+    unsigned int titlePageOverridden:1;
+    unsigned int formattingChanged:1;
+    unsigned int formattingChangedOverridden:1;
+    unsigned int indexToAuthorIDOfFormattingChangeOverridden:1;
+    unsigned int formattingChangeDateOverridden:1;
+    unsigned int bidiOverridden:1;
+} CDStruct_b878274a;
+
+typedef struct {
     WDStyle *baseStyle;
+    unsigned short look;
     WDShading *shading;
     WDBorder *topBorder;
     WDBorder *leftBorder;
@@ -4773,6 +4929,7 @@ typedef struct {
     int deleted;
     int edited;
     int formattingChanged;
+    char biDirectional;
     unsigned short indexToAuthorIDOfDeletion;
     unsigned short indexToAuthorIDOfEdit;
     unsigned short indexToAuthorIDOfFormattingChange;
@@ -4780,6 +4937,7 @@ typedef struct {
     NSDate *editDate;
     NSDate *formattingChangeDate;
     unsigned int baseStyleOverridden:1;
+    char lookOverridden;
     unsigned int shadingOverridden:1;
     unsigned int topBorderOverridden:1;
     unsigned int leftBorderOverridden:1;
@@ -4806,214 +4964,14 @@ typedef struct {
     unsigned int deletedOverridden:1;
     unsigned int editedOverridden:1;
     unsigned int formattingChangedOverridden:1;
+    unsigned int biDirectionalOverridden:1;
     unsigned int indexToAuthorIDOfDeletionOverridden:1;
     unsigned int indexToAuthorIDOfEditOverridden:1;
     unsigned int indexToAuthorIDOfFormattingChangeOverridden:1;
     unsigned int deletionDateOverridden:1;
     unsigned int editDateOverridden:1;
     unsigned int formattingChangeDateOverridden:1;
-} CDStruct_8f0e3ff6;
-
-typedef struct {
-    id _field1;
-    id _field2;
-    id _field3;
-    id _field4;
-    id _field5;
-    id _field6;
-    id _field7;
-    int _field8;
-    int _field9;
-    int _field10;
-    id _field11;
-    id _field12;
-    id _field13;
-    id _field14;
-    int _field15;
-    int _field16;
-    int _field17;
-    short _field18;
-    short _field19;
-    id _field20;
-    id _field21;
-    float _field22;
-    unsigned short _field23;
-    unsigned short _field24;
-    unsigned short _field25;
-    unsigned short _field26;
-    unsigned short _field27;
-    unsigned short _field28;
-    unsigned short _field29;
-    unsigned char _field30;
-    unsigned char _field31;
-    unsigned char _field32;
-    unsigned char _field33;
-    unsigned char _field34;
-    unsigned char _field35;
-    unsigned char _field36;
-    unsigned char _field37;
-    int _field38;
-    unsigned char _field39;
-    unsigned char _field40;
-    char _field41;
-    unsigned char _field42;
-    unsigned char _field43;
-    unsigned char _field44;
-    unsigned char _field45;
-    unsigned char _field46;
-    unsigned char _field47;
-    unsigned char _field48;
-    unsigned char _field49;
-    unsigned short _field50;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-} CDStruct_b675bd9c;
-
-typedef struct {
-    WDBorder *topBorder;
-    WDBorder *leftBorder;
-    WDBorder *bottomBorder;
-    WDBorder *rightBorder;
-    int breakType;
-    long pageWidth;
-    long pageHeight;
-    unsigned int pageScale;
-    int pageOrientation;
-    int textDirection;
-    long leftMargin;
-    long rightMargin;
-    long topMargin;
-    long bottomMargin;
-    long headerMargin;
-    long footerMargin;
-    long gutterMargin;
-    int borderDepth;
-    int borderDisplay;
-    int borderOffset;
-    short lineNumberStart;
-    unsigned short lineNumberIncrement;
-    short lineNumberDistance;
-    int lineNumberRestart;
-    int pageNumberFormat;
-    unsigned short pageNumberStart;
-    int chapterNumberSeparator;
-    NSMutableArray *columnWidths;
-    NSMutableArray *columnSpaces;
-    unsigned short columnCount;
-    long columnSpace;
-    int verticalJustification;
-    unsigned short indexToAuthorIDOfFormattingChange;
-    NSDate *formattingChangeDate;
-    unsigned int topBorderOverridden:1;
-    unsigned int leftBorderOverridden:1;
-    unsigned int bottomBorderOverridden:1;
-    unsigned int rightBorderOverridden:1;
-    unsigned int breakTypeOverridden:1;
-    unsigned int pageWidthOverridden:1;
-    unsigned int pageHeightOverridden:1;
-    unsigned int pageScaleOverridden:1;
-    unsigned int pageOrientationOverridden:1;
-    unsigned int textDirectionOverridden:1;
-    unsigned int leftMarginOverridden:1;
-    unsigned int rightMarginOverridden:1;
-    unsigned int topMarginOverridden:1;
-    unsigned int bottomMarginOverridden:1;
-    unsigned int headerMarginOverridden:1;
-    unsigned int footerMarginOverridden:1;
-    unsigned int gutterMarginOverridden:1;
-    unsigned int borderDepthOverridden:1;
-    unsigned int borderDisplayOverridden:1;
-    unsigned int borderOffsetOverridden:1;
-    unsigned int lineNumberStartOverridden:1;
-    unsigned int lineNumberIncrementOverridden:1;
-    unsigned int lineNumberDistanceOverridden:1;
-    unsigned int lineNumberRestartOverridden:1;
-    unsigned int pageNumberFormatOverridden:1;
-    unsigned int pageNumberStartOverridden:1;
-    unsigned int pageNumberRestart:1;
-    unsigned int pageNumberRestartOverridden:1;
-    unsigned int chapterNumberSeparatorOverridden:1;
-    unsigned int columnCountOverridden:1;
-    unsigned int columnsEqualWidth:1;
-    unsigned int columnsEqualWidthOverridden:1;
-    unsigned int columnSpaceOverridden:1;
-    unsigned int verticalJustificationOverridden:1;
-    unsigned int titlePage:1;
-    unsigned int titlePageOverridden:1;
-    unsigned int formattingChanged:1;
-    unsigned int formattingChangedOverridden:1;
-    unsigned int indexToAuthorIDOfFormattingChangeOverridden:1;
-    unsigned int formattingChangeDateOverridden:1;
-} CDStruct_9384fd93;
+} CDStruct_18c9c696;
 
 typedef struct {
     unsigned char _field1;
@@ -5050,15 +5008,6 @@ typedef struct {
 } CDStruct_ba543347;
 
 typedef struct {
-    float _field1;
-    float _field2;
-    float _field3;
-    float _field4;
-    float _field5;
-    float _field6;
-} CDStruct_265c7ca9;
-
-typedef struct {
     int _field1;
     unsigned short _field2;
     unsigned short _field3;
@@ -5070,6 +5019,23 @@ typedef struct {
     char _field9;
     char _field10;
 } CDStruct_1d177db0;
+
+typedef struct {
+    int _field1;
+    CDUnknownFunctionPointerType _field2;
+    CDUnknownFunctionPointerType _field3;
+    CDUnknownFunctionPointerType _field4;
+    CDUnknownFunctionPointerType _field5;
+    CDUnknownFunctionPointerType _field6;
+} CDStruct_459b2a3d;
+
+typedef struct {
+    int _field1;
+    CDUnknownFunctionPointerType _field2;
+    CDUnknownFunctionPointerType _field3;
+    CDUnknownFunctionPointerType _field4;
+    CDUnknownFunctionPointerType _field5;
+} CDStruct_41c7518b;
 
 typedef struct {
     short _field1;
@@ -5094,6 +5060,8 @@ typedef struct {
     unsigned int headerOverridden:1;
 } CDStruct_4f9224b4;
 
+typedef struct CDStruct_183601bc;
+
 typedef struct {
     id _field1;
     id _field2;
@@ -5103,36 +5071,40 @@ typedef struct {
     id _field6;
     id _field7;
     id _field8;
-    id _field9;
-    CDStruct_5c52f79b _field10;
+    CDStruct_5c52f79b _field9;
+    id _field10;
     id _field11;
-    id _field12;
-    long _field13;
+    long _field12;
+    unsigned long _field13;
     unsigned long _field14;
-    unsigned long _field15;
+    long _field15;
     long _field16;
     long _field17;
     long _field18;
     long _field19;
-    long _field20;
+    short _field20;
     short _field21;
     short _field22;
     short _field23;
     short _field24;
-    unsigned short _field25;
-    unsigned short _field26;
-    unsigned short _field27;
-    unsigned short _field28;
+    short _field25;
+    short _field26;
+    short _field27;
+    short _field28;
     unsigned short _field29;
     unsigned short _field30;
-    char _field31;
-    unsigned char _field32;
-    unsigned char _field33;
-    unsigned char _field34;
+    unsigned short _field31;
+    unsigned short _field32;
+    unsigned short _field33;
+    char _field34;
     unsigned char _field35;
     unsigned char _field36;
     unsigned char _field37;
     unsigned char _field38;
+    unsigned char _field39;
+    unsigned char _field40;
+    unsigned char _field41;
+    unsigned char _field42;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
@@ -5191,13 +5163,23 @@ typedef struct {
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
-} CDStruct_fbd27f19;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+} CDStruct_1eae1781;
 
 typedef struct {
     int mFormatType;
     union {
         struct {
-            NSString *mCurrencyCode;
+            unsigned int mCurrencyCodeIndex:16;
             unsigned int mDecimalPlaces:8;
             unsigned int mNegativeStyle:3;
             unsigned int mShowThousandsSeparator:1;
@@ -5224,7 +5206,7 @@ typedef struct {
         } mDurationFormatStruct;
         struct {
             unsigned int mCustomFormatID;
-            struct *mData;
+            CDStruct_183601bc *mData;
         } mCustomFormatStruct;
         struct {
             double mMinimum;
@@ -5240,7 +5222,7 @@ typedef struct {
             id mData;
         } mMultipleChoiceListFormatStruct;
     } ;
-} CDStruct_95e644ef;
+} CDStruct_bfed0e84;
 
 // Template types
 typedef struct ChVector<OcText> {
@@ -5305,6 +5287,18 @@ typedef struct EshTablePropVal<EshPathCommand> {
     CDUnknownFunctionPointerType *_field1;
     struct ChVector<EshPathCommand> _field2;
 } EshTablePropVal_ea625207;
+
+typedef struct set<unsigned int, std::__1::less<unsigned int>, std::__1::allocator<unsigned int>> {
+    struct __tree<unsigned int, std::__1::less<unsigned int>, std::__1::allocator<unsigned int>> {
+        struct __tree_node<unsigned int, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<unsigned int, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::less<unsigned int>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
+} set_0e951b36;
 
 typedef struct vector<CGRect, std::__1::allocator<CGRect>> {
     struct CGRect *_field1;

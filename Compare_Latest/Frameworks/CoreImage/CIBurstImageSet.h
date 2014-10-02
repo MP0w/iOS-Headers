@@ -13,7 +13,11 @@
     CIBurstImageSetInternal *_priv;
 }
 
++ (id)defaultVersionString;
++ (id)burstImageSetWithOptions:(id)arg1;
 + (id)burstImageSet;
+- (BOOL)isAction;
+- (BOOL)isPortrait;
 - (void)setLoggingListener:(void *)arg1 withUserInfo:(void *)arg2;
 - (double)secondsSinceStart;
 - (id)statsForImageWithIdentifier:(id)arg1;
@@ -23,9 +27,8 @@
 - (id)imageClusterForIdentifier:(id)arg1;
 - (id)coverImageIdentifier;
 - (id)bestImageIdentifiers;
-- (void)addImage:(id)arg1 identifier:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (void)addImageFromCGImage:(struct CGImage *)arg1 properties:(id)arg2 identifier:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (id)burstId;
+- (id)initWithOptions:(id)arg1;
 - (id)init;
 - (void)dealloc;
 

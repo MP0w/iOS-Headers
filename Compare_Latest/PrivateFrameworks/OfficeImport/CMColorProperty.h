@@ -6,12 +6,12 @@
 
 #import <OfficeImport/CMProperty.h>
 
-@class TSUColor;
+@class OITSUColor;
 
 __attribute__((visibility("hidden")))
 @interface CMColorProperty : CMProperty
 {
-    TSUColor *wdValue;
+    OITSUColor *wdValue;
 }
 
 + (float)transformedAlphaFromOADColor:(id)arg1;

@@ -8,7 +8,7 @@
 
 #import "MFDataConsumer.h"
 
-@class NSArray, NSMutableArray;
+@class NSArray, NSMutableArray, NSString;
 
 @interface MFBaseFilterDataConsumer : NSObject <MFDataConsumer>
 {
@@ -25,6 +25,12 @@
 - (int)appendData:(id)arg1;
 - (id)initWithConsumer:(id)arg1;
 - (id)initWithConsumers:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

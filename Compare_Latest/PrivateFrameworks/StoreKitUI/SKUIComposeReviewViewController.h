@@ -9,7 +9,7 @@
 #import "SKUIComposeReviewFormDelegate.h"
 #import "UIAlertViewDelegate.h"
 
-@class SKUIComposeReviewFormViewController, SKUIReviewMetadata, SUPlaceholderViewController;
+@class NSString, SKUIComposeReviewFormViewController, SKUIReviewMetadata, SUPlaceholderViewController;
 
 @interface SKUIComposeReviewViewController : SUNavigationController <SKUIComposeReviewFormDelegate, UIAlertViewDelegate>
 {
@@ -29,12 +29,16 @@
 - (void)submitReview;
 - (void)setRating:(float)arg1;
 - (void)loadReviewWithURL:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
-@property(readonly, nonatomic) SKUIReviewMetadata *editedReviewMetadata;
+@property(readonly, copy, nonatomic) SKUIReviewMetadata *editedReviewMetadata;
 - (void)dealloc;
 - (id)init;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) __weak id <SKUIComposeReviewDelegate> delegate; // @dynamic delegate;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

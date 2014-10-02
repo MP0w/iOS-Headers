@@ -23,6 +23,7 @@
 @property(readonly, nonatomic) NSMutableSet *currentState; // @synthesize currentState=_currentState;
 - (void)flush;
 - (void)_pruneSet:(id)arg1 ofDeferralsPassingTest:(CDUnknownBlockType)arg2;
+- (void)setForegroundApplicationOnMainDisplay:(id)arg1 pid:(int)arg2;
 - (id)description;
 - (void)deferEventsForClientWithProperties:(id)arg1 toClientWithProperties:(id)arg2;
 - (void)dealloc;

@@ -9,11 +9,10 @@
 #import "MPUCompletionFooterViewDelegate.h"
 #import "MPUCompletionQueryDataSourceDelegate.h"
 
-@class MPImageCache, MPUCompletionQueryDataSource, NSOperationQueue;
+@class MPUCompletionQueryDataSource, NSOperationQueue, NSString;
 
 @interface MusicAlbumsDetailViewController : MusicTableViewController <MPUCompletionQueryDataSourceDelegate, MPUCompletionFooterViewDelegate>
 {
-    MPImageCache *_imageCache;
     BOOL _hasEverReceivedWillAppear;
     BOOL _useDownloadAllArtistCellConfig;
     NSOperationQueue *_downloadabilityOperationQueue;
@@ -23,13 +22,14 @@
     int _downloadableSongCount;
 }
 
++ (Class)_albumsDetailTableHeaderViewClass;
 + (id)actionCellConfigurationClasses;
 + (BOOL)shouldShowCMC;
 + (BOOL)shouldPushNowPlayingOnSelection;
 @property(readonly, nonatomic) BOOL isDownloading; // @synthesize isDownloading=_isDownloading;
 @property(readonly, nonatomic) int downloadableSongCount; // @synthesize downloadableSongCount=_downloadableSongCount;
 - (void).cxx_destruct;
-- (void)_updateDownloadabilityStateWithCanReloadActionRows:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)_updateDownloadabilityStateWithCanReloadActionRowsSynchronously:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)_downloadAllButtonAction:(id)arg1;
 - (void)_updateTitle;
 - (void)_updateVisibleHeadersCloudRightInset;
@@ -37,8 +37,10 @@
 - (int)_footerStyleForSection:(int)arg1;
 - (void)_configureFooterView:(id)arg1 forSection:(int)arg2 offer:(id)arg3;
 - (void)_applyCloudDownloadStateForHeaderView:(id)arg1 withAlbum:(id)arg2;
-- (void)_MPHAlbumsDetailViewController_canShowCloudDownloadButtonsDidChangeNotification:(id)arg1;
-- (void)_MPHAlbumsDetailViewController_defaultsDidChangeNotification:(id)arg1;
+- (BOOL)_getCollectionPersistentID:(long long *)arg1 groupingType:(int *)arg2;
+- (int)_collectionGroupingForProperty:(id)arg1;
+- (void)_MusicAlbumsDetailViewController_canShowCloudDownloadButtonsDidChangeNotification:(id)arg1;
+- (void)_MusicAlbumsDetailViewController_defaultsDidChangeNotification:(id)arg1;
 @property(readonly, nonatomic) float maximumDurationWidth; // @synthesize maximumDurationWidth=_maximumDurationWidth;
 - (void)completionFooterView:(id)arg1 purchaseCollectionFromOffering:(id)arg2;
 - (void)completionFooterView:(id)arg1 showItemsInOffering:(id)arg2;
@@ -50,6 +52,9 @@
 - (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
 - (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (BOOL)music_handleUserActivityContext:(id)arg1 containerItem:(id)arg2;
+- (BOOL)music_appendCurrentUserActivityContainerItems:(id)arg1 previousViewController:(id)arg2 nextViewController:(id)arg3;
+- (void)contentSizeCategoryDidChange;
 - (id)_createTableView;
 @property(readonly, nonatomic) MPUCompletionQueryDataSource *completionDataSource;
 - (void)setDataSource:(id)arg1;
@@ -62,6 +67,12 @@
 - (void)downloadManager:(id)arg1 didAddDownloads:(id)arg2 removeDownloads:(id)arg3;
 - (void)dealloc;
 - (id)initWithDataSource:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

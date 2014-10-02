@@ -15,9 +15,10 @@
 
 + (id)assetCacheWithURL:(id)arg1;
 - (id)allKeys;
+- (id)lastModifiedDateOfEntryForKey:(id)arg1;
 - (long long)sizeOfEntryForKey:(id)arg1;
 - (void)removeEntryForKey:(id)arg1;
-@property(readonly, nonatomic) NSURL *URL;
+@property(readonly, copy, nonatomic) NSURL *URL;
 @property(readonly, nonatomic) long long currentSize;
 @property(nonatomic) long long maxEntrySize;
 @property(nonatomic) long long maxSize;

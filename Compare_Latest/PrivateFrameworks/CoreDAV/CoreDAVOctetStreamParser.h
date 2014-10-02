@@ -8,7 +8,7 @@
 
 #import "CoreDAVResponseBodyParser.h"
 
-@class NSError, NSMutableData;
+@class NSError, NSMutableData, NSString;
 
 @interface CoreDAVOctetStreamParser : NSObject <CoreDAVResponseBodyParser>
 {
@@ -17,12 +17,17 @@
 }
 
 + (BOOL)canHandleContentType:(id)arg1;
-@property(retain) NSMutableData *octetStreamData; // @synthesize octetStreamData=_octetStreamData;
+@property(retain, nonatomic) NSMutableData *octetStreamData; // @synthesize octetStreamData=_octetStreamData;
 @property(readonly) NSError *parserError;
 - (BOOL)processData:(id)arg1 forTask:(id)arg2;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

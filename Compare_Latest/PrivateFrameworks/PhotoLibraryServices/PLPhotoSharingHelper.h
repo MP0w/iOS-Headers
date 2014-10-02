@@ -47,7 +47,6 @@
 + (float)derivedAssetSmallDimensionLimitForType:(int)arg1;
 + (id)derivativesForMasterAsset:(id)arg1 withSpecifications:(id)arg2;
 + (id)videoDerivativesForAssetCollection:(id)arg1 withSpecifications:(id)arg2;
-+ (struct CGSize)dimensionsOfVideoAtURL:(id)arg1;
 + (void)deleteCommentWithGUIDFromServer:(id)arg1;
 + (void)publishCloudSharedCommentToServer:(id)arg1;
 + (void)handlePhoneInvitationFailuresWithCompletionBlock:(CDUnknownBlockType)arg1;
@@ -64,7 +63,7 @@
 + (unsigned int)unregisterIdleStateChangeObserverWithToken:(int)arg1;
 + (unsigned int)registerIdleStateChangeObserverWithToken:(int *)arg1 handler:(CDUnknownBlockType)arg2;
 + (BOOL)removeCloudSharingDirectories:(id *)arg1;
-+ (void)requestVideoPlaybackURLForAsset:(id)arg1 completion:(CDUnknownBlockType)arg2;
++ (void)requestVideoPlaybackURLForAsset:(id)arg1 videoType:(unsigned int)arg2 completion:(CDUnknownBlockType)arg3;
 + (BOOL)isCellularConnection;
 + (void)deleteCloudSharedAssetsFromServer:(id)arg1 inSharedAlbum:(id)arg2;
 + (void)enqueueCloudSharedAssetsForPublishToServer:(id)arg1 inSharedAlbum:(id)arg2;

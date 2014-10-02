@@ -11,10 +11,15 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (BOOL)linkOrCopyURL:(id)arg1 decryptionKey:(id)arg2 toURL:(id)arg3 encryptionKey:(id)arg4;
-+ (BOOL)linkOrCopyURL:(id)arg1 toURL:(id)arg2;
-+ (BOOL)linkFileAtPath:(id)arg1 toPath:(id)arg2;
-+ (BOOL)linkFileAtURL:(id)arg1 toURL:(id)arg2;
++ (BOOL)copyReadChannel:(id)arg1 size:(unsigned long long)arg2 toWriteChannel:(id)arg3 error:(id *)arg4;
++ (id)ioQueue;
++ (BOOL)transcodeReadChannel:(id)arg1 decryptionKey:(id)arg2 size:(unsigned long long)arg3 toWriteChannel:(id)arg4 encryptionKey:(id)arg5 error:(id *)arg6;
++ (BOOL)copyReadChannel:(id)arg1 decryptionKey:(id)arg2 size:(unsigned long long)arg3 toWriteChannel:(id)arg4 encryptionKey:(id)arg5 error:(id *)arg6;
++ (BOOL)linkOrCopyURL:(id)arg1 decryptionKey:(id)arg2 toURL:(id)arg3 encryptionKey:(id)arg4 error:(id *)arg5;
++ (BOOL)linkOrCopyURL:(id)arg1 toURL:(id)arg2 error:(id *)arg3;
++ (BOOL)linkFileAtPath:(id)arg1 toPath:(id)arg2 error:(id *)arg3;
++ (BOOL)linkFileAtURL:(id)arg1 toURL:(id)arg2 error:(id *)arg3;
++ (id)errorWithDomain:(id)arg1 code:(int)arg2 sourcePath:(id)arg3 targetPath:(id)arg4;
 
 @end
 

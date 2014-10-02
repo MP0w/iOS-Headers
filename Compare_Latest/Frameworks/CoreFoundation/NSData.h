@@ -14,5 +14,9 @@
 {
 }
 
+
+// Remaining properties
+@property(readonly) const void *bytes; // @dynamic bytes;
+@property(readonly) unsigned int length; // @dynamic length;
 @end
 

@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class NSMutableArray, NSMutableDictionary, SLSheetTextComposeView, UILabel, UITextView, UIView<SLSheetPreviewView>;
+@class NSMutableArray, NSMutableDictionary, SLSheetTextComposeView, UILabel, UITextView;
 
 __attribute__((visibility("hidden")))
 @interface SLSheetContentView : UIView
@@ -18,15 +18,15 @@ __attribute__((visibility("hidden")))
     float _textViewTopMargin;
     UIView *_bottomSeparator;
     UIView *_autoCompletionModeSeparator;
-    int _currentBarMetrics;
+    int _currentVerticalSizeClass;
     BOOL _autoCompletionMode;
     float _autoCompletionTextViewHeight;
-    UIView<SLSheetPreviewView> *_previewView;
+    UIView *_previewView;
     UIView *_accessoryView;
 }
 
 @property(retain, nonatomic) UIView *accessoryView; // @synthesize accessoryView=_accessoryView;
-@property(retain, nonatomic) UIView<SLSheetPreviewView> *previewView; // @synthesize previewView=_previewView;
+@property(retain, nonatomic) UIView *previewView; // @synthesize previewView=_previewView;
 - (void).cxx_destruct;
 - (void)endAutoCompletionMode;
 - (void)beginAutoCompletionMode;
@@ -41,8 +41,8 @@ __attribute__((visibility("hidden")))
 - (void)_resetAccessoryView;
 @property(readonly, nonatomic) UILabel *placeholderLabel;
 @property(readonly, nonatomic) UITextView *textView;
-- (void)setCurrentBarMetrics:(int)arg1;
-- (void)setIntrinsicSize:(struct CGSize)arg1 forBarMetrics:(int)arg2;
+- (void)setCurrentVerticalSizeClass:(int)arg1;
+- (void)setIntrinsicSize:(struct CGSize)arg1 forVerticalSizeClass:(int)arg2;
 - (void)_setConstraints;
 - (void)updateConstraints;
 - (struct CGSize)intrinsicContentSize;

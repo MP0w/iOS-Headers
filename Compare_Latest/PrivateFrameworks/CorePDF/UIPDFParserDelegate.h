@@ -8,6 +8,8 @@
 
 #import "NSXMLParserDelegate.h"
 
+@class NSString;
+
 @interface UIPDFParserDelegate : NSObject <NSXMLParserDelegate>
 {
     struct CGPoint _p[4];
@@ -23,6 +25,12 @@
 @property(readonly) struct CGPath *path; // @dynamic path;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

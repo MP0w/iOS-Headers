@@ -16,27 +16,35 @@
     NSString *_errorDomain;
     GEOLatLng *_occurrenceLatLng;
     unsigned int _occurrenceResponseIndex;
-    NSData *_occurrenceRouteID;
+    NSData *_occurrenceRouteId;
     unsigned int _occurrenceStepIndex;
     unsigned int _switchedToResponseIndex;
-    NSData *_switchedToRouteID;
+    NSData *_switchedToRouteId;
     NSString *_synthesizedStepInstructions;
     int _synthesizedStepManeuverType;
     int _type;
-    CDStruct_c516b0c7 _has;
+    struct {
+        unsigned int errorCode:1;
+        unsigned int occurrenceResponseIndex:1;
+        unsigned int occurrenceStepIndex:1;
+        unsigned int switchedToResponseIndex:1;
+        unsigned int synthesizedStepManeuverType:1;
+        unsigned int type:1;
+    } _has;
 }
 
 @property(nonatomic) long long errorCode; // @synthesize errorCode=_errorCode;
 @property(retain, nonatomic) NSString *errorDomain; // @synthesize errorDomain=_errorDomain;
 @property(retain, nonatomic) NSString *synthesizedStepInstructions; // @synthesize synthesizedStepInstructions=_synthesizedStepInstructions;
 @property(nonatomic) int synthesizedStepManeuverType; // @synthesize synthesizedStepManeuverType=_synthesizedStepManeuverType;
-@property(retain, nonatomic) NSData *switchedToRouteID; // @synthesize switchedToRouteID=_switchedToRouteID;
+@property(retain, nonatomic) NSData *switchedToRouteId; // @synthesize switchedToRouteId=_switchedToRouteId;
 @property(nonatomic) unsigned int switchedToResponseIndex; // @synthesize switchedToResponseIndex=_switchedToResponseIndex;
 @property(retain, nonatomic) GEOLatLng *occurrenceLatLng; // @synthesize occurrenceLatLng=_occurrenceLatLng;
 @property(nonatomic) unsigned int occurrenceStepIndex; // @synthesize occurrenceStepIndex=_occurrenceStepIndex;
-@property(retain, nonatomic) NSData *occurrenceRouteID; // @synthesize occurrenceRouteID=_occurrenceRouteID;
+@property(retain, nonatomic) NSData *occurrenceRouteId; // @synthesize occurrenceRouteId=_occurrenceRouteId;
 @property(nonatomic) unsigned int occurrenceResponseIndex; // @synthesize occurrenceResponseIndex=_occurrenceResponseIndex;
 @property(nonatomic) int type; // @synthesize type=_type;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -49,11 +57,11 @@
 @property(readonly, nonatomic) BOOL hasErrorDomain;
 @property(readonly, nonatomic) BOOL hasSynthesizedStepInstructions;
 @property(nonatomic) BOOL hasSynthesizedStepManeuverType;
-@property(readonly, nonatomic) BOOL hasSwitchedToRouteID;
+@property(readonly, nonatomic) BOOL hasSwitchedToRouteId;
 @property(nonatomic) BOOL hasSwitchedToResponseIndex;
 @property(readonly, nonatomic) BOOL hasOccurrenceLatLng;
 @property(nonatomic) BOOL hasOccurrenceStepIndex;
-@property(readonly, nonatomic) BOOL hasOccurrenceRouteID;
+@property(readonly, nonatomic) BOOL hasOccurrenceRouteId;
 @property(nonatomic) BOOL hasOccurrenceResponseIndex;
 @property(nonatomic) BOOL hasType;
 - (void)dealloc;

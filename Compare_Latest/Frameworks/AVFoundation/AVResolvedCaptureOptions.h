@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVCaptureDeviceFormat, NSMutableDictionary, NSString;
+@class AVCaptureDeviceFormat_FigRecorder, NSMutableDictionary, NSString;
 
 @interface AVResolvedCaptureOptions : NSObject
 {
@@ -22,7 +22,7 @@
     BOOL faceDetectionNotificationsEnabled;
     CDStruct_1b6d18a9 videoConnectionMinFrameDuration;
     CDStruct_1b6d18a9 videoConnectionMaxFrameDuration;
-    AVCaptureDeviceFormat *resolvedVideoDeviceFormat;
+    AVCaptureDeviceFormat_FigRecorder *resolvedVideoDeviceFormat;
     CDStruct_1b6d18a9 resolvedVideoMinFrameDuration;
     CDStruct_1b6d18a9 resolvedVideoMaxFrameDuration;
     NSMutableDictionary *resolvedVideoCompressionProperties;

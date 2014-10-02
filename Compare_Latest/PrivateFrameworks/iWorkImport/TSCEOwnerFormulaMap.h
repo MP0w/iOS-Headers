@@ -15,7 +15,7 @@ __attribute__((visibility("hidden")))
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)saveToArchive:(struct OwnerFormulaMapArchive *)arg1;
+- (void)saveToArchive:(struct OwnerFormulaMapArchive *)arg1 archiver:(id)arg2;
 - (id)initWithArchive:(const struct OwnerFormulaMapArchive *)arg1;
 - (struct TSCEFormula *)formulaAtIndex:(unsigned int)arg1 outCellCoordinate:(CDStruct_0441cfb5 *)arg2;
 - (unsigned int)count;

@@ -10,7 +10,7 @@
 {
 }
 
-+ (id)newTransactionWithWorkspace:(id)arg1 mainScreenAlertManager:(id)arg2 starkScreenController:(id)arg3 alert:(id)arg4 toApplication:(id)arg5;
++ (id)newTransactionWithMainScreenAlertManager:(id)arg1 starkScreenController:(id)arg2 alert:(id)arg3 toApplication:(id)arg4;
 
 @end
 

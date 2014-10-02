@@ -6,24 +6,15 @@
 
 #import <RadioUI/RUStationTreeTableViewCell.h>
 
-@class MPImageCache, MPImageCacheRequest;
-
 @interface RUStationTreeArtworkTableViewCell : RUStationTreeTableViewCell
 {
-    MPImageCache *_imageCache;
-    MPImageCacheRequest *_imageCacheRequest;
 }
 
 + (struct CGSize)artworkSize;
-@property(readonly, nonatomic) MPImageCacheRequest *imageCacheRequest; // @synthesize imageCacheRequest=_imageCacheRequest;
-@property(readonly, nonatomic) MPImageCache *imageCache; // @synthesize imageCache=_imageCache;
-- (void).cxx_destruct;
-- (void)setImageCache:(id)arg1 imageCacheRequest:(id)arg2;
-- (float)_textLabelXWithIsPlaying:(BOOL)arg1;
-- (void)_showChangeToPlaying:(BOOL)arg1 animated:(BOOL)arg2;
-- (id)_newAudioPreviewView;
-- (void)layoutSubviews;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
++ (struct CGSize)_audioPreviewViewSize;
++ (BOOL)_audioPreviewViewShowsFaceWhenNotPlaying;
+- (float)_textLabelMinXWhenPlaying:(BOOL)arg1;
+- (float)_audioPreviewViewMinX;
 
 @end
 

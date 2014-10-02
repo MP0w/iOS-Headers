@@ -8,7 +8,7 @@
 
 #import "KNActionEffectBuildAnimator.h"
 
-@class KNAnimParameterGroup;
+@class KNAnimParameterGroup, NSString;
 
 __attribute__((visibility("hidden")))
 @interface KNActionPulse : KNAnimationEffect <KNActionEffectBuildAnimator>
@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 + (unsigned int)directionType;
 + (id)localizedMenuString:(int)arg1;
 + (id)supportedTypes;
++ (BOOL)isEmphasisBuildAnimation;
 + (id)animationFilter;
 + (int)animationCategory;
 + (id)animationName;
@@ -32,6 +33,12 @@ __attribute__((visibility("hidden")))
 - (void)p_addAnimationsToLayer:(id)arg1 maxScale:(float)arg2 scaleMin:(float)arg3 scaleMinThreshold:(float)arg4 scaleMaxThreshold:(float)arg5 scaleDownTiming:(id)arg6 scaleUpTiming:(id)arg7 pulseCount:(float)arg8 duration:(double)arg9 result:(id)arg10;
 - (void)dealloc;
 - (id)initWithAnimationContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

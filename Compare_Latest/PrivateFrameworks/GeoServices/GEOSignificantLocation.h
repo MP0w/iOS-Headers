@@ -29,6 +29,7 @@
 @property(nonatomic) unsigned int numberOfVisitsBucket; // @synthesize numberOfVisitsBucket=_numberOfVisitsBucket;
 @property(nonatomic) unsigned int locationIndex; // @synthesize locationIndex=_locationIndex;
 @property(retain, nonatomic) GEOLocation *location; // @synthesize location=_location;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

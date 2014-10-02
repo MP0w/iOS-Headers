@@ -8,6 +8,8 @@
 
 #import "AVSpeechSynthesizerDelegate.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface WebSpeechSynthesisWrapper : NSObject <AVSpeechSynthesizerDelegate>
 {
@@ -30,6 +32,12 @@ __attribute__((visibility("hidden")))
 - (void)speakUtterance:(PassRefPtr_be564a52)arg1;
 - (float)mapSpeechRateToPlatformRate:(float)arg1;
 - (id)initWithSpeechSynthesizer:(struct PlatformSpeechSynthesizer *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

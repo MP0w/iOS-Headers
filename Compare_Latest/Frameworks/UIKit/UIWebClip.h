@@ -45,12 +45,17 @@
 + (id)pathForWebClipStorageWithIdentifier:(id)arg1;
 + (id)pathForWebClipWithIdentifier:(id)arg1;
 + (id)webClipsDirectoryPath;
++ (id)_webClipLinkTagsFromWebDocumentView:(id)arg1;
 + (id)webClipIconsForWebDocumentView:(id)arg1;
++ (id)webClipIconsForWebClipLinkTags:(id)arg1 pageURL:(id)arg2;
 + (unsigned int)webClipOrientationsForWebDocumentView:(id)arg1;
++ (unsigned int)_webClipOrientationsForMetaTagContent:(id)arg1;
 + (BOOL)webClipClassicModeValueForWebDocumentView:(id)arg1;
 + (id)webClipTitleForWebDocumentView:(id)arg1;
 + (BOOL)webClipFullScreenValueForWebDocumentView:(id)arg1;
++ (BOOL)_webClipFullScreenValueForMetaTagContent:(id)arg1;
 + (int)webClipStatusBarStyleForWebDocumentView:(id)arg1;
++ (int)_webClipStatusBarStyleForMetaTagContent:(id)arg1;
 + (id)_contentForMetaName:(id)arg1 inWebDocumentView:(id)arg2;
 + (id)webClipIdentifierFromBundleIdentifier:(id)arg1;
 + (BOOL)bundleIdentifierContainsWebClipIdentifier:(id)arg1;
@@ -86,6 +91,7 @@
 - (void)connectionDidFinishLoading:(id)arg1;
 - (BOOL)tryLoadingNextCustomIcon;
 - (void)updateCustomMediaLocationsFromWebDocumentView:(id)arg1;
+- (void)updateCustomMediaLocationsWithWebClipLinkTags:(id)arg1 baseURL:(id)arg2;
 - (void)requestIconUpdateInSpringBoard;
 - (id)bundleIdentifier;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
@@ -97,7 +103,7 @@
 - (void)setIconImageFromScreenshot:(id)arg1;
 - (void)setIconImage:(id)arg1 isPrecomposed:(BOOL)arg2;
 - (void)_setIconImage:(id)arg1 isPrecomposed:(BOOL)arg2 isScreenShotBased:(BOOL)arg3;
-@property(readonly, nonatomic) UIImage *iconImage;
+@property(readonly, retain, nonatomic) UIImage *iconImage;
 - (id)generateIconImageForFormat:(int)arg1 scale:(float)arg2;
 @property(readonly) NSString *iconImagePath;
 - (id)_bundleImageWithName:(id)arg1;
@@ -110,6 +116,7 @@
 - (id)_info;
 - (void)_reloadProperties;
 - (void)_readPropertiesFromBundle:(struct __CFBundle *)arg1;
+- (void)configureWithMetaTags:(id)arg1 linkTags:(id)arg2;
 
 @end
 

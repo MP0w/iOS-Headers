@@ -63,12 +63,16 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSSet *layouts;
 @property(readonly, nonatomic) TSDDrawableInfo *firstInfo;
 - (id)infosOfClass:(Class)arg1;
-@property(readonly, nonatomic) TSDDrawableInfo *info;
+@property(readonly, retain, nonatomic) TSDDrawableInfo *info;
 - (void)dealloc;
 - (id)initWithInteractiveCanvasController:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(retain, nonatomic) TSKSelection *selection;
+@property(readonly) Class superclass;
 
 @end
 

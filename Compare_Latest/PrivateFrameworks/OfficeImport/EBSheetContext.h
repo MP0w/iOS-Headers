@@ -8,7 +8,7 @@
 
 #import "OCDDelayedNodeContext.h"
 
-@class EBReaderSheetState;
+@class EBReaderSheetState, NSString;
 
 __attribute__((visibility("hidden")))
 @interface EBSheetContext : NSObject <OCDDelayedNodeContext>
@@ -20,6 +20,12 @@ __attribute__((visibility("hidden")))
 - (_Bool)loadDelayedNode:(id)arg1;
 - (void)dealloc;
 - (id)initWithSheetIndex:(unsigned int)arg1 state:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

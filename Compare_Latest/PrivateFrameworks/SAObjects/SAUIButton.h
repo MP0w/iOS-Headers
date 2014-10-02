@@ -6,7 +6,7 @@
 
 #import <SAObjects/SAAceView.h>
 
-@class NSArray, NSString;
+@class NSArray, NSString, SAUIImageResource;
 
 @interface SAUIButton : SAAceView
 {
@@ -15,6 +15,8 @@
 + (id)buttonWithDictionary:(id)arg1 context:(id)arg2;
 + (id)button;
 @property(copy, nonatomic) NSString *text;
+@property(copy, nonatomic) NSString *secondaryText;
+@property(retain, nonatomic) SAUIImageResource *image;
 @property(copy, nonatomic) NSArray *commands;
 - (id)encodedClassName;
 - (id)groupIdentifier;

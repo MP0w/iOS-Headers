@@ -30,7 +30,10 @@ __attribute__((visibility("hidden")))
 }
 
 - (id)description;
-- (id)descriptionWithIndenting:(id)arg1;
+- (id)sensitiveDescription;
+- (id)descriptionWithIndenting:(id)arg1 excludingExcessNodes:(BOOL)arg2;
+- (id)_childrenExcludingExcessNodes:(BOOL)arg1;
+- (BOOL)_mayContainCriticalDebuggingInformation;
 - (void)assertDescendantsLive;
 - (void)assertLive;
 - (void)assertDead;
@@ -75,6 +78,7 @@ __attribute__((visibility("hidden")))
 - (id)pathFromAncestor:(id)arg1;
 - (id)descendantForFileURL:(id)arg1;
 - (id)childForRange:(struct _NSRange)arg1 ofPath:(id)arg2;
+- (id)descendantAtPath:(id)arg1 componentRange:(struct _NSRange)arg2 forAddingLeafNode:(id)arg3 create:(BOOL)arg4;
 - (id)descendantAtPath:(id)arg1 componentRange:(struct _NSRange)arg2 create:(BOOL)arg3;
 - (id)normalizationOfChildName:(id)arg1;
 - (void)removeSelfIfUseless;

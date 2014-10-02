@@ -8,7 +8,7 @@
 
 #import "GEOResourceManifestServerProxy.h"
 
-@class NSHashTable, NSLock, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>;
+@class GEOResourceManifestConfiguration, NSHashTable, NSLock, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface GEOResourceManifestServerRemoteProxy : NSObject <GEOResourceManifestServerProxy>
@@ -18,12 +18,13 @@ __attribute__((visibility("hidden")))
     NSLock *_connLock;
     NSHashTable *_cancellingConnections;
     NSLock *_cancellingConnectionsLock;
-    BOOL _started;
-    BOOL _hiDPI;
     unsigned int _retryCount;
     BOOL _isUpdatingManifest;
     BOOL _isLoadingResources;
     NSObject<OS_dispatch_queue> *_serverQueue;
+    GEOResourceManifestConfiguration *_configuration;
+    NSLock *_authTokenLock;
+    NSString *_authToken;
 }
 
 @property(nonatomic) id <GEOResourceManifestServerProxyDelegate> delegate; // @synthesize delegate=_delegate;
@@ -31,16 +32,23 @@ __attribute__((visibility("hidden")))
 - (void)setManifestToken:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)getResourceManifestWithHandler:(CDUnknownBlockType)arg1;
 - (void)forceUpdate:(CDUnknownBlockType)arg1;
+- (void)updateIfNecessary:(CDUnknownBlockType)arg1;
 - (oneway void)resetActiveTileGroup;
 - (oneway void)setActiveTileGroupIdentifier:(id)arg1;
-- (oneway void)startServer:(id)arg1;
 - (void)closeConnection;
 - (void)openConnection;
 - (void)_setupConnection;
+- (id)configuration;
 - (id)authToken;
 - (void)dealloc;
-- (id)initWithDelegate:(id)arg1;
+- (id)initWithDelegate:(id)arg1 configuration:(id)arg2;
 - (id)serverQueue;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

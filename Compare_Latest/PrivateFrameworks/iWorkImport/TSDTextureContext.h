@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     id <TSDAnimationSession> _session;
     unsigned int _isMagicMove:1;
     unsigned int _shouldAddFinal:1;
+    unsigned int _shouldAddMasks:1;
     unsigned int _shouldAddReversedFinal:1;
     unsigned int _shouldAddMagicMoveObjectOnly:1;
     unsigned int _shouldNotAddContainedReps:1;
@@ -24,6 +25,7 @@ __attribute__((visibility("hidden")))
     unsigned int _shouldSeparateShadow:1;
     unsigned int _shouldSeparateStroke:1;
     unsigned int _shouldSeparateText:1;
+    unsigned int _shouldIgnoreScaleInSourceImage:1;
     unsigned int _shouldDistortToFit:1;
     unsigned int _shouldForceTextureGeneration:1;
     BOOL _shouldAddNoShapeAttributes;
@@ -32,6 +34,7 @@ __attribute__((visibility("hidden")))
 + (id)contextWithTextureContext:(id)arg1;
 + (id)contextWithSession:(id)arg1;
 + (id)context;
+@property(nonatomic) BOOL shouldIgnoreScaleInSourceImage; // @synthesize shouldIgnoreScaleInSourceImage=_shouldIgnoreScaleInSourceImage;
 @property(nonatomic) BOOL shouldForceTextureGeneration; // @synthesize shouldForceTextureGeneration=_shouldForceTextureGeneration;
 @property(nonatomic) BOOL shouldSeparateText; // @synthesize shouldSeparateText=_shouldSeparateText;
 @property(nonatomic) BOOL shouldSeparateStroke; // @synthesize shouldSeparateStroke=_shouldSeparateStroke;
@@ -43,6 +46,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) BOOL shouldNotAddContainedReps; // @synthesize shouldNotAddContainedReps=_shouldNotAddContainedReps;
 @property(nonatomic) BOOL shouldDistortToFit; // @synthesize shouldDistortToFit=_shouldDistortToFit;
 @property(nonatomic) BOOL shouldAddReversedFinal; // @synthesize shouldAddReversedFinal=_shouldAddReversedFinal;
+@property(nonatomic) BOOL shouldAddMasks; // @synthesize shouldAddMasks=_shouldAddMasks;
 @property(nonatomic) BOOL shouldAddMagicMoveObjectOnly; // @synthesize shouldAddMagicMoveObjectOnly=_shouldAddMagicMoveObjectOnly;
 @property(nonatomic) BOOL shouldAddFinal; // @synthesize shouldAddFinal=_shouldAddFinal;
 @property(nonatomic) BOOL isMagicMove; // @synthesize isMagicMove=_isMagicMove;

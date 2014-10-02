@@ -8,6 +8,7 @@
 
 @class _CUIPSDSublayerInfo;
 
+__attribute__((visibility("hidden")))
 @interface CUIPSDLayerGroupRef : CUIPSDLayerBaseRef
 {
     _CUIPSDSublayerInfo *_sublayerInfo;

@@ -21,7 +21,9 @@
 + (id)_validValuesForScalingMode;
 - (BOOL)validateUsingOutputSettingsValidator:(id)arg1 reason:(id *)arg2;
 @property(readonly, nonatomic) BOOL dimensionsAreBoundingBox;
+@property(readonly, nonatomic) NSDictionary *videoCompositionProcessorProperties;
 @property(readonly, nonatomic) NSDictionary *pixelTransferProperties;
+@property(readonly, nonatomic) NSDictionary *videoScalingProperties;
 @property(readonly, nonatomic) NSDictionary *cleanApertureDictionary;
 @property(readonly, nonatomic) NSDictionary *pixelAspectRatioDictionary;
 @property(readonly, nonatomic) int height;

@@ -8,7 +8,7 @@
 
 #import "SKUIArtworkRequestDelegate.h"
 
-@class SKUIClientContext, SKUICountdownComponent, SKUIResourceLoader;
+@class NSString, SKUIClientContext, SKUICountdownComponent, SKUIResourceLoader;
 
 @interface SKUICountdownViewController : UIViewController <SKUIArtworkRequestDelegate>
 {
@@ -26,6 +26,12 @@
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (id)initWithCountdownComponent:(id)arg1 artworkLoader:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

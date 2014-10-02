@@ -9,7 +9,7 @@
 #import "NSNetServiceBrowserDelegate.h"
 #import "NSNetServiceDelegate.h"
 
-@class NSArray, NSMapTable, NSNetServiceBrowser, NSObject<OS_dispatch_queue>;
+@class NSArray, NSMapTable, NSNetServiceBrowser, NSObject<OS_dispatch_queue>, NSString;
 
 @interface TRDBrowser : NSObject <NSNetServiceBrowserDelegate, NSNetServiceDelegate>
 {
@@ -33,7 +33,7 @@
 - (void)_callResolvingCompletionHandlersForNetService:(id)arg1 withError:(id)arg2;
 - (void)stopBrowsing;
 - (void)startBrowsing;
-@property(readonly, nonatomic) NSArray *services;
+@property(readonly, copy, nonatomic) NSArray *services;
 @property(readonly, nonatomic, getter=isBrowsing) BOOL browsing;
 - (void)netServiceDidResolveAddress:(id)arg1;
 - (void)netService:(id)arg1 didNotResolve:(id)arg2;
@@ -42,6 +42,12 @@
 - (void)dealloc;
 - (id)_init;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -13,14 +13,17 @@
     UILabel *_dividerLabel;
     UIView *_leftLine;
     UIView *_rightLine;
+    float _topEdgeInset;
 }
 
+@property(nonatomic) float topEdgeInset; // @synthesize topEdgeInset=_topEdgeInset;
 - (void).cxx_destruct;
 - (void)setBackgroundColor:(id)arg1;
 - (void)layoutSubviews;
 - (void)applyLayoutAttributes:(id)arg1;
 @property(copy, nonatomic) NSString *dividerTitle;
 - (void)setColoringWithColorScheme:(id)arg1;
+- (void)reloadWithViewElement:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

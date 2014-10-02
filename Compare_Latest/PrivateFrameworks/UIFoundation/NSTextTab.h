@@ -29,8 +29,6 @@
 - (BOOL)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)accessibilityRulerMarkerTypeDescription;
-- (id)accessibilityRulerMarkerType;
 - (unsigned int)tabStopType;
 @property(readonly) float location;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -8,7 +8,7 @@
 
 #import "GQDNameMappable.h"
 
-@class GQDAffineGeometry, GQDFilteredImage, GQDImageBinary, GQDPath;
+@class GQDAffineGeometry, GQDFilteredImage, GQDImageBinary, GQDPath, NSString;
 
 __attribute__((visibility("hidden")))
 @interface GQDMedia : GQDGraphic <GQDNameMappable>
@@ -26,6 +26,12 @@ __attribute__((visibility("hidden")))
 - (id)cropGeometry;
 - (id)imageBinary;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 + (float)landscapeHeight;
 + (float)portraitHeight;
 + (id)activeInstance;
+- (struct CGSize)dragGestureSize;
 - (BOOL)usesAutoShift;
 - (id)currentKeyplane;
 - (struct CGSize)splitLeftSize;

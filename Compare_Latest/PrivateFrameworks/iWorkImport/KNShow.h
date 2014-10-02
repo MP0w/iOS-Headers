@@ -25,12 +25,15 @@ __attribute__((visibility("hidden")))
     BOOL mIdleTimerActive;
     BOOL mAutomaticallyPlaysUponOpen;
     BOOL mNeedsToUpdateThumbnails;
+    BOOL mWasImportedAsPreUFF;
     KNSoundtrack *mSoundtrack;
 }
 
 + (id)showWithSize:(struct CGSize)arg1 context:(id)arg2;
 @property(readonly, nonatomic) TSSStylesheet *stylesheet; // @synthesize stylesheet=mStylesheet;
+@property(nonatomic) struct CGSize size; // @synthesize size=mSize;
 @property(retain, nonatomic) KNTheme *theme; // @synthesize theme=mTheme;
+@property(readonly, nonatomic) BOOL wasImportedAsPreUFF; // @synthesize wasImportedAsPreUFF=mWasImportedAsPreUFF;
 @property(readonly, nonatomic) BOOL needsToUpdateThumbnails; // @synthesize needsToUpdateThumbnails=mNeedsToUpdateThumbnails;
 @property(retain, nonatomic) KNUIState *uiState; // @synthesize uiState=mUIState;
 - (id)slideNodeAtIndex:(unsigned int)arg1;
@@ -49,7 +52,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double idleTimerDelay;
 @property(nonatomic) double autoplayBuildDelay;
 @property(nonatomic) double autoplayTransitionDelay;
-@property(nonatomic) struct CGSize size;
 @property(retain, nonatomic) KNSlideTree *slideTree;
 - (void)saveToArchiver:(id)arg1;
 - (id)initFromUnarchiver:(id)arg1;

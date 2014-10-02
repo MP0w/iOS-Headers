@@ -14,7 +14,7 @@
 
 @property(readonly, nonatomic, getter=isSkipable) BOOL skipable;
 @property(readonly, nonatomic) long long purchaseID;
-@property(readonly, nonatomic) NSURL *assetURL;
+@property(readonly, copy, nonatomic) NSURL *assetURL;
 
 @end
 

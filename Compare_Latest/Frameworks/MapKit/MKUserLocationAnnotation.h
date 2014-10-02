@@ -22,8 +22,12 @@ __attribute__((visibility("hidden")))
 - (void)setCoordinate:(CDStruct_c3b9c2ee)arg1;
 
 // Remaining properties
-@property(readonly, nonatomic) NSString *subtitle;
-@property(readonly, nonatomic) NSString *title;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly, copy, nonatomic) NSString *subtitle;
+@property(readonly) Class superclass;
+@property(readonly, copy, nonatomic) NSString *title;
 
 @end
 

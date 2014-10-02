@@ -9,7 +9,7 @@
 @protocol SBNotificationCenterWidgetHost <NSObject>
 
 @optional
-@property(nonatomic) id <SBWidgetViewControllerHostDelegate> widgetDelegate;
+@property(nonatomic) id <SBWidgetViewControllerDelegate> widgetDelegate;
 - (void)hostDidDismiss;
 - (void)hostWillDismiss;
 - (void)hostDidPresent;

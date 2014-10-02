@@ -20,6 +20,8 @@ __attribute__((visibility("hidden")))
 + (id)newObjectForUnarchiver:(id)arg1;
 @property(readonly, nonatomic) unsigned int nextID; // @synthesize nextID=mNextID;
 @property(readonly, nonatomic) TSTIntegerKeyDict *data;
+- (void)enumerateCustomFormatsUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateCustomFormatObjectsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)allRichTextPayloadStorages;
 - (void)saveToArchiver:(id)arg1;
 - (id)initFromUnarchiver:(id)arg1;
@@ -29,6 +31,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithType:(int)arg1 context:(id)arg2;
 - (void)p_setupWithType:(int)arg1 nextKeyID:(unsigned int)arg2;
 - (BOOL)supportsIDMapForType:(int)arg1;
+- (void)p_customFormatList_setNextID:(unsigned int)arg1;
 
 @end
 

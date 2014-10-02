@@ -9,11 +9,11 @@
 #import "ABUnknownPersonViewControllerDelegate.h"
 #import "DDRemoteActionViewControllerConfiguration.h"
 
-@class ABUnknownPersonViewController, DDAction, XPCProxy<DDRemoteActionPresenter>;
+@class ABUnknownPersonViewController, DDAction, NSString;
 
 @interface DDAddToContactsViewController : UINavigationController <ABUnknownPersonViewControllerDelegate, DDRemoteActionViewControllerConfiguration>
 {
-    XPCProxy<DDRemoteActionPresenter> *_proxy;
+    id <DDRemoteActionPresenter> _proxy;
     DDAction *_action;
     ABUnknownPersonViewController *_personViewController;
 }
@@ -28,6 +28,12 @@
 - (void)_augmentRecord:(void *)arg1 withResultsFromAction:(id)arg2;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

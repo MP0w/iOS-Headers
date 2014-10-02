@@ -7,31 +7,48 @@
 #import "UIViewController.h"
 
 #import "MPUCoverZoomViewControllerDelegate.h"
-#import "UINavigationControllerDelegate.h"
-#import "UITabBarControllerDelegate.h"
 
-@class MPUCoverZoomViewController, MusicTabBarController;
+@class MPUCoverZoomViewController, MusicTabBarController, NSString;
 
-@interface MPHRootViewController : UIViewController <UINavigationControllerDelegate, UITabBarControllerDelegate, MPUCoverZoomViewControllerDelegate>
+@interface MPHRootViewController : UIViewController <MPUCoverZoomViewControllerDelegate>
 {
+    BOOL _canShowCoverZoom;
     MPUCoverZoomViewController *_coverZoomViewController;
+    BOOL _isCoverZoomVisible;
+    BOOL _mediaLibrarySupportsCoverZoom;
+    int _statusBarOrientation;
     MusicTabBarController *_tabBarController;
 }
 
 - (void).cxx_destruct;
-- (void)_updateCoverFlow;
+- (BOOL)_updateCanShowCoverZoom;
+- (BOOL)_updateMediaLibrarySupportsCoverZoom;
+- (void)_updateCoverFlowWithTraitCollection:(id)arg1 animated:(BOOL)arg2;
+- (BOOL)_shouldShowCoverZoomWithTraitCollection:(id)arg1;
+- (void)_layoutCoverZoomView;
+- (id)_coverZoomViewController;
+- (BOOL)_canShowCoverZoom;
 - (void)_updateInProgressDidChangeNotification:(id)arg1;
 - (void)_mediaLibraryDidChangeNotification:(id)arg1;
-- (void)_deviceOrientationDidChangeNotification:(id)arg1;
-- (unsigned int)navigationControllerSupportedInterfaceOrientations:(id)arg1;
+- (void)_applicationWillChangeStatusBarOrientationNotification:(id)arg1;
+- (void)_updateCoverFlow;
 - (id)detailViewControllerForEntity:(id)arg1;
-- (id)imageRequestForEntity:(id)arg1;
+- (void)willTransitionToTraitCollection:(id)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidLoad;
+- (void)viewDidLayoutSubviews;
 - (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotate;
+- (BOOL)shouldAutomaticallyForwardAppearanceMethods;
 - (void)encodeRestorableStateWithCoder:(id)arg1;
+- (id)childViewControllerForStatusBarHidden;
+- (id)childViewControllerForStatusBarStyle;
 - (void)dealloc;
 - (id)initWithTabBarController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

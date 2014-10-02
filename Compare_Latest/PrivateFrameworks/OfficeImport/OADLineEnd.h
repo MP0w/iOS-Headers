@@ -19,7 +19,11 @@ __attribute__((visibility("hidden")))
     unsigned int mIsLengthOverridden:1;
 }
 
++ (id)stringForLineEndLength:(int)arg1;
++ (id)stringForLineEndWidth:(int)arg1;
++ (id)stringForLineEndType:(int)arg1;
 + (id)defaultProperties;
+- (id)description;
 - (BOOL)isLengthOverridden;
 - (void)setLength:(int)arg1;
 - (int)length;

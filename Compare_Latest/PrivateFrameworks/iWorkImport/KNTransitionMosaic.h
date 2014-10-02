@@ -7,13 +7,12 @@
 #import <iWorkImport/KNAnimationEffect.h>
 
 #import "KNAnimationPluginArchiving.h"
-#import "KNFrameAnimator.h"
 #import "KNTransitionAnimator.h"
 
-@class KNMotionBlurAnimationPluginWrapper, NSMutableArray;
+@class KNMotionBlurAnimationPluginWrapper, NSMutableArray, NSString;
 
 __attribute__((visibility("hidden")))
-@interface KNTransitionMosaic : KNAnimationEffect <KNTransitionAnimator, KNFrameAnimator, KNAnimationPluginArchiving>
+@interface KNTransitionMosaic : KNAnimationEffect <KNTransitionAnimator, KNAnimationPluginArchiving>
 {
     KNMotionBlurAnimationPluginWrapper *_motionBlurWrapper;
     NSMutableArray *_addedLayers;
@@ -37,6 +36,12 @@ __attribute__((visibility("hidden")))
 - (id)layersFromParticles:(id)arg1 mainLayer:(id)arg2;
 - (id)shuffleParticles:(id)arg1 direction:(unsigned int)arg2;
 - (id)generateParticles:(int)arg1 withBounds:(struct CGRect)arg2 direction:(unsigned int)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

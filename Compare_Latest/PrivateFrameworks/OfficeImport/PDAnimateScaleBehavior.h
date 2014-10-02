@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (id).cxx_construct;
+- (BOOL)isEqual:(id)arg1;
 - (void)setBy:(struct CGPoint)arg1;
 - (struct CGPoint)by;
 - (void)setFrom:(struct CGPoint)arg1;

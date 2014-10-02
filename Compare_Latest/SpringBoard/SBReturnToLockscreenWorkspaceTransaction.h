@@ -6,11 +6,11 @@
 
 #import "SBActivateAppUnderLockScreenWorkspaceTransaction.h"
 
-#import "SBUIAnimationControllerDelegate.h"
+#import "SBUIAnimationControllerObserver.h"
 
-@class SBApplication, SBUIAnimationController;
+@class NSString, SBApplication, SBUIAnimationController;
 
-@interface SBReturnToLockscreenWorkspaceTransaction : SBActivateAppUnderLockScreenWorkspaceTransaction <SBUIAnimationControllerDelegate>
+@interface SBReturnToLockscreenWorkspaceTransaction : SBActivateAppUnderLockScreenWorkspaceTransaction <SBUIAnimationControllerObserver>
 {
     SBApplication *_fromApp;
     _Bool _workspaceAlreadyResumed;
@@ -21,14 +21,17 @@
 
 - (void)animationControllerDidFinishAnimation:(id)arg1;
 - (void)animationController:(id)arg1 willBeginAnimation:(_Bool)arg2;
-- (_Bool)selfApplicationDidBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
 - (void)_alertDidActivate;
-- (void)_transactionComplete;
-- (void)_commit;
-- (id)debugDescription;
+- (void)_didComplete;
+- (void)_begin;
+@property(readonly, copy) NSString *debugDescription;
 - (void)dealloc;
-- (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 fromApplication:(id)arg3 toLockScreenController:(id)arg4 andApp:(id)arg5 activationHandler:(CDUnknownBlockType)arg6;
-- (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 fromApplication:(id)arg3 toLockScreenController:(id)arg4 andApp:(id)arg5;
+- (id)initWithAlertManager:(id)arg1 fromApplication:(id)arg2 toLockScreenController:(id)arg3 andApp:(id)arg4 withResult:(CDUnknownBlockType)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

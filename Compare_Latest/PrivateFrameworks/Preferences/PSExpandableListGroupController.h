@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray, PSListController, PSSpecifier;
+#import "PSSpecifierGroupController.h"
 
-@interface PSExpandableListGroupController : NSObject
+@class NSMutableArray, NSString, PSListController, PSSpecifier;
+
+@interface PSExpandableListGroupController : NSObject <PSSpecifierGroupController>
 {
     PSListController *_listController;
     PSSpecifier *_groupSpecifier;
@@ -19,7 +21,7 @@
     PSSpecifier *_spinnerSpecifier;
 }
 
-@property(readonly) NSArray *specifiers;
+- (id)specifiers;
 - (id)spinnerSpecifier;
 - (void)showAll;
 - (id)showAllSpecifier;
@@ -30,6 +32,12 @@
 - (void)dealloc;
 - (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2;
 - (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2 collapseAfterCount:(int)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

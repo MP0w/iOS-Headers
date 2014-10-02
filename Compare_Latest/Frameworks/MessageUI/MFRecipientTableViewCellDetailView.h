@@ -8,7 +8,7 @@
 
 #import "MFTinting.h"
 
-@class UIColor, UILabel;
+@class NSString, UIColor, UILabel;
 
 @interface MFRecipientTableViewCellDetailView : UIView <MFTinting>
 {
@@ -36,6 +36,12 @@
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

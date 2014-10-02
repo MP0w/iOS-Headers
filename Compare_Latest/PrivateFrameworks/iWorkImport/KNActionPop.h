@@ -8,6 +8,8 @@
 
 #import "KNActionEffectBuildAnimator.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface KNActionPop : KNAnimationEffect <KNActionEffectBuildAnimator>
 {
@@ -21,12 +23,19 @@ __attribute__((visibility("hidden")))
 + (void)fillLocalizedDirectionMenu:(id)arg1 forType:(int)arg2;
 + (unsigned int)directionType;
 + (id)localizedMenuString:(int)arg1;
++ (BOOL)isEmphasisBuildAnimation;
 + (id)supportedTypes;
 + (id)animationFilter;
 + (int)animationCategory;
 + (id)animationName;
 - (id)animationsForTextureSet:(id)arg1 finalTextureSet:(id)arg2 duration:(double)arg3 attributes:(id)arg4 previousAttributes:(id)arg5;
 - (void)p_addAnimationsToLayer:(id)arg1 maxScale:(float)arg2 duration:(double)arg3 result:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

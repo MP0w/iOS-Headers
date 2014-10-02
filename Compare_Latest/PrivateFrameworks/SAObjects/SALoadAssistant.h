@@ -20,6 +20,7 @@
 @property(copy, nonatomic) NSData *sessionValidationData;
 @property(copy, nonatomic) NSString *language;
 @property(copy, nonatomic) NSString *connectionType;
+@property(copy, nonatomic) NSString *connectionMode;
 @property(copy, nonatomic) NSString *assistantId;
 @property(copy, nonatomic) NSData *activationToken;
 - (id)encodedClassName;
@@ -27,7 +28,11 @@
 
 // Remaining properties
 @property(copy, nonatomic) NSString *aceId; // @dynamic aceId;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(copy, nonatomic) NSString *refId; // @dynamic refId;
+@property(readonly) Class superclass;
 
 @end
 

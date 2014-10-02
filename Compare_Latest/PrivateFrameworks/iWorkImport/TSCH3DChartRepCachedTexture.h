@@ -19,9 +19,12 @@ __attribute__((visibility("hidden")))
     struct CGRect mTextureBoundingRect;
     TSDTextureSet *mFinalTexture;
     TSDTextureSet *mVisibleTexture;
+    BOOL mIsSingleImage;
+    BOOL mIsTorndown;
 }
 
 + (id)cachedTexture;
+@property(nonatomic) BOOL isSingleImage; // @synthesize isSingleImage=mIsSingleImage;
 @property(retain, nonatomic) TSDTexturedRectangle *legend; // @synthesize legend=mLegend;
 @property(nonatomic) struct CGRect textureBoundingRect; // @synthesize textureBoundingRect=mTextureBoundingRect;
 @property(nonatomic) struct CGRect textureSetBoundingRect; // @synthesize textureSetBoundingRect=mTextureSetBoundingRect;
@@ -32,7 +35,8 @@ __attribute__((visibility("hidden")))
 - (id)p_assembleTextureSetForFinalElements:(BOOL)arg1;
 - (void)p_addTexture:(id)arg1 toTextureSet:(id)arg2 forFinalElements:(BOOL)arg3;
 - (void)addTexture:(id)arg1;
-- (BOOL)hasCacheForEffectiveStage:(int)arg1 deliveryStyle:(unsigned int)arg2;
+- (BOOL)hasCacheForEffectiveStage:(int)arg1 deliveryStyle:(unsigned int)arg2 isSingleImage:(BOOL)arg3;
+- (void)teardown;
 - (void)dealloc;
 - (id)init;
 

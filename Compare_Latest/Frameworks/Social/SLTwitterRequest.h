@@ -21,22 +21,21 @@
     NSString *_applicationID;
 }
 
-+ (BOOL)shouldRetryAfterCount:(int)arg1 delay:(float *)arg2;
-+ (BOOL)responseIsTimestampOutOfBounds:(id)arg1 data:(id)arg2;
++ (float)retryDelayForRetryCount:(int)arg1;
++ (BOOL)responseIsTimestampOutOfBounds:(id)arg1 data:(id)arg2 JSONResponseObject:(id)arg3;
 @property(readonly, nonatomic) NSDictionary *parameters; // @synthesize parameters=_parameters;
 @property(readonly, nonatomic) int requestMethod; // @synthesize requestMethod=_requestMethod;
 @property(retain, nonatomic) ACAccount *account; // @synthesize account=_account;
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_url;
 - (void).cxx_destruct;
 - (void)performJSONRequestWithHandler:(CDUnknownBlockType)arg1;
-- (void)performJSONRequestWithHandler:(CDUnknownBlockType)arg1 retryCount:(int)arg2;
 - (void)setApplicationID:(id)arg1;
 - (id)timestampSkewStorageDelegate;
 - (void)setTimestampSkewStorageDelegate:(id)arg1;
 - (int)callingPID;
 - (void)setCallingPID:(int)arg1;
 - (void)performRequestWithHandler:(CDUnknownBlockType)arg1;
-- (void)performRequestWithHandler:(CDUnknownBlockType)arg1 retryCount:(int)arg2;
+- (void)_performRequestExtractingJSONResponse:(BOOL)arg1 retryCount:(int)arg2 maxRetries:(int)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)calculateTimestampSkewFromResponse:(id)arg1;
 - (id)multiPartBodyData;
 - (id)_urlEncodedString:(id)arg1;

@@ -8,7 +8,7 @@
 
 #import "UIAlertViewDelegate.h"
 
-@class UIAlertView, UIFont;
+@class NSString, UIAlertView, UIFont;
 
 @interface KeychainSyncAdvancedSecurityCodeController : PSKeychainSyncViewController <UIAlertViewDelegate>
 {
@@ -29,6 +29,12 @@
 - (id)specifiers;
 - (void)viewDidLoad;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -14,7 +14,7 @@
 
 - (id)replaceWholeText:(id)arg1;
 - (id)splitText:(unsigned int)arg1;
-@property(readonly) NSString *wholeText;
+@property(readonly, copy) NSString *wholeText;
 
 @end
 

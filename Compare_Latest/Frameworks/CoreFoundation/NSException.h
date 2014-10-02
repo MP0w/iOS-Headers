@@ -9,7 +9,7 @@
 #import "NSCoding.h"
 #import "NSCopying.h"
 
-@class NSDictionary, NSString;
+@class NSArray, NSDictionary, NSString;
 
 @interface NSException : NSObject <NSCopying, NSCoding>
 {
@@ -33,11 +33,11 @@
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)_installStackTraceKeyIfNeeded;
-- (id)callStackSymbols;
-- (id)callStackReturnAddresses;
-- (id)userInfo;
-- (id)reason;
-- (id)name;
+@property(readonly, copy) NSArray *callStackSymbols;
+@property(readonly, copy) NSArray *callStackReturnAddresses;
+@property(readonly, copy) NSDictionary *userInfo;
+@property(readonly, copy) NSString *reason;
+@property(readonly, copy) NSString *name;
 
 @end
 

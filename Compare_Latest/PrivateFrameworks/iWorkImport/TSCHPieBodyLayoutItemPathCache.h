@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
     struct CGRect rootedLayoutRect;
 }
 
-@property(readonly, nonatomic) NSArray *pathSelectionKnobs; // @synthesize pathSelectionKnobs;
+@property(readonly, copy, nonatomic) NSArray *pathSelectionKnobs; // @synthesize pathSelectionKnobs;
 @property(readonly, nonatomic) struct CGPath *pathTransformRelative; // @synthesize pathTransformRelative;
 @property(readonly, nonatomic) struct CGPath *pathLayoutRelative; // @synthesize pathLayoutRelative;
 @property(readonly, nonatomic) struct CGPoint wedgeCenterPoint; // @synthesize wedgeCenterPoint;

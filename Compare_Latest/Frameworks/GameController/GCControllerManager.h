@@ -8,30 +8,50 @@
 
 #import "GameControllerDaemonListener.h"
 
-@class NSMutableArray, NSObject<OS_dispatch_queue>;
+@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSTimer, NSXPCConnection;
 
 __attribute__((visibility("hidden")))
 @interface GCControllerManager : NSObject <GameControllerDaemonListener>
 {
+    NSXPCConnection *_connection;
+    id <GameControllerDaemon> _remote;
     struct __IOHIDManager *_hidManager;
-    NSMutableArray *_controllers;
+    NSMutableDictionary *_controllersByUDID;
     NSObject<OS_dispatch_queue> *_controllersQueue;
     struct IONotificationPort *_usbNotify;
     unsigned int _usbAddedIterator;
     unsigned int _usbRemovedIterator;
     CDUnknownBlockType _logger;
+    BOOL _idleTimerNeedsReset;
+    NSTimer *_idleWatchTimer;
+    CDUnknownBlockType _requestConnectedHostsCallback;
 }
 
+@property(nonatomic) BOOL idleTimerNeedsReset; // @synthesize idleTimerNeedsReset=_idleTimerNeedsReset;
+@property(retain, nonatomic) id <GameControllerDaemon> remote; // @synthesize remote=_remote;
 @property(copy, nonatomic) CDUnknownBlockType logger; // @synthesize logger=_logger;
-@property struct __IOHIDManager *hidManager; // @synthesize hidManager=_hidManager;
+@property(nonatomic) struct __IOHIDManager *hidManager; // @synthesize hidManager=_hidManager;
+@property(retain, nonatomic) NSXPCConnection *connection; // @synthesize connection=_connection;
 - (void).cxx_destruct;
 - (void)open;
 - (id)controllers;
 - (void)removeController:(id)arg1;
-- (void)controllerIndex:(int)arg1 setData:(id)arg2;
+- (void)controllerWithUDID:(unsigned int)arg1 setArrayValue:(CDStruct_212a8bf9)arg2 forElement:(int)arg3;
+- (void)controllerWithUDID:(unsigned int)arg1 setValue:(float)arg2 forElement:(int)arg3;
+- (void)controllerWithUDID:(unsigned int)arg1 setData:(id)arg2;
 - (void)addController:(id)arg1;
+- (void)replyConnectedHosts:(id)arg1;
+- (void)requestConnectedHostsWithHandler:(CDUnknownBlockType)arg1;
+- (void)startIdleWatchTimer;
+- (void)updateIdleTimer:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

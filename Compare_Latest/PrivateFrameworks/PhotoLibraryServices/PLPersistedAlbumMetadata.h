@@ -6,35 +6,50 @@
 
 #import "NSObject.h"
 
-@class NSMutableOrderedSet, NSNumber, NSString, NSURL, PLManagedAlbum;
+@class NSMutableOrderedSet, NSNumber, NSString, NSURL, PLGenericAlbum;
 
 @interface PLPersistedAlbumMetadata : NSObject
 {
+    BOOL _pinned;
+    BOOL _inTrash;
+    BOOL _customSortAscending;
     BOOL _allowsOverwite;
+    BOOL _isFolder;
     NSString *_title;
     NSString *_uuid;
+    NSString *_cloudGUID;
     NSNumber *_kind;
+    int _customSortKey;
+    NSString *_customKeyAssetUUID;
     NSMutableOrderedSet *_assetUUIDs;
-    PLManagedAlbum *_managedAlbum;
+    PLGenericAlbum *_genericAlbum;
     NSURL *_metadataURL;
 }
 
 + (BOOL)isValidPath:(id)arg1;
+@property(readonly, nonatomic) BOOL isFolder; // @synthesize isFolder=_isFolder;
 @property(retain, nonatomic) NSURL *metadataURL; // @synthesize metadataURL=_metadataURL;
-@property(retain, nonatomic) PLManagedAlbum *managedAlbum; // @synthesize managedAlbum=_managedAlbum;
+@property(retain, nonatomic) PLGenericAlbum *genericAlbum; // @synthesize genericAlbum=_genericAlbum;
 @property(nonatomic) BOOL allowsOverwite; // @synthesize allowsOverwite=_allowsOverwite;
 @property(retain, nonatomic) NSMutableOrderedSet *assetUUIDs; // @synthesize assetUUIDs=_assetUUIDs;
+@property(retain, nonatomic) NSString *customKeyAssetUUID; // @synthesize customKeyAssetUUID=_customKeyAssetUUID;
+@property(nonatomic) int customSortKey; // @synthesize customSortKey=_customSortKey;
+@property(nonatomic) BOOL customSortAscending; // @synthesize customSortAscending=_customSortAscending;
+@property(nonatomic, getter=isInTrash) BOOL inTrash; // @synthesize inTrash=_inTrash;
+@property(nonatomic, getter=isPinned) BOOL pinned; // @synthesize pinned=_pinned;
 @property(retain, nonatomic) NSNumber *kind; // @synthesize kind=_kind;
+@property(retain, nonatomic) NSString *cloudGUID; // @synthesize cloudGUID=_cloudGUID;
 @property(retain, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 - (void)_saveMetadata;
 - (void)_readMetadata;
 - (id)description;
-- (BOOL)containsAsset:(id)arg1;
-- (id)albumFromDataInManagedObjectContext:(id)arg1;
+- (void)updateChildrenOrderingInAlbum:(id)arg1 includePendingAssetChanges:(BOOL)arg2;
+- (id)insertAlbumFromDataInManagedObjectContext:(id)arg1;
 - (void)removePersistedAlbumData;
 - (void)persistAlbumData;
-- (id)initWithTitle:(id)arg1 uuid:(id)arg2 kind:(id)arg3 assetUUIDs:(id)arg4;
+- (id)extensionForKind:(id)arg1;
+- (id)initWithTitle:(id)arg1 uuid:(id)arg2 cloudGUID:(id)arg3 kind:(id)arg4 assetUUIDs:(id)arg5;
 - (id)initWithPersistedDataAtPath:(id)arg1;
 - (id)initWithPLGenericAlbum:(id)arg1;
 - (void)dealloc;

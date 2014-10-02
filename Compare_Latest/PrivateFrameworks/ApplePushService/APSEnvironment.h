@@ -13,6 +13,7 @@
 @interface APSEnvironment : NSObject <NSCopying>
 {
     NSString *_name;
+    NSURL *_configurationURL;
     NSString *_domain;
     NSString *_hostname;
     unsigned int _port;
@@ -22,7 +23,7 @@
     BOOL _serialProtocolSupported;
     BOOL _debugHostname;
     unsigned int _messageSize;
-    NSURL *_configurationURL;
+    unsigned int _largeMessageSize;
 }
 
 + (void)_saveCachedProperties;
@@ -31,6 +32,7 @@
 + (void)initialize;
 @property(retain, nonatomic) NSURL *configurationURL; // @synthesize configurationURL=_configurationURL;
 @property(nonatomic) BOOL debugHostname; // @synthesize debugHostname=_debugHostname;
+@property(nonatomic) unsigned int largeMessageSize; // @synthesize largeMessageSize=_largeMessageSize;
 @property(nonatomic) unsigned int messageSize; // @synthesize messageSize=_messageSize;
 @property(nonatomic, getter=isLoadBalanced) BOOL loadBalanced; // @synthesize loadBalanced=_loadBalanced;
 @property(nonatomic, getter=isCertificateValidated) BOOL certificateValidated; // @synthesize certificateValidated=_certificateValidated;
@@ -39,6 +41,7 @@
 @property(retain, nonatomic) NSString *hostname; // @synthesize hostname=_hostname;
 @property(retain, nonatomic) NSString *domain; // @synthesize domain=_domain;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
+- (id)description;
 @property(readonly, nonatomic) unsigned int priority;
 - (unsigned int)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;

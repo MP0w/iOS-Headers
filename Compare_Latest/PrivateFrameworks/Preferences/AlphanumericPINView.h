@@ -8,7 +8,7 @@
 
 #import "UITableViewDataSource.h"
 
-@class AlphanumericPINTableViewCell, UITableView, UITextField;
+@class AlphanumericPINTableViewCell, NSString, UITableView, UITextField;
 
 @interface AlphanumericPINView : PINView <UITableViewDataSource>
 {
@@ -30,12 +30,20 @@
 - (id)stringValue;
 - (void)dealloc;
 - (void)showError:(id)arg1 animate:(BOOL)arg2;
+- (void)setTextFieldKeyboardAppearance:(int)arg1;
+- (void)setTextFieldKeyboardType:(int)arg1;
 - (BOOL)keyboardInputChanged:(id)arg1;
 - (void)setBlocked:(BOOL)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

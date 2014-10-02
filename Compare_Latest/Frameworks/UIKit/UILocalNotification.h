@@ -9,7 +9,7 @@
 #import "NSCoding.h"
 #import "NSCopying.h"
 
-@class NSCalendar, NSDate, NSDictionary, NSString, NSTimeZone;
+@class CLRegion, NSCalendar, NSDate, NSDictionary, NSString, NSTimeZone;
 
 @interface UILocalNotification : NSObject <NSCopying, NSCoding>
 {
@@ -17,6 +17,9 @@
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)alloc;
+- (BOOL)isTriggeredByRegion;
+- (BOOL)isTriggeredByDate;
+- (void)validate;
 - (void)clearNonSystemProperties;
 - (int)compareFireDates:(id)arg1;
 - (BOOL)isValid;
@@ -33,6 +36,7 @@
 @property(copy, nonatomic) NSString *alertLaunchImage; // @dynamic alertLaunchImage;
 @property(nonatomic) BOOL allowSnooze; // @dynamic allowSnooze;
 @property(nonatomic) int applicationIconBadgeNumber; // @dynamic applicationIconBadgeNumber;
+@property(copy, nonatomic) NSString *category; // @dynamic category;
 @property(copy, nonatomic) NSString *customLockSliderLabel; // @dynamic customLockSliderLabel;
 @property(copy, nonatomic) NSDate *fireDate; // @dynamic fireDate;
 @property(nonatomic) BOOL fireNotificationsWhenAppRunning; // @dynamic fireNotificationsWhenAppRunning;
@@ -40,7 +44,9 @@
 @property(nonatomic) BOOL hasAction; // @dynamic hasAction;
 @property(nonatomic) BOOL hideAlertTitle; // @dynamic hideAlertTitle;
 @property(nonatomic) BOOL interruptAudioAndLockDevice; // @dynamic interruptAudioAndLockDevice;
-@property(nonatomic) BOOL isSystemAlert; // @dynamic isSystemAlert;
+@property(nonatomic) BOOL isTransient; // @dynamic isTransient;
+@property(copy, nonatomic) CLRegion *region; // @dynamic region;
+@property(nonatomic) BOOL regionTriggersOnce; // @dynamic regionTriggersOnce;
 @property(nonatomic) int remainingRepeatCount; // @dynamic remainingRepeatCount;
 @property(copy, nonatomic) NSCalendar *repeatCalendar; // @dynamic repeatCalendar;
 @property(nonatomic) unsigned int repeatInterval; // @dynamic repeatInterval;

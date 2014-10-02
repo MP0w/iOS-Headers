@@ -16,6 +16,8 @@ __attribute__((visibility("hidden")))
 - (BOOL)needsDownload;
 - (unsigned long long)encodedLength;
 - (void)performReadWithAccessor:(CDUnknownBlockType)arg1;
+- (id)fileURL;
+- (BOOL)isReadable;
 - (void)dealloc;
 - (id)initWithManager:(id)arg1 documentResourceInfo:(id)arg2 isValidated:(BOOL)arg3;
 - (id)initWithManager:(id)arg1 documentResourceInfo:(id)arg2;

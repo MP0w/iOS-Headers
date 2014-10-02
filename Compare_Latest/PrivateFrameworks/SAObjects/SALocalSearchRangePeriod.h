@@ -8,6 +8,8 @@
 
 #import "SALocalSearchPeriod.h"
 
+@class NSString;
+
 @interface SALocalSearchRangePeriod : AceObject <SALocalSearchPeriod>
 {
 }
@@ -18,6 +20,12 @@
 @property(nonatomic) int endSecondsSinceMidnight;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

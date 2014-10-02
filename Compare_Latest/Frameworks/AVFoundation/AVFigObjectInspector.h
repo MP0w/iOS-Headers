@@ -20,6 +20,7 @@
 - (id)_tollFreeBridgedObjectForProperty:(struct __CFString *)arg1;
 - (struct CGAffineTransform)_affineTransformForProperty:(struct __CFString *)arg1;
 - (struct CGSize)_sizeForProperty:(struct __CFString *)arg1;
+- (struct CGSize)_sizeForProperty:(struct __CFString *)arg1 defaultValue:(struct CGSize)arg2;
 - (unsigned char)_booleanForProperty:(struct __CFString *)arg1;
 - (long long)_longLongForProperty:(struct __CFString *)arg1;
 - (long)_SInt32ForProperty:(struct __CFString *)arg1;

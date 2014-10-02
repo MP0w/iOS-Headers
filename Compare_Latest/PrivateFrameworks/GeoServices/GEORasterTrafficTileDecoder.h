@@ -8,12 +8,20 @@
 
 #import "GEOTileDecoder.h"
 
+@class NSString;
+
 @interface GEORasterTrafficTileDecoder : NSObject <GEOTileDecoder>
 {
 }
 
 - (id)decodeTile:(id)arg1 forKey:(const struct _GEOTileKey *)arg2;
 - (BOOL)canDecodeTile:(const struct _GEOTileKey *)arg1 quickly:(char *)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -13,7 +13,7 @@
     NSSet *_bookmarkHomes;
 }
 
-@property(readonly) NSSet *bookmarkHomes; // @synthesize bookmarkHomes=_bookmarkHomes;
+@property(readonly, nonatomic) NSSet *bookmarkHomes; // @synthesize bookmarkHomes=_bookmarkHomes;
 - (void)_setPropertiesFromParsedResponses:(id)arg1;
 - (id)homeSet;
 - (id)_copyAccountPropertiesPropFindElements;

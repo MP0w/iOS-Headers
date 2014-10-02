@@ -8,10 +8,10 @@
 
 @protocol QLRemotePreviewContentControllerProtocol <QLPreviewContentControllerProtocol>
 - (void)_setNavigationBarVerticalOffset:(float)arg1;
-- (void)_getPDFPageAtIndex:(int)arg1 size:(struct CGSize)arg2 handler:(void (^)(NSDictionary *))arg3;
-- (void)_prepareForDrawingPages:(struct _NSRange)arg1;
+- (void)_getPDFPageAtIndex:(int)arg1 handler:(void (^)(NSData *, BOOL))arg2;
+- (void)_prepareForDrawingPages:(struct _NSRange)arg1 withSize:(struct CGSize)arg2;
 - (void)_getNumberOfPagesForSize:(struct CGSize)arg1 withHandler:(void (^)(int))arg2;
-- (void)_willAnimateRotationTo:(int)arg1;
+- (void)_willTransitionToSize:(struct CGSize)arg1;
 - (void)_setNumberOfPreviewItems:(int)arg1;
 - (void)_setTransitioning:(BOOL)arg1;
 @end

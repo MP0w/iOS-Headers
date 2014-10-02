@@ -16,6 +16,7 @@
 + (void)_removeSnoozedAlarmsFromReminder:(id)arg1 usingDueDate:(id)arg2;
 + (id)reminderWithEventStore:(id)arg1;
 @property(nonatomic) BOOL hadRecurrences; // @synthesize hadRecurrences;
+- (id)startDateForRecurrence;
 @property(readonly, nonatomic) EKAlarm *bestDisplayAlarm;
 - (BOOL)commit:(id *)arg1;
 - (BOOL)validate:(id *)arg1;

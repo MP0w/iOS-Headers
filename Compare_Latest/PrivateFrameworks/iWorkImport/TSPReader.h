@@ -9,7 +9,7 @@
 #import "TSPObjectDelegate.h"
 #import "TSPUnarchiverDelegate.h"
 
-@class NSError, NSHashTable, NSMapTable, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, TSPComponent, TSPFinalizeHandlerQueue, TSPObjectContext;
+@class NSDictionary, NSError, NSHashTable, NSMapTable, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSString, TSPComponent, TSPFinalizeHandlerQueue, TSPObjectContext;
 
 __attribute__((visibility("hidden")))
 @interface TSPReader : NSObject <TSPObjectDelegate, TSPUnarchiverDelegate>
@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     BOOL _hasReadFailure;
     id <TSPReaderDelegate> _delegate;
     TSPComponent *_component;
+    NSDictionary *_objectIdentifierToUUIDDictionary;
     TSPFinalizeHandlerQueue *_finalizeHandlerQueue;
     NSObject<OS_dispatch_group> *_completionGroup;
     NSObject<OS_dispatch_queue> *_errorQueue;
@@ -24,20 +25,25 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_unarchiveQueue;
     NSObject<OS_dispatch_queue> *_objectsQueue;
     struct hash_map<long long, TSP::ObjectInfo, TSP::ObjectIdentifierHash, std::__1::equal_to<long long>, std::__1::allocator<std::__1::pair<const long long, TSP::ObjectInfo>>> _objectInfoMap;
-    struct queue<TSP::UnarchiverRepeatedReference, std::__1::deque<TSP::UnarchiverRepeatedReference, std::__1::allocator<TSP::UnarchiverRepeatedReference>>> _repeatedReferences;
+    vector_8ef431c5 _repeatedReferences;
     NSMapTable *_objects;
     NSObject<OS_dispatch_queue> *_objectsToModifyQueue;
     NSHashTable *_objectsToModify;
     struct {
-        unsigned int isFromPasteboard:1;
         unsigned int didFinishResolvingReferences:1;
         unsigned int needsUpgrade:1;
+        unsigned int isFromPasteboard:1;
+        unsigned int isCrossDocumentPaste:1;
+        unsigned int isCrossAppPaste:1;
+        unsigned int delegateRespondsToDidResetObjectIdentifierForObject:1;
+        unsigned int delegateRespondsToDidResetObjectUUID:1;
+        unsigned int delegateRespondsToDidUnarchiveObject:1;
     } _flags;
 }
 
 @property(readonly, nonatomic) NSObject<OS_dispatch_group> *completionGroup; // @synthesize completionGroup=_completionGroup;
 @property(readonly, nonatomic) TSPComponent *component; // @synthesize component=_component;
-@property(readonly, nonatomic) id <TSPReaderDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) __weak id <TSPReaderDelegate> delegate; // @synthesize delegate=_delegate;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (struct ObjectInfo *)objectInfoForIdentifier:(long long)arg1;
@@ -45,16 +51,19 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL isCrossDocumentPaste;
 @property(readonly, nonatomic) BOOL isFromPasteboard;
 @property(readonly, nonatomic) BOOL didFinishResolvingReferences;
-@property(readonly, nonatomic) BOOL documentHasCurrentFileFormatVersion;
+@property(readonly, nonatomic) unsigned long long fileFormatVersion;
 - (id)dataForIdentifier:(long long)arg1;
+- (id)UUIDForObjectIdentifier:(long long)arg1;
 - (void)unarchiver:(id)arg1 didReadLazyReference:(id)arg2 isExternal:(char *)arg3;
+- (id)objectUUIDMap;
+- (id)newObjectUUIDForObject:(id)arg1;
 - (long long)newObjectIdentifier;
 - (void)willModifyObject:(id)arg1 duringReadOperation:(BOOL)arg2;
 - (long long)modifyObjectTokenForNewObject;
 @property(readonly, nonatomic) TSPObjectContext *context;
 - (void)processObjectsToModify;
 - (void)setObjectDelegatesToContextObjectDelegate;
-- (void)runReferenceCompletions;
+- (void)resolveReferences;
 - (BOOL)finishUnarchiving;
 - (void)didUnarchiveObject:(id)arg1 withUnarchiver:(id)arg2;
 - (BOOL)validateObjectIdentifierForObject:(id)arg1;
@@ -67,6 +76,12 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSError *error;
 - (id)initWithComponent:(id)arg1 finalizeHandlerQueue:(id)arg2 delegate:(id)arg3;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

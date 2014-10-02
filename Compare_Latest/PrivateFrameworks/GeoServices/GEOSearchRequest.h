@@ -8,13 +8,12 @@
 
 @interface GEOSearchRequest : GEOPlaceSearchRequest
 {
-    unsigned short _provider;
 }
 
-@property(nonatomic) unsigned short provider; // @synthesize provider=_provider;
 - (Class)responseClass;
-- (id)init;
-- (void)setDeviceGEOCoordinate:(CDStruct_c3b9c2ee)arg1;
+- (id)initWithFragment:(id)arg1 entriesType:(int)arg2 listType:(int)arg3 traits:(id)arg4;
+- (id)initWithSearchQuery:(id)arg1 hint:(id)arg2 maxResults:(unsigned int)arg3 suppressResultsRequiringAttribution:(BOOL)arg4 traits:(id)arg5;
+- (id)initWithBusinessIDs:(id)arg1 traits:(id)arg2;
 
 @end
 

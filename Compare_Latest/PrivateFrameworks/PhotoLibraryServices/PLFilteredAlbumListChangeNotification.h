@@ -8,7 +8,7 @@
 
 #import "PLIndexMapperDataSource.h"
 
-@class NSIndexSet, PLFilteredAlbumList, PLIndexMapper;
+@class NSIndexSet, NSString, PLFilteredAlbumList, PLIndexMapper;
 
 @interface PLFilteredAlbumListChangeNotification : PLAssetContainerListChangeNotification <PLIndexMapperDataSource>
 {
@@ -23,7 +23,7 @@
 - (id)_changedObjects;
 - (BOOL)_getOldSet:(id *)arg1 newSet:(id *)arg2;
 - (id)_diffDescription;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (BOOL)countDidChange;
 - (BOOL)shouldReload;
 - (id)albumList;
@@ -33,8 +33,13 @@
 - (id)init;
 - (BOOL)shouldIncludeObjectAtIndex:(unsigned int)arg1;
 @property(copy, nonatomic) NSIndexSet *filteredIndexes;
-@property(readonly, nonatomic) PLIndexMapper *indexMapper;
-@property(readonly, nonatomic) NSIndexSet *updatedFilteredIndexes;
+@property(readonly, retain, nonatomic) PLIndexMapper *indexMapper;
+@property(readonly, retain, nonatomic) NSIndexSet *updatedFilteredIndexes;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -4,19 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "PSStateRestoration.h"
 
-@class NSDictionary, PSRootController, PSSpecifier, UIViewController, UIViewController<PSController>;
+@class NSBundle, NSDictionary, NSMutableArray, NSString, PSRootController, PSSearchEntry, PSSpecifier, UIViewController, UIViewController<PSController>;
 
-@protocol PSController <NSObject>
+@protocol PSController <PSStateRestoration>
 - (void)statusBarWillAnimateByHeight:(float)arg1;
-- (BOOL)canBeShownFromSuspendedState;
 - (void)willBecomeActive;
 - (void)willResignActive;
 - (id)readPreferenceValue:(PSSpecifier *)arg1;
 - (void)setPreferenceValue:(id)arg1 specifier:(PSSpecifier *)arg2;
 - (void)handleURL:(NSDictionary *)arg1;
-- (void)pushController:(UIViewController *)arg1;
+- (void)showController:(UIViewController *)arg1 animate:(BOOL)arg2;
+- (void)showController:(UIViewController *)arg1;
 - (void)didWake;
 - (void)didUnlock;
 - (void)willUnlock;
@@ -28,5 +28,14 @@
 - (void)setRootController:(PSRootController *)arg1;
 - (UIViewController<PSController> *)parentController;
 - (void)setParentController:(UIViewController<PSController> *)arg1;
+
+@optional
++ (NSBundle *)searchBundle;
++ (void)formatSearchEntries:(NSMutableArray *)arg1 parent:(PSSearchEntry *)arg2;
++ (void)validateSpecifier:(PSSpecifier *)arg1;
+- (void)highlightSpecifierWithID:(NSString *)arg1;
+- (BOOL)prepareHandlingURLForSpecifierID:(NSString *)arg1 resourceDictionary:(NSDictionary *)arg2 animatePush:(char *)arg3;
+- (void)pushController:(UIViewController *)arg1 animate:(BOOL)arg2;
+- (void)pushController:(UIViewController *)arg1;
 @end
 

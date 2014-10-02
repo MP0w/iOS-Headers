@@ -39,6 +39,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *storeName; // @synthesize storeName=_storeName;
 @property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
 @property unsigned int activeStoreCount; // @synthesize activeStoreCount=_activeStoreCount;
+- (void)synchronouslyExecuteBlockOnPrivateQueue:(CDUnknownBlockType)arg1;
 - (void)afterDelay:(double)arg1 executeBlockOnGlobalConcurrentQueue:(CDUnknownBlockType)arg2;
 - (void)afterDelay:(double)arg1 executeBlockOnPrivateQueue:(CDUnknownBlockType)arg2;
 - (void)executeBlockOnPrivateQueue:(CDUnknownBlockType)arg1;

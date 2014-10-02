@@ -6,15 +6,12 @@
 
 #import <iWorkImport/TSWPShapeRep.h>
 
-@class CALayer, TSDFloatingCommentControlKnob, TSDFloatingCommentDeleteKnob;
+@class CALayer;
 
 __attribute__((visibility("hidden")))
 @interface TSWPCommentRep : TSWPShapeRep
 {
     BOOL _shouldShowNavigationKnobs;
-    TSDFloatingCommentControlKnob *_previousKnob;
-    TSDFloatingCommentControlKnob *_nextKnob;
-    TSDFloatingCommentDeleteKnob *_deleteKnob;
     BOOL _didNavigate;
     CALayer *_headerLayer;
     CALayer *_dateLayer;
@@ -26,22 +23,23 @@ __attribute__((visibility("hidden")))
 - (BOOL)exclusivelyProvidesGuidesWhileAligning;
 - (BOOL)providesGuidesWhileAligning;
 - (void)invalidateAnnotationColor;
-- (void)updatePositionsOfKnobs:(id)arg1;
 - (void)didUpdateLayer:(id)arg1;
 - (void)screenScaleDidChange;
 - (void)viewScaleDidChange;
 - (id)additionalLayersOverLayer;
-- (id)p_imageForString:(id)arg1 ofSize:(struct CGSize)arg2 baselineOffsetFromBottom:(float)arg3 backgroundColor:(struct CGColor *)arg4 foregroundColor:(struct CGColor *)arg5 useSystemFontWeight:(BOOL)arg6;
+- (id)p_imageForString:(id)arg1 ofSize:(struct CGSize)arg2 baselineOffsetFromBottom:(float)arg3 foregroundColor:(struct CGColor *)arg4;
 - (void)addKnobsToArray:(id)arg1;
 - (void)p_previousAnnotation;
 - (void)p_nextAnnotation;
-- (id)newSelectionKnobForType:(int)arg1 tag:(unsigned int)arg2;
 - (unsigned long long)enabledKnobMask;
 - (void)p_deleteComment;
 - (BOOL)shouldShowSmartShapeKnobs;
 - (BOOL)canBeUsedForImageMask;
 - (BOOL)canMakePathEditable;
 - (BOOL)directlyManagesVisibilityOfKnob:(id)arg1;
+- (BOOL)canUseSpecializedHitRegionForKnob:(id)arg1;
+- (void)dynamicDragDidEnd;
+- (id)newCommandToApplyGeometry:(id)arg1 toInfo:(id)arg2;
 - (id)newTrackerForKnob:(id)arg1;
 - (void)didEndZooming;
 - (void)recursivelyDrawChildrenInContext:(struct CGContext *)arg1;
@@ -50,6 +48,9 @@ __attribute__((visibility("hidden")))
 - (void)dynamicOperationDidBegin;
 - (BOOL)shouldHideSelectionHighlightDueToRectangularPath;
 - (float)selectionHighlightWidth;
+- (struct CGRect)boundsForHighlightLayer;
+- (float)p_effectiveBorderStrokeWidthInPoints;
+- (struct CGColor *)selectionHighlightColor;
 - (BOOL)forcesPlacementOnTop;
 - (void)willEndEditingContainedRep;
 - (void)willBeginEditingContainedRep;

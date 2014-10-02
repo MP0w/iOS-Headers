@@ -21,9 +21,12 @@ __attribute__((visibility("hidden")))
 + (id)orientedBoundsWithBounds:(struct CGRect)arg1;
 + (id)orientedBoundsWithBounds:(struct CGRect)arg1 rotation:(float)arg2 flipX:(BOOL)arg3 flipY:(BOOL)arg4;
 - (id).cxx_construct;
+- (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqualToOrientedBounds:(id)arg1;
+- (struct CGRect)boundingBox;
+- (struct CGSize)boundingBoxSize;
 - (void)setYMode:(int)arg1;
 - (int)yMode;
 - (void)setXMode:(int)arg1;

@@ -14,11 +14,14 @@ __attribute__((visibility("hidden")))
     unsigned int mId;
     NSString *mName;
     NSString *mInitials;
+    unsigned int mLastCommentIndex;
     unsigned int mColorIndex;
 }
 
 - (void)setColorIndex:(unsigned int)arg1;
 - (unsigned int)colorIndex;
+- (void)setLastCommentIndex:(unsigned int)arg1;
+- (unsigned int)lastCommentIndex;
 - (void)setInitials:(id)arg1;
 - (id)initials;
 - (void)setName:(id)arg1;

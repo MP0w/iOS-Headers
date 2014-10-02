@@ -10,7 +10,7 @@
 #import "UIImagePickerControllerDelegate.h"
 #import "UINavigationControllerDelegate.h"
 
-@class ABPeoplePickerNavigationController, UIImage, UIImagePickerController;
+@class ABPeoplePickerNavigationController, NSString, UIImage, UIImagePickerController;
 
 @interface UIAssignToContactActivity : UIActivity <ABPeoplePickerNavigationControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
@@ -39,6 +39,12 @@
 - (id)_activityImage;
 - (id)activityType;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

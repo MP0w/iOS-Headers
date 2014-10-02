@@ -8,7 +8,7 @@
 
 #import "UIScrollViewDelegate.h"
 
-@class UIWebOverflowScrollView;
+@class NSString, UIWebOverflowScrollView;
 
 __attribute__((visibility("hidden")))
 @interface UIWebOverflowScrollListener : NSObject <UIScrollViewDelegate>
@@ -22,6 +22,12 @@ __attribute__((visibility("hidden")))
 - (void)_didCompleteScrolling;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (id)initWithScrollView:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

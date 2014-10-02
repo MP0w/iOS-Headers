@@ -18,16 +18,17 @@
 
 @property(readonly, nonatomic) _Bool iconIsBoundOnRight; // @synthesize iconIsBoundOnRight=_iconIsBoundOnRight;
 @property(readonly, nonatomic) _Bool isMagazineApp; // @synthesize isMagazineApp=_isMagazineApp;
+- (_Bool)supportsBackgroundAppRefresh;
 - (_Bool)isNewsstandApplication;
 - (_Bool)shouldThrottleContentNotificationOnDate:(id)arg1 withLastCount:(unsigned long long *)arg2 onDay:(long long *)arg3;
 - (_Bool)isFakeApp;
 - (void)resumeForContentAvailable;
 - (void)setApplicationState:(unsigned int)arg1;
 - (void)activate;
-- (void)didExitWithInfo:(id)arg1 type:(int)arg2;
-- (void)didLaunch:(id)arg1;
+- (void)didExitWithType:(int)arg1 terminationReason:(long long)arg2;
+- (void)processDidLaunch:(id)arg1;
 - (Class)iconClass;
-- (id)initWithBundleIdentifier:(id)arg1 webClip:(id)arg2 path:(id)arg3 bundle:(id)arg4 infoDictionary:(id)arg5 isSystemApplication:(_Bool)arg6 signerIdentity:(id)arg7 provisioningProfileValidated:(_Bool)arg8 entitlements:(id)arg9;
+- (id)initWithApplicationInfo:(id)arg1 bundle:(id)arg2 infoDictionary:(id)arg3;
 
 @end
 

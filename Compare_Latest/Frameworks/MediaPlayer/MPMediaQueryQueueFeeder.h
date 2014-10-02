@@ -6,9 +6,11 @@
 
 #import <MediaPlayer/MPQueueFeeder.h>
 
-@class MPMediaItem, MPMediaLibraryConnectionAssertion, MPMediaQuery, MPMediaQueryShuffledItems, NSArray;
+#import "MPAVRoutingControllerDelegate.h"
 
-@interface MPMediaQueryQueueFeeder : MPQueueFeeder
+@class MPMediaItem, MPMediaLibraryConnectionAssertion, MPMediaQuery, MPMediaQueryShuffledItems, NSArray, NSString;
+
+@interface MPMediaQueryQueueFeeder : MPQueueFeeder <MPAVRoutingControllerDelegate>
 {
     int _ignoreShuffleTypeChangesCount;
     MPMediaQueryShuffledItems *_items;
@@ -18,28 +20,26 @@
     NSArray *_prefixMediaItems;
     MPMediaItem *_focusedItem;
     unsigned int _hasPendingLibraryChanges:1;
-    BOOL _useAirPlayMusicMode;
     MPMediaItem *_cloudDialogAllowedMediaItem;
 }
 
-@property(nonatomic) BOOL useAirPlayMusicMode; // @synthesize useAirPlayMusicMode=_useAirPlayMusicMode;
 @property(retain, nonatomic) MPMediaItem *cloudDialogAllowedMediaItem; // @synthesize cloudDialogAllowedMediaItem=_cloudDialogAllowedMediaItem;
 @property(retain, nonatomic) MPMediaItem *focusedItem; // @synthesize focusedItem=_focusedItem;
 @property(retain, nonatomic) NSArray *prefixMediaItems; // @synthesize prefixMediaItems=_prefixMediaItems;
 @property(copy, nonatomic) MPMediaQuery *query; // @synthesize query=_query;
 - (void).cxx_destruct;
 - (void)_performWhileIgnoringShuffleChanges:(CDUnknownBlockType)arg1;
-- (void)_applyAirPlayMusicMode;
-- (unsigned int)_shuffleItemsInFeederQueryWithShuffleType:(unsigned int)arg1 initialIndex:(unsigned int)arg2;
+- (unsigned int)_shuffleItemsInFeederQueryWithShuffleType:(unsigned int)arg1 initialIndex:(unsigned int)arg2 canInvalidateFeederContents:(BOOL)arg3;
 - (unsigned int)unshuffledIndexOfAVItem:(id)arg1;
+- (BOOL)reloadWithDataSource:(id)arg1 keepPlayingCurrentItemIfPossible:(BOOL)arg2;
 - (id)mediaItemAtIndex:(unsigned int)arg1;
 - (unsigned int)indexOfMediaItem:(id)arg1;
 - (void)_handleMediaLibraryDidChange;
 - (void)_libraryDidChangeNotification:(id)arg1;
 - (void)_itemWillChangeNotification:(id)arg1;
-- (void)_availableRoutesDidChangeNotification:(id)arg1;
 - (void)_applicationWillEnterForegroundNotification:(id)arg1;
-- (unsigned int)initialPlaybackQueueDepth;
+- (unsigned int)initialPlaybackQueueDepthForStartingIndex:(unsigned int)arg1;
+- (BOOL)wantsAirPlayVideo;
 - (id)playbackInfoAtIndex:(unsigned int)arg1;
 - (void)archiveAVControllerPlaybackQueue:(id)arg1 toArchiver:(id)arg2;
 - (void)restoreAVControllerPlaybackQueue:(id)arg1 fromUnarchiver:(id)arg2;
@@ -50,10 +50,17 @@
 - (id)pathAtIndex:(unsigned int)arg1;
 - (unsigned int)itemTypeForIndex:(unsigned int)arg1;
 - (Class)itemClass;
+- (BOOL)hasValidItemAtIndex:(unsigned int)arg1;
 - (id)copyRawItemAtIndex:(unsigned int)arg1;
 - (unsigned int)itemCount;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

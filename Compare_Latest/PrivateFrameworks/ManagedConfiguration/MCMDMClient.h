@@ -6,26 +6,28 @@
 
 #import "NSObject.h"
 
-@class CPDistributedMessagingCenter;
+@class NSXPCConnection;
 
 @interface MCMDMClient : NSObject
 {
-    CPDistributedMessagingCenter *_messageCenter;
+    NSXPCConnection *_xpcConnection;
 }
 
 + (id)sharedClient;
+@property(retain, nonatomic) NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
 - (void).cxx_destruct;
 - (int)accessRights;
 - (BOOL)isActivationLockAllowedWhileSupervised;
 - (BOOL)isManagedByMDM;
-- (void)removeManagedAppsAccordingToFlags;
+- (void)uprootMDM;
 - (void)simulatePush;
 - (void)retryNotNowResponse;
 - (void)scheduleTokenUpdate;
 - (void)notifyNewConfiguration;
 - (BOOL)checkOutCheckInURL:(id)arg1 identity:(struct __SecIdentity *)arg2 topic:(id)arg3 signMessage:(BOOL)arg4 outError:(id *)arg5;
 - (BOOL)authenticateWithCheckInURL:(id)arg1 identity:(struct __SecIdentity *)arg2 topic:(id)arg3 useDevelopmentAPNS:(BOOL)arg4 signMessage:(BOOL)arg5 outError:(id *)arg6;
-- (id)init;
+- (void)_createAndStartMDMXPCConnection;
+- (void)dealloc;
 
 @end
 

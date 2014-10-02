@@ -14,6 +14,7 @@
 }
 
 + (id)predicateForScheduledRemindersInCalendars:(id)arg1 onDay:(id)arg2;
++ (BOOL)supportsSecureCoding;
 @property(retain, nonatomic) NSDate *day; // @synthesize day=_day;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

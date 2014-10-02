@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (void)writeHyperlink:(id)arg1 to:(id)arg2;
 + (id)readHyperlink:(struct _xmlNode *)arg1 state:(id)arg2;
 
 @end

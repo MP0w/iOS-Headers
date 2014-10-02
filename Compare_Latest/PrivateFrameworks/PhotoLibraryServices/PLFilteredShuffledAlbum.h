@@ -15,7 +15,7 @@
 }
 
 + (struct NSObject *)_shuffledAlbumWithAlbum:(struct NSObject *)arg1 filter:(int)arg2 startingAsset:(id)arg3;
-@property(readonly, nonatomic) NSPredicate *filterPredicate; // @synthesize filterPredicate=_filterPredicate;
+@property(readonly, retain, nonatomic) NSPredicate *filterPredicate; // @synthesize filterPredicate=_filterPredicate;
 @property(readonly, nonatomic) int filter; // @synthesize filter=_filter;
 - (unsigned int)count;
 - (void)dealloc;

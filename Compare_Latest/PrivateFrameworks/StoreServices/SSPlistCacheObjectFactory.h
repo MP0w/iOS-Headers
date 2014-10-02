@@ -8,12 +8,20 @@
 
 #import "SSCacheObjectFactory.h"
 
+@class NSString;
+
 @interface SSPlistCacheObjectFactory : NSObject <SSCacheObjectFactory>
 {
 }
 
 - (id)cachedObjectWithDataRepresentation:(id)arg1 typeIdentifier:(id)arg2;
 - (BOOL)supportsTypeIdentifier:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -14,7 +14,7 @@
 
 @property(readonly, nonatomic) _Bool preservesCurrentListOrigin; // @synthesize preservesCurrentListOrigin=_preservesCurrentListOrigin;
 @property(readonly, nonatomic) struct UIEdgeInsets layoutInsets; // @synthesize layoutInsets=_layoutInsets;
-- (id)initWithNonJailedOverrideStrategy:(id)arg1;
+- (id)initWithFullscreenOverrideStrategy:(id)arg1;
 
 @end
 

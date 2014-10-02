@@ -15,10 +15,12 @@
     UIView<SBAppSwitcherPageContentView> *_view;
     UIView *_overlayView;
     long long _orientation;
+    UIView *auxiliaryView;
 }
 
-+ (double)_edgeBorderForOrientation:(long long)arg1;
++ (double)_horizontalEdgeBorderForOrientation:(long long)arg1;
 + (struct CGSize)sizeForOrientation:(long long)arg1;
+@property(readonly, nonatomic) UIView *auxiliaryView; // @synthesize auxiliaryView;
 @property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
 @property(retain, nonatomic) UIView *overlay; // @synthesize overlay=_overlayView;
 @property(retain, nonatomic) UIView<SBAppSwitcherPageContentView> *view; // @synthesize view=_view;

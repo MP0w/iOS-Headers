@@ -9,7 +9,7 @@
 #import "UICollectionViewDelegate.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class UIKeyboardCandidateGridHeader;
+@class NSString, UIKeyboardCandidateGridHeader;
 
 __attribute__((visibility("hidden")))
 @interface UIKeyboardCandidateView_iPhone : UIKeyboardCandidateView <UICollectionViewDelegate, UIGestureRecognizerDelegate>
@@ -27,6 +27,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (void)layoutSubviews;
 - (float)barHeight;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

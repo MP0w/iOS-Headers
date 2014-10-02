@@ -4,18 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <UIAccessibility/NSBundleAccessibility_super.h>
+#import <UIAccessibility/__NSBundleAccessibility_super.h>
 
-@interface NSBundleAccessibility : NSBundleAccessibility_super
+@interface NSBundleAccessibility : __NSBundleAccessibility_super
 {
 }
 
-+ (id)_accessibilityTargetClassName;
-+ (id)_installSafeCategoryValidationMethod;
-+ (id)_initializeSafeCategoryFromValidationManager;
-+ (void)_initializeSafeCategory;
++ (Class)safeCategoryTargetClass;
++ (id)safeCategoryTargetClassName;
 - (id)localizedStringForKey:(id)arg1 value:(id)arg2 table:(id)arg3;
-- (void)_loadAXBundleForBundleOnMainThread;
+- (void)_loadAXBundleForBundleOffMainThread;
 - (BOOL)loadAndReturnError:(id *)arg1;
 
 @end

@@ -8,7 +8,7 @@
 
 #import "PKAddPassesViewControllerDelegate.h"
 
-@class NSOperationQueue, SKUIClientContext;
+@class NSOperationQueue, NSString, SKUIClientContext;
 
 @interface SKUIPassbookLoader : NSObject <PKAddPassesViewControllerDelegate>
 {
@@ -27,6 +27,12 @@
 - (void)addPassesViewControllerDidFinish:(id)arg1;
 - (void)loadPassWithURL:(id)arg1;
 - (id)initWithClientContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

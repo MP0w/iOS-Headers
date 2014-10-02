@@ -11,7 +11,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (BOOL)supportsMultipleValueScales;
 - (id)defaultSeriesType:(unsigned int)arg1;
 - (id)userInterfaceName;
 - (id)init;

@@ -9,6 +9,8 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
+@class NSString;
+
 @interface NSUUID : NSObject <NSCopying, NSSecureCoding>
 {
 }
@@ -20,7 +22,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (struct __CFString *)_cfUUIDString;
-- (id)UUIDString;
+@property(readonly, copy) NSString *UUIDString;
 - (void)getUUIDBytes:(unsigned char [16])arg1;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;

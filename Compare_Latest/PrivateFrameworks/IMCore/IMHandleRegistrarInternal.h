@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSMutableDictionary, NSMutableSet;
+@class NSMutableArray, NSMutableDictionary;
 
 @interface IMHandleRegistrarInternal : NSObject
 {
@@ -16,10 +16,6 @@
     NSMutableDictionary *_chatSiblingsMap;
     NSMutableDictionary *_existingChatSiblingsMap;
     NSMutableArray *_allIMHandles;
-    NSMutableDictionary *_candidateNamesMap;
-    NSMutableDictionary *_usedUniqueNames;
-    NSMutableSet *_knownConflictingNames;
-    int _nameStyle;
     BOOL _buildingChatSiblings;
 }
 

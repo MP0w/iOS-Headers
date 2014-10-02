@@ -8,7 +8,7 @@
 
 #import "UIKeyInput.h"
 
-@class DOMHTMLSelectElement, NSArray, UIWebSelectPopover;
+@class DOMHTMLSelectElement, NSArray, NSString, UIWebSelectPopover;
 
 __attribute__((visibility("hidden")))
 @interface UIWebSelectTableViewController : UITableViewController <UIKeyInput>
@@ -38,7 +38,6 @@ __attribute__((visibility("hidden")))
 - (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
-- (float)heightForItems;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)dealloc;
 - (id)initWithDOMHTMLSelectNode:(id)arg1 cachedItems:(id)arg2 singleSelectionIndex:(unsigned int)arg3 multipleSelection:(BOOL)arg4;
@@ -48,12 +47,16 @@ __attribute__((visibility("hidden")))
 // Remaining properties
 @property(nonatomic) int autocapitalizationType;
 @property(nonatomic) int autocorrectionType;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(nonatomic) BOOL enablesReturnKeyAutomatically;
+@property(readonly) unsigned int hash;
 @property(nonatomic) int keyboardAppearance;
 @property(nonatomic) int keyboardType;
 @property(nonatomic) int returnKeyType;
 @property(nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry;
 @property(nonatomic) int spellCheckingType;
+@property(readonly) Class superclass;
 
 @end
 

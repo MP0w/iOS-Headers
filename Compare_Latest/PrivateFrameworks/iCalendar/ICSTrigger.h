@@ -10,6 +10,8 @@
 {
 }
 
+- (id)travelRelativeDuration;
+- (id)initWithDuration:(id)arg1 travelRelativeDuration:(id)arg2;
 - (BOOL)isDurationBased;
 - (id)initWithDuration:(id)arg1;
 - (id)initWithDate:(id)arg1;

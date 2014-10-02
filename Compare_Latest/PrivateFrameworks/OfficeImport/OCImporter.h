@@ -6,7 +6,7 @@
 
 #import <OfficeImport/OCMapper.h>
 
-@class CPImportTracing, NSData, NSURL, OCDReader, TSUProgressContext;
+@class NSData, NSString, NSURL, OCDReader, OITSUProgressContext, TCImportTracing;
 
 __attribute__((visibility("hidden")))
 @interface OCImporter : OCMapper
@@ -14,14 +14,17 @@ __attribute__((visibility("hidden")))
     NSURL *mURL;
     NSData *mData;
     OCDReader *mReader;
-    CPImportTracing *mTracing;
+    TCImportTracing *mTracing;
     BOOL mTryAlternateReader;
-    TSUProgressContext *mProgressContext;
+    OITSUProgressContext *mProgressContext;
+    NSString *_docPassphrase;
 }
 
 + (void)initialize;
-@property(readonly, nonatomic) CPImportTracing *tracing; // @synthesize tracing=mTracing;
-@property(retain) TSUProgressContext *progressContext; // @synthesize progressContext=mProgressContext;
+@property(retain, nonatomic) NSString *docPassphrase; // @synthesize docPassphrase=_docPassphrase;
+@property(readonly, nonatomic) TCImportTracing *tracing; // @synthesize tracing=mTracing;
+@property(retain) OITSUProgressContext *progressContext; // @synthesize progressContext=mProgressContext;
+- (void)finalizeBackgroundTasksWithDocumentState:(id)arg1;
 - (id)displayName;
 - (id)filename;
 - (BOOL)setPassphrase:(id)arg1;

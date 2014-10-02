@@ -14,7 +14,7 @@
 }
 
 + (id)copyParseRules;
-@property(retain) CoreDAVHrefItem *href; // @synthesize href=_href;
+@property(retain, nonatomic) CoreDAVHrefItem *href; // @synthesize href=_href;
 - (void)write:(id)arg1;
 - (id)description;
 - (void)dealloc;

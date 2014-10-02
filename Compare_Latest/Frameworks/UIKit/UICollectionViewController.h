@@ -9,7 +9,7 @@
 #import "UICollectionViewDataSource.h"
 #import "UICollectionViewDelegate.h"
 
-@class UICollectionView, UICollectionViewLayout;
+@class NSString, UICollectionView, UICollectionViewLayout;
 
 @interface UICollectionViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 {
@@ -47,6 +47,12 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithCollectionViewLayout:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

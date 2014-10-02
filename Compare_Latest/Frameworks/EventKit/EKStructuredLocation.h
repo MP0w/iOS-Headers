@@ -15,12 +15,16 @@
 }
 
 + (id)locationWithTitle:(id)arg1;
+- (id)_asCalLocation;
 - (void)updatePersistentObject;
+@property(retain, nonatomic) NSString *routing;
 - (id)description;
+- (BOOL)isEqualToLocation:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(copy, nonatomic) NSString *addressBookEntityID;
 @property(nonatomic) double radius;
 @property(retain, nonatomic) CLLocation *geoLocation;
+- (id)cacheKey;
 @property(retain, nonatomic) NSString *address;
 @property(retain, nonatomic) NSString *title;
 @property(readonly, nonatomic) BOOL isStructured;

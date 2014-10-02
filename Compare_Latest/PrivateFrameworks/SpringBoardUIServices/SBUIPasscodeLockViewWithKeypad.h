@@ -24,6 +24,7 @@
     UIView *_bottomToNumberPadFiller;
     NSString *_lastCharacterBeforeBackspace;
     BOOL _undoInputOnTouchCancellation;
+    BOOL _useLightStyle;
 }
 
 @property(retain, nonatomic) UILabel *statusSubtitleView; // @synthesize statusSubtitleView=_statusSubtitleView;
@@ -40,6 +41,7 @@
 - (void)passcodeLockNumberPad:(id)arg1 keyCancelled:(id)arg2;
 - (void)passcodeLockNumberPad:(id)arg1 keyUp:(id)arg2;
 - (void)passcodeLockNumberPad:(id)arg1 keyDown:(id)arg2;
+- (BOOL)_usesLightStyle;
 - (id)_numericEntryFieldIfExists;
 - (float)_numberPadOffsetFromTopOfScreen;
 - (void)_noteKeyUp:(id)arg1;
@@ -52,8 +54,7 @@
 - (id)_newStatusSubtitleView;
 - (id)_newStatusTitleView;
 - (float)_statusTitleWidth;
-- (void)_updateStatusText:(id)arg1 subtitle:(id)arg2 animated:(BOOL)arg3;
-- (float)_statusTitleViewHeight;
+- (void)updateStatusText:(id)arg1 subtitle:(id)arg2 animated:(BOOL)arg3;
 - (id)_statusSubtitleViewTitleFont;
 - (id)_statusTitleViewTitleFont;
 - (float)_entryFieldBottomYDistanceFromNumberPadTopButton;
@@ -75,7 +76,14 @@
 - (void)layoutSubviews;
 - (float)backgroundAlpha;
 - (void)dealloc;
+- (id)initWithLightStyle:(BOOL)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

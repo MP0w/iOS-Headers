@@ -8,12 +8,17 @@
 
 #import "CNFRegWizardControllerDelegate.h"
 
+@class NSString;
+
 @interface CKSettingsMessagesController : CNFRegListController <CNFRegWizardControllerDelegate>
 {
     BOOL _showingChildViewController;
     int _profileToken;
 }
 
++ (id)currentKeepMessages;
++ (int)currentMessageAutoKeepOptionForType:(int)arg1;
++ (BOOL)currentMessageAutoKeepForType:(int)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (id)controllerForSpecifier:(id)arg1;
 - (id)_madridSettingsController;
@@ -24,13 +29,8 @@
 - (void)firstRunControllerDidFinish:(id)arg1 finished:(BOOL)arg2;
 - (void)_showMadridSetupIfNecessary;
 - (void)_showMadridSetupIfNecessary:(BOOL)arg1;
-- (void)dumpLogs:(id)arg1;
-- (void)setRegistrationLoggingEnabled:(id)arg1 forSpecifier:(id)arg2;
-- (id)isRegistrationLoggingEnabledForSpecifier:(id)arg1;
-- (void)setiMessageLoggingEnabled:(id)arg1 forSpecifier:(id)arg2;
-- (id)isiMessageLoggingEnabledForSpecifier:(id)arg1;
-- (id)debugSettingsSpecifierIdentifiers;
-- (BOOL)shouldShowDebugSettings;
+- (void)setKeepMessages:(id)arg1 specifier:(id)arg2;
+- (id)getKeepMessages:(id)arg1;
 - (id)madridSigninButtonTextForSpecifier:(id)arg1;
 - (void)madridSigninTappedWithSpecifier:(id)arg1;
 - (id)madridSigninSpecifiers;
@@ -44,6 +44,13 @@
 - (id)areReadReceiptsEnabled:(id)arg1;
 - (id)readReceiptSpecifierIdentifiers;
 - (BOOL)shouldShowReadReceipts;
+- (id)videoMessageSettingsSpecifierIdentifiers;
+- (BOOL)shouldShowVideoMessageSettings;
+- (id)audioMessageSettingsSpecifierIdentifiers;
+- (BOOL)shouldShowAudioMessageSettings;
+- (id)raiseToListenSpecifierIdentifiers;
+- (BOOL)shouldShowRaiseToListenSwitch;
+- (BOOL)_isRaiseGestureSupported;
 - (id)blacklistSettingsSpecifierIdentifiers;
 - (BOOL)shouldShowBlacklistSettings;
 - (id)characterCountSpecifierIdentifiers;
@@ -60,6 +67,12 @@
 - (BOOL)_isMadridSwitchOn;
 - (BOOL)_isMadridAccountOperational;
 - (BOOL)_isSMSDevice;
+- (void)setVideoMessageAutoKeep:(id)arg1 specifier:(id)arg2;
+- (id)getVideoMessageAutoKeep:(id)arg1;
+- (void)setAudioMessageAutoKeep:(id)arg1 specifier:(id)arg2;
+- (id)getAudioMessageAutoKeep:(id)arg1;
+- (void)setRaiseToListenEnabled:(id)arg1 specifier:(id)arg2;
+- (id)getRaiseToListenEnabled:(id)arg1;
 - (void)setWillSendGroupMMS:(id)arg1 specifier:(id)arg2;
 - (id)willSendGroupMMS:(id)arg1;
 - (void)setMMSEnabled:(id)arg1 specifier:(id)arg2;
@@ -85,6 +98,12 @@
 - (void)dealloc;
 - (id)bundle;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

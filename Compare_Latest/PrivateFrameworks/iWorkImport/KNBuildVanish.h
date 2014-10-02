@@ -9,7 +9,7 @@
 #import "KNAnimationPluginArchiving.h"
 #import "KNFrameBuildAnimator.h"
 
-@class KNAnimParameterGroup, KNBuildVanishParticleSystem, NSMapTable, TSDGLShader, TSDGLTextureInfo;
+@class KNAnimParameterGroup, KNBuildVanishParticleSystem, NSMapTable, NSString, TSDGLShader, TSDGLTextureInfo;
 
 __attribute__((visibility("hidden")))
 @interface KNBuildVanish : KNAnimationEffect <KNFrameBuildAnimator, KNAnimationPluginArchiving>
@@ -52,6 +52,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (void)teardown;
 - (id)initWithAnimationContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

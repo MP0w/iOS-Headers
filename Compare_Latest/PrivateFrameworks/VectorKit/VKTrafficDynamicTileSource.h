@@ -20,13 +20,13 @@ __attribute__((visibility("hidden")))
 - (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
 - (BOOL)minimumZoomLevelBoundsCamera;
 - (BOOL)maximumZoomLevelBoundsCamera;
-- (unsigned int)mapLayerForZoomLevelRange;
+- (unsigned long long)mapLayerForZoomLevelRange;
 - (int)defaultMaximumZoomLevel;
 - (int)defaultMinimumZoomLevel;
 - (void)didLoadTile:(id)arg1 forKey:(const struct VKTileKey *)arg2;
 - (void)clearCaches;
 - (void)dealloc;
-- (id)initWithTileSet:(id)arg1;
+- (id)initWithTileSet:(id)arg1 tileGroupIdentifier:(unsigned int)arg2 locale:(id)arg3;
 
 @end
 

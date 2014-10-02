@@ -10,6 +10,7 @@ __attribute__((visibility("hidden")))
 @interface TSDCapabilities : NSObject
 {
     int _platform;
+    int _deviceType;
     int _device;
     int _renderer;
 }
@@ -17,8 +18,10 @@ __attribute__((visibility("hidden")))
 + (id)currentCapabilities;
 @property(readonly, nonatomic) int renderer; // @synthesize renderer=_renderer;
 @property(readonly, nonatomic) int device; // @synthesize device=_device;
+@property(readonly, nonatomic) int deviceType; // @synthesize deviceType=_deviceType;
 @property(readonly, nonatomic) int platform; // @synthesize platform=_platform;
-@property(readonly, nonatomic) struct CGSize maximumTextureSize;
+@property(readonly, nonatomic) struct CGSize maximumHardcodedTextureSize;
+- (struct CGSize)maximumTextureSizeWithGLContext:(id)arg1;
 @property(readonly, nonatomic) BOOL hasLightningPort;
 @property(readonly, nonatomic) BOOL isRendererH5OrBelow;
 @property(readonly, nonatomic) BOOL isRendererH4OrBelow;

@@ -14,17 +14,18 @@
 {
     BOOL _usesEndDate;
     EKRecurrenceEnd *_cachedEnd;
-    EKCalendarItem *_owner;
 }
 
 + (id)iCalendarValueFromDate:(id)arg1 isDateOnly:(BOOL)arg2 isFloating:(BOOL)arg3;
 + (id)iCalendarValueFromDayOfTheWeek:(unsigned int)arg1;
 + (id)iCalendarValueFromRecurrenceType:(int)arg1;
 + (id)recurrenceRuleWithType:(int)arg1 interval:(unsigned int)arg2 end:(id)arg3;
-@property(retain, nonatomic) EKCalendarItem *owner; // @synthesize owner=_owner;
 @property(readonly) BOOL usesEndDate; // @synthesize usesEndDate=_usesEndDate;
 @property(retain, nonatomic) EKRecurrenceEnd *cachedEnd; // @synthesize cachedEnd=_cachedEnd;
 - (id)stringValueAsDateOnly:(BOOL)arg1 isFloating:(BOOL)arg2;
+- (BOOL)isAnyDayRule;
+- (BOOL)isWeekendRule;
+- (BOOL)isWeekdayRule;
 - (void)pinToEndsOfMonthsWithCalendarItem:(id)arg1;
 - (BOOL)mayOccurAfterDate:(id)arg1;
 @property(readonly, nonatomic) BOOL dirtyStateMayAffectExceptionDates;
@@ -50,6 +51,7 @@
 - (void)setFrequency:(int)arg1;
 @property(readonly, nonatomic) int frequency;
 @property(readonly, nonatomic) NSString *calendarIdentifier;
+@property(retain, nonatomic) EKCalendarItem *owner; // @dynamic owner;
 - (id)lazyLoadRelationForKey:(id)arg1;
 @property(readonly) CDStruct_6e43267c gregorianUnits;
 - (void)dealloc;

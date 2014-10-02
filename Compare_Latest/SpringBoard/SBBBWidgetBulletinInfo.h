@@ -6,27 +6,28 @@
 
 #import "SBBBBulletinInfo.h"
 
-@class NSString, SBWidgetViewControllerHost;
+@class NSString, SBWidgetViewController;
 
 @interface SBBBWidgetBulletinInfo : SBBBBulletinInfo
 {
     NSString *_identifier;
-    struct CGSize _preferredViewSize;
+    double _preferredViewHeight;
     _Bool _visible;
     struct {
-        unsigned int isPreferredViewSizeValid:1;
+        unsigned int isPreferredViewHeightValid:1;
     } _widgetBulletinInfoFlags;
 }
 
 - (void)populateReusableView:(id)arg1;
-- (double)heightForReusableViewForBulletinViewController:(id)arg1 layoutMode:(long long)arg2;
+- (double)heightForReusableViewForBulletinViewController:(id)arg1 layoutMode:(long long)arg2 bulletinLocation:(long long)arg3;
+- (id)reusableViewIdentifier;
 - (Class)reusableViewClass;
 - (id)originalSectionIdentifier;
 - (id)identifier;
 - (id)widgetIdentifier;
-@property(readonly, nonatomic) SBWidgetViewControllerHost *representedWidget;
+@property(readonly, nonatomic) SBWidgetViewController *representedWidget;
 - (id)representedBulletin;
-@property(nonatomic) struct CGSize preferredViewSize;
+@property(nonatomic) double preferredViewHeight;
 - (void)dealloc;
 
 @end

@@ -19,27 +19,35 @@
 + (id)_mergedSegmentByResamplingWithMergeableSegments:(id)arg1 mergedLevelsDuration:(double)arg2;
 + (id)_mergedSegmentByFastMergingWithMergeableSegments:(id)arg1 mergedLevelsDuration:(double)arg2;
 + (id)_segmentByMergingMergableSegments:(id)arg1;
++ (id)_segmentsByJoiningSegment:(id)arg1 toSegmentIfNecessaryWithGreaterSegment:(id)arg2 averagePowerLevelJoinLimit:(unsigned int)arg3;
++ (id)_discontinuityRepairedSegmentsByGrowingToFillGapsInSegments:(id)arg1;
 + (id)segmentsByMergingSegments:(id)arg1 preferredSegmentDuration:(double)arg2;
++ (id)segmentsByShiftingSegments:(id)arg1 byTimeOffset:(double)arg2;
++ (id)segmentsByReparingDiscontinuitiesInSegments:(id)arg1;
++ (id)emptySegmentWithTimeRange:(CDStruct_73a5d3ca)arg1;
 + (void)initialize;
 @property(readonly, nonatomic) CDStruct_73a5d3ca timeRange; // @synthesize timeRange=_timeRange;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
 - (id)_segmentsByJoiningIfNecessaryGreaterSegment:(id)arg1 averagePowerLevelJoinLimit:(unsigned int)arg2;
 - (id)_segmentWithValuesInContainedTimeRange:(CDStruct_73a5d3ca)arg1;
 - (id)segmentByClippingToTimeRange:(CDStruct_73a5d3ca)arg1;
 - (id)segmentsByJoiningIfSmallSegment:(id)arg1 averagePowerLevelJoinLimit:(unsigned int)arg2;
 - (id)segmentsByJoiningIfSmallSegment:(id)arg1;
+- (id)copyWithAdjustedTimeRange:(CDStruct_73a5d3ca)arg1;
+- (id)copyWithTimeRangeOffsetByTimeOffset:(double)arg1;
+- (BOOL)isWaveformDataEqualToDataInSegment:(id)arg1;
+- (BOOL)hasUniformPowerLevel:(float)arg1;
 @property(readonly, nonatomic) int averagePowerLevelsCount;
 @property(readonly, nonatomic) const float *averagePowerLevels;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)description;
 - (id)simpleDescription;
 - (id)verboseDescription;
-- (BOOL)isWaveformDataEqualToDataInSegment:(id)arg1;
-- (id)copyWithTimeRangeOffsetByTimeOffset:(double)arg1;
 - (id)initWithTimeRange:(CDStruct_73a5d3ca)arg1 averagePowerLevelVector:(vector_ec52ae8c *)arg2;
-- (id)initWithTimeRange:(CDStruct_73a5d3ca)arg1 averagePowerLevelData:(id)arg2 copyData:(BOOL)arg3;
+- (id)_initWithTimeRange:(CDStruct_73a5d3ca)arg1 averagePowerLevelData:(id)arg2;
+- (id)initWithTimeRange:(CDStruct_73a5d3ca)arg1 averagePowerLevelData:(id)arg2;
 
 @end
 

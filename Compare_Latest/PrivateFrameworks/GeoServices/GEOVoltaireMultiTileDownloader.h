@@ -8,7 +8,7 @@
 
 #import "NSURLConnectionDelegate.h"
 
-@class GEONetworkDataReader, GEOTileKeyList, GEOTileKeyMap, NSData, NSMutableSet, NSString, NSURL, NSURLConnection;
+@class GEONetworkDataReader, GEOResourceManifestConfiguration, GEOTileKeyList, GEOTileKeyMap, NSData, NSLocale, NSMutableSet, NSString, NSURL, NSURLConnection;
 
 __attribute__((visibility("hidden")))
 @interface GEOVoltaireMultiTileDownloader : NSObject <NSURLConnectionDelegate>
@@ -33,6 +33,8 @@ __attribute__((visibility("hidden")))
     int _attempts;
     double _startTime;
     double _timeout;
+    GEOResourceManifestConfiguration *_manifestConfiguration;
+    NSLocale *_locale;
 }
 
 @property(nonatomic) BOOL requireWiFi; // @synthesize requireWiFi=_requireWiFi;
@@ -59,7 +61,13 @@ __attribute__((visibility("hidden")))
 - (void)cancel;
 - (void)start;
 - (void)dealloc;
-- (id)initWithURL:(id)arg1 keyList:(id)arg2;
+- (id)initWithURL:(id)arg1 keyList:(id)arg2 manifestConfiguration:(id)arg3 locale:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

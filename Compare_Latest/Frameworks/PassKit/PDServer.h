@@ -7,70 +7,127 @@
 #import "NSObject.h"
 
 #import "NSXPCListenerDelegate.h"
+#import "PDCardFileManagerDelegate.h"
+#import "PDContactlessInterfaceDelegate.h"
 #import "PDDatabaseManagerDelegate.h"
+#import "PDDistributedNotificationConsumer.h"
 #import "PDPassLibraryDelegate.h"
-#import "WDCardFileManagerDelegate.h"
-#import "WDWebServicesCoordinatorDelegate.h"
+#import "PDPaymentServiceDelegate.h"
+#import "PDRelevantPassProviderDelegate.h"
+#import "PDSecureElementDelegate.h"
+#import "PDWebServicesCoordinatorDelegate.h"
 
-@class NSMutableSet, PDBulletinManager, PDDatabaseManager, PKCatalog, WDCardFileManager, WDRelevantCardProvider, WDWebServicesCoordinator;
+@class BKSApplicationStateMonitor, BKSProcessAssertion, NSMutableSet, NSString, PDBulletinManager, PDCardFileManager, PDContactlessInterface, PDDatabaseManager, PDDistributedNotificationManager, PDNotificationServiceCoordinator, PDPaymentWebServiceCoordinator, PDPushNotificationManager, PDRelevantPassProvider, PDSecureElement, PDWebServicesCoordinator, PKCatalog, SBSAssertion;
 
-@interface PDServer : NSObject <WDCardFileManagerDelegate, PDPassLibraryDelegate, PDDatabaseManagerDelegate, WDWebServicesCoordinatorDelegate, NSXPCListenerDelegate>
+@interface PDServer : NSObject <PDCardFileManagerDelegate, PDPassLibraryDelegate, PDDatabaseManagerDelegate, PDWebServicesCoordinatorDelegate, PDRelevantPassProviderDelegate, PDDistributedNotificationConsumer, PDContactlessInterfaceDelegate, PDSecureElementDelegate, PDPaymentServiceDelegate, NSXPCListenerDelegate>
 {
+    unsigned int _initializationState;
     NSMutableSet *_passLibraries;
-    WDCardFileManager *_cardFileManager;
+    PDCardFileManager *_cardFileManager;
     PDDatabaseManager *_databaseManager;
     PDBulletinManager *_bulletinManager;
-    WDRelevantCardProvider *_relevantCardProvider;
-    WDWebServicesCoordinator *_webServicesCoordinator;
+    PDPushNotificationManager *_pushNotificationManager;
+    BKSProcessAssertion *_passbookUIServiceAssertion;
+    CDUnknownBlockType _paymentInterfaceLaunchCompletion;
+    SBSAssertion *_biomerticAssertion;
+    NSMutableSet *_paymentServices;
+    PDSecureElement *_secureElement;
+    PDContactlessInterface *_contactlessInterface;
+    PDNotificationServiceCoordinator *_notificationServicesCoordinator;
+    PDPaymentWebServiceCoordinator *_paymentWebServiceCoordinator;
+    PDDistributedNotificationManager *_distributedNotificationManager;
+    BKSApplicationStateMonitor *_applicationStateMonitor;
+    PDRelevantPassProvider *_relevantPassProvider;
+    PDWebServicesCoordinator *_webServicesCoordinator;
     NSMutableSet *_installedPassUniqueIDs;
     PKCatalog *_catalogOfRecord;
 }
 
-- (void)_sendCatalogChanged:(id)arg1;
-- (void)_sendPassRemoved:(id)arg1;
-- (void)_sendPassUpdated:(id)arg1;
-- (void)_sendPassAdded:(id)arg1;
-- (void)_wakePassbook;
-- (void)_deleteHomeDirectoryIfFileProtected;
 - (void)_logStats;
 - (void)_logStatsIfNecessary;
+- (id)_catalogOfRecord;
+- (id)_installedUniqueIDs;
+- (void)_clearPassbookUIServiceAssertion;
+- (void)_registerPassbookApplicationStateChangeHandler;
+- (void)_handlePassbookApplicationStateChange:(id)arg1;
+- (void)_handleLockStateChange;
+- (void)_handlePaymentInterfaceAlertDeactivated:(BOOL)arg1;
+- (void)_handlePaymentInterfaceAlertActivated:(BOOL)arg1;
+- (void)_launchPaymentInterface;
+- (BOOL)_paymentPassesAvailableToPay;
+- (BOOL)_paymentPassesAvailable;
+- (void)_restoreDatabaseIntegrity;
+- (void)_applyNewCatalogOfRecord:(id)arg1;
 - (void)_schedulePassRevocationBackgroundTaskImmediately;
 - (void)_schedulePassRevocationBackgroundTaskIfNecessary;
 - (void)_arrangeNextPassRevocationCheck;
 - (void)_registerClientForPassRevocationCheck;
-- (void)_setStatus:(int)arg1 forBundledPassStyle:(unsigned int)arg2;
-- (int)_bundledPassStatus:(unsigned int)arg1;
-- (void)_addBundledPass:(id)arg1;
-- (void)_addBundledPassesIfNecessaryAndNotifyClients:(BOOL)arg1;
+- (void)_removePassWithUniqueIDIgnoringPaymentApplication:(id)arg1;
+- (void)_removePassWithUniqueID:(id)arg1;
+- (void)_passInsertedOrUpdated:(id)arg1 source:(int)arg2 withDiff:(id)arg3;
+- (void)_insertOrUpdatePass:(id)arg1 source:(int)arg2 withDiff:(id)arg3;
+- (void)_removePaymentService:(id)arg1 connection:(id)arg2;
+- (void)_addPaymentService:(id)arg1 connection:(id)arg2;
+- (void)_removePassLibrary:(id)arg1 connection:(id)arg2;
+- (void)_addPassLibrary:(id)arg1 connection:(id)arg2;
+- (void)_sendRelevantPassesChanged:(id)arg1;
+- (void)_sendCatalogChanged:(id)arg1;
+- (void)_sendPassRemoved:(id)arg1;
+- (void)_sendPassUpdated:(id)arg1;
+- (void)_sendPassAdded:(id)arg1;
+- (void)handleNotificationWithName:(id)arg1;
+- (id)notificationNames;
+- (void)presentPaymentInterfaceWithCompletion:(CDUnknownBlockType)arg1;
+- (void)setDefaultPaymentPassUniqueIdentifier:(id)arg1;
+- (id)defaultPaymentPassUniqueIdentifier;
+- (void)secureElement:(id)arg1 didDeauthorizeApplication:(id)arg2;
+- (void)secureElement:(id)arg1 didAuthorizeApplication:(id)arg2;
+- (void)secureElement:(id)arg1 didActivateApplication:(id)arg2;
+- (void)secureElementDidLeaveRestrictedMode:(id)arg1;
+- (void)secureElementDidEnterRestrictedMode:(id)arg1;
+- (void)secureElementDidBecomeUnavailable:(id)arg1;
+- (void)secureElementDidBecomeAvailable:(id)arg1;
+- (void)contactlessInterface:(id)arg1 didEncounterError:(id)arg2 forPaymentApplication:(id)arg3;
+- (void)contactlessInterface:(id)arg1 didUpdateTransaction:(id)arg2 forPaymentApplication:(id)arg3;
+- (void)contactlessInterface:(id)arg1 didGenerateTransaction:(id)arg2 forPaymentApplication:(id)arg3;
+- (void)contactlessInterfaceDidLeaveField:(id)arg1;
+- (void)contactlessInterfaceDidEnterField:(id)arg1;
+- (BOOL)contactlessInterfaceShouldStartFieldDetection;
+- (void)relevantPassProvider:(id)arg1 didProvideRelevantPasses:(id)arg2;
+- (void)paymentPassWithUniqueIdentifier:(id)arg1 didEnableTransactionService:(BOOL)arg2;
+- (void)paymentPassWithUniqueIdentifier:(id)arg1 didEnableMessageService:(BOOL)arg2;
+- (void)paymentPassWithUniqueIdentifier:(id)arg1 didReceiveTransaction:(id)arg2;
+- (void)paymentPassWithUniqueIdentifier:(id)arg1 didReceiveMessage:(id)arg2;
 - (double)_timeSinceDateStoredInUserDefault:(id)arg1;
+- (void)deletePaymentPassesAndMarkAllPaymentApplicationsForDelete;
+- (void)passbookUIServiceLaunched;
 - (void)migrateData;
 - (void)introduceDatabaseIntegrityProblem;
 - (void)nukeStuff;
-- (void)passLibrarySuspended:(id)arg1;
-- (void)passLibrary:(id)arg1 removedBundledPass:(id)arg2;
 - (void)passLibrary:(id)arg1 requestedPassUpdate:(id)arg2 handler:(CDUnknownBlockType)arg3;
+- (id)secureElementIdentifier;
 - (id)catalogOfRecord;
 - (id)trueLocalPasses;
 - (id)trueUniqueIDs;
 - (void)handleDatabaseIntegrityProblem;
 - (void)noteLockScreenSettingsChanged;
-- (void)hookUpLocalPass:(id)arg1;
+- (void)registerDatabaseObject:(id)arg1;
 - (void)handleEmptyWebServicesUpdateForSerialNumber:(id)arg1 passTypeID:(id)arg2;
 - (void)notePassWithUniqueID:(id)arg1 isRevoked:(BOOL)arg2;
 - (void)catalogOfRecordWritten:(id)arg1;
+- (void)passWithUniqueIDDidDisappear:(id)arg1 ignoringPaymentApplications:(BOOL)arg2;
 - (void)passWithUniqueIDDidDisappear:(id)arg1;
 - (void)passWritten:(id)arg1 source:(int)arg2 withDiff:(id)arg3;
-- (void)_applyNewCatalogOfRecord:(id)arg1;
-- (void)_removePassWithUniqueID:(id)arg1;
-- (void)_insertOrUpdatePass:(id)arg1 source:(int)arg2 withDiff:(id)arg3;
-- (id)_catalogOfRecord;
-- (id)_installedUniqueIDs;
 - (BOOL)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
-- (void)_removePassLibrary:(id)arg1 connection:(id)arg2;
-- (void)_addPassLibrary:(id)arg1 connection:(id)arg2;
-- (void)_restoreDatabaseIntegrity;
 - (void)dealloc;
+- (void)_mainInitialization;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

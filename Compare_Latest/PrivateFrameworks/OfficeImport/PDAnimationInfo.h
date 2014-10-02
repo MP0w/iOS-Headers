@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class PDAnimationInfoData;
+@class PDAnimationInfoData, PDMediaNode;
 
 __attribute__((visibility("hidden")))
 @interface PDAnimationInfo : NSObject
@@ -14,8 +14,10 @@ __attribute__((visibility("hidden")))
     PDAnimationInfoData *mEntrance;
     PDAnimationInfoData *mExit;
     PDAnimationInfoData *mMedia;
+    PDMediaNode *mediaNode;
 }
 
+@property(retain, nonatomic) PDMediaNode *mediaNode; // @synthesize mediaNode;
 @property(retain, nonatomic) PDAnimationInfoData *mediaData; // @synthesize mediaData=mMedia;
 - (id)exitData;
 - (void)setExitData:(id)arg1;

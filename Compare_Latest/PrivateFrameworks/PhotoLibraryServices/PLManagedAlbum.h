@@ -8,12 +8,13 @@
 
 #import "PLUserEditableAlbumProtocol.h"
 
-@class NSArray, NSDate, NSDictionary, NSMutableOrderedSet, NSNumber, NSOrderedSet, NSString, NSURL, PLManagedAsset, UIImage;
+@class NSArray, NSDate, NSDictionary, NSMutableOrderedSet, NSNumber, NSOrderedSet, NSSet, NSString, NSURL, PLManagedAsset, UIImage;
 
 @interface PLManagedAlbum : _PLManagedAlbum <PLUserEditableAlbumProtocol>
 {
     BOOL _resolvingConflicts;
-    BOOL albumShouldBeAutomaticallyDeleted;
+    BOOL _albumShouldBeAutomaticallyDeleted;
+    BOOL _needsPersistenceUpdate;
 }
 
 + (void)clearAssetOrderByAbumUUIDs;
@@ -22,7 +23,9 @@
 + (id)keyPathsForValuesAffectingVideosCount;
 + (id)keyPathsForValuesAffectingPhotosCount;
 + (id)keyPathsForValuesAffectingApproximateCount;
-@property(nonatomic) BOOL albumShouldBeAutomaticallyDeleted; // @synthesize albumShouldBeAutomaticallyDeleted;
++ (id)baseSearchIndexPredicate;
+@property(nonatomic) BOOL needsPersistenceUpdate; // @synthesize needsPersistenceUpdate=_needsPersistenceUpdate;
+@property(nonatomic) BOOL albumShouldBeAutomaticallyDeleted; // @synthesize albumShouldBeAutomaticallyDeleted=_albumShouldBeAutomaticallyDeleted;
 @property(nonatomic) BOOL resolvingConflicts; // @synthesize resolvingConflicts=_resolvingConflicts;
 - (void)refreshAssets;
 - (id)filteredIndexesForPredicate:(id)arg1;
@@ -32,7 +35,6 @@
 - (id)_orderComparisonValueForAsset:(id)arg1 iTunesLookupOrder:(id)arg2;
 - (void)removePersistedFileSystemData;
 - (void)persistMetadataToFileSystem;
-- (void)awakeFromSnapshotEvents:(unsigned int)arg1;
 - (void)_recalculateCachedCounts;
 - (void)replaceAssetsAtIndexes:(id)arg1 withAssets:(id)arg2;
 - (void)removeAssetsAtIndexes:(id)arg1;
@@ -47,8 +49,10 @@
 - (void)unregisterForChanges;
 - (void)registerForChanges;
 - (id)_keysToBeObserved;
-- (void)_updateKeyAssetsIfNeeded;
-- (id)_expectedKeyAssets;
+- (void)_updateCountsIfNeeded:(id)arg1;
+- (void)_updateKeyAssetsIfNeeded:(id)arg1;
+- (void)_updateKeyAssetsAndCountsIfNeeded;
+- (id)_expectedKeyAssets:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)removeInternalUserEditableAssetsAtIndexes:(id)arg1;
 - (void)insertInternalUserEditableAssets:(id)arg1 atIndexes:(id)arg2 trimmedVideoPathInfo:(id)arg3 commentText:(id)arg4;
@@ -58,49 +62,66 @@
 - (id)objectInInternalUserEditableAssetsAtIndex:(unsigned int)arg1;
 - (unsigned int)indexInInternalUserEditableAssetsOfObject:(id)arg1;
 - (unsigned int)countOfInternalUserEditableAssets;
-@property(readonly, nonatomic) NSMutableOrderedSet *userEditableAssets;
+@property(readonly, retain, nonatomic) NSMutableOrderedSet *userEditableAssets;
 - (void)didSave;
-@property(readonly, nonatomic) NSMutableOrderedSet *mutableAssets;
+- (void)willSave;
+- (BOOL)isValidKindForPersistence;
+- (void)prepareForDeletion;
+@property(readonly, retain, nonatomic) NSMutableOrderedSet *mutableAssets;
+- (id)childKeyForOrdering;
+- (id)newOrderKeyChild:(id)arg1;
+- (id)sortedOrderKeysForChildrenUsingMap:(id)arg1;
+- (id)childToOrderKeyMap;
+- (BOOL)supportsAssetOrderKeys;
 - (BOOL)_shouldCopyAssetToCameraRollBeforeAdding:(id)arg1;
-- (BOOL)canPerformEditOperation:(int)arg1;
+- (BOOL)canPerformEditOperation:(unsigned int)arg1;
+- (id)searchIndexContents;
 
 // Remaining properties
+@property(retain, nonatomic) NSSet *assetOrders; // @dynamic assetOrders;
 @property(retain, nonatomic) NSOrderedSet *assets; // @dynamic assets;
 @property(readonly, nonatomic) BOOL canContributeToCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL canShowAvalancheStacks;
 @property(readonly, nonatomic) BOOL canShowComments;
-@property(readonly, nonatomic) NSDate *endDate;
-@property(readonly, nonatomic) NSURL *groupURL;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, retain, nonatomic) NSDate *endDate;
+@property(readonly, retain, nonatomic) NSURL *groupURL;
 @property(nonatomic) BOOL hasUnseenContentBoolValue;
+@property(readonly) unsigned int hash;
 @property(retain, nonatomic) NSString *importSessionID;
 @property(readonly, nonatomic) BOOL isCameraAlbum;
 @property(readonly, nonatomic) BOOL isCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isFamilyCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isFolder;
+@property(readonly, nonatomic) BOOL isInTrash;
 @property(readonly, nonatomic) BOOL isLibrary;
 @property(readonly, nonatomic) BOOL isMultipleContributorCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL isOwnedCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL isPanoramasAlbum;
 @property(readonly, nonatomic) BOOL isPendingPhotoStreamAlbum;
 @property(readonly, nonatomic) BOOL isPhotoStreamAlbum;
+@property(readonly, nonatomic) BOOL isRecentlyAddedAlbum;
 @property(readonly, nonatomic) BOOL isStandInAlbum;
 @property(readonly, nonatomic) BOOL isWallpaperAlbum;
 @property(retain, nonatomic) PLManagedAsset *keyAsset;
-@property(readonly, nonatomic) NSNumber *kind;
+@property(readonly, retain, nonatomic) NSNumber *kind;
 @property(readonly, nonatomic) int kindValue;
-@property(readonly, nonatomic) NSArray *localizedLocationNames;
-@property(readonly, nonatomic) NSString *localizedTitle;
-@property(readonly, nonatomic) NSString *name;
+@property(readonly, copy, nonatomic) NSArray *localizedLocationNames;
+@property(readonly, copy, nonatomic) NSString *localizedTitle;
+@property(readonly, copy, nonatomic) NSString *name;
 @property(nonatomic) int pendingItemsCount;
 @property(nonatomic) int pendingItemsType;
-@property(readonly, nonatomic) UIImage *posterImage;
+@property(readonly, retain, nonatomic) UIImage *posterImage;
 @property(retain, nonatomic) PLManagedAsset *secondaryKeyAsset;
-@property(readonly, nonatomic) CDUnknownBlockType sectioningComparator;
 @property(readonly, nonatomic) BOOL shouldDeleteWhenEmpty;
 @property(retain, nonatomic) NSDictionary *slideshowSettings;
-@property(readonly, nonatomic) CDUnknownBlockType sortingComparator;
-@property(readonly, nonatomic) NSDate *startDate;
+@property(readonly, copy, nonatomic) CDUnknownBlockType sortingComparator;
+@property(readonly, retain, nonatomic) NSDate *startDate;
+@property(readonly) Class superclass;
 @property(retain, nonatomic) PLManagedAsset *tertiaryKeyAsset;
-@property(readonly, nonatomic) NSString *title;
-@property(readonly, nonatomic) NSString *uuid;
+@property(readonly, retain, nonatomic) NSString *title;
+@property(readonly, retain, nonatomic) NSString *uuid;
 
 @end
 

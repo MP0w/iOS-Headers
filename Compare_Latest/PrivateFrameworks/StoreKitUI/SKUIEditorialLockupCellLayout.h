@@ -6,7 +6,7 @@
 
 #import <StoreKitUI/SKUIItemCellLayout.h>
 
-@class SKUICellLayoutView, SKUIEditorialCellLayout, SKUILockupItemCellLayout, SKUITextBoxView, UIView;
+@class SKUICellLayoutView, SKUIEditorialCellLayout, SKUILockupItemCellLayout, SKUITextBoxView, UIColor, UIView;
 
 @interface SKUIEditorialLockupCellLayout : SKUIItemCellLayout
 {
@@ -17,6 +17,7 @@
     int _layoutStyle;
     SKUILockupItemCellLayout *_lockupLayout;
     SKUICellLayoutView *_lockupView;
+    UIColor *_offerNoticeTextColor;
     SKUITextBoxView *_textBoxView;
     unsigned int _visibleFields;
 }
@@ -34,6 +35,7 @@
 - (id)_editorialCellLayout;
 - (void)setRestricted:(BOOL)arg1;
 - (void)setItemState:(id)arg1 animated:(BOOL)arg2;
+- (void)setItemOfferNoticeString:(id)arg1;
 - (void)setItemOfferButtonAppearance:(id)arg1;
 - (void)setItemOffer:(id)arg1;
 - (void)setIconImageHidden:(BOOL)arg1;
@@ -41,6 +43,7 @@
 - (void)setClientContext:(id)arg1;
 - (void)layoutForItemOfferChange;
 - (id)itemState;
+- (id)itemOfferNoticeString;
 - (id)itemOffer;
 - (BOOL)isIconImageHidden;
 - (id)iconImageView;

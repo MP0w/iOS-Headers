@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     OADTextListStyle *mNotesTextStyle;
 }
 
+- (id)description;
 - (id)drawingTheme;
 - (void)doneWithContent;
 - (id)masterGraphicForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
@@ -23,7 +24,6 @@ __attribute__((visibility("hidden")))
 - (id)parentTextStyleForTables;
 - (id)parentTextStyleForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 defaultTextListStyle:(id)arg3 overrideIndex:(BOOL)arg4;
 - (id)parentTextBodyPropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
-- (id)placeholderWithType:(int)arg1 placeholderTypeIndex:(int)arg2;
 - (id)notesTextStyle;
 - (id)styleMatrix;
 - (id)colorMap;

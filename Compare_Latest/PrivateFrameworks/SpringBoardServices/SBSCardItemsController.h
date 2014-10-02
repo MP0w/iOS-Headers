@@ -7,14 +7,13 @@
 #import "NSObject.h"
 
 #import "SBSCardItemsControllerRemoteInterface.h"
-#import "XPCProxyTarget.h"
 
-@class NSString;
+@class NSString, NSXPCConnection;
 
-@interface SBSCardItemsController : NSObject <XPCProxyTarget, SBSCardItemsControllerRemoteInterface>
+@interface SBSCardItemsController : NSObject <SBSCardItemsControllerRemoteInterface>
 {
-    id <SBCardItemsControllerRemoteInterface> _remoteProxy;
     NSString *_identifier;
+    NSXPCConnection *_connection;
 }
 
 - (void)getCardItemsWithHandler:(CDUnknownBlockType)arg1;
@@ -22,9 +21,14 @@
 - (void)setCardItems:(id)arg1;
 - (void)removeCardItems:(id)arg1;
 - (void)addCardItems:(id)arg1;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)dealloc;
 - (id)initWithIdentifier:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

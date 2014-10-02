@@ -25,7 +25,9 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_locationToStatus;
 }
 
-+ (void)registerInitialSyncHandlerForURL:(id)arg1 onQueue:(id)arg2 withBlock:(CDUnknownBlockType)arg3;
++ (void)registerInitialSyncHandlerForURL:(id)arg1 andContainerID:(id)arg2 onQueue:(id)arg3 withBlock:(CDUnknownBlockType)arg4;
++ (id)cloudDocsRootFolder;
++ (int)usesCloudDocsFramework;
 + (void)startDownloadForItems:(id)arg1 onQueue:(id)arg2 withBlock:(CDUnknownBlockType)arg3;
 + (id)sharedPrivateOperationQueue;
 + (void)initialize;
@@ -44,6 +46,7 @@ __attribute__((visibility("hidden")))
 - (void)exporterDidMoveLog:(id)arg1;
 - (id)copyStatusDictionary;
 - (id)retainedStatusForLocation:(id)arg1;
+- (BOOL)isiCloudExtension:(id)arg1;
 - (void)processPendingURLs;
 - (void)presentedSubitemUbiquityDidChangeAtURL:(id)arg1;
 - (void)presentedSubitemDidChangeAtURL:(id)arg1;
@@ -51,13 +54,16 @@ __attribute__((visibility("hidden")))
 - (void)relinquishPresentedItemToReader:(CDUnknownBlockType)arg1;
 @property(readonly) NSOperationQueue *presentedItemOperationQueue;
 @property(readonly) NSURL *presentedItemURL;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithUbiquityRootLocation:(id)arg1 localPeerID:(id)arg2 storeName:(id)arg3 processingQueue:(id)arg4;
 - (id)init;
 
 // Remaining properties
-@property(readonly) NSURL *primaryPresentedItemURL;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly, copy) NSURL *primaryPresentedItemURL;
+@property(readonly) Class superclass;
 
 @end
 

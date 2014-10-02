@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSError, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSOperationQueue, RCExtAudioFilePipe;
+@class NSError, NSHashTable, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSOperationQueue, RCExtAudioFilePipe;
 
 @interface RCWaveformGenerator : NSObject
 {
@@ -16,13 +16,15 @@
     NSObject<OS_dispatch_queue> *_notificationQueue;
     double _totalDigestedTime;
     double _totalFlushedTime;
-    NSMutableArray *_weakObservers;
-    NSMutableDictionary *_internalFinishedLoadingBlocksByUUID;
+    NSHashTable *_weakObservers;
+    NSMutableArray *_internalFinishedLoadingBlockUUIDs;
+    NSMutableArray *_internalFinishedLoadingBlocks;
     RCExtAudioFilePipe *_activeExtAudioFile;
     NSOperationQueue *_loadingQueue;
     struct PowerMeter _samplePowerMeter;
     BOOL _isSampleRateKnown;
     vector_ec52ae8c _powerLevelBuffer;
+    float _powerLevelBufferLastPushedValue;
     unsigned int _powerLevelsConsumedSinceLastFlush;
     unsigned int _framesConsumedSinceLastFlush;
     int _framesNeededForNextDB;
@@ -47,29 +49,33 @@
 - (void)_onLoadingQueue_flushRemainingData;
 - (void)_onLoadingQueue_flushWithNextSegmentWithEndTime:(double)arg1 isPredigest:(BOOL)arg2;
 - (void)_onLoadingQueue_flushWaveformSegment:(id)arg1;
-- (void)_appendAveragePowerLevelsByDigestingWaveform:(id)arg1;
-- (id)synchronouslyApproximateWaveformSegmentsByReadingAheadTimeRange:(CDStruct_73a5d3ca)arg1;
+- (void)_appendAveragePowerLevelsByDigestingWaveformSegments:(id)arg1;
+- (id)synchronouslyApproximateWaveformForAVContentURL:(id)arg1 byReadingCurrentFileAheadTimeRange:(CDStruct_73a5d3ca)arg2;
+- (void)_onQueue_appendAveragePowerLevelsByDigestingTimeRange:(CDStruct_73a5d3ca)arg1 inExtAudioFile:(id)arg2 sourceFormat:(struct AudioStreamBasicDescription *)arg3 outputFormat:(struct AudioStreamBasicDescription *)arg4;
 - (void)_appendAveragePowerLevelsByDigestingTimeRange:(CDStruct_73a5d3ca)arg1 inExtAudioFile:(id)arg2 sourceFormat:(struct AudioStreamBasicDescription *)arg3 outputFormat:(struct AudioStreamBasicDescription *)arg4;
-- (void)_appendPowerMeterValuesFromDataInAudioFile:(id)arg1;
+- (void)_appendPowerMeterValuesFromDataInAudioFile:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 - (void)_appendPowerMeterValuesFromSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
 - (void)_appendAveragePowerLevel:(float)arg1;
 - (void)_performObserversBlock:(CDUnknownBlockType)arg1;
-- (id)_onQueueCopySegmentOutputObservers;
 - (void)_performInternalFinishedLoadingBlocksAndFinishObservers;
 - (void)_performLoadingFinishedBlock:(CDUnknownBlockType)arg1 internalBlockUUID:(id)arg2 isTimeout:(BOOL)arg3;
-- (void)_finishLoadingByTerminating:(BOOL)arg1 beforeDate:(id)arg2 loadingFinishedBlock:(CDUnknownBlockType)arg3;
+- (void)_finishLoadingByTerminating:(BOOL)arg1 loadingFinishedBlockTimeoutDate:(id)arg2 loadingFinishedBlock:(CDUnknownBlockType)arg3;
 - (BOOL)_isCanceled;
-@property(readonly, nonatomic) double totalDigestedTime;
-@property(readonly, nonatomic) double totalFlushedTime;
-- (void)finishLoadingBeforeDate:(id)arg1 loadingFinishedBlock:(CDUnknownBlockType)arg2;
+- (double)totalDigestedTime;
+- (double)totalFlushedTime;
+- (void)finishLoadingWithCompletionTimeoutDate:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)terminateLoadingImmediately;
 @property(nonatomic) BOOL paused;
 - (void)beginLoading;
+@property(readonly, nonatomic) BOOL idle;
+@property(readonly, nonatomic) BOOL finished;
 @property(readonly, nonatomic) BOOL loadable;
 - (BOOL)appendAveragePowerLevelsByDigestingWaveform:(id)arg1;
-- (BOOL)appendAveragePowerLevelsByDigestingContentsAudioFileURL:(id)arg1;
 - (BOOL)appendAveragePowerLevel:(float)arg1;
+- (BOOL)appendAveragePowerLevelsByDigestingWaveformSegments:(id)arg1;
+- (BOOL)appendAveragePowerLevelsByDigestingContentsOfAudioFileURL:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 - (BOOL)appendAveragePowerLevelsByDigestingSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
+- (void)flushPendingCapturedSampleBuffers;
 - (void)removeSegmentOutputObserver:(id)arg1;
 - (void)addSegmentOutputObserver:(id)arg1;
 - (id)initWithSamplingParametersFromGenerator:(id)arg1;

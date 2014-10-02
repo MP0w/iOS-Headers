@@ -13,9 +13,9 @@
 __attribute__((visibility("hidden")))
 @interface TPDocumentStatistics : NSObject <NSCopying>
 {
+    BOOL _isAccurate;
     TSWPTextStatistics *_textStatistics;
     unsigned int _pageCount;
-    BOOL _isAccurate;
 }
 
 @property(nonatomic) BOOL isAccurate; // @synthesize isAccurate=_isAccurate;

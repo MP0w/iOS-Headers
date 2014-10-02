@@ -7,6 +7,10 @@
 #import "NSString.h"
 
 @interface NSString (DAExtensions)
++ (id)new64ByteGUID;
++ (id)newGUID;
+- (id)trimWhiteSpace;
+- (BOOL)hasPrefixCaseInsensitive:(id)arg1;
 - (id)stringByURLEscapingPathComponent;
 - (id)appendSlashIfNeeded;
 - (id)removeSlashIfNeeded;

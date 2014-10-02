@@ -17,6 +17,7 @@
 - (id)CDVServerURLWithPath:(BOOL)arg1;
 - (id)CDVServerURL;
 - (id)CDVURLByDeletingLastPathComponent;
+- (id)CDVRawLastPathComponentPreservingEscapes;
 - (id)CDVRawLastPathComponent;
 - (id)CDVRawPath;
 - (id)CDVPassword;

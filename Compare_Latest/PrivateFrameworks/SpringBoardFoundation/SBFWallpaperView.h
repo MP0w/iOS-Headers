@@ -8,7 +8,7 @@
 
 #import "_UISettingsKeyObserver.h"
 
-@class NSTimer, SBFWallpaperParallaxSettings, SBFWallpaperSettings, UIColor, UIImage, UIImageView, _UILegibilitySettings, _UILegibilitySettingsProvider;
+@class NSString, NSTimer, SBFWallpaperParallaxSettings, SBFWallpaperSettings, UIColor, UIImage, UIImageView, _UILegibilitySettings, _UILegibilitySettingsProvider;
 
 @interface SBFWallpaperView : UIView <_UISettingsKeyObserver>
 {
@@ -97,7 +97,7 @@
 - (id)_computeAverageColor;
 - (void)_handleVariantChange;
 - (void)_handleVisibilityChange;
-- (BOOL)isDisplayingWallpaper:(id)arg1;
+- (BOOL)isDisplayingWallpaper:(id)arg1 forVariant:(int)arg2 options:(id)arg3;
 - (void)didMoveToWindow;
 - (void)setHidden:(BOOL)arg1;
 - (void)layoutSubviews;
@@ -116,10 +116,18 @@
 - (void)setVariant:(int)arg1 withAnimationFactory:(id)arg2;
 - (float)cropZoomScale;
 - (BOOL)supportsCropping;
+- (void)prepareToDisappear;
+- (void)prepareToAppear;
 - (void)setCropRect:(struct CGRect)arg1 zoomScale:(float)arg2;
 - (struct CGRect)cropRect;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

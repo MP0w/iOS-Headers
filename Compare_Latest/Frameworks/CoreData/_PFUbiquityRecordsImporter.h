@@ -88,11 +88,16 @@ __attribute__((visibility("hidden")))
 - (BOOL)checkSchedulingContextForMissingLocalPeerOperations:(id)arg1 error:(id *)arg2;
 - (BOOL)canProcessTransactionLogWithScore:(id)arg1 afterLogWithScore:(id)arg2;
 - (id)createSortedOperationsArrayWithMetadata:(id)arg1 isFirstImport:(BOOL)arg2;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithLocalPeerID:(id)arg1 ubiquityRootLocation:(id)arg2 storeName:(id)arg3 andPrivateStore:(id)arg4;
 - (id)initWithLocalPeerID:(id)arg1 andUbiquityRootLocation:(id)arg2;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

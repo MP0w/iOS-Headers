@@ -8,50 +8,56 @@
 
 #import "BBObserverDelegate.h"
 #import "SBBulletinViewControllerDelegate.h"
+#import "SBModeViewControllerContentProviding.h"
 #import "SBNotificationCenterWidgetHost.h"
-#import "SBSizeObservingViewDelegate.h"
-#import "SBWidgetViewControllerHostDelegate.h"
+#import "SBUISizeObservingViewDelegate.h"
+#import "SBWidgetViewControllerDelegate.h"
 
-@class BBObserver, NSArray, NSMutableArray, NSMutableDictionary, SBBulletinViewController, _UIContentUnavailableView;
+@class BBObserver, BSSerializedRequestQueue, NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, SBBulletinViewController, UIView, _UIContentUnavailableView;
 
-@interface SBBulletinObserverViewController : UIViewController <SBSizeObservingViewDelegate, BBObserverDelegate, SBBulletinViewControllerDelegate, SBWidgetViewControllerHostDelegate, SBNotificationCenterWidgetHost>
+@interface SBBulletinObserverViewController : UIViewController <SBUISizeObservingViewDelegate, BBObserverDelegate, SBBulletinViewControllerDelegate, SBWidgetViewControllerDelegate, SBNotificationCenterWidgetHost, SBModeViewControllerContentProviding>
 {
     BBObserver *_observer;
+    unsigned long long _feed;
     id _delegate;
-    id <SBWidgetViewControllerHostDelegate> _widgetDelegate;
-    NSMutableArray *_requestQueue;
+    id <SBWidgetViewControllerDelegate> _widgetDelegate;
+    BSSerializedRequestQueue *_sectionRequestQueue;
+    BSSerializedRequestQueue *_bulletinRequestQueue;
     NSMutableDictionary *_enabledSectionInfosByID;
     NSMutableArray *_visibleSectionIDs;
     NSMutableDictionary *_bulletinIDsByFeed;
+    UIView *_contentProvidingView;
     SBBulletinViewController *_bulletinViewController;
     _UIContentUnavailableView *_contentUnavailableView;
     long long _sectionOrderRule;
     long long _supportedCategory;
     NSArray *_sectionOrder;
     NSMutableArray *_makeshiftSectionOrder;
-    long long _requestHandlingDisabledCount;
+    NSObject<OS_dispatch_queue> *_handlingControlQueue;
+    long long _bulletinHandlingDisabledCount;
+    long long _sectionHandlingDisabledCount;
     struct {
-        unsigned int isServerConnected:1;
         unsigned int isRePushingUpdates:1;
         unsigned int scrollsToTop:1;
         unsigned int isLayoutValid:1;
-        unsigned int hasVisibleContent:1;
     } _bulletinObserverViewControllerFlags;
 }
 
 + (unsigned long long)_contentUnavailableVibrantOptionsForCurrentState;
 + (id)allCategories;
-@property(nonatomic) id <SBWidgetViewControllerHostDelegate> widgetDelegate; // @synthesize widgetDelegate=_widgetDelegate;
+@property(nonatomic) id <SBWidgetViewControllerDelegate> widgetDelegate; // @synthesize widgetDelegate=_widgetDelegate;
 @property(nonatomic) id <SBBulletinActionHandler> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) SBBulletinViewController *bulletinViewController; // @synthesize bulletinViewController=_bulletinViewController;
+- (_Bool)canRemoveViewOnDismissal:(id)arg1;
 - (void)hostDidDismiss;
 - (void)hostWillDismiss;
 - (void)hostDidPresent;
 - (void)hostWillPresent;
-- (void)_invokeBlockWithAllWidgets:(CDUnknownBlockType)arg1;
-- (void)widget:(id)arg1 didUpdatePreferredSize:(struct CGSize)arg2;
+- (void)invokeBlockWithAllWidgets:(CDUnknownBlockType)arg1;
+- (CDUnknownBlockType)widget:(id)arg1 didUpdatePreferredHeight:(double)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)widget:(id)arg1 requestsPresentationOfViewController:(id)arg2 presentationStyle:(long long)arg3 context:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)widget:(id)arg1 requestsLaunchOfURL:(id)arg2;
+- (void)remoteViewControllerDidConnectForWidget:(id)arg1;
 - (void)observer:(id)arg1 noteServerConnectionStateChanged:(_Bool)arg2;
 - (void)observer:(id)arg1 noteInvalidatedBulletinIDs:(id)arg2;
 - (struct CGSize)observer:(id)arg1 composedAttachmentSizeForType:(long long)arg2 thumbnailWidth:(float)arg3 height:(float)arg4 key:(id)arg5;
@@ -66,15 +72,12 @@
 - (void)observer:(id)arg1 removeBulletin:(id)arg2;
 - (void)observer:(id)arg1 modifyBulletin:(id)arg2 forFeed:(unsigned long long)arg3;
 - (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned long long)arg3;
-- (void)_clearQueues;
-- (void)_enqueueInQueue:(id)arg1 orProcessRequest:(CDUnknownBlockType)arg2;
-- (_Bool)_canEnqueueRequestsInQueue:(id)arg1;
-- (void)_dequeueAndProcessItemsInQueues;
-- (_Bool)_dequeueAndProcessNextItemInQueues;
-- (_Bool)_dequeueAndProcessNextItemInQueue:(id)arg1;
-- (_Bool)_canProcessRequestsInQueue:(id)arg1;
-- (_Bool)_isServerConnected;
-- (void)_updateSection:(id)arg1 forCategory:(long long)arg2;
+- (void)_teardownRequestQueues;
+- (void)_teardownRequestQueue:(id *)arg1;
+- (void)_enqueueBulletinRequest:(CDUnknownBlockType)arg1 forBulletinInfo:(id)arg2;
+- (void)_setupRequestQueues;
+- (void)_setupQueue:(id *)arg1 withLabel:(const char *)arg2;
+- (void)_updateSection:(id)arg1 forCategory:(long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_setSectionOrder:(id)arg1 forCategory:(long long)arg2;
 - (void)_setSectionOrderRule:(long long)arg1;
 - (void)_sortAndCommitReloadOfSectionsInCategory:(long long)arg1;
@@ -121,9 +124,8 @@
 - (id)infoForWidgetSection:(id)arg1;
 - (id)infoForBulletinSection:(id)arg1;
 - (id)infoForWidget:(id)arg1 inSection:(id)arg2;
-- (id)infoForBulletin:(id)arg1 inSection:(id)arg2;
-- (id)_widgetForSection:(id)arg1 inCategory:(long long)arg2;
-- (long long)widgetIdiomForCategory:(long long)arg1;
+- (id)infoForBulletin:(id)arg1 inSection:(id)arg2 forFeed:(unsigned long long)arg3;
+- (id)widgetForSection:(id)arg1;
 - (void)pushUpdatesAgainForFeeds:(unsigned long long)arg1;
 - (void)pushUpdatesAgainForSectionWithIdentifier:(id)arg1 feeds:(unsigned long long)arg2;
 - (_Bool)isRePushingUpdates;
@@ -139,6 +141,7 @@
 - (void)commitRemovalOfSection:(id)arg1;
 - (void)commitInsertionOfSection:(id)arg1 beforeSection:(id)arg2;
 - (long long)layoutModeForBulletinViewController:(id)arg1;
+- (_Bool)bulletinViewController:(id)arg1 didSelectAction:(id)arg2 forBulletin:(id)arg3 inSection:(id)arg4;
 - (_Bool)bulletinViewController:(id)arg1 didSelectBulletin:(id)arg2 inSection:(id)arg3;
 - (_Bool)bulletinViewController:(id)arg1 shouldHighlightBulletin:(id)arg2 inSection:(id)arg3;
 - (long long)bulletinViewController:(id)arg1 replacementAnimationForBulletin:(id)arg2 inSection:(id)arg3;
@@ -148,12 +151,13 @@
 - (struct CGRect)_frameforViewWithContentForMode:(long long)arg1;
 - (void)sizeObservingView:(id)arg1 didChangeSize:(struct CGSize)arg2;
 - (void)invalidateContentLayout;
+@property(readonly, nonatomic) struct CGSize contentSize;
 - (struct UIEdgeInsets)bulletinViewControllerContentInsetsForMode:(long long)arg1;
 - (long long)layoutMode;
 - (void)viewDidLoad;
 - (void)insertAppropriateViewWithContent;
 - (void)loadView;
-- (void)_transitionToContentUnavailableViewIfNecessary;
+- (void)transitionToContentUnavailableViewIfNecessary;
 - (void)_transitionToBulletinViewControllerViewIfNecessary;
 - (void)_transitionToBulletinViewControllerView:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_insertContentUnavailableView;
@@ -163,11 +167,24 @@
 - (long long)sectionOrderRule;
 @property(nonatomic) _Bool scrollsToTop;
 @property(nonatomic, getter=isRequestHandlingEnabled) _Bool requestHandlingEnabled;
+- (void)_handlingQueue_setSectionHandlingEnabled:(_Bool)arg1;
+- (void)setSectionHandlingEnabled:(_Bool)arg1;
+- (_Bool)isSectionHandlingEnabled;
+- (void)_handlingQueue_setBulletinHandlingEnabled:(_Bool)arg1;
+- (void)setBulletinHandlingEnabled:(_Bool)arg1;
+- (_Bool)isBulletinHandlingEnabled;
 - (id)observer;
 - (id)_lazyContentUnavailableView;
 - (void)dealloc;
 - (id)initWithObserverFeed:(unsigned long long)arg1;
+- (id)initWithObserverFeed:(unsigned long long)arg1 bulletinViewControllerClass:(Class)arg2;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

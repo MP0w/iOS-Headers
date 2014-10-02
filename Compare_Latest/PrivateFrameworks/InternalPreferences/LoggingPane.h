@@ -26,14 +26,6 @@
 }
 
 + (id)systemVersionDescription;
-- (void)saveLogFile;
-- (void)setPreferenceSpecifier:(id)arg1;
-- (id)textView;
-- (void)startTimer;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)stopTimer;
-- (void)dealloc;
-- (BOOL)handlesDoneButton;
 - (void)mailComposeController:(id)arg1 didFinishWithResult:(int)arg2 error:(id)arg3;
 - (void)emailButtonClicked;
 - (void)_finished:(id)arg1;
@@ -42,6 +34,20 @@
 - (void)_run;
 - (void)_updateText:(id)arg1;
 - (void)_showAlertForFailedCommand:(id)arg1;
+- (void)saveLogFile;
+- (void)setPreferenceSpecifier:(id)arg1;
+- (id)textView;
+- (void)startTimer;
+- (id)initWithFrame:(struct CGRect)arg1;
+- (void)stopTimer;
+- (void)dealloc;
+- (BOOL)handlesDoneButton;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

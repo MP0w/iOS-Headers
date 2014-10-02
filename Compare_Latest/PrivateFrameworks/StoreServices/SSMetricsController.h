@@ -34,6 +34,7 @@
 - (void)_setupFlushTimer;
 - (void)_handleFlushTimer;
 - (void)_serialQueueInsertEvents:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (id)_cookieValuesForConfiguration:(id)arg1;
 - (id)_connection;
 - (void)dealloc;
 - (id)init;

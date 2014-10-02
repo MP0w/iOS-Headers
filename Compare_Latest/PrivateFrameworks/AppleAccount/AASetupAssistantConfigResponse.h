@@ -11,10 +11,8 @@
 @interface AASetupAssistantConfigResponse : AAResponse
 {
     NSDictionary *_urls;
-    NSString *_ckAppLoginURL;
 }
 
-@property(readonly, nonatomic) NSString *ckAppLoginURL; // @synthesize ckAppLoginURL=_ckAppLoginURL;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *iForgotUIURL;
 @property(readonly, nonatomic) NSString *activeEmailDomain;

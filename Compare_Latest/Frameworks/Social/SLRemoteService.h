@@ -17,7 +17,6 @@
     NSBundle *_serviceBundle;
     BOOL _serviceRegionTargetIsChina;
     BOOL _addDeviceClassToRequest;
-    NSString *_xpcServiceIdentifier;
     NSString *_serviceTypeIdentifier;
     NSString *_accountTypeIdentifier;
     NSString *_localizedServiceName;
@@ -30,8 +29,6 @@
     int _maximumVideoTimeLimit;
     NSSet *_supportedImageAssetURLSchemes;
     NSSet *_supportedVideoAssetURLSchemes;
-    NSString *_shareSheetHostingBundleIdentifier;
-    NSString *_shareSheetClassName;
     NSString *_activityImageName;
     NSURL *_serviceBundleURL;
 }
@@ -43,8 +40,6 @@
 + (BOOL)supportsSecureCoding;
 @property(retain) NSURL *serviceBundleURL; // @synthesize serviceBundleURL=_serviceBundleURL;
 @property(retain) NSString *activityImageName; // @synthesize activityImageName=_activityImageName;
-@property(retain) NSString *shareSheetClassName; // @synthesize shareSheetClassName=_shareSheetClassName;
-@property(retain) NSString *shareSheetHostingBundleIdentifier; // @synthesize shareSheetHostingBundleIdentifier=_shareSheetHostingBundleIdentifier;
 @property BOOL addDeviceClassToRequest; // @synthesize addDeviceClassToRequest=_addDeviceClassToRequest;
 @property(retain) NSSet *supportedVideoAssetURLSchemes; // @synthesize supportedVideoAssetURLSchemes=_supportedVideoAssetURLSchemes;
 @property(retain) NSSet *supportedImageAssetURLSchemes; // @synthesize supportedImageAssetURLSchemes=_supportedImageAssetURLSchemes;
@@ -59,7 +54,6 @@
 @property(retain) NSString *localizedServiceName; // @synthesize localizedServiceName=_localizedServiceName;
 @property(retain) NSString *accountTypeIdentifier; // @synthesize accountTypeIdentifier=_accountTypeIdentifier;
 @property(retain) NSString *serviceTypeIdentifier; // @synthesize serviceTypeIdentifier=_serviceTypeIdentifier;
-@property(retain) NSString *xpcServiceIdentifier; // @synthesize xpcServiceIdentifier=_xpcServiceIdentifier;
 - (void).cxx_destruct;
 @property(nonatomic) int maximumVideoCount; // @dynamic maximumVideoCount;
 - (id)description;
@@ -72,7 +66,6 @@
 - (BOOL)supportsImageURL:(id)arg1;
 - (BOOL)isFirstClassService;
 - (void)addExtraParameters:(id)arg1 forRequest:(id)arg2;
-- (id)connectionName;
 - (id)serviceType;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

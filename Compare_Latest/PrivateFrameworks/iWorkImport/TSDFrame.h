@@ -26,6 +26,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSDFrameSpec *frameSpec; // @synthesize frameSpec=mSpec;
 @property(readonly, nonatomic) float assetScale; // @synthesize assetScale=mAssetScale;
 - (struct CGSize)p_minimumRenderedSize;
+- (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
+- (int)mixingTypeWithObject:(id)arg1;
 - (void)drawSwatchInRect:(struct CGRect)arg1 inContext:(struct CGContext *)arg2;
 - (void)paintPath:(struct CGPath *)arg1 wantsInteriorStroke:(BOOL)arg2 inContext:(struct CGContext *)arg3 useFastDrawing:(BOOL)arg4;
 - (BOOL)drawsInOneStep;
@@ -33,7 +35,9 @@ __attribute__((visibility("hidden")))
 - (BOOL)canApplyToCAShapeLayer;
 - (BOOL)canApplyDirectlyToRepCALayer;
 - (BOOL)isNullStroke;
+- (float)equivalentStrokeWidth;
 - (struct _TSDStrokeOutsets)outsets;
+- (BOOL)containsPoint:(struct CGPoint)arg1 whenStrokingRect:(struct CGRect)arg2;
 - (BOOL)shouldRenderForSizeIncludingCoverage:(struct CGSize)arg1;
 - (BOOL)shouldRender;
 - (BOOL)supportsLineOptions;
@@ -44,6 +48,7 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)coverageRect:(struct CGRect)arg1;
 - (struct CGRect)p_coverageRectWithAdornment:(struct CGRect)arg1;
 - (struct CGRect)p_coverageRectWithoutAdornment:(struct CGRect)arg1;
+- (struct CGRect)p_uncoveredRectWithoutAdornment:(struct CGRect)arg1;
 - (BOOL)hasMask;
 - (float)minimumAssetScale;
 - (id)archivableFrameName;

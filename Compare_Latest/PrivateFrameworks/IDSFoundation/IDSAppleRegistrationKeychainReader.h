@@ -25,6 +25,7 @@
 - (id)registrationData;
 - (void)_reloadFromDictionaryLocked:(id)arg1;
 - (void)_setPurgeTimer;
+- (void)flushCache;
 - (void)_flush;
 - (void)dealloc;
 - (id)init;

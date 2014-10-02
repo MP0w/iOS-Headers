@@ -32,6 +32,8 @@
 - (id)initWithVideoURL:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 

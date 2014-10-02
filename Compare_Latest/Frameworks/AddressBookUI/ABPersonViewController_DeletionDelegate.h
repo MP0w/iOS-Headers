@@ -8,7 +8,7 @@
 
 #import "UIActionSheetDelegate.h"
 
-@class ABPersonViewControllerHelper;
+@class ABPersonViewControllerHelper, NSString;
 
 @interface ABPersonViewController_DeletionDelegate : NSObject <UIActionSheetDelegate>
 {
@@ -18,6 +18,12 @@
 - (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (id)initWithPersonViewController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

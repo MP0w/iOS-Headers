@@ -9,7 +9,10 @@
 @class UIImageView, UIViewController;
 
 @protocol SKUISlideshowViewControllerDelegate <NSObject>
-- (UIImageView *)slideshowViewController:(UIViewController *)arg1 poppedImageViewAtIndex:(int)arg2;
+
+@optional
+- (void)slideshowViewControllerDidFinish:(UIViewController *)arg1;
 - (void)slideshowViewController:(UIViewController *)arg1 scrollToImageAtIndex:(int)arg2;
+- (UIImageView *)slideshowViewController:(UIViewController *)arg1 poppedImageViewAtIndex:(int)arg2;
 @end
 

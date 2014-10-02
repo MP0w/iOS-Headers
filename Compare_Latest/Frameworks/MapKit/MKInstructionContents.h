@@ -23,7 +23,7 @@
 
 + (id)contentsWithManeuverType:(int)arg1 transportType:(int)arg2;
 + (id)contentsWithSubstep:(id)arg1 transportType:(int)arg2;
-+ (id)contentsWithRoute:(id)arg1 step:(id)arg2;
++ (id)contentsWithStep:(id)arg1 transportType:(int)arg2;
 @property(nonatomic) int junctionAngle; // @synthesize junctionAngle=_junctionAngle;
 @property(nonatomic) BOOL toFreeway; // @synthesize toFreeway=_toFreeway;
 @property(retain, nonatomic) NSArray *towardNames; // @synthesize towardNames=_towardNames;

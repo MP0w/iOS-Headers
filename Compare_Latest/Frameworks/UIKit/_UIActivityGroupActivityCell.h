@@ -6,25 +6,26 @@
 
 #import <UIKit/UICollectionViewCell.h>
 
-@class UILabel, _UIActivityFunctionImageView;
+@class UIImageView, UILabel;
 
 __attribute__((visibility("hidden")))
 @interface _UIActivityGroupActivityCell : UICollectionViewCell
 {
-    BOOL _darkStyleOnLegacyApp;
-    _UIActivityFunctionImageView *_activityImageView;
-    UILabel *_activityLabel;
+    UILabel *_titleLabel;
+    UIImageView *_imageView;
+    UIImageView *_highlightedImageView;
 }
 
-@property(nonatomic) BOOL darkStyleOnLegacyApp; // @synthesize darkStyleOnLegacyApp=_darkStyleOnLegacyApp;
-@property(retain, nonatomic) UILabel *activityLabel; // @synthesize activityLabel=_activityLabel;
-@property(retain, nonatomic) _UIActivityFunctionImageView *activityImageView; // @synthesize activityImageView=_activityImageView;
-- (void)layoutSubviews;
+@property(retain, nonatomic) UIImageView *highlightedImageView; // @synthesize highlightedImageView=_highlightedImageView;
+@property(retain, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
+@property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
+- (void)initHighlightedImageViewIfNeeded;
+- (void)updateHighlightedImageViewIfNeeded;
 - (void)setHighlighted:(BOOL)arg1;
-- (void)reloadImage:(id)arg1;
-- (void)setActivity:(id)arg1 withCustomTitle:(id)arg2;
 - (void)prepareForReuse;
 - (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
+- (id)draggingView;
 
 @end
 

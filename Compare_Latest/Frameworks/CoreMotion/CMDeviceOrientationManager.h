@@ -17,6 +17,7 @@
 - (id)deviceOrientationBlocking;
 - (void)onDeviceOrientation:(const struct Sample *)arg1;
 - (void)setDeviceOrientationCallbackModePrivate:(int)arg1;
+- (void)signalAndReleaseSemaphoreIfNecessaryPrivate;
 - (void)stopDeviceOrientationUpdatesPrivate;
 - (void)startDeviceOrientationUpdatesPrivateToQueue:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)stopDeviceOrientationUpdates;

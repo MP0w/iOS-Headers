@@ -6,15 +6,20 @@
 
 #import "NSObject.h"
 
-@class NSHashTable, NSMutableSet, SBLockScreenViewControllerBase, SBPasscodeEntryAlertViewController, SBPasscodeLockDisableAssertion;
+#import "SBLockScreenViewControllerDelegate.h"
+#import "SBUIBiometricEventMonitorDelegate.h"
+#import "SBUIBiometricEventObserver.h"
 
-@interface SBLockScreenManager : NSObject
+@class NSHashTable, NSMutableSet, NSString, SBLockScreenViewControllerBase, SBPasscodeEntryAlertViewController, SBPasscodeLockDisableAssertion;
+
+@interface SBLockScreenManager : NSObject <SBLockScreenViewControllerDelegate, SBUIBiometricEventObserver, SBUIBiometricEventMonitorDelegate>
 {
     SBLockScreenViewControllerBase *_lockScreenViewController;
     _Bool _isUILocked;
     _Bool _isWaitingToLockUI;
     _Bool _appRequestedPasscodeEntry;
     _Bool _uiHasBeenLockedOnce;
+    _Bool _uiUnlocking;
     SBPasscodeEntryAlertViewController *_passcodeEntryController;
     SBPasscodeLockDisableAssertion *_disablePasscodeLockWhileUIUnlockedAssertion;
     NSMutableSet *_disableLockScreenIfPossibleAssertions;
@@ -22,15 +27,18 @@
     _Bool _isInLostMode;
     unsigned long long _failedMesaUnlockAttempts;
     _Bool _bioAuthenticatedWhileMenuButtonDown;
+    NSMutableSet *_bioUnlockingDisabledRequesters;
 }
 
 + (id)sharedInstanceIfExists;
 + (id)sharedInstance;
 + (id)_sharedInstanceCreateIfNeeded:(_Bool)arg1;
 @property(readonly) _Bool bioAuthenticatedWhileMenuButtonDown; // @synthesize bioAuthenticatedWhileMenuButtonDown=_bioAuthenticatedWhileMenuButtonDown;
+@property(nonatomic, getter=isUIUnlocking) _Bool UIUnlocking; // @synthesize UIUnlocking=_uiUnlocking;
 @property(readonly) _Bool isWaitingToLockUI; // @synthesize isWaitingToLockUI=_isWaitingToLockUI;
 @property(readonly) _Bool isUILocked; // @synthesize isUILocked=_isUILocked;
 @property(readonly, nonatomic) SBLockScreenViewControllerBase *lockScreenViewController; // @synthesize lockScreenViewController=_lockScreenViewController;
+- (void)setBioUnlockingDisabled:(_Bool)arg1 forRequester:(id)arg2;
 - (void)_frontmostDisplayChanged:(id)arg1;
 - (void)_lockScreenDimmed:(id)arg1;
 - (void)_bioAuthenticated:(id)arg1;
@@ -69,11 +77,17 @@
 - (void)_activateLockScreenAnimated:(_Bool)arg1 automatically:(_Bool)arg2 inScreenOffMode:(_Bool)arg3 dimInAnimation:(_Bool)arg4 dismissNotificationCenter:(_Bool)arg5;
 - (void)lockUIFromSource:(int)arg1 withOptions:(id)arg2;
 - (_Bool)shouldLockUIAfterEndingCall;
-- (_Bool)_shouldLockAfterFaceTimeCall;
-- (_Bool)_shouldLockAfterTelephonyCall;
+- (_Bool)_shouldLockAfterEndingFaceTimeCall;
+- (_Bool)_shouldLockAfterEndingTelephonyCall;
 - (_Bool)hasUIEverBeenLocked;
 - (id)_newLockScreenController;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

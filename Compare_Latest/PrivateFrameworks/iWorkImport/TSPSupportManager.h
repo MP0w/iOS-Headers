@@ -9,7 +9,7 @@
 #import "NSFilePresenter.h"
 #import "TSPFileCoordinatorDelegate.h"
 
-@class NSObject<OS_dispatch_group>, NSOperationQueue, NSRecursiveLock, NSURL, TSPObjectContext, TSPSupportSaveOperationState;
+@class NSObject<OS_dispatch_group>, NSOperationQueue, NSRecursiveLock, NSString, NSURL, TSPObjectContext, TSPSupportSaveOperationState;
 
 __attribute__((visibility("hidden")))
 @interface TSPSupportManager : NSObject <NSFilePresenter, TSPFileCoordinatorDelegate>
@@ -26,30 +26,33 @@ __attribute__((visibility("hidden")))
 + (id)supportBundleURLForUUID:(id)arg1 delegate:(id)arg2;
 + (id)supportDirectoryURLWithDelegate:(id)arg1;
 + (id)defaultSupportDirectoryURL;
-+ (id)updateDocumentUUIDForDocumentURL:(id)arg1 preserveOriginalDocumentSupport:(BOOL)arg2 coordinateWrite:(BOOL)arg3 filePresenter:(id)arg4 delegate:(id)arg5 error:(id *)arg6;
-+ (BOOL)copyOrMoveSupportAtURL:(id)arg1 originalDocumentProperties:(id)arg2 toURL:(id)arg3 isCopying:(BOOL)arg4 newDocumentProperties:(id)arg5 filePresenter:(id)arg6 error:(id *)arg7;
-+ (BOOL)isSupportAtURLValid:(id)arg1 documentUUID:(id)arg2 versionUUID:(id)arg3;
++ (BOOL)isSupportAtURLValid:(id)arg1 documentUUID:(id)arg2 versionUUID:(id)arg3 documentProperties:(id *)arg4;
 - (void).cxx_destruct;
-- (BOOL)didUpdateDocumentUUIDWithOriginalDocumentProperties:(id)arg1 newDocumentProperties:(id)arg2 preserveOriginalDocumentSupport:(BOOL)arg3 originalURL:(id)arg4 newURL:(id *)arg5 error:(id *)arg6;
+- (BOOL)didUpdateDocumentUUIDWithOriginalDocumentProperties:(id)arg1 newDocumentProperties:(id)arg2 preserveOriginalDocumentSupport:(BOOL)arg3 preserveShareUUID:(BOOL)arg4 originalURL:(id)arg5 newURL:(id *)arg6 error:(id *)arg7;
+- (BOOL)copyOrMoveSupportAtURL:(id)arg1 originalDocumentProperties:(id)arg2 toURL:(id)arg3 isCopying:(BOOL)arg4 newDocumentProperties:(id)arg5 error:(id *)arg6;
 - (void)accommodatePresentedItemDeletionWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)relinquishPresentedItemToWriter:(CDUnknownBlockType)arg1;
 - (void)presentedItemDidChange;
-@property(readonly) NSOperationQueue *presentedItemOperationQueue;
+@property(readonly, retain) NSOperationQueue *presentedItemOperationQueue;
 - (void)presentedItemDidMoveToURL:(id)arg1;
-@property(readonly) NSURL *presentedItemURL;
+@property(readonly, copy) NSURL *presentedItemURL;
 @property(copy) NSURL *presentedSupportURL;
 - (void)updatePresentedItemURL:(id)arg1;
 - (void)removeFilePresenter;
 - (void)performReadUsingAccessor:(CDUnknownBlockType)arg1;
 - (id)supportURLWithDocumentUUID:(id)arg1;
-- (BOOL)endSaveWithSuccess:(BOOL)arg1 newURL:(id *)arg2;
+- (BOOL)endSaveWithSuccess:(BOOL)arg1 packageWriter:(id)arg2 newURL:(id *)arg3 writtenPackage:(id *)arg4;
 - (BOOL)writeSupportForDocumentUUID:(id)arg1 error:(id *)arg2 writer:(CDUnknownBlockType)arg3;
-- (void)beginSaveWithDocumentUUID:(id)arg1 versionUUID:(id)arg2 originalURL:(id)arg3 updateType:(unsigned int)arg4;
+- (void)beginSaveWithDocumentUUID:(id)arg1 versionUUID:(id)arg2 originalURL:(id)arg3 updateType:(int)arg4;
 - (id)initWithContext:(id)arg1;
 - (id)init;
 
 // Remaining properties
-@property(readonly) NSURL *primaryPresentedItemURL;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly, copy) NSURL *primaryPresentedItemURL;
+@property(readonly) Class superclass;
 
 @end
 

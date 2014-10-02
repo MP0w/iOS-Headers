@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class IDSAccount, IDSAccountController, NSSet;
+@class IDSAccount, IDSAccountController;
 
 @protocol IDSAccountControllerDelegate <NSObject>
 
@@ -16,6 +16,5 @@
 - (void)accountController:(IDSAccountController *)arg1 accountRemoved:(IDSAccount *)arg2;
 - (void)accountController:(IDSAccountController *)arg1 accountUpdated:(IDSAccount *)arg2;
 - (void)accountController:(IDSAccountController *)arg1 accountAdded:(IDSAccount *)arg2;
-- (void)accountController:(IDSAccountController *)arg1 accountsChanged:(NSSet *)arg2;
 @end
 

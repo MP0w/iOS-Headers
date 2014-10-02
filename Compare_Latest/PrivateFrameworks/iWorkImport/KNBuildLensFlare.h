@@ -8,7 +8,7 @@
 
 #import "KNChunkableBuildAnimator.h"
 
-@class NSMutableArray;
+@class NSMutableArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface KNBuildLensFlare : KNAnimationEffect <KNChunkableBuildAnimator>
@@ -33,6 +33,12 @@ __attribute__((visibility("hidden")))
 - (float)stretchPercent:(float)arg1 toFill:(float)arg2;
 - (id)p_layerWithImage:(struct CGImage *)arg1 scale:(float)arg2 centeredAt:(struct CGPoint)arg3;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

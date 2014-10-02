@@ -6,25 +6,25 @@
 
 #import "NSObject.h"
 
-#import "SBAppSliderControllerDelegate.h"
-#import "SBScreenConnectionHandler.h"
+#import "SBAppSwitcherControllerDelegate.h"
 #import "SBUIActiveOrientationObserver.h"
 #import "SBWallpaperObserver.h"
 #import "UIWindowDelegate.h"
 #import "_UISettingsKeyObserver.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, SBAnimationStepper, SBAppSliderController, SBAppSliderWindowController, SBApplication, SBDismissOnlyAlertItem, SBSwitchAppGestureView, SBWindow, SBWorkspaceEventQueueLockAssertion, UIStatusBar, UIView;
+@class FBUIApplicationResignActiveAssertion, FBWorkspaceEventQueueLock, NSArray, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, SBAnimationStepper, SBAppSwitcherController, SBAppSwitcherWindowController, SBApplication, SBDismissOnlyAlertItem, SBSwitchAppGestureView, SBWindow, UIStatusBar, UIView;
 
-@interface SBUIController : NSObject <SBUIActiveOrientationObserver, SBAppSliderControllerDelegate, SBScreenConnectionHandler, SBWallpaperObserver, _UISettingsKeyObserver, UIWindowDelegate>
+@interface SBUIController : NSObject <SBUIActiveOrientationObserver, SBAppSwitcherControllerDelegate, SBWallpaperObserver, _UISettingsKeyObserver, UIWindowDelegate>
 {
     SBWindow *_window;
     UIView *_iconsView;
     UIView *_contentView;
     UIStatusBar *_fakeSpringBoardStatusBar;
-    SBAppSliderController *_switcherController;
-    SBAppSliderWindowController *_sliderWindowController;
+    SBAppSwitcherController *_switcherController;
+    SBAppSwitcherWindowController *_switcherWindowController;
     SBApplication *_toggleSwitcherAfterLaunchApp;
-    NSString *_bundleIDOfResignedApp;
+    FBUIApplicationResignActiveAssertion *_appSwitcherResignActiveAssertion;
+    FBUIApplicationResignActiveAssertion *_systemGestureResignActiveAssertion;
     unsigned int _ignoringEvents:1;
     unsigned int _lastVolumeDownToControl:1;
     unsigned int _isBatteryCharging:1;
@@ -34,17 +34,16 @@
     unsigned int _allowAlertWindowRotation:1;
     id _volumeHandler;
     float _batteryCapacity;
-    float _curvedBatteryCapacity;
     _Bool _supportsDetailedBatteryCapacity;
     int _batteryLoggingStartCapacity;
     SBDismissOnlyAlertItem *_unsupportedChargerAlert;
     NSMutableDictionary *_installedSystemGestureViews;
     SBAnimationStepper *_suspendAnimationStepper;
     SBAnimationStepper *_statusBarAnimationStepper;
+    SBAnimationStepper *_wallpaperAnimationStepper;
     CDUnknownBlockType _suspendGestureCompleteForwardToEndHandler;
     CDUnknownBlockType _suspendGestureCompleteBackwardToStartHandler;
-    _Bool _switcherVisibleWhenSuspendGestureStarted;
-    SBWorkspaceEventQueueLockAssertion *_suspendGestureWorkspaceLock;
+    FBWorkspaceEventQueueLock *_suspendGestureWorkspaceLock;
     _Bool _shouldUnscatterForSuspendGesture;
     _Bool _switcherAnimationRevealing;
     _Bool _switcherAnimationInProgress;
@@ -54,7 +53,6 @@
     double _switchAppGestureEffectivePercentage;
     double _switchAppGestureInitialPercentage;
     unsigned long long _switchAppGestureChangedFrames;
-    UIView *_systemGestureBackdrop;
     UIView *_pendingGestureLaunchView;
     SBApplication *_pendingAppActivatedByGesture;
     SBApplication *_appCurrentlyActivatingByGesture;
@@ -63,19 +61,22 @@
     _Bool _toggleSwitcherAfterLaunchAppUsesSystemGestureOrientation;
     double _ambiguousCCActivationMargin;
     NSMutableSet *_rotationPreventionReasons;
+    _Bool _disableAnimationForNextIconRotation;
+    _Bool _handlingHomePress;
 }
 
 + (id)sharedInstanceIfExists;
 + (id)sharedInstance;
-+ (int)displayedLevelForLockScreenBatteryLevel:(int)arg1;
++ (struct CGAffineTransform)_transformAndFrame:(struct CGRect *)arg1 forLaunchImageContextHostViewWithOrientation:(long long)arg2 statusBarHeight:(double)arg3 inJailRect:(struct CGRect)arg4;
 + (struct CGAffineTransform)_transformAndFrame:(struct CGRect *)arg1 forStatusBarWithOrientation:(long long)arg2 height:(double)arg3 inJailRect:(struct CGRect)arg4;
-+ (id)_zoomViewWithIOSurfaceSnapshotOfApp:(id)arg1 includeStatusBar:(_Bool)arg2 includeBanner:(_Bool)arg3;
-+ (id)_zoomViewForApplication:(id)arg1 screen:(id)arg2 interfaceOrientation:(long long)arg3 includeStatusBar:(_Bool)arg4 includeBanner:(_Bool)arg5 snapshotFrame:(struct CGRect *)arg6 canUseIOSurface:(_Bool)arg7 decodeImage:(_Bool)arg8;
-+ (id)_zoomViewForApplication:(id)arg1 screen:(id)arg2 image:(id)arg3 interfaceOrientation:(long long)arg4 originalImageOrientation:(long long)arg5 currentImageOrientation:(long long)arg6 includeStatusBar:(_Bool)arg7 includeBanner:(_Bool)arg8 snapshotFrame:(struct CGRect *)arg9 canUseIOSurface:(_Bool)arg10 decodeImage:(_Bool)arg11;
-+ (id)zoomViewForApplication:(id)arg1 withImage:(id)arg2 originalOrientation:(long long)arg3 currentOrientation:(long long)arg4;
-+ (id)zoomViewForContextHostView:(id)arg1 application:(id)arg2 includeStatusBar:(_Bool)arg3 includeBanner:(_Bool)arg4;
-+ (id)zoomViewForApplication:(id)arg1 includeStatusBar:(_Bool)arg2 includeBanner:(_Bool)arg3 canUseIOSurface:(_Bool)arg4 decodeImage:(_Bool)arg5;
-+ (id)rawZoomViewForApplication:(id)arg1 onScreen:(id)arg2;
++ (void)_addStatusBarToZoomView:(id)arg1 forApplication:(id)arg2 interfaceOrientation:(long long)arg3 inJailRect:(struct CGRect)arg4;
++ (id)_zoomViewWithIOSurfaceSnapshotOfApp:(id)arg1 sceneID:(id)arg2 screen:(id)arg3 includeStatusBar:(_Bool)arg4;
++ (id)_zoomViewForApplication:(id)arg1 sceneID:(id)arg2 screen:(id)arg3 interfaceOrientation:(long long)arg4 includeStatusBar:(_Bool)arg5 snapshotFrame:(struct CGRect *)arg6 decodeImage:(_Bool)arg7;
++ (id)_zoomViewWithSplashboardLaunchImageForApplication:(id)arg1 sceneID:(id)arg2 screen:(id)arg3 interfaceOrientation:(long long)arg4 includeStatusBar:(_Bool)arg5 snapshotFrame:(struct CGRect *)arg6;
++ (id)_zoomViewForApplication:(id)arg1 sceneID:(id)arg2 screen:(id)arg3 image:(id)arg4 interfaceOrientation:(long long)arg5 originalImageOrientation:(long long)arg6 currentImageOrientation:(long long)arg7 includeStatusBar:(_Bool)arg8 snapshotFrame:(struct CGRect *)arg9 decodeImage:(_Bool)arg10;
++ (id)zoomViewForContextHostView:(id)arg1 application:(id)arg2 sceneID:(id)arg3 includeStatusBar:(_Bool)arg4;
++ (id)zoomViewForApplication:(id)arg1 sceneID:(id)arg2 includeStatusBar:(_Bool)arg3 decodeImage:(_Bool)arg4;
++ (id)rawZoomViewForApplication:(id)arg1 sceneID:(id)arg2 onScreen:(id)arg3;
 + (struct CGRect)snapshotRectForOrientation:(long long)arg1 statusBarStyleRequest:(id)arg2 hidden:(_Bool)arg3;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (id)_legibilityPrototypeSettings;
@@ -85,18 +86,18 @@
 - (void)_updateLegibility;
 - (void)wallpaperDidChangeForVariant:(long long)arg1;
 - (void)wallpaperLegibilitySettingsDidChange:(id)arg1 forVariant:(long long)arg2;
-- (void)screenManager:(id)arg1 didTriggerConnectionHandlerEvent:(long long)arg2 forScreen:(id)arg3;
-- (_Bool)screenManager:(id)arg1 shouldBindConnectionHandlerToScreen:(id)arg2;
 - (id)switcherController;
-- (void)_runAppSliderBringupTest;
-- (void)_runAppSliderDismissTest;
+- (void)_runAppSwitcherBringupTest;
+- (void)_runAppSwitcherDismissTest;
 - (void)_reloadSwitcherController;
+- (void)_returnToRemoteAlertFromSwitcher:(id)arg1;
 - (void)getRidOfAppSwitcher;
-- (void)animateAppSwitcherDismissalToApplication:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)animateAppSwitcherDismissalToDisplayLayout:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_switcherFixupIconsViewIfNecessary;
 - (void)appSwitcherNeedsToReload:(id)arg1;
 - (void)appSwitcherWantsToDismissImmediately:(id)arg1;
-- (void)appSwitcher:(id)arg1 wantsToActivateApplication:(id)arg2;
+- (void)appSwitcher:(id)arg1 wantsToActivateDisplayLayout:(id)arg2 displayIDsToURLs:(id)arg3 displayIDsToActions:(id)arg4;
+- (void)_switcherWantsToActivateDisplayLayout:(id)arg1 displayIDsToURLs:(id)arg2 displayIDsToActions:(id)arg3;
 - (_Bool)_canPresentCenterController:(id)arg1;
 - (void)_showControlCenterGestureCancelled;
 - (void)_showControlCenterGestureFailed;
@@ -112,7 +113,7 @@
 - (double)showNotificationsTabControlSwipableWidth;
 - (void)setAmbiguousControlCenterActivationMargin:(double)arg1 forApp:(id)arg2;
 - (double)ambiguousControlCenterActivationMargin;
-- (_Bool)shouldUseAmbiguousControlCenterActivation;
+- (_Bool)shouldUseControlCenterRevealConfirmation;
 - (_Bool)shouldShowControlCenterTabControlOnFirstSwipe;
 - (_Bool)shouldShowNotificationCenterTabControlOnFirstSwipe;
 - (_Bool)_preventShowingTabControls;
@@ -162,8 +163,6 @@
 - (void)cleanupRunningGestureIfNeeded;
 - (void)animationStepperFinishBackwardToStartCompleted:(id)arg1;
 - (_Bool)shouldSendTouchesToSystemGestures;
-- (void)notifyAppResumeActive:(id)arg1;
-- (void)notifyAppResignActive:(id)arg1;
 - (void)handleShowControlCenterSystemGesture:(id)arg1;
 - (void)handleDismissBannerSystemGesture:(id)arg1;
 - (void)handleHideNotificationsSystemGesture:(id)arg1;
@@ -188,6 +187,7 @@
 - (void)activeInterfaceOrientationDidChangeToOrientation:(long long)arg1 willAnimateWithDuration:(double)arg2 fromOrientation:(long long)arg3;
 - (void)activeInterfaceOrientationWillChangeToOrientation:(long long)arg1;
 - (void)setAllowSwitcherRotation:(_Bool)arg1 forReason:(id)arg2;
+- (void)disableAnimationForNextIconRotation;
 - (void)setAllowIconRotation:(_Bool)arg1 forReason:(id)arg2;
 - (void)window:(id)arg1 didRotateFromInterfaceOrientation:(long long)arg2;
 - (void)window:(id)arg1 willAnimateRotationToInterfaceOrientation:(long long)arg2 duration:(double)arg3;
@@ -196,6 +196,7 @@
 - (id)rotatingContentViewForWindow:(id)arg1;
 - (_Bool)window:(id)arg1 shouldAutorotateToInterfaceOrientation:(long long)arg2;
 - (_Bool)shouldWindowUseOnePartInterfaceRotationAnimation:(id)arg1;
+- (void)forceIconInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)noteStatusBarHeightChanged:(id)arg1;
 - (_Bool)supportsDetailedBatteryCapacity;
 - (_Bool)isConnectedToUnsupportedChargingAccessory;
@@ -205,8 +206,6 @@
 - (_Bool)isOnAC;
 - (_Bool)isBatteryCharging;
 - (int)displayBatteryCapacityAsPercentage;
-- (int)curvedBatteryCapacityAsPercentage;
-- (float)curvedBatteryCapacity;
 - (int)batteryCapacityAsPercentage;
 - (float)batteryCapacity;
 - (void)updateBatteryState:(id)arg1;
@@ -221,16 +220,19 @@
 - (_Bool)_allowSwitcherGesture;
 - (_Bool)allowAlertWindowRotation;
 - (_Bool)isAppSwitcherShowing;
-- (id)_appSliderController;
+- (id)_appSwitcherController;
+- (void)_dismissSwitcherAnimated:(_Bool)arg1;
 - (void)dismissSwitcherAnimated:(_Bool)arg1;
 - (void)_dismissAppSwitcherImmediately;
 - (void)dismissSwitcherForAlert:(id)arg1;
 - (void)openNewsstand;
+- (_Bool)workspaceShouldAbortLaunchingAppDueToSwitcher:(id)arg1 url:(id)arg2 actions:(id)arg3;
 - (id)switcherWindow;
-- (_Bool)_activateAppSwitcherFromSide:(int)arg1;
+- (_Bool)_activateAppSwitcher;
 - (void)_accessibilityWillBeginAppSwitcherRevealAnimation;
 - (double)_appSwitcherRevealAnimationDelay;
 - (_Bool)handleMenuDoubleTap;
+- (void)_toggleSwitcherForReals;
 - (void)_toggleSwitcher;
 - (void)_setToggleSwitcherAfterLaunchApp:(id)arg1;
 - (id)_toggleSwitcherAfterLaunchApp;
@@ -238,13 +240,15 @@
 - (void)_awayControllerActivated:(id)arg1;
 - (void)_applicationActivationStateDidChange:(id)arg1;
 - (void)_noteAppDidFailToActivate:(id)arg1;
+- (void)_noteMainSceneCreatedForApp:(id)arg1;
 - (void)_noteAppDidActivate:(id)arg1;
 - (_Bool)clickedMenuButton;
+- (_Bool)isHandlingHomeButtonPress;
 - (_Bool)_handleButtonEventToSuspendDisplays:(_Bool)arg1 displayWasSuspendedOut:(_Bool *)arg2;
 - (int)_dismissSheetsAndDetermineAlertStateForMenuClickOrSystemGesture;
+- (void)_switchToHomeScreenWallpaperAnimated:(_Bool)arg1;
 - (void)stopRestoringIconList;
 - (void)tearDownIconListAndBar;
-- (void)restoreIconListForSuspendGesture;
 - (void)restoreContentAndUnscatterIconsAnimated:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)restoreContentAndUnscatterIconsAnimated:(_Bool)arg1;
 - (void)restoreContentUpdatingStatusBar:(_Bool)arg1;
@@ -258,15 +262,17 @@
 - (void)_lockOrientationForSwitcher;
 - (void)_lockOrientationForSystemGesture;
 - (void)_lockOrientationForTransition;
-- (void)activateURLFromBulletinList:(id)arg1;
 - (void)activateApplicationAnimatedFromIcon:(id)arg1 fromLocation:(int)arg2;
 - (void)activateApplicationAnimated:(id)arg1;
 - (void)launchIcon:(id)arg1 fromLocation:(int)arg2;
+- (void)getRotationContentSettings:(CDStruct_ebaa735e *)arg1 forWindow:(id)arg2;
 - (id)window;
 - (id)contentView;
 - (void)setFakeSpringBoardStatusBarVisible:(_Bool)arg1;
 - (id)_fakeSpringBoardStatusBar;
+- (id)fakeStatusBarStyleRequestForStyle:(long long)arg1;
 - (void)configureFakeSpringBoardStatusBarWithStyleRequest:(id)arg1;
+- (_Bool)isFakeStatusBarStyleEffectivelyDoubleHeight:(long long)arg1;
 - (void)configureFakeSpringBoardStatusBarWithDefaultStyleRequestForStyle:(long long)arg1;
 - (void)removeFakeSpringBoardStatusBar;
 - (void)cleanUpOnFrontLocked;
@@ -278,6 +284,12 @@
 - (id)init;
 - (void)dealloc;
 - (void)_indicateConnectedToPower;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

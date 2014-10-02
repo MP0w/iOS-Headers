@@ -20,7 +20,9 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSSet *accounts; // @dynamic accounts;
 @property(retain, nonatomic) NSString *credentialProtectionPolicy; // @dynamic credentialProtectionPolicy;
 @property(retain, nonatomic) NSString *credentialType; // @dynamic credentialType;
+@property(retain, nonatomic) NSNumber *encryptAccountProperties; // @dynamic encryptAccountProperties;
 @property(retain, nonatomic) NSString *identifier; // @dynamic identifier;
+@property(retain, nonatomic) NSString *owningBundleID; // @dynamic owningBundleID;
 @property(retain, nonatomic) NSSet *permission; // @dynamic permission;
 @property(retain, nonatomic) NSSet *supportedDataclasses; // @dynamic supportedDataclasses;
 @property(retain, nonatomic) NSNumber *supportsAuthentication; // @dynamic supportsAuthentication;

@@ -26,13 +26,19 @@
 @property(copy, nonatomic) NSString *name;
 @property(copy, nonatomic) NSDictionary *identifierMap;
 @property(copy, nonatomic) NSString *extSessionGuid;
-@property(copy, nonatomic) NSString *description;
+@property(copy, nonatomic) NSString *descriptionText;
 @property(copy, nonatomic) NSString *currencySymbol;
 @property(copy, nonatomic) NSArray *categories;
 @property(copy, nonatomic) NSURL *businessUrl;
 @property(retain, nonatomic) SALocation *address;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

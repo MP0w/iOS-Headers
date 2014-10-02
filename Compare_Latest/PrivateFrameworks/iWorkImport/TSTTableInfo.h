@@ -12,6 +12,7 @@
 #import "TSCETableModeling.h"
 #import "TSDContainerInfo.h"
 #import "TSDMixing.h"
+#import "TSKCustomFormatContainingInfo.h"
 #import "TSKModel.h"
 #import "TSKSearchable.h"
 #import "TSSPresetSource.h"
@@ -19,10 +20,10 @@
 #import "TSSThemedObject.h"
 #import "TSWPStorageParent.h"
 
-@class NSObject<TSDContainerInfo>, TSDInfoGeometry, TSKDocumentRoot, TSPObject<TSDOwningAttachment>, TSTEditingState, TSTMasterLayout, TSTTableModel, TSTTablePartitioner;
+@class NSObject<TSDContainerInfo>, NSString, TSDInfoGeometry, TSPObject<TSDOwningAttachment>, TSTEditingState, TSTMasterLayout, TSTTableModel, TSTTablePartitioner;
 
 __attribute__((visibility("hidden")))
-@interface TSTTableInfo : TSDDrawableInfo <TSCECalculationEngineRegistration, TSCEFormulaOwning, TSCEReferenceResolving, TSCETableModeling, TSKModel, TSKSearchable, TSSThemedObject, TSSPresetSource, TSSStyleClient, TSDContainerInfo, TSDMixing, TSWPStorageParent>
+@interface TSTTableInfo : TSDDrawableInfo <TSCECalculationEngineRegistration, TSCEFormulaOwning, TSCEReferenceResolving, TSCETableModeling, TSKCustomFormatContainingInfo, TSKModel, TSKSearchable, TSSThemedObject, TSSPresetSource, TSSStyleClient, TSDContainerInfo, TSDMixing, TSWPStorageParent>
 {
     TSTTableModel *mTableModel;
     BOOL mIsFormulaEditing;
@@ -38,16 +39,19 @@ __attribute__((visibility("hidden")))
 + (void)bootstrapPresetsOfKind:(id)arg1 inTheme:(id)arg2 alternate:(int)arg3 reservedCount:(unsigned int)arg4;
 + (void)bootstrapPresetsOfKind:(id)arg1 inTheme:(id)arg2 alternate:(int)arg3;
 + (BOOL)canPartition;
++ (BOOL)needsObjectUUID;
 + (id)tablePrototypeWithIndex:(int)arg1 context:(id)arg2 geometry:(id)arg3 styles:(id)arg4;
 + (id)geometryForPrototypeIndex:(int)arg1 withCanvasPoint:(struct CGPoint)arg2;
 + (unsigned short)numberOfColumnsForProtoIndex:(unsigned int)arg1;
 + (unsigned short)numberOfRowsForProtoIndex:(unsigned int)arg1;
 @property(nonatomic) BOOL hasReference; // @synthesize hasReference=mHasReference;
-@property(nonatomic, getter=isFormulaEditing) BOOL formulaEditing; // @synthesize formulaEditing=mIsFormulaEditing;
 @property(readonly, nonatomic) CDStruct_0441cfb5 previousEditingCellID; // @synthesize previousEditingCellID=mPreviousEditingCellID;
-@property(retain, nonatomic) TSTEditingState *editingState; // @synthesize editingState=mEditingState;
+@property(readonly, nonatomic) TSTEditingState *editingState; // @synthesize editingState=mEditingState;
 @property(nonatomic) CDStruct_0441cfb5 editingCellID; // @synthesize editingCellID=mEditingCellID;
 - (id).cxx_construct;
+- (id)commandToReplaceCustomFormat:(id)arg1 withReplacementFormat:(id)arg2;
+- (id)changeDetailsForCustomFormatListDidUpdateToCustomFormatWrapper:(id)arg1;
+- (void)performBlockWithStylesheetForAddingStyles:(CDUnknownBlockType)arg1;
 - (void)didReplaceTextsInStoragesWithPlaceHolderString;
 - (id)allWPStorages;
 - (BOOL)textIsVertical;
@@ -85,7 +89,10 @@ __attribute__((visibility("hidden")))
 - (void)setGeometry:(id)arg1 resizeInternal:(BOOL)arg2 scaleFactor:(struct CGSize)arg3 shouldClearObjectPlaceholderFlag:(BOOL)arg4;
 - (void)setGeometry:(id)arg1 resizeInternal:(BOOL)arg2 scaleFactor:(struct CGSize)arg3;
 - (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
+- (void)p_bakeMixedCellStrokesIntoTable:(id)arg1 outgoingTable:(id)arg2 incomingTable:(id)arg3 fraction:(float)arg4;
 - (int)mixingTypeWithObject:(id)arg1;
+- (id)localizedChunkNameForTextureDeliveryStyle:(unsigned int)arg1 animationFilter:(id)arg2 chunkIndex:(unsigned int)arg3;
+- (id)p_containedTextForTableDeliveryStyle:(int)arg1 chunkIndex:(unsigned int)arg2;
 - (BOOL)reverseChunkingIsSupported;
 - (unsigned int)textureDeliveryStyleFromDeliveryString:(id)arg1;
 - (id)textureDeliveryStylesLocalized:(BOOL)arg1 animationFilter:(id)arg2;
@@ -100,7 +107,7 @@ __attribute__((visibility("hidden")))
 - (Class)editorClass;
 - (Class)repClass;
 @property(readonly, nonatomic) TSTTableModel *tableModel;
-@property(readonly, nonatomic) TSKDocumentRoot *documentRoot;
+- (id)documentRoot;
 - (BOOL)isSafeToConvertToText;
 - (BOOL)isSafeToConvertToAttributedString;
 - (BOOL)isSafeToConvertToImage;
@@ -117,8 +124,9 @@ __attribute__((visibility("hidden")))
 - (void)setupTableModelForPrototypeIndex:(int)arg1;
 - (id)copyWithContext:(id)arg1;
 - (void)dealloc;
-- (id)initWithContext:(id)arg1 fromSourceInfo:(id)arg2 carrySelection:(BOOL)arg3;
-- (id)initWithContext:(id)arg1 fromSourceInfo:(id)arg2 cellRegion:(id)arg3 carrySelection:(BOOL)arg4;
+- (id)initWithContext:(id)arg1 fromSourceInfo:(id)arg2 carrySelection:(BOOL)arg3 waitForCalcEngine:(BOOL)arg4;
+- (id)initWithContext:(id)arg1 fromSourceInfo:(id)arg2 cellRegion:(id)arg3 tableModel:(id)arg4 carrySelection:(BOOL)arg5 waitForCalcEngine:(BOOL)arg6;
+- (id)initWithContext:(id)arg1 fromSourceInfo:(id)arg2 cellRegion:(id)arg3 carrySelection:(BOOL)arg4 waitForCalcEngine:(BOOL)arg5;
 - (id)initWithContext:(id)arg1 otherTableInfo:(id)arg2;
 - (id)initWithContext:(id)arg1 geometry:(id)arg2;
 - (id)initWithContext:(id)arg1 geometry:(id)arg2 styles:(id)arg3;
@@ -126,6 +134,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithContext:(id)arg1 geometry:(id)arg2 rows:(unsigned short)arg3 columns:(unsigned short)arg4 styles:(id)arg5;
 - (id)objectToArchiveInDependencyTracker;
 - (struct __CFUUID *)resolverID;
+- (BOOL)serializeCalculations;
 - (void)releaseForCalculationEngine:(id)arg1;
 - (void)retainForCalculationEngine:(id)arg1;
 - (id)endRewriteForCalculationEngine:(id)arg1 spec:(id)arg2;
@@ -133,25 +142,29 @@ __attribute__((visibility("hidden")))
 - (void)rewriteForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 rewriteSpec:(id)arg3;
 - (void)invalidateForCalculationEngine:(id)arg1;
 - (void)writeResultsForCalculationEngine:(id)arg1;
-- (CDStruct_4d60f806)recalculateForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 isInCycle:(BOOL)arg3 hasCalculatedPrecedents:(BOOL)arg4;
+- (CDStruct_7ddbbeae)recalculateForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 isInCycle:(BOOL)arg3 hasCalculatedPrecedents:(BOOL)arg4;
 - (void)notifyTableOfNewResults;
 - (void)performReadForOneOffFormulaEvaluation:(id)arg1 forCellID:(CDStruct_0441cfb5 *)arg2;
 - (void)unregisterFromCalculationEngine:(id)arg1;
 - (int)registerWithCalculationEngine:(id)arg1;
+- (BOOL)isRegisteredWithCalculationEngine:(id)arg1;
 - (BOOL)registerLast;
 - (void)registerWithCalculationEngineForDocumentLoad:(id)arg1;
-- (id)buildImageTitle;
-- (id)titleForBuildChunk:(id)arg1;
+- (BOOL)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic, getter=isAnchoredToText) BOOL anchoredToText; // @dynamic anchoredToText;
 @property(readonly, nonatomic, getter=isAttachedToBodyText) BOOL attachedToBodyText;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly, nonatomic, getter=isFloatingAboveText) BOOL floatingAboveText; // @dynamic floatingAboveText;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic, getter=isInlineWithText) BOOL inlineWithText; // @dynamic inlineWithText;
 @property(nonatomic) BOOL matchesObjectPlaceholderGeometry;
 @property(nonatomic) TSPObject<TSDOwningAttachment> *owningAttachment; // @dynamic owningAttachment;
 @property(readonly, nonatomic) TSPObject<TSDOwningAttachment> *owningAttachmentNoRecurse; // @dynamic owningAttachmentNoRecurse;
 @property(nonatomic) NSObject<TSDContainerInfo> *parentInfo; // @dynamic parentInfo;
+@property(readonly) Class superclass;
 
 @end
 

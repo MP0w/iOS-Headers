@@ -18,6 +18,7 @@
 
 @property(retain, nonatomic) GEOURLOptions *options; // @synthesize options=_options;
 @property(retain, nonatomic) NSMutableArray *items; // @synthesize items=_items;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

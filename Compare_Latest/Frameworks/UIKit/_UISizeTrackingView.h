@@ -16,15 +16,19 @@ __attribute__((visibility("hidden")))
     _UIRemoteViewController *_remoteViewController;
     id _viewControllerOperatorProxy;
     id _textEffectsOperatorProxy;
+    BOOL _hasIntrinsicContentSize;
+    struct CGSize _intrinsicContentSize;
 }
 
 + (id)viewWithRemoteViewController:(id)arg1 viewControllerOperatorProxy:(id)arg2 textEffectsOperatorProxy:(id)arg3;
 - (void)_didMoveFromWindow:(id)arg1 toWindow:(id)arg2;
 - (void)_scrollToTopFromTouchAtScreenLocation:(struct CGPoint)arg1 resultHandler:(CDUnknownBlockType)arg2;
 - (BOOL)isScrollEnabled;
-- (void)setBounds:(struct CGRect)arg1;
-- (void)setFrame:(struct CGRect)arg1;
-- (void)_updateTextEffectsGeometries;
+- (void)_geometryChanged:(unsigned int)arg1 forAncestor:(id)arg2;
+- (void)_updateTextEffectsGeometries:(struct CGRect)arg1;
+- (void)updateIntrinsicContentSize:(struct CGSize)arg1;
+- (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
+- (void)dealloc;
 
 @end
 

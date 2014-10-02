@@ -6,12 +6,16 @@
 
 #import <CFNetwork/__NSCFLocalSessionTask.h>
 
-@class NSDictionary, NSObject<OS_dispatch_data>, __NSCFLocalDownloadFile;
+#import "NSURLSessionDownloadTaskSubclass.h"
+#import "__NSCFLocalDownloadFileOpener.h"
+
+@class NSDictionary, NSObject<OS_dispatch_data>, NSString, __NSCFLocalDownloadFile;
 
 __attribute__((visibility("hidden")))
-@interface __NSCFLocalDownloadTask : __NSCFLocalSessionTask
+@interface __NSCFLocalDownloadTask : __NSCFLocalSessionTask <NSURLSessionDownloadTaskSubclass, __NSCFLocalDownloadFileOpener>
 {
     _Bool _canWrite;
+    _Bool _suppressProgress;
     _Bool _needFinish;
     _Bool _didIssueNeedFinish;
     CDUnknownBlockType _fileCompletion;
@@ -22,9 +26,13 @@ __attribute__((visibility("hidden")))
     unsigned long _totalWrote;
     CDUnknownBlockType _resumeCallback;
     NSDictionary *_originalResumeInfo;
+    unsigned long __transientWriteProgress;
+    CDUnknownBlockType __afterDidReportProgressOnQueue;
     long long _initialResumeSize;
 }
 
+@property(copy) CDUnknownBlockType _afterDidReportProgressOnQueue; // @synthesize _afterDidReportProgressOnQueue=__afterDidReportProgressOnQueue;
+@property unsigned long _transientWriteProgress; // @synthesize _transientWriteProgress=__transientWriteProgress;
 @property(retain) NSDictionary *originalResumeInfo; // @synthesize originalResumeInfo=_originalResumeInfo;
 @property long long initialResumeSize; // @synthesize initialResumeSize=_initialResumeSize;
 @property(copy) CDUnknownBlockType resumeCallback; // @synthesize resumeCallback=_resumeCallback;
@@ -33,14 +41,15 @@ __attribute__((visibility("hidden")))
 @property _Bool needFinish; // @synthesize needFinish=_needFinish;
 @property int seqNo; // @synthesize seqNo=_seqNo;
 @property unsigned int ioSuspend; // @synthesize ioSuspend=_ioSuspend;
-@property(retain) NSObject<OS_dispatch_data> *writeBuffer; // @synthesize writeBuffer=_writeBuffer;
+@property NSObject<OS_dispatch_data> *writeBuffer; // @synthesize writeBuffer=_writeBuffer;
+@property _Bool suppressProgress; // @synthesize suppressProgress=_suppressProgress;
 @property _Bool canWrite; // @synthesize canWrite=_canWrite;
 @property(retain) __NSCFLocalDownloadFile *downloadFile; // @synthesize downloadFile=_downloadFile;
 @property(copy) CDUnknownBlockType fileCompletion; // @synthesize fileCompletion=_fileCompletion;
 - (BOOL)isKindOfClass:(Class)arg1;
 - (void)_task_onqueue_didFinish;
-- (void)_task_onqueue_didReceiveDispatchData:(id)arg1;
-- (void)_onqueue_didReceiveResponse:(id)arg1;
+- (void)_task_onqueue_didReceiveDispatchData:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_onqueue_didReceiveResponse:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)checkWrite;
 - (void)_private_fileCompletion;
 - (void)_private_errorCompletion;
@@ -50,11 +59,21 @@ __attribute__((visibility("hidden")))
 - (void)_private_posixError:(int)arg1;
 - (void)reportProgress:(unsigned long)arg1;
 - (void)cancelByProducingResumeData:(CDUnknownBlockType)arg1;
+- (void)_onqueue_cancelByProducingResumeData:(CDUnknownBlockType)arg1;
+- (void)_onqueue_completeInitialization;
+- (int)openItemForPath:(id)arg1 mode:(int)arg2;
 - (void)dealloc;
-- (id)initWithTask:(id)arg1 suspendedConnection:(struct _CFURLConnection *)arg2;
-- (id)initWithSession:(id)arg1 resumeData:(id)arg2 ident:(unsigned int)arg3 bridge:(id)arg4;
-- (id)initWithSession:(id)arg1 request:(id)arg2 ident:(unsigned int)arg3 bridge:(id)arg4;
-- (_Bool)setupForNewDownload;
+- (id)initWithTask:(id)arg1;
+- (id)initWithSession:(id)arg1 resumeData:(id)arg2 ident:(unsigned int)arg3;
+- (id)initWithSession:(id)arg1 request:(id)arg2 filePath:(id)arg3 ident:(unsigned int)arg4;
+- (id)initWithSession:(id)arg1 request:(id)arg2 ident:(unsigned int)arg3;
+- (_Bool)setupForNewDownload:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -11,6 +11,9 @@
 }
 
 + (void)_warmupKBDIfNecessary;
++ (id)_passcodeLockViewForStyle:(int)arg1 withLightStyle:(BOOL)arg2;
++ (id)lightPasscodeLockViewForStyle:(int)arg1;
++ (id)lightPasscodeLockViewForUsersCurrentStyle;
 + (id)passcodeLockViewForStyle:(int)arg1;
 + (id)passcodeLockViewForUsersCurrentStyle;
 

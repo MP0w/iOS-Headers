@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithOddDiagram:(id)arg1 drawingContext:(id)arg2 orientedBounds:(id)arg3 identifier:(id)arg4 parent:(id)arg5;
 - (struct ODIHRangeVector *)mapRangesForNode:(id)arg1;
-- (void)setAbsolutePositionOfNode:(id)arg1 parentRow:(int)arg2 parentXOffset:(float)arg3 index:(int)arg4;
+- (void)setAbsolutePositionOfNode:(id)arg1 parentRow:(int)arg2 parentXOffset:(float)arg3 index:(unsigned int)arg4;
 - (void)copyInfoForNode:(id)arg1 depth:(int)arg2;
 - (struct CGRect)mapLogicalBoundsWithXRanges:(const struct ODIHRangeVector *)arg1;
 - (struct CGRect)boundsForNode:(id)arg1;

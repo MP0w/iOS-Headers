@@ -21,14 +21,14 @@
 + (id)sharedOnBodyStatusManager;
 + (BOOL)isOnBodyStatusDetectionAvailable;
 - (void)stopOnBodyStatusDetectionPrivate;
-- (void)startOnBodyStatusDetectionPrivateToQueue:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
+- (void)startOnBodyStatusDetectionPrivateToQueue:(id)arg1 withParameters:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)stopWatchdogCheckinsPrivate;
 - (void)startWatchdogCheckinsPrivate;
 - (void)disconnect;
 - (void)connect;
 - (void)setPropertiesWithDictionary:(id)arg1;
 - (void)stopOnBodyStatusDetection;
-- (void)startOnBodyStatusDetectionToQueue:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
+- (void)startOnBodyStatusDetectionToQueue:(id)arg1 withParameters:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)dealloc;
 - (id)init;
 

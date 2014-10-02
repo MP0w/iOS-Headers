@@ -34,8 +34,10 @@
 + (id)avalancheStackForImage:(id)arg1 backgroundColor:(id)arg2;
 + (void)removeFavoriteStatus:(id)arg1;
 + (unsigned int)_calculateStackAssetForAssetCount:(unsigned int)arg1 autoPicks:(id)arg2 userFavorites:(id)arg3;
-+ (void)_updateMembershipForAssets:(id)arg1 autoPicks:(id)arg2 stackAsset:(id)arg3 userFavorites:(id)arg4 dissolveBurst:(BOOL)arg5;
-+ (id)_updatePropertiesForAssets:(id)arg1 autoPicks:(id)arg2 stackAsset:(id)arg3 userFavorites:(id)arg4 dissolveBurst:(BOOL)arg5;
++ (id)_assetAmongAssets:(id)arg1 fromIndexes:(id)arg2 excludingIndexes:(id)arg3;
++ (id)_visibleIndexesAmongAssets:(id)arg1 fromUserFavoriteIndexes:(id)arg2 stackIndex:(unsigned int)arg3;
++ (void)_updateMembershipForAssets:(id)arg1 autoPicks:(id)arg2 stackAsset:(id)arg3 userFavorites:(id)arg4 deleteNonPicks:(BOOL)arg5;
++ (id)_updatePropertiesForAssets:(id)arg1 autoPicks:(id)arg2 stackAsset:(id)arg3 userFavorites:(id)arg4 deleteNonPicks:(BOOL)arg5;
 + (void)_handleUpdatesForContextWillSave:(id)arg1;
 + (unsigned int)countForAvalancheUUID:(id)arg1 inLibrary:(id)arg2;
 + (id)assetsWithAvalancheUUID:(id)arg1 inManagedObjectContext:(id)arg2;
@@ -51,10 +53,10 @@
 @property(retain, nonatomic) PLPhotoLibrary *photoLibrary; // @synthesize photoLibrary=_photoLibrary;
 @property(retain, nonatomic) NSOrderedSet *assets; // @synthesize assets=_assets;
 @property(retain, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
-@property(readonly, nonatomic) NSArray *localizedLocationNames;
+@property(readonly, copy, nonatomic) NSArray *localizedLocationNames;
 @property(readonly, nonatomic) BOOL canShowAvalancheStacks;
 @property(readonly, nonatomic) BOOL canShowComments;
-- (BOOL)canPerformEditOperation:(int)arg1;
+- (BOOL)canPerformEditOperation:(unsigned int)arg1;
 @property(retain, nonatomic) PLManagedAsset *tertiaryKeyAsset;
 @property(retain, nonatomic) PLManagedAsset *secondaryKeyAsset;
 @property(retain, nonatomic) PLManagedAsset *keyAsset;
@@ -63,8 +65,8 @@
 @property(readonly, nonatomic) unsigned int photosCount;
 @property(readonly, nonatomic) unsigned int assetsCount;
 @property(readonly, nonatomic) unsigned int approximateCount;
-@property(readonly, nonatomic) NSString *localizedTitle;
-@property(readonly, nonatomic) NSString *title;
+@property(readonly, copy, nonatomic) NSString *localizedTitle;
+@property(readonly, retain, nonatomic) NSString *title;
 - (id)proposedStackAssetAfterRemovingFavorite:(id)arg1;
 - (BOOL)isAutoPick:(id)arg1;
 - (BOOL)isUserFavorite:(id)arg1;
@@ -74,15 +76,19 @@
 - (id)stackAsset;
 - (id)userFavorites;
 - (id)autoPicks;
+- (void)applyTrashedState:(short)arg1;
 - (void)assetsDidChange:(id)arg1;
-- (void)applyChangesAndDissolveBurst:(BOOL)arg1 currentContainer:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (id)description;
+- (void)applyChangesAndDeleteNonPicks:(BOOL)arg1 currentContainer:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithUUID:(id)arg1 photoLibrary:(id)arg2;
 
 // Remaining properties
-@property(readonly, nonatomic) NSDate *endDate;
-@property(readonly, nonatomic) NSDate *startDate;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, retain, nonatomic) NSDate *endDate;
+@property(readonly) unsigned int hash;
+@property(readonly, retain, nonatomic) NSDate *startDate;
+@property(readonly) Class superclass;
 
 @end
 

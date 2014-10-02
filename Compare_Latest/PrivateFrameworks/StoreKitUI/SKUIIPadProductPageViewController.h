@@ -6,22 +6,24 @@
 
 #import "UIViewController.h"
 
+#import "SKUIMessageBannerDelegate.h"
 #import "SKUIMetricsViewController.h"
 #import "SKUINetworkErrorDelegate.h"
 #import "SKUIProductPageChildViewControllerDelegate.h"
 #import "SKUIProductPageHeaderViewDelegate.h"
 
-@class ACAccountStore, NSOperationQueue, NSURL, NSURLRequest, SKUIClientContext, SKUIFacebookLikeStatus, SKUIIncompatibleAppViewController, SKUIItem, SKUILoadProductPageOperation, SKUIMetricsController, SKUINetworkErrorViewController, SKUIProductPage, SKUIProductPageDetailsViewController, SKUIProductPageHeaderViewController, SKUIProductPagePlaceholderViewController, SKUIProductPageReviewsViewController, SKUISwooshArrayViewController, SSMetricsPageEvent, UIView;
+@class NSOperationQueue, NSString, NSURL, NSURLRequest, SKUIClientContext, SKUIIncompatibleAppViewController, SKUIItem, SKUILoadProductPageOperation, SKUIMessageBanner, SKUIMetricsController, SKUINetworkErrorViewController, SKUIProductPage, SKUIProductPageDetailsViewController, SKUIProductPageHeaderViewController, SKUIProductPagePlaceholderViewController, SKUIProductPageReviewsViewController, SKUISwooshArrayViewController, SSMetricsPageEvent, UIView;
 
-@interface SKUIIPadProductPageViewController : UIViewController <SKUIMetricsViewController, SKUINetworkErrorDelegate, SKUIProductPageHeaderViewDelegate, SKUIProductPageChildViewControllerDelegate>
+@interface SKUIIPadProductPageViewController : UIViewController <SKUIMetricsViewController, SKUINetworkErrorDelegate, SKUIProductPageHeaderViewDelegate, SKUIProductPageChildViewControllerDelegate, SKUIMessageBannerDelegate>
 {
-    ACAccountStore *_accountStore;
+    BOOL _askPermission;
+    SKUIMessageBanner *_banner;
+    NSString *_bannerText;
     SKUIClientContext *_clientContext;
     int _defaultSelectedSectionIndex;
     id <SKUIIPadProductPageDelegate> _delegate;
     SKUIProductPageDetailsViewController *_detailsViewController;
     BOOL _didSendCannotOpen;
-    SKUIFacebookLikeStatus *_facebookLikeStatus;
     SKUIProductPageHeaderViewController *_headerViewController;
     SKUIItem *_item;
     SKUIIncompatibleAppViewController *_incompatibleViewController;
@@ -44,32 +46,34 @@
 @property(readonly, nonatomic) SKUIItem *item; // @synthesize item=_item;
 @property(nonatomic) __weak id <SKUIIPadProductPageDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
+@property(copy, nonatomic) NSString *bannerText; // @synthesize bannerText=_bannerText;
+@property(nonatomic) BOOL askPermission; // @synthesize askPermission=_askPermission;
 - (void).cxx_destruct;
 - (id)_viewControllerForSectionIndex:(int)arg1;
 - (void)_showViewController:(id)arg1;
+- (void)_showBanner;
 - (void)_showIncompatibleView;
 - (void)_showError:(id)arg1;
 - (void)_setProductPage:(id)arg1 error:(id)arg2;
 - (void)_setMetricsController:(id)arg1;
-- (void)_setFacebookLikeStatus:(id)arg1;
 - (void)_setDefaultSectionIndexWithFragment:(int)arg1;
 - (void)_sendCannotOpen;
 - (void)_selectSectionIndex:(int)arg1;
 - (id)_reviewsViewController;
 - (void)_reloadHeaderViewController;
-- (void)_reloadFacebookLikeStatus;
 - (id)_relatedViewController;
 - (id)_placeholderViewController;
 - (BOOL)_isIncompatibleItem;
 - (id)_detailsViewController;
 - (void)_metricsEnterEventNotification:(id)arg1;
-- (void)_accountStoreDidChangeNotification:(id)arg1;
+- (void)askPermissionBannerDidSelect:(id)arg1;
 - (struct CGPoint)topContentOffset;
 - (void)productPageChildViewControllerDidLoad:(id)arg1;
 - (void)productPageChildViewControllerDidScroll:(id)arg1;
 - (void)productPageChildViewControllerDidLoadScrollView:(id)arg1;
 - (void)productPageChildOpenURL:(id)arg1 viewControllerBlock:(CDUnknownBlockType)arg2;
 - (void)productPageChildOpenItem:(id)arg1;
+- (void)productPageHeaderViewDidWantAskPermissionBanner:(id)arg1;
 - (void)productPageHeaderView:(id)arg1 didSelectURL:(id)arg2;
 - (void)productPageHeaderView:(id)arg1 didSelectSectionIndex:(int)arg2;
 - (id)metricsControllerForProductPageHeader:(id)arg1;
@@ -89,6 +93,12 @@
 - (id)initWithItemIdentifier:(long long)arg1;
 - (id)initWithItem:(id)arg1;
 - (id)_initSKUIIPadProductPageViewController;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

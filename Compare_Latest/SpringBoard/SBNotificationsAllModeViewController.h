@@ -8,16 +8,16 @@
 
 #import "UIGestureRecognizerDelegatePrivate.h"
 
-@class SBNotificationCenterTouchEater, SBNotificationsSectionHeaderView;
+@class NSString, SBNotificationCenterHeaderView, SBNotificationCenterTouchEater;
 
 @interface SBNotificationsAllModeViewController : SBNotificationsModeViewController <UIGestureRecognizerDelegatePrivate>
 {
     SBNotificationCenterTouchEater *_clearButtonTouchEater;
-    SBNotificationsSectionHeaderView *_headerViewCurrentlyInClearState;
+    SBNotificationCenterHeaderView *_headerViewCurrentlyInClearState;
 }
 
 - (void)commitReloadOfSections:(id)arg1;
-- (id)infoForBulletin:(id)arg1 inSection:(id)arg2;
+- (id)infoForBulletin:(id)arg1 inSection:(id)arg2 forFeed:(unsigned long long)arg3;
 - (id)infoForBulletinSection:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (void)_handleEatenTouch:(id)arg1;
@@ -29,9 +29,14 @@
 - (void)viewWillAppear:(_Bool)arg1;
 - (id)contentUnavailableText;
 - (void)_installClearButtonTouchEater;
-- (long long)widgetIdiomForCategory:(long long)arg1;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

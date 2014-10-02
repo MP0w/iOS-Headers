@@ -16,18 +16,22 @@ __attribute__((visibility("hidden")))
     NSString *mString;
     NSDate *mDate;
     TSCERegexMatcher *mMatcher;
+    struct TSCEWarningReportingContext *mWarningReportingContext;
 }
 
 + (id)logicalTestWithCriterion:(struct TSCEValue)arg1 functionSpec:(id)arg2 warningReportingContext:(struct TSCEWarningReportingContext *)arg3;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (unsigned int)cost;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)compare:(struct TSCEValue)arg1;
+- (BOOL)compare:(struct TSCEValue)arg1 withContext:(struct TSCEEvaluationContext *)arg2;
 - (int)criteriaParser:(id)arg1;
 - (void)dealloc;
 - (void)setRegexMatcher:(id)arg1;
 - (void)setDate:(id)arg1;
 - (void)setString:(id)arg1;
+- (id)description;
 - (id)initWithCriterion:(struct TSCEValue)arg1 functionSpec:(id)arg2 warningReportingContext:(struct TSCEWarningReportingContext *)arg3;
 
 @end

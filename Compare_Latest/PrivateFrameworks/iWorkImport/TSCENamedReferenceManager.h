@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (id)description;
 - (void)trackedReferenceWasDeleted:(id)arg1 fromOwnerID:(struct __CFUUID *)arg2;
 - (id)cellRangeWasInserted:(CDStruct_5744d895)arg1;
+- (BOOL)shouldRewriteOnTranspose;
 - (BOOL)shouldRewriteOnCellMerge;
 - (BOOL)shouldRewriteOnTectonicShift;
 - (BOOL)shouldRewriteOnRangeMove;
@@ -32,10 +33,12 @@ __attribute__((visibility("hidden")))
 - (void)referencedCellWasModified:(id)arg1;
 - (BOOL)trackedReferencesExistForTable:(struct __CFUUID *)arg1;
 - (void)updateTrackedHeaders:(struct __CFUUID *)arg1;
+- (id)commandForUpdatingWithSpec:(id)arg1 formulas:(id)arg2;
 - (id)trackedReferencesExactlyMatchingString:(id)arg1 scopedToTable:(struct __CFUUID *)arg2;
 - (id)trackedReferencesMatchingPrefix:(id)arg1;
 - (id)trackedReferencesMatchingPrefix:(id)arg1 scopedToTable:(struct __CFUUID *)arg2;
 - (BOOL)referenceNameIsUnique:(id)arg1 forReference:(CDStruct_5744d895)arg2 contextTable:(struct __CFUUID *)arg3;
+- (id)stringForTrackedReference:(id)arg1 inTable:(struct __CFUUID *)arg2;
 - (id)referenceForTrackedReference:(id)arg1 sticky:(BOOL)arg2;
 - (CDStruct_5744d895)rangeForTrackedReference:(id)arg1 gettingTrackedCell:(CDStruct_78b871e1 *)arg2;
 - (id)referenceTracker;

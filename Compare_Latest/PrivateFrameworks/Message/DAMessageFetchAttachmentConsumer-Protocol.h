@@ -7,7 +7,10 @@
 @class NSData, NSString;
 
 @protocol DAMessageFetchAttachmentConsumer
-- (void)attachmentFetchCompletedWithStatus:(int)arg1 forAttachmentNamed:(NSString *)arg2 ofMessageWithServerID:(NSString *)arg3 dataWasBase64:(BOOL)arg4;
 - (void)consumeData:(NSData *)arg1 ofContentType:(NSString *)arg2 forAttachmentNamed:(NSString *)arg3 ofMessageWithServerID:(NSString *)arg4;
+
+@optional
+- (void)attachmentFetchCompletedWithStatus:(int)arg1 forAttachmentNamed:(NSString *)arg2 ofMessageWithServerID:(NSString *)arg3 dataWasBase64:(BOOL)arg4 sentBytesCount:(unsigned int)arg5 receivedBytesCount:(unsigned int)arg6;
+- (void)attachmentFetchCompletedWithStatus:(int)arg1 forAttachmentNamed:(NSString *)arg2 ofMessageWithServerID:(NSString *)arg3 dataWasBase64:(BOOL)arg4;
 @end
 

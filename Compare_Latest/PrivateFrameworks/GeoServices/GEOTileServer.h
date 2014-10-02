@@ -8,6 +8,8 @@
 
 #import "GEOTileLoaderInternalDelegate.h"
 
+@class NSString;
+
 @interface GEOTileServer : GEOServer <GEOTileLoaderInternalDelegate>
 {
 }
@@ -23,13 +25,19 @@
 - (void)_beginPreload:(id)arg1 fromPeer:(id)arg2;
 - (void)_corrupt:(id)arg1 fromPeer:(id)arg2;
 - (void)_shrinkDB:(id)arg1 fromPeer:(id)arg2;
+- (void)_canShrinkBySize:(id)arg1 fromPeer:(id)arg2;
 - (void)_cancel:(id)arg1 fromPeer:(id)arg2;
 - (void)_loadTiles:(id)arg1 fromPeer:(id)arg2;
-- (BOOL)_otherPeerIsPreloading:(id)arg1;
-- (id)description;
+- (BOOL)_otherPeerIsPreloadingExclusively:(id)arg1;
+@property(readonly, copy) NSString *description;
 - (void)daemonWillTerminateWithReason:(int)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

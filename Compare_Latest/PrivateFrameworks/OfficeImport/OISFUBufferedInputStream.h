@@ -8,6 +8,8 @@
 
 #import "OISFUBufferedInputStream.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface OISFUBufferedInputStream : NSObject <OISFUBufferedInputStream>
 {
@@ -33,6 +35,12 @@ __attribute__((visibility("hidden")))
 - (id)initWithStream:(id)arg1 dataLength:(long long)arg2;
 - (id)initWithStream:(id)arg1 bufferSize:(unsigned long)arg2;
 - (id)initWithStream:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

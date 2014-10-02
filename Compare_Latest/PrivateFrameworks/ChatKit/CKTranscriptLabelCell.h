@@ -10,16 +10,20 @@
 
 @interface CKTranscriptLabelCell : CKTranscriptCell
 {
+    BOOL _wantsContactImageLayout;
     UILabel *_label;
 }
 
++ (id)label;
 @property(retain, nonatomic) UILabel *label; // @synthesize label=_label;
+@property(nonatomic) BOOL wantsContactImageLayout; // @synthesize wantsContactImageLayout=_wantsContactImageLayout;
 @property(copy, nonatomic) NSAttributedString *attributedText;
 - (void)setOrientation:(BOOL)arg1;
+- (void)layoutSubviewsForAlignmentContents;
 - (void)layoutSubviewsForContents;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)dealloc;
-- (void)configureForRowObject:(id)arg1;
+- (void)configureForChatItem:(id)arg1;
 
 @end
 

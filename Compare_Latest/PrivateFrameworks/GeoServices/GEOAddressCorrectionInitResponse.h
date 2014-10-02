@@ -25,6 +25,7 @@
 @property(retain, nonatomic) NSString *addressID; // @synthesize addressID=_addressID;
 @property(retain, nonatomic) GEOLocation *addressLocation; // @synthesize addressLocation=_addressLocation;
 @property(nonatomic) int statusCode; // @synthesize statusCode=_statusCode;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

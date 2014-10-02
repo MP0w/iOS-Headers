@@ -44,7 +44,6 @@
 - (void)presentQuotaDepletionAlertForDataclass:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)notifyUserOfQuotaDepletion;
 @property(readonly, nonatomic) NSArray *supportedDataclasses;
-@property(readonly, nonatomic) ACAccount *liverpoolAccount;
 - (id)_childAccounts;
 @property(readonly, nonatomic) NSString *syncStoreIdentifier;
 - (int)mobileMeAccountStatus;

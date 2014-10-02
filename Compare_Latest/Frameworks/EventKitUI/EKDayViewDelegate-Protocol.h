@@ -11,6 +11,9 @@
 @protocol EKDayViewDelegate <NSObject>
 
 @optional
+- (void)dayView:(EKDayView *)arg1 didUpdateScrollPosition:(struct CGPoint)arg2;
+- (void)dayView:(EKDayView *)arg1 isPinchingDayViewWithScale:(float)arg2;
+- (void)dayView:(EKDayView *)arg1 didScaleDayViewWithScale:(float)arg2;
 - (void)dayView:(EKDayView *)arg1 didSelectEvent:(EKEvent *)arg2;
 - (void)dayView:(EKDayView *)arg1 didCreateOccurrenceViews:(NSArray *)arg2;
 - (void)dayViewDidFinishScrollingToOccurrence:(EKDayView *)arg1;

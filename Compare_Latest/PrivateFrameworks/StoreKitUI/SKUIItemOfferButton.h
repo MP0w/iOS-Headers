@@ -6,9 +6,11 @@
 
 #import "UIControl.h"
 
+#import "SKUIViewElementOfferButton.h"
+
 @class NSMutableAttributedString, NSString, SKUICircleProgressIndicator, SKUIFocusedTouchGestureRecognizer, SKUIItemOfferButtonState, UIColor, UIImage, UIImageView, UILabel, UIView;
 
-@interface SKUIItemOfferButton : UIControl
+@interface SKUIItemOfferButton : UIControl <SKUIViewElementOfferButton>
 {
     UIColor *_backgroundColor;
     UIView *_borderView;
@@ -46,6 +48,7 @@
 + (id)_imageForAttributedTitle:(id)arg1 titleStyle:(int)arg2 size:(struct CGSize)arg3 fillStyle:(int)arg4 universal:(BOOL)arg5 tintColor:(id)arg6;
 + (id)_defaultTitleAttributes;
 + (id)_cachedImageForAttributedTitle:(id)arg1 titleStyle:(int)arg2 size:(struct CGSize)arg3 fillStyle:(int)arg4 universal:(BOOL)arg5 tintColor:(id)arg6;
++ (id)localizedTitleForItemState:(id)arg1 clientContext:(id)arg2;
 + (id)itemOfferButtonWithAppearance:(id)arg1;
 @property(nonatomic) float progress; // @synthesize progress=_progress;
 @property(nonatomic, getter=isUniversal) BOOL universal; // @synthesize universal=_universal;
@@ -76,19 +79,23 @@
 - (void)_transitionFromTitle:(id)arg1 toTitle:(id)arg2 withDuration:(float)arg3 completion:(CDUnknownBlockType)arg4;
 - (id)_buttonPropertiesForState:(id)arg1;
 - (void)_cancelGestureAction:(id)arg1;
-- (void)setBackgroundColor:(id)arg1;
 - (void)tintColorDidChange;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)setBackgroundColor:(id)arg1;
 - (void)layoutSubviews;
 - (void)didMoveToWindow;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (BOOL)_touchInBounds:(id)arg1;
+- (void)setEnabled:(BOOL)arg1;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (BOOL)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (void)cancelTrackingWithEvent:(id)arg1;
 - (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+@property(nonatomic) __weak id <SKUIItemOfferButtonDelegate> itemOfferDelegate;
+- (BOOL)setValuesUsingViewElement:(id)arg1 itemState:(id)arg2 clientContext:(id)arg3 animated:(BOOL)arg4;
 - (BOOL)setValuesUsingItemOffer:(id)arg1 itemState:(id)arg2 clientContext:(id)arg3 animated:(BOOL)arg4;
+- (BOOL)setTitle:(id)arg1 confirmationTitle:(id)arg2 itemState:(id)arg3 clientContext:(id)arg4 animated:(BOOL)arg5;
 - (void)setColoringWithAppearance:(id)arg1;
 @property(copy, nonatomic) NSString *title;
 - (void)showCloudImage;
@@ -103,6 +110,12 @@
 - (struct CGSize)layoutSizeThatFits:(struct CGSize)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

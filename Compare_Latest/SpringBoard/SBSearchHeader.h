@@ -8,25 +8,43 @@
 
 #import "SBSearchGestureObserver.h"
 
-@class SBWallpaperEffectView, UIButton, UITextField;
+@class NSString, UIButton, UITextField;
 
 @interface SBSearchHeader : UIView <SBSearchGestureObserver>
 {
-    SBWallpaperEffectView *_blurView;
-    UIView *_container;
     UIButton *_cancelButton;
+    struct UIEdgeInsets _cancelMargins;
+    struct UIEdgeInsets _margins;
     UITextField *_searchField;
     id <SBSearchHeaderDelegate> _delegate;
 }
 
++ (id)keyPathsForValuesAffectingRightCancelMargin;
++ (id)keyPathsForValuesAffectingLeftCancelMargin;
++ (id)keyPathsForValuesAffectingRightMargin;
++ (id)keyPathsForValuesAffectingLeftMargin;
++ (id)barTintColor;
 @property(nonatomic) id <SBSearchHeaderDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) UITextField *searchField; // @synthesize searchField=_searchField;
+@property(readonly, retain, nonatomic) UITextField *searchField; // @synthesize searchField=_searchField;
 - (void)searchGesture:(id)arg1 changedPercentComplete:(double)arg2;
 - (void)_cancelButtonPressed;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (double)rightCancelMargin;
+- (double)leftCancelMargin;
+- (double)rightMargin;
+- (double)leftMargin;
+- (void)updatePlaceholder;
+- (void)updateMargins;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

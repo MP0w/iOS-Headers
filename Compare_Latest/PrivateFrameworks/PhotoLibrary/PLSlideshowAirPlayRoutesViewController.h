@@ -9,7 +9,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class NSArray, UITableView, UIView;
+@class NSArray, NSString, UITableView, UIView;
 
 @interface PLSlideshowAirPlayRoutesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
@@ -27,6 +27,12 @@
 - (void)dealloc;
 - (void)loadView;
 - (id)initWithAirplayRoutes:(id)arg1 selectedRouteIndex:(unsigned int)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

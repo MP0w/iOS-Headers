@@ -40,10 +40,12 @@ __attribute__((visibility("hidden")))
 - (void)p_calcMARegression:(unsigned int)arg1 xData:(id)arg2 yData:(id)arg3;
 - (void)p_calcBoundsForMovingAverage;
 - (void)p_calcRegression:(unsigned int)arg1 xData:(double *)arg2 yData:(double *)arg3;
-- (void)p_calcBoundsWithRange:(double)arg1 maxXValue:(double)arg2;
+- (void)p_calcBounds;
 - (id)p_dataPointValues;
 - (int)p_getTrendLineType;
 - (id)trendLinePathForChartRect:(struct CGRect)arg1 offsetInBody:(double)arg2 vertical:(BOOL)arg3;
+- (void)p_addPathToTrendLinePathWithPoints:(CDStruct_c3b9c2ee *)arg1 count:(unsigned int)arg2 curved:(BOOL)arg3 curveFitter:(id)arg4;
+- (id)p_linePathFromPoints:(CDStruct_c3b9c2ee *)arg1 count:(unsigned int)arg2;
 - (CDStruct_c3b9c2ee)p_unitPoint:(CDStruct_c3b9c2ee)arg1 toScreenFrame:(struct CGRect)arg2 offset:(double)arg3 vertical:(BOOL)arg4;
 - (struct __CFAttributedString *)newEquationAttributedString;
 - (void)trendLineUnitSpacePoints:(CDStruct_183601bc **)arg1 count:(unsigned int *)arg2 drawCurve:(char *)arg3 maxPoints:(unsigned int)arg4;
@@ -51,6 +53,7 @@ __attribute__((visibility("hidden")))
 - (double)minValueForAxisID:(id)arg1;
 - (void)updateIfNeeded;
 - (void)invalidateData;
+- (BOOL)showTrendLineForAxisID:(id)arg1;
 @property(readonly, nonatomic) float rSquaredTextOpacity;
 @property(readonly, nonatomic) float equationTextOpacity;
 @property(readonly, nonatomic) NSString *trendLineLegendText;

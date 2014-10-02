@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class HSConnectionConfiguration, HSConnectionStream, HSFairPlayInfo, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSURL;
+@class HSConnectionConfiguration, HSConnectionStream, HSFairPlayInfo, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSURL, NSURLSession;
 
 @interface HSConnection : NSObject
 {
@@ -16,6 +16,7 @@
     int _connectionType;
     NSObject<OS_dispatch_queue> *_serialQueue;
     NSObject<OS_dispatch_source> *_activityTimerSource;
+    NSURLSession *_connectionSession;
     BOOL authenticationRequired;
     BOOL tokenCheckRequired;
     BOOL _tokenCheckRequred;
@@ -33,6 +34,7 @@
     unsigned int _promptID;
 }
 
++ (void)_scheduleDialogResetIfNeeded;
 @property(nonatomic) unsigned int promptID; // @synthesize promptID=_promptID;
 @property unsigned int controlPort; // @synthesize controlPort=_controlPort;
 @property unsigned int controlKey; // @synthesize controlKey=_controlKey;
@@ -50,6 +52,8 @@
 @property int connectionState; // @synthesize connectionState=_connectionState;
 @property unsigned int basePlaylistContainerID; // @synthesize basePlaylistContainerID;
 @property(getter=isAuthenticationRequired) BOOL authenticationRequired; // @synthesize authenticationRequired;
+- (void).cxx_destruct;
+- (id)_onSerialQueue_connectionSession;
 - (void)_setupControlConnectionWithInternalConnectionCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_onSerialQueue_sendRequest:(id)arg1 withInternalResponseHandler:(CDUnknownBlockType)arg2;
 - (void)_sendRequest:(id)arg1 withInternalResponseHandler:(CDUnknownBlockType)arg2;
@@ -57,6 +61,7 @@
 - (void)_loadDatabaseWithInternalConnectionCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_continueFPSetupNegotiationWithData:(id)arg1 internalConnectionCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)checkForDatabaseUpdatesWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (id)signedRequestFromURLRequest:(id)arg1;
 - (void)sendRequest:(id)arg1 withResponseHandler:(CDUnknownBlockType)arg2;
 - (id)newControlConnection;
 - (void)disconnect;

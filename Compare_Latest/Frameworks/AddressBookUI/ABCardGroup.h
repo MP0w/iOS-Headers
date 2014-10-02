@@ -31,6 +31,7 @@
 - (id)description;
 - (void)removeActionWithTitle:(id)arg1;
 - (void)removeActionWithTarget:(id)arg1 selector:(SEL)arg2;
+- (void)addAction:(id)arg1 withTitle:(id)arg2 color:(id)arg3 transportType:(int)arg4;
 - (id)addActionWithTitle:(id)arg1 target:(id)arg2 selector:(SEL)arg3;
 - (id)addActionWithTitle:(id)arg1 target:(id)arg2 selector:(SEL)arg3 destructive:(BOOL)arg4;
 - (void)addAction:(id)arg1 withTitle:(id)arg2;

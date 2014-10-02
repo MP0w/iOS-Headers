@@ -23,7 +23,7 @@
 - (BOOL)_canDetachSingleOccurrence;
 - (void)_revertEvent;
 - (void)_copyEventForPossibleRevert;
-- (void)setShowsTimeZone:(BOOL)arg1;
+- (struct CGSize)preferredContentSize;
 - (unsigned int)entityType;
 - (id)notificationNamesForLocaleChange;
 - (id)defaultAlertTitle;
@@ -32,7 +32,11 @@
 - (id)defaultTitleForCalendarItem;
 - (id)preferredTitle;
 - (BOOL)saveCalendarItemWithSpan:(int)arg1 error:(id *)arg2;
+- (id)_orderedEditItems;
 - (id)_editItems;
+- (id)_calendarItemIndexSet;
+- (void)refreshLocation;
+- (void)refreshInvitees;
 - (void)refreshStartAndEndDates;
 @property(retain, nonatomic) EKEvent *event;
 - (void)viewDidDisappear:(BOOL)arg1;

@@ -18,7 +18,7 @@
 
 - (id)_audioMixInputParametersForTrackID:(int)arg1;
 - (void)setInputParameters:(id)arg1;
-@property(readonly, nonatomic) NSArray *inputParameters;
+@property(readonly, copy, nonatomic) NSArray *inputParameters;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;

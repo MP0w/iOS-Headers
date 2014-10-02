@@ -24,15 +24,15 @@
 }
 
 + (BOOL)supportsSecureCoding;
-@property(readonly, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;
-@property(readonly, nonatomic) NSNumber *height; // @synthesize height=_height;
-@property(readonly, nonatomic) NSNumber *width; // @synthesize width=_width;
-@property(readonly, nonatomic) NSDictionary *metaData; // @synthesize metaData=_metaData;
+@property(readonly, retain, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;
+@property(readonly, retain, nonatomic) NSNumber *height; // @synthesize height=_height;
+@property(readonly, retain, nonatomic) NSNumber *width; // @synthesize width=_width;
+@property(readonly, retain, nonatomic) NSDictionary *metaData; // @synthesize metaData=_metaData;
 @property(readonly, nonatomic) BOOL isDeletable; // @synthesize isDeletable=_isDeletable;
 @property(readonly, nonatomic) BOOL hasVideoAsset; // @synthesize hasVideoAsset=_hasVideoAsset;
 @property(readonly, nonatomic) BOOL isMine; // @synthesize isMine=_isMine;
-@property(readonly, nonatomic) NSString *personID; // @synthesize personID=_personID;
-@property(readonly, nonatomic) NSString *GUID; // @synthesize GUID=_GUID;
+@property(readonly, retain, nonatomic) NSString *personID; // @synthesize personID=_personID;
+@property(readonly, retain, nonatomic) NSString *GUID; // @synthesize GUID=_GUID;
 - (void)dealloc;
 - (id)description;
 - (id)initWithCoder:(id)arg1;

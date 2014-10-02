@@ -17,8 +17,8 @@
 }
 
 + (id)instantMessageAddressWithUsername:(id)arg1 service:(id)arg2;
-@property(readonly) NSString *service; // @synthesize service=_service;
-@property(readonly) NSString *username; // @synthesize username=_username;
+@property(readonly, copy) NSString *service; // @synthesize service=_service;
+@property(readonly, copy) NSString *username; // @synthesize username=_username;
 - (id)addressDictionary;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;

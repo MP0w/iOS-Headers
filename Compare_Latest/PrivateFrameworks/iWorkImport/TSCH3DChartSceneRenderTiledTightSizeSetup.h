@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (struct CGRect)layerVisibleBounds;
+- (struct CGRect)visibleBoundsInLayerRelativeSpace;
 - (unsigned int)tileSize;
 
 @end

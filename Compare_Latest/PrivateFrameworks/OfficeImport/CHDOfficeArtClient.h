@@ -8,7 +8,7 @@
 
 #import "OADClient.h"
 
-@class CHDAnchor;
+@class CHDAnchor, NSString;
 
 __attribute__((visibility("hidden")))
 @interface CHDOfficeArtClient : NSObject <OADClient>
@@ -21,6 +21,12 @@ __attribute__((visibility("hidden")))
 - (void)setAnchor:(id)arg1;
 - (id)anchor;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

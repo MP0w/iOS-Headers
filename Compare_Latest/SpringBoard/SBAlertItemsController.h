@@ -11,7 +11,7 @@
 #import "SBVolumePressBandit.h"
 #import "_UISettingsKeyObserver.h"
 
-@class BBObserver, CPDistributedNotificationCenter, NSArray, NSHashTable, NSMutableArray, NSMutableSet, NSTimer, SBAlertItem, SBAlertItemsSettings;
+@class BBObserver, CPDistributedNotificationCenter, NSArray, NSHashTable, NSMutableArray, NSMutableSet, NSString, NSTimer, SBAlertItem, SBAlertItemsSettings;
 
 @interface SBAlertItemsController : NSObject <_UISettingsKeyObserver, SBVolumePressBandit, SBAssertionDelegate, BBObserverDelegate>
 {
@@ -64,21 +64,27 @@
 - (_Bool)hasAlertOfClass:(Class)arg1;
 - (id)alertItemsOfClass:(Class)arg1;
 - (void)autoDismissAlertItem:(id)arg1;
-- (void)deactivateAlertItemsOfClass:(Class)arg1 reason:(int)arg2 animated:(_Bool)arg3;
-- (void)deactivateAlertItemsOfClass:(Class)arg1 reason:(int)arg2;
-- (void)deactivateAlertItemsOfClass:(Class)arg1;
+- (_Bool)deactivateAlertItemsOfClass:(Class)arg1 reason:(int)arg2 animated:(_Bool)arg3;
+- (_Bool)deactivateAlertItemsOfClass:(Class)arg1 reason:(int)arg2;
+- (_Bool)deactivateAlertItemsOfClass:(Class)arg1;
 - (void)deactivateAlertItem:(id)arg1;
 - (void)deactivateAlertItem:(id)arg1 reason:(int)arg2 animated:(_Bool)arg3;
 - (void)activatePendedAlertsIfNecessary;
 - (void)_activateSuperModalAlertsIfNecessary;
 - (void)deactivateAlertItem:(id)arg1 reason:(int)arg2;
+- (void)activateAlertItem:(id)arg1 animated:(_Bool)arg2;
 - (void)activateAlertItem:(id)arg1;
 - (void)resetAutoDismissTimer;
 - (void)convertUnlockedAlertsToLockedAlerts;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (_Bool)hasVisibleSuperModalAlert;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

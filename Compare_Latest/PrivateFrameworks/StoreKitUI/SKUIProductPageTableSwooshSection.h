@@ -9,7 +9,7 @@
 #import "SKUIMissingItemDelegate.h"
 #import "SKUISwooshViewControllerDelegate.h"
 
-@class SKUIColorScheme, SKUILockupSwooshArtworkLoader, SKUILockupSwooshViewController, SKUIMissingItemLoader, SKUIResourceLoader, SKUISwooshPageComponent, UIViewController;
+@class NSString, SKUIColorScheme, SKUILockupSwooshArtworkLoader, SKUILockupSwooshViewController, SKUIMissingItemLoader, SKUIResourceLoader, SKUISwooshPageComponent, UIViewController;
 
 @interface SKUIProductPageTableSwooshSection : SKUIProductPageTableSection <SKUIMissingItemDelegate, SKUISwooshViewControllerDelegate>
 {
@@ -36,6 +36,12 @@
 - (void)dealloc;
 - (id)initWithLockups:(id)arg1 title:(id)arg2;
 - (id)initWithItems:(id)arg1 title:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

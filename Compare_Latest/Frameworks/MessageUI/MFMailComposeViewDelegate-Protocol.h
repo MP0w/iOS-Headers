@@ -8,10 +8,12 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class MFFromAddressTableView, MFGenericAttachmentStore, MFMailAccountProxy, MFMailPopoverManager, NSArray, NSString, UIPickerView;
+@class MFAttachment, MFFromAddressTableView, MFMailAccountProxy, MFMailPopoverManager, NSArray, NSString, UIPickerView, _MFMailCompositionContext;
 
 @protocol MFMailComposeViewDelegate <UIPickerViewDelegate, UITableViewDelegate, UITableViewDataSource>
-- (MFGenericAttachmentStore *)attachmentStoreCreateIfNecessary;
+- (void)didInsertBodyText:(NSString *)arg1;
+- (void)didInsertAttachment:(MFAttachment *)arg1;
+- (_MFMailCompositionContext *)compositionContext;
 - (MFMailPopoverManager *)popoverManager;
 - (void)insertPhotoOrVideo;
 - (int)compositionType;
@@ -23,7 +25,6 @@
 - (BOOL)canShowFromField;
 - (MFMailAccountProxy *)sendingAccountProxy;
 - (void)updateSignature;
-- (void)addSignature:(BOOL)arg1;
 - (void)setSendingEmailAddress:(NSString *)arg1;
 - (NSString *)sendingEmailAddress;
 - (NSString *)sendingEmailAddressIfExists;

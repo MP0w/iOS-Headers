@@ -16,7 +16,7 @@
 
 @property(copy, nonatomic) NSArray *items; // @synthesize items=_items;
 @property(copy, nonatomic) WBSAutomaticReadingListRecordRange *rangeOfTrackedRecords; // @synthesize rangeOfTrackedRecords=_rangeOfTrackedRecords;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

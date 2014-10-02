@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSMutableArray;
+@class AVWeakReference, NSDictionary, NSMutableArray;
 
 @interface AVCaptureStillImageOutputInternal : NSObject
 {
+    AVWeakReference *weakReference;
     NSMutableArray *stillImageRequests;
     BOOL squareCropEnabled;
     struct CGSize previewImageSize;
@@ -18,7 +19,7 @@
     BOOL jpegQualitySpecified;
     int HDRCaptureMode;
     BOOL EV0CaptureEnabled;
-    BOOL chromaNoiseReductionEnabled;
+    BOOL noiseReductionEnabled;
     BOOL suspendsVideoProcessingDuringCapture;
     NSDictionary *outputSettings;
     BOOL isCapturingPhoto;
@@ -26,7 +27,16 @@
     BOOL SISSupported;
     BOOL SISEnabled;
     BOOL SISActive;
+    BOOL highResStillEnabled;
     unsigned long shutterSoundID;
+    struct {
+        unsigned int imageCount;
+        int outputFormat;
+        unsigned int outputWidth;
+        unsigned int outputHeight;
+    } preparedBracket;
+    NSMutableArray *prepareRequests;
+    unsigned int maxBracketedCaptureCount;
 }
 
 - (void)dealloc;

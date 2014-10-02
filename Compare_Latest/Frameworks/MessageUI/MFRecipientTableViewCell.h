@@ -30,6 +30,7 @@
 + (float)_realDetailButtonAccessoryMargin;
 + (float)_constrainedWidthForDetailViewWithAccessoryWidth:(float)arg1 containerWidth:(float)arg2;
 + (float)_constrainedWidthForTitleViewWithAccessoryWidth:(float)arg1 containerWidth:(float)arg2;
++ (float)_deviceSpecificLayoutMargin;
 + (id)cellForRecipient:(id)arg1;
 + (id)identifier;
 @property(nonatomic) BOOL shouldDimIrrelevantInformation; // @synthesize shouldDimIrrelevantInformation=_shouldDimIrrelevantInformation;

@@ -9,14 +9,12 @@
 @interface DAMailboxGetUpdatesRequest : DAMailboxRequest
 {
     int _maxSize;
-    int _bodyFormat;
 }
 
+@property(nonatomic) int maxSize; // @synthesize maxSize=_maxSize;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
-- (int)bodyFormat;
-- (int)maxSize;
 - (id)initRequestForBodyFormat:(int)arg1 withBodySizeLimit:(int)arg2;
 
 @end

@@ -8,7 +8,7 @@
 
 #import "EKCellShortener.h"
 
-@class UITableViewCell;
+@class NSString, UITableViewCell;
 
 __attribute__((visibility("hidden")))
 @interface EKEventEditedByDetailItem : EKEventDetailItem <EKCellShortener>
@@ -24,6 +24,12 @@ __attribute__((visibility("hidden")))
 - (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
 - (BOOL)configureWithCalendar:(id)arg1 preview:(BOOL)arg2;
 - (void)reset;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

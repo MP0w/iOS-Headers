@@ -18,7 +18,6 @@ __attribute__((visibility("hidden")))
     NSString *title;
     NSString *subtitle;
     id <MKUserLocationAnnotation> _annotation;
-    int source;
     double timestamp;
     BOOL updating;
     double course;
@@ -29,7 +28,6 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSString *subtitle; // @synthesize subtitle;
 @property(retain, nonatomic) NSString *title; // @synthesize title;
 @property(nonatomic) double timestamp; // @synthesize timestamp;
-@property(nonatomic) int source; // @synthesize source;
 @property(readonly, nonatomic) id <MKAnnotation> annotation; // @synthesize annotation;
 @property(retain, nonatomic) CLHeading *heading; // @synthesize heading;
 @property(retain, nonatomic) CLLocation *predictedLocation; // @synthesize predictedLocation;

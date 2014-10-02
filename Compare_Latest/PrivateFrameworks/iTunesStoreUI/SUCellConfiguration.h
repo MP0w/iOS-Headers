@@ -21,9 +21,9 @@
 + (float)rowHeightForContext:(id)arg1 representedObject:(id)arg2;
 + (float)minimumRowHeight;
 + (id)copyDefaultContext;
+@property(nonatomic) struct CGSize layoutSize; // @synthesize layoutSize=_layoutSize;
 @property(nonatomic) UIView<SUCellConfigurationView> *view; // @synthesize view=_view;
 @property(retain, nonatomic) id representedObject; // @synthesize representedObject=_representedObject;
-@property(nonatomic) struct CGSize layoutSize; // @synthesize layoutSize=_layoutSize;
 - (int)textAlignmentForLabelAtIndex:(unsigned int)arg1;
 @property(nonatomic) BOOL isDeleteConfirmationVisible;
 - (id)stringForLabelAtIndex:(unsigned int)arg1;

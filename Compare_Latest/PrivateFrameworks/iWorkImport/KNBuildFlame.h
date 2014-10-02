@@ -8,7 +8,7 @@
 
 #import "KNFrameBuildAnimator.h"
 
-@class KNBuildFlameSystem, TSDGLDataBuffer, TSDGLShader, TSDGLTextureInfo;
+@class KNBuildFlameSystem, NSString, TSDGLDataBuffer, TSDGLShader, TSDGLTextureInfo;
 
 __attribute__((visibility("hidden")))
 @interface KNBuildFlame : KNAnimationEffect <KNFrameBuildAnimator>
@@ -45,6 +45,12 @@ __attribute__((visibility("hidden")))
 - (id)p_flameSystemForTR:(id)arg1 build:(id)arg2;
 - (struct CGRect)frameOfEffectWithFrame:(struct CGRect)arg1 context:(id)arg2;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

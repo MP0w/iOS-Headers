@@ -6,19 +6,21 @@
 
 #import "NSObject.h"
 
-@class CHDChart;
+@class CHDChart, OADDrawingTheme;
 
 __attribute__((visibility("hidden")))
 @interface CHAutoStyling : NSObject
 {
     CHDChart *mChart;
+    OADDrawingTheme *mDrawingTheme;
 }
 
-+ (id)autoStylingWithChart:(id)arg1;
++ (id)autoStylingWithChart:(id)arg1 drawingTheme:(id)arg2;
+- (void)dealloc;
+- (id)drawingTheme;
+- (id)initWithChart:(id)arg1 drawingTheme:(id)arg2;
 - (void)replaceStrokeAndFillInEmptyMarker:(id)arg1 withSeriesGraphicProperties:(id)arg2;
 - (int)defaultMarkerStyleForSeriesIndex:(unsigned int)arg1;
-- (void)dealloc;
-- (id)initWithChart:(id)arg1;
 
 @end
 

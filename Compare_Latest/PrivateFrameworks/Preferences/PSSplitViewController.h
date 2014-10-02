@@ -6,10 +6,20 @@
 
 #import "UISplitViewController.h"
 
+@class PSRootController;
+
 @interface PSSplitViewController : UISplitViewController
 {
+    PSRootController *_containerNavigationController;
+    id <PSSplitViewControllerNavigationDelegate> _navigationDelegate;
 }
 
+@property(nonatomic) id <PSSplitViewControllerNavigationDelegate> navigationDelegate; // @synthesize navigationDelegate=_navigationDelegate;
+@property(retain, nonatomic) PSRootController *containerNavigationController; // @synthesize containerNavigationController=_containerNavigationController;
+- (void)dealloc;
+- (void)setupControllerForToolbar:(id)arg1;
+- (void)showInitialViewController:(id)arg1;
+- (void)popRecursivelyToRootController;
 - (unsigned int)supportedInterfaceOrientations;
 
 @end

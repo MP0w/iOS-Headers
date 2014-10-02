@@ -22,8 +22,15 @@ __attribute__((visibility("hidden")))
 - (void)applicationInstallsDidResume:(id)arg1;
 - (void)applicationInstallsDidPause:(id)arg1;
 - (void)applicationInstallsArePrioritized:(id)arg1 arePaused:(id)arg2;
+- (void)applicationsDidFailToUninstall:(id)arg1;
+- (void)pluginsDidUninstall:(id)arg1;
 - (void)applicationsDidUninstall:(id)arg1;
+- (void)applicationsWillUninstall:(id)arg1;
+- (void)pluginsWillUninstall:(id)arg1;
+- (void)applicationsDidFailToInstall:(id)arg1;
+- (void)pluginsDidInstall:(id)arg1;
 - (void)applicationsDidInstall:(id)arg1;
+- (void)applicationsWillInstall:(id)arg1;
 - (void)applicationInstallsDidChange:(id)arg1;
 - (void)applicationInstallsDidUpdateIcon:(id)arg1;
 - (void)applicationInstallsDidStart:(id)arg1;

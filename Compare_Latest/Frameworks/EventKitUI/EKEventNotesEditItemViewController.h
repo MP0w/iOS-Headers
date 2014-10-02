@@ -27,12 +27,18 @@ __attribute__((visibility("hidden")))
 - (BOOL)validateAllowingAlert:(BOOL)arg1;
 - (BOOL)resignFirstResponder;
 - (BOOL)becomeFirstResponder;
-@property(copy) NSString *noteText;
+@property(copy, nonatomic) NSString *noteText;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

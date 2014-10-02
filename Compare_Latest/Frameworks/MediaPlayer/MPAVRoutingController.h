@@ -11,11 +11,16 @@
 @interface MPAVRoutingController : NSObject
 {
     NSArray *_cachedRoutes;
+    MPAVRoute *_cachedPickedRoute;
     NSMutableArray *_asyncFetchingCompletionHandlers;
     BOOL _asyncFetchingRoutes;
+    int _externalScreenType;
+    BOOL _hasExternalScreenType;
     BOOL _scheduledSendDelegateRoutesChanged;
     BOOL _pickedRouteHasVolumeControl;
     BOOL _hasVolumeControlInfoForPickedRoute;
+    int _deviceAvailabilityNotifyToken;
+    BOOL _deviceAvailabilityOverrideState;
     id <MPAVRoutingControllerDelegate> _delegate;
     NSString *_name;
     int _discoveryMode;
@@ -28,12 +33,15 @@
 @property(nonatomic) __weak id <MPAVRoutingControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_scheduleSendDelegateRoutesChanged;
+- (void)_updateCachedRoutes;
+- (void)_setExternalScreenType:(int)arg1;
 - (id)_parseAVRouteDescriptions:(id)arg1;
 - (void)_unregisterNotifications;
 - (void)_registerNotifications;
 - (void)logCurrentRoutes;
 - (void)clearCachedRoutes;
 - (void)_mediaServerDiedNotification:(id)arg1;
+- (void)_externalScreenTypeDidChangeNotification:(id)arg1;
 - (void)_activeAudioRouteDidChangeNotification:(id)arg1;
 - (void)_routeStatusDidChangeNotification:(id)arg1;
 - (void)_pickableRoutesDidChangeNotification:(id)arg1;
@@ -54,7 +62,8 @@
 - (void)fetchAvailableRoutesWithCompletionHandler:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) BOOL volumeControlIsAvailable;
 @property(readonly, nonatomic) MPAVRoute *pickedRoute;
-@property(readonly, nonatomic) NSArray *availableRoutes;
+@property(readonly, nonatomic) int externalScreenType;
+@property(readonly, copy, nonatomic) NSArray *availableRoutes;
 - (id)description;
 - (void)dealloc;
 - (id)init;

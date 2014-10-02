@@ -6,16 +6,16 @@
 
 #import <OfficeImport/CMProperty.h>
 
-@class TSUColor;
+@class OITSUColor;
 
 __attribute__((visibility("hidden")))
 @interface CMBordersProperty : CMProperty
 {
-    TSUColor *mBorderColor;
-    TSUColor *mBorderTopColor;
-    TSUColor *mBorderLeftColor;
-    TSUColor *mBorderBottomColor;
-    TSUColor *mBorderRightColor;
+    OITSUColor *mBorderColor;
+    OITSUColor *mBorderTopColor;
+    OITSUColor *mBorderLeftColor;
+    OITSUColor *mBorderBottomColor;
+    OITSUColor *mBorderRightColor;
     int mBorderStyle[5];
     int mBorderWidth[5];
     int mCustomWidth;

@@ -6,12 +6,13 @@
 
 #import <iWorkImport/TSSStyle.h>
 
+#import "TSDMixing.h"
 #import "TSSPreset.h"
 
 @class NSString;
 
 __attribute__((visibility("hidden")))
-@interface TSWPParagraphStyle : TSSStyle <TSSPreset>
+@interface TSWPParagraphStyle : TSSStyle <TSSPreset, TSDMixing>
 {
     void *_coreTextParagraphStyle;
     struct __CFDictionary *_styleCache;
@@ -36,6 +37,8 @@ __attribute__((visibility("hidden")))
 + (id)presetStyleDescriptorForOrdinal:(unsigned int)arg1;
 + (id)defaultStyleWithDefaultPropertiesInContext:(id)arg1;
 - (id)styleSummary;
+- (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
+- (int)mixingTypeWithObject:(id)arg1;
 @property(readonly, nonatomic) NSString *presetKind;
 - (SEL)mapThemePropertyMapSelector;
 - (BOOL)transformsFontSizes;
@@ -48,7 +51,6 @@ __attribute__((visibility("hidden")))
 - (void)loadFromArchive:(const struct ParagraphStyleArchive *)arg1 unarchiver:(id)arg2;
 - (id)initialListStyle;
 - (void)setInitialListStyle:(id)arg1;
-- (id)contentTag;
 - (id)followingParagraphStyle;
 - (struct __CFDictionary *)p_newCoreTextCharacterStyle:(id)arg1 allowLigatures:(BOOL)arg2 scalePercent:(unsigned int)arg3;
 - (struct __CTParagraphStyle *)p_createCoreTextParagraphStyleWithCharacterStyle:(id)arg1 writingDirection:(int)arg2;

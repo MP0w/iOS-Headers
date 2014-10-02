@@ -8,6 +8,8 @@
 
 #import "TSTCellMap.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TSTPersistentCellMap : TSPContainedObject <TSTCellMap>
 {
@@ -30,13 +32,18 @@ __attribute__((visibility("hidden")))
 - (BOOL)mayModifyFormulasInCells;
 - (id)cellAtIndex:(unsigned int)arg1;
 - (CDStruct_0441cfb5)cellIDAtIndex:(unsigned int)arg1;
-- (BOOL)containsCellID:(CDStruct_0441cfb5)arg1;
 - (CDStruct_0441cfb5 *)cellIDs;
 - (unsigned int)count;
 - (void)setMayModifyValuesReferencedByFormulas:(BOOL)arg1;
 - (void)setMayModifyFormulasInCells:(BOOL)arg1;
 - (void)dealloc;
 - (id)initWithOwner:(id)arg1 andCapacity:(unsigned int)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

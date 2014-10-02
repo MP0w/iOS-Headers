@@ -26,6 +26,8 @@ __attribute__((visibility("hidden")))
 - (void)removeObjectAtIndex:(unsigned int)arg1;
 - (void)insertObject:(id)arg1 atIndex:(unsigned int)arg2;
 - (void)_mutate;
+- (unsigned int)countForObject:(id)arg1;
+- (BOOL)containsObject:(id)arg1;
 - (void)enumerateObjectsWithOptions:(unsigned int)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
 - (void)getObjects:(id *)arg1 range:(struct _NSRange)arg2;

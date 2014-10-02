@@ -9,7 +9,7 @@
 #import "TSPPasteboardWriting.h"
 #import "TSPProxyObjectManager.h"
 
-@class NSDictionary, NSHashTable, NSMutableDictionary, NSMutableOrderedSet, TSPObjectContext, TSPPasteboard, TSPPasteboardNativeDataProvider, TSPPasteboardObject, TSURetainedPointerKeyDictionary;
+@class NSDictionary, NSHashTable, NSMutableDictionary, NSMutableOrderedSet, NSString, TSPObjectContext, TSPPasteboard, TSPPasteboardNativeDataProvider, TSPPasteboardObject, TSURetainedPointerKeyDictionary;
 
 __attribute__((visibility("hidden")))
 @interface TSPPasteboardWriteAssistant : NSObject <TSPPasteboardWriting, TSPProxyObjectManager>
@@ -38,11 +38,17 @@ __attribute__((visibility("hidden")))
 - (void)delayArchivingOfObject:(id)arg1;
 - (id)pasteboardPropertyListForType:(id)arg1;
 - (id)writableTypesForPasteboard:(id)arg1;
-- (void)loadNativeData;
+- (void)loadData;
 - (void)waitForNativeDataIfNeeded;
 - (void)writeNativeDataToPasteboard:(id)arg1;
 - (void)setDataProvider:(id)arg1 forTypes:(id)arg2;
 - (id)initWithContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

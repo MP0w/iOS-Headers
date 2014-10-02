@@ -8,6 +8,8 @@
 
 #import "TSDHint.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TSWPTOCLayoutHint : NSObject <TSDHint>
 {
@@ -24,7 +26,14 @@ __attribute__((visibility("hidden")))
 - (id)firstChildHint;
 - (void)offsetByDelta:(int)arg1;
 - (BOOL)overlapsWithSelection:(id)arg1;
+- (id)copyForArchiving;
 - (id)initWithRange:(struct _NSRange)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

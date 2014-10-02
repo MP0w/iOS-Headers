@@ -6,34 +6,54 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
-@class NSDictionary, NSString, NSURL;
+@class BBAppearance, NSDictionary, NSString, NSURL;
 
-@interface BBAction : NSObject <NSCopying, NSCoding>
+@interface BBAction : NSObject <NSCopying, NSSecureCoding>
 {
     CDUnknownBlockType _internalBlock;
     BOOL _deliverResponse;
     NSURL *_launchURL;
     NSString *_launchBundleID;
     BOOL _launchCanBypassPinLock;
+    BOOL _authenticationRequired;
+    BOOL _shouldDismissBulletin;
     NSString *_activatePluginName;
     NSDictionary *_activatePluginContext;
     int _actionType;
+    NSString *_identifier;
+    BBAppearance *_appearance;
+    unsigned int _activationMode;
+    NSString *_remoteViewControllerClassName;
+    NSString *_remoteServiceBundleIdentifier;
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)actionWithActivatePluginName:(id)arg1 activationContext:(id)arg2;
 + (id)actionWithLaunchBundleID:(id)arg1 callblock:(CDUnknownBlockType)arg2;
 + (id)actionWithLaunchURL:(id)arg1 callblock:(CDUnknownBlockType)arg2;
++ (id)actionWithLaunchBundleID:(id)arg1;
++ (id)actionWithLaunchURL:(id)arg1;
++ (id)actionWithIdentifier:(id)arg1 title:(id)arg2;
++ (id)actionWithIdentifier:(id)arg1;
 + (id)actionWithCallblock:(CDUnknownBlockType)arg1;
++ (id)actionWithAppearance:(id)arg1;
 + (id)action;
+@property(copy, nonatomic) NSString *remoteServiceBundleIdentifier; // @synthesize remoteServiceBundleIdentifier=_remoteServiceBundleIdentifier;
+@property(copy, nonatomic) NSString *remoteViewControllerClassName; // @synthesize remoteViewControllerClassName=_remoteViewControllerClassName;
+@property(nonatomic) unsigned int activationMode; // @synthesize activationMode=_activationMode;
+@property(nonatomic) BOOL shouldDismissBulletin; // @synthesize shouldDismissBulletin=_shouldDismissBulletin;
+@property(nonatomic, getter=isAuthenticationRequired) BOOL authenticationRequired; // @synthesize authenticationRequired=_authenticationRequired;
+@property(copy, nonatomic) BBAppearance *appearance; // @synthesize appearance=_appearance;
+@property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) int actionType; // @synthesize actionType=_actionType;
 @property(copy, nonatomic) NSDictionary *activatePluginContext; // @synthesize activatePluginContext=_activatePluginContext;
 @property(copy, nonatomic) NSString *activatePluginName; // @synthesize activatePluginName=_activatePluginName;
 @property(nonatomic) BOOL launchCanBypassPinLock; // @synthesize launchCanBypassPinLock=_launchCanBypassPinLock;
 @property(copy, nonatomic) NSString *launchBundleID; // @synthesize launchBundleID=_launchBundleID;
-@property(retain, nonatomic) NSURL *launchURL; // @synthesize launchURL=_launchURL;
+@property(copy, nonatomic) NSURL *launchURL; // @synthesize launchURL=_launchURL;
 @property(copy, nonatomic) CDUnknownBlockType internalBlock; // @synthesize internalBlock=_internalBlock;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
@@ -42,16 +62,18 @@
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)partialDescription;
+- (id)_nameForActionType:(int)arg1;
 - (BOOL)deliverResponse:(id)arg1;
 @property(nonatomic) BOOL canBypassPinLock;
 - (id)bundleID;
 - (id)url;
-- (BOOL)isAppLaunchAction;
-- (BOOL)isURLLaunchAction;
-- (BOOL)hasLaunchInfo;
+- (BOOL)hasRemoteViewAction;
+- (BOOL)hasPluginAction;
+- (BOOL)hasLaunchAction;
 - (void)setCallblock:(CDUnknownBlockType)arg1;
 - (void)dealloc;
-- (id)initWithActivatePluginName:(id)arg1 activationContext:(id)arg2;
+- (id)initWithIdentifier:(id)arg1;
+- (id)init;
 
 @end
 

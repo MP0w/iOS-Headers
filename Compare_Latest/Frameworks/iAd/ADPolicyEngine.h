@@ -9,7 +9,7 @@
 #import "ADBannerViewInternalDelegate.h"
 #import "ADInterstitialAdDelegate.h"
 
-@class ADBannerView, ADInterstitialAd, NSArray, NSData, NSError, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, NSURL;
+@class ADBannerView, ADInterstitialAd, NSData, NSError, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, NSURL;
 
 @interface ADPolicyEngine : NSObject <ADBannerViewInternalDelegate, ADInterstitialAdDelegate>
 {
@@ -17,7 +17,6 @@
     BOOL _enabled;
     BOOL _sharedInterstitialAdIsInUse;
     BOOL _sharedMediaPlayerVideoAdClaimed;
-    NSArray *_gatewayEnabledStationIDs;
     NSObject<OS_dispatch_queue> *_policyEngineQueue;
     NSMutableArray *_queuedCommands;
     NSData *_heartbeatToken;
@@ -30,14 +29,12 @@
     NSError *_lastSharedMediaPlayerVideoAdError;
     NSData *_currentStationData;
     NSData *_currentSongData;
-    NSArray *_currentSponsoredStationIDs;
+    double _nextInterstitialPresentationTime;
+    double _nextPrerollPlaybackTime;
     double _heartbeatTokenExpiration;
-    double _lastStoryboardDismissalTime;
-    double _lastPrerollPlaybackTime;
 }
 
 + (id)sharedEngine;
-@property(retain, nonatomic) NSArray *currentSponsoredStationIDs; // @synthesize currentSponsoredStationIDs=_currentSponsoredStationIDs;
 @property(retain, nonatomic) NSData *currentSongData; // @synthesize currentSongData=_currentSongData;
 @property(retain, nonatomic) NSData *currentStationData; // @synthesize currentStationData=_currentStationData;
 @property(retain, nonatomic) NSError *lastSharedMediaPlayerVideoAdError; // @synthesize lastSharedMediaPlayerVideoAdError=_lastSharedMediaPlayerVideoAdError;
@@ -48,15 +45,22 @@
 @property(copy, nonatomic) NSString *sharedInterstitialSection; // @synthesize sharedInterstitialSection=_sharedInterstitialSection;
 @property(nonatomic) BOOL sharedInterstitialAdIsInUse; // @synthesize sharedInterstitialAdIsInUse=_sharedInterstitialAdIsInUse;
 @property(retain, nonatomic) ADInterstitialAd *sharedInterstitialAd; // @synthesize sharedInterstitialAd=_sharedInterstitialAd;
-@property(nonatomic) double lastPrerollPlaybackTime; // @synthesize lastPrerollPlaybackTime=_lastPrerollPlaybackTime;
-@property(nonatomic) double lastStoryboardDismissalTime; // @synthesize lastStoryboardDismissalTime=_lastStoryboardDismissalTime;
 @property(nonatomic) double heartbeatTokenExpiration; // @synthesize heartbeatTokenExpiration=_heartbeatTokenExpiration;
 @property(retain, nonatomic) NSError *heartbeatTokenError; // @synthesize heartbeatTokenError=_heartbeatTokenError;
 @property(retain, nonatomic) NSData *heartbeatToken; // @synthesize heartbeatToken=_heartbeatToken;
 @property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
 @property(readonly, nonatomic) NSMutableArray *queuedCommands; // @synthesize queuedCommands=_queuedCommands;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *policyEngineQueue; // @synthesize policyEngineQueue=_policyEngineQueue;
+@property(nonatomic) double nextPrerollPlaybackTime; // @synthesize nextPrerollPlaybackTime=_nextPrerollPlaybackTime;
+@property(nonatomic) double nextInterstitialPresentationTime; // @synthesize nextInterstitialPresentationTime=_nextInterstitialPresentationTime;
 @property(nonatomic) BOOL visuallyEngaged; // @synthesize visuallyEngaged=_visuallyEngaged;
+- (void)reportListeningPresenceEvent:(int)arg1;
+- (void)songSkipped;
+- (void)songStopped;
+- (void)songBeganWithTags:(id)arg1;
+- (void)songBeganWithTags:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)stationChanged:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)setStationData:(id)arg1 withInitialTrackBlobs:(id)arg2;
 - (void)bannerViewActionDidFinish:(id)arg1;
 - (BOOL)bannerViewActionShouldBegin:(id)arg1 willLeaveApplication:(BOOL)arg2;
 - (void)bannerView:(id)arg1 didFailToReceiveAdWithError:(id)arg2;
@@ -75,20 +79,14 @@
 - (BOOL)canPresentSharedInterstitialAdWithResultMessage:(id *)arg1;
 - (void)removeRecordForAccountWithIdentifier:(id)arg1;
 - (void)optimalTransmissionWindowDidOpen;
-- (void)setSponsoredStationIDs:(id)arg1;
 - (void)acquireMatchSlotWithBodyParameters:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)acquireMatchSlotWithUserConfirmation:(BOOL)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)reportClientEvent:(id)arg1;
 - (void)reportStationTileImpression:(id)arg1;
-- (void)reportListeningPresenceEvent:(int)arg1;
-- (void)songSkipped;
-- (void)songStopped;
-- (void)songBeganWithTags:(id)arg1;
-- (void)songBeganWithTags:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)setStationData:(id)arg1 withInitialTrackBlobs:(id)arg2;
-- (void)stationChanged:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-@property(readonly, nonatomic) NSArray *gatewayEnabledStationIDs; // @synthesize gatewayEnabledStationIDs=_gatewayEnabledStationIDs;
-- (void)setGatewayEnabledStationIDs:(id)arg1;
+- (void)didStopPlaybackOnStation:(id)arg1;
+- (void)didBeginPlaybackOnStation:(id)arg1 song:(id)arg2;
+- (void)didEnterStation:(id)arg1;
+- (void)requestAdsForSlot:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)heartbeatToken:(id *)arg1;
 - (void)setHeartbeatToken:(id)arg1 expirationDate:(double)arg2 error:(id)arg3;
 - (void)_adSheetConnectionBootstrapped;
@@ -97,6 +95,12 @@
 - (void)enablePolicyEngine;
 - (void)_enablePolicyEngineWithReason:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

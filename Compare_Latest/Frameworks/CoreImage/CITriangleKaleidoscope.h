@@ -16,7 +16,6 @@ __attribute__((visibility("hidden")))
     NSNumber *inputSize;
     NSNumber *inputRotation;
     NSNumber *inputDecay;
-    CIImage *_decayImage;
 }
 
 + (id)customAttributes;
@@ -29,7 +28,6 @@ __attribute__((visibility("hidden")))
 - (id)_geomKernel;
 - (id)_colorKernel;
 - (void)setDefaults;
-- (void)dealloc;
 
 @end
 

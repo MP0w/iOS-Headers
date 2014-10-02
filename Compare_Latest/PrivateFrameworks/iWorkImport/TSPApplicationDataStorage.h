@@ -13,8 +13,10 @@ __attribute__((visibility("hidden")))
 }
 
 - (void)validateIfNeeded;
+- (id)fileURLForInfo:(id)arg1;
 - (void)performReadWithAccessor:(CDUnknownBlockType)arg1;
 - (id)filenameForPreferredFilename:(id)arg1;
+- (BOOL)isReadable;
 - (id)initWithManager:(id)arg1 documentResourceInfo:(id)arg2 isValidated:(BOOL)arg3;
 - (id)initWithManager:(id)arg1 documentResourceInfo:(id)arg2;
 

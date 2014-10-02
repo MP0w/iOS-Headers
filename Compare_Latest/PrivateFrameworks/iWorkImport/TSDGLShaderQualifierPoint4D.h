@@ -13,8 +13,8 @@ __attribute__((visibility("hidden")))
     CDStruct_f2e236b6 _proposedGLPoint4DValue;
 }
 
-@property(nonatomic) CDStruct_f2e236b6 proposedGLPoint4DValue; // @synthesize proposedGLPoint4DValue=_proposedGLPoint4DValue;
-@property(readonly, nonatomic) CDStruct_f2e236b6 GLPoint4DValue; // @synthesize GLPoint4DValue=_GLPoint4DValue;
+@property(nonatomic) CDStruct_818bb265 proposedGLPoint4DValue; // @synthesize proposedGLPoint4DValue=_proposedGLPoint4DValue;
+@property(readonly, nonatomic) CDStruct_818bb265 GLPoint4DValue; // @synthesize GLPoint4DValue=_GLPoint4DValue;
 - (id)description;
 - (void)setGLUniformWithShader:(id)arg1;
 

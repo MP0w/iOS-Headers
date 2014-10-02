@@ -12,7 +12,7 @@
 #import "UIActionSheetDelegate.h"
 #import "UIPopoverControllerDelegate.h"
 
-@class BKSTimer, MPAVRoutingController, MPAVRoutingSheet, MPAVRoutingViewController, MPAudioVideoRoutingPopoverController, SBCCButtonLikeSectionView, SFAirDropDiscoveryController;
+@class BSTimer, MPAVRoutingController, MPAVRoutingSheet, MPAVRoutingViewController, MPAudioVideoRoutingPopoverController, NSString, SBCCButtonLikeSectionView, SFAirDropDiscoveryController;
 
 @interface SBCCAirStuffSectionController : SBControlCenterSectionViewController <MPAVRoutingControllerDelegate, UIPopoverControllerDelegate, SFAirDropDiscoveryControllerDelegate, SFAirDropDiscoveryActionSheetDelegate, UIActionSheetDelegate>
 {
@@ -25,12 +25,14 @@
     SFAirDropDiscoveryController *_airDropDiscoveryController;
     _Bool _isVisible;
     _Bool _airPlayWasPreviouslyEnabled;
-    BKSTimer *_resetTimer;
-    BKSTimer *_airPlayTimer;
+    BSTimer *_resetTimer;
+    BSTimer *_airPlayTimer;
     _Bool _airPlayEnabled;
     _Bool _airDropEnabled;
 }
 
++ (id)defaultFontTight;
++ (id)defaultFont;
 + (Class)viewClass;
 @property(nonatomic) _Bool airDropEnabled; // @synthesize airDropEnabled=_airDropEnabled;
 @property(nonatomic) _Bool airPlayEnabled; // @synthesize airPlayEnabled=_airPlayEnabled;
@@ -53,6 +55,7 @@
 - (void)_showAirPlayView:(id)arg1;
 - (void)_noteSectionEnabledStateDidChange;
 - (void)_updateSubsectionVisibilityAnimated:(_Bool)arg1;
+- (void)_updateLayoutForSizeCategoryChange;
 - (void)controlCenterDidDismiss;
 - (void)controlCenterWillPresent;
 - (void)viewDidLoad;
@@ -62,6 +65,12 @@
 - (id)sectionIdentifier;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -15,9 +15,15 @@ __attribute__((visibility("hidden")))
     char *mData;
 }
 
+@property(readonly, nonatomic) char *data; // @synthesize data=mData;
+@property(readonly, nonatomic) int rowBytes; // @synthesize rowBytes=mRowBytes;
+@property(readonly, nonatomic) int height; // @synthesize height=mHeight;
+@property(readonly, nonatomic) int width; // @synthesize width=mWidth;
+- (id)medianBitmap;
 - (void)unionWithBitmap:(id)arg1;
 - (void)dealloc;
 - (id)initWithWidth:(int)arg1 height:(int)arg2;
+- (id)initWithWidth:(int)arg1 height:(int)arg2 rowBytes:(int)arg3;
 
 @end
 

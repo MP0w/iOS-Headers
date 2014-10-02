@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class UITableViewRowData;
+@class NSMutableIndexSet, UITableViewRowData;
 
 __attribute__((visibility("hidden")))
 @interface UISectionRowData : NSObject <NSCopying>
@@ -23,7 +23,9 @@ __attribute__((visibility("hidden")))
     unsigned int _numRows;
     unsigned int _arrayLength;
     float *_rowHeights;
+    NSMutableIndexSet *_forcedNegativeRows;
     float *_rowOffsets;
+    BOOL _estimatesRowHeights;
     float _sectionHeight;
     int _headerAlignment;
     int _footerAlignment;
@@ -48,7 +50,7 @@ __attribute__((visibility("hidden")))
 - (float)heightForFooterInSection:(int)arg1 canGuess:(BOOL)arg2;
 - (float)heightForHeaderInSection:(int)arg1 canGuess:(BOOL)arg2;
 - (float)heightForRow:(int)arg1 inSection:(int)arg2 canGuess:(BOOL)arg3;
-- (void)updateSectionHeightWithDelta:(float)arg1 updateFooterOffset:(BOOL)arg2;
+- (void)updateSectionHeightWithDelta:(float)arg1 section:(int)arg2 updateFooterOffset:(BOOL)arg3;
 - (void)setHeight:(float)arg1 forRow:(int)arg2;
 - (void)addOffset:(float)arg1 fromRow:(int)arg2;
 - (float)_headerOrFooterSizeForTable:(id)arg1 title:(id)arg2 detailText:(id)arg3 isHeader:(BOOL)arg4 stripPaddingForAbuttingView:(BOOL)arg5 isTopHeader:(BOOL)arg6;

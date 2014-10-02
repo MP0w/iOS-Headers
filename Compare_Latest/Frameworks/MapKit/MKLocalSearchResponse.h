@@ -19,7 +19,7 @@
 - (void).cxx_destruct;
 - (id)description;
 - (id)_dictionaryRepresentation;
-- (id)_initWithGEOSearchResponse:(id)arg1;
+- (id)_initWithMapItems:(id)arg1 boundingRegion:(id)arg2;
 
 @end
 

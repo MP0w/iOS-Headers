@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSMutableDictionary;
+@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary;
 
 @interface NSMappingModel : NSObject
 {
@@ -28,9 +28,8 @@
 + (id)_modelPathsFromBundles:(id)arg1;
 + (void)setMigrationDebugLevel:(int)arg1;
 + (int)migrationDebugLevel;
-- (id)entityMappingsByName;
-- (void)setEntityMappings:(id)arg1;
-- (id)entityMappings;
+@property(readonly, copy) NSDictionary *entityMappingsByName;
+@property(retain) NSArray *entityMappings;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

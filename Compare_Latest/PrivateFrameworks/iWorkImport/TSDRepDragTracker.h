@@ -8,12 +8,13 @@
 
 #import "TSDDecorator.h"
 #import "TSDLayoutManipulatingTracker.h"
+#import "TSDRepDragTracker.h"
 #import "TSDRepTracker.h"
 
-@class CAShapeLayer, NSMutableSet, NSTimer, TSDAutoscroll, TSDHUDViewController, TSDRep, TSUPointerKeyDictionary;
+@class CAShapeLayer, NSMutableSet, NSString, NSTimer, TSDAutoscroll, TSDHUDViewController, TSDRep, TSUPointerKeyDictionary;
 
 __attribute__((visibility("hidden")))
-@interface TSDRepDragTracker : NSObject <TSDLayoutManipulatingTracker, TSDDecorator, TSDRepTracker>
+@interface TSDRepDragTracker : NSObject <TSDLayoutManipulatingTracker, TSDDecorator, TSDRepTracker, TSDRepDragTracker>
 {
     TSDRep *mRep;
     BOOL mDidBeginDrag;
@@ -21,12 +22,15 @@ __attribute__((visibility("hidden")))
     BOOL mHaveShownSecondHUD;
     BOOL mHaveShownRuler;
     BOOL mIsInspectorDrivenTracking;
+    BOOL mIsDragInsertDrivenTracking;
+    BOOL mIsArrowkeyDrivenTracking;
     struct CGPoint mInitialDragPoint;
     struct CGPoint mActualDragPoint;
     struct CGPoint mPreviousActualDragPoint;
     struct CGPoint mLogicalDragPoint;
     TSDHUDViewController *mSecondHUDController;
     struct CGPoint mUnscaledDragDelta;
+    BOOL mRoundDragDelta;
     NSTimer *mRulerTimer;
     TSDAutoscroll *mAutoscroll;
     struct CGPoint mAutoscrollPoint;
@@ -49,14 +53,18 @@ __attribute__((visibility("hidden")))
     BOOL mTrackerDidBeginDragging;
 }
 
-@property(nonatomic) BOOL isInspectorDrivenTracking; // @synthesize isInspectorDrivenTracking=mIsInspectorDrivenTracking;
+@property(nonatomic) BOOL isArrowkeyDrivenTracking; // @synthesize isArrowkeyDrivenTracking=mIsArrowkeyDrivenTracking;
 @property(nonatomic) BOOL alreadyInCommandGroup; // @synthesize alreadyInCommandGroup=mAlreadyInCommandGroup;
+@property(retain, nonatomic) TSDRep *rep; // @synthesize rep=mRep;
+@property(nonatomic) BOOL isInspectorDrivenTracking; // @synthesize isInspectorDrivenTracking=mIsInspectorDrivenTracking;
 @property(nonatomic) BOOL shouldSnapToGuides; // @synthesize shouldSnapToGuides=mShouldSnapToGuides;
 @property(nonatomic) BOOL shouldShowGuides; // @synthesize shouldShowGuides=mShouldShowGuides;
 @property(nonatomic) BOOL shouldShowRuler; // @synthesize shouldShowRuler=mShouldShowRuler;
 @property(nonatomic) BOOL showDragHUD; // @synthesize showDragHUD=mShowDragHUD;
+@property(nonatomic) BOOL isDragInsertDrivenTracking; // @synthesize isDragInsertDrivenTracking=mIsDragInsertDrivenTracking;
 @property(readonly, nonatomic) BOOL didBeginDrag; // @synthesize didBeginDrag=mDidBeginDrag;
-@property(retain, nonatomic) TSDRep *rep; // @synthesize rep=mRep;
+- (id)p_repsForInfos:(id)arg1 fromReps:(id)arg2;
+- (id)p_infosFromReps:(id)arg1;
 - (BOOL)p_delegateIsHandlingDrag;
 - (void)p_makeSiblingRepsOfRep:(id)arg1 performBlock:(CDUnknownBlockType)arg2;
 - (void)p_hideGuideLayer;
@@ -68,10 +76,12 @@ __attribute__((visibility("hidden")))
 - (void)p_updateHUDAtPoint:(struct CGPoint)arg1;
 - (void)p_updateHUDFromTimer;
 - (id)actionForLayer:(id)arg1 forKey:(id)arg2;
+- (BOOL)allowsDelegateToDisplayUIForDragOperation;
 - (id)decoratorOverlayLayers;
 - (void)didChangeCurrentlyTransformingReps;
 - (BOOL)operationShouldBeDynamic;
 - (BOOL)supportsAlignmentGuides;
+- (id)repsForGuidesWhenManipulatingReps:(id)arg1;
 - (void)didEndDynamicOperationForReps:(id)arg1;
 - (void)commitChangesForReps:(id)arg1;
 - (BOOL)shouldOpenCommandGroupToCommitChangesForReps:(id)arg1;
@@ -84,13 +94,19 @@ __attribute__((visibility("hidden")))
 - (void)setShouldConstrain:(BOOL)arg1;
 - (void)setLogicalDragPoint:(struct CGPoint)arg1;
 - (void)setActualDragPoint:(struct CGPoint)arg1;
-- (void)addUnscaledDragDelta:(struct CGPoint)arg1;
+- (void)addUnscaledDragDelta:(struct CGPoint)arg1 roundDeltaToViewScale:(BOOL)arg2;
 - (void)endPossibleRepDragGesture;
 - (void)willEndPossibleRepDragGesture;
 - (void)beginShowingDragUIForInitialDragPoint:(struct CGPoint)arg1;
 - (id)selectionBehaviorForReps:(id)arg1;
 - (void)dealloc;
 - (id)initWithRep:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

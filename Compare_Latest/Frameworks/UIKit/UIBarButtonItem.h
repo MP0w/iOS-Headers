@@ -8,7 +8,7 @@
 
 #import "NSCoding.h"
 
-@class NSDictionary, NSSet, NSString, UIColor, UIImage, UIToolbarButton, UIView;
+@class NSDictionary, NSSet, NSString, UIColor, UIImage, UINavigationItem, UIToolbarButton, UIView;
 
 @interface UIBarButtonItem : UIBarItem <NSCoding>
 {
@@ -36,6 +36,8 @@
         unsigned int imageHasEffects:1;
     } _barButtonItemFlags;
     BOOL _flexible;
+    BOOL __showsBackButtonIndicator;
+    BOOL __hidden;
     BOOL __viewWantsLetterpressImage;
     BOOL __needsViewUpdateForLetterpressImage;
     float _toolbarCharge;
@@ -44,13 +46,18 @@
     NSSet *_possibleSystemItems;
     NSDictionary *_stylesForSizingTitles;
     UIBarButtonItem *__itemVariation;
+    UINavigationItem *__owningNavigationItem;
 }
 
 + (id)_appearanceBlindViewClasses;
++ (Class)classForToolbarButton;
 + (Class)classForNavigationButton;
 + (void)_getSystemItemStyle:(int *)arg1 title:(id *)arg2 image:(id *)arg3 selectedImage:(id *)arg4 action:(SEL *)arg5 forBarStyle:(int)arg6 landscape:(BOOL)arg7 alwaysBordered:(BOOL)arg8 usingSystemItem:(int)arg9 usingItemStyle:(int)arg10;
 @property(readonly, nonatomic) BOOL _needsViewUpdateForLetterpressImage; // @synthesize _needsViewUpdateForLetterpressImage=__needsViewUpdateForLetterpressImage;
 @property(readonly, nonatomic) BOOL _viewWantsLetterpressImage; // @synthesize _viewWantsLetterpressImage=__viewWantsLetterpressImage;
+@property(nonatomic, setter=_setOwningNavigationItem:) UINavigationItem *_owningNavigationItem; // @synthesize _owningNavigationItem=__owningNavigationItem;
+@property(nonatomic, setter=_setHidden:) BOOL _hidden; // @synthesize _hidden=__hidden;
+@property(nonatomic, setter=_setShowsBackButtonIndicator:) BOOL _showsBackButtonIndicator; // @synthesize _showsBackButtonIndicator=__showsBackButtonIndicator;
 @property(retain, nonatomic, setter=_setItemVariation:) UIBarButtonItem *_itemVariation; // @synthesize _itemVariation=__itemVariation;
 @property(copy, nonatomic, setter=_setStylesForSizingTitles:) NSDictionary *_stylesForSizingTitles; // @synthesize _stylesForSizingTitles;
 @property(nonatomic, setter=_setFlexible:) BOOL _flexible; // @synthesize _flexible;
@@ -132,7 +139,9 @@
 - (id)window;
 - (void)_updateView;
 - (void)_getToolbarEdgeInsets:(struct UIEdgeInsets *)arg1 imageInsets:(struct UIEdgeInsets *)arg2 glowInsets:(struct UIEdgeInsets *)arg3 forBarStyle:(int)arg4 landscape:(BOOL)arg5 alwaysBordered:(BOOL)arg6;
-- (struct UIEdgeInsets)_leftRightImagePaddingForEdgeMarginInNavBarIsMini:(BOOL)arg1;
+- (float)_rightImagePaddingForEdgeMarginInNavBar;
+- (float)_leftImagePaddingForEdgeMarginInNavBar;
+- (BOOL)_isImageBarButtonItem;
 - (void)_getNavBarEdgeSizeAdjust:(struct CGSize *)arg1 imageInsets:(struct UIEdgeInsets *)arg2 landscape:(BOOL)arg3;
 - (void)_getSystemItemStyle:(int *)arg1 title:(id *)arg2 image:(id *)arg3 selectedImage:(id *)arg4 action:(SEL *)arg5 forBarStyle:(int)arg6 landscape:(BOOL)arg7 alwaysBordered:(BOOL)arg8;
 - (id)scriptingID;

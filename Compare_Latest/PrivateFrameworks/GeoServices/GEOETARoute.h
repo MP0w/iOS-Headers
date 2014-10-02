@@ -41,6 +41,7 @@
 @property(retain, nonatomic) NSData *zilchPoints; // @synthesize zilchPoints=_zilchPoints;
 @property(retain, nonatomic) NSMutableArray *steps; // @synthesize steps=_steps;
 @property(retain, nonatomic) NSData *routeID; // @synthesize routeID=_routeID;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -96,6 +97,8 @@
 - (void)clearSteps;
 @property(readonly, nonatomic) BOOL hasRouteID;
 - (void)dealloc;
+- (double)remainingTimeAlongRoute:(unsigned int)arg1 currentStepRemainingDistance:(double)arg2;
+@property(readonly, nonatomic) double expectedTime;
 
 @end
 

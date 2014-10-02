@@ -8,7 +8,7 @@
 
 #import "GQUOutputBundle.h"
 
-@class GQUProgressiveHelper;
+@class GQUProgressiveHelper, NSString;
 
 __attribute__((visibility("hidden")))
 @interface GQUProgressiveOutputBundle : NSObject <GQUOutputBundle>
@@ -34,6 +34,12 @@ __attribute__((visibility("hidden")))
 - (struct __CFString *)createUriForResource:(struct __CFString *)arg1;
 - (void)dealloc;
 - (id)initWithHandler:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 - (id).cxx_construct;
 - (id)initWithTrackedReferenceTSPObjectDeprecated:(id)arg1;
 - (id)initFromArchive:(const struct TrackedReferenceArchive *)arg1;
-- (void)encodeToArchive:(struct TrackedReferenceArchive *)arg1;
+- (void)encodeToArchive:(struct TrackedReferenceArchive *)arg1 archiver:(id)arg2;
 - (id)displayStringWithCalculationEngine:(id)arg1;
 - (id)description;
 - (BOOL)isValidWithReferenceTracker:(id)arg1;

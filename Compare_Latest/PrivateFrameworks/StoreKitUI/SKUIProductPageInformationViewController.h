@@ -8,14 +8,15 @@
 
 #import "SKUIContentRatingArtworkLoaderObserver.h"
 
-@class NSOperationQueue, SKUIClientContext, SKUIContentRatingArtworkResourceLoader, SKUIProductInformationView, SKUIProductPageItem;
+@class NSOperationQueue, NSString, SKUIClientContext, SKUIContentRatingArtworkResourceLoader, SKUIProductInformationView, SKUIProductPageItem, SKUIProductPageProductInfo;
 
 @interface SKUIProductPageInformationViewController : UIViewController <SKUIContentRatingArtworkLoaderObserver>
 {
     SKUIClientContext *_clientContext;
     SKUIContentRatingArtworkResourceLoader *_contentRatingArtworkLoader;
-    SKUIProductPageItem *_item;
     SKUIProductInformationView *_informationView;
+    SKUIProductPageItem *_item;
+    SKUIProductPageProductInfo *_productInfo;
     NSOperationQueue *_operationQueue;
 }
 
@@ -23,12 +24,21 @@
 @property(readonly, nonatomic) SKUIProductPageItem *item; // @synthesize item=_item;
 @property(readonly, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
+- (void)_updateLinesWithRatingImage:(id)arg1;
+- (id)_informationLinesWithProductInfo:(id)arg1;
+- (id)_informationLinesWithItem:(id)arg1 ratingImage:(id)arg2;
 - (id)_contentRatingResourceLoader;
 - (void)contentRatingArtworkLoader:(id)arg1 didLoadImage:(id)arg2 forContentRating:(id)arg3;
-- (void)_updateLines:(id)arg1;
 - (void)loadView;
 - (void)dealloc;
+- (id)initWithProductInformation:(id)arg1 clientContext:(id)arg2;
 - (id)initWithItem:(id)arg1 clientContext:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

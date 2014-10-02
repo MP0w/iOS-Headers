@@ -14,9 +14,9 @@
     PLImageTable *_imageTable;
 }
 
-- (void)startPreheatRequest;
+- (void)startPreheatRequestWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)dealloc;
-- (id)initWithThumbIndex:(unsigned int)arg1 imageTable:(id)arg2;
+- (id)initWithThumbIndex:(unsigned int)arg1 imageTable:(id)arg2 format:(int)arg3 optimalSourcePixelSize:(struct CGSize)arg4;
 
 @end
 

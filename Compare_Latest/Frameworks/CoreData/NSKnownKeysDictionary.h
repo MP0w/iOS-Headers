@@ -6,6 +6,8 @@
 
 #import "NSMutableDictionary.h"
 
+@class NSKnownKeysMappingStrategy;
+
 @interface NSKnownKeysDictionary : NSMutableDictionary
 {
 }
@@ -21,7 +23,7 @@
 - (void)setValue:(id)arg1 atIndex:(unsigned int)arg2;
 - (id)valueAtIndex:(unsigned int)arg1;
 - (const id *)values;
-- (id)mapping;
+@property(readonly, nonatomic) NSKnownKeysMappingStrategy *mapping;
 - (id)initForKeys:(id)arg1;
 - (id)initWithSearchStrategy:(id)arg1;
 

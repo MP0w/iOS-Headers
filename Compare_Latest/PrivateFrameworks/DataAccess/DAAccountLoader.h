@@ -17,6 +17,11 @@
 }
 
 + (id)sharedInstance;
+@property(retain, nonatomic) NSMutableDictionary *acParentAccountTypeToChildAccountTypes; // @synthesize acParentAccountTypeToChildAccountTypes=_acParentAccountTypeToChildAccountTypes;
+@property(retain, nonatomic) NSMutableDictionary *acAccountTypeToClassNames; // @synthesize acAccountTypeToClassNames=_acAccountTypeToClassNames;
+@property(retain, nonatomic) NSMutableDictionary *acAccountTypeToAccountDaemonBundleSubpath; // @synthesize acAccountTypeToAccountDaemonBundleSubpath=_acAccountTypeToAccountDaemonBundleSubpath;
+@property(retain, nonatomic) NSMutableDictionary *acAccountTypeToAccountFrameworkSubpath; // @synthesize acAccountTypeToAccountFrameworkSubpath=_acAccountTypeToAccountFrameworkSubpath;
+- (void).cxx_destruct;
 - (Class)daemonAppropriateAccountClassForACAccount:(id)arg1;
 - (Class)agentClassForACAccount:(id)arg1;
 - (Class)daemonAccountClassForACAccount:(id)arg1;

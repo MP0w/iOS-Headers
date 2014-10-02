@@ -6,7 +6,7 @@
 
 #import <iCalendar/ICSComponent.h>
 
-@class ICSDate, ICSDuration, ICSStructuredLocation, ICSUserAddress, NSArray, NSString, NSURL;
+@class ICSDate, ICSDuration, ICSStructuredLocation, ICSTravelAdvisoryBehavior, ICSTravelDuration, ICSUserAddress, NSArray, NSString, NSURL;
 
 @interface ICSEvent : ICSComponent
 {
@@ -16,16 +16,16 @@
 - (id)propertiesThatIfPresentExcludeThisComponentFromChecksummingForVersion:(int)arg1;
 - (id)propertiesToIncludeForChecksumVersion:(int)arg1;
 - (BOOL)isDefaultAlarmDeleted;
-@property int x_apple_ews_busystatus;
-@property BOOL x_wr_rsvpneeded; // @dynamic x_wr_rsvpneeded;
-@property BOOL x_wr_itipstatusml; // @dynamic x_wr_itipstatusml;
-@property BOOL x_wr_itipstatusattendeeml; // @dynamic x_wr_itipstatusattendeeml;
-@property BOOL x_wr_itipalreadysent; // @dynamic x_wr_itipalreadysent;
-@property BOOL x_apple_needs_reply; // @dynamic x_apple_needs_reply;
-@property BOOL x_apple_dontschedule;
-@property(retain) NSString *x_calendarserver_private_comment;
-@property(retain) NSArray *x_calendarserver_attendee_comment;
-@property int transp;
+@property(nonatomic) int x_apple_ews_busystatus;
+@property(nonatomic) BOOL x_wr_rsvpneeded; // @dynamic x_wr_rsvpneeded;
+@property(nonatomic) BOOL x_wr_itipstatusml; // @dynamic x_wr_itipstatusml;
+@property(nonatomic) BOOL x_wr_itipstatusattendeeml; // @dynamic x_wr_itipstatusattendeeml;
+@property(nonatomic) BOOL x_wr_itipalreadysent; // @dynamic x_wr_itipalreadysent;
+@property(nonatomic) BOOL x_apple_needs_reply; // @dynamic x_apple_needs_reply;
+@property(nonatomic) BOOL x_apple_dontschedule;
+@property(retain, nonatomic) NSString *x_calendarserver_private_comment;
+@property(retain, nonatomic) NSArray *x_calendarserver_attendee_comment;
+@property(nonatomic) int transp;
 - (BOOL)validate:(id *)arg1;
 - (void)fixComponent;
 
@@ -62,7 +62,8 @@
 @property(retain) NSString *x_apple_ews_permission; // @dynamic x_apple_ews_permission;
 @property BOOL x_apple_ignore_on_restore; // @dynamic x_apple_ignore_on_restore;
 @property(retain) ICSStructuredLocation *x_apple_structured_location; // @dynamic x_apple_structured_location;
-@property(retain) ICSDuration *x_apple_travel_duration; // @dynamic x_apple_travel_duration;
+@property(retain) ICSTravelAdvisoryBehavior *x_apple_travel_advisory_behavior; // @dynamic x_apple_travel_advisory_behavior;
+@property(retain) ICSTravelDuration *x_apple_travel_duration; // @dynamic x_apple_travel_duration;
 @property(retain) ICSStructuredLocation *x_apple_travel_start; // @dynamic x_apple_travel_start;
 
 @end

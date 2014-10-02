@@ -6,17 +6,24 @@
 
 #import "NSObject.h"
 
-__attribute__((visibility("hidden")))
 @interface CIKernel : NSObject
 {
     void *_priv;
 }
 
-- (id)description;
-- (BOOL)_validOptions:(id)arg1;
++ (id)_getDictForSourceString:(id)arg1 dimensionality:(int *)arg2;
++ (id)kernelWithString:(id)arg1;
++ (id)kernelsWithString:(id)arg1;
+- (id)applyWithExtent:(struct CGRect)arg1 roiCallback:(CDUnknownBlockType)arg2 cpuCallback:(CDUnknownBlockType)arg3 colorManagement:(_Bool)arg4 andArguments:(id)arg5;
+- (id)applyWithExtent:(struct CGRect)arg1 roiCallback:(CDUnknownBlockType)arg2 andArguments:(id)arg3;
+- (id)applyWithExtent:(struct CGRect)arg1 roiCallback:(CDUnknownBlockType)arg2 arguments:(id)arg3;
+- (int)_argumentTypeAtIndex:(int)arg1;
+- (id)initWithDict:(id)arg1;
+- (id)initWithString:(id)arg1;
+- (id)name;
 - (void *)_internalRepresentation;
 - (id)_initWithInternalRepresentation:(void *)arg1;
-- (int)_argumentTypeAtIndex:(int)arg1;
+- (id)description;
 - (id)init;
 
 @end

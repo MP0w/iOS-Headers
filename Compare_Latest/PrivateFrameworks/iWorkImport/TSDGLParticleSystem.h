@@ -71,13 +71,13 @@ __attribute__((visibility("hidden")))
 - (void)drawGLSLWithPercent:(float)arg1 opacity:(float)arg2;
 - (void)setupGLSL;
 - (BOOL)visibilityAtIndexPoint:(struct CGPoint)arg1;
-- (CDStruct_f2e236b6)colorAtIndexPoint:(struct CGPoint)arg1;
+- (CDStruct_818bb265)colorAtIndexPoint:(struct CGPoint)arg1;
 - (CDStruct_b2fbf00d)lifeSpanAtIndexPoint:(struct CGPoint)arg1;
 - (float)scaleAtIndexPoint:(struct CGPoint)arg1;
 - (float)rotationMax;
-- (CDStruct_03942939)rotationAtIndexPoint:(struct CGPoint)arg1;
+- (CDStruct_869f9c67)rotationAtIndexPoint:(struct CGPoint)arg1;
 - (float)speedMax;
-- (CDStruct_03942939)speedAtIndexPoint:(struct CGPoint)arg1;
+- (CDStruct_869f9c67)speedAtIndexPoint:(struct CGPoint)arg1;
 - (struct CGPoint)startingPointAtIndexPoint:(struct CGPoint)arg1;
 - (CDStruct_b2fbf00d)centerAtIndexPoint:(struct CGPoint)arg1;
 - (CDStruct_b2fbf00d)vertexPositionAtVertexIndex:(unsigned int)arg1 particleIndexPoint:(struct CGPoint)arg2;

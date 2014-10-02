@@ -6,7 +6,7 @@
 
 #import <Social/SLSheetImagePreviewView.h>
 
-@class CALayer, NSMutableArray, NSString, UILabel;
+@class CALayer, NSMutableArray, UILabel;
 
 @interface SLSheetPhotoAlbumImageView : SLSheetImagePreviewView
 {
@@ -17,23 +17,22 @@
     int _imageQuantity;
     int _numPreviewImagesAdded;
     UILabel *_imageCountLabel;
-    NSString *_forcedItemCountString;
     BOOL _updateLayout;
+    BOOL _allAttachmentsAreImages;
 }
 
 + (unsigned int)displayedFrameMaximum;
 - (void).cxx_destruct;
-- (struct CGSize)intrinsicContentSize;
 - (struct UIEdgeInsets)alignmentRectInsets;
 - (void)layoutSubviews;
 - (void)sizeToFit;
-- (struct CGSize)_currentSize;
+- (struct CGSize)intrinsicContentSize;
 - (void)setItemCountString:(id)arg1;
 - (id)_itemCountString;
 - (BOOL)_shouldDisplayImageCountLabel;
 - (void)addPreviewImage:(id)arg1;
 - (void)setPreviewImage:(id)arg1 forAttachment:(id)arg2;
-- (void)barMetricsDidChange;
+- (void)verticalSizeClassDidChange;
 - (id)initWithPrincipalAttachments:(id)arg1;
 
 @end

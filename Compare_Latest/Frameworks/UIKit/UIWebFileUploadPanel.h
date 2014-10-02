@@ -6,21 +6,19 @@
 
 #import <UIKit/UIViewController.h>
 
-#import "UIActionSheetDelegate.h"
 #import "UIImagePickerControllerDelegate.h"
 #import "UINavigationControllerDelegate.h"
-#import "UIWebRotatingNodePopoverDelegate.h"
+#import "UIPopoverControllerDelegate.h"
 
-@class DOMNode, NSArray, NSObject<WebOpenPanelResultListener>, UIActionSheet, UIFallbackCompatibleViewController, UIImagePickerController, UIWebDocumentView, UIWebRotatingNodePopover;
+@class DOMNode, NSArray, NSObject<WebOpenPanelResultListener>, NSString, UIAlertController, UIImagePickerController, UIPopoverController, UIWebDocumentView;
 
 __attribute__((visibility("hidden")))
-@interface UIWebFileUploadPanel : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UIWebRotatingNodePopoverDelegate>
+@interface UIWebFileUploadPanel : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPopoverControllerDelegate>
 {
-    UIActionSheet *_selectPickerTypeSheet;
+    UIAlertController *_selectPickerTypeSheet;
     UIImagePickerController *_imagePicker;
-    UIFallbackCompatibleViewController *_rootViewController;
-    UIViewController *_fallbackViewController;
-    UIWebRotatingNodePopover *_fileUploadPopover;
+    UIViewController *_presentationViewController;
+    UIPopoverController *_presentationPopover;
     BOOL _documentViewPresentedViewController;
     struct CGPoint _interactionPoint;
     DOMNode *_interactionElement;
@@ -51,14 +49,13 @@ __attribute__((visibility("hidden")))
 - (id)_filePathForMediaURL:(id)arg1;
 - (float)_compressionQuality;
 - (void)_dismissDisplayAnimated:(BOOL)arg1;
-- (void)popoverWasDismissed:(id)arg1;
-- (void)actionSheetCancel:(id)arg1;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (void)dismiss;
+- (void)popoverControllerDidDismissPopover:(id)arg1;
 - (void)present;
+- (void)_presentFullscreenViewController:(id)arg1 animated:(BOOL)arg2;
+- (void)_presentPopoverWithContentViewController:(id)arg1 animated:(BOOL)arg2;
 - (void)_showMediaSourceSelectionSheet;
 - (void)_showPhotoPickerWithSourceType:(int)arg1;
-- (void)_ensureInteractionElement;
 - (id)_photoPickerWithSourceType:(int)arg1;
 - (id)_mediaTypesForPickerSourceType:(int)arg1;
 - (BOOL)_string:(id)arg1 hasPrefixCaseInsensitive:(id)arg2;
@@ -68,6 +65,12 @@ __attribute__((visibility("hidden")))
 - (void)_dispatchDidDismiss;
 - (void)dealloc;
 - (id)initWithResultListener:(id)arg1 mimeTypes:(id)arg2 allowMultipleFiles:(BOOL)arg3 documentView:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSObject<OS_dispatch_data> *messagesData; // @synthesize messagesData=_messagesData;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (BOOL)canValidateReferences;
 - (shared_ptr_bafc106c)archiveInfo;
 - (const struct Message *)message;
 - (id)initWithIdentifier:(long long)arg1 archiveInfo:(shared_ptr_bafc106c)arg2 messagesData:(id)arg3 packageLocator:(id)arg4 objectDelegate:(id)arg5 lazyReferenceDelegate:(id)arg6 delegate:(id)arg7 error:(id *)arg8;

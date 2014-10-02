@@ -12,7 +12,6 @@
 {
     NSSet *_calendarHomes;
     NSSet *_userAddresses;
-    NSSet *_originalUserAddresses;
     NSURL *_inboxURL;
     NSURL *_outboxURL;
     NSURL *_dropboxURL;
@@ -23,17 +22,16 @@
     CalDAVServerVersion *_serverVersion;
 }
 
-@property(readonly) BOOL supportsCalendarUserSearch; // @synthesize supportsCalendarUserSearch=_supportsCalendarUserSearch;
-@property(readonly) NSURL *updatedPrincipalURL; // @synthesize updatedPrincipalURL=_updatedPrincipalURL;
-@property(readonly) CalDAVServerVersion *serverVersion; // @synthesize serverVersion=_serverVersion;
-@property(readonly) NSSet *originalUserAddresses; // @synthesize originalUserAddresses=_originalUserAddresses;
-@property(readonly) NSSet *userAddresses; // @synthesize userAddresses=_userAddresses;
-@property(readonly) NSURL *notificationURL; // @synthesize notificationURL=_notificationURL;
-@property(readonly) NSURL *dropboxURL; // @synthesize dropboxURL=_dropboxURL;
-@property(readonly) NSURL *outboxURL; // @synthesize outboxURL=_outboxURL;
-@property(readonly) NSURL *inboxURL; // @synthesize inboxURL=_inboxURL;
-@property(retain) NSURL *delegatePrincipalURL; // @synthesize delegatePrincipalURL=_delegatePrincipalURL;
-@property(readonly) NSSet *calendarHomes; // @synthesize calendarHomes=_calendarHomes;
+@property(readonly, nonatomic) BOOL supportsCalendarUserSearch; // @synthesize supportsCalendarUserSearch=_supportsCalendarUserSearch;
+@property(readonly, nonatomic) NSURL *updatedPrincipalURL; // @synthesize updatedPrincipalURL=_updatedPrincipalURL;
+@property(readonly, nonatomic) CalDAVServerVersion *serverVersion; // @synthesize serverVersion=_serverVersion;
+@property(readonly, nonatomic) NSSet *userAddresses; // @synthesize userAddresses=_userAddresses;
+@property(readonly, nonatomic) NSURL *notificationURL; // @synthesize notificationURL=_notificationURL;
+@property(readonly, nonatomic) NSURL *dropboxURL; // @synthesize dropboxURL=_dropboxURL;
+@property(readonly, nonatomic) NSURL *outboxURL; // @synthesize outboxURL=_outboxURL;
+@property(readonly, nonatomic) NSURL *inboxURL; // @synthesize inboxURL=_inboxURL;
+@property(retain, nonatomic) NSURL *delegatePrincipalURL; // @synthesize delegatePrincipalURL=_delegatePrincipalURL;
+@property(readonly, nonatomic) NSSet *calendarHomes; // @synthesize calendarHomes=_calendarHomes;
 - (void)processPrincipalHeaders:(id)arg1;
 - (BOOL)forceOptionsRequest;
 - (void)_setPropertiesFromParsedResponses:(id)arg1;

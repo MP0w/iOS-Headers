@@ -8,7 +8,7 @@
 
 #import "UITextContentViewDelegate.h"
 
-@class PSTextView;
+@class NSString, PSTextView;
 
 @interface PSTextViewTableCell : PSTableCell <UITextContentViewDelegate>
 {
@@ -28,6 +28,12 @@
 - (void)setValue:(id)arg1;
 - (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

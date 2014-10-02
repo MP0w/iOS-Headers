@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (void)clearParent;
+- (id)p_parent;
 - (void)dealloc;
 - (id)initWithParent:(id)arg1;
 

@@ -14,7 +14,10 @@
 }
 
 - (void).cxx_destruct;
+- (void)_prepareShiftForLocation:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2 withShiftRequestBlock:(CDUnknownBlockType)arg3;
+- (void)shiftLocation:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2 callbackQueue:(id)arg3;
 - (void)shiftLocation:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+@property(readonly, nonatomic, getter=isLocationShiftEnabled) BOOL locationShiftEnabled;
 - (id)init;
 
 @end

@@ -13,23 +13,31 @@
 @interface GEOLocation : PBCodable <NSCopying>
 {
     double _course;
+    double _courseAccuracy;
     double _heading;
     double _horizontalAccuracy;
     double _speed;
+    double _speedAccuracy;
     double _timestamp;
     double _verticalAccuracy;
     int _altitude;
     GEOLatLng *_latLng;
     int _type;
+    BOOL _isMatchedLocation;
+    BOOL _isShifted;
     struct {
         unsigned int course:1;
+        unsigned int courseAccuracy:1;
         unsigned int heading:1;
         unsigned int horizontalAccuracy:1;
         unsigned int speed:1;
+        unsigned int speedAccuracy:1;
         unsigned int timestamp:1;
         unsigned int verticalAccuracy:1;
         unsigned int altitude:1;
         unsigned int type:1;
+        unsigned int isMatchedLocation:1;
+        unsigned int isShifted:1;
     } _has;
 }
 
@@ -42,6 +50,7 @@
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 @property(nonatomic) int type; // @synthesize type=_type;
 @property(retain, nonatomic) GEOLatLng *latLng; // @synthesize latLng=_latLng;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -59,9 +68,19 @@
 @property(nonatomic) BOOL hasTimestamp;
 @property(nonatomic) BOOL hasType;
 - (void)dealloc;
+@property(readonly, nonatomic) BOOL hasAccurateCourse;
+@property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate;
 - (id)initWithGEOCoordinate:(CDStruct_c3b9c2ee)arg1;
 - (id)initWithLatitude:(double)arg1 longitude:(double)arg2;
 - (id)initWithLocation:(id)arg1;
+@property(nonatomic) BOOL hasIsShifted;
+@property(nonatomic) BOOL isShifted;
+@property(nonatomic) BOOL hasIsMatchedLocation;
+@property(nonatomic) BOOL isMatchedLocation;
+@property(nonatomic) BOOL hasSpeedAccuracy;
+@property(nonatomic) double speedAccuracy;
+@property(nonatomic) BOOL hasCourseAccuracy;
+@property(nonatomic) double courseAccuracy;
 
 @end
 

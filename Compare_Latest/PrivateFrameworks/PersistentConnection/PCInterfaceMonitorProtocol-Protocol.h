@@ -10,8 +10,9 @@
 
 @protocol PCInterfaceMonitorProtocol <NSObject>
 @property(readonly, nonatomic) BOOL isRadioHot;
+@property(readonly, nonatomic) BOOL isBadLinkQuality;
 @property(readonly, nonatomic) BOOL isPoorLinkQuality;
-@property(readonly, nonatomic) NSString *linkQualityString;
+@property(readonly, retain, nonatomic) NSString *linkQualityString;
 @property(readonly, nonatomic) BOOL isInternetReachable;
 @property(readonly, nonatomic) BOOL isInterfaceHistoricallyUsable;
 @property(readonly, nonatomic) BOOL isInterfaceUsable;

@@ -8,8 +8,9 @@
 
 #import "PBRequesterDelegate.h"
 
-@class GEORequester;
+@class GEORequester, NSString;
 
+__attribute__((visibility("hidden")))
 @interface GEOVoltaireGeocodeProvider : GEOGeocodeProvider <PBRequesterDelegate>
 {
     GEORequester *_requester;
@@ -21,9 +22,7 @@
 + (id)batchReverseGeocoderURL;
 + (id)reverseGeocoderURL;
 + (id)forwardGeocoderURL;
-+ (void)setUsePersistentConnection:(BOOL)arg1;
 + (id)providerName;
-+ (unsigned short)provider;
 - (void)cancel;
 - (void)requesterDidCancel:(id)arg1;
 - (void)requester:(id)arg1 didFailWithError:(id)arg2;
@@ -35,6 +34,12 @@
 - (void)forwardGeocode:(id)arg1 success:(CDUnknownBlockType)arg2 networkActivity:(CDUnknownBlockType)arg3 error:(CDUnknownBlockType)arg4;
 - (id)newRequester:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

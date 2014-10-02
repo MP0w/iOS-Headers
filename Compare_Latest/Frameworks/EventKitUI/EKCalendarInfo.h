@@ -33,7 +33,7 @@
 @property(readonly, nonatomic) BOOL isShared;
 @property(readonly, nonatomic) BOOL isSubscribed;
 @property(readonly, nonatomic) int displayOrder;
-@property(readonly, nonatomic) NSString *title;
+@property(readonly, copy, nonatomic) NSString *title;
 - (id)initWithCalendar:(id)arg1;
 - (void)_updateCustomGroupType;
 

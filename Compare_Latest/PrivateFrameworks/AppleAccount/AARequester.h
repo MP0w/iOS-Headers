@@ -6,7 +6,7 @@
 
 #import "NSOperation.h"
 
-@class AARequest, AAResponse, NSHTTPURLResponse, NSMutableData, NSURLConnection;
+@class AARequest, AAResponse, NSHTTPURLResponse, NSMutableData, NSObject<OS_dispatch_queue>, NSURLConnection;
 
 @interface AARequester : NSOperation
 {
@@ -21,11 +21,13 @@
     BOOL _isFinished;
     BOOL _canceled;
     BOOL _isCanceled;
+    NSObject<OS_dispatch_queue> *_handlerQueue;
 }
 
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *handlerQueue; // @synthesize handlerQueue=_handlerQueue;
+@property(nonatomic, getter=isExecuting) BOOL isExecuting; // @synthesize isExecuting=_isExecuting;
 @property(getter=isCanceled) BOOL canceled; // @synthesize canceled=_isCanceled;
 @property(getter=isFinished) BOOL finished; // @synthesize finished=_isFinished;
-@property(nonatomic, getter=isExecuting) BOOL executing; // @synthesize executing=_isExecuting;
 - (void).cxx_destruct;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)connectionDidFinishLoading:(id)arg1;

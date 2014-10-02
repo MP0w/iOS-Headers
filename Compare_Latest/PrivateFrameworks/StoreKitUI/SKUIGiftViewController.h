@@ -20,7 +20,7 @@
 }
 
 @property(nonatomic) __weak id <SKUIGiftViewControllerDelegate> giftDelegate; // @synthesize giftDelegate=_giftDelegate;
-@property(readonly, nonatomic) SKUIGift *gift; // @synthesize gift=_gift;
+@property(readonly, copy, nonatomic) SKUIGift *gift; // @synthesize gift=_gift;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
 - (id)_localizedString:(id)arg1;
@@ -31,6 +31,7 @@
 - (void)_clientContextDidLoadWithContext:(id)arg1 error:(id)arg2;
 - (void)_cancelButtonAction:(id)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
+- (unsigned int)supportedInterfaceOrientations;
 @property(retain, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
 - (id)initWithGift:(id)arg1;
 

@@ -18,6 +18,7 @@
     BOOL _useShortDaysInRanges;
     BOOL _useTime;
     BOOL _yearOnly;
+    BOOL _timeOnly;
     NSDateFormatter *__sameDayDateFormatter;
     NSDateFormatter *__sameDayNoYearDateFormatter;
     NSDateFormatter *__dayOfTheWeekDateFormatter;
@@ -35,6 +36,7 @@
 
 + (void)_dumpAllDateCombinationsWithFormatters;
 @property(retain, nonatomic, setter=_setCurrentLocale:) NSLocale *_currentLocale; // @synthesize _currentLocale=__currentLocale;
+@property(nonatomic) BOOL timeOnly; // @synthesize timeOnly=_timeOnly;
 @property(nonatomic) BOOL yearOnly; // @synthesize yearOnly=_yearOnly;
 @property(nonatomic) BOOL useTime; // @synthesize useTime=_useTime;
 @property(nonatomic) BOOL useShortDaysInRanges; // @synthesize useShortDaysInRanges=_useShortDaysInRanges;
@@ -68,11 +70,11 @@
 @property(readonly, nonatomic) struct UDateIntervalFormat *_differentMonthDayIntervalFormat; // @synthesize _differentMonthDayIntervalFormat=__differentMonthDayIntervalFormat;
 @property(readonly, nonatomic) struct UDateIntervalFormat *_monthDayNoYearIntervalFormat; // @synthesize _monthDayNoYearIntervalFormat=__monthDayNoYearIntervalFormat;
 @property(readonly, nonatomic) struct UDateIntervalFormat *_monthDayIntervalFormat; // @synthesize _monthDayIntervalFormat=__monthDayIntervalFormat;
-@property(readonly, nonatomic) NSDateFormatter *_relativeDateFormatterDay; // @synthesize _relativeDateFormatterDay=__relativeDateFormatterDay;
-@property(readonly, nonatomic) NSDateFormatter *_yearDateFormatter; // @synthesize _yearDateFormatter=__yearDateFormatter;
-@property(readonly, nonatomic) NSDateFormatter *_dayOfTheWeekDateFormatter; // @synthesize _dayOfTheWeekDateFormatter=__dayOfTheWeekDateFormatter;
-@property(readonly, nonatomic) NSDateFormatter *_sameDayNoYearDateFormatter; // @synthesize _sameDayNoYearDateFormatter=__sameDayNoYearDateFormatter;
-@property(readonly, nonatomic) NSDateFormatter *_sameDayDateFormatter; // @synthesize _sameDayDateFormatter=__sameDayDateFormatter;
+@property(readonly, retain, nonatomic) NSDateFormatter *_relativeDateFormatterDay; // @synthesize _relativeDateFormatterDay=__relativeDateFormatterDay;
+@property(readonly, retain, nonatomic) NSDateFormatter *_yearDateFormatter; // @synthesize _yearDateFormatter=__yearDateFormatter;
+@property(readonly, retain, nonatomic) NSDateFormatter *_dayOfTheWeekDateFormatter; // @synthesize _dayOfTheWeekDateFormatter=__dayOfTheWeekDateFormatter;
+@property(readonly, retain, nonatomic) NSDateFormatter *_sameDayNoYearDateFormatter; // @synthesize _sameDayNoYearDateFormatter=__sameDayNoYearDateFormatter;
+@property(readonly, retain, nonatomic) NSDateFormatter *_sameDayDateFormatter; // @synthesize _sameDayDateFormatter=__sameDayDateFormatter;
 - (id)_dayDifferentMonthsTemplate;
 - (id)_dayTemplate;
 - (id)_sameMonthTemplate;

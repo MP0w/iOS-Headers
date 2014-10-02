@@ -10,11 +10,11 @@
 
 @interface UIViewController (iAdAdditions)
 + (void)prepareInterstitialAds;
-- (BOOL)shouldPresentInterstitialAd;
+@property(readonly, nonatomic) BOOL shouldPresentInterstitialAd;
 - (BOOL)requestInterstitialAdPresentation;
 @property(readonly, nonatomic, getter=isDisplayingBannerAd) BOOL displayingBannerAd;
 @property(readonly, nonatomic, getter=isPresentingFullScreenAd) BOOL presentingFullScreenAd;
-@property(readonly, nonatomic) UIView *originalContentView;
+@property(readonly, retain, nonatomic) UIView *originalContentView;
 @property(nonatomic) BOOL canDisplayBannerAds;
 @property(nonatomic) int interstitialPresentationPolicy;
 @end

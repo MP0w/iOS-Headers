@@ -25,6 +25,15 @@ __attribute__((visibility("hidden")))
     NSString *mPages;
 }
 
++ (id)stringValuesForNodesAtPath:(id)arg1 docPtr:(struct _xmlDoc *)arg2 trimStyle:(BOOL)arg3;
++ (id)stringValueForNodeAtPath:(id)arg1 docPtr:(struct _xmlDoc *)arg2 trimStyle:(BOOL)arg3;
++ (id)subStringOf:(struct _xmlDoc *)arg1 forPath:(id)arg2;
++ (struct _xmlNode *)trimStyle:(struct _xmlNode *)arg1;
++ (struct _xmlNode *)nodeAtPath:(id)arg1 docPtr:(struct _xmlDoc *)arg2;
++ (id)wordStringForRefType:(int)arg1;
++ (int)refTypeForWordString:(id)arg1;
++ (id)endNoteStringForRefType:(int)arg1;
++ (void)initialize;
 @property(retain, nonatomic) NSString *pages; // @synthesize pages=mPages;
 @property(retain, nonatomic) NSMutableArray *urls; // @synthesize urls=mUrls;
 @property(retain, nonatomic) NSString *pubDate; // @synthesize pubDate=mPubDate;
@@ -36,6 +45,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSString *sourceType; // @synthesize sourceType=mSourceType;
 @property(retain, nonatomic) NSMutableArray *authors; // @synthesize authors=mAuthors;
 @property(retain, nonatomic) NSString *year; // @synthesize year=mYear;
+- (id)description;
 - (id)initWithDocument:(id)arg1;
 - (id)document;
 - (void)dealloc;

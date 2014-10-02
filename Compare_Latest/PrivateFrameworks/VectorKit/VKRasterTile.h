@@ -6,25 +6,38 @@
 
 #import <VectorKit/VKTile.h>
 
-@class NSData, VGLTexture, VKStylesheet;
+@class NSData, VKStyleManager;
 
 __attribute__((visibility("hidden")))
 @interface VKRasterTile : VKTile
 {
     NSData *_data;
-    VKStylesheet *_stylesheet;
-    VGLTexture *_texture;
+    VKStyleManager *_styleManager;
     int _genericTileType;
     BOOL _hasGenericTileType;
+    shared_ptr_479d1306 _gglTexture;
+    struct RenderItem _renderItem;
+    struct unique_ptr<ggl::Texture::Shader::Setup, std::__1::default_delete<ggl::Texture::Shader::Setup>> _shaderSetup;
+    struct unique_ptr<ggl::Clut::Shader::Setup, std::__1::default_delete<ggl::Clut::Shader::Setup>> _shaderSetupCLUT;
+    struct unique_ptr<ggl::TextureWithReverseAlpha::Shader::Setup, std::__1::default_delete<ggl::TextureWithReverseAlpha::Shader::Setup>> _shaderReverseAlphaSetup;
 }
 
+@property(nonatomic) shared_ptr_479d1306 gglTexture; // @synthesize gglTexture=_gglTexture;
 @property(readonly, nonatomic) int genericTileType; // @synthesize genericTileType=_genericTileType;
 @property(readonly, nonatomic) BOOL hasGenericTileType; // @synthesize hasGenericTileType=_hasGenericTileType;
-@property(retain, nonatomic) VGLTexture *texture; // @synthesize texture=_texture;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (void)immediateLoad:(struct Device *)arg1;
 - (void)dealloc;
-- (void)buildTexture;
-- (id)initWithKey:(const struct VKTileKey *)arg1 imageData:(id)arg2 stylesheet:(id)arg3 genericTileType:(int)arg4;
-- (id)initWithKey:(const struct VKTileKey *)arg1 imageData:(id)arg2 stylesheet:(id)arg3;
+- (void)gglBuildTexture:(struct Device *)arg1;
+- (struct TextureData2D *)buildTextureDataFromCGImage:(struct CGImage *)arg1;
+- (struct CGImage *)newCGImageFromData:(id)arg1;
+@property(readonly, nonatomic) struct RenderItem *renderItem;
+- (void)setupReverseAlphaShaderWithRenderState:(struct RenderState *)arg1 mesh:(struct Mesh *)arg2 roadAlpha:(float)arg3;
+- (void)setupNormalShaderWithRenderState:(struct RenderState *)arg1 mesh:(struct Mesh *)arg2;
+- (void)setupClutShaderWithRenderState:(struct RenderState *)arg1 mesh:(struct Mesh *)arg2 clutTexture:(struct Texture2D *)arg3 clutBlend:(float)arg4;
+- (id)initWithKey:(const struct VKTileKey *)arg1 imageData:(id)arg2 styleManager:(id)arg3 genericTileType:(int)arg4;
+- (id)initWithKey:(const struct VKTileKey *)arg1 imageData:(id)arg2 styleManager:(id)arg3;
 
 @end
 

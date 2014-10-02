@@ -16,7 +16,7 @@
     UIView *_baseBorderView;
     _MKCalloutBackgroundMaskView *_mainMaskView;
     NSMutableArray *_vendedMaskViews;
-    int _mapDisplayStyle;
+    unsigned int _mapDisplayStyle;
     UIImageView *_currentArrowShadow;
 }
 
@@ -26,7 +26,7 @@
 + (BOOL)wantsDefaultContentAppearance;
 + (float)_contentViewCornerRadiusForArrowDirection:(unsigned int)arg1;
 + (void)setBeingCreatedForSmallCalloutController:(id)arg1;
-@property(nonatomic) int mapDisplayStyle; // @synthesize mapDisplayStyle=_mapDisplayStyle;
+@property(nonatomic) unsigned int mapDisplayStyle; // @synthesize mapDisplayStyle=_mapDisplayStyle;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) UIColor *calloutBackgroundColor;
 - (void)_extendLeftRightArrow;

@@ -14,6 +14,9 @@
 }
 
 + (id)sharedInstance;
+- (void)requestExpireStateForMessageGuid:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void)requestExpireStateWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_requestExpireStateWithGUID:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)requestRoutingForMessageGuid:(id)arg1 inChat:(id)arg2 error:(unsigned int)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (void)requestRoutingWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_requestRoutingWithGUID:(id)arg1 chatGUID:(id)arg2 error:(unsigned int)arg3 handler:(CDUnknownBlockType)arg4;

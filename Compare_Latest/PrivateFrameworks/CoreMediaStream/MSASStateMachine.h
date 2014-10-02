@@ -57,9 +57,9 @@
 @property(retain, nonatomic) NSDictionary *MMCSBackoffManagerParameters; // @synthesize MMCSBackoffManagerParameters=_MMCSBackoffManagerParameters;
 @property(retain, nonatomic) NSDictionary *metadataBackoffManagerParameters; // @synthesize metadataBackoffManagerParameters=_metadataBackoffManagerParameters;
 @property(nonatomic) BOOL hasShutDown; // @synthesize hasShutDown=_hasShutDown;
-@property(readonly, nonatomic) NSArray *derivativeSpecifications; // @synthesize derivativeSpecifications=_derivativeSpecifications;
-@property(readonly, nonatomic) MSImageScalingSpecification *thumbnailImageScalingSpecification; // @synthesize thumbnailImageScalingSpecification=_thumbnailImageScalingSpecification;
-@property(readonly, nonatomic) MSImageScalingSpecification *derivativeImageScalingSpecification; // @synthesize derivativeImageScalingSpecification=_derivativeImageScalingSpecification;
+@property(readonly, retain, nonatomic) NSArray *derivativeSpecifications; // @synthesize derivativeSpecifications=_derivativeSpecifications;
+@property(readonly, retain, nonatomic) MSImageScalingSpecification *thumbnailImageScalingSpecification; // @synthesize thumbnailImageScalingSpecification=_thumbnailImageScalingSpecification;
+@property(readonly, retain, nonatomic) MSImageScalingSpecification *derivativeImageScalingSpecification; // @synthesize derivativeImageScalingSpecification=_derivativeImageScalingSpecification;
 @property(retain, nonatomic) MSASPhoneInvitations *phoneInvitations; // @synthesize phoneInvitations=_phoneInvitations;
 @property(retain, nonatomic) MSASProtocol *protocol; // @synthesize protocol=_protocol;
 @property(copy, nonatomic, setter=_setStopHandlerBlock:) CDUnknownBlockType _stopHandlerBlock; // @synthesize _stopHandlerBlock;
@@ -164,7 +164,7 @@
 - (void)serverSideQueueSetServerSideConfiguration:(id)arg1;
 @property(retain, nonatomic) NSDictionary *serverSideConfiguration; // @synthesize serverSideConfiguration=_serverSideConfiguration;
 - (id)serverSideQueueServerSideConfiguration;
-@property(readonly, nonatomic) NSString *serverSideConfigurationVersion; // @synthesize serverSideConfigurationVersion=_serverSideConfigurationVersion;
+@property(readonly, retain, nonatomic) NSString *serverSideConfigurationVersion; // @synthesize serverSideConfigurationVersion=_serverSideConfigurationVersion;
 - (id)_serverSideConfigDictionaryByApplyingDefaultsToDictionary:(id)arg1;
 - (void)_cancelOutstandingCommandsDisposition:(int)arg1 params:(id)arg2;
 - (void)cancelOutstandingCommandsForAssetCollectionWithGUID:(id)arg1;
@@ -191,6 +191,12 @@
 - (id)_assetDownloader;
 - (id)_assetUploader;
 - (id)_model;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -12,13 +12,14 @@
 {
 }
 
-@property(retain) NSString *x_apple_ews_attachmentid;
-@property(retain) NSString *x_apple_filename;
-@property(retain) NSString *managed_filename;
-@property BOOL x_apple_autoarchived;
-@property(retain) NSString *fmtype;
-@property(retain) NSString *managed_id;
-@property int size;
+- (BOOL)shouldObscureValue;
+@property(retain, nonatomic) NSString *x_apple_ews_attachmentid;
+@property(retain, nonatomic) NSString *x_apple_filename;
+@property(retain, nonatomic) NSString *managed_filename;
+@property(nonatomic) BOOL x_apple_autoarchived;
+@property(retain, nonatomic) NSString *fmtype;
+@property(retain, nonatomic) NSString *managed_id;
+@property(nonatomic) int size;
 - (id)filename;
 - (BOOL)isBinary;
 - (id)initWithData:(id)arg1;

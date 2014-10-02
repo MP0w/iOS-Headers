@@ -18,7 +18,8 @@
     unsigned int _showsDoneButton:1;
 }
 
-@property(nonatomic) id <CertInfoTrustSummaryControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <CertInfoTrustSummaryControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (id)_descriptionCell;
 - (id)_headerCell;
@@ -32,7 +33,6 @@
 - (void)_doneButtonPressed:(id)arg1;
 - (void)setActionButtonTitle:(id)arg1 destructive:(BOOL)arg2 animated:(BOOL)arg3;
 @property(nonatomic) BOOL showsDoneButton;
-- (void)dealloc;
 - (id)initWithTrustDescription:(id)arg1;
 
 @end

@@ -11,8 +11,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)writeTabStopsFromParagraphProperties:(id)arg1 toParagraphProperties:(struct PptParaProperty *)arg2 state:(id)arg3;
-+ (void)writeParagraphProperties:(id)arg1 paragraphProperties:(struct PptParaProperty *)arg2 bulletStyle:(struct PptParaProperty9 *)arg3 state:(id)arg4;
 + (void)readParagraphProperties:(id)arg1 paragraphProperty:(struct PptParaProperty *)arg2 bulletStyle:(struct PptParaProperty9 *)arg3 isMaster:(BOOL)arg4 state:(id)arg5;
 + (void)readParagraphProperties:(id)arg1 paragraphPropertyRun:(struct PptParaRun *)arg2 bulletStyle:(struct PptParaProperty9 *)arg3 state:(id)arg4;
 + (int)pptFontAlignWithOADTextFontAlign:(int)arg1;

@@ -8,7 +8,7 @@
 
 #import "MFMessageBodyStringAccumulator.h"
 
-@class NSMutableString;
+@class NSMutableString, NSString;
 
 @interface MFMessageBodyStringAccumulator : NSObject <MFMessageBodyStringAccumulator>
 {
@@ -26,9 +26,16 @@
 - (void)appendCharacters:(const unsigned short *)arg1 length:(unsigned int)arg2;
 - (void)appendRange:(struct _NSRange)arg1 ofString:(id)arg2;
 - (void)appendString:(id)arg1;
+- (void)appendNewline;
 - (BOOL)isFull;
 - (void)dealloc;
 - (id)initWithOptions:(int)arg1 lengthLimit:(unsigned int)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

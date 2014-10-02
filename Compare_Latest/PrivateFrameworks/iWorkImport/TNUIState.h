@@ -28,8 +28,12 @@ __attribute__((visibility("hidden")))
     TNChartSelection *mChartSelection;
     int mInspectorPaneViewMode;
     NSArray *mSelectedQuickCalcFunctions;
+    struct CGSize mDesktopScreenSize;
+    struct CGRect mDesktopWindowFrame;
 }
 
+@property(nonatomic) struct CGSize desktopScreenSize; // @synthesize desktopScreenSize=mDesktopScreenSize;
+@property(nonatomic) struct CGRect desktopWindowFrame; // @synthesize desktopWindowFrame=mDesktopWindowFrame;
 @property(nonatomic) BOOL showsComments; // @synthesize showsComments=mShowsComments;
 @property(nonatomic) BOOL showCanvasGuides; // @synthesize showCanvasGuides=mShowCanvasGuides;
 @property(nonatomic) BOOL removedAllQuickCalcFunctions; // @synthesize removedAllQuickCalcFunctions=mRemovedAllQuickCalcFunctions;
@@ -43,6 +47,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) id <TNUIStateDelegate> delegate; // @synthesize delegate=mDelegate;
 @property(retain, nonatomic) NSSet *selectedInfos; // @synthesize selectedInfos=mSelectedInfos;
 @property(retain, nonatomic) TNSheetSelection *sheetSelection; // @synthesize sheetSelection=mSheetSelection;
+- (id).cxx_construct;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -61,6 +66,7 @@ __attribute__((visibility("hidden")))
 - (void)setUIState:(id)arg1 forSheet:(id)arg2;
 @property(readonly, nonatomic) float previousViewScale;
 @property(readonly, nonatomic) float viewScale;
+- (float)p_defaultViewScale;
 - (float)p_calculateViewScaleForVisibleRect:(struct CGRect)arg1;
 - (void)clearPreviousVisibleRect;
 @property(nonatomic) struct CGRect previousVisibleRect;

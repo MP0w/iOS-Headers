@@ -9,5 +9,7 @@
 @interface NSString (OCStringAdditions)
 + (_Bool)skipString:(id)arg1;
 + (id)mapString:(id)arg1;
+- (int)languageTypeAtIndex:(unsigned int)arg1 effectiveRange:(struct _NSRange *)arg2;
+- (id)initialsFromAuthorName;
 @end
 

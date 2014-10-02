@@ -13,6 +13,7 @@
     QLPreviewControllerReserved *_reserved;
 }
 
++ (BOOL)_shouldForwardViewWillTransitionToSize;
 + (BOOL)copyPreviewItemToPasteboard:(id)arg1;
 + (id)titleForPreviewItem:(id)arg1;
 + (void)presentPreviewItem:(id)arg1 onViewController:(id)arg2 withDelegate:(id)arg3 animated:(BOOL)arg4;
@@ -36,6 +37,8 @@
 - (void)navigationGoBackAction:(id)arg1;
 - (void)playButtonAction:(id)arg1;
 - (void)showArchiveContent:(id)arg1;
+- (void)traitCollectionDidChange:(id)arg1;
+- (void)willTransitionToTraitCollection:(id)arg1 withTransitionCoordinator:(id)arg2;
 - (void)showArchiveContentAnimated:(BOOL)arg1;
 - (void)arrowsAction:(id)arg1;
 - (void)rightArrowAction:(id)arg1;
@@ -43,17 +46,12 @@
 - (void)doneButtonTapped:(id)arg1;
 - (void)customActionButtonTapped:(id)arg1;
 - (void)actionButtonTapped:(id)arg1;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)_waitingTimedOut;
-- (void)_stopWaiting;
-- (void)_startWaiting;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)_unloadInternalViews;
 - (void)_loadInternalViews;
 - (void)_configurePreviewContentController;
 - (struct CGRect)_contentFrameForRemoteView;
-- (void)_addPreviewContentController;
+- (BOOL)_addPreviewContentController;
 - (BOOL)shouldAutomaticallyForwardAppearanceMethods;
 - (void)loadView;
 - (void)_applicationWillEnterForeground:(id)arg1;
@@ -62,8 +60,12 @@
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)_setupWithMode:(int)arg1 parentViewController:(id)arg2;
+- (void)_requestRemoteViewControllerIfNeeded;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
+- (void)_setupPreferredModeWithParentViewController:(id)arg1;
+- (int)_preferredModeWithParentViewController:(id)arg1 presentingViewController:(id)arg2 traitCollection:(id)arg3;
+- (int)_preferredModeWithParentViewController:(id)arg1 presentingViewController:(id)arg2;
 - (void)_removeChildPreviewContentControllerIfNeeded;
 - (void)previewContentController:(id)arg1 receivedTapOnURL:(id)arg2;
 - (void)overlayWasTappedInPreviewContentController:(id)arg1;
@@ -98,6 +100,7 @@
 - (int)preferredStatusBarStyle;
 - (BOOL)prefersStatusBarHidden;
 - (int)mode;
+- (void)_runDeferredAnimationBlock;
 - (void)animateWhenReadyWithBlock:(CDUnknownBlockType)arg1;
 - (void)setTransitioning:(BOOL)arg1 synchronizedWithBlock:(CDUnknownBlockType)arg2;
 - (void)setLoadingTextForMissingFiles:(id)arg1;
@@ -124,17 +127,25 @@
 - (id)_currentNavigationController;
 - (BOOL)_overlayVisible;
 - (void)wirelessRoutesDidChange:(id)arg1;
-- (void)_updateNavigationBar:(BOOL)arg1;
+- (void)_updateNavigationBarWithMode:(int)arg1 traitCollection:(id)arg2 animated:(BOOL)arg3;
+- (void)_updateNavigationBarAnimated:(BOOL)arg1;
 - (BOOL)_updateActionItem;
-- (void)_updateToolbar:(BOOL)arg1;
+- (void)_updateToolbarWithMode:(int)arg1 traitCollection:(id)arg2 animated:(BOOL)arg3;
+- (void)_updateToolbarAnimated:(BOOL)arg1;
 - (id)_listDescriptionStringWithTitle:(id)arg1;
 - (id)_updatedArchiveButton;
+- (void)_refreshArchiveItem;
+- (void)_refreshListItem;
+- (void)_refreshListOrArchiveItem;
 - (id)_indexFormatter;
-- (void)_updateToolbarVisibility:(BOOL)arg1;
+- (void)_updateToolbarVisibilityAnimated:(BOOL)arg1;
+- (void)_updateToolbarVisibilityWithTraitCollection:(id)arg1 animated:(BOOL)arg2;
 - (BOOL)_needsToolbar;
+- (BOOL)_needsToolbarForTraitCollection:(id)arg1;
 - (BOOL)_needsAVControls;
 - (void)_createControls;
 - (void)_updateRouteImages;
+- (id)imageWithImage:(id)arg1 drawnOnTopOf:(id)arg2 stretchedToSize:(struct CGSize)arg3 scale:(float)arg4;
 - (id)_fixedSpaceItemWithWidth:(float)arg1;
 - (id)_flexibleSpaceItem;
 

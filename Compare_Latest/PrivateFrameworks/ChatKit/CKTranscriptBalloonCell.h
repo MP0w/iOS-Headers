@@ -13,21 +13,22 @@
     BOOL _drawerWasVisible;
     BOOL _drawerTextChanged;
     CKBalloonView *_balloonView;
-    NSAttributedString *_drawerAttributedText;
+    NSAttributedString *_drawerText;
     UILabel *_drawerLabel;
 }
 
 @property(nonatomic) BOOL drawerTextChanged; // @synthesize drawerTextChanged=_drawerTextChanged;
 @property(nonatomic) BOOL drawerWasVisible; // @synthesize drawerWasVisible=_drawerWasVisible;
 @property(retain, nonatomic) UILabel *drawerLabel; // @synthesize drawerLabel=_drawerLabel;
-@property(copy, nonatomic) NSAttributedString *drawerAttributedText; // @synthesize drawerAttributedText=_drawerAttributedText;
+@property(copy, nonatomic) NSAttributedString *drawerText; // @synthesize drawerText=_drawerText;
 @property(retain, nonatomic) CKBalloonView *balloonView; // @synthesize balloonView=_balloonView;
+- (void)layoutSubviewsForAlignmentContents;
 - (void)layoutSubviewsForDrawer;
-- (void)layoutSubviewsForContents;
+- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (id)description;
 - (void)dealloc;
-- (void)configureForRow:(id)arg1;
-- (void)configureForRowObject:(id)arg1;
+- (void)configureForChatItem:(id)arg1;
 
 @end
 

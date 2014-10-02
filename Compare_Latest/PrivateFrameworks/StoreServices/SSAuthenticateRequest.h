@@ -8,7 +8,7 @@
 
 #import "SSXPCCoding.h"
 
-@class SSAuthenticationContext;
+@class NSString, SSAuthenticationContext;
 
 @interface SSAuthenticateRequest : SSRequest <SSXPCCoding>
 {
@@ -26,7 +26,11 @@
 - (id)initWithAccount:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) id <SSAuthenticateRequestDelegate> delegate; // @dynamic delegate;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

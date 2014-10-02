@@ -6,12 +6,15 @@
 
 #import "NSObject.h"
 
-@class NSArray, PKPrinter, UINavigationController, UIPopoverController, UIPrintInteractionController, UIPrintPanelTableViewController, UIPrintPaper, UIViewController, UIWindow;
+#import "UIPrinterBrowserOwner.h"
+
+@class NSArray, NSString, PKPrinter, UINavigationController, UIPopoverController, UIPrintInfo, UIPrintInteractionController, UIPrintPanelTableViewController, UIPrintPaper, UIViewController, UIWindow;
 
 __attribute__((visibility("hidden")))
-@interface UIPrintPanelViewController : NSObject
+@interface UIPrintPanelViewController : NSObject <UIPrinterBrowserOwner>
 {
     UIPrintInteractionController *_printInteractionController;
+    UIPrintInfo *_observedPrintInfo;
     UINavigationController *_navigationController;
     UIPrintPanelTableViewController *_tableViewController;
     UIViewController *_parentController;
@@ -25,6 +28,10 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain, nonatomic) PKPrinter *printer; // @synthesize printer=_printer;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (BOOL)filtersPrinters;
+@property(readonly, nonatomic) BOOL showPaperSelection;
+@property(readonly, nonatomic) BOOL showPrinterWarning;
 @property(readonly, nonatomic) BOOL showPaper;
 @property(readonly, nonatomic) BOOL showCopies;
 @property(readonly, nonatomic) BOOL showPageRange;
@@ -52,6 +59,12 @@ __attribute__((visibility("hidden")))
 - (void)_presentInParentAnimated:(BOOL)arg1;
 - (void)dealloc;
 - (id)initWithPrintInterationController:(id)arg1 inParentController:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

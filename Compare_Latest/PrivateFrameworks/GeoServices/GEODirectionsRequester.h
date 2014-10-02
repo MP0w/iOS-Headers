@@ -12,12 +12,9 @@
 {
     NSMapTable *_pendingRequests;
     NSLock *_pendingRequestsLock;
-    NSMapTable *_providers;
 }
 
 + (id)sharedRequester;
-- (Class)classForProviderID:(short)arg1;
-- (void)registerProvider:(Class)arg1;
 - (void)cancelRequest:(id)arg1;
 - (void)startRequest:(id)arg1 finished:(CDUnknownBlockType)arg2 networkActivity:(CDUnknownBlockType)arg3 error:(CDUnknownBlockType)arg4;
 - (void)dealloc;

@@ -7,39 +7,33 @@
 #import "UIViewController.h"
 
 #import "_SBUIWidgetHost.h"
-#import "_SBUIWidgetViewController_Remote_IPC.h"
 
 @class NSString;
 
-@interface _SBUIWidgetViewController : UIViewController <_SBUIWidgetHost, _SBUIWidgetViewController_Remote_IPC>
+@interface _SBUIWidgetViewController : UIViewController <_SBUIWidgetHost>
 {
-    int _widgetIdiom;
-    NSString *_widgetidentifier;
-    id <_SBUIWidgetHost> _widgetHost;
     NSString *_widgetIdentifier;
+    id <_SBUIWidgetHost> _widgetHost;
 }
 
-+ (id)_exportedInterface;
-+ (id)_remoteViewControllerInterface;
 @property(nonatomic) id <_SBUIWidgetHost> widgetHost; // @synthesize widgetHost=_widgetHost;
 @property(copy, nonatomic) NSString *widgetIdentifier; // @synthesize widgetIdentifier=_widgetIdentifier;
-@property(nonatomic) int widgetIdiom; // @synthesize widgetIdiom=_widgetIdiom;
-- (void)__hostDidDismiss;
-- (void)__hostWillDismiss;
-- (void)__hostDidPresent;
-- (void)__hostWillPresent;
-- (void)__setWidgetIdiom:(int)arg1;
-- (void)__setWidgetIdentifier:(id)arg1;
-- (void)__requestPreferredViewSizeWithReplyHandler:(CDUnknownBlockType)arg1;
 - (void)invalidatePreferredViewSize;
 - (void)requestLaunchOfURL:(id)arg1;
 - (void)requestPresentationOfViewController:(id)arg1 presentationStyle:(int)arg2 context:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)setVisibleWidgetsIDs:(id)arg1;
 - (void)hostDidDismiss;
 - (void)hostWillDismiss;
 - (void)hostDidPresent;
 - (void)hostWillPresent;
 @property(readonly, nonatomic) struct CGSize preferredViewSize;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

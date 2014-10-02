@@ -8,13 +8,14 @@
 
 #import "ACDAccountStoreProtocol.h"
 
-@class ACDAccessPluginManager, ACDAccountStoreFilter, ACDAuthenticationDialogManager, ACDAuthenticationPluginManager, ACDClient, ACDClientAuthorizationManager, ACDDatabase, ACDDataclassOwnersManager, NSMutableArray;
+@class ACDAccessPluginManager, ACDAccountStoreFilter, ACDAuthenticationDialogManager, ACDAuthenticationPluginManager, ACDClient, ACDClientAuthorizationManager, ACDDatabase, ACDDataclassOwnersManager, ACDFakeRemoteAccountStoreSession, ACRemoteDeviceProxy, NSMutableArray, NSString;
 
 @interface ACDAccountStore : ACAccountStore <ACDAccountStoreProtocol>
 {
     NSMutableArray *_accountChanges;
     ACDDatabase *_database;
     ACDClientAuthorizationManager *_authorizationManager;
+    ACDFakeRemoteAccountStoreSession *_fakeRemoteAccountStoreSession;
     BOOL _notificationsEnabled;
     BOOL _migrationInProgress;
     id <ACDAccountStoreDelegate> _delegate;
@@ -24,10 +25,12 @@
     ACDAccessPluginManager *_accessPluginManager;
     ACDDataclassOwnersManager *_dataclassOwnersManager;
     ACDAuthenticationDialogManager *_authenticationDialogManager;
+    ACRemoteDeviceProxy *_remoteDeviceProxy;
 }
 
 @property(nonatomic, getter=isMigrationInProgress) BOOL migrationInProgress; // @synthesize migrationInProgress=_migrationInProgress;
 @property(nonatomic) BOOL notificationsEnabled; // @synthesize notificationsEnabled=_notificationsEnabled;
+@property(retain, nonatomic) ACRemoteDeviceProxy *remoteDeviceProxy; // @synthesize remoteDeviceProxy=_remoteDeviceProxy;
 @property(retain, nonatomic) ACDAuthenticationDialogManager *authenticationDialogManager; // @synthesize authenticationDialogManager=_authenticationDialogManager;
 @property(retain, nonatomic) ACDDataclassOwnersManager *dataclassOwnersManager; // @synthesize dataclassOwnersManager=_dataclassOwnersManager;
 @property(retain, nonatomic) ACDAccessPluginManager *accessPluginManager; // @synthesize accessPluginManager=_accessPluginManager;
@@ -37,11 +40,15 @@
 @property(nonatomic) __weak ACDClient *client; // @synthesize client=_client;
 @property(nonatomic) __weak id <ACDAccountStoreDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)sendRenewCredentialsForAccount:(id)arg1;
+- (void)notifyRemoteDevicesOfModifiedAccount:(id)arg1 withChangeType:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)notifyRemoteDevicesOfModifiedAccount:(id)arg1 withChangeType:(id)arg2;
 - (void)accountsWithAccountTypeIdentifiers:(id)arg1 preloadedProperties:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)visibleTopLevelAccountsWithAccountTypeIdentifiers:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)openAuthenticationURL:(id)arg1 forAccount:(id)arg2 shouldConfirm:(BOOL)arg3 completion:(CDUnknownBlockType)arg4;
-- (id)_remoteAccountStore;
-- (void)_connectToRemoteAccountStoreUsingEndpoint:(id)arg1;
+- (id)remoteAccountStoreSession;
+- (void)disconnectFromRemoteAccountStore;
+- (void)connectToRemoteAccountStoreUsingEndpoint:(id)arg1;
 - (void)handleURL:(id)arg1;
 - (void)_removeClientTokenForAccountIdentifer:(id)arg1;
 - (id)_clientTokenForAccountIdentifier:(id)arg1 error:(id)arg2;
@@ -65,7 +72,6 @@
 - (void)clearAllPermissionsGrantedForAccountType:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)setPermissionGranted:(id)arg1 forBundleID:(id)arg2 onAccountType:(id)arg3 withHandler:(CDUnknownBlockType)arg4;
 - (void)appPermissionsForAccountType:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
-- (void)setNotificationsEnabledNum:(BOOL)arg1;
 - (void)requestAccessForAccountTypeWithIdentifier:(id)arg1 options:(id)arg2 withHandler:(CDUnknownBlockType)arg3;
 - (void)_requestAccessForAccountTypeWithIdentifier:(id)arg1 options:(id)arg2 allowUserInteraction:(BOOL)arg3 withHandler:(CDUnknownBlockType)arg4;
 - (void)renewCredentialsForAccount:(id)arg1 options:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -92,11 +98,12 @@
 - (void)childAccountsWithAccountTypeIdentifier:(id)arg1 parentAccountIdentifier:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)childAccountsForAccountWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)parentAccountForAccountWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
+- (id)_accountsWithAcountType:(id)arg1 error:(id *)arg2;
 - (void)accountsWithAccountType:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)dataclassesWithHandler:(CDUnknownBlockType)arg1;
 - (id)_legacyCredentialForAccount:(id)arg1 client:(id)arg2 error:(id *)arg3;
 - (void)credentialForAccountWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
-- (void)credentialForAccountWithIdentifier:(id)arg1 bundleID:(id)arg2 handler:(CDUnknownBlockType)arg3;
+- (void)credentialForAccount:(id)arg1 serviceID:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (id)masterCredentialForAccountIdentifier:(id)arg1;
 - (void)accountTypeWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)displayAccountTypeForAccountWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
@@ -105,6 +112,7 @@
 - (id)_allAccounts_sync;
 - (void)accountWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)setClientBundleID:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
+- (BOOL)_clientIsEntitledForAdHocAccountType:(id)arg1;
 - (id)_handleAccountAdd:(id)arg1 withDataclassActions:(id)arg2;
 - (id)_handleAccountMod:(id)arg1 withDataclassActions:(id)arg2;
 - (void)_noteAccountStoreDidSaveAccountsWithAccountTypeIdentifiers:(id)arg1;
@@ -126,6 +134,12 @@
 - (id)accountsWithAccountTypeIdentifier:(id)arg1;
 - (id)accountTypeWithIdentifier:(id)arg1;
 - (id)initWithClient:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

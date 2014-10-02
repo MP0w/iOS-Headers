@@ -9,10 +9,13 @@
 __attribute__((visibility("hidden")))
 @interface TSCHChartTitleRenderer : TSCHRenderer
 {
+    struct CGRect mStartingEditingFrame;
 }
 
+- (float)frameHeightChangeForPath:(id)arg1;
 - (struct CGRect)frameForEditingTextForSelectionPath:(id)arg1;
 - (BOOL)canEditTextForSelectionPath:(id)arg1;
+- (struct CGRect)p_rawFrameForEditingTextForSelectionPath:(id)arg1;
 - (void)addSelection:(id)arg1 toCGPath:(struct CGPath *)arg2;
 - (void)renderIntoContext:(struct CGContext *)arg1 selection:(id)arg2;
 - (BOOL)canRenderSelectionPath:(id)arg1;

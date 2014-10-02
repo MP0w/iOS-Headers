@@ -6,23 +6,24 @@
 
 #import "UITableViewController.h"
 
-#import "UIActionSheetDelegate.h"
+@class EKSharee, UIAlertController;
 
-@class EKSharee, UIActionSheet;
-
-@interface EKShareeViewController : UITableViewController <UIActionSheetDelegate>
+@interface EKShareeViewController : UITableViewController
 {
-    UIActionSheet *_alertSheet;
+    UIAlertController *_removeAlertController;
     BOOL _allowEditing;
+    BOOL _allowStopSharing;
+    BOOL _allowResendInvitations;
     EKSharee *_sharee;
     id <EKShareeViewControllerDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <EKShareeViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) BOOL allowResendInvitations; // @synthesize allowResendInvitations=_allowResendInvitations;
+@property(nonatomic) BOOL allowStopSharing; // @synthesize allowStopSharing=_allowStopSharing;
 @property(nonatomic) BOOL allowEditing; // @synthesize allowEditing=_allowEditing;
 @property(retain, nonatomic) EKSharee *sharee; // @synthesize sharee=_sharee;
 - (void).cxx_destruct;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (void)removeClicked:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (float)tableView:(id)arg1 heightForFooterInSection:(int)arg2;
@@ -38,6 +39,7 @@
 - (void)_reloadTitle;
 - (int)_rowForSubitem:(int)arg1;
 - (int)_subitemAtRow:(int)arg1;
+- (BOOL)_shouldDisplayStopSharingButton;
 - (BOOL)_shouldDisplayResendInvitationButton;
 - (id)initWithSharee:(id)arg1;
 

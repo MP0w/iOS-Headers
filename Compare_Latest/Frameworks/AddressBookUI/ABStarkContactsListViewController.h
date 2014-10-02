@@ -9,7 +9,7 @@
 #import "ABContactViewControllerDelegate.h"
 #import "ABMembersDataSourceDelegate.h"
 
-@class ABMembersDataSource, ABModel, ABStarkNoContentBannerView, AVExternalDevice;
+@class ABMembersDataSource, ABModel, ABStarkNoContentBannerView, AVExternalDevice, NSString;
 
 @interface ABStarkContactsListViewController : UITableViewController <ABMembersDataSourceDelegate, ABContactViewControllerDelegate>
 {
@@ -29,8 +29,7 @@
 - (BOOL)abDataSource:(id)arg1 shouldAllowSelectingPersonWithRecordID:(int)arg2;
 - (BOOL)abDataSourceAllowsShowingPersonsCards:(id)arg1;
 - (BOOL)abDataSource:(id)arg1 selectedPerson:(void *)arg2 atIndexPath:(id)arg3 withMemberCell:(id)arg4 animate:(BOOL)arg5;
-- (void)removeMessageOverlay;
-- (void)postMessageOverlay:(id)arg1;
+- (void)postMessageOverlayIfNecessary;
 - (void)viewDidLayoutSubviews;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidLoad;
@@ -38,6 +37,12 @@
 - (void)dealloc;
 - (id)initWithStyle:(int)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

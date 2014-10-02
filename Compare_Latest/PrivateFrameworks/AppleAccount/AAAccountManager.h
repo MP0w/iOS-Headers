@@ -13,6 +13,7 @@
     ACAccountStore *_accountStore;
     NSMutableArray *_accounts;
     NSMutableArray *_originalAccounts;
+    id _accountStoreDidChangeObserver;
 }
 
 + (id)sharedManager;

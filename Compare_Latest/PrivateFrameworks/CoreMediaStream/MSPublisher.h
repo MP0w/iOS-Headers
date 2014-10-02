@@ -10,7 +10,7 @@
 #import "MSPublishStreamsProtocolDelegate.h"
 #import "MSPublisher.h"
 
-@class MSMediaStreamDaemon, MSObjectQueue, MSPublishStreamsProtocol, NSArray, NSMutableArray, NSMutableDictionary, NSURL;
+@class MSMediaStreamDaemon, MSObjectQueue, MSPublishStreamsProtocol, NSArray, NSMutableArray, NSMutableDictionary, NSString, NSURL;
 
 @interface MSPublisher : MSCupidStateMachine <MSPublisher, MSPublishStreamsProtocolDelegate, MSPublishStorageProtocolDelegate>
 {
@@ -96,6 +96,12 @@
 - (void)dealloc;
 - (void)deactivate;
 - (id)initWithPersonID:(id)arg1 baseURL:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

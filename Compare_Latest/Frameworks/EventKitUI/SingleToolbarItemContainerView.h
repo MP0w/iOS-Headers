@@ -8,10 +8,9 @@
 
 @interface SingleToolbarItemContainerView : UIView
 {
-    int _lastOrientation;
 }
 
-- (void)setFrameWithToolbarBounds:(struct CGRect)arg1 interfaceOrientation:(int)arg2;
+- (void)setFrameWithToolbarBounds:(struct CGRect)arg1;
 - (void)willMoveToSuperview:(id)arg1;
 - (void)updateForMiniBarState:(BOOL)arg1;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;

@@ -8,7 +8,7 @@
 
 #import "TSKRenderingExporter.h"
 
-@class NSObject<TSARenderingExporterDelegate>, TSADocumentRoot, TSDBitmapRenderingQualityInfo, TSDImager, TSUProgressContext;
+@class NSObject<TSARenderingExporterDelegate>, NSString, TSADocumentRoot, TSDBitmapRenderingQualityInfo, TSDImager, TSUProgressContext;
 
 __attribute__((visibility("hidden")))
 @interface TSARenderingExporter : NSObject <TSKRenderingExporter>
@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 - (double)progressForCurrentPage;
 - (struct CGRect)unscaledClipRect;
 - (struct CGRect)boundsRect;
+- (void)setMaxPixels:(float)arg1;
 - (id)bitmapRenderingQualityInfo;
 - (id)imager;
 - (BOOL)drawCurrentPageInContext:(struct CGContext *)arg1 viewScale:(float)arg2 unscaledClipRect:(struct CGRect)arg3 createPage:(BOOL)arg4;
@@ -58,6 +59,12 @@ __attribute__((visibility("hidden")))
 - (id)documentRoot;
 - (double)totalProgess;
 - (id)currentInfos;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

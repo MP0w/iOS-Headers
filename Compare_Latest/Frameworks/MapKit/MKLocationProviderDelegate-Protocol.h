@@ -6,14 +6,11 @@
 
 #import "NSObject.h"
 
-@class CLHeading, CLLocation, CLRegion, NSDate, NSError;
+@class CLHeading, CLLocation, NSDate, NSError;
 
 @protocol MKLocationProviderDelegate <NSObject>
 - (void)locationProvider:(id <MKLocationProvider>)arg1 didUpdateVehicleHeading:(double)arg2 timestamp:(NSDate *)arg3;
 - (void)locationProvider:(id <MKLocationProvider>)arg1 didUpdateVehicleSpeed:(double)arg2 timestamp:(NSDate *)arg3;
-- (void)locationProvider:(id <MKLocationProvider>)arg1 didReceiveError:(NSError *)arg2 monitoringRegion:(CLRegion *)arg3;
-- (void)locationProvider:(id <MKLocationProvider>)arg1 didExitRegion:(CLRegion *)arg2;
-- (void)locationProvider:(id <MKLocationProvider>)arg1 didEnterRegion:(CLRegion *)arg2;
 - (void)locationProviderDidResumeLocationUpdates:(id <MKLocationProvider>)arg1;
 - (void)locationProviderDidPauseLocationUpdates:(id <MKLocationProvider>)arg1;
 - (BOOL)locationProviderShouldPauseLocationUpdates:(id <MKLocationProvider>)arg1;

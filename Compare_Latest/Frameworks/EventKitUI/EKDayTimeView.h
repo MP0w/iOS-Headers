@@ -8,15 +8,13 @@
 
 #import "EKCurrentTimeMarkerViewUpdating.h"
 
-@class EKCurrentTimeMarkerView, UIColor;
+@class EKCurrentTimeMarkerView, NSMutableArray, NSString, UIColor;
 
 @interface EKDayTimeView : UIView <EKCurrentTimeMarkerViewUpdating>
 {
-    UIView *_topContentView;
-    UIView *_bottomContentView;
+    NSMutableArray *_contentViews;
     unsigned int _leftBorder:1;
     unsigned int _rightBorder:1;
-    BOOL _useLightText;
     double _highlightedHour;
     int _orientation;
     float _hourSize;
@@ -29,11 +27,17 @@
     BOOL _usesLightText;
     UIColor *_timeColor;
     float _hoursToPad;
+    float _hourHeightScale;
     float _hourHeight;
     id <EKDayTimeViewDelegate> _delegate;
     struct _NSRange _hoursToRender;
 }
 
++ (id)allDayLabelBoldFont;
++ (id)allDayLabelFont;
++ (id)unscaledAllDayLabelFont;
++ (float)defaultHourScale;
++ (float)defaultHeightForOrientation:(int)arg1 withHourScale:(float)arg2;
 + (float)defaultHeightForOrientation:(int)arg1;
 + (float)designatorSizeForOrientation:(int)arg1;
 + (float)hourSizeForOrientation:(int)arg1;
@@ -45,9 +49,15 @@
 + (float)verticalPadding;
 + (float)_hourWidthForOrientation:(int)arg1;
 + (void)_calculateWidthForOrientation:(int)arg1;
++ (id)_boldFontForOrientation:(int)arg1;
++ (id)_normalFontForOrientation:(int)arg1;
++ (float)_dynamicFontSizeForOrientation:(int)arg1;
 + (void)_invalidateWidth;
++ (void)_registerForInvalidation;
++ (void)_invalidateCachedValues;
 @property(nonatomic) __weak id <EKDayTimeViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) float hourHeight; // @synthesize hourHeight=_hourHeight;
+@property(nonatomic) float hourHeightScale; // @synthesize hourHeightScale=_hourHeightScale;
 @property(nonatomic) struct _NSRange hoursToRender; // @synthesize hoursToRender=_hoursToRender;
 @property(nonatomic) float hoursToPad; // @synthesize hoursToPad=_hoursToPad;
 @property(nonatomic) BOOL usesLightText; // @synthesize usesLightText=_usesLightText;
@@ -60,6 +70,7 @@
 - (void)updateMarkerPosition;
 - (void)drawRect:(struct CGRect)arg1 forContentView:(id)arg2 withHourRange:(struct _NSRange)arg3;
 - (void)setFrame:(struct CGRect)arg1;
+- (void)layoutFrames;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setOrientation:(int)arg1;
 @property(readonly, nonatomic) EKCurrentTimeMarkerView *timeMarker;
@@ -68,14 +79,22 @@
 @property(nonatomic) BOOL showsRightBorder;
 @property(nonatomic) BOOL showsLeftBorder;
 - (void)setOpaque:(BOOL)arg1;
+- (float)scaledHourHeight;
 - (float)_timeWidth;
 - (void)_invalidateTimeWidth;
 - (float)topPadding;
+- (void)_fontSizeChanged;
 - (void)_localeChanged;
 - (void)setNeedsDisplay;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 @property(readonly, nonatomic) float defaultHeight;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

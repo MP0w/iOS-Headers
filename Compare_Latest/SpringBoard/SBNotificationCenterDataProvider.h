@@ -8,20 +8,33 @@
 
 #import "BBRemoteDataProvider.h"
 
-@class BBSectionInfo;
+@class BBSectionIcon, BBSectionInfo, NSExtension, NSString;
 
 @interface SBNotificationCenterDataProvider : NSObject <BBRemoteDataProvider>
 {
     BBSectionInfo *_sectionInfo;
+    NSExtension *_extension;
+    NSString *_sectionDisplayName;
+    BBSectionIcon *_sectionIcon;
 }
 
-+ (id)notificationCenterDataProviderWithSectionInfo:(id)arg1;
++ (id)notificationCenterDataProviderWithSectionInfo:(id)arg1 extension:(id)arg2;
++ (_Bool)isIconForSectionPrecomposed:(id)arg1;
+- (void)_invalidateCachedValues;
+- (id)sectionIcon;
+- (id)sectionDisplayName;
 - (id)bulletinsWithRequestParameters:(id)arg1 lastCleared:(id)arg2;
 - (id)sortDescriptors;
 - (id)defaultSectionInfo;
 - (id)sectionIdentifier;
 - (void)dealloc;
-- (id)initWithSectionInfo:(id)arg1;
+- (id)initWithSectionInfo:(id)arg1 extension:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

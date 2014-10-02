@@ -8,7 +8,7 @@
 
 #import "ABFMFActionButtonsDelegate.h"
 
-@class ABUnknownPersonViewController, UIButton;
+@class ABUnknownPersonViewController, NSString, UIButton;
 
 @interface ABFMFActionButtons : NSObject <ABFMFActionButtonsDelegate>
 {
@@ -26,6 +26,12 @@
 - (void)dealloc;
 - (id)initWithMessageButton:(id)arg1 facetimeButton:(id)arg2 callButton:(id)arg3;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

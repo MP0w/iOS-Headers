@@ -6,23 +6,32 @@
 
 #import <iWorkImport/TSWPSmartField.h>
 
-@class NSArray;
+#import "TSWPCitationRecordHosting.h"
+
+@class NSArray, NSString;
 
 __attribute__((visibility("hidden")))
-@interface TSWPCitationSmartField : TSWPSmartField
+@interface TSWPCitationSmartField : TSWPSmartField <TSWPCitationRecordHosting>
 {
     BOOL _isLocalizable;
     NSArray *_citationRecords;
 }
 
++ (BOOL)isValidCitationField:(id)arg1;
 @property(nonatomic) BOOL isLocalizable; // @synthesize isLocalizable=_isLocalizable;
 @property(copy, nonatomic) NSArray *citationRecords; // @synthesize citationRecords=_citationRecords;
 - (id)bibliographySmartField;
 - (id)copyWithContext:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
-- (int)elementKind;
+- (int)smartFieldKind;
 - (void)dealloc;
 - (id)initFromUnarchiver:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

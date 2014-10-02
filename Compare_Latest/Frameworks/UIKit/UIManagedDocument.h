@@ -42,8 +42,8 @@
 - (BOOL)readAdditionalContentFromURL:(id)arg1 error:(id *)arg2;
 - (id)persistentStoreTypeForFileType:(id)arg1;
 - (BOOL)configurePersistentStoreCoordinatorForURL:(id)arg1 ofType:(id)arg2 modelConfiguration:(id)arg3 storeOptions:(id)arg4 error:(id *)arg5;
-@property(readonly, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property(readonly, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property(readonly, retain, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property(readonly, retain, nonatomic) NSManagedObjectContext *managedObjectContext;
 - (void)dealloc;
 - (id)initWithFileURL:(id)arg1;
 

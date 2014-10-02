@@ -44,6 +44,8 @@
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (unsigned long)_cfTypeID;
+- (void)_setNullLocale;
+- (unsigned char)_nullLocale;
 - (id)init;
 - (id)displayNameForKey:(id)arg1 value:(id)arg2;
 - (id)objectForKey:(id)arg1;

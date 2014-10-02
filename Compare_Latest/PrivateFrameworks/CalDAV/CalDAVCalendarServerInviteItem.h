@@ -13,7 +13,7 @@
     NSMutableSet *_users;
 }
 
-@property(retain) NSMutableSet *users; // @synthesize users=_users;
+@property(retain, nonatomic) NSMutableSet *users; // @synthesize users=_users;
 - (void)addUser:(id)arg1;
 - (id)copyParseRules;
 - (id)description;

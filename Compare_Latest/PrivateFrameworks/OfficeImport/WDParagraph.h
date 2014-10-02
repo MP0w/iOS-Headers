@@ -26,11 +26,14 @@ __attribute__((visibility("hidden")))
 - (id)addBookmark;
 - (id)addSpecialCharacter;
 - (id)addSymbol;
+- (id)addHyperlinkFieldMarker:(int)arg1;
+- (id)addHyperlinkFieldMarker;
 - (id)addFieldMarker:(int)arg1;
 - (id)addFieldMarker;
 - (id)addEndnote;
 - (id)addFootnote;
 - (id)addAnnotation:(int)arg1;
+- (id)addAnnotation:(int)arg1 atIndex:(unsigned int)arg2;
 - (id)addCharacterRun;
 - (void)clearRuns;
 - (void)removeRun:(id)arg1;

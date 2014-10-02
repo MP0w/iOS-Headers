@@ -10,7 +10,7 @@
 #import "KNFrameAnimator.h"
 #import "KNTransitionAnimator.h"
 
-@class KNAnimParameterGroup, KNMotionBlurAnimationPluginWrapper;
+@class KNAnimParameterGroup, KNMotionBlurAnimationPluginWrapper, NSString;
 
 __attribute__((visibility("hidden")))
 @interface KNTransitionReflection : KNAnimationEffect <KNTransitionAnimator, KNFrameAnimator, KNAnimationPluginArchiving>
@@ -38,6 +38,12 @@ __attribute__((visibility("hidden")))
 - (id)p_animationWithStartAngle:(float)arg1 endAngle:(float)arg2 bounds:(struct CGRect)arg3 duration:(double)arg4 direction:(unsigned int)arg5;
 - (void)dealloc;
 - (id)initWithAnimationContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,12 +8,12 @@
 
 #import "VKMapLayer.h"
 #import "VKRouteMatchedAnnotationPresentationObserver.h"
-#import "VKStylesheetObserver.h"
+#import "VKStyleManagerObserver.h"
 
-@class NSMapTable, NSMutableArray, NSMutableSet, NSSet, VKSkyModel, VKStylesheet;
+@class NSMapTable, NSMutableArray, NSMutableSet, NSSet, NSString, VKSkyModel, VKStyleManager;
 
 __attribute__((visibility("hidden")))
-@interface VKOverlayContainerModel : VKMapTileModel <VKRouteMatchedAnnotationPresentationObserver, VKMapLayer, VKStylesheetObserver>
+@interface VKOverlayContainerModel : VKMapTileModel <VKRouteMatchedAnnotationPresentationObserver, VKMapLayer, VKStyleManagerObserver>
 {
     NSMutableSet *_visibleOverlays;
     NSMutableArray *_overlayPainters;
@@ -29,11 +29,15 @@ __attribute__((visibility("hidden")))
     NSMutableSet *_persistentOverlays;
     id <VKRouteMatchedAnnotationPresentation> _routeLineSplitAnnotation;
     VKSkyModel *_skyModel;
+    id <VKOverlayContainerRouteDelegate> _routeDelegate;
+    struct ClearItem *_clearItem;
+    unsigned int _applicationState;
     CDStruct_cc67e4ef _puckPosition;
 }
 
 + (BOOL)reloadOnStylesheetChange;
 @property(readonly, nonatomic) BOOL isShowingRouteInStandardMode; // @synthesize isShowingRouteInStandardMode=_isShowingRouteInStandardMode;
+@property(nonatomic) id <VKOverlayContainerRouteDelegate> routeDelegate; // @synthesize routeDelegate=_routeDelegate;
 @property(retain, nonatomic) VKSkyModel *skyModel; // @synthesize skyModel=_skyModel;
 @property(nonatomic) BOOL shouldOccludeTraffic; // @synthesize shouldOccludeTraffic=_shouldOccludeTraffic;
 @property(readonly, nonatomic) NSSet *persistentOverlays; // @synthesize persistentOverlays=_persistentOverlays;
@@ -43,19 +47,28 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) CDStruct_cc67e4ef puckPosition; // @synthesize puckPosition=_puckPosition;
 @property(nonatomic) id <VKOverlayContainerDelegate> delegate; // @synthesize delegate=_delegate;
 - (id).cxx_construct;
+- (void)setApplicationState:(unsigned int)arg1;
+- (void)updatedMatchedSection:(fast_shared_ptr_502c59d0)arg1 index:(struct PolylineCoordinate *)arg2;
+- (void)reset;
+- (void)didReceiveMemoryWarning;
 - (void)stylesheetDidChange;
-@property(readonly, nonatomic) VKStylesheet *stylesheet;
+@property(readonly, nonatomic) VKStyleManager *styleManager;
 - (void)removePersistentOverlay:(id)arg1;
 - (void)addPersistentOverlay:(id)arg1;
-- (void)drawScene:(id)arg1 withContext:(id)arg2;
 - (void)layoutScene:(id)arg1 withContext:(id)arg2;
+- (void)gglLayoutScene:(id)arg1 withContext:(id)arg2 renderQueue:(struct RenderQueue *)arg3;
 - (void)_updatePainterOrdering;
 @property(readonly, nonatomic, getter=isInRealisticMode) BOOL inRealisticMode;
-- (unsigned int)supportedRenderPasses;
-- (unsigned int)mapLayerPosition;
+- (unsigned long long)mapLayerPosition;
 - (void)annotationPresentationDidChangePresentationCoordinate:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

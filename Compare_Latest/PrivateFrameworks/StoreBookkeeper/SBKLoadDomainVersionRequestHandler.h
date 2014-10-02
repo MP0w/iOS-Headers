@@ -8,7 +8,7 @@
 
 #import "SBKSyncTransactionProcessing.h"
 
-@class NSString, SBKSyncBagContext, SBKSyncTransaction, SBKTransactionController;
+@class NSString, SBKSyncTransaction;
 
 @interface SBKLoadDomainVersionRequestHandler : SBKSyncRequestHandler <SBKSyncTransactionProcessing>
 {
@@ -27,9 +27,11 @@
 - (void)runWithCompletionHandler:(CDUnknownBlockType)arg1;
 
 // Remaining properties
-@property(retain) SBKSyncBagContext *bagContext;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(copy) NSString *responseDomainVersion;
-@property(retain) SBKTransactionController *transactionController;
+@property(readonly) Class superclass;
 
 @end
 

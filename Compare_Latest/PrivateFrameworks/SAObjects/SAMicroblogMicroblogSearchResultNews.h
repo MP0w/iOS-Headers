@@ -16,7 +16,7 @@
 + (id)microblogSearchResultNews;
 - (void)updateUsingSet:(id)arg1 add:(id)arg2 remove:(id)arg3;
 @property(copy, nonatomic) NSString *title;
-@property(copy, nonatomic) NSString *description;
+@property(copy, nonatomic) NSString *descriptionText;
 @property(copy, nonatomic) NSURL *articleURL;
 - (id)encodedClassName;
 - (id)groupIdentifier;

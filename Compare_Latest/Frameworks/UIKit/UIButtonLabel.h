@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)_defaultAttributes;
+- (void)invalidateIntrinsicContentSize;
 - (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
 - (id)_defaultAttributes;
 - (struct CGSize)intrinsicContentSize;

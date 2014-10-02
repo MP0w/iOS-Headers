@@ -34,5 +34,6 @@
 - (void)observer:(BBObserver *)arg1 modifyBulletin:(BBBulletin *)arg2;
 - (void)observer:(BBObserver *)arg1 modifyBulletin:(BBBulletin *)arg2 forFeed:(unsigned long long)arg3;
 - (void)observer:(BBObserver *)arg1 addBulletin:(BBBulletin *)arg2 forFeed:(unsigned long long)arg3;
+- (void)observer:(BBObserver *)arg1 addBulletin:(BBBulletin *)arg2 forFeed:(unsigned long long)arg3 playLightsAndSirens:(_Bool)arg4 withReply:(void (^)(_Bool))arg5;
 @end
 

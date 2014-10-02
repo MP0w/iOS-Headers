@@ -25,6 +25,7 @@
 @property(retain, nonatomic) NSString *username; // @synthesize username=_username;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+- (id)localizedAuthenticationType;
 - (id)description;
 - (id)stubDictionary;
 - (id)initWithDictionary:(id)arg1 outError:(id *)arg2;

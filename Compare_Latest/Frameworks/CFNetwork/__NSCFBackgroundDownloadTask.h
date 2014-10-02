@@ -10,12 +10,18 @@ __attribute__((visibility("hidden")))
 @interface __NSCFBackgroundDownloadTask : __NSCFBackgroundSessionTask
 {
     BOOL _finished;
+    _Bool _suppressProgress;
 }
 
+@property _Bool suppressProgress; // @synthesize suppressProgress=_suppressProgress;
 @property BOOL finished; // @synthesize finished=_finished;
 - (void)cancelByProducingResumeData:(CDUnknownBlockType)arg1;
+- (void)_onqueue_cancelByProducingResumeData:(CDUnknownBlockType)arg1;
 - (void)_onqueue_didFinishDownloadingToURL:(id)arg1;
+- (void)_onqueue_didFinishWithError:(id)arg1;
+- (void)_onqueue_didResumeAtOffset:(long long)arg1 expectedTotalBytes:(long long)arg2;
 - (void)_onqueue_didWriteData:(long long)arg1 totalBytesWritten:(long long)arg2 totalBytesExpectedToWrite:(long long)arg3;
+- (void)_onqueue_didReceiveResponse:(id)arg1;
 - (BOOL)isKindOfClass:(Class)arg1;
 
 @end

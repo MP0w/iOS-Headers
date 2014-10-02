@@ -8,6 +8,8 @@
 
 #import "GQPagesGenerator.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface GQHPages : NSObject <GQPagesGenerator>
 {
@@ -28,6 +30,12 @@ __attribute__((visibility("hidden")))
 + (void)mapHeaderOrFooter:(id)arg1 isHeader:(BOOL)arg2 toPublication:(id)arg3 state:(id)arg4;
 + (void)handlePagesOrders:(id)arg1;
 + (void)handleZOrder:(unsigned int)arg1 cssClassName:(struct __CFString *)arg2 state:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

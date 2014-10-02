@@ -10,10 +10,10 @@
 {
 }
 
-- (_Bool)_shouldDisallowSuspension;
 - (id)_setupAnimationFrom:(id)arg1 to:(id)arg2;
-- (int)_setupMilestonesFrom:(id)arg1 to:(id)arg2;
-- (id)initWithWorkspace:(id)arg1 mainScreenAlertManager:(id)arg2 starkScreenController:(id)arg3 exitedApp:(id)arg4;
+- (void)_setupMilestonesFrom:(id)arg1 to:(id)arg2;
+- (void)_begin;
+- (id)initWithMainScreenAlertManager:(id)arg1 starkScreenController:(id)arg2 exitedApp:(id)arg3;
 
 @end
 

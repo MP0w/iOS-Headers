@@ -17,7 +17,7 @@
     NSMapTable *_stationInformationToPlayEvents;
 }
 
-@property(readonly, nonatomic) NSString *deviceName; // @synthesize deviceName=_deviceName;
+@property(readonly, copy, nonatomic) NSString *deviceName; // @synthesize deviceName=_deviceName;
 - (void).cxx_destruct;
 - (id)playInfoDictionary;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;

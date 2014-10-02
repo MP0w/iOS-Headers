@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary;
 
+__attribute__((visibility("hidden")))
 @interface _SchemaRenditionTuple : NSObject
 {
     struct _renditionkeytoken key[16];

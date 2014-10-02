@@ -23,7 +23,6 @@
     MPButton *_alternatesButton;
     MPButton *_bookmarkButton;
     MPButton *_chaptersButton;
-    MPButton *_devicePickerButton;
     MPButton *_emailButton;
     MPButton *_fastForward15SecondsButton;
     MPButton *_likeOrBanButton;
@@ -80,7 +79,6 @@
 - (void)_itemChangedNotification:(id)arg1;
 - (void)_timeMarkersAvailableNotification:(id)arg1;
 - (void)_itemDurationDidChangeNotification:(id)arg1;
-- (void)_isLikedDidChangeNotification:(id)arg1;
 - (void)_isExternalPlaybackActiveDidChangeNotification:(id)arg1;
 - (void)_availableRoutesChangedNotification:(id)arg1;
 - (void)_alternateTypesChangedNotification:(id)arg1;

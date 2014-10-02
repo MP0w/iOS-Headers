@@ -10,7 +10,7 @@
 #import "KNFrameAnimator.h"
 #import "KNTransitionAnimator.h"
 
-@class KNAnimParameterGroup, KNMotionBlurAnimationPluginWrapper;
+@class KNAnimParameterGroup, KNMotionBlurAnimationPluginWrapper, NSString;
 
 __attribute__((visibility("hidden")))
 @interface KNTransitionFlip : KNAnimationEffect <KNTransitionAnimator, KNFrameAnimator, KNAnimationPluginArchiving>
@@ -39,6 +39,12 @@ __attribute__((visibility("hidden")))
 - (float)p_pullbackPercentFromRotateAnimation:(id)arg1 atPercent:(float)arg2;
 - (void)dealloc;
 - (id)initWithAnimationContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

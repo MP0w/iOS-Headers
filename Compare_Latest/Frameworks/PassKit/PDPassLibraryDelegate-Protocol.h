@@ -6,14 +6,14 @@
 
 #import "NSObject.h"
 
-@class NSString, PDPassLibrary, PKBundledPass;
+@class NSString, PDPassLibrary;
 
 @protocol PDPassLibraryDelegate <NSObject>
+- (void)deletePaymentPassesAndMarkAllPaymentApplicationsForDelete;
+- (void)passbookUIServiceLaunched;
 - (void)introduceDatabaseIntegrityProblem;
 - (void)migrateData;
 - (void)nukeStuff;
-- (void)passLibrarySuspended:(PDPassLibrary *)arg1;
-- (void)passLibrary:(PDPassLibrary *)arg1 removedBundledPass:(PKBundledPass *)arg2;
 - (void)passLibrary:(PDPassLibrary *)arg1 requestedPassUpdate:(NSString *)arg2 handler:(void (^)(BOOL))arg3;
 @end
 

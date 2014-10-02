@@ -24,7 +24,7 @@
 @property(readonly, nonatomic) UITextInputTraits *textInputTraits;
 - (void)layoutSubviews;
 - (void)dealloc;
-- (id)initWithDefaultSize;
+- (id)initWithDefaultSizeAndLightStyle:(BOOL)arg1;
 
 @end
 

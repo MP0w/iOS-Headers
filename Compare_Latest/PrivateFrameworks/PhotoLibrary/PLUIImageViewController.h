@@ -10,7 +10,7 @@
 #import "PLPhotoTileViewControllerDelegate.h"
 #import "PLVideoViewDelegate.h"
 
-@class NSURL, PLCropOverlay, PLImageCache, PLImageLoadingQueue, PLImageSource, PLManagedAsset, PLPhotoTileViewController, PLVideoRemaker, PLVideoView, UIImage;
+@class NSString, NSURL, PLCropOverlay, PLImageCache, PLImageLoadingQueue, PLImageSource, PLManagedAsset, PLPhotoTileViewController, PLVideoRemaker, PLVideoView, UIImage;
 
 @interface PLUIImageViewController : UIViewController <PLVideoViewDelegate, PLImageLoadingQueueDelegate, PLPhotoTileViewControllerDelegate>
 {
@@ -98,6 +98,12 @@
 - (id)initWithImage:(struct CGImage *)arg1 cropRect:(struct CGRect)arg2;
 - (id)initWithPhoto:(id)arg1;
 - (BOOL)_displaysFullScreen;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

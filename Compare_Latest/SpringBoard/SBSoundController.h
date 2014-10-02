@@ -31,6 +31,7 @@
 - (void)_ringerStateChanged:(id)arg1;
 - (_Bool)_playToneAlert:(id)arg1;
 - (_Bool)_playAVItem:(id)arg1 forSound:(id)arg2;
+- (_Bool)_playSong:(id)arg1;
 - (_Bool)_playRingtone:(id)arg1;
 - (_Bool)_playSystemSound:(id)arg1;
 - (void)_stopToneAlertForSound:(id)arg1;

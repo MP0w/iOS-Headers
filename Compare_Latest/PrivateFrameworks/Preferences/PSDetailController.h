@@ -17,8 +17,10 @@
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)suspend;
 - (void)saveChanges;
+- (id)title;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
+- (void)loadPane;
 @property(nonatomic) PSEditingPane *pane;
 - (void)viewDidLayoutSubviews;
 - (void)didRotateFromInterfaceOrientation:(int)arg1;

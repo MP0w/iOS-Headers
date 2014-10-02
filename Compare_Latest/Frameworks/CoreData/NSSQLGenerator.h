@@ -15,8 +15,14 @@ __attribute__((visibility("hidden")))
 }
 
 + (void)initialize;
+- (id)newSQLStatementForUpdateRequest:(id)arg1;
 - (id)newSQLStatementForFetchRequest:(id)arg1 ignoreInheritance:(BOOL)arg2 countOnly:(BOOL)arg3 nestingLevel:(unsigned int)arg4;
+- (id)newSQLStatementForRequest:(id)arg1 ignoreInheritance:(BOOL)arg2 countOnly:(BOOL)arg3 nestingLevel:(unsigned int)arg4;
+- (id)initializeContextForUpdateRequest:(id)arg1;
 - (id)initializeContextForFetchRequest:(id)arg1 ignoreInheritance:(BOOL)arg2 nestingLevel:(unsigned int)arg3;
+- (id)initializeContextForRequest:(id)arg1 ignoreInheritance:(BOOL)arg2 nestingLevel:(unsigned int)arg3;
+- (id)generateIntermediatesForUpdateInContext:(id)arg1;
+- (id)generateUpdateColumnsIntermediateInContext:(id)arg1;
 - (id)generateIntermediatesForFetchInContext:(id)arg1 countOnly:(BOOL)arg2;
 - (void)generateHavingIntermediateForPredicate:(id)arg1 inContext:(id)arg2;
 - (void)generateGroupByIntermediatesForProperties:(id)arg1 inContext:(id)arg2;
@@ -25,7 +31,7 @@ __attribute__((visibility("hidden")))
 - (void)generateOrderIntermediateInContext:(id)arg1;
 - (void)generateWhereIntermediatesInContext:(id)arg1;
 - (void)generateSelectIntermediateInContext:(id)arg1;
-- (id)predicateForFetchRequestInContext:(id)arg1;
+- (id)predicateForRequestInContext:(id)arg1;
 - (id)_predicateForSpecificEntity:(id)arg1;
 - (id)_predicateRestrictingToSubentitiesForEntity:(id)arg1;
 - (id)_predicateRestrictingSuperentitiesForEntity:(id)arg1;

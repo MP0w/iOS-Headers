@@ -6,7 +6,7 @@
 
 #import <UIKit/UIButton.h>
 
-@class NSDictionary, NSSet, NSString, UIColor, UIImage;
+@class NSDictionary, NSSet, NSString, UIBarButtonItem, UIColor, UIImage, UINavigationItem;
 
 @interface UINavigationButton : UIButton
 {
@@ -19,19 +19,25 @@
     NSSet *_possibleSystemItems;
     unsigned int _size:2;
     unsigned int _wantsLetterpressContent:1;
+    UIBarButtonItem *_originatingButtonItem;
+    UINavigationItem *_originatingNavigationItem;
     BOOL _createdByBarButtonItem;
     BOOL _isFontScaleInvalid;
     BOOL _wantsBlendModeForAccessibilityBackgrounds;
+    BOOL __barItemHidden;
     float _minimumWidth;
     float _maximumWidth;
     int _buttonItemStyle;
     NSDictionary *_stylesForSizingTitles;
     float _fontScaleAdjustment;
     Class _appearanceGuideClass;
+    struct UIEdgeInsets __additionalSelectionInsets;
 }
 
 + (void)_resetRenderingModesForBackgroundImageView:(id)arg1 inBarStyle:(int)arg2 isEnabled:(BOOL)arg3 withAccessibilityBackground:(BOOL)arg4 wantsBlendModeForAccessibilityBackgrounds:(BOOL)arg5;
 + (id)defaultFont;
+@property(nonatomic, setter=_setBarItemHidden:) BOOL _barItemHidden; // @synthesize _barItemHidden=__barItemHidden;
+@property(nonatomic, setter=_setAdditionalSelectionInsets:) struct UIEdgeInsets _additionalSelectionInsets; // @synthesize _additionalSelectionInsets=__additionalSelectionInsets;
 @property(nonatomic, setter=_setAppearanceGuideClass:) Class _appearanceGuideClass; // @synthesize _appearanceGuideClass;
 @property(nonatomic, setter=_setWantsBlendModeForAccessibilityBackgrounds:) BOOL _wantsBlendModeForAccessibilityBackgrounds; // @synthesize _wantsBlendModeForAccessibilityBackgrounds;
 @property(nonatomic, setter=_setFontScaleAdjustment:) float _fontScaleAdjustment; // @synthesize _fontScaleAdjustment;
@@ -86,6 +92,8 @@
 @property(retain, nonatomic) UIImage *image;
 @property(retain, nonatomic) NSString *title;
 - (BOOL)_isModernButton;
+@property(nonatomic) UINavigationItem *originatingNavigationItem;
+@property(nonatomic) UIBarButtonItem *originatingButtonItem;
 - (void)dealloc;
 - (id)initWithImage:(id)arg1 style:(int)arg2;
 - (id)initWithImage:(id)arg1;
@@ -109,6 +117,7 @@
 - (int)_barButtonItemStyle;
 - (void)_updateTitleColorsForState:(unsigned int)arg1;
 - (void)layoutSubviews;
+- (struct CGRect)_selectedIndicatorBounds;
 - (void)_sendSetNeedsLayoutToSuperviewOnTitleAnimationCompletionIfNecessary;
 - (void)_setWantsLetterpressContent;
 - (void)_updateTitleForLetterpress;
@@ -119,7 +128,7 @@
 - (BOOL)_wantsAccessibilityButtonShapes;
 - (BOOL)_showsAccessibilityBackgroundWhenEnabled;
 - (void)_didMoveFromWindow:(id)arg1 toWindow:(id)arg2;
-- (void)_prepareToAppearInNavigationItemOnLeft:(BOOL)arg1;
+- (void)_prepareToAppearInNavigationItem:(id)arg1 onLeft:(BOOL)arg2;
 
 // Remaining properties
 @property(retain, nonatomic) UIColor *tintColor;

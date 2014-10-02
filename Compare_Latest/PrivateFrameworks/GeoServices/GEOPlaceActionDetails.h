@@ -10,28 +10,30 @@
 
 @interface GEOPlaceActionDetails : PBCodable <NSCopying>
 {
+    unsigned long long _animationID;
     unsigned long long _businessID;
     long long _placeID;
     double _searchResponseRelativeTimestamp;
     int _localSearchProviderID;
     int _resultIndex;
-    int _sequenceNumber;
     struct {
+        unsigned int animationID:1;
         unsigned int businessID:1;
         unsigned int placeID:1;
         unsigned int searchResponseRelativeTimestamp:1;
         unsigned int localSearchProviderID:1;
         unsigned int resultIndex:1;
-        unsigned int sequenceNumber:1;
     } _has;
 }
 
++ (id)actionDetailsWithMapItem:(id)arg1 timestamp:(double)arg2 resultIndex:(int)arg3;
+@property(nonatomic) unsigned long long animationID; // @synthesize animationID=_animationID;
 @property(nonatomic) int resultIndex; // @synthesize resultIndex=_resultIndex;
 @property(nonatomic) double searchResponseRelativeTimestamp; // @synthesize searchResponseRelativeTimestamp=_searchResponseRelativeTimestamp;
-@property(nonatomic) int sequenceNumber; // @synthesize sequenceNumber=_sequenceNumber;
 @property(nonatomic) int localSearchProviderID; // @synthesize localSearchProviderID=_localSearchProviderID;
 @property(nonatomic) long long placeID; // @synthesize placeID=_placeID;
 @property(nonatomic) unsigned long long businessID; // @synthesize businessID=_businessID;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -40,12 +42,13 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) BOOL hasAnimationID;
 @property(nonatomic) BOOL hasResultIndex;
 @property(nonatomic) BOOL hasSearchResponseRelativeTimestamp;
-@property(nonatomic) BOOL hasSequenceNumber;
 @property(nonatomic) BOOL hasLocalSearchProviderID;
 @property(nonatomic) BOOL hasPlaceID;
 @property(nonatomic) BOOL hasBusinessID;
+- (id)initWithMapItem:(id)arg1 relativeTimestamp:(double)arg2 resultIndex:(int)arg3;
 
 @end
 

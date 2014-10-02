@@ -13,11 +13,9 @@
     UIColor *_evenColor;
     int _numberOfColumns;
     UIColor *_oddColor;
-    float _rowHeight;
 }
 
 + (Class)layoutAttributesClass;
-@property(nonatomic) float rowHeight; // @synthesize rowHeight=_rowHeight;
 @property(copy, nonatomic) UIColor *oddRowBackgroundColor; // @synthesize oddRowBackgroundColor=_oddColor;
 @property(nonatomic) int numberOfColumns; // @synthesize numberOfColumns=_numberOfColumns;
 @property(copy, nonatomic) UIColor *evenRowBackgroundColor; // @synthesize evenRowBackgroundColor=_evenColor;

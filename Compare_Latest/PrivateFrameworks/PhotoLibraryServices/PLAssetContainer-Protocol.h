@@ -10,7 +10,7 @@
 @class NSArray, NSDate, NSOrderedSet, NSString, PLManagedAsset;
 
 @protocol PLAssetContainer <NSObject, PLDiagnosticsProvider>
-@property(readonly, nonatomic) NSArray *localizedLocationNames;
+@property(readonly, copy, nonatomic) NSArray *localizedLocationNames;
 @property(readonly, nonatomic) BOOL canShowAvalancheStacks;
 @property(readonly, nonatomic) BOOL canShowComments;
 @property(retain, nonatomic) PLManagedAsset *tertiaryKeyAsset;
@@ -21,14 +21,14 @@
 @property(readonly, nonatomic) unsigned int photosCount;
 @property(readonly, nonatomic) unsigned int assetsCount;
 @property(readonly, nonatomic) unsigned int approximateCount;
-@property(readonly, nonatomic) NSOrderedSet *assets;
-@property(readonly, nonatomic) NSString *localizedTitle;
-@property(readonly, nonatomic) NSString *title;
-@property(readonly, nonatomic) NSString *uuid;
-- (BOOL)canPerformEditOperation:(int)arg1;
+@property(readonly, retain, nonatomic) NSOrderedSet *assets;
+@property(readonly, copy, nonatomic) NSString *localizedTitle;
+@property(readonly, retain, nonatomic) NSString *title;
+@property(readonly, retain, nonatomic) NSString *uuid;
+- (BOOL)canPerformEditOperation:(unsigned int)arg1;
 
 @optional
-@property(readonly, nonatomic) NSDate *endDate;
-@property(readonly, nonatomic) NSDate *startDate;
+@property(readonly, retain, nonatomic) NSDate *endDate;
+@property(readonly, retain, nonatomic) NSDate *startDate;
 @end
 

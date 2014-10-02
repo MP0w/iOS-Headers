@@ -6,12 +6,15 @@
 
 #import "_UISettings.h"
 
-@class UIColor;
+@class SBControlCenterSettingsSectionSettings, SBControlCenterShortcutSectionSettings, UIColor;
 
 @interface SBControlCenterSettings : _UISettings
 {
     _Bool _highlightUsesPlusL;
+    _Bool _forceVibrantControls;
     _Bool _useNewBounce;
+    SBControlCenterSettingsSectionSettings *_settingsSectionSettings;
+    SBControlCenterShortcutSectionSettings *_shortcutSectionSettings;
     double _controlAlpha;
     double _controlAlpha1x;
     double _minControlAlpha;
@@ -51,6 +54,7 @@
 @property _Bool useNewBounce; // @synthesize useNewBounce=_useNewBounce;
 @property(retain) UIColor *highlightColor; // @synthesize highlightColor=_highlightColor;
 @property double glowAlpha; // @synthesize glowAlpha=_glowAlpha;
+@property _Bool forceVibrantControls; // @synthesize forceVibrantControls=_forceVibrantControls;
 @property _Bool highlightUsesPlusL; // @synthesize highlightUsesPlusL=_highlightUsesPlusL;
 @property double highlightAlpha; // @synthesize highlightAlpha=_highlightAlpha;
 @property double disabledAlpha1x; // @synthesize disabledAlpha1x=_disabledAlpha1x;
@@ -59,6 +63,8 @@
 @property double minControlAlpha; // @synthesize minControlAlpha=_minControlAlpha;
 @property double controlAlpha1x; // @synthesize controlAlpha1x=_controlAlpha1x;
 @property double controlAlpha; // @synthesize controlAlpha=_controlAlpha;
+@property(retain) SBControlCenterShortcutSectionSettings *shortcutSectionSettings; // @synthesize shortcutSectionSettings=_shortcutSectionSettings;
+@property(retain) SBControlCenterSettingsSectionSettings *settingsSectionSettings; // @synthesize settingsSectionSettings=_settingsSectionSettings;
 - (double)resolvedDisabledAlpha;
 - (double)resolvedControlAlpha;
 - (void)setDefaultValues;

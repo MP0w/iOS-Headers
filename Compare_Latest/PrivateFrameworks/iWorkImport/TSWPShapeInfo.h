@@ -20,6 +20,14 @@ __attribute__((visibility("hidden")))
 }
 
 + (void)setDefaultInstructionalText:(id)arg1;
++ (unsigned int)numberOfDifferencesBetweenStyleProperties:(id)arg1 betweenOutgoingStorage:(id)arg2 outgoingRange:(struct _NSRange)arg3 incomingStorage:(id)arg4 incomingRange:(struct _NSRange)arg5 maxDifferencesBeforeReturning:(unsigned int)arg6;
++ (BOOL)shouldDisableTextMorphsFromPropertiesBetweenOutgoingStorage:(id)arg1 outgoingRange:(struct _NSRange)arg2 incomingStorage:(id)arg3 incomingRange:(struct _NSRange)arg4;
++ (BOOL)stylesAreEqualWithOutgoingStorage:(id)arg1 outgoingRange:(struct _NSRange)arg2 incomingStorage:(id)arg3 incomingRange:(struct _NSRange)arg4;
++ (id)textPropertiesAffectingTextMorph;
++ (id)textPropertiesNotAffectingVisualStyle;
++ (id)textPropertiesAffectingVisualStyleExceptSize;
++ (id)textPropertiesAffectingVisualStyle;
++ (id)textPropertiesNeedingCharacterAnimation;
 @property(retain, nonatomic) TSWPStorage *containedStorage; // @synthesize containedStorage=_containedStorage;
 - (void)processSelectedStoragesWithStatisticsController:(id)arg1;
 - (id)commandForTransformingByTransform:(struct CGAffineTransform)arg1 context:(id)arg2 transformedObjects:(id)arg3 inBounds:(struct CGRect)arg4;
@@ -53,6 +61,7 @@ __attribute__((visibility("hidden")))
 - (float)pOffsetForVerticalAlignment:(struct CGSize)arg1;
 - (float)pOffsetForParagraphAlignment:(struct CGSize)arg1;
 @property(readonly, nonatomic) NSString *instructionalText;
+@property(readonly, nonatomic) BOOL isTextBox;
 @property(readonly, nonatomic) BOOL displaysInstructionalText;
 - (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
 - (id)presetKind;
@@ -62,11 +71,11 @@ __attribute__((visibility("hidden")))
 - (id)initWithContext:(id)arg1 geometry:(id)arg2 style:(id)arg3 pathSource:(id)arg4 wpStorage:(id)arg5;
 - (void)dealloc;
 - (Class)styleClass;
-- (Class)editorClass;
 @property(nonatomic) int contentWritingDirection;
 @property(readonly, nonatomic) TSWPShapeStyle *tswpShapeStyle;
 @property(retain, nonatomic) TSWPPadding *padding;
 @property(retain, nonatomic) TSWPColumns *columns;
+@property(readonly, nonatomic) int columnDirection;
 @property(nonatomic) int verticalAlignment;
 @property(nonatomic) BOOL textIsVertical;
 @property(nonatomic) BOOL shrinkTextToFit;
@@ -76,27 +85,32 @@ __attribute__((visibility("hidden")))
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromArchive:(const struct ShapeInfoArchive *)arg1 unarchiver:(id)arg2;
 - (id)initFromUnarchiver:(id)arg1;
+- (BOOL)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
+- (id)localizedChunkNameForTextureDeliveryStyle:(unsigned int)arg1 animationFilter:(id)arg2 chunkIndex:(unsigned int)arg3;
+- (id)containedTextForDeliveryStyle:(unsigned int)arg1 chunkIndex:(unsigned int)arg2;
+- (id)defaultBuildChunkTitle;
+- (id)containedTextForRange:(struct _NSRange)arg1;
+- (id)p_chunkTitleByRemovingAdditionalLinesFromTitle:(id)arg1;
+- (id)containedText;
+- (BOOL)isBulleted;
 - (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
 - (int)mixingTypeWithObject:(id)arg1;
 - (BOOL)shouldHideEmptyBullets;
-- (id)buildImageTitle;
-- (id)titleForBuildChunk:(id)arg1;
-- (id)p_containedTextForDeliveryStyle:(unsigned int)arg1 chunkIndex:(unsigned int)arg2;
-- (id)p_defaultBuildChunkTitle;
-- (id)containedTextForRange:(struct _NSRange)arg1;
-- (id)containedText;
-@property(readonly, nonatomic) BOOL isBulleted;
 
 // Remaining properties
 @property(readonly, nonatomic, getter=isAnchoredToText) BOOL anchoredToText; // @dynamic anchoredToText;
 @property(readonly, nonatomic, getter=isAttachedToBodyText) BOOL attachedToBodyText;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly, nonatomic, getter=isFloatingAboveText) BOOL floatingAboveText; // @dynamic floatingAboveText;
 @property(copy, nonatomic) TSDInfoGeometry *geometry; // @dynamic geometry;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic, getter=isInlineWithText) BOOL inlineWithText; // @dynamic inlineWithText;
 @property(nonatomic) BOOL matchesObjectPlaceholderGeometry;
 @property(nonatomic) TSPObject<TSDOwningAttachment> *owningAttachment; // @dynamic owningAttachment;
 @property(readonly, nonatomic) TSPObject<TSDOwningAttachment> *owningAttachmentNoRecurse; // @dynamic owningAttachmentNoRecurse;
 @property(nonatomic) NSObject<TSDContainerInfo> *parentInfo; // @dynamic parentInfo;
+@property(readonly) Class superclass;
 
 @end
 

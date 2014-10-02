@@ -8,7 +8,7 @@
 
 #import "XPCNSClientConnectionDelegate.h"
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>, XPCNSClientConnection;
+@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, XPCNSClientConnection;
 
 @interface MSASConnection : NSObject <XPCNSClientConnectionDelegate>
 {
@@ -115,6 +115,12 @@
 - (id)_communicationFailureError;
 - (void)_sendMessageReliably:(id)arg1 data:(id)arg2 successHandler:(CDUnknownBlockType)arg3 failureHandler:(CDUnknownBlockType)arg4;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

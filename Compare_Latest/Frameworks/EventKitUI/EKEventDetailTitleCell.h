@@ -6,7 +6,7 @@
 
 #import <EventKitUI/EKEventDetailCell.h>
 
-@class EKTextViewWithLabelTextMetrics, NSObject<EKEventDetailTitleCellDelegate>, UIButton, UIImage, UIImageView, UILabel;
+@class EKTextViewWithLabelTextMetrics, NSMutableArray, NSObject<EKEventDetailTitleCellDelegate>, UIButton, UIImage, UIImageView, UILabel;
 
 @interface EKEventDetailTitleCell : EKEventDetailCell
 {
@@ -14,8 +14,8 @@
     EKTextViewWithLabelTextMetrics *_locationView;
     UIImage *_locationStatusImage;
     UIImageView *_locationStatusView;
-    UILabel *_dateView;
-    UILabel *_timeView;
+    UILabel *_travelTimeView;
+    NSMutableArray *_dateTimeViews;
     UILabel *_recurrenceView;
     UILabel *_statusView;
     UIButton *_editButton;
@@ -26,28 +26,29 @@
     NSObject<EKEventDetailTitleCellDelegate> *_delegate;
 }
 
++ (id)_locationFont;
 + (id)_titleFont;
-+ (id)_skinnyImageWithColor:(id)arg1;
++ (void)_invalidateCachedFonts;
++ (void)_registerForInvalidation;
 @property(nonatomic) __weak NSObject<EKEventDetailTitleCellDelegate> *delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)layoutForWidth:(float)arg1 position:(int)arg2;
 - (id)_editButton;
 - (id)_statusView;
 - (id)_recurrenceView;
-- (id)_timeView;
-- (id)_dateView;
+- (id)_travelTimeView;
+- (id)_dateTimeViewForLine:(unsigned int)arg1;
 - (id)_locationView;
 - (id)_locationStatusView;
 - (id)_titleView;
 - (void)editButtonTapped;
 - (BOOL)update;
-- (id)_locationFont;
 - (void)setPrimaryTextColor:(id)arg1;
 - (void)setColor:(id)arg1;
 - (void)setStatusString:(id)arg1;
 - (void)setRecurrenceString:(id)arg1;
-- (void)setTimeString:(id)arg1;
-- (void)setDateString:(id)arg1;
+- (void)setTravelTimeString:(id)arg1;
+- (void)_setDateTimeString:(id)arg1 line:(unsigned int)arg2;
 - (void)setLocation:(id)arg1;
 - (void)setTitle:(id)arg1;
 - (void)dealloc;

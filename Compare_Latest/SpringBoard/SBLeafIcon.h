@@ -25,6 +25,7 @@
 - (void)completeUninstall;
 - (void)setUninstalled;
 - (_Bool)allowsUninstall;
+- (_Bool)isBeta;
 - (_Bool)isRecentlyUpdated;
 - (int)accessoryTypeForLocation:(int)arg1;
 - (id)accessoryTextForLocation:(int)arg1;
@@ -33,6 +34,7 @@
 - (double)progressPercent;
 - (long long)progressState;
 - (_Bool)iconAppearsInNewsstand;
+- (_Bool)canTightenLabel;
 - (_Bool)canEllipsizeLabel;
 - (id)displayName;
 - (id)getGenericIconImage:(int)arg1;

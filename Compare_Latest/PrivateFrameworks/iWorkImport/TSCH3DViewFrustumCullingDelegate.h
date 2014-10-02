@@ -9,6 +9,8 @@
 #import "TSCH3DChartAllSceneObjectDelegate.h"
 #import "TSCH3DSceneObjectDelegator.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TSCH3DViewFrustumCullingDelegate : NSObject <TSCH3DChartAllSceneObjectDelegate, TSCH3DSceneObjectDelegator>
 {
@@ -44,6 +46,12 @@ __attribute__((visibility("hidden")))
 - (struct ElementRenderPass)renderPassForSceneObject:(id)arg1;
 - (id)makeDelegateWithSceneObject:(id)arg1 scene:(id)arg2;
 - (id)makeDelegateWithScene:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

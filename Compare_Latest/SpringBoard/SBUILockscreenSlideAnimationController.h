@@ -23,6 +23,7 @@
     _Bool _useContextHostView;
 }
 
+- (id)description;
 - (void)_maybeReportAnimationFinished;
 - (void)_finishedSliding;
 - (_Bool)_isApplicationLaunchFinished;
@@ -30,8 +31,8 @@
 - (void)_cleanupAnimation;
 - (void)_startAnimation;
 - (void)_prepareAnimation;
-- (_Bool)_animationShouldStart;
 - (id)_animationProgressDependency;
+- (_Bool)_waitsForApplicationActivationIfNecessary;
 - (void)dealloc;
 - (id)initWithActivatingApp:(id)arg1 deactivatingLockscreen:(id)arg2;
 - (id)initWithActivatingLockscreen:(id)arg1 deactivatingApp:(id)arg2;

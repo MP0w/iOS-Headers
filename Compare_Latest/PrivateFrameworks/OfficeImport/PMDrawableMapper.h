@@ -16,7 +16,6 @@ __attribute__((visibility("hidden")))
     BOOL mTopLevelMapper;
 }
 
-+ (id)orientedBoundsForDrawable:(id)arg1;
 - (void)mapBounds;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
 - (struct CGRect)slideRect;

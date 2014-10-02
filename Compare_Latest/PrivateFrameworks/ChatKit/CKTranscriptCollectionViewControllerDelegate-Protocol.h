@@ -9,7 +9,9 @@
 @class CKTranscriptCollectionViewController, NSIndexPath;
 
 @protocol CKTranscriptCollectionViewControllerDelegate <NSObject>
-- (void)transcriptCollectionViewControllerWantsRefreshStatusBar:(CKTranscriptCollectionViewController *)arg1;
+- (void)transcriptCollectionViewControllerChatItemsDidChange:(CKTranscriptCollectionViewController *)arg1;
+- (void)transcriptCollectionViewControllerPlayingAudioDidChange:(CKTranscriptCollectionViewController *)arg1;
+- (BOOL)transcriptCollectionViewControllerShouldPlayAudio:(CKTranscriptCollectionViewController *)arg1;
 - (void)transcriptCollectionViewControllerDidInset:(CKTranscriptCollectionViewController *)arg1;
 - (void)transcriptCollectionViewControllerWillInset:(CKTranscriptCollectionViewController *)arg1 targetContentInset:(inout struct UIEdgeInsets *)arg2;
 - (void)transcriptCollectionViewController:(CKTranscriptCollectionViewController *)arg1 moreButtonTappedForRowAtIndexPath:(NSIndexPath *)arg2;

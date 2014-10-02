@@ -8,7 +8,7 @@
 
 #import "ABSwellTextViewDelegate.h"
 
-@class ABSwellTextView;
+@class ABSwellTextView, NSString;
 
 @interface ABMultiCellContentView_Note : ABMultiCellContentView <ABSwellTextViewDelegate>
 {
@@ -40,6 +40,12 @@
 - (void)dealloc;
 - (struct CGRect)frameForLabel;
 - (BOOL)shouldUseTwoLineLabels;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "ISStoreURLOperationDelegate.h"
 
-@class ISURLBag, SSURLBagContext;
+@class ISURLBag, NSString, SSURLBagContext;
 
 @interface ISLoadURLBagOperation : ISOperation <ISStoreURLOperationDelegate>
 {
@@ -23,12 +23,19 @@
 - (void)_postBagDidLoadNotificationWithURLBag:(id)arg1;
 - (void)_addHeadersToRequestProperties:(id)arg1;
 - (void)operation:(id)arg1 willSendRequest:(id)arg2;
+- (BOOL)operation:(id)arg1 shouldSetStoreFrontID:(id)arg2;
 - (id)uniqueKey;
 - (void)run;
 @property(readonly) ISURLBag *URLBag;
 - (void)dealloc;
 - (id)initWithBagContext:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

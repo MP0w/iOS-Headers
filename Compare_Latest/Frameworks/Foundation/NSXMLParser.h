@@ -6,6 +6,8 @@
 
 #import "NSObject.h"
 
+@class NSData, NSError, NSMutableArray, NSSet, NSURL;
+
 @interface NSXMLParser : NSObject
 {
     id _reserved0;
@@ -13,12 +15,26 @@
     id _reserved1;
     id _reserved2;
     id _reserved3;
+    struct _xmlSAXHandler *_saxHandler;
+    struct _xmlParserCtxt *_parserContext;
+    unsigned int _parserFlags;
+    NSError *_error;
+    NSMutableArray *_namespaces;
+    struct __CFDictionary *_slowStringMap;
+    BOOL _delegateAborted;
+    BOOL _haveDetectedEncoding;
+    NSData *_bomChunk;
+    unsigned int _chunkSize;
+    NSSet *_allowedEntityURLs;
+    NSURL *_url;
+    unsigned int _externalEntityResolvingPolicy;
 }
 
++ (id)currentParser;
++ (void)setCurrentParser:(id)arg1;
 - (void)_initializeSAX2Callbacks;
 - (void)_popNamespaces;
 - (void)_pushNamespaces:(id)arg1;
-- (struct _xmlParserCtxt *)_parserContext;
 - (void)_setParserError:(int)arg1;
 - (void)_setExpandedParserError:(id)arg1;
 - (void)finalize;
@@ -27,7 +43,7 @@
 - (int)lineNumber;
 - (id)systemID;
 - (id)publicID;
-- (id)parserError;
+@property(readonly, copy) NSError *parserError;
 - (void)abortParsing;
 - (BOOL)parse;
 - (BOOL)parseFromStream;
@@ -36,19 +52,17 @@
 - (BOOL)_handleParseResult:(int)arg1;
 - (BOOL)shouldContinueAfterFatalError;
 - (void)setShouldContinueAfterFatalError:(BOOL)arg1;
-- (BOOL)shouldResolveExternalEntities;
-- (BOOL)shouldReportNamespacePrefixes;
-- (BOOL)shouldProcessNamespaces;
-- (void)setShouldResolveExternalEntities:(BOOL)arg1;
-- (void)setShouldReportNamespacePrefixes:(BOOL)arg1;
-- (void)setShouldProcessNamespaces:(BOOL)arg1;
-- (void)setDelegate:(id)arg1;
-- (id)delegate;
+@property BOOL shouldResolveExternalEntities;
+@property BOOL shouldReportNamespacePrefixes;
+@property BOOL shouldProcessNamespaces;
+- (struct _xmlParserInput *)_xmlExternalEntityWithURL:(const char *)arg1 identifier:(const char *)arg2 context:(struct _xmlParserCtxt *)arg3 originalLoaderFunction:(CDUnknownFunctionPointerType)arg4;
+@property unsigned int externalEntityResolvingPolicy;
+@property(copy) NSSet *allowedExternalEntityURLs;
+@property id <NSXMLParserDelegate> delegate;
 - (id)initWithStream:(id)arg1;
 - (id)initForIncrementalParsing;
 - (id)initWithData:(id)arg1;
 - (id)initWithContentsOfURL:(id)arg1;
-- (id)_info;
 
 @end
 

@@ -11,6 +11,7 @@
 }
 
 + (Class)listViewClass;
+- (struct UIEdgeInsets)statusBarInsetsForOrientation:(long long)arg1;
 - (id)_statusBarColor;
 - (id)legibilitySettings;
 - (unsigned long long)_depth;

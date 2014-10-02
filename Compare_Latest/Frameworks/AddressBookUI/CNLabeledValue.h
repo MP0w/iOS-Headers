@@ -18,17 +18,19 @@
 }
 
 + (id)builtinLabelsForProperty:(id)arg1;
++ (void)deleteCustomLabel:(id)arg1;
 + (id)allCustomLabels;
 + (id)allLabels;
 + (id)defaultLabels;
++ (void *)addressBook;
 + (id)labeledValueWithLabel:(id)arg1 value:(id)arg2;
 + (id)labeledValueWithMultiValueIdentifier:(int)arg1 label:(id)arg2 value:(id)arg3;
-@property(readonly) id value; // @synthesize value=_value;
-@property(readonly) NSString *label; // @synthesize label=_label;
-@property(readonly) NSString *localizedLabel;
+@property(readonly, copy) id value; // @synthesize value=_value;
+@property(readonly, copy) NSString *label; // @synthesize label=_label;
+@property(readonly, copy) NSString *localizedLabel;
 - (void)setMultiValueIdentifier:(int)arg1;
 @property(readonly) int multiValueIdentifier;
-@property(readonly) NSString *identifier;
+@property(readonly, copy) NSString *identifier;
 - (BOOL)isEqualToLabelledValue:(id)arg1 includeIdentifiers:(BOOL)arg2;
 - (BOOL)isEqualToLabelledValue:(id)arg1;
 - (BOOL)isEqual:(id)arg1;

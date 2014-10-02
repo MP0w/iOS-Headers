@@ -8,14 +8,18 @@
 
 #import "UITextFieldDelegate.h"
 
-@class UITextField;
+@class NSString, UIButton, UITextField;
 
 @interface MFComposeSubjectView : MFComposeHeaderView <UITextFieldDelegate>
 {
-    UITextField *_textField;
     unsigned int _delegateRespondsToTextChange:1;
+    unsigned int _notifyButtonSelected:1;
+    unsigned int _showNotifyButton:1;
+    UITextField *_textField;
+    UIButton *_notifyButton;
 }
 
+@property(readonly, nonatomic) UIButton *notifyButton; // @synthesize notifyButton=_notifyButton;
 @property(readonly, nonatomic) UITextField *textField; // @synthesize textField=_textField;
 - (BOOL)_canBecomeFirstResponder;
 - (void)dealloc;
@@ -23,13 +27,26 @@
 - (BOOL)keyboardInput:(id)arg1 shouldInsertText:(id)arg2 isMarkedText:(BOOL)arg3;
 - (void)textChanged:(id)arg1;
 - (void)setDelegate:(id)arg1;
+- (id)delegate;
 - (void)setText:(id)arg1;
 - (id)text;
+- (void)layoutSubviews;
 - (void)refreshPreferredContentSize;
 - (void)textFieldDidBecomeFirstResponder:(id)arg1;
 - (void)textFieldDidResignFirstResponder:(id)arg1;
 - (BOOL)becomeFirstResponder;
+- (void)notifyButtonClicked:(id)arg1;
+- (void)updateNotifyButton;
+- (void)setNotifyButtonSelected:(BOOL)arg1;
+- (BOOL)isNotifyButtonSelected;
+- (void)setShowNotifyButton:(BOOL)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

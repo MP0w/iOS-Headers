@@ -10,7 +10,7 @@
 #import "SBIconProgressViewDelegate.h"
 #import "SBReusableView.h"
 
-@class SBIcon, SBIconProgressView, UIImage, UIImageView;
+@class NSString, SBIcon, SBIconProgressView, UIImage, UIImageView;
 
 @interface SBIconImageView : UIView <SBIconObserver, SBIconProgressViewDelegate, SBReusableView>
 {
@@ -34,7 +34,7 @@
 @property(nonatomic) _Bool showsSquareCorners; // @synthesize showsSquareCorners=_showsSquareCorners;
 @property(nonatomic) double overlayAlpha; // @synthesize overlayAlpha=_overlayAlpha;
 @property(nonatomic) double brightness; // @synthesize brightness=_brightness;
-@property(readonly, nonatomic) SBIcon *icon; // @synthesize icon=_icon;
+@property(readonly, retain, nonatomic) SBIcon *icon; // @synthesize icon=_icon;
 - (id)_iconSquareOverlayImage;
 - (id)_generateIconSquareOverlayImageForFormat:(int)arg1;
 - (id)_iconBasicOverlayImage;
@@ -65,6 +65,12 @@
 - (void)setIcon:(id)arg1 location:(int)arg2 animated:(_Bool)arg3;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

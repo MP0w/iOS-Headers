@@ -20,7 +20,6 @@
     float _speed;
     NSMutableArray *_bodies;
     NSMutableArray *_joints;
-    NSMutableArray *_fields;
     NSMutableArray *_postStepBlocks;
     struct PKDebugDrawPacket drawPacket;
 }
@@ -29,9 +28,10 @@
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (BOOL)stepWithTime:(double)arg1 velocityIterations:(unsigned int)arg2 positionIterations:(unsigned int)arg3;
-- (id)fields;
-- (struct CGVector)evalAccel:(struct CGPoint)arg1;
-- (id)sampleFields:(struct CGRect)arg1 dataSize:(struct CGSize)arg2;
+- (struct CGVector)evalForce:(unsigned int)arg1 point:(struct CGPoint)arg2;
+-     // Error parsing type: 24@0:48, name: sampleFieldsAt:
+- (struct CGVector)sampleFields:(struct CGPoint)arg1;
+- (id)sampleFields:(struct CGRect)arg1 categories:(unsigned int)arg2 dataSize:(struct CGSize)arg3;
 - (void)removeAllFields;
 - (void)removeField:(id)arg1;
 - (void)addField:(id)arg1;
@@ -41,6 +41,7 @@
 - (void)removeAllBodies;
 - (void)removeBody:(id)arg1;
 - (void)addBody:(id)arg1;
+- (id)joints;
 - (id)bodies;
 @property(nonatomic) id <PKPhysicsContactDelegate> contactDelegate;
 - (id)collisionDelegate;
@@ -51,8 +52,9 @@
 - (id)copy;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (id)init;
 - (id)initWithCoder:(id)arg1;
+- (id)init;
+- (void)__init__;
 - (void)encodeWithCoder:(id)arg1;
 @property(nonatomic) float velocityThreshold;
 @property(nonatomic) float speed;
@@ -62,8 +64,9 @@
 - (void)enumerateBodiesAlongRayStart:(struct CGPoint)arg1 end:(struct CGPoint)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (void)enumerateBodiesInRect:(struct CGRect)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateBodiesAtPoint:(struct CGPoint)arg1 usingBlock:(CDUnknownBlockType)arg2;
+@property(readonly, nonatomic) struct PKCAether *aether;
 - (const struct PKDebugDrawPacket *)debugDrawPacket;
-- (void)debugDraw:(float)arg1 matrix:(union _GLKMatrix4)arg2;
+- (void)debugDraw:(float)arg1 matrix:(union _GLKMatrix4)arg2 showsPhysics:(_Bool)arg3 showsOutlineInterior:(_Bool)arg4 showsFields:(_Bool)arg5;
 - (void)_runBlockOutsideOfTimeStep:(CDUnknownBlockType)arg1;
 @property(nonatomic) _Bool _doSleep;
 @property(retain, nonatomic) NSMutableArray *_bodies;

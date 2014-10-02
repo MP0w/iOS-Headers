@@ -8,6 +8,8 @@
 
 #import "GQDNameMappable.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface GQDWPPadding : NSObject <GQDNameMappable>
 {
@@ -23,6 +25,12 @@ __attribute__((visibility("hidden")))
 - (float)left;
 - (float)top;
 - (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

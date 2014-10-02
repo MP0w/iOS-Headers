@@ -11,12 +11,22 @@ __attribute__((visibility("hidden")))
 {
     int _maxAlarmsAllowed;
     int _maxRecurrencesAllowed;
-    CDStruct_75923904 _flags;
+    CDStruct_13f89de5 _flags;
 }
 
-@property(nonatomic) CDStruct_75923904 flags; // @synthesize flags=_flags;
+@property(nonatomic) CDStruct_13f89de5 flags; // @synthesize flags=_flags;
 @property(nonatomic) int maxRecurrencesAllowed; // @synthesize maxRecurrencesAllowed=_maxRecurrencesAllowed;
 @property(nonatomic) int maxAlarmsAllowed; // @synthesize maxAlarmsAllowed=_maxAlarmsAllowed;
+@property(nonatomic) BOOL prohibitsDetachmentOnCommentChange;
+@property(nonatomic) BOOL prohibitsYearlyRecurrenceInterval;
+@property(nonatomic) BOOL prohibitsMultipleDaysInMonthlyRecurrence;
+@property(nonatomic) BOOL prohibitsMultipleMonthsInYearlyRecurrence;
+@property(nonatomic) BOOL requiresSamePrivacyLevelAcrossRecurrenceSeries;
+@property(nonatomic) BOOL supportsLocationDirectorySearches;
+@property(nonatomic) BOOL supportsIgnoringEventsInAvailabilityRequests;
+@property(nonatomic) BOOL supportsAvailabilityRequests;
+@property(nonatomic) BOOL prohibitsPrivateEventsWithAttendees;
+@property(nonatomic) BOOL supportsPrivateEvents;
 @property(nonatomic) BOOL recurrenceSeriesMustIncludeMoreThanFirstOccurrence;
 @property(nonatomic) BOOL isFacebook;
 @property(nonatomic) BOOL supportsSharedCalendars;

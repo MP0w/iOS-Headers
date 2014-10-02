@@ -9,7 +9,7 @@
 #import "TSADocumentRootDelegate.h"
 #import "TSPObjectContextDelegate.h"
 
-@class NSString, NSURL, TSADocumentRoot, TSPObjectContext, TSUTemporaryDirectory;
+@class NSString, NSURL, NSUUID, TSADocumentRoot, TSPObjectContext, TSUTemporaryDirectory;
 
 __attribute__((visibility("hidden")))
 @interface TSACirrusDocument : NSObject <TSADocumentRootDelegate, TSPObjectContextDelegate>
@@ -17,12 +17,15 @@ __attribute__((visibility("hidden")))
     BOOL _isClosed;
     TSUTemporaryDirectory *_tempDirForSupport;
     TSPObjectContext *_context;
+    NSString *_documentPasswordHint;
     NSURL *_URL;
 }
 
 @property(copy, nonatomic) NSURL *URL; // @synthesize URL=_URL;
+@property(readonly, nonatomic) NSString *documentPasswordHint; // @synthesize documentPasswordHint=_documentPasswordHint;
 @property(retain, nonatomic) TSPObjectContext *context; // @synthesize context=_context;
 - (void)presentPersistenceError:(id)arg1;
+- (id)documentPasswordHintForWrite;
 - (id)supportDirectoryURL;
 @property(readonly, nonatomic) NSString *documentCachePath;
 @property(readonly, nonatomic) NSString *name;
@@ -35,10 +38,17 @@ __attribute__((visibility("hidden")))
 
 // Remaining properties
 @property(readonly, nonatomic) BOOL areNewExternalReferencesToDataAllowed;
+@property(readonly, nonatomic) NSUUID *baseUUIDForObjectUUID;
+@property(readonly, nonatomic) BOOL canUpgradeDocumentSupport;
+@property(readonly, copy) NSString *debugDescription;
 @property(readonly, nonatomic) NSString *defaultDraftName;
+@property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) id <NSFilePresenter> filePresenter;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) BOOL ignoreDocumentSupport;
 @property(readonly, nonatomic) BOOL isDocumentSupportTemporary;
+@property(readonly, nonatomic) BOOL preserveDocumentRevisionIdentifierForSequenceZero;
+@property(readonly) Class superclass;
 
 @end
 

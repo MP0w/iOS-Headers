@@ -12,24 +12,21 @@
 {
     SBLockScreenViewControllerBase *_lockScreenController;
     SBDisableActiveInterfaceOrientationChangeAssertion *_disableActiveOrientationChangeAssertion;
+    _Bool _waitingForSceneDestruction;
 }
 
-- (_Bool)selfApplicationExited:(id)arg1;
-- (_Bool)selfApplicationLaunchDidFail:(id)arg1;
-- (_Bool)selfWorkspaceDidResume;
-- (void)_suspendWorkspaceIfNecessary;
-- (_Bool)selfApplicationActivated:(id)arg1;
-- (_Bool)selfAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
+- (void)_childTransactionDidComplete:(id)arg1;
 - (void)_alertDidActivate;
-- (void)_handleAppActivationFailure;
 - (void)_setupAndActivate;
-- (void)_transactionComplete;
-- (void)_commit;
+- (void)_didComplete;
+- (void)_kickoffAlertActivation;
+- (void)_begin;
+- (_Bool)shouldPlaceOutgoingScenesUnderLockOnCompletion;
 - (_Bool)shouldPerformToAppStateCleanupOnCompletion;
 - (_Bool)shouldToggleSpringBoardStatusBarOnCleanup;
 - (void)dealloc;
-- (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 application:(id)arg3 lockScreenController:(id)arg4 activationHandler:(CDUnknownBlockType)arg5;
-- (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 application:(id)arg3 lockScreenController:(id)arg4;
+- (id)initWithAlertManager:(id)arg1 application:(id)arg2 lockScreenController:(id)arg3 forRelaunch:(_Bool)arg4 withResult:(CDUnknownBlockType)arg5;
+- (id)initWithAlertManager:(id)arg1 application:(id)arg2 lockScreenController:(id)arg3;
 
 @end
 

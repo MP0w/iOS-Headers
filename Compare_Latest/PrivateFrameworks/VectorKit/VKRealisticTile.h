@@ -6,52 +6,67 @@
 
 #import <VectorKit/VKVectorTile.h>
 
-@class NSArray, NSMapTable, NSMutableArray, NSMutableDictionary, VGLMesh, VGLTexture, VKAnimation, VKRealisticPolygonMaker;
+@class NSArray, NSMapTable, NSMutableArray, VKAnimation, VKRealisticPolygonMaker;
 
 __attribute__((visibility("hidden")))
 @interface VKRealisticTile : VKVectorTile
 {
+    NSMapTable *_realisticRoadGroupsTable;
+    NSMutableArray *_realisticRoadGroups;
     float _roadZ;
     float _laneMarkingZ;
     float _landZ;
     float _waterZ;
-    NSMapTable *_realisticRoadGroupsTable;
-    NSMutableArray *_realisticRoadGroups;
-    NSMutableArray *_landMeshes;
-    NSMutableArray *_waterMeshes;
-    VGLMesh *_coastlineMesh;
+    BOOL _shouldBlend;
+    float _alpha;
     VKRealisticPolygonMaker *_landPolygonMaker;
     VKRealisticPolygonMaker *_waterPolygonMaker;
-    NSMutableDictionary *_meshDict;
     VKAnimation *_startDrawingAnimation;
-    VGLTexture *_defaultLandTexture;
-    VGLTexture *_defaultLandTextureVariant;
-    struct vector<_VKRealisticPolygonMetaData, vk_allocator<_VKRealisticPolygonMetaData>> _polygonMetaData;
+    map_63821800 _landDrawableIndices;
+    map_63821800 _waterDrawableIndices;
+    vector_5bdcb8f5 _landDrawables;
+    vector_5bdcb8f5 _waterDrawables;
+    struct shared_ptr<ggl::RealisticCasingFacade::RealisticMesh> _coastlineMesh;
+    shared_ptr_6e6219d6 _landTextureStyleQuery;
+    shared_ptr_479d1306 _defaultLandTexture;
+    shared_ptr_479d1306 _defaultLandTextureVariant;
+    struct vector<_VKRealisticPolygonMetaData, std::__1::allocator<_VKRealisticPolygonMetaData>> _polygonMetaData;
+    shared_ptr_1573687d _fogUniformData;
+    shared_ptr_9b6b7821 _realisticTextureUniformData;
 }
 
-@property(readonly, nonatomic) VGLTexture *defaultLandTexture; // @synthesize defaultLandTexture=_defaultLandTexture;
++ (void)updateFogUniforms:(const shared_ptr_1573687d *)arg1 withLayoutContext:(id)arg2 toWorld:(const Matrix_08d701e4 *)arg3;
 @property(retain, nonatomic) VKAnimation *startDrawingAnimation; // @synthesize startDrawingAnimation=_startDrawingAnimation;
-@property(readonly, nonatomic) VGLMesh *coastlineMesh; // @synthesize coastlineMesh=_coastlineMesh;
-@property(readonly, nonatomic) NSArray *waterMeshes; // @synthesize waterMeshes=_waterMeshes;
-@property(readonly, nonatomic) NSArray *landMeshes; // @synthesize landMeshes=_landMeshes;
-@property(readonly, nonatomic) NSArray *realisticRoadGroups; // @synthesize realisticRoadGroups=_realisticRoadGroups;
+@property(nonatomic) float alpha; // @synthesize alpha=_alpha;
+@property(nonatomic) BOOL shouldBlend; // @synthesize shouldBlend=_shouldBlend;
 @property(readonly, nonatomic) float waterZ; // @synthesize waterZ=_waterZ;
 @property(readonly, nonatomic) float landZ; // @synthesize landZ=_landZ;
 @property(readonly, nonatomic) float roadZ; // @synthesize roadZ=_roadZ;
+@property(readonly, nonatomic) NSArray *realisticRoadGroups; // @synthesize realisticRoadGroups=_realisticRoadGroups;
+@property(readonly, nonatomic) shared_ptr_9b6b7821 realisticTextureUniformData; // @synthesize realisticTextureUniformData=_realisticTextureUniformData;
+@property(readonly, nonatomic) shared_ptr_1573687d fogUniformData; // @synthesize fogUniformData=_fogUniformData;
+@property(readonly, nonatomic) shared_ptr_479d1306 defaultLandTexture; // @synthesize defaultLandTexture=_defaultLandTexture;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (unsigned int)geometryCount;
-- (id)_meshForStyle:(id)arg1 tileKey:(struct VKTileKey)arg2;
+- (int)vectorType;
+- (void)updateViewDependentStateWithContext:(id)arg1;
+- (void)updateViewDependentStateIfNecessaryWithContext:(id)arg1;
+- (struct TexturedDrawable *)_drawableInMap:(map_63821800 *)arg1 vendors:(vector_5bdcb8f5 *)arg2 forStyleQuery:(shared_ptr_6e6219d6)arg3;
+- (void)addTriangulatedPointsToDrawableInMap:(map_63821800 *)arg1 vendors:(vector_5bdcb8f5 *)arg2 zIndex:(float)arg3 points:(const Matrix_8746f91e *)arg4 pointCount:(unsigned int)arg5 indices:(const unsigned short *)arg6 indexCount:(unsigned int)arg7 styleQuery:(shared_ptr_6e6219d6)arg8;
 - (id)_groupForRenderZ:(int)arg1;
-- (id)_createDefaultTextureForLevelOfDetail:(unsigned int)arg1 takeVariant:(BOOL)arg2;
-- (void)_addCoastlineMeshForPoints:(const Vec2Imp_1782d7e3 *)arg1 pointCount:(unsigned int)arg2;
+- (shared_ptr_479d1306)_createDefaultTextureForLevelOfDetail:(unsigned int)arg1 takeVariant:(BOOL)arg2;
+- (void)_updateDefaultLandTextures;
+- (void)_addCoastlineMeshForPoints:(const Matrix_8746f91e *)arg1 pointCount:(unsigned int)arg2;
 - (void)_parseCoastlines;
-@property(readonly, nonatomic) VGLTexture *defaultLandTextureVariant; // @synthesize defaultLandTextureVariant=_defaultLandTextureVariant;
+@property(readonly, nonatomic) shared_ptr_479d1306 defaultLandTextureVariant;
 - (void)_parsePolygons;
 - (void)updateTextures;
-- (void)updateComponentsWithContext:(id)arg1;
+- (void)createMeshes;
 - (void)dealloc;
-- (id)initWithKey:(const struct VKTileKey *)arg1;
+- (id)initWithKey:(const struct VKTileKey *)arg1 modelTile:(id)arg2 styleManager:(id)arg3 sharedResources:(id)arg4 contentScale:(float)arg5 device:(struct Device *)arg6;
+@property(readonly, nonatomic) struct RealisticMesh *coastlineMesh;
+@property(readonly, nonatomic) vector_5bdcb8f5 *waterDrawables;
+@property(readonly, nonatomic) vector_5bdcb8f5 *landDrawables;
 
 @end
 

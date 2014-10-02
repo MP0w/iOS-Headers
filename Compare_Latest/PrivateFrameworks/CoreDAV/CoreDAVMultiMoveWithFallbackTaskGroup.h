@@ -22,7 +22,7 @@
     NSMutableArray *_outstandingSourceURLsToMove;
 }
 
-@property(retain) NSMutableArray *outstandingSourceURLsToMove; // @synthesize outstandingSourceURLsToMove=_outstandingSourceURLsToMove;
+@property(retain, nonatomic) NSMutableArray *outstandingSourceURLsToMove; // @synthesize outstandingSourceURLsToMove=_outstandingSourceURLsToMove;
 @property(readonly, nonatomic) NSMutableSet *destinationURLs; // @synthesize destinationURLs=_destinationURLs;
 @property(readonly, nonatomic) NSMutableDictionary *destinationEntityETags; // @synthesize destinationEntityETags=_destinationEntityETags;
 @property(readonly, nonatomic) NSDictionary *sourceEntityETags; // @synthesize sourceEntityETags=_sourceEntityETags;

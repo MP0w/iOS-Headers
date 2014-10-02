@@ -12,9 +12,10 @@
 {
     NSString *_bundleIdentifier;
     NSSet *_otherRecipients;
+    unsigned int _implicitGroupThreshold;
 }
 
-+ (id)operationWithAddressBook:(void *)arg1 owner:(id)arg2 otherRecipients:(id)arg3 taskID:(id)arg4 properties:(id)arg5 bundleIdentifier:(id)arg6;
++ (id)operationWithAddressBook:(void *)arg1 owner:(id)arg2 otherRecipients:(id)arg3 taskID:(id)arg4 properties:(id)arg5 bundleIdentifier:(id)arg6 implicitGroupThreshold:(unsigned int)arg7;
 - (void)main;
 - (void)dealloc;
 

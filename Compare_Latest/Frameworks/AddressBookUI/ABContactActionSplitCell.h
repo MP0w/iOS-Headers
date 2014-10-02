@@ -4,26 +4,25 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <AddressBookUI/ABContactCell.h>
+#import <AddressBookUI/ABLabeledCell.h>
 
-@class UIButton, UIView;
+@class UIButton;
 
-@interface ABContactActionSplitCell : ABContactCell
+@interface ABContactActionSplitCell : ABLabeledCell
 {
-    BOOL _displayConstraintsActive;
     UIButton *_leftLabel;
     UIButton *_rightLabel;
-    UIView *_spacer;
 }
 
-@property(nonatomic) BOOL displayConstraintsActive; // @synthesize displayConstraintsActive=_displayConstraintsActive;
-@property(readonly, nonatomic) UIView *spacer; // @synthesize spacer=_spacer;
 @property(readonly, nonatomic) UIButton *rightLabel; // @synthesize rightLabel=_rightLabel;
 @property(readonly, nonatomic) UIButton *leftLabel; // @synthesize leftLabel=_leftLabel;
 - (void)_setupButton:(id)arg1 forAction:(id)arg2;
-- (void)updateConstraints;
-- (void)setRightContentMargin:(float)arg1;
-- (void)setLeftContentMargin:(float)arg1;
+- (id)constantConstraints;
+- (void)setLabelTextAttributes:(id)arg1;
+- (id)rightMostView;
+- (id)labelView;
+- (float)minCellHeight;
+- (id)standardButton;
 - (void)setCardGroupItem:(id)arg1;
 - (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;

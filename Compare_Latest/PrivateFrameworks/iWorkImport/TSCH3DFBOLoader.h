@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)loaderWithFramebufferAttributes:(const struct FramebufferAttributes *)arg1 size:(const tvec2_3b141483 *)arg2 colorAllocator:(id)arg3 depthAllocator:(id)arg4;
++ (unsigned int)estimatedMemoryInBytesForSize:(tvec2_3b141483)arg1 samples:(unsigned int)arg2 hasColorbuffer:(BOOL)arg3 hasDepthbuffer:(BOOL)arg4;
 @property(readonly, nonatomic) struct FramebufferAttributes framebufferAttributes; // @synthesize framebufferAttributes=mFramebufferAttributes;
 @property(readonly, nonatomic) tvec2_3b141483 size; // @synthesize size=mSize;
 @property(readonly, nonatomic) id <TSCH3DRenderBufferAllocator> depthAllocator; // @synthesize depthAllocator=mDepthAllocator;

@@ -9,6 +9,7 @@
 @class NSString, TSCHChartEditor, TSCHSelectionPath, TSCHTextEditing;
 
 @protocol TSCHSupportsTextEditing <NSObject>
+- (float)frameHeightChangeForPath:(TSCHSelectionPath *)arg1;
 - (void)useEditedString:(NSString *)arg1;
 - (TSCHTextEditing *)textEditorForSelectionPath:(TSCHSelectionPath *)arg1 chartEditor:(TSCHChartEditor *)arg2;
 - (struct CGRect)frameForEditingTextForSelectionPath:(TSCHSelectionPath *)arg1;

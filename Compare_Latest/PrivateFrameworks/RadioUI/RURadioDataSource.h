@@ -4,20 +4,21 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "MPUDataSource.h"
 
 #import "RadioPushNotificationControllerDelegate.h"
 
-@class NSArray, NSMutableSet, RadioPushNotificationController;
+@class NSArray, NSString, RURadioPlaybackCoordinator, RadioPushNotificationController;
 
-@interface RURadioDataSource : NSObject <RadioPushNotificationControllerDelegate>
+@interface RURadioDataSource : MPUDataSource <RadioPushNotificationControllerDelegate>
 {
     id <RURadioDataSourceDelegate> _delegate;
+    NSArray *_featuredStations;
     BOOL _optedInToRadio;
     RadioPushNotificationController *_pushNotificationController;
-    int _stationCountToRefresh;
-    NSMutableSet *_stationsBeingRefreshed;
     NSArray *_stations;
+    NSArray *_userStations;
+    RURadioPlaybackCoordinator *_playbackCoordinator;
 }
 
 + (void)_updateRadioAvailabilityWithStoreBag:(id)arg1 error:(id)arg2;
@@ -28,6 +29,7 @@
 + (BOOL)isRadioAvailable;
 + (BOOL)isOptedInToRadio;
 + (void)initialize;
+@property(retain, nonatomic) RURadioPlaybackCoordinator *playbackCoordinator; // @synthesize playbackCoordinator=_playbackCoordinator;
 @property(nonatomic) __weak id <RURadioDataSourceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_reloadOptedInToRadio;
@@ -36,16 +38,31 @@
 - (void)_radioRequestDidFinishNotification:(id)arg1;
 - (void)_radioModelDidChangeNotification:(id)arg1;
 - (void)_accountStoreDidChangeNotification:(id)arg1;
+@property(readonly, nonatomic) NSArray *userStations;
 - (void)synchronizeStationsAsAutomaticUpdate:(BOOL)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) NSArray *stations;
 - (void)refreshFeaturedStations;
 @property(readonly, nonatomic, getter=isOptedInToRadio) BOOL optedInToRadio;
-- (id)featuredStations;
+@property(readonly, nonatomic) NSArray *featuredStations;
 - (void)deauthenticateIfNecessary;
 - (void)checkAcceptedTermsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)pushNotificationControllerDidReceiveSyncRequest:(id)arg1 toGlobalVersion:(unsigned long long)arg2;
+- (id)playbackContextForIndex:(unsigned int)arg1;
+- (void)_invalidateCalculatedEntities;
+- (BOOL)entityIsNowPlayingAtIndex:(unsigned int)arg1;
+- (id)entities;
+- (int)editingTypeForEntityAtIndex:(unsigned int)arg1;
+- (BOOL)isEqual:(id)arg1;
+@property(readonly) unsigned int hash;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (void)dealloc;
-- (id)init;
+- (id)initWithEntityType:(int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

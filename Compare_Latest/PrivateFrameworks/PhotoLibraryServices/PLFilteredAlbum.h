@@ -32,6 +32,7 @@
 + (id)predicateForAlbumFilter:(int)arg1 parameters:(id)arg2;
 + (struct NSObject *)unfilteredAlbum:(struct NSObject *)arg1;
 + (struct NSObject *)filteredAlbum:(struct NSObject *)arg1 intersectFilter:(int)arg2;
++ (struct NSObject *)filteredAlbum:(struct NSObject *)arg1 predicate:(id)arg2;
 + (struct NSObject *)filteredAlbum:(struct NSObject *)arg1 filter:(int)arg2 parameters:(id)arg3;
 + (struct NSObject *)filteredAlbum:(struct NSObject *)arg1 filter:(int)arg2;
 @property(readonly, nonatomic) NSArray *filterParameters; // @synthesize filterParameters=_filterParameters;
@@ -56,10 +57,12 @@
 - (BOOL)mappedDataSourceChanged:(id)arg1 remoteNotificationData:(id)arg2;
 - (BOOL)shouldIncludeObjectAtIndex:(unsigned int)arg1;
 - (id)currentStateForChange;
-@property(readonly, nonatomic) id <NSObject><NSCopying> cachedIndexMapState;
-@property(readonly, nonatomic) NSIndexSet *filteredIndexes;
-@property(readonly, nonatomic) PLIndexMapper *indexMapper;
+@property(readonly, copy, nonatomic) id <NSObject><NSCopying> cachedIndexMapState;
+@property(readonly, copy, nonatomic) NSIndexSet *filteredIndexes;
+@property(readonly, retain, nonatomic) PLIndexMapper *indexMapper;
 - (id)initWithBackingAlbum:(struct NSObject *)arg1 filter:(int)arg2 parameters:(id)arg3;
+- (id)initWithBackingAlbum:(struct NSObject *)arg1 predicate:(id)arg2;
+- (void)_commonInitWithBackingAlbum:(struct NSObject *)arg1 predicate:(id)arg2;
 - (void)reducePendingItemsCountBy:(unsigned int)arg1;
 @property(nonatomic) int pendingItemsType;
 @property(nonatomic) int pendingItemsCount;
@@ -69,10 +72,10 @@
 - (void)updateCloudLastContributionDateWithDate:(id)arg1;
 - (void)updateCloudLastInterestingChangeDateWithDate:(id)arg1;
 - (id)cloudOwnerDisplayNameIncludingEmail:(BOOL)arg1 allowsEmail:(BOOL)arg2;
-@property(readonly, nonatomic) NSOrderedSet *cloudAlbumSubscriberRecords;
+@property(readonly, retain, nonatomic) NSOrderedSet *cloudAlbumSubscriberRecords;
 @property(nonatomic) BOOL cloudNotificationsEnabled;
-@property(readonly, nonatomic) NSDate *cloudFirstRecentBatchDate;
-@property(readonly, nonatomic) NSString *localizedSharedWithLabel;
+@property(readonly, retain, nonatomic) NSDate *cloudFirstRecentBatchDate;
+@property(readonly, retain, nonatomic) NSString *localizedSharedWithLabel;
 - (id)localizedSharedByLabelAllowsEmail:(BOOL)arg1;
 @property(readonly) int cloudRelationshipStateLocalValue;
 @property(readonly) int cloudRelationshipStateValue;
@@ -98,21 +101,22 @@
 @property(retain, nonatomic) NSString *cloudGUID;
 - (id)_cloudSharedBackingAlbum;
 - (void)batchFetchAssets:(id)arg1;
-- (id)displayableIndexesForCount:(unsigned int)arg1;
-- (id)titleForSectionStartingAtIndex:(unsigned int)arg1;
-@property(readonly, nonatomic) CDUnknownBlockType sectioningComparator;
-@property(readonly, nonatomic) CDUnknownBlockType sortingComparator;
-@property(readonly, nonatomic) NSURL *groupURL;
+@property(readonly, copy, nonatomic) CDUnknownBlockType sortingComparator;
+@property(readonly, retain, nonatomic) NSURL *groupURL;
 @property(retain, nonatomic) NSString *importSessionID;
 @property(retain, nonatomic) NSDictionary *slideshowSettings;
 @property(readonly, nonatomic) BOOL shouldDeleteWhenEmpty;
-- (BOOL)canPerformEditOperation:(int)arg1;
-@property(readonly, nonatomic) NSArray *localizedLocationNames;
+- (BOOL)canPerformEditOperation:(unsigned int)arg1;
+@property(readonly, copy, nonatomic) NSArray *localizedLocationNames;
 @property(readonly, nonatomic) BOOL canShowAvalancheStacks;
 @property(readonly, nonatomic) BOOL canShowComments;
 @property(readonly, nonatomic) BOOL canContributeToCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isRecentlyAddedAlbum;
 @property(readonly, nonatomic) BOOL isMultipleContributorCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isFamilyCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL isOwnedCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isInTrash;
+@property(readonly, nonatomic) BOOL isFolder;
 @property(readonly, nonatomic) BOOL isStandInAlbum;
 @property(readonly, nonatomic) BOOL isPendingPhotoStreamAlbum;
 @property(readonly, nonatomic) BOOL isCloudSharedAlbum;
@@ -121,12 +125,12 @@
 @property(readonly, nonatomic) BOOL isPanoramasAlbum;
 @property(readonly, nonatomic) BOOL isCameraAlbum;
 @property(readonly, nonatomic) BOOL isLibrary;
-@property(readonly, nonatomic) UIImage *posterImage;
+@property(readonly, retain, nonatomic) UIImage *posterImage;
 @property(retain, nonatomic) PLManagedAsset *tertiaryKeyAsset;
 @property(retain, nonatomic) PLManagedAsset *secondaryKeyAsset;
 @property(retain, nonatomic) PLManagedAsset *keyAsset;
-@property(readonly, nonatomic) NSString *name;
-@property(readonly, nonatomic) NSString *localizedTitle;
+@property(readonly, copy, nonatomic) NSString *name;
+@property(readonly, copy, nonatomic) NSString *localizedTitle;
 @property(readonly, nonatomic) unsigned int videosCount;
 @property(readonly, nonatomic) unsigned int photosCount;
 @property(readonly, nonatomic) BOOL isEmpty;
@@ -134,20 +138,23 @@
 - (unsigned int)count;
 @property(readonly, nonatomic) unsigned int assetsCount;
 @property(readonly, nonatomic) unsigned int approximateCount;
-@property(readonly, nonatomic) NSMutableOrderedSet *userEditableAssets;
-@property(readonly, nonatomic) NSMutableOrderedSet *mutableAssets;
-@property(readonly, nonatomic) NSOrderedSet *assets;
+@property(readonly, retain, nonatomic) NSMutableOrderedSet *userEditableAssets;
+@property(readonly, retain, nonatomic) NSMutableOrderedSet *mutableAssets;
+@property(readonly, retain, nonatomic) NSOrderedSet *assets;
 @property(readonly, nonatomic) int kindValue;
-@property(readonly, nonatomic) NSNumber *kind;
-@property(readonly, nonatomic) NSString *title;
-@property(readonly, nonatomic) NSString *uuid;
+@property(readonly, retain, nonatomic) NSNumber *kind;
+@property(readonly, retain, nonatomic) NSString *title;
+@property(readonly, retain, nonatomic) NSString *uuid;
 @property(nonatomic) NSMutableOrderedSet *_assets;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 
 // Remaining properties
-@property(readonly, nonatomic) NSDate *endDate;
-@property(readonly, nonatomic) NSDate *startDate;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, retain, nonatomic) NSDate *endDate;
+@property(readonly) unsigned int hash;
+@property(readonly, retain, nonatomic) NSDate *startDate;
+@property(readonly) Class superclass;
 
 @end
 

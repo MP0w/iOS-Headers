@@ -10,7 +10,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class NSTimer, UIDimmingView, UIInputSwitcherSelectionExtraView, UIInputSwitcherShadowView, UIInputSwitcherTableView, UIKBTree, UIKeyboardLayoutStar;
+@class NSString, NSTimer, UIDimmingView, UIInputSwitcherSelectionExtraView, UIInputSwitcherShadowView, UIInputSwitcherTableView, UIKBTree, UIKeyboardLayoutStar;
 
 __attribute__((visibility("hidden")))
 @interface UIKeyboardMenuView : UIView <UITableViewDataSource, UITableViewDelegate, UIDimmingViewDelegate>
@@ -44,9 +44,14 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) BOOL usesDarkTheme; // @synthesize usesDarkTheme=_usesDarkTheme;
 @property(nonatomic) BOOL usesStraightLeftEdge; // @synthesize usesStraightLeftEdge=_usesStraightLeftEdge;
 @property(nonatomic) int mode; // @synthesize mode=m_mode;
-- (void)didSelectItemAtIndex:(int)arg1;
+- (void)toggleKeyboardPredictionPreference;
+- (id)predictiveSwitch;
+- (id)subtitleFontForItemAtIndex:(int)arg1;
 - (id)subtitleForItemAtIndex:(int)arg1;
+- (id)fontForItemAtIndex:(int)arg1;
+- (id)localizedTitleForItemAtIndex:(int)arg1;
 - (id)titleForItemAtIndex:(int)arg1;
+- (void)didSelectItemAtIndex:(int)arg1;
 - (struct CGSize)preferredSize;
 - (int)defaultSelectedIndex;
 - (int)numberOfItems;
@@ -105,6 +110,12 @@ __attribute__((visibility("hidden")))
 - (id)table;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

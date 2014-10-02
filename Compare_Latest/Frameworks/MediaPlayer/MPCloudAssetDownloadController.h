@@ -6,36 +6,39 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary;
+@class MPCloudAssetDownloadSessionIdentifier, NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
 @interface MPCloudAssetDownloadController : NSObject
 {
-    NSMutableDictionary *_downloadSessionsForMediaItemIDs;
+    NSObject<OS_dispatch_queue> *_accessQueue;
+    NSMutableDictionary *_downloadSessions;
     BOOL _downloadSessionsPaused;
-    unsigned long long _prioritizedMediaItemID;
+    MPCloudAssetDownloadSessionIdentifier *_prioritizedDownloadSessionIdentifier;
 }
 
 + (id)sharedAssetDownloadController;
 - (void).cxx_destruct;
-- (id)_urlConnectionRequestForMediaItem:(id)arg1;
+- (id)_urlConnectionRequestForContext:(id)arg1;
 - (void)_stopDownloadsBasedOnCurrentNetworkIfNeeded;
-- (void)_resumedPausedDownloadSessionsForCompletedMediaItemID:(unsigned long long)arg1;
+- (void)_resumedPausedDownloadSessionsForCompletedSessionWithIdentifier:(id)arg1;
 - (void)_removeNotificationObserversForDownloadSession:(id)arg1;
-- (void)_prioritizeDownloadSessionForMediaItemPersistentID:(unsigned long long)arg1;
-- (id)_newAVAssetForPurchaseResponseDictionary:(id)arg1 mediaItem:(id)arg2 preferredAssetFlavor:(id)arg3 assetOptions:(id)arg4;
-- (id)_newAVAssetForMediaItem:(id)arg1 assetOptions:(id)arg2;
-- (id)_newAssetForExistingDownloadSession:(id)arg1 assetOptions:(id)arg2;
-- (BOOL)_mediaItemHasDownloadSessionForPersistentID:(unsigned long long)arg1;
+- (void)_prioritizeDownloadSession:(id)arg1;
+- (id)_newAVAssetForPurchaseResponseDictionary:(id)arg1 context:(id)arg2 preferredAssetFlavor:(id)arg3;
+- (id)_newAVAssetForContext:(id)arg1;
+- (id)_newAssetForExistingDownloadSession:(id)arg1 context:(id)arg2;
+- (BOOL)_downloadExistsWithSessionIdentifier:(id)arg1;
 - (id)_lowBitrateCachedAssetDestinationDirectory;
 - (id)_downloadKeyCookieWithValue:(id)arg1 URL:(id)arg2;
 - (BOOL)_canPlayCachedAssetAtPath:(id)arg1;
-- (void)_cancelDownloadSession:(id)arg1;
+- (void)_cancelDownloadSessionWithIdentifier:(id)arg1;
 - (id)_cachedAssetDestinationDirectory;
+- (void)_cancelDownloadSessionIfInappropriateForCurrentNetwork:(id)arg1;
+- (void)cancelSessionForContext:(id)arg1;
 - (void)resumeAllDownloadSessions;
-- (void)prioritizeDownloadSessionForMediaItem:(id)arg1;
+- (void)prioritizeDownloadSessionForContext:(id)arg1;
 - (void)pauseAllDownloadSessions;
-- (BOOL)mediaItemHasDownloadSession:(id)arg1;
-- (id)assetForMediaItem:(id)arg1 assetOptions:(id)arg2;
+- (id)_assetForExistingDownloadSession:(id)arg1 context:(id)arg2 downloadSessionID:(id)arg3 wantingHighQuality:(BOOL)arg4 returningShouldAttemptFurtherLoad:(out char *)arg5;
+- (id)assetForContext:(id)arg1;
 - (void)_networkTypeChangedNotification:(id)arg1;
 - (void)_matchCellularDataRestrictedDidChangeNotification:(id)arg1;
 - (void)_downloadSucceededNotification:(id)arg1;

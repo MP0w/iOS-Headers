@@ -7,7 +7,6 @@
 #import "UIImage.h"
 
 @interface UIImage (ChatKitAdditions)
-+ (id)__ck_documentIconNamed:(id)arg1;
 + (id)ckImageWithData:(id)arg1;
 + (id)abImageNamed:(id)arg1;
 + (id)ckImageNamed:(id)arg1;

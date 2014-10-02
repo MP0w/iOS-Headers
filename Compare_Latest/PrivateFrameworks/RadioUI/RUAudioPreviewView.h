@@ -8,7 +8,7 @@
 
 #import "RUPreviewSessionObserver.h"
 
-@class CADisplayLink, MPDownloadProgressIndicator, RUPreviewSession, SKUIItemOfferButton, UIImage, UIImageView, _RUAudioPreviewTicker;
+@class CADisplayLink, MPUDownloadProgressIndicator, NSString, RUPreviewSession, SKUIItemOfferButton, UIImage, UIImageView, _RUAudioPreviewTicker;
 
 @interface RUAudioPreviewView : UIView <RUPreviewSessionObserver>
 {
@@ -18,7 +18,7 @@
     double _currentTimeOverride;
     double _durationOverride;
     CADisplayLink *_displayLink;
-    MPDownloadProgressIndicator *_downloadProgressIndicator;
+    MPUDownloadProgressIndicator *_downloadProgressIndicator;
     _RUAudioPreviewTicker *_previewTicker;
     int _style;
     id <RUAudioPreviewViewDelegate> _delegate;
@@ -44,7 +44,7 @@
 - (void)_setProgress:(float)arg1;
 - (void)_cancelAnimationTimer;
 - (void)_displayLinkTickAction:(id)arg1;
-- (void)previewSession:(id)arg1 didStopWithOptions:(int)arg2 withFinalTrack:(id)arg3 didFinalTrackPlayToCompletion:(BOOL)arg4;
+- (void)previewSession:(id)arg1 didStopWithOptions:(int)arg2 withFinalItem:(id)arg3 didFinalItemPlayToCompletion:(BOOL)arg4;
 - (void)previewSession:(id)arg1 didChangeFromItem:(id)arg2 toItem:(id)arg3;
 - (void)flipToPreviewProgressAnimated:(BOOL)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)flipFromPreviewProgressAnimated:(BOOL)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
@@ -54,6 +54,12 @@
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

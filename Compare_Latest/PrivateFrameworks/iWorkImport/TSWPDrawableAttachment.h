@@ -16,6 +16,9 @@ __attribute__((visibility("hidden")))
     float _hOffset;
     int _vOffsetType;
     float _vOffset;
+    float _cachedDescent;
+    unsigned int _cachedHash;
+    BOOL _cachedWasPICT;
 }
 
 + (void)setPositionerClass:(Class)arg1;
@@ -23,12 +26,13 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) int vOffsetType; // @synthesize vOffsetType=_vOffsetType;
 @property(nonatomic) float hOffset; // @synthesize hOffset=_hOffset;
 @property(nonatomic) int hOffsetType; // @synthesize hOffsetType=_hOffsetType;
-@property(readonly, nonatomic) TSDDrawableInfo *drawable; // @synthesize drawable=_drawableInfo;
+@property(readonly, retain, nonatomic) TSDDrawableInfo *drawable; // @synthesize drawable=_drawableInfo;
 - (void)wasRemovedFromDocumentRoot:(id)arg1;
 - (void)willBeRemovedFromDocumentRoot:(id)arg1;
 - (void)wasAddedToDocumentRoot:(id)arg1 context:(id)arg2;
 - (void)willBeAddedToDocumentRoot:(id)arg1 context:(id)arg2;
 - (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
+- (void)infoChanged;
 - (unsigned long long)enabledKnobMask;
 - (BOOL)specifiesEnabledKnobMask;
 - (BOOL)isSearchable;

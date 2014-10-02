@@ -14,18 +14,20 @@
     NSMapTable *_alertToDisplayMap;
 }
 
-+ (int)jailBehavior;
-- (void)noteInterfaceOrientationChangingTo:(long long)arg1 animated:(_Bool)arg2;
++ (_Bool)_isSecure;
++ (double)windowLevel;
+- (void)noteInterfaceOrientationChangingTo:(long long)arg1 animated:(_Bool)arg2 withActivatingAlert:(id)arg3;
 - (id)stackedAlertsIncludingActiveAlert:(_Bool)arg1;
 - (int)stackedDisplayCount;
 - (_Bool)hasActiveAlertsOrDisplays;
+- (void)addView:(id)arg1 toBeObscuredByAlert:(id)arg2;
 - (_Bool)deactivateAlert:(id)arg1;
 - (void)displayAlert:(id)arg1;
 - (_Bool)isOpaque;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (id)initWithScreen:(id)arg1;
-- (id)initWithScreen:(id)arg1 rootViewController:(id)arg2;
+- (id)_initWithFrame:(struct CGRect)arg1 debugName:(id)arg2 attached:(_Bool)arg3;
+- (id)initWithScreen:(id)arg1 rootViewController:(id)arg2 layoutStrategy:(id)arg3 debugName:(id)arg4 scene:(id)arg5;
+- (id)initWithScreen:(id)arg1 rootViewController:(id)arg2 debugName:(id)arg3 scene:(id)arg4;
 
 @end
 

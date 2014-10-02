@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) unsigned int displayFlags; // @synthesize displayFlags=_displayFlags;
+- (int)smartFieldKind;
 - (BOOL)allowsPasteAsSmartField;
 - (id)copyWithContext:(id)arg1;
 - (void)saveToArchiver:(id)arg1;

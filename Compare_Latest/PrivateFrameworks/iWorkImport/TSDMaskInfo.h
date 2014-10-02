@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain, nonatomic) TSDPathSource *pathSource; // @synthesize pathSource=mPathSource;
+- (id)objectForProperty:(int)arg1;
 - (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
 - (int)mixingTypeWithObject:(id)arg1;
 - (void)setGeometry:(id)arg1;
@@ -31,6 +32,7 @@ __attribute__((visibility("hidden")))
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromArchive:(const struct MaskArchive *)arg1 unarchiver:(id)arg2;
 - (id)initFromUnarchiver:(id)arg1;
+- (BOOL)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
 
 @end
 

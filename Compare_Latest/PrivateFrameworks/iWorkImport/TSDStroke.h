@@ -12,7 +12,7 @@
 #import "TSDPathPainter.h"
 #import "TSSThemeAsset.h"
 
-@class TSDStrokePattern, TSUColor;
+@class NSString, TSDStrokePattern, TSUColor;
 
 __attribute__((visibility("hidden")))
 @interface TSDStroke : NSObject <TSSThemeAsset, TSDPathPainter, TSDMixing, NSCopying, NSMutableCopying>
@@ -35,6 +35,9 @@ __attribute__((visibility("hidden")))
 + (id)p_newStroke;
 + (Class)mutableClass;
 + (id)instanceWithArchive:(const struct StrokeArchive *)arg1 unarchiver:(id)arg2;
++ (id)mergeRangeEmptyStroke;
++ (id)zeroWidthEmptyStroke;
++ (id)emptyStrokeWithWidth:(float)arg1;
 @property(nonatomic) float actualWidth; // @synthesize actualWidth=mActualWidth;
 @property(retain, nonatomic) TSDStrokePattern *pattern; // @synthesize pattern=mPattern;
 @property(nonatomic) float miterLimit; // @synthesize miterLimit=mMiterLimit;
@@ -90,8 +93,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL isRoundDash;
 @property(readonly, nonatomic) BOOL isDash;
 @property(readonly, nonatomic) float dashSpacing;
-- (id)description;
-- (unsigned int)hash;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -106,6 +109,10 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL solid;
 @property(readonly, nonatomic) BOOL empty;
 @property(readonly, nonatomic) BOOL dontClearBackground;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

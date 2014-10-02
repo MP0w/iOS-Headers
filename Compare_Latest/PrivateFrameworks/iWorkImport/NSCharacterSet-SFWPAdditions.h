@@ -7,6 +7,7 @@
 #import "NSCharacterSet.h"
 
 @interface NSCharacterSet (SFWPAdditions)
++ (id)variationSelectorCharacterSet;
 + (id)lineBreakingCharacterSet;
 + (id)postSmartSet;
 + (id)preSmartSet;

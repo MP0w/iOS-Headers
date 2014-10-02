@@ -6,24 +6,17 @@
 
 #import <VectorKit/VKTile.h>
 
-@class GEOVectorTile, NSArray, NSMutableArray, VKBuildingFootprintMaker, VKMapTileList, VKStylesheet, VKTrafficTile;
+@class GEOVectorTile, VKMapTileList, VKSharedResources, VKStyleManager;
 
 __attribute__((visibility("hidden")))
 @interface VKVectorTile : VKTile
 {
     GEOVectorTile *_modelTile;
-    VKTrafficTile *_trafficTile;
-    NSMutableArray *_roadGroups;
-    NSMutableArray *_polygonGroups;
-    NSMutableArray *_coastlineGroups;
-    BOOL _shouldBlend;
-    float _alpha;
     float _contentScale;
-    VKBuildingFootprintMaker *_buildingFootprintMaker;
     float _maximumStyleZ;
     float _textureScale;
-    VKStylesheet *_stylesheet;
-    int _vectorType;
+    VKStyleManager *_styleManager;
+    VKSharedResources *_sharedResources;
     VKMapTileList *_fragments;
 }
 
@@ -31,25 +24,12 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) VKMapTileList *fragments; // @synthesize fragments=_fragments;
 @property(nonatomic) float maximumStyleZ; // @synthesize maximumStyleZ=_maximumStyleZ;
 @property(nonatomic) float textureScale; // @synthesize textureScale=_textureScale;
-@property(readonly, nonatomic) VKBuildingFootprintMaker *buildingFootprintMaker; // @synthesize buildingFootprintMaker=_buildingFootprintMaker;
-@property(nonatomic) float alpha; // @synthesize alpha=_alpha;
-@property(nonatomic) BOOL shouldBlend; // @synthesize shouldBlend=_shouldBlend;
-@property(readonly, nonatomic) NSArray *coastlineGroups; // @synthesize coastlineGroups=_coastlineGroups;
-@property(readonly, nonatomic) NSArray *polygonGroups; // @synthesize polygonGroups=_polygonGroups;
-@property(readonly, nonatomic) NSArray *roadGroups; // @synthesize roadGroups=_roadGroups;
-@property(retain, nonatomic) VKTrafficTile *trafficTile; // @synthesize trafficTile=_trafficTile;
 @property(retain, nonatomic) GEOVectorTile *modelTile; // @synthesize modelTile=_modelTile;
-@property(nonatomic) int vectorType; // @synthesize vectorType=_vectorType;
-@property(retain, nonatomic) VKStylesheet *stylesheet; // @synthesize stylesheet=_stylesheet;
-- (unsigned int)geometryCount;
-@property(readonly, nonatomic) double maxHeight;
-- (BOOL)heightAtX:(float)arg1 Y:(float)arg2 outZ:(float *)arg3;
-- (void)generateBuildingFootprintMeshWithFacades:(BOOL)arg1;
-- (void)buildPolygons;
-- (void)buildCoastlines;
-- (void)buildRoadGroupsAndGenerateMesh:(BOOL)arg1;
-- (void)postprocessRoadGroups;
+@property(retain, nonatomic) VKSharedResources *sharedResources; // @synthesize sharedResources=_sharedResources;
+@property(retain, nonatomic) VKStyleManager *styleManager; // @synthesize styleManager=_styleManager;
 - (void)dealloc;
+@property(readonly, nonatomic) int vectorType;
+- (id)initWithKey:(const struct VKTileKey *)arg1 modelTile:(id)arg2 styleManager:(id)arg3 sharedResources:(id)arg4 contentScale:(float)arg5 device:(struct Device *)arg6;
 - (id)initWithKey:(const struct VKTileKey *)arg1;
 
 @end

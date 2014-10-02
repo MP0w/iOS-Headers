@@ -39,6 +39,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) float patternLength; // @synthesize patternLength=_patternLength;
 @property(nonatomic) unsigned int secondaryColor; // @synthesize secondaryColor=_secondaryColor;
 @property(nonatomic) unsigned int fillColor; // @synthesize fillColor=_fillColor;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

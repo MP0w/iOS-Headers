@@ -4,36 +4,27 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <VectorKit/VKDrawStyle.h>
+#import <VectorKit/VKRenderStyle.h>
 
 __attribute__((visibility("hidden")))
-@interface VKGenericShieldDrawStyle : VKDrawStyle
+@interface VKGenericShieldDrawStyle : VKRenderStyle
 {
-    int _style;
-    struct _VGLColor _backgroundColor;
-    struct _VGLColor _borderColor;
-    struct _VGLColor _textColor;
-    float _haloSize;
-    struct _VGLColor _haloColor;
-    struct CGSize _dropShadowOffset;
-    float _dropShadowSize;
-    struct _VGLColor _dropShadowColor;
+    struct StyleData *_customData;
 }
 
-@property(nonatomic) struct _VGLColor dropShadowColor; // @synthesize dropShadowColor=_dropShadowColor;
-@property(nonatomic) float dropShadowSize; // @synthesize dropShadowSize=_dropShadowSize;
-@property(nonatomic) struct CGSize dropShadowOffset; // @synthesize dropShadowOffset=_dropShadowOffset;
-@property(nonatomic) struct _VGLColor haloColor; // @synthesize haloColor=_haloColor;
-@property(nonatomic) float haloSize; // @synthesize haloSize=_haloSize;
-@property(nonatomic) struct _VGLColor textColor; // @synthesize textColor=_textColor;
-@property(nonatomic) struct _VGLColor borderColor; // @synthesize borderColor=_borderColor;
-@property(nonatomic) struct _VGLColor backgroundColor; // @synthesize backgroundColor=_backgroundColor;
-@property(nonatomic) int style; // @synthesize style=_style;
-- (id).cxx_construct;
-- (void)takeFromZoomInvariantProperties:(id)arg1;
-- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2 globals:(id)arg3;
-- (id)variant;
-- (id)initWithStyleInfo:(id)arg1;
++ (int)renderStyleID;
+@property(readonly, nonatomic) Matrix_5173352a dropShadowColor;
+@property(readonly, nonatomic) float dropShadowSize;
+@property(readonly, nonatomic) struct CGSize dropShadowOffset;
+@property(readonly, nonatomic) Matrix_5173352a haloColor;
+@property(readonly, nonatomic) float haloSize;
+@property(readonly, nonatomic) Matrix_5173352a textColor;
+@property(readonly, nonatomic) Matrix_5173352a borderColor;
+@property(readonly, nonatomic) Matrix_5173352a backgroundColor;
+@property(readonly, nonatomic) int style;
+- (void)dealloc;
+- (id)initWithStyle:(int)arg1 backgroundColor:(Matrix_5173352a)arg2 textColor:(Matrix_5173352a)arg3;
+- (id)initWithStyleData:(struct StyleData *)arg1 info:(id)arg2;
 
 @end
 

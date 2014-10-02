@@ -4,17 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <PhotoLibrary/PLCameraViewController.h>
+#import "CAMCameraViewController.h"
 
 #import "UIImagePickerCameraViewController.h"
 
-@interface PLUICameraViewController : PLCameraViewController <UIImagePickerCameraViewController>
+@class NSString;
+
+@interface PLUICameraViewController : CAMCameraViewController <UIImagePickerCameraViewController>
 {
     int _previousStatusBarStyle;
     int _newStatusBarStyle;
     struct CGAffineTransform _previewViewTransform;
 }
 
+- (void)_applicationWillEnterForeground:(id)arg1;
 - (BOOL)cameraViewShouldShowPreviewAfterSelection:(id)arg1;
 - (void)cameraView:(id)arg1 videoSavedToPath:(id)arg2 editingInfo:(id)arg3;
 - (void)cameraView:(id)arg1 photoSaved:(id)arg2;
@@ -25,8 +28,10 @@
 - (void)_adjustContentSizeForOrientation:(int)arg1;
 - (void)_stopVideoCapture;
 - (BOOL)_startVideoCapture;
+- (void)_setAllowsStillFromVideoMode:(BOOL)arg1;
 - (void)_setCameraFlashMode:(int)arg1;
 - (int)_cameraFlashMode;
+- (void)_setCameraCaptureMode:(int)arg1 device:(int)arg2;
 - (void)_setCameraCaptureMode:(int)arg1;
 - (int)_cameraCaptureMode;
 - (void)_setCameraDevice:(int)arg1;
@@ -42,8 +47,6 @@
 - (void)_editabilityChanged:(id)arg1;
 - (void)setWantsImageData:(BOOL)arg1;
 - (void)setAllowsEditing:(BOOL)arg1;
-- (void)viewDidLayoutSubviews;
-- (void)viewWillLayoutSubviews;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (int)preferredStatusBarUpdateAnimation;
@@ -58,6 +61,12 @@
 - (void)dealloc;
 - (BOOL)_displaysFullScreen;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

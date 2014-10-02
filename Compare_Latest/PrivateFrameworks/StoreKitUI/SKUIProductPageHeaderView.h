@@ -9,18 +9,17 @@
 #import "SKUIContentRatingArtworkLoaderObserver.h"
 #import "SKUIItemOfferButtonDelegate.h"
 
-@class NSString, SKUIClientContext, SKUIColorScheme, SKUIContentRatingArtworkResourceLoader, SKUIItemContentRating, SKUIItemOffer, SKUIItemOfferButton, SKUIItemState, SKUIProductPageHeaderLabel, UIButton, UIControl, UIImage, UIImageView, UILabel;
+@class NSString, SKUIBadgeLabel, SKUIClientContext, SKUIColorScheme, SKUIContentRatingArtworkResourceLoader, SKUIItemContentRating, SKUIItemOffer, SKUIItemOfferButton, SKUIItemState, SKUIProductPageHeaderLabel, UIButton, UIControl, UIImage, UIImageView, UILabel;
 
 @interface SKUIProductPageHeaderView : UIView <SKUIItemOfferButtonDelegate, SKUIContentRatingArtworkLoaderObserver>
 {
     UILabel *_ageBandLabel;
     UIButton *_artistButton;
+    SKUIBadgeLabel *_editorialBadgeLabel;
     SKUIClientContext *_clientContext;
     SKUIItemContentRating *_contentRating;
     SKUIContentRatingArtworkResourceLoader *_contentRatingArtworkLoader;
     SKUIColorScheme *_colorScheme;
-    UILabel *_facebookFriendsLabel;
-    UIImageView *_facebookLogoImageView;
     float _headerImageHeight;
     UIImageView *_headerImageView;
     UIImageView *_iconImageView;
@@ -55,6 +54,8 @@
 @property(retain, nonatomic) SKUIColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
 @property(readonly, nonatomic) UIControl *artistButton; // @synthesize artistButton=_artistButton;
 - (void).cxx_destruct;
+- (void)_getBottomLayoutProperties:(struct **)arg1 origins:(float **)arg2 height:(float *)arg3 forWidth:(float)arg4;
+- (void)_getTopLayoutProperties:(struct **)arg1 origins:(float **)arg2 height:(float *)arg3 forWidth:(float)arg4;
 - (void)_reloadItemOfferButton:(BOOL)arg1;
 - (void)_finishButtonAnimation;
 - (void)_showConfirmationAction:(id)arg1;
@@ -72,12 +73,18 @@
 @property(copy, nonatomic) NSString *inAppPurchasesString;
 @property(retain, nonatomic) UIImage *iconImage;
 @property(retain, nonatomic) UIImage *headerImage;
-@property(copy, nonatomic) NSString *facebookFriendsString;
+@property(copy, nonatomic) NSString *editorialBadge;
 @property(copy, nonatomic) NSString *artistName;
 @property(copy, nonatomic) NSString *ageBandString;
 - (id)contentRatingName;
 - (void)dealloc;
 - (id)initWithClientContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -21,6 +21,7 @@
     SUDescriptor *_installDescriptor;
 }
 
++ (BOOL)_shouldDisallowAvailabilityNotifications;
 @property(retain, nonatomic) SUDescriptor *installDescriptor; // @synthesize installDescriptor=_installDescriptor;
 @property(nonatomic) int clientType; // @synthesize clientType=_clientType;
 @property(nonatomic) id <SUManagerClientDelegate> delegate; // @synthesize delegate=_delegate;

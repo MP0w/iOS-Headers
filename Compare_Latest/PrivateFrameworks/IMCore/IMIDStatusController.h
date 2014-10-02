@@ -6,15 +6,17 @@
 
 #import "NSObject.h"
 
-@class NSMutableSet;
+@class NSMutableSet, NSRecursiveLock;
 
 @interface IMIDStatusController : NSObject
 {
+    NSRecursiveLock *_servicesLock;
     NSMutableSet *_servicesRegistered;
 }
 
 + (id)sharedInstance;
 @property(retain, nonatomic) NSMutableSet *_servicesRegistered; // @synthesize _servicesRegistered;
+@property(retain, nonatomic) NSRecursiveLock *_servicesLock; // @synthesize _servicesLock;
 - (int)statusForID:(id)arg1 onService:(id)arg2;
 - (void)requestStatusForID:(id)arg1 onAccount:(id)arg2;
 - (void)requestStatusForID:(id)arg1 onService:(id)arg2;

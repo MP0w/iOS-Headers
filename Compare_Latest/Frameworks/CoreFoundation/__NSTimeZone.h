@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
     struct __CFString *_name;
     struct __CFData *_data;
     void **_ucal;
-    int _lock;
+    struct _opaque_pthread_mutex_t _lock;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;

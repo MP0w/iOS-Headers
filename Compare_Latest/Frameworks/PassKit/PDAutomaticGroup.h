@@ -12,7 +12,7 @@
 {
     NSString *_passTypeID;
     NSString *_groupingID;
-    unsigned int _passStyle;
+    int _passStyle;
     NSDate *_minDate;
     NSDate *_maxDate;
     NSDate *_ingestedDate;
@@ -22,7 +22,7 @@
 @property(retain, nonatomic) NSDate *ingestedDate; // @synthesize ingestedDate=_ingestedDate;
 @property(retain, nonatomic) NSDate *maxDate; // @synthesize maxDate=_maxDate;
 @property(retain, nonatomic) NSDate *minDate; // @synthesize minDate=_minDate;
-@property(nonatomic) unsigned int passStyle; // @synthesize passStyle=_passStyle;
+@property(nonatomic) int passStyle; // @synthesize passStyle=_passStyle;
 @property(copy, nonatomic) NSString *groupingID; // @synthesize groupingID=_groupingID;
 @property(copy, nonatomic) NSString *passTypeID; // @synthesize passTypeID=_passTypeID;
 - (BOOL)_canAcceptDate:(id)arg1 withLeeway:(double)arg2;

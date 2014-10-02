@@ -8,18 +8,38 @@
 
 @interface AVMetadataFaceObjectInternal : NSObject
 {
-    BOOL hasRollAngle;
-    BOOL hasYawAngle;
-    int faceID;
-    float rollAngle;
-    float yawAngle;
+    int _faceID;
+    BOOL _hasRollAngle;
+    float _rollAngle;
+    BOOL _hasYawAngle;
+    float _yawAngle;
+    BOOL _hasLeftEyeClosedConfidence;
+    int _leftEyeClosedConfidence;
+    BOOL _hasRightEyeClosedConfidence;
+    int _rightEyeClosedConfidence;
+    BOOL _hasSmileConfidence;
+    int _smileConfidence;
+    BOOL _hasLeftEyeBounds;
+    struct CGRect _leftEyeBounds;
+    BOOL _hasRightEyeBounds;
+    struct CGRect _rightEyeBounds;
 }
 
-@property float yawAngle; // @synthesize yawAngle;
-@property BOOL hasYawAngle; // @synthesize hasYawAngle;
-@property float rollAngle; // @synthesize rollAngle;
-@property BOOL hasRollAngle; // @synthesize hasRollAngle;
-@property int faceID; // @synthesize faceID;
+@property(nonatomic) struct CGRect rightEyeBounds; // @synthesize rightEyeBounds=_rightEyeBounds;
+@property(nonatomic) BOOL hasRightEyeBounds; // @synthesize hasRightEyeBounds=_hasRightEyeBounds;
+@property(nonatomic) struct CGRect leftEyeBounds; // @synthesize leftEyeBounds=_leftEyeBounds;
+@property(nonatomic) BOOL hasLeftEyeBounds; // @synthesize hasLeftEyeBounds=_hasLeftEyeBounds;
+@property(nonatomic) int smileConfidence; // @synthesize smileConfidence=_smileConfidence;
+@property(nonatomic) BOOL hasSmileConfidence; // @synthesize hasSmileConfidence=_hasSmileConfidence;
+@property(nonatomic) int rightEyeClosedConfidence; // @synthesize rightEyeClosedConfidence=_rightEyeClosedConfidence;
+@property(nonatomic) BOOL hasRightEyeClosedConfidence; // @synthesize hasRightEyeClosedConfidence=_hasRightEyeClosedConfidence;
+@property(nonatomic) int leftEyeClosedConfidence; // @synthesize leftEyeClosedConfidence=_leftEyeClosedConfidence;
+@property(nonatomic) BOOL hasLeftEyeClosedConfidence; // @synthesize hasLeftEyeClosedConfidence=_hasLeftEyeClosedConfidence;
+@property(nonatomic) float yawAngle; // @synthesize yawAngle=_yawAngle;
+@property(nonatomic) BOOL hasYawAngle; // @synthesize hasYawAngle=_hasYawAngle;
+@property(nonatomic) float rollAngle; // @synthesize rollAngle=_rollAngle;
+@property(nonatomic) BOOL hasRollAngle; // @synthesize hasRollAngle=_hasRollAngle;
+@property(nonatomic) int faceID; // @synthesize faceID=_faceID;
 
 @end
 

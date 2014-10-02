@@ -11,6 +11,8 @@
 @interface MPUserNotification : NSObject
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
+    NSObject<OS_dispatch_queue> *_callbackInvocationQueue;
+    CDUnknownBlockType _willShowNotificationHandler;
     id strongSelf;
     BOOL _isShowing;
     struct __CFRunLoopSource *_runLoopSource;
@@ -27,6 +29,7 @@
 - (void)_cancelSynchronously:(BOOL)arg1;
 - (void)showWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)cancel;
+@property(copy, nonatomic) CDUnknownBlockType willShowNotificationHandler;
 - (void)dealloc;
 - (id)initWithCFUserNotification:(struct __CFUserNotification *)arg1;
 - (id)init;

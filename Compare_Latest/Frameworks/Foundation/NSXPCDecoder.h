@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
     int _allowedClassesIndex;
 }
 
++ (id)_createXPCObjectWithData:(id)arg1;
 @property NSXPCConnection *_connection; // @synthesize _connection;
 @property SEL replyToSelector; // @synthesize replyToSelector=_replyToSelector;
 @property(retain) NSXPCInterface *interface; // @synthesize interface=_interface;

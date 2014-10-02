@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSManagedObjectContext, NSManagedObjectID;
+@class NSEntityDescription, NSManagedObjectContext, NSManagedObjectID;
 
 @interface NSManagedObject : NSObject
 {
@@ -51,9 +51,9 @@
 + (id)_PFPlaceHolderSingleton;
 + (Class)classForEntity:(id)arg1;
 + (CDStruct_c4c2dd08 *)_PFMOClassFactoryData;
-- (BOOL)hasChanges;
+@property(readonly, nonatomic) BOOL hasChanges;
 - (id)changedValuesForCurrentEvent;
-- (unsigned int)faultingState;
+@property(readonly, nonatomic) unsigned int faultingState;
 - (void)setNilValueForKey:(id)arg1;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 - (id)valueForUndefinedKey:(id)arg1;
@@ -91,13 +91,13 @@
 - (id)observationInfo;
 - (void)setObservationInfo:(id)arg1;
 - (BOOL)hasFaultForRelationshipNamed:(id)arg1;
-- (BOOL)isFault;
-- (BOOL)isDeleted;
-- (BOOL)isUpdated;
-- (BOOL)isInserted;
-- (id)objectID;
-- (id)entity;
-- (id)managedObjectContext;
+@property(readonly, nonatomic, getter=isFault) BOOL fault;
+@property(readonly, nonatomic, getter=isDeleted) BOOL deleted;
+@property(readonly, nonatomic, getter=isUpdated) BOOL updated;
+@property(readonly, nonatomic, getter=isInserted) BOOL inserted;
+@property(readonly, nonatomic) NSManagedObjectID *objectID;
+@property(readonly, nonatomic) NSEntityDescription *entity;
+@property(readonly, nonatomic) NSManagedObjectContext *managedObjectContext;
 - (id)init;
 - (id)initWithEntity:(id)arg1 insertIntoManagedObjectContext:(id)arg2;
 - (id)description;

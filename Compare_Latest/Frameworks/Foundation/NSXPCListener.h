@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>, NSString;
+@class NSObject<OS_dispatch_queue>, NSString, NSXPCListenerEndpoint;
 
 @interface NSXPCListener : NSObject
 {
@@ -25,15 +25,17 @@
 + (id)anonymousListener;
 + (id)serviceListener;
 @property id <NSXPCListenerDelegate> delegate; // @synthesize delegate=_delegate;
+- (id)_xpcConnection;
 - (id)_queue;
 - (void)_setQueue:(id)arg1;
 - (void)setOptions:(unsigned int)arg1;
-- (id)endpoint;
+@property(readonly, retain) NSXPCListenerEndpoint *endpoint;
 - (id)serviceName;
 - (void)invalidate;
 - (void)stop;
 - (void)resume;
 - (void)suspend;
+- (id)description;
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithMachServiceName:(id)arg1;

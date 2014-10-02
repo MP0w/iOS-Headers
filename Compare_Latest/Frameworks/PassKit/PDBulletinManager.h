@@ -6,30 +6,40 @@
 
 #import "NSObject.h"
 
-@class NSDate, NSMutableDictionary;
+#import "NSSecureCoding.h"
+#import "PDBulletinProviderDelegate.h"
 
-@interface PDBulletinManager : NSObject
+@class BBDataProviderConnection, NSMutableDictionary, NSObject<OS_dispatch_semaphore>, NSString, PDPassbookBulletinProvider;
+
+@interface PDBulletinManager : NSObject <PDBulletinProviderDelegate, NSSecureCoding>
 {
-    NSMutableDictionary *_bulletinRecords;
-    NSDate *_lastRequestDate;
+    NSObject<OS_dispatch_semaphore> *_archiveSemaphore;
+    NSMutableDictionary *_passBulletinProviders;
+    PDPassbookBulletinProvider *_passbookBulletinProvider;
+    BBDataProviderConnection *_dataProviderConnection;
 }
 
-@property(retain, nonatomic) NSDate *lastRequestDate; // @synthesize lastRequestDate=_lastRequestDate;
-- (void)_cullRecords;
-- (void)_sendRemove:(id)arg1 recordID:(id)arg2;
-- (void)_sendModify:(id)arg1 recordID:(id)arg2;
-- (void)_sendAdd:(id)arg1 recordID:(id)arg2;
-- (void)_sendInvalidate:(id)arg1;
-- (void)_sendNotification:(id)arg1 forPassTypeID:(id)arg2 recordID:(id)arg3;
-- (void)_persistBulletinRecords;
-- (void)deleteBulletinRecordsForPassUniqueID:(id)arg1 notifyBulletinBoard:(BOOL)arg2;
-- (void)deleteBulletinRecordsForPassTypeID:(id)arg1 beforeDate:(id)arg2 notifyBulletinBoard:(BOOL)arg3;
-- (void)updateBulletinRecordsWithDiff:(id)arg1 passTypeID:(id)arg2;
-- (id)bulletinRecordWithID:(id)arg1;
-- (id)allBulletinRecords;
-- (void)nukeBulletins;
++ (BOOL)supportsSecureCoding;
++ (id)archive;
+- (void)_requestArchiveToDisk;
+- (void)_configurePassbookParentSection;
+- (id)diffForPassBulletinWithRecordID:(id)arg1;
+- (void)removeAllBulletins;
+- (void)removeBulletinsForPass:(id)arg1;
+- (void)insertPassbookBulletinWithTitle:(id)arg1 message:(id)arg2 forPass:(id)arg3;
+- (void)insertOrUpdatePassUpdateBulletinWithDiff:(id)arg1 forPass:(id)arg2;
+- (void)insertOrUpdateTransactionBulletinWithPaymentTransaction:(id)arg1 forPass:(id)arg2;
+- (void)bulletinProviderDidClearBulletins:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

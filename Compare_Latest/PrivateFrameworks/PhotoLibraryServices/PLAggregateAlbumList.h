@@ -25,18 +25,19 @@
 - (BOOL)isEmpty;
 @property(readonly, nonatomic) unsigned int containersCount;
 - (id)containers;
-@property(readonly, nonatomic) NSString *_typeDescription;
-@property(readonly, nonatomic) NSString *_prettyDescription;
+@property(readonly, retain, nonatomic) NSString *_typeDescription;
+@property(readonly, retain, nonatomic) NSString *_prettyDescription;
 - (id)photoLibrary;
 - (void)preheatAlbumsAtIndexes:(id)arg1 forProperties:(id)arg2 relationships:(id)arg3;
 - (void)preheatAlbumsForProperties:(id)arg1 relationships:(id)arg2;
 - (void)updateAlbumsOrderIfNeeded;
 - (BOOL)needsReordering;
 - (void)setNeedsReordering;
-@property(readonly, nonatomic) CDUnknownBlockType albumsSortingComparator;
+@property(readonly, copy, nonatomic) CDUnknownBlockType albumsSortingComparator;
 - (BOOL)albumHasFixedOrder:(struct NSObject *)arg1;
+@property(readonly, nonatomic) BOOL isFolder;
 - (BOOL)canEditAlbums;
-- (int)albumListType;
+- (short)albumListType;
 - (id)managedObjectContext;
 @property(readonly, nonatomic) unsigned int unreadAlbumsCount;
 - (BOOL)hasAtLeastOneAlbum;
@@ -47,6 +48,12 @@
 - (void)_invalidateAllAlbums;
 - (void)dealloc;
 - (id)initWithFilter:(int)arg1 inPhotoLibrary:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

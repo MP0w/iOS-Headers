@@ -8,7 +8,7 @@
 
 #import "CNFRegFirstRunDelegate.h"
 
-@class CNFRegController, _UIBackdropView;
+@class CNFRegController, NSString, _UIBackdropView;
 
 @interface CNFRegWizardController : PSSetupController <CNFRegFirstRunDelegate>
 {
@@ -26,7 +26,7 @@
         unsigned int canShowDisabledScreen:1;
         unsigned int hideLearnMoreButton:1;
         unsigned int showSplashOnSignin:1;
-        unsigned int reloadOnViewWillAppear:1;
+        unsigned int skipReloadOnNextViewWillAppear:1;
         unsigned int allowCancel:1;
         unsigned int allowSMS:1;
         unsigned int shouldTerminateInBackground:1;
@@ -46,7 +46,8 @@
 @property(nonatomic) BOOL allowSMS;
 @property(nonatomic) BOOL allowCancel;
 @property(nonatomic) BOOL shouldListenForSuspension; // @dynamic shouldListenForSuspension;
-@property(nonatomic) BOOL reloadOnViewWillAppear; // @dynamic reloadOnViewWillAppear;
+- (void)setSkipReloadOnNextViewWillAppear:(BOOL)arg1;
+- (BOOL)skipReloadOnNextViewWillAppear;
 @property(nonatomic) BOOL canShowDisabledScreen; // @dynamic canShowDisabledScreen;
 @property(nonatomic) BOOL canShowSplashScreen;
 @property(nonatomic) BOOL canStartNested;
@@ -88,6 +89,12 @@
 - (id)init;
 - (id)initWithServiceTypes:(int)arg1;
 - (id)initWithRegController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

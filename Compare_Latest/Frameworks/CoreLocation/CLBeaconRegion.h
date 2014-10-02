@@ -33,6 +33,7 @@
 - (id)initWithProximityUUID:(id)arg1 identifier:(id)arg2;
 - (id)initWithIdentifier:(id)arg1;
 - (id)initWithClientRegion:(CDStruct_f756f8ea)arg1;
+- (id)init;
 
 @end
 

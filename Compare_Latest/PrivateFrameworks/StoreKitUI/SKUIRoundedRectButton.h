@@ -18,6 +18,7 @@
 - (id)_basicAnimationWithKeyPath:(id)arg1;
 - (void)_reloadColors;
 - (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)tintColorDidChange;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setTitleEdgeInsets:(struct UIEdgeInsets)arg1;
 - (void)setHighlighted:(BOOL)arg1;

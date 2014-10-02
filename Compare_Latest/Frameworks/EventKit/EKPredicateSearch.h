@@ -6,26 +6,34 @@
 
 #import "NSObject.h"
 
-@class EKEventStore, NSPredicate;
+#import "EKCancellableRemoteOperation.h"
+
+@class EKEventStore, NSPredicate, NSString;
 
 __attribute__((visibility("hidden")))
-@interface EKPredicateSearch : NSObject
+@interface EKPredicateSearch : NSObject <EKCancellableRemoteOperation>
 {
+    CDUnknownBlockType _callback;
     Class _entityClass;
     NSPredicate *_predicate;
     EKEventStore *_store;
+    id _cancellationToken;
     BOOL _finished;
-    CDUnknownBlockType _callback;
-    unsigned int _previous;
+    BOOL _isCancelled;
 }
 
-+ (id)searchWithEntityClass:(Class)arg1 predicate:(id)arg2 store:(id)arg3 callback:(CDUnknownBlockType)arg4;
++ (id)searchWithEntityClass:(Class)arg1 predicate:(id)arg2 store:(id)arg3;
+- (void)cancel;
 - (id)startWithCompletion:(CDUnknownBlockType)arg1;
-- (void)run;
 - (void)terminate;
-- (BOOL)_receivedData:(CDStruct_6a127a3b [50])arg1 count:(int)arg2;
 - (void)dealloc;
-- (id)initWithEntityClass:(Class)arg1 predicate:(id)arg2 store:(id)arg3 callback:(CDUnknownBlockType)arg4;
+- (id)initWithEntityClass:(Class)arg1 predicate:(id)arg2 store:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "UIDynamicAnimatorDelegate.h"
 
-@class SBBounceBehavior, SBBounceSettings, SBBouncingSystem, UIDynamicAnimator, _SBNotificationCenterBouncingItem;
+@class NSString, SBBounceBehavior, SBBounceSettings, SBBouncingSystem, UIDynamicAnimator, _SBNotificationCenterBouncingItem;
 
 @interface SBNotificationCenterBounceAnimator : NSObject <UIDynamicAnimatorDelegate>
 {
@@ -29,6 +29,12 @@
 - (void)beginBounceWithInitialFrame:(struct CGRect)arg1 targetFrame:(struct CGRect)arg2 velocity:(struct CGPoint)arg3 removingGravityAtMidway:(_Bool)arg4 stepper:(CDUnknownBlockType)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)dealloc;
 - (id)initWithReferenceBounds:(struct CGRect)arg1 settings:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

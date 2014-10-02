@@ -21,8 +21,8 @@
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(readonly, nonatomic) NSString *key; // @synthesize key=_key;
 @property(copy, nonatomic) NSString *property; // @synthesize property=_property;
+- (void).cxx_destruct;
 - (id)completion;
-- (void)dealloc;
 - (id)initWithValue:(id)arg1 property:(id)arg2 key:(id)arg3 identifier:(id)arg4 label:(id)arg5;
 - (id)initWithValue:(id)arg1 property:(id)arg2 key:(id)arg3 identifier:(id)arg4;
 @property(copy, nonatomic) NSDate *dateValue;

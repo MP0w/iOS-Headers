@@ -14,13 +14,14 @@ __attribute__((visibility("hidden")))
     NSMutableArray *m_tokens;
     int m_format;
     unsigned int m_initNumber;
+    void **m_numberFormatter;
 }
 
 - (id)listLevelTextforOutline:(id)arg1;
 - (void)dealloc;
-- (id)initWithText:(id)arg1 format:(int)arg2 initNumber:(int)arg3;
+- (id)initWithText:(id)arg1 format:(int)arg2 initNumber:(int)arg3 language:(int)arg4;
 - (id)initWithText:(id)arg1;
-- (id)initWithText:(id)arg1 format:(int)arg2;
+- (id)initWithText:(id)arg1 format:(int)arg2 language:(int)arg3;
 - (id)token:(unsigned int)arg1;
 - (unsigned int)tokenCount;
 

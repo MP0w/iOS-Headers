@@ -28,8 +28,8 @@
 
 @optional
 - (int)entryCount;
-- (void)preheatImageDataAtIndexes:(NSIndexSet *)arg1;
-- (void)preheatImageDataAtIndex:(unsigned int)arg1;
+- (void)preheatImageDataAtIndexes:(NSIndexSet *)arg1 completionHandler:(void (^)(UIImage *, BOOL))arg2;
+- (void)preheatImageDataAtIndex:(unsigned int)arg1 completionHandler:(void (^)(UIImage *, BOOL))arg2;
 - (NSString *)thumbnailPathForThumbIdentifier:(NSString *)arg1;
 - (UIImage *)imageWithIdentifier:(NSString *)arg1;
 - (void)deleteEntryWithIdentifier:(NSString *)arg1 orIndex:(unsigned int)arg2 uuid:(NSString *)arg3;

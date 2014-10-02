@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSData, NSString;
+@class NSData, NSString, SFUCryptoKey;
 
 @protocol TSPPassphraseConsumer <NSObject>
 - (BOOL)setPassphrase:(NSString *)arg1;
@@ -15,5 +15,6 @@
 @property(readonly, nonatomic) NSString *service;
 @property(readonly, nonatomic) NSData *keychainGenericItem;
 @property(readonly, nonatomic) NSString *passphraseHint;
+- (BOOL)setDecryptionKey:(SFUCryptoKey *)arg1;
 @end
 

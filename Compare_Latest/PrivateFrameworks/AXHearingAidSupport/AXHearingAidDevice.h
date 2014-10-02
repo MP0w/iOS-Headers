@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
+#import "AXHADeviceProtocol.h"
 #import "CBPeripheralDelegate.h"
-#import "CBPeripheralPairingDelegate.h"
 
-@class AXHearingAidMode, AXTimer, CBPeripheral, NSArray, NSDate, NSMutableDictionary, NSString;
+@class AXHATimer, AXHearingAidMode, CBPeripheral, NSArray, NSDate, NSMutableDictionary, NSString;
 
-@interface AXHearingAidDevice : NSObject <CBPeripheralDelegate, CBPeripheralPairingDelegate>
+@interface AXHearingAidDevice : NSObject <CBPeripheralDelegate, AXHADeviceProtocol>
 {
     float _leftVolume;
     float _rightVolume;
@@ -22,7 +22,7 @@
     BOOL _keepInSync;
     BOOL _finishedLoading;
     long initialLoadToken;
-    AXTimer *_propertyWriteTimer;
+    AXHATimer *_propertyWriteTimer;
     BOOL _isListeningForStreamingChanges;
     BOOL isPaired;
     BOOL isConnecting;
@@ -44,6 +44,7 @@
     AXHearingAidMode *currentLeftProgram;
     CBPeripheral *leftPeripheral;
     CBPeripheral *rightPeripheral;
+    int _availableEars;
     int leftLoadedProperties;
     int rightLoadedProperties;
     NSMutableDictionary *leftPropertiesLoadCount;
@@ -58,9 +59,13 @@
     int _rightWriteResponseProperties;
     NSDate *_leftBatteryLowDate;
     NSDate *_rightBatteryLowDate;
+    unsigned long _leftPresetBitmask;
+    unsigned long _rightPresetBitmask;
 }
 
 + (id)characteristicsUUIDs;
+@property(nonatomic) unsigned long rightPresetBitmask; // @synthesize rightPresetBitmask=_rightPresetBitmask;
+@property(nonatomic) unsigned long leftPresetBitmask; // @synthesize leftPresetBitmask=_leftPresetBitmask;
 @property(retain, nonatomic) NSDate *rightBatteryLowDate; // @synthesize rightBatteryLowDate=_rightBatteryLowDate;
 @property(retain, nonatomic) NSDate *leftBatteryLowDate; // @synthesize leftBatteryLowDate=_leftBatteryLowDate;
 @property(nonatomic) int rightWriteResponseProperties; // @synthesize rightWriteResponseProperties=_rightWriteResponseProperties;
@@ -80,6 +85,7 @@
 @property(nonatomic) float rightStreamVolume; // @synthesize rightStreamVolume=_rightStreamVolume;
 @property(nonatomic) float leftMicrophoneVolume; // @synthesize leftMicrophoneVolume=_leftMicrophoneVolume;
 @property(nonatomic) float rightMicrophoneVolume; // @synthesize rightMicrophoneVolume=_rightMicrophoneVolume;
+@property(nonatomic) int availableEars; // @synthesize availableEars=_availableEars;
 @property(nonatomic) BOOL isPersistent; // @synthesize isPersistent;
 @property(nonatomic) BOOL isConnecting; // @synthesize isConnecting;
 @property(nonatomic) BOOL isPaired; // @synthesize isPaired;
@@ -102,9 +108,11 @@
 @property(retain, nonatomic) NSString *leftUUID; // @synthesize leftUUID;
 - (id)persistentRepresentation;
 - (BOOL)addPeripheral:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
+- (BOOL)isBluetoothPaired;
 - (void)peripheralDidUnpair:(id)arg1;
 - (void)peripheral:(id)arg1 didFinishPairingWithResult:(id)arg2;
+- (void)pairingDidCompleteForPeripheral:(id)arg1;
 - (void)peripheral:(id)arg1 didWriteValueForCharacteristic:(id)arg2 error:(id)arg3;
 - (void)peripheral:(id)arg1 didInvalidateServices:(id)arg2;
 - (void)peripheral:(id)arg1 didUpdateCharacteristic:(id)arg2;
@@ -117,9 +125,9 @@
 - (void)setValue:(id)arg1 forProperty:(int)arg2;
 - (unsigned char)volumeValueForProperty:(int)arg1 andPeripheral:(id)arg2;
 - (void)setRightSelectedProgram:(id)arg1;
-- (id)rightSelectedProgram;
+@property(readonly, retain, nonatomic) AXHearingAidMode *rightSelectedProgram;
 - (void)setLeftSelectedProgram:(id)arg1;
-- (id)leftSelectedProgram;
+@property(readonly, retain, nonatomic) AXHearingAidMode *leftSelectedProgram;
 - (id)selectedProgramIndexes;
 - (id)selectedPrograms;
 - (void)selectProgram:(id)arg1;
@@ -138,6 +146,8 @@
 - (id)peripheral:(id)arg1 characteristicForProperty:(int)arg2;
 - (int)peripheral:(id)arg1 propertyForCharacteristic:(id)arg2;
 - (id)programs;
+- (int)connectedEars;
+- (BOOL)hasConnection;
 - (BOOL)isConnected;
 - (BOOL)rightAvailable;
 - (BOOL)leftAvailable;
@@ -145,16 +155,21 @@
 - (BOOL)didLoadRequiredProperties;
 - (BOOL)didLoadBasicProperties;
 - (BOOL)peripheral:(id)arg1 didLoadProperty:(int)arg2;
-- (id)deviceUUID;
-- (id)rssi;
+@property(readonly, retain, nonatomic) NSString *deviceUUID;
 - (BOOL)containsPeripheralWithUUID:(id)arg1;
 - (void)connectionDidChange;
 - (void)disconnect;
 - (void)connect;
 - (void)dealloc;
+- (id)initWithLeftDevice:(id)arg1 andRightDevice:(id)arg2;
 - (id)initWithPersistentRepresentation:(id)arg1;
 - (id)initWithPeripheral:(id)arg1;
 - (void)_init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

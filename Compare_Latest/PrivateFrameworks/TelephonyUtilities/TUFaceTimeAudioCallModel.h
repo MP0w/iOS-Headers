@@ -11,17 +11,16 @@
 }
 
 + (id)sharedInstance;
-- (id)description;
+- (BOOL)isSendToVoicemailAllowed;
 - (BOOL)isHoldAndAnswerAllowed;
 - (BOOL)isEndAndAnswerAllowed;
 - (BOOL)isHardPauseAvailable;
+- (BOOL)isTakingCallsPrivateAllowed;
 - (int)ambiguityState;
 - (BOOL)isAddCallAllowed;
 - (BOOL)isHoldAllowed;
 - (BOOL)isMergeable;
 - (BOOL)isSwappable;
-- (void)dealloc;
-- (id)init;
 
 @end
 

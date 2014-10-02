@@ -15,9 +15,9 @@
     XPCRequest *_request;
 }
 
-@property(readonly, nonatomic) XPCRequest *request; // @synthesize request=_request;
-@property(readonly, nonatomic) NSData *data; // @synthesize data=_data;
-@property(readonly, nonatomic) id <NSCoding> message; // @synthesize message=_message;
+@property(readonly, retain, nonatomic) XPCRequest *request; // @synthesize request=_request;
+@property(readonly, retain, nonatomic) NSData *data; // @synthesize data=_data;
+@property(readonly, retain, nonatomic) id <NSCoding> message; // @synthesize message=_message;
 - (void).cxx_destruct;
 - (void)sendReply:(id)arg1;
 - (id)initWithXPCRequest:(id)arg1;

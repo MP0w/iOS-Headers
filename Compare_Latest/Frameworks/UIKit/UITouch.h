@@ -8,7 +8,7 @@
 
 #import "_UIResponderForwardable.h"
 
-@class NSArray, NSMutableArray, UIResponder, UIView, UIWindow;
+@class NSArray, NSMutableArray, NSString, UIResponder, UIView, UIWindow;
 
 @interface UITouch : NSObject <_UIResponderForwardable>
 {
@@ -25,9 +25,12 @@
     NSMutableArray *_forwardingRecord;
     struct CGPoint _locationInWindow;
     struct CGPoint _previousLocationInWindow;
+    float _previousPressure;
     unsigned char _pathIndex;
     unsigned char _pathIdentity;
     float _pathMajorRadius;
+    float _majorRadiusTolerance;
+    float _pressure;
     struct {
         unsigned int _firstTouchForView:1;
         unsigned int _isTap:1;
@@ -37,24 +40,29 @@
     } _touchFlags;
     BOOL _eaten;
     id <_UITouchPhaseChangeDelegate> __phaseChangeDelegate;
+    UIWindow *__windowServerHitTestWindow;
     struct CGSize _displacement;
 }
 
 + (id)_createTouchesWithGSEvent:(struct __GSEvent *)arg1 phase:(int)arg2 view:(id)arg3;
+@property(retain, nonatomic, setter=_setWindowServerHitTestWindow:) UIWindow *_windowServerHitTestWindow; // @synthesize _windowServerHitTestWindow=__windowServerHitTestWindow;
 @property(retain, nonatomic, setter=_setPhaseChangeDelegate:) id <_UITouchPhaseChangeDelegate> _phaseChangeDelegate; // @synthesize _phaseChangeDelegate=__phaseChangeDelegate;
+@property(readonly, nonatomic) float majorRadiusTolerance; // @synthesize majorRadiusTolerance=_majorRadiusTolerance;
+@property(readonly, nonatomic) float majorRadius; // @synthesize majorRadius=_pathMajorRadius;
 @property(nonatomic, getter=_isEaten, setter=_setEaten:) BOOL _eaten; // @synthesize _eaten;
 @property(nonatomic, setter=_setEdgeType:) int _edgeType; // @synthesize _edgeType;
 @property(nonatomic, setter=_setDisplacement:) struct CGSize _displacement; // @synthesize _displacement;
-@property(nonatomic, setter=_setPathMajorRadius:) float _pathMajorRadius; // @synthesize _pathMajorRadius;
+@property(readonly, nonatomic) float _pressure; // @synthesize _pressure;
 @property(nonatomic, setter=_setPathIdentity:) unsigned char _pathIdentity; // @synthesize _pathIdentity;
 @property(nonatomic, setter=_setPathIndex:) unsigned char _pathIndex; // @synthesize _pathIndex;
+- (float)_pathMajorRadius;
 @property(nonatomic, setter=_setForwardablePhase:) int _forwardablePhase;
 - (void)_loadStateFromTouch:(id)arg1;
 - (struct CGPoint)previousLocationInView:(id)arg1;
 - (struct CGPoint)locationInView:(id)arg1;
-@property(readonly, nonatomic) NSArray *gestureRecognizers;
-@property(readonly, nonatomic) UIView *view;
-@property(readonly, nonatomic) UIWindow *window;
+@property(readonly, copy, nonatomic) NSArray *gestureRecognizers;
+@property(readonly, retain, nonatomic) UIView *view;
+@property(readonly, retain, nonatomic) UIWindow *window;
 @property(nonatomic) BOOL sentTouchesEnded;
 - (BOOL)isDelayed;
 - (void)setIsDelayed:(BOOL)arg1;
@@ -75,6 +83,8 @@
 - (id)_mutableForwardingRecord;
 - (BOOL)_wantsForwardingFromResponder:(id)arg1 toNextResponder:(id)arg2 withEvent:(id)arg3;
 - (int)_compareIndex:(id)arg1;
+- (struct CGPoint)_previousLocationInSceneReferenceSpace;
+- (struct CGPoint)_locationInSceneReferenceSpace;
 - (struct CGPoint)_previousLocationInWindow:(id)arg1;
 - (struct CGPoint)_locationInWindow:(id)arg1;
 - (void)_popPhase;
@@ -83,12 +93,18 @@
 - (id)_gestureRecognizers;
 - (void)_removeGestureRecognizer:(id)arg1;
 - (void)_addGestureRecognizer:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)_phaseDescription;
+- (void)_setPressure:(float)arg1 resetPrevious:(BOOL)arg2;
 - (void)_setLocationInWindow:(struct CGPoint)arg1 resetPrevious:(BOOL)arg2;
 - (BOOL)_isFirstTouchForView;
 - (void)_setIsFirstTouchForView:(BOOL)arg1;
 - (float)_distanceFrom:(id)arg1 inView:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

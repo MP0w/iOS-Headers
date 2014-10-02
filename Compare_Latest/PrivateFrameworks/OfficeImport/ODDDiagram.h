@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     ODDStyleDefinition *mStyleDefinition;
 }
 
+- (id)description;
 - (id)styleDefinition;
 - (id)colorTransform;
 - (void)setDocumentPoint:(id)arg1;

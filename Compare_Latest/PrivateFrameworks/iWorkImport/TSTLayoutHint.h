@@ -8,7 +8,7 @@
 
 #import "TSDHint.h"
 
-@class NSNumber, TSTLayout;
+@class NSNumber, NSString, TSTLayout;
 
 __attribute__((visibility("hidden")))
 @interface TSTLayoutHint : NSObject <TSDHint>
@@ -35,7 +35,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) CDStruct_5f1f7aa9 cellRange; // @synthesize cellRange=mCellRange;
 @property(nonatomic) BOOL isValid; // @synthesize isValid=mIsValid;
 - (id).cxx_construct;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)invalidate;
 - (void)saveToArchive:(struct LayoutHintArchive *)arg1;
 - (id)initWithArchive:(const struct LayoutHintArchive *)arg1;
@@ -44,10 +44,16 @@ __attribute__((visibility("hidden")))
 - (id)firstChildHint;
 - (void)offsetByDelta:(int)arg1;
 - (BOOL)overlapsWithSelection:(id)arg1;
+- (id)copyForArchiving;
 - (oneway void)release;
 - (void)dealloc;
 - (id)init;
 - (id)initWithRange:(CDStruct_5f1f7aa9)arg1 hintId:(CDStruct_0441cfb5)arg2 partitionPosition:(unsigned int)arg3 maximumSize:(struct CGSize)arg4 effectiveSize:(struct CGSize)arg5 layout:(id)arg6 validity:(BOOL)arg7 horizontal:(BOOL)arg8;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

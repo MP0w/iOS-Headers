@@ -10,9 +10,7 @@
 {
 }
 
-+ (id)topSeparatorColor;
-- (void)layoutSubviews;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (struct UIEdgeInsets)layoutMargins;
 
 @end
 

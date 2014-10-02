@@ -7,7 +7,10 @@
 #import "NSCache.h"
 
 @interface NSCache (TSPComponentManager)
-- (void)tsp_setComponent:(id)arg1 forIdentifier:(long long)arg2;
-- (void)tsp_removeComponentWithIdentifier:(long long)arg1;
+- (void)tsp_cacheComponent:(id)arg1;
+- (void)tsp_flushComponent:(id)arg1;
+- (unsigned char)tsp_currentOperation;
+- (id)tsp_currentComponent;
+- (void)tsp_performOperation:(unsigned char)arg1 forComponent:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
 @end
 

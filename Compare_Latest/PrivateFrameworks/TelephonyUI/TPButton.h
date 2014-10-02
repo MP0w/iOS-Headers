@@ -6,7 +6,7 @@
 
 #import "UIButton.h"
 
-@class SBFGlintyStringView, UIScrollView, _UIBackdropView;
+@class _UIBackdropView;
 
 @interface TPButton : UIButton
 {
@@ -15,22 +15,14 @@
     BOOL _blursBackground;
     BOOL _roundsCorners;
     BOOL _usesOverlayBlendingForContents;
-    UIScrollView *_shineLabelScrollView;
-    SBFGlintyStringView *_shineLabelView;
 }
 
-+ (id)acceptVideoButtonImage;
-+ (id)declineVideoButtonImage;
-+ (id)declineButtonImage;
-+ (id)answerButtonImage;
 + (float)maxWidthForCenterButton;
 + (float)defaultWidthForCenterButton;
 + (float)defaultWidthForSideButton;
 + (float)defaultHeightForColor:(int)arg1;
 + (float)defaultHeight;
 + (id)defaultStandardFont;
-@property(retain) SBFGlintyStringView *shineLabelView; // @synthesize shineLabelView=_shineLabelView;
-@property(retain) UIScrollView *shineLabelScrollView; // @synthesize shineLabelScrollView=_shineLabelScrollView;
 @property(nonatomic) BOOL usesOverlayBlendingForContents; // @synthesize usesOverlayBlendingForContents=_usesOverlayBlendingForContents;
 @property(nonatomic) BOOL roundsCorners; // @synthesize roundsCorners=_roundsCorners;
 @property(nonatomic) BOOL blursBackground; // @synthesize blursBackground=_blursBackground;
@@ -44,8 +36,6 @@
 - (void)_animationDidEnd;
 - (void)_animationWillBegin;
 - (void)setImage:(id)arg1 forState:(unsigned int)arg2;
-- (void)setShineLabelShouldAnimate:(BOOL)arg1;
-- (void)setUsesSlidingShineLabelWithText:(id)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (int)buttonColor;

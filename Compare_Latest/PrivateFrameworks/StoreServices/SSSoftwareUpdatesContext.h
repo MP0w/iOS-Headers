@@ -20,13 +20,19 @@
 }
 
 @property(readonly, nonatomic, getter=isForced) BOOL forced; // @synthesize forced=_forced;
-@property(readonly, nonatomic) NSString *clientIdentifierHeader; // @synthesize clientIdentifierHeader=_clientIdentifierHeader;
+@property(readonly, copy, nonatomic) NSString *clientIdentifierHeader; // @synthesize clientIdentifierHeader=_clientIdentifierHeader;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
-@property(readonly, nonatomic) NSArray *softwareTypes; // @synthesize softwareTypes=_softwareTypes;
+@property(readonly, copy, nonatomic) NSArray *softwareTypes; // @synthesize softwareTypes=_softwareTypes;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

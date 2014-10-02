@@ -14,13 +14,16 @@
 }
 
 - (id)description;
+- (BOOL)precludeMultichannelAudio;
+- (BOOL)preferMultichannelAudio;
 - (id)precludedMediaSubTypes;
 - (id)preferredMediaSubTypes;
 @property(readonly, nonatomic) NSArray *preferredMediaCharacteristics;
 @property(readonly, nonatomic) NSArray *preferredLanguages;
 - (void)dealloc;
-- (id)initWithPreferredLanguages:(id)arg1 preferredMediaCharacteristics:(id)arg2;
 - (id)initWithPreferredLanguages:(id)arg1 preferredMediaCharacteristics:(id)arg2 preferredMediaSubTypes:(id)arg3 precludedMediaSubTypes:(id)arg4;
+- (id)initWithPreferredLanguages:(id)arg1 preferredMediaCharacteristics:(id)arg2;
+- (id)initWithPreferredLanguages:(id)arg1 preferredMediaCharacteristics:(id)arg2 preferredMediaSubTypes:(id)arg3 precludedMediaSubTypes:(id)arg4 preferMultichannelAudio:(BOOL)arg5 precludeMultichannelAudio:(BOOL)arg6;
 - (id)init;
 - (id)initWithFigDictionary:(id)arg1;
 - (id)figDictionary;

@@ -6,16 +6,24 @@
 
 #import "NSObject.h"
 
-@class WBSURLSuffixCheckerPrivate;
+@class NSMutableArray;
 
 @interface WBSURLSuffixChecker : NSObject
 {
-    WBSURLSuffixCheckerPrivate *_private;
+    struct {
+        unsigned short _field1[27];
+    } *_trie;
+    unsigned int _trieNodeCount;
+    unsigned int _maxLength;
+    NSMutableArray *_failedSuffixes;
 }
 
+- (void).cxx_destruct;
 - (void)dealloc;
 - (BOOL)hasSuffix:(id)arg1;
 - (id)initWithSuffixes:(id)arg1;
+- (void)addStringToFailedSuffixes:(id)arg1;
+- (BOOL)insertString:(id)arg1 intoTrieWithCache:(CDStruct_efc8995f *)arg2;
 
 @end
 

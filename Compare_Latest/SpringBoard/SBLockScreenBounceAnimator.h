@@ -10,7 +10,7 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "_UISettingsKeyObserver.h"
 
-@class NSMutableSet, NSSet, SBBounceBehavior, SBBounceSettings, SBBouncingItem, SBBouncingSystem, UIDynamicAnimator, UIGestureRecognizer, UIView;
+@class NSMutableSet, NSSet, NSString, SBBounceBehavior, SBBounceSettings, SBBouncingItem, SBBouncingSystem, UIDynamicAnimator, UIGestureRecognizer, UIView;
 
 @interface SBLockScreenBounceAnimator : NSObject <UIDynamicAnimatorDelegate, _UISettingsKeyObserver, UIGestureRecognizerDelegate>
 {
@@ -63,6 +63,12 @@
 - (_Bool)isAnimating;
 - (void)dealloc;
 - (id)initWithView:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

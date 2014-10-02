@@ -13,7 +13,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (id).cxx_construct;
-- (box_80622335)fullBoxForRenderingCamera;
+- (box_80622335)globalPixelAlignedBodyCanvasBoundsForRenderingCamera;
 - (void)updateFramebufferBounds:(struct FramebufferBounds *)arg1;
 
 @end

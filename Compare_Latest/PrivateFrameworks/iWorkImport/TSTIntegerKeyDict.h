@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
 
 - (id)allValues;
 - (int)count;
+- (void)enumerateObjectsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)transformWithFunction:(CDUnknownFunctionPointerType)arg1 withState:(void *)arg2;
 - (void)applyFunction:(CDUnknownFunctionPointerType)arg1 withState:(void *)arg2 andState:(void *)arg3;
 - (void)applyFunction:(CDUnknownFunctionPointerType)arg1 withState:(void *)arg2;

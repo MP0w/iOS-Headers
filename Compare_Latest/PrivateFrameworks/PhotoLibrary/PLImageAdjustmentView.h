@@ -8,7 +8,7 @@
 
 #import "UIGestureRecognizerDelegate.h"
 
-@class NSTimer, PLCropModel, PLCropOverlayLayer, UIImage, UIImageView;
+@class NSString, NSTimer, PLCropModel, PLCropOverlayLayer, UIImage, UIImageView;
 
 @interface PLImageAdjustmentView : UIView <UIGestureRecognizerDelegate>
 {
@@ -92,6 +92,12 @@
 - (void)setNeedsRecenterImage;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

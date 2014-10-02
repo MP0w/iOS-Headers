@@ -26,9 +26,9 @@
 @property(retain, nonatomic) UIColor *textColor; // @synthesize textColor=_textColor;
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;
 - (void).cxx_destruct;
-- (id)_imageForContentRating:(id)arg1;
 - (id)_textAttributes;
 - (struct __CTFramesetter *)_newTextFramesetter;
+- (id)_imageForContentRating:(id)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)drawRect:(struct CGRect)arg1;

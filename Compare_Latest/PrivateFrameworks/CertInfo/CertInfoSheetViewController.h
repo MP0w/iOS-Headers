@@ -19,13 +19,14 @@
     id <CertInfoSheetViewControllerDelegate> _delegate;
 }
 
-@property(nonatomic) id <CertInfoSheetViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <CertInfoSheetViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSArray *trustProperties; // @synthesize trustProperties=_trustProperties;
 @property(retain, nonatomic) NSDate *trustExpiration; // @synthesize trustExpiration=_trustExpiration;
 @property(retain, nonatomic) NSString *trustPurpose; // @synthesize trustPurpose=_trustPurpose;
 @property(retain, nonatomic) NSString *trustSubtitle; // @synthesize trustSubtitle=_trustSubtitle;
 @property(retain, nonatomic) NSString *trustTitle; // @synthesize trustTitle=_trustTitle;
 @property(retain, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
+- (void).cxx_destruct;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)loadView;
@@ -35,7 +36,6 @@
 - (void)_cancel;
 - (void)_dismissWithResult:(int)arg1;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)dealloc;
 
 @end
 

@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic, getter=isClosed) BOOL closed; // @synthesize closed=mClosed;
 @property(retain, nonatomic) NSMutableArray *nodes; // @synthesize nodes=mNodes;
 - (void)convertToHobby;
-- (id)splitEdgeAtIndex:(unsigned int)arg1;
+- (id)splitEdgeAtIndex:(unsigned int)arg1 atPercentage:(float)arg2;
 - (void)addNodesToArray:(id)arg1;
 @property(readonly, nonatomic) BOOL closeIfEndpointsAreEqual;
 - (void)smoothNode:(id)arg1;

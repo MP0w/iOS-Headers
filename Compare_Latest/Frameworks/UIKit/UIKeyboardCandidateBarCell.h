@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 
 + (BOOL)highlightAffectsBackground;
 + (float)widthForCandidateText:(id)arg1;
++ (BOOL)drawsSideBorders;
 + (struct UIEdgeInsets)cacheInsets;
 + (id)textColorWithHighlight:(BOOL)arg1 whiteText:(BOOL)arg2;
 + (id)font;
@@ -51,6 +52,12 @@ __attribute__((visibility("hidden")))
 - (void)applyLayoutAttributes:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -11,17 +11,21 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class MPAVRoutingController, NSArray, UITableView;
+@class MPAVRoutingController, MPWeakTimer, NSArray, NSString, UIColor, UITableView;
 
 @interface MPAVRoutingViewController : UIViewController <MPAVRoutingControllerDelegate, MPAVRoutingTableViewCellDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     UITableView *_tableView;
     NSArray *_cachedRoutes;
+    MPWeakTimer *_updateTimer;
     MPAVRoutingController *_routingController;
+    UIColor *_tableCellsBackgroundColor;
     int _airPlayPasswordAlertDidAppearToken;
     int _airPlayPasswordAlertDidCancelToken;
     BOOL _airPlayPasswordAlertDidAppearTokenIsValid;
-    BOOL _shouldShowDebugButton;
+    BOOL _cachedShowAirPlayDebugButton;
+    BOOL _hasCachedAirPlayDebugButtonStatus;
+    BOOL _needsDisplayedRoutesUpdate;
     BOOL _allowMirroring;
     unsigned int _style;
     id <MPAVRoutingViewControllerDelegate> _delegate;
@@ -34,16 +38,23 @@
 @property(readonly, nonatomic) unsigned int style; // @synthesize style=_style;
 - (void).cxx_destruct;
 - (void)_showAirPlayDebug;
+- (BOOL)_shouldShowAirPlayDebugButton;
 - (BOOL)_shouldShowMirroringCellForRoute:(id)arg1;
 - (void)_pickRoute:(id)arg1;
 - (void)_updateDisplayedRoutes;
+- (void)_setNeedsDisplayedRoutesUpdate;
+- (void)_setupUpdateTimerIfNecessary;
 - (unsigned int)_routeIndexForTableViewIndex:(unsigned int)arg1;
 - (unsigned int)_tableViewIndexForRouteIndex:(unsigned int)arg1;
 - (unsigned int)_debugButtonTableViewIndex;
 - (id)_routesWhereMirroringIsPreferred;
 - (id)_displayedRoutes;
-- (id)_availableRoutes;
+- (void)_serviceWillPresentAuthenticationPromptNotification:(id)arg1;
 - (float)_tableViewHeightAccordingToDataSource;
+- (void)_setTableCellsBackgroundColor:(id)arg1;
+- (id)_tableCellsBackgroundColor;
+- (float)_expandedCellHeight;
+- (float)_normalCellHeight;
 - (id)_tableView;
 - (void)routingCell:(id)arg1 mirroringSwitchValueDidChange:(BOOL)arg2;
 - (void)routingControllerAvailableRoutesDidChange:(id)arg1;
@@ -60,6 +71,12 @@
 - (void)dealloc;
 - (id)initWithStyle:(unsigned int)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

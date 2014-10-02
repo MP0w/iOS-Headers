@@ -14,10 +14,12 @@ __attribute__((visibility("hidden")))
     BOOL mIsAntialiasing;
     BOOL mIsSingleImage;
     BOOL mFlipImages;
+    BOOL mShouldConvertToLayerRelativeBounds;
     NSArray *mImages;
 }
 
 @property(readonly, nonatomic) NSArray *images; // @synthesize images=mImages;
+@property(nonatomic) BOOL shouldConvertToLayerRelativeBounds; // @synthesize shouldConvertToLayerRelativeBounds=mShouldConvertToLayerRelativeBounds;
 @property(nonatomic) BOOL flipImages; // @synthesize flipImages=mFlipImages;
 @property(nonatomic) BOOL isSingleImage; // @synthesize isSingleImage=mIsSingleImage;
 - (Class)layerCacheLogicClass;
@@ -32,7 +34,7 @@ __attribute__((visibility("hidden")))
 - (void)p_setClippingRectFromVisibleBodyCanvasBounds:(const struct CGRect *)arg1;
 - (void)p_allocateTileFramebuffer;
 - (unsigned int)p_tileSize;
-- (box_80622335)imageBodyCanvasBounds;
+- (box_80622335)imageBounds;
 - (id)p_buildImageSetup;
 @property(nonatomic) BOOL antialias;
 - (void)p_setupPipelineWithProcessor:(id)arg1 session:(id)arg2 scene:(id)arg3 antialiasing:(BOOL)arg4;

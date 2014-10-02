@@ -35,7 +35,7 @@
 @property(readonly, nonatomic) Class MPNetworkPlayabilityMonitor; // @synthesize MPNetworkPlayabilityMonitor=_MPNetworkPlayabilityMonitor;
 @property(readonly, nonatomic) Class MPMoviePlayerViewController; // @synthesize MPMoviePlayerViewController=_MPMoviePlayerViewController;
 @property(readonly, nonatomic) Class MPMoviePlayerController; // @synthesize MPMoviePlayerController=_MPMoviePlayerController;
-@property(readonly, nonatomic) Class WBUFormDataController;
+@property(readonly, nonatomic) Class WBUFormDataControllerWK1;
 @property(readonly, nonatomic) NSString *kToneArtistKey;
 @property(readonly, nonatomic) NSString *kToneDurationKey;
 @property(readonly, nonatomic) NSString *kToneGenreKey;
@@ -49,6 +49,14 @@
 @property(readonly, nonatomic) Class SLRequest;
 @property(readonly, nonatomic) Class SLComposeViewController;
 @property(readonly, nonatomic) Class PLStaticWallpaperImageViewController;
+@property(readonly, nonatomic) NSString *PKPaymentNetworkVisa;
+@property(readonly, nonatomic) NSString *PKPaymentNetworkMasterCard;
+@property(readonly, nonatomic) NSString *PKPaymentNetworkChinaUnionPay;
+@property(readonly, nonatomic) NSString *PKPaymentNetworkAmex;
+@property(readonly, nonatomic) Class PKPaymentSummaryItem;
+@property(readonly, nonatomic) Class PKPaymentAuthorizationViewController;
+@property(readonly, nonatomic) Class PKPaymentRequest;
+@property(readonly, nonatomic) Class PKPayment;
 @property(readonly, nonatomic) Class PKAddPassesViewController;
 @property(readonly, nonatomic) Class PKPassLibrary;
 @property(readonly, nonatomic) Class PKPass;
@@ -58,6 +66,8 @@
 @property(readonly, nonatomic) NSString *UIMoviePlayerControllerDidEnterFullscreenNotification;
 @property(readonly, nonatomic) Class EKReminderViewController;
 @property(readonly, nonatomic) Class EKEventEditViewController;
+@property(readonly, nonatomic) NSString *AVLayerVideoGravityResizeAspect;
+@property(readonly, nonatomic) NSString *AVLayerVideoGravityResizeAspectFill;
 @property(readonly, nonatomic) NSString *AVPlayerItemPlaybackStalledNotification;
 @property(readonly, nonatomic) NSString *AVPlayerItemFailedToPlayToEndTimeErrorKey;
 @property(readonly, nonatomic) NSString *AVPlayerItemFailedToPlayToEndTimeNotification;

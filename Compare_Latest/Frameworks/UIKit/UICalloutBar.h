@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSArray, NSMutableArray, NSString, UICalloutBarBackground, UICalloutBarButton, UIResponder;
+@class NSArray, NSDictionary, NSMutableArray, NSString, UICalloutBarBackground, UICalloutBarButton, UIResponder;
 
 @interface UICalloutBar : UIView
 {
@@ -29,13 +29,15 @@
     struct CGRect m_supressesHorizontalMovementFrame;
     float m_supressedHorizontalMovementX;
     int m_arrowDirection;
-    NSMutableArray *m_systemButtons;
+    NSArray *m_systemButtonDescriptions;
+    NSMutableArray *m_currentSystemButtons;
     NSMutableArray *m_extraButtons;
     UICalloutBarButton *m_nextButton;
     UICalloutBarButton *m_previousButton;
     NSMutableArray *m_rectsToEvade;
     UICalloutBarBackground *m_overlay;
     double m_fadedTime;
+    NSDictionary *m_currentAppearOrFadeContext;
     id m_responderTarget;
     NSArray *m_replacements;
     NSArray *m_extraItems;
@@ -53,6 +55,7 @@
 + (void)_releaseSharedInstance;
 + (id)activeCalloutBar;
 + (id)sharedCalloutBar;
+@property(retain, nonatomic) NSDictionary *currentAppearOrFadeContext; // @synthesize currentAppearOrFadeContext=m_currentAppearOrFadeContext;
 @property(nonatomic) BOOL supressesHorizontalMovement; // @synthesize supressesHorizontalMovement=m_supressesHorizontalMovement;
 @property(copy, nonatomic) NSString *untruncatedString; // @synthesize untruncatedString=m_untruncatedString;
 @property(copy, nonatomic) NSArray *extraItems; // @synthesize extraItems=m_extraItems;
@@ -76,7 +79,7 @@
 - (BOOL)hasReplacements;
 - (void)clearEvadeRects;
 - (void)addRectToEvade:(struct CGRect)arg1;
-- (void)hideAnimationDidStop:(id)arg1 finished:(id)arg2 context:(id)arg3;
+- (void)fadeAnimationDidStop:(id)arg1 finished:(id)arg2 context:(id)arg3;
 - (void)appearAnimationDidStop:(id)arg1 finished:(id)arg2 context:(id)arg3;
 - (BOOL)recentlyFaded;
 - (void)updateAnimated:(BOOL)arg1;
@@ -84,6 +87,7 @@
 - (void)hide;
 - (void)fade;
 - (void)_fadeAfterCommand:(SEL)arg1;
+- (void)_endOngoingAppearOrFadeAnimations;
 - (void)appear;
 - (void)show;
 - (void)buttonHighlighted:(id)arg1 highlighted:(BOOL)arg2;

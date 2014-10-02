@@ -9,7 +9,7 @@
 #import "MPURatingControlDelegate.h"
 #import "MusicFlipsideRating.h"
 
-@class NSIndexPath;
+@class NSIndexPath, NSString;
 
 @interface MusicFlipsidePlaylistViewController : MusicPlaylistSongsViewController <MusicFlipsideRating, MPURatingControlDelegate>
 {
@@ -22,6 +22,7 @@
 + (BOOL)_shouldShowActions;
 + (BOOL)shouldPushNowPlayingOnSelection;
 - (void).cxx_destruct;
+- (void)_flipsidePlaylist_contentSizeCategoryDidChangeNotification:(id)arg1;
 @property(readonly, nonatomic) float maximumDurationWidth; // @synthesize maximumDurationWidth=_maximumDurationWidth;
 - (void)ratingDidChangeForRatingControl:(id)arg1;
 @property(nonatomic) BOOL showingRating;
@@ -30,14 +31,19 @@
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didEndDisplayingCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
-- (void)_updateDownloadabilityStateWithCanReloadActionRows:(BOOL)arg1;
+- (void)_updateDownloadabilityStateWithCanReloadActionRowsSynchronously:(BOOL)arg1 animated:(BOOL)arg2;
 - (BOOL)shouldShowActionCellConfiguration:(Class)arg1;
 - (void)reloadData;
 - (id)_createTableViewBackgroundView;
 - (void)viewDidLoad;
+- (void)dealloc;
 - (id)initWithDataSource:(id)arg1 cellConfigurationClass:(Class)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

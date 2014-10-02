@@ -41,7 +41,6 @@
 - (id)initFromWiredHeadsetButton;
 - (id)init;
 - (void)_setRoutingAttributesForWiredHeadset:(_Bool)arg1;
-- (void)_prime;
 - (void)_makeActive;
 - (void)_resign;
 

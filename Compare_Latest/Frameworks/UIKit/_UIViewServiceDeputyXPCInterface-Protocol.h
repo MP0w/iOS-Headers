@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
-@class NSXPCInterface, Protocol;
+@class NSInvocation, NSXPCInterface, Protocol;
 
 @protocol _UIViewServiceDeputyXPCInterface <NSObject>
+- (NSInvocation *)connectionInvocation;
 - (SEL)connectionSelector;
 - (Protocol *)connectionProtocol;
 - (NSXPCInterface *)hostObjectInterface;

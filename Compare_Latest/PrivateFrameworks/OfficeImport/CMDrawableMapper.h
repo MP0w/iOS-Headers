@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
     OADOrientedBounds *mOrientedBounds;
 }
 
++ (id)orientedBoundsForDrawable:(id)arg1;
 - (id).cxx_construct;
 - (id)convertMetafileToPdf;
 - (void)mapTextBoxAt:(id)arg1 withState:(id)arg2;

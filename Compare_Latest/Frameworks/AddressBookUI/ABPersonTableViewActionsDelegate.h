@@ -10,7 +10,7 @@
 #import "ABPersonTableTinyActionDelegate.h"
 #import "UIActionSheetDelegate.h"
 
-@class ABPersonTableActionDataSource, ABPersonTableTinyActionCell, ABPersonTableViewDataSource, ABStyleProvider, ABUIPerson;
+@class ABPersonTableActionDataSource, ABPersonTableTinyActionCell, ABPersonTableViewDataSource, ABStyleProvider, ABUIPerson, NSString;
 
 @interface ABPersonTableViewActionsDelegate : NSObject <UIActionSheetDelegate, ABPersonTableActionDelegate, ABPersonTableTinyActionDelegate>
 {
@@ -79,6 +79,12 @@
 - (unsigned int)_sectionForAction:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "SKUICacheCoding.h"
 
-@class NSMutableDictionary, NSString, NSURL;
+@class NSDictionary, NSMutableDictionary, NSString, NSURL;
 
 @interface SKUIArtwork : NSObject <SKUICacheCoding>
 {
@@ -25,12 +25,17 @@
 - (id)initWithCacheRepresentation:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (id)description;
+@property(readonly) unsigned int hash;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic, getter=_lookupDictionary) NSDictionary *_lookupDictionary;
 @property(readonly, nonatomic) NSURL *URL;
 @property(readonly, nonatomic) struct CGSize size;
 - (id)initWithURL:(id)arg1 size:(struct CGSize)arg2;
 - (id)initWithArtworkDictionary:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

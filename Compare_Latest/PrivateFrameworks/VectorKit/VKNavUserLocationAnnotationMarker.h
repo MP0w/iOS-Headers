@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <VectorKit/VKMeshAnnotationMarker.h>
+#import <VectorKit/VKAnnotationMarker.h>
 
-@class VGLRenderState, VGLTexture, VKAnimation;
+@class VKAnimation;
 
-@interface VKNavUserLocationAnnotationMarker : VKMeshAnnotationMarker
+@interface VKNavUserLocationAnnotationMarker : VKAnnotationMarker
 {
     BOOL _shouldBillboard;
     VKAnimation *_billboardAnimation;
@@ -20,42 +20,47 @@
     double _sizePoints;
     double _puckOffset;
     BOOL _stale;
-    VGLTexture *_arrowTexture;
-    VGLTexture *_circleTexture;
     VKAnimation *_puckStyleAnimation;
     int _puckStyle;
     float _greyPuckAlphaScale;
-    VGLRenderState *_puckRenderState;
     struct {
         CDStruct_aa5aacbc arrowMatrix;
         CDStruct_aa5aacbc circleMatrix;
-        struct _VGLColor arrowColor;
+        Matrix_5173352a arrowColor;
     } _puckState;
     int _style;
-    struct _VGLColor _arrowColor;
-    struct _VGLColor _arrowColorStale;
+    Matrix_5173352a _arrowColor;
+    Matrix_5173352a _arrowColorStale;
     float _circleBrightness;
     float _arrowBrightness;
+    shared_ptr_479d1306 _textureArrow;
+    shared_ptr_479d1306 _textureCircle;
+    struct shared_ptr<ggl::RenderState> _gglPuckRenderState;
+    struct shared_ptr<ggl::TextureWithBrightness::Shader::Setup> _circleShaderSetup;
+    struct shared_ptr<ggl::TextureAlphaMask::Shader::Setup> _arrowShaderSetup;
+    struct shared_ptr<ggl::RenderItem> _arrowRenderItem;
+    struct shared_ptr<ggl::RenderItem> _circleRenderItem;
+    BOOL _needsTextureUpdate;
 }
 
-@property(nonatomic) struct _VGLColor innerColor; // @synthesize innerColor=_arrowColor;
 @property(nonatomic) int style; // @synthesize style=_style;
 @property(nonatomic) BOOL shouldShowCourse; // @synthesize shouldShowCourse=_shouldShowCourse;
 @property(nonatomic) BOOL shouldBillboard; // @synthesize shouldBillboard=_shouldBillboard;
 @property(nonatomic, getter=isStale) BOOL stale; // @synthesize stale=_stale;
 @property(nonatomic) float scale; // @synthesize scale=_scale;
 - (id).cxx_construct;
-- (void)updateWithStyle:(id)arg1;
+- (void).cxx_destruct;
+- (void)updateWithStyleQuery:(const shared_ptr_6e6219d6 *)arg1;
 - (void)setModel:(id)arg1;
 - (void)_updatePuckStyle;
-- (void)_drawPuckWithContext:(id)arg1;
-- (void)drawWithContext:(id)arg1;
 - (void)layoutWithContext:(id)arg1;
+- (void)appendCommandsToBuffer:(struct CommandBuffer *)arg1 inContext:(id)arg2;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (id)initWithAnnotation:(id)arg1 reuseIdentifier:(id)arg2 style:(int)arg3;
-- (void)_updateTextures;
+- (void)_updateTexturesIfNeeded;
 @property(nonatomic) double presentationCourse;
+@property(nonatomic) CDStruct_818bb265 innerColor;
 
 @end
 

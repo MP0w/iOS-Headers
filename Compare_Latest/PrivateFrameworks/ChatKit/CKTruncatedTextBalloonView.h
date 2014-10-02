@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <ChatKit/CKTextBalloonView.h>
+#import <ChatKit/CKHyperlinkBalloonView.h>
 
 #import "NSLayoutManagerDelegate.h"
 
-@class UIImageView;
+@class NSString, UIImageView;
 
-@interface CKTruncatedTextBalloonView : CKTextBalloonView <NSLayoutManagerDelegate>
+@interface CKTruncatedTextBalloonView : CKHyperlinkBalloonView <NSLayoutManagerDelegate>
 {
     UIImageView *_chevron;
 }
@@ -20,7 +20,12 @@
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)dealloc;
-- (void)configureForMessagePart:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

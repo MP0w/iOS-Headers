@@ -6,12 +6,13 @@
 
 #import "NSManagedObject.h"
 
-@class NSData, NSDate, NSNumber, NSString, NSURL, NoteBodyObject, NoteStoreObject;
+@class NSData, NSDate, NSNumber, NSSet, NSString, NSURL, NoteBodyObject, NoteStoreObject;
 
 @interface NoteObject : NSManagedObject
 {
 }
 
+- (BOOL)belongsToCollection:(id)arg1;
 @property(nonatomic) unsigned long long sequenceNumber;
 - (BOOL)containsAttachments;
 @property(retain, nonatomic) NSString *externalContentRef;
@@ -29,6 +30,7 @@
 @property(retain, nonatomic) NSString *content;
 
 // Remaining properties
+@property(retain, nonatomic) NSSet *attachments; // @dynamic attachments;
 @property(retain, nonatomic) NSString *author; // @dynamic author;
 @property(retain, nonatomic) NoteBodyObject *body; // @dynamic body;
 @property(retain, nonatomic) NSNumber *containsCJK; // @dynamic containsCJK;
@@ -38,7 +40,7 @@
 @property(retain, nonatomic) NSNumber *externalFlags; // @dynamic externalFlags;
 @property(retain, nonatomic) NSNumber *externalSequenceNumber; // @dynamic externalSequenceNumber;
 @property(retain, nonatomic) NSNumber *externalServerIntId; // @dynamic externalServerIntId;
-@property(retain, nonatomic) NSString *guid; // @dynamic guid;
+@property(readonly, retain, nonatomic) NSString *guid; // @dynamic guid;
 @property(retain, nonatomic) NSNumber *integerId; // @dynamic integerId;
 @property(retain, nonatomic) NSNumber *isBookkeepingEntry; // @dynamic isBookkeepingEntry;
 @property(retain, nonatomic) NSDate *modificationDate; // @dynamic modificationDate;

@@ -43,9 +43,14 @@ __attribute__((visibility("hidden")))
 - (id)varyingAssignmentForLinkage:(id)arg1;
 - (vector_aeadf634 *)dependeeScopes;
 @property(readonly, nonatomic) BOOL isLinked;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithAssigneeLinkage:(id)arg1 statement:(id)arg2 dependees:(id)arg3 program:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

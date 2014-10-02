@@ -9,7 +9,7 @@
 #import "TSCH3DChartAllElementSceneObjectDelegate.h"
 #import "TSCH3DSceneObjectDelegator.h"
 
-@class TSCH3DChartModelEnumerator, TSCHChartSeries;
+@class NSString, TSCH3DChartModelEnumerator, TSCHChartSeries;
 
 __attribute__((visibility("hidden")))
 @interface TSCH3DChartGeometryArrayCompiler : TSCH3DGeometryCollector <TSCH3DSceneObjectDelegator, TSCH3DChartAllElementSceneObjectDelegate>
@@ -54,6 +54,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)p_initWithScene:(id)arg1;
 - (id)initWithScene:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

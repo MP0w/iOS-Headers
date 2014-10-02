@@ -7,6 +7,7 @@
 #import "NSInvocation.h"
 
 @interface NSInvocation (NSXPCConnectionExtensions)
+- (BOOL)_hasBlockArgument;
 - (void)setUserInfo:(id)arg1;
 - (id)userInfo;
 @end

@@ -8,7 +8,7 @@
 
 #import "SBWallpaperObserver.h"
 
-@class SBDockIconListView, SBHighlightView, SBWallpaperEffectView, UIImageView, _UILegibilitySettings;
+@class NSString, SBDockIconListView, SBHighlightView, SBWallpaperEffectView, UIImageView, _UILegibilitySettings;
 
 @interface SBDockView : UIView <SBWallpaperObserver>
 {
@@ -18,20 +18,27 @@
     UIImageView *_backgroundImageView;
     UIView *_accessibilityBackgroundView;
     _UILegibilitySettings *_legibilitySettings;
+    unsigned long long _dockEdge;
 }
 
 + (double)defaultHeight;
+@property(nonatomic) unsigned long long dockEdge; // @synthesize dockEdge=_dockEdge;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
 - (void)wallpaperDidChangeForVariant:(long long)arg1;
 - (void)_backgroundContrastDidChange:(id)arg1;
 - (id)_newBackgroundImage;
 - (void)setVerticalBackgroundStretch:(double)arg1;
 - (void)setBackgroundAlpha:(double)arg1;
-- (double)heightForOrientation:(long long)arg1;
 - (void)layoutSubviews;
 - (id)dockListView;
 - (void)dealloc;
 - (id)initWithDockListView:(id)arg1 forSnapshot:(_Bool)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

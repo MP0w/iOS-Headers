@@ -21,26 +21,45 @@
     NSString *_serviceToken;
     NSMutableDictionary *_pendingSends;
     unsigned int _delegateCapabilities;
+    BOOL _indirectDelegateCallouts;
 }
 
-- (void)messageReceived:(id)arg1 withGUID:(id)arg2 withPayload:(id)arg3 forTopic:(id)arg4 fromID:(id)arg5;
+- (void)sessionInvitationReceivedWithPayload:(id)arg1 forTopic:(id)arg2 sessionID:(id)arg3 toIdentifier:(id)arg4 fromID:(id)arg5 transportType:(id)arg6;
+- (void)protobufReceived:(id)arg1 withGUID:(id)arg2 forTopic:(id)arg3 toIdentifier:(id)arg4 fromID:(id)arg5 context:(id)arg6;
+- (void)dataReceived:(id)arg1 withGUID:(id)arg2 forTopic:(id)arg3 toIdentifier:(id)arg4 fromID:(id)arg5 context:(id)arg6;
+- (void)messageReceived:(id)arg1 withGUID:(id)arg2 withPayload:(id)arg3 forTopic:(id)arg4 toIdentifier:(id)arg5 fromID:(id)arg6 context:(id)arg7;
+- (BOOL)_shouldAcceptIncomingType:(id)arg1 forTopic:(id)arg2 toIdentifier:(id)arg3;
 - (void)_setTemporaryMessageContext:(id)arg1;
-- (void)messageIdentifier:(id)arg1 updatedWithResponseCode:(int)arg2 error:(id)arg3 lastCall:(BOOL)arg4;
-- (void)daemonDisconnected;
+- (void)messageIdentifier:(id)arg1 forTopic:(id)arg2 toIdentifier:(id)arg3 hasBeenDeliveredWithContext:(id)arg4;
+- (void)messageIdentifier:(id)arg1 alternateCallbackID:(id)arg2 forAccount:(id)arg3 willSendToDestinations:(id)arg4 skippedDestinations:(id)arg5 registrationPropertyToDestinations:(id)arg6;
+- (void)messageIdentifier:(id)arg1 alternateCallbackID:(id)arg2 forAccount:(id)arg3 updatedWithResponseCode:(int)arg4 error:(id)arg5 lastCall:(BOOL)arg6;
+- (void)daemonConnected;
+- (void)_resendPendingSends;
+- (void)_handleLastCallForPendingIdentifier:(id)arg1 callbackID:(id)arg2;
 - (void)_connect;
+- (void)account:(id)arg1 nearbyDevicesChanged:(id)arg2;
 - (void)account:(id)arg1 devicesChanged:(id)arg2;
 - (void)account:(id)arg1 isActiveChanged:(BOOL)arg2;
-- (void)requestKeepAlive;
 - (BOOL)sendServerMessage:(id)arg1 command:(id)arg2;
+- (BOOL)sendData:(id)arg1 toDestinations:(id)arg2 priority:(int)arg3 options:(id)arg4 identifier:(id *)arg5 error:(id *)arg6;
 - (BOOL)sendMessage:(id)arg1 toDestinations:(id)arg2 priority:(int)arg3 options:(id)arg4 identifier:(id *)arg5 error:(id *)arg6;
+- (BOOL)sendProtobuf:(id)arg1 toDestinations:(id)arg2 priority:(int)arg3 options:(id)arg4 identifier:(id *)arg5 error:(id *)arg6;
+- (id)_sendWithParameters:(id)arg1 options:(id)arg2 loggingType:(id)arg3 loggingDataSize:(unsigned int)arg4;
 - (void)setDelegateCapabilities:(unsigned int)arg1;
+- (void)_callDelegatesWithBlock:(CDUnknownBlockType)arg1 group:(id)arg2;
 - (void)_callDelegatesWithBlock:(CDUnknownBlockType)arg1;
 - (void)removeDelegate:(id)arg1;
 - (void)addDelegate:(id)arg1 queue:(id)arg2;
 @property(readonly, nonatomic) BOOL isActive;
-@property(readonly, nonatomic) IDSAccount *account;
+@property(readonly, retain, nonatomic) IDSAccount *account;
 - (void)dealloc;
-- (id)initWithAccount:(id)arg1 commands:(id)arg2 delegateContext:(id)arg3;
+- (id)initWithAccount:(id)arg1 commands:(id)arg2 indirectDelegateCallouts:(BOOL)arg3 delegateContext:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "UITableViewSubviewReusing.h"
 
-@class NSString, UIColor, UIImage, UILabel, UITableView;
+@class NSString, UIColor, UIImage, UILabel, UITableView, _UITableViewHeaderFooterViewLabel;
 
 @interface UITableViewHeaderFooterView : UIView <UITableViewSubviewReusing>
 {
@@ -20,8 +20,8 @@
     float _maxTitleWidth;
     NSString *_reuseIdentifier;
     UIView *_backgroundView;
-    UILabel *_label;
-    UILabel *_detailLabel;
+    _UITableViewHeaderFooterViewLabel *_label;
+    _UITableViewHeaderFooterViewLabel *_detailLabel;
     UIView *_contentView;
     UIColor *_tintColor;
     struct UIEdgeInsets _separatorInset;
@@ -30,18 +30,26 @@
         unsigned int labelBackgroundColorNeedsUpdate:1;
         unsigned int detailLabelBackgroundColorNeedsUpdate:1;
         unsigned int floating:1;
+        unsigned int stripPadding:1;
+        unsigned int isTopHeader:1;
     } _headerFooterFlags;
 }
 
++ (id)_defaultTextColorForTableViewStyle:(int)arg1 isSectionHeader:(BOOL)arg2;
 + (id)_defaultFontForTableViewStyle:(int)arg1 isSectionHeader:(BOOL)arg2;
++ (id)_defaultPlainHeaderFooterFont;
 @property(retain, nonatomic) UIImage *backgroundImage; // @synthesize backgroundImage=_backgroundImage;
 @property(nonatomic) float maxTitleWidth; // @synthesize maxTitleWidth=_maxTitleWidth;
 @property(nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
 @property(copy, nonatomic) NSString *reuseIdentifier; // @synthesize reuseIdentifier=_reuseIdentifier;
-@property(readonly, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
+@property(readonly, retain, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
+@property(nonatomic, getter=_isTopHeader, setter=_setTopHeader:) BOOL topHeader;
+@property(nonatomic, getter=_stripPadding, setter=_setStripPadding:) BOOL stripPadding;
 - (void)_tableViewDidUpdateMarginWidth;
 @property(retain, nonatomic) UIColor *tintColor;
 - (id)_scriptingInfo;
+- (void)setNeedsUpdateConstraints;
+- (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1 withHorizontalFittingPriority:(float)arg2 verticalFittingPriority:(float)arg3;
 - (void)layoutSubviews;
 - (void)setBackgroundColor:(id)arg1;
 - (void)setOpaque:(BOOL)arg1;
@@ -56,13 +64,14 @@
 @property(retain, nonatomic) UIView *backgroundView;
 - (void)_setupBackgroundView;
 - (void)_updateBackgroundImage;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)_sizeThatFits:(struct CGSize)arg1 stripPaddingForAbuttingView:(BOOL)arg2 isTopHeader:(BOOL)arg3;
 - (BOOL)_useDetailText;
 - (struct CGRect)_detailLabelFrame;
 - (struct CGRect)_labelFrame;
 @property(copy, nonatomic) NSString *text;
-@property(readonly, nonatomic) UILabel *detailTextLabel;
-@property(readonly, nonatomic) UILabel *textLabel;
+@property(readonly, retain, nonatomic) UILabel *detailTextLabel;
+@property(readonly, retain, nonatomic) UILabel *textLabel;
 - (id)_label:(BOOL)arg1;
 - (void)_setupLabelAppearance;
 - (void)_updateDetailLabelBackgroundColorIfNeeded;
@@ -81,6 +90,12 @@
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithReuseIdentifier:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

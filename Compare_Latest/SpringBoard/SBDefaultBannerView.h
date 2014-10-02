@@ -9,7 +9,7 @@
 #import "SBUIBannerView.h"
 #import "SBVibrantBannerView.h"
 
-@class SBDefaultBannerTextView, SBUIBannerContext, UIImageView;
+@class NSString, SBDefaultBannerTextView, SBUIBannerContext, UIImageView;
 
 @interface SBDefaultBannerView : UIView <SBUIBannerView, SBVibrantBannerView>
 {
@@ -18,24 +18,40 @@
     UIImageView *_iconImageView;
     SBDefaultBannerTextView *_textView;
     UIImageView *_attachmentImageView;
-    struct CGSize _grabberSize;
-    UIView *_grabberView;
+    UIView *_secondaryContentView;
 }
 
 + (id)defaultColorForElement:(long long)arg1;
 + (id)_defaultRelevanceDateColor;
-+ (id)_defaultGrabberColor;
 - (void)setColor:(id)arg1 forElement:(long long)arg2;
 - (id)colorForElement:(long long)arg1;
 - (void)_setRelevanceDateColor:(id)arg1;
 - (id)_relevanceDateColor;
-- (void)_setGrabberColor:(id)arg1;
-- (id)_grabberColor;
+- (double)_secondaryContentInsetY;
+- (double)_textInsetX;
+- (double)_iconInsetY;
+- (struct CGRect)_secondaryContentFrameForBounds:(struct CGRect)arg1;
+- (struct CGRect)_secondaryContentFrame;
+- (struct CGRect)_textViewFrameForBounds:(struct CGRect)arg1;
+- (struct CGRect)_textViewFrame;
+- (struct CGRect)_iconImageViewFrame;
+- (struct CGRect)_contentFrame;
+- (struct CGRect)_contentFrameForBounds:(struct CGRect)arg1;
+- (struct CGRect)_attachmentImageViewFrame;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
+- (void)setPercentPulledDown:(double)arg1;
+- (void)setSecondaryContentView:(id)arg1;
 - (id)bannerContext;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

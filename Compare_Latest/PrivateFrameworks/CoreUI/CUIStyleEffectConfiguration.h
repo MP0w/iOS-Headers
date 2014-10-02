@@ -22,6 +22,7 @@
 @property(nonatomic) int value; // @synthesize value=_value;
 @property(nonatomic) int presentationState; // @synthesize presentationState=_presentationState;
 @property(nonatomic) int state; // @synthesize state=_state;
+- (id)description;
 - (BOOL)shouldIgnoreForegroundColor;
 - (id)init;
 - (id)copyWithZone:(struct _NSZone *)arg1;

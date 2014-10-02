@@ -4,21 +4,56 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <Preferences/PSListItemsController.h>
+#import <Preferences/PSViewController.h>
 
-@class NSMutableDictionary;
+#import "UISearchBarDelegate.h"
+#import "UITableViewDataSource.h"
+#import "UITableViewDelegate.h"
 
-@interface PSInternationalLanguageController : PSListItemsController
+@class NSArray, NSString, PSLanguage, PSLanguageSelector, PSLocaleSelector, UISearchBar, UITableView, UIView;
+
+@interface PSInternationalLanguageController : PSViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 {
-    NSMutableDictionary *_cellCache;
+    UISearchBar *_searchBar;
+    UITableView *_tableView;
+    UIView *_contentView;
+    BOOL _searchIsActive;
+    PSLanguageSelector *_languageSelector;
+    PSLocaleSelector *_localeSelector;
+    PSLanguage *_checkedLanguage;
+    NSArray *_deviceLanguages;
+    NSArray *_otherLanguages;
+    NSArray *_filteredDeviceLanguages;
+    NSArray *_filteredOtherLanguages;
+    NSString *_savedSearchTerm;
 }
 
-@property(retain, nonatomic) NSMutableDictionary *cellCache; // @synthesize cellCache=_cellCache;
+@property(nonatomic) BOOL searchIsActive; // @synthesize searchIsActive=_searchIsActive;
+@property(retain, nonatomic) NSString *savedSearchTerm; // @synthesize savedSearchTerm=_savedSearchTerm;
+@property(retain, nonatomic) NSArray *filteredOtherLanguages; // @synthesize filteredOtherLanguages=_filteredOtherLanguages;
+@property(retain, nonatomic) NSArray *filteredDeviceLanguages; // @synthesize filteredDeviceLanguages=_filteredDeviceLanguages;
+@property(retain, nonatomic) NSArray *otherLanguages; // @synthesize otherLanguages=_otherLanguages;
+@property(retain, nonatomic) NSArray *deviceLanguages; // @synthesize deviceLanguages=_deviceLanguages;
+@property(retain, nonatomic) PSLanguage *checkedLanguage; // @synthesize checkedLanguage=_checkedLanguage;
+@property(retain, nonatomic) PSLocaleSelector *localeSelector; // @synthesize localeSelector=_localeSelector;
+@property(retain, nonatomic) PSLanguageSelector *languageSelector; // @synthesize languageSelector=_languageSelector;
+- (void)searchBarCancelButtonClicked:(id)arg1;
+- (void)searchBarTextDidEndEditing:(id)arg1;
+- (void)searchBarTextDidBeginEditing:(id)arg1;
+- (id)filteredLanguagesForLanguageList:(id)arg1 searchString:(id)arg2;
+- (void)searchBar:(id)arg1 textDidChange:(id)arg2;
+- (void)reloadDataAndScrollToCheckedLanguageWithAnimation:(BOOL)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (id)specifiers;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (int)numberOfSectionsInTableView:(id)arg1;
+- (void)sortByLocalizedLanguage:(id)arg1;
+- (void)loadData;
+- (void)loadView;
+- (id)_mainContentView;
 - (void)viewDidAppear:(BOOL)arg1;
-- (void)generateLanguageCellCache;
+- (void)generateLanguageCells;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)updateNavigationItem;
 - (void)doneButtonTapped;
@@ -26,6 +61,12 @@
 - (void)_removeBlackFrame;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

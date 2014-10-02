@@ -6,19 +6,20 @@
 
 #import <iWorkImport/TSKCommand.h>
 
-@class KNBuildChunk, KNSlide;
+@class KNAbstractSlide, KNBuildChunk;
 
 __attribute__((visibility("hidden")))
 @interface KNCommandSlideInsertBuildChunk : TSKCommand
 {
-    KNSlide *mSlide;
+    KNAbstractSlide *mSlide;
     KNBuildChunk *mBuildChunk;
     unsigned int mIndex;
 }
 
 @property(readonly, nonatomic) unsigned int index; // @synthesize index=mIndex;
 @property(readonly, nonatomic) KNBuildChunk *buildChunk; // @synthesize buildChunk=mBuildChunk;
-@property(readonly, nonatomic) KNSlide *slide; // @synthesize slide=mSlide;
+@property(readonly, nonatomic) KNAbstractSlide *slide; // @synthesize slide=mSlide;
+- (id)description;
 - (void)redo;
 - (void)undo;
 - (void)commit;

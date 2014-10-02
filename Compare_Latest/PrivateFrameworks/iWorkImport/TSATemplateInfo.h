@@ -16,7 +16,6 @@ __attribute__((visibility("hidden")))
 }
 
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
-- (id)description;
 - (void)prepareForNewDocumentWithQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) BOOL isUserTemplate;
 @property(readonly, nonatomic) BOOL isAvailable;

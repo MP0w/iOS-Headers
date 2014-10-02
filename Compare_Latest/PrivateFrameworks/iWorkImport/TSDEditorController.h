@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
     BOOL mIsReentrantResigningTextInputEditors;
     NSMutableArray *mResignedTextInputEditors;
     NSMutableDictionary *mInspectorPropertyValueMap;
+    unsigned int mChangingCurrentEditorsWhenCommittingInspectorChangesCount;
 }
 
 - (void)p_didChangeCurrentEditors;
@@ -33,6 +34,9 @@ __attribute__((visibility("hidden")))
 - (void)editorDidChangeSelectionAndWantsKeyboard:(id)arg1 withSelectionFlags:(unsigned int)arg2;
 - (void)editorSelectionWasForciblyChanged:(id)arg1;
 - (void)editorDidChangeSelection:(id)arg1 withSelectionFlags:(unsigned int)arg2;
+- (void)didChangeCurrentEditorsWhenCommittingInspectorChanges;
+- (void)willChangeCurrentEditorsWhenCommittingInspectorChanges;
+@property(readonly, nonatomic, getter=isChangingCurrentEditorsWhenCommittingInspectorChanges) BOOL changingCurrentEditorsWhenCommittingInspectorChanges;
 - (id)objectForInspectorPropertyKey:(id)arg1;
 - (void)removeObjectForInspectorPropertyKey:(id)arg1;
 - (void)setObject:(id)arg1 forInspectorPropertyKey:(id)arg2;

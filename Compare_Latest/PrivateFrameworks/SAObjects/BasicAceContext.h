@@ -8,7 +8,7 @@
 
 #import "AceContext.h"
 
-@class NSMutableDictionary;
+@class NSMutableDictionary, NSString;
 
 @interface BasicAceContext : NSObject <AceContext>
 {
@@ -21,6 +21,12 @@
 - (void)registerGroupAcronym:(id)arg1 forGroupWithIdentifier:(id)arg2;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

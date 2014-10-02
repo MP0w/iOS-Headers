@@ -8,7 +8,7 @@
 
 #import "SKUIItemOfferButtonDelegate.h"
 
-@class SKUICellImageView, SKUIItemOffer, SKUIItemOfferButton, SKUIItemOfferButtonAppearance, SKUIItemState, UIImage, UIView;
+@class NSString, SKUICellImageView, SKUIItemOffer, SKUIItemOfferButton, SKUIItemOfferButtonAppearance, SKUIItemState, UIImage, UILabel, UIView;
 
 @interface SKUIItemCellLayout : SKUICellLayout <SKUIItemOfferButtonDelegate>
 {
@@ -19,6 +19,7 @@
     SKUIItemOffer *_itemOffer;
     SKUIItemOfferButton *_itemOfferButton;
     SKUIItemOfferButtonAppearance *_itemOfferButtonAppearance;
+    UILabel *_itemOfferNoticeLabel;
     SKUIItemState *_itemState;
     BOOL _restricted;
     BOOL _selected;
@@ -29,6 +30,7 @@
 @property(nonatomic, getter=isSelected) BOOL selected; // @synthesize selected=_selected;
 @property(nonatomic, getter=isRestricted) BOOL restricted; // @synthesize restricted=_restricted;
 @property(copy, nonatomic) SKUIItemState *itemState; // @synthesize itemState=_itemState;
+@property(readonly, nonatomic) UILabel *itemOfferNoticeLabel; // @synthesize itemOfferNoticeLabel=_itemOfferNoticeLabel;
 @property(retain, nonatomic) SKUIItemOfferButtonAppearance *itemOfferButtonAppearance; // @synthesize itemOfferButtonAppearance=_itemOfferButtonAppearance;
 @property(readonly, nonatomic) SKUIItemOfferButton *itemOfferButton; // @synthesize itemOfferButton=_itemOfferButton;
 @property(retain, nonatomic) SKUIItemOffer *itemOffer; // @synthesize itemOffer=_itemOffer;
@@ -41,6 +43,7 @@
 - (void)_reloadItemOfferButton:(BOOL)arg1;
 - (id)_parentCollectionViewCell;
 - (void)_getParentTableView:(id *)arg1 collectionView:(id *)arg2;
+- (BOOL)_canShowItemOfferNotice;
 - (void)_showItemOfferConfirmationAction:(id)arg1;
 - (void)_itemOfferConfirmAction:(id)arg1;
 - (void)_cancelItemOfferConfirmationAction:(id)arg1;
@@ -48,11 +51,18 @@
 - (void)setBackgroundColor:(id)arg1;
 - (void)prepareForReuse;
 - (void)setItemState:(id)arg1 animated:(BOOL)arg2;
+@property(copy, nonatomic) NSString *itemOfferNoticeString;
 @property(retain, nonatomic) UIImage *iconImage;
 @property(nonatomic) BOOL displaysItemOfferButton;
 - (void)resetLayout;
 - (void)layoutForItemOfferChange;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

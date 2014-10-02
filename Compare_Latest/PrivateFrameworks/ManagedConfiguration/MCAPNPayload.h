@@ -20,6 +20,7 @@
 + (id)typeStrings;
 @property(nonatomic) BOOL wasInstalled; // @synthesize wasInstalled=_wasInstalled;
 - (void).cxx_destruct;
+- (id)payloadDescriptionKeyValueSections;
 - (id)subtitle2Description;
 - (id)subtitle2Label;
 - (id)subtitle1Description;

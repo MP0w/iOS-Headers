@@ -18,15 +18,15 @@
 
 + (id)paymentWithProductIdentifier:(id)arg1;
 + (id)paymentWithProduct:(id)arg1;
-@property(readonly, nonatomic) NSDictionary *requestParameters;
-@property(readonly, nonatomic) NSString *partnerTransactionIdentifier;
-@property(readonly, nonatomic) NSString *partnerIdentifier;
-@property(readonly, nonatomic) NSData *requestData;
+@property(readonly, copy, nonatomic) NSDictionary *requestParameters;
+@property(readonly, copy, nonatomic) NSString *partnerTransactionIdentifier;
+@property(readonly, copy, nonatomic) NSString *partnerIdentifier;
+@property(readonly, copy, nonatomic) NSData *requestData;
 @property(readonly, nonatomic) int quantity;
-@property(readonly, nonatomic) NSString *productIdentifier;
+@property(readonly, copy, nonatomic) NSString *productIdentifier;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
-@property(readonly, nonatomic) NSString *applicationUsername;
+@property(readonly, copy, nonatomic) NSString *applicationUsername;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

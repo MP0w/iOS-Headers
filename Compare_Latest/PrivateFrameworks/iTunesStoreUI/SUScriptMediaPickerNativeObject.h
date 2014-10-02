@@ -8,6 +8,8 @@
 
 #import "MPMediaPickerControllerDelegate.h"
 
+@class NSString;
+
 @interface SUScriptMediaPickerNativeObject : SUScriptViewControllerNativeObject <MPMediaPickerControllerDelegate>
 {
 }
@@ -16,6 +18,12 @@
 - (void)mediaPicker:(id)arg1 didPickMediaItems:(id)arg2;
 - (void)setupNativeObject;
 - (void)destroyNativeObject;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

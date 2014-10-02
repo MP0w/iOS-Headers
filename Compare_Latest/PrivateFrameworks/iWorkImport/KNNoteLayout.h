@@ -10,7 +10,7 @@
 #import "TSWPColumnMetrics.h"
 #import "TSWPLayoutParent.h"
 
-@class TSWPLayout, TSWPPadding;
+@class NSString, TSWPLayout, TSWPPadding;
 
 __attribute__((visibility("hidden")))
 @interface KNNoteLayout : TSDLayout <TSKChangeSourceObserver, TSWPLayoutParent, TSWPColumnMetrics>
@@ -28,14 +28,14 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL columnsAreLeftToRight;
 @property(readonly, nonatomic) BOOL shrinkTextToFit;
 @property(readonly, nonatomic) BOOL alwaysStartsNewTarget;
-- (float)positionForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2 outWidth:(float *)arg3 outGap:(float *)arg4;
+- (float)positionForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2 target:(id)arg3 outWidth:(float *)arg4 outGap:(float *)arg5;
 - (float)gapForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2;
 - (float)widthForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2;
 @property(readonly, nonatomic) unsigned int columnCount;
 @property(readonly, nonatomic) float textScaleFactor;
 - (float)textScaleFactorForPrinting;
 @property(readonly, nonatomic) TSWPPadding *layoutMargins;
-@property(readonly, nonatomic) struct CGSize adjustedInsets;
+- (struct CGSize)adjustedInsetsForTarget:(id)arg1;
 - (id)p_adjustedPaddingForBodyWidth:(float)arg1;
 @property(readonly, nonatomic) TSWPPadding *padding;
 - (id)columnMetricsForCharIndex:(unsigned int)arg1 outRange:(struct _NSRange)arg2;
@@ -66,6 +66,12 @@ __attribute__((visibility("hidden")))
 - (id)children;
 - (id)computeLayoutGeometry;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -12,10 +12,8 @@
 
 + (id)_titleProperty;
 + (id)_artistRepresentativeItemProperty;
-+ (id)_artistArtworkCacheIDProperty;
 + (id)titleForMediaEntity:(id)arg1 valuesForProperties:(id)arg2;
 + (id)mediaEntityPropertiesToFetch;
-+ (id)imageCacheRequestForMediaEntity:(id)arg1 valuesForProperties:(id)arg2 shouldLoadAsynchronously:(char *)arg3;
 + (void)appDefaultsDidChange;
 
 @end

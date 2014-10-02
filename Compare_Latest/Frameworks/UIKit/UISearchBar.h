@@ -8,17 +8,18 @@
 
 #import "UIBarPositioning.h"
 #import "UIStatusBarTinting.h"
+#import "UITextInputTraits.h"
 #import "UITextInputTraits_Private.h"
 #import "_UIBarPositioningInternal.h"
 
-@class NSArray, NSString, UIBarButtonItem, UIButton, UIColor, UIImage, UIImageView, UILabel, UISearchBarTextField, UITapGestureRecognizer, UITextInputTraits, _UIBackdropView, _UISearchBarNavigationItem, _UISearchBarScopeBarBackground;
+@class NSArray, NSString, UIBarButtonItem, UIButton, UIColor, UIImage, UIImageView, UILabel, UISearchBarTextField, UISearchController, UITapGestureRecognizer, UITextInputTraits, _UIBackdropView, _UISearchBarNavigationItem, _UISearchBarScopeBarBackground;
 
-@interface UISearchBar : UIView <UITextInputTraits_Private, UIStatusBarTinting, _UIBarPositioningInternal, UIBarPositioning>
+@interface UISearchBar : UIView <UITextInputTraits_Private, UIStatusBarTinting, _UIBarPositioningInternal, UIBarPositioning, UITextInputTraits>
 {
     UISearchBarTextField *_searchField;
     UILabel *_promptLabel;
     UIButton *_cancelButton;
-    id <UISearchBarDelegate> _delegate;
+    id <UISearchBarDelegate><UISearchBarDelegate_Private> _delegate;
     id _controller;
     UIColor *_barTintColor;
     UIImageView *_separator;
@@ -40,6 +41,7 @@
     UITapGestureRecognizer *_tapToActivateGestureRecognizer;
     UIBarButtonItem *_cancelBarButtonItem;
     UITextInputTraits *_textInputTraits;
+    UIButton *_leftButton;
     struct {
         unsigned int barStyle:3;
         unsigned int showsBookmarkButton:1;
@@ -56,17 +58,26 @@
         unsigned int disabled:1;
         unsigned int backgroundLayoutNeedsUpdate:1;
         unsigned int containedInNavigationPalette:1;
+        unsigned int containedInNavigationBar:1;
+        unsigned int containedInToolBar:1;
         unsigned int drawsBackgroundInPalette:1;
         unsigned int centerPlaceholder:1;
         unsigned int searchFieldLeftViewMode:2;
+        unsigned int cancelButtonWantsLetterpress:1;
     } _searchBarFlags;
     BOOL __forceCenteredPlaceholderLayout;
+    BOOL __transplanting;
     UIColor *_statusBarTintColor;
     UIView *_inputAccessoryView;
     int _barPosition;
     unsigned int _searchBarStyle;
+    UISearchController *__searchController;
+    unsigned int __scopeBarPosition;
 }
 
+@property(nonatomic, setter=_setScopeBarPosition:) unsigned int _scopeBarPosition; // @synthesize _scopeBarPosition=__scopeBarPosition;
+@property(nonatomic, setter=_setTransplanting:) BOOL _transplanting; // @synthesize _transplanting=__transplanting;
+@property(nonatomic, setter=_setSearchController:) UISearchController *_searchController; // @synthesize _searchController=__searchController;
 @property(nonatomic) BOOL _forceCenteredPlaceholderLayout; // @synthesize _forceCenteredPlaceholderLayout=__forceCenteredPlaceholderLayout;
 @property(nonatomic) unsigned int searchBarStyle; // @synthesize searchBarStyle=_searchBarStyle;
 @property(readonly, nonatomic) int barPosition; // @synthesize barPosition=_barPosition;
@@ -74,6 +85,10 @@
 @property(retain, nonatomic, setter=_setStatusBarTintColor:) UIColor *_statusBarTintColor; // @synthesize _statusBarTintColor;
 @property(retain, nonatomic) UIColor *barTintColor; // @synthesize barTintColor=_barTintColor;
 @property(nonatomic) id <UISearchBarDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)_setCancelButtonWantsLetterpress;
+- (id)_alternateTitle;
+- (BOOL)_shouldUseNavigationBarHeight;
+- (int)_barMetricsForOrientation:(int)arg1;
 - (void)setSearchFieldLeftViewMode:(int)arg1;
 - (int)searchFieldLeftViewMode;
 - (void)_updateInsetsForTableView:(id)arg1;
@@ -87,6 +102,7 @@
 - (void)setCenterPlaceholder:(BOOL)arg1;
 - (unsigned int)_backdropStyle;
 - (void)_setBackdropStyle:(unsigned int)arg1;
+- (void)_applySearchBarStyle;
 - (void)_updateNeedForBackdrop;
 - (void)_setBackgroundLayoutNeedsUpdate:(BOOL)arg1;
 - (BOOL)_containedInNavigationPalette;
@@ -118,7 +134,6 @@
 @property(retain, nonatomic) UIImage *backgroundImage;
 - (id)backgroundImageForBarPosition:(int)arg1 barMetrics:(int)arg2;
 - (void)setBackgroundImage:(id)arg1 forBarPosition:(int)arg2 barMetrics:(int)arg3;
-- (id)backgroundImageForBarMetrics:(int)arg1;
 - (void)setBackgroundImage:(id)arg1 forBarMetrics:(int)arg2;
 - (void)_effectiveBarTintColorDidChange:(BOOL)arg1;
 @property(retain, nonatomic) UIColor *tintColor; // @dynamic tintColor;
@@ -142,12 +157,14 @@
 - (void)_setShadowVisibleIfNecessary:(BOOL)arg1;
 - (id)_navigationBarForShadow;
 - (void)layoutSubviews;
+- (float)_scopeBarHeight;
 - (void)sendSubviewToBack:(id)arg1;
 - (void)bringSubviewToFront:(id)arg1;
 - (void)_addSubview:(id)arg1 positioned:(int)arg2 relativeTo:(id)arg3;
 - (float)_searchFieldHeight;
 - (float)_landscapeScopeBarWidth;
 - (float)_landscapeSearchFieldWidth;
+- (float)_availableBoundsWidthForSize:(struct CGSize)arg1;
 - (float)_availableBoundsWidth;
 - (BOOL)_searchFieldWidthShouldBeFlexible;
 - (void)_setShowsSeparator:(BOOL)arg1;
@@ -156,18 +173,20 @@
 - (BOOL)_contentHuggingDefault_isUsuallyFixedHeight;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (float)_defaultHeight;
-- (void)setValue:(id)arg1 forKey:(id)arg2;
-- (id)valueForKey:(id)arg1;
-- (id)_supportedTextInputTraits;
+- (float)_barHeightForBarMetrics:(int)arg1;
 - (BOOL)respondsToSelector:(SEL)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (id)forwardingTargetForSelector:(SEL)arg1;
 - (void)takeTraitsFrom:(id)arg1;
 - (id)textInputTraits;
+@property(readonly, retain, nonatomic) UIButton *_leftButton; // @synthesize _leftButton;
+- (void)_setupLeftButton;
 - (id)cancelButton;
 - (void)setCancelButton:(id)arg1;
 - (BOOL)usesEmbeddedAppearance;
 - (void)setUsesEmbeddedAppearance:(BOOL)arg1;
+- (BOOL)_wouldCombineLandscapeBarsForSize:(struct CGSize)arg1;
+- (BOOL)_shouldCombineLandscapeBarsForOrientation:(int)arg1;
 - (BOOL)_shouldCombineLandscapeBars;
 - (BOOL)combinesLandscapeBars;
 - (void)setCombinesLandscapeBars:(BOOL)arg1;
@@ -189,8 +208,10 @@
 @property(copy, nonatomic) NSString *text;
 @property(nonatomic, getter=isTranslucent) BOOL translucent;
 @property(nonatomic) int barStyle;
+- (void)_removeMarginsIfNecessary;
 - (void)movedToSuperview:(id)arg1;
 - (void)willMoveToSuperview:(id)arg1;
+- (void)_identifyBarContainer;
 - (void)didMoveToWindow:(id)arg1;
 - (void)willMoveToWindow:(id)arg1;
 - (id)_scopeBar;
@@ -237,12 +258,12 @@
 - (void)_setAutoDisableCancelButton:(BOOL)arg1;
 - (void)_setCancelButtonText:(id)arg1;
 - (void)_setupPromptLabel;
+- (BOOL)textFieldShouldClear:(id)arg1;
 - (BOOL)_textFieldShouldScrollToVisibleWhenBecomingFirstResponder:(id)arg1;
 - (BOOL)textFieldShouldEndEditing:(id)arg1;
 - (BOOL)textFieldShouldBeginEditing:(id)arg1;
 - (void)_updateOpacity;
 - (void)_setupSearchField;
-- (void)tintColorDidChange;
 - (void)_updateMagnifyingGlassView;
 - (void)_updateSearchFieldArt;
 - (BOOL)_consideredInBarWithSuperview:(id)arg1;
@@ -259,28 +280,35 @@
 @property(nonatomic) BOOL acceptsFloatingKeyboard;
 @property(nonatomic) BOOL acceptsSplitKeyboard;
 @property(nonatomic) int autocapitalizationType; // @dynamic autocapitalizationType;
+@property(copy, nonatomic) NSString *autocorrectionContext;
 @property(nonatomic) int autocorrectionType; // @dynamic autocorrectionType;
 @property(nonatomic) BOOL contentsIsSingleValue;
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) BOOL deferBecomingResponder;
+@property(readonly, copy) NSString *description;
+@property(nonatomic) BOOL disablePrediction;
 @property(nonatomic) BOOL displaySecureTextUsingPlainText;
 @property(nonatomic) int emptyContentReturnKeyType;
-@property(nonatomic) BOOL enablesReturnKeyAutomatically;
+@property(nonatomic) BOOL enablesReturnKeyAutomatically; // @dynamic enablesReturnKeyAutomatically;
 @property(nonatomic) BOOL enablesReturnKeyOnNonWhiteSpaceContent;
 @property(nonatomic) BOOL forceEnableDictation;
+@property(readonly) unsigned int hash;
 @property(retain, nonatomic) UIColor *insertionPointColor;
 @property(nonatomic) unsigned int insertionPointWidth;
 @property(nonatomic) BOOL isSingleLineDocument;
-@property(nonatomic) int keyboardAppearance;
+@property(nonatomic) int keyboardAppearance; // @dynamic keyboardAppearance;
 @property(nonatomic) int keyboardType; // @dynamic keyboardType;
 @property(nonatomic) BOOL learnsCorrections;
+@property(copy, nonatomic) NSString *responseContext;
 @property(nonatomic) BOOL returnKeyGoesToNextResponder;
-@property(nonatomic) int returnKeyType;
-@property(nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry;
+@property(nonatomic) int returnKeyType; // @dynamic returnKeyType;
+@property(nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry; // @dynamic secureTextEntry;
 @property(retain, nonatomic) UIColor *selectionBarColor;
 @property(retain, nonatomic) UIImage *selectionDragDotImage;
 @property(retain, nonatomic) UIColor *selectionHighlightColor;
 @property(nonatomic) int shortcutConversionType;
 @property(nonatomic) int spellCheckingType; // @dynamic spellCheckingType;
+@property(readonly) Class superclass;
 @property(nonatomic) BOOL suppressReturnKeyStyling;
 @property(nonatomic) int textLoupeVisibility;
 @property(nonatomic) int textSelectionBehavior;

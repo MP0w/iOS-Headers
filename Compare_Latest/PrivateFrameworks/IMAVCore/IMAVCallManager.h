@@ -54,10 +54,10 @@
 - (void)_removeIMAVChatFromChatList:(id)arg1;
 - (void)_addIMAVChatToChatList:(id)arg1;
 - (id)_nonRetainingChatList;
-@property(readonly, nonatomic) NSArray *_FTCalls;
+@property(readonly, retain, nonatomic) NSArray *_FTCalls;
 - (id)_copyMutableFTCalls;
 - (id)_mutableFTCalls;
-@property(readonly, nonatomic) NSArray *calls;
+@property(readonly, retain, nonatomic) NSArray *calls;
 - (id)_calls;
 - (void)dealloc;
 - (id)init;

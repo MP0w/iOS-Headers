@@ -6,46 +6,60 @@
 
 #import "NSObject.h"
 
+#import "FBWindowContextManagerDelegate.h"
+#import "FBWindowContextManagerObserver.h"
 #import "SBAlertDelegate.h"
-#import "SBWindowContextHostManagerDelegate.h"
-#import "SBWindowContextManagerDelegate.h"
 
-@class NSMapTable, NSMutableArray, NSMutableSet, SBAlertWindow, SBWindowContextHostManager, SBWindowContextManager, UIScreen;
+@class FBScene, NSMapTable, NSMutableArray, NSMutableSet, NSString, SBAlertWindow, SBDisableActiveInterfaceOrientationChangeAssertion, UIScreen;
 
-@interface SBAlertManager : NSObject <SBAlertDelegate, SBWindowContextManagerDelegate, SBWindowContextHostManagerDelegate>
+@interface SBAlertManager : NSObject <SBAlertDelegate, FBWindowContextManagerDelegate, FBWindowContextManagerObserver>
 {
     UIScreen *_screen;
+    struct CGRect _windowFrame;
+    FBScene *_alertScene;
     SBAlertWindow *_alertWindow;
     SBAlertWindow *_deferredAlertWindow;
-    SBAlertWindow *_lockAlertWindow;
     NSMutableArray *_alerts;
     NSMapTable *_observers;
     NSMutableSet *_removalPendingAlerts;
+    NSMapTable *_alertToAccessoryWrappersMap;
     _Bool _deactivatingAllAlerts;
     id <SBAlertManagerDelegate> _delegate;
-    SBWindowContextManager *_contextManager;
-    SBWindowContextHostManager *_contextHostManager;
+    SBDisableActiveInterfaceOrientationChangeAssertion *_orientationLockAssertion;
     struct {
         unsigned int deactivateDismissed:1;
         unsigned int newWindow:1;
     } _delegateFlags;
 }
 
-- (void)windowContextManager:(id)arg1 didStopTrackingContextsForScreen:(id)arg2;
-- (void)windowContextManager:(id)arg1 willStartTrackingContextsForScreen:(id)arg2;
+@property(readonly, nonatomic) SBAlertWindow *alertWindow; // @synthesize alertWindow=_alertWindow;
+- (void)windowContextManagerDidStopTrackingContexts:(id)arg1;
+- (void)windowContextManagerWillStartTrackingContexts:(id)arg1;
 - (_Bool)windowContextManager:(id)arg1 shouldAddContext:(id)arg2;
+- (void)alertWantsToForceWallpaperTunnelUpdate:(id)arg1;
 - (void)alertIsReadyToBeRemovedFromView:(id)arg1;
 - (void)alertIsReadyToBeDeactivated:(id)arg1;
+- (void)alertWillDismiss:(id)arg1;
 - (void)alert:(id)arg1 requestsBackgroundStyleChangeWithAnimationFactory:(id)arg2;
+- (void)_disablePortraitOrientationLockIfPossibleForAlert:(id)arg1;
+- (void)_disablePortraitOrientationLock;
+- (void)_enablePortraitOrientationLock;
+- (_Bool)_needsPortraitOrientationLockForAlert:(id)arg1;
 - (void)_makeAlertWindowOpaque:(_Bool)arg1;
 - (void)_resetAlertWindowOpacity;
-- (void)_removeFromView:(id)arg1;
+- (id)_hostedAccessoryViewsForAlert:(id)arg1;
+- (void)_hideHostedAccessoryViewsForAlert:(id)arg1;
+- (void)_stopHostingAccessoryWindowsForDeactivatingAlert:(id)arg1;
+- (void)_hostAccessoryWindowsForActivatingAlert:(id)arg1;
+- (id)_accessoryWrapperForAlert:(id)arg1 withWindow:(id)arg2 hostRequester:(id)arg3;
+- (void)_removeFromView:(id)arg1 oldAlertIndex:(unsigned long long)arg2;
 - (void)_deactivate:(id)arg1;
 - (void)_activate:(id)arg1;
+- (id)_createAlertWindowForAlert:(id)arg1;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
-- (id)debugDescription;
-- (id)description;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 - (void)applicationFinishedAnimatingBeneathAlert;
 - (void)applicationWillAnimateActivation;
 - (void)deactivateAlertsAfterLaunch;
@@ -58,16 +72,16 @@
 - (id)stackedAlertsIncludingActiveAlert:(_Bool)arg1;
 - (_Bool)hasStackedAlerts;
 - (id)activeAlert;
-- (id)windows;
 - (id)contextHostManager;
-- (id)windowForAlert:(id)arg1;
-- (id)activeAlertWindow;
-- (id)topMostWindow;
 - (id)screen;
 @property(nonatomic) id <SBAlertManagerDelegate> delegate;
 - (void)dealloc;
 - (id)init;
-- (id)initWithScreen:(id)arg1;
+- (id)initWithScreen:(id)arg1 delegate:(id)arg2;
+
+// Remaining properties
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

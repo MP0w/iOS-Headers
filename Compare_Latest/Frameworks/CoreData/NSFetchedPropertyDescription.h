@@ -20,8 +20,7 @@
 - (unsigned int)_propertyType;
 - (BOOL)isReadOnly;
 - (BOOL)isTransient;
-- (void)setFetchRequest:(id)arg1;
-- (id)fetchRequest;
+@property(retain) NSFetchRequest *fetchRequest;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

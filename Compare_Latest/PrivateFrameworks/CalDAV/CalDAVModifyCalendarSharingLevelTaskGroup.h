@@ -8,7 +8,7 @@
 
 #import "CoreDAVPropPatchTaskDelegate.h"
 
-@class NSURL;
+@class NSString, NSURL;
 
 @interface CalDAVModifyCalendarSharingLevelTaskGroup : CoreDAVTaskGroup <CoreDAVPropPatchTaskDelegate>
 {
@@ -18,17 +18,22 @@
     NSURL *_publishedURL;
 }
 
-@property(retain) NSURL *publishedURL; // @synthesize publishedURL=_publishedURL;
-@property int state; // @synthesize state=_state;
-@property(retain) NSURL *url; // @synthesize url=_url;
-@property int action; // @synthesize action=_action;
+@property(retain, nonatomic) NSURL *publishedURL; // @synthesize publishedURL=_publishedURL;
+@property(nonatomic) int state; // @synthesize state=_state;
+@property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
+@property(nonatomic) int action; // @synthesize action=_action;
 - (void)finishWithError:(id)arg1;
 - (void)task:(id)arg1 didFinishWithError:(id)arg2;
 - (void)startTaskGroup;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithSharingAction:(int)arg1 atCalendarURL:(id)arg2 accountInfoProvider:(id)arg3 taskManager:(id)arg4;
 - (id)initWithAccountInfoProvider:(id)arg1 taskManager:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

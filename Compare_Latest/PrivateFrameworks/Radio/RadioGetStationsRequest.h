@@ -22,7 +22,7 @@
 @property(nonatomic) int resultsOffset; // @synthesize resultsOffset=_resultsOffset;
 @property(readonly, nonatomic) long long parentNodeID; // @synthesize parentNodeID=_parentNodeID;
 @property(nonatomic) int numberOfResults; // @synthesize numberOfResults=_numberOfResults;
-@property(readonly, nonatomic) SSMetricsPageEvent *metricsPageEvent; // @synthesize metricsPageEvent=_metricsPageEvent;
+@property(readonly, copy, nonatomic) SSMetricsPageEvent *metricsPageEvent; // @synthesize metricsPageEvent=_metricsPageEvent;
 @property(readonly, nonatomic) SSMetricsConfiguration *metricsConfiguration; // @synthesize metricsConfiguration=_metricsConfiguration;
 - (void).cxx_destruct;
 - (id)_rootTreeNodeByApplyingResponse:(id)arg1 returningError:(id *)arg2;

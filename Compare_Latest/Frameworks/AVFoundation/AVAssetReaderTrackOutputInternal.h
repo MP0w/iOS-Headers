@@ -13,6 +13,8 @@
     AVAssetTrack *track;
     AVOutputSettings *outputSettings;
     NSString *audioTimePitchAlgorithm;
+    BOOL appliesPreferredTrackTransform;
+    BOOL isAttachedToMetadataAdaptor;
 }
 
 @end

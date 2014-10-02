@@ -19,6 +19,7 @@
 - (void)backgroundContinuationEnabledDidChange:(BOOL)arg1;
 - (void)localNotificationDidSnooze:(id)arg1;
 - (void)localNotificationMessageDelivered:(id)arg1;
+- (void)didRegisterUserNotificationSettings:(id)arg1;
 - (void)remoteNotificationMessageDelivered;
 - (void)remoteNotificationRegistrationFailedWithErrorDomain:(id)arg1 code:(int)arg2 localizedDescription:(id)arg3;
 - (void)remoteNotificationRegistrationSucceededWithDeviceToken:(id)arg1;

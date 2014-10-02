@@ -50,7 +50,6 @@
     } _flags;
 }
 
-+ (void)initialize;
 - (id)documentFragmentForDocument:(id)arg1;
 - (void)readDocumentFragment:(id)arg1;
 - (id)webArchiveData;
@@ -82,8 +81,6 @@
 - (void)dealloc;
 - (id)initWithAttributedString:(id)arg1;
 - (Class)_webArchiveClass;
-- (void)_loadWebKit;
-- (id)_webKitBundle;
 
 @end
 

@@ -9,7 +9,7 @@
 #import "SUScriptInterfaceDelegate.h"
 #import "UIWebViewDelegate.h"
 
-@class ISURLRequestPerformance, NSLock, NSMapTable, NSSet, SSAuthenticationContext, SUClientInterface, SUScriptWindowContext, UIWebView;
+@class ISURLRequestPerformance, NSLock, NSMapTable, NSSet, NSString, SSAuthenticationContext, SUClientInterface, SUScriptWindowContext, UIWebView;
 
 @interface SUWebViewManager : NSObject <SUScriptInterfaceDelegate, UIWebViewDelegate>
 {
@@ -32,7 +32,7 @@
 }
 
 + (id)defaultLocalStoragePath;
-@property(readonly, nonatomic) UIWebView *webView; // @synthesize webView=_webView;
+@property(readonly, nonatomic) __weak UIWebView *webView; // @synthesize webView=_webView;
 @property(retain, nonatomic) SUScriptWindowContext *scriptWindowContext; // @synthesize scriptWindowContext=_scriptWindowContext;
 @property(retain, nonatomic) id originalUIDelegate; // @synthesize originalUIDelegate=_originalUIDelegate;
 @property(retain, nonatomic) id originalResourceLoadDelegate; // @synthesize originalResourceLoadDelegate=_originalResourceLoadDelegate;
@@ -83,6 +83,12 @@
 - (void)dealloc;
 - (id)initWithClientInterface:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

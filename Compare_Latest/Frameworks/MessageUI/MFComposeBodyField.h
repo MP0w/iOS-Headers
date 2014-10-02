@@ -6,7 +6,7 @@
 
 #import "UIWebDocumentView.h"
 
-@class DOMHTMLDocument, DOMHTMLElement, MFGenericAttachmentStore;
+@class DOMHTMLDocument, DOMHTMLElement, NSArray;
 
 @interface MFComposeBodyField : UIWebDocumentView
 {
@@ -18,14 +18,14 @@
     BOOL _shouldShowStandardButtons;
     unsigned int _isDirty:1;
     unsigned int _forwardingNotification:1;
-    unsigned int _replaceAttachments:1;
     unsigned int _isLoading:1;
     unsigned int _needsReplaceImages:1;
     struct _NSRange _rangeToSelect;
-    MFGenericAttachmentStore *_attachmentStore;
     id <MFMailComposeViewDelegate> _mailComposeViewDelegate;
     int _preventLayout;
     BOOL _prefersFirstLineSelection;
+    unsigned int _imageCount;
+    NSArray *_attachmentURLsToReplaceWithFilenames;
 }
 
 + (void)addAdditionalItemsToCalloutBar;
@@ -33,7 +33,7 @@
 - (id)documentFragmentForPasteboardItemAtIndex:(int)arg1;
 - (id)_nodeForAttachmentData:(id)arg1 text:(id)arg2 type:(id)arg3;
 - (void)_removeInlineAttachment:(id)arg1;
-- (id)_addInlineAttachmentWithData:(id)arg1 text:(id)arg2 type:(id)arg3 contentID:(id)arg4;
+- (id)_addInlineAttachmentWithData:(id)arg1 text:(id)arg2 type:(id)arg3;
 - (void)paste:(id)arg1;
 - (void)copy:(id)arg1;
 - (void)cut:(id)arg1;
@@ -41,8 +41,8 @@
 - (void)setSelectedDOMRange:(id)arg1 affinityDownstream:(BOOL)arg2;
 - (struct CGRect)rectOfElementWithID:(id)arg1;
 - (id)htmlString;
-- (void)htmlString:(id *)arg1 otherHtmlStringsAndAttachments:(id *)arg2 charsets:(id *)arg3 withAttachmentSource:(id)arg4;
-- (id)plainTextContentWithAttachmentSource:(id)arg1;
+- (void)htmlString:(id *)arg1 otherHtmlStringsAndAttachments:(id *)arg2 charsets:(id *)arg3;
+- (id)plainTextContent;
 - (id)plainTextAlternative;
 - (BOOL)containsRichText;
 - (void)didUndoOrRedo:(id)arg1;
@@ -94,14 +94,15 @@
 - (void)layoutWithMinimumSize;
 - (void)endPreventingLayout;
 - (void)beginPreventingLayout;
-- (void)setReplaceAttachmentsWithFilename:(BOOL)arg1;
-- (void)setAttachmentStore:(id)arg1;
+- (void)setAttachmentURLsToBeReplacedWithFilename:(id)arg1;
 - (void)deferredBecomeFirstResponder;
 - (void)unscaleImages;
-- (void)scaleImagesToScale:(unsigned int)arg1 withAttachmentStore:(id)arg2;
+- (void)scaleImagesToScale:(unsigned int)arg1;
 - (void)replaceImagesIfNecessary;
 - (void)replaceImages;
+- (void)_ensureQuotedImagesHaveAttachmentStyleForElement:(id)arg1;
 - (void)setLayoutInterval:(int)arg1;
+- (void)setCaretPosition:(unsigned int)arg1;
 - (void)setSelectedRange:(struct _NSRange)arg1;
 - (struct _NSRange)selectedRange;
 - (void)ensureSelection;
@@ -109,6 +110,7 @@
 - (BOOL)isDirty;
 - (void)setDirty:(BOOL)arg1;
 - (float)contentWidth;
+- (id)mailComposeViewDelegate;
 - (void)setMailComposeViewDelegate:(id)arg1;
 - (void)invalidate;
 - (void)dealloc;

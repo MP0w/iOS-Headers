@@ -13,14 +13,18 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (float)commentFontSize;
+- (void)setFilteredAuthors:(id)arg1;
 - (void)commitCommentText:(id)arg1 forAnnotation:(id)arg2;
 - (void)didShowAnnotation:(id)arg1;
 - (void)willShowAnnotation:(id)arg1;
+- (void)updateCurrentAnnotation:(id)arg1;
 - (void)previousAnnotation:(id)arg1;
 - (void)nextAnnotation:(id)arg1;
 - (void)unregisterDelegate:(id)arg1;
 - (void)registerDelegate:(id)arg1;
 @property(nonatomic) BOOL textSelectionChangeShouldDismissAnnotations;
+@property(readonly, nonatomic) unsigned int documentAnnotationCount;
 @property(readonly, nonatomic) NSString *annotationNavigationString;
 - (id)annotationNavigationTypeStringUsedForNavigating:(BOOL)arg1;
 @property(readonly, nonatomic) BOOL hasAnnotations;

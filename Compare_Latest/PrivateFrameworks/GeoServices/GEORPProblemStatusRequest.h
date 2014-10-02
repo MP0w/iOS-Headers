@@ -12,14 +12,15 @@
 
 @interface GEORPProblemStatusRequest : PBRequest <NSCopying>
 {
-    NSMutableArray *_problemIDs;
-    NSString *_statusNotificationID;
+    NSMutableArray *_problemIds;
+    NSString *_statusNotificationId;
     GEORPUserCredentials *_userCredentials;
 }
 
-@property(retain, nonatomic) NSMutableArray *problemIDs; // @synthesize problemIDs=_problemIDs;
-@property(retain, nonatomic) NSString *statusNotificationID; // @synthesize statusNotificationID=_statusNotificationID;
+@property(retain, nonatomic) NSMutableArray *problemIds; // @synthesize problemIds=_problemIds;
+@property(retain, nonatomic) NSString *statusNotificationId; // @synthesize statusNotificationId=_statusNotificationId;
 @property(retain, nonatomic) GEORPUserCredentials *userCredentials; // @synthesize userCredentials=_userCredentials;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -30,11 +31,11 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)problemIDAtIndex:(unsigned int)arg1;
-- (unsigned int)problemIDsCount;
-- (void)addProblemID:(id)arg1;
-- (void)clearProblemIDs;
-@property(readonly, nonatomic) BOOL hasStatusNotificationID;
+- (id)problemIdAtIndex:(unsigned int)arg1;
+- (unsigned int)problemIdsCount;
+- (void)addProblemId:(id)arg1;
+- (void)clearProblemIds;
+@property(readonly, nonatomic) BOOL hasStatusNotificationId;
 @property(readonly, nonatomic) BOOL hasUserCredentials;
 - (void)dealloc;
 

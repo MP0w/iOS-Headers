@@ -35,7 +35,6 @@ __attribute__((visibility("hidden")))
 - (BOOL)isOperationDynamic;
 - (BOOL)isInPossibleDynamicOperation;
 - (BOOL)isInOperation;
-- (void)endOperation;
 - (void)p_beginDynamicOperationForReps:(id)arg1;
 - (void)beginOperation;
 - (void)beginPossibleDynamicOperation;

@@ -7,11 +7,12 @@
 #import <EventKitUI/EKCalendarItemEditItem.h>
 
 #import "EKCellShortener.h"
+#import "EKRecurrenceTypeEditItemViewControllerDelegate.h"
 
 @class EKCalendarItemRecurrenceEndCell, EKRecurrenceTypeEditItemViewController, NSDate, NSString, PreferencesValueCell;
 
 __attribute__((visibility("hidden")))
-@interface EKCalendarItemRecurrenceEditItem : EKCalendarItemEditItem <EKCellShortener>
+@interface EKCalendarItemRecurrenceEditItem : EKCalendarItemEditItem <EKRecurrenceTypeEditItemViewControllerDelegate, EKCellShortener>
 {
     int _repeatType;
     int _originalRepeatType;
@@ -26,10 +27,12 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
+- (int)repeatTypeForRecurrenceRule:(id)arg1;
 - (id)_recurrenceTypeVC;
 - (void)_neverRepeatButtonTapped:(id)arg1;
 - (void)_repeatEndDateChanged:(id)arg1;
 - (id)_repeatEndPickerCell;
+- (BOOL)forceRefreshStartAndEndDatesOnCommit;
 - (id)minRecurrenceEndDate;
 - (id)stringForDate:(id)arg1;
 - (id)recurrenceTimeZone;
@@ -38,14 +41,23 @@ __attribute__((visibility("hidden")))
 - (BOOL)_validateRecurrenceType:(id)arg1;
 - (BOOL)editItemViewControllerCommit:(id)arg1 notify:(BOOL)arg2;
 - (BOOL)editItemViewControllerCommit:(id)arg1;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2;
 - (void)_updateRepeatEndDateCell;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
-- (unsigned int)numberOfSubitemsInSubsection:(unsigned int)arg1;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1;
+- (unsigned int)numberOfSubitems;
 - (BOOL)saveAndDismissWithForce:(BOOL)arg1;
 - (void)refreshFromCalendarItemAndStore;
 - (BOOL)canBeConfiguredForCalendarConstraints:(id)arg1;
 - (void)reset;
+- (void)_contentSizeCategoryChanged:(id)arg1;
+- (void)dealloc;
+- (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

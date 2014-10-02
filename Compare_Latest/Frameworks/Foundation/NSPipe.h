@@ -6,14 +6,16 @@
 
 #import "NSObject.h"
 
+@class NSFileHandle;
+
 @interface NSPipe : NSObject
 {
 }
 
 + (id)pipe;
 + (id)allocWithZone:(struct _NSZone *)arg1;
-- (id)fileHandleForWriting;
-- (id)fileHandleForReading;
+@property(readonly, retain) NSFileHandle *fileHandleForWriting;
+@property(readonly, retain) NSFileHandle *fileHandleForReading;
 - (id)init;
 
 @end

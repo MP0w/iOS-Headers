@@ -10,7 +10,7 @@
 #import "SBBulletinAlertHandler.h"
 #import "SBBulletinBusyClient.h"
 
-@class BBObserver, NSMapTable, NSMutableArray, NSMutableDictionary;
+@class BBObserver, NSMapTable, NSMutableArray, NSMutableDictionary, NSString;
 
 @interface SBBulletinModalController : NSObject <BBObserverDelegate, SBBulletinAlertHandler, SBBulletinBusyClient>
 {
@@ -26,6 +26,7 @@
 + (id)sharedInstanceIfExists;
 + (id)sharedInstance;
 + (id)_sharedInstanceCreateIfNecessary:(_Bool)arg1;
+- (void)showTestBulletin;
 - (void)_syncDismissalForBulletin:(id)arg1;
 - (void)handleEvent:(int)arg1 withBulletin:(id)arg2 forRegistry:(id)arg3;
 - (_Bool)bindBulletin:(id)arg1 forRegistry:(id)arg2;
@@ -46,6 +47,12 @@
 - (id)attachmentImageForBulletin:(id)arg1;
 - (id)init;
 - (void)destroyingAlert:(id)arg1 withBulletin:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

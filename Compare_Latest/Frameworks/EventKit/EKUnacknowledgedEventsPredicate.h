@@ -6,11 +6,14 @@
 
 #import "NSPredicate.h"
 
-@interface EKUnacknowledgedEventsPredicate : NSPredicate
+#import "NSSecureCoding.h"
+
+@interface EKUnacknowledgedEventsPredicate : NSPredicate <NSSecureCoding>
 {
 }
 
 + (id)predicate;
++ (BOOL)supportsSecureCoding;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (BOOL)evaluateWithObject:(id)arg1;
 

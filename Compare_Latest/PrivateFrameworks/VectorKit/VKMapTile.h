@@ -13,29 +13,34 @@
 __attribute__((visibility("hidden")))
 @interface VKMapTile : VKTile <NSCopying>
 {
-    VKTile *_tiles[29];
-    unsigned int _states[29];
-    double _stateDates[29];
-    id _stateMetas[29];
-    CDStruct_ff03d24e _localBounds[29];
+    VKTile *_tiles[34];
+    unsigned int _states[34];
+    double _stateDates[34];
+    id _stateMetas[34];
+    struct {
+        float x0;
+        float x1;
+        float y0;
+        float y1;
+    } _localBounds[34];
     VKRasterTile *_rasterized;
     BOOL _needsRasterization;
     float _maximumStyleZ;
-    shared_ptr_a619b154 _infoMapTile;
+    shared_ptr_89f9185e _labelMapTile;
 }
 
-@property(nonatomic) shared_ptr_a619b154 infoMapTile; // @synthesize infoMapTile=_infoMapTile;
+@property(nonatomic) shared_ptr_89f9185e labelMapTile; // @synthesize labelMapTile=_labelMapTile;
 @property(nonatomic) BOOL needsRasterization; // @synthesize needsRasterization=_needsRasterization;
 @property(retain, nonatomic) VKRasterTile *rasterized; // @synthesize rasterized=_rasterized;
 @property(readonly, nonatomic) float maximumStyleZ; // @synthesize maximumStyleZ=_maximumStyleZ;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (CDStruct_818bb265)localBoundsForLayer:(unsigned int)arg1;
-- (void)setTile:(id)arg1 state:(unsigned int)arg2 metadata:(id)arg3 forLayer:(unsigned int)arg4;
-- (void)_setTile:(id)arg1 state:(unsigned int)arg2 metadata:(id)arg3 forLayer:(unsigned int)arg4 timestamp:(double)arg5;
-- (unsigned int)tileStateForLayer:(unsigned int)arg1;
-- (id)tileForLayer:(unsigned int)arg1;
+- (CDStruct_818bb265)localBoundsForLayer:(unsigned long long)arg1;
+- (void)setTile:(id)arg1 state:(unsigned int)arg2 metadata:(id)arg3 forLayer:(unsigned long long)arg4;
+- (void)_setTile:(id)arg1 state:(unsigned int)arg2 metadata:(id)arg3 forLayer:(unsigned long long)arg4 timestamp:(double)arg5;
+- (unsigned int)tileStateForLayer:(unsigned long long)arg1;
+- (id)tileForLayer:(unsigned long long)arg1;
 - (void)updateViewDependentStateWithContext:(id)arg1;
 - (id)detailedDescription;
 - (id)description;

@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "OCCancelDelegate.h"
+#import "TCCancelDelegate.h"
 
-@class NSMutableDictionary, NSMutableSet, NSString;
+@class NSCache, NSMutableDictionary, NSMutableSet, NSString;
 
 __attribute__((visibility("hidden")))
-@interface CMArchiveManager : NSObject <OCCancelDelegate>
+@interface CMArchiveManager : NSObject <TCCancelDelegate>
 {
     BOOL mIsThumbnail;
     BOOL mIsOnPhone;
@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
     int mWidth;
     float mCommitInterval;
     BOOL mAutoCommit;
+    NSCache *mStyleObjectCache;
 }
 
 + (id)resourceTypeToExtension:(int)arg1;
@@ -44,7 +45,8 @@ __attribute__((visibility("hidden")))
 - (id)cssStylesheetString;
 - (void)addCssStyle:(id)arg1 withName:(id)arg2;
 - (id)addCssStyle:(id)arg1;
-- (int)resourceCount;
+- (id)addStyle:(id)arg1;
+- (unsigned int)resourceCount;
 - (BOOL)isOnPhone;
 - (void)setIsOnPhone:(BOOL)arg1;
 - (BOOL)progressiveMappingIsPausedOnPath:(id)arg1;
@@ -66,6 +68,12 @@ __attribute__((visibility("hidden")))
 - (id)copyResourceWithName:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -13,22 +13,22 @@ __attribute__((visibility("hidden")))
 {
     GEOActiveTileSet *_tileSet;
     struct _GEOTileKey _downloadTemplate;
-    int _minimumDownloadZoomLevel;
-    int _maximumDownloadZoomLevel;
+    unsigned int _minimumDownloadZoomLevel;
+    unsigned int _maximumDownloadZoomLevel;
     VKTimer *_expirationTimer;
     VKTilePool *_expiredTilePool;
     struct _NSRange _zoomLevelRange;
     _VKTileSetBackedTileSourceTimerTarget *_timerTarget;
 }
 
-@property(readonly, nonatomic) GEOActiveTileSet *tileSet; // @synthesize tileSet=_tileSet;
+@property(retain, nonatomic) GEOActiveTileSet *tileSet; // @synthesize tileSet=_tileSet;
 - (id).cxx_construct;
 - (int)maximumZoomLevel;
 - (int)minimumZoomLevel;
 - (int)defaultMaximumZoomLevel;
 - (int)defaultMinimumZoomLevel;
-- (unsigned int)mapLayerForZoomLevelRange;
-- (void)setStylesheet:(id)arg1;
+- (unsigned long long)mapLayerForZoomLevelRange;
+- (void)setStyleManager:(id)arg1;
 - (void)populateVisibleTileSets:(id)arg1 withTiles:(id)arg2;
 - (void)_expireTiles;
 - (void)_scheduleTileExpirationTimer:(double)arg1 forceUpdate:(BOOL)arg2;
@@ -37,16 +37,17 @@ __attribute__((visibility("hidden")))
 - (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
 - (struct VKTileKey)sourceKeyForRenderKey:(const struct VKTileKey *)arg1;
 - (struct _GEOTileKey)downloadKeyAtX:(unsigned int)arg1 y:(unsigned int)arg2 z:(unsigned int)arg3;
-- (int)maximumDownloadZoomLevel;
-- (int)minimumDownloadZoomLevel;
+- (unsigned int)maximumDownloadZoomLevel;
+- (unsigned int)minimumDownloadZoomLevel;
 - (int)tileSize;
 - (double)_nextTileExpirationDate;
 - (double)_expirationInterval;
 - (BOOL)expires;
 - (void)setClient:(id)arg1;
 - (void)clearCaches;
+- (id)tileLoader;
 - (void)dealloc;
-- (id)initWithTileSet:(id)arg1;
+- (id)initWithTileSet:(id)arg1 tileGroupIdentifier:(unsigned int)arg2 locale:(id)arg3;
 
 @end
 

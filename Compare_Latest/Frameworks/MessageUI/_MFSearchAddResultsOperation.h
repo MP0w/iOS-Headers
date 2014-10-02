@@ -11,11 +11,11 @@
 @interface _MFSearchAddResultsOperation : NSOperation
 {
     id <_MFSearchResultsConsumer> _consumer;
-    int _type;
+    unsigned int _type;
     NSArray *_results;
 }
 
-+ (id)operationWithResults:(id)arg1 ofType:(int)arg2 consumer:(id)arg3;
++ (id)operationWithResults:(id)arg1 ofType:(unsigned int)arg2 consumer:(id)arg3;
 - (void)main;
 - (void)dealloc;
 

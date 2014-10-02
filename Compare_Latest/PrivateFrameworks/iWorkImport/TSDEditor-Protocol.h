@@ -29,6 +29,8 @@
 - (NSSet *)canvasCoachingTips;
 - (void)addContextualMenuItemsToArray:(NSMutableArray *)arg1;
 - (struct CGRect)targetRectForEditMenu;
+- (id <TSDTextInput>)editorForTextInput;
+- (void)reverseTableDirection:(id)arg1;
 - (void)reverseDirection:(id)arg1;
 - (BOOL)canBeginEditingRepOnDoubleTap:(TSDRep *)arg1;
 - (BOOL)canBeginPathEditing;
@@ -61,6 +63,7 @@
 - (void)didBecomeTextInputEditor;
 - (void)willResignCurrentEditor;
 - (void)didBecomeCurrentEditor;
+- (BOOL)readyToAcceptSelection:(TSKSelection *)arg1 onInfo:(NSObject<TSDInfo> *)arg2;
 - (BOOL)ignoreSetSelection:(TSKSelection *)arg1 onInfo:(NSObject<TSDInfo> *)arg2;
 - (void)setSelectionWithSearchReference:(id <TSKSearchReference>)arg1;
 - (void)setSelection:(TSKSelection *)arg1 withFlags:(unsigned int)arg2;

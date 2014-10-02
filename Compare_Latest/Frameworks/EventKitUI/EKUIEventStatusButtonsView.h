@@ -6,38 +6,49 @@
 
 #import "UIView.h"
 
-@class NSArray, UIButton;
+@class NSArray, UIButton, UIFont;
 
 @interface EKUIEventStatusButtonsView : UIView
 {
     NSArray *_buttons;
-    float _cachedFittingFontSize;
+    NSArray *_actions;
+    UIFont *_font;
+    BOOL _forcesSingleButtonToCenter;
+    BOOL _disableButtonHighlights;
     id <EKUIEventStatusButtonsViewDelegate> _delegate;
-    NSArray *_buttonTitleStrings;
-    int _selectedButtonIndex;
+    int _selectedAction;
     float _buttonsCharge;
     int _textSizeMode;
+    float _baselineFromBoundsTop;
 }
 
-+ (BOOL)requiresConstraintBasedLayout;
+@property(nonatomic) float baselineFromBoundsTop; // @synthesize baselineFromBoundsTop=_baselineFromBoundsTop;
+@property(nonatomic) BOOL disableButtonHighlights; // @synthesize disableButtonHighlights=_disableButtonHighlights;
+@property(nonatomic) BOOL forcesSingleButtonToCenter; // @synthesize forcesSingleButtonToCenter=_forcesSingleButtonToCenter;
 @property(nonatomic) int textSizeMode; // @synthesize textSizeMode=_textSizeMode;
 @property(nonatomic) float buttonsCharge; // @synthesize buttonsCharge=_buttonsCharge;
-@property(nonatomic) int selectedButtonIndex; // @synthesize selectedButtonIndex=_selectedButtonIndex;
-@property(retain, nonatomic) NSArray *buttonTitleStrings; // @synthesize buttonTitleStrings=_buttonTitleStrings;
+@property(retain, nonatomic) NSArray *actions; // @synthesize actions=_actions;
+@property(nonatomic) int selectedAction; // @synthesize selectedAction=_selectedAction;
 @property(nonatomic) __weak id <EKUIEventStatusButtonsViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)updateForMiniBarState:(BOOL)arg1;
+@property(readonly, nonatomic) UIFont *font;
 - (void)layoutSubviews;
 - (float)_minimumFontSize;
-- (id)_fontForButton:(id)arg1 withSize:(float)arg2;
+- (id)_fontWithSize:(float)arg1 selected:(BOOL)arg2;
 - (float)_defaultFontSizeForButtons;
 - (void)_updateButtonFontsWithSize:(float)arg1;
+- (BOOL)_shouldCenterButton;
 @property(readonly, nonatomic) UIButton *centerButton;
+- (id)_buttonTitleForAction:(int)arg1;
+- (id)_buttonForAction:(int)arg1;
+- (int)_buttonIndexForAction:(int)arg1;
+- (int)_actionForButton:(id)arg1;
 - (void)_updateSelectionToButton:(id)arg1;
 - (void)buttonTapped:(id)arg1;
 - (void)_setupButtons;
-- (id)_toolbarButtonWithTitle:(id)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 buttonTitleStrings:(id)arg2 delegate:(id)arg3;
+- (id)_newToolbarButton;
+- (id)initWithFrame:(struct CGRect)arg1 actions:(id)arg2 delegate:(id)arg3;
 
 @end
 

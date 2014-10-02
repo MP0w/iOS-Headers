@@ -48,8 +48,8 @@
     NSArray *_userAgentComponents;
 }
 
-@property(readonly) NSArray *URLs;
-@property(readonly) CDUnknownBlockType URLBagURLBlock;
+@property(readonly, copy) NSArray *URLs;
+@property(readonly, copy) CDUnknownBlockType URLBagURLBlock;
 @property(readonly) int URLBagType;
 @property(readonly) BOOL shouldDisableCellularFallback;
 @property(readonly) BOOL shouldDisableCellular;
@@ -59,29 +59,29 @@
 @property(readonly) BOOL requiresExtendedValidationCertificates;
 @property(readonly) int KBSyncType;
 @property(readonly, getter=isLargeDownload) BOOL largeDownload;
-@property(readonly) NSInputStream *HTTPBodyStream;
+@property(readonly, retain) NSInputStream *HTTPBodyStream;
 - (id)copyURLRequest;
 @property(readonly) BOOL canBeResolved;
 @property(readonly) BOOL allowsBootstrapCellularData;
 - (BOOL)isEqual:(id)arg1;
-- (id)description;
-@property(readonly) NSArray *userAgentComponents;
-@property(readonly) NSURL *URL;
-@property(readonly) NSString *URLBagKey;
+@property(readonly, copy) NSString *description;
+@property(readonly, copy) NSArray *userAgentComponents;
+@property(readonly, retain) NSURL *URL;
+@property(readonly, copy) NSString *URLBagKey;
 @property(readonly) double timeoutInterval;
-@property(readonly) NSData *clientAuditTokenData;
-@property(readonly) NSString *clientAuditBundleIdentifier;
+@property(readonly, copy) NSData *clientAuditTokenData;
+@property(readonly, copy) NSString *clientAuditBundleIdentifier;
 @property(readonly) BOOL shouldSetCookies;
 @property(readonly) BOOL shouldSendSecureToken;
 @property(readonly) BOOL shouldProcessProtocol;
-@property(readonly) NSDictionary *requestParameters;
+@property(readonly, copy) NSDictionary *requestParameters;
 @property(readonly) unsigned int networkServiceType;
 @property(readonly, getter=isITunesStoreRequest) BOOL ITunesStoreRequest;
-@property(readonly) NSString *HTTPMethod;
-@property(readonly) NSDictionary *HTTPHeaders;
-@property(readonly) NSData *HTTPBody;
+@property(readonly, copy) NSString *HTTPMethod;
+@property(readonly, copy) NSDictionary *HTTPHeaders;
+@property(readonly, copy) NSData *HTTPBody;
 @property(readonly) long long expectedContentLength;
-@property(readonly) NSString *clientIdentifier;
+@property(readonly, copy) NSString *clientIdentifier;
 @property(readonly) unsigned int cachePolicy;
 @property(readonly) int allowedRetryCount;
 - (id)initWithXPCEncoding:(id)arg1;
@@ -95,6 +95,11 @@
 - (id)initWithURL:(id)arg1;
 - (id)init;
 - (id)_initCommon;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

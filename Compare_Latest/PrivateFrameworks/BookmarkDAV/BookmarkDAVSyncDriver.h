@@ -34,13 +34,13 @@
     BOOL _forceSave;
 }
 
-@property(copy) CDUnknownBlockType syncHandler; // @synthesize syncHandler=_syncHandler;
-@property(copy) CDUnknownBlockType getAccountPropertiesHandler; // @synthesize getAccountPropertiesHandler=_getAccountPropertiesHandler;
-@property(readonly) id <CoreDAVAccountInfoProvider> accountInfoProvider; // @synthesize accountInfoProvider=_accountInfoProvider;
-@property(retain) NSDictionary *pushTransport; // @synthesize pushTransport=_pushTransport;
-@property(retain) NSString *pushKey; // @synthesize pushKey=_pushKey;
-@property(retain) NSURL *homeURL; // @synthesize homeURL=_homeURL;
-@property(readonly) unsigned int outstandingActionCount;
+@property(copy, nonatomic) CDUnknownBlockType syncHandler; // @synthesize syncHandler=_syncHandler;
+@property(copy, nonatomic) CDUnknownBlockType getAccountPropertiesHandler; // @synthesize getAccountPropertiesHandler=_getAccountPropertiesHandler;
+@property(readonly, nonatomic) id <CoreDAVAccountInfoProvider> accountInfoProvider; // @synthesize accountInfoProvider=_accountInfoProvider;
+@property(retain, nonatomic) NSDictionary *pushTransport; // @synthesize pushTransport=_pushTransport;
+@property(retain, nonatomic) NSString *pushKey; // @synthesize pushKey=_pushKey;
+@property(retain, nonatomic) NSURL *homeURL; // @synthesize homeURL=_homeURL;
+@property(readonly, nonatomic) unsigned int outstandingActionCount;
 - (void)notePutToURL:(id)arg1 withDataPayload:(id)arg2 finishedWithIgnoredError:(id)arg3;
 - (void)recursiveContainerSyncTask:(id)arg1 completedFullSyncWithNewCTag:(id)arg2 newPTag:(id)arg3 newSyncToken:(id)arg4 error:(id)arg5;
 - (void)recursiveContainerSyncTask:(id)arg1 completedSyncOfFolderWithURL:(id)arg2 newCTag:(id)arg3 newPTag:(id)arg4 addedOrModified:(id)arg5 removed:(id)arg6 error:(id)arg7;
@@ -67,7 +67,7 @@
 - (void)getAccountPropertiesTask:(id)arg1 completedWithError:(id)arg2;
 - (void)_closeDBAndSave:(BOOL)arg1;
 - (void)_saveDB;
-@property(readonly) BookmarkDAVSyncData *topLevelSyncData;
+@property(readonly, nonatomic) BookmarkDAVSyncData *topLevelSyncData;
 - (void)_invokeAndNilGetAccountPropertiesHandlerWithSuccess:(BOOL)arg1 error:(id)arg2;
 - (void)dealloc;
 - (id)initWithAccountInfoProvider:(id)arg1 taskManager:(id)arg2 openDBBlock:(CDUnknownBlockType)arg3 getDBBlock:(CDUnknownBlockType)arg4 saveDBBlock:(CDUnknownBlockType)arg5 closeDBBlock:(CDUnknownBlockType)arg6 registerForPush:(CDUnknownBlockType)arg7 forceSafariOrdering:(BOOL)arg8;
@@ -82,6 +82,12 @@
 - (id)_folderXBELDataForTopmostFolderChanges:(struct __CFArray *)arg1 foldersToAddByServerId:(struct __CFDictionary *)arg2 parentToArrayOfChildrenFolderChanges:(struct __CFDictionary *)arg3 pushedParentToArrayOfChildrenFolders:(struct __CFDictionary *)arg4 pushedTopmostFolders:(struct __CFArray *)arg5 maxResources:(int)arg6 maxSize:(int)arg7;
 - (BOOL)_addChange:(void *)arg1 toData:(id)arg2 numActionsP:(int *)arg3 runningSizeP:(int *)arg4 maxResources:(int)arg5 maxSize:(int)arg6 foldersToAddByServerId:(struct __CFDictionary *)arg7 parentToArrayOfChildrenFolderChanges:(struct __CFDictionary *)arg8 pushedParentToArrayOfChildrenFolders:(struct __CFDictionary *)arg9;
 - (BOOL)_handleErrorItem:(id)arg1 forBAItem:(void *)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,6 +8,8 @@
 
 #import "UIDynamicItem.h"
 
+@class NSString;
+
 @interface SBBouncingItem : NSObject <UIDynamicItem>
 {
     struct CGRect _bounds;
@@ -23,6 +25,12 @@
 @property(readonly, nonatomic) struct CGRect bounds;
 @property(nonatomic) struct CGPoint center;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

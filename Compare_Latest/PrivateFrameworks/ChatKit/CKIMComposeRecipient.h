@@ -13,7 +13,7 @@
     IMHandle *_handle;
 }
 
-@property(readonly, nonatomic) IMHandle *handle; // @synthesize handle=_handle;
+@property(readonly, retain, nonatomic) IMHandle *handle; // @synthesize handle=_handle;
 - (void)setIdentifier:(int)arg1;
 - (void)setRecord:(void *)arg1 recordID:(int)arg2 identifier:(int)arg3;
 - (BOOL)isRemovableFromSearchResults;

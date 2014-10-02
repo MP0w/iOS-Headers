@@ -11,7 +11,7 @@
 #import "SBUIBannerTargetManagerObserver.h"
 #import "SBVolumePressBandit.h"
 
-@class BBObserver, NSMutableArray, NSMutableSet;
+@class BBObserver, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString;
 
 @interface SBBulletinBannerController : NSObject <BBObserverDelegate, SBUIBannerSource, SBUIBannerTargetManagerObserver, SBVolumePressBandit>
 {
@@ -20,6 +20,7 @@
     NSMutableSet *_sectionIDsToPend;
     _Bool _quietModeEnabled;
     id <SBUIBannerTarget> _bannerTarget;
+    NSMutableDictionary *_bulletinIdentifierToBannerContextCache;
 }
 
 + (id)sharedInstanceIfExists;
@@ -43,7 +44,7 @@
 - (id)dequeueNextBannerItemForTarget:(id)arg1;
 - (id)peekNextBannerItemForTarget:(id)arg1;
 - (void)_dismissWithdrawnBannerIfNecessaryFromBulletinIDs:(id)arg1;
-- (void)_showTestBanner:(id)arg1;
+- (void)_showTestBanner:(_Bool)arg1;
 - (void)_removeNextBulletinIfNecessary;
 - (void)_queueBulletin:(id)arg1;
 - (_Bool)_replaceBulletin:(id)arg1;
@@ -52,8 +53,19 @@
 - (void)handleVolumeDecrease;
 - (void)handleVolumeIncrease;
 - (void)_reloadVolumePressBanditPreference;
+- (id)_bannerContextForBulletin:(id)arg1;
+- (void)removeAllCachedBanners;
+- (void)removeCachedBannerForBulletinID:(id)arg1;
+- (void)cacheBannerForBulletin:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)modallyPresentBannerForBulletin:(id)arg1 action:(id)arg2;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -9,15 +9,15 @@
 @class NSString, NSURL;
 
 @protocol CalDAVSubscribedCalendar <CalDAVCalendar>
-@property double refreshInterval;
-@property BOOL hasTaskFilter;
-@property BOOL hasAttachmentFilter;
-@property BOOL hasAlarmFilter;
-@property(retain) NSURL *subscriptionURL;
+@property(nonatomic) double refreshInterval;
+@property(nonatomic) BOOL hasTaskFilter;
+@property(nonatomic) BOOL hasAttachmentFilter;
+@property(nonatomic) BOOL hasAlarmFilter;
+@property(retain, nonatomic) NSURL *subscriptionURL;
 
 @optional
-@property(retain) NSString *languageCode;
-@property(retain) NSString *locationCode;
-@property BOOL autoprovisioned;
+@property(retain, nonatomic) NSString *languageCode;
+@property(retain, nonatomic) NSString *locationCode;
+@property(nonatomic) BOOL autoprovisioned;
 @end
 

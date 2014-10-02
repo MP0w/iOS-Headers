@@ -9,21 +9,25 @@
 #import "PSController.h"
 #import "UINavigationControllerDelegate.h"
 
-@class NSMutableSet, PSSpecifier;
+@class NSMutableSet, NSString, PSSpecifier, PSStackPushAnimationController;
 
 @interface PSRootController : UINavigationController <PSController, UINavigationControllerDelegate>
 {
     PSSpecifier *_specifier;
     NSMutableSet *_tasks;
     BOOL _deallocating;
-    unsigned char _hasTelephony;
+    PSStackPushAnimationController *_stackAnimationController;
 }
 
 + (BOOL)processedBundle:(id)arg1 parentController:(id)arg2 parentSpecifier:(id)arg3 bundleControllers:(id *)arg4 settings:(id)arg5;
 + (id)readPreferenceValue:(id)arg1;
 + (void)setPreferenceValue:(id)arg1 specifier:(id)arg2;
 + (void)writePreference:(id)arg1;
-+ (id)domainForSpecifier:(id)arg1;
+- (void)viewDidDisappear:(BOOL)arg1;
+- (void)_setNavigationBarHidden:(BOOL)arg1 edge:(unsigned int)arg2 duration:(double)arg3;
+- (void)pushControllersAsStack:(id)arg1;
+- (BOOL)respondsToSelector:(SEL)arg1;
+- (id)navigationController:(id)arg1 animationControllerForOperation:(int)arg2 fromViewController:(id)arg3 toViewController:(id)arg4;
 - (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(BOOL)arg3;
 - (void)setViewControllers:(id)arg1 animated:(BOOL)arg2;
 - (id)popToRootViewControllerAnimated:(BOOL)arg1;
@@ -54,6 +58,9 @@
 - (void)statusBarWillChangeHeight:(id)arg1;
 - (void)showLeftButton:(id)arg1 withStyle:(int)arg2 rightButton:(id)arg3 withStyle:(int)arg4;
 - (void)handleURL:(id)arg1;
+- (void)showController:(id)arg1 animate:(BOOL)arg2;
+- (void)showController:(id)arg1;
+- (void)pushController:(id)arg1 animate:(BOOL)arg2;
 - (void)pushController:(id)arg1;
 - (id)specifier;
 - (void)setSpecifier:(id)arg1;
@@ -69,6 +76,12 @@
 - (id)initWithTitle:(id)arg1 identifier:(id)arg2;
 - (id)readPreferenceValue:(id)arg1;
 - (void)setPreferenceValue:(id)arg1 specifier:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

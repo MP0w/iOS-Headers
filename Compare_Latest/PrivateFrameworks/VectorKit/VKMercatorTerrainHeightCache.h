@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) id <VKMercatorTerrainHeightProvider> heightProvider; // @synthesize heightProvider=_heightProvider;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)invalidateRect:(const CDStruct_d2b197d1 *)arg1;
+- (void)invalidateRect:(const CDStruct_aca18c62 *)arg1;
 - (void)removeCachedValueForAnchor:(struct Anchor *)arg1;
 - (double)heightForAnchor:(struct Anchor *)arg1;
 

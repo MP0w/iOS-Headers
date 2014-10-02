@@ -15,7 +15,7 @@
 
 @property(retain, nonatomic) NSString *symbolicColorName; // @synthesize symbolicColorName=_symbolicColorName;
 - (void)write:(id)arg1;
-@property(retain) NSString *colorString;
+@property(retain, nonatomic) NSString *colorString;
 - (void)parserFoundAttributes:(id)arg1;
 - (void)dealloc;
 - (id)init;

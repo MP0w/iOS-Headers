@@ -8,7 +8,7 @@
 
 #import "UITextFieldDelegate.h"
 
-@class CALayer, CAShapeLayer, NSMutableArray, NSSet, TSDCanvasView, TSDEditorController, TSDKnobTracker<TSTTableKnobTrackerVisitorProtocol>, TSDTilingLayer, TSTAnimation, TSTCellRegion, TSTEditingState, TSTLayout, TSTMasterLayout, TSTSearchReference, TSTSelectionDragController, TSTTableCellTextEditingRep, TSTTableInfo, TSTTableModel, TSTTableReferences, TSTTableSelection, TSWPHyperlinkField, TSWPStorage, TSWPTextEditing;
+@class CALayer, CAShapeLayer, NSMutableArray, NSMutableDictionary, NSSet, NSString, TSDCanvasView, TSDEditorController, TSDKnobTracker<TSTTableKnobTrackerVisitorProtocol>, TSDTilingLayer, TSTAnimation, TSTCellRegion, TSTEditingState, TSTLayout, TSTMasterLayout, TSTSearchReference, TSTSelectionDragController, TSTTableCellTextEditingRep, TSTTableInfo, TSTTableModel, TSTTableReferences, TSTTableSelection, TSWPHyperlinkField, TSWPStorage, TSWPTextEditing;
 
 __attribute__((visibility("hidden")))
 @interface TSTTableRep : TSWPTextHostRep <UITextFieldDelegate>
@@ -59,10 +59,11 @@ __attribute__((visibility("hidden")))
     BOOL mInspectingHyperlinkInEditingStorage;
     TSWPHyperlinkField *mHyperlinkField;
     CAShapeLayer *mCellEditingMaskLayer;
-    BOOL mHasBeenRemoved;
+    NSMutableDictionary *mChildTextReps;
 }
 
 + (Class)tableRepDelegateClass;
+@property(retain, nonatomic) NSMutableDictionary *childTextReps; // @synthesize childTextReps=mChildTextReps;
 @property(readonly, nonatomic) BOOL isZoomToEditOperationInProgress; // @synthesize isZoomToEditOperationInProgress=mIsZoomToEditOperationInProgress;
 @property(readonly, nonatomic) TSDKnobTracker<TSTTableKnobTrackerVisitorProtocol> *visitorKnobTracker; // @synthesize visitorKnobTracker=mVisitorKnobTracker;
 @property(nonatomic) CDStruct_0441cfb5 ratingsDragCellID; // @synthesize ratingsDragCellID=mRatingsDragCellID;
@@ -72,7 +73,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) id <TSTTableAnimationController> animationController; // @synthesize animationController=mAnimationController;
 @property(readonly, nonatomic) id <TSTCanvasReferenceController> canvasReferenceController; // @synthesize canvasReferenceController=mCanvasReferenceController;
 - (id).cxx_construct;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)p_textImageForPath:(struct CGPath *)arg1 shouldPulsate:(BOOL)arg2;
 - (void)drawInContext:(struct CGContext *)arg1;
 - (void)recursivelyDrawInContext:(struct CGContext *)arg1;
@@ -128,10 +129,11 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)deviceBoundsForCellRange:(CDStruct_5f1f7aa9)arg1;
 - (id)itemsToAddToEditMenu;
 - (BOOL)isDraggable;
+- (id)childReps;
 - (void)updateChildrenFromLayout;
 - (void)willBeRemoved;
 - (void)invalidateEditingCell;
-- (void)asyncPostTextChangedInRange:(CDStruct_5f1f7aa9)arg1 strokeRange:(CDStruct_5f1f7aa9)arg2;
+- (void)asyncPostTextChangedInRange:(CDStruct_5f1f7aa9)arg1;
 - (BOOL)handlesEditMenu;
 - (BOOL)shouldCommitPendingTextEdit;
 - (BOOL)shouldRestartTextEditing;
@@ -157,6 +159,9 @@ __attribute__((visibility("hidden")))
 
 // Remaining properties
 @property(retain, nonatomic) TSTSearchReference *activeSearchReference;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

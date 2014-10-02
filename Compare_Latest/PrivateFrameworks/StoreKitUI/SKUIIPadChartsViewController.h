@@ -8,13 +8,13 @@
 
 #import "SKUIItemListTableDelegate.h"
 
-@class NSArray, NSOperationQueue, SKUIClientContext, SKUIIPadChartsView, SKUIResourceLoader;
+@class NSArray, NSOperationQueue, NSString, SKUIChartColumnsView, SKUIClientContext, SKUIResourceLoader;
 
 @interface SKUIIPadChartsViewController : UIViewController <SKUIItemListTableDelegate>
 {
     SKUIResourceLoader *_artworkLoader;
     NSArray *_charts;
-    SKUIIPadChartsView *_chartsView;
+    SKUIChartColumnsView *_chartsView;
     NSArray *_chartViewControllers;
     SKUIClientContext *_clientContext;
     struct UIEdgeInsets _contentInset;
@@ -25,6 +25,7 @@
     int _selectedItemIndex;
 }
 
++ (BOOL)_shouldForwardViewWillTransitionToSize;
 @property(nonatomic) __weak id <SKUIChartsViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) struct UIEdgeInsets contentInset; // @synthesize contentInset=_contentInset;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
@@ -39,12 +40,10 @@
 - (void)itemList:(id)arg1 willDisplayCellForItem:(id)arg2 atIndexPath:(id)arg3;
 - (void)itemList:(id)arg1 didSelectItem:(id)arg2 atIndexPath:(id)arg3;
 - (id)itemList:(id)arg1 didConfirmItemOfferForItem:(id)arg2 atIndexPath:(id)arg3;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
-- (unsigned int)supportedInterfaceOrientations;
 - (void)loadView;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)unhideAllImages;
 - (id)popImageViewForItemIndex:(int)arg1 chartIndex:(int)arg2;
 - (void)loadNextPageOfArtworkWithReason:(int)arg1;
@@ -52,6 +51,12 @@
 - (void)enumerateVisibleItemsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

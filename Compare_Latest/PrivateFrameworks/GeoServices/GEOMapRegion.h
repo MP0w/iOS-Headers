@@ -30,6 +30,7 @@
 @property(nonatomic) double northLat; // @synthesize northLat=_northLat;
 @property(nonatomic) double westLng; // @synthesize westLng=_westLng;
 @property(nonatomic) double southLat; // @synthesize southLat=_southLat;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -47,17 +48,16 @@
 @property(nonatomic) BOOL hasWestLng;
 @property(nonatomic) BOOL hasSouthLat;
 - (void)dealloc;
-- (BOOL)containsMapRect:(CDStruct_90e2a262)arg1;
+- (BOOL)containsMapRect:(CDStruct_02837cd9)arg1;
 - (BOOL)containsCoordinate:(CDStruct_c3b9c2ee)arg1;
 @property(readonly, nonatomic) double spanLng;
 @property(readonly, nonatomic) double spanLat;
 @property(readonly, nonatomic) double centerLng;
 @property(readonly, nonatomic) double centerLat;
-- (void)setSpannedRegion:(CDStruct_e4d5fc44)arg1;
-- (void)setMapRect:(CDStruct_90e2a262)arg1;
+- (void)setMapRect:(CDStruct_02837cd9)arg1;
 - (id)initWithRadialPlace:(id)arg1;
-- (id)initWithSpannedRegion:(CDStruct_e4d5fc44)arg1;
-- (id)initWithMapRect:(CDStruct_90e2a262)arg1;
+- (id)initWithMapRect:(CDStruct_02837cd9)arg1;
+- (id)initWithCoordinateRegion:(CDStruct_02837cd9)arg1;
 - (id)initWithLatitude:(double)arg1 longitude:(double)arg2;
 
 @end

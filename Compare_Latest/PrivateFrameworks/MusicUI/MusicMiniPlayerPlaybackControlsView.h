@@ -4,71 +4,24 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MPPlaybackControlsView.h"
+#import "RUMiniPlayerPlaybackControlsView.h"
 
-#import "MusicMiniPlayerActionsViewControllerDelegate.h"
-#import "UIPopoverControllerDelegate.h"
+@class UIView;
 
-@class MPVolumeSlider, MusicMiniPlayerActionsViewController, MusicMiniPlayerTransportControls, MusicNowPlayingTitlesView, MusicProspectivePlaybackInformation, SKUICircleProgressIndicator, UIButton, UIPopoverController, UIView;
-
-@interface MusicMiniPlayerPlaybackControlsView : MPPlaybackControlsView <MusicMiniPlayerActionsViewControllerDelegate, UIPopoverControllerDelegate>
+@interface MusicMiniPlayerPlaybackControlsView : RUMiniPlayerPlaybackControlsView
 {
-    SKUICircleProgressIndicator *_createActivityIndicatorView;
-    UIButton *_createButton;
-    UIPopoverController *_createPopoverController;
-    MusicMiniPlayerActionsViewController *_createViewController;
-    UIView *_hairlineView;
-    BOOL _isDetailScrubbing;
-    MusicNowPlayingTitlesView *_titlesView;
-    MusicMiniPlayerTransportControls *_transportControls;
-    MPVolumeSlider *_volumeSlider;
-    BOOL _showingCreateLoadingIndicator;
-    MusicProspectivePlaybackInformation *_prospectivePlaybackInformation;
 }
 
-+ (unsigned long long)defaultVisibleParts;
-@property(nonatomic, getter=isShowingCreateLoadingIndicator) BOOL showingCreateLoadingIndicator; // @synthesize showingCreateLoadingIndicator=_showingCreateLoadingIndicator;
-@property(retain, nonatomic) MusicProspectivePlaybackInformation *prospectivePlaybackInformation; // @synthesize prospectivePlaybackInformation=_prospectivePlaybackInformation;
-- (void).cxx_destruct;
-- (void)_updateTitles;
-- (void)_updatePlaybackControlsAnimated:(BOOL)arg1;
-- (void)_updateMarqueeStatusAllowingCurrentMarqueeToFinish:(BOOL)arg1;
-- (void)_updateForChangedShowingCreateLoadingIndicator;
 - (void)_applyShuffleSettingsToButton:(id)arg1;
 - (void)_applyRepeatSettingsToButton:(id)arg1;
-- (BOOL)_allowsScrubbingForItem:(id)arg1;
-- (void)_radioModelDidChangeNotification:(id)arg1;
-- (void)_playbackStateDidChangeNotification:(id)arg1;
-- (void)_playerContentsChangedNotification:(id)arg1;
-- (void)_itemTitlesDidChangeNotification:(id)arg1;
-- (void)_itemIsExplicitDidChangeNotification:(id)arg1;
-- (void)_createButtonAction:(id)arg1;
-@property(readonly, nonatomic) UIView *viewForPresentingTrackActions;
-@property(readonly, nonatomic) UIView *viewForPresentingStationActions;
 @property(readonly, nonatomic) UIView *viewForPresentingRepeat;
-- (void)setProspectivePlaybackInformation:(id)arg1 animated:(BOOL)arg2;
-- (void)popoverControllerDidDismissPopover:(id)arg1;
-- (void)musicMiniPlayerActionsViewController:(id)arg1 didSelectAction:(int)arg2;
-- (BOOL)shouldOverrideProgressTimeLabelStyle;
-- (id)shuffleButtonImage;
-- (void)setPlayer:(id)arg1;
-- (void)setItem:(id)arg1;
-@property(nonatomic) __weak id <MPPlaybackControlsDelegate><MPTransportControlsTarget><MusicMiniPlayerActionsViewControllerDelegate> delegate;
-- (id)repeatButtonImage;
+- (Class)_transportControlsClassForItem:(id)arg1;
+- (void)_setupVisibleAndDisabledPartsForItem:(id)arg1;
+- (Class)_miniPlayerActionsViewControllerClass;
+- (id)_albumTextForItem:(id)arg1;
 - (void)reloadView;
-- (id)newProgressIndicator;
 - (id)newButtonForPart:(unsigned long long)arg1;
-- (void)detailSlider:(id)arg1 didChangeScrubSpeed:(int)arg2;
-- (void)detailSliderTrackingDidCancel:(id)arg1;
-- (void)detailSliderTrackingDidEnd:(id)arg1;
-- (void)detailSliderTrackingDidBegin:(id)arg1;
-- (BOOL)detailScrubbingHidesControls;
-- (int)buttonType;
-- (void)tintColorDidChange;
 - (void)layoutSubviews;
-- (void)didMoveToWindow;
-- (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

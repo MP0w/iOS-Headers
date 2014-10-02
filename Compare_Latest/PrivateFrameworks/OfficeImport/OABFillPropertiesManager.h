@@ -8,6 +8,8 @@
 
 #import "OABFillPropertiesManager.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface OABFillPropertiesManager : NSObject <OABFillPropertiesManager>
 {
@@ -38,6 +40,12 @@ __attribute__((visibility("hidden")))
 - (BOOL)isFilled;
 - (void)dealloc;
 - (id)initWithFill:(const struct EshFill *)arg1 shapeType:(int)arg2 masterShape:(struct EshShape *)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

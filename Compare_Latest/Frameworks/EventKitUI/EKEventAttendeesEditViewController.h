@@ -6,16 +6,22 @@
 
 #import <EventKitUI/EKEditItemViewController.h>
 
-@class EKEventAttendeePicker, NSArray;
+@class EKEvent, EKEventAttendeePicker, NSArray;
 
 __attribute__((visibility("hidden")))
 @interface EKEventAttendeesEditViewController : EKEditItemViewController
 {
     EKEventAttendeePicker *_picker;
+    EKEvent *_event;
+    BOOL _cancelTapped;
+    BOOL _disableShowingButtons;
 }
 
++ (BOOL)_shouldForwardViewWillTransitionToSize;
+@property(nonatomic) BOOL disableShowingButtons; // @synthesize disableShowingButtons=_disableShowingButtons;
 - (void).cxx_destruct;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (BOOL)editItemShouldBeAskedForInjectableViewController;
+- (BOOL)presentModally;
 @property(copy, nonatomic) NSArray *attendees;
 - (id)_recipientFromAttendee:(id)arg1;
 - (id)_attendeeFromRecipient:(id)arg1;
@@ -23,7 +29,9 @@ __attribute__((visibility("hidden")))
 - (id)_firstInvalidRecipientAddress;
 - (void)viewDidLoad;
 - (void)setSearchAccountID:(id)arg1;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (void)_doneTapped:(id)arg1;
+- (void)_cancelTapped:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 event:(id)arg2 overriddenEventStartDate:(id)arg3 overriddenEventEndDate:(id)arg4;
 
 @end
 

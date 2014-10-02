@@ -45,13 +45,11 @@
 - (id)description;
 - (id)init;
 - (id)ML3CollectionsQueryInLibrary:(id)arg1;
-- (id)ML3ItemsQueryInLibrary:(id)arg1 orderingProperties:(id)arg2 orderingDirectionMappings:(id)arg3 nameBlankProperty:(id)arg4;
-- (id)ML3ItemsQueryInLibrary:(id)arg1 orderingProperties:(id)arg2 nameBlankProperty:(id)arg3;
+- (id)ML3ItemsQueryInLibrary:(id)arg1 orderingTerms:(id)arg2 nameBlankProperty:(id)arg3;
 - (id)ML3ItemsQueryInLibrary:(id)arg1;
-- (id)ML3OrderingPropertiesForGroupingType:(int)arg1;
-- (id)ML3OrderingDirectionMappingsForMPDirectionMappings:(id)arg1;
-- (id)ML3OrderingPropertiesForMPOrderingProperties:(id)arg1;
-- (id)ML3OrderingPropertyForMPOrderingProperty:(id)arg1;
+- (id)ML3OrderingTermsForGroupingType:(int)arg1;
+- (id)ML3OrderingTermsForMPOrderingProperties:(id)arg1;
+- (id)ML3OrderingTermForMPOrderingProperty:(id)arg1;
 
 @end
 

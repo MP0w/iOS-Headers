@@ -7,10 +7,11 @@
 #import "NSObject.h"
 
 #import "UIActionSheetDelegate.h"
+#import "UIPopoverPresentationControllerDelegate.h"
 
-@class MFPopoverController, NSArray, NSMutableArray, UIActionSheet, UIBarButtonItem, UIView;
+@class MFPopoverController, NSArray, NSMutableArray, NSString, UIActionSheet, UIBarButtonItem, UIView;
 
-@interface MFMailPopoverManager : NSObject <UIActionSheetDelegate>
+@interface MFMailPopoverManager : NSObject <UIPopoverPresentationControllerDelegate, UIActionSheetDelegate>
 {
     id _delegate;
     id _actionSheetDelegate;
@@ -42,6 +43,7 @@
 - (void)_cleanupCurrentPopover;
 - (void)_willPresentPopover:(id)arg1;
 - (BOOL)_isEquivalentToCurrentPopover:(id)arg1;
+- (int)adaptivePresentationStyleForPresentationController:(id)arg1;
 - (void)popoverControllerDidDismissPopover:(id)arg1 isUserAction:(BOOL)arg2;
 - (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)actionSheet:(id)arg1 willDismissWithButtonIndex:(int)arg2;
@@ -74,11 +76,18 @@
 - (BOOL)popoverShowing;
 - (void)presentPopover:(id)arg1 fromRect:(struct CGRect)arg2 inView:(id)arg3 direction:(unsigned int)arg4 allowInteractionWithViews:(id)arg5 withDelegate:(id)arg6 animated:(BOOL)arg7;
 - (void)presentPopover:(id)arg1 fromBarButtonItem:(id)arg2 withDelegate:(id)arg3 animated:(BOOL)arg4;
+- (void)_configureDelegate:(id)arg1 forPopoverController:(id)arg2;
 - (void)presentPopover:(id)arg1 fromView:(id)arg2 animated:(BOOL)arg3;
 - (void)presentPopover:(id)arg1 fromBarButtonItem:(id)arg2 animated:(BOOL)arg3;
 - (void)dealloc;
 - (id)_init;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

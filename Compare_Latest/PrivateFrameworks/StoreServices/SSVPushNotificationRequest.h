@@ -8,7 +8,7 @@
 
 #import "SSXPCCoding.h"
 
-@class SSVPushNotificationParameters;
+@class NSString, SSVPushNotificationParameters;
 
 @interface SSVPushNotificationRequest : SSRequest <SSXPCCoding>
 {
@@ -23,6 +23,12 @@
 - (BOOL)start;
 - (void)startWithResponseBlock:(CDUnknownBlockType)arg1;
 - (id)initWithPushNotificationParameters:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

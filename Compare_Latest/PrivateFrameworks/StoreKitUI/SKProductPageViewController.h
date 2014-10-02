@@ -19,11 +19,13 @@
 {
     NSString *_additionalPurchaseParameters;
     NSString *_affiliateIdentifier;
+    BOOL _askToBuy;
     SKUIBannerViewController *_bannerViewController;
     SKUIClientContext *_clientContext;
     id <SKProductPageViewControllerDelegatePrivate> _delegate;
     SUDialogManager *_dialogManager;
     SUBarButtonItem *_gotoStoreButtonItem;
+    SUBarButtonItem *_rightBarButtonItem;
     SKUIIPadProductPageViewController *_ipadProductPageViewController;
     SKUIIPhoneProductPageViewController *_iphoneProductPageViewController;
     SKUIItemStateCenter *_itemStateCenter;
@@ -33,18 +35,27 @@
     NSDictionary *_productParameters;
     SUPurchaseManager *_purchaseManager;
     BOOL _showsStoreButton;
+    BOOL _showsRightBarButton;
+    NSString *_rightBarButtonTitle;
+    NSString *_promptString;
     int _style;
     SKUIITunesStoreUIPageViewController *_storePageViewController;
     int _urlBagType;
+    NSString *_cancelButtonTitle;
 }
 
 + (void)_validateURL:(id)arg1 withURLBag:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 + (id)_defaultClientIdentifier;
 + (id)_defaultClientInterface;
 + (void)getCanLoadWithURL:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+@property(copy, nonatomic) NSString *cancelButtonTitle; // @synthesize cancelButtonTitle=_cancelButtonTitle;
+@property(nonatomic) BOOL askToBuy; // @synthesize askToBuy=_askToBuy;
 @property(nonatomic) int URLBagType; // @synthesize URLBagType=_urlBagType;
-@property(nonatomic) int productPageStyle; // @synthesize productPageStyle=_style;
 @property(nonatomic) BOOL showsStoreButton; // @synthesize showsStoreButton=_showsStoreButton;
+@property(nonatomic) BOOL showsRightBarButton; // @synthesize showsRightBarButton=_showsRightBarButton;
+@property(copy, nonatomic) NSString *rightBarButtonTitle; // @synthesize rightBarButtonTitle=_rightBarButtonTitle;
+@property(copy, nonatomic) NSString *promptString; // @synthesize promptString=_promptString;
+@property(nonatomic) int productPageStyle; // @synthesize productPageStyle=_style;
 @property(nonatomic) __weak id <SKProductPageViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) NSString *affiliateIdentifier; // @synthesize affiliateIdentifier=_affiliateIdentifier;
 @property(copy, nonatomic) NSString *additionalPurchaseParameters; // @synthesize additionalPurchaseParameters=_additionalPurchaseParameters;
@@ -63,12 +74,14 @@
 - (void)_failWithError:(id)arg1;
 - (void)_showPageWithRequest:(id)arg1 animated:(BOOL)arg2;
 - (void)_setShowsCancelButton:(BOOL)arg1;
+- (void)_setClientContext:(id)arg1;
 - (void)_sendDidFinishWithResult:(int)arg1;
 - (void)loadWithStorePageRequest:(id)arg1;
 - (void)loadWithProductPage:(id)arg1;
 - (void)_applicationWillEnterForeground;
 - (void)_purchaseFinishedNotification:(id)arg1;
 - (void)_purchaseFailedNotification:(id)arg1;
+- (void)_rightBarButtonAction:(id)arg1;
 - (void)_gotoStoreButtonAction:(id)arg1;
 - (void)itemStateCenter:(id)arg1 didFinishPurchases:(id)arg2;
 - (void)purchaseManager:(id)arg1 willAddPurchases:(id)arg2;
@@ -95,13 +108,21 @@
 - (unsigned int)supportedInterfaceOrientations;
 - (void)loadView;
 - (void)storePage:(id)arg1 finishedWithSuccess:(BOOL)arg2;
+- (id)cancelButtonTitle:(id)arg1;
 @property(copy, nonatomic) NSDictionary *scriptContextDictionary;
 - (void)loadProductWithRequest:(id)arg1;
 - (void)loadProductWithParameters:(id)arg1;
 - (void)dealloc;
+- (id)initWithTabBarItem:(id)arg1;
 - (id)initWithProductPageStyle:(int)arg1;
 - (id)init;
 - (id)_initSKProductPageViewController;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

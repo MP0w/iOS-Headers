@@ -8,6 +8,8 @@
 
 #import "SBFProceduralWallpaper.h"
 
+@class NSString;
+
 @interface SBFProceduralWallpaper : UIView <SBFProceduralWallpaper>
 {
 }
@@ -17,7 +19,11 @@
 - (void)setAnimating:(BOOL)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) id <SBFProceduralWallpaperDelegate> delegate;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

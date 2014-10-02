@@ -8,7 +8,7 @@
 
 #import "UIAlertViewDelegate.h"
 
-@class SBApplicationIcon;
+@class NSString, SBApplicationIcon;
 
 @interface SBAppProfileExpiredAlertItem : SBAlertItem <UIAlertViewDelegate>
 {
@@ -20,6 +20,12 @@
 - (void)configure:(_Bool)arg1 requirePasscodeForActions:(_Bool)arg2;
 - (void)dealloc;
 - (id)initWithIcon:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

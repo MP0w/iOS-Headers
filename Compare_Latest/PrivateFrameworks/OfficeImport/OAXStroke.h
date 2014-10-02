@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)readStrokeFromXmlNode:(struct _xmlNode *)arg1 packagePart:(id)arg2 drawingState:(id)arg3;
-+ (id)readCustomDashFromXmlNode:(struct _xmlNode *)arg1;
++ (id)readCustomDashFromXmlNode:(struct _xmlNode *)arg1 drawingState:(id)arg2;
 + (id)readPresetDashFromXmlNode:(struct _xmlNode *)arg1;
 + (void)readLineEnd:(id)arg1 fromXmlNode:(struct _xmlNode *)arg2;
 + (id)presetDashEnumMap;

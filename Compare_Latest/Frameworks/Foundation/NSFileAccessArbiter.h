@@ -8,7 +8,7 @@
 
 #import "NSFileAccessArbiter.h"
 
-@class NSFileAccessNode, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>;
+@class NSFileAccessNode, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, NSString;
 
 @interface NSFileAccessArbiter : NSObject <NSFileAccessArbiter>
 {
@@ -23,6 +23,7 @@
 
 - (void)tiePresenterForID:(id)arg1 toItemAtURL:(id)arg2;
 - (void)writerWithPurposeID:(id)arg1 didVersionChangeOfKind:(id)arg2 toItemAtURL:(id)arg3 withClientID:(id)arg4 name:(id)arg5;
+- (void)writerWithPurposeID:(id)arg1 didMakeItemDisappearAtURL:(id)arg2;
 - (void)writerWithPurposeID:(id)arg1 didChangeUbiquityOfItemAtURL:(id)arg2;
 - (void)writerWithPurposeID:(id)arg1 didReconnectItemAtURL:(id)arg2;
 - (void)writerWithPurposeID:(id)arg1 didDisconnectItemAtURL:(id)arg2;
@@ -32,6 +33,8 @@
 - (void)grantSubarbitrationClaim:(id)arg1 withServer:(id)arg2;
 - (void)revokeAccessClaimForID:(id)arg1;
 - (id)grantAccessClaim:(id)arg1 synchronouslyIfPossible:(BOOL)arg2;
+- (void)_registerForDebugInfoRequests;
+- (void)_getDebugInformationWithString:(id)arg1 fromPid:(int)arg2 thenContinue:(CDUnknownBlockType)arg3;
 - (void)_handleCanceledClient:(id)arg1;
 - (void)_handleMessage:(id)arg1 forSubarbitrationClaim:(id)arg2 server:(id)arg3;
 - (void)_handleMessage:(id)arg1 fromClient:(id)arg2;
@@ -42,9 +45,10 @@
 - (void)_startArbitratingItemsAtURLs:(id)arg1 withSuperarbitrationServer:(id)arg2;
 - (void)_removeReactorForID:(id)arg1;
 - (void)_addProvider:(id)arg1 ofItemsAtURL:(id)arg2;
-- (void)_addPresenter:(id)arg1 ofItemAtURL:(id)arg2 withLastEventID:(id)arg3;
+- (void)_addPresenter:(id)arg1 ofItemAtURL:(id)arg2 watchingFile:(BOOL)arg3 withLastEventID:(id)arg4;
 - (void)_tiePresenterForID:(id)arg1 toItemAtURL:(id)arg2;
 - (void)_writerWithPurposeID:(id)arg1 didVersionChangeOfKind:(id)arg2 toItemAtURL:(id)arg3 withClientID:(id)arg4 name:(id)arg5;
+- (void)_writerWithPurposeID:(id)arg1 didMakeItemDisappearAtURL:(id)arg2;
 - (void)_writerWithPurposeID:(id)arg1 didChangeUbiquityOfItemAtURL:(id)arg2;
 - (void)_writerWithPurposeID:(id)arg1 didReconnectItemAtURL:(id)arg2;
 - (void)_writerWithPurposeID:(id)arg1 didDisconnectItemAtURL:(id)arg2;
@@ -56,6 +60,12 @@
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithQueue:(id)arg1 isSubarbiter:(BOOL)arg2 listener:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

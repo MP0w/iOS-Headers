@@ -33,7 +33,7 @@
 - (id)databaseStatementParameters;
 - (id)valueToBindForOperation:(int)arg1;
 - (void)appendSQLToMutableString:(id)arg1 entityClass:(Class)arg2;
-@property(readonly, nonatomic) NSString *operator;
+@property(readonly, copy, nonatomic) NSString *operator;
 - (id)description;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;

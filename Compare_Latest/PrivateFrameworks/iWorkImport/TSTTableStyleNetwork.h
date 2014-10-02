@@ -13,7 +13,7 @@
 __attribute__((visibility("hidden")))
 @interface TSTTableStyleNetwork : TSPObject <NSFastEnumeration>
 {
-    unsigned int mPresetIndex;
+    unsigned int mPresetID;
     TSTTableStyle *mTableStyle;
     TSTCellStyle *mHeaderRowCellStyle;
     TSTCellStyle *mHeaderColumnCellStyle;
@@ -27,15 +27,23 @@ __attribute__((visibility("hidden")))
     TSWPShapeStyle *mTableNameShapeStyle;
 }
 
-+ (id)identifiersForPresetIndex:(unsigned int)arg1;
++ (id)identifiersForPresetID:(unsigned int)arg1;
 + (id)defaultTableNameShapeStyleWithContext:(id)arg1;
 + (id)tableNameShapeStyleIDForPreset:(unsigned int)arg1;
 + (id)tableNameStyleIDForPreset:(unsigned int)arg1;
 + (id)networkFromTheme:(id)arg1 presetIndex:(unsigned int)arg2;
-+ (id)networkFromStylesheet:(id)arg1 presetIndex:(unsigned int)arg2;
-+ (id)createStylesInStylesheet:(id)arg1 presetIndex:(unsigned int)arg2 colors:(id)arg3 alternate:(int)arg4;
-+ (id)networkWithContext:(id)arg1 presetIndex:(unsigned int)arg2 colors:(id)arg3 alternate:(int)arg4;
++ (id)networkFromTheme:(id)arg1 presetID:(unsigned int)arg2;
++ (id)networkFromStylesheet:(id)arg1 presetID:(unsigned int)arg2;
++ (id)createStylesInStylesheet:(id)arg1 presetID:(unsigned int)arg2 colors:(id)arg3 alternate:(int)arg4;
++ (id)networkWithContext:(id)arg1 presetID:(unsigned int)arg2 colors:(id)arg3 alternate:(int)arg4;
++ (id)networkCapturedFromMasterLayout:(id)arg1;
 + (id)networkFromTableModel:(id)arg1;
+- (void)p_flattenStrokesIntoPropertyMap:(id)arg1 masterLayout:(id)arg2;
+- (void)p_updateAccumulationDict:(id)arg1 cellID:(CDStruct_0441cfb5)arg2 key:(id)arg3 currentMax:(unsigned int *)arg4 cellIDWithCurrentMax:(CDStruct_0441cfb5 *)arg5;
+- (id)p_getCleanTextStyleAtCellID:(CDStruct_0441cfb5)arg1 tableModel:(id)arg2 tableArea:(int)arg3;
+- (id)p_getCleanCellStyleForCellID:(CDStruct_0441cfb5)arg1 tableModel:(id)arg2 tableArea:(int)arg3;
+- (CDStruct_0441cfb5)p_representativeStyleCellInRange:(CDStruct_5f1f7aa9)arg1 tableModel:(id)arg2;
+- (void)p_captureAndFlattenStyles:(id)arg1;
 - (void)saveToArchive:(struct TableStyleNetworkArchive *)arg1 archiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromArchive:(const struct TableStyleNetworkArchive *)arg1 withUnarchiver:(id)arg2;
@@ -59,9 +67,9 @@ __attribute__((visibility("hidden")))
 - (id)copyWithContext:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1 context:(id)arg2;
-- (id)initWithContext:(id)arg1 fromArray:(id)arg2 presetIndex:(unsigned int)arg3;
+- (id)initWithContext:(id)arg1 fromArray:(id)arg2 presetID:(unsigned int)arg3;
 - (id)initWithContext:(id)arg1;
-@property(nonatomic) unsigned int presetIndex;
+@property(nonatomic) unsigned int presetID;
 @property(retain, nonatomic) TSWPShapeStyle *tableNameShapeStyle;
 @property(retain, nonatomic) TSWPParagraphStyle *tableNameStyle;
 - (void)setHeaderRowTextStyle:(id)arg1;

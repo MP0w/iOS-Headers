@@ -6,6 +6,8 @@
 
 #import <SAObjects/SABaseClientBoundCommand.h>
 
+@class NSString;
+
 @interface SAMPAddMediaEntityToWishList : SABaseClientBoundCommand
 {
 }
@@ -13,6 +15,7 @@
 + (id)addMediaEntityToWishListWithDictionary:(id)arg1 context:(id)arg2;
 + (id)addMediaEntityToWishList;
 - (BOOL)requiresResponse;
+@property(copy, nonatomic) NSString *adamId;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

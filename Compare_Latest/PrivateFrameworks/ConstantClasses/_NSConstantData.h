@@ -12,7 +12,7 @@
 
 + (id)alloc;
 + (void)load;
-- (const char *)bytes;
+- (const void *)bytes;
 - (unsigned int)length;
 - (void)dealloc;
 - (unsigned int)retainCount;

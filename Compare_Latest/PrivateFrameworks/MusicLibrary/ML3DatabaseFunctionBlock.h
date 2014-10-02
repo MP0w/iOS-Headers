@@ -6,7 +6,6 @@
 
 #import <MusicLibrary/ML3DatabaseFunction.h>
 
-__attribute__((visibility("hidden")))
 @interface ML3DatabaseFunctionBlock : ML3DatabaseFunction
 {
     CDUnknownBlockType _block;

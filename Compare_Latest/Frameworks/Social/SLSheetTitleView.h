@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class NSMutableArray, NSMutableDictionary, NSString, UIImageView, UILabel;
+@class NSMutableArray, NSString, UIImageView, UILabel;
 
 __attribute__((visibility("hidden")))
 @interface SLSheetTitleView : UIView
@@ -14,8 +14,6 @@ __attribute__((visibility("hidden")))
     UIImageView *_serviceIconView;
     NSMutableArray *_constraints;
     UILabel *_titleLabel;
-    int _currentBarMetrics;
-    NSMutableDictionary *_titleFonts;
     NSString *_title;
 }
 
@@ -27,9 +25,6 @@ __attribute__((visibility("hidden")))
 - (void)_setupTitleLabel;
 - (void)layoutSubviews;
 - (void)updateConstraints;
-- (void)_updateTitleLabelForBarMetrics:(int)arg1;
-- (void)setTitleFont:(id)arg1 forBarMetrics:(int)arg2;
-- (void)setCurrentBarMetrics:(int)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

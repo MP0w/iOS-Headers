@@ -21,6 +21,7 @@
 @property(retain, nonatomic) NSMutableDictionary *failedWaiters; // @synthesize failedWaiters=_failedWaiters;
 @property(retain, nonatomic) NSMutableDictionary *refreshingWaiters; // @synthesize refreshingWaiters=_refreshingWaiters;
 @property(retain, nonatomic) NSString *buildVersion; // @synthesize buildVersion=_buildVersion;
+- (void).cxx_destruct;
 - (void)giveAccountWithIDAnotherChance:(id)arg1;
 - (BOOL)accountShouldContinue:(id)arg1;
 - (BOOL)accountWithIDShouldContinue:(id)arg1;

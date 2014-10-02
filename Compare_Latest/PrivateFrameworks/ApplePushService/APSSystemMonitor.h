@@ -25,8 +25,8 @@
 + (id)sharedInstance;
 @property(nonatomic) BOOL usesPowerNotifications; // @synthesize usesPowerNotifications=_usesPowerNotifications;
 @property(readonly, nonatomic) BOOL isSystemLocked; // @synthesize isSystemLocked=_systemLocked;
-@property(readonly, nonatomic) NSDate *dateSystemLockLastChanged; // @synthesize dateSystemLockLastChanged=_dateSystemLockLastChanged;
-@property(readonly, nonatomic) NSDate *dateScreenLightLastChanged; // @synthesize dateScreenLightLastChanged=_dateScreenLightLastChanged;
+@property(readonly, retain, nonatomic) NSDate *dateSystemLockLastChanged; // @synthesize dateSystemLockLastChanged=_dateSystemLockLastChanged;
+@property(readonly, retain, nonatomic) NSDate *dateScreenLightLastChanged; // @synthesize dateScreenLightLastChanged=_dateScreenLightLastChanged;
 @property(readonly, nonatomic) BOOL isScreenLit; // @synthesize isScreenLit=_screenLit;
 @property(nonatomic, setter=setActive:) BOOL isActive; // @synthesize isActive=_active;
 @property(nonatomic) BOOL watchesSystemLockState; // @synthesize watchesSystemLockState=_watchesSystemLockState;

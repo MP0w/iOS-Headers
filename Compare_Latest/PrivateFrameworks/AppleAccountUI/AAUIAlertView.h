@@ -17,7 +17,7 @@
 }
 
 - (void).cxx_destruct;
-- (int)chosenButtonIndex;
+@property(readonly) int chosenButtonIndex;
 - (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (id)initWithTitle:(id)arg1 message:(id)arg2 buttonTitle:(id)arg3 otherButtonTitle:(id)arg4 textFieldTitle:(id)arg5 action:(CDUnknownBlockType)arg6;
 - (id)initWithTitle:(id)arg1 message:(id)arg2 buttonTitle:(id)arg3 otherButtonTitle:(id)arg4 action:(CDUnknownBlockType)arg5;

@@ -6,14 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, SBApplication, UIView, UIWindow;
+@class NSMutableDictionary, UIWindow;
 
 @interface SBSheetController : NSObject
 {
     NSMutableDictionary *_appToSheetMap;
     UIWindow *_presentationWindow;
-    SBApplication *_topHostedApp;
-    UIView *_topHostedAppView;
 }
 
 + (id)sharedInstance;
@@ -29,7 +27,6 @@
 - (void)dismissSheetView:(id)arg1 animated:(_Bool)arg2;
 - (void)_tearDownSheet:(id)arg1;
 - (void)presentSheetView:(id)arg1 animated:(_Bool)arg2;
-- (void)_positionFakeStatusBarView:(id)arg1 forOrientation:(long long)arg2;
 - (void)dealloc;
 - (id)init;
 

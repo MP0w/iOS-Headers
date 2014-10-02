@@ -7,12 +7,13 @@
 #import <iWorkImport/KNAnimationEffect.h>
 
 #import "KNAnimationPlugin.h"
+#import "KNAnimationPluginArchiving.h"
 #import "KNFrameAnimator.h"
 
-@class TSDGLDataBuffer, TSDGLMotionBlurEffect, TSDGLShader;
+@class NSString, TSDGLDataBuffer, TSDGLMotionBlurEffect, TSDGLShader;
 
 __attribute__((visibility("hidden")))
-@interface KNTransitionColorPlanes : KNAnimationEffect <KNFrameAnimator, KNAnimationPlugin>
+@interface KNTransitionColorPlanes : KNAnimationEffect <KNFrameAnimator, KNAnimationPlugin, KNAnimationPluginArchiving>
 {
     TSDGLShader *_colorShader;
     TSDGLShader *_velocityShader;
@@ -22,6 +23,8 @@ __attribute__((visibility("hidden")))
     TSDGLMotionBlurEffect *_motionBlurEffect;
 }
 
++ (void)downgradeAttributes:(id *)arg1 animationName:(id *)arg2 warning:(id *)arg3 type:(int)arg4 isToClassic:(BOOL)arg5 version:(unsigned long long)arg6;
++ (void)upgradeAttributes:(id *)arg1 animationName:(id)arg2 warning:(id *)arg3 type:(int)arg4 isFromClassic:(BOOL)arg5 version:(unsigned long long)arg6;
 + (id)thumbnailImageNameForType:(int)arg1;
 + (id)defaultAttributes;
 + (void)fillLocalizedDirectionMenu:(id)arg1 forType:(int)arg2;
@@ -39,6 +42,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (void)p_teardown;
 - (id)initWithAnimationContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

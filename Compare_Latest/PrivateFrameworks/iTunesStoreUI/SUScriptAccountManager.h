@@ -19,7 +19,7 @@
 - (void)_ntsReloadAccounts;
 - (void)_dispatchEvent:(id)arg1 forName:(id)arg2;
 - (void)_accountsChangedNotification:(id)arg1;
-@property(readonly) NSArray *accounts;
+@property(readonly, retain) NSArray *accounts;
 - (id)accountForDSID:(id)arg1;
 - (void)dealloc;
 - (id)init;

@@ -27,7 +27,7 @@
 }
 
 @property(retain, nonatomic) NSUUID *uniqueIdentifier; // @synthesize uniqueIdentifier=_uuid;
-@property(readonly, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
+@property(readonly, copy, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
 @property(readonly) unsigned int replaceMessage; // @synthesize replaceMessage=_replaceMessage;
 @property(copy, nonatomic) NSString *contentType; // @synthesize contentType=_contentType;
 @property(readonly) NSDictionary *rawHeaders; // @synthesize rawHeaders=_rawHeaders;

@@ -6,13 +6,12 @@
 
 #import "NSObject.h"
 
-@class KNAnimatedSlideModel, KNAnimatedSlideView, KNPlaybackSession;
+@class KNAnimatedSlideView, KNPlaybackSession;
 
 __attribute__((visibility("hidden")))
 @interface KNAnimationRenderer : NSObject
 {
     KNPlaybackSession *mSession;
-    KNAnimatedSlideModel *mModel;
     KNAnimatedSlideView *mASV;
     BOOL mAreAnimationsPaused;
     id mPlugin;

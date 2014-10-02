@@ -20,7 +20,7 @@
 @property(nonatomic) float destinationPosition; // @synthesize destinationPosition=_destinationPosition;
 @property(nonatomic) float initialPosition; // @synthesize initialPosition=_initialPosition;
 @property(retain, nonatomic) CAMediaTimingFunction *timingFunction; // @synthesize timingFunction=_timingFunction;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

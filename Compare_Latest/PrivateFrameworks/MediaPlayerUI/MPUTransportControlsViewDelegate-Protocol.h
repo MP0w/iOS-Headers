@@ -6,11 +6,15 @@
 
 #import "NSObject.h"
 
-@class MPUTransportControlsView;
+@class MPUTransportControlsView, UIButton<MPUTransportButton>, UIImage;
 
 @protocol MPUTransportControlsViewDelegate <NSObject>
+- (UIImage *)transportControlsView:(MPUTransportControlsView *)arg1 imageForTransportButtonWithControlType:(int)arg2;
 
 @optional
+- (struct CGSize)transportControlsView:(MPUTransportControlsView *)arg1 adjustedMaximumTransportButtonSizeWithProposedSize:(struct CGSize)arg2;
+- (struct CGRect)transportControlsView:(MPUTransportControlsView *)arg1 adjustedFrameOfTransportButtonWithControlType:(int)arg2 proposedFrame:(struct CGRect)arg3;
+- (void)transportControlsView:(MPUTransportControlsView *)arg1 prepareTransportButton:(UIButton<MPUTransportButton> *)arg2;
 - (void)transportControlsView:(MPUTransportControlsView *)arg1 tapOnAccessoryButtonType:(int)arg2;
 - (void)transportControlsView:(MPUTransportControlsView *)arg1 longPressEndOnControlType:(int)arg2;
 - (void)transportControlsView:(MPUTransportControlsView *)arg1 longPressBeginOnControlType:(int)arg2;

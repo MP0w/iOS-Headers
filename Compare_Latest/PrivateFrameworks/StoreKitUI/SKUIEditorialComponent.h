@@ -6,10 +6,11 @@
 
 #import <StoreKitUI/SKUIPageComponent.h>
 
-@class NSArray, NSString;
+@class NSArray, NSAttributedString, NSString, SKUILabelViewElement;
 
 @interface SKUIEditorialComponent : SKUIPageComponent
 {
+    NSAttributedString *_bodyAttributedText;
     NSString *_bodyText;
     NSArray *_links;
     int _maximumBodyLines;
@@ -24,12 +25,17 @@
 @property(readonly, nonatomic) NSArray *links; // @synthesize links=_links;
 @property(readonly, nonatomic) struct SKUIEditorialStyle editorialStyle; // @synthesize editorialStyle=_style;
 @property(readonly, nonatomic) NSString *bodyText; // @synthesize bodyText=_bodyText;
+@property(readonly, nonatomic) NSAttributedString *bodyAttributedText; // @synthesize bodyAttributedText=_bodyAttributedText;
 - (void).cxx_destruct;
 - (int)componentType;
 - (void)_setTitleText:(id)arg1;
+- (id)initWithViewElement:(id)arg1;
 - (id)initWithUberText:(id)arg1;
 - (id)initWithCustomPageContext:(id)arg1;
 - (id)initWithBrickRoomText:(id)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) SKUILabelViewElement *viewElement;
 
 @end
 

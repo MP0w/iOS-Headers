@@ -9,7 +9,7 @@
 #import "NSCoding.h"
 #import "NSSecureCoding.h"
 
-@class NSDictionary, NSURL;
+@class NSDictionary, NSObject<DDActionDelegate>, NSURL;
 
 @interface DDAction : NSObject <NSCoding, NSSecureCoding>
 {
@@ -24,11 +24,12 @@
     id _delegate;
 }
 
++ (BOOL)isAvailable;
 + (id)defaultActionWithURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
 + (id)actionWithURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
 + (BOOL)supportsSecureCoding;
 @property BOOL isDefaultAction; // @synthesize isDefaultAction=_isDefaultAction;
-@property id delegate; // @synthesize delegate=_delegate;
+@property NSObject<DDActionDelegate> *delegate; // @synthesize delegate=_delegate;
 - (id)description;
 - (void)addToRecents;
 - (id)context;
@@ -40,6 +41,7 @@
 - (void)_copyURL:(id)arg1;
 - (void)_copyURL:(id)arg1 andString:(id)arg2;
 - (void)perform;
+- (BOOL)hasUserInterface;
 - (int)interactionType;
 - (void)prepareViewControllerForActionController:(id)arg1;
 - (id)viewController;

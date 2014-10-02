@@ -6,17 +6,32 @@
 
 #import "NSObject.h"
 
+#import "CBPairingAgentParentDelegate.h"
 #import "CBXpcConnectionDelegate.h"
 
-@class CBXpcConnection, NSLock, NSMutableArray, NSMutableDictionary;
+@class CBPairingAgent, CBXpcConnection, NSLock, NSMapTable, NSMutableArray, NSMutableDictionary, NSString;
 
-@interface CBPeripheralManager : NSObject <CBXpcConnectionDelegate>
+@interface CBPeripheralManager : NSObject <CBPairingAgentParentDelegate, CBXpcConnectionDelegate>
 {
     id <CBPeripheralManagerDelegate> _delegate;
+    struct {
+        unsigned int willRestoreState:1;
+        unsigned int didAddService:1;
+        unsigned int didReceiveReadRequest:1;
+        unsigned int didReceiveWriteRequests:1;
+        unsigned int centralDidSubscribeToCharacteristic:1;
+        unsigned int centralDidUnsubscribeFromCharacteristic:1;
+        unsigned int didStartAdvertising:1;
+        unsigned int isReadyToUpdate:1;
+        unsigned int centralDidConnect:1;
+        unsigned int centralDidUpdateConnectionParameters:1;
+    } _delegateFlags;
     CBXpcConnection *_connection;
+    BOOL _connectionIsFinalized;
+    CBPairingAgent *_pairingAgent;
     int _state;
-    BOOL _advertising;
-    NSMutableDictionary *_centrals;
+    BOOL _isAdvertising;
+    NSMapTable *_centrals;
     NSMutableArray *_services;
     NSMutableDictionary *_characteristicIDs;
     NSLock *_updateLock;
@@ -25,12 +40,14 @@
 }
 
 + (int)authorizationStatus;
-@property(readonly) BOOL isAdvertising; // @synthesize isAdvertising=_advertising;
-@property(readonly) int state; // @synthesize state=_state;
-@property(nonatomic) __weak id <CBPeripheralManagerDelegate> delegate; // @synthesize delegate=_delegate;
+@property BOOL isAdvertising; // @synthesize isAdvertising=_isAdvertising;
+@property int state; // @synthesize state=_state;
+- (void)xpcConnectionDidFinalize:(id)arg1;
 - (void)xpcConnectionDidReset:(id)arg1;
 - (void)xpcConnectionIsInvalid:(id)arg1;
-- (void)xpcConnection:(id)arg1 didReceiveMsg:(int)arg2 args:(id)arg3;
+- (void)xpcConnection:(id)arg1 didReceiveMsg:(unsigned short)arg2 args:(id)arg3;
+- (void)handleCentralMsg:(int)arg1 args:(id)arg2;
+- (void)handleConnectionParametersUpdated:(id)arg1;
 - (void)handleSolicitedServicesFound:(id)arg1;
 - (void)handleMTUChanged:(id)arg1;
 - (void)handleReadyForUpdates:(id)arg1;
@@ -43,8 +60,6 @@
 - (void)handleServiceAdded:(id)arg1;
 - (void)handleRestoringState:(id)arg1;
 - (void)handleStateUpdated:(id)arg1;
-- (id)centralFromArgs:(id)arg1;
-- (void)sendMsg:(int)arg1 args:(id)arg2;
 - (BOOL)updateValue:(id)arg1 forCharacteristic:(id)arg2 onSubscribedCentrals:(id)arg3;
 - (void)respondToRequest:(id)arg1 withResult:(int)arg2;
 - (void)removeAllServices;
@@ -53,9 +68,25 @@
 - (void)stopAdvertising;
 - (void)startAdvertising:(id)arg1;
 - (void)setDesiredConnectionLatency:(int)arg1 forCentral:(id)arg2;
-- (void)dealloc;
+@property(nonatomic) __weak id <CBPeripheralManagerDelegate> delegate; // @dynamic delegate;
+- (oneway void)release;
 - (id)initWithDelegate:(id)arg1 queue:(id)arg2 options:(id)arg3;
 - (id)initWithDelegate:(id)arg1 queue:(id)arg2;
+@property(readonly, nonatomic) CBPairingAgent *sharedPairingAgent; // @synthesize sharedPairingAgent=_pairingAgent;
+- (void)dealloc;
+- (void)forEachCentral:(CDUnknownBlockType)arg1;
+- (id)peerWithIdentifier:(id)arg1 dict:(id)arg2;
+- (id)centralWithIdentifier:(id)arg1 dict:(id)arg2;
+- (id)sendSyncMsg:(int)arg1 args:(id)arg2;
+- (BOOL)sendMsg:(int)arg1 args:(id)arg2;
+- (BOOL)isMsgAllowedAlways:(int)arg1;
+- (BOOL)isMsgAllowedWhenOff:(int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

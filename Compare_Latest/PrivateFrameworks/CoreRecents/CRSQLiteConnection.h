@@ -12,14 +12,15 @@
 {
     NSString *_path;
     struct sqlite3 *_db;
-    NSString *_databaseName;
     struct __CFDictionary *_statementCache;
     void *_ICUSearchContext;
     void *_CRSearchContext;
+    void *_CRPhoneSearchContext;
     int _transactionType;
     unsigned int _transactionCount;
 }
 
++ (id)connectionToNewInMemoryStore;
 @property(readonly, nonatomic) struct sqlite3 *db; // @synthesize db=_db;
 - (int)rollbackTransaction;
 - (int)commitTransaction;
@@ -33,6 +34,7 @@
 - (const char *)_vfsModuleName;
 - (void)dealloc;
 - (id)initWithPath:(id)arg1 databaseName:(id)arg2;
+- (id)initWithPath:(id)arg1;
 
 @end
 

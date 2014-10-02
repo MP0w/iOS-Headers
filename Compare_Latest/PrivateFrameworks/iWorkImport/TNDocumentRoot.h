@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     TSKTreeNode *mSidebarOrder;
     unsigned int mSheetNameCounter;
     TNUIState *mUIState;
+    BOOL mDocumentWasPreparedFromTemplate;
     BOOL _printingAllSheets;
     NSString *_printerID;
     NSString *_paperID;
@@ -29,9 +30,11 @@ __attribute__((visibility("hidden")))
 + (struct CGSize)previewImageSizeForType:(unsigned int)arg1;
 @property(nonatomic, getter=isPrintingAllSheets) BOOL printingAllSheets; // @synthesize printingAllSheets=_printingAllSheets;
 @property(retain, nonatomic) TNUIState *uiState; // @synthesize uiState=mUIState;
-@property(readonly, nonatomic) TSKTreeNode *sidebarOrder; // @synthesize sidebarOrder=mSidebarOrder;
+@property(readonly, retain, nonatomic) TSKTreeNode *sidebarOrder; // @synthesize sidebarOrder=mSidebarOrder;
 @property(readonly, nonatomic) TSSStylesheet *stylesheet; // @synthesize stylesheet=mStylesheet;
 - (id).cxx_construct;
+- (int)verticalAlignmentForTextStorage:(id)arg1;
+- (int)naturalAlignmentAtCharIndex:(unsigned int)arg1 inTextStorage:(id)arg2;
 - (BOOL)shouldAllowDrawableInGroups:(id)arg1 forImport:(BOOL)arg2;
 - (id)p_previewImageWithImageSize:(struct CGSize)arg1;
 - (struct CGSize)p_adjustCapturedContentSize:(struct CGSize)arg1 toAspectRatio:(struct CGSize)arg2;
@@ -63,6 +66,9 @@ __attribute__((visibility("hidden")))
 - (void)p_removeSidebarNodeForSheet:(id)arg1;
 - (void)p_addSidebarNodeForSheet:(id)arg1;
 - (void)setSidebarChildren:(id)arg1 forSheet:(id)arg2;
+- (BOOL)validName:(id)arg1 forRenamingSheet:(id)arg2;
+- (BOOL)validNameForNewSheet:(id)arg1;
+- (BOOL)shouldShowComments;
 - (void)moveSheet:(id)arg1 toIndex:(unsigned int)arg2;
 - (void)insertSheet:(id)arg1 sheetIndex:(unsigned int)arg2 context:(id)arg3;
 - (void)removeSheet:(id)arg1;
@@ -86,6 +92,12 @@ __attribute__((visibility("hidden")))
 - (void)initializeHardCodedBlankDocument;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

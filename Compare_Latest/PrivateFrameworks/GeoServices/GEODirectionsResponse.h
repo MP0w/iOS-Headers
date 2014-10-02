@@ -12,6 +12,7 @@
 
 @interface GEODirectionsResponse : PBCodable <NSCopying>
 {
+    CDStruct_56d48c16 _supportedTransportTypes;
     CDStruct_c55e649d *_problemDetails;
     unsigned int _problemDetailsCount;
     unsigned int _problemDetailsSpace;
@@ -40,6 +41,7 @@
 @property(retain, nonatomic) NSMutableArray *placeSearchResponses; // @synthesize placeSearchResponses=_placeSearchResponses;
 @property(retain, nonatomic) NSMutableArray *routes; // @synthesize routes=_routes;
 @property(nonatomic) int status; // @synthesize status=_status;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -48,6 +50,12 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (void)setSupportedTransportTypes:(int *)arg1 count:(unsigned int)arg2;
+- (int)supportedTransportTypeAtIndex:(unsigned int)arg1;
+- (void)addSupportedTransportType:(int)arg1;
+- (void)clearSupportedTransportTypes;
+@property(readonly, nonatomic) int *supportedTransportTypes;
+@property(readonly, nonatomic) unsigned int supportedTransportTypesCount;
 - (void)setProblemDetails:(CDStruct_c55e649d *)arg1 count:(unsigned int)arg2;
 - (CDStruct_c55e649d)problemDetailAtIndex:(unsigned int)arg1;
 - (void)addProblemDetail:(CDStruct_c55e649d)arg1;

@@ -16,6 +16,7 @@
 }
 
 @property(readonly, nonatomic) NSMutableArray *services; // @synthesize services=_services;
+- (id)displayItems;
 - (id)serviceBundleIdentifiers;
 - (id)serviceForIdentifier:(id)arg1;
 - (id)serviceForBundleIdentifier:(id)arg1;

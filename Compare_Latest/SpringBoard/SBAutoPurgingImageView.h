@@ -14,8 +14,7 @@
 - (void)setImage:(id)arg1;
 - (void)didMoveToWindow;
 - (void)dealloc;
-- (id)initWithImageNamed:(id)arg1;
-- (id)_initWithImageBlock:(CDUnknownBlockType)arg1 andInitialLoadBlock:(CDUnknownBlockType)arg2;
+- (id)initWithImageGenerationBlock:(CDUnknownBlockType)arg1;
 
 @end
 

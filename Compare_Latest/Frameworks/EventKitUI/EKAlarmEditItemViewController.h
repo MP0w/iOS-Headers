@@ -8,7 +8,7 @@
 
 #import "CalendarEventAlarmTableDelegate.h"
 
-@class CalendarEventAlarmTable, EKAlarm;
+@class CalendarEventAlarmTable, EKCalendar, EKUIAlarm, NSString;
 
 __attribute__((visibility("hidden")))
 @interface EKAlarmEditItemViewController : EKEditItemViewController <CalendarEventAlarmTableDelegate>
@@ -17,22 +17,38 @@ __attribute__((visibility("hidden")))
     BOOL _immediateAlarmCreation;
     BOOL _allDay;
     BOOL _shouldAllowAlarmsTriggeringAfterStartDate;
-    EKAlarm *_alarm;
-    int _alarmIndex;
+    BOOL _shouldShowLeaveNowOption;
+    BOOL _eventHasTravelTime;
+    EKUIAlarm *_alarm;
+    EKCalendar *_calendar;
+    unsigned int _alarmIndex;
 }
 
+@property(nonatomic) BOOL eventHasTravelTime; // @synthesize eventHasTravelTime=_eventHasTravelTime;
+@property(nonatomic) BOOL shouldShowLeaveNowOption; // @synthesize shouldShowLeaveNowOption=_shouldShowLeaveNowOption;
 @property(nonatomic) BOOL shouldAllowAlarmsTriggeringAfterStartDate; // @synthesize shouldAllowAlarmsTriggeringAfterStartDate=_shouldAllowAlarmsTriggeringAfterStartDate;
 @property(nonatomic) BOOL allDay; // @synthesize allDay=_allDay;
-@property(nonatomic) int alarmIndex; // @synthesize alarmIndex=_alarmIndex;
-@property(retain, nonatomic) EKAlarm *alarm; // @synthesize alarm=_alarm;
+@property(nonatomic) unsigned int alarmIndex; // @synthesize alarmIndex=_alarmIndex;
+@property(retain, nonatomic) EKCalendar *calendar; // @synthesize calendar=_calendar;
+@property(retain, nonatomic) EKUIAlarm *alarm; // @synthesize alarm=_alarm;
 - (void).cxx_destruct;
 - (void)alarmTableDidChangeAlarm:(id)arg1;
 @property(nonatomic) int presetIdentifier;
 - (BOOL)customSelected;
 - (void)setCustomString:(id)arg1;
+- (id)tableHeaderView;
+- (void)_storeChanged:(id)arg1;
+- (void)viewDidDisappear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
 - (id)initWithFrame:(struct CGRect)arg1 styleProvider:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

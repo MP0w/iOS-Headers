@@ -10,7 +10,7 @@
 #import "SBIconObserver.h"
 #import "SBIconViewObserver.h"
 
-@class NSMapTable, SBIconModel, _UILegibilitySettings;
+@class NSMapTable, NSString, SBIconModel, _UILegibilitySettings;
 
 @interface SBIconViewMap : SBReusableViewMap <SBIconObserver, SBIconIndexNodeObserver, SBIconViewObserver>
 {
@@ -27,7 +27,7 @@
 
 + (id)homescreenMap;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
-@property(readonly, nonatomic) SBIconModel *iconModel; // @synthesize iconModel=_model;
+@property(readonly, retain, nonatomic) SBIconModel *iconModel; // @synthesize iconModel=_model;
 - (void)iconViewDidChangeLocation:(id)arg1;
 - (void)node:(id)arg1 didRemoveContainedNodeIdentifiers:(id)arg2;
 - (void)node:(id)arg1 didAddContainedNodeIdentifiers:(id)arg2;
@@ -56,6 +56,12 @@
 - (void)invalidate;
 - (void)dealloc;
 - (id)initWithIconModel:(id)arg1 delegate:(id)arg2 viewDelegate:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

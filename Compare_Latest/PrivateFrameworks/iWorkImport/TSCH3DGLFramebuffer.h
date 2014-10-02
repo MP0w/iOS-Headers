@@ -8,7 +8,7 @@
 
 #import "TSCH3DPipelineLinkable.h"
 
-@class TSCH3DGLContext;
+@class NSString, TSCH3DGLContext;
 
 __attribute__((visibility("hidden")))
 @interface TSCH3DGLFramebuffer : TSCH3DFramebuffer <TSCH3DPipelineLinkable>
@@ -30,9 +30,14 @@ __attribute__((visibility("hidden")))
 - (void)setColorMask:(const tvec4_d23a2b6e *)arg1;
 - (void)setClearColor:(const tvec4_ac57c72d *)arg1;
 @property(readonly, nonatomic) BOOL isTexturable;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1 size:(const tvec2_3b141483 *)arg2 attributes:(const struct FramebufferAttributes *)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

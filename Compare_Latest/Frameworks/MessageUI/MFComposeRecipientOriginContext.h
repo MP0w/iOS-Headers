@@ -11,13 +11,13 @@
 @interface MFComposeRecipientOriginContext : NSObject
 {
     NSString *_searchTerm;
-    int _resultType;
+    unsigned int _resultType;
 }
 
-@property(readonly, nonatomic) int resultType; // @synthesize resultType=_resultType;
+@property(readonly, nonatomic) unsigned int resultType; // @synthesize resultType=_resultType;
 @property(readonly, nonatomic) NSString *searchTerm; // @synthesize searchTerm=_searchTerm;
 - (void)dealloc;
-- (void)setResultType:(int)arg1;
+- (void)setResultType:(unsigned int)arg1;
 - (void)setSearchTerm:(id)arg1;
 
 @end

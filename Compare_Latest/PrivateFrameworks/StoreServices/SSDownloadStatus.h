@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "SSXPCCoding.h"
 
-@class NSError, SSDownloadPhase;
+@class NSError, NSString, SSDownloadPhase;
 
 @interface SSDownloadStatus : NSObject <SSXPCCoding, NSCopying>
 {
@@ -35,6 +35,12 @@
 @property(readonly, nonatomic) float percentComplete;
 @property(readonly, nonatomic, getter=isFailedTransient) BOOL failedTransient;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

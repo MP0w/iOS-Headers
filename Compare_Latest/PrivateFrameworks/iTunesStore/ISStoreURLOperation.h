@@ -22,6 +22,7 @@
 }
 
 + (id)_restrictionsHeaderValue;
++ (void)_addITunesStoreHeadersToRequest:(id)arg1 withURLBag:(id)arg2 account:(id)arg3;
 + (void)_addITunesStoreHeadersToRequest:(id)arg1 withURLBag:(id)arg2 accountIdentifier:(id)arg3;
 + (id)propertyListOperationWithURLBagKey:(id)arg1;
 + (id)pingOperationWithUrl:(id)arg1;

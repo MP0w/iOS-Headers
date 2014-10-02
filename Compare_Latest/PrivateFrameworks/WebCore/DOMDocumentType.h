@@ -14,12 +14,12 @@ __attribute__((visibility("hidden")))
 }
 
 - (void)remove;
-@property(readonly) NSString *internalSubset;
-@property(readonly) NSString *systemId;
-@property(readonly) NSString *publicId;
+@property(readonly, copy) NSString *internalSubset;
+@property(readonly, copy) NSString *systemId;
+@property(readonly, copy) NSString *publicId;
 @property(readonly) DOMNamedNodeMap *notations;
 @property(readonly) DOMNamedNodeMap *entities;
-@property(readonly) NSString *name;
+@property(readonly, copy) NSString *name;
 
 @end
 

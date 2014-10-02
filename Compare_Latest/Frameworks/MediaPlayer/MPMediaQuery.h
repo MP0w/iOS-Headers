@@ -6,28 +6,31 @@
 
 #import "NSObject.h"
 
+#import "MPPProtobufferCoding.h"
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class MPMediaItemCollection, MPMediaLibrary, MPMediaPlaylist, MPMediaQueryCriteria, MPMediaQuerySectionInfo, NSArray, NSDictionary, NSSet;
+@class MPMediaItemCollection, MPMediaLibrary, MPMediaPlaylist, MPMediaQueryCriteria, MPMediaQuerySectionInfo, NSArray, NSDictionary, NSSet, NSString;
 
-@interface MPMediaQuery : NSObject <NSSecureCoding, NSCopying>
+@interface MPMediaQuery : NSObject <MPPProtobufferCoding, NSSecureCoding, NSCopying>
 {
     MPMediaLibrary *_mediaLibrary;
     MPMediaQueryCriteria *_criteria;
     int _isFilteringDisabled;
     NSArray *_staticEntities;
-    int _staticEntityType;
+    unsigned int _staticEntityType;
 }
 
 + (id)geniusMixesQuery;
 + (id)videoPodcastsQuery;
++ (id)audioPodcastsQuery;
 + (id)movieRentalsQuery;
 + (id)moviesQuery;
 + (id)homeVideosQuery;
 + (id)tvShowsQuery;
 + (id)musicVideosQuery;
 + (id)videosQuery;
++ (id)albumArtistsQuery;
 + (BOOL)isFilteringDisabled;
 + (void)setFilteringDisabled:(BOOL)arg1;
 + (void)initFilteringDisabled;
@@ -51,7 +54,7 @@
 - (void).cxx_destruct;
 - (void)setCriteria:(id)arg1;
 - (id)criteria;
-- (void)setStaticEntities:(id)arg1 entityType:(int)arg2;
+- (void)setStaticEntities:(id)arg1 entityType:(unsigned int)arg2;
 - (void)_enumerateCollectionsInOrder:(BOOL)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)_enumerateUnorderedCollectionsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)_enumerateCollectionsUsingBlock:(CDUnknownBlockType)arg1;
@@ -61,7 +64,7 @@
 - (BOOL)_isFilteringDisabled;
 - (id)valueForAggregateFunction:(id)arg1 onCollectionsForProperty:(id)arg2;
 - (id)valueForAggregateFunction:(id)arg1 onItemsForProperty:(id)arg2;
-- (id)_valueForAggregateFunction:(id)arg1 onProperty:(id)arg2 entityType:(int)arg3;
+- (id)_valueForAggregateFunction:(id)arg1 onProperty:(id)arg2 entityType:(unsigned int)arg3;
 @property(readonly, nonatomic) NSArray *collectionSections;
 @property(readonly, nonatomic) NSArray *itemSections;
 @property(readonly, nonatomic) BOOL willGroupEntities;
@@ -90,18 +93,20 @@
 - (void)removeFilterPredicate:(id)arg1;
 - (void)addFilterPredicate:(id)arg1;
 @property(retain, nonatomic) NSSet *filterPredicates;
+- (id)protobufferEncodableObject;
+- (id)initWithProtobufferDecodableObject:(id)arg1;
+- (id)copyBySanitizingStaticEntities;
 - (id)copyByRemovingStaticEntities;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
-- (id)description;
-- (id)initWithEntities:(id)arg1 entityType:(int)arg2;
-- (id)initWithFilterPredicates:(id)arg1;
-- (id)initWithFilterPredicatesInternal:(id)arg1;
-- (id)initWithCriteria:(id)arg1 library:(id)arg2;
+@property(readonly, copy) NSString *description;
 - (id)init;
+- (id)initWithEntities:(id)arg1 entityType:(unsigned int)arg2;
+- (id)initWithCriteria:(id)arg1 library:(id)arg2;
+- (id)initWithFilterPredicates:(id)arg1;
 @property(readonly, nonatomic) MPMediaItemCollection *collectionByJoiningCollections;
 - (BOOL)_updatePredicateForProperty:(id)arg1 withPropertyPredicate:(id)arg2;
 - (void)setFilterPropertyPredicate:(id)arg1;
@@ -113,6 +118,10 @@
 - (id)MPSD_mediaQueryForDownloadableEntities;
 - (BOOL)MPSD_hasDownloadingEntities;
 - (BOOL)MPSD_hasDownloadableEntities;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

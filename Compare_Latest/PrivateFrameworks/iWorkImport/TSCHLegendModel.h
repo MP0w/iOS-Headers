@@ -9,17 +9,21 @@
 #import "NSCopying.h"
 #import "TSCHStyleOwning.h"
 #import "TSCHUnretainedParent.h"
+#import "TSDMixing.h"
 
-@class TSCHChartInfo;
+@class NSString, TSCHChartInfo;
 
 __attribute__((visibility("hidden")))
-@interface TSCHLegendModel : NSObject <TSCHUnretainedParent, TSCHStyleOwning, NSCopying>
+@interface TSCHLegendModel : NSObject <TSCHUnretainedParent, TSCHStyleOwning, TSDMixing, NSCopying>
 {
     TSCHChartInfo *mChartInfo;
     struct CGRect mLegendFrame;
 }
 
 @property(nonatomic) TSCHChartInfo *chartInfo; // @synthesize chartInfo=mChartInfo;
+- (BOOL)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
+- (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
+- (int)mixingTypeWithObject:(id)arg1;
 - (id)nonstyle;
 - (id)style;
 - (id)swapTuplesForParagraphStyleMutations:(id)arg1 forReferencingProperty:(int)arg2;
@@ -50,6 +54,12 @@ __attribute__((visibility("hidden")))
 - (id)g_genericToDefaultPropertyMap;
 - (void)saveToUnityArchive:(struct ChartArchive *)arg1;
 - (void)loadFromUnityArchive:(const struct ChartArchive *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

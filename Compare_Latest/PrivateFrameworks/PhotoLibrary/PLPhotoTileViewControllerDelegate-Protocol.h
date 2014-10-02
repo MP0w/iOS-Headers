@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class PLCommentsViewController, PLPhotoTileViewController;
+@class PLCommentsViewController, PLPhotoTileViewController, UIView;
 
 @protocol PLPhotoTileViewControllerDelegate <NSObject>
 - (void)photoTileViewControllerDidEndGesture:(PLPhotoTileViewController *)arg1;
@@ -21,10 +21,11 @@
 - (void)photoTileViewController:(PLPhotoTileViewController *)arg1 willAppear:(BOOL)arg2;
 
 @optional
+- (UIView *)photoTileViewControllerCustomCenterOverlay:(PLPhotoTileViewController *)arg1;
+- (BOOL)photoTileViewControllerCanShowCenterOverlay:(PLPhotoTileViewController *)arg1;
 - (void)photoTileViewController:(PLPhotoTileViewController *)arg1 commentsControllerWillBeginScrolling:(PLCommentsViewController *)arg2;
 - (void)photoTileViewController:(PLPhotoTileViewController *)arg1 didExitEditModeInCommentsController:(PLCommentsViewController *)arg2;
 - (void)photoTileViewController:(PLPhotoTileViewController *)arg1 willEnterEditModeInCommentsController:(PLCommentsViewController *)arg2;
-- (void)photoTileViewControllerDidSetHDRTypeForPhoto:(PLPhotoTileViewController *)arg1;
 - (BOOL)isPhotoTileParentPageControllerAnimating:(PLPhotoTileViewController *)arg1;
 - (BOOL)photoTileViewControllerAllowsEditing:(PLPhotoTileViewController *)arg1;
 @end

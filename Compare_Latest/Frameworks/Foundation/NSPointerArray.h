@@ -10,6 +10,8 @@
 #import "NSCopying.h"
 #import "NSFastEnumeration.h"
 
+@class NSPointerFunctions;
+
 @interface NSPointerArray : NSObject <NSFastEnumeration, NSCopying, NSCoding>
 {
 }
@@ -23,8 +25,7 @@
 + (id)pointerArrayWithStrongObjects;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)setCount:(unsigned int)arg1;
-- (unsigned int)count;
+@property unsigned int count;
 - (void)compact;
 - (void)replacePointerAtIndex:(unsigned int)arg1 withPointer:(void *)arg2;
 - (void)insertPointer:(void *)arg1 atIndex:(unsigned int)arg2;
@@ -32,7 +33,7 @@
 - (void)addPointer:(void *)arg1;
 - (void *)pointerAtIndex:(unsigned int)arg1;
 - (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
-- (id)pointerFunctions;
+@property(readonly, copy) NSPointerFunctions *pointerFunctions;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithPointerFunctions:(id)arg1;
 - (id)initWithOptions:(unsigned int)arg1;

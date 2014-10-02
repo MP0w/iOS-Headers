@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) int state; // @synthesize state=_state;
 @property(retain, nonatomic) id <MKUserTrackingView> userTrackingView; // @synthesize userTrackingView=_userTrackingView;
 - (void).cxx_destruct;
+- (void)_updateLoading;
 - (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
 - (id)_contentAnimation;
 - (id)_expandAnimation;

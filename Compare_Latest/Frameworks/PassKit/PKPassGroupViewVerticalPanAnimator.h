@@ -23,7 +23,7 @@
 @property(nonatomic) struct CGPoint panningViewStartPosition; // @synthesize panningViewStartPosition=_panningViewStartPosition;
 @property(retain, nonatomic) PKPassGroupView *panningGroupView; // @synthesize panningGroupView=_panningGroupView;
 @property(retain, nonatomic) UIPanGestureRecognizer *gestureRecognizer; // @synthesize gestureRecognizer=_gestureRecognizer;
-- (void)dismissWithStartVelocity:(float)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)dismissWithStartVelocity:(float)arg1 alongSideApplier:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)_dynamicAnimationWithStart:(float)arg1 target:(float)arg2 initialVelocity:(float)arg3;
 - (void)layoutViewsWithY:(float)arg1;
 - (void)stop;

@@ -10,7 +10,7 @@
 #import "_UISettingsGroupObserver.h"
 #import "_UISettingsKeyPathObserver.h"
 
-@class NSDictionary, NSHashTable, NSSet;
+@class NSDictionary, NSHashTable, NSSet, NSString;
 
 @interface _UISettings : NSObject <_UISettingsGroupObserver, _UISettingsKeyPathObserver, NSCopying>
 {
@@ -25,6 +25,9 @@
 
 + (id)settingsFromArchiveFile:(id)arg1 error:(id *)arg2;
 + (id)settingsFromArchiveDictionary:(id)arg1;
+- (id)_associatedNameOrNilIfDefault;
+- (id)_associatedName;
+- (void)_setAssociatedName:(id)arg1;
 - (void)_sendKeyPathChanged:(id)arg1;
 - (void)_sendKeyChanged:(id)arg1;
 - (id)_keyForChild:(id)arg1;
@@ -71,6 +74,12 @@
 - (void)_continueInitBySettingDefaultValues;
 - (id)_startInit;
 - (id)_initWithArchiveDictionary:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

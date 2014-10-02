@@ -15,7 +15,7 @@ __attribute__((visibility("hidden")))
 
 - (const CDStruct_39788696 *)nextReference;
 - (void)dealloc;
-- (id)initWithCalculationEngine:(id)arg1 defaultFormulaOwnerID:(struct __CFUUID *)arg2 nodeArray:(const struct TSCEASTNodeArray *)arg3 myHostCellID:(CDStruct_0441cfb5)arg4;
+- (id)initWithCalculationEngine:(id)arg1 defaultFormulaOwnerID:(struct __CFUUID *)arg2 nodeArray:(const struct TSCEASTNodeArray *)arg3 myHostCellID:(CDStruct_0441cfb5)arg4 doImplicitIntersection:(BOOL)arg5;
 
 @end
 

@@ -14,7 +14,7 @@
 #import "UINavigationControllerDelegate.h"
 #import "UIPopoverControllerDelegate.h"
 
-@class CAKeyframeAnimation, NSArray, NSDictionary, UIImagePickerController, UIPopoverController;
+@class CAKeyframeAnimation, NSArray, NSDictionary, NSString, UIImagePickerController, UIPopoverController;
 
 @interface ABImagePickerController : ABContentController <UIModalViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UIAlertViewDelegate, UIPopoverControllerDelegate, ABMultipleSourceImagePickerDelegate>
 {
@@ -44,7 +44,7 @@
 - (void)delayedPerform:(SEL)arg1 withObject:(id)arg2;
 - (void)delayedPerform:(SEL)arg1;
 - (void)imagePickerControllerDidCancel:(id)arg1;
-- (void)imagePickerController:(id)arg1 didFinishPickingImage:(id)arg2 editingInfo:(id)arg3;
+- (void)imagePickerController:(id)arg1 didFinishPickingMediaWithInfo:(id)arg2;
 - (id)ab_windowContentViewForView:(id)arg1;
 - (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
 - (void)animationDidStopAfterDelay:(id)arg1;
@@ -78,6 +78,12 @@
 - (BOOL)canTakePhoto;
 - (void)dealloc;
 - (id)initWithContentControllerDelegate:(id)arg1 addressBook:(void *)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

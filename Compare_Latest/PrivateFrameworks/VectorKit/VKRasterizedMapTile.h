@@ -11,8 +11,9 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (void)gglBuildTexture;
+- (id)initWithKey:(const struct VKTileKey *)arg1 gglTexture:(const shared_ptr_479d1306 *)arg2 styleManager:(id)arg3;
 - (void)buildTexture;
-- (id)initWithKey:(const struct VKTileKey *)arg1 texture:(id)arg2 stylesheet:(id)arg3;
 
 @end
 

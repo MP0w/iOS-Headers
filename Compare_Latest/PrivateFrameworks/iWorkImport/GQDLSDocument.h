@@ -15,8 +15,8 @@ __attribute__((visibility("hidden")))
 }
 
 + (struct _xmlNs *)appNamespace;
-- (void)initializeAppBundleResourcesUrl;
-- (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2;
+- (void)initializeAppBundleResourcesUrl:(struct __CFURL *)arg1;
+- (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2 fileUrl:(struct __CFURL *)arg3;
 - (void)setStylesheet:(id)arg1;
 - (id)stylesheet;
 - (void)dealloc;

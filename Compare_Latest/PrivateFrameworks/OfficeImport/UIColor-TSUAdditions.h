@@ -7,7 +7,6 @@
 #import "UIColor.h"
 
 @interface UIColor (TSUAdditions)
-+ (id)tangierScrollViewTexturedBackgroundColor;
 + (id)tableViewCellDarkBlueTextColor;
 + (id)transparentGrayCheckerboardColor;
 + (id)grayCheckerboardColor;

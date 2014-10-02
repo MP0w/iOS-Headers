@@ -21,7 +21,7 @@
 
 @property(readonly, nonatomic) int type; // @synthesize type=_type;
 @property(readonly, nonatomic) RadioTrack *track; // @synthesize track=_track;
-@property(readonly, nonatomic) NSString *externalIdentifier; // @synthesize externalIdentifier=_externalIdentifier;
+@property(readonly, copy, nonatomic) NSString *externalIdentifier; // @synthesize externalIdentifier=_externalIdentifier;
 @property(readonly, nonatomic) NSDate *datePlayed; // @synthesize datePlayed=_datePlayed;
 - (void).cxx_destruct;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;

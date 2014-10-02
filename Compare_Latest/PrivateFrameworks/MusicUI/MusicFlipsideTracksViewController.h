@@ -8,7 +8,7 @@
 
 #import "MPURatingControlDelegate.h"
 
-@class MPAVItem, MPMediaItem, MusicFlipsideAlbumDetailHeaderView, UISegmentedControl, UIView;
+@class MPAVItem, MPMediaItem, MusicFlipsideAlbumDetailHeaderView, NSString, UISegmentedControl, UIView;
 
 @interface MusicFlipsideTracksViewController : UIViewController <MPURatingControlDelegate>
 {
@@ -24,6 +24,7 @@
 @property(nonatomic) BOOL hasPlaylist; // @synthesize hasPlaylist=_hasPlaylist;
 - (void).cxx_destruct;
 - (void)_itemDidChangeNotification:(id)arg1;
+- (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)ratingDidChangeForRatingControl:(id)arg1;
 - (void)_updateMediaItem;
 - (void)_selectedSegmentDidChange:(id)arg1;
@@ -37,6 +38,12 @@
 - (id)contentScrollView;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

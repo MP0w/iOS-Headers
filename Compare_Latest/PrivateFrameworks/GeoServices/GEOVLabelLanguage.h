@@ -6,10 +6,12 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying.h"
+
 @class NSString;
 
 __attribute__((visibility("hidden")))
-@interface GEOVLabelLanguage : PBCodable
+@interface GEOVLabelLanguage : PBCodable <NSCopying>
 {
     unsigned int _endOffset;
     NSString *_languageLocale;
@@ -21,6 +23,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned int startOffset; // @synthesize startOffset=_startOffset;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;

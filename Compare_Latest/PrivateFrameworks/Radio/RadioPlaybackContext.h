@@ -17,7 +17,7 @@
     NSArray *_trackPlaybackDescriptorQueue;
 }
 
-@property(readonly, nonatomic) NSArray *trackPlaybackDescriptorQueue; // @synthesize trackPlaybackDescriptorQueue=_trackPlaybackDescriptorQueue;
+@property(readonly, copy, nonatomic) NSArray *trackPlaybackDescriptorQueue; // @synthesize trackPlaybackDescriptorQueue=_trackPlaybackDescriptorQueue;
 @property(readonly, nonatomic) int numberOfSkipsUsed; // @synthesize numberOfSkipsUsed=_numberOfSkipsUsed;
 - (void).cxx_destruct;
 - (id)playbackContextDictionary;

@@ -58,6 +58,7 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)currentBoundsForStandardKnobs;
 - (void)endMovingKnob;
 - (void)beginMovingKnob;
+- (struct CGPoint)convertKnobPositionFromUnscaledCanvas:(struct CGPoint)arg1;
 - (struct CGPoint)convertKnobPositionToUnscaledCanvas:(struct CGPoint)arg1;
 - (void)moveKnobToCanvasPosition:(struct CGPoint)arg1;
 - (void)moveKnobToRepPosition:(struct CGPoint)arg1;

@@ -7,19 +7,21 @@
 #import "UIViewController.h"
 
 #import "MCProfileConnectionObserver.h"
+#import "RUStationTrackInfoViewDelegate.h"
 #import "SKStoreProductViewControllerDelegate.h"
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
-#import "_RUStationTrackInfoViewDelegate.h"
 
-@class MPAVItem, NSArray, NSMutableArray, RUInnerShadowHeaderFooterView, RUStationTuningView, RadioStation, UILabel, UISwitch, UITableView, UITableViewCell, _RUStationTrackInfoView;
+@class MPAVItem, NSArray, NSMutableArray, NSString, RUInnerShadowHeaderFooterView, RUStationTrackInfoView, RUStationTuningView, RadioStation, UILabel, UISwitch, UITableView, UITableViewCell;
 
-@interface RUStationActionsViewController : UIViewController <_RUStationTrackInfoViewDelegate, MCProfileConnectionObserver, SKStoreProductViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface RUStationActionsViewController : UIViewController <RUStationTrackInfoViewDelegate, MCProfileConnectionObserver, SKStoreProductViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 {
+    BOOL _bagShowsExplicitToggle;
     UILabel *_copyrightLabel;
     int _currentAction;
     BOOL _isProfileExplicitContentRestricted;
     UILabel *_navigationTitleLabel;
+    BOOL _needsTrackInfoViewHeightReset;
     UISwitch *_playExplicitTracksSwitch;
     NSArray *_playbackQueue;
     RadioStation *_station;
@@ -28,19 +30,25 @@
     RUStationTuningView *_stationTuningView;
     UITableView *_tableView;
     RUInnerShadowHeaderFooterView *_topShadowView;
-    _RUStationTrackInfoView *_trackInfoView;
+    RUStationTrackInfoView *_trackInfoView;
+    BOOL _showsDoneButton;
     MPAVItem *_item;
     id <RUStationActionsViewControllerDelegate> _delegate;
 }
 
+@property(nonatomic) BOOL showsDoneButton; // @synthesize showsDoneButton=_showsDoneButton;
 @property(nonatomic) __weak id <RUStationActionsViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) MPAVItem *item; // @synthesize item=_item;
 @property(readonly, nonatomic) RadioStation *station; // @synthesize station=_station;
 - (void).cxx_destruct;
+- (void)_updateViewForHorizontalSizeClassChangeAllowingTableReload:(BOOL)arg1;
 - (void)_updateTableFooterView;
 - (void)_updateIsProfileExplicitContentRestrictedForProfileConnection:(id)arg1;
+- (void)_updateForLoadedStoreBag:(id)arg1;
 - (void)_updateAvailableActions;
 - (int)_stationActionForIndexPath:(id)arg1;
+- (id)_sectionHeaderTitleLabelFont;
+- (float)_sectionHeaderHeight;
 - (id)_newShadowViewWithFrame:(struct CGRect)arg1;
 - (id)_newSectionHeaderWithFrame:(struct CGRect)arg1 title:(id)arg2;
 - (void)_layoutTopShadowView;
@@ -48,10 +56,12 @@
 - (void)_didReceiveRadioAccountDidDeauthenticateNotification:(id)arg1;
 - (void)_addDerivedStationUsingArtist:(BOOL)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)_userDefaultExplicitTracksEnabledDidChangeNotification:(id)arg1;
+- (void)_storeBagDidLoadNotification:(id)arg1;
 - (void)_radioModelDidChangeNotification:(id)arg1;
+- (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)_avItemStoreIDDidChangeNotification:(id)arg1;
 - (void)_showStoreSheetAction:(id)arg1;
-- (void)_playExplicitSwitchAction:(id)arg1;
+- (void)_playExplicitToggleAction:(id)arg1;
 - (void)_doneAction:(id)arg1;
 - (void)tableViewDidFinishReload:(id)arg1;
 - (void)tableView:(id)arg1 willDisplayFooterView:(id)arg2 forSection:(int)arg3;
@@ -69,7 +79,9 @@
 - (void)productViewControllerDidFinish:(id)arg1;
 - (void)profileConnectionDidReceiveRestrictionChangedNotification:(id)arg1 userInfo:(id)arg2;
 - (void)profileConnectionDidReceiveEffectiveSettingsChangedNotification:(id)arg1 userInfo:(id)arg2;
+- (void)trackInfoViewDidTapStoreButton:(id)arg1;
 - (void)trackInfoViewDidTapArtwork:(id)arg1;
+- (void)traitCollectionDidChange:(id)arg1;
 - (id)contentScrollView;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidLayoutSubviews;
@@ -78,6 +90,12 @@
 - (void)dealloc;
 - (id)initWithStation:(id)arg1 item:(id)arg2 playbackQueue:(id)arg3;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

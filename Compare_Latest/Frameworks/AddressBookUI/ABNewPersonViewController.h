@@ -18,14 +18,14 @@
     ABPersonTableViewDataSource *_dataSource;
     _UIAccessDeniedView *_accessDeniedView;
     void *_parentSource;
+    CNContact *_mergeContact;
     ABContactViewController *_contactViewController;
     id <ABPresenterDelegate> _presentingDelegate;
-    CNContact *_mergeContact;
 }
 
-@property(retain, nonatomic) CNContact *mergeContact; // @synthesize mergeContact=_mergeContact;
 @property(nonatomic) id <ABPresenterDelegate> presentingDelegate; // @synthesize presentingDelegate=_presentingDelegate;
 @property(readonly, nonatomic) ABContactViewController *contactViewController; // @synthesize contactViewController=_contactViewController;
+@property(retain, nonatomic) CNContact *mergeContact; // @synthesize mergeContact=_mergeContact;
 @property(nonatomic) void *parentSource; // @synthesize parentSource=_parentSource;
 @property(nonatomic) BOOL isRealViewLoaded; // @synthesize isRealViewLoaded=_isRealViewLoaded;
 @property(readonly, nonatomic) ABPersonTableViewDataSource *dataSource; // @synthesize dataSource=_dataSource;
@@ -39,10 +39,8 @@
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (BOOL)supportedInterfaceOrientation:(int)arg1;
 - (BOOL)_allowsAutorotation;
-- (void)viewDidUnload;
 - (void)loadView;
 @property(readonly, nonatomic) _UIAccessDeniedView *accessDeniedView; // @synthesize accessDeniedView=_accessDeniedView;
 - (void)updateNavigationButtons;

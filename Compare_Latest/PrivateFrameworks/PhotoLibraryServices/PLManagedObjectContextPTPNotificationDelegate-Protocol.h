@@ -9,6 +9,6 @@
 @class NSArray, PLManagedObjectContext;
 
 @protocol PLManagedObjectContextPTPNotificationDelegate <NSObject>
-- (void)managedObjectContext:(PLManagedObjectContext *)arg1 libraryChangedWithInsertedAssets:(NSArray *)arg2 deletedAssets:(NSArray *)arg3 changedAssets:(NSArray *)arg4;
+- (void)managedObjectContext:(PLManagedObjectContext *)arg1 libraryChangedWithInsertedAssetIDs:(NSArray *)arg2 deletedAssetIDs:(NSArray *)arg3 changedAssetIDs:(NSArray *)arg4;
 @end
 

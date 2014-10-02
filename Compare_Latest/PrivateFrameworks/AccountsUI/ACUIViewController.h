@@ -8,7 +8,7 @@
 
 #import "ACUIAccountOperationsDelegate.h"
 
-@class ACAccountStore, ACUIAccountOperationsHelper, NSTimer, UIBarButtonItem, UIProgressHUD;
+@class ACAccountStore, ACUIAccountOperationsHelper, NSString, NSTimer, UIBarButtonItem, UIProgressHUD;
 
 @interface ACUIViewController : PSListController <ACUIAccountOperationsDelegate>
 {
@@ -23,11 +23,13 @@
     UIBarButtonItem *_cancelButton;
     ACAccountStore *_accountStore;
     ACUIAccountOperationsHelper *_accountOperationsHelper;
+    id <ACUIViewControllerAccountChangeObserver> _accountChangeObserver;
 }
 
 + (id)acuiAccountStore;
 + (BOOL)shouldPresentAsModalSheet;
 @property(nonatomic) BOOL validationInProgress; // @synthesize validationInProgress=_validationInProgress;
+@property(nonatomic) __weak id <ACUIViewControllerAccountChangeObserver> accountChangeObserver; // @synthesize accountChangeObserver=_accountChangeObserver;
 @property(retain, nonatomic) ACUIAccountOperationsHelper *accountOperationsHelper; // @synthesize accountOperationsHelper=_accountOperationsHelper;
 @property(retain, nonatomic) ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
 @property(retain, nonatomic) UIBarButtonItem *cancelButton; // @synthesize cancelButton=_cancelButton;
@@ -75,6 +77,12 @@
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

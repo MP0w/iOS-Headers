@@ -8,7 +8,7 @@
 
 #import "TSKExporter.h"
 
-@class TPDocumentRoot, TSUProgressContext;
+@class NSString, TPDocumentRoot, TSUProgressContext;
 
 __attribute__((visibility("hidden")))
 @interface TPTextExporter : NSObject <TSKExporter>
@@ -26,6 +26,12 @@ __attribute__((visibility("hidden")))
 - (void)cancel;
 - (BOOL)isCancelled;
 - (void)setup;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

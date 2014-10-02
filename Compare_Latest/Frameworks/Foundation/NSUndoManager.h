@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray;
+@class NSArray, NSString;
 
 @interface NSUndoManager : NSObject
 {
@@ -24,15 +24,15 @@
 + (void)_setEndsTopLevelGroupingsAfterRunLoopIterations:(BOOL)arg1;
 - (id)redoMenuTitleForUndoActionName:(id)arg1;
 - (id)undoMenuTitleForUndoActionName:(id)arg1;
-- (id)redoMenuItemTitle;
-- (id)undoMenuItemTitle;
-- (BOOL)redoActionIsDiscardable;
-- (BOOL)undoActionIsDiscardable;
+@property(readonly, copy) NSString *redoMenuItemTitle;
+@property(readonly, copy) NSString *undoMenuItemTitle;
+@property(readonly) BOOL redoActionIsDiscardable;
+@property(readonly) BOOL undoActionIsDiscardable;
 - (void)setActionIsDiscardable:(BOOL)arg1;
 - (void)setActionName:(id)arg1;
 - (void)_setGroupIdentifier:(id)arg1;
-- (id)redoActionName;
-- (id)undoActionName;
+@property(readonly, copy) NSString *redoActionName;
+@property(readonly, copy) NSString *undoActionName;
 - (void)registerUndoWithTarget:(id)arg1 selector:(SEL)arg2 object:(id)arg3;
 - (void)_forwardTargetInvocation:(id)arg1;
 - (void)_registerUndoObject:(id)arg1;
@@ -40,25 +40,22 @@
 - (id)prepareWithInvocationTarget:(id)arg1;
 - (void)removeAllActionsWithTarget:(id)arg1;
 - (void)removeAllActions;
-- (BOOL)isRedoing;
-- (BOOL)isUndoing;
-- (BOOL)canRedo;
-- (BOOL)canUndo;
+@property(readonly, getter=isRedoing) BOOL redoing;
+@property(readonly, getter=isUndoing) BOOL undoing;
+@property(readonly) BOOL canRedo;
+@property(readonly) BOOL canUndo;
 - (void)redo;
 - (void)undoNestedGroup;
 - (void)undo;
-- (id)runLoopModes;
-- (void)setRunLoopModes:(id)arg1;
-- (unsigned int)levelsOfUndo;
-- (void)setLevelsOfUndo:(unsigned int)arg1;
-- (void)setGroupsByEvent:(BOOL)arg1;
-- (BOOL)groupsByEvent;
-- (BOOL)isUndoRegistrationEnabled;
+@property(copy) NSArray *runLoopModes;
+@property unsigned int levelsOfUndo;
+@property BOOL groupsByEvent;
+@property(readonly, getter=isUndoRegistrationEnabled) BOOL undoRegistrationEnabled;
 - (void)enableUndoRegistration;
 - (void)disableUndoRegistration;
 - (void)endUndoGrouping;
 - (BOOL)_endUndoGroupRemovingIfEmpty:(BOOL)arg1;
-- (int)groupingLevel;
+@property(readonly) int groupingLevel;
 - (void)beginUndoGrouping;
 - (void)_postCheckpointNotification;
 - (void)_prepareEventGrouping;

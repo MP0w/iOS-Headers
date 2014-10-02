@@ -8,7 +8,7 @@
 
 #import "SKUIPassbookLoaderDelegate.h"
 
-@class NSURL, SKUIPassbookLoader, SKUIRedeemITunesPassLearnMoreView;
+@class NSString, NSURL, SKUIPassbookLoader, SKUIRedeemITunesPassLearnMoreView;
 
 @interface SKUIRedeemITunesPassLearnMoreViewController : SKUIRedeemStepViewController <SKUIPassbookLoaderDelegate>
 {
@@ -33,6 +33,12 @@
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

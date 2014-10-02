@@ -20,6 +20,7 @@
 + (unsigned int)maxLongSideForFullSizeFormat:(int)arg1;
 + (unsigned int)minShortSideForFullSizeFormat:(int)arg1;
 + (unsigned int)desiredLongSideForFullSizeFormat:(int)arg1;
++ (id)descriptionForFormat:(int)arg1;
 + (struct CGSize)sizeForFormat:(int)arg1;
 
 @end

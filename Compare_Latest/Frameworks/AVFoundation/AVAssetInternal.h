@@ -6,11 +6,15 @@
 
 #import "NSObject.h"
 
-@class AVWeakReference;
+@class AVWeakReference, NSArray, NSString;
 
 @interface AVAssetInternal : NSObject
 {
     AVWeakReference *weakReference;
+    long loadChapterInfoOnce;
+    NSArray *chapterGroupInfo;
+    NSString *anchorChapterType;
+    NSArray *availableChapterLocales;
 }
 
 @end

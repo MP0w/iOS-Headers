@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 + (id)sharedRangedMagnifier;
 @property(nonatomic) BOOL isHorizontal; // @synthesize isHorizontal=_isHorizontal;
 - (struct CGPoint)snappedPoint:(struct CGPoint)arg1;
+- (struct CGRect)caretRectClosestToPoint:(struct CGPoint)arg1;
 - (struct CGPoint)clipPoint:(struct CGPoint)arg1 inRect:(struct CGRect)arg2;
 - (void)stopMagnifying:(BOOL)arg1;
 - (void)beginMagnifyingTarget:(id)arg1 text:(id)arg2 magnificationPoint:(struct CGPoint)arg3 offset:(struct CGPoint)arg4 animated:(BOOL)arg5;

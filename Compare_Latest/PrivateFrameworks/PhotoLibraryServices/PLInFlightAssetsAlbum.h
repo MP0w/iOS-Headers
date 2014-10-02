@@ -29,7 +29,7 @@
 
 + (struct NSObject *)inFlightAssetsAlbumWithBackingAlbum:(struct NSObject *)arg1;
 @property(nonatomic) BOOL _notificationsEnabled; // @synthesize _notificationsEnabled=__notificationsEnabled;
-@property(readonly, nonatomic) PLManagedAlbum *backingAlbum; // @synthesize backingAlbum=_backingAlbum;
+@property(readonly, retain, nonatomic) PLManagedAlbum *backingAlbum; // @synthesize backingAlbum=_backingAlbum;
 - (id)filteredIndexesForPredicate:(id)arg1;
 - (void)startNewSession;
 @property(nonatomic) BOOL sessionLimited;
@@ -50,26 +50,27 @@
 - (void)registerDerivedAlbum:(struct NSObject *)arg1;
 - (void)setUINotificationsEnabled:(BOOL)arg1;
 - (void)clearAssetCaches;
-- (id)titleForSectionStartingAtIndex:(unsigned int)arg1;
-@property(readonly, nonatomic) CDUnknownBlockType sectioningComparator;
-@property(readonly, nonatomic) CDUnknownBlockType sortingComparator;
+@property(readonly, copy, nonatomic) CDUnknownBlockType sortingComparator;
 - (void)batchFetchAssets:(id)arg1;
 - (id)assetsByObjectIDAtIndexes:(id)arg1;
 - (void)reducePendingItemsCountBy:(unsigned int)arg1;
 @property(nonatomic) int pendingItemsType;
 @property(nonatomic) int pendingItemsCount;
-- (id)displayableIndexesForCount:(unsigned int)arg1;
-@property(readonly, nonatomic) NSURL *groupURL;
+@property(readonly, retain, nonatomic) NSURL *groupURL;
 @property(retain, nonatomic) NSString *importSessionID;
 @property(retain, nonatomic) NSDictionary *slideshowSettings;
 @property(readonly, nonatomic) BOOL shouldDeleteWhenEmpty;
-- (BOOL)canPerformEditOperation:(int)arg1;
-@property(readonly, nonatomic) NSArray *localizedLocationNames;
+- (BOOL)canPerformEditOperation:(unsigned int)arg1;
+@property(readonly, copy, nonatomic) NSArray *localizedLocationNames;
 @property(readonly, nonatomic) BOOL canShowAvalancheStacks;
 @property(readonly, nonatomic) BOOL canShowComments;
 @property(readonly, nonatomic) BOOL canContributeToCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isRecentlyAddedAlbum;
 @property(readonly, nonatomic) BOOL isMultipleContributorCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isFamilyCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL isOwnedCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isInTrash;
+@property(readonly, nonatomic) BOOL isFolder;
 @property(readonly, nonatomic) BOOL isStandInAlbum;
 @property(readonly, nonatomic) BOOL isPendingPhotoStreamAlbum;
 @property(readonly, nonatomic) BOOL isCloudSharedAlbum;
@@ -78,11 +79,11 @@
 @property(readonly, nonatomic) BOOL isPanoramasAlbum;
 @property(readonly, nonatomic) BOOL isCameraAlbum;
 @property(readonly, nonatomic) BOOL isLibrary;
-@property(readonly, nonatomic) UIImage *posterImage;
+@property(readonly, retain, nonatomic) UIImage *posterImage;
 @property(retain, nonatomic) PLManagedAsset *tertiaryKeyAsset;
 @property(retain, nonatomic) PLManagedAsset *secondaryKeyAsset;
 @property(retain, nonatomic) PLManagedAsset *keyAsset;
-@property(readonly, nonatomic) NSString *localizedTitle;
+@property(readonly, copy, nonatomic) NSString *localizedTitle;
 @property(nonatomic) BOOL hasUnseenContentBoolValue;
 @property(readonly, nonatomic) unsigned int videosCount;
 @property(readonly, nonatomic) unsigned int photosCount;
@@ -90,12 +91,12 @@
 - (unsigned int)count;
 @property(readonly, nonatomic) unsigned int assetsCount;
 @property(readonly, nonatomic) unsigned int approximateCount;
-@property(readonly, nonatomic) NSMutableOrderedSet *mutableAssets;
-@property(readonly, nonatomic) NSOrderedSet *assets;
+@property(readonly, retain, nonatomic) NSMutableOrderedSet *mutableAssets;
+@property(readonly, retain, nonatomic) NSOrderedSet *assets;
 @property(readonly, nonatomic) int kindValue;
-@property(readonly, nonatomic) NSNumber *kind;
-@property(readonly, nonatomic) NSString *title;
-@property(readonly, nonatomic) NSString *uuid;
+@property(readonly, retain, nonatomic) NSNumber *kind;
+@property(readonly, retain, nonatomic) NSString *title;
+@property(readonly, retain, nonatomic) NSString *uuid;
 - (unsigned int)countForAssetsOfKind:(short)arg1;
 - (unsigned int)_fetchedCountForAssetsOfKind:(short)arg1;
 - (id)_albumOIDs;
@@ -105,17 +106,21 @@
 - (Class)derivedChangeNotificationClass;
 - (BOOL)mappedDataSourceChanged:(id)arg1 remoteNotificationData:(id)arg2;
 - (id)currentStateForChange;
-@property(readonly, nonatomic) id <NSObject><NSCopying> cachedIndexMapState;
+@property(readonly, copy, nonatomic) id <NSObject><NSCopying> cachedIndexMapState;
+- (void)_fetchAndUpdateInflightAssetsWithUUIDs:(id)arg1;
 - (void)removeInflightAssets:(id)arg1;
 - (void)addInFlightAsset:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithBackingAlbum:(struct NSObject *)arg1;
 
 // Remaining properties
-@property(readonly, nonatomic) NSDate *endDate;
-@property(readonly, nonatomic) NSString *name;
-@property(readonly, nonatomic) NSDate *startDate;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, retain, nonatomic) NSDate *endDate;
+@property(readonly) unsigned int hash;
+@property(readonly, copy, nonatomic) NSString *name;
+@property(readonly, retain, nonatomic) NSDate *startDate;
+@property(readonly) Class superclass;
 
 @end
 

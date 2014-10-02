@@ -9,9 +9,9 @@
 @class CoreDAVItemWithNoChildren;
 
 @interface CoreDAVResourceTypeItem (BookmarkDAVExtensions)
-@property(retain) CoreDAVItemWithNoChildren *bookmarkMenuFolder;
-@property(retain) CoreDAVItemWithNoChildren *bookmarkBarFolder;
-@property(retain) CoreDAVItemWithNoChildren *bookmarkFolder;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *bookmarkMenuFolder;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *bookmarkBarFolder;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *bookmarkFolder;
 - (void)setExtraChild:(id)arg1 forNameSpace:(id)arg2 name:(id)arg3;
 - (id)extraChildWithNameSpace:(id)arg1 name:(id)arg2;
 @end

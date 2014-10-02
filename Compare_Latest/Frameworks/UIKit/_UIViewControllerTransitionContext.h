@@ -8,7 +8,7 @@
 
 #import "UIViewControllerContextTransitioningEx.h"
 
-@class NSArray, UIView, _UIViewControllerTransitionCoordinator;
+@class NSArray, NSString, UIView, _UIViewControllerTransitionCoordinator;
 
 @interface _UIViewControllerTransitionContext : NSObject <UIViewControllerContextTransitioningEx>
 {
@@ -20,6 +20,8 @@
         unsigned int transitionWasCancelled:1;
         unsigned int transitionIsCompleting:1;
     } _transitionContextFlags;
+    BOOL __allowUserInteraction;
+    BOOL _rotating;
     BOOL _initiallyInteractive;
     BOOL _isCurrentlyInteractive;
     BOOL _isAnimated;
@@ -31,6 +33,7 @@
     UIView *_containerView;
     CDUnknownBlockType __willCompleteHandler;
     CDUnknownBlockType __completionHandler;
+    CDUnknownBlockType __didCompleteHandler;
     float __completionVelocity;
     int __completionCurve;
     _UIViewControllerTransitionCoordinator *__auxContext;
@@ -54,9 +57,12 @@
 @property(nonatomic, setter=_setIsAnimated:) BOOL isAnimated; // @synthesize isAnimated=_isAnimated;
 @property(nonatomic, setter=_setIsCurrentlyInteractive:) BOOL isCurrentlyInteractive; // @synthesize isCurrentlyInteractive=_isCurrentlyInteractive;
 @property(nonatomic, setter=_setInitiallyInteractive:) BOOL initiallyInteractive; // @synthesize initiallyInteractive=_initiallyInteractive;
+@property(copy, nonatomic, setter=_setDidCompleteHandler:) CDUnknownBlockType _didCompleteHandler; // @synthesize _didCompleteHandler=__didCompleteHandler;
 @property(copy, nonatomic, setter=_setCompletionHandler:) CDUnknownBlockType _completionHandler; // @synthesize _completionHandler=__completionHandler;
 @property(copy, nonatomic, setter=_setWillCompleteHandler:) CDUnknownBlockType _willCompleteHandler; // @synthesize _willCompleteHandler=__willCompleteHandler;
 @property(nonatomic, setter=_setContainerView:) UIView *containerView; // @synthesize containerView=_containerView;
+@property(nonatomic, getter=_isRotating, setter=_setRotating:) BOOL rotating; // @synthesize rotating=_rotating;
+@property(nonatomic, getter=_allowUserInteraction, setter=_setAllowUserInteraction:) BOOL _allowUserInteraction; // @synthesize _allowUserInteraction=__allowUserInteraction;
 @property(nonatomic, setter=_setInteractor:) id <UIViewControllerInteractiveTransitioning> _interactor; // @synthesize _interactor=__interactor;
 @property(nonatomic, setter=_setAnimator:) id <UIViewControllerAnimatedTransitioning> _animator; // @synthesize _animator=__animator;
 @property(nonatomic, setter=_setPercentOffset:) float _percentOffset; // @synthesize _percentOffset=__percentOffset;
@@ -72,6 +78,7 @@
 - (BOOL)transitionWasCancelled;
 - (struct CGRect)finalFrameForViewController:(id)arg1;
 - (struct CGRect)initialFrameForViewController:(id)arg1;
+- (id)viewForKey:(id)arg1;
 - (id)viewControllerForKey:(id)arg1;
 - (void)completeTransition:(BOOL)arg1;
 - (void)cancelInteractiveTransition;
@@ -82,8 +89,16 @@
 - (float)_previousPercentComplete;
 - (id)_transitionCoordinator;
 - (BOOL)isInteractive;
+- (struct CGAffineTransform)targetTransform;
+@property(readonly, nonatomic, getter=_affineTransform) struct CGAffineTransform affineTransform;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

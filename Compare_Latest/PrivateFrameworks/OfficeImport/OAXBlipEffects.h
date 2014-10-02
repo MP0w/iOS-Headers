@@ -11,13 +11,20 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)readBlipEffectsFromBlipRef:(struct _xmlNode *)arg1 toBlipRef:(id)arg2;
++ (void)writeBlipEffects:(id)arg1 to:(id)arg2;
++ (void)readBlipEffectsFromBlipRef:(struct _xmlNode *)arg1 toBlipRef:(id)arg2 drawingState:(id)arg3;
 + (id)duotoneTransferModeEnumMap;
++ (void)writeDuotoneEffect:(id)arg1 to:(id)arg2;
 + (id)readDuotoneEffect:(struct _xmlNode *)arg1;
++ (void)writeAlphaModFixEffect:(id)arg1 to:(id)arg2;
 + (id)readAlphaModFixEffect:(struct _xmlNode *)arg1;
-+ (id)readColorChangeEffect:(struct _xmlNode *)arg1;
++ (void)writeColorChangeEffect:(id)arg1 to:(id)arg2;
++ (id)readColorChangeEffect:(struct _xmlNode *)arg1 drawingState:(id)arg2;
++ (void)writeBiLevelEffect:(id)arg1 to:(id)arg2;
 + (id)readBiLevelEffect:(struct _xmlNode *)arg1;
++ (void)writeGrayscaleEffect:(id)arg1 to:(id)arg2;
 + (id)readGrayscaleEffect:(struct _xmlNode *)arg1;
++ (void)writeLuminanceEffect:(id)arg1 to:(id)arg2;
 + (id)readLuminanceEffect:(struct _xmlNode *)arg1;
 
 @end

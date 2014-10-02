@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class GEOClientETARequest, GEODirectionsRouteRequest, GEOQuickETARequest, NSString;
+@class GEODirectionsRouteRequest, GEOETARequest, GEOQuickETARequest, NSString;
 
 @interface GEOQuickETARequester : NSObject
 {
     GEOQuickETARequest *_request;
-    GEOClientETARequest *_simpleETARequest;
+    GEOETARequest *_simpleETARequest;
     GEODirectionsRouteRequest *_directionsETARequest;
     NSString *_loggingFacility;
 }
@@ -19,7 +19,6 @@
 @property(copy, nonatomic) NSString *loggingFacility; // @synthesize loggingFacility=_loggingFacility;
 - (void)cancel;
 - (void)calculateETAWithResponseHandler:(CDUnknownBlockType)arg1;
-- (void)calculateETAWithHandler:(CDUnknownBlockType)arg1;
 - (void)_calculateRoutingETAWithHandler:(CDUnknownBlockType)arg1;
 - (void)_calculateSimpleETAWithHandler:(CDUnknownBlockType)arg1;
 - (void)dealloc;

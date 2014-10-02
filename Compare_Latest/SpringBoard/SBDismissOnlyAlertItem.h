@@ -16,6 +16,7 @@
 }
 
 - (void)configure:(_Bool)arg1 requirePasscodeForActions:(_Bool)arg2;
+- (id)dismissButtonText;
 - (void)performUnlockAction;
 - (id)bodyText;
 - (id)title;

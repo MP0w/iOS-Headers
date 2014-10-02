@@ -8,7 +8,7 @@
 
 #import "TSCEFormulaOwning.h"
 
-@class NSMutableArray, NSObject<OS_dispatch_queue>, TSCECalculationEngine, TSTTableFilterSet, TSTTableInfo;
+@class NSMutableArray, NSObject<OS_dispatch_queue>, NSString, TSCECalculationEngine, TSTTableFilterSet, TSTTableInfo;
 
 __attribute__((visibility("hidden")))
 @interface TSTHiddenStateFormulaOwner : TSPObject <TSCEFormulaOwning>
@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (BOOL)serializeCalculations;
 - (void)releaseForCalculationEngine:(id)arg1;
 - (void)retainForCalculationEngine:(id)arg1;
 - (id)endRewriteForCalculationEngine:(id)arg1 spec:(id)arg2;
@@ -34,7 +35,7 @@ __attribute__((visibility("hidden")))
 - (void)rewriteForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 rewriteSpec:(id)arg3;
 - (void)invalidateForCalculationEngine:(id)arg1;
 - (void)writeResultsForCalculationEngine:(id)arg1;
-- (CDStruct_4d60f806)recalculateForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 isInCycle:(BOOL)arg3 hasCalculatedPrecedents:(BOOL)arg4;
+- (CDStruct_7ddbbeae)recalculateForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 isInCycle:(BOOL)arg3 hasCalculatedPrecedents:(BOOL)arg4;
 - (void)saveToArchiver:(id)arg1;
 - (id)initFromUnarchiver:(id)arg1;
 - (void)dirtyFilterState;
@@ -52,6 +53,12 @@ __attribute__((visibility("hidden")))
 - (struct __CFUUID *)ownerID;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1 tableInfo:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

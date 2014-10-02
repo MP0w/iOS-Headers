@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
     _GCControllerButtonInput *_button3;
     _GCControllerButtonInput *_leftShoulder;
     _GCControllerButtonInput *_rightShoulder;
+    BOOL _dpadFlippedY;
 }
 
 + (BOOL)supportsSecureCoding;
@@ -40,11 +41,17 @@ __attribute__((visibility("hidden")))
 - (void)setController:(id)arg1;
 - (void)setPlayerIndex:(int)arg1;
 @property(readonly) NSString *name;
-- (id)initWithController:(id)arg1 dpadFlippedY:(BOOL)arg2;
-- (id)initWithController:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithController:(id)arg1 dpadFlippedY:(BOOL)arg2;
+- (id)initWithController:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -26,7 +26,7 @@
 - (float)interpretAsFloat:(id)arg1 withDefault:(float)arg2;
 - (void)createFaceCoreLightApiWithProfile:(int)arg1 parameters:(id)arg2;
 - (id)createFCRImage:(struct CGImage *)arg1;
-- (void)addLandmarkOfType:(id)arg1 fromMesh:(vector_c0d87358 *)arg2 indexes:(id)arg3 to:(id)arg4 image:(id)arg5;
+- (void)addLandmarkOfType:(id)arg1 fromMesh:(vector_88fc712c *)arg2 indexes:(id)arg3 to:(id)arg4 image:(id)arg5;
 - (void)updateFCRFace:(id)arg1 from:(struct face *)arg2 image:(id)arg3;
 - (id)createFCRFace:(struct face *)arg1 image:(id)arg2;
 - (struct CGRect)makeYFlippedRectFromRect:(struct CGRect)arg1 image:(id)arg2;

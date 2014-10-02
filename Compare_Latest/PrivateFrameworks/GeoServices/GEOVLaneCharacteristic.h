@@ -6,10 +6,12 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying.h"
+
 @class NSMutableArray;
 
 __attribute__((visibility("hidden")))
-@interface GEOVLaneCharacteristic : PBCodable
+@interface GEOVLaneCharacteristic : PBCodable <NSCopying>
 {
     NSMutableArray *_laneDirections;
     NSMutableArray *_laneDividers;
@@ -26,6 +28,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned int roadLaneCount; // @synthesize roadLaneCount=_roadLaneCount;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;

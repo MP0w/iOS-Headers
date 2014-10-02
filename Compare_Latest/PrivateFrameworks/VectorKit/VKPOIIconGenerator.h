@@ -12,10 +12,10 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)sharedGenerator;
-- (id)newIconWithGlyph:(struct CGImage *)arg1 style:(CDStruct_d3c687f7 *)arg2 scale:(float)arg3;
-- (struct CGSize)imageSizeForStyle:(CDStruct_d3c687f7 *)arg1 scale:(float)arg2;
-- (id)keyForName:(id)arg1 style:(CDStruct_d3c687f7 *)arg2;
-- (BOOL)canHandleStyle:(CDStruct_d3c687f7 *)arg1;
+- (id)newIconWithGlyph:(struct CGImage *)arg1 style:(CDStruct_5977520b *)arg2 scale:(float)arg3;
+- (struct CGSize)imageSizeForStyle:(CDStruct_5977520b *)arg1 scale:(float)arg2;
+- (id)keyForName:(id)arg1 style:(CDStruct_5977520b *)arg2 size:(int)arg3;
+- (BOOL)canHandleStyle:(CDStruct_5977520b *)arg1;
 
 @end
 

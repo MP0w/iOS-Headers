@@ -34,14 +34,17 @@
 @property(nonatomic) BOOL defaultsToNoQualifiedAds; // @synthesize defaultsToNoQualifiedAds=_defaultsToNoQualifiedAds;
 @property(copy, nonatomic) NSString *publicURLRoot; // @synthesize publicURLRoot=_publicURLRoot;
 @property(nonatomic) id <ADEmbeddedAdServerDelegate> delegate; // @synthesize delegate=_delegate;
-- (id)defaultDisplayPolicy;
 - (id)adDataForAdBundleAtPath:(id)arg1 creative:(id)arg2 allowWebArchive:(BOOL)arg3;
 - (id)_adDataForPath:(id)arg1 creative:(id)arg2 error:(id *)arg3;
+- (id)_integerColorFromStringColor:(id)arg1;
 - (id)_webArchiveFilenameForDirectory:(id)arg1 withBaseURL:(id)arg2;
 - (id)webArchiveForDirectory:(id)arg1 withBaseURL:(id)arg2;
 - (id)_webResourcesInDirectory:(id)arg1 baseURL:(id)arg2;
 - (id)_webResourceForPath:(id)arg1 url:(id)arg2;
 - (id)_handleManifestRequest:(id)arg1 message:(id)arg2;
+- (id)_handlePurchaseRequest:(id)arg1 message:(id)arg2;
+- (id)_handleLogPassEventRequest:(id)arg1 message:(id)arg2;
+- (id)_handleLogStationClientEventRequest:(id)arg1 message:(id)arg2;
 - (id)_handleLogAggregateMetricsRequest:(id)arg1 message:(id)arg2;
 - (id)_handleLogTileImpressionEventRequest:(id)arg1 message:(id)arg2;
 - (id)_handleListeningPresenceEventsRequest:(id)arg1 message:(id)arg2;
@@ -57,7 +60,10 @@
 - (id)_handleServerErrorRequest:(id)arg1 message:(id)arg2;
 - (id)_handleLogSysEventRequest:(id)arg1 message:(id)arg2;
 - (id)_handleLogImpressionRequest:(id)arg1 message:(id)arg2;
+- (id)_handleGenericAnalyticsRequest:(id)arg1 message:(id)arg2 type:(int)arg3;
+- (id)_handleAdSlotRequest:(id)arg1 message:(id)arg2;
 - (id)_handleBatchRequest:(id)arg1 message:(id)arg2;
+- (id)_defaultResponseForBatchRequest:(id)arg1;
 - (id)_handlePostRequest:(id)arg1;
 - (id)_handleGenericPostRequest:(id)arg1;
 - (id)httpServer:(id)arg1 proposedResponse:(id)arg2;
@@ -90,6 +96,12 @@
 - (id)init;
 - (id)initWithPort:(unsigned short)arg1 adPath:(id)arg2;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

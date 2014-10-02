@@ -30,7 +30,6 @@ __attribute__((visibility("hidden")))
 - (void)setPrivacySettings:(id)arg1;
 - (void)setSelectionDelegate:(id)arg1;
 - (void)cancelButtonTapped:(id)arg1;
-- (struct CGSize)contentSizeForViewInPopover;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;

@@ -18,6 +18,7 @@
 @property(nonatomic) struct CGPoint controlPoint2; // @synthesize controlPoint2=_controlPoint2;
 @property(nonatomic) struct CGPoint controlPoint1; // @synthesize controlPoint1=_controlPoint1;
 @property(nonatomic) unsigned int curve; // @synthesize curve=_curve;
+- (void)_invalidate;
 - (void)setDefaultValues;
 
 @end

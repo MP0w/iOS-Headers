@@ -28,8 +28,6 @@
     unsigned int _isFetching:1;
     unsigned int _allowFallbacks:1;
     unsigned int _compressionEnabled:1;
-    unsigned int _bytesWritten;
-    unsigned int _bytesRead;
 }
 
 + (BOOL)shouldTryFallbacksAfterError:(id)arg1;
@@ -45,8 +43,6 @@
 + (void)logBytes:(const char *)arg1 length:(int)arg2;
 + (void)initialize;
 + (void)readLoggingDefaults;
-@property(readonly, nonatomic) unsigned int bytesRead; // @synthesize bytesRead=_bytesRead;
-@property(readonly, nonatomic) unsigned int bytesWritten; // @synthesize bytesWritten=_bytesWritten;
 @property(readonly, nonatomic) double lastUsedTime;
 @property(readonly, nonatomic) BOOL hasBytesAvailable;
 - (void)disconnect;
@@ -58,7 +54,6 @@
 - (BOOL)readBytesIntoData:(id)arg1 desiredLength:(unsigned long)arg2;
 - (BOOL)readLineIntoData:(id)arg1;
 - (void)logReadChars:(const char *)arg1 length:(unsigned long)arg2;
-- (void)enableExcessiveKeepaliveDetection:(BOOL)arg1;
 - (void)enableThroughputMonitoring:(BOOL)arg1;
 - (void)enableReadLogging:(BOOL)arg1;
 - (void)setDesiredReadBufferLength:(unsigned long)arg1;

@@ -4,35 +4,33 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSOperation.h"
+#import <VoiceMemos/RCTrimTimeRangeOperation.h>
 
-@class AVAssetExportSession, NSError, NSURL;
+@class NSError, NSURL, RCCompositionComposedAssetWriter;
 
-@interface RCTrimAudioFileOperation : NSOperation
+@interface RCTrimAudioFileOperation : RCTrimTimeRangeOperation
 {
-    AVAssetExportSession *_exportSession;
-    BOOL _createWaveform;
+    RCCompositionComposedAssetWriter *_assetWriter;
     BOOL _success;
-    CDUnknownBlockType _progressUpdateBlock;
+    BOOL _createWaveform;
+    NSError *_error;
     NSURL *_sourceURL;
     NSURL *_destinationURL;
-    NSError *_error;
-    CDStruct_73a5d3ca _timeRangeToKeep;
+    double _exportedDuration;
 }
 
-+ (BOOL)_trimWaveformAtPath:(id)arg1 clipToTimeRange:(CDStruct_73a5d3ca)arg2 outputPath:(id)arg3;
 + (id)exportableAudioFormatPathExtensionWithSourceURL:(id)arg1;
-@property(readonly, nonatomic) NSError *error; // @synthesize error=_error;
-@property(readonly, nonatomic) BOOL success; // @synthesize success=_success;
 @property(readonly, nonatomic) BOOL createWaveform; // @synthesize createWaveform=_createWaveform;
-@property(readonly, nonatomic) CDStruct_73a5d3ca timeRangeToKeep; // @synthesize timeRangeToKeep=_timeRangeToKeep;
-@property(readonly, nonatomic) NSURL *destinationURL; // @synthesize destinationURL=_destinationURL;
-@property(readonly, nonatomic) NSURL *sourceURL; // @synthesize sourceURL=_sourceURL;
-@property(copy, nonatomic) CDUnknownBlockType progressUpdateBlock; // @synthesize progressUpdateBlock=_progressUpdateBlock;
+@property(readonly, copy, nonatomic) NSURL *destinationURL; // @synthesize destinationURL=_destinationURL;
+@property(readonly, copy, nonatomic) NSURL *sourceURL; // @synthesize sourceURL=_sourceURL;
+- (double)exportedDuration;
+- (id)error;
+- (BOOL)success;
 - (void).cxx_destruct;
-- (void)_updateExportSessionProgressWithInterval:(double)arg1;
+- (double)progress;
 - (void)main;
-- (id)initWithSourceURL:(id)arg1 destinationURL:(id)arg2 createWaveform:(BOOL)arg3 timeRangeToKeep:(CDStruct_73a5d3ca)arg4;
+- (void)cancel;
+- (id)initWithSourceURL:(id)arg1 destinationURL:(id)arg2 createWaveform:(BOOL)arg3 timeRange:(CDStruct_73a5d3ca)arg4 trimMode:(int)arg5;
 
 @end
 

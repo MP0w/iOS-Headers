@@ -9,8 +9,12 @@
 @class ABPeoplePickerNavigationController;
 
 @protocol ABPeoplePickerNavigationControllerDelegate <NSObject>
+
+@optional
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)arg1 shouldContinueAfterSelectingPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)arg1 shouldContinueAfterSelectingPerson:(void *)arg2;
 - (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)arg1;
+- (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)arg1 didSelectPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
+- (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)arg1 didSelectPerson:(void *)arg2;
 @end
 

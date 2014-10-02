@@ -27,8 +27,9 @@
 + (id)persistentIDColumnForTable:(id)arg1;
 + (id)extraTablesToInsert;
 + (id)extraTablesToDelete;
++ (BOOL)deleteFromLibrary:(id)arg1 deletionType:(int)arg2 persistentIDs:(const long long *)arg3 count:(unsigned int)arg4 usingConnection:(id)arg5;
 + (BOOL)deleteFromLibrary:(id)arg1 deletionType:(int)arg2 persistentIDs:(const long long *)arg3 count:(unsigned int)arg4;
-+ (BOOL)_deleteRowForPersistentIDs:(const long long *)arg1 count:(unsigned int)arg2 library:(id)arg3 table:(id)arg4 usingColumn:(id)arg5;
++ (BOOL)_deleteRowForPersistentIDs:(const long long *)arg1 count:(unsigned int)arg2 library:(id)arg3 table:(id)arg4 usingColumn:(id)arg5 usingConnection:(id)arg6;
 + (BOOL)libraryDynamicChangeForProperty:(id)arg1;
 + (BOOL)libraryContentsChangeForProperty:(id)arg1;
 + (id)countingQueryForBaseQuery:(id)arg1 countProperty:(id)arg2 forIdentifier:(long long)arg3;
@@ -37,7 +38,8 @@
 + (id)foreignColumnForProperty:(id)arg1;
 + (id)foreignDatabaseTableForProperty:(id)arg1;
 + (id)sectionPropertyForProperty:(id)arg1;
-+ (id)defaultOrderingProperties;
++ (id)defaultOrderingTerms;
++ (id)newWithDictionary:(id)arg1 inLibrary:(id)arg2 cachedNameOrders:(id)arg3 usingConnection:(id)arg4;
 + (id)newWithDictionary:(id)arg1 inLibrary:(id)arg2 cachedNameOrders:(id)arg3;
 + (id)newWithDictionary:(id)arg1 inLibrary:(id)arg2;
 + (id)newWithPersistentID:(long long)arg1 inLibrary:(id)arg2;
@@ -45,6 +47,7 @@
 + (id)predicateByOptimizingComparisonPredicate:(id)arg1;
 + (id)predicateByOptimizingPredicate:(id)arg1;
 + (id)defaultFilterPredicates;
++ (id)widthLimitedSetValuesQueue;
 + (id)newSelectSQLForProperties:(const id *)arg1 count:(unsigned int)arg2 predicate:(id)arg3;
 + (id)newSelectAllEntitiesSQLForProperties:(const id *)arg1 count:(unsigned int)arg2 predicate:(id)arg3;
 + (id)subselectPropertyForProperty:(id)arg1;
@@ -53,7 +56,8 @@
 + (BOOL)insertionChangesLibraryContents;
 + (BOOL)incrementRevisionWithLibrary:(id)arg1 persistentID:(long long)arg2 deletionType:(int)arg3 revisionType:(int)arg4 usingConnection:(id)arg5;
 + (BOOL)incrementRevisionWithLibrary:(id)arg1 persistentID:(long long)arg2 deletionType:(int)arg3 revisionType:(int)arg4;
-+ (BOOL)incrementRevisionForRevisionTypeContentWithLibrary:(id)arg1 deletionType:(int)arg2 persistentIDs:(const long long *)arg3 count:(unsigned int)arg4;
++ (BOOL)incrementRevisionForRevisionTypeContentWithConnection:(id)arg1 deletionType:(int)arg2 persistentIDs:(const long long *)arg3 count:(unsigned int)arg4;
++ (BOOL)incrementRevisionForRevisionTypeContentWithConnection:(id)arg1 deletionType:(int)arg2 persistentIDs:(id)arg3;
 + (BOOL)incrementRevisionForRevisionTypeContentWithLibrary:(id)arg1 deletionType:(int)arg2 persistentIDs:(id)arg3;
 + (BOOL)_shouldIncrementRevisionForType:(int)arg1 persistentID:(long long)arg2 usingConnection:(id)arg3;
 + (id)unsettableProperties;
@@ -64,11 +68,11 @@
 + (id)queryWithLibrary:(id)arg1 predicate:(id)arg2 orderingTerms:(id)arg3 propertyToCount:(id)arg4;
 + (id)queryWithLibrary:(id)arg1 predicate:(id)arg2 orderingTerms:(id)arg3;
 + (id)directCollectionQueryWithAggregateQuery:(id)arg1 predicate:(id)arg2 usingSections:(BOOL)arg3;
++ (id)queryWithLibrary:(id)arg1 predicate:(id)arg2 usingSections:(BOOL)arg3;
++ (id)queryWithLibrary:(id)arg1 predicate:(id)arg2;
 + (id)queryWithLibrary:(id)arg1 predicate:(id)arg2 orderingProperties:(id)arg3 orderingDirectionMappings:(id)arg4 usingSections:(BOOL)arg5;
 + (id)queryWithLibrary:(id)arg1 predicate:(id)arg2 orderingProperties:(id)arg3 usingSections:(BOOL)arg4;
-+ (id)queryWithLibrary:(id)arg1 predicate:(id)arg2 usingSections:(BOOL)arg3;
 + (id)queryWithLibrary:(id)arg1 predicate:(id)arg2 orderingProperties:(id)arg3;
-+ (id)queryWithLibrary:(id)arg1 predicate:(id)arg2;
 + (id)anyInLibrary:(id)arg1 predicate:(id)arg2;
 + (id)aggregateQueryWithUnitQuery:(id)arg1 foreignPersistentIDProperty:(id)arg2;
 + (id)replacerWithProperties:(id)arg1 library:(id)arg2;
@@ -84,6 +88,7 @@
 - (BOOL)setValues:(id)arg1 forProperties:(id)arg2;
 - (BOOL)setValues:(const id *)arg1 forProperties:(const id *)arg2 count:(unsigned int)arg3;
 - (id)valueForProperty:(id)arg1;
+- (id)getValuesForProperties:(id)arg1;
 - (void)getValues:(id *)arg1 forProperties:(const id *)arg2 count:(unsigned int)arg3;
 - (BOOL)matchesPredicate:(id)arg1;
 @property(readonly) BOOL existsInLibrary;
@@ -92,6 +97,7 @@
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)copyInLibrary:(id)arg1;
+- (id)initWithDictionary:(id)arg1 inLibrary:(id)arg2 cachedNameOrders:(id)arg3 usingConnection:(id)arg4;
 - (id)initWithDictionary:(id)arg1 inLibrary:(id)arg2 cachedNameOrders:(id)arg3;
 - (id)initWithPersistentID:(long long)arg1 inLibrary:(id)arg2;
 

@@ -11,7 +11,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)writeFromDrawable:(id)arg1 toObject:(id)arg2 state:(id)arg3;
 + (void)readFromContent:(struct EshContent *)arg1 toDrawable:(id)arg2 state:(id)arg3;
 
 @end

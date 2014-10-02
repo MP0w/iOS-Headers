@@ -8,7 +8,7 @@
 
 #import "SBRelativeDateTimerDelegate.h"
 
-@class SBRelativeDateTimer;
+@class NSString, SBRelativeDateTimer;
 
 @interface SBRelativeDateLabel : SBDefaultDateLabel <SBRelativeDateTimerDelegate>
 {
@@ -23,6 +23,12 @@
 - (void)prepareForReuse;
 - (void)dealloc;
 - (void)setTimeZoneRelativeStartDate:(id)arg1 absoluteStartDate:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,11 +6,11 @@
 
 #import "UITableViewHeaderFooterView.h"
 
-@class MPUItemOfferButton, NSString, UIButton, UIImage, UIImageView, UILabel, UIView;
+@class MPUItemOfferButton, MPUSlantedTextPlaceholderArtworkView, NSString, UIButton, UIImage, UILabel, UIView;
 
 @interface MusicAlbumsDetailTableHeaderView : UITableViewHeaderFooterView
 {
-    UIImageView *_artworkImageView;
+    MPUSlantedTextPlaceholderArtworkView *_artworkView;
     UILabel *_copyrightLabel;
     UILabel *_detailTextLabel;
     UIView *_hairlineView;
@@ -28,24 +28,29 @@
 
 + (float)defaultHeight;
 + (struct CGSize)artworkSize;
++ (id)newAlbumsDetailTableHeaderViewForSizing;
 @property(readonly, nonatomic) double totalDuration; // @synthesize totalDuration=_totalDuration;
 @property(readonly, nonatomic) int songCount; // @synthesize songCount=_songCount;
 @property(copy, nonatomic) CDUnknownBlockType shuffleActionBlock; // @synthesize shuffleActionBlock=_shuffleActionBlock;
 @property(copy, nonatomic) CDUnknownBlockType downloadActionBlock; // @synthesize downloadActionBlock=_downloadActionBlock;
 @property(nonatomic) float cloudRightInset; // @synthesize cloudRightInset=_cloudRightInset;
 - (void).cxx_destruct;
+- (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)_shuffleButtonAction:(id)arg1;
 - (void)_itemOfferButtonAction:(id)arg1;
 @property(copy, nonatomic) NSString *yearText;
 @property(copy, nonatomic) NSString *title;
 - (void)setSongCount:(int)arg1 totalDuration:(double)arg2;
 @property(nonatomic, getter=isShufflable) BOOL shufflable;
+@property(copy, nonatomic) NSString *placeholderTitleText;
+@property(copy, nonatomic) NSString *placeholderSubtitleText;
 @property(nonatomic, getter=isDownloadable) BOOL downloadable;
 @property(copy, nonatomic) NSString *copyrightText;
 - (void)setBackgroundTransitionProgress:(float)arg1;
 @property(retain, nonatomic) UIImage *artworkImage;
 - (float)backgroundTransitionProgress;
 - (void)setTableViewStyle:(int)arg1;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithReuseIdentifier:(id)arg1;

@@ -14,11 +14,11 @@
     int _waiterNum;
 }
 
-@property(readonly) int waiterNum; // @synthesize waiterNum=_waiterNum;
-@property int dataclasses; // @synthesize dataclasses=_dataclasses;
-@property(copy) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
-@property(retain) id <DADataclassLockWatcher> waiter; // @synthesize waiter=_waiter;
-- (void)dealloc;
+@property(readonly, nonatomic) int waiterNum; // @synthesize waiterNum=_waiterNum;
+@property(nonatomic) int dataclasses; // @synthesize dataclasses=_dataclasses;
+@property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
+@property(retain, nonatomic) id <DADataclassLockWatcher> waiter; // @synthesize waiter=_waiter;
+- (void).cxx_destruct;
 - (id)description;
 - (id)init;
 

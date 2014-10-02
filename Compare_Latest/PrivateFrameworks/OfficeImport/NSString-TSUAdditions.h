@@ -11,10 +11,16 @@
 + (id)stringWithXMLString:(const char *)arg1;
 + (id)stringByBase64EncodingBytes:(const char *)arg1 length:(unsigned int)arg2 breakLines:(BOOL)arg3;
 + (id)stringByBase64EncodingBytes:(const char *)arg1 length:(unsigned int)arg2;
++ (id)stringWithHexFromBytes:(const char *)arg1 length:(unsigned int)arg2;
 + (id)listSeparator;
 + (id)stringByIndentingString:(id)arg1;
 + (id)stringByIndentingString:(id)arg1 times:(unsigned int)arg2;
++ (id)stringWithFormat:(id)arg1 arguments:(char *)arg2;
 + (id)stringWithUUID;
+- (BOOL)containsSubstring:(id)arg1;
+- (void)enumerateRangesOfCharactersInSet:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (struct _NSRange)range;
+- (struct _NSRange)rangeOfString:(id)arg1 options:(unsigned int)arg2 updatingSearchRange:(struct _NSRange *)arg3;
 - (id)tolerantStringByAppendingPathExtension:(id)arg1;
 - (BOOL)containsOnlyCharactersFromSet:(id)arg1;
 - (id)unescapeXML;
@@ -37,8 +43,10 @@
 - (id)stringByRemovingCharactersInSet:(id)arg1 options:(unsigned int)arg2;
 - (id)md5Hash;
 - (id)stringByFixingBrokenSurrogatePairs;
+- (id)stringByUniquingPathInsideDirectory:(id)arg1 withFormat:(id)arg2;
 - (id)stringByUniquingPathInsideDirectory:(id)arg1;
 - (id)stringByAddingCSVEscapes;
+- (id)stringByAppendingSeparator:(id)arg1 format:(id)arg2;
 - (id)stringQuotedIfContainsCharacterSet:(id)arg1;
 - (id)stringByExpandingTableFormatting;
 @end

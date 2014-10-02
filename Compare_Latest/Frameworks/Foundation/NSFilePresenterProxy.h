@@ -6,7 +6,7 @@
 
 #import <Foundation/NSFileReactorProxy.h>
 
-@class NSFileWatcher, NSObject<OS_dispatch_queue>;
+@class NSFileWatcher, NSMutableArray, NSObject<OS_dispatch_queue>;
 
 __attribute__((visibility("hidden")))
 @interface NSFilePresenterProxy : NSFileReactorProxy
@@ -15,15 +15,22 @@ __attribute__((visibility("hidden")))
     NSFileWatcher *_watcher;
     unsigned int _writingRelinquishmentCount;
     id _currentWriterPurposeID;
+    NSMutableArray *_previousWriterPurposeIDs;
     BOOL _didObserveMovingByWriter;
     BOOL _didObserveVersionChangingByWriter;
+    BOOL _disconnected;
+    BOOL _inSubarbiter;
 }
 
 + (id)urlWithItemURL:(id)arg1 subitemPath:(id)arg2;
+@property BOOL inSubarbiter; // @synthesize inSubarbiter=_inSubarbiter;
+@property(readonly) BOOL disconnected;
+- (void)disconnect;
 - (void)forwardObservationMessageWithKind:(id)arg1 parameters:(id)arg2;
 - (void)forwardRelinquishmentMessageWithKind:(id)arg1 parameters:(id)arg2 resultHandler:(CDUnknownBlockType)arg3;
 - (void)observeVersionChangeOfKind:(id)arg1 withClientID:(id)arg2 name:(id)arg3 subitemPath:(id)arg4;
-- (void)observeUbiquityChangeAtSubitemPath:(id)arg1;
+- (void)observeDisappearanceAtSubitemPath:(id)arg1;
+- (void)observeUbiquityChangeAtSubitemPath:(id)arg1 withPhysicalURL:(id)arg2;
 - (void)observeReconnectionByWriterWithPurposeID:(id)arg1;
 - (void)observeDisconnectionByWriterWithPurposeID:(id)arg1;
 - (void)observeMoveOfSubitemAtURL:(id)arg1 toURL:(id)arg2 byWriterWithPurposeID:(id)arg3;

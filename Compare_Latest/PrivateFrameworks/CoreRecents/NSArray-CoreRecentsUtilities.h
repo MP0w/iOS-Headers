@@ -10,8 +10,6 @@
 - (id)cr_insertionSortedArrayUsingComparator:(CDUnknownBlockType)arg1;
 - (id)cr_map:(CDUnknownBlockType)arg1;
 - (id)cr_firstObjectPassingTest:(CDUnknownBlockType)arg1;
-- (id)cr_firstObject;
 - (unsigned int)cr_binaryInsertionIndexOfObject:(id)arg1 usingComparator:(CDUnknownBlockType)arg2 match:(char *)arg3;
-- (id)cr_copyConcurrentlyByApplyingTransform:(CDUnknownBlockType)arg1;
 @end
 

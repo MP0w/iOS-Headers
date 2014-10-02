@@ -8,7 +8,7 @@
 
 #import "TPPageGenerator.h"
 
-@class TPDocumentRoot;
+@class NSString, TPDocumentRoot;
 
 __attribute__((visibility("hidden")))
 @interface TPOrphanPageGenerator : NSObject <TPPageGenerator>
@@ -20,6 +20,12 @@ __attribute__((visibility("hidden")))
 - (BOOL)wantsPageInSectionHint:(id)arg1 withState:(id)arg2;
 - (id)init;
 - (id)initWithDocumentRoot:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

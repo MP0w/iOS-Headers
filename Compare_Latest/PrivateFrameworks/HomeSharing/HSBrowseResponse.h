@@ -14,6 +14,7 @@
 }
 
 @property(copy, nonatomic) NSArray *collections; // @synthesize collections;
+- (void).cxx_destruct;
 - (void)dealloc;
 
 @end

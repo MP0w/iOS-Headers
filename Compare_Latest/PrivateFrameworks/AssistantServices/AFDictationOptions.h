@@ -23,11 +23,13 @@
     NSString *_postfixText;
     NSString *_selectedText;
     int _returnKeyType;
+    int _transcriptionMode;
     NSString *_languageCodeOverride;
 }
 
 + (BOOL)supportsSecureCoding;
 @property(copy, nonatomic) NSString *languageCodeOverride; // @synthesize languageCodeOverride=_languageCodeOverride;
+@property(nonatomic) int transcriptionMode; // @synthesize transcriptionMode=_transcriptionMode;
 @property(nonatomic) int returnKeyType; // @synthesize returnKeyType=_returnKeyType;
 @property(copy, nonatomic) NSString *selectedText; // @synthesize selectedText=_selectedText;
 @property(copy, nonatomic) NSString *postfixText; // @synthesize postfixText=_postfixText;

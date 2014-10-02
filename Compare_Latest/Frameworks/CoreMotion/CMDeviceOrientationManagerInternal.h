@@ -18,8 +18,8 @@
     BOOL fDidSignalSemaphore;
     int fOrientationCallbackMode;
     _Bool fEnableOrientationNotification;
-    struct Sample fLatestDeviceOrientationSample;
-    struct Sample fLastSignificantOrientationSample;
+    Sample_edc72402 fLatestDeviceOrientationSample;
+    Sample_edc72402 fLastSignificantOrientationSample;
 }
 
 - (id).cxx_construct;

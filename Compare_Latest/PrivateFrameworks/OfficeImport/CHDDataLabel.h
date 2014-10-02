@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     _Bool mShowCategoryName;
     _Bool mShowSeriesName;
     _Bool mShowPercent;
+    _Bool mShowBubbleSize;
     _Bool mShowValue;
     _Bool mShowLegendKey;
     _Bool mIsPositionAffineTransform;
@@ -37,6 +38,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)isShowLegendKey;
 - (void)setShowValue:(_Bool)arg1;
 - (_Bool)isShowValue;
+- (void)setShowBubbleSize:(_Bool)arg1;
+- (_Bool)isShowBubbleSize;
 - (void)setShowPercent:(_Bool)arg1;
 - (_Bool)isShowPercent;
 - (void)setShowSeriesName:(_Bool)arg1;

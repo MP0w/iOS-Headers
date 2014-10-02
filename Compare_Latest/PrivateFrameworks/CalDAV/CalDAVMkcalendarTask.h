@@ -13,7 +13,7 @@
     NSSet *_setElements;
 }
 
-@property(retain) NSSet *setElements; // @synthesize setElements=_setElements;
+@property(retain, nonatomic) NSSet *setElements; // @synthesize setElements=_setElements;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)copyDefaultParserForContentType:(id)arg1;
 - (id)requestBody;

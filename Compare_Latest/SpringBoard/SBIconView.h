@@ -10,7 +10,7 @@
 #import "SBReusableView.h"
 #import "_UISettingsKeyObserver.h"
 
-@class NSTimer, SBCloseBoxView, SBFParallaxSettings, SBFolderIconBackgroundView, SBIcon, SBIconImageCrossfadeView, SBIconImageView, SBIconLabelView, UIView<SBIconAccessoryView>, _UILegibilitySettings;
+@class NSString, NSTimer, SBCloseBoxView, SBFParallaxSettings, SBFolderIconBackgroundView, SBIcon, SBIconImageCrossfadeView, SBIconImageView, SBIconLabelView, UIView<SBIconAccessoryView>, UIView<SBReusableView>, _UILegibilitySettings;
 
 @interface SBIconView : UIView <_UISettingsKeyObserver, SBIconObserver, SBReusableView>
 {
@@ -24,7 +24,8 @@
     SBFParallaxSettings *_closeBoxParallaxSettings;
     struct CGPoint _wallpaperRelativeCloseBoxCenter;
     SBIconLabelView *_labelView;
-    UIView *_updatedMark;
+    UIView<SBReusableView> *_labelAccessoryView;
+    long long _currentLabelAccessoryType;
     SBFolderIconBackgroundView *_dropGlow;
     unsigned int _drawsLabel:1;
     unsigned int _isEditing:1;
@@ -38,7 +39,7 @@
     unsigned int _allowJitter:1;
     unsigned int _touchDownInIcon:1;
     unsigned int _hideLabel:1;
-    unsigned int _hideUpdatedMark;
+    unsigned int _hideLabelAccessoryView;
     struct CGPoint _unjitterPoint;
     struct CGPoint _grabPoint;
     NSTimer *_longPressTimer;
@@ -61,14 +62,15 @@
 + (struct CGSize)defaultIconImageSize;
 + (double)_labelHeight;
 + (struct CGSize)defaultIconSize;
-+ (double)updatedMarkRightMargin;
-+ (_Bool)canShowUpdatedMark;
++ (double)labelAccessoryViewRightMargin;
++ (_Bool)canShowLabelAccessoryView;
 + (int)_defaultIconFormat;
 @property(nonatomic) struct CGPoint wallpaperRelativeImageCenter; // @synthesize wallpaperRelativeImageCenter=_wallpaperRelativeImageCenter;
 @property(nonatomic) double iconLabelAlpha; // @synthesize iconLabelAlpha=_iconLabelAlpha;
 @property(nonatomic) double iconAccessoryAlpha; // @synthesize iconAccessoryAlpha=_iconAccessoryAlpha;
 @property(nonatomic) double iconImageAlpha; // @synthesize iconImageAlpha=_iconImageAlpha;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
+@property(readonly, nonatomic) long long currentLabelAccessoryType; // @synthesize currentLabelAccessoryType=_currentLabelAccessoryType;
 @property(nonatomic) int location; // @synthesize location=_iconLocation;
 @property(nonatomic) id <SBIconViewObserver> observer; // @synthesize observer=_observer;
 @property(nonatomic) id <SBIconViewDelegate> delegate; // @synthesize delegate=_delegate;
@@ -131,7 +133,9 @@
 - (void)_createAccessoryViewIfNecessary;
 - (void)_updateAccessoryViewWithAnimation:(_Bool)arg1;
 - (void)_updateIconImageViewAnimated:(_Bool)arg1;
-- (void)_updateUpdatedMark;
+- (void)_updateLabelAccessoryView;
+@property(readonly, nonatomic) _Bool shouldShowLabelAccessoryView;
+- (void)_configureLabelAccessoryViewForType:(long long)arg1;
 - (id)_legibilitySettingsWithStyle:(long long)arg1 primaryColor:(id)arg2;
 - (id)_legibilitySettingsWithPrimaryColor:(id)arg1;
 - (id)_legibilitySettingsWithParameters:(id)arg1;
@@ -146,13 +150,13 @@
 - (struct CGPoint)_centerForCloseBoxRelativeToVisibleImageFrame:(struct CGRect)arg1;
 - (struct CGPoint)_centerForCloseBox;
 - (struct CGRect)_frameForAccessoryView;
-- (struct CGRect)_frameForUpdatedMarkWithLabelFrame:(struct CGRect)arg1;
+- (struct CGRect)_frameForLabelAccessoryViewWithLabelFrame:(struct CGRect)arg1;
 - (struct CGRect)_frameForLabel;
 - (struct CGRect)_frameForVisibleImage;
 - (double)_labelVerticalOffset;
 - (struct CGRect)_frameForImageView;
 - (void)layoutSubviews;
-- (void)setUpdatedMarkHidden:(_Bool)arg1;
+- (void)setLabelAccessoryViewHidden:(_Bool)arg1;
 - (void)setLabelHidden:(_Bool)arg1;
 - (void)_applyIconLabelAlpha:(double)arg1;
 - (void)_applyIconAccessoryAlpha:(double)arg1;
@@ -168,6 +172,12 @@
 - (void)setPaused:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithDefaultSize;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

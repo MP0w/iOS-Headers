@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     int mType;
 }
 
+- (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (void)setStyleColor:(id)arg1;

@@ -8,7 +8,7 @@
 
 #import "TRTransferBrowserDelegate.h"
 
-@class TRDeviceSetupPeripheral, TRTransferBrowser;
+@class NSString, TRDeviceSetupPeripheral, TRTransferBrowser;
 
 @interface TRDeviceSetupBrowser : NSObject <TRTransferBrowserDelegate>
 {
@@ -27,6 +27,12 @@
 - (id)browserDidStartTransfer:(id)arg1;
 - (void)browserDidChangeState:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

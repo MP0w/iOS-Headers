@@ -26,7 +26,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIImage *shadowImage; // @synthesize shadowImage;
 @property(retain, nonatomic) UIImage *backgroundImage; // @synthesize backgroundImage;
 - (void)dealloc;
-@property(readonly, nonatomic) NSDictionary *dividerImagesForCoding;
+@property(readonly, copy, nonatomic) NSDictionary *dividerImagesForCoding;
 - (id)_dividerImageForLeftButtonState:(unsigned int)arg1 rightButtonState:(unsigned int)arg2;
 - (void)_setDividerImage:(id)arg1 forLeftButtonState:(unsigned int)arg2 rightButtonState:(unsigned int)arg3;
 - (id)_tabItemAppearanceStorage;

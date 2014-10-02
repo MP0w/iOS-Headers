@@ -8,7 +8,7 @@
 
 #import "MSSearchDelegate.h"
 
-@class ACAccount, MSSearch, NSOperationQueue;
+@class ACAccount, MSSearch, NSOperationQueue, NSString;
 
 @interface AAAutoAccountVerifier : NSObject <MSSearchDelegate>
 {
@@ -32,6 +32,12 @@
 - (void)sendVerificationEmail;
 - (id)initWithAccount:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

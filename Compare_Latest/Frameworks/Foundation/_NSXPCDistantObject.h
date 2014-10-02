@@ -38,6 +38,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithCoder:(id)arg1;
 - (void)finalize;
 - (void)dealloc;
+- (id)_initWithConnection:(id)arg1 exportedObject:(id)arg2 interface:(id)arg3;
 - (id)_initWithConnection:(id)arg1 proxyNumber:(unsigned long long)arg2 interface:(id)arg3;
 - (id)init;
 

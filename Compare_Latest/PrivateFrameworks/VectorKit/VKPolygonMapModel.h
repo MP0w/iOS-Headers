@@ -6,44 +6,76 @@
 
 #import <VectorKit/VKVectorMapModel.h>
 
-#import "VKStylesheetObserver.h"
+#import "VKStyleManagerObserver.h"
 
-@class VGLRenderState, VKStylesheet;
+@class NSString, VKStyleManager;
 
 __attribute__((visibility("hidden")))
-@interface VKPolygonMapModel : VKVectorMapModel <VKStylesheetObserver>
+@interface VKPolygonMapModel : VKVectorMapModel <VKStyleManagerObserver>
 {
     BOOL _drawShapes;
-    struct RenderStepsSet _renderStepsSet;
-    struct RenderStepsSet _transitRenderStepsSet;
-    VGLRenderState *_transparentRenderState;
-    VGLRenderState *_renderState;
+    struct unique_ptr<ggl::FragmentedPool<ggl::PolygonStroke::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonStroke::Shader::Setup>>> _strokeShaderSetupPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::PolygonAnimatableStroke::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonAnimatableStroke::Shader::Setup>>> _animatableStrokeShaderSetupPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::PolygonFill::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonFill::Shader::Setup>>> _fillShaderSetupPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::PolygonAnimatableFill::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonAnimatableFill::Shader::Setup>>> _animatableFillShaderSetupPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::PolygonShadowedStroke::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonShadowedStroke::Shader::Setup>>> _coastlineShaderSetupPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::Glow::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::Glow::Shader::Setup>>> _glowShaderSetupPool;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _strokeRenderStateNoStencil;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _strokeRenderStateGreater;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _strokeRenderStateBlendGreater;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _strokeRenderStateNotEqual;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _fillRenderStateNoStencil;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _fillRenderState;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _fillRenderStateBlendNoStencil;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _fillRenderStateBlend;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _coastlineRenderStateNoStencil;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _coastlineRenderState;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _coastlineGlowRenderState;
+    struct unique_ptr<ggl::FragmentedPool<ggl::RenderItem>, std::__1::default_delete<ggl::FragmentedPool<ggl::RenderItem>>> _coastlineRenderItemPool;
+    struct shared_ptr<ggl::AnimatableTexture::VariantUniformData> _variantData;
+    shared_ptr_1fee3c91 _groundCoverViewUniformData;
+    struct shared_ptr<ggl::PolygonFill::FillUniformData> _groundCoverPolygonUniformData;
+    shared_ptr_78ff922b _groundCoverMesh;
+    struct unique_ptr<ggl::PolygonFill::Shader::Setup, std::__1::default_delete<ggl::PolygonFill::Shader::Setup>> _groundCoverShaderSetup;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _groundCoverRenderState;
+    struct unique_ptr<ggl::RenderItem, std::__1::default_delete<ggl::RenderItem>> _groundCoverRenderItem;
+    shared_ptr_6e6219d6 _groundCoverStyle;
+    struct RenderItemBatcher _batcher;
 }
 
 @property(nonatomic) BOOL drawShapes; // @synthesize drawShapes=_drawShapes;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)renderTransparentPolygonsInRenderStepSet:(const struct RenderStepsSet *)arg1 withWidth:(float)arg2 minDepth:(float)arg3 context:(id)arg4;
-- (void)drawTransparentPolygonStrokesInRenderStepSet:(const struct RenderStepsSet *)arg1 withWidth:(float)arg2 minDepth:(float)arg3 context:(id)arg4;
-- (void)drawTransparentPolygonsInRenderStepSet:(const struct RenderStepsSet *)arg1 withContext:(id)arg2 stencil:(int)arg3;
+- (void)updateStylesInTiles:(id)arg1 updateTextures:(BOOL)arg2;
+- (void)willStartDrawingTiles:(id)arg1;
+- (void)stylesheetDoneChanging;
 - (void)stylesheetDidChange;
 - (void)stylesheetWillChange;
-- (void)drawCoastlinesWithContext:(id)arg1;
-- (void)renderNormalPolygonsInRenderStepSet:(const struct RenderStepsSet *)arg1 withWidth:(float)arg2 minDepth:(float)arg3 context:(id)arg4;
-- (void)drawDebugScene:(id)arg1 withContext:(id)arg2;
-- (void)drawScene:(id)arg1 withContext:(id)arg2 pass:(unsigned int)arg3;
-- (void)drawRenderStepSet:(const struct RenderStepsSet *)arg1 scene:(id)arg2 withContext:(id)arg3;
-- (void)layoutScene:(id)arg1 withContext:(id)arg2;
-- (struct RenderStepsSet *)renderStepSetForFeatureWithAttributes:(id)arg1;
+- (BOOL)wantsCategorizedSourceTiles;
+- (void)generateCoastlineRenderItemsWithContext:(id)arg1 commandBuffer:(struct CommandBuffer *)arg2;
+- (void)generateRenderItemsForTransparentPolygonsInScene:(id)arg1 context:(id)arg2 renderQueue:(struct RenderQueue *)arg3;
+- (void)generateRenderItemsForOpaquePolygonsInScene:(id)arg1 context:(id)arg2 renderQueue:(struct RenderQueue *)arg3;
+- (struct CommandBuffer *)commandBufferInRenderQueue:(struct RenderQueue *)arg1 forFeatureWithAttributes:(id)arg2;
+- (void)generateGroundCoverRenderItemsForScene:(id)arg1 withContext:(id)arg2 renderQueue:(struct RenderQueue *)arg3;
+- (void)generateRenderItemsForScene:(id)arg1 withContext:(id)arg2 renderQueue:(struct RenderQueue *)arg3;
+- (void)gglLayoutScene:(id)arg1 withContext:(id)arg2 renderQueue:(struct RenderQueue *)arg3;
+- (void)resetPools;
+- (void)flushPools;
+- (void)didReceiveMemoryWarning;
+@property(readonly, nonatomic) BOOL shouldEverShowVegetation;
+- (void)updateGroundCoverStyle;
 - (unsigned int)textureSize;
-- (unsigned int)supportedRenderPasses;
-- (unsigned int)mapLayerPosition;
+- (unsigned long long)mapLayerPosition;
 - (void)reset;
 - (void)dealloc;
 - (id)init;
 
 // Remaining properties
-@property(readonly, nonatomic) VKStylesheet *stylesheet;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly, nonatomic) VKStyleManager *styleManager;
+@property(readonly) Class superclass;
 
 @end
 

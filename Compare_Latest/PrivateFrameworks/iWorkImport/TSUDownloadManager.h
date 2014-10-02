@@ -8,7 +8,7 @@
 
 #import "NSURLSessionDownloadDelegate.h"
 
-@class NSHashTable, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSOperationQueue, NSURL, NSURLSession;
+@class NSHashTable, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSOperationQueue, NSString, NSURL, NSURLSession;
 
 __attribute__((visibility("hidden")))
 @interface TSUDownloadManager : NSObject <NSURLSessionDownloadDelegate>
@@ -27,7 +27,6 @@ __attribute__((visibility("hidden")))
 + (id)sharedManager;
 + (void)wakeUp;
 + (void)registerDownloadItemClass:(Class)arg1;
-+ (BOOL)isUnitTest;
 - (void).cxx_destruct;
 - (void)URLSession:(id)arg1 downloadTask:(id)arg2 didResumeAtOffset:(long long)arg3 expectedTotalBytes:(long long)arg4;
 - (void)URLSession:(id)arg1 downloadTask:(id)arg2 didWriteData:(long long)arg3 totalBytesWritten:(long long)arg4 totalBytesExpectedToWrite:(long long)arg5;
@@ -44,6 +43,12 @@ __attribute__((visibility("hidden")))
 - (void)handleEventsForBackgroundURLSession:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)initPrivate;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

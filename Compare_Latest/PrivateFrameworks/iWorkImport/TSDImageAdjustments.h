@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
     float mTopLevel;
     float mGamma;
     BOOL mEnhance;
+    BOOL mRepresentsSageAdjustments;
 }
 
 - (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
@@ -36,6 +37,7 @@ __attribute__((visibility("hidden")))
 - (id)description;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+@property(readonly, nonatomic) BOOL representsSageAdjustments;
 @property(readonly, nonatomic) BOOL enhance;
 @property(readonly, nonatomic) float gamma;
 @property(readonly, nonatomic) float topLevel;

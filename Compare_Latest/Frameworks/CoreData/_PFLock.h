@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
     struct _opaque_pthread_t {
         long _field1;
         struct __darwin_pthread_handler_rec *_field2;
-        char _field3[596];
+        char _field3[4088];
     } *_owner;
     unsigned int _count;
 }

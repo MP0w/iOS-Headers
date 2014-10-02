@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) OADFontScheme *fontScheme; // @synthesize fontScheme=mFontScheme;
 @property(retain, nonatomic) OADStyleMatrix *styleMatrix; // @synthesize styleMatrix=mStyleMatrix;
 @property(retain, nonatomic) OADColorScheme *colorScheme; // @synthesize colorScheme=mColorScheme;
+- (id)description;
 - (void)dealloc;
 
 @end

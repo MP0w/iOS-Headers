@@ -4,16 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "SBUnlockActionHandler.h"
+#import "SBLockScreenActionHandler.h"
 
-@class SBLockScreenNotificationCell, SBLockScreenNotificationListView, SBUnlockActionContext, UIScrollView;
+@class SBLockScreenActionContext, SBLockScreenNotificationCell, SBLockScreenNotificationListView, UIScrollView;
 
-@protocol SBLockScreenNotificationViewDelegate <SBUnlockActionHandler>
+@protocol SBLockScreenNotificationViewDelegate <SBLockScreenActionHandler>
+- (void)noteListViewReadyForModelUpdate;
 - (void)listView:(SBLockScreenNotificationListView *)arg1 cellDidEndScrolling:(SBLockScreenNotificationCell *)arg2;
 - (void)listView:(SBLockScreenNotificationListView *)arg1 cellDidBeginScrolling:(SBLockScreenNotificationCell *)arg2;
 - (void)listViewDidEndScrolling:(SBLockScreenNotificationListView *)arg1;
 - (void)listViewDidBeginScrolling:(SBLockScreenNotificationListView *)arg1;
 - (UIScrollView *)lockScreenScrollView;
-- (void)noteUnlockActionChanged:(SBUnlockActionContext *)arg1;
+- (void)noteUnlockActionChanged:(SBLockScreenActionContext *)arg1;
 @end
 

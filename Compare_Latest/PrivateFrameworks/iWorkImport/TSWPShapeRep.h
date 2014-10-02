@@ -10,7 +10,7 @@
 #import "TSDMagicMoveMatching.h"
 #import "TSWPShapeLayoutDelegate.h"
 
-@class CALayer, NSObject<TSDContainerInfo>, TSWPRep, TSWPStorage;
+@class CALayer, NSObject<TSDContainerInfo>, NSString, TSWPRep, TSWPStorage;
 
 __attribute__((visibility("hidden")))
 @interface TSWPShapeRep : TSDShapeRep <TSDMagicMoveMatching, TSDContainerRep, TSWPShapeLayoutDelegate>
@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (float)magicMoveAttributeMatchPercentBetweenOutgoingObject:(id)arg1 incomingObject:(id)arg2;
-+ (id)magicMoveTextMatchesBetweenOutgoingObjects:(id)arg1 andIncomingObjects:(id)arg2 textureContext:(id)arg3 textDeliveryType:(int)arg4;
++ (id)magicMoveTextMatchesBetweenOutgoingObjects:(id)arg1 andIncomingObjects:(id)arg2 textureContext:(id)arg3 textDeliveryType:(int)arg4 repToOpacityTextRangeDictMap:(id)arg5;
 + (id)magicMoveAnimationMatchesFromMatches:(id)arg1;
 + (void)p_getOutgoingTextureSet:(id *)arg1 incomingTextureSet:(id *)arg2 withOutgoingRep:(id)arg3 outgoingChunkRange:(struct _NSRange)arg4 incomingRep:(id)arg5 incomingChunkRange:(struct _NSRange)arg6 includeListLabels:(BOOL)arg7;
 + (id)p_textureSetFromRep:(id)arg1 range:(struct _NSRange)arg2 includeListLabel:(BOOL)arg3 desiredContentRect:(struct CGRect)arg4;
@@ -30,16 +30,7 @@ __attribute__((visibility("hidden")))
 + (unsigned int)p_longestChunkInOutgoingObjects:(id)arg1 incomingObjects:(id)arg2 textDeliveryType:(int)arg3 addOutgoingChunksToArray:(id)arg4 addIncomingChunksToArray:(id)arg5;
 + (id)p_stringByApplyingCapitalizationPropertyFromStorage:(id)arg1 withRange:(struct _NSRange)arg2 toString:(id)arg3;
 + (id)p_potentialMatchesWithChunkLength:(unsigned int)arg1 outgoingTextChunks:(id)arg2 incomingTextChunks:(id)arg3 textureContext:(id)arg4 textDeliveryType:(int)arg5;
-+ (float)p_mmAttributeMatchPercentWithOutgoingChunkDict:(id)arg1 incomingChunkDict:(id)arg2;
-+ (unsigned int)p_numberOfDifferencesBetweenStyleProperties:(id)arg1 betweenOutgoingStorage:(id)arg2 outgoingRange:(struct _NSRange)arg3 incomingStorage:(id)arg4 incomingRange:(struct _NSRange)arg5 maxDifferencesBeforeReturning:(unsigned int)arg6;
-+ (BOOL)p_shouldDisableTextMorphsFromPropertiesBetweenOutgoingStorage:(id)arg1 outgoingRange:(struct _NSRange)arg2 incomingStorage:(id)arg3 incomingRange:(struct _NSRange)arg4;
-+ (BOOL)p_stylesAreEqualWithOutgoingStorage:(id)arg1 outgoingRange:(struct _NSRange)arg2 incomingStorage:(id)arg3 incomingRange:(struct _NSRange)arg4;
-+ (void)test_TSWPTextPropertiesCheck;
-+ (id)textPropertiesNotAffectingVisualStyle;
-+ (id)textPropertiesAffectingVisualStyleExceptSize;
-+ (id)textPropertiesAffectingTextMorph;
-+ (id)textPropertiesAffectingVisualStyle;
-+ (id)textPropertiesNeedingCharacterAnimation;
++ (float)p_mmAttributeMatchPercentWithOutgoingTextChunk:(id)arg1 incomingTextChunk:(id)arg2;
 @property(readonly, nonatomic) TSWPRep *containedRep; // @synthesize containedRep=_containedRep;
 - (id).cxx_construct;
 - (void)shapeLayoutDidChangeContainedStorage:(id)arg1;
@@ -51,6 +42,7 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)enabledKnobMask;
 - (id)p_overflowKnobImage;
 - (void)processChangedProperty:(int)arg1;
+- (BOOL)canBeUsedForImageMask;
 - (BOOL)isInvisible;
 - (id)additionalLayersOverLayer;
 - (id)overlayLayers;
@@ -73,8 +65,10 @@ __attribute__((visibility("hidden")))
 - (BOOL)wantsToHandleTapsWhenLocked;
 - (BOOL)wantsToHandleTapsOnContainingGroup;
 - (BOOL)handleSingleTapAtPoint:(struct CGPoint)arg1;
+@property(readonly, nonatomic) BOOL shouldBeginEditingOnSingleClick;
 - (BOOL)shouldIgnoreEditMenuTapAtPoint:(struct CGPoint)arg1 withRecognizer:(id)arg2;
 - (int)dragTypeAtCanvasPoint:(struct CGPoint)arg1;
+- (BOOL)shouldHitTestWithFill;
 - (id)hitReps:(struct CGPoint)arg1 withSlop:(struct CGSize)arg2;
 - (id)hitRep:(struct CGPoint)arg1;
 - (void)willEndEditingContainedRep;
@@ -86,7 +80,7 @@ __attribute__((visibility("hidden")))
 - (void)updateChildrenFromLayout;
 - (void)dealloc;
 - (id)initWithLayout:(id)arg1 canvas:(id)arg2;
-- (id)newTextureRenderableForRange:(struct _NSRange)arg1 includeListLabel:(BOOL)arg2 isMagicMove:(BOOL)arg3 desiredContentRect:(struct CGRect)arg4;
+- (id)newTextureRenderableForRange:(struct _NSRange)arg1 includeListLabel:(BOOL)arg2 isMagicMove:(BOOL)arg3 desiredContentRect:(struct CGRect)arg4 includeGroupedShadow:(BOOL)arg5 groupedShadowOnly:(BOOL)arg6;
 - (void)p_getBoundsRect:(struct CGRect *)arg1 contentRect:(struct CGRect *)arg2 transform:(struct CGAffineTransform *)arg3 applyReflection:(char *)arg4 applyShadow:(char *)arg5 forRange:(struct _NSRange)arg6 includeListLabel:(BOOL)arg7 isMagicMove:(BOOL)arg8;
 - (float)p_textureSetOpacity;
 - (BOOL)p_hasContentForRange:(struct _NSRange)arg1 labelOnly:(BOOL)arg2;
@@ -94,7 +88,15 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)p_rectForRubyFields:(struct _NSRange)arg1;
 @property(readonly, nonatomic) TSWPStorage *textStorageForTexture;
 - (id)textureForContext:(id)arg1;
+- (int)stageIndexForStorageRange:(struct _NSRange)arg1;
+- (id)stageChunks;
 @property(readonly, nonatomic) BOOL isShapeInvisible;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,12 +8,11 @@
 
 #import "KNAnimationPluginArchiving.h"
 #import "KNChunkableBuildAnimator.h"
-#import "KNFrameBuildAnimator.h"
 
-@class KNMotionBlurAnimationPluginWrapper, NSMutableArray;
+@class KNMotionBlurAnimationPluginWrapper, NSMutableArray, NSString;
 
 __attribute__((visibility("hidden")))
-@interface KNBuildBlinds : KNAnimationEffect <KNChunkableBuildAnimator, KNFrameBuildAnimator, KNAnimationPluginArchiving>
+@interface KNBuildBlinds : KNAnimationEffect <KNChunkableBuildAnimator, KNAnimationPluginArchiving>
 {
     KNMotionBlurAnimationPluginWrapper *_motionBlurWrapper;
     NSMutableArray *_layerToOldParentArray;
@@ -22,7 +21,7 @@ __attribute__((visibility("hidden")))
 + (void)downgradeAttributes:(id *)arg1 animationName:(id *)arg2 warning:(id *)arg3 type:(int)arg4 isToClassic:(BOOL)arg5 version:(unsigned long long)arg6;
 + (void)upgradeAttributes:(id *)arg1 animationName:(id)arg2 warning:(id *)arg3 type:(int)arg4 isFromClassic:(BOOL)arg5 version:(unsigned long long)arg6;
 + (id)blindsAnimationsWithContext:(id)arg1 animationContext:(id)arg2 layerToOldParentArray:(id)arg3;
-+ (id)layersFromParticles:(id)arg1 withBounds:(struct CGRect)arg2 mainLayer:(id)arg3 animationContext:(id)arg4;
++ (id)layersFromParticles:(id)arg1 withBounds:(struct CGRect)arg2 mainLayer:(id)arg3 direction:(unsigned int)arg4 animationContext:(id)arg5;
 + (id)generateParticles:(unsigned int)arg1 withBounds:(struct CGRect)arg2 direction:(unsigned int)arg3 animationContext:(id)arg4;
 + (id)thumbnailImageNameForType:(int)arg1;
 + (BOOL)requiresSingleTexturePerStage;
@@ -40,6 +39,12 @@ __attribute__((visibility("hidden")))
 - (void)animationDidEndWithContext:(id)arg1;
 - (void)animationWillBeginWithContext:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

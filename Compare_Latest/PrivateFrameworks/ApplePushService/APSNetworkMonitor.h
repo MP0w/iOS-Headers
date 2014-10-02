@@ -34,7 +34,6 @@
     BOOL _shouldUseDualMode;
     BOOL _shouldEnableWifiAutoAssoc;
     BOOL _criticalReliability;
-    BOOL _isPiggybacking;
 }
 
 + (unsigned int)powerCostForPushOnRAT:(struct __CFString *)arg1 withLinkQuality:(int)arg2;
@@ -46,7 +45,7 @@
 - (void)setCriticalReliability:(BOOL)arg1;
 - (void)closedSecondChannel:(int)arg1;
 - (void)openedSecondChannel;
-@property(readonly, nonatomic) BOOL isPiggybacking; // @synthesize isPiggybacking=_isPiggybacking;
+@property(readonly, nonatomic) BOOL isPiggybacking;
 - (void)_connectionThrottleTimerFired;
 - (void)_clearConnectionThrottleTimer;
 - (void)_toggleWiFiAutoAssociateIfNecessary;
@@ -69,6 +68,12 @@
 @property(nonatomic) id <APSNetworkMonitorDelegate> delegate;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSDate, NSString;
 
 __attribute__((visibility("hidden")))
 @interface PDComment : NSObject
@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
     struct CGPoint mPosition;
     NSString *mText;
     unsigned int mAuthorId;
-    NSString *mDate;
+    NSDate *mDate;
     unsigned int mIndex;
 }
 

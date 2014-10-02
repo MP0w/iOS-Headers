@@ -11,7 +11,7 @@
 #import "TSCH3DSceneObjectDelegator.h"
 #import "TSCHUnretainedParent.h"
 
-@class TSCH3DChartRep, TSCH3DScene;
+@class NSString, TSCH3DChartRep, TSCH3DScene;
 
 __attribute__((visibility("hidden")))
 @interface TSCH3DChartRepAnimationTextureSceneDelegate : NSObject <TSCH3DSceneObjectDelegator, TSCH3DSceneDelegate, TSCH3DChartAllSceneObjectDelegate, TSCHUnretainedParent>
@@ -48,7 +48,7 @@ __attribute__((visibility("hidden")))
 - (void)willRunForScene:(id)arg1 pipeline:(id)arg2;
 - (id)makeDelegateWithSceneObject:(id)arg1 scene:(id)arg2;
 - (id)makeDelegateWithScene:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)clearParent;
 - (BOOL)p_shouldSkipIndex:(const tvec2_3b141483 *)arg1;
 - (void)dealloc;
@@ -57,6 +57,11 @@ __attribute__((visibility("hidden")))
 - (BOOL)renderPassDelayDisallowedForSceneObject:(id)arg1 pipeline:(id)arg2;
 - (void)didEndProcessingSceneObject:(id)arg1;
 - (BOOL)willBeginProcessingSceneObject:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

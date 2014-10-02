@@ -4,25 +4,21 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <iWorkImport/TSWPRep.h>
+#import <iWorkImport/TSWPHeaderRep.h>
 
 @class TPPaginatedPageInfo;
 
 __attribute__((visibility("hidden")))
-@interface TPHeaderRep : TSWPRep
+@interface TPHeaderRep : TSWPHeaderRep
 {
-    float _leftClip;
-    float _rightClip;
     BOOL _hideKnobs;
 }
 
 @property(nonatomic) BOOL hideKnobs; // @synthesize hideKnobs=_hideKnobs;
-@property(nonatomic) float rightClip; // @synthesize rightClip=_rightClip;
-@property(nonatomic) float leftClip; // @synthesize leftClip=_leftClip;
 - (BOOL)p_isMiddleFooterRep;
 - (BOOL)p_isMiddleHeaderRep;
 - (BOOL)p_shouldCreateArrowKnobs;
-@property(readonly, nonatomic, getter=p_isInDocumentSetup) BOOL p_inDocumentSetup;
+- (BOOL)p_isInDocumentSetup;
 - (BOOL)doesNeedDisplayOnEditingDidEnd;
 - (void)editingDidEnd;
 - (void)updatePositionsOfKnobs:(id)arg1;
@@ -33,7 +29,6 @@ __attribute__((visibility("hidden")))
 - (id)beginEditing;
 - (BOOL)canEditWithEditor:(id)arg1;
 - (BOOL)shouldIgnoreSingleTapAtPoint:(struct CGPoint)arg1 withRecognizer:(id)arg2;
-- (void)setupForDrawingInLayer:(id)arg1 context:(struct CGContext *)arg2;
 @property(readonly, nonatomic) TPPaginatedPageInfo *pageInfo;
 - (id)pageLayout;
 

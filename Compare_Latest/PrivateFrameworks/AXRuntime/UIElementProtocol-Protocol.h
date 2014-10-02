@@ -9,6 +9,7 @@
 @class NSArray, NSNumber, NSObject<UIElementProtocol>, NSString;
 
 @protocol UIElementProtocol <NSObject>
++ (id)uiElementAtCoordinate:(struct CGPoint)arg1 hitTestOrientation:(int)arg2;
 + (id)uiElementAtCoordinate:(struct CGPoint)arg1;
 + (void)applyElementAttributeCacheScheme:(int)arg1;
 - (BOOL)isMockElement;

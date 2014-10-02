@@ -32,10 +32,10 @@
 - (BOOL)_isServiceSupported;
 - (void)_stopListeningForNotifications;
 - (void)_startListeningForNotifications;
-@property(readonly, nonatomic) NSString *_serviceName;
+@property(readonly, retain, nonatomic) NSString *_serviceName;
 - (void)dealloc;
 - (id)initWithServiceType:(int)arg1 name:(id)arg2;
-- (id)initWithServiceType:(int)arg1 name:(id)arg2 capabilities:(unsigned long long)arg3;
+- (id)initWithServiceType:(int)arg1 name:(id)arg2 capabilities:(unsigned int)arg3;
 
 @end
 

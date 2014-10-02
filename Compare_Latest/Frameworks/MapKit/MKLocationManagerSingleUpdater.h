@@ -9,6 +9,8 @@
 #import "MKLocationManagerObserver.h"
 #import "MKLocationManagerOperation.h"
 
+@class MKLocationManager, NSString;
+
 __attribute__((visibility("hidden")))
 @interface MKLocationManagerSingleUpdater : NSObject <MKLocationManagerObserver, MKLocationManagerOperation>
 {
@@ -16,6 +18,7 @@ __attribute__((visibility("hidden")))
     BOOL _active;
     double _desiredAccuracy;
     MKLocationManagerSingleUpdater *_selfReference;
+    MKLocationManager *_locationManager;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType handler; // @synthesize handler=_handler;
@@ -31,8 +34,14 @@ __attribute__((visibility("hidden")))
 - (void)cancel;
 - (void)start;
 - (void)dealloc;
-- (id)initWithHandler:(CDUnknownBlockType)arg1;
-- (id)initWithDesiredAccuracy:(double)arg1 handler:(CDUnknownBlockType)arg2;
+- (id)initWithLocationManager:(id)arg1 handler:(CDUnknownBlockType)arg2;
+- (id)initWithLocationManager:(id)arg1 desiredAccuracy:(double)arg2 handler:(CDUnknownBlockType)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

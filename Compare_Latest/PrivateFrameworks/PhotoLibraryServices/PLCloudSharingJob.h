@@ -22,10 +22,10 @@
 - (void)dealloc;
 - (void)runAndWaitForMessageToBeSent;
 - (void)runDaemonSide;
-- (id)initFromXPCObject:(id)arg1;
+- (id)initFromXPCObject:(id)arg1 connection:(id)arg2;
 - (BOOL)shouldArchiveXPCToDisk;
 - (void)archiveXPCToDisk:(id)arg1;
-@property(readonly, nonatomic) PLPhotoLibrary *transientPhotoLibrary;
+@property(readonly, retain, nonatomic) PLPhotoLibrary *transientPhotoLibrary;
 - (id)serialOperationQueue;
 - (id)init;
 

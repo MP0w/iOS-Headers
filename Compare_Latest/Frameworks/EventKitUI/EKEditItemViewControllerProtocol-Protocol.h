@@ -7,6 +7,8 @@
 @protocol EKEditItemViewControllerProtocol
 
 @optional
+@property(nonatomic) BOOL editItemShouldBeAskedForInjectableViewController;
+@property(nonatomic) BOOL presentModally;
 @property(nonatomic) __weak id <EKEditItemViewControllerDelegate> editDelegate;
 - (void)saveAndDismissWithExtremePrejudice;
 @end

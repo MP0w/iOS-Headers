@@ -45,6 +45,9 @@
     NSString *_voice;
 }
 
++ (void)getLogToFile:(CDUnknownBlockType)arg1;
++ (void)setLogToFile:(BOOL)arg1;
++ (void)initialize;
 + (BOOL)isSystemSpeaking;
 + (id)availableFootprintsForVoice:(id)arg1 languageCode:(id)arg2;
 + (id)availableLanguageCodes;

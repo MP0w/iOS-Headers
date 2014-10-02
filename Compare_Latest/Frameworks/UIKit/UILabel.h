@@ -7,16 +7,20 @@
 #import <UIKit/UIView.h>
 
 #import "NSCoding.h"
+#import "_UIMultilineTextContentSizing.h"
 
 @class NSAttributedString, NSMutableDictionary, NSString, UIColor, UIFont, _UILabelScaledMetrics;
 
-@interface UILabel : UIView <NSCoding>
+@interface UILabel : UIView <_UIMultilineTextContentSizing, NSCoding>
 {
     struct CGSize _size;
     UIColor *_highlightedColor;
     int _numberOfLines;
     int _measuredNumberOfLines;
     float _lastLineBaseline;
+    float _previousLastLineBaseline;
+    float _firstLineBaseline;
+    float _previousFirstLineBaseline;
     float _minimumScaleFactor;
     id _content;
     NSAttributedString *_synthesizedAttributedText;
@@ -47,17 +51,23 @@
         unsigned int explicitBaselineOffset:1;
         unsigned int usesSimpleTextEffects:1;
         unsigned int isComplexString:1;
+        unsigned int wantsUnderlineForAccessibilityButtonShapesEnabled:1;
     } _textLabelFlags;
-    BOOL _wantsUnderlineForAccessibilityButtonShapesEnabled;
+    BOOL __textColorFollowsTintColor;
     float _preferredMaxLayoutWidth;
 }
 
 + (struct CGSize)_legacy_adjustSizeForWebKitConstraining:(struct CGSize)arg1 withFont:(id)arg2;
++ (struct CGRect)_insetRect:(struct CGRect)arg1 forAttributedString:(id)arg2 inView:(id)arg3;
++ (struct UIEdgeInsets)_insetsForAttributedString:(id)arg1 inView:(id)arg2;
++ (struct UIEdgeInsets)_insetsForString:(id)arg1 withFont:(id)arg2 inView:(id)arg3;
++ (struct __CFCharacterSet *)_tooBigChars;
 + (id)_defaultAttributes;
 + (id)defaultFont;
++ (Class)layerClass;
+@property(nonatomic, setter=_setTextColorFollowsTintColor:) BOOL _textColorFollowsTintColor; // @synthesize _textColorFollowsTintColor=__textColorFollowsTintColor;
 @property(nonatomic) float minimumScaleFactor; // @synthesize minimumScaleFactor=_minimumScaleFactor;
 @property(nonatomic) float preferredMaxLayoutWidth; // @synthesize preferredMaxLayoutWidth=_preferredMaxLayoutWidth;
-@property(nonatomic, setter=_setWantsUnderlineForAccessibilityButtonShapesEnabled:) BOOL _wantsUnderlineForAccessibilityButtonShapesEnabled; // @synthesize _wantsUnderlineForAccessibilityButtonShapesEnabled;
 - (BOOL)_usesSimpleTextEffects;
 - (void)_setUsesSimpleTextEffects:(BOOL)arg1;
 - (BOOL)drawsUnderline;
@@ -88,13 +98,16 @@
 - (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
 - (void)updateConstraints;
 - (void)_setInSecondConstraintsPass:(BOOL)arg1;
-- (void)_prepareForSecondIntrinsicContentSizeCalculationWithEngine:(id)arg1;
+- (void)_prepareForSecondIntrinsicContentSizeCalculationWithLayoutEngineBounds:(struct CGRect)arg1;
 - (void)_prepareForFirstIntrinsicContentSizeCalculation;
-- (void)nsis_valueOfVariable:(id)arg1 didChangeInEngine:(id)arg2;
+- (void)invalidateIntrinsicContentSize;
 - (BOOL)_needsDoubleUpdateConstraintsPass;
+- (float)_firstBaselineOffsetFromTop;
 - (float)_baselineOffsetFromBottom;
+- (struct CGRect)_ensureBaselineMetricsReturningBounds;
 @property(readonly, nonatomic) float _lastLineBaseline;
 @property(nonatomic) int baselineAdjustment;
+- (id)_layoutDebuggingTitle;
 @property(nonatomic, setter=_setDrawsDebugBaselines:) BOOL _drawsDebugBaselines;
 @property(nonatomic) BOOL adjustsLetterSpacingToFitWidth;
 @property(nonatomic) int lineSpacing;
@@ -111,12 +124,13 @@
 - (void)_setShadow:(id)arg1;
 @property(retain, nonatomic) UIFont *font;
 - (void)_setFont:(id)arg1;
-- (void)_baselineOffsetDidChange;
+- (void)_baselineOffsetParametersDidChange;
 - (id)currentTextColor;
 - (id)_disabledFontColor;
 @property(retain, nonatomic) UIColor *highlightedTextColor;
 @property(nonatomic) int textAlignment;
 - (void)_setTextAlignment:(int)arg1;
+- (void)tintColorDidChange;
 @property(nonatomic) float minimumFontSize;
 - (float)_minimumFontSize;
 - (void)_setMinimumFontSize:(float)arg1;
@@ -131,6 +145,7 @@
 - (void)_setAttributedText:(id)arg1 andTakeOwnership:(BOOL)arg2;
 @property(copy, nonatomic) NSString *text;
 - (void)_setText:(id)arg1;
+- (struct UIEdgeInsets)_contentInsetsFromFonts;
 - (void)_invalidateTextSize;
 - (struct CGRect)_textRectForBounds:(struct CGRect)arg1 limitedToNumberOfLines:(int)arg2 includingShadow:(BOOL)arg3;
 - (BOOL)_shouldCeilSizeToViewScale;
@@ -148,6 +163,7 @@
 - (void)_commonInit;
 @property(retain, nonatomic, getter=_synthesizedAttributedText, setter=_setSynthesizedAttributedText:) NSAttributedString *_synthesizedAttributedText;
 - (void)_invalidateSynthesizedAttributedTextAndLayout;
+- (void)_invalidateLayout;
 - (void)_invalidateDefaultAttributes;
 - (id)_synthesizedTextAttributes;
 - (id)_compatibilityAttributedString;
@@ -161,10 +177,12 @@
 @property(readonly, nonatomic) float _firstLineBaselineOffsetFromBoundsTop;
 @property(readonly, nonatomic) float _capOffsetFromBoundsTop;
 - (int)_measuredNumberOfLines;
+@property(nonatomic, setter=_setWantsUnderlineForAccessibilityButtonShapesEnabled:) BOOL _wantsUnderlineForAccessibilityButtonShapesEnabled; // @dynamic _wantsUnderlineForAccessibilityButtonShapesEnabled;
 - (void)_didChangeFromIdiom:(int)arg1 onScreen:(id)arg2 traverseHierarchy:(BOOL)arg3;
 - (BOOL)_shouldShowAccessibilityButtonShapesUnderline;
 - (void)_accessibilityButtonShapesChangedNotification:(id)arg1;
 - (void)_accessibilityButtonShapesParametersDidChange;
+- (void)_resetUsesExplicitPreferredMaxLayoutWidth;
 - (struct CGSize)rawSize;
 - (void)setRawSize:(struct CGSize)arg1;
 - (void)drawContentsInRect:(struct CGRect)arg1;
@@ -182,6 +200,12 @@
 - (BOOL)isAccessibilityElementByDefault;
 - (id)_image;
 - (BOOL)_isTextFieldCenteredLabel;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

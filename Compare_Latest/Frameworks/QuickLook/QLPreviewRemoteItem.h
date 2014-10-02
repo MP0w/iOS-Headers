@@ -19,17 +19,24 @@
     CDUnknownBlockType _completionBlock;
 }
 
+- (double)autoPlaybackPosition;
+- (BOOL)isPromisedItem;
 - (id)previewItemURLForDisplay;
 - (id)previewItemContentType;
 @property(readonly) NSString *previewItemTitle;
 @property(readonly) NSURL *previewItemURL;
-- (id)description;
+@property(readonly, copy) NSString *description;
 @property(readonly) QLPreviewItemProxy *proxy;
 - (void)invalidate;
 - (void)resolveWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)_clearCompletionBlock;
 - (void)dealloc;
 - (id)initWithContentController:(id)arg1 index:(int)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -45,6 +45,9 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)selectionBoundingBox;
 @property(readonly, nonatomic) UITextSelection *selection;
 @property(readonly, nonatomic) UITextRangeView *rangeView;
+- (void)updateDocumentHasContent:(BOOL)arg1;
+- (id)dynamicCaretList;
+- (id)dynamicCaret;
 @property(readonly, nonatomic) UIView *caretView; // @synthesize caretView=m_caretView;
 - (void)startCaretBlinkIfNeeded;
 - (void)touchCaretBlinkTimer;
@@ -60,8 +63,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL selectionCommandsShowing;
 - (void)hideSelectionCommands;
 - (void)hideSelectionCommandsAfterDelay:(double)arg1;
-- (void)showReplacementsWithGenerator:(CDUnknownBlockType)arg1 forDictation:(BOOL)arg2 afterDelay:(double)arg3;
-- (void)calculateAndShowReplacements:(CDUnknownBlockType)arg1;
+- (void)showReplacementsWithGenerator:(id)arg1 forDictation:(BOOL)arg2 afterDelay:(double)arg3;
+- (void)calculateAndShowReplacements:(id)arg1;
 - (void)showSelectionCommands;
 - (void)showSelectionCommandsAfterDelay:(double)arg1;
 - (void)showCalloutBarAfterDelay:(double)arg1;
@@ -86,13 +89,14 @@ __attribute__((visibility("hidden")))
 - (void)inputViewDidAnimate;
 - (void)inputViewWillAnimate;
 - (void)inputViewDidMove;
-- (void)inputViewWillMove;
+- (void)inputViewWillMove:(id)arg1;
 - (void)inputViewDidChange;
 - (void)inputViewWillChange;
 - (BOOL)affectedByScrollerNotification:(id)arg1;
 - (void)selectionDidScroll:(id)arg1;
 - (void)selectionWillScroll:(id)arg1;
 - (void)viewAnimate:(id)arg1;
+- (void)inputModeDidChange:(id)arg1;
 - (void)windowDidResignOrBecomeKey;
 - (void)deactivate;
 - (void)activate;

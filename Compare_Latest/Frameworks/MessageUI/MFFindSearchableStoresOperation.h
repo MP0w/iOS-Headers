@@ -10,7 +10,7 @@
 {
 }
 
-- (int)type;
+- (unsigned int)type;
 - (void)main;
 
 @end

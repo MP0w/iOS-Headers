@@ -7,6 +7,7 @@
 #import "GEOPlaceSearchRequest.h"
 
 @interface GEOPlaceSearchRequest (MKAdditions)
-- (void)_applyBasicSearchProperties:(BOOL)arg1;
+- (void)_applyDisplayableSearchProperties;
+- (void)_applyBasicSearchProperties;
 @end
 

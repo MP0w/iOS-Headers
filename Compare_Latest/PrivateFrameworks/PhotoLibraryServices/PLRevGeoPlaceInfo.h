@@ -6,20 +6,18 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSMutableSet, NSString;
 
 @interface PLRevGeoPlaceInfo : NSObject
 {
     NSString *_placeName;
-    double _area;
+    NSMutableSet *_geoPlaceInfos;
 }
 
-@property(nonatomic) double area; // @synthesize area=_area;
+@property(retain, nonatomic) NSMutableSet *geoPlaceInfos; // @synthesize geoPlaceInfos=_geoPlaceInfos;
 @property(copy, nonatomic) NSString *placeName; // @synthesize placeName=_placeName;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
 - (void)dealloc;
-- (id)initWithPlaceName:(id)arg1 area:(double)arg2;
+- (id)initWithPlaceName:(id)arg1;
 
 @end
 

@@ -28,6 +28,7 @@
 - (id)_fetchBodyDataForMessage:(id)arg1 andHeaderDataIfReadilyAvailable:(id *)arg2 downloadIfNecessary:(BOOL)arg3 partial:(char *)arg4;
 - (id)_fetchBodyDataForNormalMessage:(id)arg1 format:(int)arg2 part:(id)arg3 streamConsumer:(id)arg4;
 - (id)_fetchBodyDataForSearchResult:(id)arg1 format:(int)arg2 streamConsumer:(id)arg3;
+- (BOOL)bodyFetchRequiresNetworkActivity;
 - (id)loadMeetingMetadataForMessage:(id)arg1;
 - (id)loadMeetingDataForMessage:(id)arg1;
 - (id)loadMeetingExternalIDForMessage:(id)arg1;
@@ -44,6 +45,7 @@
 - (id)willSetFlagsFromDictionary:(id)arg1 forMessages:(id)arg2;
 - (void)setServerFlagsFromDictionary:(id)arg1 forMessages:(id)arg2;
 - (void)issueFlagUpdates:(id)arg1 forMessages:(id)arg2;
+- (id)remoteIDsMatchingSearchText:(id)arg1 limit:(unsigned int)arg2 error:(id *)arg3;
 - (id)remoteIDsMatchingCriterion:(id)arg1 limit:(unsigned int)arg2 error:(id *)arg3;
 - (int)fetchMessagesMatchingCriterion:(id)arg1 limit:(unsigned int)arg2;
 - (void)_remoteIDsMatchingCriterion:(id)arg1 limit:(unsigned int)arg2 filterByDate:(BOOL)arg3 handler:(CDUnknownBlockType)arg4;

@@ -6,17 +6,23 @@
 
 #import <Social/SLSheetImagePreviewView.h>
 
-@class CALayer;
+@class UIImageView, UIView;
 
 __attribute__((visibility("hidden")))
 @interface SLSheetBevelledImageView : SLSheetImagePreviewView
 {
-    CALayer *_frameLayer;
+    UIView *_placeholderPreviewView;
+    UIImageView *_placeholderGlyphView;
+    BOOL _needsURLPlaceholderImage;
 }
 
+@property(nonatomic) BOOL needsURLPlaceholderImage; // @synthesize needsURLPlaceholderImage=_needsURLPlaceholderImage;
 - (void).cxx_destruct;
+- (void)layoutSubviews;
+- (BOOL)generatePreviewImageFromAttachments;
+- (void)setImage:(id)arg1;
+- (void)ensurePlaceholderPreviewImage;
 - (struct CGSize)intrinsicContentSize;
-- (struct UIEdgeInsets)alignmentRectInsets;
 - (id)init;
 
 @end

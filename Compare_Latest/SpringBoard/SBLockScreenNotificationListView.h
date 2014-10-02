@@ -9,7 +9,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class CADisplayLink, NSMutableDictionary, NSTimer, SBLockScreenNotificationTableView;
+@class CADisplayLink, NSMutableDictionary, NSString, NSTimer, SBLockScreenNotificationTableView, SBNotificationRowActionFactory;
 
 @interface SBLockScreenNotificationListView : UIView <UITableViewDataSource, UITableViewDelegate>
 {
@@ -32,6 +32,7 @@
     double _totalContentHeight;
     double _startingScrollOffset;
     double _lastDistanceScrolled;
+    SBNotificationRowActionFactory *_cellButtonFactory;
     _Bool _updateCellsToVisibleOnPluginWillDisable;
 }
 
@@ -44,8 +45,8 @@
 - (void)_clearTextDisabledTimer;
 - (void)_resetAllFadeTimers;
 - (void)_disableExistingContent;
-- (struct UIEdgeInsets)_contentViewInsets;
 - (_Bool)_disableIdleTimer:(_Bool)arg1;
+- (void)_enableIdleTimerAfterScroll;
 - (void)_pluginWillDisable:(id)arg1;
 - (void)updateForRemovalOfItems;
 - (void)updateForRemovalOfItemAtIndex:(unsigned long long)arg1 removedItem:(id)arg2;
@@ -60,9 +61,19 @@
 - (void)_scrollingEndedInScrollView:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)_setNonSelectedCellsToVisible:(_Bool)arg1 withSelectedCell:(id)arg2;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
+- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
+- (_Bool)tableView:(id)arg1 shouldDrawTopSeparatorForSection:(long long)arg2;
 - (void)tableView:(id)arg1 didEndDisplayingCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (void)_handleAction:(id)arg1 forBulletin:(id)arg2;
+- (id)tableView:(id)arg1 editActionsForRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 didEndSwipingRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 willBeginSwipingRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 commitEditingStyle:(long long)arg2 forRowAtIndexPath:(id)arg3;
+- (id)_alertItemForIndexPath:(id)arg1;
+- (id)_activeBulletinForIndexPath:(id)arg1;
 - (_Bool)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)_setContentForTableCell:(id)arg1 withItem:(id)arg2 atIndexPath:(id)arg3;
@@ -82,6 +93,12 @@
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)_pocketLineColor;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -9,7 +9,7 @@
 #import "ABPersonViewControllerDelegate.h"
 #import "EKEditItemViewControllerProtocol.h"
 
-@class ABPersonViewController;
+@class ABPersonViewController, NSString;
 
 @interface EKIdentityViewController : UIViewController <ABPersonViewControllerDelegate, EKEditItemViewControllerProtocol>
 {
@@ -24,7 +24,13 @@
 - (id)initWithIdentity:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(nonatomic) __weak id <EKEditItemViewControllerDelegate> editDelegate;
+@property(nonatomic) BOOL editItemShouldBeAskedForInjectableViewController;
+@property(readonly) unsigned int hash;
+@property(nonatomic) BOOL presentModally;
+@property(readonly) Class superclass;
 
 @end
 

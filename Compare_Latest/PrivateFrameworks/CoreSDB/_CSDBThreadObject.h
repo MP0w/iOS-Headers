@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSRunLoop, NSString, NSThread;
+@class NSObject<OS_dispatch_queue>, NSRunLoop, NSString, NSThread;
 
 @interface _CSDBThreadObject : NSObject
 {
@@ -14,6 +14,7 @@
     NSString *_identifier;
     NSRunLoop *_runLoop;
     struct __CFRunLoopSource *_runLoopSource;
+    NSObject<OS_dispatch_queue> *_queue;
 }
 
 - (BOOL)isCurrentThreadOtherwiseAssert:(BOOL)arg1;

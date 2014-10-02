@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
     TSDLayout *mTemporaryMixingLayout;
     TSDLayout *mLayout;
     TSDTextureSet *mTexture;
+    NSObject<OS_dispatch_queue> *mTextureAccessQueue;
     struct CGColor *mDefaultSelectionHighlightColor;
     TSDLayoutGeometry *mLastGeometryInRoot;
     struct CGRect mOriginalLayerFrameInScaledCanvas;
@@ -42,6 +43,7 @@ __attribute__((visibility("hidden")))
     long mTileQueueOnce;
     long mTileProviderQueueLock;
     NSObject<OS_dispatch_queue> *mTileProviderQueue;
+    BOOL mHasBeenRemoved;
 }
 
 @property(retain, nonatomic) NSDictionary *textureAnimationInfo; // @synthesize textureAnimationInfo=mTextureAnimationInfo;
@@ -50,7 +52,6 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) TSDTextureContext *textureContext; // @synthesize textureContext=mTextureContext;
 @property(nonatomic) int textureByGlyphStyle; // @synthesize textureByGlyphStyle=mTextureByGlyphStyle;
 @property(nonatomic) unsigned int textureDeliveryStyle; // @synthesize textureDeliveryStyle=mTextureDeliveryStyle;
-@property(retain, nonatomic) TSDTextureSet *texture; // @synthesize texture=mTexture;
 @property(nonatomic) TSDKnobTracker *currentKnobTracker; // @synthesize currentKnobTracker=mKnobTracker;
 @property(nonatomic) TSDRep<TSDContainerRep> *parentRep; // @synthesize parentRep=mParentRep;
 @property(retain, nonatomic) TSDLayout *temporaryMixingLayout; // @synthesize temporaryMixingLayout=mTemporaryMixingLayout;
@@ -89,7 +90,7 @@ __attribute__((visibility("hidden")))
 - (id)allLayers;
 - (void)invalidateAnnotationColor;
 - (void)invalidateComments;
-- (id)commentHighlightLayer;
+- (struct CGPoint)p_commentPoleTopPositionShouldDisplayDirectlyOverRep:(BOOL)arg1;
 - (BOOL)shouldShowCommentHighlight;
 - (id)additionalLayersOverLayer;
 - (id)additionalLayersUnderLayer;
@@ -109,13 +110,15 @@ __attribute__((visibility("hidden")))
 - (BOOL)canDrawTilingLayerInBackground:(id)arg1;
 - (BOOL)shouldLayoutTilingLayer:(id)arg1;
 - (id)textureForContext:(id)arg1;
-- (void)p_setMagicMoveTextureAttributes:(id)arg1;
+- (void)setTextureAttributes:(id)arg1;
 - (struct CGAffineTransform)unRotatedTransform:(struct CGAffineTransform)arg1;
 - (void)markTextureDirty;
 @property(readonly, nonatomic) float textureAngle;
+@property(retain) TSDTextureSet *texture; // @synthesize texture=mTexture;
 - (BOOL)wantsToHandleTapsWhenLocked;
 - (BOOL)wantsToHandleTapsOnContainingGroup;
 - (BOOL)canClipThemeContentToCanvas;
+- (BOOL)handleMultipleTapAtPoint:(struct CGPoint)arg1;
 - (BOOL)handleDoubleTapAtPoint:(struct CGPoint)arg1;
 - (BOOL)handleSingleTapAtPoint:(struct CGPoint)arg1;
 - (BOOL)shouldIgnoreSingleTapAtPoint:(struct CGPoint)arg1 withRecognizer:(id)arg2;
@@ -146,6 +149,7 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)i_originalLayerFrameInScaledCanvas;
 - (struct CGPoint)i_dragOffset;
 - (void)i_dynamicDragDidEnd;
+- (id)additionalRectsForSnappingWithOffset:(struct CGPoint)arg1;
 - (BOOL)resetGuidesAfterDragAfterReset;
 - (BOOL)exclusivelyProvidesGuidesWhileAligning;
 - (BOOL)providesGuidesWhileAligning;
@@ -161,6 +165,7 @@ __attribute__((visibility("hidden")))
 - (id)popoutLayers;
 - (id)overlayLayers;
 - (id)p_addLayersForKnobsToArray:(id)arg1 withDelegate:(id)arg2 isOverlay:(BOOL)arg3;
+- (struct CGPoint)convertKnobPositionFromUnscaledCanvas:(struct CGPoint)arg1;
 - (struct CGPoint)convertKnobPositionToUnscaledCanvas:(struct CGPoint)arg1;
 - (void)i_invalidateSelectionHighlightLayer;
 - (id)selectionHighlightLayer;
@@ -176,6 +181,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)shouldShowKnobs;
 - (BOOL)shouldDisplayHyperlinkUI;
 @property(readonly, nonatomic) BOOL isEditingPath;
+- (struct CGPoint)unscaledActivityLineEndPointForEntry:(id)arg1;
 - (BOOL)shouldShowCommentUIDirectlyOverRep;
 - (BOOL)shouldCreateCommentKnob;
 - (BOOL)shouldCreateLockedKnobs;
@@ -212,6 +218,7 @@ __attribute__((visibility("hidden")))
 - (void)becameSelected;
 - (BOOL)isSelected;
 - (BOOL)isSelectedIgnoringLocking;
+- (void)i_configureFontSmoothingForContext:(struct CGContext *)arg1 layer:(id)arg2;
 - (void)endDrawingOperation;
 - (void)beginDrawingOperation;
 - (void)recursivelyDrawChildrenInContext:(struct CGContext *)arg1;
@@ -283,6 +290,7 @@ __attribute__((visibility("hidden")))
 - (void)addToSet:(id)arg1;
 - (id)parentRepToPerformSelecting;
 - (void)i_willEnterForeground;
+- (BOOL)hasBeenRemoved;
 - (void)i_willBeRemoved;
 - (void)recursivelyPerformSelector:(SEL)arg1 withObject:(id)arg2 withObject:(id)arg3;
 - (void)recursivelyPerformSelector:(SEL)arg1 withObject:(id)arg2;
@@ -299,6 +307,7 @@ __attribute__((visibility("hidden")))
 - (id)description;
 - (void)dealloc;
 - (id)initWithLayout:(id)arg1 canvas:(id)arg2;
+- (void)willBeginEyedropperMode;
 - (struct CGRect)i_partition_deepClipRect;
 
 @end

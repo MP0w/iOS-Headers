@@ -8,7 +8,7 @@
 
 #import "MPMusicPlayerControllerServerDelegate.h"
 
-@class MPAVController, MPMediaItem, MPNowPlayingObserver, MusicAVPlayer;
+@class MPAVController, MPMediaItem, MPNowPlayingObserver, MusicAVPlayer, NSString;
 
 @interface MusicPlayerServerDelegate : NSObject <MPMusicPlayerControllerServerDelegate>
 {
@@ -25,7 +25,7 @@
 }
 
 - (void).cxx_destruct;
-- (void)_appDefaultsChanged;
+- (void)_appDefaultsChanged:(id)arg1;
 - (void)musicPlayerServer:(id)arg1 prepareQueueWithRadioStation:(id)arg2;
 - (void)musicPlayerServer:(id)arg1 prepareQueueWithGeniusMixPlaylist:(id)arg2;
 - (void)musicPlayerServer:(id)arg1 prepareQueueWithQuery:(id)arg2;
@@ -45,6 +45,12 @@
 - (void)musicPlayerServer:(id)arg1 registerForRepeatModeChangesWithChangeHandler:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

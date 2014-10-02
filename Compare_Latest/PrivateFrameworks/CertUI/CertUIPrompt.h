@@ -22,6 +22,7 @@
 @property(copy, nonatomic) NSString *connectionDisplayName; // @synthesize connectionDisplayName=_connectionDisplayName;
 @property(retain, nonatomic) NSString *service; // @synthesize service=_service;
 @property(retain, nonatomic) NSString *host; // @synthesize host=_host;
+- (void).cxx_destruct;
 - (int)showAndWaitForResponse;
 - (void)_informConsumerOfResponse:(int)arg1;
 - (void)showPromptWithResponseBlock:(CDUnknownBlockType)arg1;
@@ -30,10 +31,12 @@
 - (id)_messagingCenter;
 - (id)_newUserInfoForDisplayName:(id)arg1 hostname:(id)arg2 trust:(struct __SecTrust *)arg3;
 - (id)_digestFromTrust:(struct __SecTrust *)arg1;
+- (BOOL)_isRootCertificateFromTrust:(struct __SecTrust *)arg1;
 - (id)_expirationFromTrust:(struct __SecTrust *)arg1;
 - (id)_purposeFromTrustProperties:(id)arg1;
 - (id)_propertyNamed:(id)arg1 ofType:(id)arg2 inProperties:(id)arg3;
 - (id)_subtitleFromTrust:(struct __SecTrust *)arg1;
+- (id)_issuerFromTrust:(struct __SecTrust *)arg1;
 - (id)_titleFromTrust:(struct __SecTrust *)arg1;
 - (id)_sendablePropertiesFromTrust:(struct __SecTrust *)arg1;
 - (id)_copyPropertiesFromTrust:(struct __SecTrust *)arg1;

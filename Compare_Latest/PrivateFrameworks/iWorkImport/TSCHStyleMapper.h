@@ -8,13 +8,16 @@
 
 #import "TSKStyleMapper.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TSCHStyleMapper : NSObject <TSKStyleMapper>
 {
     id <TSKStyleMapper> mUnderlyingMapper;
-    BOOL mVaryInThemeStylesheet;
+    unsigned int mVaryInThemeStylesheet;
 }
 
+@property(readonly, nonatomic) BOOL clientsMustRemap;
 - (void)varyInThemeStylesheetIf:(BOOL)arg1 forDurationOfBlock:(CDUnknownBlockType)arg2;
 - (void)varyInThemeStylesheetForDurationOfBlock:(CDUnknownBlockType)arg1;
 - (id)mappedStyleForStyle:(id)arg1 inThemeStylesheet:(BOOL)arg2;
@@ -26,6 +29,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithMapper:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

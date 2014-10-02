@@ -6,8 +6,14 @@
 
 #import "NSData.h"
 
-@interface NSData (TSPersistence)
-+ (id)dataWithContentsOfURL:(id)arg1 decryptionKey:(id)arg2;
-- (BOOL)writeToURL:(id)arg1 encryptionKey:(id)arg2;
+#import "TSPSplitableData.h"
+
+@interface NSData (TSPersistence) <TSPSplitableData>
++ (id)tsp_dataFromDispatchData:(id)arg1;
++ (id)tsp_dataWithContentsOfURL:(id)arg1 decryptionKey:(id)arg2;
+- (void)tsp_splitDataWithMaxSize:(unsigned long)arg1 subdataHandlerBlock:(CDUnknownBlockType)arg2;
+- (id)tsp_dispatchDataWithApplier:(CDUnknownBlockType)arg1;
+- (id)tsp_dispatchData;
+- (BOOL)tsp_writeToURL:(id)arg1 encryptionKey:(id)arg2;
 @end
 

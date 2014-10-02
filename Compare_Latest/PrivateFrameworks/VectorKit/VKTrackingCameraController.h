@@ -6,7 +6,7 @@
 
 #import <VectorKit/VKCameraController.h>
 
-@class VKAnimation, VKCameraContext, VKMapModel;
+@class VKAnimation, VKCameraContext, VKMapCanvas, VKMapModel;
 
 __attribute__((visibility("hidden")))
 @interface VKTrackingCameraController : VKCameraController
@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
     double _zoomScale;
     double _startPinchScale;
     VKMapModel *_mapModel;
+    VKMapCanvas *_mapCanvas;
     double _startTime;
     BOOL _animatingIn;
     double _startPitch;
@@ -57,18 +58,15 @@ __attribute__((visibility("hidden")))
         State_3e0671f0 modelState;
         struct VKPoint puckPosition;
     } _panStartCameraState;
-    Vec3Imp_f658403c _panCameraOffset;
-    CDStruct_aa5aacbc _panCameraOrientation;
-    struct {
-        double x;
-        double y;
-        double z;
-        double w;
-    } _panCameraOrientationQuaternion;
+    Matrix_6e1d3589 _panCameraOffset;
     double _panReturnStartTime;
     struct CGPoint _startPanPoint;
     double _panCourseOffset;
-    double _panPitchOffset;
+    double _panPitch;
+    double _panStartPitch;
+    double _panBoomLength;
+    double _panStartBoomLength;
+    double _panRouteOffset;
     VKAnimation *_panAnimation;
     BOOL _panning;
     double _pitchOffset;
@@ -79,7 +77,17 @@ __attribute__((visibility("hidden")))
     double _userZoomFocusStyleMinZoomScale;
     double _userZoomFocusStyleMaxZoomScale;
     VKAnimation *_zoomScaleAnimation;
+    fast_shared_ptr_502c59d0 _matchedSection;
+    struct PolylineCoordinate _matchedIndex;
+    BOOL _successfullyStartedRouteLinePan;
+    struct VKPoint _lastRouteLinePanPuckPosition;
+    int _panDirection;
     float _halfPuckSize;
+    int _desiredMapMode;
+    double _mapModeTransitionZoomScale;
+    _Bool _shouldAllowMapModeTransition;
+    double _maxBoomLength;
+    double _maxDistanceScale;
     BOOL _canZoomIn;
     BOOL _canZoomOut;
 }
@@ -88,13 +96,16 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) int panStyle; // @synthesize panStyle=_panStyle;
 @property(nonatomic) BOOL shouldLimitTopDownHeight; // @synthesize shouldLimitTopDownHeight=_shouldLimitTopDownHeight;
 @property(nonatomic) double tracePlaybackSpeedMultiplier; // @synthesize tracePlaybackSpeedMultiplier=_tracePlaybackSpeedMultiplier;
+@property(nonatomic) VKMapCanvas *mapCanvas; // @synthesize mapCanvas=_mapCanvas;
 @property(retain, nonatomic) VKMapModel *mapModel; // @synthesize mapModel=_mapModel;
 @property(nonatomic) id <VKTrackingCameraControllerDelegate> trackingDelegate; // @synthesize trackingDelegate=_trackingDelegate;
 - (id).cxx_construct;
+- (void).cxx_destruct;
+- (void)updatedMatchedSection:(fast_shared_ptr_502c59d0)arg1 index:(struct PolylineCoordinate *)arg2;
 - (void)stopPitchingWithFocusPoint:(struct CGPoint)arg1;
 - (void)updatePitchWithFocusPoint:(struct CGPoint)arg1 translation:(double)arg2;
 - (void)startPitchingWithFocusPoint:(struct CGPoint)arg1;
-- (void)pan:(struct CGPoint)arg1 worldDelta:(const Vec3Imp_f658403c *)arg2;
+- (void)pan:(struct CGPoint)arg1 worldDelta:(const Matrix_6e1d3589 *)arg2;
 - (void)stopPanning:(struct CGPoint)arg1;
 - (void)startPanning:(struct CGPoint)arg1;
 - (void)canvasFrameDidChange;
@@ -113,13 +124,15 @@ __attribute__((visibility("hidden")))
 - (double)relavantMaxZoomScale;
 - (double)relavantMinZoomScale;
 - (void)_resumeAnimationIfNecessary;
+- (void)setZoomStyle:(int)arg1;
+- (void)setMapModeTransitionZoomScale:(double)arg1;
 - (void)setUserZoomFocusStyleZoomScale:(double)arg1;
 @property(nonatomic) double zoomScale;
 @property(readonly, nonatomic) BOOL canZoomOut; // @synthesize canZoomOut=_canZoomOut;
 @property(readonly, nonatomic) BOOL canZoomIn; // @synthesize canZoomIn=_canZoomIn;
 - (void)setCanZoomOut:(BOOL)arg1;
 - (void)setCanZoomIn:(BOOL)arg1;
-- (void)_updateCanZoom;
+- (void)_handleZoomChanged;
 - (BOOL)isAtDefaultZoomScale;
 - (void)_updateCruiseHeightAndPhi;
 - (void)_updateCameraForStartAnimation:(double)arg1 position:(struct VKPoint)arg2 orientation:(const CDStruct_aa5aacbc *)arg3;

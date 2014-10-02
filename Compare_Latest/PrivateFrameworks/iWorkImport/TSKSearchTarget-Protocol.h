@@ -13,6 +13,7 @@
 @optional
 - (void)layoutSearchForSpellingErrorsWithHitBlock:(void (^)(id <TSKSearchReference>))arg1 stop:(char *)arg2;
 - (void)layoutSearchForAnnotationWithHitBlock:(void (^)(id <TSKSearchReference>))arg1;
+- (NSArray *)childAnnotationSearchTargets;
 - (NSArray *)childSearchTargets;
 - (void)layoutSearchForString:(NSString *)arg1 options:(unsigned int)arg2 hitBlock:(void (^)(id <TSKSearchReference>))arg3;
 @end

@@ -9,10 +9,11 @@
 @interface EKCalendarSharedCalendarNotification : EKCalendarNotification
 {
     int _sharingInvitationResponse;
+    unsigned int _allowedEntityTypes;
 }
 
+@property(nonatomic) unsigned int allowedEntityTypes; // @synthesize allowedEntityTypes=_allowedEntityTypes;
 @property(nonatomic) int sharingInvitationResponse; // @synthesize sharingInvitationResponse=_sharingInvitationResponse;
-- (BOOL)needsAlert;
 - (id)calendarFromEventStore:(id)arg1;
 - (id)initWithType:(int)arg1;
 

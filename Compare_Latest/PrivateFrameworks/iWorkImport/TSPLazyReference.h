@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
     long long _identifier;
 }
 
++ (id)weakReferenceForObject:(id)arg1;
 + (id)referenceForObject:(id)arg1;
 @property(readonly, nonatomic) BOOL isWeak; // @synthesize isWeak=_isWeak;
 @property(nonatomic) __weak TSPComponent *component; // @synthesize component=_component;
@@ -41,6 +42,8 @@ __attribute__((visibility("hidden")))
 - (unsigned int)hash;
 @property(readonly, nonatomic) id objectIfLoaded;
 @property(readonly, nonatomic) id object;
+- (id)initWithObject:(id)arg1 isWeak:(BOOL)arg2;
+- (id)initWeakReferenceWithObject:(id)arg1;
 - (id)initWithObject:(id)arg1;
 - (id)initWithDelegate:(id)arg1 identifier:(long long)arg2 isWeak:(BOOL)arg3 allowUnknownObject:(BOOL)arg4;
 - (id)init;

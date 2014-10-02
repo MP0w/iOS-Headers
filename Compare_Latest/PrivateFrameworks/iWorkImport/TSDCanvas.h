@@ -30,15 +30,18 @@ __attribute__((visibility("hidden")))
     } mInvalidFlags;
     BOOL mInLayout;
     NSArray *mPreviouslyVisibleLayouts;
+    BOOL mIgnoringClickThrough;
     struct CGColor *mBackgroundColor;
     struct UIEdgeInsets mContentInset;
     BOOL mClipToCanvas;
     BOOL mAllowsFontSubpixelQuantization;
+    BOOL mSuppressesShadowsAndReflections;
 }
 
 @property(readonly, nonatomic) BOOL isTemporaryForLayout; // @synthesize isTemporaryForLayout=mIsTemporaryForLayout;
 @property(nonatomic) float viewScale; // @synthesize viewScale=mViewScale;
 @property(nonatomic) struct CGSize unscaledSize; // @synthesize unscaledSize=mUnscaledSize;
+@property(nonatomic) BOOL suppressesShadowsAndReflections; // @synthesize suppressesShadowsAndReflections=mSuppressesShadowsAndReflections;
 @property(nonatomic) BOOL allowsFontSubpixelQuantization; // @synthesize allowsFontSubpixelQuantization=mAllowsFontSubpixelQuantization;
 @property(nonatomic) struct UIEdgeInsets contentInset; // @synthesize contentInset=mContentInset;
 @property(nonatomic) struct CGColor *backgroundColor; // @synthesize backgroundColor=mBackgroundColor;
@@ -46,13 +49,14 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSArray *infosToDisplay; // @synthesize infosToDisplay=mInfos;
 @property(nonatomic) id <TSDCanvasDelegate> delegate; // @synthesize delegate=mDelegate;
 - (void)p_removeAllReps;
+- (void)orderRepsForLayout:(id)arg1;
 - (BOOL)p_updateRepsFromLayouts;
 - (void)p_layoutWithReadLock;
 - (struct CGRect)p_bounds;
 - (struct CGImage *)i_newImageInContext:(struct CGContext *)arg1 bounds:(struct CGRect)arg2 integralBounds:(struct CGRect)arg3 distortedToMatch:(BOOL)arg4;
-- (struct CGContext *)i_createContextToDrawImageInScaledRect:(struct CGRect)arg1 withTargetIntegralSize:(struct CGSize)arg2 returningBounds:(struct CGRect *)arg3 integralBounds:(struct CGRect *)arg4;
-- (struct CGImage *)i_imageInScaledRect:(struct CGRect)arg1 withTargetIntegralSize:(struct CGSize)arg2 distortedToMatch:(BOOL)arg3;
-- (struct CGImage *)i_imageInScaledRect:(struct CGRect)arg1;
+- (struct CGContext *)i_createContextToDrawImageInScaledRect:(struct CGRect)arg1 withTargetIntegralSize:(struct CGSize)arg2 returningBounds:(struct CGRect *)arg3 integralBounds:(struct CGRect *)arg4 forceSRGB:(BOOL)arg5;
+- (struct CGImage *)i_imageInScaledRect:(struct CGRect)arg1 withTargetIntegralSize:(struct CGSize)arg2 distortedToMatch:(BOOL)arg3 forceSRGB:(BOOL)arg4;
+- (struct CGImage *)i_imageInScaledRect:(struct CGRect)arg1 forceSRGB:(BOOL)arg2;
 - (struct CGImage *)i_image;
 - (void)i_clipsImagesToBounds:(BOOL)arg1;
 - (void)i_drawRepsInContext:(struct CGContext *)arg1;
@@ -65,6 +69,8 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)i_approximateScaledFrameOfEditingMenuAtPoint:(struct CGPoint)arg1;
 - (void)i_unregisterRep:(id)arg1;
 - (void)i_registerRep:(id)arg1;
+- (BOOL)i_shouldIgnoreClickThrough;
+- (void)i_performBlockWhileIgnoringClickThrough:(CDUnknownBlockType)arg1;
 - (BOOL)p_expandHitRegionOfPoint:(struct CGPoint)arg1 forRep:(id)arg2 smallRepOutset:(float)arg3 forShortestDistance:(float *)arg4;
 - (BOOL)p_shouldRep:(id)arg1 countAsClosestSmallRepForSizeLimit:(float)arg2;
 - (id)hitRep:(struct CGPoint)arg1 inTopLevelReps:(id)arg2 smallRepOutset:(float)arg3 passingTest:(CDUnknownBlockType)arg4;

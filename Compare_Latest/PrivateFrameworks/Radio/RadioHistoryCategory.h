@@ -23,10 +23,10 @@
 
 @property(readonly, nonatomic) int type; // @synthesize type=_type;
 @property(readonly, nonatomic) long long stationID; // @synthesize stationID=_stationID;
-@property(readonly, nonatomic) NSString *stationHash; // @synthesize stationHash=_stationHash;
-@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
-@property(readonly, nonatomic) NSArray *items; // @synthesize items=_items;
-@property(readonly, nonatomic) NSString *categoryDescription; // @synthesize categoryDescription=_categoryDescription;
+@property(readonly, copy, nonatomic) NSString *stationHash; // @synthesize stationHash=_stationHash;
+@property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, copy, nonatomic) NSArray *items; // @synthesize items=_items;
+@property(readonly, copy, nonatomic) NSString *categoryDescription; // @synthesize categoryDescription=_categoryDescription;
 - (void).cxx_destruct;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

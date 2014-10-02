@@ -8,6 +8,8 @@
 
 #import "CLLocationManagerDelegate.h"
 
+@class NSString;
+
 @interface SLSafeLocationManagerDelegate : NSObject <CLLocationManagerDelegate>
 {
     id <CLLocationManagerDelegate> _delegate;
@@ -17,6 +19,13 @@
 - (void).cxx_destruct;
 - (void)locationManager:(id)arg1 didFailWithError:(id)arg2;
 - (void)locationManager:(id)arg1 didUpdateLocations:(id)arg2;
+- (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UITableViewCell.h"
+#import <EventKitUI/EKUIConstrainedFontsTableViewCell.h>
 
-@class UIImage, UIImageView, UILabel;
+@class UIImage, UIImageView;
 
-@interface EKCalendarChooserCell : UITableViewCell
+@interface EKCalendarChooserCell : EKUIConstrainedFontsTableViewCell
 {
     BOOL _showCheckmarksOnLeft;
     BOOL _checked;
@@ -18,8 +18,6 @@
     UIImage *_colorDotHighlighted;
     UIImageView *_colorDotView;
     UIImageView *_checkmarkView;
-    UILabel *_customTitleTextLabel;
-    UILabel *_customDetailTextLabel;
 }
 
 @property(nonatomic) BOOL showsColorDot; // @synthesize showsColorDot=_showsColorDot;
@@ -28,6 +26,7 @@
 @property(nonatomic) BOOL showCheckmarksOnLeft; // @synthesize showCheckmarksOnLeft=_showCheckmarksOnLeft;
 - (void).cxx_destruct;
 - (void)layoutSubviews;
+- (float)textLeftIndent;
 - (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)setColorDotHighlightedImage:(id)arg1;
 - (void)setColorDotImage:(id)arg1;

@@ -8,7 +8,7 @@
 
 #import "TSWPOffscreenColumn.h"
 
-@class NSDictionary;
+@class NSDictionary, NSString;
 
 __attribute__((visibility("hidden")))
 @interface TPPageHint : NSObject <TSWPOffscreenColumn>
@@ -34,7 +34,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)saveToArchive:(struct PageHintArchive *)arg1 archiver:(id)arg2 context:(id)arg3;
 - (id)initWithArchive:(const struct PageHintArchive *)arg1 unarchiver:(id)arg2;
-- (void)trimToCharIndex:(unsigned int)arg1 inTarget:(id)arg2 removeAutoNumberFootnoteCount:(unsigned int)arg3;
+- (void)trimToCharIndex:(unsigned int)arg1 inTarget:(id)arg2 removeFootnoteLayoutCount:(unsigned int)arg3 removeAutoNumberFootnoteCount:(unsigned int)arg4;
 @property(readonly, nonatomic) unsigned int nextWidowPullsDownFromCharIndex;
 @property(readonly, nonatomic) struct _NSRange anchoredRange;
 @property(readonly, nonatomic) unsigned int startAnchoredCharIndex;
@@ -48,8 +48,15 @@ __attribute__((visibility("hidden")))
 - (id)lastColumn;
 - (id)firstColumn;
 - (void)setHints:(const vector_b76bc591 *)arg1;
+- (id)copyForArchiving;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

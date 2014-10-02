@@ -79,7 +79,6 @@
 - (id)getPasswordForSpecifier:(id)arg1;
 - (id)getUserNameForSpecifier:(id)arg1;
 - (void)_resignFirstResponders;
-- (void)_updateDescriptionText;
 - (id)validationString;
 - (id)logName;
 - (id)_rightButtonItem;
@@ -97,6 +96,12 @@
 - (id)specifierList;
 - (id)bundle;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

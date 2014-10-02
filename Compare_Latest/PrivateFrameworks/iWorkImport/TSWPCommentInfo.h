@@ -16,25 +16,33 @@ __attribute__((visibility("hidden")))
     TSDCommentStorage *_commentStorage;
 }
 
++ (id)p_defaultShadow;
++ (id)p_defaultFill;
++ (id)p_defaultPadding;
++ (id)p_defaultStroke;
 + (id)commentInfoWithContext:(id)arg1 size:(struct CGSize)arg2 storage:(id)arg3;
++ (void)upgradeCommentInfoStorage:(id)arg1;
++ (void)upgradeCommentInfoStyle:(id)arg1;
 + (void)createCommentInfoStyleInStylesheetIfNeeded:(id)arg1;
++ (id)p_commentParagraphStyleForStylesheet:(id)arg1;
 + (id)p_defaultCommentInfoStyleInStylesheet:(id)arg1;
 + (id)commentStyleIdentifier;
 + (id)bezierPathForExportCommentOutline;
 @property(readonly, nonatomic) TSDCommentStorage *commentStorage; // @synthesize commentStorage=_commentStorage;
+- (BOOL)wantsAnnotationPopover;
 @property(copy, nonatomic) TSDCommentStorage *storage;
 - (void)commitText:(id)arg1;
 - (void)wasRemovedFromDocumentRoot:(id)arg1;
 - (void)wasAddedToDocumentRoot:(id)arg1 context:(id)arg2;
 @property(readonly, nonatomic) NSDate *date;
-@property(retain, nonatomic) TSKAnnotationAuthor *author;
-@property(nonatomic) id <TSKModel> model;
+- (void)setAuthor:(id)arg1;
+@property(readonly, nonatomic) TSKAnnotationAuthor *author;
+@property(nonatomic) id <TSKModel> hostingModel;
 - (void)saveToArchive:(struct CommentInfoArchive *)arg1 archiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromArchive:(const struct CommentInfoArchive *)arg1 unarchiver:(id)arg2;
 - (id)initFromUnarchiver:(id)arg1;
 - (id)searchForAnnotationsWithHitBlock:(CDUnknownBlockType)arg1;
-- (Class)editorClass;
 - (BOOL)supportsAttachedComments;
 @property(readonly, nonatomic) int annotationDisplayStringType;
 @property(readonly, nonatomic) int annotationType;
@@ -49,7 +57,13 @@ __attribute__((visibility("hidden")))
 - (id)pathSourceForExportCommentOutline;
 
 // Remaining properties
-@property(readonly, nonatomic) NSString *changeTrackingString;
+@property(readonly, nonatomic) NSString *changeTrackingContentFormatString;
+@property(readonly, nonatomic) NSString *changeTrackingContentString;
+@property(readonly, nonatomic) NSString *changeTrackingTitleString;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

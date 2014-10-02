@@ -6,58 +6,19 @@
 
 #import <AddressBookUI/ABPropertyCell.h>
 
-#import "ABPickerControllerDelegate.h"
-#import "UITextFieldDelegate.h"
+@class UILabel;
 
-@class ABPropertyAction, ABTransportButton, UIButton, UIColor, UIImageView, UITextField, UIView;
-
-@interface ABPropertySimpleCell : ABPropertyCell <ABPickerControllerDelegate, UITextFieldDelegate>
+@interface ABPropertySimpleCell : ABPropertyCell
 {
-    BOOL _allowsActions;
-    UIButton *_labelButton;
-    UITextField *_textField;
-    UIView *_vseparator;
-    UIImageView *_star;
-    ABTransportButton *_transportIcon1;
-    ABTransportButton *_transportIcon2;
-    ABPropertyAction *_transportAction1;
-    ABPropertyAction *_transportAction2;
-    float _labelValueSpacing;
-    UIColor *_actionsColor;
-    UIImageView *_chevron;
+    UILabel *_labelLabel;
+    UILabel *_valueLabel;
 }
 
-@property(retain, nonatomic) UIImageView *chevron; // @synthesize chevron=_chevron;
-@property(retain, nonatomic) UIColor *actionsColor; // @synthesize actionsColor=_actionsColor;
-@property(nonatomic) float labelValueSpacing; // @synthesize labelValueSpacing=_labelValueSpacing;
-@property(retain, nonatomic) ABPropertyAction *transportAction2; // @synthesize transportAction2=_transportAction2;
-@property(retain, nonatomic) ABPropertyAction *transportAction1; // @synthesize transportAction1=_transportAction1;
-@property(retain, nonatomic) ABTransportButton *transportIcon2; // @synthesize transportIcon2=_transportIcon2;
-@property(retain, nonatomic) ABTransportButton *transportIcon1; // @synthesize transportIcon1=_transportIcon1;
-@property(nonatomic) BOOL allowsActions; // @synthesize allowsActions=_allowsActions;
-@property(retain, nonatomic) UIImageView *star; // @synthesize star=_star;
-@property(retain, nonatomic) UIView *vseparator; // @synthesize vseparator=_vseparator;
-@property(retain, nonatomic) UITextField *textField; // @synthesize textField=_textField;
-@property(readonly, nonatomic) UIButton *labelButton; // @synthesize labelButton=_labelButton;
-- (id)_constraintsToOverlapView:(id)arg1 onView:(id)arg2;
-- (void)_updateView;
-- (void)_setupEditingViews;
-- (void)picker:(id)arg1 didPickItem:(id)arg2;
-- (void)pickerDidCancel:(id)arg1;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setValueTextAttributes:(id)arg1;
-- (void)setLabelTextAttributes:(id)arg1;
-- (void)updateTransportButtons;
-- (void)textFieldChanged:(id)arg1;
-- (id)firstResponderItem;
-- (void)updateWithPropertyItem:(id)arg1;
-- (id)contentViewEditingConstraints;
-- (id)contentViewConstraints;
-- (void)transportButtonClicked:(id)arg1;
-- (void)labelButtonClicked:(id)arg1;
-- (void)prepareForReuse;
+@property(readonly, nonatomic) UILabel *valueLabel; // @synthesize valueLabel=_valueLabel;
+@property(readonly, nonatomic) UILabel *labelLabel; // @synthesize labelLabel=_labelLabel;
+- (id)valueView;
+- (id)labelView;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

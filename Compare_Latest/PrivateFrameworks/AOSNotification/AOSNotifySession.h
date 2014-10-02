@@ -6,61 +6,62 @@
 
 #import "NSObject.h"
 
-@class CPDistributedNotificationCenter, NSXPCConnection;
+#import "AOSXPCClientProtocol.h"
 
-@interface AOSNotifySession : NSObject
+@class NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
+
+@interface AOSNotifySession : NSObject <AOSXPCClientProtocol>
 {
     NSXPCConnection *_xpcConnection;
-    CPDistributedNotificationCenter *_center;
-    id <AOSNotifySessionDelegate> _delegate;
+    NSObject<OS_dispatch_queue> *_xpcConnectionCreationQueue;
+    CDUnknownBlockType _fmfAppPushMsgHandler;
+    CDUnknownBlockType _fmfAppPushTokenHandler;
 }
 
 + (id)copyStoreAccount;
 + (id)sharedInstance;
-@property(nonatomic) id <AOSNotifySessionDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) CPDistributedNotificationCenter *center; // @synthesize center=_center;
+@property(copy, nonatomic) CDUnknownBlockType fmfAppPushTokenHandler; // @synthesize fmfAppPushTokenHandler=_fmfAppPushTokenHandler;
+@property(copy, nonatomic) CDUnknownBlockType fmfAppPushMsgHandler; // @synthesize fmfAppPushMsgHandler=_fmfAppPushMsgHandler;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *xpcConnectionCreationQueue; // @synthesize xpcConnectionCreationQueue=_xpcConnectionCreationQueue;
 @property(retain, nonatomic) NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
+- (void).cxx_destruct;
 - (id)retrieveAllAccounts:(id *)arg1;
-- (void)_vetFinished:(id)arg1;
-- (void)_stopVettingNotifications;
-- (void)_vetResultReceived:(id)arg1;
-- (void)dumpDebugInfo:(id)arg1;
 - (void)stopListeningOnTopic:(id)arg1;
 - (void)startListeningOnTopic:(id)arg1;
+- (id)initWithDelegate:(id)arg1;
+- (oneway void)didReceiveFMFAppPushToken:(id)arg1;
+- (oneway void)didReceiveFMFAppPushMessage:(id)arg1;
+- (BOOL)performMigration;
+- (void)willDeleteiCloudAccountWithCompletion:(CDUnknownBlockType)arg1;
+- (void)locationAuthorizationForShareMyLocationWithCompletion:(CDUnknownBlockType)arg1;
+- (void)stopListeningForFMFAppPush;
+- (void)startListeningForFMFAppPushInEnvironment:(id)arg1 withMessageHandler:(CDUnknownBlockType)arg2 tokenHandler:(CDUnknownBlockType)arg3;
+- (void)renewFMFAccountCredentialsUsingCallback:(CDUnknownBlockType)arg1;
+- (void)retrieveFMFAccountUsingCallback:(CDUnknownBlockType)arg1;
+- (void)removeLegacyFMFAccountUsingCallback:(CDUnknownBlockType)arg1;
+- (void)retrieveLegacyFMFAccountUsingCallback:(CDUnknownBlockType)arg1;
 - (id)retrieveFMFAccount:(id *)arg1;
 - (id)removeFMFAccountWithUsername:(id)arg1;
 - (id)addFMFAccount:(id)arg1;
+- (void)didChangeFMFAccountInfo:(id)arg1;
 - (void)didExitFMFRegion:(id)arg1 atLocation:(id)arg2;
 - (void)didEnterFMFRegion:(id)arg1 atLocation:(id)arg2;
-- (id)disableActivationLockUsingToken:(id)arg1;
-- (id)enableActivationLock;
-- (void)activationLockStateWithCompletion:(CDUnknownBlockType)arg1;
-- (void)isActivationLockStateChangeInProgressWithCompletion:(CDUnknownBlockType)arg1;
-- (id)disableFMIPUsingToken:(id)arg1 inContext:(int)arg2;
-- (id)enableFMIPInContext:(int)arg1;
 - (id)iCloudAccount;
-- (id)fmipAccount;
 - (id)storeAccount;
-- (id)fmipDeviceId;
 - (id)fmfDeviceId;
-- (void)fmipStateWithCompletion:(CDUnknownBlockType)arg1;
-- (void)isFMIPStateChangeInProgressWithCompletion:(CDUnknownBlockType)arg1;
-- (void)deviceActivationDidSucceed;
-- (BOOL)lockdownShouldDisableDevicePairing;
-- (BOOL)lockdownShouldDisableDeviceRestore;
-- (void)disableLostMode;
-- (id)enableLostModeWithInfo:(id)arg1;
-- (id)lostModeParams;
-- (id)lostModeInfo;
-- (BOOL)lostModeIsActive;
-- (id)cancelEmailVet;
-- (id)vetEmailAccount:(id)arg1;
-- (id)initWithDelegate:(id)arg1;
+- (id)fmipAccount;
+- (id)fmipDeviceId;
 - (id)newErrorForCode:(int)arg1 message:(id)arg2;
 - (void)_destroyXPCConnection;
 - (id)currentXPCConnection;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

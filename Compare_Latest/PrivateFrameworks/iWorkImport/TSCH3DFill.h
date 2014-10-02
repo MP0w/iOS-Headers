@@ -37,7 +37,6 @@ __attribute__((visibility("hidden")))
 - (id)p_imageFillForRect:(struct CGRect)arg1 context:(struct CGContext *)arg2;
 - (id)p_imageFillForSize:(struct CGSize)arg1;
 - (id)convertToSimpleTSDFillWithSize:(unsigned int)arg1 context:(id)arg2;
-- (id)convertToSimpleTSDFillWithSize:(unsigned int)arg1;
 - (id)p_convertToTSDFillWithSize:(unsigned int)arg1 technique:(int)arg2;
 - (id)p_convertToTSDFillWithSize:(unsigned int)arg1 technique:(int)arg2 context:(id)arg3;
 - (id)renderingLightingModelWithLightings:(id)arg1;
@@ -47,8 +46,9 @@ __attribute__((visibility("hidden")))
 - (id)p_lazyLightingModel;
 @property(readonly, nonatomic) float percentageValue;
 - (id)lightenByPercent:(float)arg1;
-- (unsigned int)hash;
 - (BOOL)isOpaque;
+- (BOOL)hasCompleteData;
+- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
@@ -58,6 +58,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithArchive:(const struct FillArchive *)arg1 unarchiver:(id)arg2;
 - (void)assignQuicklookColorToMaterialDiffuseColorForLightingModel:(id)arg1;
 - (id)sageFillData;
+- (BOOL)tsch_hasAllResources;
 
 @end
 

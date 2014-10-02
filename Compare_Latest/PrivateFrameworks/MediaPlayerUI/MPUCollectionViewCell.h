@@ -6,19 +6,18 @@
 
 #import "UICollectionViewCell.h"
 
-@class MPImageCache, MPImageCacheRequest;
+@class MPUSlantedTextPlaceholderArtworkView;
 
 @interface MPUCollectionViewCell : UICollectionViewCell
 {
-    MPImageCache *_imageCache;
-    MPImageCacheRequest *_imageRequest;
+    MPUSlantedTextPlaceholderArtworkView *_artworkView;
 }
 
-@property(retain, nonatomic) MPImageCacheRequest *imageRequest; // @synthesize imageRequest=_imageRequest;
-@property(retain, nonatomic) MPImageCache *imageCache; // @synthesize imageCache=_imageCache;
 - (void).cxx_destruct;
+- (void)setPlaceholderTitle:(id)arg1;
+- (void)setPlaceholderSubtitle:(id)arg1;
+- (void)setPlaceholderSize:(struct CGSize)arg1;
 - (void)setArtworkImage:(id)arg1;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

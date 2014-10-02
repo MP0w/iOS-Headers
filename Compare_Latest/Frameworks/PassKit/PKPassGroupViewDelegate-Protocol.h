@@ -6,19 +6,20 @@
 
 #import "NSObject.h"
 
-@class PKPass, PKPassGroupView, PKReusablePassViewQueue;
+@class PKPass, PKPassGroupView, PKPassView, PKReusablePassViewQueue;
 
 @protocol PKPassGroupViewDelegate <NSObject>
 
 @optional
 - (int)groupViewContentModeForFrontmostPassWhenStacked:(PKPassGroupView *)arg1;
 - (PKReusablePassViewQueue *)groupViewReusablePassViewQueue:(PKPassGroupView *)arg1;
-- (BOOL)groupViewPassesSuppressedContent:(PKPassGroupView *)arg1;
+- (unsigned int)groupViewPassesSuppressedContent:(PKPassGroupView *)arg1;
 - (BOOL)groupViewPassesGrowCenteredWhenFlipped:(PKPassGroupView *)arg1;
 - (BOOL)groupViewPassesGrowWhenFlipped:(PKPassGroupView *)arg1;
 - (void)groupView:(PKPassGroupView *)arg1 flipButtonPressedForPass:(PKPass *)arg2;
 - (BOOL)groupView:(PKPassGroupView *)arg1 deleteButtonEnabledForPass:(PKPass *)arg2;
 - (void)groupView:(PKPassGroupView *)arg1 deleteButtonPressedForPass:(PKPass *)arg2;
+- (void)groupView:(PKPassGroupView *)arg1 didUpdatePassView:(PKPassView *)arg2;
 - (void)groupViewFrontPassDidFlip:(PKPassGroupView *)arg1 animated:(BOOL)arg2;
 - (BOOL)groupViewShouldAllowPassFlip:(PKPassGroupView *)arg1;
 - (void)groupViewDidUpdatePageControlVisibility:(PKPassGroupView *)arg1;
@@ -26,6 +27,8 @@
 - (void)groupViewPanDidEnd:(PKPassGroupView *)arg1;
 - (void)groupViewPanDidBegin:(PKPassGroupView *)arg1;
 - (BOOL)groupViewShouldAllowPanning:(PKPassGroupView *)arg1;
+- (void)groupView:(PKPassGroupView *)arg1 didEndShowingFontmostPassView:(PKPassView *)arg2;
+- (void)groupView:(PKPassGroupView *)arg1 didBeginShowingFontmostPassView:(PKPassView *)arg2;
 - (void)groupViewTapped:(PKPassGroupView *)arg1;
 @end
 

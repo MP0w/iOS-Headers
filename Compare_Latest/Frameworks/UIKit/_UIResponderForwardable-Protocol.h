@@ -9,7 +9,7 @@
 @class NSArray, NSMutableArray, UIEvent, UIResponder, UIWindow;
 
 @protocol _UIResponderForwardable <NSObject>
-@property(readonly, nonatomic) UIWindow *window;
+@property(readonly, retain, nonatomic) UIWindow *window;
 @property(retain, nonatomic, setter=_setResponder:) UIResponder *_responder;
 @property(nonatomic, setter=_setForwardablePhase:) int _forwardablePhase;
 - (NSMutableArray *)_mutableForwardingRecord;

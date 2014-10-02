@@ -6,12 +6,13 @@
 
 #import <HomeSharing/HSConnectionConfiguration.h>
 
-@class NSDictionary, NSString, NSURL, SSAccount;
+@class NSDictionary, NSNumber, NSString, NSURL, SSAccount;
 
 @interface HSMutableConnectionConfiguration : HSConnectionConfiguration
 {
 }
 
+@property(retain, nonatomic) NSNumber *familyMemberStoreID;
 @property(nonatomic) long long requestReason;
 @property(copy, nonatomic) NSString *userAgent;
 @property(copy, nonatomic) NSDictionary *urlBag;
@@ -20,6 +21,7 @@
 @property(copy, nonatomic) NSString *buildIdentifier;
 @property(copy, nonatomic) NSURL *baseURL;
 @property(retain, nonatomic) SSAccount *account;
+- (id)initWithConfiguration:(id)arg1;
 
 @end
 

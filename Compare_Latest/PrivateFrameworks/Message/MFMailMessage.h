@@ -30,6 +30,8 @@
 - (unsigned short)numberOfAttachments;
 - (id)URL;
 - (id)originalMailboxURL;
+- (void)setConversationFlags:(unsigned long long)arg1;
+- (unsigned long long)conversationFlags;
 - (id)remoteMailboxURL;
 - (id)account;
 - (id)loadMeetingMetadata;

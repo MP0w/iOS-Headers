@@ -26,19 +26,25 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL titleChanged;
 @property(readonly, nonatomic) BOOL timeChanged;
 @property(readonly, nonatomic) BOOL dateChanged;
-@property(readonly, nonatomic) NSDate *timestamp;
+@property(readonly, copy, nonatomic) NSDate *timestamp;
 @property(readonly, nonatomic) unsigned int changeType;
-@property(readonly, nonatomic) EKCalendarItem *calendarItem;
-@property(readonly, nonatomic) EKCalendar *calendar;
+@property(readonly, retain, nonatomic) EKCalendarItem *calendarItem;
+@property(readonly, retain, nonatomic) EKCalendar *calendar;
 - (id)emailAddress;
 - (id)name;
-@property(readonly, nonatomic) NSString *changedByLastName;
-@property(readonly, nonatomic) NSString *changedByFirstName;
-@property(readonly, nonatomic) NSURL *changedByAddress;
-@property(readonly, nonatomic) NSString *changedByDisplayName;
+@property(readonly, copy, nonatomic) NSString *changedByLastName;
+@property(readonly, copy, nonatomic) NSString *changedByFirstName;
+@property(readonly, copy, nonatomic) NSURL *changedByAddress;
+@property(readonly, copy, nonatomic) NSString *changedByDisplayName;
 - (id)_calendarItemRelation;
 - (id)lazyLoadRelationForKey:(id)arg1;
 - (id)_persistentResourceChange;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

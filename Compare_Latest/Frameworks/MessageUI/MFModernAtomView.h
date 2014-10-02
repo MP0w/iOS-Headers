@@ -84,8 +84,14 @@
 @property(readonly, nonatomic) UIColor *effectiveTintColor;
 @property(readonly, nonatomic) MFModernAtomBackgroundView *backgroundView;
 - (int)_preferredIconVariant;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 presentationOptions:(unsigned int)arg2 separatorStyle:(int)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

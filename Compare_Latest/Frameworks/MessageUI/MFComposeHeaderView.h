@@ -6,41 +6,34 @@
 
 #import "UIView.h"
 
-@class MFHeaderLabelView, NSLayoutConstraint, NSString;
+@class MFHeaderLabelView, NSString;
 
 @interface MFComposeHeaderView : UIView
 {
-    NSString *_label;
-    NSString *_navTitle;
-    MFHeaderLabelView *_labelView;
     id _delegate;
+    MFHeaderLabelView *_labelView;
     UIView *_separator;
-    NSLayoutConstraint *_labelAlignToTopConstraint;
-    BOOL _drawsLetterpress;
+    NSString *_navTitle;
 }
 
 + (float)_labelTopPaddingSpecification;
 + (float)separatorHeight;
 + (float)preferredHeight;
 + (id)defaultFont;
-@property(nonatomic) BOOL drawsLetterpress; // @synthesize drawsLetterpress=_drawsLetterpress;
+@property(readonly, nonatomic) MFHeaderLabelView *labelView; // @synthesize labelView=_labelView;
+@property(copy, nonatomic) NSString *navTitle; // @synthesize navTitle=_navTitle;
 - (void)dealloc;
-- (void)layoutSubviews;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)refreshPreferredContentSize;
 - (void)setDelegate:(id)arg1;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)handleTouchesEnded;
 - (BOOL)_canBecomeFirstResponder;
-- (void)updateConstraints;
-- (void)addCenteredLayoutConstraintForView:(id)arg1;
-- (float)maxLabelX;
-- (void)setLabelHighlighted:(BOOL)arg1;
-- (void)setLabel:(id)arg1;
-- (id)navTitle;
-- (void)setNavTitle:(id)arg1;
+- (struct CGRect)titleLabelBaselineAlignmentRectForLabel:(id)arg1;
+- (void)layoutSubviews;
+@property(copy, nonatomic) NSString *label; // @dynamic label;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (struct CGColor *)labelColor;
+- (id)labelColor;
 - (float)labelTopPadding;
 - (id)_automationID;
 

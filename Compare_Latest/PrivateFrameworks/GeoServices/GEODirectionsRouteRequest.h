@@ -8,11 +8,8 @@
 
 @interface GEODirectionsRouteRequest : GEODirectionsRequest
 {
-    unsigned short _providerID;
 }
 
-@property(nonatomic) unsigned short providerID; // @synthesize providerID=_providerID;
-- (id)copyWithZone:(struct _NSZone *)arg1;
 - (Class)responseClass;
 - (id)initWithFeedback:(id)arg1;
 - (id)init;

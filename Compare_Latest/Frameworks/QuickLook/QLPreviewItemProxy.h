@@ -17,16 +17,20 @@
     NSString *_fileExtensionToken;
     int _fileExtensionHandle;
     int _index;
+    BOOL _isPromisedItem;
     NSURL *_url;
     NSString *_title;
     NSURL *_urlForDisplay;
     NSString *_contentType;
     NSString *_password;
+    double _autoPlaybackPosition;
 }
 
 + (id)proxyWithPreviewItem:(id)arg1;
 + (id)encodedClasses;
 + (BOOL)supportsSecureCoding;
+@property double autoPlaybackPosition; // @synthesize autoPlaybackPosition=_autoPlaybackPosition;
+@property BOOL isPromisedItem; // @synthesize isPromisedItem=_isPromisedItem;
 @property(readonly) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property int index; // @synthesize index=_index;
 @property(retain) NSString *password; // @synthesize password=_password;
@@ -40,12 +44,17 @@
 - (id)previewItemContentType;
 @property(readonly) NSString *previewItemTitle;
 @property(readonly) NSURL *previewItemURL;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithPreviewItem:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

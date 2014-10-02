@@ -11,7 +11,7 @@
 #import "ABPersonEditDelegate.h"
 #import "ABViewControllerBannerViewProtocol.h"
 
-@class ABMembersController, _UIAccessDeniedView;
+@class ABMembersController, CNContact, NSString, _UIAccessDeniedView;
 
 @interface ABMembersViewController : ABAbstractViewController <ABNewPersonViewControllerDelegate, ABMembersControllerDelegate, ABViewControllerBannerViewProtocol, ABPersonEditDelegate>
 {
@@ -54,6 +54,7 @@
 - (BOOL)showCardForPerson:(void *)arg1 animate:(BOOL)arg2 selectAndScrollToPerson:(BOOL)arg3;
 - (BOOL)showCardForPerson:(void *)arg1 withMemberCell:(id)arg2 animate:(BOOL)arg3;
 - (BOOL)showCardForPerson:(void *)arg1 withMemberCell:(id)arg2 animate:(BOOL)arg3 selectAndScrollToPerson:(BOOL)arg4;
+- (void)scrollMemberToTop:(void *)arg1;
 - (BOOL)selectAndScrollMemberVisible:(void *)arg1;
 - (id)indexPathForMember:(void *)arg1;
 - (BOOL)allowsShowingPersonsCards;
@@ -61,6 +62,10 @@
 - (void)startRefreshingAccount;
 - (void)cancelRefreshingAccount;
 - (BOOL)canHandleSnapbackIdentifier:(id)arg1 animated:(BOOL)arg2;
+@property(readonly) CNContact *unsavedContact;
+- (void)addPersonWithContact:(id)arg1 animated:(BOOL)arg2;
+- (void)presentAddPersonViewController:(id)arg1 animated:(BOOL)arg2;
+- (id)addPersonPresentationTarget;
 - (void)addPerson:(id)arg1;
 - (void)cancel:(id)arg1;
 - (BOOL)isNavigationButtonEnabled:(int)arg1;
@@ -78,7 +83,6 @@
 - (void)updateTitle;
 - (void)presentGroupsViewController;
 @property(readonly) BOOL shouldShowGroups;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 @property(readonly) BOOL allowsCardEditing;
 @property(readonly) BOOL allowsCancel;
 @property(readonly, nonatomic) _UIAccessDeniedView *accessDeniedView; // @synthesize accessDeniedView=_accessDeniedView;
@@ -97,8 +101,12 @@
 - (void)resetInsertionData;
 - (void)dealloc;
 - (id)initWithModel:(id)arg1;
-- (void)searchCurrentContactsGroupForWords:(id)arg1 animated:(BOOL)arg2;
-- (void)setSearchCompletionDelegate:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

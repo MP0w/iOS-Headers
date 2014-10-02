@@ -8,7 +8,7 @@
 
 #import "WBSFormsMetadataProvider.h"
 
-@class NSArray;
+@class NSArray, NSString;
 
 @interface WBUFormsMetadataProvider : NSObject <WBSFormsMetadataProvider>
 {
@@ -17,10 +17,16 @@
 }
 
 + (id)metadataProviderWithFrames:(id)arg1 metadataForAllForms:(id)arg2;
+- (void).cxx_destruct;
 - (void)enumerateFormsUsingBlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) unsigned int formCount;
-- (void)dealloc;
 - (id)initWithFrames:(id)arg1 metadataForAllForms:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

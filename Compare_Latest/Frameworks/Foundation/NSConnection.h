@@ -6,6 +6,8 @@
 
 #import "NSObject.h"
 
+@class NSArray, NSDictionary, NSDistantObject, NSPort;
+
 @interface NSConnection : NSObject
 {
     id receivePort;
@@ -59,14 +61,14 @@
 - (void)run;
 - (void)removeRunLoop:(id)arg1;
 - (void)addRunLoop:(id)arg1;
-- (BOOL)multipleThreadsEnabled;
+@property(readonly) BOOL multipleThreadsEnabled;
 - (void)enableMultipleThreads;
 - (BOOL)hasRunLoop:(id)arg1;
 - (void)removePortsFromRunLoop:(id)arg1;
 - (void)addPortsToRunLoop:(id)arg1;
 - (id)description;
 - (void)_setUseKC:(BOOL)arg1;
-- (id)statistics;
+@property(readonly, copy) NSDictionary *statistics;
 - (void)_sendBeforeTime:(double)arg1 coder:(id)arg2 doAuthenticationCheck:(BOOL)arg3;
 - (BOOL)_verifyComponents:(id)arg1;
 - (void)_authenticateComponents:(id)arg1;
@@ -84,8 +86,8 @@
 - (id)portCoderWithComponents:(id)arg1;
 - (Class)_portCoderClassWithComponents:(id)arg1;
 - (Class)_portCoderClass;
-- (id)localObjects;
-- (id)remoteObjects;
+@property(readonly, copy) NSArray *localObjects;
+@property(readonly, copy) NSArray *remoteObjects;
 - (void)releaseWireID:(unsigned int)arg1 count:(unsigned int)arg2;
 - (void)sendReleasedProxies;
 - (void)decodeReleasedProxies:(id)arg1;
@@ -98,31 +100,26 @@
 - (void)addClassNamed:(char *)arg1 version:(unsigned int)arg2;
 - (void)_decrementLocalProxyCount;
 - (void)_incrementLocalProxyCount;
-- (void)setRootObject:(id)arg1;
+@property(retain) id rootObject;
 - (id)keyedRootObject;
-- (id)rootObject;
-- (id)rootProxy;
-- (id)sendPort;
-- (id)receivePort;
+@property(readonly, retain) NSDistantObject *rootProxy;
+@property(readonly, retain) NSPort *sendPort;
+@property(readonly, retain) NSPort *receivePort;
 - (void)setReplyMode:(id)arg1;
 - (id)replyMode;
-- (id)requestModes;
+@property(readonly, copy) NSArray *requestModes;
 - (void)removeRequestMode:(id)arg1;
 - (void)addRequestMode:(id)arg1;
-- (id)delegate;
-- (void)setDelegate:(id)arg1;
-- (void)setIndependentConversationQueueing:(BOOL)arg1;
-- (BOOL)independentConversationQueueing;
-- (double)replyTimeout;
-- (void)setReplyTimeout:(double)arg1;
-- (double)requestTimeout;
-- (void)setRequestTimeout:(double)arg1;
+@property id <NSConnectionDelegate> delegate;
+@property BOOL independentConversationQueueing;
+@property double replyTimeout;
+@property double requestTimeout;
 - (void)finalize;
 - (void)invalidate;
 - (void)dealloc;
 - (oneway void)release;
 - (id)retain;
-- (BOOL)isValid;
+@property(readonly, getter=isValid) BOOL valid;
 - (BOOL)registerName:(id)arg1 withNameServer:(id)arg2;
 - (BOOL)registerName:(id)arg1;
 - (id)initWithReceivePort:(id)arg1 sendPort:(id)arg2;

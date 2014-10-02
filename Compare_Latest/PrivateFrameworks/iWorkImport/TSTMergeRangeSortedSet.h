@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 @interface TSTMergeRangeSortedSet : NSObject
 {
     struct set<TSTMergeRangeElem, TSTMergeRangeElemCompare, std::__1::allocator<TSTMergeRangeElem>> *mSet;
-    struct __tree_const_iterator<TSTMergeRangeElem, const std::__1::__tree_node<TSTMergeRangeElem, void *>*, int> {
+    struct __tree_const_iterator<TSTMergeRangeElem, std::__1::__tree_node<TSTMergeRangeElem, void *>*, int> {
         struct __tree_node<TSTMergeRangeElem, void *> *__ptr_;
     } mIter;
     NSObject<OS_dispatch_semaphore> *mSem;

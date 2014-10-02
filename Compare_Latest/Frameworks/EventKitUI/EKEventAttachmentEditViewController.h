@@ -10,7 +10,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class NSArray, UITableView;
+@class NSArray, NSString, UITableView;
 
 __attribute__((visibility("hidden")))
 @interface EKEventAttachmentEditViewController : EKEditItemViewController <UITableViewDataSource, UITableViewDelegate, EKEventAttachmentCellControllerDelegate>
@@ -31,6 +31,12 @@ __attribute__((visibility("hidden")))
 - (void)viewDidLoad;
 - (void)loadView;
 - (id)initWithFrame:(struct CGRect)arg1 attachments:(id)arg2 sourceIsManaged:(BOOL)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

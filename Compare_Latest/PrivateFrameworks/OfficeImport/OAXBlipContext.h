@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (id)description;
 - (_Bool)loadDelayedNode:(id)arg1;
 
 @end

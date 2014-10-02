@@ -43,8 +43,6 @@ __attribute__((visibility("hidden")))
 + (id)borderWidthCache;
 + (id)borderStyleCache;
 + (id)cssStyleCache;
-+ (id)baseDate;
-+ (void)setBaseDate1904:(BOOL)arg1;
 - (void)finishMappingWithState:(id)arg1;
 - (void)mapElement:(id)arg1 atIndex:(unsigned int)arg2 withState:(id)arg3 isLastElement:(BOOL)arg4;
 - (id)_copyStringForSheet:(id)arg1 atIndex:(unsigned int)arg2 withState:(id)arg3 andMapper:(id)arg4;

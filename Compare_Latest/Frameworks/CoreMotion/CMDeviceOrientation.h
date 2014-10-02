@@ -8,7 +8,7 @@
 
 @interface CMDeviceOrientation : CMLogItem
 {
-    id _internal;
+    int fOrientation;
 }
 
 @property(readonly, nonatomic) int orientation;

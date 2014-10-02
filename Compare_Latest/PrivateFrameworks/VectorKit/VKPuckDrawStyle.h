@@ -4,40 +4,26 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <VectorKit/VKDrawStyle.h>
+#import <VectorKit/VKRenderStyle.h>
 
 __attribute__((visibility("hidden")))
-@interface VKPuckDrawStyle : VKDrawStyle
+@interface VKPuckDrawStyle : VKRenderStyle
 {
-    BOOL hasCircleBrightness;
-    BOOL hasArrowBrightness;
-    BOOL hasArrowColor;
-    BOOL hasArrowColorStale;
-    BOOL hasSize;
-    BOOL hasOffset;
-    float circleBrightness;
-    float arrowBrightness;
-    float size;
-    float offset;
-    struct _VGLColor arrowColor;
-    struct _VGLColor arrowColorStale;
 }
 
-@property(readonly, nonatomic) float offset; // @synthesize offset;
-@property(readonly, nonatomic) BOOL hasOffset; // @synthesize hasOffset;
-@property(readonly, nonatomic) BOOL hasSize; // @synthesize hasSize;
-@property(readonly, nonatomic) BOOL hasArrowColorStale; // @synthesize hasArrowColorStale;
-@property(readonly, nonatomic) BOOL hasArrowColor; // @synthesize hasArrowColor;
-@property(readonly, nonatomic) BOOL hasArrowBrightness; // @synthesize hasArrowBrightness;
-@property(readonly, nonatomic) BOOL hasCircleBrightness; // @synthesize hasCircleBrightness;
-- (id).cxx_construct;
-@property(readonly, nonatomic) float size; // @synthesize size;
-@property(readonly, nonatomic) struct _VGLColor arrowColorStale; // @synthesize arrowColorStale;
-@property(readonly, nonatomic) struct _VGLColor arrowColor; // @synthesize arrowColor;
-@property(readonly, nonatomic) float arrowBrightness; // @synthesize arrowBrightness;
-@property(readonly, nonatomic) float circleBrightness; // @synthesize circleBrightness;
-- (void)takeFromZoomInvariantProperties:(id)arg1;
-- (id)variant;
++ (int)renderStyleID;
+@property(readonly, nonatomic) float offset;
+@property(readonly, nonatomic) float size;
+@property(readonly, nonatomic) Matrix_5173352a arrowColorStale;
+@property(readonly, nonatomic) Matrix_5173352a arrowColor;
+@property(readonly, nonatomic) float arrowBrightness;
+@property(readonly, nonatomic) float circleBrightness;
+@property(readonly, nonatomic) BOOL hasOffset;
+@property(readonly, nonatomic) BOOL hasSize;
+@property(readonly, nonatomic) BOOL hasArrowColorStale;
+@property(readonly, nonatomic) BOOL hasArrowColor;
+@property(readonly, nonatomic) BOOL hasArrowBrightness;
+@property(readonly, nonatomic) BOOL hasCircleBrightness;
 
 @end
 

@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "BBUniquableObject.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
-@class BBAction, BBAttachments, BBContent, BBSectionIcon, BBSound, NSArray, NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSMutableSet, NSSet, NSString, NSTimeZone;
+@class BBAccessoryIcon, BBAction, BBAttachments, BBColor, BBContent, BBSectionIcon, BBSound, NSArray, NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSMutableSet, NSSet, NSString, NSTimeZone;
 
-@interface BBBulletin : NSObject <NSCopying, NSCoding>
+@interface BBBulletin : NSObject <BBUniquableObject, NSCopying, NSSecureCoding>
 {
     BOOL _hasEventDate;
     BOOL _dateIsAllDay;
@@ -35,11 +36,12 @@
     NSDate *_recencyDate;
     int _dateFormatStyle;
     NSTimeZone *_timeZone;
-    unsigned int _accessoryStyle;
+    BBAccessoryIcon *_accessoryIconMask;
     BBSound *_sound;
     BBAttachments *_attachments;
     NSString *_unlockActionLabelOverride;
     NSMutableDictionary *_actions;
+    NSMutableDictionary *_supplementaryActionsByLayout;
     NSArray *_buttons;
     NSDictionary *_context;
     NSDate *_expirationDate;
@@ -55,10 +57,13 @@
     NSSet *alertSuppressionAppIDs_deprecated;
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)copyCachedBulletinWithBulletinID:(id)arg1;
 + (void)removeBulletinFromCache:(id)arg1;
-+ (void)addBulletinToCache:(id)arg1;
++ (id)addBulletinToCache:(id)arg1;
 + (id)bulletinWithBulletin:(id)arg1;
++ (id)validSortDescriptorsFromSortDescriptors:(id)arg1;
++ (void)vetSortDescriptor:(id)arg1;
 @property(copy, nonatomic) NSSet *alertSuppressionAppIDs_deprecated; // @synthesize alertSuppressionAppIDs_deprecated;
 @property(nonatomic) unsigned int realertCount_deprecated; // @synthesize realertCount_deprecated;
 @property(retain, nonatomic) NSMutableSet *observers; // @synthesize observers=_observers;
@@ -75,13 +80,14 @@
 @property(retain, nonatomic) NSDictionary *context; // @synthesize context=_context;
 @property(nonatomic) BOOL expiresOnPublisherDeath; // @synthesize expiresOnPublisherDeath=_expiresOnPublisherDeath;
 @property(copy, nonatomic) NSArray *buttons; // @synthesize buttons=_buttons;
-@property(retain, nonatomic) NSMutableDictionary *actions; // @synthesize actions=_actions;
+@property(retain, nonatomic) NSMutableDictionary *supplementaryActionsByLayout; // @synthesize supplementaryActionsByLayout=_supplementaryActionsByLayout;
+@property(copy, nonatomic) NSMutableDictionary *actions; // @synthesize actions=_actions;
 @property(nonatomic) BOOL wantsFullscreenPresentation; // @synthesize wantsFullscreenPresentation=_wantsFullscreenPresentation;
 @property(copy, nonatomic) NSString *unlockActionLabelOverride; // @synthesize unlockActionLabelOverride=_unlockActionLabelOverride;
 @property(retain, nonatomic) BBAttachments *attachments; // @synthesize attachments=_attachments;
 @property(retain, nonatomic) BBSound *sound; // @synthesize sound=_sound;
 @property(nonatomic) BOOL clearable; // @synthesize clearable=_clearable;
-@property(nonatomic) unsigned int accessoryStyle; // @synthesize accessoryStyle=_accessoryStyle;
+@property(retain, nonatomic) BBAccessoryIcon *accessoryIconMask; // @synthesize accessoryIconMask=_accessoryIconMask;
 @property(retain, nonatomic) NSTimeZone *timeZone; // @synthesize timeZone=_timeZone;
 @property(nonatomic) BOOL dateIsAllDay; // @synthesize dateIsAllDay=_dateIsAllDay;
 @property(nonatomic) int dateFormatStyle; // @synthesize dateFormatStyle=_dateFormatStyle;
@@ -99,8 +105,9 @@
 @property(copy, nonatomic) NSString *recordID; // @synthesize recordID=_publisherRecordID;
 @property(copy, nonatomic) NSSet *subsectionIDs; // @synthesize subsectionIDs=_subsectionIDs;
 @property(copy, nonatomic) NSString *sectionID; // @synthesize sectionID=_sectionID;
+- (id)shortDescription;
 - (id)safeDescription;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)_safeDescription:(BOOL)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -112,15 +119,26 @@
 - (id)actionForResponse:(id)arg1;
 - (CDUnknownBlockType)responseSendBlock;
 - (id)responseForExpireAction;
+- (id)responseForRaiseAction;
 - (id)responseForSnoozeAction;
 - (id)responseForButtonActionAtIndex:(unsigned int)arg1;
 - (id)responseForAcknowledgeAction;
 - (id)responseForDefaultAction;
-- (id)_responseForActionType:(int)arg1;
+- (id)responseForAction:(id)arg1;
+- (id)_responseForAction:(id)arg1;
+- (id)_allActions;
+- (id)_allSupplementaryActions;
+- (id)supplementaryActionsForLayout:(int)arg1;
+- (id)supplementaryActions;
+- (id)_actionWithID:(id)arg1 fromActions:(id)arg2;
+- (id)actionWithIdentifier:(id)arg1;
+@property(copy, nonatomic) BBAction *raiseAction;
 @property(copy, nonatomic) BBAction *snoozeAction;
 @property(copy, nonatomic) BBAction *expireAction;
 @property(copy, nonatomic) BBAction *acknowledgeAction;
 @property(copy, nonatomic) BBAction *alternateAction;
+- (void)setDismissAction:(id)arg1;
+- (id)dismissAction;
 @property(copy, nonatomic) BBAction *defaultAction;
 - (id)_actionKeyForType:(int)arg1;
 - (id)attachmentsCreatingIfNecessary:(BOOL)arg1;
@@ -131,10 +149,21 @@
 @property(copy, nonatomic) NSString *message;
 @property(copy, nonatomic) NSString *subtitle;
 @property(copy, nonatomic) NSString *title;
+- (id)uniqueIdentifier;
 - (void)dealloc;
 - (id)init;
+- (id)_sectionSubtypeParameters;
+- (id)_sectionParameters;
+@property(readonly, nonatomic) NSString *secondaryContentRemoteServiceBundleIdentifier;
+@property(readonly, nonatomic) NSString *secondaryContentRemoteViewControllerClassName;
+@property(readonly, nonatomic) NSString *bannerAccessoryRemoteServiceBundleIdentifier;
+@property(readonly, nonatomic) NSString *bannerAccessoryRemoteViewControllerClassName;
+@property(readonly, nonatomic) BBColor *tintColor;
 @property(readonly, nonatomic) int iPodOutAlertType;
 @property(readonly, nonatomic) unsigned int subtypePriority;
+@property(readonly, nonatomic) BOOL ignoresQuietMode;
+@property(readonly, nonatomic) BOOL preventLock;
+@property(readonly, nonatomic) BOOL canBeSilencedByMenuButtonPress;
 @property(readonly, nonatomic) BOOL visuallyIndicatesWhenDateIsInFuture;
 @property(readonly, nonatomic) BOOL bannerShowsSubtitle;
 @property(readonly, nonatomic) BOOL preservesUnlockActionCase;
@@ -142,7 +171,10 @@
 @property(readonly, nonatomic) unsigned int realertCount;
 @property(readonly, nonatomic) BOOL suppressesMessageForPrivacy;
 @property(readonly, nonatomic) BOOL coalescesWhenLocked;
+@property(readonly, nonatomic) BOOL suppressesAlertsWhenAppIsActive;
 @property(readonly, nonatomic) NSSet *alertSuppressionAppIDs;
+@property(readonly, nonatomic) NSString *alternateActionLabel;
+@property(readonly, nonatomic) NSString *fullAlternateActionLabel;
 @property(readonly, nonatomic) NSString *unlockActionLabel;
 @property(readonly, nonatomic) NSString *fullUnlockActionLabel;
 @property(readonly, nonatomic) NSString *missedBannerDescriptionFormat;
@@ -164,6 +196,11 @@
 - (struct CGSize)composedAttachmentImageSizeWithObserver:(id)arg1;
 - (id)composedAttachmentImageWithObserver:(id)arg1;
 - (id)syncHash;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

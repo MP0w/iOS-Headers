@@ -18,9 +18,9 @@
 }
 
 + (id)notificationForDerivedObject:(id)arg1 priorChangeState:(id)arg2 forBackingObjectNotification:(id)arg3;
-@property(readonly, nonatomic) NSOrderedSet *oldOIDs; // @synthesize oldOIDs=_oldOIDs;
-@property(readonly, nonatomic) PLAssetContainerChangeNotification *backingNotification; // @synthesize backingNotification=_backingNotification;
-@property(readonly, nonatomic) PLInFlightAssetsAlbum *album; // @synthesize album=_album;
+@property(readonly, retain, nonatomic) NSOrderedSet *oldOIDs; // @synthesize oldOIDs=_oldOIDs;
+@property(readonly, retain, nonatomic) PLAssetContainerChangeNotification *backingNotification; // @synthesize backingNotification=_backingNotification;
+@property(readonly, retain, nonatomic) PLInFlightAssetsAlbum *album; // @synthesize album=_album;
 - (id)_changedObjects;
 - (BOOL)_getOldSet:(id *)arg1 newSet:(id *)arg2;
 - (id)_diffDescription;

@@ -18,7 +18,10 @@ __attribute__((visibility("hidden")))
 - (id)userMax;
 - (id)computeMinorGridlinesFromMajorGridlinesInAnalysis:(id)arg1;
 - (id)computeMajorGridlinesFromMinMaxInAnalysis:(id)arg1;
+- (void)updateModelMinMaxInAnalysis:(id)arg1;
 - (void)adjustMinMaxForDataRangeInAnalysis:(id)arg1;
+- (void)updateGridValueTypeInterceptInAnalysis:(id)arg1;
+- (double)doubleAxisToModelValue:(double)arg1;
 - (double)doubleModelToAxisValue:(double)arg1 forSeries:(id)arg2;
 - (double)interceptForAxis:(id)arg1;
 - (id)p_orthogonalAxis;

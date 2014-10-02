@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <AddressBookUI/ABPropertySimpleCell.h>
+#import <AddressBookUI/ABPropertySimpleTransportCell.h>
 
-@interface ABPropertyEmailAddressCell : ABPropertySimpleCell
+@interface ABPropertyEmailAddressCell : ABPropertySimpleTransportCell
 {
     BOOL _VIP;
 }
@@ -14,8 +14,7 @@
 @property(nonatomic, getter=isVIP) BOOL VIP; // @synthesize VIP=_VIP;
 - (void)updateTransportButtons;
 - (BOOL)shouldPerformDefaultAction;
-- (void)updateWithPropertyItem:(id)arg1;
-- (void)_updateStar;
+- (BOOL)shouldShowStar;
 
 @end
 

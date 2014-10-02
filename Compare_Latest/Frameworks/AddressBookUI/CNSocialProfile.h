@@ -22,11 +22,11 @@
 + (id)socialProfileWithDictionary:(id)arg1;
 + (id)socialProfile;
 - (id)description;
-@property(readonly) NSString *displayname;
-@property(readonly) NSString *service;
-@property(readonly) NSString *userIdentifier;
-@property(readonly) NSString *username;
-@property(readonly) NSString *urlString;
+@property(readonly, copy) NSString *displayname;
+@property(readonly, copy) NSString *service;
+@property(readonly, copy) NSString *userIdentifier;
+@property(readonly, copy) NSString *username;
+@property(readonly, copy) NSString *urlString;
 @property(retain) NSMutableDictionary *profileDictionary;
 - (BOOL)isEqual:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;

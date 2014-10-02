@@ -13,9 +13,9 @@
     NSData *_inContentAsData;
 }
 
-@property(readonly) NSData *inContentAsData; // @synthesize inContentAsData=_inContentAsData;
-@property(readonly) NSArray *resultsForLogging;
-@property(readonly) NSString *name;
+@property(readonly, retain) NSData *inContentAsData; // @synthesize inContentAsData=_inContentAsData;
+@property(readonly, retain) NSArray *resultsForLogging;
+@property(readonly, retain) NSString *name;
 - (id)inContent;
 - (void)reset;
 - (void)dealloc;

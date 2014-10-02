@@ -17,14 +17,16 @@
 }
 
 + (id)conversationThumbnailCache;
++ (void)_handleRegistryDidLoadNotification:(id)arg1;
++ (void)initialize;
 + (id)sharedConversationList;
-@property(retain, nonatomic) CKConversation *pendingConversation; // @synthesize pendingConversation=_pendingConversation;
 @property(readonly, nonatomic) BOOL loadingConversations; // @synthesize loadingConversations=_loadingConversations;
+@property(retain, nonatomic) CKConversation *pendingConversation; // @synthesize pendingConversation=_pendingConversation;
 - (void)_handleMemoryWarning:(id)arg1;
 - (id)pendingConversationCreatingIfNecessary;
 - (void)_abChanged:(id)arg1;
+- (void)deleteConversationsAtIndexes:(id)arg1;
 - (void)deleteConversation:(id)arg1;
-- (void)deleteConversationAtIndex:(unsigned int)arg1;
 - (id)unreadLastMessages;
 - (int)unreadFilteredConversationCountIgnoringMessages:(id)arg1;
 - (int)unreadCount;
@@ -33,21 +35,19 @@
 - (void)_postConversationListChangedNotification;
 - (void)resort;
 - (id)conversations;
-- (BOOL)reloadStaleConversations;
 - (BOOL)hasActiveConversations;
 - (id)activeConversations;
 - (id)firstUnreadFilteredConversationIgnoringMessages:(id)arg1;
 - (BOOL)_shouldFilterForParticipants:(id)arg1;
+- (void)setNeedsReload;
 - (void)resetCaches;
 - (void)resetCachesAndRegenerateThumbnails;
 - (id)conversationForExistingChat:(id)arg1;
-- (id)conversationForExistingChatWithAddresses:(id)arg1;
-- (id)conversationForRecipients:(id)arg1 create:(BOOL)arg2;
 - (id)conversationForHandles:(id)arg1 create:(BOOL)arg2;
+- (id)conversationForHandles:(id)arg1 displayName:(id)arg2 joinedChatsOnly:(BOOL)arg3 create:(BOOL)arg4;
 - (id)_copyEntitiesForAddressStrings:(id)arg1;
 - (void)_handleRegistryWillUnregisterChatNotification:(id)arg1;
 - (void)_handleRegistryDidRegisterChatNotification:(id)arg1;
-- (void)_handleRegistryDidLoadChatNotification:(id)arg1;
 - (void)_beginTrackingAllExistingChatsIfNeeded;
 - (void)stopTrackingConversation:(id)arg1;
 - (id)conversationForExistingChatWithGUID:(id)arg1;
@@ -55,6 +55,7 @@
 - (id)_conversationForChat:(id)arg1;
 - (id)_beginTrackingConversationWithChat:(id)arg1;
 - (id)_alreadyTrackedConversationForChat:(id)arg1;
+- (id)description;
 - (void)dealloc;
 - (id)init;
 

@@ -25,11 +25,11 @@
 - (BOOL)hasProtectedContent;
 - (id)_trackReferences;
 - (id)_pairedForcedOnlySubtitlesTrack;
-- (id)_mostCloselyAssociatedTrackAmongTracks:(id)arg1;
 - (id)_followingTrackAmongTracks:(id)arg1;
 - (id)_fallbackTrack;
 - (id)_firstAssociatedTrackWithAssociationType:(id)arg1;
 - (BOOL)isExcludedFromAutoselectionInTrackGroup;
+- (int)alternateGroupID;
 - (id)metadata;
 - (id)metadataForFormat:(id)arg1;
 - (id)availableMetadataFormats;
@@ -50,6 +50,9 @@
 - (id)languageCode;
 - (float)estimatedDataRate;
 - (int)naturalTimeScale;
+- (BOOL)requiresFrameReordering;
+- (CDStruct_e83c9415)mediaDecodeTimeRange;
+- (CDStruct_e83c9415)mediaPresentationTimeRange;
 - (CDStruct_e83c9415)timeRange;
 - (id)mediaCharacteristics;
 - (BOOL)hasMediaCharacteristics:(id)arg1;
@@ -66,6 +69,8 @@
 - (int)statusOfValueForKey:(id)arg1 error:(id *)arg2;
 - (int)statusOfValueForKey:(id)arg1;
 @property(readonly, nonatomic) int trackID;
+- (struct OpaqueFigAssetTrack *)_figAssetTrack;
+- (struct OpaqueFigTrackReader *)_figTrackReader;
 - (id)_assetTrackInspector;
 @property(readonly, nonatomic) AVAsset *asset;
 - (id)description;
@@ -76,6 +81,9 @@
 - (id)_initWithAsset:(id)arg1 trackID:(int)arg2;
 - (id)init;
 - (id)_initWithAsset:(id)arg1 trackID:(int)arg2 trackIndex:(long)arg3;
+- (BOOL)_firstFormatDescriptionIsLPCM;
+- (BOOL)_hasMultipleDistinctFormatDescriptions;
+- (BOOL)_hasEmptyEdits;
 - (BOOL)_hasScaledEdits;
 - (BOOL)_hasMultipleEdits;
 

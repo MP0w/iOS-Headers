@@ -8,6 +8,8 @@
 
 #import "PSSettingsBoolDetail.h"
 
+@class NSString;
+
 @interface PSTorchSettingsDetail : NSObject <PSSettingsBoolDetail>
 {
 }
@@ -17,6 +19,12 @@
 + (int)torchState;
 + (id)iconImage;
 + (id)preferencesURL;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

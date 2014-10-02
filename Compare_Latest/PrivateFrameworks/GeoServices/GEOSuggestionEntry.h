@@ -19,16 +19,19 @@
     NSMutableArray *_displayLines;
     NSString *_iconID;
     GEOLatLng *_latlng;
+    NSMutableArray *_namedFeatures;
     NSString *_searchQueryDisplayString;
     NSData *_suggestionEntryMetadata;
 }
 
+@property(retain, nonatomic) NSMutableArray *namedFeatures; // @synthesize namedFeatures=_namedFeatures;
 @property(retain, nonatomic) NSString *calloutTitle; // @synthesize calloutTitle=_calloutTitle;
 @property(retain, nonatomic) NSString *searchQueryDisplayString; // @synthesize searchQueryDisplayString=_searchQueryDisplayString;
 @property(retain, nonatomic) NSData *suggestionEntryMetadata; // @synthesize suggestionEntryMetadata=_suggestionEntryMetadata;
 @property(retain, nonatomic) GEOLatLng *latlng; // @synthesize latlng=_latlng;
 @property(retain, nonatomic) NSString *iconID; // @synthesize iconID=_iconID;
 @property(retain, nonatomic) NSMutableArray *displayLines; // @synthesize displayLines=_displayLines;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -37,6 +40,10 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)namedFeatureAtIndex:(unsigned int)arg1;
+- (unsigned int)namedFeaturesCount;
+- (void)addNamedFeature:(id)arg1;
+- (void)clearNamedFeatures;
 @property(readonly, nonatomic) BOOL hasCalloutTitle;
 @property(readonly, nonatomic) BOOL hasSearchQueryDisplayString;
 @property(readonly, nonatomic) BOOL hasSuggestionEntryMetadata;

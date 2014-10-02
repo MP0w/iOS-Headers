@@ -12,12 +12,14 @@
 {
     NSString *_title;
     CDUnknownBlockType _actionHandler;
+    CDUnknownBlockType _dismissalHandler;
     int _type;
 }
 
 + (id)standardElementActionWithType:(int)arg1;
 + (id)standardElementActionWithType:(int)arg1 customTitle:(id)arg2;
 + (id)customElementActionWithTitle:(id)arg1 actionHandler:(CDUnknownBlockType)arg2;
+@property(copy, nonatomic) CDUnknownBlockType dismissalHandler; // @synthesize dismissalHandler=_dismissalHandler;
 @property(readonly, nonatomic) int type; // @synthesize type=_type;
 - (void)_runActionWithElement:(id)arg1 targetURL:(id)arg2 documentView:(id)arg3 interactionLocation:(struct CGPoint)arg4;
 - (id)_title;

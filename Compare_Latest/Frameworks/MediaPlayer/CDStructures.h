@@ -25,31 +25,11 @@ struct CGSize {
     float height;
 };
 
-struct MLArtworkFormatSpec {
-    unsigned int _field1;
-    unsigned int _field2;
-    unsigned int _field3;
-    unsigned int _field4;
-    int _field5;
-    int _field6;
-    char _field7;
-};
-
-struct MLArtworkInstanceInfo {
-    struct MLArtworkFormatSpec _field1;
-    struct CGRect _field2;
-};
-
 struct UIEdgeInsets {
     float top;
     float left;
     float bottom;
     float right;
-};
-
-struct _MPReportingTimeRange {
-    double location;
-    double duration;
 };
 
 struct _NSRange {
@@ -58,14 +38,14 @@ struct _NSRange {
 };
 
 struct map<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak>>> {
-    struct __tree<std::__1::pair<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak>, std::__1::__map_value_compare<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak, std::__1::less<long long>, true>, std::__1::allocator<std::__1::pair<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak>>> {
-        struct __tree_node<std::__1::pair<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak>, void *>>> {
+    struct __tree<std::__1::__value_type<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak>, std::__1::__map_value_compare<long long, std::__1::__value_type<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak>, std::__1::less<long long>, true>, std::__1::allocator<std::__1::__value_type<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak>>> {
+        struct __tree_node<std::__1::__value_type<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
                 struct __tree_node_base<void *> *_field1;
             } _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak, std::__1::less<long long>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<long long, std::__1::__value_type<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak>, std::__1::less<long long>, true>> {
             unsigned long _field1;
         } _field3;
     } _field1;
@@ -78,46 +58,30 @@ typedef struct {
 } CDStruct_6ad76789;
 
 typedef struct {
+    int numberOfAvailableSkips;
+    int skipFrequency;
+    double skipInterval;
+} CDStruct_e0453228;
+
+typedef struct {
     long long value;
     int timescale;
     unsigned int flags;
     long long epoch;
 } CDStruct_1b6d18a9;
 
-typedef struct {
-    int _field1;
-    id _field2;
-    float _field3;
-    int _field4;
-    int _field5;
-    struct UIEdgeInsets _field6;
-    struct UIEdgeInsets _field7;
-    id _field8;
-    id _field9;
-    struct {
-        float _field1;
-        float _field2;
-        float _field3;
-        float _field4;
-        float _field5;
-        float _field6;
-        float _field7;
-        float _field8;
-    } _field10;
-} CDStruct_1d16deb2;
-
 // Template types
 typedef struct map<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak>>> {
-    struct __tree<std::__1::pair<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak>, std::__1::__map_value_compare<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak, std::__1::less<long long>, true>, std::__1::allocator<std::__1::pair<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak>>> {
-        struct __tree_node<std::__1::pair<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak>, void *>>> {
+    struct __tree<std::__1::__value_type<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak>, std::__1::__map_value_compare<long long, std::__1::__value_type<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak>, std::__1::less<long long>, true>, std::__1::allocator<std::__1::__value_type<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak>>> {
+        struct __tree_node<std::__1::__value_type<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
                 struct __tree_node_base<void *> *_field1;
             } _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak, std::__1::less<long long>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<long long, std::__1::__value_type<long long, MPMediaEntity<MPCacheableConcreteMediaEntity>*__weak>, std::__1::less<long long>, true>> {
             unsigned long _field1;
         } _field3;
     } _field1;
-} map_cf0943a7;
+} map_e4ccdae0;
 

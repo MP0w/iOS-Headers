@@ -7,23 +7,20 @@
 #import "NSObject.h"
 
 #import "NSCopying.h"
-#import "NSSecureCoding.h"
 
-@class MPImageCache, NSString, RadioStation;
+@class NSString, RadioStation;
 
-@interface MPRadioStation : NSObject <NSSecureCoding, NSCopying>
+@interface MPRadioStation : NSObject <NSCopying>
 {
-    MPImageCache *_imageCache;
     RadioStation *_station;
 }
 
 + (BOOL)supportsSecureCoding;
 - (void).cxx_destruct;
+@property(readonly, nonatomic, getter=_station) RadioStation *_station;
 @property(readonly, nonatomic) long long uniqueIdentifier;
-- (id)_station;
 @property(readonly, nonatomic) NSString *localizedName;
 @property(readonly, nonatomic) NSString *localizedDescription;
-- (void)fetchArtworkWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

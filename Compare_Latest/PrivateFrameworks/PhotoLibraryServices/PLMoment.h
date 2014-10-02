@@ -7,19 +7,18 @@
 #import <PhotoLibraryServices/PLManagedObject.h>
 
 #import "PLAssetContainer.h"
+#import "PLMomentData_Private.h"
 
-@class NSArray, NSData, NSDate, NSOrderedSet, NSString, PLManagedAsset, PLMomentLibrary, PLMomentList, PLRevGeoCompoundNameInfo;
+@class CLLocation, NSArray, NSData, NSDate, NSObject<NSCopying>, NSOrderedSet, NSString, PLManagedAsset, PLMomentLibrary, PLMomentList, PLMomentNameInfo;
 
-@interface PLMoment : PLManagedObject <PLAssetContainer>
+@interface PLMoment : PLManagedObject <PLAssetContainer, PLMomentData_Private>
 {
-    PLRevGeoCompoundNameInfo *_cachedPrimaryNameInfo;
-    PLRevGeoCompoundNameInfo *_cachedSecondaryNameInfo;
+    PLMomentNameInfo *_cachedNameInfo;
     BOOL _loadedNameInfo;
     BOOL isRegisteredForChanges;
     BOOL didRegisteredWithUserInterfaceContext;
 }
 
-+ (id)insertNewMomentFromCluster:(id)arg1 inManagedObjectContext:(id)arg2;
 + (id)entityInManagedObjectContext:(id)arg1;
 + (id)entityName;
 + (id)allAssetsIncludedInMomentsInLibrary:(id)arg1;
@@ -30,6 +29,10 @@
 + (id)insertNewMomentInManagedObjectContext:(id)arg1 error:(id *)arg2;
 @property(nonatomic) BOOL didRegisteredWithUserInterfaceContext; // @synthesize didRegisteredWithUserInterfaceContext;
 @property(nonatomic) BOOL isRegisteredForChanges; // @synthesize isRegisteredForChanges;
+@property(retain, nonatomic) NSArray *userTitles;
+- (void)removeAssetData:(id)arg1;
+- (void)replaceAssetDataAtIndex:(unsigned int)arg1 withAssetData:(id)arg2;
+@property(readonly, retain, nonatomic) NSObject<NSCopying> *uniqueObjectID;
 - (void)removeAssets:(id)arg1;
 - (void)addAssets:(id)arg1;
 - (void)removeAssetsObject:(id)arg1;
@@ -47,18 +50,18 @@
 - (BOOL)validateForInsert:(id *)arg1;
 - (BOOL)_validateForInsertOrUpdate:(id *)arg1;
 - (void)delete;
-- (void)updateMomentFromCluster:(id)arg1;
 - (id)diagnosticInformation;
 - (BOOL)supportsDiagnosticInformation;
 @property(retain, nonatomic) PLManagedAsset *tertiaryKeyAsset;
 @property(retain, nonatomic) PLManagedAsset *secondaryKeyAsset;
 @property(retain, nonatomic) PLManagedAsset *keyAsset;
-@property(readonly, nonatomic) NSArray *localizedLocationNames;
-@property(readonly, nonatomic) NSString *localizedTitle;
+- (void)invalidateNameInfo;
+@property(readonly, copy, nonatomic) NSArray *localizedLocationNames;
+@property(readonly, copy, nonatomic) NSString *localizedTitle;
 - (void)_updateCachedNameInfoIfNeeded;
 @property(readonly, nonatomic) BOOL canShowAvalancheStacks;
 @property(readonly, nonatomic) BOOL canShowComments;
-- (BOOL)canPerformEditOperation:(int)arg1;
+- (BOOL)canPerformEditOperation:(unsigned int)arg1;
 @property(readonly, nonatomic) BOOL isEmpty;
 @property(readonly, nonatomic) unsigned int videosCount;
 @property(readonly, nonatomic) unsigned int photosCount;
@@ -66,8 +69,7 @@
 @property(readonly, nonatomic) unsigned int approximateCount;
 - (void)unregisterForChanges;
 - (void)registerForChanges;
-- (BOOL)isMeaningful;
-- (id)approximateLocation;
+@property(retain, nonatomic) CLLocation *approximateLocation;
 - (void)dealloc;
 - (void)willTurnIntoFault;
 - (void)awakeFromFetch;
@@ -82,15 +84,21 @@
 @property(nonatomic) int cachedCount; // @dynamic cachedCount;
 @property(nonatomic) int cachedPhotosCount; // @dynamic cachedPhotosCount;
 @property(nonatomic) int cachedVideosCount; // @dynamic cachedVideosCount;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(retain, nonatomic) NSDate *endDate; // @dynamic endDate;
 @property(nonatomic) short generationType; // @dynamic generationType;
+@property(readonly) unsigned int hash;
 @property(retain, nonatomic) PLMomentList *megaMomentList; // @dynamic megaMomentList;
 @property(retain, nonatomic) PLMomentLibrary *momentLibrary; // @dynamic momentLibrary;
 @property(retain, nonatomic) NSDate *representativeDate; // @dynamic representativeDate;
 @property(retain, nonatomic) NSData *reverseLocationData; // @dynamic reverseLocationData;
 @property(nonatomic) BOOL reverseLocationDataIsValid; // @dynamic reverseLocationDataIsValid;
 @property(retain, nonatomic) NSDate *startDate; // @dynamic startDate;
+@property(readonly) Class superclass;
 @property(retain, nonatomic) NSString *title; // @dynamic title;
+@property(retain, nonatomic) NSString *title2; // @dynamic title2;
+@property(retain, nonatomic) NSString *title3; // @dynamic title3;
 @property(retain, nonatomic) NSString *uuid; // @dynamic uuid;
 @property(retain, nonatomic) PLMomentList *yearMomentList; // @dynamic yearMomentList;
 

@@ -8,6 +8,7 @@
 
 @class DOMTouchList;
 
+__attribute__((visibility("hidden")))
 @interface DOMTouchEvent : DOMUIEvent
 {
 }

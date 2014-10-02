@@ -15,9 +15,15 @@
     NSMutableOrderedSet *_windowLevelOverrideReasons;
     NSMutableDictionary *_windowLevelOverrideMap;
     double _defaultWindowLevel;
+    NSMutableDictionary *_edgeInsetsDictionary;
+    unsigned long long _activeLayoutLayer;
 }
 
 + (id)sharedInstance;
+@property(nonatomic) unsigned long long activeLayoutLayer; // @synthesize activeLayoutLayer=_activeLayoutLayer;
+- (void)_applyEdgeInsetsToStatusBar;
+@property(readonly, nonatomic) struct UIEdgeInsets statusBarEdgeInsets;
+- (void)setStatusBarEdgeInsets:(struct UIEdgeInsets)arg1 forLayoutLayer:(unsigned long long)arg2;
 - (void)_removeDisableAppStatusBarUserInteractionChangesAssertion:(id)arg1;
 - (void)_addDisableAppStatusBarUserInteractionChangesAssertion:(id)arg1;
 - (void)_removeDisableAppStatusBarAlphaChangesAssertion:(id)arg1;

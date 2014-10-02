@@ -9,7 +9,7 @@
 #import "SSDownloadHandlerDelegate.h"
 #import "UIAlertViewDelegate.h"
 
-@class NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, SSDownloadHandler, SSDownloadManager;
+@class NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, SSDownloadHandler, SSDownloadManager;
 
 @interface MPStorePlayWhileDownloadController : NSObject <SSDownloadHandlerDelegate, UIAlertViewDelegate>
 {
@@ -22,8 +22,8 @@
 
 + (id)sharedController;
 - (void).cxx_destruct;
-- (BOOL)_showNoNetworkDialogForMediaItem:(id)arg1;
-- (BOOL)_showCellularRestrictedDialogForMediaItem:(id)arg1;
+- (BOOL)_showNoNetworkDialogForContext:(id)arg1;
+- (BOOL)_showCellularRestrictedDialogForContext:(id)arg1;
 - (id)_openSessionWithProperties:(id)arg1 style:(int *)arg2;
 - (id)_openSessionWithProperties:(id)arg1 assetOptions:(id)arg2;
 - (id)_downloadSessionWithID:(id)arg1;
@@ -31,13 +31,19 @@
 - (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)downloadHandler:(id)arg1 handleSession:(id)arg2;
 - (void)downloadHandler:(id)arg1 cancelSession:(id)arg2;
-- (BOOL)showNetworkConstraintDialogForMediaItem:(id)arg1;
-- (id)openSessionWithMediaItem:(id)arg1 attributes:(id)arg2 assetOptions:(id)arg3;
-- (BOOL)isSessionRequiredToPlayMediaItem:(id)arg1;
-- (BOOL)canOpenSessionWithMediaItem:(id)arg1;
+- (BOOL)showNetworkConstraintDialogForContext:(id)arg1;
+- (id)openSessionWithContext:(id)arg1 attributes:(id)arg2;
+- (BOOL)isSessionRequiredToPlayContext:(id)arg1;
+- (BOOL)canOpenSessionWithContext:(id)arg1;
 - (void)dealloc;
 - (id)_init;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

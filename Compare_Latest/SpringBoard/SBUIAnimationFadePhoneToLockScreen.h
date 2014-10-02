@@ -14,7 +14,6 @@
     long long _launchingOrientation;
 }
 
-- (void)_showLockStatusBar:(id)arg1;
 - (void)_startAnimation;
 - (void)_prepareAnimation;
 - (void)dealloc;

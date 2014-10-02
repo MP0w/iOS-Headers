@@ -8,7 +8,7 @@
 
 #import "CLLocationManagerDelegate.h"
 
-@class CLGeocoder, CLLocationManager, EKReminderLocationItem, NSArray, NSMutableArray;
+@class CLGeocoder, CLLocationManager, EKReminderLocationItem, NSArray, NSMutableArray, NSString;
 
 @interface EKReminderLocationPickerModel : NSObject <CLLocationManagerDelegate>
 {
@@ -78,6 +78,12 @@
 @property(readonly, nonatomic) void *addressBook;
 - (void)_endOperation;
 - (void)_beginOperation;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

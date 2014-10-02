@@ -10,7 +10,6 @@
 + (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
 + (id)_keysForValuesAffectingValueForKey:(id)arg1;
-- (void *)observationInfo;
-- (void)setObservationInfo:(void *)arg1;
+@property void *observationInfo;
 @end
 

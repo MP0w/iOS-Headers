@@ -15,7 +15,7 @@
     BOOL _hasChanges;
 }
 
-@property(readonly) BOOL hasChanges; // @synthesize hasChanges=_hasChanges;
+@property(readonly, nonatomic) BOOL hasChanges; // @synthesize hasChanges=_hasChanges;
 @property(retain, nonatomic) NSNumber *knownQuotaRemaining;
 @property(nonatomic) BOOL hasHitQuotaLimit;
 @property(retain, nonatomic) NSDictionary *heldAsideOrderings;

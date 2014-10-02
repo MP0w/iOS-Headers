@@ -6,26 +6,29 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, SBKRequest;
+@class NSMutableDictionary, NSString, NSURL, SBKRequest;
 
 __attribute__((visibility("hidden")))
 @interface SBKTransaction : NSObject
 {
+    NSString *_domain;
+    NSURL *_requestURL;
     SBKRequest *_activeRequest;
     NSMutableDictionary *_userInfo;
 }
 
 @property(retain) NSMutableDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(retain) SBKRequest *activeRequest; // @synthesize activeRequest=_activeRequest;
+@property(retain) NSURL *requestURL; // @synthesize requestURL=_requestURL;
+@property(readonly, copy) NSString *domain; // @synthesize domain=_domain;
 - (void).cxx_destruct;
 - (id)newRequest;
-- (id)requestURL;
-- (id)domain;
 - (id)clampsKey;
 - (void)processDataInResponse:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (id)transactionContextForKey:(id)arg1;
 - (void)setTransactionContext:(id)arg1 forKey:(id)arg2;
 - (id)init;
+- (id)initWithDomain:(id)arg1 requestURL:(id)arg2;
 
 @end
 

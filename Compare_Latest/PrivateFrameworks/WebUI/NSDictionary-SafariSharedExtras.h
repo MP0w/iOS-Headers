@@ -7,6 +7,7 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (SafariSharedExtras)
+- (id)safari_URLForKey:(id)arg1;
 - (id)safari_dictionaryForKey:(id)arg1;
 - (id)safari_arrayForKey:(id)arg1;
 - (id)safari_dateForKey:(id)arg1;

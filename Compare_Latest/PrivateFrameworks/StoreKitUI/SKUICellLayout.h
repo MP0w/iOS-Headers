@@ -16,8 +16,8 @@
     BOOL _parentWantsCellNeedsLayout;
 }
 
-@property(readonly, nonatomic) UIView *parentCellView; // @synthesize parentCellView=_cell;
-@property(readonly, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
+@property(readonly, nonatomic) __weak UIView *parentCellView; // @synthesize parentCellView=_cell;
+@property(readonly, nonatomic) __weak UIView *contentView; // @synthesize contentView=_contentView;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
 - (void)setSelected:(BOOL)arg1;

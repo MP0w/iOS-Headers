@@ -18,6 +18,7 @@
 
 @property(nonatomic) int photoType; // @synthesize photoType=_photoType;
 @property(nonatomic) int maxPhotos; // @synthesize maxPhotos=_maxPhotos;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

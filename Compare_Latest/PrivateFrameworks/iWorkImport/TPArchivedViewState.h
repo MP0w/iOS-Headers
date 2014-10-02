@@ -6,7 +6,7 @@
 
 #import <iWorkImport/TSPObject.h>
 
-@class NSMutableDictionary, TSKSelection, TSPObject<TSKModel>;
+@class NSMutableDictionary, NSString, TSKSelection, TSPObject<TSKModel>;
 
 __attribute__((visibility("hidden")))
 @interface TPArchivedViewState : TSPObject
@@ -21,9 +21,15 @@ __attribute__((visibility("hidden")))
     BOOL _wordCountHUDVisible;
     BOOL _showsComments;
     BOOL _showsPageNavigator;
+    BOOL _showsActivitySidebar;
     int _viewScaleMode;
     float _viewScale;
     struct CGRect _windowFrame;
+    NSString *_selectedInspectorSwitchSegmentIdentifier;
+    BOOL _inspectorHidden;
+    int _wordCountHUDType;
+    struct CGPoint _wordCountHUDPosition;
+    BOOL _showUserDefinedGuides;
 }
 
 - (id).cxx_construct;

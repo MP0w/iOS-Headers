@@ -16,6 +16,7 @@
     struct _DNSServiceRef_t *_resolvingDNSService;
 }
 
+- (void).cxx_destruct;
 - (void)_netServiceDidNotResolve;
 - (void)_netServiceDidResolveAddressWithTXTRecordData:(id)arg1 host:(struct hostent *)arg2 port:(unsigned short)arg3;
 - (void)_timeoutResolve;

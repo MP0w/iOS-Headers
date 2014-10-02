@@ -19,8 +19,9 @@
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)invalidateCachedLayoutData;
-- (double)heightForReusableViewForBulletinViewController:(id)arg1 layoutMode:(long long)arg2;
+- (double)heightForReusableViewForBulletinViewController:(id)arg1 layoutMode:(long long)arg2 bulletinLocation:(long long)arg3;
 - (void)populateReusableView:(id)arg1;
+- (id)reusableViewIdentifier;
 - (Class)reusableViewClass;
 @property(readonly, nonatomic) NSString *identifier;
 - (void)dealloc;

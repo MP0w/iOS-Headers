@@ -9,7 +9,7 @@
 @class NSDictionary, PLContainerChangeNotification;
 
 @protocol PLIndexMappingCache <NSObject>
-@property(readonly, nonatomic) id <NSObject><NSCopying> cachedIndexMapState;
+@property(readonly, copy, nonatomic) id <NSObject><NSCopying> cachedIndexMapState;
 - (Class)derivedChangeNotificationClass;
 - (BOOL)mappedDataSourceChanged:(PLContainerChangeNotification *)arg1 remoteNotificationData:(NSDictionary *)arg2;
 

@@ -47,7 +47,7 @@ __attribute__((visibility("hidden")))
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)initFromArchive:(const struct FormulaPredicateArchive *)arg1;
-- (void)encodeToArchive:(struct FormulaPredicateArchive *)arg1;
+- (void)encodeToArchive:(struct FormulaPredicateArchive *)arg1 archiver:(id)arg2;
 - (id)copyByOffsettingRelativeReferencesWithColumnOffset:(short)arg1 rowOffset:(int)arg2;
 - (id)copyByRewritingWithSpec:(id)arg1 inOwner:(id)arg2 inCellCoordinate:(CDStruct_0441cfb5)arg3;
 - (id)copyByRemappingFormulaIDsWithMap:(struct __CFDictionary *)arg1 calcEngine:(id)arg2 error:(char *)arg3;

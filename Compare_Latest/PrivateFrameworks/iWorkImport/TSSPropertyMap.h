@@ -9,12 +9,15 @@
 #import "NSCopying.h"
 #import "TSSPropertySource.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TSSPropertyMap : NSObject <NSCopying, TSSPropertySource>
 {
     struct TSSPropertyStore *mStore;
 }
 
++ (id)propertyMapWithDictionary:(id)arg1;
 + (id)propertyMapWithPropertiesAndValues:(int)arg1;
 + (id)propertyMapWithPropertyMap:(id)arg1;
 + (id)propertyMap;
@@ -48,14 +51,14 @@ __attribute__((visibility("hidden")))
 - (int)intValueForProperty:(int)arg1;
 - (id)objectForProperty:(int)arg1;
 - (id)boxedObjectForProperty:(int)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)enumeratePropertiesAndObjectsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)old_description;
 - (void)p_getAllKeys:(int *)arg1;
 - (id)allProperties;
 - (id)allKeys;
 - (unsigned int)count;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -73,6 +76,10 @@ __attribute__((visibility("hidden")))
 - (void)pSetRepeatedArrayOfFloats:(const RepeatedField_324622b8 *)arg1 forProperty:(int)arg2 defaultValues:(float [9])arg3 validator:(id)arg4;
 - (void)pSetArrayOfFloats:(float [9])arg1 forProperty:(int)arg2;
 - (void)pSetArrayOfObjects:(id [9])arg1 forProperty:(int)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

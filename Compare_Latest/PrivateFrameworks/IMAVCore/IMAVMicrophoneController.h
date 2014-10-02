@@ -20,7 +20,7 @@
 - (void)_loadSavedMicrophone;
 - (void)_rebuildMicrophoneList;
 - (void)dealloc;
-@property(readonly, nonatomic) NSArray *microphones;
+@property(readonly, retain, nonatomic) NSArray *microphones;
 - (id)init;
 
 @end

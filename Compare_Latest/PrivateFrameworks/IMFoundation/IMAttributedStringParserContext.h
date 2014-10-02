@@ -13,14 +13,14 @@
     NSAttributedString *_inString;
 }
 
-@property(readonly) NSAttributedString *inString; // @synthesize inString=_inString;
+@property(readonly, retain) NSAttributedString *inString; // @synthesize inString=_inString;
 - (id)parser:(id)arg1 preprocessedAttributesForAttributes:(id)arg2 range:(struct _NSRange)arg3;
 @property(readonly) BOOL shouldPreprocess;
 - (void)parserDidEnd:(id)arg1;
 - (void)parser:(id)arg1 foundAttributes:(id)arg2 inRange:(struct _NSRange)arg3;
 - (void)parserDidStart:(id)arg1;
-@property(readonly) NSArray *resultsForLogging;
-@property(readonly) NSString *name;
+@property(readonly, retain) NSArray *resultsForLogging;
+@property(readonly, retain) NSString *name;
 - (void)dealloc;
 - (id)initWithAttributedString:(id)arg1;
 

@@ -19,6 +19,7 @@
 - (void)appendData:(id)arg1;
 - (void)appendBytes:(const void *)arg1 length:(unsigned int)arg2;
 - (void)replaceBytesInRange:(struct _NSRange)arg1 withBytes:(const void *)arg2 length:(unsigned int)arg3;
+- (BOOL)_isCompact;
 - (Class)classForCoder;
 - (void)setLength:(unsigned int)arg1;
 - (void *)mutableBytes;

@@ -10,7 +10,7 @@
 #import "QLSwippableItemProtocol.h"
 #import "UIDocumentPasswordViewDelegate.h"
 
-@class NSString, NSTimer, QLDisplayBundle, QLGenericView, QLProgressView, UIDocumentPasswordView, UIView;
+@class NSLayoutConstraint, NSString, NSTimer, QLDisplayBundle, QLGenericView, QLProgressView, UIDocumentPasswordView, UIView;
 
 @interface QLPreviewViewController : UIViewController <QLPreviewItemInteractionDelegate, UIDocumentPasswordViewDelegate, QLSwippableItemProtocol>
 {
@@ -35,6 +35,7 @@
     NSString *_loadingTextForMissingFiles;
     BOOL _overlayHidden;
     UIDocumentPasswordView *_documentPasswordView;
+    NSLayoutConstraint *_documentPasswordViewKeyboardConstraint;
     QLGenericView *_airPlayPasswordView;
     BOOL _loadedWithPassword;
     BOOL _visible;
@@ -79,8 +80,7 @@
 - (void)_showProgressUI;
 - (void)_scheduleShowProgressiveUI;
 - (void)_cancelScheduledShowProgressiveUI;
-- (void)_keyboardDidShow:(id)arg1;
-- (void)_adjustContentOffsetForKeyboardIfNeeded;
+- (void)_keyboardVisibilityChanged:(id)arg1;
 - (void)didEndEditingPassword:(id)arg1 inView:(id)arg2;
 - (void)didBeginEditingPassword:(id)arg1 inView:(id)arg2;
 - (void)userDidEnterPassword:(id)arg1 forPasswordView:(id)arg2;
@@ -98,11 +98,17 @@
 - (void)setNavigationBarVerticalOffset:(float)arg1;
 - (void)setAspectRatio:(float)arg1 scaleFactor:(float)arg2;
 - (void)_layoutViews;
+- (void)viewDidAppear:(BOOL)arg1;
 - (void)willMoveToParentViewController:(id)arg1;
 - (void)loadView;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

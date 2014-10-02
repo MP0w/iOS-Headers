@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     ODDLayoutVariablePropertySet *mVariableList;
 }
 
+- (id)description;
 - (void)setVariableList:(id)arg1;
 - (id)variableList;
 - (void)dealloc;

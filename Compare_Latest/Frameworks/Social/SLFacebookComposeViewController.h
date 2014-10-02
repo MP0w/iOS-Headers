@@ -12,11 +12,10 @@
 #import "SLPlaceDataSourceDelegate.h"
 #import "SLSheetPlaceViewControllerDelegate.h"
 
-@class ACAccount, ACAccountStore, ALAssetsLibrary, SLFacebookAlbumChooserViewController, SLFacebookAlbumManager, SLFacebookPlaceManager, SLFacebookPost, SLFacebookPostPrivacyManager, SLFacebookSession, SLFacebookVideoOptionsViewController, SLSheetAction, SLSheetPlaceViewController, SLVideoQualityOption, UIViewController<SLFacebookAudienceViewController>;
+@class ACAccount, ACAccountStore, ALAssetsLibrary, CLInUseAssertion, NSString, SLComposeSheetConfigurationItem, SLFacebookAlbumChooserViewController, SLFacebookAlbumManager, SLFacebookPlaceManager, SLFacebookPost, SLFacebookPostPrivacyManager, SLFacebookSession, SLFacebookVideoOptionsViewController, SLSheetPlaceViewController, SLVideoQualityOption, UIViewController<SLFacebookAudienceViewController>;
 
-@interface SLFacebookComposeViewController : SLComposeServiceViewController <SLPlaceDataSourceDelegate, SLSheetPlaceViewControllerDelegate, SLFacebookAudienceViewControllerDelegate, SLFacebookAlbumChooserViewControllerDelegate, SLFacebookVideoOptionsDelegate>
+@interface SLFacebookComposeViewController : SLComposeServiceViewController <SLFacebookAudienceViewControllerDelegate, SLFacebookAlbumChooserViewControllerDelegate, SLFacebookVideoOptionsDelegate, SLPlaceDataSourceDelegate, SLSheetPlaceViewControllerDelegate>
 {
-    BOOL _wasPresented;
     BOOL _hasAccessToAccount;
     BOOL _hasCheckedAccess;
     BOOL _hasShowedLocationDeniedAlert;
@@ -33,10 +32,10 @@
     SLFacebookPlaceManager *_placeManager;
     SLFacebookAlbumManager *_albumManager;
     ALAssetsLibrary *_assetsLibrary;
-    SLSheetAction *_privacySheetAction;
-    SLSheetAction *_albumSheetAction;
-    SLSheetAction *_placeSheetAction;
-    SLSheetAction *_videoOptionsAction;
+    SLComposeSheetConfigurationItem *_privacyConfigurationItem;
+    SLComposeSheetConfigurationItem *_albumConfigurationItem;
+    SLComposeSheetConfigurationItem *_placeConfigurationItem;
+    SLComposeSheetConfigurationItem *_videoOptionsConfigurationItem;
     SLVideoQualityOption *_selectedVideoQualityOption;
     struct {
         unsigned int showAlbumAction:1;
@@ -44,6 +43,7 @@
         unsigned int showPlaceAction:1;
         unsigned int showVideoDetailAction:1;
     } _actionFlags;
+    CLInUseAssertion *_locationInUseAssertion;
     CDUnknownBlockType _completionHandler;
 }
 
@@ -52,14 +52,13 @@
 - (void).cxx_destruct;
 - (void)_presentFacebookDisabledAlert;
 - (void)_presentNoAccountsAlert;
-- (void)sheetPresentationAnimationDidFinish;
+- (void)presentationAnimationDidFinish;
 - (void)callCompletionHandlerWithResult:(int)arg1;
 - (void)setupCommonUI;
-- (BOOL)canPost;
 - (void)handleImagePostWithURL;
 - (BOOL)hasAccountAccess;
-- (void)send;
-- (BOOL)validateText:(id)arg1;
+- (void)didSelectPost;
+- (BOOL)isContentValid;
 - (void)placeViewController:(id)arg1 didSelectPlace:(id)arg2;
 - (void)placeManager:(id)arg1 failedWithError:(id)arg2;
 - (void)_setPlace:(id)arg1;
@@ -80,21 +79,27 @@
 - (id)albumManager;
 @property(retain) ACAccountStore *accountStore; // @dynamic accountStore;
 @property(readonly) ACAccount *privilegedAccount;
+- (void)_hostApplicationWillEnterForeground;
+- (void)_hostApplicationDidEnterBackground;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
-- (void)viewDidUnload;
-- (void)loadView;
-- (id)sheetActions;
-- (id)_videoOptionsAction;
-- (void)_updateAlbumSheetActionWithDefaultAlbum;
-- (id)_albumSheetAction;
-- (id)_placeSheetAction;
-- (void)_updatePrivacySheetActionWithDefaultPrivacySetting;
-- (id)_privacySheetAction;
+- (id)configurationItems;
+- (id)_videoOptionsConfigurationItem;
+- (void)_updateAlbumConfigurationItemWithDefaultAlbum;
+- (id)_albumConfigurationItem;
+- (id)_placeConfigurationItem;
+- (void)_updatePrivacyConfigurationItemWithDefaultPrivacySetting;
+- (id)_privacyConfigurationItem;
 - (void)didReceiveMemoryWarning;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

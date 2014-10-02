@@ -8,8 +8,10 @@
 
 @protocol UITextInput_Internal
 @property(readonly, nonatomic, getter=_proxyTextInput) UIResponder<UITextInput> *__content;
+- (BOOL)_usesAsynchronousProtocol;
 - (void)_phraseBoundaryGesture:(UIPhraseBoundaryGestureRecognizer *)arg1;
 - (UIPhraseBoundaryGestureRecognizer *)_newPhraseBoundaryGestureRecognizer;
+- (BOOL)_hasMarkedText;
 - (void)_unmarkText;
 - (void)_setMarkedText:(NSString *)arg1 selectedRange:(struct _NSRange)arg2;
 - (void)_setGestureRecognizers;
@@ -25,6 +27,7 @@
 - (UITextInputArrowKeyHistory *)_moveLeft:(BOOL)arg1 withHistory:(UITextInputArrowKeyHistory *)arg2;
 - (UITextInputArrowKeyHistory *)_moveDown:(BOOL)arg1 withHistory:(UITextInputArrowKeyHistory *)arg2;
 - (UITextInputArrowKeyHistory *)_moveUp:(BOOL)arg1 withHistory:(UITextInputArrowKeyHistory *)arg2;
+- (BOOL)_shouldPerformUICalloutBarButtonReplaceAction:(SEL)arg1 forText:(NSString *)arg2 checkAutocorrection:(BOOL)arg3;
 - (struct _NSRange)_selectedNSRange;
 - (void)_selectAll;
 - (int)_selectionAffinity;
@@ -70,6 +73,7 @@
 
 @optional
 @property(readonly, nonatomic) UIView<UITextInputPrivate> *_textSelectingContainer;
+- (void)_setInternalGestureRecognizers;
 - (BOOL)_isInteractiveTextSelectionDisabled;
 - (struct CGRect)_lastRectForRange:(UITextRange *)arg1;
 @end

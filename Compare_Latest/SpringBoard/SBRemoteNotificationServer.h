@@ -20,24 +20,14 @@
 }
 
 + (id)sharedInstance;
-- (id)_allPushRegisteredThirdPartyBundleIDs;
 - (void)setBackgroundDeliveryDisabled:(_Bool)arg1 forBundleIdentifier:(id)arg2;
-- (void)clearMessageUserInfoForToken:(int)arg1 forBundleIdentifier:(id)arg2;
-- (id)getMessageUserInfoForToken:(int)arg1 forBundleIdentifier:(id)arg2;
-- (id)getMessageUserInfoForBundleIdentifier:(id)arg1;
-- (void)setMessageUserInfo:(id)arg1 forToken:(int)arg2 forBundleIdentifier:(id)arg3;
-- (void)setMessageUserInfo:(id)arg1 forBundleIdentifier:(id)arg2;
-- (void)postSettingsChangedNotificationForBundleIdentifier:(id)arg1;
-- (void)setSettingsTypes:(unsigned long long)arg1 forBundleIdentifier:(id)arg2;
-- (unsigned long long)settingsEnabledTypesForBundleIdentifier:(id)arg1;
-- (unsigned long long)appEnabledTypesForBundleIdentifier:(id)arg1;
-- (void)notePermissionAlertAcceptedTypes:(unsigned long long)arg1 forBundleIdentifier:(id)arg2;
-- (_Bool)hasRegisteredBundleIdentifiers;
-- (void)setSystemwideEnabled:(_Bool)arg1;
-- (_Bool)isSystemwideEnabled;
-- (unsigned long long)getEffectiveEnabledTypesForApplication:(id)arg1;
-- (void)unregisterApplication:(id)arg1;
-- (void)registerApplication:(id)arg1 forEnvironment:(id)arg2 withTypes:(unsigned long long)arg3;
+- (unsigned long long)legacyRegisteredTypesForApp:(id)arg1;
+- (_Bool)isAppPushEnabled:(id)arg1;
+- (_Bool)isPushAllowedForBundleIdentifier:(id)arg1;
+- (void)requestTokenForClient:(id)arg1;
+- (void)setBackgroundAppRefreshAllowed:(_Bool)arg1 forBundleIdentifier:(id)arg2;
+- (void)registerApplication:(id)arg1 forEnvironment:(id)arg2 appWantsPush:(_Bool)arg3;
+- (void)userNotificationsChangedStateForBundleIdentifier:(id)arg1 becameEnabled:(_Bool)arg2;
 - (id)_allTopicsForApplication:(id)arg1;
 - (id)_cloudDatabaseTopicsForApplication:(id)arg1;
 - (void)calculateTopics;
@@ -46,8 +36,8 @@
 - (void)_appImportanceDecreased:(id)arg1;
 - (void)_appImportanceIncreased:(id)arg1;
 - (void)_moveTopicsForApp:(id)arg1 fromList:(unsigned long long)arg2 toList:(unsigned long long)arg3;
-- (id)allSettingsEnabledTypeValues;
-- (id)allAppEnabledTypeValues;
+- (id)allBackgroundAppRefreshEnabledBundleIdentifiers;
+- (id)allBackgroundAppRefreshCapableBundleIdentifiers;
 - (id)lastNotificationReceivedBundleIdentifier;
 - (void)connection:(id)arg1 didReceiveIncomingMessage:(id)arg2;
 - (void)connection:(id)arg1 didReceivePublicToken:(id)arg2;
@@ -55,6 +45,12 @@
 - (void)run;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

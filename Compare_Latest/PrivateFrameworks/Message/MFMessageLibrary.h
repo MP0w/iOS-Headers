@@ -6,13 +6,15 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class MFAttachmentLibraryDataProvider, NSString;
 
 @interface MFMessageLibrary : NSObject
 {
     NSString *_path;
+    MFAttachmentLibraryDataProvider *_attachmentDataProvider;
 }
 
+- (id)dataProvider;
 - (void)setStoredIntegerPropertyWithName:(id)arg1 value:(id)arg2;
 - (id)storedIntegerPropertyWithName:(id)arg1;
 - (BOOL)hasCompleteDataForMimePart:(id)arg1;
@@ -120,6 +122,7 @@
 - (id)messagesNeedingSyncConfirmationForMailbox:(id)arg1;
 - (id)serverSearchResultMessagesForMailbox:(id)arg1;
 - (id)messagesForMailbox:(id)arg1 olderThanNumberOfDays:(int)arg2;
+- (void)updateAdditionalThreadingInfoForSentMessageWithHeaders:(id)arg1 externalConversationID:(long long)arg2;
 - (void)updateThreadingInfoForMessage:(id)arg1 fromHeaders:(id)arg2;
 - (void)updateRecipientsForMessage:(id)arg1 fromHeaders:(id)arg2;
 - (id)duplicateMessages:(id)arg1 newRemoteIDs:(id)arg2 forMailbox:(id)arg3 setFlags:(unsigned long long)arg4 clearFlags:(unsigned long long)arg5 messageFlagsForMessages:(id)arg6 createNewCacheFiles:(BOOL)arg7;

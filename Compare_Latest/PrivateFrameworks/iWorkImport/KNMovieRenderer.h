@@ -6,14 +6,14 @@
 
 #import <iWorkImport/KNBuildRenderer.h>
 
-#import "TSKAVPlayerControllerDelegate.h"
+#import "TSKMediaPlayerControllerDelegate.h"
 
-@class CALayer, NSObject<NSCopying>, TSKAVPlayerController;
+@class CALayer, NSObject<NSCopying>, NSObject<TSKMediaPlayerController>, NSString;
 
 __attribute__((visibility("hidden")))
-@interface KNMovieRenderer : KNBuildRenderer <TSKAVPlayerControllerDelegate>
+@interface KNMovieRenderer : KNBuildRenderer <TSKMediaPlayerControllerDelegate>
 {
-    TSKAVPlayerController *mPlayerController;
+    NSObject<TSKMediaPlayerController> *mPlayerController;
     CALayer *mVideoLayer;
     double mStartTime;
     double mPlaybackAtStartTimePauseTime;
@@ -37,7 +37,7 @@ __attribute__((visibility("hidden")))
 + (id)movieInfoForMovieTimelineMovieIdentifier:(id)arg1;
 + (id)movieTimelineMovieIdentifierForMovieInfo:(id)arg1;
 @property(retain, nonatomic) id <TSDMovieHUDViewController> viewController; // @synthesize viewController=mViewController;
-@property(readonly, nonatomic) TSKAVPlayerController *playerController; // @synthesize playerController=mPlayerController;
+@property(readonly, nonatomic) NSObject<TSKMediaPlayerController> *playerController; // @synthesize playerController=mPlayerController;
 @property(nonatomic) KNBuildRenderer *buildInRenderer; // @synthesize buildInRenderer=mBuildInRenderer;
 @property(readonly, nonatomic) NSObject<NSCopying> *movieTimelineMovieIdentifier;
 @property(readonly, nonatomic) CALayer *offscreenVideoLayer;
@@ -51,7 +51,7 @@ __attribute__((visibility("hidden")))
 - (void)applyMovieControl:(int)arg1;
 - (struct CGImage *)p_copyCurrentVideoFrameImage;
 - (void)p_teardownUpdatingTexture:(BOOL)arg1;
-- (void)p_setupReflectionAndMaskingOnMovieTexture:(id)arg1 strokeTexture:(id)arg2 reflectionTexture:(id)arg3;
+- (void)p_setupReflectionAndMaskingOnMovieTexture:(id)arg1 strokeTexture:(id)arg2 reflectionMaskTexture:(id)arg3 frameMaskTexture:(id)arg4;
 - (void)p_showVideoLayer;
 - (void)p_cancelPlaybackAtStartTime;
 - (void)p_startPlaybackAtStartTime;
@@ -76,7 +76,13 @@ __attribute__((visibility("hidden")))
 - (BOOL)addAnimationsAtLayerTime:(double)arg1;
 - (void)animateAfterDelay:(double)arg1;
 - (void)dealloc;
-- (id)initWithInfo:(id)arg1 build:(id)arg2 stageIndex:(int)arg3 session:(id)arg4 model:(id)arg5 animatedSlideView:(id)arg6;
+- (id)initWithAnimatedBuild:(id)arg1 info:(id)arg2 buildStage:(id)arg3 session:(id)arg4 animatedSlideView:(id)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

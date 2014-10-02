@@ -8,7 +8,7 @@
 
 #import "ACDOAuthSignerProtocol.h"
 
-@class ACDClient, ACDClientAuthorizationManager, ACDDatabase;
+@class ACDClient, ACDClientAuthorizationManager, ACDDatabase, NSString;
 
 @interface ACDOAuthSigner : NSObject <ACDOAuthSignerProtocol>
 {
@@ -29,6 +29,12 @@
 - (void)setClientBundleID:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)setShouldIncludeAppIdInRequest:(BOOL)arg1;
 - (id)initWithClient:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

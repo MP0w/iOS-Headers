@@ -16,6 +16,11 @@
 + (id)sharedInstance;
 - (BOOL)requestIDStatusForDestination:(id)arg1 service:(id)arg2 listenerID:(id)arg3 queue:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
 - (BOOL)requestIDStatusForDestinations:(id)arg1 service:(id)arg2 listenerID:(id)arg3 queue:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
+- (id)_currentIDStatusForDestinations:(id)arg1 service:(id)arg2 listenerID:(id)arg3;
+- (int)_currentIDStatusForDestination:(id)arg1 service:(id)arg2 listenerID:(id)arg3;
+- (id)_refreshIDStatusForDestinations:(id)arg1 service:(id)arg2 listenerID:(id)arg3;
+- (int)_refreshIDStatusForDestination:(id)arg1 service:(id)arg2 listenerID:(id)arg3;
+- (void)_setCurrentIDStatus:(int)arg1 forDestination:(id)arg2 service:(id)arg3;
 - (BOOL)_flushQueryCacheForService:(id)arg1;
 - (BOOL)_warmupQueryCacheForService:(id)arg1;
 - (int)_currentCachedIDStatusForDestination:(id)arg1 service:(id)arg2 listenerID:(id)arg3;

@@ -10,10 +10,6 @@
 {
 }
 
-- (id)bestImageDataForSize:(struct CGSize)arg1 chapterIndex:(unsigned int)arg2 artworkInstanceInfo:(struct MLArtworkInstanceInfo *)arg3;
-- (id)imageDataForArtworkFormatID:(unsigned int)arg1 chapterIndex:(unsigned int)arg2 artworkInstanceInfo:(struct MLArtworkInstanceInfo *)arg3;
-- (id)artworkCacheIDForChapterIndex:(unsigned int)arg1;
-- (id)artworkCacheIDForTimeInMS:(unsigned int)arg1;
 - (id)urlPropertyOfChapterAtIndex:(unsigned int)arg1;
 - (id)urlTitlePropertyOfChapterAtIndex:(unsigned int)arg1;
 - (id)titlePropertyOfChapterAtIndex:(unsigned int)arg1;

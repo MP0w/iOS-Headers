@@ -22,7 +22,7 @@
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)loadView;
-- (id)_initWithAssetContainerList:(id)arg1 lockStatusBar:(BOOL)arg2 currentImageIndexPath:(id)arg3 delayImageLoading:(BOOL)arg4;
+- (id)_initWithAssetCollections:(id)arg1 dataSource:(id)arg2 lockStatusBar:(BOOL)arg3 currentImageIndexPath:(id)arg4 delayImageLoading:(BOOL)arg5;
 
 @end
 

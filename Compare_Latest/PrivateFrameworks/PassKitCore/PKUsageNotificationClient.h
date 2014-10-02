@@ -9,7 +9,7 @@
 #import "NSXPCListenerDelegate.h"
 #import "PKUsageNotificationClientInterface.h"
 
-@class NSMutableSet, NSXPCListener;
+@class NSMutableSet, NSString, NSXPCListener;
 
 @interface PKUsageNotificationClient : NSObject <NSXPCListenerDelegate, PKUsageNotificationClientInterface>
 {
@@ -23,6 +23,12 @@
 - (void)setPassUsageHandler:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

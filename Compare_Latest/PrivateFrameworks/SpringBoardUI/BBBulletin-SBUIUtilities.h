@@ -8,12 +8,19 @@
 
 @interface BBBulletin (SBUIUtilities)
 + (void)killSounds;
+- (id)_defaultActionWithFilter:(CDUnknownBlockType)arg1;
+- (id)_responseForAction:(id)arg1 withOrigin:(int)arg2 context:(id)arg3;
+- (BOOL)sb_supportsRaiseAction;
+- (id)sb_minimalSupplementaryActions;
+- (BOOL)sb_shouldSuppressMessageForPrivacy;
 - (BOOL)bulletinAlertShouldOverrideQuietMode;
 - (CDUnknownBlockType)actionBlockForButton:(id)arg1;
-- (CDUnknownBlockType)defaultActionBlock;
-- (CDUnknownBlockType)actionBlockForButton:(id)arg1 withOrigin:(int)arg2;
-- (CDUnknownBlockType)defaultActionBlockWithOrigin:(int)arg1;
-- (CDUnknownBlockType)defaultActionBlockWithOrigin:(int)arg1 canBypassPinLock:(char *)arg2 requiresUnlock:(char *)arg3 shouldDeactivateAwayController:(char *)arg4 suitabilityFilter:(CDUnknownBlockType)arg5;
+- (CDUnknownBlockType)actionBlockForAction:(id)arg1;
+- (CDUnknownBlockType)actionBlockForAction:(id)arg1 withOrigin:(int)arg2;
+- (BOOL)_isPushOrLocalNotification;
+- (id)_launchURLForAction:(id)arg1 context:(id)arg2;
+- (CDUnknownBlockType)actionBlockForAction:(id)arg1 withOrigin:(int)arg2 context:(id)arg3;
+- (id)sb_nonPluginDefaultAction;
 - (void)killSound;
 - (BOOL)playSound;
 @end

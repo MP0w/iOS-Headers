@@ -6,13 +6,13 @@
 
 #import <OfficeImport/MFPBrush.h>
 
-@class TSUColor, TSUImage;
+@class OITSUColor, OITSUImage;
 
 __attribute__((visibility("hidden")))
 @interface MFPImageBrush : MFPBrush
 {
-    TSUImage *mPhoneImage;
-    TSUColor *mPhonePatternColor;
+    OITSUImage *mPhoneImage;
+    OITSUColor *mPhonePatternColor;
 }
 
 - (id)color;

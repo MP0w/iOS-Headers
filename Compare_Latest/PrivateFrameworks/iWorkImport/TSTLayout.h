@@ -11,7 +11,7 @@
 #import "TSWPLayoutParent.h"
 #import "TSWPStorageObserver.h"
 
-@class TSTEditingState, TSTLayoutHint, TSTLayoutSpaceBundle, TSTMasterLayout, TSTTableInfo, TSTTableModel, TSWPLayout, TSWPPadding;
+@class NSMutableDictionary, NSString, TSTEditingState, TSTLayoutHint, TSTLayoutSpaceBundle, TSTMasterLayout, TSTTableInfo, TSTTableModel, TSWPLayout, TSWPPadding;
 
 __attribute__((visibility("hidden")))
 @interface TSTLayout : TSWPTextHostLayout <TSKSearchTarget, TSWPColumnMetrics, TSWPLayoutParent, TSWPStorageObserver>
@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
     } mCached;
     struct CGRect mRenderingFrameForLayoutGeometryFromInfo;
     TSWPLayout *mContainedTextEditingLayout;
+    NSMutableDictionary *mAttachmentCellLayouts;
     struct UIEdgeInsets mCachedPaddingForEditingCell;
     struct CGRect mComputedEditingCellContentFrame;
     int mCachedVerticalAlignmentForEditingCell;
@@ -42,17 +43,20 @@ __attribute__((visibility("hidden")))
     struct CGSize mStrokeDelta;
     struct CGSize mCapturedStrokeFrameSizeForInline;
     CDStruct_5f1f7aa9 mEditingSpillingTextRange;
+    CDStruct_5f1f7aa9 mPrevEditingSpillingTextRange;
     int mContainedTextEditorParagraphAlignment;
     BOOL mContainedTextEditorTextWraps;
     BOOL mContainedTextEditorSpills;
     struct CGSize mSpillingTextSize;
     int mCoordinatesChangedMaskForChrome;
+    BOOL mShouldUpdateAttachmentChildren;
 }
 
 @property(nonatomic) BOOL processChangesFiltering; // @synthesize processChangesFiltering=mProcessChangesFiltering;
 @property(retain, nonatomic) TSTLayoutHint *layoutHint; // @synthesize layoutHint=mLayoutHint;
 @property(nonatomic) TSTMasterLayout *masterLayout; // @synthesize masterLayout=mMasterLayout;
 @property(readonly, nonatomic) BOOL layoutDirectionIsLeftToRight; // @synthesize layoutDirectionIsLeftToRight=mLayoutDirectionIsLeftToRight;
+@property(nonatomic) CDStruct_5f1f7aa9 prevEditingSpillingTextRange; // @synthesize prevEditingSpillingTextRange=mPrevEditingSpillingTextRange;
 @property(readonly, nonatomic) CDStruct_5f1f7aa9 editingSpillingTextRange; // @synthesize editingSpillingTextRange=mEditingSpillingTextRange;
 @property(retain, nonatomic) TSTLayoutSpaceBundle *spaceBundle; // @synthesize spaceBundle=mSpaceBundle;
 @property(readonly, nonatomic) struct UIEdgeInsets paddingForEditingCell; // @synthesize paddingForEditingCell=mCachedPaddingForEditingCell;
@@ -60,6 +64,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) BOOL newCanvasRevealedVertically; // @synthesize newCanvasRevealedVertically=mNewCanvasRevealedVertically;
 @property(nonatomic) BOOL newCanvasRevealedHorizontally; // @synthesize newCanvasRevealedHorizontally=mNewCanvasRevealedHorizontally;
 - (id).cxx_construct;
+@property(readonly, nonatomic) unsigned int pageCount;
+@property(readonly, nonatomic) unsigned int pageNumber;
 - (BOOL)p_getLayoutDirectionLeftToRight;
 - (int)p_defaultAlignmentForTableWritingDirection;
 - (void)storage:(id)arg1 didChangeRange:(struct _NSRange)arg2 delta:(int)arg3 broadcastKind:(int)arg4;
@@ -68,32 +74,40 @@ __attribute__((visibility("hidden")))
 - (void)p_processChangeActions:(id)arg1;
 - (void)p_processChange:(id)arg1 forChangeSource:(id)arg2 actions:(id)arg3;
 - (struct CGSize)initialTextSize;
+- (struct CGRect)p_maskRectForRichTextLayout:(id)arg1;
+- (struct CGRect)p_maskRectForTextEditingLayout:(id)arg1;
 - (struct CGRect)maskRectForTextLayout:(id)arg1;
 - (Class)repClassForTextLayout:(id)arg1;
 - (id)dependentsOfTextLayout:(id)arg1;
 - (id)dependentLayouts;
-- (struct CGRect)p_computeSpillingTextFrameForLayout:(id)arg1 textSize:(struct CGSize)arg2 editingSpillRange:(CDStruct_5f1f7aa9 *)arg3;
+- (struct CGRect)p_computeSpillingTextFrameForEditingLayout:(id)arg1 textSize:(struct CGSize)arg2 editingSpillRange:(CDStruct_5f1f7aa9 *)arg3;
+- (struct CGRect)p_autosizedFrameForRichTextLayout:(id)arg1 textSize:(struct CGSize)arg2;
+- (struct CGRect)p_autosizedFrameForTextEditingLayout:(id)arg1 textSize:(struct CGSize)arg2;
 - (struct CGRect)autosizedFrameForTextLayout:(id)arg1 textSize:(struct CGSize)arg2;
 - (BOOL)p_layoutWhollyContainsGridRange:(CDStruct_3178b2de)arg1;
 - (struct CGSize)p_rangeUpAndLeftOfIntersectionRangeOfGridRange:(CDStruct_3178b2de)arg1;
+- (struct CGRect)p_nonAutosizedFrameForRichTextLayout:(id)arg1;
+- (struct CGRect)p_nonAutosizedFrameForTextEditingLayout:(id)arg1;
 - (struct CGRect)nonAutosizedFrameForTextLayout:(id)arg1;
 - (void)invalidateForAutosizingTextLayout:(id)arg1;
 - (int)verticalAlignmentForTextLayout:(id)arg1;
 - (float)maxAutoGrowWidthForTextLayout:(id)arg1;
 - (unsigned int)autosizeFlagsForTextLayout:(id)arg1;
 - (int)naturalAlignmentForTextLayout:(id)arg1;
-- (int)p_naturalAlignmentForCellID:(CDStruct_0441cfb5)arg1;
+- (CDStruct_0441cfb5)p_cellIDForWPLayout:(id)arg1;
+- (int)naturalAlignmentForCellID:(CDStruct_0441cfb5)arg1;
 @property(readonly, nonatomic) struct CGRect computedEditingCellContentFrame;
+- (struct CGRect)p_textFrameForWrappingCell:(CDStruct_0441cfb5)arg1 defaultRowHeight:(char *)arg2;
 - (BOOL)textIsVertical;
 @property(readonly, nonatomic) BOOL shrinkTextToFit;
 @property(readonly, nonatomic) BOOL alwaysStartsNewTarget;
-- (float)positionForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2 outWidth:(float *)arg3 outGap:(float *)arg4;
+- (float)positionForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2 target:(id)arg3 outWidth:(float *)arg4 outGap:(float *)arg5;
 - (float)gapForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2;
 - (float)widthForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2;
 @property(readonly, nonatomic) BOOL columnsAreLeftToRight;
 @property(readonly, nonatomic) unsigned int columnCount;
 @property(readonly, nonatomic) TSWPPadding *layoutMargins;
-@property(readonly, nonatomic) struct CGSize adjustedInsets;
+- (struct CGSize)adjustedInsetsForTarget:(id)arg1;
 - (struct CGRect)rectForPresentingAnnotationPopoverForSelection:(id)arg1;
 - (struct CGRect)rectForSelection:(id)arg1;
 - (BOOL)orderedBefore:(id)arg1;
@@ -102,15 +116,22 @@ __attribute__((visibility("hidden")))
 - (void)layoutSearchForAnnotationWithHitBlock:(CDUnknownBlockType)arg1;
 - (void)layoutSearchForSpellingErrorsWithHitBlock:(CDUnknownBlockType)arg1 stop:(char *)arg2;
 - (void)layoutSearchForString:(id)arg1 options:(unsigned int)arg2 hitBlock:(CDUnknownBlockType)arg3;
+- (void)removeAttachmentCellLayouts;
 - (void)removeContainedTextEditingLayout;
 - (void)updateChildrenFromInfo;
 - (id)children;
+- (struct CGSize)maximumFrameSizeForChild:(id)arg1;
+- (void)p_prepareAttachmentCells;
 - (void)setupContainedTextEditingLayout:(CDStruct_0441cfb5)arg1;
 - (void)p_updateCachedStyleInformationFromCellID:(CDStruct_0441cfb5)arg1;
+- (CDStruct_5f1f7aa9)p_spillRangeForMaskingRichTextLayout:(id)arg1;
+- (CDStruct_5f1f7aa9)p_spillRangeToRightForCellID:(CDStruct_0441cfb5)arg1;
+- (CDStruct_5f1f7aa9)p_maximumSpillRangeForCellID:(CDStruct_0441cfb5)arg1;
 - (BOOL)isBeingManipulated;
 - (void)validateTableNameVisibility;
 - (void)invalidateTableNameVisibility;
-- (void)bezierPathsForCellRegion:(id)arg1 transform:(struct CGAffineTransform)arg2 viewScale:(float)arg3 inset:(float)arg4 block:(CDUnknownBlockType)arg5;
+- (void)bezierPathsForCellRegion:(id)arg1 selectionMask:(unsigned int)arg2 transform:(struct CGAffineTransform)arg3 viewScale:(float)arg4 inset:(float)arg5 block:(CDUnknownBlockType)arg6;
+- (void)invalidatePosition;
 - (void)invalidateSize;
 - (void)invalidate;
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1;
@@ -147,6 +168,10 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) struct CGSize scaleToFit;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 @property(readonly, nonatomic) float textScaleFactor;
 
 @end

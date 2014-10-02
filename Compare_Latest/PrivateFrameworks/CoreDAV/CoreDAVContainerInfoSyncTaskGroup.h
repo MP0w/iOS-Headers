@@ -20,10 +20,15 @@
 - (Class)containerItemClass;
 - (void)task:(id)arg1 didFinishWithError:(id)arg2;
 - (void)startTaskGroup;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 @property(nonatomic) id <CoreDAVContainerInfoSyncProvider> delegate;
 - (id)initWithContainerURL:(id)arg1 previousSyncToken:(id)arg2 accountInfoProvider:(id)arg3 taskManager:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

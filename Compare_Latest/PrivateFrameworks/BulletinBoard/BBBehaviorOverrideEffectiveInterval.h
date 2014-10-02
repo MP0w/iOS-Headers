@@ -6,18 +6,18 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
-#import "NSCopying.h"
+#import "BBBehaviorOverrideEffectivePeriod.h"
 
-@class NSCalendar, NSDateComponents, NSString;
+@class NSCalendar, NSDateComponents, NSString, NSUUID;
 
-@interface BBBehaviorOverrideEffectiveInterval : NSObject <NSCopying, NSCoding>
+@interface BBBehaviorOverrideEffectiveInterval : NSObject <BBBehaviorOverrideEffectivePeriod>
 {
     NSDateComponents *_startComponents;
     NSDateComponents *_endComponents;
     NSString *_calendarIdentifier;
     NSCalendar *_calendar;
     unsigned int _repeatInterval;
+    NSUUID *_identifier;
 }
 
 + (id)dateWithComponents:(id)arg1 immediatelyFollowingDate:(id)arg2 calendar:(id)arg3 repeatInterval:(unsigned int)arg4;
@@ -26,6 +26,8 @@
 + (int)_dateComponentWithProvidedComponent:(int)arg1 andBaseComponent:(int)arg2;
 + (id)adjustComponentsForRepeatInterval:(unsigned int)arg1 earlier:(BOOL)arg2;
 + (unsigned int)relevantUnitsForRepeatInterval:(unsigned int)arg1;
++ (BOOL)supportsSecureCoding;
+@property(copy, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) unsigned int repeatInterval; // @synthesize repeatInterval=_repeatInterval;
 @property(copy, nonatomic) NSCalendar *calendar; // @synthesize calendar=_calendar;
 @property(copy, nonatomic) NSString *calendarIdentifier; // @synthesize calendarIdentifier=_calendarIdentifier;
@@ -37,10 +39,16 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
+- (id)initWithStartComponents:(id)arg1 endComponents:(id)arg2 calendarIdentifier:(id)arg3 repeatInterval:(unsigned int)arg4 identifier:(id)arg5;
 - (id)initWithStartComponents:(id)arg1 endComponents:(id)arg2 calendarIdentifier:(id)arg3 repeatInterval:(unsigned int)arg4;
 - (id)_configuredCalendarWithIdentifier:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

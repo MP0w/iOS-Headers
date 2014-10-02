@@ -6,25 +6,40 @@
 
 #import <ChatKit/CKAVMediaObject.h>
 
+@class AVURLAsset;
+
 @interface CKMovieMediaObject : CKAVMediaObject
 {
     BOOL _hasVideoTrack;
     BOOL _checkedVideoInfo;
+    AVURLAsset *_asset;
     struct CGSize _pxSize;
 }
 
 + (BOOL)isPreviewable;
++ (id)attachmentSummary:(unsigned int)arg1;
 + (id)fallbackFilenamePrefix;
 + (id)UTITypes;
++ (Class)__ck_attachmentItemClass;
+@property(retain, nonatomic) AVURLAsset *asset; // @synthesize asset=_asset;
 @property(nonatomic) BOOL checkedVideoInfo; // @synthesize checkedVideoInfo=_checkedVideoInfo;
 @property(nonatomic) struct CGSize pxSize; // @synthesize pxSize=_pxSize;
 @property(nonatomic) BOOL hasVideoTrack; // @synthesize hasVideoTrack=_hasVideoTrack;
 - (void)updateVideoInfo;
+- (BOOL)hasNoVideoTrack;
+- (id)previewItemTitle;
+- (BOOL)canBeAttachmentContiguous;
+- (void)export:(id)arg1;
+- (BOOL)canExport;
 - (struct CGSize)bbSize;
-- (id)generateThumbnailFillToSize:(struct CGSize)arg1;
-- (id)generateThumbnail;
-- (id)previewForOrientation:(BOOL)arg1;
+- (id)generateThumbnailFillToSize:(struct CGSize)arg1 contentAlignmentInsets:(struct UIEdgeInsets)arg2;
+- (id)generateThumbnailForWidth:(float)arg1 orientation:(BOOL)arg2;
+- (id)previewForWidth:(float)arg1 orientation:(BOOL)arg2;
+- (Class)previewBalloonViewClass;
+- (id)previewCachesFileURLWithOrientation:(BOOL)arg1 extension:(id)arg2;
+- (id)previewCacheKeyWithOrientation:(BOOL)arg1;
 - (int)mediaType;
+- (void)dealloc;
 
 @end
 

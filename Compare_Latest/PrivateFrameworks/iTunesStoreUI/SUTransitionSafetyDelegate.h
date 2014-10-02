@@ -8,12 +8,20 @@
 
 #import "UINavigationControllerDelegate.h"
 
+@class NSString;
+
 @interface SUTransitionSafetyDelegate : NSObject <UINavigationControllerDelegate>
 {
 }
 
 - (void)navigationController:(id)arg1 didShowViewController:(id)arg2 animated:(BOOL)arg3;
 - (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(BOOL)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

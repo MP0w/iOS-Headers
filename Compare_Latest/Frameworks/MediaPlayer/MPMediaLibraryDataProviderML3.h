@@ -12,14 +12,15 @@
 
 @interface MPMediaLibraryDataProviderML3 : NSObject <MPMediaLibraryDataProviderPrivate>
 {
-    NSString *_uniqueIdentifier;
     NSObject<OS_dispatch_queue> *_backgroundTaskQueue;
     unsigned int _backgroundTask;
     unsigned int _backgroundTaskCount;
     BOOL _hasScheduledEventPosting;
-    ML3MusicLibrary *_library;
     int _refreshState;
+    NSString *_uniqueIdentifier;
+    ML3MusicLibrary *_library;
     MPMediaEntityCache *_entityCache;
+    id <MPArtworkDataSource> _artworkDataSource;
 }
 
 + (id)_unadjustedValueForMPProperty:(id)arg1 withDefaultValue:(id)arg2;
@@ -28,6 +29,7 @@
 + (id)_unadjustedValueForItemPropertyRatingWithDefaultValue:(id)arg1;
 + (id)_unadjustedValueForItemPropertyVolumeAdjustmentWithDefaultValue:(id)arg1;
 + (id)_unadjustedValueForItemPropertyVolumeNormalizationWithDefaultValue:(id)arg1;
+@property(readonly, nonatomic) id <MPArtworkDataSource> artworkDataSource; // @synthesize artworkDataSource=_artworkDataSource;
 @property(readonly, nonatomic) MPMediaEntityCache *entityCache; // @synthesize entityCache=_entityCache;
 @property(retain, nonatomic) ML3MusicLibrary *library; // @synthesize library=_library;
 - (void).cxx_destruct;
@@ -55,7 +57,6 @@
 - (id)_adjustedItemPropertyEpisodeNumberOfEntity:(id)arg1 withDefaultValue:(id)arg2;
 - (id)_adjustedItemPropertyMovieInfoOfEntity:(id)arg1 withDefaultValue:(id)arg2;
 - (id)_adjustedItemPropertyFilePathOfEntity:(id)arg1 withDefaultValue:(id)arg2;
-- (id)_adjustedArtworkCacheIDPropertyOfEntity:(id)arg1 withDefaultValue:(id)arg2;
 - (id)_adjustedItemDateOfEntity:(id)arg1 withDefaultValue:(id)arg2;
 - (id)_adjustedItemPropertyRatingOfEntity:(id)arg1 withDefaultValue:(id)arg2;
 - (id)_adjustedItemPropertyVolumeAdjustmentOfEntity:(id)arg1 withDefaultValue:(id)arg2;
@@ -73,7 +74,6 @@
 - (id)collectionResultSetForQueryCriteria:(id)arg1;
 - (void)enumerateEntityChangesAfterSyncAnchor:(id)arg1 maximumRevisionType:(int)arg2 itemBlock:(CDUnknownBlockType)arg3 collectionBlock:(CDUnknownBlockType)arg4;
 @property(readonly, nonatomic) NSString *syncValidity;
-- (void)loadBestArtworkImageDataForSize:(struct CGSize)arg1 ofItemWithIdentifier:(long long)arg2 atPlaybackTime:(double)arg3 completionBlock:(CDUnknownBlockType)arg4;
 @property(readonly, nonatomic) NSArray *preferredSubtitleLanguages;
 @property(readonly, nonatomic) NSArray *preferredAudioLanguages;
 - (void)moveItemFromIndex:(unsigned int)arg1 toIndex:(unsigned int)arg2 inPlaylistWithIdentifier:(long long)arg3 completionBlock:(CDUnknownBlockType)arg4;
@@ -96,6 +96,8 @@
 - (void)loadValueForAggregateFunction:(id)arg1 onItemsForProperty:(id)arg2 queryCriteria:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (void)enumerateCollectionIdentifiersForQueryCriteria:(id)arg1 ordered:(BOOL)arg2 cancelBlock:(CDUnknownBlockType)arg3 usingBlock:(CDUnknownBlockType)arg4;
 - (void)enumerateItemIdentifiersForQueryCriteria:(id)arg1 ordered:(BOOL)arg2 cancelBlock:(CDUnknownBlockType)arg3 usingBlock:(CDUnknownBlockType)arg4;
+- (id)multiverseIdentifierForCollectionWithPersistentID:(long long)arg1 groupingType:(int)arg2;
+- (id)multiverseIdentifierForTrackWithPersistentID:(long long)arg1;
 - (BOOL)setValue:(id)arg1 forDatabaseProperty:(id)arg2;
 - (id)valueForDatabaseProperty:(id)arg1;
 @property(readonly, nonatomic) NSArray *localizedSectionIndexTitles;
@@ -104,6 +106,10 @@
 - (void)loadQueryCriteria:(id)arg1 countOfItemsWithCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)loadQueryCriteria:(id)arg1 hasCollectionsWithCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)loadQueryCriteria:(id)arg1 hasItemsWithCompletionBlock:(CDUnknownBlockType)arg2;
+- (BOOL)collectionExistsWithStoreID:(long long)arg1 groupingType:(int)arg2 existentPID:(unsigned long long *)arg3;
+- (BOOL)collectionExistsWithName:(id)arg1 groupingType:(int)arg2 existentPID:(unsigned long long *)arg3;
+- (BOOL)collectionExistsContainedWithinPersistentIDs:(const unsigned long long *)arg1 count:(unsigned long)arg2 groupingType:(int)arg3 existentPID:(unsigned long long *)arg4;
+- (BOOL)collectionExistsWithPersistentID:(unsigned long long)arg1 groupingType:(int)arg2;
 - (BOOL)playlistExistsWithPersistentID:(unsigned long long)arg1;
 - (long long)itemPersistentIDForStoreID:(long long)arg1;
 - (BOOL)itemExistsWithPersistentID:(unsigned long long)arg1;
@@ -122,9 +128,14 @@
 - (id)initWithLibrary:(id)arg1;
 
 // Remaining properties
+@property(readonly, nonatomic) id <MPArtworkDataSource> completeMyCollectionArtworkDataSource;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) BOOL isGeniusEnabled;
 @property(readonly, nonatomic) NSSet *propertiesToCache;
 @property(readonly, nonatomic) BOOL requiresAuthentication;
+@property(readonly) Class superclass;
 
 @end
 

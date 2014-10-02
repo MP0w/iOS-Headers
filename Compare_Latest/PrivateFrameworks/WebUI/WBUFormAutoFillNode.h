@@ -8,7 +8,7 @@
 
 #import "WBSFormAutoFillNode.h"
 
-@class DOMNode;
+@class DOMNode, NSString;
 
 @interface WBUFormAutoFillNode : NSObject <WBSFormAutoFillNode>
 {
@@ -17,15 +17,21 @@
 
 + (id)autoFillNodeWithDOMNode:(id)arg1;
 @property(readonly, nonatomic) DOMNode *domNode; // @synthesize domNode=_domNode;
+- (void).cxx_destruct;
 - (id)htmlTableCellElementCellAbove;
 - (BOOL)isHTMLTextAreaElementUserEdited;
 - (BOOL)isHTMLInputElementUserEdited;
 - (void)setHTMLInputElementAutofilled:(BOOL)arg1;
 - (BOOL)isHTMLInputElementAutofilled;
 - (struct CGRect)elementBounds;
-- (void)dealloc;
 - (id)initWithDOMNode:(id)arg1;
 - (id)initWithJSWrapper:(struct OpaqueJSValue *)arg1 inContext:(struct OpaqueJSContext *)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

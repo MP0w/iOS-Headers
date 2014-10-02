@@ -10,7 +10,7 @@ __attribute__((visibility("hidden")))
 @interface TSCEFormulaRewriteSpec : NSObject
 {
     int mType;
-    CDUnion_1539c118 mInfo;
+    CDUnion_716c3b7a mInfo;
 }
 
 - (id).cxx_construct;
@@ -18,9 +18,10 @@ __attribute__((visibility("hidden")))
 - (id)initWithArchive:(const struct FormulaRewriteSpecArchive *)arg1;
 - (struct __CFUUID *)affectedOwnerID;
 - (id)description;
-- (CDUnion_1539c118)rewriteInfo;
+- (CDUnion_716c3b7a)rewriteInfo;
 - (int)rewriteType;
 - (void)dealloc;
+- (id)initWithTransposeTable:(struct __CFUUID *)arg1 condStyleOwnerID:(struct __CFUUID *)arg2 withNumberOfFooterRows:(unsigned short)arg3;
 - (id)initWithCellMergeInTable:(struct __CFUUID *)arg1 mergedRange:(struct)arg2;
 - (id)initWithTableResize:(struct __CFUUID *)arg1 oldTableSize:(struct)arg2 newTableSize:(struct)arg3;
 - (id)initWithOwnerDeletion:(struct __CFUUID *)arg1;

@@ -47,5 +47,11 @@ __attribute__((visibility("hidden")))
 - (unsigned char)formulaTypeForFormula:(id)arg1;
 - (void)updateMaxPopulatedRow:(unsigned int)arg1 column:(unsigned int)arg2;
 
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
+
 @end
 

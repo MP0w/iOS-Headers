@@ -27,8 +27,8 @@ __attribute__((visibility("hidden")))
 - (BOOL)selectCountWithFetchRequest:(id)arg1;
 - (void)selectRowsWithCachedStatement:(id)arg1;
 - (void)selectRowsWithStatement:(id)arg1;
-- (void)bindTempTablesForStatementIfNecessary:(id)arg1;
 - (void)selectRowsWithFetchRequest:(id)arg1;
+- (void)bindTempTablesForStatementIfNecessary:(id)arg1;
 - (id)sqlCore;
 - (BOOL)isFetchInProgress;
 - (void)setCurrentContext:(id)arg1;

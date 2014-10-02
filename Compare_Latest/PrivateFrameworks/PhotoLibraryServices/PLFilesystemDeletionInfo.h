@@ -22,13 +22,13 @@
 
 + (id)deletionInfoWithAsset:(id)arg1;
 @property(readonly) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
-@property(readonly) NSString *uuid; // @synthesize uuid=_uuid;
+@property(readonly, retain) NSString *uuid; // @synthesize uuid=_uuid;
 @property(retain) NSString *thumbnailIdentifier; // @synthesize thumbnailIdentifier=_thumbnailIdentifier;
 @property(readonly) unsigned int thumbnailIndex; // @synthesize thumbnailIndex=_thumbnailIndex;
 @property(retain) NSArray *fileURLs; // @synthesize fileURLs=_fileURLs;
-@property(readonly) NSURL *objectIDURI; // @synthesize objectIDURI=_objectIDURI;
-@property(readonly) NSString *filename; // @synthesize filename=_filename;
-@property(readonly) NSString *directory; // @synthesize directory=_directory;
+@property(readonly, retain) NSURL *objectIDURI; // @synthesize objectIDURI=_objectIDURI;
+@property(readonly, retain) NSString *filename; // @synthesize filename=_filename;
+@property(readonly, retain) NSString *directory; // @synthesize directory=_directory;
 - (id)description;
 - (void)dealloc;
 - (id)initWithObjectIDURI:(id)arg1 directory:(id)arg2 filename:(id)arg3 fileURLs:(id)arg4 thumbnailIndex:(unsigned int)arg5 thumbnailIdentifier:(id)arg6 uuid:(id)arg7 timestamp:(unsigned long long)arg8;

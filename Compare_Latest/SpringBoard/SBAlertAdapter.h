@@ -13,9 +13,10 @@
     UIViewController *_effectiveViewController;
 }
 
+- (id)viewControllerForSupportedInterfaceOrientations;
 - (id)effectiveViewController;
 - (void)setDisplay:(id)arg1;
-- (id)description;
+- (id)_basicDescription;
 - (id)alertDisplayViewWithSize:(struct CGSize)arg1;
 - (id)display;
 - (void)alertWindow:(id)arg1 resizedFromContentFrame:(struct CGRect)arg2 toContentFrame:(struct CGRect)arg3;

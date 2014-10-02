@@ -25,7 +25,6 @@
     NSString *_previousPTag;
     NSString *_nextPTag;
     NSArray *_actions;
-    void *_context;
     unsigned int _multiGetBatchSize;
     NSMutableArray *_unsubmittedTasks;
     NSURL *_addMemberURL;
@@ -40,14 +39,13 @@
     BOOL _preflightCTag;
 }
 
-@property(retain) NSString *nextCTag; // @synthesize nextCTag=_nextCTag;
-@property(readonly) NSDictionary *folderURLToChildrenURLOrder; // @synthesize folderURLToChildrenURLOrder=_folderURLToChildrenURLOrder;
-@property(readonly) void *context; // @synthesize context=_context;
-@property(retain) NSString *previousSyncToken; // @synthesize previousSyncToken=_previousSyncToken;
-@property BOOL preflightCTag; // @synthesize preflightCTag=_preflightCTag;
-@property(readonly) NSString *previousCTag; // @synthesize previousCTag=_previousCTag;
-@property(readonly) NSURL *folderURL; // @synthesize folderURL=_folderURL;
-@property unsigned int multiGetBatchSize; // @synthesize multiGetBatchSize=_multiGetBatchSize;
+@property(retain, nonatomic) NSString *nextCTag; // @synthesize nextCTag=_nextCTag;
+@property(readonly, nonatomic) NSDictionary *folderURLToChildrenURLOrder; // @synthesize folderURLToChildrenURLOrder=_folderURLToChildrenURLOrder;
+@property(retain, nonatomic) NSString *previousSyncToken; // @synthesize previousSyncToken=_previousSyncToken;
+@property(nonatomic) BOOL preflightCTag; // @synthesize preflightCTag=_preflightCTag;
+@property(readonly, nonatomic) NSString *previousCTag; // @synthesize previousCTag=_previousCTag;
+@property(readonly, nonatomic) NSURL *folderURL; // @synthesize folderURL=_folderURL;
+@property(nonatomic) unsigned int multiGetBatchSize; // @synthesize multiGetBatchSize=_multiGetBatchSize;
 - (BOOL)shouldSyncChildWithResourceType:(id)arg1;
 - (id)dataContentType;
 - (id)copyFolderMultiGetTaskWithURLs:(id)arg1;
@@ -77,12 +75,15 @@
 - (void)_foundChildrenOrder:(id)arg1 inFolderWithURL:(id)arg2;
 - (void)_tearDownAllUnsubmittedTasks;
 - (void)taskGroupWillCancelWithError:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
-- (id)initWithFolderURL:(id)arg1 previousCTag:(id)arg2 previousPTag:(id)arg3 previousSyncToken:(id)arg4 actions:(id)arg5 syncItemOrder:(BOOL)arg6 context:(void *)arg7 accountInfoProvider:(id)arg8 taskManager:(id)arg9;
+- (id)initWithFolderURL:(id)arg1 previousCTag:(id)arg2 previousPTag:(id)arg3 previousSyncToken:(id)arg4 actions:(id)arg5 syncItemOrder:(BOOL)arg6 context:(id)arg7 accountInfoProvider:(id)arg8 taskManager:(id)arg9;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) id <CoreDAVLocalDBTreeInfoProvider> delegate; // @dynamic delegate;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

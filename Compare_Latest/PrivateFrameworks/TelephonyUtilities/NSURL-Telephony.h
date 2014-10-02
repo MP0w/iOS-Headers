@@ -13,9 +13,21 @@
 + (id)URLWithTelephoneNumber:(id)arg1 addressBookUID:(int)arg2;
 + (id)URLWithTelephoneNumber:(id)arg1 promptUser:(BOOL)arg2;
 + (id)URLWithTelephoneNumber:(id)arg1;
++ (id)telephonyURLForTelEmergencyCall;
++ (id)telephonyURLForTelEmergency;
++ (id)telephonyURLForVoicemail;
++ (id)telephonyURLWithDestinationID:(id)arg1 addressBookUID:(int)arg2 forceAssist:(BOOL)arg3 suppressAssist:(BOOL)arg4 wasAssisted:(BOOL)arg5;
++ (id)telephonyURLWithDestinationID:(id)arg1 addressBookUID:(int)arg2;
++ (id)telephonyURLWithDestinationID:(id)arg1 promptUser:(BOOL)arg2;
++ (id)telephonyURLWithDestinationID:(id)arg1;
++ (id)URLWithScheme:(id)arg1;
 - (id)_mobilePhoneQueryParameters;
 - (id)_mobilePhonePathParameters;
 - (id)telephonyParameterDictionary;
+@property(readonly) BOOL isVoicemailURL;
+@property(readonly) BOOL isEmergencyCallURL;
+@property(readonly) BOOL isEmergencyURL;
+@property(readonly) BOOL isBasebandLogURL;
 - (id)webSafeTelephoneURL;
 - (BOOL)isWebSafeTelephoneURL;
 - (id)numberQualifiedForAddressBook;
@@ -24,8 +36,10 @@
 @property(readonly) BOOL wasAlreadyAssisted;
 @property(readonly) BOOL suppressAssist;
 @property(readonly) BOOL forceAssist;
+@property(readonly) NSString *originatingUIIdentifier;
 @property(readonly) int callService;
 @property(readonly) int addressBookUID;
+@property(readonly) NSString *overrideName;
 @property(readonly) NSString *phoneNumber;
 - (id)_phoneNumberConvertNumbersToLatin:(BOOL)arg1;
 @end

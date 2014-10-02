@@ -6,13 +6,15 @@
 
 #import "NSObject.h"
 
+#import "BBUniquableObject.h"
 #import "NSSecureCoding.h"
 
 @class BBSectionIcon, BBSectionSubtypeParameters, NSLock, NSMutableDictionary, NSString;
 
-@interface BBSectionParameters : NSObject <NSSecureCoding>
+@interface BBSectionParameters : NSObject <BBUniquableObject, NSSecureCoding>
 {
     NSLock *_lock;
+    NSString *_uniqueIdentifier;
     BOOL _showsSubtitle;
     BOOL _usesVariableLayout;
     BOOL _orderSectionUsingRecencyDate;
@@ -23,14 +25,12 @@
     NSMutableDictionary *_allSubtypeParameters;
     NSString *_displayName;
     BBSectionIcon *_icon;
-    NSString *_uniqueIdentifier;
 }
 
 + (BOOL)supportsSecureCoding;
 + (id)copyCachedSectionParametersWithIdentifier:(id)arg1;
 + (void)removeSectionParametersFromCache:(id)arg1;
-+ (void)addSectionParametersToCache:(id)arg1;
-@property(retain, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
++ (id)addSectionParametersToCache:(id)arg1;
 @property(nonatomic) BOOL displaysCriticalBulletins; // @synthesize displaysCriticalBulletins=_displaysCriticalBulletins;
 @property(retain, nonatomic) BBSectionIcon *icon; // @synthesize icon=_icon;
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
@@ -43,9 +43,16 @@
 @property(nonatomic) BOOL showsSubtitle; // @synthesize showsSubtitle=_showsSubtitle;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)uniqueIdentifier;
 - (id)parametersForSubtype:(int)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

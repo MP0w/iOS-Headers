@@ -6,22 +6,29 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray, NSString;
+@class NSArray, NSString;
 
 @interface PSLanguageSelector : NSObject
 {
     NSString *_language;
-    NSMutableArray *_supportedLanguages;
-    NSArray *_supportedKeyboards;
+    NSArray *_languagesWithLocaleData;
+    NSArray *_otherLanguages;
 }
 
++ (id)languageArrayAfterSettingLanguage:(id)arg1 fallback:(id)arg2 toLanguageArray:(id)arg3;
 + (id)sharedInstance;
+- (id)deviceLanguageIdentifier;
+- (id)systemLanguages;
+- (BOOL)languageIsSupportedLanguage:(id)arg1;
+- (id)languagesWithAvailableLocaleIdentifiers;
+- (id)renderableLanguagesFromList:(id)arg1;
 - (id)supportedLanguages;
 - (void)setLanguage:(id)arg1 fallback:(id)arg2;
 - (void)setLanguage:(id)arg1;
-- (id)currentLanguage;
-- (void)_loadSupportedLanguages;
-- (void)_setLanguage:(id)arg1;
+- (id)appleLanguages;
+- (BOOL)preferredLanguages;
+- (id)userDeviceLanguageOrder;
+- (id)defaultOtherLanguages;
 - (void)dealloc;
 
 @end

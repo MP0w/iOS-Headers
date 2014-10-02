@@ -15,6 +15,7 @@
     UIView *_bottomView;
 }
 
++ (double)dockHeightForOrientation:(long long)arg1;
 + (double)shelfHeightForOrientation:(long long)arg1;
 + (double)baselineForShelfAtIndex:(unsigned long long)arg1 withOrientation:(long long)arg2;
 - (void)layoutSubviews;

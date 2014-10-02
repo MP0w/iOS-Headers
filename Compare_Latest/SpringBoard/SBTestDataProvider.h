@@ -8,12 +8,13 @@
 
 #import "BBRemoteDataProvider.h"
 
-@class BBDataProviderConnection, BBDataProviderProxy;
+@class BBDataProviderConnection, BBDataProviderProxy, NSMutableArray, NSString;
 
 @interface SBTestDataProvider : NSObject <BBRemoteDataProvider>
 {
     BBDataProviderConnection *_connection;
     BBDataProviderProxy *_proxy;
+    NSMutableArray *_bulletins;
 }
 
 + (id)sharedInstance;
@@ -29,8 +30,15 @@
 - (id)sectionDisplayName;
 - (id)defaultSectionInfo;
 - (id)sectionIdentifier;
+- (id)_bulletin;
 - (void)publish;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

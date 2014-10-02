@@ -20,7 +20,7 @@
 + (id)storeLookupIDForAlbumItemsQuery:(id)arg1;
 @property(readonly, nonatomic) NSNumber *storeLookupID; // @synthesize storeLookupID=_storeLookupID;
 @property(readonly, nonatomic) BOOL wantsArtwork; // @synthesize wantsArtwork=_wantsArtwork;
-@property(readonly, nonatomic) CDUnknownBlockType responseBlock; // @synthesize responseBlock=_responseBlock;
+@property(readonly, copy, nonatomic) CDUnknownBlockType responseBlock; // @synthesize responseBlock=_responseBlock;
 @property(readonly, nonatomic) unsigned int tokenID; // @synthesize tokenID=_tokenID;
 @property(readonly, nonatomic) MPMediaQuery *albumItemsQuery; // @synthesize albumItemsQuery=_albumItemsQuery;
 - (void).cxx_destruct;

@@ -14,6 +14,7 @@
 }
 
 @property(copy, nonatomic) NSArray *containers; // @synthesize containers;
+- (void).cxx_destruct;
 - (void)dealloc;
 
 @end

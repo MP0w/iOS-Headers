@@ -16,20 +16,22 @@
 + (BOOL)consolidateMovieFragmentsInFile:(id)arg1 error:(id *)arg2;
 + (BOOL)updateMovieMetadataInFile:(id)arg1 withMetadata:(id)arg2 error:(id *)arg3;
 + (id)recorderCommonMetadataForAVMetadataItemArray:(id)arg1;
++ (long long)nextMovieFileSettingsID;
 + (void)initialize;
-- (void)_applyOverridesToCaptureOptions:(id)arg1;
++ (id)alloc;
 - (long)_stopRecording;
-- (long)_startRecording:(id)arg1;
+- (void)_startRecording:(id)arg1;
 - (void)handleNotification:(id)arg1 payload:(id)arg2;
+- (void)handleDidStopRecordingNotificationForWrapper:(id)arg1 withPayload:(id)arg2 demoof:(BOOL)arg3 addMetadata:(BOOL)arg4;
+- (void)_removeRecordingDelegateWrapper:(id)arg1;
+- (void)detachSafelyFromFigCaptureSession:(struct OpaqueFigCaptureSession *)arg1;
+- (void)attachSafelyToFigCaptureSession:(struct OpaqueFigCaptureSession *)arg1;
 - (id)_avErrorUserInfoDictionaryForError:(long)arg1 wrapper:(id)arg2;
-- (void)_handleStartRecordingError:(long)arg1 info:(id)arg2;
 @property(copy, nonatomic) NSArray *metadata;
 - (id)outputSettingsForConnection:(id)arg1;
 - (BOOL)sendsLastVideoPreviewFrame;
 - (void)setSendsLastVideoPreviewFrame:(BOOL)arg1;
 @property(nonatomic) CDStruct_1b6d18a9 movieFragmentInterval;
-- (void)handleEnabledChangedForConnection:(id)arg1;
-- (void)didStopForSession:(id)arg1 error:(id)arg2;
 - (void)stopRecording;
 - (void)startRecordingToOutputFileURL:(id)arg1 recordingDelegate:(id)arg2;
 - (id)outputFileURL;
@@ -40,7 +42,6 @@
 - (id)connectionMediaTypes;
 - (void)dealloc;
 - (id)init;
-- (BOOL)getRecorderBoolForKey:(id)arg1 withDefault:(BOOL)arg2;
 
 @end
 

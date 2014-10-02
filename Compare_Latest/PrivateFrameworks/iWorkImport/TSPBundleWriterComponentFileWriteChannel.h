@@ -8,7 +8,7 @@
 
 #import "TSPComponentWriteChannel.h"
 
-@class NSObject<OS_dispatch_queue>, NSURL, TSUFileIOChannel;
+@class NSObject<OS_dispatch_queue>, NSString, NSURL, TSUFileIOChannel;
 
 __attribute__((visibility("hidden")))
 @interface TSPBundleWriterComponentFileWriteChannel : NSObject <TSPComponentWriteChannel>
@@ -24,6 +24,12 @@ __attribute__((visibility("hidden")))
 - (void)close;
 - (void)writeData:(id)arg1;
 - (id)initWithURL:(id)arg1 queue:(id)arg2 handler:(CDUnknownBlockType)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

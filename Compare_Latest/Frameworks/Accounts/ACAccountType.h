@@ -24,12 +24,18 @@
     NSSet *_supportedDataclasses;
     NSSet *_syncableDataclasses;
     NSSet *_accessKeys;
+    BOOL _encryptAccountProperties;
+    NSString *_owningBundleID;
+    NSString *_owningTeamID;
 }
 
 + (BOOL)supportsSecureCoding;
+@property(retain, nonatomic) NSString *owningTeamID; // @synthesize owningTeamID=_owningTeamID;
+@property(retain, nonatomic) NSString *owningBundleID; // @synthesize owningBundleID=_owningBundleID;
 @property(nonatomic) BOOL supportsMultipleAccounts; // @synthesize supportsMultipleAccounts=_supportsMultipleAccounts;
 @property(nonatomic) __weak ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL encryptAccountProperties; // @synthesize encryptAccountProperties=_encryptAccountProperties;
 @property(readonly, nonatomic) NSSet *accessKeys; // @synthesize accessKeys=_accessKeys;
 @property(nonatomic) int supportsAuthentication; // @synthesize supportsAuthentication=_supportsAuthentication;
 @property(readonly, nonatomic) BOOL accessGranted;
@@ -44,6 +50,7 @@
 @property(readonly, nonatomic) NSSet *syncableDataclasses; // @synthesize syncableDataclasses=_syncableDataclasses;
 @property(readonly, nonatomic) NSSet *supportedDataclasses; // @synthesize supportedDataclasses=_supportedDataclasses;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(readonly, nonatomic) NSString *fullDescription;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

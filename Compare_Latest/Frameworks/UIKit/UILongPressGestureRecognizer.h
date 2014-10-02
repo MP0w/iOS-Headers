@@ -30,7 +30,7 @@
 @property(nonatomic) float allowableMovement; // @synthesize allowableMovement=_allowableMovement;
 @property(nonatomic) double delay; // @synthesize delay=_minimumPressDuration;
 @property(nonatomic) unsigned int numberOfTouchesRequired; // @synthesize numberOfTouchesRequired=_numberOfTouchesRequired;
-@property(readonly, nonatomic) NSArray *touches; // @synthesize touches=_touches;
+@property(readonly, retain, nonatomic) NSArray *touches; // @synthesize touches=_touches;
 - (BOOL)canPreventGestureRecognizer:(id)arg1;
 - (struct CGPoint)locationOfTouch:(unsigned int)arg1 inView:(id)arg2;
 - (unsigned int)numberOfTouches;

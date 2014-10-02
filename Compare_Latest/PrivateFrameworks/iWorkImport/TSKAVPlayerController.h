@@ -6,13 +6,16 @@
 
 #import "NSObject.h"
 
-@class AVPlayer;
+#import "TSKMediaPlayerController.h"
+
+@class AVPlayer, NSString;
 
 __attribute__((visibility("hidden")))
-@interface TSKAVPlayerController : NSObject
+@interface TSKAVPlayerController : NSObject <TSKMediaPlayerController>
 {
     AVPlayer *mPlayer;
-    id <TSKAVPlayerControllerDelegate> mDelegate;
+    id <TSKMediaPlayerControllerDelegate> mDelegate;
+    BOOL mStreaming;
     int mRepeatMode;
     float mVolume;
     float mRateBeforeScrubbing;
@@ -22,16 +25,18 @@ __attribute__((visibility("hidden")))
     BOOL mFastReversing;
     BOOL mFastForwarding;
     BOOL mIsObservingStatus;
-    double _absoluteCurrentTime;
 }
 
++ (id)keyPathsForValuesAffectingCanFastForward;
++ (id)keyPathsForValuesAffectingCanFastReverse;
++ (id)keyPathsForValuesAffectingRate;
++ (BOOL)automaticallyNotifiesObserversOfRate;
 + (id)keyPathsForValuesAffectingEndTime;
 + (BOOL)automaticallyNotifiesObserversOfEndTime;
 + (id)keyPathsForValuesAffectingStartTime;
 + (BOOL)automaticallyNotifiesObserversOfStartTime;
 + (id)keyPathsForValuesAffectingAbsoluteDuration;
 + (id)keyPathsForValuesAffectingDuration;
-@property(nonatomic) double absoluteCurrentTime; // @synthesize absoluteCurrentTime=_absoluteCurrentTime;
 @property(nonatomic, getter=isFastForwarding) BOOL fastForwarding; // @synthesize fastForwarding=mFastForwarding;
 @property(nonatomic, getter=isFastReversing) BOOL fastReversing; // @synthesize fastReversing=mFastReversing;
 @property(nonatomic, getter=isPlaying) BOOL playing; // @synthesize playing=mPlaying;
@@ -39,37 +44,52 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) float volume; // @synthesize volume=mVolume;
 @property(nonatomic) int repeatMode; // @synthesize repeatMode=mRepeatMode;
 @property(readonly, nonatomic) AVPlayer *player; // @synthesize player=mPlayer;
-@property(readonly, nonatomic) id <TSKAVPlayerControllerDelegate> delegate; // @synthesize delegate=mDelegate;
+@property(readonly, nonatomic) id <TSKMediaPlayerControllerDelegate> delegate; // @synthesize delegate=mDelegate;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)p_playerItemDidJumpTime:(id)arg1;
 - (void)p_playbackDidFailWithError:(id)arg1;
 - (void)p_playerItemDidPlayToEndTime:(id)arg1;
 - (void)playerItemDidPlayToEndTimeAtRate:(float)arg1;
+- (void)removePeriodicTimeObserver:(id)arg1;
+- (id)addPeriodicTimeObserverForInterval:(double)arg1 block:(CDUnknownBlockType)arg2;
 - (void)p_closedCaptioningStatusDidChange:(id)arg1;
 - (void)p_updateClosedCaptionDisplayEnabled;
 - (void)p_stopObservingClosedCaptionDisplayEnabled;
 - (void)p_startObservingClosedCaptionDisplayEnabled;
-- (BOOL)p_canFastForward;
-- (BOOL)p_canFastReverse;
+- (BOOL)p_canFastForwardAtCurrentTime;
+@property(readonly, nonatomic) BOOL canFastForward;
+- (BOOL)p_canFastReverseAtCurrentTime;
+@property(readonly, nonatomic) BOOL canFastReverse;
+@property(nonatomic) float rate;
 - (void)seekToEnd;
 - (void)seekToBeginning;
 - (void)seekBackwardByOneFrame;
 - (void)seekForwardByOneFrame;
 - (void)endScrubbing;
+- (void)cancelPendingSeeks;
 - (void)scrubToTime:(double)arg1 withTolerance:(double)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)scrubToTime:(double)arg1 withTolerance:(double)arg2;
 - (void)beginScrubbing;
 @property(readonly, nonatomic, getter=isScrubbing) BOOL scrubbing;
 @property(readonly, nonatomic) double remainingTime;
 @property(readonly, nonatomic) double currentTime;
+@property(readonly, nonatomic) double absoluteCurrentTime;
 - (void)p_applyVolumeToPlayerItem;
 @property(nonatomic) double endTime;
 @property(nonatomic) double startTime;
 @property(readonly, nonatomic) double absoluteDuration;
 @property(readonly, nonatomic) double duration;
+- (id)newLayer;
 - (void)teardown;
 - (void)dealloc;
 - (id)init;
-- (id)initWithPlayer:(id)arg1 delegate:(id)arg2;
+- (id)initWithPlayer:(id)arg1 delegate:(id)arg2 streaming:(BOOL)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

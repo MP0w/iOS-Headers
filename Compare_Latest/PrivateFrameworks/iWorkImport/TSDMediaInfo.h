@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) struct CGSize originalSize; // @synthesize originalSize=mOriginalSize;
+- (id)commandForSettingBoxedValue:(id)arg1 forProperty:(int)arg2;
 - (struct CGPoint)centerForReplacingWithNewMedia;
 - (void)updateGeometryToReplaceMediaInfo:(id)arg1;
 - (void)takePropertiesFromReplacedMediaInfo:(id)arg1;

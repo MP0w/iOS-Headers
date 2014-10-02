@@ -8,11 +8,10 @@
 
 #import "SBControlCenterObserver.h"
 
-@class NSMutableArray, SBCCQuickLaunchSectionController, SBCCSettingsSectionController, SBControlCenterGrabberView, SBControlCenterSectionViewController, UIViewController;
+@class NSString, SBCCQuickLaunchSectionController, SBCCSettingsSectionController, SBControlCenterGrabberView, SBControlCenterSectionViewController, UIViewController;
 
 @interface SBControlCenterContentView : UIView <SBControlCenterObserver>
 {
-    NSMutableArray *_dividerViews;
     UIViewController *_viewController;
     SBControlCenterGrabberView *_grabberView;
     SBCCSettingsSectionController *_settingsSection;
@@ -22,6 +21,7 @@
     SBCCQuickLaunchSectionController *_quickLaunchSection;
 }
 
++ (double)defaultBreadthForOrientation:(long long)arg1;
 @property(retain, nonatomic) SBCCQuickLaunchSectionController *quickLaunchSection; // @synthesize quickLaunchSection=_quickLaunchSection;
 @property(retain, nonatomic) SBControlCenterSectionViewController *airplaySection; // @synthesize airplaySection=_airplaySection;
 @property(retain, nonatomic) SBControlCenterSectionViewController *mediaControlsSection; // @synthesize mediaControlsSection=_mediaControlsSection;
@@ -41,10 +41,15 @@
 - (void)_removeSectionController:(id)arg1;
 - (void)_addSectionController:(id)arg1;
 - (double)contentHeightForOrientation:(long long)arg1;
-- (id)_separatorAtIndex:(unsigned long long)arg1;
 - (id)_allSections;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

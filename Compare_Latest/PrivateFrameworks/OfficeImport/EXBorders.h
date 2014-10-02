@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)edBordersFromXmlBordersElement:(struct _xmlNode *)arg1 state:(id)arg2;
++ (void)initialize;
 + (int)edDiagStyleFromXmlElement:(struct _xmlNode *)arg1;
 + (int)edBorderStyleFromXmlBorderStyleString:(id)arg1;
 + (id)edBorderFromXmlElement:(struct _xmlNode *)arg1 diagonalType:(int)arg2 state:(id)arg3;

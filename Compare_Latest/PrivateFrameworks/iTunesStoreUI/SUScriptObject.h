@@ -36,7 +36,7 @@
 - (void)removeListenerForEventWithName:(id)arg1 callback:(id)arg2 useCapture:(BOOL)arg3;
 - (BOOL)equals:(id)arg1;
 - (void)addListenerForEventWithName:(id)arg1 callback:(id)arg2 useCapture:(BOOL)arg3;
-@property(readonly) WebFrame *webFrame;
+@property(readonly, retain) WebFrame *webFrame;
 - (id)viewControllerFactory;
 - (void)unlock;
 - (void)tearDownUserInterface;
@@ -56,7 +56,7 @@
 - (void)dispatchEvent:(id)arg1 forName:(id)arg2;
 - (id)copyObjectForScriptFromPoolWithClass:(Class)arg1;
 @property(readonly) struct OpaqueJSContext *copyJavaScriptContext;
-@property(readonly) SUClientInterface *clientInterface;
+@property(readonly, retain) SUClientInterface *clientInterface;
 - (void)checkOutScriptObjects:(id)arg1;
 - (void)checkOutScriptObject:(id)arg1;
 - (void)checkInScriptObjects:(id)arg1;

@@ -4,92 +4,79 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <PassKitCore/PKObject.h>
 
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSArray, NSData, NSDate, NSDictionary, NSSet, NSString, NSURL, PKBarcode, PKImage, PKPassContent, PKPassDisplayProfile, PKPassImages, UIImage;
+@class NSArray, NSDate, NSDictionary, NSSet, NSString, NSURL, PKBarcode, PKImage, PKPassDisplayProfile, PKPaymentPass, UIImage;
 
-@interface PKPass : NSObject <NSCopying, NSSecureCoding>
+@interface PKPass : PKObject <NSCopying, NSSecureCoding>
 {
-    PKPassContent *_content;
-    PKPassImages *_images[4];
     BOOL _voided;
     BOOL _revoked;
-    NSString *_uniqueID;
-    NSString *_passTypeIdentifier;
-    NSString *_teamID;
+    unsigned int _passType;
     NSString *_serialNumber;
+    NSString *_passTypeIdentifier;
     NSString *_organizationName;
+    NSDate *_relevantDate;
+    NSDictionary *_userInfo;
+    NSURL *_passURL;
+    NSString *_teamID;
     NSDate *_expirationDate;
     NSString *_groupingID;
-    NSDate *_relevantDate;
     NSSet *_embeddedLocations;
-    NSURL *_webServiceURL;
-    NSString *_authenticationToken;
-    PKPassDisplayProfile *_displayProfile;
-    NSData *_manifestHash;
-    int _settings;
-    NSDate *_ingestedDate;
-    NSDate *_modifiedDate;
-    NSDictionary *_userInfo;
-    int _shareCount;
     NSSet *_embeddedBeacons;
     NSURL *_webLocationsURL;
     NSURL *_localLocationsURL;
+    int _sharingMethod;
+    NSURL *_sharingURL;
+    NSString *_sharingText;
+    NSString *_iAdReportingIdentifier;
     PKImage *_partialFrontFaceImagePlaceholder;
+    NSDate *_ingestedDate;
+    NSDate *_modifiedDate;
 }
 
 + (BOOL)supportsSecureCoding;
-@property(readonly, nonatomic) PKImage *partialFrontFaceImagePlaceholder; // @synthesize partialFrontFaceImagePlaceholder=_partialFrontFaceImagePlaceholder;
-@property(copy, nonatomic) NSURL *localLocationsURL; // @synthesize localLocationsURL=_localLocationsURL;
-@property(copy, nonatomic) NSURL *webLocationsURL; // @synthesize webLocationsURL=_webLocationsURL;
-@property(copy, nonatomic) NSSet *embeddedBeacons; // @synthesize embeddedBeacons=_embeddedBeacons;
-@property(nonatomic) int shareCount; // @synthesize shareCount=_shareCount;
-@property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
++ (BOOL)isValidObjectWithFileURL:(id)arg1 warnings:(id *)arg2 orError:(id *)arg3;
 @property(nonatomic, getter=isRevoked) BOOL revoked; // @synthesize revoked=_revoked;
 @property(retain, nonatomic) NSDate *modifiedDate; // @synthesize modifiedDate=_modifiedDate;
 @property(retain, nonatomic) NSDate *ingestedDate; // @synthesize ingestedDate=_ingestedDate;
-@property(nonatomic) int settings; // @synthesize settings=_settings;
-@property(retain, nonatomic) NSData *manifestHash; // @synthesize manifestHash=_manifestHash;
-@property(copy, nonatomic) PKPassDisplayProfile *displayProfile; // @synthesize displayProfile=_displayProfile;
-@property(copy, nonatomic) NSString *authenticationToken; // @synthesize authenticationToken=_authenticationToken;
-@property(copy, nonatomic) NSURL *webServiceURL; // @synthesize webServiceURL=_webServiceURL;
+@property(readonly, nonatomic) PKImage *partialFrontFaceImagePlaceholder; // @synthesize partialFrontFaceImagePlaceholder=_partialFrontFaceImagePlaceholder;
+@property(copy, nonatomic, setter=setiAdReportingIdentifier:) NSString *iAdReportingIdentifier; // @synthesize iAdReportingIdentifier=_iAdReportingIdentifier;
+@property(copy, nonatomic) NSString *sharingText; // @synthesize sharingText=_sharingText;
+@property(copy, nonatomic) NSURL *sharingURL; // @synthesize sharingURL=_sharingURL;
+@property(nonatomic) int sharingMethod; // @synthesize sharingMethod=_sharingMethod;
+@property(copy, nonatomic) NSURL *localLocationsURL; // @synthesize localLocationsURL=_localLocationsURL;
+@property(copy, nonatomic) NSURL *webLocationsURL; // @synthesize webLocationsURL=_webLocationsURL;
+@property(copy, nonatomic) NSSet *embeddedBeacons; // @synthesize embeddedBeacons=_embeddedBeacons;
 @property(copy, nonatomic) NSSet *embeddedLocations; // @synthesize embeddedLocations=_embeddedLocations;
-@property(copy, nonatomic) NSDate *relevantDate; // @synthesize relevantDate=_relevantDate;
 @property(copy, nonatomic) NSString *groupingID; // @synthesize groupingID=_groupingID;
 @property(nonatomic, getter=isVoided) BOOL voided; // @synthesize voided=_voided;
 @property(copy, nonatomic) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
-@property(copy, nonatomic) NSString *organizationName; // @synthesize organizationName=_organizationName;
-@property(copy, nonatomic) NSString *serialNumber; // @synthesize serialNumber=_serialNumber;
 @property(copy, nonatomic) NSString *teamID; // @synthesize teamID=_teamID;
+@property(copy, nonatomic) NSURL *passURL; // @synthesize passURL=_passURL;
+@property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
+@property(copy, nonatomic) NSDate *relevantDate; // @synthesize relevantDate=_relevantDate;
+@property(copy, nonatomic) NSString *organizationName; // @synthesize organizationName=_organizationName;
 @property(copy, nonatomic) NSString *passTypeIdentifier; // @synthesize passTypeIdentifier=_passTypeIdentifier;
-@property(copy, nonatomic) NSString *uniqueID; // @synthesize uniqueID=_uniqueID;
-- (id)initWithData:(id)arg1 error:(id *)arg2;
-- (id)_imageSetLoadingIfNecessary:(int)arg1;
-- (id)_contentLoadingIfNecessary;
-- (BOOL)isExpired;
-- (BOOL)isUpdatable;
-- (BOOL)hasTimeOrLocationRelevancyInfo;
-- (void)fetchImageSet:(int)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)fetchContentWithCompletion:(CDUnknownBlockType)arg1;
-- (BOOL)isBundled;
-- (id)allImageSetsLoadingIfNecessary;
-- (BOOL)imageSetIsLoaded:(int)arg1;
-- (void)loadImageSetSync:(int)arg1 preheat:(BOOL)arg2;
-- (void)flushFormattedFieldValues;
-- (void)flushCachedImageSets;
-- (void)loadImageSetAsync:(int)arg1 preheat:(BOOL)arg2 withCompletion:(CDUnknownBlockType)arg3;
-- (BOOL)contentIsLoaded;
-- (void)loadContentSync;
-- (void)loadContentAsyncWithCompletion:(CDUnknownBlockType)arg1;
+@property(copy, nonatomic) NSString *serialNumber; // @synthesize serialNumber=_serialNumber;
+@property(nonatomic) unsigned int passType; // @synthesize passType=_passType;
+- (id)_changeMessageForFieldKey:(id)arg1;
+- (id)_groupingIDFromPassDictionary:(id)arg1;
+- (id)_localizationKeyForMultipleDiff;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (BOOL)isEqualToPassIncludingMetadata:(id)arg1;
-@property(readonly, nonatomic) NSData *archivedPass;
+@property(readonly, nonatomic) struct CGRect logoRect;
+- (id)stripImage;
+- (id)backgroundImage;
+- (id)logoImage;
 @property(readonly, nonatomic) PKImage *backFaceImage;
 @property(readonly, nonatomic) struct CGRect stripRect;
 @property(readonly, nonatomic) struct CGRect thumbnailRect;
-@property(readonly, nonatomic) struct CGRect logoRect;
 @property(readonly, nonatomic) PKImage *partialFrontFaceImage;
 @property(readonly, nonatomic) PKImage *frontFaceImage;
 @property(readonly, nonatomic) PKImage *iconImage;
@@ -98,24 +85,34 @@
 @property(readonly, nonatomic) NSArray *backFieldBuckets;
 @property(readonly, nonatomic) NSArray *frontFieldBuckets;
 @property(readonly, nonatomic) int transitType;
-@property(readonly, nonatomic) NSString *localizedDescription;
+@property(readonly, copy, nonatomic) NSString *localizedDescription;
 @property(readonly, nonatomic) NSString *logoText;
 @property(readonly, nonatomic) PKImage *footerImage;
 @property(readonly, nonatomic) PKBarcode *barcode;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (id)_changeMessageForFieldKey:(id)arg1;
+- (id)diff:(id)arg1;
+- (id)localizedDescriptionForDiff:(id)arg1;
 - (id)localizedValueForFieldKey:(id)arg1;
-@property(readonly, nonatomic) NSURL *passURL;
+- (BOOL)supportsSharing;
+- (BOOL)isExpired;
+- (BOOL)isUpdatable;
+- (BOOL)hasLocationRelevancyInfo;
+- (BOOL)hasTimeOrLocationRelevancyInfo;
+@property(readonly, nonatomic) PKPaymentPass *paymentPass;
 @property(readonly, nonatomic) NSString *pluralLocalizedName;
 @property(readonly, nonatomic) NSString *lowercaseLocalizedName;
-@property(readonly, nonatomic) NSString *localizedName;
-@property(readonly, nonatomic) unsigned int style;
+@property(readonly, copy, nonatomic) NSString *localizedName;
+@property(readonly, nonatomic) int style;
+- (void)downloadRemoteAssetsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)dealloc;
+- (id)initWithDictionary:(id)arg1 bundle:(id)arg2;
+- (id)initWithData:(id)arg1 error:(id *)arg2;
 
 // Remaining properties
-@property(readonly, nonatomic) UIImage *icon; // @dynamic icon;
+@property(copy, nonatomic) NSString *authenticationToken;
+@property(copy, nonatomic) PKPassDisplayProfile *displayProfile;
+@property(readonly, copy, nonatomic) UIImage *icon; // @dynamic icon;
+@property(readonly, nonatomic) NSString *uniqueID;
+@property(copy, nonatomic) NSURL *webServiceURL;
 
 @end
 

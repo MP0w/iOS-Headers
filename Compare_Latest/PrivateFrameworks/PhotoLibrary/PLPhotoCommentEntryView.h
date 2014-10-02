@@ -8,7 +8,7 @@
 
 #import "UITextViewDelegate.h"
 
-@class UIButton, UILabel, UITextView;
+@class NSString, UIButton, UILabel, UITextView;
 
 @interface PLPhotoCommentEntryView : UIView <UITextViewDelegate>
 {
@@ -20,9 +20,9 @@
 }
 
 @property(nonatomic) id <PLPhotoCommentEntryViewDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) UIButton *postButton; // @synthesize postButton=_postButton;
-@property(readonly, nonatomic) UITextView *textView; // @synthesize textView=_textView;
-@property(readonly, nonatomic) UILabel *placeholderLabel; // @synthesize placeholderLabel=_placeholderLabel;
+@property(readonly, retain, nonatomic) UIButton *postButton; // @synthesize postButton=_postButton;
+@property(readonly, retain, nonatomic) UITextView *textView; // @synthesize textView=_textView;
+@property(readonly, retain, nonatomic) UILabel *placeholderLabel; // @synthesize placeholderLabel=_placeholderLabel;
 - (void)textViewDidChange:(id)arg1;
 - (void)layoutSubviews;
 - (id)trimmedText;
@@ -30,6 +30,12 @@
 - (float)preferredHeight;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -4,10 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class PKPass, PKPassGroupStackView;
+#import "NSObject.h"
 
-@protocol PKPassGroupStackViewDelegate
-- (int)suppressedContent;
+@class PKPass, PKPassGroupStackView, PKPassView;
+
+@protocol PKPassGroupStackViewDelegate <NSObject>
+- (unsigned int)suppressedContent;
 - (BOOL)passesGrowWhenFlipped;
 - (void)groupStackViewDidEndReordering:(PKPassGroupStackView *)arg1;
 - (void)groupStackViewDidBeginReordering:(PKPassGroupStackView *)arg1;
@@ -15,7 +17,13 @@
 
 @optional
 - (void)flyInAnimationDidEnd;
-- (void)groupStackView:(PKPassGroupStackView *)arg1 didAnimateToState:(int)arg2;
+- (void)groupStackViewDidHideHeader:(PKPassGroupStackView *)arg1;
+- (void)groupStackViewDidShowHeader:(PKPassGroupStackView *)arg1;
+- (void)groupStackView:(PKPassGroupStackView *)arg1 didTransitionToState:(int)arg2 animated:(BOOL)arg3;
+- (void)groupStackView:(PKPassGroupStackView *)arg1 transitioningToState:(int)arg2 animated:(BOOL)arg3;
 - (void)groupStackView:(PKPassGroupStackView *)arg1 groupDidMoveFromIndex:(unsigned int)arg2 toIndex:(unsigned int)arg3;
+- (void)groupStackView:(PKPassGroupStackView *)arg1 didEndShowingPassView:(PKPassView *)arg2;
+- (void)groupStackView:(PKPassGroupStackView *)arg1 didBeginShowingPassView:(PKPassView *)arg2;
+- (BOOL)groupStackViewShouldAllowReordering:(PKPassGroupStackView *)arg1;
 @end
 

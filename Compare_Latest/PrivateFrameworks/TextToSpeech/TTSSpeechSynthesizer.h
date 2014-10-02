@@ -8,19 +8,20 @@
 
 #import "TTSSpeechConnectionDelegate.h"
 
-@class NSObject<OS_dispatch_queue>, NSString, TTSSpeechConnection;
+@class NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface TTSSpeechSynthesizer : NSObject <TTSSpeechConnectionDelegate>
 {
     int _footprint;
-    BOOL _useCustomVoice;
-    int _gender;
+    id <TTSSpeechSynthesizerDelegate> _delegate;
     BOOL _useSharedSession;
     BOOL _audioSessionIDIsValid;
     unsigned int _audioSessionID;
     unsigned int _audioQueueFlags;
+    NSMutableDictionary *_channels;
     NSObject<OS_dispatch_queue> *_queue;
-    TTSSpeechConnection *_speechConnection;
+    NSMutableArray *_currentRequestOwners;
+    NSMutableArray *_speechRequests;
     struct {
         unsigned int delegateStartWithRequest:1;
         unsigned int delegateFinishWithRequest:1;
@@ -30,23 +31,21 @@
         unsigned int delegateWillSpeakWithRequest:1;
         unsigned int willUseInput:1;
     } _synthesizerFlags;
-    id <TTSSpeechSynthesizerDelegate> _delegate;
     float _rate;
     float _pitch;
     float _volume;
-    NSString *_voice;
+    NSString *_voiceIdentifier;
 }
 
 + (BOOL)isSystemSpeaking;
-+ (id)availableFootprintsForVoice:(id)arg1 languageCode:(id)arg2;
 + (id)availableLanguageCodes;
 + (id)availableVoicesForLanguageCode:(id)arg1;
 + (id)availableVoices;
-@property(retain, nonatomic) NSString *voice; // @synthesize voice=_voice;
++ (void)initialize;
+@property(retain, nonatomic) NSString *voiceIdentifier; // @synthesize voiceIdentifier=_voiceIdentifier;
 @property(nonatomic) float volume; // @synthesize volume=_volume;
 @property(nonatomic) float pitch; // @synthesize pitch=_pitch;
 @property(nonatomic) float rate; // @synthesize rate=_rate;
-@property(nonatomic) __weak id <TTSSpeechSynthesizerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)connection:(id)arg1 speechRequest:(id)arg2 willSpeakMark:(int)arg3 inRange:(struct _NSRange)arg4;
 - (void)connection:(id)arg1 speechRequest:(id)arg2 didStopAtEnd:(BOOL)arg3 phonemesSpoken:(id)arg4 error:(id)arg5;
@@ -64,10 +63,6 @@
 - (void)useAudioQueueFlags:(unsigned int)arg1;
 - (void)useSpecificAudioSession:(unsigned int)arg1;
 - (void)useSharedAudioSession:(BOOL)arg1;
-- (int)gender;
-- (void)setGender:(int)arg1;
-- (BOOL)useCustomVoice;
-- (void)setUseCustomVoice:(BOOL)arg1;
 - (int)footprint;
 - (void)setFootprint:(int)arg1;
 - (float)maximumRate;
@@ -83,13 +78,18 @@
 - (BOOL)startSpeakingString:(id)arg1 withLanguageCode:(id)arg2 error:(id *)arg3;
 - (BOOL)startSpeakingString:(id)arg1 toURL:(id)arg2 error:(id *)arg3;
 - (BOOL)startSpeakingString:(id)arg1 error:(id *)arg2;
+@property(nonatomic) __weak id <TTSSpeechSynthesizerDelegate> delegate; // @dynamic delegate;
 - (BOOL)_continueSpeakingRequest:(id)arg1 withError:(id *)arg2;
 - (BOOL)_pauseSpeakingRequest:(id)arg1 atNextBoundary:(int)arg2 synchronously:(BOOL)arg3 error:(id *)arg4;
 - (BOOL)_stopSpeakingRequest:(id)arg1 atNextBoundary:(int)arg2 synchronously:(BOOL)arg3 error:(id *)arg4;
+- (id)_speechVoiceForIdentifier:(id)arg1 language:(id)arg2;
 - (BOOL)_startSpeakingString:(id)arg1 orAttributedString:(id)arg2 toURL:(id)arg3 withLanguageCode:(id)arg4 request:(id *)arg5 error:(id *)arg6;
+- (id)_preprocessText:(id)arg1 languageCode:(id)arg2;
+@property(readonly, nonatomic) NSString *resolvedVoiceIdentifier;
 - (void)_setDelegate:(id)arg1;
 - (void)dealloc;
 - (BOOL)startSpeakingAttributedString:(id)arg1 toURL:(id)arg2 withLanguageCode:(id)arg3 error:(id *)arg4;
+- (void)_mediaServicesDied;
 - (id)init;
 
 @end

@@ -8,6 +8,8 @@
 
 #import "NSCoding.h"
 
+@class NSConnection;
+
 @interface NSDistantObject : NSProxy <NSCoding>
 {
     id _knownSelectors;
@@ -53,7 +55,7 @@
 - (BOOL)conformsToProtocol:(id)arg1;
 - (id)protocolForProxy;
 - (void)setProtocolForProxy:(id)arg1;
-- (id)connectionForProxy;
+@property(readonly, retain) NSConnection *connectionForProxy;
 - (id)initWithLocal:(id)arg1 connection:(id)arg2;
 - (id)initWithTarget:(id)arg1 connection:(id)arg2;
 

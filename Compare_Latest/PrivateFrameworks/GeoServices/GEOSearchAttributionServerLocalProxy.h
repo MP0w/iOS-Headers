@@ -8,7 +8,7 @@
 
 #import "GEOSearchAttributionServerProxy.h"
 
-@class NSMapTable, NSMutableArray;
+@class NSMapTable, NSMutableArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface GEOSearchAttributionServerLocalProxy : NSObject <GEOSearchAttributionServerProxy>
@@ -27,6 +27,12 @@ __attribute__((visibility("hidden")))
 - (void)_sendInfo:(id)arg1 updatedManifest:(BOOL)arg2 toListener:(id)arg3;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

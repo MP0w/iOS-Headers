@@ -11,7 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface __NSOperationInternal : NSObject
 {
-    unsigned char __pad1[16];
+    unsigned char __pad1[8];
     NSOperation *__outerOp;
     NSOperation *__prevOp;
     NSOperation *__nextOp;
@@ -25,25 +25,28 @@ __attribute__((visibility("hidden")))
     void *__implicitObsInfo;
     long long __seqno;
     double __thread_prio;
+    id __children;
     int __RC;
     int __state;
     BOOL __prio;
     unsigned char __cached_isReady;
     unsigned char __isCancelled;
     unsigned char __isBarrier;
-    unsigned char __pad2[4];
-    struct _opaque_pthread_mutex_t {
-        long __sig;
-        char __opaque[40];
-    } __wait_mutex;
+    int __qoses;
+    struct _opaque_pthread_mutex_t __wait_mutex;
     struct _opaque_pthread_cond_t {
         long __sig;
         char __opaque[24];
     } __wait_cond;
-    unsigned char __pad3[40];
+    struct _opaque_pthread_t *__pthread;
+    char *__nameBuffer;
+    id __activity;
+    struct pthread_override_s *__ov;
+    unsigned char __pad3[12];
 }
 
 + (void)_observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 changeKind:(unsigned int)arg3 oldValue:(id)arg4 newValue:(id)arg5 indexes:(id)arg6 context:(void *)arg7;
+- (id)_activity;
 - (id)__;
 - (void)_start:(id)arg1;
 - (id)_dependencies;
@@ -51,9 +54,11 @@ __attribute__((visibility("hidden")))
 - (void)_addDependency:(id)arg1 outer:(id)arg2;
 - (void)_waitUntilFinishedOrTimeout:(double)arg1 outer:(id)arg2;
 - (void)_waitUntilFinished:(id)arg1;
-- (void)_setCompletionBlock:(CDUnknownBlockType)arg1;
+- (void)_setName:(id)arg1 outer:(id)arg2;
+- (id)_name;
+- (void)_setCompletionBlock:(CDUnknownBlockType)arg1 outer:(id)arg2;
 - (CDUnknownBlockType)_completionBlock;
-- (void)_setThreadPriority:(double)arg1;
+- (void)_setThreadPriority:(double)arg1 outer:(id)arg2;
 - (double)_threadPriority;
 - (void)_setQueuePriority:(int)arg1 outer:(id)arg2;
 - (int)_queuePriority;
@@ -65,7 +70,7 @@ __attribute__((visibility("hidden")))
 - (void)finalize;
 - (void)dealloc;
 - (void)_invalidate;
-- (id)init;
+- (id)init:(id)arg1;
 
 @end
 

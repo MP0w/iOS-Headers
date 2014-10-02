@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)pairWithSemanticTag:(id)arg1 property:(int)arg2;
+- (id)description;
 - (int)property;
 - (id)semanticTag;
 - (unsigned int)hash;

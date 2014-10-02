@@ -6,24 +6,27 @@
 
 #import "UIView.h"
 
-@class RCUIConfiguration;
+@class RCLayoutMetrics, RCUIConfiguration;
 
 @interface RCAcousticAnnotationView : UIView
 {
     struct CGGradient *_decibelMarkerBackgroundGradient;
-    float _minimumDecibelRange;
-    float _maximumDecibelRange;
     RCUIConfiguration *_UIConfiguration;
+    RCLayoutMetrics *_layoutMetrics;
+    float _gradientAlpha;
 }
 
 + (float)requiredWidth;
+@property(nonatomic) float gradientAlpha; // @synthesize gradientAlpha=_gradientAlpha;
+@property(retain, nonatomic) RCLayoutMetrics *layoutMetrics; // @synthesize layoutMetrics=_layoutMetrics;
 @property(copy, nonatomic) RCUIConfiguration *UIConfiguration; // @synthesize UIConfiguration=_UIConfiguration;
-@property(nonatomic) float maximumDecibelRange; // @synthesize maximumDecibelRange=_maximumDecibelRange;
-@property(nonatomic) float minimumDecibelRange; // @synthesize minimumDecibelRange=_minimumDecibelRange;
 - (void).cxx_destruct;
 - (id)_zeroMarkerAttributes;
 - (id)_decibelMarkersAttributes;
+- (void)_reloadGradient;
 - (void)drawRect:(struct CGRect)arg1;
+- (void)setFrame:(struct CGRect)arg1;
+- (struct CGSize)intrinsicContentSize;
 - (struct CGRect)annotationBoundaryRect;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

@@ -12,9 +12,9 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)sharedGenerator;
-- (id)newIconWithMask:(struct CGImage *)arg1 outlineMask:(struct CGImage *)arg2 style:(CDStruct_d3c687f7 *)arg3 scale:(float)arg4;
-- (id)keyForName:(id)arg1 style:(CDStruct_d3c687f7 *)arg2;
-- (BOOL)canHandleStyle:(CDStruct_d3c687f7 *)arg1;
+- (id)newIconWithMask:(struct CGImage *)arg1 outlineMask:(struct CGImage *)arg2 style:(CDStruct_5977520b *)arg3 scale:(float)arg4;
+- (id)keyForName:(id)arg1 style:(CDStruct_5977520b *)arg2 size:(int)arg3;
+- (BOOL)canHandleStyle:(CDStruct_5977520b *)arg1;
 
 @end
 

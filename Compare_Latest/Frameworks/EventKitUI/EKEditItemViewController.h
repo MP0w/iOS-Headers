@@ -14,19 +14,17 @@ __attribute__((visibility("hidden")))
 @interface EKEditItemViewController : UIViewController <EKEditItemViewControllerProtocol>
 {
     struct CGRect _initialFrame;
-    int _subitem;
+    unsigned int _subitem;
     BOOL _modal;
     id <EKStyleProvider> _styleProvider;
     id <EKEditItemViewControllerDelegate> _editDelegate;
     EKUIRecurrenceAlertController *_recurrenceAlertController;
     BOOL _showsDoneButton;
-    int _subsection;
 }
 
 @property(nonatomic) BOOL showsDoneButton; // @synthesize showsDoneButton=_showsDoneButton;
 @property(nonatomic) BOOL modal; // @synthesize modal=_modal;
-@property(nonatomic) int subsection; // @synthesize subsection=_subsection;
-@property(nonatomic) int subitem; // @synthesize subitem=_subitem;
+@property(nonatomic) unsigned int subitem; // @synthesize subitem=_subitem;
 @property(nonatomic) __weak id <EKEditItemViewControllerDelegate> editDelegate; // @synthesize editDelegate=_editDelegate;
 - (void).cxx_destruct;
 - (float)tableView:(id)arg1 heightForFooterInSection:(int)arg2;
@@ -48,6 +46,10 @@ __attribute__((visibility("hidden")))
 - (void)viewWillAppear:(BOOL)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 styleProvider:(id)arg2;
+
+// Remaining properties
+@property(nonatomic) BOOL editItemShouldBeAskedForInjectableViewController;
+@property(nonatomic) BOOL presentModally;
 
 @end
 

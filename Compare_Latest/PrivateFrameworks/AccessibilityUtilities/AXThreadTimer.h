@@ -8,15 +8,17 @@
 
 #import "AXTimer.h"
 
-@class AXThreadTimerTask, NSThread;
+@class AXThreadTimerTask, NSString, NSThread;
 
 @interface AXThreadTimer : NSObject <AXTimer>
 {
     NSThread *_thread;
     CDUnknownBlockType _cancelBlock;
+    BOOL _automaticallyCancelPendingBlockUponSchedulingNewBlock;
     AXThreadTimerTask *_task;
 }
 
+@property(nonatomic) BOOL automaticallyCancelPendingBlockUponSchedulingNewBlock; // @synthesize automaticallyCancelPendingBlockUponSchedulingNewBlock=_automaticallyCancelPendingBlockUponSchedulingNewBlock;
 @property(retain, nonatomic) AXThreadTimerTask *task; // @synthesize task=_task;
 - (void)dealloc;
 @property(readonly, nonatomic, getter=isActive) BOOL active;
@@ -27,6 +29,12 @@
 - (void)afterDelay:(double)arg1 processBlock:(CDUnknownBlockType)arg2;
 - (void)_runAfterDelay:(id)arg1;
 - (id)initWithThread:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

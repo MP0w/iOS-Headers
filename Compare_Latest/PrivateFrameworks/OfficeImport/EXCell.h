@@ -12,9 +12,11 @@ __attribute__((visibility("hidden")))
 }
 
 + (void)edCellFromXmlCellElement:(struct _xmlNode *)arg1 edRowInfo:(struct EDRowInfo **)arg2 edRowBlock:(id)arg3 edRowBlocks:(id)arg4 state:(id)arg5;
++ (void)initialize;
 + (int)edErrorFromXmlErrorString:(id)arg1;
++ (double)dateTimeNumberFromXmlDateString:(id)arg1 state:(id)arg2;
 + (_Bool)edBoolFromXmlBoolString:(id)arg1;
-+ (int)edCellTypeFromXmlCellElement:(struct _xmlNode *)arg1 stringIndex:(_Bool *)arg2;
++ (int)edCellTypeFromXmlCellElement:(struct _xmlNode *)arg1 isDate:(_Bool *)arg2 stringIndex:(_Bool *)arg3;
 
 @end
 

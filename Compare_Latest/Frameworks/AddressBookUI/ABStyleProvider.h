@@ -8,12 +8,13 @@
 
 #import "ABStyleProvider.h"
 
-@class UIColor, UIFont, UIImage, UIView, _UIGraphicsLetterpressStyle;
+@class NSString, UIColor, UIFont, UIImage, UIView, _UIGraphicsLetterpressStyle;
 
 @interface ABStyleProvider : NSObject <ABStyleProvider>
 {
 }
 
++ (BOOL)supportsSecureCoding;
 + (float)memberTextBaseline;
 + (float)memberRowHeight;
 + (float)memberHeaderTextBaseline;
@@ -259,6 +260,7 @@
 @property(readonly, nonatomic) UIColor *cardTableCellBorderColor;
 @property(readonly, nonatomic) _UIGraphicsLetterpressStyle *letterpressStyle;
 @property(readonly, nonatomic) BOOL cardTableShouldAdjustForKeyboard;
+@property(readonly, nonatomic) UIColor *cardSectionBackgroundColor;
 @property(readonly, nonatomic) UIColor *cardTableBackgroundColor;
 @property(readonly, nonatomic) BOOL cardTableShouldRemoveBackgroundView;
 @property(readonly, nonatomic) UIImage *memberSectionListHeaderImage;
@@ -267,6 +269,8 @@
 @property(readonly, nonatomic) BOOL searchIsAlwaysActive;
 @property(readonly, nonatomic) float memberScrollBarInset;
 @property(readonly, nonatomic) UIColor *cardLabelSelectedBackgroundColor;
+@property(readonly, nonatomic) UIColor *membersSearchCellBackgroundColor;
+@property(readonly, nonatomic) UIColor *membersSearchBackgroundColor;
 @property(readonly, nonatomic) UIColor *membersBackgroundColor;
 @property(readonly, nonatomic) UIView *memberHeaderBackgroundView;
 @property(readonly, nonatomic) UIColor *membersHeaderBackgroundColor;
@@ -319,6 +323,14 @@
 - (int)abCellStyleForMembersTable;
 - (int)abCellStyleForGroupsTablePlain;
 - (int)abCellStyleForGroupsTableGrouped;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

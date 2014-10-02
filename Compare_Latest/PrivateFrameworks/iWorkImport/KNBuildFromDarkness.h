@@ -9,7 +9,7 @@
 #import "KNAnimationPluginArchiving.h"
 #import "KNFrameBuildAnimator.h"
 
-@class KNAnimParameterGroup, TSDGLDataBuffer, TSDGLShader;
+@class KNAnimParameterGroup, NSString, TSDGLDataBuffer, TSDGLShader;
 
 __attribute__((visibility("hidden")))
 @interface KNBuildFromDarkness : KNAnimationEffect <KNFrameBuildAnimator, KNAnimationPluginArchiving>
@@ -41,6 +41,12 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)frameOfEffectWithFrame:(struct CGRect)arg1 context:(id)arg2;
 - (void)dealloc;
 - (id)initWithAnimationContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

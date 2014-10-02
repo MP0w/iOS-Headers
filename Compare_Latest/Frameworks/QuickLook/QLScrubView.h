@@ -8,7 +8,7 @@
 
 #import "UIGestureRecognizerDelegate.h"
 
-@class NSMutableArray, NSMutableDictionary, NSMutableSet, NSOperationQueue, QLPageNumberView, QLThumbnailView;
+@class NSMutableArray, NSMutableDictionary, NSMutableSet, NSOperationQueue, NSString, QLPageNumberView, QLThumbnailView;
 
 @interface QLScrubView : UIView <UIGestureRecognizerDelegate>
 {
@@ -57,6 +57,12 @@
 - (void)dealloc;
 - (void)_cancelAllOperations;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

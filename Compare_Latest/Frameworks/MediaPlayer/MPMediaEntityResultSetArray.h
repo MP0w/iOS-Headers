@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class MPMediaQueryCriteria, MPMediaQuerySectionInfo, MPWeakRef, NSObject<OS_dispatch_queue>;
+@class MPMediaQueryCriteria, MPMediaQuerySectionInfo, MPWeakRef, NSMutableArray, NSObject<OS_dispatch_queue>;
 
 @interface MPMediaEntityResultSetArray : MPMediaArray <NSCopying>
 {
@@ -16,7 +16,7 @@
     Class _entityClass;
     MPWeakRef *_libraryWeakRef;
     MPMediaQuerySectionInfo *_sectionInfo;
-    id *_entities;
+    NSMutableArray *_entities;
     NSObject<OS_dispatch_queue> *_entitiesQueue;
     MPMediaQueryCriteria *_queryCriteria;
 }
@@ -26,8 +26,7 @@
 - (id)objectAtIndex:(unsigned int)arg1;
 - (unsigned int)count;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
-- (id)initWithResultSet:(id)arg1 queryCriteria:(id)arg2 entityType:(int)arg3 library:(id)arg4;
+- (id)initWithResultSet:(id)arg1 queryCriteria:(id)arg2 entityType:(unsigned int)arg3 library:(id)arg4;
 
 @end
 

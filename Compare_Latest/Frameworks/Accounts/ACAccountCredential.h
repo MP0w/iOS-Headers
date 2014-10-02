@@ -20,6 +20,7 @@
     BOOL _empty;
 }
 
++ (id)credentialPolicyForAccountType:(id)arg1 key:(id)arg2 clientID:(id)arg3;
 + (id)nonPersistentKeysForAccountTypeIdentifier:(id)arg1 credentialType:(id)arg2;
 + (id)supportedKeysForAccountTypeIdentifier:(id)arg1 credentialType:(id)arg2;
 + (id)credentialWithPassword:(id)arg1;
@@ -30,12 +31,15 @@
 @property(readonly, nonatomic) NSSet *dirtyProperties; // @synthesize dirtyProperties=_dirtyProperties;
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSString *credentialType;
+@property(copy, nonatomic) NSDate *tokenExpiryDate;
 @property(copy, nonatomic) NSString *hsaToken;
 @property(copy, nonatomic) NSString *mapsToken;
 @property(copy, nonatomic) NSString *findMyiPhoneToken;
 @property(copy, nonatomic) NSString *password;
 @property(retain, nonatomic) NSDate *expiryDate;
 @property(copy, nonatomic) NSString *oauthRefreshToken;
+- (id)oauthTokenNoSync;
+- (void)setOauthTokenNoSync:(id)arg1;
 @property(copy, nonatomic) NSString *oauthTokenSecret;
 @property(copy, nonatomic) NSString *oauthToken;
 @property(copy, nonatomic) NSString *token;

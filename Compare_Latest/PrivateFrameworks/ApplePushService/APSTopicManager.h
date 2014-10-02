@@ -21,7 +21,7 @@
 
 @property(nonatomic) id <APSTopicManagerDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)logStringForCategory:(int)arg1;
-@property(readonly, nonatomic) NSString *logString;
+@property(readonly, retain, nonatomic) NSString *logString;
 - (void)performFilterBlock:(CDUnknownBlockType)arg1 forCategory:(int)arg2;
 - (void)_scheduleServerUpdate:(BOOL)arg1 withTimer:(BOOL)arg2;
 - (void)_pendingFilterTimerFired;

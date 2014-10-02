@@ -8,7 +8,7 @@
 
 #import "CoreDAVPostTaskDelegate.h"
 
-@class CalDAVCalendarServerInviteNotificationItem, NSURL;
+@class CalDAVCalendarServerInviteNotificationItem, NSString, NSURL;
 
 @interface CalDAVReplyToSharedCalendarInvitationTaskGroup : CoreDAVTaskGroup <CoreDAVPostTaskDelegate>
 {
@@ -19,19 +19,22 @@
 }
 
 @property(retain, nonatomic) NSURL *sharedAs; // @synthesize sharedAs=_sharedAs;
-@property(retain) NSURL *calendarHomeURL; // @synthesize calendarHomeURL=_calendarHomeURL;
-@property BOOL acceptInvitation; // @synthesize acceptInvitation=_acceptInvitation;
-@property(retain) CalDAVCalendarServerInviteNotificationItem *invitation; // @synthesize invitation=_invitation;
+@property(retain, nonatomic) NSURL *calendarHomeURL; // @synthesize calendarHomeURL=_calendarHomeURL;
+@property(nonatomic) BOOL acceptInvitation; // @synthesize acceptInvitation=_acceptInvitation;
+@property(retain, nonatomic) CalDAVCalendarServerInviteNotificationItem *invitation; // @synthesize invitation=_invitation;
 - (void)task:(id)arg1 didFinishWithError:(id)arg2;
 - (id)generateReply;
 - (void)startTaskGroup;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithInvitation:(id)arg1 acceptInvitation:(BOOL)arg2 atCalendarHomeURL:(id)arg3 accountInfoProvider:(id)arg4 taskManager:(id)arg5;
 - (id)initWithAccountInfoProvider:(id)arg1 taskManager:(id)arg2;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) id <CoreDAVTaskGroupDelegate> delegate; // @dynamic delegate;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

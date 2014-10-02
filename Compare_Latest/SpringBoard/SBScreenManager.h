@@ -13,22 +13,14 @@
     NSHashTable *_handlers;
     NSMapTable *_screenIDToHandlerMap;
     NSMapTable *_screenIDToObserversMap;
-    NSMapTable *_screenIDToSuppressionReasonsMap;
-    NSMapTable *_screenIDToMainWindowMap;
     NSMapTable *_screenIDToScreenMap;
     NSHashTable *_connectedScreenIDs;
 }
 
 + (id)sharedInstance;
-- (void)setMainWindow:(id)arg1 forScreen:(id)arg2;
 - (void)addConnectionHandler:(id)arg1;
-- (_Bool)isScreenSuppressed:(id)arg1;
 - (_Bool)isScreenConnected:(id)arg1;
-- (id)mainWindowForScreen:(id)arg1;
-- (void)requestScreenWithId:(unsigned int)arg1 minimumSeed:(unsigned int)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)screenWithID:(unsigned int)arg1;
-- (void)removeSuppressionReason:(id)arg1 forScreen:(id)arg2;
-- (void)addSuppressionReason:(id)arg1 forScreen:(id)arg2;
 - (void)removeScreenObserver:(id)arg1 forScreen:(id)arg2;
 - (void)addScreenObserver:(id)arg1 forScreen:(id)arg2;
 - (void)_screenDidDisconnect:(id)arg1;

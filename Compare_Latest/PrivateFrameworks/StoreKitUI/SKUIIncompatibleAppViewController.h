@@ -8,7 +8,7 @@
 
 #import "SKUIProductPageChildViewController.h"
 
-@class NSOperationQueue, SKUIIncompatibleAppView, SKUIItemArtworkContext, SKUIProductPageHeaderViewController, SKUIProductPageItem, SSVLoadURLOperation, UIImage, UIScrollView;
+@class NSOperationQueue, NSString, SKUIIncompatibleAppView, SKUIItemArtworkContext, SKUIProductPageHeaderViewController, SKUIProductPageItem, SSVLoadURLOperation, UIImage, UIScrollView;
 
 @interface SKUIIncompatibleAppViewController : SKUIViewController <SKUIProductPageChildViewController>
 {
@@ -37,6 +37,12 @@
 @property(readonly, nonatomic) UIScrollView *scrollView;
 - (void)dealloc;
 - (id)initWithIncompatibleItem:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

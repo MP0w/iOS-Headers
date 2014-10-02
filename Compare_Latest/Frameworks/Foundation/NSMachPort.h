@@ -35,7 +35,7 @@
 - (BOOL)sendBeforeTime:(double)arg1 streamData:(void *)arg2 components:(id)arg3 from:(id)arg4 msgid:(unsigned int)arg5;
 - (id)delegate;
 - (void)setDelegate:(id)arg1;
-- (unsigned int)machPort;
+@property(readonly) unsigned int machPort;
 - (void)invalidate;
 - (BOOL)isValid;
 - (BOOL)isMemberOfClass:(Class)arg1;

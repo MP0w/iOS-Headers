@@ -13,7 +13,10 @@ __attribute__((visibility("hidden")))
     int unitType;
 }
 
++ (double)convertToPoints:(double)arg1 unit:(int)arg2;
 + (id)cssStringValue:(double)arg1 unit:(int)arg2;
+- (void)addNumber:(double)arg1 unit:(int)arg2;
+- (id)description;
 - (id)cssString;
 - (id)cssStringForName:(id)arg1;
 - (int)compareValue:(id)arg1;

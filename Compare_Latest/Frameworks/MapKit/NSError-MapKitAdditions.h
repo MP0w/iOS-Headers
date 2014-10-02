@@ -9,7 +9,7 @@
 @class NSURL;
 
 @interface NSError (MapKitAdditions)
-@property(readonly, nonatomic) NSURL *_mapkit_locationErrorSettingsURL;
+@property(readonly, retain, nonatomic) NSURL *_mapkit_locationErrorSettingsURL;
 @property(readonly, nonatomic, getter=_mapkit_isCLErrorNetwork) BOOL _mapkit_CLErrorNetwork;
 @property(readonly, nonatomic, getter=_mapkit_isCLHeadingFailure) BOOL _mapkit_CLHeadingFailure;
 @property(readonly, nonatomic, getter=_mapkit_isCLLocationUnknown) BOOL _mapkit_CLLocationUnknown;

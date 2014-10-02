@@ -8,7 +8,7 @@
 
 #import "GQHContext.h"
 
-@class GQDAffineGeometry, NSMutableString;
+@class GQDAffineGeometry, NSMutableString, NSString;
 
 __attribute__((visibility("hidden")))
 @interface GQHCanvasContext : NSObject <GQHContext>
@@ -43,6 +43,12 @@ __attribute__((visibility("hidden")))
 - (void)prepareContext:(id)arg1;
 - (void)addScriptTagToHtml:(id)arg1 state:(id)arg2;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

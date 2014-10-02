@@ -31,23 +31,23 @@
     id <CoreDAVAccountInfoProvider> _backingAccountInfoProvider;
 }
 
-@property(retain) NSString *userAgentHeader; // @synthesize userAgentHeader=_userAgentHeader;
-@property(retain) NSSet *serverComplianceClasses; // @synthesize serverComplianceClasses=_serverComplianceClasses;
-@property(retain) NSDictionary *serverHeaders; // @synthesize serverHeaders=_serverHeaders;
-@property(retain) NSError *error; // @synthesize error=_error;
-@property BOOL success; // @synthesize success=_success;
-@property BOOL started; // @synthesize started=_started;
-@property(retain) id <CoreDAVAccountInfoProvider> backingAccountInfoProvider; // @synthesize backingAccountInfoProvider=_backingAccountInfoProvider;
-@property BOOL shouldFailAllTasks; // @synthesize shouldFailAllTasks=_shouldFailAllTasks;
-@property(retain) NSString *accountID; // @synthesize accountID=_accountID;
-@property(retain) NSURL *principalURL; // @synthesize principalURL=_principalURL;
-@property(retain) NSData *identityPersist; // @synthesize identityPersist=_identityPersist;
-@property(retain) NSString *password; // @synthesize password=_password;
-@property(retain) NSString *user; // @synthesize user=_user;
-@property(retain) NSString *serverRoot; // @synthesize serverRoot=_serverRoot;
-@property int port; // @synthesize port=_port;
-@property(retain) NSString *host; // @synthesize host=_host;
-@property(retain) NSString *scheme; // @synthesize scheme=_scheme;
+@property(retain, nonatomic) NSString *userAgentHeader; // @synthesize userAgentHeader=_userAgentHeader;
+@property(retain, nonatomic) NSSet *serverComplianceClasses; // @synthesize serverComplianceClasses=_serverComplianceClasses;
+@property(retain, nonatomic) NSDictionary *serverHeaders; // @synthesize serverHeaders=_serverHeaders;
+@property(retain, nonatomic) NSError *error; // @synthesize error=_error;
+@property(nonatomic) BOOL success; // @synthesize success=_success;
+@property(nonatomic) BOOL started; // @synthesize started=_started;
+@property(retain, nonatomic) id <CoreDAVAccountInfoProvider> backingAccountInfoProvider; // @synthesize backingAccountInfoProvider=_backingAccountInfoProvider;
+@property(nonatomic) BOOL shouldFailAllTasks; // @synthesize shouldFailAllTasks=_shouldFailAllTasks;
+@property(retain, nonatomic) NSString *accountID; // @synthesize accountID=_accountID;
+@property(retain, nonatomic) NSURL *principalURL; // @synthesize principalURL=_principalURL;
+@property(retain, nonatomic) NSData *identityPersist; // @synthesize identityPersist=_identityPersist;
+@property(retain, nonatomic) NSString *password; // @synthesize password=_password;
+@property(retain, nonatomic) NSString *user; // @synthesize user=_user;
+@property(retain, nonatomic) NSString *serverRoot; // @synthesize serverRoot=_serverRoot;
+@property(nonatomic) int port; // @synthesize port=_port;
+@property(retain, nonatomic) NSString *host; // @synthesize host=_host;
+@property(retain, nonatomic) NSString *scheme; // @synthesize scheme=_scheme;
 - (BOOL)shouldUseOpportunisticSockets;
 - (struct __CFURLStorageSession *)copyStorageSession;
 - (BOOL)shouldSendClientInfoHeaderForURL:(id)arg1;
@@ -66,9 +66,14 @@
 - (id)additionalHeaderValues;
 - (void)promptUserForNewCoreDAVPasswordWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (id)url;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithAccountInfoProvider:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

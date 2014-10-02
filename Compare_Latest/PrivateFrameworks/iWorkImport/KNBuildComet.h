@@ -8,7 +8,7 @@
 
 #import "KNChunkableBuildAnimator.h"
 
-@class NSMutableArray;
+@class NSMutableArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface KNBuildComet : KNAnimationEffect <KNChunkableBuildAnimator>
@@ -30,6 +30,12 @@ __attribute__((visibility("hidden")))
 - (void)addLayerWithImageRef:(struct CGImage *)arg1 toResultDictionary:(id)arg2 withLayer:(id)arg3 withParent:(id)arg4 duration:(float)arg5 isBuildIn:(BOOL)arg6 isVertical:(BOOL)arg7 opacity:(float)arg8 direction:(unsigned int)arg9;
 - (id)p_layerWithImage:(struct CGImage *)arg1 scale:(float)arg2 centeredAt:(struct CGPoint)arg3;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

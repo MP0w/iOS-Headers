@@ -10,12 +10,16 @@
 
 @interface FTDeviceSupport : NSObject
 {
+    NSString *_number;
     BOOL _blockPost;
     BOOL _supportsFrontCamera;
     BOOL _supportsBackCamera;
     BOOL _supportsiMessage;
     BOOL _supportsSMS;
     BOOL _supportsMMS;
+    BOOL _mmsConfigured;
+    BOOL _supportsHandoff;
+    BOOL _supportsTethering;
     BOOL _supportsFT;
     BOOL _supportsFTA;
     BOOL _supportsWiFi;
@@ -25,6 +29,7 @@
     BOOL _shouldUseSIMState;
     BOOL _commCenterDead;
     BOOL _simBecameNotReady;
+    BOOL _simInserted;
     int _carrierBundleSupported;
     int _iMessageAllowedToken;
     BOOL _faceTimeBlocked;
@@ -34,6 +39,7 @@
 }
 
 + (id)sharedInstance;
+@property(readonly, nonatomic) BOOL mmsConfigured; // @synthesize mmsConfigured=_mmsConfigured;
 @property(readonly, nonatomic) BOOL supportsMMS; // @synthesize supportsMMS=_supportsMMS;
 @property(readonly, nonatomic) BOOL supportsSMS; // @synthesize supportsSMS=_supportsSMS;
 @property(readonly, nonatomic) BOOL supportsCellularData; // @synthesize supportsCellularData=_supportsCellularData;
@@ -41,6 +47,8 @@
 @property(readonly, nonatomic) BOOL supportsWLAN; // @synthesize supportsWLAN=_supportsWLAN;
 @property(readonly, nonatomic) BOOL supportsBackFacingCamera; // @synthesize supportsBackFacingCamera=_supportsBackCamera;
 @property(readonly, nonatomic) BOOL supportsFrontFacingCamera; // @synthesize supportsFrontFacingCamera=_supportsFrontCamera;
+@property(readonly, nonatomic) BOOL supportsTethering; // @synthesize supportsTethering=_supportsTethering;
+@property(readonly, nonatomic) BOOL supportsHandoff; // @synthesize supportsHandoff=_supportsHandoff;
 @property(readonly, nonatomic) BOOL nonWifiCallingAvailable;
 @property(readonly, nonatomic) BOOL nonWifiFaceTimeAvailable;
 @property(readonly, nonatomic) int deviceType;
@@ -60,8 +68,11 @@
 - (void)_handlePhoneNumberRegistrationStateChanged:(id)arg1;
 - (void)_handleTechnologyChange:(id)arg1;
 - (void)_simStatusChanged:(id)arg1;
+@property(readonly, nonatomic) NSString *enclosureColor;
+@property(readonly, nonatomic) NSString *deviceColor;
 @property(readonly, nonatomic) NSString *deviceName;
 @property(readonly, nonatomic) BOOL wantsBreakBeforeMake;
+@property(readonly, nonatomic) BOOL SIMInserted;
 @property(readonly, nonatomic) BOOL supportsSimultaneousVoiceAndDataRightNow;
 @property(readonly, nonatomic) BOOL isC2KEquipment;
 @property(readonly, nonatomic) NSDictionary *telephonyCapabilities;

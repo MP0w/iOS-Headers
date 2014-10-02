@@ -25,6 +25,7 @@
 - (void)dealloc;
 - (id)init;
 - (id)initWithSuiteName:(id)arg1;
+- (id)_initWithSuiteName:(id)arg1 container:(id)arg2;
 - (id)initWithUser:(id)arg1;
 - (void)registerDefaults:(id)arg1;
 - (void)removeSuiteNamed:(id)arg1;

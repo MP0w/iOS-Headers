@@ -10,7 +10,7 @@
 #import "NSCopying.h"
 #import "NSFastEnumeration.h"
 
-@class NSData, NSManagedObjectModel, NSMutableDictionary, NSString;
+@class NSArray, NSData, NSDictionary, NSManagedObjectModel, NSMutableDictionary, NSString;
 
 @interface NSEntityDescription : NSObject <NSCoding, NSCopying, NSFastEnumeration>
 {
@@ -52,44 +52,35 @@
 + (id)entityForName:(id)arg1 inManagedObjectContext:(id)arg2;
 + (void)initialize;
 + (id)_MOClassName;
-- (id)renamingIdentifier;
-- (void)setRenamingIdentifier:(id)arg1;
+@property(copy) NSString *renamingIdentifier;
 - (BOOL)_isDeallocating;
 - (BOOL)_tryRetain;
 - (unsigned int)retainCount;
 - (oneway void)release;
 - (id)retain;
-- (void)setCompoundIndexes:(id)arg1;
-- (id)compoundIndexes;
-- (void)setVersionHashModifier:(id)arg1;
-- (id)versionHashModifier;
-- (id)versionHash;
+@property(retain) NSArray *compoundIndexes;
+@property(copy) NSString *versionHashModifier;
+@property(readonly, copy) NSData *versionHash;
 - (id)_newVersionHashInStyle:(unsigned int)arg1;
-- (void)setName:(id)arg1;
-- (void)setAbstract:(BOOL)arg1;
-- (void)setManagedObjectClassName:(id)arg1;
-- (id)propertiesByName;
-- (void)setProperties:(id)arg1;
-- (id)properties;
+@property(copy) NSString *name;
+@property(getter=isAbstract) BOOL abstract;
+@property(copy) NSString *managedObjectClassName;
+@property(readonly, copy) NSDictionary *propertiesByName;
+@property(retain) NSArray *properties;
 - (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
 - (id)inverseForRelationshipKey:(id)arg1;
 - (id)relationshipsWithDestinationEntity:(id)arg1;
 - (id)toOneRelationshipKeys;
 - (id)toManyRelationshipKeys;
-- (id)managedObjectModel;
-- (id)subentitiesByName;
-- (void)setSubentities:(id)arg1;
-- (id)subentities;
-- (id)superentity;
+@property(readonly) NSManagedObjectModel *managedObjectModel;
+@property(readonly, copy) NSDictionary *subentitiesByName;
+@property(retain) NSArray *subentities;
+@property(readonly) NSEntityDescription *superentity;
 - (BOOL)isKindOfEntity:(id)arg1;
-- (BOOL)isAbstract;
-- (id)userInfo;
-- (void)setUserInfo:(id)arg1;
-- (id)relationshipsByName;
-- (id)attributesByName;
+@property(retain, nonatomic) NSDictionary *userInfo;
+@property(readonly, copy) NSDictionary *relationshipsByName;
+@property(readonly, copy) NSDictionary *attributesByName;
 - (id)attributeKeys;
-- (id)managedObjectClassName;
-- (id)name;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;

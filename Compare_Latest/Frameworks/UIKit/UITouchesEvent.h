@@ -6,7 +6,7 @@
 
 #import <UIKit/UIInternalEvent.h>
 
-@class NSMutableSet;
+@class NSMapTable, NSMutableSet;
 
 __attribute__((visibility("hidden")))
 @interface UITouchesEvent : UIInternalEvent
@@ -15,8 +15,14 @@ __attribute__((visibility("hidden")))
     struct __CFDictionary *_keyedTouches;
     struct __CFDictionary *_keyedTouchesByWindow;
     struct __CFDictionary *_gestureRecognizersByWindow;
+    NSMapTable *_latentSystemGestureWindows;
 }
 
+- (id)_windowsAwaitingLatentSystemGestureNotificationDeliveredToEventWindow:(id)arg1;
+- (void)_windowNoLongerAwaitingSystemGestureNotification:(id)arg1;
+- (void)_addWindowAwaitingLatentSystemGestureNotification:(id)arg1 deliveredToEventWindow:(id)arg2;
+@property(readonly, nonatomic) unsigned int _windowServerHitTestContextId;
+@property(readonly, nonatomic) double _initialTouchTimestamp;
 - (void)_dismissSharedCalloutBarIfNeeded;
 - (id)description;
 - (id)_cloneEvent;

@@ -6,26 +6,33 @@
 
 #import "SBUIControlCenterButton.h"
 
+#import "MPUTransportButton.h"
 #import "SBUIControlCenterButtonDelegate.h"
 
-@class NSObject<OS_dispatch_source>;
+@class MPUTransportButtonEventHandler, NSString;
 
-@interface MPUTransportControlCenterButton : SBUIControlCenterButton <SBUIControlCenterButtonDelegate>
+@interface MPUTransportControlCenterButton : SBUIControlCenterButton <SBUIControlCenterButtonDelegate, MPUTransportButton>
 {
-    NSObject<OS_dispatch_source> *_longPressTimer;
-    BOOL _longPress;
-    double _minimumPressDuration;
+    MPUTransportButtonEventHandler *_transportButtonEventHandler;
 }
 
 - (void).cxx_destruct;
 - (void)buttonTapped:(id)arg1;
-- (void)_clearLongPressTimer;
-- (void)_longPressTimerAction;
+- (void)applyTransportButtonAttributes:(id)arg1;
+@property(readonly, nonatomic) MPUTransportButtonEventHandler *transportButtonEventHandler;
+- (BOOL)shouldTrack;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (void)cancelTrackingWithEvent:(id)arg1;
 - (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (void)dealloc;
+- (BOOL)isEnabled;
+- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

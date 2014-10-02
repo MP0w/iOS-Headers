@@ -8,7 +8,7 @@
 
 #import "SBWallpaperObserver.h"
 
-@class NSMutableSet;
+@class NSMutableSet, NSString;
 
 @interface SBWallpaperEffectSnapshotCache : NSObject <SBWallpaperObserver>
 {
@@ -20,6 +20,12 @@
 - (id)snapshotForKey:(id)arg1 withGenerationBlockIfNecessary:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

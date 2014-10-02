@@ -21,12 +21,12 @@
 - (id)addressAsText;
 - (BOOL)hasSameAddressAs:(id)arg1;
 - (void)setName:(id)arg1;
-@property(readonly, nonatomic) NSString *netServiceDomain;
-@property(readonly, nonatomic) NSString *netServiceName;
+@property(readonly, retain, nonatomic) NSString *netServiceDomain;
+@property(readonly, retain, nonatomic) NSString *netServiceName;
 - (id)host;
 @property(readonly, nonatomic) unsigned int port;
-@property(readonly, nonatomic) NSString *address;
-@property(readonly, nonatomic) NSString *name;
+@property(readonly, retain, nonatomic) NSString *address;
+@property(readonly, retain, nonatomic) NSString *name;
 - (id)description;
 - (void)dealloc;
 - (id)init;

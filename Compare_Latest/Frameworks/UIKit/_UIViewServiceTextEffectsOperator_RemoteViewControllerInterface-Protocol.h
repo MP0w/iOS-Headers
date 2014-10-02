@@ -7,15 +7,16 @@
 #import "_UIViewServiceDeputy_UIViewServiceInterface.h"
 #import "_UIViewServiceUIBehaviorInterface.h"
 
-@class NSValue;
+@class NSArray;
 
 @protocol _UIViewServiceTextEffectsOperator_RemoteViewControllerInterface <_UIViewServiceDeputy_UIViewServiceInterface, _UIViewServiceUIBehaviorInterface>
 - (void)__hostViewWillDisappear:(BOOL)arg1;
 - (void)__hostViewWillAppear:(BOOL)arg1;
 - (void)__hostDidEnterBackground;
 - (void)__hostWillEnterForeground;
+- (void)__setHostAllowedNotifications:(NSArray *)arg1;
 - (void)__setNextAutomaticOrderOutDirection:(int)arg1 duration:(double)arg2;
-- (void)__setContentSize:(NSValue *)arg1 windowOffset:(NSValue *)arg2;
-- (void)__createHostedTextEffectsWithReplyHandler:(void (^)(id, NSError *))arg1;
+- (void)__setWindowOffset:(struct CGPoint)arg1;
+- (void)__createHostedTextEffectsWithReplyHandler:(void (^)(_UIHostedWindowHostingHandle *, _UIHostedWindowHostingHandle *, _UIHostedWindowHostingHandle *))arg1;
 @end
 

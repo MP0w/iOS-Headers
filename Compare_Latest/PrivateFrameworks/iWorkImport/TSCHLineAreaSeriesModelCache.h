@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     TSCHChartAxis *mGroupAxis;
     TSWPParagraphStyle *mParagraphStyle;
     unsigned int mLabelPosition;
+    BOOL mShowLabelsInFront;
     int mSymbolType;
     TSDStroke *mSymbolStroke;
     TSDStroke *mSeriesStroke;
@@ -41,6 +42,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) id symbolFill; // @synthesize symbolFill=mSymbolFill;
 @property(readonly) TSDStroke *symbolStroke; // @synthesize symbolStroke=mSymbolStroke;
 @property(readonly) int symbolType; // @synthesize symbolType=mSymbolType;
+@property(readonly) BOOL showLabelsInFront; // @synthesize showLabelsInFront=mShowLabelsInFront;
 @property(readonly) unsigned int labelPosition; // @synthesize labelPosition=mLabelPosition;
 @property(readonly) TSWPParagraphStyle *paragraphStyle; // @synthesize paragraphStyle=mParagraphStyle;
 @property(readonly) TSCHChartAxis *groupAxis; // @synthesize groupAxis=mGroupAxis;

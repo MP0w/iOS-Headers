@@ -6,17 +6,19 @@
 
 #import <StoreKitUI/SKUITableViewCell.h>
 
-@class NSString, UILabel;
+@class NSString, SKUIColorScheme, UILabel;
 
 @interface SKUIProductPageInAppPurchaseTableCell : SKUITableViewCell
 {
+    SKUIColorScheme *_colorScheme;
+    struct UIEdgeInsets _contentInsets;
     UILabel *_indexLabel;
     UILabel *_nameLabel;
     UILabel *_priceLabel;
-    struct UIEdgeInsets _contentInsets;
 }
 
 @property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
+@property(retain, nonatomic) SKUIColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
 - (void).cxx_destruct;
 - (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;

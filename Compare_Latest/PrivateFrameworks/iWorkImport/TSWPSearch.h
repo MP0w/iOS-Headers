@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, nonatomic) TSWPStorage *storage; // @synthesize storage=_storage;
-@property(readonly, nonatomic) TSWPFilteredString *filteredString; // @synthesize filteredString=_filteredString;
+@property(readonly, retain, nonatomic) TSWPFilteredString *filteredString; // @synthesize filteredString=_filteredString;
 @property(readonly, nonatomic) NSString *searchedString; // @synthesize searchedString=_searchedString;
 @property(nonatomic) struct _NSRange range; // @synthesize range=_range;
 - (id).cxx_construct;

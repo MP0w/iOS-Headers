@@ -19,7 +19,7 @@
     NSMutableArray *matchingRemoteIDs;
 }
 
-@property(readonly, nonatomic) NSArray *matchingRemoteIDs; // @synthesize matchingRemoteIDs;
+@property(readonly, retain, nonatomic) NSArray *matchingRemoteIDs; // @synthesize matchingRemoteIDs;
 @property(retain, nonatomic) NSDate *latestDateToAdd; // @synthesize latestDateToAdd;
 - (void)dealloc;
 - (void)searchQuery:(id)arg1 returnedTotalCount:(id)arg2;

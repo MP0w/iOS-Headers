@@ -15,12 +15,12 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) BOOL makeFacades; // @synthesize makeFacades=_makeFacades;
 - (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
-- (unsigned int)mapLayerForZoomLevelRange;
+- (unsigned long long)mapLayerForZoomLevelRange;
 - (BOOL)maximumZoomLevelBoundsCamera;
 - (BOOL)minimumZoomLevelBoundsCamera;
 - (int)minimumZoomLevel;
 - (void)setMinimumZoomLevel:(unsigned int)arg1;
-- (id)initWithTileSet:(id)arg1;
+- (id)initWithTileSet:(id)arg1 tileGroupIdentifier:(unsigned int)arg2 locale:(id)arg3;
 
 @end
 

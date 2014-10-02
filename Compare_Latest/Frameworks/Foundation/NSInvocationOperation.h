@@ -6,6 +6,8 @@
 
 #import <Foundation/NSOperation.h>
 
+@class NSInvocation;
+
 @interface NSInvocationOperation : NSOperation
 {
     id _inv;
@@ -13,9 +15,9 @@
     void *_reserved2;
 }
 
-- (id)result;
+@property(readonly, retain) id result;
 - (void)main;
-- (id)invocation;
+@property(readonly, retain) NSInvocation *invocation;
 - (void)dealloc;
 - (id)initWithInvocation:(id)arg1;
 - (id)initWithTarget:(id)arg1 selector:(SEL)arg2 object:(id)arg3;

@@ -8,7 +8,7 @@
 
 #import "NSXMLParserDelegate.h"
 
-@class NSData, NSMutableArray, NSURL, NSXMLParser, RUIObjectModel;
+@class NSData, NSDictionary, NSMutableArray, NSMutableString, NSString, NSURL, NSXMLParser, RUIObjectModel;
 
 @interface RUIParser : NSObject <NSXMLParserDelegate>
 {
@@ -19,18 +19,30 @@
     int _actionSignal;
     int _parserState;
     NSURL *_baseURL;
+    NSMutableString *_accumulator;
+    NSDictionary *_currentElementAttributes;
     BOOL _succeeded;
     NSData *_xmlData;
+    id <RUIParserDelegate> _delegate;
 }
 
++ (int)textAlignmentForString:(id)arg1;
+@property(nonatomic) __weak id <RUIParserDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) BOOL succeeded; // @synthesize succeeded=_succeeded;
 @property(retain, nonatomic) NSData *xmlData; // @synthesize xmlData=_xmlData;
 @property(retain, nonatomic) NSURL *baseURL; // @synthesize baseURL=_baseURL;
+- (void).cxx_destruct;
 - (void)parser:(id)arg1 validationErrorOccurred:(id)arg2;
 - (void)parser:(id)arg1 parseErrorOccurred:(id)arg2;
 - (void)parser:(id)arg1 foundCDATA:(id)arg2;
+- (void)parser:(id)arg1 foundCharacters:(id)arg2;
 - (void)parser:(id)arg1 didEndElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4;
 - (void)parser:(id)arg1 didStartElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4 attributes:(id)arg5;
+- (void)_finalizeSection;
+- (void)_addSectionFooterText:(id)arg1 withAttributes:(id)arg2 isHTML:(BOOL)arg3;
+- (void)_addSectionSubHeaderText:(id)arg1 withAttributes:(id)arg2;
+- (void)_addSectionDetailHeaderText:(id)arg1 withAttributes:(id)arg2;
+- (void)_addSectionHeaderText:(id)arg1 withAttributes:(id)arg2 isHTML:(BOOL)arg3;
 - (void)_addTableFooterViewWithAttributes:(id)arg1;
 - (void)_addTableHeaderViewWithAttributes:(id)arg1;
 - (void)_addSectionWithAttributes:(id)arg1;
@@ -38,13 +50,19 @@
 - (id)_lastRow;
 - (id)_lastPageCreateIfNeeded;
 - (void)_newRowWithAttributeDict:(id)arg1;
-- (id)_createNewPageWithAttributes:(id)arg1;
-- (id)_createSupplementalPageNamed:(id)arg1;
+- (id)_createAndAddPageWithAttributes:(id)arg1;
+- (id)_createPageWithName:(id)arg1 attributes:(id)arg2;
 - (int)actionSignal;
 - (id)uiObjectModel;
 - (void)dealloc;
 - (id)initWithXML:(id)arg1;
-- (id)initWithXML:(id)arg1 baseURL:(id)arg2;
+- (id)initWithXML:(id)arg1 baseURL:(id)arg2 delegate:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -27,7 +27,6 @@ __attribute__((visibility("hidden")))
     float _globalScaleFactor;
     float _globeLODScale;
     float _labelIconScale;
-    int _labelRoadCrossingThreshold;
     float _lodOffset;
     float _minLineTriangleWidth;
     unsigned int _minTrafficTypeAccidentZ;
@@ -50,12 +49,12 @@ __attribute__((visibility("hidden")))
     float _realisticShieldNightBrightness;
     float _shieldNightBrightness;
     float _tiltLimitSatelliteScale;
+    BOOL _labelDisableAlternateTextPositions;
     struct {
         unsigned int buildingChangeoverZ:1;
         unsigned int globalScaleFactor:1;
         unsigned int globeLODScale:1;
         unsigned int labelIconScale:1;
-        unsigned int labelRoadCrossingThreshold:1;
         unsigned int lodOffset:1;
         unsigned int minLineTriangleWidth:1;
         unsigned int minTrafficTypeAccidentZ:1;
@@ -78,6 +77,7 @@ __attribute__((visibility("hidden")))
         unsigned int realisticShieldNightBrightness:1;
         unsigned int shieldNightBrightness:1;
         unsigned int tiltLimitSatelliteScale:1;
+        unsigned int labelDisableAlternateTextPositions:1;
     } _has;
 }
 
@@ -97,6 +97,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned int minTrafficTypeUnknownZ; // @synthesize minTrafficTypeUnknownZ=_minTrafficTypeUnknownZ;
 @property(nonatomic) unsigned int buildingChangeoverZ; // @synthesize buildingChangeoverZ=_buildingChangeoverZ;
 @property(nonatomic) unsigned int rasterPolygonChangeoverZ; // @synthesize rasterPolygonChangeoverZ=_rasterPolygonChangeoverZ;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -113,8 +114,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) BOOL hasNavLabelRoadSignScaleMedium;
 @property(nonatomic) BOOL hasNavLabelRoadSignScaleSmall;
 @property(nonatomic) BOOL hasNavLabelRoadSignHeight;
-@property(nonatomic) BOOL hasLabelRoadCrossingThreshold;
-@property(nonatomic) int labelRoadCrossingThreshold; // @synthesize labelRoadCrossingThreshold=_labelRoadCrossingThreshold;
+@property(nonatomic) BOOL hasLabelDisableAlternateTextPositions;
+@property(nonatomic) BOOL labelDisableAlternateTextPositions; // @synthesize labelDisableAlternateTextPositions=_labelDisableAlternateTextPositions;
 @property(nonatomic) BOOL hasLabelIconScale;
 @property(nonatomic) float labelIconScale; // @synthesize labelIconScale=_labelIconScale;
 @property(nonatomic) BOOL hasGlobalScaleFactor;
@@ -216,7 +217,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) float minLineTriangleWidth; // @synthesize minLineTriangleWidth=_minLineTriangleWidth;
 @property(nonatomic) BOOL hasRasterPolygonChangeoverZ;
 - (void)dealloc;
-- (struct _NSRange)zoomRangeForMapLayer:(unsigned int)arg1;
+- (struct _NSRange)zoomRangeForMapLayer:(unsigned long long)arg1;
 - (float)tiltLimitScale:(int)arg1;
 
 @end

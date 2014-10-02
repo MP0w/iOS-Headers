@@ -33,7 +33,7 @@
     unsigned int _lastCharacterStrokeCount;
     NSMutableIndexSet *_lastCharacterStrokeIndexes;
     struct CGSize _minimumDrawingSize;
-    map_d742812d _cachedResults;
+    map_739756c0 _cachedResults;
 }
 
 + (id)defaultPunctuationResultsForRecognitionType:(int)arg1;
@@ -42,7 +42,7 @@
 @property(nonatomic) void **icuTransliterator; // @synthesize icuTransliterator=_icuTransliterator;
 @property(nonatomic) struct VariantMap *tcVariantMap; // @synthesize tcVariantMap=_tcVariantMap;
 @property(nonatomic) struct VariantMap *scVariantMap; // @synthesize scVariantMap=_scVariantMap;
-@property(nonatomic) map_d742812d cachedResults; // @synthesize cachedResults=_cachedResults;
+@property(nonatomic) map_739756c0 cachedResults; // @synthesize cachedResults=_cachedResults;
 @property(copy, nonatomic) CHDrawing *cachedDrawing; // @synthesize cachedDrawing=_cachedDrawing;
 @property(nonatomic) BOOL saveDrawingUntilNextCandidateAccepted; // @synthesize saveDrawingUntilNextCandidateAccepted=_saveDrawingUntilNextCandidateAccepted;
 @property(copy, nonatomic) NSString *savedTop1CandidateString; // @synthesize savedTop1CandidateString=_savedTop1CandidateString;
@@ -71,6 +71,21 @@
 - (id)recognitionResultsForMultipleCharacterDrawing:(id)arg1 sortedStrokeIndices:(vector_55d7bafa *)arg2 network:(struct Network *)arg3 options:(id)arg4 ch:(struct Hanzi *)arg5 shouldCancel:(CDUnknownBlockType)arg6;
 - (id)bestNetworkPaths:(struct Network *)arg1 count:(unsigned int)arg2 mecabraIDs:(vector_3203cf93 *)arg3;
 - (id)recognitionResultsForSingleCharacterDrawing:(id)arg1 options:(id)arg2;
+- (id)recognitionResultsForSketchDrawing:(id)arg1 options:(id)arg2;
+- (id)lineCandidateResultForDrawing:(id)arg1 candidate:(struct CHCandidateResult *)arg2;
+- (id)outlineArrowCandidateResultForDrawing:(id)arg1 candidate:(struct CHCandidateResult *)arg2 rejectionResult:(id *)arg3;
+- (id)rectangleCandidateResultForDrawing:(id)arg1 candidate:(struct CHCandidateResult *)arg2;
+- (id)pentagonCandidateResultForDrawing:(id)arg1 candidate:(struct CHCandidateResult *)arg2 rejectionResult:(id *)arg3;
+- (id)ellipseCandidateResultForDrawing:(id)arg1 candidate:(struct CHCandidateResult *)arg2 rejectionResult:(id *)arg3;
+- (id)chatBubbleCandidateResultForDrawing:(id)arg1 candidate:(struct CHCandidateResult *)arg2 rejectionResult:(id *)arg3;
+- (id)triangleCandidateResultForDrawing:(id)arg1 candidate:(struct CHCandidateResult *)arg2;
+- (id)starCandidateResultForDrawing:(id)arg1 candidate:(struct CHCandidateResult *)arg2;
+- (void)endpointsForDrawing:(id)arg1 startLocation:(struct CGPoint *)arg2 endLocation:(struct CGPoint *)arg3;
+- (id)characterSetForStrings:(id)arg1;
+- (id)supportedStrings;
+- (id)supportedCharacterSet;
+- (id)sketchCodeForDescription:(id)arg1;
+- (id)sketchDescriptionForCode:(int)arg1;
 - (void)dealloc;
 - (id)initWithType:(int)arg1 mode:(int)arg2;
 - (id)strokeIndexesForLastCharacter;

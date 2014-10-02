@@ -8,6 +8,8 @@
 
 #import "SBFScheduler.h"
 
+@class NSString;
+
 @interface _SBFImmediateScheduler : NSObject <SBFScheduler>
 {
 }
@@ -15,6 +17,12 @@
 - (id)afterDelay:(double)arg1 performBlock:(CDUnknownBlockType)arg2;
 - (id)performCancelableBlock:(CDUnknownBlockType)arg1;
 - (id)performBlock:(CDUnknownBlockType)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

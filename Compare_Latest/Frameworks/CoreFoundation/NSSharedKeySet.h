@@ -19,15 +19,27 @@
     unsigned int _M;
     unsigned int _factor;
     unsigned int _numKey;
-    unsigned int _seeds[2];
+    unsigned int *_seeds;
     id *_keys;
     NSSharedKeySet *_subSharedKeySet;
 }
 
 + (id)keySetWithKeys:(id)arg1;
+@property(retain) NSSharedKeySet *subSharedKeySet; // @synthesize subSharedKeySet=_subSharedKeySet;
+@property id *keys; // @synthesize keys=_keys;
+@property unsigned int *seeds; // @synthesize seeds=_seeds;
+@property unsigned int numKey; // @synthesize numKey=_numKey;
+@property unsigned int factor; // @synthesize factor=_factor;
+@property unsigned int M; // @synthesize M=_M;
+@property double c; // @synthesize c=_c;
+@property void *rankTable; // @synthesize rankTable=_rankTable;
+@property unsigned char select; // @synthesize select=_select;
+@property char *g; // @synthesize g=_g;
 - (unsigned int)keySetCount;
 - (void)finalize;
 - (void)dealloc;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
 - (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
 - (id)keyAtIndex:(unsigned int)arg1;
 - (unsigned int)indexForKey:(id)arg1;
@@ -40,7 +52,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 - (id)initWithKeys:(id *)arg1 count:(unsigned int)arg2;
-- (void)createSubclassCode:(id)arg1 interface:(const struct __CFString **)arg2 implementation:(const struct __CFString **)arg3;
+- (id)generateSubclassCode:(id)arg1 printChainOfKeySetIfPossible:(BOOL)arg2 printSpecialCode:(unsigned int)arg3;
 
 @end
 

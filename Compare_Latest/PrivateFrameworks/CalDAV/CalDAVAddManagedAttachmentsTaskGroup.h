@@ -25,18 +25,18 @@
     NSDictionary *_postFailureSizes;
 }
 
-@property(retain) NSDictionary *postFailureSizes; // @synthesize postFailureSizes=_postFailureSizes;
-@property(retain) NSString *updatedScheduleTag; // @synthesize updatedScheduleTag=_updatedScheduleTag;
-@property(retain) NSString *updatedETag; // @synthesize updatedETag=_updatedETag;
-@property BOOL hadPreconditionFailure; // @synthesize hadPreconditionFailure=_hadPreconditionFailure;
-@property(retain) NSData *updatedResourcePayload; // @synthesize updatedResourcePayload=_updatedResourcePayload;
-@property(retain) NSMutableDictionary *filenamesToServerLocation; // @synthesize filenamesToServerLocation=_filenamesToServerLocation;
-@property(retain) NSDictionary *contentTypes; // @synthesize contentTypes=_contentTypes;
-@property(retain) NSDictionary *attachments; // @synthesize attachments=_attachments;
-@property(retain) NSURL *resourceURL; // @synthesize resourceURL=_resourceURL;
-@property int state; // @synthesize state=_state;
-@property(retain) NSString *previousScheduleTag; // @synthesize previousScheduleTag=_previousScheduleTag;
-@property(retain) NSString *previousETag; // @synthesize previousETag=_previousETag;
+@property(retain, nonatomic) NSDictionary *postFailureSizes; // @synthesize postFailureSizes=_postFailureSizes;
+@property(retain, nonatomic) NSString *updatedScheduleTag; // @synthesize updatedScheduleTag=_updatedScheduleTag;
+@property(retain, nonatomic) NSString *updatedETag; // @synthesize updatedETag=_updatedETag;
+@property(nonatomic) BOOL hadPreconditionFailure; // @synthesize hadPreconditionFailure=_hadPreconditionFailure;
+@property(retain, nonatomic) NSData *updatedResourcePayload; // @synthesize updatedResourcePayload=_updatedResourcePayload;
+@property(retain, nonatomic) NSMutableDictionary *filenamesToServerLocation; // @synthesize filenamesToServerLocation=_filenamesToServerLocation;
+@property(retain, nonatomic) NSDictionary *contentTypes; // @synthesize contentTypes=_contentTypes;
+@property(retain, nonatomic) NSDictionary *attachments; // @synthesize attachments=_attachments;
+@property(retain, nonatomic) NSURL *resourceURL; // @synthesize resourceURL=_resourceURL;
+@property(nonatomic) int state; // @synthesize state=_state;
+@property(retain, nonatomic) NSString *previousScheduleTag; // @synthesize previousScheduleTag=_previousScheduleTag;
+@property(retain, nonatomic) NSString *previousETag; // @synthesize previousETag=_previousETag;
 - (void)startTaskGroup;
 - (void)_sendAttachments;
 - (void)_handlePostResponse:(id)arg1;

@@ -8,7 +8,7 @@
 
 #import "NSURLConnectionDelegate.h"
 
-@class NSMutableData, NSURL, NSURLConnection;
+@class NSMutableData, NSString, NSURL, NSURLConnection;
 
 @interface RUIImageLoad : NSObject <NSURLConnectionDelegate>
 {
@@ -18,6 +18,7 @@
     BOOL _invalidResponse;
 }
 
+- (void).cxx_destruct;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
 - (void)connectionDidFinishLoading:(id)arg1;
@@ -25,8 +26,13 @@
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
 - (void)_loadFinished;
 - (void)start;
-- (void)dealloc;
 - (BOOL)receivedValidResponse:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

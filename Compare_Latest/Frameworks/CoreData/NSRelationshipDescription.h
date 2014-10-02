@@ -6,7 +6,7 @@
 
 #import <CoreData/NSPropertyDescription.h>
 
-@class NSEntityDescription, NSString;
+@class NSData, NSEntityDescription, NSString;
 
 @interface NSRelationshipDescription : NSPropertyDescription
 {
@@ -22,21 +22,15 @@
 }
 
 + (void)initialize;
-- (BOOL)isOrdered;
-- (void)setOrdered:(BOOL)arg1;
-- (id)versionHash;
-- (void)setInverseRelationship:(id)arg1;
-- (id)inverseRelationship;
-- (void)setDeleteRule:(unsigned int)arg1;
-- (void)setDestinationEntity:(id)arg1;
-- (id)destinationEntity;
+@property(getter=isOrdered) BOOL ordered;
+@property(readonly, copy) NSData *versionHash;
+@property(nonatomic) NSRelationshipDescription *inverseRelationship;
+@property unsigned int deleteRule;
+@property(nonatomic) NSEntityDescription *destinationEntity;
 - (BOOL)isIndexed;
-- (BOOL)isToMany;
-- (void)setMinCount:(unsigned int)arg1;
-- (void)setMaxCount:(unsigned int)arg1;
-- (unsigned int)minCount;
-- (unsigned int)maxCount;
-- (unsigned int)deleteRule;
+@property(readonly, getter=isToMany) BOOL toMany;
+@property unsigned int minCount;
+@property unsigned int maxCount;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

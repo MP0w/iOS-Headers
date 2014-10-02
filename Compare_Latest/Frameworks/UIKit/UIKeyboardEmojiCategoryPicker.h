@@ -8,7 +8,7 @@
 
 #import "UIKeyboardEmojiCategoryControl.h"
 
-@class UIKeyboardEmojiCategoryController;
+@class NSString, UIKeyboardEmojiCategoryController;
 
 __attribute__((visibility("hidden")))
 @interface UIKeyboardEmojiCategoryPicker : UIKeyboardEmojiPicker <UIKeyboardEmojiCategoryControl>
@@ -26,6 +26,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 keyplane:(id)arg2 key:(id)arg3;
 - (id)categoryForCurrentRow;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

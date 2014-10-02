@@ -20,9 +20,9 @@
     NSArray *_stationResults;
 }
 
-@property(readonly, nonatomic) NSArray *stationResults; // @synthesize stationResults=_stationResults;
-@property(readonly, nonatomic) NSDictionary *responseDictionary; // @synthesize responseDictionary=_responseDictionary;
-@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, copy, nonatomic) NSArray *stationResults; // @synthesize stationResults=_stationResults;
+@property(readonly, copy, nonatomic) NSDictionary *responseDictionary; // @synthesize responseDictionary=_responseDictionary;
+@property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) BOOL hasMoreResults; // @synthesize hasMoreResults=_hasMoreResults;
 @property(readonly, nonatomic) int categoryType; // @synthesize categoryType=_categoryType;
 - (void).cxx_destruct;

@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) id <TSWPFootnoteMarkProvider> footnoteMarkProvider; // @synthesize footnoteMarkProvider=_documentRoot;
 - (id)p_footnoteReferenceStoragesInFootnoteIndexRange:(struct _NSRange)arg1;
 - (id)p_layoutForFootnoteReferenceStorage:(id)arg1;
-- (unsigned int)p_layoutFootnotesInRange:(struct _NSRange)arg1 intoFootnoteContainer:(id)arg2 maxHeight:(float)arg3 measure:(BOOL)arg4;
+- (unsigned int)p_layoutFootnotesInRange:(struct _NSRange)arg1 intoFootnoteContainer:(id)arg2 maxHeight:(float)arg3 measure:(BOOL)arg4 inflating:(BOOL)arg5;
 - (struct _NSRange)footnoteLayoutRangeForPageCharRange:(struct _NSRange)arg1;
 - (struct _NSRange)endnoteRangeForSectionCharRange:(struct _NSRange)arg1 isLastSection:(BOOL)arg2;
 - (void)inflateFootnotesInRange:(struct _NSRange)arg1 intoFootnoteContainer:(id)arg2;

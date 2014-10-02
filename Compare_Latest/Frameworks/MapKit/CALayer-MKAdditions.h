@@ -9,9 +9,9 @@
 @interface CALayer (MKAdditions)
 - (void)_mapkit_addAnimation:(id)arg1 forKey:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_mapkit_removeAnimationImmediatelyForKey:(id)arg1;
-@property(readonly, nonatomic) CALayer *_mapKit_mapLayer;
+@property(readonly, retain, nonatomic) CALayer *_mapKit_mapLayer;
 - (BOOL)getPresentationValue:(id *)arg1 forValueKey:(id)arg2 animationKey:(id)arg3 removeAnimation:(BOOL)arg4;
 - (BOOL)getPresentationValue:(id *)arg1 forKey:(id)arg2 removeAnimation:(BOOL)arg3;
-@property(readonly, nonatomic) CALayer *currentLayer;
+@property(readonly, retain, nonatomic) CALayer *currentLayer;
 @end
 

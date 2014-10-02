@@ -62,7 +62,8 @@ struct Context {
     struct Atomic _field2;
     struct CGColorSpace *_field3;
     struct CGColorSpace *_field4;
-    _Bool _field5;
+    int _field5;
+    _Bool _field6;
 };
 
 struct FastRegistration_Signatures {
@@ -72,6 +73,13 @@ struct FastRegistration_Signatures {
     float *piCol;
     unsigned int nPiCol;
     struct Projections_meanStdTable piColTable;
+};
+
+struct GrainParameters {
+    float _field1;
+    float _field2;
+    float _field3;
+    float _field4;
 };
 
 struct GridROI_t {
@@ -99,6 +107,19 @@ struct SharpnessGridElement_t {
     float _field3;
 };
 
+struct __SVMParameters {
+    struct __SVMScaleOffset {
+        float _field1;
+        float _field2;
+    } _field1[7];
+    double _field2;
+    double _field3;
+    int _field4;
+    int _field5;
+    struct CIBurstSupportVector *_field6;
+    struct CIBurstSupportVector *_field7;
+};
+
 struct __sbuf {
     char *_field1;
     int _field2;
@@ -123,6 +144,15 @@ struct vec4 {
 };
 
 #pragma mark Typedef'd Structures
+
+typedef struct {
+    _Bool _field1;
+    float _field2;
+    float _field3;
+    float _field4;
+    float _field5;
+    float _field6[3];
+} CDStruct_31328b19;
 
 typedef struct {
     char *baseAddress;

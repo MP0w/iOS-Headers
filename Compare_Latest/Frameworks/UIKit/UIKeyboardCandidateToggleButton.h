@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     UIKBThemedView *_themedView;
 }
 
++ (id)arrowImageName;
 @property(retain, nonatomic) UIKBThemedView *themedView; // @synthesize themedView=_themedView;
 @property(copy, nonatomic) NSString *arrowDirection; // @synthesize arrowDirection=_arrowDirection;
 - (void)_setRenderConfig:(id)arg1;

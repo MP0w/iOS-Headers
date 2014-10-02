@@ -11,7 +11,7 @@
 #import "SBUIActiveOrientationObserver.h"
 #import "UIWindowDelegate.h"
 
-@class NSHashTable, NSMutableSet, SBFWallpaperView, SBWallpaperEffectView, SBWallpaperPreviewSnapshotCache, UIView, UIWindow;
+@class NSHashTable, NSMutableSet, NSString, SBFWallpaperView, SBWallpaperEffectView, SBWallpaperPreviewSnapshotCache, UIImage, UIView, UIWindow;
 
 @interface SBWallpaperController : NSObject <SBFWallpaperViewLegibilityObserver, SBFWallpaperViewInternalObserver, SBUIActiveOrientationObserver, UIWindowDelegate>
 {
@@ -24,7 +24,7 @@
     NSHashTable *_lockscreenObservers;
     NSHashTable *_homescreenObservers;
     CDStruct_e838e30c _lockscreenPriorityInfo[3];
-    CDStruct_e838e30c _homescreenPriorityInfo[6];
+    CDStruct_e838e30c _homescreenPriorityInfo[7];
     CDStruct_059c2b36 _lockscreenStyleTransitionState;
     CDStruct_059c2b36 _homescreenStyleTransitionState;
     SBWallpaperEffectView *_lockscreenEffectView;
@@ -41,8 +41,11 @@
     long long _disallowRasterizationBlockCount;
     NSMutableSet *_disallowRasterizationReasonsHomeVariant;
     NSMutableSet *_disallowRasterizationReasonsLockVariant;
+    UIImage *_homescreenLightForegroundBlurImage;
     struct CGColor *_homescreenLightForegroundBlurColor;
     struct CGRect _homescreenLightForegroundBlurColorRect;
+    NSMutableSet *_homescreenLightForegroundBlurCachedKeys;
+    _Bool _creatingHomescreenLightForegroundBlurColor;
     _Bool _isSuspendingMotionEffectsForBlur;
     SBWallpaperPreviewSnapshotCache *_previewCache;
     long long _activeOrientationSource;
@@ -52,6 +55,7 @@
     double _lockscreenWallpaperScale;
 }
 
++ (id)_homescreenLightForegroundBlurMappedImageCache;
 + (id)sharedInstance;
 @property(nonatomic) double lockscreenWallpaperScale; // @synthesize lockscreenWallpaperScale=_lockscreenWallpaperScale;
 @property(nonatomic) double homescreenWallpaperScale; // @synthesize homescreenWallpaperScale=_homescreenWallpaperScale;
@@ -67,7 +71,8 @@
 - (void)orientationSource:(long long)arg1 willAnimateRotationToInterfaceOrientation:(long long)arg2 duration:(double)arg3;
 - (void)orientationSource:(long long)arg1 willRotateToInterfaceOrientation:(long long)arg2 duration:(double)arg3;
 - (_Bool)_isAcceptingOrientationChangesFromSource:(long long)arg1;
-- (void)setActiveOrientationSource:(long long)arg1 andUpdateToOrientation:(long long)arg2;
+- (void)setActiveOrientationSource:(long long)arg1 andUpdateToOrientation:(long long)arg2 usingCrossfadeToBlack:(_Bool)arg3;
+- (id)debuggingDescription;
 - (void)_updateRasterizationState;
 - (void)_endDisallowRasterizationBlock;
 - (void)_beginDisallowRasterizationBlock;
@@ -89,7 +94,10 @@
 - (void)_handleWallpaperGeometryChangedForVariant:(long long)arg1;
 - (void)_handleWallpaperLegibilitySettingsChanged:(id)arg1 forVariant:(long long)arg2;
 - (void)_handleWallpaperChangedForVariant:(long long)arg1;
+- (void)didFinishWallpaperStepAnimation:(id)arg1;
+- (id)_updateEffectViewViaAnimationStepperForVariant:(long long)arg1 homescreenPriority:(long long)arg2;
 - (_Bool)_updateEffectViewForVariant:(long long)arg1 withFactory:(id)arg2;
+- (_Bool)_updateEffectViewForVariant:(long long)arg1 oldState:(CDStruct_059c2b36 *)arg2 newState:(CDStruct_059c2b36 *)arg3 oldEffectView:(id *)arg4 newEffectView:(id *)arg5;
 - (void)_updateMotionEffectsForState:(CDStruct_059c2b36)arg1;
 - (_Bool)_shouldSuspendMotionEffectsForState:(CDStruct_059c2b36)arg1;
 - (void)_endSuspendingMotionEffectsForBlurIfNeeded;
@@ -103,10 +111,12 @@
 - (id)_newWallpaperViewForProcedural:(id)arg1 orImage:(id)arg2 forVariant:(long long)arg3;
 - (void)_updateSeparateWallpaper;
 - (void)_updateSharedWallpaper;
+- (_Bool)_isWallpaperView:(id)arg1 displayingWallpaper:(id)arg2 forVariant:(long long)arg3;
 - (void)_updateWallpaperForLocations:(long long)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (_Bool)variantsShareWallpaper;
 - (void)_updateWallpaperParallax;
 - (void)_updateWallpaperHidden;
+- (_Bool)_isWallpaperHiddenForVariant:(long long)arg1;
 - (void)_setWallpaperHidden:(_Bool)arg1 variant:(long long)arg2 reason:(id)arg3;
 - (_Bool)_setDisallowRasterization:(_Bool)arg1 withReason:(id)arg2 reasons:(id)arg3;
 - (_Bool)_isRasterizationDisallowedForCurrentVariant;
@@ -131,10 +141,14 @@
 - (void)removeHomescreenStyleForGuidedAccessPriorityWithAnimationFactory:(id)arg1;
 - (void)setHomescreenStyleForGuidedAccessPriorityWithAnimationFactory:(id)arg1;
 - (_Bool)removeLockscreenStyleForPriority:(long long)arg1 withAnimationFactory:(id)arg2;
+- (id)removeHomescreenStyleViaAnimationStepperForPriority:(long long)arg1;
 - (_Bool)removeHomescreenStyleForPriority:(long long)arg1 withAnimationFactory:(id)arg2;
+- (_Bool)setStyleTransitionState:(CDStruct_059c2b36)arg1 forVariant:(long long)arg2 priority:(long long)arg3 withAnimationFactory:(id)arg4;
 - (_Bool)setLockscreenStyleTransitionState:(CDStruct_059c2b36)arg1 forPriority:(long long)arg2 withAnimationFactory:(id)arg3;
+- (id)setHomescreenStyleTransitionState:(CDStruct_059c2b36)arg1 viaAnimationStepperForPriority:(long long)arg2;
 - (_Bool)setHomescreenStyleTransitionState:(CDStruct_059c2b36)arg1 forPriority:(long long)arg2 withAnimationFactory:(id)arg3;
 - (_Bool)setLockscreenStyle:(long long)arg1 forPriority:(long long)arg2 withAnimationFactory:(id)arg3;
+- (id)setHomescreenStyle:(long long)arg1 viaAnimationStepperForPriority:(long long)arg2;
 - (_Bool)setHomescreenStyle:(long long)arg1 forPriority:(long long)arg2 withAnimationFactory:(id)arg3;
 - (CDStruct_059c2b36)currentHomescreenStyleTransitionState;
 - (void)setLockscreenOnlyWallpaperAlpha:(double)arg1;
@@ -144,6 +158,12 @@
 @property(nonatomic) long long variant;
 - (void)dealloc;
 - (id)initWithOrientation:(long long)arg1 variant:(long long)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

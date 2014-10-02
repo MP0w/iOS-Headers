@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
     float mLineSpacingReductionPercent;
 }
 
+- (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (float)lineSpacingReductionPercent;

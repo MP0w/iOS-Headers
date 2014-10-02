@@ -9,7 +9,7 @@
 #import "UIActionSheetDelegate.h"
 #import "UIPopoverControllerDelegate.h"
 
-@class UIActionSheet, UIBarButtonItem, UIPopoverController, UIResponder, UIView, UIWindow;
+@class NSString, UIActionSheet, UIBarButtonItem, UIPopoverController, UIResponder, UIView, UIWindow;
 
 @interface ABPopoverManager : NSObject <UIPopoverControllerDelegate, UIActionSheetDelegate>
 {
@@ -69,6 +69,12 @@
 - (void)keyboardDidShow:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

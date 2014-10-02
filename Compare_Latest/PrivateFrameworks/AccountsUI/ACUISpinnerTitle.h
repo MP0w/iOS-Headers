@@ -8,7 +8,6 @@
 
 @class UIActivityIndicatorView, UILabel;
 
-__attribute__((visibility("hidden")))
 @interface ACUISpinnerTitle : UIView
 {
     UILabel *_titleView;

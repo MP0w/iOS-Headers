@@ -12,8 +12,5 @@
 @protocol _UIViewServiceDeputy <NSObject, _UIViewServiceDeputy_UIViewServiceInterface>
 + (id <_UIViewServiceDeputyXPCInterface>)XPCInterface;
 - (_UIAsyncInvocationObserver *)invalidate;
-
-@optional
-- (void)setDeputyDelegate:(id <_UIViewServiceDeputyDelegate>)arg1;
 @end
 

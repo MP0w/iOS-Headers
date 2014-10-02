@@ -13,7 +13,8 @@
 + (id)transportButton;
 - (void)setImage:(id)arg1 forState:(unsigned int)arg2;
 - (struct UIEdgeInsets)alignmentRectInsets;
-@property(nonatomic) int transportType;
+- (id)imageNameForType:(int)arg1;
+- (void)setTransportType:(int)arg1;
 
 @end
 

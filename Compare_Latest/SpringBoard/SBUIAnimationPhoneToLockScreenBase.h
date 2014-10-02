@@ -6,13 +6,12 @@
 
 #import "SBUIMainScreenAnimationController.h"
 
-@class SBLockScreenViewControllerBase, SBWindow, UIView, UIView<SBWindowContextAppearance>;
+@class SBLockScreenViewControllerBase, UIView, UIView<FBWindowContextAppearance>;
 
 @interface SBUIAnimationPhoneToLockScreenBase : SBUIMainScreenAnimationController
 {
-    SBWindow *_transitionWindow;
     SBLockScreenViewControllerBase *_lockScreenViewController;
-    UIView<SBWindowContextAppearance> *_contextHostView;
+    UIView<FBWindowContextAppearance> *_contextHostView;
     _Bool _needsScreenDim;
 }
 

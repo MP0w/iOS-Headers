@@ -11,10 +11,13 @@ __attribute__((visibility("hidden")))
 {
     int mType;
     int mPosition;
+    int mExtraData;
 }
 
+- (int)extraData;
 - (void)setPosition:(int)arg1;
 - (int)position;
+- (id)initWithType:(int)arg1 position:(int)arg2 extraData:(int)arg3;
 - (id)initWithType:(int)arg1 position:(int)arg2;
 - (int)type;
 

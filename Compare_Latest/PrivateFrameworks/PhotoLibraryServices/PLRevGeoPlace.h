@@ -14,7 +14,7 @@
     BOOL _isHome;
 }
 
-+ (CDUnknownBlockType)sortedAdditionalPlaceComparator;
++ (CDUnknownBlockType)sortedAdditionalPlaceInfoComparator;
 @property(nonatomic) BOOL isHome; // @synthesize isHome=_isHome;
 - (unsigned int)_dominantOrderTypeForPlaceType:(int)arg1 lastOrderType:(unsigned int)arg2;
 - (id)description;
@@ -22,14 +22,10 @@
 - (id)placeInfoSetForOrderType:(unsigned int)arg1;
 @property(readonly, nonatomic) NSMutableDictionary *placeTypeInfoMap;
 - (void)removePlacesInPlaceInfoSet:(id)arg1 fromOrderType:(unsigned int)arg2;
-- (void)addPlaceName:(id)arg1 area:(double)arg2 forOrderType:(unsigned int)arg3 updateExisting:(BOOL)arg4;
-- (void)mergePlace:(id)arg1 updateExisting:(BOOL)arg2;
-- (void)mergeGEOPlaceResult:(id)arg1 updateExisting:(BOOL)arg2;
-- (void)mergeCommonDataForGEOPlace:(id)arg1 updateExisting:(BOOL)arg2;
-- (void)mergeGEOPlace:(id)arg1 updateExisting:(BOOL)arg2;
-- (id)initWithPlace:(id)arg1;
-- (id)initWithGEOPlace:(id)arg1;
-- (id)initWithGEOPlaceResult:(id)arg1;
+- (void)addPlaceName:(id)arg1 placeInfo:(id)arg2 forOrderType:(unsigned int)arg3 updateExisting:(BOOL)arg4;
+- (void)mergeGEOMapItem:(id)arg1 updateExisting:(BOOL)arg2;
+- (void)mergeCommonDataForGEOMapItem:(id)arg1 updateExisting:(BOOL)arg2;
+- (id)initWithGEOMapItem:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

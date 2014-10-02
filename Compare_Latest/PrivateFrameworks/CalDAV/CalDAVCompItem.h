@@ -13,7 +13,7 @@
     NSString *_nameAttribute;
 }
 
-@property(retain) NSString *nameAttribute; // @synthesize nameAttribute=_nameAttribute;
+@property(retain, nonatomic) NSString *nameAttribute; // @synthesize nameAttribute=_nameAttribute;
 - (void)write:(id)arg1;
 - (void)parserFoundAttributes:(id)arg1;
 - (void)dealloc;

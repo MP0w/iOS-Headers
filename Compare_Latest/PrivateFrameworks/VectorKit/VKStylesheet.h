@@ -6,60 +6,54 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSString, VKGenericShieldDrawStyle, VKPGlobalProperties;
+@class NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString, VKPGlobalProperties, VKStylesheetVendor;
 
+__attribute__((visibility("hidden")))
 @interface VKStylesheet : NSObject
 {
     NSString *_sheetName;
     float _scale;
     float _ppi;
     int _targetDisplay;
-    NSMutableArray *_flatStyles;
+    VKStylesheetVendor *_stylesheetVendor;
     NSMutableArray *_inheritance;
     int _rasterPolygonChangeoverZ;
     VKPGlobalProperties *_styleGlobalProperties;
-    int _mapDisplayStyle;
-    int _mapDisplayStyleVariant;
-    float _blendingFactor;
-    unsigned int _updateStamp;
-    BOOL _nightStyleVariantsInitialized;
     BOOL _supportsNightMode;
-    BOOL _canSelectIcons;
-    VKGenericShieldDrawStyle *_defaultGenericShieldStyle;
+    BOOL _supportsRouteMode;
+    struct StyleMatchingTree *_matchingTree;
+    struct vector<md::StyleMatchingTree *, std::__1::allocator<md::StyleMatchingTree *>> _matchingTreeSpareMemory;
+    unsigned long _matchingTreeSpareBufferSize;
+    unsigned long _matchingTreeCount;
+    NSObject<OS_dispatch_queue> *_resultCacheQueue;
+    NSMutableDictionary *_resultCache;
+    int _loadedGlobalResources;
+    int _loadedEverything;
+    NSObject<OS_dispatch_semaphore> *_globalResourcesLoadingSemaphore;
+    NSObject<OS_dispatch_semaphore> *_everythingLoadingSemaphore;
+    NSObject<OS_dispatch_queue> *_loadingQueue;
+    BOOL _isDevResource;
 }
 
-+ (id)installedStylesheets;
-+ (id)stylesheetWithName:(id)arg1 scale:(float)arg2 ppi:(float)arg3 targetDisplay:(int)arg4;
-+ (void)_activeTileGroupWillChange;
-@property(nonatomic) BOOL canSelectIcons; // @synthesize canSelectIcons=_canSelectIcons;
-@property(readonly, nonatomic) int targetDisplay; // @synthesize targetDisplay=_targetDisplay;
-@property(nonatomic) float blendingFactor; // @synthesize blendingFactor=_blendingFactor;
-@property(readonly) unsigned int updateStamp; // @synthesize updateStamp=_updateStamp;
-@property(nonatomic) int mapDisplayStyleVariant; // @synthesize mapDisplayStyleVariant=_mapDisplayStyleVariant;
-@property(readonly, nonatomic) int mapDisplayStyle; // @synthesize mapDisplayStyle=_mapDisplayStyle;
-@property(readonly, nonatomic) BOOL supportsNightMode; // @synthesize supportsNightMode=_supportsNightMode;
-@property(readonly, nonatomic) VKPGlobalProperties *styleGlobalProperties; // @synthesize styleGlobalProperties=_styleGlobalProperties;
-@property(readonly, nonatomic) int activeMapDisplayStyle;
-- (void)prepareStyleVariantsForMapDisplayStyle:(int)arg1;
-@property(readonly, nonatomic) VKGenericShieldDrawStyle *defaultGenericShieldStyle;
-- (id)_styleMatchingAttributes:(id)arg1 vectorType:(int)arg2 locale:(id)arg3 mapDisplayStyle:(int)arg4 mapDisplayStyleVariant:(int)arg5;
-- (id)_styleMatchingAttributes:(id)arg1 vectorType:(int)arg2 locale:(id)arg3;
-- (int)rasterPolygonChangeoverZ;
-- (float)shieldBrightnessForDisplayStyle:(int)arg1;
-- (float)shieldBrightnessForVectorType:(int)arg1;
-- (float)_nightShieldBrightnessForVectorType:(int)arg1;
-- (id)styleForFeature:(CDStruct_4c1ff046 *)arg1 vectorType:(int)arg2 mapDisplayStyle:(int)arg3;
-- (id)styleForFeature:(CDStruct_4c1ff046 *)arg1 vectorType:(int)arg2 locale:(id)arg3;
-- (id)styleForFeature:(CDStruct_4c1ff046 *)arg1 vectorType:(int)arg2;
-- (id)variantForStyle:(id)arg1;
-- (id)sheetName;
+@property(readonly, nonatomic) BOOL isDevResource; // @synthesize isDevResource=_isDevResource;
+@property(readonly, nonatomic) NSString *sheetName; // @synthesize sheetName=_sheetName;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) VKPGlobalProperties *styleGlobalProperties;
+@property(readonly, nonatomic) BOOL supportsNightMode;
+@property(readonly, nonatomic) int rasterPolygonChangeoverZ;
+- (int)styleAttributeValueForLocalization:(id)arg1;
+- (id)_stylesMatchingAttributes:(id)arg1 clientAttributes:(CDStruct_0504f6c7 *)arg2;
+- (id)_styleMatchingAttributes:(id)arg1 clientAttributes:(CDStruct_0504f6c7 *)arg2;
+- (unordered_map_debc365d)_attributeMapForAttributes:(id)arg1 clientAttributes:(CDStruct_0504f6c7 *)arg2;
+- (id)styleMatchingAttributes:(id)arg1 vectorType:(int)arg2 locale:(id)arg3 mapDisplayStyle:(unsigned int)arg4 mapDisplayStyleVariant:(unsigned int)arg5 canSelectIcons:(BOOL)arg6 selected:(BOOL)arg7;
+- (id)styleMatchingAttributes:(id)arg1 vectorType:(int)arg2 locale:(id)arg3 mapDisplayStyle:(unsigned int)arg4 mapDisplayStyleVariant:(unsigned int)arg5;
+- (id)styleForFeatureAttributes:(id)arg1 clientAttributes:(CDStruct_0504f6c7 *)arg2;
+- (void)clearCaches;
 - (void)dealloc;
-- (BOOL)supportsMapDisplayStyle:(int)arg1;
-- (oneway void)release;
-- (id)initWithData:(id)arg1 forName:(id)arg2 scale:(float)arg3 ppi:(float)arg4 targetDisplay:(int)arg5;
+- (id)initWithData:(id)arg1 miniData:(id)arg2 forName:(id)arg3 scale:(float)arg4 ppi:(float)arg5 vendor:(id)arg6 targetDisplay:(int)arg7 isDevResource:(BOOL)arg8;
+- (id)initWithName:(id)arg1 scale:(float)arg2 ppi:(float)arg3 targetDisplay:(int)arg4 vendor:(id)arg5 resourceManager:(id)arg6;
 - (id)init;
-- (id)initWithScale:(float)arg1 ppi:(float)arg2;
-- (id)initWithName:(id)arg1 scale:(float)arg2 ppi:(float)arg3 targetDisplay:(int)arg4;
 
 @end
 

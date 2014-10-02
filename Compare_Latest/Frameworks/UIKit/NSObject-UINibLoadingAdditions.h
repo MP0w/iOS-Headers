@@ -7,6 +7,7 @@
 #import "NSObject.h"
 
 @interface NSObject (UINibLoadingAdditions)
+- (void)prepareForInterfaceBuilder;
 - (void)awakeFromNib;
 @end
 

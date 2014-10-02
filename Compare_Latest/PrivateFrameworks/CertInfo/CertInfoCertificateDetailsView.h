@@ -8,7 +8,7 @@
 
 #import "UITableViewDataSource.h"
 
-@class NSMutableArray, UITableView;
+@class NSMutableArray, NSString, UITableView;
 
 @interface CertInfoCertificateDetailsView : UIView <UITableViewDataSource>
 {
@@ -16,6 +16,7 @@
     NSMutableArray *_tableSections;
 }
 
+- (void).cxx_destruct;
 - (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
@@ -23,12 +24,17 @@
 - (id)_titleForIndexPath:(id)arg1;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (void)layoutSubviews;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 certificateProperties:(id)arg2;
 - (id)_sectionsFromProperties:(id)arg1;
 - (id)_sectionInfoForCertSection:(id)arg1 title:(id)arg2;
 - (id)_cellInfosForSection:(id)arg1;
 - (void)appendInfoFromCertView:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

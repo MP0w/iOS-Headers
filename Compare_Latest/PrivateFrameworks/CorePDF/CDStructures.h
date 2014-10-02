@@ -181,8 +181,8 @@ struct PrimitiveBuffer {
 };
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned int location;
+    unsigned int length;
 };
 
 struct __CFDictionary;
@@ -195,6 +195,13 @@ typedef struct {
     double _field3;
     double _field4;
 } CDStruct_2a61e2ef;
+
+typedef struct {
+    unsigned long _field1;
+    id *_field2;
+    unsigned long *_field3;
+    unsigned long _field4[5];
+} CDStruct_11f37819;
 
 typedef struct {
     double _field1;

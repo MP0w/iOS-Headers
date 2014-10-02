@@ -20,11 +20,11 @@
     CoreDAVPropFindTask *_fetchTask;
 }
 
-@property(retain) CoreDAVPropFindTask *fetchTask; // @synthesize fetchTask=_fetchTask;
-@property(retain) NSString *suffixToFilterOut; // @synthesize suffixToFilterOut=_suffixToFilterOut;
-@property(retain) NSURL *urlToAdd; // @synthesize urlToAdd=_urlToAdd;
-@property(retain) NSURL *inboxURL; // @synthesize inboxURL=_inboxURL;
-@property int state; // @synthesize state=_state;
+@property(retain, nonatomic) CoreDAVPropFindTask *fetchTask; // @synthesize fetchTask=_fetchTask;
+@property(retain, nonatomic) NSString *suffixToFilterOut; // @synthesize suffixToFilterOut=_suffixToFilterOut;
+@property(retain, nonatomic) NSURL *urlToAdd; // @synthesize urlToAdd=_urlToAdd;
+@property(retain, nonatomic) NSURL *inboxURL; // @synthesize inboxURL=_inboxURL;
+@property(nonatomic) int state; // @synthesize state=_state;
 - (void)taskGroupWillCancelWithError:(id)arg1;
 - (void)propPatchTask:(id)arg1 parsedResponses:(id)arg2 error:(id)arg3;
 - (void)propFindTask:(id)arg1 parsedResponses:(id)arg2 error:(id)arg3;
@@ -36,7 +36,11 @@
 - (void)dealloc;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) id <CoreDAVTaskGroupDelegate> delegate; // @dynamic delegate;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

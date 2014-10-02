@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVAsset, AVPlayerItem, AVPlayerItemAccessLog, MPAVController, MPAlternateTextTrack, MPAlternateTracks, MPMediaItem, MPQueueFeeder, MPRadioAdTrack, NSArray, NSObject<OS_dispatch_queue>, NSString, NSURL, RadioAudioClip, RadioStreamTrack, RadioTrack;
+@class AVAsset, AVPlayerItem, AVPlayerItemAccessLog, MPAVController, MPAlternateTextTrack, MPAlternateTracks, MPMediaItem, MPQueueFeeder, NSArray, NSObject<OS_dispatch_queue>, NSString, NSURL;
 
 @interface MPAVItem : NSObject
 {
@@ -53,10 +53,10 @@
 + (void)setDefaultScaleMode:(unsigned int)arg1;
 + (unsigned int)defaultScaleMode;
 @property(nonatomic) float loudnessInfoVolumeNormalization; // @synthesize loudnessInfoVolumeNormalization=_loudnessInfoVolumeNormalization;
-@property(readonly, nonatomic) MPMediaItem *mediaItem; // @synthesize mediaItem=_mediaItem;
+@property(readonly, retain, nonatomic) MPMediaItem *mediaItem; // @synthesize mediaItem=_mediaItem;
 @property(readonly, nonatomic) long long storeID; // @synthesize storeID=_storeID;
-@property(readonly, nonatomic) NSString *copyrightText; // @synthesize copyrightText=_copyrightText;
-@property(readonly, nonatomic) NSArray *buyOffers; // @synthesize buyOffers=_buyOffers;
+@property(readonly, copy, nonatomic) NSString *copyrightText; // @synthesize copyrightText=_copyrightText;
+@property(readonly, copy, nonatomic) NSArray *buyOffers; // @synthesize buyOffers=_buyOffers;
 @property(readonly, nonatomic) long long albumStoreID; // @synthesize albumStoreID=_albumStoreID;
 @property(readonly, nonatomic) BOOL didAttemptToLoadAsset; // @synthesize didAttemptToLoadAsset=_didAttemptToLoadAsset;
 @property(retain, nonatomic) NSArray *urlTimeMarkers; // @synthesize urlTimeMarkers=_urlTimeMarkers;
@@ -76,6 +76,7 @@
 - (void)_checkAllowsBlockingDurationCall;
 - (void)setupPlaybackInfo;
 - (void)setupEQPresetWithDefaultPreset:(int)arg1;
+- (id)aggregateDictionaryItemIdentifier;
 - (void)_clearAsset;
 - (CDUnknownBlockType)blockForDirectAVControllerNotificationReferencingItem:(id)arg1;
 - (void)_updateSoundCheckVolumeNormalizationForPlayerItem;
@@ -114,13 +115,9 @@
 @property(readonly, nonatomic) BOOL useEmbeddedChapterData;
 - (id)titlesForTime:(double)arg1;
 @property(readonly, nonatomic) NSArray *timedMetadataIfAvailable;
-- (id)imageCacheRequestWithSize:(struct CGSize)arg1 time:(double)arg2 usePlaceholderAsFallback:(BOOL)arg3;
-- (id)imageCacheRequestWithSize:(struct CGSize)arg1 time:(double)arg2;
 - (void)_realoadEmbeddedTimeMarkers;
+@property(readonly, nonatomic) BOOL supportsSettingCurrentTime;
 @property(readonly, nonatomic) BOOL supportsSkip;
-@property(readonly, nonatomic) BOOL supportsRadioTrackActions;
-@property(readonly, nonatomic) BOOL supportsHistory;
-@property(readonly, nonatomic) BOOL supportsAddStation;
 @property(readonly, nonatomic) BOOL supportsRewindAndFastForward15Seconds;
 @property(retain, nonatomic) MPAlternateTextTrack *selectedAlternateTextTrack;
 - (void)setLimitReadAhead:(BOOL)arg1;
@@ -155,6 +152,7 @@
 - (BOOL)isAssetURLValid;
 - (BOOL)isPlaceholderForItem:(id)arg1;
 - (BOOL)isValidPlayerSubstituteForItem:(id)arg1;
+@property(readonly, nonatomic) BOOL isCloudItem;
 @property(readonly, nonatomic) unsigned int discCount;
 @property(readonly, nonatomic) unsigned int discNumber;
 @property(readonly, nonatomic) NSString *composer;
@@ -170,8 +168,8 @@
 - (double)durationInSeconds;
 - (double)_durationInSeconds;
 - (BOOL)userSkippedPlayback;
+@property(nonatomic) BOOL userAdvancedDuringPlayback;
 - (void)setUserSkippedPlayback:(BOOL)arg1;
-- (void)setUserAdvancedDuringPlayback:(BOOL)arg1;
 - (void)setSubtitleTrackID:(int)arg1;
 - (int)subtitleTrackID;
 - (void)setRating:(float)arg1;
@@ -190,22 +188,14 @@
 - (void)flushNowPlayingCaches;
 - (void)dealloc;
 - (void)_releaseAllTimeMarkers;
+- (id)initWithPlayerItem:(id)arg1;
 - (id)initWithAsset:(id)arg1;
 - (id)initWithURL:(id)arg1 options:(id)arg2;
 - (id)initWithURL:(id)arg1;
 - (id)init;
 - (BOOL)isSupportedDefaultPlaybackSpeed:(unsigned int)arg1;
-@property(readonly, nonatomic) RadioStreamTrack *streamTrack;
-@property(readonly, nonatomic) NSString *assetFlavor;
-- (id)_plistKeyForMPMediaItemProperty:(id)arg1;
-@property(readonly, nonatomic) RadioTrack *radioTrack;
-@property(readonly, nonatomic) BOOL isRadioItem;
-- (void)addDerivedStationForArtist:(BOOL)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-@property(readonly, nonatomic) NSString *albumBuyButtonText;
-@property(readonly, nonatomic) int albumBuyButtonType;
-@property(readonly, nonatomic) MPRadioAdTrack *adTrack;
+- (id)artworkCatalogForPlaybackTime:(double)arg1;
 @property(readonly, nonatomic) BOOL isStreamingQuality;
-@property(readonly, nonatomic) RadioAudioClip *audioClip;
 - (void)MPSPWD_prioritizeDownloadSession;
 
 @end

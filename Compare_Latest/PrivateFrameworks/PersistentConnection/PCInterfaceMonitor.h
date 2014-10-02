@@ -17,6 +17,7 @@
     NSMapTable *_delegateMap;
 }
 
++ (BOOL)isBadLinkQuality:(int)arg1;
 + (BOOL)isPoorLinkQuality:(int)arg1;
 + (id)stringForLinkQuality:(int)arg1;
 + (id)sharedInstanceForIdentifier:(int)arg1;
@@ -24,8 +25,9 @@
 @property(readonly, nonatomic) struct __CFString *wwanInterfaceName;
 @property(readonly, nonatomic) struct __CFString *currentRAT;
 @property(readonly, nonatomic) BOOL isRadioHot;
+@property(readonly, nonatomic) BOOL isBadLinkQuality;
 @property(readonly, nonatomic) BOOL isPoorLinkQuality;
-@property(readonly, nonatomic) NSString *linkQualityString;
+@property(readonly, retain, nonatomic) NSString *linkQualityString;
 @property(readonly, nonatomic) BOOL isInternetReachable;
 @property(readonly, nonatomic) BOOL isInterfaceHistoricallyUsable;
 @property(readonly, nonatomic) BOOL isInterfaceUsable;
@@ -35,9 +37,15 @@
 - (void)interfaceReachabilityChanged:(id)arg1;
 - (void)interfaceLinkQualityChanged:(id)arg1 previousLinkQuality:(int)arg2;
 - (void)removeDelegate:(id)arg1;
-- (void)addDelegate:(id)arg1 queue:(struct dispatch_queue_s *)arg2;
+- (void)addDelegate:(id)arg1 queue:(id)arg2;
 - (void)dealloc;
 - (id)initWithInterfaceIdentifier:(int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

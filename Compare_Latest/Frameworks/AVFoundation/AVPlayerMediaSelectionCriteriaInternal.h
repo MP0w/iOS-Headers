@@ -16,8 +16,12 @@
     NSArray *_precludedMediaCharacteristics;
     NSArray *_preferredMediaSubTypes;
     NSArray *_precludedMediaSubTypes;
+    BOOL _preferMultichannelAudio;
+    BOOL _precludeMultichannelAudio;
 }
 
+@property(nonatomic) BOOL precludeMultichannelAudio; // @synthesize precludeMultichannelAudio=_precludeMultichannelAudio;
+@property(nonatomic) BOOL preferMultichannelAudio; // @synthesize preferMultichannelAudio=_preferMultichannelAudio;
 @property(retain, nonatomic) NSArray *precludedMediaSubTypes; // @synthesize precludedMediaSubTypes=_precludedMediaSubTypes;
 @property(retain, nonatomic) NSArray *preferredMediaSubTypes; // @synthesize preferredMediaSubTypes=_preferredMediaSubTypes;
 @property(retain, nonatomic) NSArray *precludedMediaCharacteristics; // @synthesize precludedMediaCharacteristics=_precludedMediaCharacteristics;

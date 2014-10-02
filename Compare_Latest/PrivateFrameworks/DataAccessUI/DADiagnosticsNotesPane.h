@@ -13,9 +13,9 @@
     UITextView *_notesView;
 }
 
+- (void).cxx_destruct;
 - (id)preferenceValue;
 - (BOOL)becomeFirstResponder;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

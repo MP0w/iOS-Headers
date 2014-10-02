@@ -11,31 +11,38 @@
 @interface DATaskManager : NSObject
 {
     DAAccount *_account;
+    id <DATask> _activeModalTask;
+    id <DATask> _activeQueuedTask;
     NSMutableArray *_queuedExclusiveTasks;
     id <DATask> _activeExclusiveTask;
     NSMutableSet *_independentTasks;
     NSMutableSet *_heldIndependentTasks;
     NSMutableSet *_modalHeldIndependentTasks;
-    NSMutableArray *_queuedTasks;
-    id <DATask> _activeQueuedTask;
+    NSMutableArray *_mQueuedTasks;
     id <DATask> _modalHeldActiveQueuedTask;
     NSMutableArray *_queuedModalTasks;
-    id <DATask> _activeModalTask;
     int _state;
     NSTimer *_managerIdleTimer;
     NSTimer *_userInitiatedSyncTimer;
 }
 
-@property(readonly) NSArray *queuedTasks; // @synthesize queuedTasks=_queuedTasks;
-@property(readonly) id <DATask> activeQueuedTask; // @synthesize activeQueuedTask=_activeQueuedTask;
+@property(retain, nonatomic) NSTimer *userInitiatedSyncTimer; // @synthesize userInitiatedSyncTimer=_userInitiatedSyncTimer;
+@property(retain, nonatomic) NSTimer *managerIdleTimer; // @synthesize managerIdleTimer=_managerIdleTimer;
+@property(nonatomic) int state; // @synthesize state=_state;
+@property(retain, nonatomic) NSMutableArray *queuedModalTasks; // @synthesize queuedModalTasks=_queuedModalTasks;
+@property(retain, nonatomic) id <DATask> modalHeldActiveQueuedTask; // @synthesize modalHeldActiveQueuedTask=_modalHeldActiveQueuedTask;
+@property(retain, nonatomic) NSMutableArray *mQueuedTasks; // @synthesize mQueuedTasks=_mQueuedTasks;
+@property(retain, nonatomic) NSMutableSet *modalHeldIndependentTasks; // @synthesize modalHeldIndependentTasks=_modalHeldIndependentTasks;
+@property(retain, nonatomic) NSMutableSet *heldIndependentTasks; // @synthesize heldIndependentTasks=_heldIndependentTasks;
+@property(retain, nonatomic) NSMutableSet *independentTasks; // @synthesize independentTasks=_independentTasks;
+@property(retain, nonatomic) id <DATask> activeExclusiveTask; // @synthesize activeExclusiveTask=_activeExclusiveTask;
+@property(retain, nonatomic) NSMutableArray *queuedExclusiveTasks; // @synthesize queuedExclusiveTasks=_queuedExclusiveTasks;
+@property(retain, nonatomic) id <DATask> activeQueuedTask; // @synthesize activeQueuedTask=_activeQueuedTask;
+@property(retain, nonatomic) id <DATask> activeModalTask; // @synthesize activeModalTask=_activeModalTask;
+@property(nonatomic) __weak DAAccount *account; // @synthesize account=_account;
+- (void).cxx_destruct;
 - (void)taskManagerWillRemoveTask:(id)arg1;
 - (void)taskManagerDidAddTask:(id)arg1;
-- (id)_getQueuedModalTasks;
-- (id)_getQueuedTasks;
-- (id)_getModalHeldIndependentTasks;
-- (id)_getHeldIndependentTasks;
-- (id)_getIndependentTasks;
-- (id)_getQueuedExclusiveTasks;
 - (void)_releasePowerAssertionForTask:(id)arg1;
 - (void)_retainPowerAssertionForTask:(id)arg1;
 - (void)_cancelTasksWithReason:(int)arg1;
@@ -76,17 +83,16 @@
 - (id)server;
 - (int)port;
 - (id)user;
-@property DAAccount *account; // @synthesize account=_account;
 - (id)userAgent;
 - (id)deviceType;
 - (BOOL)_useFakeDescriptions;
 - (id)_version;
 - (void)_populateVersionDescriptions;
+@property(readonly, nonatomic) NSArray *queuedTasks;
 - (void)dealloc;
 - (id)init;
 - (id)initWithAccount:(id)arg1;
-@property(readonly) id <DATask> activeModalTask; // @synthesize activeModalTask=_activeModalTask;
-@property(readonly) NSArray *allTasks;
+@property(readonly, nonatomic) NSArray *allTasks;
 
 @end
 

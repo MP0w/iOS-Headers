@@ -28,11 +28,11 @@
 - (Class)classForPortCoder;
 - (id)replacementObjectForCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)reservedSpaceLength;
+@property(readonly) unsigned int reservedSpaceLength;
 - (id)delegate;
 - (void)setDelegate:(id)arg1;
 - (unsigned int)machPort;
-- (BOOL)isValid;
+@property(readonly, getter=isValid) BOOL valid;
 - (void)invalidate;
 - (id)initWithMachPort:(unsigned int)arg1;
 

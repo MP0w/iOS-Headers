@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (id)invalidURLSchemes;
 - (float)maximumAspectRatioForPreviewImage;
 - (float)mimimumAspectRatioForPreviewImage;
+- (id)applicationTemplateVariantsForLocale:(struct __CFLocale *)arg1;
 @property(readonly, nonatomic) NSArray *applicationTemplateVariants;
 - (void)registerDefaults;
 - (BOOL)isReadableDocumentType:(id)arg1;

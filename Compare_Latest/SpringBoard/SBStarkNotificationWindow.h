@@ -8,20 +8,28 @@
 
 #import "SBStarkNotificationViewControllerDelegate.h"
 
-@class SBStarkNotificationViewController, SBStarkScreenFocusController;
+@class NSString, SBStarkNotificationViewController, SBStarkScreenFocusController;
 
 @interface SBStarkNotificationWindow : SBWindow <SBStarkNotificationViewControllerDelegate>
 {
     SBStarkScreenFocusController *_focusController;
+    _Bool _assertingFocus;
     id _borrowScreenToken;
 }
 
 @property(retain, nonatomic) SBStarkScreenFocusController *focusController; // @synthesize focusController=_focusController;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)notificationViewController:(id)arg1 stateDidChangeFrom:(int)arg2;
+- (void)notificationViewController:(id)arg1 willDisplayBannerView:(id)arg2;
 @property(retain, nonatomic) SBStarkNotificationViewController *rootViewController;
 - (void)dealloc;
-- (id)initWithScreen:(id)arg1 jailBehavior:(int)arg2;
+- (id)initWithScreen:(id)arg1 layoutStrategy:(id)arg2 debugName:(id)arg3 scene:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

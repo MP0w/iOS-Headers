@@ -19,6 +19,10 @@
 @property(readonly, nonatomic) NSString *downloadTaskDescription;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) BOOL needsDownload;
+@property(readonly) Class superclass;
 @end
 

@@ -18,12 +18,13 @@
     SEL _setterMethod;
 }
 
-@property(readonly) SEL setterMethod; // @synthesize setterMethod=_setterMethod;
-@property(readonly) Class objectClass; // @synthesize objectClass=_objectClass;
-@property(readonly) NSString *elementName; // @synthesize elementName=_elementName;
-@property(readonly) NSString *nameSpace; // @synthesize nameSpace=_nameSpace;
-@property(readonly) int maximumNumber; // @synthesize maximumNumber=_maximumNumber;
-@property(readonly) int minimumNumber; // @synthesize minimumNumber=_minimumNumber;
++ (id)ruleWithMinimumNumber:(int)arg1 maximumNumber:(int)arg2 nameSpace:(id)arg3 elementName:(id)arg4 objectClass:(Class)arg5 setterMethod:(SEL)arg6;
+@property(readonly, nonatomic) SEL setterMethod; // @synthesize setterMethod=_setterMethod;
+@property(readonly, nonatomic) Class objectClass; // @synthesize objectClass=_objectClass;
+@property(readonly, nonatomic) NSString *elementName; // @synthesize elementName=_elementName;
+@property(readonly, nonatomic) NSString *nameSpace; // @synthesize nameSpace=_nameSpace;
+@property(readonly, nonatomic) int maximumNumber; // @synthesize maximumNumber=_maximumNumber;
+@property(readonly, nonatomic) int minimumNumber; // @synthesize minimumNumber=_minimumNumber;
 - (id)description;
 - (void)dealloc;
 - (id)initWithMinimumNumber:(int)arg1 maximumNumber:(int)arg2 nameSpace:(id)arg3 elementName:(id)arg4 objectClass:(Class)arg5 setterMethod:(SEL)arg6;

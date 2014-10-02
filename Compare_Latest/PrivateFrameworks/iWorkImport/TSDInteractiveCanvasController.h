@@ -10,15 +10,14 @@
 #import "TSDBackgroundLayoutAndRenderStateDelegate.h"
 #import "TSDCanvasDelegate.h"
 #import "TSDErrorPresenter.h"
-#import "TSDModalOperationPresenter.h"
 #import "TSDRepTrackerDelegateCreation.h"
 #import "TSKChangeSourceObserver.h"
 #import "TSKScrollViewDelegate.h"
 
-@class CALayer, NSArray, NSFormatter, NSMutableArray, NSObject<TSDCanvasEditor>, NSObject<TSDImageHUDController>, NSObject<TSDRulerController>, TSDBackgroundLayoutAndRenderState, TSDCanvas, TSDCanvasAnimation, TSDCanvasLayer, TSDCanvasView, TSDContainerRep, TSDDynamicOperationController, TSDEditorController, TSDGuideController, TSDGuideStorage, TSDLayoutController, TSDTileStorage, TSDTrackerManipulatorCoordinator, TSDUserDefinedGuideController, TSKAccessController, TSKChangeNotifier, TSKCommandController, TSKDocumentRoot, TSPObjectContext;
+@class CALayer, NSArray, NSFormatter, NSMutableArray, NSMutableSet, NSObject<TSDImageHUDController>, NSObject<TSDRulerController>, NSString, TSDBackgroundLayoutAndRenderState, TSDCanvas, TSDCanvasAnimation, TSDCanvasLayer, TSDCanvasView, TSDContainerRep, TSDDynamicOperationController, TSDEditorController, TSDGuideController, TSDLayoutController, TSDTileStorage, TSDTrackerManipulatorCoordinator, TSDUserDefinedGuideController, TSKAccessController, TSKChangeNotifier, TSKCommandController, TSKDocumentRoot, TSPObjectContext;
 
 __attribute__((visibility("hidden")))
-@interface TSDInteractiveCanvasController : NSObject <TSDCanvasDelegate, TSDErrorPresenter, TSDModalOperationPresenter, TSKChangeSourceObserver, NSCoding, TSKScrollViewDelegate, TSDBackgroundLayoutAndRenderStateDelegate, TSDRepTrackerDelegateCreation>
+@interface TSDInteractiveCanvasController : NSObject <TSDCanvasDelegate, TSDErrorPresenter, TSKChangeSourceObserver, NSCoding, TSKScrollViewDelegate, TSDBackgroundLayoutAndRenderStateDelegate, TSDRepTrackerDelegateCreation>
 {
     id <TSDInteractiveCanvasControllerDelegate> mDelegate;
     TSDCanvas *mCanvas;
@@ -31,7 +30,6 @@ __attribute__((visibility("hidden")))
     TSDEditorController *mEditorController;
     TSDGuideController *mGuideController;
     TSDUserDefinedGuideController *mUserDefinedGuideController;
-    NSObject<TSDCanvasEditor> *mCanvasEditor;
     BOOL mHasBeenTornDown;
     BOOL mHadLayerHost;
     BOOL mLayerHostHasBeenTornDown;
@@ -79,6 +77,7 @@ __attribute__((visibility("hidden")))
     NSMutableArray *mHiddenTopLevelLayers;
     BOOL mShouldSuppressRendering;
     BOOL mSupportsBackgroundTileRendering;
+    NSMutableSet *mNotificationsToPostWithValidLayouts;
     NSArray *mLayersWithZoomFadeAnimation;
     BOOL mDynamicallyZooming;
     float mDynamicViewScale;
@@ -98,7 +97,6 @@ __attribute__((visibility("hidden")))
     BOOL mShouldClipThemeContentToCanvas;
     BOOL mShowUserDefinedGuides;
     BOOL mPreventSettingNilEditorOnTextResponder;
-    BOOL mShowsComments;
 }
 
 + (float)smallRepOutsetForHitTesting;
@@ -126,7 +124,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) BOOL layoutAndRenderOnThreadDuringScroll; // @synthesize layoutAndRenderOnThreadDuringScroll=mLayoutAndRenderOnThreadDuringScroll;
 @property(nonatomic) BOOL createRepsForOffscreenLayouts; // @synthesize createRepsForOffscreenLayouts=mCreateRepsForOffscreenLayouts;
 @property(nonatomic) BOOL preventSettingNilEditorOnTextResponder; // @synthesize preventSettingNilEditorOnTextResponder=mPreventSettingNilEditorOnTextResponder;
-@property(retain, nonatomic) NSObject<TSDCanvasEditor> *canvasEditor; // @synthesize canvasEditor=mCanvasEditor;
 @property(nonatomic) BOOL resizeCanvasOnLayout; // @synthesize resizeCanvasOnLayout=mResizeCanvasOnLayout;
 @property(nonatomic) NSObject<TSDRulerController> *rulerController; // @synthesize rulerController=mRulerController;
 @property(nonatomic) BOOL textGesturesInFlight; // @synthesize textGesturesInFlight=mTextGesturesInFlight;
@@ -153,12 +150,13 @@ __attribute__((visibility("hidden")))
 - (void)p_editorDidChangeSelection:(id)arg1 withSelectionFlags:(unsigned int)arg2;
 - (void)p_textGesturesDidEndNotification:(id)arg1;
 - (void)p_textGesturesWillBeginNotification:(id)arg1;
+- (void)p_guideColorChanged:(id)arg1;
 - (void)p_rulerUnitsDidChangeNotification:(id)arg1;
 - (void)p_viewScrollingEnded;
 - (BOOL)p_shouldLayoutAndRenderOnThread;
 - (BOOL)i_temporarilyDisabledLayoutAndRenderOnThreadDuringScroll;
-- (void)i_enableThreadedLayoutAndRender;
-- (void)i_disableThreadedLayoutAndRender;
+- (void)enableThreadedLayoutAndRender;
+- (void)disableThreadedLayoutAndRender;
 - (id)p_backgroundLayoutAndRenderState;
 - (BOOL)p_endEditingToBeginEditingRep:(id)arg1;
 - (void)i_drawRepWithReadLock:(id)arg1 inContext:(struct CGContext *)arg2 forLayer:(id)arg3;
@@ -166,9 +164,11 @@ __attribute__((visibility("hidden")))
 - (id)p_overlayLayerForReps:(id)arg1;
 - (void)p_setupPopoutLayerForReps:(id)arg1;
 - (void)p_discardLayer:(id)arg1 forRep:(id)arg2;
+- (void)p_recursivelyUpdateLayerEdgeAntialiasingForLayer:(id)arg1;
 - (void)p_recursivelyUpdateLayerForRep:(id)arg1 accumulatingLayers:(id)arg2 andReps:(id)arg3;
 - (void)p_updateLayersFromReps;
 - (void)p_updateCanvasSizeFromLayouts;
+- (void)p_postNotificationOnMainThreadWithValidLayouts:(id)arg1;
 - (id)i_descriptionForViewScale:(float)arg1;
 - (id)i_currentAnimation;
 - (BOOL)i_inPrintPreviewMode;
@@ -209,7 +209,7 @@ __attribute__((visibility("hidden")))
 - (id)imageHUDController;
 - (void)makeEditorPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (void)deselectAll:(id)arg1;
-- (void)p_accquireLockAndPerformAction:(CDUnknownBlockType)arg1;
+- (void)p_acquireLockAndPerformAction:(CDUnknownBlockType)arg1;
 - (void)p_willEnterForeground:(id)arg1;
 - (void)asyncProcessChanges:(id)arg1 forChangeSource:(id)arg2;
 - (BOOL)selectionContainsOnlyInfosOnCanvas:(id)arg1 model:(id)arg2;
@@ -230,13 +230,14 @@ __attribute__((visibility("hidden")))
 - (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
 - (id)actionForLayer:(id)arg1 forKey:(id)arg2;
 - (void)tappedCanvasBackgroundAtPoint:(struct CGPoint)arg1;
+- (BOOL)handleMultipleTapAtPoint:(struct CGPoint)arg1;
 - (BOOL)handleDoubleTapAtPoint:(struct CGPoint)arg1;
 - (BOOL)handleSingleTapAtPoint:(struct CGPoint)arg1;
 - (void)updateSelectionForTapOnSelectedRep:(id)arg1;
 - (void)updateSelectionForTapAtPoint:(struct CGPoint)arg1 extendingSelection:(BOOL)arg2;
 - (id)hitRepChromeAtUnscaledPoint:(struct CGPoint)arg1;
-@property(readonly, nonatomic) TSDTrackerManipulatorCoordinator *tmCoordinator;
-@property(readonly, nonatomic) TSDDynamicOperationController *dynamicOperationController;
+@property(readonly, retain, nonatomic) TSDTrackerManipulatorCoordinator *tmCoordinator;
+@property(readonly, retain, nonatomic) TSDDynamicOperationController *dynamicOperationController;
 - (void)p_endZoomingOperation;
 - (void)p_beginZoomingOperation;
 - (void)endScrollingOperation;
@@ -252,23 +253,31 @@ __attribute__((visibility("hidden")))
 - (void)actionGhostKnobHitForRep:(id)arg1;
 - (void)toggleHyperlinkUIForRep:(id)arg1;
 - (BOOL)hasAnnotations;
+- (void)previousAnnotationBeforeVisibleAnnotation:(id)arg1;
+- (void)nextAnnotationAfterVisibleAnnotation:(id)arg1;
 - (void)previousAnnotation:(id)arg1;
 - (void)nextAnnotation:(id)arg1;
 - (id)annotationController;
 - (BOOL)attachedCommentsAllowedForDrawable:(id)arg1;
-- (void)toggleAnnotationVisibility:(id)arg1 model:(id)arg2 selection:(id)arg3 beginEditing:(BOOL)arg4;
-- (void)annotationChanged:(id)arg1 model:(id)arg2 selection:(id)arg3 beginEditing:(BOOL)arg4;
+- (void)toggleAnnotationVisibility:(id)arg1 model:(id)arg2 selection:(id)arg3 beginEditing:(BOOL)arg4 shouldSetSelection:(BOOL)arg5;
+- (void)hideAnnotationUIWithPinned:(BOOL)arg1;
 - (void)hideDisplayedAnnotation;
-@property(readonly, nonatomic) int annotationPreferredRectEdge;
+@property(readonly, nonatomic) unsigned int annotationPreferredRectEdge;
 - (struct CGRect)annotationRectInParentView;
 @property(readonly, nonatomic) struct CGSize annotationPopoverSize;
 @property(readonly, nonatomic) BOOL displayedAnnotationPresentedPinned;
 @property(readonly, nonatomic) id <TSDAnnotationHosting> displayedAnnotation;
-- (void)showAnnotation:(id)arg1 model:(id)arg2 selection:(id)arg3 beginEditing:(BOOL)arg4 pinned:(BOOL)arg5;
+- (void)presentAnnotationUI:(id)arg1 model:(id)arg2 selection:(id)arg3 beginEditing:(BOOL)arg4 pinned:(BOOL)arg5 viaKnob:(BOOL)arg6;
+- (void)showAnnotation:(id)arg1 model:(id)arg2 selection:(id)arg3 beginEditing:(BOOL)arg4 pinned:(BOOL)arg5 shouldSetSelection:(BOOL)arg6 viaKnob:(BOOL)arg7;
+- (void)showAnnotation:(id)arg1 model:(id)arg2 selection:(id)arg3 beginEditing:(BOOL)arg4 pinned:(BOOL)arg5 shouldSetSelection:(BOOL)arg6;
+- (BOOL)p_annotationShouldShowUI:(id)arg1;
 - (void)setAnnotationAuthorColor:(id)arg1;
 - (void)invalidateComments;
+- (BOOL)shouldDisplayCommentUIForAuthor:(id)arg1 info:(id)arg2;
 - (BOOL)shouldDisplayCommentUIForInfo:(id)arg1;
-@property(nonatomic) BOOL showsComments; // @synthesize showsComments=mShowsComments;
+@property(nonatomic) BOOL showsComments;
+- (void)addOrShowComment:(id)arg1;
+- (void)p_addOrShowComment:(id)arg1 selector:(SEL)arg2;
 - (void)showOrHideComments:(id)arg1;
 - (void)p_annotationAuthorNameDidChange:(id)arg1;
 - (void)getCurrentAnnotationAuthor:(id *)arg1 commandToCreateIfNecessary:(id *)arg2;
@@ -297,6 +306,7 @@ __attribute__((visibility("hidden")))
 - (id)hitKnobAtPoint:(struct CGPoint)arg1 returningRep:(id *)arg2;
 - (void)p_recursiveHitKnobAtPoint:(struct CGPoint)arg1 inRep:(id)arg2 minDistance:(float *)arg3 hitKnob:(id *)arg4 hitRep:(id *)arg5;
 - (id)hitRepsAtPoint:(struct CGPoint)arg1 withSlop:(struct CGSize)arg2;
+- (id)hitRepIgnoringClickThrough:(struct CGPoint)arg1;
 - (id)hitRep:(struct CGPoint)arg1;
 - (id)hitRep:(struct CGPoint)arg1 passingTest:(CDUnknownBlockType)arg2;
 - (id)topLevelRepsForHitTesting;
@@ -307,6 +317,7 @@ __attribute__((visibility("hidden")))
 - (id)unitStringForNumber:(float)arg1;
 - (id)unitStringForSize:(struct CGSize)arg1;
 - (id)unitStringForPoint:(struct CGPoint)arg1;
+- (struct CGSize)rulerCenterOffsetSizeForPoint:(struct CGPoint)arg1;
 - (id)unitFormatter;
 - (struct CGSize)growUnscaledCanvasLayerSize:(struct CGSize)arg1;
 - (struct CGSize)convertBoundsToUnscaledSize:(struct CGSize)arg1;
@@ -339,11 +350,18 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSArray *infosToDisplay;
 - (id)localizedPercentStringForAlignmentGuide:(id)arg1;
 - (id)provideUserDefinedGuides;
-- (id)provideDynamicGuides;
-- (struct CGRect)boundingRectForActiveGuidesForRect:(struct CGRect)arg1;
+- (id)provideDynamicGuidesForLayout:(id)arg1;
+- (struct CGRect)boundingRectForActiveGuidesForPoint:(struct CGPoint)arg1;
 - (id)infosForGuides;
-@property(readonly, nonatomic) TSDGuideStorage *guideStorage;
+- (float)offsetForTranslatingGuidesInStorage:(id)arg1 guideType:(int)arg2;
+- (float)offsetForTranslatingToCenterRulerForGuidesInStorage:(id)arg1 guideType:(int)arg2;
+- (void)translateGuides:(id)arg1 toContainerRect:(struct CGRect)arg2;
+- (void)clipGuideToContainer:(id)arg1 atUnscaledPoint:(struct CGPoint)arg2;
+- (void)translateGuide:(id)arg1 toContainerRect:(struct CGRect)arg2;
+- (struct CGRect)visualContainerRectForGuideStorage:(id)arg1;
+- (id)guideStorageAtPoint:(struct CGPoint)arg1;
 @property(readonly, nonatomic) TSDUserDefinedGuideController *userDefinedGuideController;
+- (Class)userDefinedGuideControllerClass;
 @property(readonly, nonatomic) TSDGuideController *guideController;
 - (void)makeUserDefinedGuidesVisible;
 - (void)toggleShouldShowUserDefinedGuides;
@@ -380,7 +398,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) float fitWidthViewScale;
 @property(readonly, nonatomic) float currentViewScale;
 @property(nonatomic) float viewScale;
-@property(readonly, nonatomic) float defaultViewScale;
 @property(readonly, nonatomic) TSDCanvasLayer *canvasLayer;
 @property(readonly, nonatomic) TSDCanvasView *canvasView;
 - (void)p_editorControllerSelectionDidChangeAndWantsKeyboard:(id)arg1;
@@ -415,10 +432,9 @@ __attribute__((visibility("hidden")))
 - (id)beginEditingRep:(id)arg1;
 - (id)beginEditingRep:(id)arg1 clearingSelection:(BOOL)arg2 withEditorProvider:(CDUnknownBlockType)arg3;
 - (id)beginEditingRepForInfo:(id)arg1;
+- (id)canvasEditor;
 - (id)newCanvasEditor;
 @property(readonly, nonatomic) TSDEditorController *editorController;
-- (void)endModalOperation;
-- (void)beginModalOperationWithLocalizedMessage:(id)arg1 progress:(id)arg2 cancelHandler:(CDUnknownBlockType)arg3;
 - (void)presentErrors:(id)arg1 withLocalizedDescription:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)presentError:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)canvas:(id)arg1 createdRep:(id)arg2;
@@ -446,8 +462,6 @@ __attribute__((visibility("hidden")))
 - (void)i_layerHostHasBeenTornDown;
 - (void)teardown;
 - (void)teardownCanvasEditor;
-- (void)forwardInvocation:(id)arg1;
-- (BOOL)respondsToSelector:(SEL)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)dealloc;
 - (void)p_commonInit;
@@ -456,6 +470,12 @@ __attribute__((visibility("hidden")))
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

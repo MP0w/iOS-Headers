@@ -11,10 +11,9 @@
     CDUnknownBlockType _error;
 }
 
-+ (unsigned short)provider;
 @property(copy, nonatomic) CDUnknownBlockType error; // @synthesize error=_error;
 - (void)cancel;
-- (void)search:(id)arg1 timeout:(int)arg2 useBackgroundConnection:(BOOL)arg3 finished:(CDUnknownBlockType)arg4 spellingSuggestion:(CDUnknownBlockType)arg5 refinement:(CDUnknownBlockType)arg6 error:(CDUnknownBlockType)arg7 isCompletions:(BOOL)arg8;
+- (void)search:(id)arg1 timeout:(int)arg2 useBackgroundConnection:(BOOL)arg3 finished:(CDUnknownBlockType)arg4 refinement:(CDUnknownBlockType)arg5 error:(CDUnknownBlockType)arg6 isCompletions:(BOOL)arg7;
 - (void)dealloc;
 
 @end

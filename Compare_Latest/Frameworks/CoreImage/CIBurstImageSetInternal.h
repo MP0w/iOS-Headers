@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CIBurstActionClassifier, CIBurstImageFaceAnalysisContext, CIBurstYUVImage, CIContext, NSArray, NSCountedSet, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString;
+@class CIBurstActionClassifier, CIBurstImageFaceAnalysisContext, CIBurstYUVImage, NSArray, NSCountedSet, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface CIBurstImageSetInternal : NSObject
@@ -21,8 +21,9 @@ __attribute__((visibility("hidden")))
     int dummyAnalysisCount;
     BOOL enableFaceCore;
     BOOL enableDumpYUV;
-    BOOL portraitMode;
     NSString *burstCoverSelection;
+    BOOL isAction;
+    BOOL isPortrait;
     CIBurstImageFaceAnalysisContext *faceAnalysisContext;
     CIBurstYUVImage *overrideImage;
     NSDictionary *overrideProps;
@@ -54,15 +55,18 @@ __attribute__((visibility("hidden")))
         long long _field20;
     } *burstLogFileHandle;
     CIBurstActionClassifier *actionClassifier;
-    CIContext *ciContext;
     int curClusterIndexToProcess;
     NSMutableArray *bestImageIdentifiersArray;
     NSString *burstId;
+    NSString *_versionString;
+    int _version;
 }
 
++ (id)defaultVersionString;
+@property int version; // @synthesize version=_version;
+@property NSString *versionString; // @synthesize versionString=_versionString;
 @property NSArray *bestImageIdentifiersArray; // @synthesize bestImageIdentifiersArray;
 @property(retain, nonatomic) NSString *burstId; // @synthesize burstId;
-@property BOOL portraitMode; // @synthesize portraitMode;
 @property NSString *burstCoverSelection; // @synthesize burstCoverSelection;
 @property BOOL enableDumpYUV; // @synthesize enableDumpYUV;
 @property BOOL enableFaceCore; // @synthesize enableFaceCore;
@@ -70,16 +74,15 @@ __attribute__((visibility("hidden")))
 @property BOOL enableAnalysis; // @synthesize enableAnalysis;
 @property int maxNumPendingFrames; // @synthesize maxNumPendingFrames;
 @property NSString *burstLogFileName; // @synthesize burstLogFileName;
-@property CIContext *ciContext; // @synthesize ciContext;
 @property NSMutableDictionary *clusterByImageIdentifier; // @synthesize clusterByImageIdentifier;
 @property NSMutableDictionary *statsByImageIdentifier; // @synthesize statsByImageIdentifier;
 @property CIBurstActionClassifier *actionClassifier; // @synthesize actionClassifier;
 @property NSMutableArray *allImageIdentifiers; // @synthesize allImageIdentifiers;
 @property NSCountedSet *faceIDCounts; // @synthesize faceIDCounts;
-@property CIBurstImageFaceAnalysisContext *faceAnalysisContext; // @synthesize faceAnalysisContext;
 @property int temporalOrder; // @synthesize temporalOrder;
 @property NSMutableArray *clusterArray; // @synthesize clusterArray;
-@property NSObject<OS_dispatch_queue> *dq; // @synthesize dq;
+- (BOOL)isAction;
+- (BOOL)isPortrait;
 - (BOOL)isFaceDetectionForced;
 - (id)imageClusterForIdentifier:(id)arg1;
 - (id)bestImageIdentifiers;
@@ -90,13 +93,12 @@ __attribute__((visibility("hidden")))
 - (float)computeCameraTravelDistance;
 - (void)performEmotionalRejectionOnCluster:(id)arg1;
 - (int)computeEmotion:(id)arg1;
-- (void)addImage:(id)arg1 identifier:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (void)addImageFromCGImage:(struct CGImage *)arg1 properties:(id)arg2 identifier:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (void)addYUVImage:(id)arg1 properties:(id)arg2 identifier:(id)arg3 imageProps:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
 - (void)processClusters:(BOOL)arg1;
 - (float)computeActionSelectionThreshold;
 - (void)dealloc;
-- (id)init;
+- (id)initWithOptions:(id)arg1;
+- (id)burstDocumentDirectory;
 
 @end
 

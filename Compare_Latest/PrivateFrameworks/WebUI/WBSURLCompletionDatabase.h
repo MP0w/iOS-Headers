@@ -8,16 +8,17 @@
 
 @interface WBSURLCompletionDatabase : NSObject
 {
-    void *_private;
+    struct unique_ptr<SafariShared::URLCompletionDatabase, std::__1::default_delete<SafariShared::URLCompletionDatabase>> _completionDatabase;
 }
 
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (id)fakeBookmarkMatchDataWithURLString:(id)arg1 title:(id)arg2;
 - (void)enumerateMatchDataForTypedStringHint:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)clearMatchesCaches;
 - (void)clearBookmarkMatchesCaches;
 - (void)clearBookmarkMatchesCachesKeepingEmptyValues:(BOOL)arg1;
 - (void)getBestMatchesForTypedString:(id)arg1 topHits:(id *)arg2 matches:(id *)arg3 limit:(unsigned int)arg4;
-- (void)dealloc;
 - (id)init;
 
 @end

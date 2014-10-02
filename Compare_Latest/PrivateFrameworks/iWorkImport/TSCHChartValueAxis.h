@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 - (int)specificPropertyForGeneric:(int)arg1;
 - (id)defaultProperties;
 - (id)p_GetGenericToValuePropertyMap;
+- (BOOL)supportsAxisValueLabels;
 - (BOOL)editableFormatForValueStrings;
 - (double)validateUserMaxForDouble:(double)arg1;
 - (double)validateUserMinForDouble:(double)arg1;

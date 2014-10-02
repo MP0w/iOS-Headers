@@ -15,7 +15,7 @@
     int _tileZ;
 }
 
-- (id)initWithFeature:(CDStruct_4c1ff046 *)arg1;
+- (id)initWithFeature:(CDStruct_fafc065c *)arg1 featureType:(int)arg2;
 - (int)tileZ;
 - (int)tileY;
 - (int)tileX;

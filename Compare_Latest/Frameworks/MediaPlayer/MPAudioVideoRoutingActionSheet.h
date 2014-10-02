@@ -8,7 +8,7 @@
 
 #import "UIActionSheetDelegate.h"
 
-@class MPAVRoutingController, NSArray, UIViewController, UIWindow;
+@class MPAVRoutingController, NSArray, NSString, UIViewController, UIWindow;
 
 @interface MPAudioVideoRoutingActionSheet : UIActionSheet <UIActionSheetDelegate>
 {
@@ -37,6 +37,13 @@
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithType:(unsigned int)arg1;
+- (id)initWithType:(unsigned int)arg1 routingController:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

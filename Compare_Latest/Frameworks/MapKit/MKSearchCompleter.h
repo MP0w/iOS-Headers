@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString;
+@class CLLocation, NSArray, NSString;
 
 @interface MKSearchCompleter : NSObject
 {
@@ -18,9 +18,11 @@
     int _entriesType;
     int _listType;
     double _timeSinceLastInBoundingRegion;
+    CLLocation *_deviceLocation;
 }
 
 + (id)alloc;
+@property(retain, nonatomic) CLLocation *deviceLocation; // @synthesize deviceLocation=_deviceLocation;
 @property(nonatomic) double timeSinceLastInBoundingRegion; // @synthesize timeSinceLastInBoundingRegion=_timeSinceLastInBoundingRegion;
 @property(nonatomic) int listType; // @synthesize listType=_listType;
 @property(nonatomic) int entriesType; // @synthesize entriesType=_entriesType;

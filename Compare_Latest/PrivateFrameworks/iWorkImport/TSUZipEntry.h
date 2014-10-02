@@ -13,15 +13,17 @@ __attribute__((visibility("hidden")))
 {
     BOOL _compressed;
     unsigned short _nameLength;
-    unsigned short _extraFieldLength;
+    unsigned short _extraFieldsLength;
     NSString *_name;
     unsigned int _CRC;
+    unsigned long _fileHeaderLength;
     unsigned long long _size;
     unsigned long long _compressedSize;
     unsigned long long _offset;
 }
 
-@property(nonatomic) unsigned short extraFieldLength; // @synthesize extraFieldLength=_extraFieldLength;
+@property(nonatomic) unsigned long fileHeaderLength; // @synthesize fileHeaderLength=_fileHeaderLength;
+@property(nonatomic) unsigned short extraFieldsLength; // @synthesize extraFieldsLength=_extraFieldsLength;
 @property(nonatomic) unsigned short nameLength; // @synthesize nameLength=_nameLength;
 @property(nonatomic) unsigned long long offset; // @synthesize offset=_offset;
 @property(nonatomic) unsigned long long compressedSize; // @synthesize compressedSize=_compressedSize;

@@ -6,15 +6,20 @@
 
 #import "NSObject.h"
 
+#import "NSCopying.h"
+
 @class NSMutableDictionary, NSMutableString;
 
 __attribute__((visibility("hidden")))
-@interface CMStyle : NSObject
+@interface CMStyle : NSObject <NSCopying>
 {
     NSMutableDictionary *properties;
     NSMutableString *mStyleString;
 }
 
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)appendDefaultBorderStyle;
 - (void)appendSizeInfoFromRect:(struct CGRect)arg1;
 - (void)appendPositionInfoFromRect:(struct CGRect)arg1;
@@ -28,7 +33,9 @@ __attribute__((visibility("hidden")))
 - (void)appendPropertyForName:(id)arg1 oadTextSpacing:(id)arg2 lineHeight:(float)arg3 unit:(int)arg4;
 - (void)appendPropertyForName:(id)arg1 oadTextSpacing:(id)arg2 unit:(int)arg3;
 - (void)appendPropertyForName:(id)arg1 oadTextSpacing:(id)arg2;
+- (id)cacheFriendlyCSSStyleString;
 - (id)cssStyleString;
+- (void)addPropertiesToCSSStyleString:(id)arg1;
 - (id)attributeForName:(id)arg1;
 - (id)propertyForName:(id)arg1;
 - (void)addProperty:(id)arg1 forKey:(id)arg2;

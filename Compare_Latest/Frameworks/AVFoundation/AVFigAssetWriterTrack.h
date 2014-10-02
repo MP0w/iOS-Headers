@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVMediaFileType, AVWeakReference, NSObject<OS_dispatch_queue>, NSString;
+@class AVAssetWriterInputFigAssetWriterEndPassOperation, AVMediaFileType, AVWeakReference, NSObject<OS_dispatch_queue>, NSString;
 
 @interface AVFigAssetWriterTrack : NSObject
 {
@@ -18,15 +18,20 @@
     NSObject<OS_dispatch_queue> *_aboveHighWaterLevelQueue;
     BOOL _aboveHighWaterLevel;
     CDStruct_1b6d18a9 _sampleBufferCoalescingInterval;
+    AVAssetWriterInputFigAssetWriterEndPassOperation *_endPassOperation;
 }
 
-+ (id)assetWriterTrackWithFigAssetWriter:(struct OpaqueFigAssetWriter *)arg1 mediaType:(id)arg2 mediaFileType:(id)arg3 formatSpecification:(id)arg4 sourcePixelBufferAttributes:(id)arg5 error:(id *)arg6;
++ (id)assetWriterTrackWithFigAssetWriter:(struct OpaqueFigAssetWriter *)arg1 mediaType:(id)arg2 mediaFileType:(id)arg3 formatSpecification:(id)arg4 sourcePixelBufferAttributes:(id)arg5 multiPass:(BOOL)arg6 error:(id *)arg7;
 @property(readonly, nonatomic) AVMediaFileType *mediaFileType; // @synthesize mediaFileType=_mediaFileType;
 @property(readonly, nonatomic) NSString *mediaType; // @synthesize mediaType=_mediaType;
 @property(readonly, nonatomic) int trackID; // @synthesize trackID=_trackID;
 @property(readonly, nonatomic) struct OpaqueFigAssetWriter *figAssetWriter; // @synthesize figAssetWriter=_figAssetWriter;
 @property(nonatomic) CDStruct_1b6d18a9 sampleBufferCoalescingInterval; // @synthesize sampleBufferCoalescingInterval=_sampleBufferCoalescingInterval;
-- (int)_attachToFigAssetWriterUsingFormatSpecification:(id)arg1 sourcePixelBufferAttributes:(id)arg2 error:(id *)arg3;
+- (int)_attachToFigAssetWriterUsingFormatSpecification:(id)arg1 sourcePixelBufferAttributes:(id)arg2 multiPass:(BOOL)arg3 error:(id *)arg4;
+- (void)setSampleReferenceBaseURL:(id)arg1;
+- (void)setPreferredChunkSize:(int)arg1;
+- (void)setPreferredChunkAlignment:(int)arg1;
+- (void)setPreferredChunkDuration:(CDStruct_1b6d18a9)arg1;
 - (void)setExcludeFromAutoSelection:(BOOL)arg1;
 - (void)setAlternateGroupID:(short)arg1;
 - (void)setLayer:(int)arg1;
@@ -40,15 +45,18 @@
 - (void)setFigMetadata:(id)arg1;
 - (BOOL)markEndOfDataReturningError:(id *)arg1;
 - (void)prepareToEndSession;
+- (void)endPassWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (BOOL)addPixelBuffer:(struct __CVBuffer *)arg1 atPresentationTime:(CDStruct_1b6d18a9)arg2 error:(id *)arg3;
 - (BOOL)addSampleBuffer:(struct opaqueCMSampleBuffer *)arg1 error:(id *)arg2;
+- (BOOL)beginPassReturningError:(id *)arg1;
 @property(readonly, getter=isAboveHighWaterLevel) BOOL aboveHighWaterLevel;
+@property(readonly, nonatomic) BOOL encoderSupportsMultiPass;
 - (void)_refreshAboveHighWaterLevel;
 - (void)_figAssetWriterDidDropBelowLowWaterLevelForTrackID:(int)arg1;
 @property(readonly, nonatomic) struct __CVPixelBufferPool *pixelBufferPool;
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithFigAssetWriter:(struct OpaqueFigAssetWriter *)arg1 mediaType:(id)arg2 mediaFileType:(id)arg3 formatSpecification:(id)arg4 sourcePixelBufferAttributes:(id)arg5 error:(id *)arg6;
+- (id)initWithFigAssetWriter:(struct OpaqueFigAssetWriter *)arg1 mediaType:(id)arg2 mediaFileType:(id)arg3 formatSpecification:(id)arg4 sourcePixelBufferAttributes:(id)arg5 multiPass:(BOOL)arg6 error:(id *)arg7;
 - (id)init;
 
 @end

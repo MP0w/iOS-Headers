@@ -13,7 +13,10 @@
 
 @property(nonatomic) BOOL disableNavigationItemRemoval; // @synthesize disableNavigationItemRemoval=_disableNavigationItemRemoval;
 - (void)_updateEditButton;
+- (id)_existingViewControllerAtIndexPath:(id)arg1;
 - (void)_defaultMediaLibraryDidChangeNotification:(id)arg1;
+- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

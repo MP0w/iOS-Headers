@@ -18,8 +18,8 @@ __attribute__((visibility("hidden")))
 - (void)mapChildrenAt:(id)arg1 withState:(id)arg2;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
 - (struct CGSize)textSize;
-- (void)mapListItemAt:(id)arg1 index:(int)arg2 withState:(id)arg3;
-- (id)suggestedBoundsForHListItemWithIndex:(int)arg1;
+- (void)mapListItemAt:(id)arg1 index:(unsigned int)arg2 withState:(id)arg3;
+- (id)suggestedBoundsForHListItemWithIndex:(unsigned int)arg1;
 
 @end
 

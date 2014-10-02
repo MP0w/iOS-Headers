@@ -6,14 +6,17 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
 #import "NSMutableCopying.h"
+#import "NSSecureCoding.h"
 
-@interface NSAttributedString : NSObject <NSCopying, NSMutableCopying, NSCoding>
+@class NSString;
+
+@interface NSAttributedString : NSObject <NSCopying, NSMutableCopying, NSSecureCoding>
 {
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (void)_setAttributedDictionaryClass:(Class)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -35,7 +38,7 @@
 - (id)attributedSubstringFromRange:(struct _NSRange)arg1;
 - (id)attribute:(id)arg1 atIndex:(unsigned int)arg2 effectiveRange:(struct _NSRange *)arg3;
 - (id)attributesAtIndex:(unsigned int)arg1 effectiveRange:(struct _NSRange *)arg2;
-- (id)string;
+@property(readonly, copy) NSString *string;
 - (id)replacementObjectForPortCoder:(id)arg1;
 - (id)_createAttributedSubstringWithRange:(struct _NSRange)arg1;
 - (unsigned long)_cfTypeID;

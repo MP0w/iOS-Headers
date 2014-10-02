@@ -6,15 +6,19 @@
 
 #import "NSObject.h"
 
-@class AVCaptureDevice, NSArray;
+@class AVCaptureDevice, AVWeakKeyValueObserverProxy, AVWeakReference, NSArray;
 
 @interface AVCaptureDeviceInputInternal : NSObject
 {
-    AVCaptureDevice *_device;
-    NSArray *_ports;
-    BOOL _ready;
-    BOOL _authorizedForCamera;
+    AVCaptureDevice *device;
+    NSArray *ports;
+    BOOL ready;
+    BOOL authorizedForCamera;
+    AVWeakReference *weakReference;
+    AVWeakKeyValueObserverProxy *KVOProxy;
 }
+
+- (void)dealloc;
 
 @end
 

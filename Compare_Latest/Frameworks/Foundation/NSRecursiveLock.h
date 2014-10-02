@@ -8,6 +8,8 @@
 
 #import "NSLocking.h"
 
+@class NSString;
+
 @interface NSRecursiveLock : NSObject <NSLocking>
 {
     void *_priv;
@@ -15,8 +17,7 @@
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
 - (BOOL)isLocking;
-- (id)name;
-- (void)setName:(id)arg1;
+@property(copy) NSString *name;
 - (id)description;
 - (void)unlock;
 - (BOOL)tryLock;

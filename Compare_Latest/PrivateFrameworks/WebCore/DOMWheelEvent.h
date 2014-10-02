@@ -14,9 +14,12 @@
 @property(readonly) BOOL isHorizontal;
 - (BOOL)webkitDirectionInvertedFromDevice;
 @property(readonly) int wheelDelta;
-- (unsigned int)deltaMode;
 @property(readonly) int wheelDeltaY;
 @property(readonly) int wheelDeltaX;
+- (unsigned int)deltaMode;
+- (double)deltaZ;
+- (double)deltaY;
+- (double)deltaX;
 
 @end
 

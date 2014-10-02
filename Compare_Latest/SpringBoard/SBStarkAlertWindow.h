@@ -10,7 +10,7 @@
 {
 }
 
-+ (int)jailBehavior;
++ (double)windowLevel;
 
 @end
 

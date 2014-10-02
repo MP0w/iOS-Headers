@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSString, QLPrintPageRenderer, QLRemotePrintPageHelper;
+@class NSDictionary, NSString, QLPrintPageRenderer;
 
 @protocol QLPreviewContentControllerProtocol <NSObject>
 @property int previewMode;
@@ -16,7 +16,7 @@
 - (void)endScrubbing;
 - (void)scrubToValue:(double)arg1;
 - (void)beginScrubbing;
-- (QLRemotePrintPageHelper *)printPageHelper;
+- (id <QLRemotePrintPageHelper>)printPageHelper;
 - (QLPrintPageRenderer *)printPageRenderer;
 - (void)forceResignFirstResponder;
 - (void)becomeForeground;
@@ -29,6 +29,7 @@
 - (void)setLoadingTextForMissingFiles:(NSString *)arg1;
 - (void)checkCurrentPreviewItem;
 - (void)refreshCurrentPreviewItem;
+- (void)stopLoadingCurrentPreviewItem;
 - (int)currentPreviewItemIndex;
 - (void)setCurrentPreviewItemIndex:(int)arg1;
 - (void)configureWithParameters:(NSDictionary *)arg1;

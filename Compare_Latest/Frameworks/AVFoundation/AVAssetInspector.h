@@ -14,10 +14,15 @@
 {
 }
 
+@property(readonly, nonatomic) id propertyListForProxy;
+@property(readonly, nonatomic) BOOL containsMovieFragments;
+@property(readonly, nonatomic) BOOL canContainMovieFragments;
 @property(readonly, nonatomic) NSData *SHA1Digest;
+@property(readonly, nonatomic, getter=isCompatibleWithSavedPhotosAlbum) BOOL compatibleWithSavedPhotosAlbum;
 @property(readonly, nonatomic, getter=isComposable) BOOL composable;
 @property(readonly, nonatomic, getter=isReadable) BOOL readable;
 @property(readonly, nonatomic, getter=isExportable) BOOL exportable;
+@property(readonly, nonatomic, getter=isPlayable) BOOL playable;
 - (BOOL)hasProtectedContent;
 - (id)metadataForFormat:(id)arg1;
 @property(readonly, nonatomic) NSArray *availableMetadataFormats;

@@ -19,21 +19,21 @@ __attribute__((visibility("hidden")))
     unsigned int mOriginal:1;
     unsigned int mTracked:1;
     unsigned int mResolved:1;
-    CDStruct_fbd27f19 *mOriginalProperties;
-    CDStruct_fbd27f19 *mTrackedProperties;
+    CDStruct_1eae1781 *mOriginalProperties;
+    CDStruct_1eae1781 *mTrackedProperties;
 }
 
 - (void)copyPropertiesInto:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (BOOL)isContextualSpacingOverridden;
+- (void)setContextualSpacing:(BOOL)arg1;
+- (BOOL)contextualSpacing;
 - (BOOL)isIndexToAuthorIDOfFormattingChangeOverridden;
 - (void)setIndexToAuthorIDOfFormattingChange:(unsigned short)arg1;
 - (unsigned short)indexToAuthorIDOfFormattingChange;
 - (BOOL)isFormattingChangedOverridden;
 - (void)setFormattingChanged:(int)arg1;
 - (int)formattingChanged;
-- (BOOL)isTablePartOverridden;
-- (void)setTablePart:(unsigned short)arg1;
-- (unsigned short)tablePart;
 - (void)addTabStopDeletedPosition:(short)arg1;
 - (short)tabStopDeletedPositionAt:(unsigned long)arg1;
 - (void)setTabStopDeletedPositionCount:(unsigned long)arg1;
@@ -41,11 +41,16 @@ __attribute__((visibility("hidden")))
 - (void)removeTabStopAddedWithPosition:(short)arg1;
 - (void)addTabStopAdded:(CDStruct_bd9d81e1 *)arg1;
 - (CDStruct_bd9d81e1 *)tabStopAddedAt:(unsigned long)arg1;
+- (BOOL)hasTabStopDeletedAtPosition:(short)arg1;
+- (BOOL)hasTabStopAddedAtPosition:(short)arg1;
 - (void)setTabStopAddedCount:(unsigned long)arg1;
 - (unsigned long)tabStopAddedCount;
 - (BOOL)isKinsokuOffOverridden;
 - (void)setKinsokuOff:(BOOL)arg1;
 - (BOOL)kinsokuOff;
+- (BOOL)isBiDiOverridden;
+- (void)setBiDi:(BOOL)arg1;
+- (BOOL)biDi;
 - (BOOL)isWidowControlOverridden;
 - (void)setWidowControl:(BOOL)arg1;
 - (BOOL)widowControl;
@@ -64,15 +69,33 @@ __attribute__((visibility("hidden")))
 - (BOOL)isOutlineLevelOverridden;
 - (void)setOutlineLevel:(unsigned short)arg1;
 - (unsigned short)outlineLevel;
+- (BOOL)isPhysicalJustificationOverridden;
+- (void)setPhysicalJustification:(int)arg1;
+- (int)physicalJustification;
 - (BOOL)isJustificationOverridden;
 - (void)setJustification:(int)arg1;
 - (int)justification;
+- (BOOL)isFirstLineIndentCharsOverridden;
+- (void)setFirstLineIndentChars:(short)arg1;
+- (short)firstLineIndentChars;
+- (BOOL)isRightIndentCharsOverridden;
+- (void)setRightIndentChars:(short)arg1;
+- (short)rightIndentChars;
+- (BOOL)isLeftIndentCharsOverridden;
+- (void)setLeftIndentChars:(short)arg1;
+- (short)leftIndentChars;
 - (BOOL)isFirstLineIndentOverridden;
 - (void)setFirstLineIndent:(short)arg1;
 - (short)firstLineIndent;
 - (BOOL)isRightIndentOverridden;
 - (void)setRightIndent:(short)arg1;
 - (short)rightIndent;
+- (BOOL)isFollowingIndentOverridden;
+- (void)setFollowingIndent:(short)arg1;
+- (short)followingIndent;
+- (BOOL)isLeadingIndentOverridden;
+- (void)setLeadingIndent:(short)arg1;
+- (short)leadingIndent;
 - (BOOL)isLeftIndentOverridden;
 - (void)setLeftIndent:(short)arg1;
 - (short)leftIndent;
@@ -157,18 +180,12 @@ __attribute__((visibility("hidden")))
 - (BOOL)isListIndexOverridden;
 - (void)setListIndex:(unsigned int)arg1;
 - (unsigned int)listIndex;
-- (BOOL)isListOverridden;
-- (void)setList:(id)arg1;
-- (id)list;
 - (BOOL)isListLevelOverridden;
 - (void)setListLevel:(unsigned char)arg1;
 - (unsigned char)listLevel;
 - (BOOL)isPageBreakBeforeOverridden;
 - (void)setPageBreakBefore:(BOOL)arg1;
 - (BOOL)isPageBreakBefore;
-- (BOOL)isTableStyleOverridden;
-- (void)setTableStyle:(id)arg1;
-- (id)tableStyle;
 - (void)clearBaseStyle;
 - (BOOL)isBaseStyleOverridden;
 - (void)setBaseStyle:(id)arg1;
@@ -185,7 +202,7 @@ __attribute__((visibility("hidden")))
 - (id)document;
 - (void)dealloc;
 - (id)initWithDocument:(id)arg1;
-- (BOOL)isAnythingOverriddenIn:(CDStruct_fbd27f19 *)arg1;
+- (BOOL)isAnythingOverriddenIn:(CDStruct_1eae1781 *)arg1;
 
 @end
 

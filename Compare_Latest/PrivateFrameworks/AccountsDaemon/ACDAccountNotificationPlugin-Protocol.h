@@ -15,6 +15,7 @@
 - (void)account:(ACAccount *)arg1 willPerformActionsForDataclasses:(NSArray *)arg2;
 - (void)account:(ACAccount *)arg1 didChangeWithType:(int)arg2 inStore:(ACDAccountStore *)arg3 oldAccount:(ACAccount *)arg4;
 - (BOOL)account:(ACAccount *)arg1 willChangeWithType:(int)arg2 inStore:(ACDAccountStore *)arg3 oldAccount:(ACAccount *)arg4;
+- (BOOL)canRemoveAccount:(ACAccount *)arg1 inStore:(ACDAccountStore *)arg2;
 - (BOOL)canSaveAccount:(ACAccount *)arg1 inStore:(ACDAccountStore *)arg2;
 @end
 

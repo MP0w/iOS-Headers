@@ -10,19 +10,17 @@
 
 @interface DAMailboxFetchMessageRequest : DAMailboxRequest
 {
-    NSString *_messageID;
-    int _bodyFormat;
     int _maxSize;
 }
 
-- (void)dealloc;
+@property(nonatomic) int maxSize; // @synthesize maxSize=_maxSize;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
-- (int)maxSize;
-- (int)bodyFormat;
-- (id)messageID;
 - (id)initRequestForBodyFormat:(int)arg1 withMessageID:(id)arg2 withBodySizeLimit:(int)arg3;
+
+// Remaining properties
+@property(copy, nonatomic) NSString *messageID;
 
 @end
 

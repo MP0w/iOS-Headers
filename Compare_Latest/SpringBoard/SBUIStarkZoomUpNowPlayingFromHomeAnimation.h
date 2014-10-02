@@ -15,8 +15,9 @@
 
 - (void)_cleanupAnimation;
 - (void)_startAnimation;
-- (_Bool)_animationShouldStart;
 - (id)_viewToAnimate;
+- (void)_setupStartDependencies;
+- (_Bool)_waitsForApplicationActivationIfNecessary;
 - (void)dealloc;
 - (id)initWithActivatingApp:(id)arg1 alertImpersonator:(id)arg2 starkScreenController:(id)arg3;
 

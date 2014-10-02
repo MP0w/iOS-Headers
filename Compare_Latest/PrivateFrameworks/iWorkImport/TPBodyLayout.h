@@ -9,19 +9,18 @@
 #import "TPAttachmentLayoutParent.h"
 #import "TSWPLayoutTarget.h"
 
-@class NSMutableArray, TPFootnoteHeightMeasurer, TPFootnoteMarkProvider, TSDCanvas, TSPObject<TSDHint>;
+@class NSMutableArray, NSString, TPFootnoteHeightMeasurer, TSDCanvas, TSPObject<TSDHint>;
 
 __attribute__((visibility("hidden")))
 @interface TPBodyLayout : TSDLayout <TSWPLayoutTarget, TPAttachmentLayoutParent>
 {
     NSMutableArray *_columns;
-    NSMutableArray *_anchoredDrawablesForRelayout;
-    TPFootnoteMarkProvider *_footnoteMarkProvider;
     TPFootnoteHeightMeasurer *_footnoteHeightMeasurer;
+    NSMutableArray *_anchoredDrawablesForRelayout;
 }
 
 + (struct CGSize)minimumBodySize;
-@property(readonly, nonatomic) NSMutableArray *columns; // @synthesize columns=_columns;
+@property(readonly, retain, nonatomic) NSMutableArray *columns; // @synthesize columns=_columns;
 @property(retain, nonatomic) NSMutableArray *anchoredDrawablesForRelayout; // @synthesize anchoredDrawablesForRelayout=_anchoredDrawablesForRelayout;
 - (BOOL)siblingTargetIsManipulatingDrawable:(id)arg1;
 @property(readonly, nonatomic) BOOL textIsVertical;
@@ -63,12 +62,11 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) id <TSWPFootnoteMarkProvider> footnoteMarkProvider;
 @property(readonly, nonatomic) id <TSWPFootnoteHeightMeasurer> footnoteHeightMeasurer;
 @property(readonly, nonatomic) const struct TSWPTopicNumberHints *nextTargetTopicNumbers;
-@property(readonly, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
+@property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
 @property(readonly, nonatomic) const struct TSWPTopicNumberHints *previousTargetTopicNumbers;
-@property(readonly, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
+@property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
 - (id)columnMetricsForCharIndex:(unsigned int)arg1 outRange:(struct _NSRange *)arg2;
 - (BOOL)shouldProvideSizingGuides;
-- (struct CGSize)maximumSizeForChildLayout:(id)arg1;
 - (void)invalidateSize;
 - (void)validate;
 - (struct CGPoint)capturedInfoPositionForAttachment;
@@ -86,9 +84,13 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) struct __CFLocale *hyphenationLocale;
 @property(readonly, nonatomic) struct CGRect maskRect;
 @property(readonly, nonatomic) BOOL shouldHyphenate;
+@property(readonly) Class superclass;
 
 @end
 

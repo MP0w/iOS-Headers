@@ -7,7 +7,6 @@
 #import "NSDateComponents.h"
 
 @interface NSDateComponents (EventKit)
-+ (id)dateComponentsFromGregorianDate:(CDStruct_79f9e052)arg1;
 - (void)clearTimeComponents;
 - (BOOL)hasTimeComponents;
 - (CDStruct_79f9e052)gregorianDate;

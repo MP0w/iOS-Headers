@@ -9,6 +9,11 @@
 @class NSDictionary, NSNumber, NSString, NSURL;
 
 @protocol SKUIServiceProductPageViewController <NSObject>
+- (void)setPromptString:(NSString *)arg1;
+- (void)setShowsRightBarButton:(NSNumber *)arg1;
+- (void)setRightBarButtonTitle:(NSString *)arg1;
+- (void)setCancelButtonTitle:(NSString *)arg1;
+- (void)setAskToBuy:(NSNumber *)arg1;
 - (void)setShowsStoreButton:(NSNumber *)arg1;
 - (void)setScriptContextDictionary:(NSDictionary *)arg1;
 - (void)setProductPageStyle:(NSNumber *)arg1;
@@ -20,6 +25,8 @@
 - (void)loadProductWithParameters:(NSDictionary *)arg1;
 - (void)loadProductWithPageDictionary:(NSDictionary *)arg1;
 - (void)finishStarRatingPromptWithRating:(NSNumber *)arg1;
+- (void)finishImmediately;
 - (void)applicationWillEnterForeground;
+- (void)applicationDidEnterBackground;
 @end
 

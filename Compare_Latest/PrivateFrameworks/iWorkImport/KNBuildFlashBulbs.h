@@ -8,6 +8,8 @@
 
 #import "KNChunkableBuildAnimator.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface KNBuildFlashBulbs : KNAnimationEffect <KNChunkableBuildAnimator>
 {
@@ -24,6 +26,12 @@ __attribute__((visibility("hidden")))
 + (id)animationName;
 - (id)animationsWithContext:(id)arg1;
 - (id)p_layerWithImage:(struct CGImage *)arg1 centeredAt:(struct CGPoint)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

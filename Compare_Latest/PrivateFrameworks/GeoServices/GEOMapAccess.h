@@ -10,10 +10,6 @@
 
 @interface GEOMapAccess : GEOMapRequestManager
 {
-    unsigned int _zoomLevel;
-    int _tileSize;
-    int _tileScale;
-    int _tileStyle;
     NSObject<OS_dispatch_queue> *_callbackQueue;
     id <GEOMapAccessRestrictions> _restrictions;
     CDUnknownBlockType _tileErrorHandler;
@@ -23,20 +19,17 @@
 + (BOOL)supportsRealisticMap;
 @property(copy, nonatomic) CDUnknownBlockType tileErrorHandler; // @synthesize tileErrorHandler=_tileErrorHandler;
 @property(nonatomic) id <GEOMapAccessRestrictions> restrictions; // @synthesize restrictions=_restrictions;
-@property(readonly, nonatomic) int tileStyle; // @synthesize tileStyle=_tileStyle;
-@property(readonly, nonatomic) int tileScale; // @synthesize tileScale=_tileScale;
-@property(readonly, nonatomic) int tileSize; // @synthesize tileSize=_tileSize;
-@property(readonly, nonatomic) unsigned int zoomLevel; // @synthesize zoomLevel=_zoomLevel;
-- (id)buildMapEdgeFrom:(const CDStruct_b4689c16 *)arg1 edgeHandler:(CDUnknownBlockType)arg2;
-- (id)findTilesWithin:(double)arg1 of:(CDStruct_c3b9c2ee)arg2 tileHander:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (id)findEdgesWithin:(double)arg1 of:(CDStruct_c3b9c2ee)arg2 edgeHandler:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (id)buildMapEdgeFrom:(const CDStruct_fc3c0eb0 *)arg1 edgeHandler:(CDUnknownBlockType)arg2;
+- (id)findRoadTilesWithin:(double)arg1 of:(CDStruct_c3b9c2ee)arg2 tileHander:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (id)findRoadsWithin:(double)arg1 of:(CDStruct_c3b9c2ee)arg2 handler:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (id)findRoadEdgesWithin:(double)arg1 of:(CDStruct_c3b9c2ee)arg2 edgeHandler:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)findClosestRoadAtCoordinate:(CDStruct_c3b9c2ee)arg1 roadHandler:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)findClosestNamedFeaturesAtCoordinate:(CDStruct_c3b9c2ee)arg1 roadHandler:(CDUnknownBlockType)arg2 pointHandler:(CDUnknownBlockType)arg3 polygonHandler:(CDUnknownBlockType)arg4 completionHandler:(CDUnknownBlockType)arg5;
 @property(readonly, nonatomic) BOOL allowsNetworkTileLoad;
 - (void)setCallbackQueue:(id)arg1;
 - (id)callbackQueue;
 - (void)dealloc;
-- (id)initWithZoomLevel:(unsigned int)arg1 tileSize:(int)arg2 tileScale:(int)arg3 tileStyle:(int)arg4;
+- (id)init;
 
 @end
 

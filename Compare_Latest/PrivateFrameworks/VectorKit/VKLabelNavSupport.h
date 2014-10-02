@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
     NSMutableSet *_pendingTiles;
     NSMutableArray *_junctions;
     VKLabelNavRoadGraph *_roadGraph;
-    vector_a3d7a989 _activeSigns;
+    vector_4ea116aa _activeSigns;
     NSMutableArray *_fadingLabels;
     NSMutableDictionary *_visibleLabelsByName;
     NSMutableArray *_visibleLabels;
@@ -51,7 +51,7 @@ __attribute__((visibility("hidden")))
 
 @property(retain, nonatomic) NSString *currentShieldGroup; // @synthesize currentShieldGroup=_currentShieldGroup;
 @property(retain, nonatomic) NSString *currentRoadName; // @synthesize currentRoadName=_currentRoadName;
-@property(readonly, nonatomic) const vector_a3d7a989 *activeSigns; // @synthesize activeSigns=_activeSigns;
+@property(readonly, nonatomic) const vector_4ea116aa *activeSigns; // @synthesize activeSigns=_activeSigns;
 @property(retain, nonatomic) NSString *currentLocationText; // @synthesize currentLocationText=_currentLocationText;
 @property(nonatomic) struct PolylineCoordinate routeUserOffset; // @synthesize routeUserOffset=_routeUserOffset;
 @property(nonatomic) BOOL drawRoadSigns; // @synthesize drawRoadSigns=_drawRoadSigns;
@@ -59,9 +59,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL needsLayout; // @synthesize needsLayout=_needsLayout;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (unsigned char)computeRoutePositionMaskForPOIAtPixel:(const Vec2Imp_1782d7e3 *)arg1 currentPositionMask:(unsigned char)arg2 context:(struct NavContext *)arg3;
+- (unsigned char)computeRoutePositionForPOIAtPixel:(const Matrix_8746f91e *)arg1 currentPosition:(unsigned char)arg2 context:(struct NavContext *)arg3;
 - (BOOL)_updateActiveRouteRange;
-- (BOOL)_findRouteOverlappingJunctionFrom:(int)arg1 routeJunctions:(vector_b376ae98 *)arg2 lookBackward:(BOOL)arg3 firstOverlap:(int *)arg4 secondOverlap:(int *)arg5;
+- (BOOL)_findRouteOverlappingJunctionFrom:(int)arg1 routeJunctions:(vector_682a2c99 *)arg2 lookBackward:(BOOL)arg3 firstOverlap:(int *)arg4 secondOverlap:(int *)arg5;
 - (void)_updateCurrentRoadInfo;
 - (void)_initalizeCurrentRoadInfo;
 - (void)_updatePreferredLabelPlacements;
@@ -83,7 +83,7 @@ __attribute__((visibility("hidden")))
 - (void)clearSceneIsMemoryWarning:(BOOL)arg1;
 - (BOOL)isNavMode;
 - (void)dealloc;
-- (void)setStylesheet:(id)arg1;
+- (void)setStyleManager:(id)arg1;
 - (id)init;
 
 @end

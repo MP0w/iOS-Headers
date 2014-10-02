@@ -10,6 +10,8 @@
 #import "KNAnimationPluginArchiving.h"
 #import "KNAnimationPluginObsoleteNames.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface KNActionMotionPath : KNAnimationEffect <KNActionEffectBuildAnimator, KNAnimationPluginArchiving, KNAnimationPluginObsoleteNames>
 {
@@ -33,6 +35,12 @@ __attribute__((visibility("hidden")))
 - (id)animationsForTextureSet:(id)arg1 finalTextureSet:(id)arg2 duration:(double)arg3 attributes:(id)arg4 previousAttributes:(id)arg5;
 - (void)p_addAnimationForLayer:(id)arg1 duration:(double)arg2 motionPath:(id)arg3 acceleration:(id)arg4 toAnimationDictionary:(id)arg5;
 - (id)p_flattenedPathBasedOnLengthFromPath:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

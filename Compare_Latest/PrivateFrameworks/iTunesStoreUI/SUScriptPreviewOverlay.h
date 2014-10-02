@@ -17,9 +17,6 @@
 + (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
-- (void)_userInfoDidChange:(id)arg1;
-- (void)_checkOutAfterVisibilityChange;
-- (void)finalizeForWebScript;
 @property(copy) id width;
 @property(copy) NSString *userInfo;
 @property(copy) id top;
@@ -30,8 +27,6 @@
 - (void)show:(id)arg1;
 - (void)loadURLRequest:(id)arg1;
 - (void)hide:(id)arg1;
-- (void)dealloc;
-- (id)init;
 
 @end
 

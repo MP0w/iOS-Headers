@@ -8,6 +8,7 @@
 
 #import "NSCoding.h"
 
+__attribute__((visibility("hidden")))
 @interface CUIPSDGradientOpacityStop : CUIPSDGradientStop <NSCoding>
 {
     float opacity;
@@ -21,6 +22,7 @@
 - (float)opacity;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithLocation:(float)arg1 opacity:(float)arg2;
 
 @end

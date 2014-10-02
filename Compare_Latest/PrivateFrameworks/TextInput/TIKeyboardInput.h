@@ -20,6 +20,7 @@
             unsigned int popupVariant:1;
             unsigned int multitap:1;
             unsigned int flick:1;
+            unsigned int synthesizedByAcceptingCandidate:1;
         } fields;
     } _flags;
     BOOL _backspace;
@@ -39,6 +40,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
+@property(nonatomic, getter=isSynthesizedByAcceptingCandidate) BOOL synthesizedByAcceptingCandidate;
 @property(nonatomic, getter=isFlick) BOOL flick;
 @property(nonatomic, getter=isMultitap) BOOL multitap;
 @property(nonatomic, getter=isPopupVariant) BOOL popupVariant;

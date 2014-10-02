@@ -8,7 +8,7 @@
 
 #import "TSCH3DChartAllSceneObjectDelegate.h"
 
-@class TSCH3DSceneObject;
+@class NSString, TSCH3DSceneObject;
 
 __attribute__((visibility("hidden")))
 @interface TSCH3DRayPickPipelineDelegate : NSObject <TSCH3DChartAllSceneObjectDelegate>
@@ -44,6 +44,12 @@ __attribute__((visibility("hidden")))
 - (void)didEndProcessingSceneObject:(id)arg1;
 - (BOOL)willBeginProcessingSceneObject:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

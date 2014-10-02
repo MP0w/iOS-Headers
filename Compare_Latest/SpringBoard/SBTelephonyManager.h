@@ -6,27 +6,37 @@
 
 #import "NSObject.h"
 
-@class NSString, NSTimer, RadiosPreferences, SBAlertItem, TUCall;
+#import "RadiosPreferencesDelegate.h"
 
-@interface SBTelephonyManager : NSObject
+@class NSObject<OS_dispatch_queue>, NSString, NSTimer, RadiosPreferences, SBAlertItem, TUCall;
+
+@interface SBTelephonyManager : NSObject <RadiosPreferencesDelegate>
 {
+    struct __CTServerConnection *_serverConnection;
     _Bool _containsCellularRadio;
     _Bool _hasCellularTelephony;
     _Bool _hasCellularData;
-    _Bool _hasAppleTelephony;
     _Bool _hasAnyTelephony;
-    NSString *_cachedCTRegistrationStatus;
+    NSString *_cachedCTRegistrationCellStatus;
+    NSString *_cachedCTRegistrationDisplayStatus;
+    int _cachedCTRegistrationIsForcedHome;
+    int _cellRegistrationStatus;
     int _registrationStatus;
+    NSTimer *_fakeServiceTimer;
+    NSTimer *_fakeCellServiceTimer;
     _Bool _signalStrengthHasBeenSet;
     int _signalStrength;
     int _signalStrengthBars;
     NSString *_operatorName;
     NSString *_lastKnownNetworkCountryCode;
     unsigned int _usingWifi:1;
-    unsigned int _usingVPN:1;
+    int _vpnConnectionStatus;
     unsigned int _iTunesNeedsToRecheckActivation:1;
     unsigned int _pretendingToSearch:1;
     unsigned int _callForwardingIndicator:2;
+    NSObject<OS_dispatch_queue> *_wirelessModemDynamicStoreQueue;
+    struct __SCDynamicStore *_queue_wirelessModemDynamicStore;
+    struct __CFString *_queue_wirelessModemDynamicStoreSharingKey;
     _Bool _isNetworkTethering;
     int _numberOfNetworkTetheredDevices;
     unsigned int _hasShownWaitingAlert:1;
@@ -40,7 +50,8 @@
     RadiosPreferences *_radioPrefs;
     int _needsUserIdentificationModule;
     NSString *_simStatus;
-    int _wantsToHideDataIndicators;
+    int _suppressesCellDataIndicator;
+    int _suppressesCellIndicators;
     int _lteConnectionShows4G;
     int _modemDataConnectionType;
     _Bool _modemDataConnectionTypeIsKnown;
@@ -59,8 +70,7 @@
 @property(retain, nonatomic) TUCall *heldCall; // @synthesize heldCall=_heldCall;
 @property(retain, nonatomic) TUCall *activeCall; // @synthesize activeCall=_activeCall;
 @property(retain, nonatomic) TUCall *incomingCall; // @synthesize incomingCall=_incomingCall;
-- (void)noteWirelessModemChanged;
-- (void)setIsNetworkTethering:(_Bool)arg1 withNumberOfDevices:(int)arg2;
+- (void)_setIsNetworkTethering:(_Bool)arg1 withNumberOfDevices:(int)arg2;
 - (int)numberOfNetworkTetheredDevices;
 - (_Bool)isNetworkTethering;
 - (void)noteSIMUnlockAttempt;
@@ -69,24 +79,29 @@
 - (id)SIMStatus;
 - (void)_setSIMStatus:(id)arg1;
 - (int)registrationStatus;
+- (int)cellRegistrationStatus;
 - (id)operatorName;
-- (void)operatorBundleChanged;
+- (void)_operatorBundleChanged;
 - (void)setOperatorName:(id)arg1;
 - (void)_reallySetOperatorName:(id)arg1;
 - (void)_fetchOperatorNameWithCompletion:(CDUnknownBlockType)arg1;
 - (int)signalStrengthBars;
 - (int)signalStrength;
 - (void)_setSignalStrength:(int)arg1 andBars:(int)arg2;
-- (void)carrierBundleChanged;
+- (void)_carrierBundleChanged;
 - (void)_prepareToAnswerCall;
 - (_Bool)_pretendingToSearch;
+- (void)_stopFakeCellService;
+- (void)_cancelFakeCellServiceTimer;
 - (void)_stopFakeService;
 - (void)_startFakeServiceIfNecessary;
-- (void)_cancelFakeService;
+- (void)_cancelFakeServiceTimer;
 - (void)_updateRegistrationNow;
 - (void)_setRegistrationStatus:(int)arg1;
-- (void)_setCachedCTRegistrationStatus:(struct __CFString *)arg1;
-- (struct __CFString *)_cachedCTRegistrationStatus;
+- (void)_setCellRegistrationStatus:(int)arg1;
+- (void)_setCachedCTRegistrationCellStatus:(struct __CFString *)arg1 displayStatus:(struct __CFString *)arg2 forcedHome:(_Bool)arg3;
+- (struct __CFString *)_cachedCTRegistrationDisplayStatus;
+- (struct __CFString *)_cachedCTRegistrationCellStatus;
 - (void)postponementStatusChanged;
 - (void)_headphoneChanged:(id)arg1;
 - (void)_resetCTMMode;
@@ -102,18 +117,21 @@
 - (id)copyTelephonyCapabilities;
 - (id)copyMobileEquipmentInfo;
 - (_Bool)isUsingVPNConnection;
-- (void)setIsUsingVPNConnection:(_Bool)arg1;
+- (void)_setVPNConnectionStatus:(int)arg1;
 - (void)_setIsUsingWiFiConnection:(_Bool)arg1;
-- (_Bool)isTTYEnabled;
+- (_Bool)_isTTYEnabled;
 - (_Bool)isUsingSlowDataConnection;
+- (_Bool)registeredWithoutCellular;
 - (_Bool)isInAirplaneMode;
 - (void)setIsInAirplaneMode:(_Bool)arg1;
-- (_Bool)EDGEIsOn;
+- (_Bool)cellDataIsOn;
 - (_Bool)cellularRadioCapabilityIsActive;
-- (void)_setWantsToHideDataIndicators:(int)arg1;
+- (void)_setSuppressesCellIndicators:(int)arg1;
 - (void)_postDataConnectionTypeChanged;
 - (int)dataConnectionType;
+- (void)_updateDataConnectionType;
 - (int)_updateModemDataConnectionTypeWithCTInfo:(id)arg1;
+- (_Bool)_suppressesCellDataIndicator;
 - (_Bool)_lteConnectionShows4G;
 - (void)_resetModemConnectionType;
 - (void)setNetworkRegistrationEnabled:(_Bool)arg1;
@@ -122,8 +140,6 @@
 - (void)dumpBasebandState:(id)arg1;
 - (void)_setIsLoggingCallAudio:(_Bool)arg1;
 - (_Bool)isLoggingCallAudio;
-- (void)setIncomingVoiceCallsEnabled:(_Bool)arg1;
-- (void)unmute;
 - (void)disconnectCallAndActivateHeld;
 - (void)disconnectCall;
 - (void)disconnectAllCalls;
@@ -135,25 +151,24 @@
 - (unsigned long long)_callCountForService:(int)arg1;
 - (_Bool)shouldHangUpOnLock;
 - (_Bool)callWouldUseReceiver:(_Bool)arg1;
-- (_Bool)inCallUsingReceiverForcingRoutingToReceiver:(_Bool)arg1;
 - (_Bool)inCallUsingSpeakerOrReceiver;
+- (id)_fastPickedRouteForCall;
 - (_Bool)multipleCallsExist;
 - (_Bool)outgoingCallExists;
 - (_Bool)incomingCallExists;
 - (_Bool)heldCallExists;
 - (_Bool)activeCallExists;
 - (id)displayedCall;
+- (void)telephonyAudioChangeHandler;
 - (int)callCount;
 - (void)callEventHandler:(id)arg1;
-- (void)_delayedAudioResume;
 - (void)handleCallAudioFinished:(id)arg1;
 - (void)handleCallControlFailure:(id)arg1;
 - (void)updateDisplaySettings:(id)arg1 forOutgoingCallURL:(id)arg2 outURL:(id *)arg3;
-- (id)urlWithScheme:(id)arg1 fromDialingNumber:(id)arg2 abUID:(int)arg3 urlPathAddition:(id)arg4 service:(int)arg5 forceAssist:(_Bool)arg6 suppressAssist:(_Bool)arg7 wasAlreadyAssisted:(_Bool)arg8;
 - (_Bool)isEmergencyCallScheme:(id)arg1;
 - (id)lastKnownNetworkCountryCode;
 - (void)_updateLastKnownNetworkCountryCode;
-- (void)updateNetworkLocale;
+- (void)_updateNetworkLocale;
 - (_Bool)updateLocale;
 - (void)_updateState;
 - (void)updateCalls;
@@ -164,8 +179,8 @@
 - (void)setLimitTransmitPowerPerBandEnabled:(_Bool)arg1;
 - (id)inCallDurationString;
 - (void)updateStatusBarCallDuration;
-- (void)_phoneActivationStateChanged:(id)arg1;
-- (void)updateStatusBarCallState:(_Bool)arg1;
+- (id)preambleStringForKey:(id)arg1;
+- (void)_updateStatusBarCallStateForCall:(id)arg1;
 - (id)_phoneApp;
 - (void)updateSpringBoard;
 - (int)callForwardingIndicator;
@@ -173,6 +188,7 @@
 - (void)setCallForwardingIndicator:(int)arg1;
 - (double)inCallDuration;
 - (void)updateTTYIndicator;
+- (_Bool)emergencyCallSupported;
 - (_Bool)hasAnyTelephony;
 - (_Bool)hasCellularData;
 - (_Bool)hasCellularTelephony;

@@ -8,8 +8,16 @@
 
 #import "TSDPathPainter.h"
 
+@class NSString;
+
 @interface NSNull (TSDColorFill_Additions) <TSDPathPainter>
 - (void)drawSwatchInRect:(struct CGRect)arg1 inContext:(struct CGContext *)arg2;
 - (void)paintPath:(struct CGPath *)arg1 inContext:(struct CGContext *)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 @end
 

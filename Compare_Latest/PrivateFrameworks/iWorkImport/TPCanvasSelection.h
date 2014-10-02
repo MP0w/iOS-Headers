@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "TSDCanvasSelection.h"
 
-@class NSSet, TSDDrawableInfo<TSDContainerInfo>;
+@class NSSet, NSString, TSDDrawableInfo<TSDContainerInfo>;
 
 __attribute__((visibility("hidden")))
 @interface TPCanvasSelection : TSWPSelection <TSDCanvasSelection, NSCopying>
@@ -54,6 +54,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 @property(readonly, nonatomic) int canvasSelectionKind;
 - (id)initWithType:(int)arg1 range:(struct _NSRange)arg2 styleInsertionBehavior:(int)arg3 caretAffinity:(int)arg4 smartFieldRange:(struct _NSRange)arg5 leadingEdge:(BOOL)arg6 leadingCharIndex:(unsigned int)arg7 infos:(id)arg8 excludedInfos:(id)arg9 additionalInfos:(id)arg10 container:(id)arg11;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -10,13 +10,13 @@
 #import "SKStoreProductViewControllerDelegate.h"
 #import "SKUIItemOfferButtonDelegate.h"
 
-@class MPAVItem, MPMediaDownloadObserver, MPMediaItem, NSArray, NSString, RadioTrack, SKUIItemOfferButton, UIViewController;
+@class MPAVItem, MPMediaItem, MPUMediaDownloadObserver, NSArray, NSString, RadioTrack, SKUIItemOfferButton, UIViewController;
 
 @interface RUTrackDownloadView : UIView <MPStoreDownloadManagerObserver, SKStoreProductViewControllerDelegate, SKUIItemOfferButtonDelegate>
 {
     struct UIEdgeInsets _alignmentRectInsets;
     NSArray *_buyOffers;
-    MPMediaDownloadObserver *_downloadObserver;
+    MPUMediaDownloadObserver *_downloadObserver;
     BOOL _isPurchaseAllowed;
     SKUIItemOfferButton *_itemOfferButton;
     MPMediaItem *_mediaItem;
@@ -83,6 +83,12 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

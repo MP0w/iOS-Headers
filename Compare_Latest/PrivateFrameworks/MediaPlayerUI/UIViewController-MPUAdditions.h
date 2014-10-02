@@ -6,8 +6,6 @@
 
 #import "UIViewController.h"
 
-@class NSString;
-
 @interface UIViewController (MPUAdditions)
 + (id)_MPU_viewControllerForIdentifier:(id)arg1 forSearch:(BOOL)arg2 withQuery:(id)arg3 isDefaultQuery:(BOOL)arg4;
 + (Class)_MPU_viewControllerClassForIdentifier:(id)arg1;
@@ -22,6 +20,6 @@
 + (id)MPU_viewControllerForIdentifier:(id)arg1;
 + (void)MPU_registerIdentifier:(id)arg1 withAttributes:(id)arg2 defaultQueryCreationHandler:(CDUnknownBlockType)arg3;
 + (id)MPU_defaultDataSourceForViewControllerWithIdentifier:(id)arg1;
-@property(copy, nonatomic, getter=MPU_identifier, setter=MPU_setIdentifier:) NSString *MPU_identifier;
+- (void)MPU_prepareForNavigationController:(id)arg1 poppingToViewController:(id)arg2 animated:(BOOL)arg3 completion:(CDUnknownBlockType)arg4;
 @end
 

@@ -11,6 +11,7 @@
 @interface SSRestoreContentItem : NSObject
 {
     NSNumber *_accountID;
+    NSNumber *_originalPurchaserAccountID;
     NSString *_appleID;
     NSString *_bundleID;
     NSNumber *_cloudMatchStatus;
@@ -24,6 +25,7 @@
 - (id)_restoreKeyForAssetProperty:(id)arg1;
 @property(copy, nonatomic) NSString *videoDimensions;
 @property(copy, nonatomic) NSString *storeSoftwareVersionID;
+@property(retain, nonatomic) NSNumber *storeOriginalPurchaserAccountID;
 @property(retain, nonatomic) NSNumber *storeItemID;
 @property(copy, nonatomic) NSString *storeFrontID;
 @property(copy, nonatomic) NSString *storeFlavor;

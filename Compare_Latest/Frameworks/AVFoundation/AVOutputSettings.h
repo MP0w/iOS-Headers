@@ -23,9 +23,9 @@
 + (id)eligibleOutputSettingsDictionaryKeys;
 + (id)registeredOutputSettingsClasses;
 @property(readonly, nonatomic) NSDictionary *outputSettingsDictionary; // @synthesize outputSettingsDictionary=_outputSettingsDictionary;
+- (BOOL)encoderIsAvailableOnCurrentSystemReturningError:(id *)arg1;
 - (BOOL)validateUsingOutputSettingsValidator:(id)arg1 reason:(id *)arg2;
 - (BOOL)canFullySpecifyOutputFormatReturningReason:(id *)arg1;
-@property(readonly, nonatomic, getter=isCodecAvailableOnCurrentSystem) BOOL codecAvailableOnCurrentSystem;
 @property(readonly, nonatomic) BOOL willYieldCompressedSamples;
 @property(readonly, nonatomic) NSSet *compatibleMediaTypes;
 - (id)description;

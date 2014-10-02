@@ -6,14 +6,19 @@
 
 #import <UIKit/UIView.h>
 
-@class CAPackage, NSMutableArray;
+@class CAPackage, NSArray;
 
 @interface _UICAPackageView : UIView
 {
     CAPackage *_package;
-    NSMutableArray *_rootViews;
+    NSArray *_rootViews;
 }
 
++ (id)_buildViewHierarchyFrom:(id)arg1 publishedObjectViewClassMap:(id)arg2 into:(id)arg3;
++ (void)loadPackageViewWithContentsOfURL:(id)arg1 publishedObjectViewClassMap:(id)arg2 completion:(CDUnknownBlockType)arg3;
++ (void)loadPackageViewWithData:(id)arg1 publishedObjectViewClassMap:(id)arg2 completion:(CDUnknownBlockType)arg3;
++ (void)loadPackageViewWithObject:(id)arg1 publishedObjectViewClassMap:(id)arg2 completion:(CDUnknownBlockType)arg3;
++ (BOOL)_shouldCatchDecodingExceptions;
 - (id)publishedViewWithName:(id)arg1;
 - (id)publishedObjectWithName:(id)arg1;
 - (void)dealloc;

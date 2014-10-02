@@ -6,11 +6,13 @@
 
 #import "SBControlCenterSectionViewController.h"
 
-@class SBUIControlCenterSlider;
+@class SBUIControlCenterSlider, UIView, UIVisualEffectView;
 
 @interface SBCCBrightnessSectionController : SBControlCenterSectionViewController
 {
     SBUIControlCenterSlider *_slider;
+    UIVisualEffectView *_vibrantDarkenLayer;
+    UIView *_tintingDarkenLayer;
     struct BKSDisplayBrightnessTransaction *_brightnessTransaction;
 }
 
@@ -21,9 +23,12 @@
 - (void)_setBacklightLevel:(float)arg1;
 - (float)_backlightLevel;
 - (void)viewDidLayoutSubviews;
+- (double)_yOffsetFromCenterForSlider;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
+- (void)_updateEffects;
+- (_Bool)_shouldDarkenBackground;
 - (void)noteSettingsDidUpdate:(id)arg1;
 - (struct CGSize)contentSizeForOrientation:(long long)arg1;
 - (id)sectionIdentifier;

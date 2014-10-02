@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSString;
+@class NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString;
 
 @interface ICCameraProperties : NSObject
 {
@@ -28,20 +28,20 @@
     unsigned int _numberOfDownloadableItems;
     BOOL _contentReceived;
     double _downloadCancelTimestamp;
-    struct dispatch_queue_s *_thumbnailFetchQ;
-    struct dispatch_queue_s *_metadataFetchQ;
-    struct dispatch_queue_s *_downloadQ;
-    struct dispatch_queue_s *_generalQ;
-    struct dispatch_semaphore_s *_deviceQSemaphore;
+    NSObject<OS_dispatch_queue> *_thumbnailFetchQ;
+    NSObject<OS_dispatch_queue> *_metadataFetchQ;
+    NSObject<OS_dispatch_queue> *_downloadQ;
+    NSObject<OS_dispatch_queue> *_generalQ;
+    NSObject<OS_dispatch_semaphore> *_deviceQSemaphore;
     BOOL _accessRestrictedAppleDevice;
 }
 
 @property BOOL accessRestrictedAppleDevice; // @synthesize accessRestrictedAppleDevice=_accessRestrictedAppleDevice;
-@property struct dispatch_semaphore_s *deviceQSemaphore; // @synthesize deviceQSemaphore=_deviceQSemaphore;
-@property struct dispatch_queue_s *generalQ; // @synthesize generalQ=_generalQ;
-@property struct dispatch_queue_s *downloadQ; // @synthesize downloadQ=_downloadQ;
-@property struct dispatch_queue_s *metadataFetchQ; // @synthesize metadataFetchQ=_metadataFetchQ;
-@property struct dispatch_queue_s *thumbnailFetchQ; // @synthesize thumbnailFetchQ=_thumbnailFetchQ;
+@property NSObject<OS_dispatch_semaphore> *deviceQSemaphore; // @synthesize deviceQSemaphore=_deviceQSemaphore;
+@property NSObject<OS_dispatch_queue> *generalQ; // @synthesize generalQ=_generalQ;
+@property NSObject<OS_dispatch_queue> *downloadQ; // @synthesize downloadQ=_downloadQ;
+@property NSObject<OS_dispatch_queue> *metadataFetchQ; // @synthesize metadataFetchQ=_metadataFetchQ;
+@property NSObject<OS_dispatch_queue> *thumbnailFetchQ; // @synthesize thumbnailFetchQ=_thumbnailFetchQ;
 @property double downloadCancelTimestamp; // @synthesize downloadCancelTimestamp=_downloadCancelTimestamp;
 @property BOOL contentReceived; // @synthesize contentReceived=_contentReceived;
 @property unsigned int numberOfDownloadableItems; // @synthesize numberOfDownloadableItems=_numberOfDownloadableItems;

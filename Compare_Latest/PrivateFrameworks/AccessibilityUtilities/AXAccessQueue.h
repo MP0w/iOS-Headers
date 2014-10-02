@@ -34,7 +34,7 @@
 - (void)performSynchronousReadingBlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) BOOL behavesWithoutErrorReporting;
 @property(readonly, nonatomic) BOOL behavesAsMainQueue;
-@property(readonly, nonatomic) NSString *label;
+@property(readonly, copy, nonatomic) NSString *label;
 - (void)dealloc;
 - (id)initWithParentClass:(Class)arg1 description:(id)arg2 appendUUIDToLabel:(BOOL)arg3;
 - (id)_initWithLabel:(id)arg1 appendUUIDToLabel:(BOOL)arg2 specialBehaviors:(unsigned int)arg3;

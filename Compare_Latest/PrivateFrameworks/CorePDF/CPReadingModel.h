@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSAttributedString, NSString;
+@class NSAttributedString, NSMutableArray, NSString, RMList;
 
 @interface CPReadingModel : NSObject
 {
@@ -24,12 +24,18 @@
     NSAttributedString *_cachedAttributedString;
     long _pageNumber;
     long _pos;
+    NSMutableArray *_tables;
+    NSMutableArray *_lists;
+    NSMutableArray *_headings;
+    int _pageNumberMemo;
+    CDStruct_dff5684f _textRangeMemo;
+    struct _NSRange _rangeMemo;
+    RMList *_currentList;
 }
 
 - (int)lineIndexForPoint:(struct CGPoint)arg1 onPage:(unsigned int)arg2;
 - (struct _NSRange)linesForPage:(unsigned int)arg1;
 - (struct _NSRange)pageRangeForStringRange:(CDStruct_dff5684f)arg1;
-- (struct _NSRange)stringRangeForTextRangeBUGGY:(CDStruct_dff5684f)arg1;
 - (struct _NSRange)stringRangeForTextRange:(CDStruct_dff5684f)arg1 onPageNumber:(unsigned int)arg2;
 - (id)attributedStringForLine:(unsigned int)arg1;
 - (id)stringForLine:(unsigned int)arg1;
@@ -50,6 +56,16 @@
 - (void)clearCache;
 - (void)buildModel:(struct CGPDFDocument *)arg1;
 - (void)buildModel:(struct CGPDFDocument *)arg1 pageRange:(struct _NSRange)arg2;
+- (void)headings:(struct CGPDFNode *)arg1 layout:(struct CGPDFLayout *)arg2;
+- (void)lists:(struct CGPDFNode *)arg1 layout:(struct CGPDFLayout *)arg2;
+- (void)addListsInColumn:(struct CGPDFNode *)arg1;
+- (int)findParagraph:(struct CGPDFNode *)arg1 inListArray:(id)arg2;
+- (struct CGPDFNode *)firstParagraphInList:(id)arg1;
+- (void)tables:(struct CGPDFNode *)arg1 layout:(struct CGPDFLayout *)arg2;
+- (void)addTable:(struct CGPDFNode *)arg1 layout:(struct CGPDFLayout *)arg2;
+- (id)headings;
+- (id)lists;
+- (id)tables;
 - (void)dealloc;
 - (id)initWithDocument:(struct CGPDFDocument *)arg1 withPageRange:(struct _NSRange)arg2;
 - (id)initWithDocument:(struct CGPDFDocument *)arg1;

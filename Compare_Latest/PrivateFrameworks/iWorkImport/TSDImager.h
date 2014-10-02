@@ -8,7 +8,7 @@
 
 #import "TSDCanvasDelegate.h"
 
-@class NSArray, TSDCanvas, TSKDocumentRoot;
+@class NSArray, NSString, TSDCanvas, TSKDocumentRoot;
 
 __attribute__((visibility("hidden")))
 @interface TSDImager : NSObject <TSDCanvasDelegate>
@@ -29,11 +29,13 @@ __attribute__((visibility("hidden")))
     struct CGRect mActualScaledClipRect;
     BOOL mDrawingIntoPDF;
     BOOL mIsPrinting;
+    BOOL mShouldUseSRGBColorSpace;
     struct CGContext *mReusableBitmapContext;
     struct CGRect mReusableBounds;
     struct CGRect mReusableIntegralBounds;
     struct CGRect mReusableActualScaledClipRect;
     struct CGSize mReusableScaledImageSize;
+    BOOL mReusableShouldUseSRGBColorSpace;
     CDUnknownBlockType mPostRenderAction;
 }
 
@@ -46,6 +48,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) struct CGRect unscaledClipRect; // @synthesize unscaledClipRect=mUnscaledClipRect;
 @property(nonatomic) struct CGColor *backgroundColor; // @synthesize backgroundColor=mBackgroundColor;
 @property(retain, nonatomic) NSArray *infos; // @synthesize infos=mInfos;
+@property(readonly, retain, nonatomic) TSDCanvas *canvas; // @synthesize canvas=mCanvas;
 - (struct CGImage *)p_newImageInReusableContext;
 - (void)p_drawPageInContext:(struct CGContext *)arg1 createPage:(BOOL)arg2;
 - (BOOL)p_configureCanvas;
@@ -62,6 +65,12 @@ __attribute__((visibility("hidden")))
 - (void)setPostRenderAction:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)initWithDocumentRoot:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

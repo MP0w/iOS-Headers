@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 - (struct CGDataProvider *)cgDataProvider;
 - (struct _xmlTextReader *)xmlReaderForGzippedDataWithInputStream:(id *)arg1;
 - (struct _xmlTextReader *)xmlReaderForGzippedData;
+- (struct _xmlTextReader *)xmlReaderWithReadCallback:(CDUnknownFunctionPointerType)arg1;
 - (struct _xmlTextReader *)xmlReader;
 - (struct _xmlDoc *)xmlDocument;
 - (BOOL)hasSameLocationAs:(id)arg1;

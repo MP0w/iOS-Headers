@@ -32,9 +32,11 @@ __attribute__((visibility("hidden")))
 - (id)newCreateTableStatementForEntity:(id)arg1;
 - (id)typeStringForSQLType:(unsigned int)arg1;
 - (id)typeStringForColumn:(id)arg1;
-- (id)newDeleteStatementWithCorrelation:(id)arg1;
-- (id)newUpdateStatementWithCorrelation:(id)arg1;
-- (id)newInsertStatementWithCorrelation:(id)arg1;
+- (id)newCorrelationReorderStatementForRelationship:(id)arg1;
+- (id)newCorrelationMasterReorderStatementPart2ForRelationship:(id)arg1;
+- (id)newCorrelationMasterReorderStatementForRelationship:(id)arg1;
+- (id)newCorrelationDeleteStatementForRelationship:(id)arg1;
+- (id)newCorrelationInsertStatementForRelationship:(id)arg1;
 - (id)newCountStatementWithFetchRequest:(id)arg1;
 - (id)_newSelectStatementWithFetchRequest:(id)arg1 ignoreInheritance:(BOOL)arg2;
 - (id)newSelectStatementWithFetchRequest:(id)arg1;

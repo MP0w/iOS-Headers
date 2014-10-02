@@ -11,12 +11,11 @@
 @interface ML3DatabaseDistantConnection : ML3DatabaseConnection
 {
     MLMediaLibraryService *_mediaLibraryService;
+    NSUUID *_currentTransactionID;
     BOOL _connectionOpen;
     id <ML3DatabaseDistantConnectionDelegate> _distantDelegate;
-    NSUUID *_currentTransactionID;
 }
 
-@property(readonly, nonatomic) NSUUID *currentTransactionID; // @synthesize currentTransactionID=_currentTransactionID;
 @property(nonatomic) __weak id <ML3DatabaseDistantConnectionDelegate> distantDelegate; // @synthesize distantDelegate=_distantDelegate;
 - (void).cxx_destruct;
 - (void)_serviceTerminatedTransactionNotification:(id)arg1;
@@ -31,7 +30,8 @@
 - (BOOL)registerFunctionName:(id)arg1 argumentCount:(int)arg2 functionPointer:(CDUnknownFunctionPointerType)arg3 userData:(void *)arg4;
 - (BOOL)registerFunctionName:(id)arg1 argumentCount:(int)arg2 block:(CDUnknownBlockType)arg3;
 - (BOOL)close;
-- (BOOL)_openWithFlags:(int)arg1 isRetry:(BOOL)arg2;
+- (BOOL)_openWithFlags:(int)arg1;
+- (id)currentTransactionID;
 - (void)setProfilingLevel:(int)arg1;
 - (void)setReadOnly:(BOOL)arg1;
 - (BOOL)isReadOnly;

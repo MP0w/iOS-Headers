@@ -13,6 +13,8 @@
     AVMutableCompositionTrackInternal *_mutablePriv;
 }
 
+- (void)setAlternateGroupID:(int)arg1;
+- (int)alternateGroupID;
 @property(nonatomic) float preferredVolume;
 @property(nonatomic) struct CGAffineTransform preferredTransform;
 @property(copy, nonatomic) NSString *extendedLanguageTag;

@@ -6,11 +6,11 @@
 
 #import <AddressBookUI/ABPickerViewController.h>
 
-@class UIBarButtonItem;
+@class TKVibrationPickerViewController, UIBarButtonItem;
 
 @interface ABVibrationPickerViewController : ABPickerViewController
 {
-    id _vibrationPickerViewController;
+    TKVibrationPickerViewController *_vibrationPickerViewController;
     BOOL _canEnterEditingMode;
     UIBarButtonItem *_saveButton;
 }
@@ -22,7 +22,7 @@
 - (float)ab_heightToFitForViewInPopoverView;
 - (void)loadView;
 - (void)setStyleProvider:(id)arg1;
-@property(readonly, nonatomic) id vibrationPickerViewController;
+@property(readonly, retain, nonatomic) TKVibrationPickerViewController *vibrationPickerViewController;
 - (void)dealloc;
 - (id)initWithAlertType:(int)arg1;
 

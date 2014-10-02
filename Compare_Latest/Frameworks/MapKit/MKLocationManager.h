@@ -9,14 +9,13 @@
 #import "MKLocationProviderDelegate.h"
 #import "_MKWiFiObserverDelegate.h"
 
-@class CLHeading, CLLocation, GEOLocation, GEOLocationShifter, NSBundle, NSHashTable, NSMutableArray, NSString, NSTimer, _MKWiFiObserver;
+@class CLHeading, CLLocation, GEOLocation, GEOLocationShifter, NSBundle, NSError, NSHashTable, NSMutableArray, NSString, NSTimer, _MKWiFiObserver;
 
 @interface MKLocationManager : NSObject <_MKWiFiObserverDelegate, MKLocationProviderDelegate>
 {
     id <MKLocationProvider> _locationProvider;
     NSHashTable *_locationObservers;
     NSHashTable *_locationListeners;
-    NSHashTable *_regionMonitors;
     NSHashTable *_headingObservers;
     CLLocation *_lastLocation;
     double _lastLocationUpdateTime;
@@ -53,6 +52,7 @@
     _MKWiFiObserver *_wifiObserver;
     BOOL _hasCustomDesiredAccuracy;
     BOOL _continuesWhileInactive;
+    NSError *_locationError;
 }
 
 + (id)sharedLocationManager;
@@ -70,6 +70,7 @@
 @property(retain, nonatomic) CLHeading *throttledHeading; // @synthesize throttledHeading=_throttledHeading;
 @property(readonly, nonatomic) CLHeading *heading; // @synthesize heading=_heading;
 @property(copy, nonatomic) CDUnknownBlockType networkActivity; // @synthesize networkActivity=_networkActivity;
+@property(readonly, nonatomic) NSError *locationError; // @synthesize locationError=_locationError;
 @property(readonly, nonatomic) BOOL isLastLocationStale; // @synthesize isLastLocationStale=_isLastLocationStale;
 - (void).cxx_destruct;
 - (void)stopVehicleHeadingUpdate;
@@ -84,15 +85,9 @@
 - (void)stopLocationUpdateWithObserver:(id)arg1;
 - (void)startLocationUpdateWithObserver:(id)arg1;
 - (void)_startLocationUpdateWithObserver:(id)arg1 desiredAccuracy:(double)arg2;
-- (void)stopMonitoringRegion:(id)arg1 observer:(id)arg2;
-- (void)startMonitoringRegion:(id)arg1 observer:(id)arg2;
-- (BOOL)isMonitoringRegionsAvailable;
 - (void)listenForLocationUpdates:(id)arg1;
 - (void)locationProvider:(id)arg1 didUpdateVehicleHeading:(double)arg2 timestamp:(id)arg3;
 - (void)locationProvider:(id)arg1 didUpdateVehicleSpeed:(double)arg2 timestamp:(id)arg3;
-- (void)locationProvider:(id)arg1 didReceiveError:(id)arg2 monitoringRegion:(id)arg3;
-- (void)locationProvider:(id)arg1 didExitRegion:(id)arg2;
-- (void)locationProvider:(id)arg1 didEnterRegion:(id)arg2;
 - (void)locationProviderDidResumeLocationUpdates:(id)arg1;
 - (void)locationProviderDidPauseLocationUpdates:(id)arg1;
 - (BOOL)locationProviderShouldPauseLocationUpdates:(id)arg1;
@@ -115,6 +110,7 @@
 - (void)setCoalesceTimer:(id)arg1;
 @property(readonly, nonatomic) double expectedGpsUpdateInterval;
 @property(nonatomic) int activityType;
+@property(nonatomic) BOOL matchInfoEnabled;
 @property(nonatomic) double distanceFilter;
 @property(nonatomic) double desiredAccuracy;
 - (BOOL)isLocationServicesPossiblyAvailable:(id *)arg1;
@@ -167,6 +163,12 @@
 - (void)dealloc;
 - (id)init;
 - (void)_useCoreLocationProvider;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

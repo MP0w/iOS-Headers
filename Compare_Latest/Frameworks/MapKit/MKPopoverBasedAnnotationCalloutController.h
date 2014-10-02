@@ -6,15 +6,16 @@
 
 #import <MapKit/MKAnnotationCalloutController.h>
 
+#import "MKSmallCalloutViewControllerDelegate.h"
 #import "UIPopoverControllerDelegate.h"
 #import "UIPopoverControllerDelegatePrivate.h"
 #import "_MKPopoverEmbeddingViewWindowDelegate.h"
 #import "_UIPopoverControllerMapsTransitionDelegate.h"
 
-@class MKSmallCalloutViewController, UIPopoverController, UIView, _MKPopoverEmbeddingView;
+@class MKSmallCalloutViewController, NSString, UIPopoverController, UIView, _MKPopoverEmbeddingView;
 
 __attribute__((visibility("hidden")))
-@interface MKPopoverBasedAnnotationCalloutController : MKAnnotationCalloutController <_MKPopoverEmbeddingViewWindowDelegate, _UIPopoverControllerMapsTransitionDelegate, UIPopoverControllerDelegate, UIPopoverControllerDelegatePrivate>
+@interface MKPopoverBasedAnnotationCalloutController : MKAnnotationCalloutController <_MKPopoverEmbeddingViewWindowDelegate, _UIPopoverControllerMapsTransitionDelegate, UIPopoverControllerDelegate, UIPopoverControllerDelegatePrivate, MKSmallCalloutViewControllerDelegate>
 {
     UIPopoverController *_popoverController;
     MKSmallCalloutViewController *_calloutViewController;
@@ -36,7 +37,7 @@ __attribute__((visibility("hidden")))
 - (void)_popoverControllerDidFinishMapsTransitionExpanding:(id)arg1;
 - (void)_popoverControllerWillBeginMapsTransitionMovingSideways:(id)arg1;
 - (void)popoverController:(id)arg1 animationCompleted:(int)arg2;
-- (void)setMapDisplayStyle:(int)arg1;
+- (void)setMapDisplayStyle:(unsigned int)arg1;
 - (void)_setDetailAccessoryView:(id)arg1 animated:(BOOL)arg2;
 - (void)_setRightAccessoryView:(id)arg1 animated:(BOOL)arg2;
 - (void)_setLeftAccessoryView:(id)arg1 animated:(BOOL)arg2;
@@ -50,9 +51,18 @@ __attribute__((visibility("hidden")))
 - (void)_updatePopoverContentSize:(BOOL)arg1;
 - (void)hideCalloutAnimated:(BOOL)arg1;
 - (void)_showCalloutAnimated:(BOOL)arg1 scrollToFit:(BOOL)arg2 avoid:(struct CGRect)arg3;
+- (void)smallCalloutViewControllerDidAppear:(id)arg1;
 - (void)showCalloutForAnnotationView:(id)arg1 animated:(BOOL)arg2 scrollToFit:(BOOL)arg3 avoid:(struct CGRect)arg4;
 - (void)_snapLayoutConstraintsViewToContainerBounds;
+- (void)_contentSizeCategoryDidChange:(id)arg1;
 - (void)dealloc;
+- (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

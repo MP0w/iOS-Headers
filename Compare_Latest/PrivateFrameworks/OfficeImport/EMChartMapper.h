@@ -46,7 +46,7 @@ __attribute__((visibility("hidden")))
 - (void)addTitleToDescription:(id)arg1 withState:(id)arg2;
 - (id)copyPdfWithState:(id)arg1 withSize:(struct CGSize)arg2;
 - (id)initWithChart:(id)arg1 parent:(id)arg2;
-- (id)_baseDateForState:(id)arg1;
+- (id)dateFromXlDateTimeNumber:(double)arg1;
 
 @end
 

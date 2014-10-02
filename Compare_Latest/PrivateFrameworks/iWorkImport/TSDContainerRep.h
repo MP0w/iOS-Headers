@@ -8,7 +8,7 @@
 
 #import "TSDMutableContainerRep.h"
 
-@class NSMutableArray, NSObject<TSDContainerInfo>, NSObject<TSDMutableContainerInfo>;
+@class NSMutableArray, NSObject<TSDContainerInfo>, NSObject<TSDMutableContainerInfo>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface TSDContainerRep : TSDRep <TSDMutableContainerRep>
@@ -48,6 +48,12 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSObject<TSDContainerInfo> *containerInfo;
 - (void)dealloc;
 - (id)initWithLayout:(id)arg1 canvasView:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

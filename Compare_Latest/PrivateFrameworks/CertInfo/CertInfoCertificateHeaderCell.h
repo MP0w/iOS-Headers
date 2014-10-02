@@ -17,6 +17,7 @@
     CertInfoGradientLabel *_trustedLabel;
 }
 
+- (void).cxx_destruct;
 - (void)layoutSubviews;
 - (float)rowHeight;
 - (void)setExpired:(BOOL)arg1;
@@ -27,7 +28,6 @@
 - (id)_subtitleLabel;
 - (id)_titleLabel;
 - (id)_certificateImage;
-- (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end

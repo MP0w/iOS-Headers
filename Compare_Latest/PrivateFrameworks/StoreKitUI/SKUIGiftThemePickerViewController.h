@@ -10,7 +10,7 @@
 #import "UICollectionViewDataSource.h"
 #import "UICollectionViewDelegate.h"
 
-@class NSArray, SKUIGiftThemeCollectionView, UIImage, UIPageControl, UITapGestureRecognizer;
+@class NSArray, NSString, SKUIGiftThemeCollectionView, UIImage, UIPageControl, UITapGestureRecognizer;
 
 @interface SKUIGiftThemePickerViewController : SKUIGiftStepViewController <SKUIGiftConfigurationObserver, UICollectionViewDataSource, UICollectionViewDelegate>
 {
@@ -40,6 +40,12 @@
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithGift:(id)arg1 configuration:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

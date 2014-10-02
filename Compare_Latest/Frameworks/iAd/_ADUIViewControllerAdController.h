@@ -48,9 +48,10 @@
 - (void)bannerView:(id)arg1 didFailToReceiveAdWithError:(id)arg2;
 - (void)bannerViewDidLoadAd:(id)arg1;
 @property(readonly, nonatomic, getter=isDisplayingBannerAd) BOOL displayingBannerAd;
-- (void)_layoutContentAndBannerViewAnimated:(BOOL)arg1;
+- (void)_layoutContentAndBannerViewAnimated:(BOOL)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_setEmbeddedFrame:(struct CGRect)arg1;
 - (void)_hideBannerView;
-- (void)_considerTakingBannerView;
+- (void)_considerTakingBannerViewAnimated:(BOOL)arg1;
 - (void)interstitialAdActionDidFinish:(id)arg1;
 - (void)interstitialAd:(id)arg1 didFailWithError:(id)arg2;
 - (void)interstitialAdDidUnload:(id)arg1;
@@ -58,13 +59,19 @@
 - (BOOL)requestInterstitialAdPresentation;
 - (void)viewControllerViewDidLayoutSubviews:(id)arg1;
 - (void)viewController:(id)arg1 viewDidDisappear:(BOOL)arg2;
-- (void)viewController:(id)arg1 viewWillAppear:(BOOL)arg2;
 - (void)viewController:(id)arg1 viewWillDisappear:(BOOL)arg2;
 - (void)viewController:(id)arg1 viewDidAppear:(BOOL)arg2;
+- (void)viewController:(id)arg1 viewWillAppear:(BOOL)arg2;
 - (void)viewControllerViewWillLayoutSubviews:(id)arg1;
-@property(readonly, nonatomic) UIViewController *contentViewController;
+@property(readonly, nonatomic) __weak UIViewController *contentViewController;
 - (id)initWithContentViewController:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

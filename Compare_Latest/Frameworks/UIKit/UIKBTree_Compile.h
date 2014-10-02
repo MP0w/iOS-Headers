@@ -40,7 +40,6 @@
 - (int)indexOfSubtreeWithType:(int)arg1;
 - (void)setTarget:(id)arg1 forReference:(id)arg2;
 - (id)listAtIndex:(int)arg1;
-- (BOOL)isSymbolType;
 - (BOOL)isSameAsTree:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithType:(int)arg1;

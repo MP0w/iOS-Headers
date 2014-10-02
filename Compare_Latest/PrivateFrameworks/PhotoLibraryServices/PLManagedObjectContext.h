@@ -6,7 +6,7 @@
 
 #import "NSManagedObjectContext.h"
 
-@class NSMapTable, NSMutableArray, NSMutableSet, NSObject<OS_xpc_object>, PLDelayedFiledSystemDeletions, PLMergePolicy, PLPhotoLibrary;
+@class NSMapTable, NSMutableArray, NSMutableDictionary, NSMutableSet, NSObject<OS_xpc_object>, PLDelayedFiledSystemDeletions, PLMergePolicy, PLPhotoLibrary;
 
 @interface PLManagedObjectContext : NSManagedObjectContext
 {
@@ -30,30 +30,54 @@
     NSMutableArray *_delayedDupeAnalysisNormalInserts;
     NSMutableArray *_delayedDupeAnalysisCloudInserts;
     NSMutableSet *_delayedAssetsForFileSystemPersistency;
+    NSMutableDictionary *_delayedSearchIndexUpdateUUIDs;
     NSMutableSet *_avalancheUUIDsForUpdate;
+    NSMutableArray *_uuidForCloudDeletion;
+    NSMutableArray *_albumUuidForCloudDeletion;
+    NSMutableSet *_delayedAlbumOrderUpdates;
+    NSMutableSet *_delayedAlbumCountUpdates;
+    NSMutableDictionary *_updatedObjectsAttributes;
+    NSMutableDictionary *_updatedObjectsRelationships;
     PLPhotoLibrary *_photoLibrary;
     id <PLManagedObjectContextPTPNotificationDelegate> _ptpNotificationDelegate;
     BOOL _regenerateVideoThumbnails;
     NSObject<OS_xpc_object> *changeHubConnection;
+    int _changeSource;
 }
 
 + (BOOL)assetsLibraryLoggingEnabled;
 + (void)handleUnknownMergeEvent;
 + (void)mergeChangesFromRemoteContextSave:(id)arg1 intoAllContextsNotIdenticalTo:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (void)mergeIntoAllContextsChangesFromRemoteContextSave:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
++ (void)delayedAlbumCountUpdatesFromChangeHubEvent:(id)arg1 countUpdates:(id *)arg2;
++ (void)delayedAlbumOrderingUpdatesFromChangeHubEvent:(id)arg1 orderingUpdates:(id *)arg2;
++ (void)delayedSearchIndexUpdatesFromChangeHubEvent:(id)arg1 updates:(id *)arg2;
 + (void)delayedAssetsForFileSystemPersistencyUpdatesFromChangeHubEvent:(id)arg1 assetUpdates:(id *)arg2;
 + (void)delayedDupeAnalysisDataFromChangeHubEvent:(id)arg1 normalInserts:(id *)arg2 cloudInserts:(id *)arg3;
 + (void)delayedCloudFeedDataFromChangeHubEvent:(id)arg1 albumUpdates:(id *)arg2 assetInserts:(id *)arg3 assetUpdates:(id *)arg4 commentInserts:(id *)arg5 invitationRecordUpdates:(id *)arg6 deletionEntries:(id *)arg7;
 + (void)delayedMomentDataFromChangeHubEvent:(id)arg1 insertsAndUpdates:(id *)arg2 deletes:(id *)arg3;
++ (id)relationshipNamesForIndexValues:(unsigned long long)arg1 entity:(id)arg2;
++ (unsigned long long)indexValueForRelationshipNames:(id)arg1 entity:(id)arg2;
++ (id)attributeNamesForIndexValues:(unsigned long long)arg1 entity:(id)arg2;
++ (unsigned long long)indexValueForAttributeNames:(id)arg1 entity:(id)arg2;
++ (id)_propertyNamesForIndexValues:(unsigned long long)arg1 entity:(id)arg2 propertyNamesByIndexByEntityNames:(id)arg3;
++ (unsigned long long)_indexValueForPropertyNames:(id)arg1 entityName:(id)arg2 indexesByPropertyNamesByEntityNames:(id)arg3;
++ (id)_indexesByRelationshipNamesByEntityNames;
++ (id)_relationshipNamesByIndexByEntityNames;
++ (id)_indexesByAttributeNamesByEntityNames;
++ (id)_attributeNamesByIndexByEntityNames;
++ (void)__prepareEntityPropertyLookups;
 + (id)allContextsNotIdenticalTo:(void *)arg1;
 + (id)sharedPersistentStoreCoordinator;
 + (id)managedObjectModel;
-+ (id)oldAuxDatabasePath;
++ (id)managedObjectModelURL;
 + (BOOL)storeIsOldEnough;
-+ (id)defaultStoreURL;
 + (void)getStoreURL:(id *)arg1 options:(id *)arg2 forFileURL:(id)arg3;
 + (void)getStoreURL:(id *)arg1 options:(id *)arg2;
++ (BOOL)hasConfiguredPhotoLibrary;
 + (void)configurePersistentStoreCoordinator:(id)arg1;
++ (BOOL)_rebuildAndRetryPersistentStoreWithURL:(id)arg1 options:(id)arg2 coordinator:(id)arg3 forced:(BOOL)arg4;
++ (BOOL)_openAndMigrateStoreWithURL:(id)arg1 options:(id)arg2 coordinator:(id)arg3 forceSourceModelVersion:(id)arg4;
 + (void)recordVersion:(int)arg1 forStore:(id)arg2 extraMetadata:(id)arg3;
 + (BOOL)hasAtLeastOneAsset;
 + (id)databasePath;
@@ -62,14 +86,13 @@
 + (BOOL)moveStoreFromURL:(id)arg1 toURL:(id)arg2 error:(id *)arg3;
 + (BOOL)canMergeRemoteChanges;
 + (BOOL)useModelMigratorToCreateDatabase;
-+ (id)readOnlyContext;
-+ (id)contextForDatabaseCreation;
-+ (id)contextForPhotoLibrary:(id)arg1;
++ (id)contextForDatabaseCreation:(const char *)arg1;
++ (id)contextForPhotoLibrary:(id)arg1 name:(const char *)arg2;
 @property(nonatomic) BOOL isBackingALAssetsLibrary; // @synthesize isBackingALAssetsLibrary=_isBackingALAssetsLibrary;
 @property(nonatomic) BOOL isInitializingSingletons; // @synthesize isInitializingSingletons=_isInitializingSingletons;
 @property(nonatomic) BOOL regenerateVideoThumbnails; // @synthesize regenerateVideoThumbnails=_regenerateVideoThumbnails;
+@property(nonatomic) int changeSource; // @synthesize changeSource=_changeSource;
 @property(nonatomic) BOOL suspendClientServerTransactions; // @synthesize suspendClientServerTransactions=_suspendClientServerTransactions;
-@property(nonatomic) id <PLManagedObjectContextPTPNotificationDelegate> ptpNotificationDelegate; // @synthesize ptpNotificationDelegate=_ptpNotificationDelegate;
 @property(nonatomic) BOOL hasMetadataChanges; // @synthesize hasMetadataChanges=_hasMetadataChanges;
 @property(retain, nonatomic) PLDelayedFiledSystemDeletions *delayedDeletions; // @synthesize delayedDeletions=_delayedDeletions;
 @property(readonly, nonatomic) BOOL savingDuringMerge; // @synthesize savingDuringMerge=_savingDuringMerge;
@@ -78,13 +101,34 @@
 - (void)_contextObjectsDidChange:(id)arg1;
 - (void)tearDownLocalChangeNotifications;
 - (void)setupLocalChangeNotifications;
-- (void)_informPTPDelegateAboutChangesFromNotification:(id)arg1;
+- (void)_informPTPDelegateAboutChangesFromRemoteContextSaveNotification:(id)arg1;
+- (void)_getInsertedIDs:(id)arg1 deletedIDs:(id)arg2 changedIDs:(id)arg3 ofEntityKind:(id)arg4 fromRemoteContextDidSaveNotification:(id)arg5;
 - (void)_mergeChangesFromDidSaveDictionary:(id)arg1 usingObjectIDs:(BOOL)arg2;
 - (void)_notifyALAssetsLibraryWithChanges:(id)arg1 usingObjectIDs:(BOOL)arg2;
 - (id)pl_fetchObjectsWithIDs:(id)arg1;
+- (id)pl_fetchObjectsWithIDs:(id)arg1 rootEntity:(id)arg2;
 - (BOOL)_tooManyAssetChangesToHandle:(unsigned int)arg1;
+- (void)appendDelayedAlbumCountUpdatesToXPCMessage:(id)arg1;
+- (void)getDelayedAlbumCountUpdates:(id *)arg1;
+- (void)recordAssetForAlbumCountUpdate:(id)arg1;
+- (void)recordAlbumCountUpdate:(id)arg1;
+- (void)appendDelayedAlbumOrderingUpdatesToXPCMessage:(id)arg1;
+- (void)getDelayedAlbumOrderingUpdates:(id *)arg1;
+- (void)recordAlbumForOrderingUpdate:(id)arg1;
+- (id)getAndClearRecordedAlbumForCloudDeletion;
+- (void)recordAlbumForCloudDeletion:(id)arg1;
+- (id)getAndClearRecordedAssetForCloudDeletion;
+- (void)recordAssetForCloudDeletion:(id)arg1;
 - (id)getAndClearRecordedAvalancheUUIDsForUpdate;
 - (void)recordAvalancheUUIDForUpdate:(id)arg1;
+- (void)getDelayedSearchIndexUpdates:(id *)arg1;
+- (void)appendDelayedSearchIndexUpdatesToXPCMessage:(id)arg1;
+- (void)recordAlbumForSearchIndexUpdate:(id)arg1;
+- (void)recordAssetForSearchIndexUpdate:(id)arg1;
+- (void)recordAdditionalAssetAttributesForSearchIndexUpdate:(id)arg1;
+- (void)_recordAlbumUUIDForSearchIndexUpdate:(id)arg1 isInsert:(BOOL)arg2;
+- (void)_recordAssetUUIDForSearchIndexUpdate:(id)arg1 isInsert:(BOOL)arg2;
+- (void)_recordManagedObjectUUID:(id)arg1 forSearchIndexUpdateKey:(id)arg2;
 - (void)getDelayedAssetsForFilesystemPersistencyUpdates:(id *)arg1;
 - (void)appendDelayedAssetsForFileSystemPersistencyUpdate:(id)arg1;
 - (void)recordAssetForFileSystemPersistencyUpdate:(id)arg1;
@@ -104,9 +148,10 @@
 - (void)recordAssetForMomentUpdate:(id)arg1;
 - (void)registerFilesystemDeletionInfo:(id)arg1;
 - (BOOL)_isValidDelete:(id)arg1;
+- (void)getAndClearUpdatedObjectsAttributes:(id *)arg1 relationships:(id *)arg2;
+- (void)recordManagedObjectWillSave:(id)arg1;
 - (void)disconnectFromChangeHub;
 - (void)connectToChangeHub;
-- (BOOL)globalBoolValueForKey:(id)arg1 defaultValue:(BOOL)arg2;
 - (BOOL)obtainPermanentIDsForObjects:(id)arg1 error:(id *)arg2;
 - (BOOL)save:(id *)arg1;
 - (unsigned int)countForFetchRequest:(id)arg1 error:(id *)arg2;
@@ -118,6 +163,7 @@
 - (id)globalValueForKey:(id)arg1;
 - (int)context:(id)arg1 shouldHandleInaccessibleFault:(id)arg2 forObjectID:(id)arg3 andTrigger:(id)arg4;
 @property(readonly, nonatomic) BOOL isUserInterfaceContext;
+@property(nonatomic) id <PLManagedObjectContextPTPNotificationDelegate> ptpNotificationDelegate; // @synthesize ptpNotificationDelegate=_ptpNotificationDelegate;
 @property(nonatomic) PLPhotoLibrary *photoLibrary;
 - (void)dealloc;
 - (id)initWithConcurrencyType:(unsigned int)arg1 useSharedPersistentStoreCoordinator:(BOOL)arg2;

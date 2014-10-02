@@ -65,7 +65,7 @@
 @property(retain, nonatomic) NSDictionary *httpResponseHeaders; // @synthesize httpResponseHeaders=_httpResponseHeaders;
 @property(retain, nonatomic) NSRunLoop *connectionRunLoop; // @synthesize connectionRunLoop=_connectionRunLoop;
 @property(retain, nonatomic) NSURLConnection *connection; // @synthesize connection=_connection;
-@property(nonatomic) id delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) id <PBRequesterDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 - (void)startWithConnectionProperties:(id)arg1;
 - (id)newConnectionWithCFURLRequest:(struct _CFURLRequest *)arg1 delegate:(id)arg2 connectionProperties:(id)arg3;
@@ -101,7 +101,7 @@
 - (void)_logErrorIfNecessary:(id)arg1;
 - (void)_logResponsesIfNecessary:(id)arg1;
 - (void)_logRequestsIfNecessary:(id)arg1;
-- (void)_sendPayload:(id)arg1;
+- (BOOL)_sendPayload:(id)arg1 error:(id *)arg2;
 - (id)_connectionRunLoop;
 - (void)writeRequest:(id)arg1 into:(id)arg2;
 - (id)requestPreamble;
@@ -124,6 +124,12 @@
 - (void)_cleanup;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1 andDelegate:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

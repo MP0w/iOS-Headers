@@ -10,6 +10,8 @@
 #import "KNAnimationPluginArchiving.h"
 #import "KNAnimationPluginObsoleteNames.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface KNActionRotation : KNAnimationEffect <KNActionEffectBuildAnimator, KNAnimationPluginArchiving, KNAnimationPluginObsoleteNames>
 {
@@ -33,6 +35,12 @@ __attribute__((visibility("hidden")))
 + (id)animationName;
 - (id)animationsForTextureSet:(id)arg1 finalTextureSet:(id)arg2 duration:(double)arg3 attributes:(id)arg4 previousAttributes:(id)arg5;
 - (void)p_addAnimationForLayer:(id)arg1 duration:(double)arg2 fromAngle:(float)arg3 toAngle:(float)arg4 acceleration:(id)arg5 toAnimationDictionary:(id)arg6;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

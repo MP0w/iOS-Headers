@@ -15,7 +15,6 @@
     UIImageView *_unreadIndicatorImageView;
     UIImageView *_chevronImageView;
     UILabel *_fromLabel;
-    UIImageView *_groupImageView;
     BOOL _isPlaceholder;
     UIImageView *_recipientPhotoView;
     NSString *_searchSummaryText;
@@ -33,6 +32,8 @@
 - (void)_calculateLayoutFrames;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)updateWithSearchResult:(id)arg1;
+- (void)_conversationThumbnailChanged:(id)arg1;
+- (void)_setupThumbnailForConversation:(id)arg1;
 - (void)updateContentsForConversation:(id)arg1;
 - (BOOL)showingEditControl;
 - (void)_contentSizeCategoryDidChange:(id)arg1;

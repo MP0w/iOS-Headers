@@ -18,6 +18,7 @@
 
 - (void)forwardInvocation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
+- (void)sendXPCObject:(id)arg1;
 - (void)dealloc;
 - (id)initWithNotifier:(id)arg1 messageContext:(id)arg2 protocol:(id)arg3 targets:(id)arg4;
 

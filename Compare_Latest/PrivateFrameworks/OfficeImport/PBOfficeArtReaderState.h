@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     PBPresentationReaderState *mPresentationState;
 }
 
+- (id)drawableOnTgtSlideForShapeId:(int)arg1;
 - (id)presentationState;
 - (id)initWithPresentationState:(id)arg1;
 

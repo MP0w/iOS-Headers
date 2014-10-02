@@ -9,7 +9,7 @@
 #import "SKUIArtworkRequestDelegate.h"
 #import "SKUIGallerySwooshViewControllerDelegate.h"
 
-@class NSMapTable, SKUIGallerySwooshViewController, SKUISwooshPageComponent;
+@class NSMapTable, NSString, SKUIGallerySwooshViewController, SKUISwooshPageComponent;
 
 @interface SKUIGallerySwooshPageSection : SKUIStorePageSection <SKUIArtworkRequestDelegate, SKUIGallerySwooshViewControllerDelegate>
 {
@@ -36,7 +36,11 @@
 - (id)initWithPageComponent:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) SKUISwooshPageComponent *pageComponent; // @dynamic pageComponent;
+@property(readonly) Class superclass;
 
 @end
 

@@ -17,6 +17,7 @@
 - (void)_removeTerminationAssertion:(id)arg1;
 - (void)_addTerminationAssertion:(id)arg1;
 - (_Bool)_canAcquireTerminationAssertionForDisplayId:(id)arg1 reason:(unsigned char)arg2 error:(char *)arg3;
+- (id)_requestPluginHoldForAppInfo:(id)arg1;
 - (id)acquireTerminationAssertionForDisplayId:(id)arg1 withReason:(unsigned char)arg2 error:(char *)arg3;
 - (id)terminationAssertionsForDisplayId:(id)arg1 withReason:(unsigned char)arg2;
 - (id)terminationAssertionsForDisplayId:(id)arg1;

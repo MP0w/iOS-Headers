@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
     int mFontSize;
 }
 
-+ (id)stringForIndex:(int)arg1 withFormat:(int)arg2;
++ (id)stringForIndex:(unsigned int)arg1 withFormat:(int)arg2;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
 - (void)dealloc;
 - (id)initWithOadProperties:(id)arg1 fontSize:(int)arg2 parent:(id)arg3;

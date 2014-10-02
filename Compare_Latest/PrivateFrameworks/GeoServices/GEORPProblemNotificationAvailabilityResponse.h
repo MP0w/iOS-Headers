@@ -16,6 +16,7 @@
 }
 
 @property(nonatomic) int statusCode; // @synthesize statusCode=_statusCode;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -25,8 +26,8 @@
 - (id)dictionaryRepresentation;
 - (id)description;
 - (void)setSupportedProblemTypes:(int *)arg1 count:(unsigned int)arg2;
-- (int)supportedProblemTypesAtIndex:(unsigned int)arg1;
-- (void)addSupportedProblemTypes:(int)arg1;
+- (int)supportedProblemTypeAtIndex:(unsigned int)arg1;
+- (void)addSupportedProblemType:(int)arg1;
 - (void)clearSupportedProblemTypes;
 @property(readonly, nonatomic) int *supportedProblemTypes;
 @property(readonly, nonatomic) unsigned int supportedProblemTypesCount;

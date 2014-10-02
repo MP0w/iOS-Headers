@@ -8,6 +8,8 @@
 
 #import "GQDNameMappable.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface GQDWPLineSpacing : NSObject <GQDNameMappable>
 {
@@ -20,6 +22,12 @@ __attribute__((visibility("hidden")))
 - (int)mode;
 - (id)init;
 - (int)readAttributesFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

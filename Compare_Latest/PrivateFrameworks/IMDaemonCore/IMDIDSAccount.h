@@ -13,7 +13,7 @@
     IDSAccount *_idsAccount;
 }
 
-@property(readonly, nonatomic) IDSAccount *idsAccount; // @synthesize idsAccount=_idsAccount;
+@property(readonly, retain, nonatomic) IDSAccount *idsAccount; // @synthesize idsAccount=_idsAccount;
 - (id)accountDefaults;
 - (void)writeAccountDefaults:(id)arg1;
 - (void)dealloc;

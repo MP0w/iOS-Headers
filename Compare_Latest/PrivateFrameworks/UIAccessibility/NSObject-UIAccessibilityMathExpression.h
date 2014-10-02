@@ -7,6 +7,6 @@
 #import "NSObject.h"
 
 @interface NSObject (UIAccessibilityMathExpression)
-- (void)accessibilityExpandMathEquation;
+- (BOOL)accessibilityExpandMathEquation:(id)arg1;
 @end
 

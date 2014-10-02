@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 - (oneway void)release;
 - (id)retain;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (BOOL)_isCompact;
 - (const void *)bytes;
 - (unsigned int)length;
 

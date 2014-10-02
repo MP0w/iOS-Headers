@@ -8,7 +8,7 @@
 
 #import "MPAVPlaylistFeeder.h"
 
-@class MPAVController, NSDictionary, RadioStation;
+@class MPAVController, NSDictionary, NSString;
 
 @interface MPQueueFeeder : NSObject <MPAVPlaylistFeeder>
 {
@@ -21,10 +21,12 @@
     BOOL _fullScreenPlaybackQueue;
     BOOL _isSourceChangeInProgress;
     BOOL _deallocating;
+    BOOL _wantsAirPlayVideo;
     unsigned int _activeShuffleType;
 }
 
 + (void)restoreAVControllerPlaybackQueue:(id)arg1 fromUnarchiver:(id)arg2 feederClass:(Class)arg3;
+@property(readonly, nonatomic) BOOL wantsAirPlayVideo; // @synthesize wantsAirPlayVideo=_wantsAirPlayVideo;
 @property(nonatomic) BOOL isSourceChangeInProgress; // @synthesize isSourceChangeInProgress=_isSourceChangeInProgress;
 @property(nonatomic) BOOL fullScreenPlaybackQueue; // @synthesize fullScreenPlaybackQueue=_fullScreenPlaybackQueue;
 @property(retain, nonatomic) id <NSObject> representedObject; // @synthesize representedObject=_representedObject;
@@ -46,7 +48,7 @@
 - (BOOL)shouldReloadForChangeFromNetworkType:(int)arg1 toNetworkType:(int)arg2;
 - (id)itemForIndex:(unsigned int)arg1;
 @property(readonly, nonatomic) unsigned int itemCount;
-@property(readonly, nonatomic) unsigned int initialPlaybackQueueDepth;
+- (unsigned int)initialPlaybackQueueDepthForStartingIndex:(unsigned int)arg1;
 - (BOOL)hasItemForIndex:(unsigned int)arg1;
 - (void)assumeOwnershipOfItems:(id)arg1;
 - (void)controller:(id)arg1 willChangePlaybackIndexBy:(int)arg2 deltaType:(int)arg3 ignoreElapsedTime:(BOOL)arg4 allowSkippingUnskippableContent:(BOOL)arg5;
@@ -58,6 +60,7 @@
 - (void)addReferenceToItem:(id)arg1;
 @property(readonly, nonatomic) BOOL userCanChangeShuffleAndRepeatType;
 @property(readonly, nonatomic) BOOL trackChangesCanEndPlayback;
+- (CDStruct_e0453228)skipLimit;
 @property(readonly, nonatomic) NSDictionary *preferredLanguages;
 @property(readonly, nonatomic) BOOL playerPreparesItemsForPlaybackAsynchronously;
 @property(readonly, nonatomic) int playbackMode;
@@ -78,8 +81,12 @@
 - (void)_fixNextStartTimesByRemovingRange:(struct _NSRange)arg1;
 - (void)_fixNextStartTimesByInsertingRange:(struct _NSRange)arg1;
 - (void)dealloc;
-@property(readonly, nonatomic) RadioStation *station;
-- (BOOL)isRadioQueueFeeder;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

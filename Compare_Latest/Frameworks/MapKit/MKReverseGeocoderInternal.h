@@ -6,15 +6,15 @@
 
 #import "NSObject.h"
 
-@class GEOGeocodeRequest, MKPlacemark;
+@class MKMapItem;
 
 __attribute__((visibility("hidden")))
 @interface MKReverseGeocoderInternal : NSObject
 {
     CDStruct_2c43369c coordinate;
     id <MKReverseGeocoderDelegate> delegate;
-    MKPlacemark *storedPlacemark;
-    GEOGeocodeRequest *request;
+    MKMapItem *mapItem;
+    id <MKMapServiceTicket> ticket;
     BOOL querying;
 }
 

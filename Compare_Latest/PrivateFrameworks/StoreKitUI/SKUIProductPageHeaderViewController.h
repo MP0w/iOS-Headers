@@ -9,16 +9,16 @@
 #import "SKUIItemStateCenterObserver.h"
 #import "UIPopoverControllerDelegate.h"
 
-@class NSOperationQueue, SKUIClientContext, SKUIContentRatingArtworkResourceLoader, SKUIFacebookLikeStatus, SKUIItem, SKUIItemArtworkContext, SKUIItemOffer, SKUIProductPage, SKUIProductPageHeaderFloatingView, SKUIProductPageHeaderView, SSVLoadURLOperation, UIImage, UIPopoverController;
+@class NSOperationQueue, NSString, SKUIClientContext, SKUIContentRatingArtworkResourceLoader, SKUIItem, SKUIItemArtworkContext, SKUIItemOffer, SKUIProductPage, SKUIProductPageHeaderFloatingView, SKUIProductPageHeaderView, SSVLoadURLOperation, UIImage, UIPopoverController;
 
 @interface SKUIProductPageHeaderViewController : UIViewController <SKUIItemStateCenterObserver, UIPopoverControllerDelegate>
 {
     UIPopoverController *_activityPopoverController;
+    BOOL _askPermission;
     SKUIContentRatingArtworkResourceLoader *_contentRatingArtworkLoader;
     SKUIItemArtworkContext *_artworkContext;
     SKUIClientContext *_clientContext;
     id <SKUIProductPageHeaderViewDelegate> _delegate;
-    SKUIFacebookLikeStatus *_facebookLikeStatus;
     SKUIProductPageHeaderView *_headerView;
     UIImage *_iconImage;
     SKUIItem *_item;
@@ -38,11 +38,12 @@
 
 @property(retain, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
 @property(readonly, nonatomic) SKUIItem *item; // @synthesize item=_item;
-@property(copy, nonatomic) SKUIFacebookLikeStatus *facebookLikeStatus; // @synthesize facebookLikeStatus=_facebookLikeStatus;
 @property(nonatomic) __weak id <SKUIProductPageHeaderViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
+@property(nonatomic) BOOL askPermission; // @synthesize askPermission=_askPermission;
 - (void).cxx_destruct;
 - (void)_showSynthesizedItemStateWithFlag:(unsigned int)arg1 animated:(BOOL)arg2;
+- (void)_showAskPermissionBanner;
 - (void)_showActivityViewControllerFromView:(id)arg1;
 - (void)_setUberWithImage:(id)arg1 error:(id)arg2;
 - (void)_setItemState:(id)arg1 animated:(BOOL)arg2;
@@ -53,7 +54,6 @@
 - (void)_reloadItemStateAnimated:(BOOL)arg1;
 - (void)_loadUberImageIfAvailable;
 - (BOOL)_isRestricted;
-- (id)_facebookFriendsString;
 - (void)_disableItemOfferButtonWithTitle:(id)arg1 animated:(BOOL)arg2;
 - (id)_contentRatingResourceLoader;
 - (void)_destroyPopoverController;
@@ -78,6 +78,12 @@
 @property(readonly, nonatomic) SKUIProductPageHeaderFloatingView *floatingView;
 - (void)dealloc;
 - (id)initWithItem:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

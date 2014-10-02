@@ -19,18 +19,17 @@
 - (void)animationControllerDidFinishAnimation:(id)arg1;
 - (void)animationController:(id)arg1 willBeginAnimation:(_Bool)arg2;
 - (_Bool)_shouldDisallowSuspension;
-- (_Bool)selfStarkAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
-- (_Bool)selfStarkAlertWillActivate:(id)arg1 overAlerts:(id)arg2;
+- (id)_newAnimationFromNowPlayingToApp;
 - (id)_newAnimationFromAppToNowPlaying;
 - (id)_newAnimationFromLauncherToApp;
 - (id)_newAnimationFromAppToApp;
-- (int)_setupMilestonesFrom:(id)arg1 to:(id)arg2;
+- (void)_setupMilestonesFrom:(id)arg1 to:(id)arg2;
 - (void)_finishCommit;
 - (void)_doCommit;
 - (id)swizzledToDisplayIfNecessary;
 - (void)_noteWillActivateApplicationOnMainScreen:(id)arg1 underLock:(_Bool)arg2;
 - (void)dealloc;
-- (id)initWithWorkspace:(id)arg1 mainScreenAlertManager:(id)arg2 starkScreenController:(id)arg3 from:(id)arg4 to:(id)arg5;
+- (id)initWithMainScreenAlertManager:(id)arg1 starkScreenController:(id)arg2 from:(id)arg3 to:(id)arg4;
 
 @end
 

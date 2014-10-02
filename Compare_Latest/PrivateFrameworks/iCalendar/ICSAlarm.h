@@ -6,7 +6,7 @@
 
 #import <iCalendar/ICSComponent.h>
 
-@class ICSDateTimeUTCValue, ICSStructuredLocation, ICSTrigger, NSArray, NSString;
+@class ICSDateTimeUTCValue, ICSStructuredLocation, ICSTrigger, NSArray, NSData, NSString;
 
 @interface ICSAlarm : ICSComponent
 {
@@ -17,13 +17,15 @@
 + (id)ICSStringFromAction:(int)arg1;
 + (int)actionFromICSString:(id)arg1;
 + (id)name;
-@property BOOL x_apple_local_default_alarm;
-@property BOOL x_apple_default_alarm;
-@property(retain) NSString *x_apple_proximity;
-@property(retain) NSString *relatedTo;
-@property(retain) ICSDateTimeUTCValue *acknowledged;
-@property(retain) NSString *x_wr_alarmuid;
-@property int action;
+@property(retain, nonatomic) NSData *bookmark; // @dynamic bookmark;
+@property(nonatomic) BOOL x_apple_local_default_alarm;
+@property(nonatomic) BOOL x_apple_travel_default_alarm;
+@property(nonatomic) BOOL x_apple_default_alarm;
+@property(retain, nonatomic) NSString *x_apple_proximity;
+@property(retain, nonatomic) NSString *relatedTo;
+@property(retain, nonatomic) ICSDateTimeUTCValue *acknowledged;
+@property(retain, nonatomic) NSString *x_wr_alarmuid;
+@property(nonatomic) int action;
 - (BOOL)isNoneAlarm;
 - (void)fixAlarm;
 

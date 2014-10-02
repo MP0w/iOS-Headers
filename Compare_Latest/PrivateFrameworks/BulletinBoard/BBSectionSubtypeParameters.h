@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding.h"
 
-@class BBSectionIcon, NSNumber, NSSet, NSString;
+@class BBColor, BBSectionIcon, NSNumber, NSSet, NSString;
 
 @interface BBSectionSubtypeParameters : NSObject <NSSecureCoding>
 {
@@ -17,8 +17,15 @@
     NSString *_missedBannerDescriptionFormat;
     NSString *_fullUnlockActionLabel;
     NSString *_unlockActionLabel;
-    NSSet *_alertSuppressionAppIDs;
+    NSString *_fullAlternateActionLabel;
+    NSString *_alternateActionLabel;
     BBSectionIcon *_sectionIconOverride;
+    BBColor *_tintColor;
+    NSString *_bannerAccessoryRemoteViewControllerClassName;
+    NSString *_bannerAccessoryRemoteServiceBundleIdentifier;
+    NSString *_secondaryContentRemoteViewControllerClassName;
+    NSString *_secondaryContentRemoteServiceBundleIdentifier;
+    NSNumber *_boxedSuppressesAlertsWhenAppIsActive;
     NSNumber *_boxedCoalescesWhenLocked;
     NSNumber *_boxedSuppressesMessageForPrivacy;
     NSNumber *_boxedRealertCount;
@@ -26,6 +33,9 @@
     NSNumber *_boxedPreservesUnlockActionCase;
     NSNumber *_boxedBannerShowsSubtitle;
     NSNumber *_boxedVisuallyIndicatesWhenDateIsInFuture;
+    NSNumber *_boxedCanBeSilencedByMenuButtonPress;
+    NSNumber *_boxedPreventLock;
+    NSNumber *_boxedIgnoresQuietMode;
     NSNumber *_boxedSubtypePriority;
     NSNumber *_boxedIPodOutAlertType;
 }
@@ -33,6 +43,9 @@
 + (BOOL)supportsSecureCoding;
 @property(retain, nonatomic) NSNumber *boxedIPodOutAlertType; // @synthesize boxedIPodOutAlertType=_boxedIPodOutAlertType;
 @property(retain, nonatomic) NSNumber *boxedSubtypePriority; // @synthesize boxedSubtypePriority=_boxedSubtypePriority;
+@property(retain, nonatomic) NSNumber *boxedIgnoresQuietMode; // @synthesize boxedIgnoresQuietMode=_boxedIgnoresQuietMode;
+@property(retain, nonatomic) NSNumber *boxedPreventLock; // @synthesize boxedPreventLock=_boxedPreventLock;
+@property(retain, nonatomic) NSNumber *boxedCanBeSilencedByMenuButtonPress; // @synthesize boxedCanBeSilencedByMenuButtonPress=_boxedCanBeSilencedByMenuButtonPress;
 @property(retain, nonatomic) NSNumber *boxedVisuallyIndicatesWhenDateIsInFuture; // @synthesize boxedVisuallyIndicatesWhenDateIsInFuture=_boxedVisuallyIndicatesWhenDateIsInFuture;
 @property(retain, nonatomic) NSNumber *boxedBannerShowsSubtitle; // @synthesize boxedBannerShowsSubtitle=_boxedBannerShowsSubtitle;
 @property(retain, nonatomic) NSNumber *boxedPreservesUnlockActionCase; // @synthesize boxedPreservesUnlockActionCase=_boxedPreservesUnlockActionCase;
@@ -40,7 +53,14 @@
 @property(retain, nonatomic) NSNumber *boxedRealertCount; // @synthesize boxedRealertCount=_boxedRealertCount;
 @property(retain, nonatomic) NSNumber *boxedSuppressesMessageForPrivacy; // @synthesize boxedSuppressesMessageForPrivacy=_boxedSuppressesMessageForPrivacy;
 @property(retain, nonatomic) NSNumber *boxedCoalescesWhenLocked; // @synthesize boxedCoalescesWhenLocked=_boxedCoalescesWhenLocked;
-@property(copy, nonatomic) NSSet *alertSuppressionAppIDs; // @synthesize alertSuppressionAppIDs=_alertSuppressionAppIDs;
+@property(retain, nonatomic) NSNumber *boxedSuppressesAlertsWhenAppIsActive; // @synthesize boxedSuppressesAlertsWhenAppIsActive=_boxedSuppressesAlertsWhenAppIsActive;
+@property(copy, nonatomic) NSString *secondaryContentRemoteServiceBundleIdentifier; // @synthesize secondaryContentRemoteServiceBundleIdentifier=_secondaryContentRemoteServiceBundleIdentifier;
+@property(copy, nonatomic) NSString *secondaryContentRemoteViewControllerClassName; // @synthesize secondaryContentRemoteViewControllerClassName=_secondaryContentRemoteViewControllerClassName;
+@property(copy, nonatomic) NSString *bannerAccessoryRemoteServiceBundleIdentifier; // @synthesize bannerAccessoryRemoteServiceBundleIdentifier=_bannerAccessoryRemoteServiceBundleIdentifier;
+@property(copy, nonatomic) NSString *bannerAccessoryRemoteViewControllerClassName; // @synthesize bannerAccessoryRemoteViewControllerClassName=_bannerAccessoryRemoteViewControllerClassName;
+@property(retain, nonatomic) BBColor *tintColor; // @synthesize tintColor=_tintColor;
+@property(copy, nonatomic) NSString *alternateActionLabel; // @synthesize alternateActionLabel=_alternateActionLabel;
+@property(copy, nonatomic) NSString *fullAlternateActionLabel; // @synthesize fullAlternateActionLabel=_fullAlternateActionLabel;
 @property(copy, nonatomic) NSString *unlockActionLabel; // @synthesize unlockActionLabel=_unlockActionLabel;
 @property(copy, nonatomic) NSString *fullUnlockActionLabel; // @synthesize fullUnlockActionLabel=_fullUnlockActionLabel;
 @property(copy, nonatomic) NSString *missedBannerDescriptionFormat; // @synthesize missedBannerDescriptionFormat=_missedBannerDescriptionFormat;
@@ -50,6 +70,9 @@
 - (id)initWithCoder:(id)arg1;
 @property(nonatomic) int iPodOutAlertType;
 @property(nonatomic) unsigned int subtypePriority;
+@property(nonatomic) BOOL ignoresQuietMode;
+@property(nonatomic) BOOL preventLock;
+@property(nonatomic) BOOL canBeSilencedByMenuButtonPress;
 @property(nonatomic) BOOL visuallyIndicatesWhenDateIsInFuture;
 @property(nonatomic) BOOL bannerShowsSubtitle;
 @property(nonatomic) BOOL preservesUnlockActionCase;
@@ -57,6 +80,8 @@
 @property(nonatomic) unsigned int realertCount;
 @property(nonatomic) BOOL suppressesMessageForPrivacy;
 @property(nonatomic) BOOL coalescesWhenLocked;
+@property(nonatomic) BOOL suppressesAlertsWhenAppIsActive;
+@property(retain, nonatomic) NSSet *alertSuppressionAppIDs;
 @property(copy, nonatomic) BBSectionIcon *sectionIconOverride; // @synthesize sectionIconOverride=_sectionIconOverride;
 - (void)dealloc;
 - (id)initWithFallbackParameters:(id)arg1;

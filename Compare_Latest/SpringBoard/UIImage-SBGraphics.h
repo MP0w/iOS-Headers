@@ -14,10 +14,7 @@
 - (struct CGImage *)_newThumbnailWithImageSource:(struct CGImageSource *)arg1 forMaxPixelDimension:(double)arg2;
 - (id)_thumbnailFitToSize:(struct CGSize)arg1;
 - (struct CGImageSource *)_newSource;
-- (id)sbg_cropImageWithRect:(struct CGRect)arg1 outputSize:(struct CGSize)arg2;
 - (id)sbg_squareImage;
-- (id)sbg_resizeImageToSize:(struct CGSize)arg1;
-- (id)sbg_resizeImageToSize:(struct CGSize)arg1 preservingAspectRatio:(_Bool)arg2;
 - (id)sbg_thumbnailFitToSize:(struct CGSize)arg1;
 - (_Bool)isAnimated;
 @property(readonly, nonatomic) struct CGSize pixelSize;

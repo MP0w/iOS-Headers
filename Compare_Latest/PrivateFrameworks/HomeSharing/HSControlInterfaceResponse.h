@@ -14,6 +14,7 @@
 }
 
 @property(copy, nonatomic) NSArray *interfaces; // @synthesize interfaces=_interfaces;
+- (void).cxx_destruct;
 
 @end
 

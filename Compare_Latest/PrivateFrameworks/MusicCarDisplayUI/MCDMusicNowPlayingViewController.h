@@ -10,7 +10,7 @@
 #import "MCDNowPlayingViewControllerDataSource.h"
 #import "MCDNowPlayingViewControllerDelegate.h"
 
-@class MCDActionSheetController, MCDButton, MCDNowPlayingViewController, MPAVController, MPMediaQuery, NSArray, NSString, NSURL, UIImage, UILabel;
+@class MCDButton, MCDNowPlayingViewController, MPAVController, MPMediaQuery, NSArray, NSString, UIAlertController, UIImage, UILabel;
 
 @interface MCDMusicNowPlayingViewController : UIViewController <AFContextProvider, MCDNowPlayingViewControllerDataSource, MCDNowPlayingViewControllerDelegate>
 {
@@ -22,11 +22,11 @@
     NSString *_nowPlayingArtist;
     NSString *_nowPlayingAlbum;
     UIImage *_nowPlayingAlbumArt;
-    NSURL *_retrievalURL;
     MCDButton *_wishlistButton;
     UILabel *_rightTitleLabel;
-    MCDActionSheetController *_actionSheetController;
+    UIAlertController *_actionSheetAlertController;
     BOOL _isLive;
+    BOOL _isExplicitTrack;
     NSArray *_controlPages;
     unsigned int _currentPageIndex;
     int _viewMode;
@@ -39,7 +39,6 @@
 - (id)newPresentationNavigationController;
 - (void)_presentNowPlayingInfo;
 - (void)_setPlayerRepeatType:(unsigned int)arg1;
-- (void)_setAlbumArtWithURL:(id)arg1;
 - (void)updateTrackInformation;
 - (void)_updatePlaymodesForRadio;
 - (void)_updateWishlistString;
@@ -66,6 +65,7 @@
 - (unsigned int)shuffleTypeForNowPlayingViewController:(id)arg1;
 - (BOOL)nowPlayingViewControllerIsPlaying:(id)arg1;
 - (double)playbackDurationForNowPlayingViewController:(id)arg1 withElapsedTime:(out double *)arg2;
+- (BOOL)nowPlayingViewControllerIsShowingExplicitTrack:(id)arg1;
 - (id)backgroundArtForNowPlayingController:(id)arg1;
 - (id)titleForNowPlayingController:(id)arg1;
 - (id)artistTextForNowPlayingController:(id)arg1;
@@ -85,6 +85,12 @@
 - (id)initWithQuery:(id)arg1 startingAtIndex:(unsigned int)arg2 player:(id)arg3 serviceProvider:(id)arg4;
 - (id)initWithPlayer:(id)arg1 serviceProvider:(id)arg2 startPlay:(BOOL)arg3;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,14 +6,15 @@
 
 #import "NSObject.h"
 
-@class GEOPlace, NSDate, NSString;
+@class NSDate, NSString;
 
 __attribute__((visibility("hidden")))
 @interface RTLOIDisplayInfo : NSObject
 {
     int _style;
     int _type;
-    GEOPlace *_urlPlace;
+    int _modeOfTransportation;
+    id <GEOMapItem> _geoMapItem;
     NSString *_unknownTypeName;
     NSDate *_arrival;
     NSDate *_deparature;
@@ -24,7 +25,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSDate *arrival; // @synthesize arrival=_arrival;
 @property(readonly, nonatomic) double eta; // @synthesize eta=_eta;
 @property(readonly, nonatomic) NSString *unknownTypeName; // @synthesize unknownTypeName=_unknownTypeName;
-@property(readonly, nonatomic) GEOPlace *urlPlace; // @synthesize urlPlace=_urlPlace;
+@property(readonly, nonatomic) id <GEOMapItem> geoMapItem; // @synthesize geoMapItem=_geoMapItem;
+@property(readonly, nonatomic) int modeOfTransportation; // @synthesize modeOfTransportation=_modeOfTransportation;
 @property(readonly, nonatomic) int type; // @synthesize type=_type;
 @property(readonly, nonatomic) int style; // @synthesize style=_style;
 - (void).cxx_destruct;
@@ -32,9 +34,7 @@ __attribute__((visibility("hidden")))
 - (id)localizedDescription;
 - (BOOL)isEquivalentToDisplayInfo:(id)arg1;
 - (id)description;
-- (id)initWithArrivalStyle:(int)arg1 type:(int)arg2 urlPlace:(id)arg3 unknownTypeName:(id)arg4 arrival:(id)arg5 departure:(id)arg6;
-- (id)initWithDurationStyle:(int)arg1 type:(int)arg2 urlPlace:(id)arg3 unknownTypeName:(id)arg4 eta:(double)arg5;
-- (id)initWithStyle:(int)arg1 type:(int)arg2 urlPlace:(id)arg3 unknownTypeName:(id)arg4 eta:(double)arg5 arrival:(id)arg6 departure:(id)arg7;
+- (id)initWithStyle:(int)arg1 type:(int)arg2 geoMapItem:(id)arg3 unknownTypeName:(id)arg4 eta:(double)arg5 arrival:(id)arg6 departure:(id)arg7 modeOfTransportation:(int)arg8;
 
 @end
 

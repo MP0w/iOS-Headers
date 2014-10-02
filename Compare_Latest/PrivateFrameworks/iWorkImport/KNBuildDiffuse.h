@@ -8,7 +8,7 @@
 
 #import "KNFrameBuildAnimator.h"
 
-@class KNBuildDiffuseSystem, TSDGLDataBuffer, TSDGLShader;
+@class KNBuildDiffuseSystem, NSString, TSDGLDataBuffer, TSDGLShader;
 
 __attribute__((visibility("hidden")))
 @interface KNBuildDiffuse : KNAnimationEffect <KNFrameBuildAnimator>
@@ -38,6 +38,12 @@ __attribute__((visibility("hidden")))
 - (void)p_setupParticleSystemWithImage:(id)arg1 build:(id)arg2;
 - (struct CGRect)frameOfEffectWithFrame:(struct CGRect)arg1 context:(id)arg2;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

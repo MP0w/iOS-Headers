@@ -13,7 +13,7 @@
     NSMutableSet *_changedProperties;
 }
 
-@property(retain) NSMutableSet *changedProperties; // @synthesize changedProperties=_changedProperties;
+@property(retain, nonatomic) NSMutableSet *changedProperties; // @synthesize changedProperties=_changedProperties;
 - (id)copyParseRules;
 - (void)addChangedProperty:(id)arg1;
 - (id)description;

@@ -7,11 +7,6 @@
 #import "NSPredicate.h"
 
 @interface NSPredicate (PredicateBindings)
-- (BOOL)cr_isInvalidOperatorType:(unsigned int)arg1 forKeyPath:(id)arg2;
-- (void)cr_addToClause:(id)arg1 usingOperator:(id)arg2 bindings:(id)arg3;
-- (void)cr_processWithContext:(id)arg1;
 - (id)cr_predicateClauseWithBindings:(id)arg1 error:(id *)arg2;
-- (id)cr_simplifiedPredicateSingleStep;
-- (id)cr_simplifiedPredicate;
 @end
 

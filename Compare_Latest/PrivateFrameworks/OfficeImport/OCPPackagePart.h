@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSURL, OCPPackage, OCPPackageRelationshipCollection;
+@class NSMutableDictionary, NSURL, OCPPackage, OCPPackageRelationshipCollection;
 
 __attribute__((visibility("hidden")))
 @interface OCPPackagePart : NSObject
@@ -15,8 +15,11 @@ __attribute__((visibility("hidden")))
     OCPPackageRelationshipCollection *mRelationships;
     OCPPackage *mPackage;
     struct _xmlDoc *mDocument;
+    NSMutableDictionary *mAlternateContentMap;
 }
 
+- (void)setFallbackNode:(struct _xmlNode *)arg1 forChoiceNode:(struct _xmlNode *)arg2;
+- (struct _xmlNode *)fallbackNodeForChoiceNode:(struct _xmlNode *)arg1;
 - (id)contentType;
 - (id)package;
 - (id)firstPartWithRelationshipOfType:(id)arg1;

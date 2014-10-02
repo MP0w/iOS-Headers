@@ -21,7 +21,13 @@
 + (id)localChangeEventFromChangeHubEvent:(id)arg1;
 + (id)_descriptionForEvent:(id)arg1;
 + (id)sharedNode;
-- (void)_processDelatedAssetsForFileSystemPersistencyFromChangeHubEvent:(id)arg1 transaction:(id)arg2;
+- (void)_processDelayedAssetsForFileSystemPersistencyFromChangeHubEvent:(id)arg1 transaction:(id)arg2;
+- (void)_processDelayedAlbumCountUpdatesFromChangeHubEvent:(id)arg1 transaction:(id)arg2;
+- (void)processDelayedAlbumCountUpdates:(id)arg1 transaction:(id)arg2;
+- (void)_processDelayedAlbumOrderUpdatesFromChangeHubEvent:(id)arg1 transaction:(id)arg2;
+- (void)processDelayedAlbumOrderUpdates:(id)arg1 transaction:(id)arg2;
+- (void)_processDelayedSearchIndexUpdatesFromChangeHubEvent:(id)arg1 transaction:(id)arg2;
+- (void)_processDelayedSearchIndexUpdates:(id)arg1 transaction:(id)arg2;
 - (void)processDelayedAssetsForFileSystemPersistency:(id)arg1 transaction:(id)arg2;
 - (void)_processDelayedDupeAnalysisFromChangeHubEvent:(id)arg1 transaction:(id)arg2;
 - (void)processDelayedDupeAnalysisNormalInserts:(id)arg1 cloudInserts:(id)arg2 transaction:(id)arg3;
@@ -37,12 +43,12 @@
 - (void)setupHubConnection;
 - (id)sendEventToChangeHub:(id)arg1 transaction:(id)arg2;
 - (void)sendChangeHubEventForDidSaveNotification:(id)arg1;
+- (void)printChangeStore;
 - (void)disconnectManagedObjectContext:(id)arg1;
 - (void)connectManagedObjectContext:(id)arg1;
-- (void)distributeLocalEvent:(id)arg1;
 - (void)distributeRemoteChangeHubEvent:(id)arg1 withGroup:(id)arg2 transaction:(id)arg3;
 - (void)distributeRemoteContextDidSaveEvent:(id)arg1 withGroup:(id)arg2 transaction:(id)arg3;
-- (id)createXPCObjectFromDidSaveNotification:(id)arg1;
+- (id)createXPCObjectFromDidSaveNotification:(id)arg1 updatedAttributesByObjectID:(id)arg2 updatedRelationshipsByObjectID:(id)arg3;
 - (void)dealloc;
 - (id)init;
 

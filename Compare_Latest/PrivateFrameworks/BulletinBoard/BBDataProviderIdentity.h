@@ -12,8 +12,34 @@
 
 @interface BBDataProviderIdentity : NSObject <NSSecureCoding>
 {
-    CDStruct_c6add5c3 _traits;
+    struct {
+        unsigned int pushDataProvider:1;
+        unsigned int dataProviderDidLoad:1;
+        unsigned int bulletinsWithRequestParameters:1;
+        unsigned int bulletinsFilteredByDEPRECATED:1;
+        unsigned int bulletinsFilteredByEnabledSectionsDEPRECATED:1;
+        unsigned int clearedInfoAndBulletinsForClearingAllBulletins:1;
+        unsigned int clearedInfoForBulletins:1;
+        unsigned int clearedInfoForBulletinsDEPRECATED:1;
+        unsigned int attachmentPNGDataForRecordID:1;
+        unsigned int attachmentAspectRatioForRecordID:1;
+        unsigned int defaultSectionInfo:1;
+        unsigned int defaultSubsectionInfos:1;
+        unsigned int displayNameForSubsectionID:1;
+        unsigned int sectionParameters:1;
+        unsigned int migrateSectionInfo:1;
+        unsigned int sectionDisplayName:1;
+        unsigned int sectionIcon:1;
+        unsigned int sectionIconDataDEPRECATED:1;
+        unsigned int receiveMessageWithName:1;
+        unsigned int noteSectionInfoDidChange:1;
+        unsigned int syncBulletinDismissal:1;
+        unsigned int handleBulletinActionResponse:1;
+        unsigned int universalSectionIdentifier:1;
+        unsigned int parentSectionIdentifier:1;
+    } _traits;
     NSString *_sectionIdentifier;
+    NSString *_universalSectionIdentifier;
     BBSectionInfo *_defaultSectionInfo;
     NSString *_sectionDisplayName;
     BBSectionIcon *_sectionIcon;
@@ -22,12 +48,15 @@
     NSArray *_defaultSubsectionInfos;
     NSDictionary *_subsectionDisplayNames;
     NSString *_sortKey;
+    NSString *_parentSectionIdentifier;
     BOOL _syncsBulletinDismissal;
 }
 
 + (BOOL)supportsSecureCoding;
++ (id)identityForRemoteDataProvider:(id)arg1;
 + (id)identityForDataProvider:(id)arg1;
 @property(readonly, nonatomic) BOOL syncsBulletinDismissal; // @synthesize syncsBulletinDismissal=_syncsBulletinDismissal;
+@property(copy, nonatomic) NSString *parentSectionIdentifier; // @synthesize parentSectionIdentifier=_parentSectionIdentifier;
 @property(copy, nonatomic) NSDictionary *subsectionDisplayNames; // @synthesize subsectionDisplayNames=_subsectionDisplayNames;
 @property(copy, nonatomic) NSArray *defaultSubsectionInfos; // @synthesize defaultSubsectionInfos=_defaultSubsectionInfos;
 @property(retain, nonatomic) BBSectionParameters *sectionParameters; // @synthesize sectionParameters=_sectionParameters;
@@ -35,14 +64,15 @@
 @property(copy, nonatomic) BBSectionIcon *sectionIcon; // @synthesize sectionIcon=_sectionIcon;
 @property(copy, nonatomic) NSString *sectionDisplayName; // @synthesize sectionDisplayName=_sectionDisplayName;
 @property(copy, nonatomic) BBSectionInfo *defaultSectionInfo; // @synthesize defaultSectionInfo=_defaultSectionInfo;
+@property(copy, nonatomic) NSString *universalSectionIdentifier; // @synthesize universalSectionIdentifier=_universalSectionIdentifier;
 @property(copy, nonatomic) NSString *sectionIdentifier; // @synthesize sectionIdentifier=_sectionIdentifier;
-@property(readonly, nonatomic) CDStruct_c6add5c3 traits; // @synthesize traits=_traits;
+@property(readonly, nonatomic) CDStruct_76668f1f traits; // @synthesize traits=_traits;
 @property(copy, nonatomic) NSString *sortKey; // @synthesize sortKey=_sortKey;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)initForDataProvider:(id)arg1;
+- (id)initForDataProvider:(id)arg1 forRemoteDataProvider:(BOOL)arg2;
 
 @end
 

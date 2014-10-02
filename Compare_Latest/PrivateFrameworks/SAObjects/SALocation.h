@@ -6,7 +6,7 @@
 
 #import <SAObjects/SADomainObject.h>
 
-@class NSArray, NSNumber, NSString, SADistance;
+@class NSArray, NSData, NSNumber, NSString, SADistance;
 
 @interface SALocation : SADomainObject
 {
@@ -15,6 +15,8 @@
 + (id)locationWithDictionary:(id)arg1 context:(id)arg2;
 + (id)location;
 - (void)updateUsingSet:(id)arg1 add:(id)arg2 remove:(id)arg3;
+@property(copy, nonatomic) NSNumber *travelTime;
+@property(copy, nonatomic) NSNumber *travelDistance;
 @property(copy, nonatomic) NSString *timezoneId;
 @property(copy, nonatomic) NSString *thoroughfare;
 @property(copy, nonatomic) NSString *subThoroughfare;
@@ -26,6 +28,7 @@
 @property(copy, nonatomic) NSNumber *longitude;
 @property(copy, nonatomic) NSNumber *latitude;
 @property(copy, nonatomic) NSString *label;
+@property(copy, nonatomic) NSData *forwardGeoData;
 @property(copy, nonatomic) NSArray *entryPoints;
 @property(copy, nonatomic) NSString *countryCode;
 @property(copy, nonatomic) NSString *city;

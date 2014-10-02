@@ -15,6 +15,7 @@
 - (NSArray *)certificatePropertiesAtIndex:(unsigned int)arg1;
 - (unsigned int)certificateCount;
 - (NSArray *)summaryDescriptionItems;
+- (BOOL)isRootCertificate;
 - (BOOL)isTrusted;
 - (NSString *)summarySubtitle;
 - (NSString *)summaryTitle;

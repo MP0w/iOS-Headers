@@ -8,7 +8,8 @@
 
 @interface NSString (TPWordCountAdditions)
 - (id)statisticsInRange:(struct _NSRange)arg1;
-- (unsigned int)whiteSpaceCountInRange:(CDStruct_1ef3fb1f)arg1;
+- (unsigned int)surrogatePairsInRange:(struct _NSRange)arg1;
+- (void)p_calculateWhiteSpaceAndSpecialCharactersInRange:(CDStruct_1ef3fb1f)arg1 whiteSpace:(unsigned int *)arg2 specialCharacters:(unsigned int *)arg3;
 - (id)statistics;
 @end
 

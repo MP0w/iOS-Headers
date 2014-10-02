@@ -23,9 +23,10 @@ __attribute__((visibility("hidden")))
     NSDictionary *_streamInfoDict;
     NSString *_lastChunkPartialHash;
     NSMutableData *_unsureData;
-    NSMutableData *_incompleteData;
+    NSMutableData *_inMemoryFileData;
     NSMutableData *_unfinishedCompressedData;
     CDStruct_6e051504 *_currentLFRecord;
+    CDStruct_1e765437 *_dataDescriptor;
     unsigned long long _thisStageBytesComplete;
     unsigned long long _currentOffset;
     unsigned long long _outputFileOffsetAtLastBlockEnd;
@@ -37,14 +38,17 @@ __attribute__((visibility("hidden")))
     unsigned char _streamState;
     unsigned char _lastBlockEndNumUnusedBits;
     unsigned char _lastBlockEndLastByte;
-    BOOL _currentLFIsStreamMetadata;
+    BOOL _storeCurrentFileInMemory;
+    BOOL _currentLFRequiresDataDescriptor;
 }
 
 + (id)unzipStateWithPath:(id)arg1 options:(id)arg2 error:(id *)arg3;
+@property(nonatomic) CDStruct_1e765437 *dataDescriptor; // @synthesize dataDescriptor=_dataDescriptor;
 @property(nonatomic) unsigned long long uncompressedBytesOutput; // @synthesize uncompressedBytesOutput=_uncompressedBytesOutput;
 @property(readonly, nonatomic) unsigned long long hashedChunkSize; // @synthesize hashedChunkSize=_hashedChunkSize;
 @property(readonly, nonatomic) unsigned long long bytesHashedInChunk; // @synthesize bytesHashedInChunk=_bytesHashedInChunk;
-@property(nonatomic) BOOL currentLFIsStreamMetadata; // @synthesize currentLFIsStreamMetadata=_currentLFIsStreamMetadata;
+@property(nonatomic) BOOL currentLFRequiresDataDescriptor; // @synthesize currentLFRequiresDataDescriptor=_currentLFRequiresDataDescriptor;
+@property(nonatomic) BOOL storeCurrentFileInMemory; // @synthesize storeCurrentFileInMemory=_storeCurrentFileInMemory;
 @property(nonatomic) unsigned char streamState; // @synthesize streamState=_streamState;
 @property(nonatomic) unsigned short currentLFMode; // @synthesize currentLFMode=_currentLFMode;
 @property(nonatomic) unsigned long long totalRecordCount; // @synthesize totalRecordCount=_totalRecordCount;
@@ -56,7 +60,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned long currentLFRecordAllocationSize; // @synthesize currentLFRecordAllocationSize=_currentLFRecordAllocationSize;
 @property(nonatomic) CDStruct_6e051504 *currentLFRecord; // @synthesize currentLFRecord=_currentLFRecord;
 @property(retain, nonatomic) NSMutableData *unfinishedCompressedData; // @synthesize unfinishedCompressedData=_unfinishedCompressedData;
-@property(retain, nonatomic) NSMutableData *incompleteData; // @synthesize incompleteData=_incompleteData;
+@property(retain, nonatomic) NSMutableData *inMemoryFileData; // @synthesize inMemoryFileData=_inMemoryFileData;
 @property(retain, nonatomic) NSMutableData *unsureData; // @synthesize unsureData=_unsureData;
 @property(retain, nonatomic) NSString *lastChunkPartialHash; // @synthesize lastChunkPartialHash=_lastChunkPartialHash;
 @property(retain, nonatomic) NSDictionary *streamInfoDict; // @synthesize streamInfoDict=_streamInfoDict;

@@ -30,7 +30,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithContainer:(id)arg1;
 
 // Remaining properties
-@property(retain, nonatomic) UITextView *container;
+@property(retain, nonatomic) UITextView *container; // @dynamic container;
 
 @end
 

@@ -6,13 +6,18 @@
 
 #import "NSObject.h"
 
+@class CLLocationMatchInfo;
+
 @interface CLLocationInternal : NSObject
 {
-    CDStruct_c3f64973 fLocation;
+    CDStruct_dcdde258 fLocation;
+    CLLocationMatchInfo *fMatchInfo;
 }
 
+- (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithClientLocation:(CDStruct_c3f64973)arg1;
+- (id)initWithClientLocation:(CDStruct_dcdde258)arg1 matchInfo:(id)arg2;
+- (id)initWithClientLocation:(CDStruct_dcdde258)arg1;
 
 @end
 

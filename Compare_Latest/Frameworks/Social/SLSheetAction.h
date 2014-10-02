@@ -4,28 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <Social/SLComposeSheetConfigurationItem.h>
 
-@class NSString;
-
-@interface SLSheetAction : NSObject
+@interface SLSheetAction : SLComposeSheetConfigurationItem
 {
-    id <SLSheetActionChangeObserving> _changeObserver;
-    BOOL _valuePending;
-    NSString *_title;
-    NSString *_value;
-    int _actionType;
-    CDUnknownBlockType _actionBlock;
 }
 
-@property(copy, nonatomic) CDUnknownBlockType actionBlock; // @synthesize actionBlock=_actionBlock;
-@property(nonatomic) int actionType; // @synthesize actionType=_actionType;
-@property(nonatomic) BOOL valuePending; // @synthesize valuePending=_valuePending;
-@property(copy, nonatomic) NSString *value; // @synthesize value=_value;
-@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
-- (void).cxx_destruct;
-- (void)setChangeObserver:(id)arg1;
-- (id)changeObserver;
+@property(copy, nonatomic) CDUnknownBlockType actionBlock;
 - (id)initWithTitle:(id)arg1 value:(id)arg2 actionBlock:(CDUnknownBlockType)arg3;
 
 @end

@@ -6,7 +6,7 @@
 
 #import <EventKit/EKPersistentCalendarItem.h>
 
-@class NSArray, NSDate, NSString, NSURL;
+@class NSArray, NSDate, NSNumber, NSString, NSURL;
 
 @interface EKPersistentEvent : EKPersistentCalendarItem
 {
@@ -35,7 +35,8 @@
 @property(copy, nonatomic) NSDate *originalStartDate;
 - (id)organizer;
 @property(copy, nonatomic) NSString *responseComment;
-@property(nonatomic) unsigned int privacyLevel;
+@property(nonatomic) int travelAdvisoryBehavior;
+@property(nonatomic) int privacyLevel;
 @property(nonatomic) int availability;
 @property(readonly, nonatomic) unsigned int invitationChangedProperties;
 @property(nonatomic) unsigned int invitationStatus;
@@ -53,6 +54,7 @@
 - (BOOL)_areDurationUnitsCached;
 - (void)_invalidateCachedDurationUnits;
 - (void)primitiveValueChangedForKey:(id)arg1;
+@property(copy, nonatomic) NSNumber *travelTime;
 @property(copy, nonatomic) NSDate *endDate;
 @property(readonly, nonatomic) double duration;
 @property(readonly, nonatomic) int birthdayID;

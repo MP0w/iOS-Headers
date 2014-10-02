@@ -16,7 +16,7 @@
 - (void)insertAdjacentText:(id)arg1 text:(id)arg2;
 - (void)insertAdjacentHTML:(id)arg1 html:(id)arg2;
 - (id)insertAdjacentElement:(id)arg1 element:(id)arg2;
-@property(readonly) NSString *titleDisplayString;
+@property(readonly, copy) NSString *titleDisplayString;
 - (void)setSpellcheck:(BOOL)arg1;
 - (BOOL)spellcheck;
 @property(readonly) BOOL isContentEditable;
@@ -41,7 +41,7 @@
 @property(copy) NSString *title;
 @property(copy) NSString *idName;
 - (void)absolutePosition:(int *)arg1:(int *)arg2:(int *)arg3:(int *)arg4;
-- (void)setScrollXOffset:(int)arg1 scrollYOffset:(int)arg2 adjustForPurpleCaret:(BOOL)arg3;
+- (void)setScrollXOffset:(int)arg1 scrollYOffset:(int)arg2 adjustForIOSCaret:(BOOL)arg3;
 - (void)setScrollXOffset:(int)arg1 scrollYOffset:(int)arg2;
 - (int)scrollYOffset;
 - (int)scrollXOffset;

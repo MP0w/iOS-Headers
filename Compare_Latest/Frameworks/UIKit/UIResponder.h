@@ -8,10 +8,11 @@
 
 #import "UITextInputAdditions.h"
 #import "UITextInput_Internal.h"
+#import "_UIStateRestorationContinuation.h"
 
-@class NSArray, NSString, NSUndoManager, UIResponder<UITextInput>, UITextInputMode, UIView, UIView<UITextInputPrivate>;
+@class NSArray, NSString, NSUndoManager, NSUserActivity, UIInputViewController, UIResponder<UITextInput>, UITextInputMode, UIView, UIView<UITextInputPrivate>;
 
-@interface UIResponder : NSObject <UITextInput_Internal, UITextInputAdditions>
+@interface UIResponder : NSObject <UITextInput_Internal, UITextInputAdditions, _UIStateRestorationContinuation>
 {
 }
 
@@ -25,8 +26,15 @@
 + (void)_stopDeferredTrackingObjectsWithIdentifiers;
 + (void)_startDeferredTrackingObjectsWithIdentifiers;
 + (id)objectWithRestorationIdentifierPath:(id)arg1;
+- (void)_tagAsRestorableResponder;
+- (void)_clearRestorableResponderStatus;
+- (id)_nextResponderOverride;
+- (void)_overrideInputAccessoryViewNextResponderWithResponder:(id)arg1;
+- (void)_overrideInputViewNextResponderWithResponder:(id)arg1;
+- (void)_clearOverrideNextResponder;
 @property(readonly, nonatomic) NSUndoManager *undoManager;
 - (id)targetForAction:(SEL)arg1 withSender:(id)arg2;
+- (id)_targetForAction:(SEL)arg1 withSender:(id)arg2 canPerformActionBlock:(CDUnknownBlockType)arg3;
 - (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (void)_clearBecomeFirstResponderWhenCapable;
 - (id)firstResponder;
@@ -57,18 +65,23 @@
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (void)dealloc;
 - (void)reloadInputViewsWithoutReset;
 - (void)reloadInputViews;
-@property(readonly) NSString *textInputContextIdentifier;
-@property(readonly) UITextInputMode *textInputMode;
-@property(readonly) UIView *inputAccessoryView;
-@property(readonly) UIView *inputView;
+@property(readonly, retain, nonatomic) NSString *textInputContextIdentifier;
+@property(readonly, retain, nonatomic) UITextInputMode *textInputMode;
+@property(readonly, retain, nonatomic) UIInputViewController *inputAccessoryViewController;
+@property(readonly, retain, nonatomic) UIInputViewController *inputViewController;
+@property(readonly, retain, nonatomic) UIView *inputAccessoryView;
+@property(readonly, retain, nonatomic) UIView *inputView;
 @property(readonly, nonatomic) NSArray *keyCommands;
 - (void)_didChangeToFirstResponder:(id)arg1;
 - (BOOL)_canChangeFirstResponder:(id)arg1 toResponder:(id)arg2;
 - (id)_responderSelectionImage;
 - (id)_responderSelectionContainerViewForResponder:(id)arg1;
+- (struct CGRect)_responderExternalTouchRectForWindow:(id)arg1;
 - (struct CGRect)_responderSelectionRectForWindow:(id)arg1;
+- (id)_primaryContentResponder;
 - (id)_deepestUnambiguousResponder;
 - (void)_physicalButtonsCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)_physicalButtonsEnded:(id)arg1 withEvent:(id)arg2;
@@ -99,6 +112,8 @@
 - (BOOL)_requiresKeyboardResetOnReload;
 - (BOOL)_requiresKeyboardWindowWhenFirstResponder;
 - (BOOL)_requiresKeyboardWhenFirstResponder;
+- (BOOL)_disableAutomaticKeyboardUI;
+- (BOOL)_disableAutomaticKeyboardBehavior;
 - (id)_keyCommandForEvent:(id)arg1;
 - (id)_keyCommands;
 - (void)_controlTouchEnded:(id)arg1 withEvent:(id)arg2;
@@ -111,14 +126,21 @@
 - (id)_responderForBecomeFirstResponder;
 - (id)_firstResponder;
 - (void)_setFirstResponder:(id)arg1;
+- (void)restoreUserActivityState:(id)arg1;
+- (void)updateUserActivityState:(id)arg1;
+@property(retain, nonatomic) NSUserActivity *userActivity;
+- (id)_userActivity;
 - (id)_selectableText;
 @property(readonly, nonatomic) UIView<UITextInputPrivate> *_textSelectingContainer;
 - (struct CGRect)_lastRectForRange:(id)arg1;
 - (int)selectionAffinity;
+- (BOOL)_shouldPerformUICalloutBarButtonReplaceAction:(SEL)arg1 forText:(id)arg2 checkAutocorrection:(BOOL)arg3;
 - (void)_phraseBoundaryGesture:(id)arg1;
 - (id)_newPhraseBoundaryGestureRecognizer;
 - (void)_unmarkText;
 - (void)_setMarkedText:(id)arg1 selectedRange:(struct _NSRange)arg2;
+- (BOOL)_hasMarkedText;
+- (BOOL)_usesAsynchronousProtocol;
 - (void)_setGestureRecognizers;
 - (int)_selectionAffinity;
 - (void)_setSelectedTextRange:(id)arg1 withAffinityDownstream:(BOOL)arg2;
@@ -187,6 +209,7 @@
 @property(readonly, nonatomic, getter=isEditable) BOOL editable;
 - (id)interactionAssistant;
 - (id)textInputView;
+- (BOOL)_usesDeemphasizedTextAppearance;
 - (void)decodeRestorableStateWithCoder:(id)arg1;
 - (void)encodeRestorableStateWithCoder:(id)arg1;
 - (id)_restorationIdentifierPath;

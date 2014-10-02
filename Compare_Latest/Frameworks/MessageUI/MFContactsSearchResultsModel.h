@@ -8,7 +8,7 @@
 
 #import "_MFSearchResultsConsumer.h"
 
-@class NSArray, NSMutableDictionary, NSOperationQueue;
+@class NSArray, NSMutableDictionary, NSOperationQueue, NSString;
 
 @interface MFContactsSearchResultsModel : NSObject <_MFSearchResultsConsumer>
 {
@@ -22,30 +22,36 @@
     struct __CFArray *_resultTypesSortOrder;
     struct __CFArray *_resultTypesPriorityOrder;
     struct __CFSet *_finishedResultTypes;
-    int _preferredType;
+    unsigned int _preferredType;
     BOOL _favorMobileNumbers;
     int _resetCount;
     NSArray *_enteredRecipients;
 }
 
 @property(retain, nonatomic) NSArray *enteredRecipients; // @synthesize enteredRecipients=_enteredRecipients;
-- (id)_dictionaryForResultType:(int)arg1;
-- (void)processAddedResultsOfType:(int)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_appendSortedResultsOfType:(int)arg1 excluding:(id)arg2 toResults:(id)arg3;
+- (id)_dictionaryForResultType:(unsigned int)arg1;
+- (void)processAddedResultsOfType:(unsigned int)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_appendSortedResultsOfType:(unsigned int)arg1 excluding:(id)arg2 toResults:(id)arg3;
 - (void)_addBestRecipientsForRecipients:(id)arg1 excluding:(id)arg2 toArray:(id)arg3;
 - (id)_bestRecipientForAddress:(id)arg1 fallback:(id)arg2;
 - (void)_enumerateSearchResultTypesInSortOrderUsingBlock:(CDUnknownBlockType)arg1;
-- (BOOL)_didFinishSearchForType:(int)arg1;
-- (BOOL)_shouldProcessResultsAfterFinishingType:(int)arg1;
-- (void)_finishSearchOfType:(int)arg1;
-- (void)addResults:(id)arg1 ofType:(int)arg2;
-- (void)_addResults:(id)arg1 ofType:(int)arg2;
+- (BOOL)_didFinishSearchForType:(unsigned int)arg1;
+- (BOOL)_shouldProcessResultsAfterFinishingType:(unsigned int)arg1;
+- (void)_finishSearchOfType:(unsigned int)arg1;
+- (void)addResults:(id)arg1 ofType:(unsigned int)arg2;
+- (void)_addResults:(id)arg1 ofType:(unsigned int)arg2;
 - (BOOL)_isResetting;
 - (void)reset;
 - (void)dealloc;
 - (id)initWithResultTypeSortOrderComparator:(CDUnknownFunctionPointerType)arg1 resultTypePriorityComparator:(CDUnknownFunctionPointerType)arg2 favorMobileNumbers:(BOOL)arg3;
 - (id)initWithFavorMobileNumbers:(BOOL)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

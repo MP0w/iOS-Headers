@@ -10,7 +10,7 @@
 #import "KNFrameAnimator.h"
 #import "KNTransitionAnimator.h"
 
-@class KNMotionBlurAnimationPluginWrapper, NSMutableArray;
+@class KNMotionBlurAnimationPluginWrapper, NSMutableArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface KNTransitionBlinds : KNAnimationEffect <KNTransitionAnimator, KNFrameAnimator, KNAnimationPluginArchiving>
@@ -34,6 +34,12 @@ __attribute__((visibility("hidden")))
 - (void)renderFrameWithContext:(id)arg1;
 - (void)animationWillBeginWithContext:(id)arg1;
 - (id)animationsWithContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

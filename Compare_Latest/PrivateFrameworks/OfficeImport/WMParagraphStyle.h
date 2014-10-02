@@ -13,8 +13,9 @@ __attribute__((visibility("hidden")))
 }
 
 + (BOOL)isShadingNull:(id)arg1;
-- (void)addListProperties:(id)arg1;
-- (void)addParagraphProperties:(id)arg1;
+- (void)addParagraphProperties:(id)arg1 fromListLevelProperties:(BOOL)arg2;
+- (id)leadingMarginPropertyNameWithOverridesFromProperties:(id)arg1;
+- (BOOL)isRTLWithOverridesFromProperties:(id)arg1;
 - (void)addParagraphStyleCharacterProperties:(id)arg1;
 - (id)initWithWDStyle:(id)arg1 isInTextFrame:(BOOL)arg2;
 - (id)initWithWDParagraphProperties:(id)arg1 isInTextFrame:(BOOL)arg2;

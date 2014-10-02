@@ -8,7 +8,7 @@
 
 #import "TSCEFormulaOwning.h"
 
-@class TSCECalculationEngine, TSCECellCoordinateVector, TSTTableInfo;
+@class NSString, TSCECalculationEngine, TSCECellCoordinateVector, TSTTableInfo;
 
 __attribute__((visibility("hidden")))
 @interface TSTConditionalStyleFormulaOwner : NSObject <TSCEFormulaOwning>
@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     TSCECellCoordinateVector *mCellsToRewrite;
 }
 
+- (BOOL)serializeCalculations;
 - (void)releaseForCalculationEngine:(id)arg1;
 - (void)retainForCalculationEngine:(id)arg1;
 - (id)endRewriteForCalculationEngine:(id)arg1 spec:(id)arg2;
@@ -27,7 +28,7 @@ __attribute__((visibility("hidden")))
 - (void)rewriteForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 rewriteSpec:(id)arg3;
 - (void)invalidateForCalculationEngine:(id)arg1;
 - (void)writeResultsForCalculationEngine:(id)arg1;
-- (CDStruct_4d60f806)recalculateForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 isInCycle:(BOOL)arg3 hasCalculatedPrecedents:(BOOL)arg4;
+- (CDStruct_7ddbbeae)recalculateForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 isInCycle:(BOOL)arg3 hasCalculatedPrecedents:(BOOL)arg4;
 - (int)registerWithCalculationEngineChoosingUniqueID:(id)arg1;
 - (void)changedConditionForCellID:(CDStruct_0441cfb5)arg1;
 - (void)replaceFormulaForConditionalStyle:(id)arg1 atCellID:(CDStruct_0441cfb5)arg2;
@@ -41,6 +42,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithTableInfo:(id)arg1;
 - (id)initWithTableInfo:(id)arg1 ownerID:(struct __CFUUID *)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

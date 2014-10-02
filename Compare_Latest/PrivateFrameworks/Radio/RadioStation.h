@@ -62,7 +62,7 @@
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSArray *trackPlaybackDescriptorQueue; // @synthesize trackPlaybackDescriptorQueue=_trackPlaybackDescriptorQueue;
 @property(readonly, nonatomic, getter=isPreview) BOOL preview;
-@property(readonly, nonatomic) NSDictionary *feedbackDictionaryRepresentation;
+@property(readonly, copy, nonatomic) NSDictionary *feedbackDictionaryRepresentation;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (id)artworkURLForSize:(struct CGSize)arg1 expectedSize:(struct CGSize *)arg2;
 @property(readonly, nonatomic) RadioArtworkCollection *artworkCollection;
@@ -106,9 +106,14 @@
 @property(nonatomic) long long adamID; // @synthesize adamID=_adamID;
 - (void)_radioModelWasDeletedNotification:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (void)dealloc;
 - (id)initWithModel:(id)arg1 managedObject:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

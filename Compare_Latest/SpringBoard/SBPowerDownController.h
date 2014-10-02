@@ -13,12 +13,10 @@
 @interface SBPowerDownController : SBAlert <SBPowerDownViewDelegate>
 {
     id _delegate;
-    _Bool _isFront;
     SBAlertView<SBPowerDownViewInterface> *_powerDownView;
     CDUnknownBlockType _orderOutCompletion;
 }
 
-+ (id)sharedInstance;
 @property(nonatomic) id <SBPowerDownControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) CDUnknownBlockType orderOutCompletion; // @synthesize orderOutCompletion=_orderOutCompletion;
 - (void)_lockedOnTop;
@@ -27,8 +25,8 @@
 - (void)powerDownViewRequestPowerDown:(id)arg1;
 - (void)powerDownViewRequestCancel:(id)arg1;
 - (_Bool)powerDownViewShouldHideStatusBar:(id)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (double)autoLockTime;
-- (void)deactivate;
 - (void)activate;
 - (_Bool)showsSpringBoardStatusBar;
 - (_Bool)managesOwnStatusBarAtActivation;
@@ -38,7 +36,6 @@
 - (void)powerDown;
 - (void)orderOutWithCompletion:(CDUnknownBlockType)arg1;
 - (void)orderFront;
-- (_Bool)isOrderedFront;
 - (void)dealloc;
 - (id)init;
 

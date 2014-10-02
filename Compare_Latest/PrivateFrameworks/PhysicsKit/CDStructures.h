@@ -32,6 +32,30 @@ struct CGVector {
     float dy;
 };
 
+struct PKCAether {
+    struct vector<std::__1::weak_ptr<PKCField>, std::__1::allocator<std::__1::weak_ptr<PKCField>>> _field1;
+};
+
+struct PKCField;
+
+struct PKCGrid {
+    int _field1;
+    int _field2;
+    int _field3;
+    struct Range _field4;
+    struct vector<unsigned char, std::__1::allocator<unsigned char>> _field5;
+    struct vector<float __attribute__((ext_vector_type(4))), std::__1::allocator<float __attribute__((ext_vector_type(4)))>> _field6;
+    struct vector<int, std::__1::allocator<int>> _field7;
+    struct vector<signed char, std::__1::allocator<signed char>> _field8;
+};
+
+struct PKCMechanics {
+    struct b2World *_field1;
+    struct vector<QuadTree *, std::__1::allocator<QuadTree *>> _field2;
+};
+
+struct PKCPathHolder;
+
 struct PKContactListener {
     CDUnknownFunctionPointerType *_vptr$b2ContactListener;
     NSMutableDictionary *_contacts;
@@ -43,31 +67,55 @@ struct PKDebugDrawPacket {
     struct vector<PKDebugDrawPacket::color4, std::__1::allocator<PKDebugDrawPacket::color4>> _colors;
 };
 
-struct PKPhysicsShape;
+struct PKPath;
+
+struct PKPhysicsShape {
+    struct b2FixtureDef _field1;
+    struct b2Fixture *_field2;
+};
+
+struct QuadTree;
+
+struct Range {
+    float _field1;
+    float _field2;
+    float _field3;
+    float _field4;
+    float _field5;
+    float _field6;
+};
+
+struct __hash_node<b2Contact *, void *>;
+
+struct __hash_node<int, void *>;
+
+struct __hash_node<unsigned long long, void *>;
+
+struct __shared_weak_count;
 
 struct b2Body {
     _Bool _field1;
     unsigned int _field2;
     unsigned int _field3;
     unsigned int _field4;
-    int _field5;
-    unsigned short _field6;
-    int _field7;
-    struct b2Transform _field8;
-    struct b2Sweep _field9;
-    struct b2Vec2 _field10;
-    float _field11;
+    unsigned int _field5;
+    int _field6;
+    unsigned short _field7;
+    int _field8;
+    struct b2Transform _field9;
+    struct b2Transform _field10;
+    struct b2Sweep _field11;
     struct b2Vec2 _field12;
     float _field13;
-    struct b2World *_field14;
-    struct b2Body *_field15;
-    struct b2Body *_field16;
-    struct b2Fixture *_field17;
-    int _field18;
-    struct b2JointEdge *_field19;
-    struct b2ContactEdge *_field20;
-    float _field21;
-    float _field22;
+    struct b2Vec2 _field14;
+    float _field15;
+    struct b2World *_field16;
+    struct b2Body *_field17;
+    struct b2Body *_field18;
+    struct b2Fixture *_field19;
+    int _field20;
+    struct b2JointEdge *_field21;
+    struct b2ContactEdge *_field22;
     float _field23;
     float _field24;
     float _field25;
@@ -75,11 +123,13 @@ struct b2Body {
     float _field27;
     float _field28;
     float _field29;
-    void *_field30;
+    float _field30;
+    void *_field31;
 };
 
 struct b2BodyDef {
     _Bool _sk_affectedByGravity;
+    unsigned int _sk_fieldCategoryBitMask;
     unsigned int _sk_categoryBitMask;
     unsigned int _sk_collisionBitMask;
     unsigned int _sk_intersectionCallbackBitMask;
@@ -97,35 +147,20 @@ struct b2BodyDef {
     _Bool bullet;
     _Bool active;
     void *userData;
-    float gravityScale;
 };
-
-struct b2BroadPhase {
-    struct b2DynamicTree _field1;
-    int _field2;
-    int *_field3;
-    int _field4;
-    int _field5;
-    struct b2Pair *_field6;
-    int _field7;
-    int _field8;
-    int _field9;
-};
-
-struct b2Contact;
 
 struct b2ContactEdge;
-
-struct b2ContactFilter;
 
 struct b2ContactListener;
 
 struct b2ContactManager {
-    struct b2BroadPhase _field1;
-    struct b2Contact *_field2;
-    int _field3;
-    struct b2ContactFilter *_field4;
-    struct b2ContactListener *_field5;
+    struct b2ContactListener *_field1;
+    int _field2;
+    struct b2DynamicTree _field3;
+    struct unordered_set<int, std::__1::hash<int>, std::__1::equal_to<int>, std::__1::allocator<int>> _field4;
+    struct unordered_set<unsigned long long, std::__1::hash<unsigned long long>, std::__1::equal_to<unsigned long long>, std::__1::allocator<unsigned long long>> _field5;
+    struct unordered_set<b2Contact *, std::__1::hash<b2Contact *>, std::__1::equal_to<b2Contact *>, std::__1::allocator<b2Contact *>> _field6;
+    int _field7;
 };
 
 struct b2DestructionListener;
@@ -189,26 +224,7 @@ struct b2DynamicTree {
     int _field7;
 };
 
-struct b2Filter {
-    unsigned int _field1;
-    unsigned int _field2;
-    unsigned int _field3;
-};
-
-struct b2Fixture {
-    CDUnknownFunctionPointerType *_field1;
-    float _field2;
-    struct b2Fixture *_field3;
-    struct b2Body *_field4;
-    struct b2Shape *_field5;
-    float _field6;
-    float _field7;
-    struct b2FixtureProxy *_field8;
-    int _field9;
-    struct b2Filter _field10;
-    _Bool _field11;
-    void *_field12;
-};
+struct b2Fixture;
 
 struct b2FixtureDef {
     struct b2Shape *_field1;
@@ -216,11 +232,9 @@ struct b2FixtureDef {
     float _field3;
     float _field4;
     float _field5;
-    _Bool _field6;
-    struct b2Filter _field7;
+    float _field6;
+    float _field7;
 };
-
-struct b2FixtureProxy;
 
 struct b2Joint {
     CDUnknownFunctionPointerType *_field1;
@@ -256,27 +270,6 @@ struct b2Mat33 {
     struct b2Vec3 _field2;
     struct b2Vec3 _field3;
 };
-
-struct b2PKAether {
-    struct b2Vec2 _field1;
-    struct vector<b2PKField *, std::__1::allocator<b2PKField *>> _field2;
-};
-
-struct b2PKField {
-    CDUnknownFunctionPointerType *_field1;
-    struct b2Vec2 _field2;
-    struct b2Vec2 _field3;
-    struct b2Vec2 _field4;
-    float _field5;
-    float _field6;
-    _Bool _field7;
-    _Bool _field8;
-    _Bool _field9;
-    _Bool _field10;
-    _Bool _field11;
-};
-
-struct b2Pair;
 
 struct b2PrismaticJoint {
     CDUnknownFunctionPointerType *_field1;
@@ -462,11 +455,9 @@ struct b2StackEntry {
 
 struct b2Sweep {
     struct b2Vec2 _field1;
-    struct b2Vec2 _field2;
-    struct b2Vec2 _field3;
+    union b2Position _field2;
+    union b2Position _field3;
     float _field4;
-    float _field5;
-    float _field6;
 };
 
 struct b2Transform {
@@ -535,7 +526,7 @@ struct b2World {
     struct b2Joint *_field5;
     int _field6;
     int _field7;
-    struct b2PKAether _field8;
+    struct PKCAether *_field8;
     _Bool _field9;
     struct b2DestructionListener *_field10;
     struct b2Draw *_field11;
@@ -544,7 +535,118 @@ struct b2World {
     _Bool _field14;
     _Bool _field15;
     _Bool _field16;
-    float _field17;
+    double _field17;
+    float _field18;
+    struct PKCMechanics _field19;
+};
+
+struct shared_ptr<PKCField> {
+    struct PKCField *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<PKCGrid> {
+    struct PKCGrid *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<PKCPathHolder> {
+    struct PKCPathHolder *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<PKPath> {
+    struct PKPath *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<QuadTree> {
+    struct QuadTree *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct unique_ptr<std::__1::__hash_node<b2Contact *, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<b2Contact *, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<b2Contact *, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<b2Contact *, void *>*>>> {
+        struct __hash_node<b2Contact *, void *> **_field1;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<b2Contact *, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<b2Contact *, void *>*>> {
+                unsigned long _field1;
+            } _field1;
+        } _field2;
+    } _field1;
+};
+
+struct unique_ptr<std::__1::__hash_node<int, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<int, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<int, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<int, void *>*>>> {
+        struct __hash_node<int, void *> **_field1;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<int, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<int, void *>*>> {
+                unsigned long _field1;
+            } _field1;
+        } _field2;
+    } _field1;
+};
+
+struct unique_ptr<std::__1::__hash_node<unsigned long long, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<unsigned long long, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<unsigned long long, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<unsigned long long, void *>*>>> {
+        struct __hash_node<unsigned long long, void *> **_field1;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<unsigned long long, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<unsigned long long, void *>*>> {
+                unsigned long _field1;
+            } _field1;
+        } _field2;
+    } _field1;
+};
+
+struct unordered_set<b2Contact *, std::__1::hash<b2Contact *>, std::__1::equal_to<b2Contact *>, std::__1::allocator<b2Contact *>> {
+    struct __hash_table<b2Contact *, std::__1::hash<b2Contact *>, std::__1::equal_to<b2Contact *>, std::__1::allocator<b2Contact *>> {
+        struct unique_ptr<std::__1::__hash_node<b2Contact *, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<b2Contact *, void *>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<b2Contact *, void *>*>, std::__1::allocator<std::__1::__hash_node<b2Contact *, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<b2Contact *, void *>*> {
+                struct __hash_node<b2Contact *, void *> *_field1;
+            } _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::hash<b2Contact *>> {
+            unsigned long _field1;
+        } _field3;
+        struct __compressed_pair<float, std::__1::equal_to<b2Contact *>> {
+            float _field1;
+        } _field4;
+    } _field1;
+};
+
+struct unordered_set<int, std::__1::hash<int>, std::__1::equal_to<int>, std::__1::allocator<int>> {
+    struct __hash_table<int, std::__1::hash<int>, std::__1::equal_to<int>, std::__1::allocator<int>> {
+        struct unique_ptr<std::__1::__hash_node<int, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<int, void *>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<int, void *>*>, std::__1::allocator<std::__1::__hash_node<int, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<int, void *>*> {
+                struct __hash_node<int, void *> *_field1;
+            } _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::hash<int>> {
+            unsigned long _field1;
+        } _field3;
+        struct __compressed_pair<float, std::__1::equal_to<int>> {
+            float _field1;
+        } _field4;
+    } _field1;
+};
+
+struct unordered_set<unsigned long long, std::__1::hash<unsigned long long>, std::__1::equal_to<unsigned long long>, std::__1::allocator<unsigned long long>> {
+    struct __hash_table<unsigned long long, std::__1::hash<unsigned long long>, std::__1::equal_to<unsigned long long>, std::__1::allocator<unsigned long long>> {
+        struct unique_ptr<std::__1::__hash_node<unsigned long long, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<unsigned long long, void *>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<unsigned long long, void *>*>, std::__1::allocator<std::__1::__hash_node<unsigned long long, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<unsigned long long, void *>*> {
+                struct __hash_node<unsigned long long, void *> *_field1;
+            } _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::hash<unsigned long long>> {
+            unsigned long _field1;
+        } _field3;
+        struct __compressed_pair<float, std::__1::equal_to<unsigned long long>> {
+            float _field1;
+        } _field4;
+    } _field1;
 };
 
 struct vector<PKDebugDrawPacket::color4, std::__1::allocator<PKDebugDrawPacket::color4>> {
@@ -571,19 +673,89 @@ struct vector<PKPoint, std::__1::allocator<PKPoint>> {
     } __end_cap_;
 };
 
-struct vector<b2PKField *, std::__1::allocator<b2PKField *>> {
-    struct b2PKField **_field1;
-    struct b2PKField **_field2;
-    struct __compressed_pair<b2PKField **, std::__1::allocator<b2PKField *>> {
-        struct b2PKField **_field1;
+struct vector<QuadTree *, std::__1::allocator<QuadTree *>> {
+    struct QuadTree **_field1;
+    struct QuadTree **_field2;
+    struct __compressed_pair<QuadTree **, std::__1::allocator<QuadTree *>> {
+        struct QuadTree **_field1;
     } _field3;
 };
 
+struct vector<float __attribute__((ext_vector_type(4))), std::__1::allocator<float __attribute__((ext_vector_type(4)))>> {
+    struct __compressed_pair<float * __attribute__((ext_vector_type(4))), std::__1::allocator<float __attribute__((ext_vector_type(4)))>> {
+        void *_field1;
+    } **_field1;
+};
+
+struct vector<int, std::__1::allocator<int>> {
+    int *_field1;
+    int *_field2;
+    struct __compressed_pair<int *, std::__1::allocator<int>> {
+        int *_field1;
+    } _field3;
+};
+
+struct vector<signed char, std::__1::allocator<signed char>> {
+    char *_field1;
+    char *_field2;
+    struct __compressed_pair<signed char *, std::__1::allocator<signed char>> {
+        char *_field1;
+    } _field3;
+};
+
+struct vector<std::__1::weak_ptr<PKCField>, std::__1::allocator<std::__1::weak_ptr<PKCField>>> {
+    struct weak_ptr<PKCField> *_field1;
+    struct weak_ptr<PKCField> *_field2;
+    struct __compressed_pair<std::__1::weak_ptr<PKCField>*, std::__1::allocator<std::__1::weak_ptr<PKCField>>> {
+        struct weak_ptr<PKCField> *_field1;
+    } _field3;
+};
+
+struct vector<unsigned char, std::__1::allocator<unsigned char>> {
+    char *_field1;
+    char *_field2;
+    struct __compressed_pair<unsigned char *, std::__1::allocator<unsigned char>> {
+        char *_field1;
+    } _field3;
+};
+
+struct weak_ptr<PKCField>;
+
 #pragma mark Typedef'd Structures
+
+typedef struct {
+    float _field1;
+    float _field2;
+} CDStruct_b2fbf00d;
 
 typedef struct CDStruct_183601bc;
 
+typedef struct {
+    CDStruct_b2fbf00d _field1;
+    CDStruct_b2fbf00d _field2;
+} CDStruct_c7fe8b62;
+
 // Template types
+typedef struct shared_ptr<PKCField> {
+    struct PKCField *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_307a0f33;
+
+typedef struct shared_ptr<PKCGrid> {
+    struct PKCGrid *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_c9c6a83f;
+
+typedef struct shared_ptr<PKPath> {
+    struct PKPath *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_2aaf3a07;
+
+typedef struct shared_ptr<QuadTree> {
+    struct QuadTree *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_639e7c03;
+
 typedef struct vector<PKPhysicsShape *, std::__1::allocator<PKPhysicsShape *>> {
     struct PKPhysicsShape **__begin_;
     struct PKPhysicsShape **__end_;
@@ -614,5 +786,13 @@ union _GLKMatrix4 {
         float _field16;
     } _field1;
     float _field2[16];
+};
+
+union b2Position {
+    struct {
+        struct b2Vec2 _field1;
+        float _field2;
+        float _field3;
+    } _field1;
 };
 

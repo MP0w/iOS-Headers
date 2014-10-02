@@ -8,7 +8,7 @@
 
 #import "MKLocationManagerObserver.h"
 
-@class MKLocationManager, UILabel;
+@class MKLocationManager, NSString, UILabel;
 
 @interface MKStarkCompassView : UIView <MKLocationManagerObserver>
 {
@@ -43,6 +43,12 @@
 - (void)dealloc;
 - (id)initWithEffectiveBundleIdentifier:(id)arg1;
 - (id)initWithSharedMKLocationManager;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

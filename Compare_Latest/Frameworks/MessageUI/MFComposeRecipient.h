@@ -43,11 +43,12 @@
 - (id)sortedChildren;
 - (id)children;
 - (BOOL)isGroup;
+@property(readonly, nonatomic) BOOL showsAccessoryButton;
 @property(readonly, nonatomic, getter=isRemovableFromSearchResults) BOOL removableFromSearchResults;
 - (id)objectForDragType:(id)arg1;
 - (id)supportedDragTypes;
 - (void)dealloc;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)_unformattedAddress;
 - (id)uncommentedAddress;
@@ -68,6 +69,11 @@
 - (void *)record;
 - (int)property;
 - (id)initWithRecord:(void *)arg1 recordID:(int)arg2 property:(int)arg3 identifier:(int)arg4 address:(id)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

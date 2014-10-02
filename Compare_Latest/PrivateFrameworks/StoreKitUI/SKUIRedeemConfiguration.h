@@ -24,6 +24,8 @@
 @property(readonly, nonatomic) UIImage *landingImage; // @synthesize landingImage=_landingImage;
 @property(readonly, nonatomic) SKUIITunesPassConfiguration *ITunesPassConfiguration; // @synthesize ITunesPassConfiguration=_itunesPassConfiguration;
 @property(readonly, nonatomic) UIImage *inputImage; // @synthesize inputImage=_inputImage;
+@property(readonly, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
+@property(readonly, nonatomic) int category; // @synthesize category=_category;
 - (void).cxx_destruct;
 - (void)_setSuccessImage:(id)arg1;
 - (void)_setLandingImage:(id)arg1;

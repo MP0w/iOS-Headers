@@ -8,6 +8,5 @@
 
 @interface UIImage (SocialAdditions)
 + (id)socialFrameworkImageNamed:(id)arg1;
-+ (id)socialFrameworkImageNamed:(id)arg1 leftCapWidth:(float)arg2 topCapHeight:(float)arg3;
 @end
 

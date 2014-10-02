@@ -9,20 +9,22 @@
 __attribute__((visibility("hidden")))
 @interface CIBurstActionClassifier : NSObject
 {
-    float testMaxInnerDistance;
-    float testInOutRatio;
-    float testMaxPeakRegistrationError;
-    float testMeanPeakRegistrationError;
-    float testMaxRegistrationErrorSkewness;
-    float testMinRegionOfInterestSize;
-    float testMaxRegistrationErrorIntegral;
-    float testAverageCameraTravelDistance;
-    float testAverageRegistrationErrorSkewness;
-    float testBeginningVsEndAEMatrixVsAverageAdjacentAEMatrix;
     BOOL hasBeenScaled;
     double testVector[7];
+    float testAverageCameraTravelDistance;
+    float testMaxRegistrationErrorIntegral;
+    float testMaxPeakRegistrationError;
+    float testMeanPeakRegistrationError;
+    float testBeginningVsEndAEMatrixVsAverageAdjacentAEMatrix;
+    float testInOutRatio;
+    float testMaxInnerDistance;
+    float testAverageRegistrationErrorSkewness;
+    float testMinRegionOfInterestSize;
+    float testMaxRegistrationErrorSkewness;
+    struct __SVMParameters *_svmParameters;
 }
 
+@property struct __SVMParameters *svmParameters; // @synthesize svmParameters=_svmParameters;
 @property float testMaxRegistrationErrorSkewness; // @synthesize testMaxRegistrationErrorSkewness;
 @property float testMinRegionOfInterestSize; // @synthesize testMinRegionOfInterestSize;
 @property float testAverageRegistrationErrorSkewness; // @synthesize testAverageRegistrationErrorSkewness;
@@ -37,6 +39,7 @@ __attribute__((visibility("hidden")))
 - (float)predictResult;
 - (double)computeKernelValueWithSupportVector:(const struct CIBurstSupportVector *)arg1;
 - (void)scaleVector;
+- (id)initWithVersion:(int)arg1;
 - (id)init;
 
 @end

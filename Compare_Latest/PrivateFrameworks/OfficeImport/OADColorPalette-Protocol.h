@@ -6,9 +6,9 @@
 
 #import "NSObject.h"
 
-@class TSUColor;
+@class OITSUColor;
 
 @protocol OADColorPalette <NSObject>
-- (TSUColor *)colorWithIndex:(unsigned int)arg1;
+- (OITSUColor *)colorWithIndex:(unsigned int)arg1;
 @end
 

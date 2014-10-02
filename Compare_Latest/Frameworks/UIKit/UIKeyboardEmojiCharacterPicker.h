@@ -8,7 +8,7 @@
 
 #import "UIKeyboardEmojiInput.h"
 
-@class UIKeyboardEmojiCategory, UIKeyboardEmojiInputController;
+@class NSString, UIKeyboardEmojiCategory, UIKeyboardEmojiInputController;
 
 __attribute__((visibility("hidden")))
 @interface UIKeyboardEmojiCharacterPicker : UIKeyboardEmojiPicker <UIKeyboardEmojiInput>
@@ -25,6 +25,12 @@ __attribute__((visibility("hidden")))
 - (void)reloadForCategory:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 keyplane:(id)arg2 key:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

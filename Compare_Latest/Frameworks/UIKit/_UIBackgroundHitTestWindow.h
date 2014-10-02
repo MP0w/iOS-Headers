@@ -11,5 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (BOOL)_isSystemWindow;
+
 @end
 

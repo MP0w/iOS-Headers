@@ -6,20 +6,21 @@
 
 #import <AddressBookUI/ABPickerViewController.h>
 
+@class TKTonePickerViewController;
+
 @interface ABTonePickerViewController : ABPickerViewController
 {
-    BOOL _isTextToneViewController;
+    TKTonePickerViewController *_tonePickerViewController;
 }
 
 - (void)cancelButtonClicked:(id)arg1;
 - (void)ringtoneSaveButtonClicked:(id)arg1;
 - (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
 - (float)ab_heightToFitForViewInPopoverView;
 - (void)loadView;
-@property(readonly, nonatomic) id tonePicker;
+@property(readonly, retain, nonatomic) TKTonePickerViewController *tonePickerViewController;
 - (void)setStyleProvider:(id)arg1;
-- (id)initAsRingtoneViewController:(BOOL)arg1;
+- (id)initWithAlertType:(int)arg1;
 - (id)init;
 
 @end

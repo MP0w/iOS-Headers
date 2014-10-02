@@ -8,18 +8,24 @@
 
 #import "NSCopying.h"
 
+@class NSLocale;
+
 @interface VKRasterMapTileRequest : NSObject <NSCopying>
 {
-    BOOL _localizeLabels;
     int _mapType;
     unsigned int _scale;
+    NSLocale *_locale;
+    unsigned int _tileGroupID;
     struct VKRasterTileKey _tileKey;
 }
 
-@property(nonatomic) BOOL localizeLabels; // @synthesize localizeLabels=_localizeLabels;
+@property(nonatomic) unsigned int tileGroupID; // @synthesize tileGroupID=_tileGroupID;
+@property(retain, nonatomic) NSLocale *locale; // @synthesize locale=_locale;
 @property(nonatomic) unsigned int scale; // @synthesize scale=_scale;
 @property(nonatomic) int mapType; // @synthesize mapType=_mapType;
 @property(nonatomic) struct VKRasterTileKey tileKey; // @synthesize tileKey=_tileKey;
+- (void)isReallyInvalid:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) BOOL isInvalid;
 @property(readonly, nonatomic) struct VKCacheKey cacheKey;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;

@@ -15,29 +15,38 @@
     CDStruct_2c43369c _coordinate;
 }
 
-+ (id)titleBarMaskImage;
++ (id)titleBarMaskImageForWidth:(float)arg1;
 + (id)placeholderPreviewCache;
-+ (id)mapThumbnailQueue;
 + (BOOL)isPreviewable;
++ (id)attachmentSummary:(unsigned int)arg1;
 + (id)fallbackFilenamePrefix;
 + (id)UTITypes;
++ (id)placeholderPreviewForWidth:(float)arg1 orientation:(BOOL)arg2;
++ (id)vcardDataFromCLLocation:(id)arg1;
++ (Class)__ck_attachmentItemClass;
 @property(nonatomic) CDStruct_2c43369c coordinate; // @synthesize coordinate=_coordinate;
-- (id)generatePlaceholderThumbnailFillToSize:(struct CGSize)arg1;
-- (id)generatePlaceholderThumbnail;
+- (id)generatePlaceholderThumbnailFillToSize:(struct CGSize)arg1 contentAlignmentInsets:(struct UIEdgeInsets)arg2;
+- (id)generatePlaceholderThumbnailForWidth:(float)arg1 orientation:(BOOL)arg2;
 - (BOOL)isDroppedPin;
 - (id)pin;
 - (id)vCardURLProperties;
 - (id)bbPreviewFillToSize:(struct CGSize)arg1;
 - (struct CGSize)bbSize;
-- (id)generateThumbnailFillToSize:(struct CGSize)arg1;
-- (id)previewForOrientation:(BOOL)arg1;
+- (id)generateThumbnailFillToSize:(struct CGSize)arg1 contentAlignmentInsets:(struct UIEdgeInsets)arg2;
+- (id)previewForWidth:(float)arg1 orientation:(BOOL)arg2;
+- (id)previewCachesFileURLWithOrientation:(BOOL)arg1 extension:(id)arg2;
+- (id)previewCacheKeyWithOrientation:(BOOL)arg1;
 - (Class)previewBalloonViewClass;
 - (int)mediaType;
 - (id)initWithTransfer:(id)arg1;
 
 // Remaining properties
-@property(readonly, nonatomic) NSString *subtitle;
-@property(readonly, nonatomic) NSString *title;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly, copy, nonatomic) NSString *subtitle;
+@property(readonly) Class superclass;
+@property(readonly, copy, nonatomic) NSString *title;
 
 @end
 

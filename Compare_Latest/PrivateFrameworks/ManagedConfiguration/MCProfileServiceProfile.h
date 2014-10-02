@@ -20,13 +20,15 @@
 
 @property(readonly, nonatomic) BOOL confirmInstallation; // @synthesize confirmInstallation=_confirmInstallation;
 @property(retain, nonatomic) NSData *enrollmentIdentityPersistentID; // @synthesize enrollmentIdentityPersistentID=_enrollmentIdentityPersistentID;
-@property(readonly, nonatomic) id challenge; // @synthesize challenge=_challenge;
-@property(readonly, nonatomic) NSArray *deviceAttributes; // @synthesize deviceAttributes=_deviceAttributes;
+@property(readonly, retain, nonatomic) id challenge; // @synthesize challenge=_challenge;
+@property(readonly, retain, nonatomic) NSArray *deviceAttributes; // @synthesize deviceAttributes=_deviceAttributes;
 @property(retain, nonatomic) NSString *URLString; // @synthesize URLString=_URLString;
 - (void).cxx_destruct;
 - (id)description;
 - (id)stubDictionary;
+- (id)managedPayloads;
 - (id)payloads;
+- (id)localizedManagedPayloadSummaryByType;
 - (id)localizedPayloadSummaryByType;
 - (id)initWithDictionary:(id)arg1 allowEmptyPayload:(BOOL)arg2 outError:(id *)arg3;
 - (id)_unsupportedValueErrorWithFieldName:(id)arg1 value:(id)arg2;

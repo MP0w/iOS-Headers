@@ -8,6 +8,8 @@
 
 #import "TSKImageExporter.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TNPreviewExporter : TNRenderingExporter <TSKImageExporter>
 {
@@ -18,6 +20,12 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned int height;
 @property(nonatomic) unsigned int width;
 - (id)p_renderingExporterDelegate;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

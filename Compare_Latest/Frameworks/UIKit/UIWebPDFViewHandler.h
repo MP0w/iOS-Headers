@@ -6,17 +6,16 @@
 
 #import "NSObject.h"
 
-#import "UIActionSheetDelegate.h"
 #import "UIDocumentPasswordViewDelegate.h"
 #import "UIWebPDFViewDelegate.h"
 #import "UIWebPDFViewPrivateDelegate.h"
-#import "_UIRotatingActionSheetDelegate.h"
+#import "_UIRotatingAlertControllerDelegate.h"
 #import "_UIWebDoubleTapDelegate.h"
 #import "_UIWebRotationDelegate.h"
 
-@class NSArray, NSDictionary, NSMapTable, NSObject<UIWebPDFViewHandlerDelegate>, UIAlertView, UIColor, UIDocumentPasswordView, UIView, UIWebPDFLabelView, UIWebPDFView, WebPDFNSNumberFormatter, _UIHighlightView, _UIRotatingActionSheet;
+@class NSArray, NSDictionary, NSMapTable, NSObject<UIWebPDFViewHandlerDelegate>, UIAlertView, UIColor, UIDocumentPasswordView, UIView, UIWebPDFLabelView, UIWebPDFView, WebPDFNSNumberFormatter, _UIHighlightView, _UIRotatingAlertController;
 
-@interface UIWebPDFViewHandler : NSObject <UIWebPDFViewPrivateDelegate, UIDocumentPasswordViewDelegate, UIActionSheetDelegate, _UIRotatingActionSheetDelegate, UIWebPDFViewDelegate, _UIWebDoubleTapDelegate, _UIWebRotationDelegate>
+@interface UIWebPDFViewHandler : NSObject <UIWebPDFViewPrivateDelegate, UIDocumentPasswordViewDelegate, _UIRotatingAlertControllerDelegate, UIWebPDFViewDelegate, _UIWebDoubleTapDelegate, _UIWebRotationDelegate>
 {
     UIWebPDFView *_pdfView;
     BOOL _scalesPageToFit;
@@ -34,7 +33,7 @@
     BOOL _hidePageViewsUntilReadyToRender;
     WebPDFNSNumberFormatter *_labelViewFormatter;
     struct _PDFHistoryItem _pendingHistoryItemRestore;
-    _UIRotatingActionSheet *_linkActionSheet;
+    _UIRotatingAlertController *_linkActionSheet;
     NSDictionary *_linkActionInfo;
     NSArray *_linkActions;
     struct CGRect _rectOfInterest;
@@ -103,8 +102,7 @@
 - (struct CGRect)presentationRectInHostViewForSheet:(id)arg1;
 - (struct CGRect)initialPresentationRectInHostViewForSheet:(id)arg1;
 - (id)hostViewForSheet:(id)arg1;
-- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)performAction:(id)arg1 fromAlertController:(id)arg2;
 - (void)handleLongPressOnLink:(id)arg1 atPoint:(struct CGPoint)arg2 inRect:(struct CGRect)arg3 contentRect:(struct CGRect)arg4;
 - (void)_showLinkSheet:(id)arg1;
 - (id)_actionsForInteractionInfo:(id)arg1;

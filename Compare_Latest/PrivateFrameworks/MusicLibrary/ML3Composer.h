@@ -18,12 +18,16 @@
 + (id)foreignPropertyForProperty:(id)arg1 entityClass:(Class)arg2;
 + (id)allProperties;
 + (id)predisambiguatedProperties;
-+ (id)defaultOrderingProperties;
++ (id)defaultOrderingTerms;
++ (id)joinClausesForProperty:(id)arg1;
 + (int)revisionTrackingCode;
 + (id)databaseTable;
 + (void)initialize;
-- (void)updateRepresentativeItem:(id)arg1 inLibrary:(id)arg2 withArtworkCacheID:(id)arg3;
++ (id)protocolItemWithProperties:(id)arg1 inLibrary:(id)arg2;
+- (void)updateRepresentativeItem:(id)arg1 inLibrary:(id)arg2 withArtworkToken:(id)arg3;
 - (void)updateTrackValues:(id)arg1;
+- (id)protocolItem;
+- (id)multiverseIdentifier;
 
 @end
 

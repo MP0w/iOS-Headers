@@ -7,6 +7,7 @@
 #import <iWorkImport/TSADocumentRoot.h>
 
 #import "TSCEResolverContainer.h"
+#import "TSDInfoUUIDPathPrefixComponentsProvider.h"
 #import "TSDThumbnailProducer.h"
 #import "TSTResolverContainerNameProvider.h"
 #import "TSWPChangeSessionManager.h"
@@ -17,16 +18,17 @@
 @class NSArray, NSMutableArray, NSMutableDictionary, NSString, TPDocumentSettings, TPDrawablesZOrder, TPFloatingDrawables, TPInteractiveCanvasController, TPPageLayoutNotifier, TPPaginatedPageController, TPSection, TPTOCController, TPTheme, TSDThumbnailController, TSSStylesheet, TSWPStorage;
 
 __attribute__((visibility("hidden")))
-@interface TPDocumentRoot : TSADocumentRoot <TSDThumbnailProducer, TSWPDrawableOLC, TSWPStorageParent, TSWPChangeSessionManager, TSWPChangeVisibility, TSTResolverContainerNameProvider, TSCEResolverContainer>
+@interface TPDocumentRoot : TSADocumentRoot <TSDThumbnailProducer, TSDInfoUUIDPathPrefixComponentsProvider, TSWPDrawableOLC, TSWPStorageParent, TSWPChangeSessionManager, TSWPChangeVisibility, TSTResolverContainerNameProvider, TSCEResolverContainer>
 {
+    NSArray *_citationRecords;
+    BOOL _shouldUniquifyTableNames;
+    NSArray *_obsoleteTOCStyles;
     TPTheme *_theme;
     TSSStylesheet *_stylesheet;
     TSWPStorage *_bodyStorage;
     TPDocumentSettings *_settings;
     TPDrawablesZOrder *_drawablesZOrder;
     TPFloatingDrawables *_floatingDrawables;
-    NSArray *_citationRecords;
-    NSArray *_tocStyles;
     BOOL _usesSingleHeaderFooter;
     BOOL _needsInitialization;
     struct CGSize _pageSize;
@@ -52,8 +54,8 @@ __attribute__((visibility("hidden")))
     float _currentThumbnailContainerWidth;
     unsigned int _tableNameCounter;
     NSMutableDictionary *_chartsUIState;
-    BOOL _shouldUniquifyTableNames;
     NSMutableDictionary *_tableInfosWithUniqueNames;
+    BOOL initiallyShowRuler;
     TPInteractiveCanvasController *interactiveCanvasController;
     TPTOCController *_tocController;
 }
@@ -62,13 +64,12 @@ __attribute__((visibility("hidden")))
 + (struct CGSize)previewImageSizeForType:(unsigned int)arg1;
 + (struct CGSize)pageSizeFromPaperSize:(struct CGSize)arg1 pageScale:(float)arg2 orientation:(unsigned int)arg3;
 @property(retain, nonatomic) TPTOCController *tocController; // @synthesize tocController=_tocController;
+@property(nonatomic) BOOL initiallyShowRuler; // @synthesize initiallyShowRuler;
 @property(retain, nonatomic) NSMutableDictionary *chartsUIState; // @synthesize chartsUIState=_chartsUIState;
 @property(retain, nonatomic) NSArray *changeSessionHistory; // @synthesize changeSessionHistory=_changeSessionHistory;
-@property(retain, nonatomic) NSArray *tocStyles; // @synthesize tocStyles=_tocStyles;
-@property(readonly, nonatomic) NSArray *citationRecords; // @synthesize citationRecords=_citationRecords;
 @property(retain, nonatomic) TPFloatingDrawables *floatingDrawables; // @synthesize floatingDrawables=_floatingDrawables;
 @property(retain, nonatomic) TPDrawablesZOrder *drawablesZOrder; // @synthesize drawablesZOrder=_drawablesZOrder;
-@property(readonly, nonatomic) TSWPStorage *bodyStorage; // @synthesize bodyStorage=_bodyStorage;
+@property(readonly, retain, nonatomic) TSWPStorage *bodyStorage; // @synthesize bodyStorage=_bodyStorage;
 @property(retain, nonatomic) TSSStylesheet *stylesheet; // @synthesize stylesheet=_stylesheet;
 @property(readonly, nonatomic) BOOL isNewDocument; // @synthesize isNewDocument=_newDocument;
 @property(readonly, nonatomic) TSDThumbnailController *thumbnailController; // @synthesize thumbnailController=_thumbnailController;
@@ -81,6 +82,7 @@ __attribute__((visibility("hidden")))
 - (unsigned int)nextUntitledResolverIndex;
 - (BOOL)resolverNameIsUsed:(id)arg1;
 - (id)resolverMatchingName:(id)arg1;
+- (BOOL)isPendingTableNameUniquification;
 - (id)resolversMatchingPrefix:(id)arg1;
 - (id)resolverMatchingName:(id)arg1 contextContainerName:(id)arg2;
 - (id)resolverMatchingName:(id)arg1 contextResolver:(id)arg2;
@@ -95,7 +97,10 @@ __attribute__((visibility("hidden")))
 - (void)startNewChangeSessionIfNecessaryGettingInsertAuthorCommand:(id *)arg1;
 - (id)changeSessionAuthorCreatedWithCommand:(id *)arg1;
 - (void)upgradeFromOldSectionWithPageSize:(struct CGSize)arg1 leftMargin:(float)arg2 rightMargin:(float)arg3 topMargin:(float)arg4 bottomMargin:(float)arg5 headerMargin:(float)arg6 footerMargin:(float)arg7;
+- (id)uuidPathPrefixComponentsForInfo:(id)arg1;
 - (BOOL)isMultiPageForQuickLook;
+- (int)verticalAlignmentForTextStorage:(id)arg1;
+- (int)naturalAlignmentAtCharIndex:(unsigned int)arg1 inTextStorage:(id)arg2;
 - (BOOL)useLigatures;
 - (struct __CFLocale *)hyphenationLocale;
 - (BOOL)shouldHyphenate;
@@ -109,7 +114,7 @@ __attribute__((visibility("hidden")))
 - (float)valueForMargin:(int)arg1;
 - (struct CGRect)pageBoundsWithinMargins;
 - (float)bodyWidth;
-@property(readonly, nonatomic) TPDocumentSettings *settings;
+@property(readonly, retain, nonatomic) TPDocumentSettings *settings;
 - (void)resumeBackgroundActivities;
 - (void)suspendBackgroundActivities;
 - (void)willEnterForeground;
@@ -125,6 +130,7 @@ __attribute__((visibility("hidden")))
 - (id)changeVisibility;
 - (id)p_previewImageWithImageSize:(struct CGSize)arg1;
 - (id)previewImageForSize:(struct CGSize)arg1;
+- (BOOL)supportHeaderFooterParagraphAlignmentInInspectors;
 - (void)resumeThumbnailing;
 - (void)suspendThumbnailing;
 - (Class)thumbnailImagerClass;
@@ -152,6 +158,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) int contentWritingDirection;
 - (BOOL)autoListTermination;
 - (BOOL)autoListRecognition;
+- (id)citationRecords;
 - (BOOL)textIsVertical;
 - (void)setBodyStorage:(id)arg1 dolcContext:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
@@ -175,8 +182,8 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (void)documentDidLoad;
 - (unsigned int)applicationType;
-@property(readonly, nonatomic) NSArray *sections;
-@property(readonly, nonatomic) TPSection *firstSection;
+@property(readonly, retain, nonatomic) NSArray *sections;
+@property(readonly, retain, nonatomic) TPSection *firstSection;
 @property(readonly, nonatomic) BOOL isTrackingChanges;
 @property(nonatomic, getter=isChangeTrackingEnabled) BOOL changeTrackingEnabled;
 @property(nonatomic, getter=isChangeTrackingPaused) BOOL changeTrackingPaused;
@@ -198,10 +205,12 @@ __attribute__((visibility("hidden")))
 - (float)footnoteGap;
 - (int)footnoteKind;
 - (id)markStringForFootnoteReferenceStorage:(id)arg1;
-- (id)storagesWithChanges;
-@property(readonly, nonatomic) BOOL hasTrackedChanges;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 @property(readonly, nonatomic, getter=isTrackingChanges) BOOL trackingChanges;
 
 @end

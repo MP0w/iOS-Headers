@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 @interface VKCameraController : NSObject
 {
     VKCamera *_camera;
-    id <VGLCanvas> _canvas;
+    id <MDRenderTarget> _canvas;
     id <VKCameraControllerDelegate> _delegate;
     BOOL _gesturing;
     unsigned int _regionChangeCount;
@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) id <VKCameraControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic, getter=isGesturing) BOOL gesturing; // @synthesize gesturing=_gesturing;
-@property(nonatomic) id <VGLCanvas> canvas; // @synthesize canvas=_canvas;
+@property(nonatomic) id <MDRenderTarget> canvas; // @synthesize canvas=_canvas;
 @property(retain, nonatomic) VKCamera *camera; // @synthesize camera=_camera;
 - (id)detailedDescription;
 @property(readonly, nonatomic, getter=isAnimating) BOOL animating;

@@ -19,6 +19,8 @@
     CDUnknownBlockType _progressBlock;
     NSThread *_progressBlockThread;
     void *_context;
+    NSArray *_copiedRecords;
+    NSArray *_copiedSuggestions;
 }
 
 + (id)personPredicateWithGroup:(void *)arg1 addressBook:(void *)arg2;
@@ -41,6 +43,7 @@
 @property(copy, nonatomic) NSArray *prefetchProperties; // @synthesize prefetchProperties=_prefetchProperties;
 @property(retain, nonatomic) NSPredicate *predicate; // @synthesize predicate=_predicate;
 @property(nonatomic) void *addressBook; // @synthesize addressBook=_addressBook;
+- (BOOL)predicateShouldContinue:(id)arg1 afterFindingRecord:(void *)arg2 moreComing:(BOOL)arg3;
 - (BOOL)predicateShouldContinue:(id)arg1 afterFindingRecord:(void *)arg2;
 - (void)_mainThread_tellDelegateSearchFoundMatch:(void *)arg1;
 - (BOOL)predicateShouldContinue:(id)arg1;

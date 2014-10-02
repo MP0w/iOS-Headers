@@ -15,6 +15,9 @@ __attribute__((visibility("hidden")))
 + (id)mapUnderlineValue:(int)arg1;
 + (id)mapVerticalAlignmentValue:(int)arg1;
 + (id)mapHorizontalAlignmentValue:(int)arg1;
+- (id)description;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)cssStringForName:(id)arg1;
 - (id)mapUnderline;
 - (id)mapVerticalAlignment;

@@ -8,7 +8,7 @@
 
 #import "EKCurrentTimeMarkerViewUpdating.h"
 
-@class EKCurrentTimeMarkerView, NSMutableArray, UIColor, UIImageView;
+@class EKCurrentTimeMarkerView, NSMutableArray, NSString, UIColor, UIImageView;
 
 __attribute__((visibility("hidden")))
 @interface EKDayGridView : UIView <EKCurrentTimeMarkerViewUpdating>
@@ -26,30 +26,33 @@ __attribute__((visibility("hidden")))
     UIView *_leftBorderView;
     NSMutableArray *_middleBorderViews;
     UIView *_rightBorderView;
-    UIView *_topPattern;
-    UIView *_bottomPattern;
+    NSMutableArray *_gridPatternViews;
     unsigned int _daysToDisplay;
     EKCurrentTimeMarkerView *_timeMarker;
     UIImageView *_timeDot;
     BOOL _rightBorderInsetsOccurrences;
     BOOL _showsTimeLine;
     BOOL _showsTimeMarker;
+    BOOL _animatesTimeMarker;
     BOOL _usesVibrantGridDrawing;
     UIColor *_lineColor;
     int _timeMarkerDotDay;
     float _eventHorizontalInset;
     float _hoursToPadTop;
     float _hoursToPadBottom;
+    float _gridHeightScale;
 }
 
 + (void)cacheBackgroundImage:(id)arg1 forKey:(id)arg2;
 + (id)cachedBackgroundImageForKey:(id)arg1;
+@property(nonatomic) float gridHeightScale; // @synthesize gridHeightScale=_gridHeightScale;
 @property(readonly, nonatomic) EKCurrentTimeMarkerView *timeMarker; // @synthesize timeMarker=_timeMarker;
 @property(nonatomic) BOOL usesVibrantGridDrawing; // @synthesize usesVibrantGridDrawing=_usesVibrantGridDrawing;
 @property(nonatomic) float hoursToPadBottom; // @synthesize hoursToPadBottom=_hoursToPadBottom;
 @property(nonatomic) float hoursToPadTop; // @synthesize hoursToPadTop=_hoursToPadTop;
 @property(nonatomic) float eventHorizontalInset; // @synthesize eventHorizontalInset=_eventHorizontalInset;
 @property(nonatomic) int timeMarkerDotDay; // @synthesize timeMarkerDotDay=_timeMarkerDotDay;
+@property(nonatomic) BOOL animatesTimeMarker; // @synthesize animatesTimeMarker=_animatesTimeMarker;
 @property(nonatomic) BOOL showsTimeMarker; // @synthesize showsTimeMarker=_showsTimeMarker;
 @property(nonatomic) BOOL showsTimeLine; // @synthesize showsTimeLine=_showsTimeLine;
 @property(nonatomic) BOOL rightBorderInsetsOccurrences; // @synthesize rightBorderInsetsOccurrences=_rightBorderInsetsOccurrences;
@@ -71,15 +74,21 @@ __attribute__((visibility("hidden")))
 - (void)_updateTimeMarker;
 - (id)timeDotImage;
 - (void)updateMarkerPosition;
-- (float)hourHeight;
+@property(readonly, nonatomic) float hourHeight;
 @property(readonly, nonatomic) float timeInset;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (float)bottomPadding;
-- (float)topPadding;
+@property(readonly, nonatomic) float topPadding;
 - (void)setOrientation:(int)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)addSubview:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 backgroundColor:(id)arg2 opaque:(BOOL)arg3 numberOfDaysToDisplay:(unsigned int)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

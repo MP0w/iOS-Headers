@@ -26,5 +26,8 @@
 - (void)setAdaptedNotifier:(struct CLNotifierBase *)arg1;
 - (id)initInSilo:(id)arg1;
 
+// Remaining properties
+@property(nonatomic) BOOL valid;
+
 @end
 

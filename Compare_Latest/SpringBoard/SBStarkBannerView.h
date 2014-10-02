@@ -10,7 +10,7 @@
 #import "SBStarkBannerItemObserver.h"
 #import "SBUIBannerView.h"
 
-@class SBStarkBannerItem, SBStarkBannerViewButton, SBUIBannerContext, UIImageView, UILabel, UILabel<SBBulletinDateLabel>;
+@class NSString, SBStarkBannerItem, SBStarkBannerViewButton, SBUIBannerContext, UIImageView, UILabel, UILabel<SBBulletinDateLabel>;
 
 @interface SBStarkBannerView : UIView <SBStarkBannerItemObserver, SBDateLabelDelegate, SBUIBannerView>
 {
@@ -30,6 +30,7 @@
 
 - (void)dateLabelDidChange:(id)arg1;
 - (void)starkBannerItemDidReloadDisplayProperties:(id)arg1;
+- (_Bool)shouldBorrowScreen;
 - (id)bannerContext;
 - (void)_selectControl;
 - (_Bool)canBecomeFirstResponder;
@@ -47,6 +48,12 @@
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

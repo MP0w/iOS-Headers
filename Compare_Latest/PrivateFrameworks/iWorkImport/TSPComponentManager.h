@@ -9,12 +9,13 @@
 #import "TSPComponentDelegate.h"
 #import "TSPObjectModifyDelegate.h"
 
-@class NSCache, NSHashTable, NSMapTable, NSObject<OS_dispatch_queue>, TSPComponent, TSPObjectContext;
+@class NSCache, NSHashTable, NSMapTable, NSObject<OS_dispatch_queue>, NSString, TSPComponent, TSPObjectContext;
 
 __attribute__((visibility("hidden")))
 @interface TSPComponentManager : NSObject <TSPComponentDelegate, TSPObjectModifyDelegate>
 {
     int _ignoreCachedObjectEvictionCount;
+    BOOL _isTornDown;
     NSObject<OS_dispatch_queue> *_componentQueue;
     NSHashTable *_components;
     NSMapTable *_componentDictionary;
@@ -26,11 +27,11 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, nonatomic) TSPComponent *packageMetadataComponent; // @synthesize packageMetadataComponent=_packageMetadataComponent;
-@property(readonly, nonatomic) TSPObjectContext *context; // @synthesize context=_context;
+@property(readonly, nonatomic) __weak TSPObjectContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
 - (void)didModifyFlushedComponent:(id)arg1 forObject:(id)arg2;
-- (void)removeComponentFromCacheWithIdentifier:(long long)arg1;
-- (void)cacheComponent:(id)arg1;
+- (void)flushComponent:(id)arg1 isDiscardingContent:(BOOL)arg2;
+- (void)cacheComponent:(id)arg1 isDiscardingContent:(BOOL)arg2;
 - (id)objectForIdentifier:(long long)arg1;
 - (void)evictAllCachedObjects;
 - (BOOL)shouldKeepAllCachedObjectsInMemory;
@@ -60,10 +61,18 @@ __attribute__((visibility("hidden")))
 - (id)supportComponentImpl;
 - (id)documentComponentImpl;
 - (id)rootComponentWithIdentifierImpl:(long long)arg1 locator:(id)arg2 packageIdentifier:(unsigned char)arg3;
-- (void)loadFromPackageMetadata:(id)arg1 packageIdentifier:(unsigned char)arg2;
+- (void)loadFromPackage:(id)arg1 metadata:(id)arg2;
+- (BOOL)isActive;
+- (void)tearDown;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

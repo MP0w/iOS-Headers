@@ -21,7 +21,7 @@
     NSDictionary *_resultingOverrideBagDictionary;
 }
 
-@property(readonly, nonatomic) NSDictionary *resultingOverrideBagDictionary; // @synthesize resultingOverrideBagDictionary=_resultingOverrideBagDictionary;
+@property(readonly, copy, nonatomic) NSDictionary *resultingOverrideBagDictionary; // @synthesize resultingOverrideBagDictionary=_resultingOverrideBagDictionary;
 @property(copy, nonatomic) NSString *referer; // @synthesize referer=_referer;
 @property(nonatomic) BOOL isAutomaticUpdate; // @synthesize isAutomaticUpdate=_isAutomaticUpdate;
 @property(nonatomic) BOOL includeCleanTracksOnly; // @synthesize includeCleanTracksOnly=_includeCleanTracksOnly;

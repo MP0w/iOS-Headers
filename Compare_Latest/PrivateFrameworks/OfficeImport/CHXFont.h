@@ -11,6 +11,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (void)mapFontProperties:(id)arg1 toTextProps:(id)arg2;
++ (void)mapFontProperties:(id)arg1 to:(id)arg2;
 + (id)defaultEdRunCollectionForTitle:(id)arg1 state:(id)arg2;
 + (id)edRunCollectionFromXmlTextPropertiesElement:(struct _xmlNode *)arg1 state:(id)arg2;
 + (id)edFontWithOadCharacterProperties:(id)arg1 state:(id)arg2;

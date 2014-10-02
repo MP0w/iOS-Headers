@@ -10,7 +10,7 @@
 #import "UICollectionViewDataSource.h"
 #import "UICollectionViewDelegate.h"
 
-@class NSArray, NSMutableArray, NSMutableIndexSet, NSOperationQueue, SKUIClientContext, SKUIIconDataConsumer, SKUIItemArtworkContext, SKUIItemCollectionController, SKUIUber, UICollectionView, UIImage;
+@class NSArray, NSMutableArray, NSMutableIndexSet, NSOperationQueue, NSString, SKUIClientContext, SKUIItemArtworkContext, SKUIItemCollectionController, SKUIStyledImageDataConsumer, SKUIUber, UICollectionView, UIImage;
 
 @interface SKUIItemGridViewController : UIViewController <SKUIItemCollectionDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 {
@@ -39,6 +39,7 @@
 - (void).cxx_destruct;
 - (int)_numberOfColumnsForOrientation:(int)arg1;
 - (id)_itemCollectionController;
+- (void)_reloadLayout;
 - (id)_collectionView;
 - (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (void)scrollViewWillBeginDragging:(id)arg1;
@@ -47,25 +48,32 @@
 - (void)collectionView:(id)arg1 didEndDisplayingCell:(id)arg2 forItemAtIndexPath:(id)arg3;
 - (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
+- (void)itemCollectionView:(id)arg1 didPerformEditActionForCell:(id)arg2;
 - (void)itemCollectionView:(id)arg1 didConfirmItemOfferForCell:(id)arg2;
 - (struct _NSRange)visibleItemRangeForItemCollectionController:(id)arg1;
 - (BOOL)shouldCacheAheadWhenIdleForItemCollectionController:(id)arg1;
 - (struct _NSRange)itemCollectionController:(id)arg1 itemPageRangeForOffset:(struct CGPoint)arg2;
 - (id)itemCollectionController:(id)arg1 cellLayoutForItemIndex:(int)arg2;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidLayoutSubviews;
 - (void)viewDidAppear:(BOOL)arg1;
 - (unsigned int)supportedInterfaceOrientations;
 - (void)loadView;
 - (void)unhideIcons;
 - (void)setItemCellClass:(Class)arg1;
-@property(retain, nonatomic) SKUIIconDataConsumer *iconDataConsumer;
+@property(retain, nonatomic) SKUIStyledImageDataConsumer *iconDataConsumer;
 @property(nonatomic) struct CGPoint contentOffset;
 @property(retain, nonatomic) SKUIItemArtworkContext *artworkContext; // @synthesize artworkContext=_artworkContext;
+- (void)removeItemsAtIndexes:(id)arg1;
 - (id)popIconImageViewForItemAtIndex:(int)arg1;
 - (void)loadNextPageOfArtworkWithReason:(int)arg1;
 - (void)dealloc;
 - (id)initWithRowHeight:(float)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -4,31 +4,30 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <VoiceMemos/RCAVPreviewController.h>
+#import <VoiceMemos/RCPreviewController.h>
 
-@class RCSavedRecording;
+@class RCCompositionController;
 
-@interface RCSavedRecordingPreviewController : RCAVPreviewController
+@interface RCSavedRecordingPreviewController : RCPreviewController
 {
     BOOL _postPrepareShouldPlay;
-    BOOL _preparing;
-    BOOL _preparingToPlay;
     CDStruct_73a5d3ca _postPrepareTimeRange;
     double _postPrepareStartTime;
-    RCSavedRecording *_savedRecording;
+    RCCompositionController *_compositionController;
 }
 
 + (id)sharedRecordingPreviewController;
-@property(retain, nonatomic) RCSavedRecording *savedRecording; // @synthesize savedRecording=_savedRecording;
+@property(retain, nonatomic) RCCompositionController *compositionController; // @synthesize compositionController=_compositionController;
 - (void).cxx_destruct;
-- (void)switchBackToOutputRouteCategory;
-- (void)initializeOutputRouteCategory;
+- (void)playerCurrentRateDidChange:(id)arg1;
 - (void)setCurrentTime:(double)arg1;
+- (CDStruct_73a5d3ca)playableTimeRange;
+- (void)setPlayableTimeRange:(CDStruct_73a5d3ca)arg1;
+- (double)currentTime;
 - (void)stop;
 - (void)pause;
 - (void)playOrRestart;
 - (void)playWithTimeRange:(CDStruct_73a5d3ca)arg1 startTime:(double)arg2;
-- (void)_updatePreparingToPlay;
 
 @end
 

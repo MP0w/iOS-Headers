@@ -12,10 +12,11 @@
 {
 }
 
++ (_Bool)_isSecure;
 - (_Bool)isOpaque;
 @property(readonly, nonatomic) SBAssistantRootViewController *assistantRootViewController; // @dynamic assistantRootViewController;
 - (void)dealloc;
-- (id)initWithScreen:(id)arg1 jailBehavior:(int)arg2;
+- (id)initWithScreen:(id)arg1 layoutStrategy:(id)arg2 debugName:(id)arg3 scene:(id)arg4;
 
 @end
 

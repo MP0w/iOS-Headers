@@ -20,6 +20,7 @@
     NSMutableSet *_enabledAccounts;
     NSMutableDictionary *_transactionIDToHandlersMap;
     BOOL _accountsLoaded;
+    BOOL _isLocalAccountVisible;
 }
 
 - (void)accountDisabled:(id)arg1 onService:(id)arg2;
@@ -31,6 +32,7 @@
 - (void)accountAdded:(id)arg1;
 - (void)disableAccount:(id)arg1;
 - (void)enableAccount:(id)arg1;
+- (void)_updateLocalAccountVisibility;
 - (void)_removeAccount:(id)arg1;
 - (void)_removeAndDeregisterAccount:(id)arg1;
 - (void)addAccount:(id)arg1;
@@ -44,15 +46,25 @@
 - (id)accountWithUniqueID:(id)arg1;
 - (void)_loadCachedAccounts;
 - (void)_loadCachedAccountsWithDictionaries:(id)arg1;
+- (void)_updateDelegatesWithOldAccounts:(id)arg1 newAccounts:(id)arg2;
+- (void)daemonDisconnected;
 - (void)_connect;
+- (void)_callDelegatesWithBlock:(CDUnknownBlockType)arg1 group:(id)arg2;
 - (void)_callDelegatesWithBlock:(CDUnknownBlockType)arg1;
 - (void)removeDelegate:(id)arg1;
 - (void)addDelegate:(id)arg1 queue:(id)arg2;
-@property(readonly, nonatomic) NSString *serviceName;
-@property(readonly, nonatomic) NSSet *enabledAccounts;
-@property(readonly, nonatomic) NSSet *accounts;
+@property(readonly, retain, nonatomic) NSString *serviceName;
+@property(readonly, retain, nonatomic) NSSet *enabledAccounts;
+- (id)internalAccounts;
+@property(readonly, retain, nonatomic) NSSet *accounts;
 - (void)dealloc;
 - (id)initWithService:(id)arg1 delegateContext:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

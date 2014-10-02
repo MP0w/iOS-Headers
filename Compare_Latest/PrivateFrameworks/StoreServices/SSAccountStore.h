@@ -45,8 +45,9 @@
 @property(readonly, getter=isExpired) BOOL expired;
 @property(readonly) SSAccount *activeLockerAccount;
 @property(readonly) SSAccount *activeAccount;
+- (id)accountWithUniqueIdentifier:(id)arg1 scope:(int)arg2;
 - (id)accountWithUniqueIdentifier:(id)arg1;
-@property(readonly) NSArray *accounts;
+@property(readonly, copy) NSArray *accounts;
 - (void)dealloc;
 - (id)init;
 

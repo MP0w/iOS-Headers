@@ -6,23 +6,34 @@
 
 #import "NSObject.h"
 
-@class NSString, NSURLRequest;
+#import "NSURLSessionDataDelegate.h"
 
-@interface AARequest : NSObject
+@class NSError, NSHTTPURLResponse, NSMutableData, NSString, NSURLRequest;
+
+@interface AARequest : NSObject <NSURLSessionDataDelegate>
 {
-    NSString *_urlString;
+    NSString *_initialURLString;
     BOOL _flushCache;
     struct OpaqueCFHTTPCookieStorage *_cookieStorage;
     NSString *_oneTimePassword;
     NSString *_machineId;
+    CDUnknownBlockType _handler;
+    NSMutableData *_responseData;
+    NSHTTPURLResponse *_response;
+    NSError *_error;
 }
 
 + (id)protocolVersion;
 + (Class)responseClass;
 @property(nonatomic) BOOL flushCache; // @synthesize flushCache=_flushCache;
 - (void).cxx_destruct;
+- (id)_redactedHeadersFromHTTPHeaders:(id)arg1;
 - (id)redactedBodyStringWithPropertyList:(id)arg1;
 - (void)dealloc;
+- (void)URLSession:(id)arg1 didBecomeInvalidWithError:(id)arg2;
+- (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;
+- (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveData:(id)arg3;
+- (id)_urlSession;
 - (void)performRequestWithHandler:(CDUnknownBlockType)arg1;
 - (id)bodyDictionary;
 - (id)urlCredential;
@@ -32,6 +43,12 @@
 - (void)setDeviceProvisioningOneTimePassword:(id)arg1;
 - (void)setCookieStorage:(struct OpaqueCFHTTPCookieStorage *)arg1;
 - (id)initWithURLString:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

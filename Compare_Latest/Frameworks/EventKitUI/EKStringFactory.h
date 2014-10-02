@@ -16,6 +16,7 @@
     struct __CFDateFormatter *_standardTimeFormatter;
     struct __CFDateFormatter *_customFormatter;
     struct __CFDateFormatter *_fullStyleDateFormatter;
+    struct __CFDateFormatter *_dayOfWeekFormatter;
     NSMutableDictionary *_longFormatters;
 }
 
@@ -30,12 +31,9 @@
 - (id)timeStringForDate:(double)arg1 inTimeZone:(id)arg2;
 - (id)_timeStringForDate:(double)arg1;
 - (id)_dayStringForDate:(double)arg1 allDay:(BOOL)arg2 shortFormat:(BOOL)arg3 lowercase:(BOOL)arg4;
-- (id)abbreviatedStringForDay:(CDStruct_79f9e052)arg1 withLongFormatString:(id)arg2;
-- (id)stringForDay:(CDStruct_79f9e052)arg1 withLongFormatString:(id)arg2 lowercase:(BOOL)arg3;
-- (id)stringForDay:(CDStruct_79f9e052)arg1 withLongFormatString:(id)arg2;
 - (id)_stringForDay:(CDStruct_79f9e052)arg1 withLongFormatString:(id)arg2 useAbbreviatedFormats:(BOOL)arg3 lowerCase:(BOOL)arg4;
-- (id)_stringForDay:(CDStruct_79f9e052)arg1 withLongFormatString:(id)arg2 useAbbreviatedFormats:(BOOL)arg3;
 - (struct __CFDateFormatter *)formatterForLongFormat:(id)arg1;
+- (struct __CFDateFormatter *)dayOfWeekFormatter;
 - (struct __CFDateFormatter *)fullStyleDateFormatter;
 - (struct __CFDateFormatter *)standardTimeFormatter;
 - (struct __CFDateFormatter *)abbreviatedDayFormatter;

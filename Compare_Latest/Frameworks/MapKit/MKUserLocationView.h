@@ -8,7 +8,7 @@
 
 #import "VKPuckAnimatorTarget.h"
 
-@class CALayer, VKAnnotationMarker;
+@class CALayer, CLLocation, NSString, VKAnnotationMarker;
 
 @interface MKUserLocationView : MKAnnotationView <VKPuckAnimatorTarget>
 {
@@ -25,16 +25,15 @@
     BOOL _allowsAccuracyRing;
     BOOL _stale;
     BOOL _effectsEnabled;
-    int _locationSource;
     double _presentationCourse;
     double _locationAccuracy;
+    CLLocation *_lastLocation;
 }
 
 + (unsigned int)_selectedZIndex;
 + (unsigned int)_zIndex;
 + (float)accuracyDiameter:(float)arg1;
 + (id)allocWithZone:(struct _NSZone *)arg1;
-@property(nonatomic) int locationSource; // @synthesize locationSource=_locationSource;
 @property(readonly, nonatomic) double locationAccuracy; // @synthesize locationAccuracy=_locationAccuracy;
 @property(nonatomic) double presentationCourse; // @synthesize presentationCourse=_presentationCourse;
 @property(nonatomic, getter=isEffectsEnabled) BOOL effectsEnabled; // @synthesize effectsEnabled=_effectsEnabled;
@@ -77,10 +76,15 @@
 - (id)_pulseTintColor;
 - (void)_setMapPitchRadians:(float)arg1;
 - (void)_updateFromMap;
-- (float)_accuracyRadius:(double)arg1;
 - (void)layoutSubviews;
 - (id)initWithAnnotation:(id)arg1 reuseIdentifier:(id)arg2;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

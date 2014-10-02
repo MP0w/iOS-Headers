@@ -7,12 +7,13 @@
 #import "NSObject.h"
 
 #import "TSDChangeableInfo.h"
+#import "TSKDocumentObject.h"
 #import "TSKTransformableObject.h"
 
-@class KNAbstractSlide, NSObject<TSDContainerInfo>, TSDFill, TSDInfoGeometry, TSPObject<TSDOwningAttachment>, TSSPropertySetChangeDetails, TSSStylesheet;
+@class KNAbstractSlide, NSObject<TSDContainerInfo>, NSString, TSDFill, TSDInfoGeometry, TSPObject<TSDOwningAttachment>, TSSPropertySetChangeDetails, TSSStylesheet;
 
 __attribute__((visibility("hidden")))
-@interface KNSlideBackgroundInfo : NSObject <TSDChangeableInfo, TSKTransformableObject>
+@interface KNSlideBackgroundInfo : NSObject <TSDChangeableInfo, TSKDocumentObject, TSKTransformableObject>
 {
     NSObject<TSDContainerInfo> *mParentInfo;
     TSDInfoGeometry *mGeometry;
@@ -25,6 +26,10 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) KNAbstractSlide *slide; // @synthesize slide=mSlide;
 @property(copy, nonatomic) TSDInfoGeometry *geometry; // @synthesize geometry=mGeometry;
 @property(nonatomic) NSObject<TSDContainerInfo> *parentInfo; // @synthesize parentInfo=mParentInfo;
+- (void)wasRemovedFromDocumentRoot:(id)arg1;
+- (void)willBeRemovedFromDocumentRoot:(id)arg1;
+- (void)wasAddedToDocumentRoot:(id)arg1 context:(id)arg2;
+- (void)willBeAddedToDocumentRoot:(id)arg1 context:(id)arg2;
 - (id)commandForTransformingByTransform:(struct CGAffineTransform)arg1 context:(id)arg2 transformedObjects:(id)arg3 inBounds:(struct CGRect)arg4;
 - (id)copyWithContext:(id)arg1;
 - (struct CGSize)minimumSize;
@@ -40,14 +45,19 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=isFloatingAboveText) BOOL floatingAboveText;
 @property(readonly, nonatomic) TSPObject<TSDOwningAttachment> *owningAttachmentNoRecurse;
 @property(nonatomic) TSPObject<TSDOwningAttachment> *owningAttachment;
+- (void)clearBackPointerToParentInfoIfNeeded:(id)arg1;
 - (BOOL)isThemeContent;
 - (Class)repClass;
 - (void)dealloc;
 - (id)initWithSlide:(id)arg1 andGeometry:(id)arg2;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) Class editorClass;
+@property(readonly) unsigned int hash;
 @property(nonatomic) BOOL matchesObjectPlaceholderGeometry;
+@property(readonly) Class superclass;
 
 @end
 

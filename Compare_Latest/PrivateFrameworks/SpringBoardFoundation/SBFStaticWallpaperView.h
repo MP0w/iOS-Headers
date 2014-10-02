@@ -32,6 +32,8 @@
 - (void)_cacheTreatedImage;
 - (void)_setupContentView;
 - (void)setContentView:(id)arg1;
+- (void)setCropRect:(struct CGRect)arg1 zoomScale:(float)arg2;
+- (float)cropZoomScale;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (id)_averageColorInContentViewRect:(struct CGRect)arg1 smudgeRadius:(float)arg2;
 - (float)contrastInRect:(struct CGRect)arg1 contrastWithinBoxes:(float *)arg2 contrastBetweenBoxes:(float *)arg3;
@@ -44,7 +46,7 @@
 - (id)_blurredImage;
 - (id)_computeAverageColor;
 - (id)wallpaperImage;
-- (BOOL)isDisplayingWallpaper:(id)arg1;
+- (BOOL)isDisplayingWallpaper:(id)arg1 forVariant:(int)arg2 options:(id)arg3;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 wallpaperImage:(id)arg2 treatWallpaper:(BOOL)arg3;
 - (id)initWithFrame:(struct CGRect)arg1 wallpaperImage:(id)arg2;

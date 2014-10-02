@@ -39,6 +39,7 @@ __attribute__((visibility("hidden")))
 - (void)_populateSQLValuesForDestinationToOne:(id)arg1 fromSourceToOne:(id)arg2;
 - (id)sourceEntitiesByToOneWithNewEntityKey;
 - (void)_generateSQLValueMappingsWithMigrationContext:(struct _NSSQLMigrationContext)arg1;
+- (id)description;
 - (void)dealloc;
 - (id)initWithEntityMapping:(id)arg1 sourceEntity:(id)arg2 destinationEntity:(id)arg3;
 

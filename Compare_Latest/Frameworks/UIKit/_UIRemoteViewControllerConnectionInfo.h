@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, XPCMachSendRight, _UIHostedWindowHostingHandle, _UIViewServiceInterface;
+@class NSArray, _UIHostedWindowHostingHandle, _UIViewServiceInterface, _UIViewServiceXPCMachSendRight;
 
 __attribute__((visibility("hidden")))
 @interface _UIRemoteViewControllerConnectionInfo : NSObject
@@ -18,19 +18,21 @@ __attribute__((visibility("hidden")))
     id _serviceViewControllerControlMessageProxy;
     id _textEffectsOperatorProxy;
     NSArray *_serviceViewControllerSupportedInterfaceOrientations;
-    XPCMachSendRight *_serviceAccessibilityServerPortWrapper;
+    _UIViewServiceXPCMachSendRight *_serviceAccessibilityServerPortWrapper;
     int _preferredStatusBarStyle;
     _UIHostedWindowHostingHandle *_hostedWindowHostingHandle;
     _UIHostedWindowHostingHandle *_textEffectsWindowHostingHandle;
     _UIHostedWindowHostingHandle *_textEffectsWindowAboveStatusBarHostingHandle;
+    _UIHostedWindowHostingHandle *_remoteKeyboardsWindowHostingHandle;
 }
 
+@property(retain) _UIHostedWindowHostingHandle *remoteKeyboardsWindowHostingHandle; // @synthesize remoteKeyboardsWindowHostingHandle=_remoteKeyboardsWindowHostingHandle;
 @property(retain) _UIHostedWindowHostingHandle *textEffectsWindowAboveStatusBarHostingHandle; // @synthesize textEffectsWindowAboveStatusBarHostingHandle=_textEffectsWindowAboveStatusBarHostingHandle;
 @property(retain) _UIHostedWindowHostingHandle *textEffectsWindowHostingHandle; // @synthesize textEffectsWindowHostingHandle=_textEffectsWindowHostingHandle;
 @property(retain) _UIHostedWindowHostingHandle *hostedWindowHostingHandle; // @synthesize hostedWindowHostingHandle=_hostedWindowHostingHandle;
 @property BOOL prefersStatusBarHidden; // @synthesize prefersStatusBarHidden=_prefersStatusBarHidden;
 @property int preferredStatusBarStyle; // @synthesize preferredStatusBarStyle=_preferredStatusBarStyle;
-@property(retain) XPCMachSendRight *serviceAccessibilityServerPortWrapper; // @synthesize serviceAccessibilityServerPortWrapper=_serviceAccessibilityServerPortWrapper;
+@property(retain) _UIViewServiceXPCMachSendRight *serviceAccessibilityServerPortWrapper; // @synthesize serviceAccessibilityServerPortWrapper=_serviceAccessibilityServerPortWrapper;
 @property(retain) NSArray *serviceViewControllerSupportedInterfaceOrientations; // @synthesize serviceViewControllerSupportedInterfaceOrientations=_serviceViewControllerSupportedInterfaceOrientations;
 @property(retain) id textEffectsOperatorProxy; // @synthesize textEffectsOperatorProxy=_textEffectsOperatorProxy;
 @property(retain) id serviceViewControllerControlMessageProxy; // @synthesize serviceViewControllerControlMessageProxy=_serviceViewControllerControlMessageProxy;

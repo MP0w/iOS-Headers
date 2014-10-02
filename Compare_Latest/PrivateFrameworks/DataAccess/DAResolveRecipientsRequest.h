@@ -6,18 +6,27 @@
 
 #import "NSObject.h"
 
-@class NSArray;
+@class NSArray, NSDate;
 
 @interface DAResolveRecipientsRequest : NSObject
 {
+    BOOL _retrieveCertificates;
+    BOOL _retrieveAvailablilty;
     NSArray *_emailAddresses;
+    NSDate *_startTime;
+    NSDate *_endTime;
 }
 
-- (id)emailAddresses;
-- (void)dealloc;
+@property(retain, nonatomic) NSDate *endTime; // @synthesize endTime=_endTime;
+@property(retain, nonatomic) NSDate *startTime; // @synthesize startTime=_startTime;
+@property(nonatomic) BOOL retrieveAvailablilty; // @synthesize retrieveAvailablilty=_retrieveAvailablilty;
+@property(nonatomic) BOOL retrieveCertificates; // @synthesize retrieveCertificates=_retrieveCertificates;
+@property(retain, nonatomic) NSArray *emailAddresses; // @synthesize emailAddresses=_emailAddresses;
+- (void).cxx_destruct;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
+- (id)initWithEmailAddresses:(id)arg1 retrieveCertificates:(BOOL)arg2 retrieveAvailability:(BOOL)arg3 withStartTime:(id)arg4 endTime:(id)arg5;
 - (id)initWithEmailAddresses:(id)arg1;
 
 @end

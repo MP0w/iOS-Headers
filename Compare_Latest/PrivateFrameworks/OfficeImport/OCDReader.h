@@ -6,24 +6,24 @@
 
 #import "NSObject.h"
 
-@class CPImportTracing, NSData, NSError, NSString;
+@class NSData, NSError, NSString, TCImportTracing;
 
 __attribute__((visibility("hidden")))
 @interface OCDReader : NSObject
 {
-    id <OCCancelDelegate> mCancelDelegate;
+    id <TCCancelDelegate> mCancelDelegate;
     id <OCDReaderDelegate> mDelegate;
     BOOL mIsThumbnail;
-    CPImportTracing *mTracing;
+    TCImportTracing *mTracing;
     NSString *mFileName;
     NSData *mData;
     NSError *mStartError;
 }
 
-@property(retain, nonatomic) CPImportTracing *tracing; // @synthesize tracing=mTracing;
+@property(retain, nonatomic) TCImportTracing *tracing; // @synthesize tracing=mTracing;
 @property(nonatomic) BOOL isThumbnail; // @synthesize isThumbnail=mIsThumbnail;
 @property(nonatomic) id <OCDReaderDelegate> delegate; // @synthesize delegate=mDelegate;
-@property(retain, nonatomic) id <OCCancelDelegate> cancelDelegate; // @synthesize cancelDelegate=mCancelDelegate;
+@property(retain, nonatomic) id <TCCancelDelegate> cancelDelegate; // @synthesize cancelDelegate=mCancelDelegate;
 @property(retain, nonatomic) NSError *startError; // @synthesize startError=mStartError;
 @property(retain, nonatomic) NSData *data; // @synthesize data=mData;
 @property(retain, nonatomic) NSString *fileName; // @synthesize fileName=mFileName;

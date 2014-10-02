@@ -6,6 +6,8 @@
 
 #import "NSObject.h"
 
+@class NSString;
+
 @interface NSCache : NSObject
 {
     id _delegate;
@@ -16,21 +18,16 @@
 - (id)allObjects;
 - (void)setEvictsObjectsWhenApplicationEntersBackground:(BOOL)arg1;
 - (BOOL)evictsObjectsWhenApplicationEntersBackground;
-- (void)setEvictsObjectsWithDiscardedContent:(BOOL)arg1;
-- (BOOL)evictsObjectsWithDiscardedContent;
-- (unsigned int)countLimit;
-- (void)setCountLimit:(unsigned int)arg1;
-- (unsigned int)totalCostLimit;
-- (void)setTotalCostLimit:(unsigned int)arg1;
+@property BOOL evictsObjectsWithDiscardedContent;
+@property unsigned int countLimit;
+@property unsigned int totalCostLimit;
 - (void)removeAllObjects;
 - (void)removeObjectForKey:(id)arg1;
 - (void)setObject:(id)arg1 forKey:(id)arg2 cost:(unsigned int)arg3;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 - (id)objectForKey:(id)arg1;
-- (id)delegate;
-- (void)setDelegate:(id)arg1;
-- (id)name;
-- (void)setName:(id)arg1;
+@property id <NSCacheDelegate> delegate;
+@property(copy) NSString *name;
 - (void)finalize;
 - (void)dealloc;
 - (id)init;

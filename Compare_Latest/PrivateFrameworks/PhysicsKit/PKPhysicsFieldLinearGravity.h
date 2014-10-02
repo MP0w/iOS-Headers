@@ -10,9 +10,10 @@
 {
 }
 
-+ (id)fieldWithLinearGravity:(struct CGVector)arg1;
-@property(nonatomic) struct CGVector gravity;
-- (id)initWithLinearGravity:(struct CGVector)arg1;
++ (id)field;
+- (void)setDirection: /* Error: Ran out of types for this method. */;
+-     // Error parsing type: 8@0:4, name: direction
+- (id)init;
 
 @end
 

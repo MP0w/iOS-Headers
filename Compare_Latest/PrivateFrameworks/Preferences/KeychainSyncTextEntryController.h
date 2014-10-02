@@ -43,6 +43,8 @@
 - (id)specifiers;
 - (id)textEntryText;
 - (void)setTextEntryText:(id)arg1;
+- (void)viewDidDisappear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (BOOL)becomeFirstResponder;
 - (id)getTextValueForSpecifier:(id)arg1;
@@ -53,6 +55,12 @@
 - (void)loadView;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

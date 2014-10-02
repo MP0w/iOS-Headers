@@ -6,9 +6,15 @@
 
 #import "NSObject.h"
 
-@interface ABCapabilitiesManager : NSObject
+#import "IDSIDQueryControllerDelegate.h"
+
+@class NSMutableDictionary, NSString;
+
+@interface ABCapabilitiesManager : NSObject <IDSIDQueryControllerDelegate>
 {
     BOOL _isListeningToIDSServiceAvailability;
+    BOOL _isListeningToIDSQueryController;
+    NSMutableDictionary *_destinationStatus;
 }
 
 + (void)_setDefaultCapabilitiesManager:(id)arg1;
@@ -22,6 +28,8 @@
 - (BOOL)isWeiboServiceAvailable;
 - (BOOL)isTwitterServiceAvailable;
 - (BOOL)hasAdditionalTextTones;
+- (void)idStatusUpdatedForDestinations:(id)arg1 service:(id)arg2;
+- (void)_startListeningToIDSIDQueryControllerIfNecessary;
 - (void)_startListeningToIDSServiceAvailabilityIfNecessary;
 - (void)removeIDSServiceAvailabilityListener:(id)arg1;
 - (void)addIDSServiceAvailabilityListener:(id)arg1 selector:(SEL)arg2;
@@ -38,10 +46,17 @@
 - (BOOL)hasVibratorCapability;
 - (BOOL)hasSMSCapability;
 - (BOOL)hasCellularDataCapability;
+- (BOOL)hasCellularTelephonyHardwareCapability;
 - (BOOL)hasCellularTelephonyCapability;
 - (BOOL)hasTelephonyCapability;
 - (BOOL)isSensitiveUIAllowed;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

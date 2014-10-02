@@ -35,7 +35,7 @@ __attribute__((visibility("hidden")))
 - (void)cleanup;
 
 // Remaining properties
-@property(retain, nonatomic) WebFrame *container;
+@property(retain, nonatomic) WebFrame *container; // @dynamic container;
 
 @end
 

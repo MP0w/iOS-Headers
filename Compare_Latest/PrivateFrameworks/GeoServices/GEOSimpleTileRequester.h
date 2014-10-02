@@ -8,7 +8,7 @@
 
 #import "NSURLConnectionDelegate.h"
 
-@class NSMutableArray, NSMutableSet;
+@class NSMutableArray, NSMutableSet, NSString;
 
 @interface GEOSimpleTileRequester : GEOTileRequester <NSURLConnectionDelegate>
 {
@@ -19,6 +19,7 @@
     NSMutableArray *_errors;
 }
 
++ (int)eTagType;
 - (void)dealloc;
 - (void)cancel;
 - (void)_cleanup;
@@ -30,10 +31,17 @@
 - (void)_operationFailed:(id)arg1 error:(id)arg2;
 - (id)editionHeader;
 - (id)mergeBaseTile:(id)arg1 withLocalizationTile:(id)arg2;
+- (id)mergeBaseTileEtag:(id)arg1 withLocalizationTileEtag:(id)arg2;
 - (id)localizationURLForTileKey:(struct _GEOTileKey *)arg1;
 - (id)urlForTileKey:(struct _GEOTileKey *)arg1;
 - (BOOL)allowsCookies;
-- (id)initWithKeyList:(id)arg1;
+- (id)initWithKeyList:(id)arg1 manifestConfiguration:(id)arg2 locale:(id)arg3 cachedEtags:(id)arg4 cachedData:(id)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

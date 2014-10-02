@@ -6,7 +6,11 @@
 
 #import <MediaPlayer/MPMediaPredicate.h>
 
-@interface MPMediaPersistentIDsPredicate : MPMediaPredicate
+#import "MPPProtobufferCoding.h"
+
+@class NSString;
+
+@interface MPMediaPersistentIDsPredicate : MPMediaPredicate <MPPProtobufferCoding>
 {
     long long *_persistentIDs;
     BOOL _shouldContain;
@@ -17,15 +21,21 @@
 @property(readonly, nonatomic) BOOL shouldContain; // @synthesize shouldContain=_shouldContain;
 @property(readonly, nonatomic) const long long *persistentIDs; // @synthesize persistentIDs=_persistentIDs;
 @property(readonly, nonatomic) unsigned int count; // @synthesize count=_count;
-- (unsigned int)hash;
+- (id)protobufferEncodableObject;
+- (id)initWithProtobufferDecodableObject:(id)arg1;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)ML3PredicateForContainer;
 - (id)ML3PredicateForTrack;
 - (id)_ML3PredicateForEntityClass:(Class)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

@@ -17,6 +17,7 @@
     NSMutableArray *_parsingErrors;
 }
 
++ (int)compareCalendarServerAccess:(int)arg1 withAccess:(int)arg2;
 + (id)ICSStringFromCalendarServerAccess:(int)arg1;
 + (int)calendarServerAccessFromICSString:(id)arg1;
 + (id)ICSStringFromMethod:(int)arg1;
@@ -43,16 +44,16 @@
 - (id)systemDateForDate:(id)arg1 options:(int)arg2;
 - (id)systemCalendarForDate:(id)arg1 options:(int)arg2;
 - (id)systemTimeZoneForDate:(id)arg1;
-@property(retain) NSString *x_wr_timezone;
-@property(retain) NSString *x_wr_relcalid;
-@property(retain) NSString *x_wr_calname;
-@property(retain) NSString *x_wr_caldesc;
-@property(retain) ICSColor *x_apple_calendar_color;
-@property(retain) ICSDuration *x_apple_auto_refresh;
-@property(retain) NSString *version;
-@property(retain) NSString *prodid;
-@property int method;
-@property(retain) NSString *calscale;
+@property(retain, nonatomic) NSString *x_wr_timezone;
+@property(retain, nonatomic) NSString *x_wr_relcalid;
+@property(retain, nonatomic) NSString *x_wr_calname;
+@property(retain, nonatomic) NSString *x_wr_caldesc;
+@property(retain, nonatomic) ICSColor *x_apple_calendar_color;
+@property(retain, nonatomic) ICSDuration *x_apple_auto_refresh;
+@property(retain, nonatomic) NSString *version;
+@property(retain, nonatomic) NSString *prodid;
+@property(nonatomic) int method;
+@property(retain, nonatomic) NSString *calscale;
 - (void)dealloc;
 - (id)init;
 - (id)_init;

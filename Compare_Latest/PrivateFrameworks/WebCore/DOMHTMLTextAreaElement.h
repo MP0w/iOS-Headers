@@ -34,7 +34,7 @@
 - (unsigned int)textLength;
 @property(copy) NSString *value;
 @property(copy) NSString *defaultValue;
-@property(readonly) NSString *type;
+@property(readonly, copy) NSString *type;
 - (void)setWrap:(id)arg1;
 - (id)wrap;
 @property int rows;

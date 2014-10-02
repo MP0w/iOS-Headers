@@ -10,7 +10,7 @@
 #import "SBFolderObserver.h"
 #import "SBFolderViewDelegate.h"
 
-@class NSArray, NSMapTable, NSTimer, SBFolder, SBFolderContext, SBFolderControllerAnimationContext, SBFolderView, SBIcon, SBIconAnimator, SBIconViewMap, _UILegibilitySettings;
+@class NSArray, NSMapTable, NSString, NSTimer, SBFolder, SBFolderContext, SBFolderControllerAnimationContext, SBFolderView, SBIcon, SBIconAnimator, SBIconViewMap, _UILegibilitySettings;
 
 @interface SBFolderController : NSObject <SBFolderControllerDelegate, SBFolderObserver, SBFolderViewDelegate>
 {
@@ -22,6 +22,7 @@
     NSTimer *_dragPauseTimer;
     NSTimer *_closeFolderTimer;
     _Bool _grabbedIconHasEverEnteredFolderView;
+    long long _dropDestinationPageIndex;
     NSMapTable *_editingContextsByFolder;
     SBIconAnimator *_iconAnimator;
     _Bool _isOpen;
@@ -38,11 +39,13 @@
     SBFolderControllerAnimationContext *_animationContext;
     SBIcon *_grabbedIcon;
     SBFolderContext *_lastContext;
+    CDUnknownBlockType _postScrollingAction;
 }
 
 + (double)wallpaperScaleForDepth:(unsigned long long)arg1;
 + (unsigned long long)maxFolderDepth;
 + (Class)listViewClass;
+@property(copy, nonatomic) CDUnknownBlockType postScrollingAction; // @synthesize postScrollingAction=_postScrollingAction;
 @property(retain, nonatomic) SBFolderContext *lastContext; // @synthesize lastContext=_lastContext;
 @property(retain, nonatomic) SBIcon *grabbedIcon; // @synthesize grabbedIcon=_grabbedIcon;
 @property(nonatomic, getter=isRotating) _Bool rotating; // @synthesize rotating=_rotating;
@@ -50,14 +53,18 @@
 @property(retain, nonatomic) SBFolderControllerAnimationContext *animationContext; // @synthesize animationContext=_animationContext;
 @property(retain, nonatomic) SBFolderController *innerFolderController; // @synthesize innerFolderController=_innerFolderController;
 @property(nonatomic) SBFolderController *outerFolderController; // @synthesize outerFolderController=_outerFolderController;
-@property(readonly, nonatomic) SBFolderView *contentView; // @synthesize contentView=_contentView;
+@property(readonly, retain, nonatomic) SBFolderView *contentView; // @synthesize contentView=_contentView;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
 @property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
 @property(retain, nonatomic) SBFolder *folder; // @synthesize folder=_folder;
 @property(nonatomic) id <SBFolderControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) long long dropDestinationPageIndex; // @synthesize dropDestinationPageIndex=_dropDestinationPageIndex;
 @property(nonatomic, getter=isAnimating) _Bool animating; // @synthesize animating=_isAnimating;
 @property(readonly, nonatomic, getter=isEditing) _Bool editing; // @synthesize editing=_isEditing;
 @property(nonatomic, getter=isOpen) _Bool open; // @synthesize open=_isOpen;
+- (void)handleReachabilityActivated:(_Bool)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)folderControllerDidReceiveCancelReachabilityAction:(id)arg1;
+- (void)folderViewDidReceiveCancelReachabilityAction:(id)arg1;
 - (void)folder:(id)arg1 didRemoveLists:(id)arg2 atIndexes:(id)arg3;
 - (void)folder:(id)arg1 didAddList:(id)arg2;
 - (void)_noteFolderListsDidChange;
@@ -76,14 +83,21 @@
 - (_Bool)folderController:(id)arg1 draggedIconDidPauseAtLocation:(struct CGPoint)arg2 inListView:(id)arg3;
 - (Class)controllerClassForFolder:(id)arg1;
 - (void)didRotateFromInterfaceOrientation:(long long)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1;
-- (void)willRotateToInterfaceOrientation:(long long)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (struct UIEdgeInsets)statusBarInsetsForOrientation:(long long)arg1;
+- (void)prepareToLaunchTappedIcon:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)cleanUpAfterZoomAnimation;
+- (void)prepareForZoomAnimation;
+- (void)addAdditionalInnerFolderAnimations;
 - (id)currentIndexPath;
 - (void)popToIndexPath:(id)arg1;
 - (_Bool)popFolderAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)pushFolder:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_animateFloatyFolderOpen:(_Bool)arg1 settings:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_animateNewsstandFolderOpen:(_Bool)arg1 settings:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)prepareToClose;
+- (void)prepareToOpen;
 - (void)_setInnerFolderOpen:(_Bool)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)_iconAppearsOnCurrentPage:(id)arg1;
 - (_Bool)_listIndexIsVisible:(unsigned long long)arg1;
@@ -96,6 +110,7 @@
 - (void)noteGrabbedIconDidChange:(id)arg1;
 - (void)noteUserIsInteractingWithIcons;
 - (void)_updateAutoScrollForTouch:(id)arg1;
+@property(readonly, nonatomic) struct CGRect _autoscrollExclusionRegion;
 - (void)_cancelAutoScroll;
 - (void)_doAutoScrollByPageCount:(long long)arg1;
 - (void)_scrollRight:(id)arg1;
@@ -105,6 +120,7 @@
 - (_Bool)_canDropIconInListView:(id)arg1;
 - (void)_resetDragPauseTimerForPoint:(struct CGPoint)arg1 inIconListView:(id)arg2;
 - (void)_cancelDragPauseTimer;
+- (void)_updateDropDestinationForTouch:(id)arg1;
 - (void)_updateCloseFolderForTouch:(id)arg1;
 - (void)_setCloseFolderTimerIfNecessary;
 - (void)_closeFolderTimerFired;
@@ -135,7 +151,7 @@
 - (_Bool)doesPageContainIconListView:(long long)arg1;
 - (id)currentIconListView;
 @property(readonly, nonatomic) unsigned long long iconListViewCount;
-@property(readonly, nonatomic) NSArray *iconListViews;
+@property(readonly, copy, nonatomic) NSArray *iconListViews;
 - (_Bool)_restoreFromContext:(id)arg1;
 - (id)_createContext;
 - (id)folderControllerForFolder:(id)arg1;
@@ -150,6 +166,12 @@
 - (void)_invalidate;
 - (void)dealloc;
 - (id)initWithFolder:(id)arg1 orientation:(long long)arg2 viewMap:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

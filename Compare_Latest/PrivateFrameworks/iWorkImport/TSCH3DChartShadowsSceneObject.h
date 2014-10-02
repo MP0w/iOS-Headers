@@ -13,7 +13,7 @@ __attribute__((visibility("hidden")))
 
 + (void)setShadowPlanePadding:(box_a3bd9649)arg1 forScene:(id)arg2;
 + (void)invalidateShadowsForScene:(id)arg1;
-- (tvec3_17f03ce0)calculateShadowCameraPosition:(float)arg1 center:(tvec3_17f03ce0)arg2 shadowQuality:(float)arg3;
+- (tvec3_17f03ce0)calculateShadowCameraPosition:(float)arg1 center:(tvec3_17f03ce0)arg2 shadowQuality:(float)arg3 depthLimitAdjustment:(float)arg4;
 - (void)getBounds:(id)arg1;
 - (void)render:(id)arg1;
 - (float)p_chartOpacityForScene:(id)arg1;

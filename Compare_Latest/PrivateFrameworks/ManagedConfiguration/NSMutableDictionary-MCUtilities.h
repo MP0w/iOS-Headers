@@ -7,6 +7,11 @@
 #import "NSMutableDictionary.h"
 
 @interface NSMutableDictionary (MCUtilities)
+- (void)MCSetUnionRestriction:(id)arg1 values:(id)arg2;
+- (void)MCSetIntersectionRestriction:(id)arg1 values:(id)arg2;
+- (void)MCSetValueRestriction:(id)arg1 value:(id)arg2;
+- (void)MCDeleteBoolRestriction:(id)arg1;
+- (void)MCSetBoolRestriction:(id)arg1 value:(BOOL)arg2;
 - (void)MCSetObjectIfNotNil:(id)arg1 forKey:(id)arg2;
 - (void)MCDeepCopyMissingEntriesFromDictionary:(id)arg1;
 - (void)MCDeepCopyEntriesFromDictionary:(id)arg1;

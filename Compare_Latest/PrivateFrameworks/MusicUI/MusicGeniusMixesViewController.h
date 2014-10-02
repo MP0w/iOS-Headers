@@ -6,20 +6,29 @@
 
 #import "MPUDataSourceViewController.h"
 
+#import "MPUMiniPlayerParticipant.h"
 #import "UICollectionViewDataSource.h"
 #import "UICollectionViewDelegate.h"
 
-@class UICollectionView, UIPageControl;
+@class NSString, UICollectionView, UIPageControl, UIView;
 
-@interface MusicGeniusMixesViewController : MPUDataSourceViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface MusicGeniusMixesViewController : MPUDataSourceViewController <MPUMiniPlayerParticipant, UICollectionViewDataSource, UICollectionViewDelegate>
 {
     UICollectionView *_collectionView;
+    struct UIEdgeInsets _collectionViewContentInsetAdditions;
     BOOL _isVisible;
     UIPageControl *_pageControl;
+    UIView *_pageControlSpacingView;
 }
 
 - (void).cxx_destruct;
+- (void)_updatePageControlCurrentPage;
 - (void)_updateNavigationPrompt;
+- (void)_reloadPageControl;
+- (struct CGSize)_itemSizeForCurrentSizeClass;
+- (void)_configureForCurrentSizeClassAndReloadCollectionViewLayout:(BOOL)arg1;
+- (void)_configureForBoundsChange;
+- (id)_collectionViewLayoutForCurrentSizeClass;
 - (void)_itemWillChangeNotification:(id)arg1;
 - (void)_networkTypeDidChangeNotification:(id)arg1;
 - (void)_defaultMediaLibraryDidChangeNotification:(id)arg1;
@@ -30,14 +39,25 @@
 - (BOOL)collectionView:(id)arg1 shouldHighlightItemAtIndexPath:(id)arg2;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
+- (BOOL)MPU_beginPlaybackForVisibleContent;
 - (void)reloadData;
+- (BOOL)music_handleUserActivityContext:(id)arg1 containerItem:(id)arg2;
+- (BOOL)music_appendCurrentUserActivityContainerItems:(id)arg1 previousViewController:(id)arg2 nextViewController:(id)arg3;
 - (id)contentScrollView;
-- (BOOL)music_beginPlaybackForVisibleContent;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidLoad;
 - (void)viewDidDisappear:(BOOL)arg1;
+- (void)viewDidLayoutSubviews;
+- (id)view;
 - (void)dealloc;
 - (id)initWithDataSource:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

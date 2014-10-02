@@ -15,16 +15,9 @@
 }
 
 + (id)_backgroundImage;
-- (void)setWellAlpha:(float)arg1;
 - (id)button;
 - (void)setButton:(id)arg1 andStyle:(BOOL)arg2;
 - (void)dealloc;
-- (id)initForVoiceControlWithFrame:(struct CGRect)arg1;
-- (id)initForTTYWithFrame:(struct CGRect)arg1;
-- (id)initForEndVideoWithFrame:(struct CGRect)arg1;
-- (id)initForEndCallWithFrame:(struct CGRect)arg1;
-- (id)initForIncomingCallWaitingWithFrame:(struct CGRect)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
 - (float)buttonWidth;
 
 @end

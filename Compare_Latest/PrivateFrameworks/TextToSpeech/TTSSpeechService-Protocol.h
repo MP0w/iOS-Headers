@@ -6,16 +6,16 @@
 
 #import "NSObject.h"
 
-@class NSString, TTSSpeechRequest;
+@class NSObject<OS_dispatch_queue>, NSString, TTSSpeechRequest;
 
 @protocol TTSSpeechService <NSObject>
-- (oneway void)getSpeechIsActiveForConnectionReply:(void (^)(BOOL))arg1;
+@property(nonatomic) NSObject<OS_dispatch_queue> *serviceQueue;
+- (oneway void)getSpeechIsActiveForRequest:(TTSSpeechRequest *)arg1 reply:(void (^)(BOOL))arg2;
 - (oneway void)getSpeechIsActiveReply:(void (^)(BOOL))arg1;
-- (oneway void)getFootprintsForVoiceName:(NSString *)arg1 languageCode:(NSString *)arg2 reply:(void (^)(NSArray *))arg3;
-- (oneway void)getVoiceNamesForLanguage:(NSString *)arg1 reply:(void (^)(NSArray *))arg2;
-- (oneway void)stopSpeechRequestAtMark:(int)arg1 reply:(void (^)(void))arg2;
-- (oneway void)continueSpeechRequest;
-- (oneway void)pauseSpeechRequestAtMark:(int)arg1 reply:(void (^)(void))arg2;
+- (oneway void)getVoicesForLanguage:(NSString *)arg1 reply:(void (^)(NSArray *))arg2;
+- (oneway void)stopSpeechRequest:(TTSSpeechRequest *)arg1 atMark:(int)arg2;
+- (oneway void)continueSpeechRequest:(TTSSpeechRequest *)arg1;
+- (oneway void)pauseSpeechRequest:(TTSSpeechRequest *)arg1 atMark:(int)arg2;
 - (oneway void)startSpeechRequest:(TTSSpeechRequest *)arg1;
 @end
 

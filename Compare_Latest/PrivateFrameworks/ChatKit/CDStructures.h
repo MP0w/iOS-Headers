@@ -10,6 +10,39 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
+struct AudioQueueBuffer {
+    unsigned int _field1;
+    void *_field2;
+    unsigned int _field3;
+    void *_field4;
+    unsigned int _field5;
+    struct AudioStreamPacketDescription *_field6;
+    unsigned int _field7;
+};
+
+struct AudioStreamBasicDescription {
+    double _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    unsigned int _field5;
+    unsigned int _field6;
+    unsigned int _field7;
+    unsigned int _field8;
+    unsigned int _field9;
+};
+
+struct AudioStreamPacketDescription;
+
+struct CGAffineTransform {
+    float _field1;
+    float _field2;
+    float _field3;
+    float _field4;
+    float _field5;
+    float _field6;
+};
+
 struct CGPoint {
     float x;
     float y;
@@ -23,6 +56,11 @@ struct CGRect {
 struct CGSize {
     float width;
     float height;
+};
+
+struct CKFeedSeparatorMetrics {
+    struct CGSize _field1;
+    struct UIEdgeInsets _field2;
 };
 
 struct UIEdgeInsets {
@@ -52,4 +90,12 @@ typedef struct {
     double latitude;
     double longitude;
 } CDStruct_2c43369c;
+
+typedef struct {
+    int index;
+    struct CGSize imageSize;
+    struct CGSize minimumSize;
+    char hasCaption;
+    char isBatchStart;
+} CDStruct_2e802c68;
 

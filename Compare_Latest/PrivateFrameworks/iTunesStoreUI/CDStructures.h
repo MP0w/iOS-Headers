@@ -87,14 +87,6 @@ typedef struct {
 } CDStruct_1d20123b;
 
 typedef struct {
-    int version;
-    void *info;
-    CDUnknownFunctionPointerType retain;
-    CDUnknownFunctionPointerType release;
-    CDUnknownFunctionPointerType copyDescription;
-} CDStruct_304912e7;
-
-typedef struct {
     id _field1;
     int _field2;
     int _field3;

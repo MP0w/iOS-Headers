@@ -9,7 +9,7 @@
 #import "SBWallpaperObserver.h"
 #import "_SBFakeBlurObserver.h"
 
-@class UIColor, UIImage, UIImageView, UIView<_SBFakeBlur>;
+@class NSString, UIColor, UIImage, UIImageView, UIView<_SBFakeBlur>;
 
 @interface SBWallpaperEffectView : UIView <_SBFakeBlurObserver, SBWallpaperObserver>
 {
@@ -34,6 +34,15 @@
 }
 
 + (id)imageInRect:(struct CGRect)arg1 forVariant:(long long)arg2 withStyle:(long long)arg3 zoomFactor:(double)arg4 mask:(id)arg5 masksBlur:(_Bool)arg6 masksTint:(_Bool)arg7;
+- (void)_setFrame:(struct CGRect)arg1 forceUpdateBackgroundImage:(_Bool)arg2;
+- (void)_setIsContainedInPopover:(_Bool)arg1;
+- (void)updateBackgroundImage;
+- (void)setAppearanceStorage:(id)arg1;
+- (id)appearanceStorage;
+- (void)setBarWantsAdaptiveBackdrop:(_Bool)arg1;
+- (void)setTranslucent:(_Bool)arg1;
+- (void)setBarStyle:(long long)arg1;
+- (void)setBarTintColor:(id)arg1;
 - (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 - (void)_accessibilityEnhanceBackgroundContrastChanged:(id)arg1;
 - (void)_clearView:(id *)arg1;
@@ -52,9 +61,14 @@
 - (void)setTransitionState:(CDStruct_059c2b36)arg1;
 - (_Bool)prepareToAnimateToTransitionState:(inout CDStruct_059c2b36 *)arg1;
 - (void)setStyle:(long long)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithWallpaperVariant:(long long)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

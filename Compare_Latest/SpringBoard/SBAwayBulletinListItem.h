@@ -6,7 +6,7 @@
 
 #import "SBAwayListItem.h"
 
-@class BBBulletin, BBObserver, NSDate, NSMutableArray, NSString, UIImage;
+@class BBBulletin, BBObserver, NSDate, NSMutableArray, NSString, UIImage, UIViewController;
 
 @interface SBAwayBulletinListItem : SBAwayListItem
 {
@@ -19,19 +19,21 @@
     NSString *_message;
     UIImage *_listItemImage;
     BBBulletin *_activeBulletin;
+    UIViewController *_secondaryContentViewController;
 }
 
+@property(retain) UIViewController *secondaryContentViewController; // @synthesize secondaryContentViewController=_secondaryContentViewController;
 @property(retain) BBBulletin *activeBulletin; // @synthesize activeBulletin=_activeBulletin;
 - (_Bool)overridesQuietMode;
 - (_Bool)isCritical;
 - (_Bool)inertWhenLocked;
+- (void)prepareWithCompletion:(CDUnknownBlockType)arg1;
 - (id)observer;
 - (long long)snoozeButtonindex;
 - (_Bool)wantsHighlightOnInsert;
 - (void)buttonPressed;
 - (_Bool)canBeClearedByNotificationCenter;
 - (_Bool)canSnooze;
-- (_Bool)isVIP;
 - (_Bool)canCoalesceWithBulletin:(id)arg1;
 - (_Bool)hasSamePersonAsBulletin:(id)arg1;
 - (id)attachmentText;
@@ -52,7 +54,6 @@
 - (void)removeAllBulletins;
 - (void)removeBulletin:(id)arg1;
 - (void)addBulletin:(id)arg1;
-- (void)_updateButtonLabels;
 - (void)_updateMessage;
 - (_Bool)_suppressesMessageForPrivacy;
 - (void)_updateImage;

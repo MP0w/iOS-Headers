@@ -11,25 +11,37 @@
 @interface MCConfigurationProfile : MCProfile
 {
     NSArray *_payloads;
+    NSArray *_managedPayloads;
     BOOL _isCloudProfile;
     BOOL _isCloudLocked;
+    BOOL _isMDMProfile;
     MCProfileServiceProfile *_OTAProfile;
 }
 
+@property(nonatomic) BOOL isMDMProfile; // @synthesize isMDMProfile=_isMDMProfile;
 @property(nonatomic) BOOL isCloudLocked; // @synthesize isCloudLocked=_isCloudLocked;
 @property(nonatomic) BOOL isCloudProfile; // @synthesize isCloudProfile=_isCloudProfile;
 @property(retain, nonatomic) MCProfileServiceProfile *OTAProfile; // @synthesize OTAProfile=_OTAProfile;
 - (void).cxx_destruct;
 - (id)earliestCertificateExpiryDate;
+- (id)localizedManagedPayloadSummaryByType;
 - (id)localizedPayloadSummaryByType;
+- (id)_localizedPayloadSummaryByType:(id)arg1;
 - (id)stubDictionary;
 - (id)description;
 - (id)installationWarningsIncludeUnsignedProfileWarning:(BOOL)arg1;
 - (BOOL)isManagedByProfileService;
 - (id)initWithDictionary:(id)arg1 allowEmptyPayload:(BOOL)arg2 outError:(id *)arg3;
+- (id)subjectSummaryFromCertificateWithPersistentID:(id)arg1;
+- (struct __SecCertificate *)copyCertificateWithPersistentID:(id)arg1;
+- (id)subjectSummaryFromCertificatePayloadWithUUID:(id)arg1;
+- (struct __SecCertificate *)copyCertificateFromPayloadWithUUID:(id)arg1;
+- (id)_subjectSummaryFromCertificate:(struct __SecCertificate *)arg1;
 - (id)payloadWithUUID:(id)arg1;
+- (id)managedPayloads;
 - (id)payloads;
 - (void)_sortPayloads;
+- (id)_sortPayloads:(id)arg1;
 - (void)_addObjectsOfClass:(Class)arg1 fromArray:(id)arg2 toArray:(id)arg3;
 
 @end

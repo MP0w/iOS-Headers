@@ -27,12 +27,11 @@
     SUScriptExecutionContext *_scriptExecutionContext;
     NSString *_synchedStoreFrontAtLastSuspend;
     NSMutableDictionary *_urlBagKeys;
-    ISURLOperationPool *_imageOperationPool;
 }
 
 + (id)sharedController;
 + (void)setSharedController:(id)arg1;
-@property(retain, nonatomic) ISURLOperationPool *imageOperationPool; // @synthesize imageOperationPool=_imageOperationPool;
+@property(retain, nonatomic) ISURLOperationPool *imageOperationPool; // @synthesize imageOperationPool=_imagePool;
 @property(retain, nonatomic) SUImageCache *imageCache; // @synthesize imageCache=_imageCache;
 @property(retain, nonatomic) UIViewController *rootViewController; // @synthesize rootViewController=_rootViewController;
 @property(readonly, nonatomic, getter=isActive) BOOL active; // @synthesize active=_active;
@@ -107,6 +106,12 @@
 - (void)dealloc;
 - (id)initWithClientInterface:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

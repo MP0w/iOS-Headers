@@ -6,19 +6,14 @@
 
 #import <DataAccess/DAMailboxRequest.h>
 
-@class NSString;
-
 @interface DAMailboxSetFlagsRequest : DAMailboxRequest
 {
     unsigned long long _onFlags;
     unsigned long long _offFlags;
-    NSString *_messageID;
 }
 
-- (id)messageID;
-- (unsigned long long)offFlags;
-- (unsigned long long)onFlags;
-- (void)dealloc;
+@property(nonatomic) unsigned long long offFlags; // @synthesize offFlags=_offFlags;
+@property(nonatomic) unsigned long long onFlags; // @synthesize onFlags=_onFlags;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;

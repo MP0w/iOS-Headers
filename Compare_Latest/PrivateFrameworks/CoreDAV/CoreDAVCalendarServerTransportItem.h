@@ -21,14 +21,14 @@
 }
 
 + (id)copyParseRules;
-@property(retain) CoreDAVLeafItem *xmppURI; // @synthesize xmppURI=_xmppURI;
-@property(retain) CoreDAVLeafItem *xmppServer; // @synthesize xmppServer=_xmppServer;
-@property(retain) CoreDAVLeafItem *refreshInterval; // @synthesize refreshInterval=_refreshInterval;
-@property(retain) CoreDAVLeafItem *apsEnv; // @synthesize apsEnv=_apsEnv;
-@property(retain) CoreDAVItemWithHrefChildItem *tokenURL; // @synthesize tokenURL=_tokenURL;
-@property(retain) CoreDAVItemWithHrefChildItem *subscriptionURL; // @synthesize subscriptionURL=_subscriptionURL;
-@property(retain) CoreDAVLeafItem *courierServer; // @synthesize courierServer=_courierServer;
-@property(retain) CoreDAVLeafItem *apsBundleID; // @synthesize apsBundleID=_apsBundleID;
+@property(retain, nonatomic) CoreDAVLeafItem *xmppURI; // @synthesize xmppURI=_xmppURI;
+@property(retain, nonatomic) CoreDAVLeafItem *xmppServer; // @synthesize xmppServer=_xmppServer;
+@property(retain, nonatomic) CoreDAVLeafItem *refreshInterval; // @synthesize refreshInterval=_refreshInterval;
+@property(retain, nonatomic) CoreDAVLeafItem *apsEnv; // @synthesize apsEnv=_apsEnv;
+@property(retain, nonatomic) CoreDAVItemWithHrefChildItem *tokenURL; // @synthesize tokenURL=_tokenURL;
+@property(retain, nonatomic) CoreDAVItemWithHrefChildItem *subscriptionURL; // @synthesize subscriptionURL=_subscriptionURL;
+@property(retain, nonatomic) CoreDAVLeafItem *courierServer; // @synthesize courierServer=_courierServer;
+@property(retain, nonatomic) CoreDAVLeafItem *apsBundleID; // @synthesize apsBundleID=_apsBundleID;
 - (id)description;
 - (void)dealloc;
 - (id)init;

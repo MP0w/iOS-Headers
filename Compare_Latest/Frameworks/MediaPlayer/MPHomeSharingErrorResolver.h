@@ -8,7 +8,7 @@
 
 #import "SSAuthorizationRequestDelegate.h"
 
-@class MPHomeSharingML3DataProvider, NSData, NSError, NSURL, SSAuthorizationRequest;
+@class MPHomeSharingML3DataProvider, NSData, NSError, NSString, NSURL, SSAuthorizationRequest;
 
 @interface MPHomeSharingErrorResolver : MPAVErrorResolver <SSAuthorizationRequestDelegate>
 {
@@ -29,6 +29,12 @@
 - (void)resolveError:(id)arg1;
 - (void)dealloc;
 - (id)initWithTokenData:(id)arg1 forAccountID:(unsigned long long)arg2 keybagURL:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,7 +6,6 @@
 
 #import <MusicLibrary/ML3Predicate.h>
 
-__attribute__((visibility("hidden")))
 @interface ML3UnaryPredicate : ML3Predicate
 {
     ML3Predicate *_predicate;

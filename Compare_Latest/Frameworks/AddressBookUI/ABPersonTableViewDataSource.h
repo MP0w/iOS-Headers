@@ -129,8 +129,6 @@
 - (id)namePropertyGroup:(id)arg1 primaryValueForProperty:(int)arg2;
 - (BOOL)personCellLayoutManager:(id)arg1 isCellInFullEditMode:(id)arg2;
 - (float)marginForTableView:(id)arg1;
-- (float)heightForFooterInTableView:(id)arg1;
-- (float)heightForHeaderInTableView:(id)arg1;
 - (id)viewForFooterInTableView:(id)arg1;
 - (id)realHeaderView;
 - (id)tableHeaderViewContainer;
@@ -330,6 +328,12 @@
 @property(readonly, nonatomic) ABPersonTableViewMultiCellDelegate *multiCellContentViewDelegate;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,21 +8,26 @@
 
 #import "EDFormulaBuilding.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface EDFormula : NSObject <EDFormulaBuilding>
 {
     struct __CFData *mPackedData;
 }
 
-+ (id)messageForWarning:(int)arg1;
 + (id)formula;
+- (BOOL)insertName:(unsigned int)arg1 atIndex:(unsigned int)arg2;
+- (BOOL)uppercaseArgAtIndex:(unsigned int)arg1;
+- (BOOL)fixTableOfConstantsRefs;
+- (BOOL)wrapArgumentsWithOperator:(int)arg1 argumentCount:(unsigned int)arg2 atIndex:(unsigned int)arg3;
+- (BOOL)addInfixOperator:(int)arg1 atIndex:(unsigned int)arg2 factor:(double)arg3;
 - (BOOL)shrinkSpanningRefAtArgIndex:(unsigned int)arg1;
 - (void)markLastTokenAsSpanningRefVertically:(BOOL)arg1 withMin:(unsigned short)arg2 andMax:(unsigned short)arg3;
 - (void)markLastTokenAsDuration;
-- (id)lastTokenRefOrArea3dLinkRefIsValid:(char *)arg1 withEDLinks:(id)arg2;
-- (BOOL)convertRefs:(unsigned int)arg1 toTypes:(int *)arg2;
-- (BOOL)convertLastRefsToArea;
 - (BOOL)convertToIntersect:(unsigned int)arg1;
+- (id)lastTokenRefOrArea3dLinkRefIsValid:(char *)arg1 withEDLinks:(id)arg2;
+- (BOOL)convertLastRefsToArea;
 - (BOOL)convertToList:(unsigned int)arg1 withFinalParen:(BOOL)arg2;
 - (BOOL)convertToList:(unsigned int)arg1;
 - (char *)setExtendedDataForLastTokenAtIndex:(unsigned int)arg1 length:(unsigned int)arg2;
@@ -46,9 +51,11 @@ __attribute__((visibility("hidden")))
 - (int)warningType;
 - (void)setOriginalFormulaString:(id)arg1;
 - (id)originalFormulaString;
+- (_Bool)convertTokensToSharedAtRow:(unsigned int)arg1 column:(unsigned int)arg2;
 - (ChVector_2ce397a3 *)xlPtgs;
 - (void)populateXlPtg:(struct XlPtg *)arg1 index:(unsigned int)arg2;
 - (_Bool)replaceTokenAtIndex:(unsigned int)arg1 withFormula:(id)arg2 formulaTokenIndex:(unsigned int)arg3;
+- (_Bool)replaceTokenAtIndex:(unsigned int)arg1 withFormula:(id)arg2;
 - (_Bool)removeTokenAtIndex:(unsigned int)arg1;
 - (void)removeAllTokens;
 - (_Bool)copyTokenFromXlPtg:(struct XlPtg *)arg1;
@@ -71,6 +78,12 @@ __attribute__((visibility("hidden")))
 - (struct EDToken *)tokenAtIndex:(unsigned int)arg1;
 - (void)archiveByAppendingToMutableData:(struct __CFData *)arg1;
 - (void)unarchiveFromData:(struct __CFData *)arg1 offset:(unsigned int *)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

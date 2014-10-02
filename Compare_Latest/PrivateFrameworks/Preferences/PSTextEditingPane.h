@@ -9,7 +9,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class PSTextEditingCell, UITableView, UITextField;
+@class NSString, PSTextEditingCell, UITableView, UITextField;
 
 @interface PSTextEditingPane : PSEditingPane <UITableViewDelegate, UITableViewDataSource>
 {
@@ -27,6 +27,12 @@
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

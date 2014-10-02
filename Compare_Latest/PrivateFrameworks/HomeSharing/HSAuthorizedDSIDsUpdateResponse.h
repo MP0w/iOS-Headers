@@ -14,7 +14,7 @@
 }
 
 @property(copy, nonatomic) NSArray *authorizedDSIDs; // @synthesize authorizedDSIDs;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

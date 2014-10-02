@@ -9,7 +9,7 @@
 #import "UITextFieldDelegate.h"
 #import "UITextViewDelegate.h"
 
-@class PSListController, UIColor;
+@class NSString, PSListController, UIColor;
 
 @interface PSEditableTableCell : PSTableCell <UITextViewDelegate, UITextFieldDelegate>
 {
@@ -58,6 +58,12 @@
 - (void)refreshCellContentsWithSpecifier:(id)arg1;
 - (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

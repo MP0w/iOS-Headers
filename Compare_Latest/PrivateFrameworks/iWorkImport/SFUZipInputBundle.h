@@ -8,7 +8,7 @@
 
 #import "SFUInputBundle.h"
 
-@class SFUZipArchive;
+@class NSString, SFUZipArchive;
 
 __attribute__((visibility("hidden")))
 @interface SFUZipInputBundle : NSObject <SFUInputBundle>
@@ -24,6 +24,12 @@ __attribute__((visibility("hidden")))
 - (BOOL)hasEntryWithName:(id)arg1;
 - (void)dealloc;
 - (id)initWithZipArchive:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

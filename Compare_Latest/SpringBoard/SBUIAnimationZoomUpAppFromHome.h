@@ -8,7 +8,7 @@
 
 #import "SBIconAnimatorDelegate.h"
 
-@class SBIconAnimator;
+@class NSString, SBIconAnimator;
 
 @interface SBUIAnimationZoomUpAppFromHome : SBUIAnimationZoomUpApp <SBIconAnimatorDelegate>
 {
@@ -20,6 +20,12 @@
 - (void)animateZoomWithCompletion:(CDUnknownBlockType)arg1;
 - (void)prepareZoom;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

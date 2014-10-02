@@ -12,6 +12,7 @@
 {
     BOOL _holdingBoundsInvalidation;
     BOOL _useInitialLayoutAttributesForRotation;
+    BOOL _isResting;
     BOOL _easingUp;
     BOOL _shouldDisplayLinkInvalidateLayout;
     float _anchorYPosition;
@@ -31,14 +32,15 @@
 @property(nonatomic) struct CGRect visibleBounds; // @synthesize visibleBounds=_visibleBounds;
 @property(retain, nonatomic) CADisplayLink *displayLink; // @synthesize displayLink=_displayLink;
 @property(copy, nonatomic) NSArray *layoutAttributes; // @synthesize layoutAttributes=_layoutAttributes;
+@property(nonatomic) BOOL isResting; // @synthesize isResting=_isResting;
 @property(nonatomic, getter=isUsingInitialLayoutAttributesForRotation) BOOL useInitialLayoutAttributesForRotation; // @synthesize useInitialLayoutAttributesForRotation=_useInitialLayoutAttributesForRotation;
 @property(nonatomic, getter=isHoldingBoundsInvalidation) BOOL holdingBoundsInvalidation; // @synthesize holdingBoundsInvalidation=_holdingBoundsInvalidation;
 @property(nonatomic) struct CGPoint targetContentOffset; // @synthesize targetContentOffset=_targetContentOffset;
 @property(nonatomic) float anchorYPosition; // @synthesize anchorYPosition=_anchorYPosition;
+- (void)updateFrames;
 - (void)displayLinkFired:(id)arg1;
 - (float)bezierPointForPercentage:(float)arg1 anchor1:(float)arg2 anchor2:(float)arg3 control1:(float)arg4 control2:(float)arg5;
 - (void)updateContentSize;
-- (id)_layoutAttributesForItemAtIndexPath:(id)arg1;
 - (void)invalidateDisplayLink;
 - (void)reloadData;
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(struct CGRect)arg1;
@@ -51,6 +53,7 @@
 - (id)initialLayoutAttributesForAppearingItemAtIndexPath:(id)arg1;
 - (void)prepareLayout;
 - (void)dealloc;
+- (id)init;
 
 @end
 

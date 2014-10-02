@@ -9,7 +9,7 @@
 #import "BBObserverDelegate.h"
 #import "SBVolumePressBandit.h"
 
-@class BBObserver;
+@class BBObserver, NSString;
 
 @interface SBStarkBulletinBannerSource : SBStarkBannerSource <BBObserverDelegate, SBVolumePressBandit>
 {
@@ -26,6 +26,12 @@
 - (void)_showTestBanner:(id)arg1;
 - (void)dealloc;
 - (id)initWithAllowedTargetIdentifier:(void *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

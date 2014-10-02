@@ -6,8 +6,10 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying.h"
+
 __attribute__((visibility("hidden")))
-@interface GEOVStyleAttribute : PBCodable
+@interface GEOVStyleAttribute : PBCodable <NSCopying>
 {
     int _intValue;
     unsigned int _key;
@@ -20,13 +22,13 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned int key; // @synthesize key=_key;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
 @property(nonatomic) BOOL hasIntValue;
-- (void)dealloc;
 
 @end
 

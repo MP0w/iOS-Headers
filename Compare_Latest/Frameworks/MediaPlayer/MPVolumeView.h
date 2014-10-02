@@ -9,7 +9,7 @@
 #import "MPAVRoutingControllerDelegate.h"
 #import "NSCoding.h"
 
-@class MPAVRoutingController, MPAVRoutingSheet, MPAudioVideoRoutingPopoverController, MPVolumeSlider, UIButton, UIImage, UILabel;
+@class MPAVRoutingController, MPAVRoutingSheet, MPAudioVideoRoutingPopoverController, MPVolumeSlider, NSString, UIButton, UIImage, UILabel;
 
 @interface MPVolumeView : UIView <MPAVRoutingControllerDelegate, NSCoding>
 {
@@ -87,7 +87,6 @@
 - (void)didMoveToWindow;
 - (void)didMoveToSuperview;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)setFrame:(struct CGRect)arg1;
 - (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
 - (void)encodeWithCoder:(id)arg1;
@@ -96,6 +95,12 @@
 - (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_initWithStyle:(int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

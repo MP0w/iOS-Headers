@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
     struct hash_map<unsigned int, const google::protobuf::Message *, __gnu_cxx::hash<unsigned int>, std::__1::equal_to<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, const google::protobuf::Message *>>> _messageTypeToPrototypeMap;
     struct hash_map<const google::protobuf::Descriptor *, unsigned int, TSP::DescriptorHash, std::__1::equal_to<const google::protobuf::Descriptor *>, std::__1::allocator<std::__1::pair<const google::protobuf::Descriptor *const, unsigned int>>> _descriptorToMessageTypeMap;
     struct hash_map<unsigned int, const char *, __gnu_cxx::hash<unsigned int>, std::__1::equal_to<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, const char *>>> _messageTypeToClassnameMap;
-    struct hash_map<unsigned int, __unsafe_unretained Class *, __gnu_cxx::hash<unsigned int>, std::__1::equal_to<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, __unsafe_unretained Class *>>> _messageTypeToClassMap;
+    struct hash_map<unsigned int, __unsafe_unretained Class, __gnu_cxx::hash<unsigned int>, std::__1::equal_to<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, __unsafe_unretained Class>>> _messageTypeToClassMap;
 }
 
 + (void)setInitializationHandler:(CDUnknownBlockType)arg1;

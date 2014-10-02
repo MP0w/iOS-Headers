@@ -7,30 +7,28 @@
 #import "UIControl.h"
 
 #import "ABCountryPickerControllerDelegate.h"
+#import "ABText.h"
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 #import "UITextFieldDelegate.h"
 
-@class CNPostalAddress, NSArray, NSDictionary, NSMutableDictionary, UITableView;
+@class CNPostalAddress, NSArray, NSDictionary, NSMutableDictionary, NSString, UIColor, UITableView;
 
-@interface ABPostalAddressEditorView : UIControl <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, ABCountryPickerControllerDelegate>
+@interface ABPostalAddressEditorView : UIControl <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, ABCountryPickerControllerDelegate, ABText>
 {
     CNPostalAddress *_address;
-    id <ABPresenterDelegate> _delegate;
     NSDictionary *_valueTextAttributes;
+    id <ABPresenterDelegate> _delegate;
     UITableView *_tableView;
     NSDictionary *_addressFormats;
     NSArray *_cellsLayout;
     NSMutableDictionary *_textFields;
 }
 
-+ (void)preCacheCells;
-+ (void)preCacheContent;
 @property(copy, nonatomic) NSMutableDictionary *textFields; // @synthesize textFields=_textFields;
 @property(copy, nonatomic) NSArray *cellsLayout; // @synthesize cellsLayout=_cellsLayout;
 @property(copy, nonatomic) NSDictionary *addressFormats; // @synthesize addressFormats=_addressFormats;
 @property(retain, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
-@property(copy, nonatomic) NSDictionary *valueTextAttributes; // @synthesize valueTextAttributes=_valueTextAttributes;
 @property(nonatomic) id <ABPresenterDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)_cellsLayoutForCountryCode:(id)arg1;
 - (id)_normalizeCountryCodeToISO:(id)arg1;
@@ -41,21 +39,32 @@
 - (id)_addressValueForKey:(id)arg1;
 - (void)_setAddressValue:(id)arg1 forKey:(id)arg2;
 - (void)setBackgroundColor:(id)arg1;
-- (BOOL)textFieldShouldBeginEditing:(id)arg1;
+- (void)textFieldDidBeginEditing:(id)arg1;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (void)countryPicker:(id)arg1 didPickCountryCode:(id)arg2;
 - (void)countryPickerDidCancel:(id)arg1;
 - (void)textFieldChanged:(id)arg1;
+- (void)_invalidateCellsLayout;
 @property(copy, nonatomic) CNPostalAddress *address;
+@property(copy, nonatomic) UIColor *separatorColor;
+@property(copy, nonatomic) NSDictionary *ab_textAttributes;
+@property(copy, nonatomic) NSString *ab_text;
+@property(readonly, nonatomic) int lineCount;
 - (void)setEnabled:(BOOL)arg1;
 - (BOOL)becomeFirstResponder;
 - (BOOL)isFirstResponder;
 - (BOOL)canBecomeFirstResponder;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (struct CGSize)intrinsicContentSize;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

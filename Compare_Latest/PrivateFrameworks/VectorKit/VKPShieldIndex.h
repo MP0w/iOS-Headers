@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 
 @property(retain, nonatomic) NSMutableArray *textEntries; // @synthesize textEntries=_textEntries;
 @property(retain, nonatomic) NSMutableArray *entries; // @synthesize entries=_entries;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -36,7 +37,8 @@ __attribute__((visibility("hidden")))
 - (void)addEntries:(id)arg1;
 - (void)clearEntries;
 - (void)dealloc;
-- (id)artworkIdentifierForShieldType:(int)arg1 textSpecificIdentifiers:(id *)arg2;
+- (id)defaultArtworkIdentifierForFeatureType:(int)arg1;
+- (id)artworkIdentifierForShieldType:(long long)arg1 textSpecificIdentifiers:(id *)arg2;
 
 @end
 

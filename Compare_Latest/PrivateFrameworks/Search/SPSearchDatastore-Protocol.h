@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSData, NSString, SPContentResult, SPSearchQuery;
+@class NSArray, NSData, NSString, SPContentResult, SPFeedback, SPSearchQuery;
 
 @protocol SPSearchDatastore <NSObject>
 - (NSString *)displayIdentifierForDomain:(unsigned int)arg1;
@@ -14,10 +14,14 @@
 - (void)performQuery:(SPSearchQuery *)arg1 withResultsPipe:(id <SPSearchResultsPipe>)arg2;
 
 @optional
+- (void)sendFeedback:(SPFeedback *)arg1;
+- (NSData *)imageDataForIdentifier:(NSString *)arg1 domain:(unsigned int)arg2 size:(struct CGSize)arg3;
 - (NSData *)imageDataForResultIdentifier:(unsigned long long)arg1 domain:(unsigned int)arg2 size:(struct CGSize)arg3;
 - (SPContentResult *)resultForIdentifier:(NSString *)arg1 domain:(unsigned int)arg2;
 - (NSString *)categoryForDomain:(unsigned int)arg1;
+- (BOOL)wantsExtendedTimeForDomain:(unsigned int)arg1;
 - (BOOL)wantsEveryResultInItsOwnSection;
+- (void)coolDown;
 - (void)preheat;
 @end
 

@@ -18,8 +18,9 @@ __attribute__((visibility("hidden")))
 }
 
 - (id).cxx_construct;
-- (BRectImp_7721609a)boundsAtOrigin;
-- (Vec2Imp_1782d7e3)offsetPixelForPixel:(Vec2Imp_1782d7e3)arg1;
+- (Box_3fb92e00)localCollisionBounds;
+- (Box_3fb92e00)localRenderBounds;
+- (Matrix_8746f91e)offsetPixelForPixel:(Matrix_8746f91e)arg1;
 - (id)image;
 - (void)dealloc;
 - (void)_updateLayoutSize;

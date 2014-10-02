@@ -12,8 +12,9 @@
 
 @interface GEOPlaceResult : PBCodable <NSCopying>
 {
-    double _confidence;
+    unsigned long long _flyoverTourMuid;
     NSMutableArray *_additionalPlaces;
+    int _cacheControl;
     NSMutableArray *_matchedTokens;
     NSMutableArray *_namedFeatures;
     GEOPlace *_place;
@@ -25,12 +26,15 @@
     unsigned int _travelTime;
     NSMutableArray *_unmatchedStrings;
     struct {
-        unsigned int confidence:1;
+        unsigned int flyoverTourMuid:1;
+        unsigned int cacheControl:1;
         unsigned int travelDistance:1;
         unsigned int travelTime:1;
     } _has;
 }
 
+@property(nonatomic) int cacheControl; // @synthesize cacheControl=_cacheControl;
+@property(nonatomic) unsigned long long flyoverTourMuid; // @synthesize flyoverTourMuid=_flyoverTourMuid;
 @property(retain, nonatomic) NSMutableArray *matchedTokens; // @synthesize matchedTokens=_matchedTokens;
 @property(retain, nonatomic) GEOPlaceSearchRequest *revgeoRequestTemplate; // @synthesize revgeoRequestTemplate=_revgeoRequestTemplate;
 @property(retain, nonatomic) NSMutableArray *namedFeatures; // @synthesize namedFeatures=_namedFeatures;
@@ -41,8 +45,8 @@
 @property(nonatomic) unsigned int travelTime; // @synthesize travelTime=_travelTime;
 @property(retain, nonatomic) NSString *suggestedQuery; // @synthesize suggestedQuery=_suggestedQuery;
 @property(retain, nonatomic) NSMutableArray *additionalPlaces; // @synthesize additionalPlaces=_additionalPlaces;
-@property(nonatomic) double confidence; // @synthesize confidence=_confidence;
 @property(retain, nonatomic) GEOPlace *place; // @synthesize place=_place;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -51,6 +55,8 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) BOOL hasCacheControl;
+@property(nonatomic) BOOL hasFlyoverTourMuid;
 - (id)matchedTokenAtIndex:(unsigned int)arg1;
 - (unsigned int)matchedTokensCount;
 - (void)addMatchedToken:(id)arg1;
@@ -73,8 +79,8 @@
 - (unsigned int)additionalPlacesCount;
 - (void)addAdditionalPlace:(id)arg1;
 - (void)clearAdditionalPlaces;
-@property(nonatomic) BOOL hasConfidence;
 - (void)dealloc;
+- (id)geoMapItem;
 
 @end
 

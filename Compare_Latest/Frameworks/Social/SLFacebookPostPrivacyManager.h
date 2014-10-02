@@ -14,7 +14,6 @@
     NSArray *_privacySettings;
 }
 
-+ (id)baseAudienceButtonImageNameForPrivacySettingType:(int)arg1;
 - (void).cxx_destruct;
 - (void)updatePrivacySettingsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_handlePrivacySettingsUpdateResponseWithData:(id)arg1 urlResponse:(id)arg2 error:(id)arg3 handler:(CDUnknownBlockType)arg4;

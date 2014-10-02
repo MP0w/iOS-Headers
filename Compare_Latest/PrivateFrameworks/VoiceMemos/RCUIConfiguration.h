@@ -8,20 +8,24 @@
 
 #import "NSCopying.h"
 
-@class UIColor;
+@class NSString, UIColor;
 
 @interface RCUIConfiguration : NSObject <NSCopying>
 {
-    BOOL _waveformBoundaryLineColorDimsDuringTrim;
+    BOOL _waveformBoundaryLineDimInSelectionMode;
     BOOL _showsWaveformCenterline;
+    NSString *_debugIdentifier;
     UIColor *_backgroundColor;
     UIColor *_waveformColor;
     UIColor *_waveformBoundaryLineColor;
+    UIColor *_waveformHighlightColor;
     UIColor *_timeLineMarkerColor;
     UIColor *_timeLineTimeColor;
     UIColor *_acousticValueColor;
     UIColor *_acousticGradientMaskEndColor;
     float _acousticAnnotationVerticalMargin;
+    float _minimumDecibelDisplayRange;
+    float _maximumDecibelDisplayRange;
     UIColor *_playbackPositionBarColor;
     UIColor *_playbackPositionTimeColor;
     UIColor *_selectionOverlayColor;
@@ -35,17 +39,22 @@
 @property(retain, nonatomic) UIColor *selectionOverlayColor; // @synthesize selectionOverlayColor=_selectionOverlayColor;
 @property(retain, nonatomic) UIColor *playbackPositionTimeColor; // @synthesize playbackPositionTimeColor=_playbackPositionTimeColor;
 @property(retain, nonatomic) UIColor *playbackPositionBarColor; // @synthesize playbackPositionBarColor=_playbackPositionBarColor;
+@property(nonatomic) float maximumDecibelDisplayRange; // @synthesize maximumDecibelDisplayRange=_maximumDecibelDisplayRange;
+@property(nonatomic) float minimumDecibelDisplayRange; // @synthesize minimumDecibelDisplayRange=_minimumDecibelDisplayRange;
 @property(nonatomic) float acousticAnnotationVerticalMargin; // @synthesize acousticAnnotationVerticalMargin=_acousticAnnotationVerticalMargin;
 @property(retain, nonatomic) UIColor *acousticGradientMaskEndColor; // @synthesize acousticGradientMaskEndColor=_acousticGradientMaskEndColor;
 @property(retain, nonatomic) UIColor *acousticValueColor; // @synthesize acousticValueColor=_acousticValueColor;
 @property(retain, nonatomic) UIColor *timeLineTimeColor; // @synthesize timeLineTimeColor=_timeLineTimeColor;
 @property(retain, nonatomic) UIColor *timeLineMarkerColor; // @synthesize timeLineMarkerColor=_timeLineMarkerColor;
 @property(nonatomic) BOOL showsWaveformCenterline; // @synthesize showsWaveformCenterline=_showsWaveformCenterline;
-@property(nonatomic) BOOL waveformBoundaryLineColorDimsDuringTrim; // @synthesize waveformBoundaryLineColorDimsDuringTrim=_waveformBoundaryLineColorDimsDuringTrim;
+@property(nonatomic) BOOL waveformBoundaryLineDimInSelectionMode; // @synthesize waveformBoundaryLineDimInSelectionMode=_waveformBoundaryLineDimInSelectionMode;
+@property(retain, nonatomic) UIColor *waveformHighlightColor; // @synthesize waveformHighlightColor=_waveformHighlightColor;
 @property(retain, nonatomic) UIColor *waveformBoundaryLineColor; // @synthesize waveformBoundaryLineColor=_waveformBoundaryLineColor;
 @property(retain, nonatomic) UIColor *waveformColor; // @synthesize waveformColor=_waveformColor;
 @property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
+@property(retain, nonatomic) NSString *debugIdentifier; // @synthesize debugIdentifier=_debugIdentifier;
 - (void).cxx_destruct;
+- (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

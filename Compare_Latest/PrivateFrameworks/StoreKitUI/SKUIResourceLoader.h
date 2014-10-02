@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSOperationQueue, SKUIClientContext;
+@class NSMapTable, NSMutableDictionary, NSOperationQueue, SKUIClientContext;
 
 @interface SKUIResourceLoader : NSObject
 {
@@ -14,6 +14,7 @@
     id <SKUIResourceLoaderDelegate> _delegate;
     NSOperationQueue *_operationQueue;
     NSMutableDictionary *_operationsByRequestID;
+    NSMapTable *_requestsByCacheKey;
     NSMutableDictionary *_resourcesByRequestID;
 }
 
@@ -24,6 +25,7 @@
 - (void)_sendDidIdleIfNecessary;
 - (void)_finishLoadForRequest:(id)arg1 withResource:(id)arg2;
 - (void)setReason:(int)arg1 forRequestWithIdentifier:(unsigned int)arg2;
+- (id)requestIdentifierForCacheKey:(id)arg1;
 - (void)removeAllCachedResources;
 - (BOOL)loadResourceWithRequest:(id)arg1 reason:(int)arg2;
 @property(readonly, nonatomic, getter=isIdle) BOOL idle;

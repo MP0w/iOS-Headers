@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "SSXPCCoding.h"
+
 @class NSDictionary, NSString;
 
-@interface ISDialogButton : NSObject
+@interface ISDialogButton : NSObject <SSXPCCoding>
 {
     int _actionType;
     id _parameter;
@@ -25,15 +27,22 @@
 @property(retain) id parameter; // @synthesize parameter=_parameter;
 @property(retain) NSDictionary *dictionary; // @synthesize dictionary=_dictionary;
 @property int actionType; // @synthesize actionType=_actionType;
+- (id)copyXPCEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
 - (int)_urlTypeForString:(id)arg1;
 - (void)_openURLWithRequest:(id)arg1;
 - (int)_actionTypeForString:(id)arg1;
-- (id)_accountURLForURL:(id)arg1 authenticationContext:(id)arg2;
 - (void)setActionTypeWithString:(id)arg1;
 - (void)performDefaultActionForDialog:(id)arg1;
 - (void)loadFromDictionary:(id)arg1;
 - (BOOL)isEqual:(id)arg1 superficial:(BOOL)arg2;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

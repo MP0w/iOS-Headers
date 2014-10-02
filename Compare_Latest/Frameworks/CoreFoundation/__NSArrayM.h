@@ -10,12 +10,12 @@ __attribute__((visibility("hidden")))
 @interface __NSArrayM : NSMutableArray
 {
     unsigned int _used;
+    unsigned int _offset;
+    unsigned int _size:28;
     unsigned int _doHardRetain:1;
     unsigned int _doWeakAccess:1;
-    unsigned int _size:30;
     unsigned int _hasObjects:1;
     unsigned int _hasStrongReferences:1;
-    unsigned int _offset:30;
     unsigned long _mutations;
     id *_list;
 }
@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)finalize;
 - (void)dealloc;
+- (void)removeAllObjects;
 - (void)exchangeObjectAtIndex:(unsigned int)arg1 withObjectAtIndex:(unsigned int)arg2;
 - (unsigned int)indexOfObjectIdenticalTo:(id)arg1;
 - (void)setObject:(id)arg1 atIndex:(unsigned int)arg2;

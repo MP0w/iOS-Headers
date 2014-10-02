@@ -14,12 +14,15 @@
     SSAccount *_storeAccount;
 }
 
++ (id)lastFailedSyncAccountName;
++ (id)lastFailedSyncAccountIdentifier;
 + (id)lastSyncedAccountName;
 + (id)lastSyncedAccountIdentifier;
 + (void)clearLastSyncnedAccount;
 @property BOOL shouldAuthenticate; // @synthesize shouldAuthenticate=_shouldAuthenticate;
 @property(readonly) SSAccount *storeAccount; // @synthesize storeAccount=_storeAccount;
 - (void).cxx_destruct;
+- (void)saveAccountToLastFailedSyncDefaults;
 - (void)saveAccountToLastSyncedDefaults;
 - (id)authenticationErrorsForTransaction:(id)arg1;
 - (BOOL)shouldForceAuthenticationForTransaction:(id)arg1;

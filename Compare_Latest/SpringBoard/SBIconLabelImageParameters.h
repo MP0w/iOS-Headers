@@ -18,6 +18,7 @@
     _Bool _containsNonLatinLikeCharacters;
     _Bool _containsEmoji;
     _Bool _canEllipsize;
+    _Bool _canTighten;
     double _scale;
     struct CGSize _maxSize;
     long long _style;
@@ -27,24 +28,27 @@
     _Bool _accessibilityIncreaseContrastEnabled;
     UIColor *_focusHighlightColor;
     struct UIEdgeInsets _textInsets;
+    struct UIEdgeInsets _fontLanguageInsets;
     int _iconLocation;
     unsigned long long _hash;
 }
 
 @property(readonly, nonatomic) int iconLocation; // @synthesize iconLocation=_iconLocation;
+@property(readonly, nonatomic) struct UIEdgeInsets fontLanguageInsets; // @synthesize fontLanguageInsets=_fontLanguageInsets;
 @property(readonly, nonatomic) struct UIEdgeInsets textInsets; // @synthesize textInsets=_textInsets;
-@property(readonly, nonatomic) UIColor *focusHighlightColor; // @synthesize focusHighlightColor=_focusHighlightColor;
+@property(readonly, retain, nonatomic) UIColor *focusHighlightColor; // @synthesize focusHighlightColor=_focusHighlightColor;
 @property(readonly, nonatomic) _Bool accessibilityIncreaseContrastEnabled; // @synthesize accessibilityIncreaseContrastEnabled=_accessibilityIncreaseContrastEnabled;
-@property(readonly, nonatomic) UIColor *textColor; // @synthesize textColor=_textColor;
+@property(readonly, retain, nonatomic) UIColor *textColor; // @synthesize textColor=_textColor;
 @property(readonly, nonatomic) long long style; // @synthesize style=_style;
 @property(readonly, nonatomic) _Bool canUseMemoryPool; // @synthesize canUseMemoryPool=_canUseMemoryPool;
 @property(readonly, nonatomic) _Bool containsEmoji; // @synthesize containsEmoji=_containsEmoji;
 @property(readonly, nonatomic) _Bool containsNonLatinLikeCharacters; // @synthesize containsNonLatinLikeCharacters=_containsNonLatinLikeCharacters;
+@property(readonly, nonatomic) _Bool canTighten; // @synthesize canTighten=_canTighten;
 @property(readonly, nonatomic) _Bool canEllipsize; // @synthesize canEllipsize=_canEllipsize;
 @property(readonly, nonatomic) double scale; // @synthesize scale=_scale;
-@property(readonly, nonatomic) UIFont *font; // @synthesize font=_font;
+@property(readonly, retain, nonatomic) UIFont *font; // @synthesize font=_font;
 @property(readonly, nonatomic) struct CGSize maxSize; // @synthesize maxSize=_maxSize;
-@property(readonly, nonatomic) NSString *text; // @synthesize text=_text;
+@property(readonly, copy, nonatomic) NSString *text; // @synthesize text=_text;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;

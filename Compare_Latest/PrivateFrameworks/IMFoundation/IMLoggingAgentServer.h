@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "IMUserNotificationListener.h"
+
 @class NSDate, NSMutableDictionary;
 
-@interface IMLoggingAgentServer : NSObject
+@interface IMLoggingAgentServer : NSObject <IMUserNotificationListener>
 {
     NSMutableDictionary *_sessions;
     NSDate *_lastActivity;
@@ -17,8 +19,9 @@
 }
 
 + (id)sharedInstance;
-- (void)event:(id)arg1 level:(int)arg2 category:(id)arg3 sender:(id)arg4 pid:(int)arg5 type:(id)arg6;
-- (void)log:(id)arg1 level:(int)arg2 category:(id)arg3 sender:(id)arg4 pid:(int)arg5 type:(id)arg6;
+- (void)userNotificationDidFinish:(id)arg1;
+- (void)event:(id)arg1 level:(int)arg2 category:(id)arg3 sender:(id)arg4 pid:(int)arg5 type:(id)arg6 time:(unsigned long long)arg7;
+- (void)log:(id)arg1 level:(int)arg2 category:(id)arg3 sender:(id)arg4 pid:(int)arg5 type:(id)arg6 time:(unsigned long long)arg7;
 - (void)noteReceiver:(id)arg1 forSession:(id)arg2 forSender:(id)arg3;
 - (void)noteInitiator:(id)arg1 forSession:(id)arg2 forSender:(id)arg3;
 - (void)noteEvent:(int)arg1 forSession:(id)arg2 forSender:(id)arg3;

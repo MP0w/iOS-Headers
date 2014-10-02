@@ -21,6 +21,7 @@
     unsigned int _laneClosureCount;
     int _laneClosureType;
     GEOLatLng *_position;
+    int _significance;
     NSString *_street;
     int _type;
     BOOL _endTimeReliable;
@@ -30,11 +31,13 @@
         unsigned int updateTime:1;
         unsigned int laneClosureCount:1;
         unsigned int laneClosureType:1;
+        unsigned int significance:1;
         unsigned int type:1;
         unsigned int endTimeReliable:1;
     } _has;
 }
 
+@property(nonatomic) int significance; // @synthesize significance=_significance;
 @property(nonatomic) BOOL endTimeReliable; // @synthesize endTimeReliable=_endTimeReliable;
 @property(nonatomic) unsigned int laneClosureCount; // @synthesize laneClosureCount=_laneClosureCount;
 @property(nonatomic) int laneClosureType; // @synthesize laneClosureType=_laneClosureType;
@@ -47,6 +50,7 @@
 @property(retain, nonatomic) NSString *info; // @synthesize info=_info;
 @property(retain, nonatomic) NSString *incidentId; // @synthesize incidentId=_incidentId;
 @property(retain, nonatomic) GEOLatLng *position; // @synthesize position=_position;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -55,6 +59,7 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) BOOL hasSignificance;
 @property(nonatomic) BOOL hasEndTimeReliable;
 @property(nonatomic) BOOL hasLaneClosureCount;
 @property(nonatomic) BOOL hasLaneClosureType;

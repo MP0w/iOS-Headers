@@ -17,6 +17,7 @@
 + (id)dataReaderWithURL:(id)arg1 error:(id *)arg2;
 @property(retain, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 @property(retain, nonatomic) NSFileHandle *readHandle; // @synthesize readHandle=_readHandle;
+- (void).cxx_destruct;
 - (id)dataWithRange:(struct _NSRange)arg1;
 - (unsigned int)length;
 - (BOOL)_openFileIfNeededWithError:(id *)arg1;

@@ -19,7 +19,7 @@
 - (unsigned int)hash;
 - (void)removeItemsWithItemIdentifiers:(id)arg1;
 - (void)postChangeNotification;
-@property(readonly, nonatomic) NSArray *items;
+@property(readonly, copy, nonatomic) NSArray *items;
 - (BOOL)containsItemWithIdentifier:(long long)arg1;
 - (void)addItem:(id)arg1;
 @property(readonly, nonatomic) long long accountIdentifier;

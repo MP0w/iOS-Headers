@@ -10,7 +10,6 @@
 
 @class NSMutableDictionary, NSNumber, NSString;
 
-__attribute__((visibility("hidden")))
 @interface MLMovieArtist : NSObject <NSCopying>
 {
     NSMutableDictionary *_dictionary;

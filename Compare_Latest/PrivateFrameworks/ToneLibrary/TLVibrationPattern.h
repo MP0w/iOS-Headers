@@ -23,8 +23,8 @@
 @property(nonatomic, setter=_setDuration:) double _duration; // @synthesize _duration;
 @property(retain, nonatomic) id contextObject; // @synthesize contextObject=_contextObject;
 - (void)appendVibrationComponentWithDuration:(double)arg1 isPause:(BOOL)arg2;
-@property(readonly) double computedDuration;
-@property(readonly) id _artificiallyRepeatingPropertyListRepresentation;
+@property(readonly, nonatomic) double computedDuration;
+@property(readonly, nonatomic) id _artificiallyRepeatingPropertyListRepresentation;
 @property(readonly, nonatomic) id propertyListRepresentation;
 - (void)dealloc;
 - (id)_initWithPropertyListRepresentation:(id)arg1 skipValidation:(BOOL)arg2;

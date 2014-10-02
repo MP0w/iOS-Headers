@@ -10,17 +10,24 @@
 {
 }
 
++ (id)keyPathsForValuesAffectingCanPerformMultiplePasses;
+- (BOOL)canStartRespondingToEachPassDescriptionReturningReason:(id *)arg1;
 - (void)addTrackAssociationWithTrackOfInput:(id)arg1 type:(id)arg2;
 - (BOOL)canAddTrackAssociationWithTrackOfInput:(id)arg1 type:(id)arg2;
 - (BOOL)_canAddTrackAssociationWithTrackOfInput:(id)arg1 type:(id)arg2 exceptionReason:(id *)arg3;
+- (void)setSampleReferenceBaseURL:(id)arg1;
+- (void)setPreferredMediaChunkSize:(int)arg1;
+- (void)setPreferredMediaChunkAlignment:(int)arg1;
+- (void)setPreferredMediaChunkDuration:(CDStruct_1b6d18a9)arg1;
 - (void)setSourcePixelBufferAttributes:(id)arg1;
+- (BOOL)canPerformMultiplePasses;
+- (void)setPerformsMultiPassEncodingIfSupported:(BOOL)arg1;
 - (void)setAlternateGroupID:(short)arg1;
 - (void)setLayer:(int)arg1;
 - (void)setPreferredVolume:(float)arg1;
 - (void)setMarksOutputTrackAsEnabled:(BOOL)arg1;
 - (void)setExtendedLanguageTag:(id)arg1;
 - (void)setLanguageCode:(id)arg1;
-- (BOOL)_compareLanguageCode:(id)arg1 withExtendedLanguageTag:(id)arg2;
 - (BOOL)_validateLanguageCode:(id)arg1;
 - (void)setNaturalSize:(struct CGSize)arg1;
 - (void)setExpectsMediaDataInRealTime:(BOOL)arg1;

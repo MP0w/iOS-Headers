@@ -15,8 +15,8 @@
     double _currentElapsed;
     double _currentDuration;
     int _isPlaying;
-    int _nowPlayingPIDForCachedDisplayID;
     NSString *_currentNowPlayingAppDisplayID;
+    BOOL _currentNowPlayingAppIsRunning;
     BOOL _isRegisteredForNowPlayingNotifications;
     BOOL _isUpdatingNowPlayingInfo;
     BOOL _isUpdatingPlaybackState;

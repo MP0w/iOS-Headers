@@ -20,6 +20,8 @@ __attribute__((visibility("hidden")))
     NSDictionary *mAttributes;
     id mTransitionEndCallbackTarget;
     SEL mTransitionEndCallbackSelector;
+    id mTransitionImmediateEndCallbackTarget;
+    SEL mTransitionImmediateEndCallbackSelector;
     CALayer *mBackgroundLayer;
     TSDFPSCounter *mFPSCounter;
 }
@@ -37,14 +39,16 @@ __attribute__((visibility("hidden")))
 - (BOOL)addAnimationsAtTime:(double)arg1 relativeToCurrentMediaTime:(BOOL)arg2;
 - (void)animateWithDelay:(double)arg1;
 - (void)renderOutgoingSlideAndPrecacheIncomingSlide;
-- (void)p_renderSlideIndex:(unsigned int)arg1;
+- (void)renderSlideIndex:(unsigned int)arg1;
 - (void)setupLayerTreeForTransition;
 - (void)p_generateLayers;
 - (id)description;
 - (void)p_checkForNullTransitions:(Class)arg1;
+- (void)registerForTransitionImmediateEndCallback:(SEL)arg1 target:(id)arg2;
 - (void)registerForTransitionEndCallback:(SEL)arg1 target:(id)arg2;
 - (void)setupPluginContext;
 - (id)plugin;
+- (void)teardownTransitionIsExitingShow:(BOOL)arg1;
 - (void)teardown;
 - (void)dealloc;
 - (id)initWithEffectClass:(Class)arg1 direction:(unsigned int)arg2 duration:(double)arg3 session:(id)arg4 attributes:(id)arg5 animatedSlideView:(id)arg6;

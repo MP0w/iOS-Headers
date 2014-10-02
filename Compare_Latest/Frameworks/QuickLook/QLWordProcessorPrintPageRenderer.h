@@ -4,16 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <QuickLook/QLRemotePrintPageHelper.h>
+#import <QuickLook/QLWebViewPrintPageHelper.h>
 
 @class UIWebPaginationInfo;
 
-@interface QLWordProcessorPrintPageRenderer : QLRemotePrintPageHelper
+@interface QLWordProcessorPrintPageRenderer : QLWebViewPrintPageHelper
 {
     UIWebPaginationInfo *_paginationInfo;
 }
 
-- (id)pdfDataForPageAtIndex:(int)arg1 withSize:(struct CGSize)arg2 printingDone:(char *)arg3;
+- (id)pdfDataForPageAtIndex:(int)arg1 printingDone:(char *)arg2;
 - (int)numberOfPages;
 - (id)_paginationInfo;
 - (void)dealloc;

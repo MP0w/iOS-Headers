@@ -22,6 +22,7 @@
 - (void)setAlarmOwner:(id)arg1;
 - (id)calendarItemOwner;
 - (void)setCalendarItemOwner:(id)arg1;
+@property(copy, nonatomic) NSString *routing;
 @property(copy, nonatomic) NSString *addressBookEntityID;
 @property(copy, nonatomic) NSNumber *radius;
 @property(copy, nonatomic) NSNumber *longitude;

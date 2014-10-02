@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (id)orientationForTextBodyProperties:(id)arg1;
 + (id)readFrom:(struct _xmlNode *)arg1 parent:(id)arg2 state:(id)arg3;
 
 @end

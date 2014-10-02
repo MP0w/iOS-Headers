@@ -22,7 +22,7 @@
 - (void)_registerTargetImplementation:(id)arg1;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
-@property(readonly, nonatomic) NSArray *targets;
+@property(readonly, retain, nonatomic) NSArray *targets;
 - (void)dealloc;
 - (id)init;
 

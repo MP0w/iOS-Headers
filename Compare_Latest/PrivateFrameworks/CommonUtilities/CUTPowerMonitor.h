@@ -18,8 +18,8 @@
     struct IONotificationPort *_pmPort;
     unsigned int _pmNotifier;
     NSMutableArray *_delegates;
-    BOOL _isExternalPowerConnected;
     double _currentLevel;
+    BOOL _isExternalPowerConnected;
 }
 
 + (id)sharedInstance;

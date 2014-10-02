@@ -26,7 +26,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) CALayer *reflectionLayer; // @synthesize reflectionLayer=mReflectionLayer;
 @property(readonly, nonatomic) CALayer *shadowLayer; // @synthesize shadowLayer=mShadowLayer;
 - (id)textureForContext:(id)arg1;
-- (void)setMagicMoveTextureAttributes:(id)arg1;
+- (struct CGImage *)newFrameMaskForViewScale:(float)arg1 frameRect:(struct CGRect *)arg2;
+- (void)calculateTextureClipBounds:(struct CGRect *)arg1 andOffset:(struct CGPoint *)arg2 withTransform:(struct CGAffineTransform *)arg3 andRectOnCanvas:(struct CGRect *)arg4 textureContext:(id)arg5 isUsingImageTexture:(BOOL)arg6;
+- (void)setTextureAttributes:(id)arg1;
 - (void)dynamicDragDidBegin;
 - (void)dynamicShadowChangeDidEnd;
 - (void)dynamicShadowUpdateToValue:(id)arg1;
@@ -70,13 +72,13 @@ __attribute__((visibility("hidden")))
 - (BOOL)shouldShowReflection;
 @property(readonly, nonatomic) TSDShadow *shadow;
 @property(readonly, nonatomic) TSDReflection *reflection;
-- (struct CGRect)p_rectWithEffectsAppliedToRect:(struct CGRect)arg1 additionalTransform:(struct CGAffineTransform)arg2;
+- (struct CGRect)p_rectWithEffectsAppliedToRect:(struct CGRect)arg1 additionalTransform:(struct CGAffineTransform)arg2 includeShadow:(BOOL)arg3 includeReflection:(BOOL)arg4;
 - (struct CGRect)rectWithEffectsAppliedToRect:(struct CGRect)arg1;
 @property(readonly, nonatomic) float opacity;
 - (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
 - (void)p_drawReflectionInContext:(struct CGContext *)arg1;
 - (id)actionForLayer:(id)arg1 forKey:(id)arg2;
-- (struct CGRect)p_clipRectInRootForTransform:(struct CGAffineTransform)arg1;
+- (struct CGRect)p_clipRectInRootForTransform:(struct CGAffineTransform)arg1 includeShadow:(BOOL)arg2 includeReflection:(BOOL)arg3;
 - (struct CGRect)clipRect;
 - (struct CGRect)clipRectWithoutEffects;
 - (void)viewScaleDidChange;

@@ -8,7 +8,7 @@
 
 #import "TSWPOffscreenColumn.h"
 
-@class TPPageController;
+@class NSString, TPPageController;
 
 __attribute__((visibility("hidden")))
 @interface TPVisibleColumnProxy : NSObject <TSWPOffscreenColumn>
@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 
 - (const CDStruct_7c2dc7ff *)p_targetLastHint;
 - (const CDStruct_7c2dc7ff *)p_targetFirstHint;
-- (void)trimToCharIndex:(unsigned int)arg1 inTarget:(id)arg2 removeAutoNumberFootnoteCount:(unsigned int)arg3;
+- (void)trimToCharIndex:(unsigned int)arg1 inTarget:(id)arg2 removeFootnoteLayoutCount:(unsigned int)arg3 removeAutoNumberFootnoteCount:(unsigned int)arg4;
 @property(readonly, nonatomic) unsigned int nextWidowPullsDownFromCharIndex;
 @property(readonly, nonatomic) struct _NSRange anchoredRange;
 @property(readonly, nonatomic) unsigned int startAnchoredCharIndex;
@@ -27,6 +27,12 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned int startCharIndex;
 - (void)dealloc;
 - (id)initWithPageIndex:(unsigned int)arg1 pageController:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

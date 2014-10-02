@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSString;
+@class NSDate, NSDictionary, NSString;
 
 @interface IMTimer : NSObject
 {
@@ -19,9 +19,10 @@
     BOOL _wakeDevice;
 }
 
-@property(readonly, nonatomic) id userInfo; // @synthesize userInfo=_userInfo;
+@property(readonly, retain, nonatomic) id userInfo; // @synthesize userInfo=_userInfo;
 - (void)dealloc;
 - (void)invalidate;
+@property(readonly, retain, nonatomic) NSDate *fireDate;
 - (void)setFireTimeInterval:(double)arg1;
 - (id)initWithTimeInterval:(double)arg1 name:(id)arg2 shouldWake:(BOOL)arg3 target:(id)arg4 selector:(SEL)arg5 userInfo:(id)arg6;
 

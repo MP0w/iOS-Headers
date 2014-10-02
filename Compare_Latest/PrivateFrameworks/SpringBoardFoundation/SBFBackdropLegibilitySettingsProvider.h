@@ -9,7 +9,7 @@
 #import "SBFLegibilitySettingsProvider.h"
 #import "_UIBackdropViewObserver.h"
 
-@class _UIBackdropView, _UILegibilitySettings;
+@class NSString, _UIBackdropView, _UILegibilitySettings;
 
 @interface SBFBackdropLegibilitySettingsProvider : NSObject <_UIBackdropViewObserver, SBFLegibilitySettingsProvider>
 {
@@ -18,11 +18,17 @@
     _UILegibilitySettings *_legibilitySettings;
 }
 
-@property(readonly, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
+@property(readonly, retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
 @property(nonatomic) id <SBFLegibilitySettingsProviderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)backdropViewDidChange:(id)arg1;
 - (void)dealloc;
 - (id)initWithBackdropView:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

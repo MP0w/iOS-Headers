@@ -6,23 +6,37 @@
 
 #import <AVFoundation/AVMetadataObject.h>
 
+#import "NSCopying.h"
+
 @class AVMetadataFaceObjectInternal;
 
-@interface AVMetadataFaceObject : AVMetadataObject
+@interface AVMetadataFaceObject : AVMetadataObject <NSCopying>
 {
     AVMetadataFaceObjectInternal *_internal;
 }
 
-+ (id)faceObjectWithFigEmbeddedCaptureDeviceFaceDictionary:(id)arg1 input:(id)arg2;
+- (struct CGRect)rightEyeBounds;
+- (struct CGRect)leftEyeBounds;
+- (BOOL)hasRightEyeBounds;
+- (BOOL)hasLeftEyeBounds;
+- (int)smileConfidence;
+- (BOOL)hasSmileConfidence;
+- (int)rightEyeClosedConfidence;
+- (int)leftEyeClosedConfidence;
+- (BOOL)hasRightEyeClosedConfidence;
+- (BOOL)hasLeftEyeClosedConfidence;
 @property(readonly) float yawAngle;
 @property(readonly) BOOL hasYawAngle;
 @property(readonly) float rollAngle;
 @property(readonly) BOOL hasRollAngle;
 @property(readonly) int faceID;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)initDerivedMetadataObjectFromMetadataObject:(id)arg1 withTransform:(struct CGAffineTransform)arg2 isVideoMirrored:(BOOL)arg3 rollAdjustment:(float)arg4;
-- (id)initWithFigEmbeddedCaptureDeviceFaceDictionary:(id)arg1 input:(id)arg2;
+- (id)initWithFaceID:(int)arg1 hasRollAngle:(BOOL)arg2 rollAngle:(float)arg3 hasYawAngle:(BOOL)arg4 yawAngle:(float)arg5 time:(CDStruct_1b6d18a9)arg6 duration:(CDStruct_1b6d18a9)arg7 bounds:(struct CGRect)arg8 optionalInfoDict:(id)arg9 originalMetadataObject:(id)arg10 sourceCaptureInput:(id)arg11;
+- (id)initWithFaceID:(int)arg1 hasRollAngle:(BOOL)arg2 rollAngle:(float)arg3 hasYawAngle:(BOOL)arg4 yawAngle:(float)arg5 time:(CDStruct_1b6d18a9)arg6 duration:(CDStruct_1b6d18a9)arg7 bounds:(struct CGRect)arg8;
+- (id)initWithType:(id)arg1 time:(CDStruct_1b6d18a9)arg2 duration:(CDStruct_1b6d18a9)arg3 bounds:(struct CGRect)arg4 originalMetadataObject:(id)arg5 sourceCaptureInput:(id)arg6;
 
 @end
 

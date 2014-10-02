@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>, VMAccount;
+@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, VMAccount;
 
 @interface VMVoicemail : NSObject
 {
@@ -16,6 +16,8 @@
     NSObject<OS_dispatch_queue> *_cacheQueue;
     struct __CFPhoneNumber *_senderPhoneNumber;
     struct __CFPhoneNumber *_callbackPhoneNumber;
+    id _cachedAddressBookRef;
+    NSString *_cachedDisplayName;
 }
 
 + (void)initialize;
@@ -25,6 +27,8 @@
 + (void)_scheduleVoicemailMapHousekeepingNoLock;
 + (void)scheduleVoicemailMapHousekeeping;
 + (id)_findPreviouslyCreatedVoicemailWithAccountNoLock:(id)arg1 identifier:(long long)arg2;
+@property(retain, nonatomic) NSString *cachedDisplayName; // @synthesize cachedDisplayName=_cachedDisplayName;
+@property(retain, nonatomic) id cachedAddressBookRef; // @synthesize cachedAddressBookRef=_cachedAddressBookRef;
 - (id)imageDataUsingAddressBook:(void *)arg1;
 - (id)displayLabelUsingAddressBook:(void *)arg1;
 - (id)displayNameUsingAddressBook:(void *)arg1;

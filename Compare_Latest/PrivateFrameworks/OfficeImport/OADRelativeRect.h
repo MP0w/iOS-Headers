@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     float mBottom;
 }
 
+- (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (void)setBottom:(float)arg1;

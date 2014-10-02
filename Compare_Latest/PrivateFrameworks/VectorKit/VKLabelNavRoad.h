@@ -14,14 +14,14 @@ __attribute__((visibility("hidden")))
 @interface VKLabelNavRoad : NSObject <VKLabelNavFeature>
 {
     VKLabelTile *_tile;
-    CDStruct_c272c4e8 *_data;
-    int _vertexIndexA;
-    int _vertexIndexB;
+    CDStruct_153464bf *_data;
+    unsigned int _vertexIndexA;
+    unsigned int _vertexIndexB;
     CDStruct_dde70fb6 *_junctionA;
     CDStruct_dde70fb6 *_junctionB;
     VKLabelNavJunction *_navJunctionA;
-    vector_d5845d09 _simplifiedPoints;
-    Vec2Imp_1782d7e3 _direction;
+    vector_e20517dc _simplifiedPoints;
+    Matrix_8746f91e _direction;
     BOOL _isRoadLabelUnique;
     BOOL _isOnRoute;
     BOOL _isStartOfRoadName;
@@ -55,7 +55,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) BOOL isInGuidance; // @synthesize isInGuidance=_isInGuidance;
 @property(nonatomic) BOOL isStartOfRoadName; // @synthesize isStartOfRoadName=_isStartOfRoadName;
 @property(nonatomic) BOOL isOnRoute; // @synthesize isOnRoute=_isOnRoute;
-@property(nonatomic) Vec2Imp_1782d7e3 direction; // @synthesize direction=_direction;
+@property(nonatomic) Matrix_8746f91e direction; // @synthesize direction=_direction;
 @property(readonly, nonatomic) VKLabelTile *tile; // @synthesize tile=_tile;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (id).cxx_construct;
@@ -64,12 +64,12 @@ __attribute__((visibility("hidden")))
 - (id)_newLabelWithNavContext:(struct NavContext *)arg1 isShieldLabel:(BOOL)arg2 worldPoint:(struct VKPoint)arg3 alignment:(int)arg4;
 @property(readonly, nonatomic) int roadSignAlignment;
 - (BOOL)_worldPointForRoadOffset:(float)arg1 worldPoint:(struct VKPoint *)arg2;
-- (void)_worldRoadPoints:(vector_d5845d09 *)arg1;
-- (void)appendSimplifiedWorldRoadPoints:(vector_d5845d09 *)arg1;
+- (void)_worldRoadPoints:(vector_e20517dc *)arg1;
+- (void)appendSimplifiedWorldRoadPoints:(vector_e20517dc *)arg1;
 - (void)recreateRoadSignWithAlignment:(int)arg1 navContext:(struct NavContext *)arg2;
 - (void)createLabelWithNavContext:(struct NavContext *)arg1 isShieldLabel:(BOOL)arg2 desiredOffsetDistance:(float)arg3 maxOffsetDistance:(float)arg4 minJunctionDistance:(float)arg5 minRouteDistance:(float)arg6 roadGraph:(id)arg7;
 - (BOOL)_findLabelAnchorPoint:(struct VKPoint *)arg1 isShieldLabel:(BOOL)arg2 desiredOffsetDistance:(float)arg3 maxOffsetDistance:(float)arg4 minJunctionDistance:(float)arg5 roadGraph:(id)arg6;
-- (float)_findRoadOffsetForDistanceToRay:(float)arg1 rayStart:(struct VKPoint)arg2 rayVector:(Vec2Imp_1782d7e3)arg3 roadGraph:(id)arg4;
+- (float)_findRoadOffsetForDistanceToRay:(float)arg1 rayStart:(struct VKPoint)arg2 rayVector:(Matrix_8746f91e)arg3 roadGraph:(id)arg4;
 - (id)labelWithType:(BOOL)arg1;
 @property(readonly, nonatomic) NSString *shieldDisplayGroup;
 @property(readonly, nonatomic) NSString *shieldGroup;

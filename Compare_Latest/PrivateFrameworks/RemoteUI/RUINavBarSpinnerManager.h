@@ -10,16 +10,16 @@
 
 @interface RUINavBarSpinnerManager : NSObject
 {
-    NSMutableDictionary *_savedRightItems;
-    NSMutableDictionary *_navigationItems;
+    NSMutableDictionary *_savedRecords;
     int _activityIndicatorViewStyle;
 }
 
 + (id)sharedSpinnerManager;
 @property(nonatomic) int activityIndicatorViewStyle; // @synthesize activityIndicatorViewStyle=_activityIndicatorViewStyle;
+- (void).cxx_destruct;
 - (void)stopAnimatingForIdentifier:(id)arg1;
 - (void)startAnimatingInNavItem:(id)arg1 forIdentifier:(id)arg2;
-- (void)dealloc;
+- (void)startAnimatingInNavItem:(id)arg1 title:(id)arg2 forIdentifier:(id)arg3 hideBackButton:(BOOL)arg4;
 - (id)init;
 
 @end

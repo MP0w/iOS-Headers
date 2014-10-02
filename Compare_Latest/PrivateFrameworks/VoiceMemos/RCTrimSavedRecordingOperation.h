@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <VoiceMemos/RCTrimAudioFileOperation.h>
+#import <VoiceMemos/RCTrimCompositionOperation.h>
 
 @class RCSavedRecording;
 
-@interface RCTrimSavedRecordingOperation : RCTrimAudioFileOperation
+@interface RCTrimSavedRecordingOperation : RCTrimCompositionOperation
 {
     RCSavedRecording *_sourceRecording;
     RCSavedRecording *_destinationRecording;
@@ -18,7 +18,7 @@
 @property(readonly, nonatomic) RCSavedRecording *sourceRecording; // @synthesize sourceRecording=_sourceRecording;
 - (void).cxx_destruct;
 - (void)main;
-- (id)initWithSourceRecording:(id)arg1 destinationRecording:(id)arg2 timeRangeToKeep:(CDStruct_73a5d3ca)arg3;
+- (id)initWithSourceRecording:(id)arg1 destinationRecording:(id)arg2 timeRange:(CDStruct_73a5d3ca)arg3 trimMode:(int)arg4;
 
 @end
 

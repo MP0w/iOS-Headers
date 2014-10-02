@@ -6,10 +6,12 @@
 
 #import "TSPObjectModifyDelegate.h"
 
-@class TSPObjectContext;
+@class NSUUID, TSPObject, TSPObjectContext, TSPObjectUUIDMap;
 
 @protocol TSPObjectDelegate <TSPObjectModifyDelegate>
 @property(readonly, nonatomic) TSPObjectContext *context;
+- (TSPObjectUUIDMap *)objectUUIDMap;
+- (NSUUID *)newObjectUUIDForObject:(TSPObject *)arg1;
 - (long long)newObjectIdentifier;
 - (long long)modifyObjectTokenForNewObject;
 @end

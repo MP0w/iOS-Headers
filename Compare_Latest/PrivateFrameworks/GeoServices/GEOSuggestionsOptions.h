@@ -16,16 +16,23 @@
     int _listType;
     NSData *_suggestionEntryMetadata;
     NSData *_suggestionMetadata;
+    BOOL _includeRankingFeatures;
+    BOOL _normalizePOIs;
     struct {
         unsigned int entriesType:1;
         unsigned int listType:1;
+        unsigned int includeRankingFeatures:1;
+        unsigned int normalizePOIs:1;
     } _has;
 }
 
+@property(nonatomic) BOOL includeRankingFeatures; // @synthesize includeRankingFeatures=_includeRankingFeatures;
+@property(nonatomic) BOOL normalizePOIs; // @synthesize normalizePOIs=_normalizePOIs;
 @property(retain, nonatomic) NSData *suggestionEntryMetadata; // @synthesize suggestionEntryMetadata=_suggestionEntryMetadata;
 @property(retain, nonatomic) NSData *suggestionMetadata; // @synthesize suggestionMetadata=_suggestionMetadata;
 @property(nonatomic) int entriesType; // @synthesize entriesType=_entriesType;
 @property(nonatomic) int listType; // @synthesize listType=_listType;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -34,6 +41,8 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) BOOL hasIncludeRankingFeatures;
+@property(nonatomic) BOOL hasNormalizePOIs;
 @property(readonly, nonatomic) BOOL hasSuggestionEntryMetadata;
 @property(readonly, nonatomic) BOOL hasSuggestionMetadata;
 @property(nonatomic) BOOL hasEntriesType;

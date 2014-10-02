@@ -20,6 +20,7 @@
 + (BOOL)supportsSecureCoding;
 + (id)resultsFromCoreResults:(struct __CFArray *)arg1;
 + (id)resultFromCoreResult:(struct __DDResult *)arg1;
+- (void)offsetRangeBy:(int)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (BOOL)getStreet:(id *)arg1 city:(id *)arg2 state:(id *)arg3 zip:(id *)arg4 country:(id *)arg5;

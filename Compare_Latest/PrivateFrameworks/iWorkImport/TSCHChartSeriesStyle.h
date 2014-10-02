@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (id)p_magicMoveProperties;
 + (id)bootstrappedSeriesStyleWithContext:(id)arg1 seriesIndex:(unsigned int)arg2;
 + (id)getURLForImage:(id)arg1;
 + (id)identifierForRoleIndex:(unsigned int)arg1 ordinal:(unsigned int)arg2;
@@ -22,6 +23,8 @@ __attribute__((visibility("hidden")))
 + (int)defaultIntValueForProperty:(int)arg1;
 + (id)imageFillProperties;
 + (id)properties;
+- (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
+- (int)mixingTypeWithObject:(id)arg1;
 - (id)initFromPreUFFArchiveWithUnarchiver:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
 - (id)initFromUnarchiver:(id)arg1;

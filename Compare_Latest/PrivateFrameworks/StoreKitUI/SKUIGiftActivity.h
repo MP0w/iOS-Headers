@@ -8,7 +8,7 @@
 
 #import "SKUIGiftViewControllerDelegate.h"
 
-@class SKUIClientContext, SKUIProductPageItem;
+@class NSString, SKUIClientContext, SKUIProductPageItem;
 
 @interface SKUIGiftActivity : UIActivity <SKUIGiftViewControllerDelegate>
 {
@@ -25,6 +25,12 @@
 - (id)activityTitle;
 - (id)activityImage;
 - (id)initWithItem:(id)arg1 clientContext:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -11,18 +11,23 @@ __attribute__((visibility("hidden")))
 {
     float mDepthGapFactor;
     float mDepthLimitFactor;
+    float mShadowCameraDepthLimitAdjustmentFactor;
     unsigned int mMaxLimitingSeries;
 }
 
+@property(readonly, nonatomic) float shadowCameraDepthLimitAdjustmentFactor; // @synthesize shadowCameraDepthLimitAdjustmentFactor=mShadowCameraDepthLimitAdjustmentFactor;
 @property(readonly, nonatomic) float depthLimitFactor; // @synthesize depthLimitFactor=mDepthLimitFactor;
-@property(readonly, nonatomic) float interSetDepthGapProperty; // @synthesize interSetDepthGapProperty=mDepthGapFactor;
+@property(readonly, nonatomic) float p_sageInterSetDepthGapProperty; // @synthesize p_sageInterSetDepthGapProperty=mDepthGapFactor;
 - (BOOL)applyElementTransform:(struct ObjectTransforms *)arg1 series:(id)arg2 index:(const tvec2_3b141483 *)arg3 propertyAccessor:(const struct ChartScenePropertyAccessor *)arg4;
 - (float)depthForScene:(id)arg1;
+- (float)chartMinZForScene:(id)arg1;
 - (void)reset;
 - (void)resetWithEnumerator:(id)arg1 layoutSettings:(CDStruct_1f804ca1)arg2;
 - (void)updateLabels;
 - (tvec2_3b141483)seriesSize;
 @property(readonly, nonatomic) int seriesCount;
+- (float)p_depthLimitedChartInitialDepthOffset;
+- (float)p_interSetDepthGapProperty;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

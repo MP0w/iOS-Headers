@@ -9,7 +9,7 @@
 #import "CUIStructuredThemeStorage.h"
 #import "CUIStructuredThemeStorage2.h"
 
-@class CUICommonAssetStorage, NSLock, NSMutableDictionary, NSString;
+@class CUICommonAssetStorage, NSCache, NSLock, NSMutableDictionary, NSString;
 
 @interface CUIStructuredThemeStore : NSObject <CUIStructuredThemeStorage, CUIStructuredThemeStorage2>
 {
@@ -19,11 +19,13 @@
     NSLock *_storeLock;
     unsigned int _themeIndex;
     NSString *_bundleID;
+    NSCache *_assetExistanceCache;
+    NSCache *_assetFPOStatus;
 }
 
 - (void)clearRenditionCache;
-- (id)cacheLock;
-- (id)cache;
+- (id)imagesWithName:(id)arg1;
+- (id)allImageNames;
 - (const struct _renditionkeytoken *)renditionKeyForName:(id)arg1 cursorHotSpot:(struct CGPoint *)arg2;
 - (const struct _renditionkeytoken *)renditionKeyForName:(id)arg1;
 - (id)zeroCodeGlyphList;
@@ -59,13 +61,18 @@
 - (BOOL)usesCUISystemThemeRenditionKey;
 - (int)maximumRenditionKeyTokenCount;
 - (unsigned int)colorSpaceID;
-- (id)debugDescription;
+@property(readonly, copy) NSString *debugDescription;
 - (void)setThemeIndex:(unsigned int)arg1;
 - (id)bundleID;
 - (id)displayNameForPartID:(int)arg1;
 - (id)constantNameForPartID:(int)arg1;
 - (id)displayNameForElementID:(int)arg1;
 - (id)constantNameForElementID:(int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -14,10 +14,11 @@ __attribute__((visibility("hidden")))
     NSDictionary *_propertiesToMatch;
 }
 
-+ (id)appearancesAtNode:(id)arg1 withObject:(id)arg2;
 + (id)_appearanceMatchingProperties:(id)arg1 forClass:(Class)arg2 withContainerList:(id)arg3;
 + (id)_appearanceObjectKeyForProperties:(id)arg1;
 @property(retain, nonatomic, setter=_setPropertiesToMatch:) NSDictionary *_propertiesToMatch; // @synthesize _propertiesToMatch;
+- (BOOL)_isValidAppearanceForCustomizableObject:(id)arg1;
+- (void)dealloc;
 
 @end
 

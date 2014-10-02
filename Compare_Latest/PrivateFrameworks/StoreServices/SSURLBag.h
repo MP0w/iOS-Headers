@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSMutableArray, NSObject<OS_dispatch_queue>, SSURLBagContext, SSXPCConnection;
+@class NSDictionary, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, SSURLBagContext, SSXPCConnection;
 
 @interface SSURLBag : NSObject
 {
@@ -15,14 +15,19 @@
     NSDictionary *_dictionary;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     double _expirationTime;
+    BOOL _ignoreCacheForNextLookup;
     NSMutableArray *_pendingLookups;
+    NSString *_storeFrontIdentifier;
 }
 
++ (void)setURLBag:(id)arg1 forContext:(id)arg2;
 + (id)URLBagForContext:(id)arg1;
 - (void)_loadWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)_loadURLBag;
 - (void)_drainPendingLookupsWithError:(id)arg1;
 - (id)_connection;
+- (void)dispatchSync:(CDUnknownBlockType)arg1;
+- (void)dispatchAsync:(CDUnknownBlockType)arg1;
 - (void)loadWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (id)existingBagDictionary;
 - (id)valueForKey:(id)arg1 error:(id *)arg2;

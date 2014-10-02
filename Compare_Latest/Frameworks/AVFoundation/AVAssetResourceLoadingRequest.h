@@ -6,13 +6,18 @@
 
 #import "NSObject.h"
 
-@class AVAssetResourceLoadingContentInformationRequest, AVAssetResourceLoadingDataRequest, AVAssetResourceLoadingRequestInternal, NSURLRequest, NSURLResponse;
+#import "AVAssetResourceLoaderRequest.h"
 
-@interface AVAssetResourceLoadingRequest : NSObject
+@class AVAssetResourceLoadingContentInformationRequest, AVAssetResourceLoadingDataRequest, AVAssetResourceLoadingRequestInternal, NSString, NSURLRequest, NSURLResponse;
+
+@interface AVAssetResourceLoadingRequest : NSObject <AVAssetResourceLoaderRequest>
 {
     AVAssetResourceLoadingRequestInternal *_loadingRequest;
 }
 
++ (SEL)_selectorForInformingDelegateOfCancellationByFig;
+- (void)_removeFigAssetImageGeneratorListeners;
+- (void)_addFigAssetImageGeneratorListeners;
 - (void)_removeFigPlaybackItemListeners;
 - (void)_addFigPlaybackItemListeners;
 - (void)generateStreamingContentKeyRequestDataAsynchronouslyForApp:(id)arg1 contentIdentifier:(id)arg2 options:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
@@ -31,6 +36,8 @@
 - (void)_setDataRequest:(id)arg1;
 @property(readonly, nonatomic) AVAssetResourceLoadingContentInformationRequest *contentInformationRequest;
 - (void)_setContentInformationRequest:(id)arg1;
+- (void)_performCancellationByClient;
+- (BOOL)_shouldInformDelegateOfFigCancellation;
 @property(readonly, nonatomic, getter=isCancelled) BOOL cancelled;
 - (BOOL)_tryToMarkAsCancelled;
 - (BOOL)finished;
@@ -39,10 +46,16 @@
 - (id)_requestDictionary;
 - (id)_resourceLoader;
 - (id)_weakReference;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithResourceLoader:(id)arg1 requestDictionary:(id)arg2;
+- (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

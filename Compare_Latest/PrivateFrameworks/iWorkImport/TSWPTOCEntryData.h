@@ -6,19 +6,27 @@
 
 #import <iWorkImport/TSPObject.h>
 
-@class NSString, TSWPParagraphStyle;
+#import "TSPCopying.h"
+
+@class NSString, TSWPListStyle, TSWPParagraphStyle;
 
 __attribute__((visibility("hidden")))
-@interface TSWPTOCEntryData : TSPObject
+@interface TSWPTOCEntryData : TSPObject <TSPCopying>
 {
     unsigned int _paragraphIndex;
     unsigned int _pageNumber;
     int _numberFormat;
     NSString *_heading;
     TSWPParagraphStyle *_indexedStyle;
+    TSWPListStyle *_indexedListStyle;
+    unsigned int _indexedListStart;
+    unsigned int _indexedParagraphLevel;
 }
 
-+ (id)tocEntryDataWithParagraphIndex:(unsigned int)arg1 pageNumber:(unsigned int)arg2 numberFormat:(int)arg3 heading:(id)arg4 indexedStyle:(id)arg5;
++ (id)tocEntryDataWithParagraphIndex:(unsigned int)arg1 pageNumber:(unsigned int)arg2 numberFormat:(int)arg3 heading:(id)arg4 indexedStyle:(id)arg5 indexedListStyle:(id)arg6 indexedListStart:(unsigned int)arg7 indexedParagraphLevel:(unsigned int)arg8;
+@property(readonly, nonatomic) unsigned int indexedParagraphLevel; // @synthesize indexedParagraphLevel=_indexedParagraphLevel;
+@property(readonly, nonatomic) unsigned int indexedListStart; // @synthesize indexedListStart=_indexedListStart;
+@property(readonly, nonatomic) TSWPListStyle *indexedListStyle; // @synthesize indexedListStyle=_indexedListStyle;
 @property(readonly, nonatomic) TSWPParagraphStyle *indexedStyle; // @synthesize indexedStyle=_indexedStyle;
 @property(readonly, nonatomic) NSString *heading; // @synthesize heading=_heading;
 @property(readonly, nonatomic) int numberFormat; // @synthesize numberFormat=_numberFormat;
@@ -31,8 +39,9 @@ __attribute__((visibility("hidden")))
 - (void)loadFromArchive:(const struct TOCEntryInstanceArchive *)arg1 unarchiver:(id)arg2;
 - (BOOL)isEqual:(id)arg1;
 - (id)description;
+- (id)copyWithContext:(id)arg1;
 - (void)dealloc;
-- (id)initWithParagraphIndex:(unsigned int)arg1 pageNumber:(unsigned int)arg2 numberFormat:(int)arg3 heading:(id)arg4 indexedStyle:(id)arg5;
+- (id)initWithParagraphIndex:(unsigned int)arg1 pageNumber:(unsigned int)arg2 numberFormat:(int)arg3 heading:(id)arg4 indexedStyle:(id)arg5 indexedListStyle:(id)arg6 indexedListStart:(unsigned int)arg7 indexedParagraphLevel:(unsigned int)arg8;
 
 @end
 

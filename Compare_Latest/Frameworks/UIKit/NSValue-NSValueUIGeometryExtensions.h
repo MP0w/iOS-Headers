@@ -12,12 +12,14 @@
 + (id)valueWithCGAffineTransform:(struct CGAffineTransform)arg1;
 + (id)valueWithCGRect:(struct CGRect)arg1;
 + (id)valueWithCGSize:(struct CGSize)arg1;
++ (id)valueWithCGVector:(struct CGVector)arg1;
 + (id)valueWithCGPoint:(struct CGPoint)arg1;
 - (struct UIOffset)UIOffsetValue;
 - (struct UIEdgeInsets)UIEdgeInsetsValue;
 - (struct CGAffineTransform)CGAffineTransformValue;
 - (struct CGRect)CGRectValue;
 - (struct CGSize)CGSizeValue;
+- (struct CGVector)CGVectorValue;
 - (struct CGPoint)CGPointValue;
 @end
 

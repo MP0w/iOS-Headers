@@ -6,28 +6,26 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, WDDocument, WDListDefinition;
+@class NSMutableArray, NSMutableDictionary, WDDocument, WDListDefinition;
 
 __attribute__((visibility("hidden")))
 @interface WDListDefinitionTable : NSObject
 {
-    NSMutableArray *mListDefinitions;
-    struct __CFDictionary *mListDefinitionMap;
-    unsigned int mNextIdIndex;
     WDDocument *mDocument;
-    WDListDefinition *mLastKnownGoodListDefinition;
+    NSMutableArray *mListDefinitions;
+    NSMutableDictionary *mListDefinitionMapById;
+    NSMutableDictionary *mListDefinitionMapByStyleId;
+    WDListDefinition *mNullListDefinition;
 }
 
-- (id)definitionWithId:(long)arg1;
-- (id)addDefinition:(long)arg1;
-- (id)addDefinition;
-- (id)definitionAt:(unsigned int)arg1;
-- (unsigned int)definitionCount;
-- (id)document;
+- (id)resolvedDefinitionWithDefinitionId:(long)arg1;
+- (id)definitionWithStyleId:(id)arg1;
+- (id)definitionWithDefinitionId:(long)arg1;
+- (void)setStyleId:(id)arg1 forDefinitionWithDefinitionId:(long)arg2;
+- (id)addDefinitionWithDefinitionId:(long)arg1 styleId:(id)arg2;
+- (id)definitions;
 - (void)dealloc;
 - (id)initWithDocument:(id)arg1;
-- (void)setLastKnowGoodListDefinition:(id)arg1;
-- (int)nextId;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "SKUIItemStateCenterObserver.h"
 
-@class NSDictionary, NSMutableArray, NSOperationQueue, SKUIBannerView, SKUIClientContext, SKUIItemArtworkContext, SKUIItemStateCenter, SSLookupItem, UIImage;
+@class NSDictionary, NSMutableArray, NSOperationQueue, NSString, SKUIBannerView, SKUIClientContext, SKUIItemArtworkContext, SKUIItemStateCenter, SSLookupItem, UIImage;
 
 @interface SKUIBannerViewController : UIViewController <SKUIItemStateCenterObserver>
 {
@@ -48,6 +48,12 @@
 - (void)loadView;
 - (void)loadWithProductParameters:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

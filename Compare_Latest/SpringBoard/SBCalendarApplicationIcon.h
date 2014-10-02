@@ -15,7 +15,6 @@
 - (id)numberFont;
 - (id)colorForDayOfWeek;
 - (_Bool)isBlackDayOfWeekRequiredForLocale:(id)arg1;
-- (_Bool)canGenerateImageInBackgroundForFormat:(int)arg1;
 - (id)getUnmaskedIconImage:(int)arg1;
 - (id)generateIconImage:(int)arg1;
 - (void)localeChanged;

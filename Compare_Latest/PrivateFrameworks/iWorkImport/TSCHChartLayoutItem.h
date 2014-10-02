@@ -30,7 +30,6 @@ __attribute__((visibility("hidden")))
 + (id)chartLayoutWithChartInfo:(id)arg1;
 @property(nonatomic) struct CGPoint layoutOffset; // @synthesize layoutOffset=mOffset;
 @property(readonly, nonatomic) TSCHChartLayoutItem *parent; // @synthesize parent=mParent;
-- (id)mutationTuplesToApplyDuringResize;
 - (struct CGPath *)newDragAndDropHighlightPathForSelection:(id)arg1;
 - (id)subselectionHaloPositionsForSelections:(id)arg1;
 - (id)subselectionKnobPositionsForSelection:(id)arg1;
@@ -40,7 +39,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)stopIteratingItemsContainingPoint:(struct CGPoint)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (id)description;
 - (id)p_description;
-- (float)overhangMagnitudeForEdge:(int)arg1;
+- (float)overhangMagnitudeForEdge:(unsigned int)arg1;
 - (id)renderersWithRep:(id)arg1;
 - (void)layoutUsingMethod:(int)arg1;
 - (void)p_layoutOutward;

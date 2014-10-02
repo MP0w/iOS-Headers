@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSObject<OS_dispatch_queue>, NSURL, TSPDocumentResourceCache, TSUDownloadManager;
+@class NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSURL, TSPDocumentResourceCache, TSUDownloadManager;
 
 __attribute__((visibility("hidden")))
 @interface TSPDocumentResourceManager : NSObject
@@ -16,6 +16,8 @@ __attribute__((visibility("hidden")))
     long _documentResourcesConfigurationToken;
     NSObject<OS_dispatch_queue> *_documentResourcesConfigurationQueue;
     NSDictionary *_documentResourcesConfiguration;
+    long _sageDocumentResourcesConfigurationToken;
+    NSMutableDictionary *_sageDocumentResourcesConfiguration;
     TSPDocumentResourceCache *_cache;
     TSUDownloadManager *_downloadManager;
 }
@@ -23,6 +25,7 @@ __attribute__((visibility("hidden")))
 + (id)sharedManager;
 + (id)appDocumentResourcesMetadataURL;
 + (id)appDocumentResourcesURL;
++ (void)setSageAppDocumentResourcesURL:(id)arg1;
 + (void)setAppDocumentResourcesMetadataURL:(id)arg1;
 + (void)setAppDocumentResourcesURL:(id)arg1;
 @property(readonly, nonatomic) TSUDownloadManager *downloadManager; // @synthesize downloadManager=_downloadManager;
@@ -36,6 +39,8 @@ __attribute__((visibility("hidden")))
 - (id)URLForCachedDocumentResourceWithDigestString:(id)arg1;
 - (id)URLForAppDocumentResourceWithDigestString:(id)arg1 extension:(id)arg2;
 - (id)findDocumentResourceUsingDigestString:(id)arg1 locator:(id)arg2;
+- (id)sageAssetURLForLocator:(id)arg1;
+- (id)sageDocumentResourcesConfiguration;
 - (id)documentResourcesConfiguration;
 - (id)initWithAppDocumentResourcesURL:(id)arg1 appDocumentResourcesMetadataURL:(id)arg2 cache:(id)arg3 downloadManager:(id)arg4;
 - (id)init;

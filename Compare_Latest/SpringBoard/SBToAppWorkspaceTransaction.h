@@ -4,41 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "SBWorkspaceTransaction.h"
+#import "SBToAppsWorkspaceTransaction.h"
 
 @class SBApplication;
 
-@interface SBToAppWorkspaceTransaction : SBWorkspaceTransaction
+@interface SBToAppWorkspaceTransaction : SBToAppsWorkspaceTransaction
 {
     SBApplication *_toApp;
-    _Bool _activateSuspended;
-    double _watchdogExtension;
-    _Bool _fromAssistant;
-    _Bool _fromSwitcher;
-    CDUnknownBlockType _activationHandlerBlock;
 }
 
-@property(readonly, nonatomic) SBApplication *toApplication; // @synthesize toApplication=_toApp;
-- (void)_commit;
-- (void)_captureApplicationData;
-- (_Bool)_shouldBeWatchdogged:(id *)arg1;
-- (double)_watchdogInterval;
-- (void)_fireAndClearActivationContinuationForActivationFailureIfNecessary;
-- (_Bool)selfApplicationDidBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
-- (void)_interruptWithReason:(int)arg1;
-- (void)_transactionComplete;
-- (void)_handleAppDidNotChange;
-- (void)activate:(id)arg1;
-- (void)toggleStatusBarForCleanup;
-- (void)performToAppStateCleanup;
-- (_Bool)shouldAnimateOrientationChangeOnCompletion;
-- (_Bool)shouldDismissSwitcher;
-- (_Bool)shouldPerformToAppStateCleanupOnCompletion;
-- (_Bool)shouldToggleSpringBoardStatusBarOnCleanup;
-- (_Bool)shouldHideSpringBoardStatusBarOnCleanup;
-- (id)debugDescription;
 - (void)dealloc;
-- (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 toApplication:(id)arg3 activationHandler:(CDUnknownBlockType)arg4;
+- (id)initWithAlertManager:(id)arg1 toApplication:(id)arg2 withResult:(CDUnknownBlockType)arg3;
 
 @end
 

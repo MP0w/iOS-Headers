@@ -14,8 +14,8 @@
     NSString *_typeAttribute;
 }
 
-@property(retain) NSString *typeAttribute; // @synthesize typeAttribute=_typeAttribute;
-@property(retain) NSString *nameAttribute; // @synthesize nameAttribute=_nameAttribute;
+@property(retain, nonatomic) NSString *typeAttribute; // @synthesize typeAttribute=_typeAttribute;
+@property(retain, nonatomic) NSString *nameAttribute; // @synthesize nameAttribute=_nameAttribute;
 - (void)parserFoundAttributes:(id)arg1;
 - (void)dealloc;
 - (id)initWithNameSpace:(id)arg1 andName:(id)arg2;

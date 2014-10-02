@@ -9,6 +9,8 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
+@class NSString;
+
 @interface NSPredicate : NSObject <NSSecureCoding, NSCopying>
 {
     struct _predicateFlags {
@@ -26,7 +28,7 @@
 + (struct __CFLocale *)retainedLocale;
 + (id)newStringFrom:(id)arg1 usingUnicodeTransforms:(unsigned int)arg2;
 + (void)initialize;
-- (id)predicateFormat;
+@property(readonly, copy) NSString *predicateFormat;
 - (id)description;
 - (id)predicateWithSubstitutionVariables:(id)arg1;
 - (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
@@ -38,6 +40,7 @@
 - (void)allowEvaluation;
 - (BOOL)_allowsEvaluation;
 - (id)generateMetadataDescription;
+- (void)_validateForMetadataQueryScopes:(id)arg1;
 
 @end
 

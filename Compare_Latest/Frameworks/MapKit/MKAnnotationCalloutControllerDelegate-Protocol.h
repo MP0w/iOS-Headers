@@ -9,6 +9,7 @@
 @class MKAnnotationCalloutController, MKAnnotationView, UIControl;
 
 @protocol MKAnnotationCalloutControllerDelegate <NSObject>
+- (void)calloutDidAppearForAnnotationView:(MKAnnotationView *)arg1 inCalloutController:(MKAnnotationCalloutController *)arg2;
 - (void)calloutController:(MKAnnotationCalloutController *)arg1 annotationView:(MKAnnotationView *)arg2 calloutAccessoryControlTapped:(UIControl *)arg3;
 - (void)calloutController:(MKAnnotationCalloutController *)arg1 scrollToRevealCalloutWithOffset:(struct CGPoint)arg2 annotationCoordinate:(CDStruct_c3b9c2ee)arg3 completionHandler:(void (^)(void))arg4;
 - (struct CGRect)calloutController:(MKAnnotationCalloutController *)arg1 visibleCenteringRectInAnnotationView:(MKAnnotationView *)arg2;

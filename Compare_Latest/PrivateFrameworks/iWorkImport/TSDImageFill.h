@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 {
     TSPData *mImageData;
     TSPData *mOriginalImageData;
+    BOOL mInterpretsUntaggedImageDataAsGeneric;
     int mTechnique;
     TSUColor *mTintColor;
     TSUFlushableCachedImage *mStandardSizeTintedImage;
@@ -36,10 +37,11 @@ __attribute__((visibility("hidden")))
 + (void)bootstrapPresetsOfKind:(id)arg1 inTheme:(id)arg2 alternate:(int)arg3;
 + (id)presetKinds;
 + (id)instanceWithArchive:(const struct FillArchive *)arg1 unarchiver:(id)arg2;
-@property(readonly, nonatomic) TSUColor *tintColor; // @synthesize tintColor=mTintColor;
+@property(readonly, nonatomic) BOOL interpretsUntaggedImageDataAsGeneric; // @synthesize interpretsUntaggedImageDataAsGeneric=mInterpretsUntaggedImageDataAsGeneric;
+@property(readonly, copy, nonatomic) TSUColor *tintColor; // @synthesize tintColor=mTintColor;
 @property(nonatomic) int technique; // @synthesize technique=mTechnique;
-@property(readonly, nonatomic) TSPData *originalImageData; // @synthesize originalImageData=mOriginalImageData;
-@property(readonly, nonatomic) TSPData *imageData; // @synthesize imageData=mImageData;
+@property(readonly, retain, nonatomic) TSPData *originalImageData; // @synthesize originalImageData=mOriginalImageData;
+@property(readonly, retain, nonatomic) TSPData *imageData; // @synthesize imageData=mImageData;
 - (void)p_drawPDFWithProvider:(id)arg1 inContext:(struct CGContext *)arg2 bounds:(struct CGRect)arg3;
 - (void)p_drawBitmapImage:(struct CGImage *)arg1 withOrientation:(int)arg2 inContext:(struct CGContext *)arg3 bounds:(struct CGRect)arg4;
 - (struct CGRect)p_drawnRectForImageSize:(struct CGSize)arg1 destRect:(struct CGRect)arg2 inContext:(struct CGContext *)arg3;
@@ -81,7 +83,9 @@ __attribute__((visibility("hidden")))
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
+- (id)initWithGenericImageData:(id)arg1 technique:(int)arg2 tintColor:(id)arg3 size:(struct CGSize)arg4 originalImageData:(id)arg5;
 - (id)initWithImageData:(id)arg1 technique:(int)arg2 tintColor:(id)arg3 size:(struct CGSize)arg4 originalImageData:(id)arg5;
+- (BOOL)tsch_hasAllResources;
 - (void)saveToArchive:(struct FillArchive *)arg1 archiver:(id)arg2;
 - (BOOL)p_shouldPersistFillSizeForData:(id)arg1;
 - (id)initWithArchive:(const struct FillArchive *)arg1 unarchiver:(id)arg2;

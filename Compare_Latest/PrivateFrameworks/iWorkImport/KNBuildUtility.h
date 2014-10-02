@@ -11,11 +11,10 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (id)chunksForInfos:(id)arg1;
 + (id)buildsForChunks:(id)arg1;
 + (id)chunksInBuilds:(id)arg1;
 + (BOOL)animationInfo:(id)arg1 onInfo:(id)arg2 canRunSimultaneouslyWithAnimationInfo:(id)arg3 onInfo:(id)arg4;
-+ (id)firstCommandOfClass:(Class)arg1 inPossibleGroup:(id)arg2;
-+ (id)firstCommandToInsertBuildFromCommand:(id)arg1;
 + (int)animationTypeForBuildChunks:(id)arg1;
 
 @end

@@ -25,6 +25,7 @@
 + (Class)factoryClassForVisualStyle:(CDStruct_961fb75c)arg1;
 + (int)_graphicsQuality;
 + (BOOL)_enabled;
+@property(readonly, nonatomic) BOOL boldTextEnabled; // @synthesize boldTextEnabled=_boldTextEnabled;
 @property(nonatomic) float scale; // @synthesize scale=_scale;
 @property(nonatomic) BOOL lightweightFactory; // @synthesize lightweightFactory=_lightweightFactory;
 @property(nonatomic) float rivenSizeFactor; // @synthesize rivenSizeFactor=_rivenSizeFactor;
@@ -48,10 +49,16 @@
 - (id)displayContentsForKey:(id)arg1;
 - (id)keyImageNameWithSkinnyVariation:(id)arg1;
 - (float)skinnyKeyThreshold;
+- (id)boldKeyImageName;
+- (id)undoKeyImageName;
+- (id)pasteKeyImageName;
+- (id)copyKeyImageName;
+- (id)cutKeyImageName;
+- (id)rightArrowKeyImageName;
+- (id)leftArrowKeyImageName;
 - (id)shiftLockImageName;
 - (id)shiftOnKeyImageName;
 - (id)shiftKeyImageName;
-- (id)deleteKeyXImageName;
 - (id)deleteKeyImageName;
 - (id)handwritingMoreKeyImageName;
 - (id)muttitapReverseKeyImageName;

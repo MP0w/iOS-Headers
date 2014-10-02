@@ -8,39 +8,49 @@
 
 #import "NSCopying.h"
 
-@class NSDictionary, NSUUID;
+@class NSDictionary, NSUUID, TSPDocumentRevision;
 
 __attribute__((visibility("hidden")))
 @interface TSPDocumentProperties : NSObject <NSCopying>
 {
-    NSUUID *_documentUUID;
     NSUUID *_versionUUID;
     NSUUID *_nextVersionUUID;
+    NSUUID *_shareUUID;
+    NSUUID *_documentUUID;
+    TSPDocumentRevision *_revision;
     NSDictionary *_additionalProperties;
     unsigned long long _fileFormatVersion;
 }
 
++ (id)shareIdentifierRelativePath;
++ (id)documentPropertiesRelativePath;
 + (BOOL)documentIsEncryptedAtURL:(id)arg1;
 + (id)documentUUIDAtURL:(id)arg1;
-@property(readonly, nonatomic) NSDictionary *additionalProperties; // @synthesize additionalProperties=_additionalProperties;
-@property(copy, nonatomic) NSUUID *nextVersionUUID; // @synthesize nextVersionUUID=_nextVersionUUID;
+@property(copy, nonatomic) NSDictionary *additionalProperties; // @synthesize additionalProperties=_additionalProperties;
+@property(copy, nonatomic) TSPDocumentRevision *revision; // @synthesize revision=_revision;
 @property(nonatomic) unsigned long long fileFormatVersion; // @synthesize fileFormatVersion=_fileFormatVersion;
-@property(copy, nonatomic) NSUUID *versionUUID; // @synthesize versionUUID=_versionUUID;
 @property(copy, nonatomic) NSUUID *documentUUID; // @synthesize documentUUID=_documentUUID;
 - (void).cxx_destruct;
 - (id)description;
-- (id)copyWithAdditionalProperties:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-@property(readonly, nonatomic) BOOL hasCurrentFileFormatVersion;
+@property(readonly, nonatomic) NSUUID *shareUUID;
 - (void)updateVersionUUID;
+@property(readonly, nonatomic) NSUUID *nextVersionUUID;
+@property(readonly, nonatomic) NSUUID *versionUUID;
+- (void)updateDocumentAndShareUUID;
 - (void)updateDocumentUUID;
-- (id)documentIdentifierURLForDocumentURL:(id)arg1;
-- (id)documentPropertiesURLForDocumentURL:(id)arg1;
 - (BOOL)writeToPropertiesURL:(id)arg1 error:(id *)arg2;
-- (BOOL)writeToDocumentURL:(id)arg1 error:(id *)arg2;
+- (id)encodedPropertyListWithError:(id *)arg1;
+- (BOOL)writeToDocumentBundleURL:(id)arg1 error:(id *)arg2;
+- (BOOL)writeToPackageWriter:(id)arg1 error:(id *)arg2;
+- (BOOL)writeToDocumentURL:(id)arg1 writerBlock:(CDUnknownBlockType)arg2 error:(id *)arg3;
 - (id)UUIDFromDocumentProperties:(id)arg1 key:(id)arg2;
 - (void)readDocumentPropertiesFromDictionary:(id)arg1;
 - (id)initWithPropertiesURL:(id)arg1 error:(id *)arg2;
+- (id)initWithFilePackageURL:(id)arg1 zipArchive:(id)arg2 allowMissingPropertyList:(BOOL)arg3 error:(id *)arg4;
+- (id)initWithDocumentFileURL:(id)arg1 allowMissingPropertyList:(BOOL)arg2 error:(id *)arg3;
+- (id)initWithDocumentBundleURL:(id)arg1 allowMissingPropertyList:(BOOL)arg2 error:(id *)arg3;
+- (id)initWithDocumentURL:(id)arg1 allowMissingPropertyList:(BOOL)arg2 error:(id *)arg3;
 - (id)initWithDocumentURL:(id)arg1 error:(id *)arg2;
 - (id)init;
 

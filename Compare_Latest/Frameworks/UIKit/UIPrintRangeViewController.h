@@ -11,7 +11,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class UIPickerView, UIPrintPanelViewController, UITableView;
+@class NSString, UIPickerView, UIPrintPanelViewController, UITableView;
 
 __attribute__((visibility("hidden")))
 @interface UIPrintRangeViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -42,6 +42,12 @@ __attribute__((visibility("hidden")))
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)initWithPrintPanelViewController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

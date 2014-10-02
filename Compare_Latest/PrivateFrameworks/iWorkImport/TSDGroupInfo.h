@@ -11,7 +11,7 @@
 #import "TSDSelectionStatisticsContributor.h"
 #import "TSKDocumentObject.h"
 
-@class NSMutableArray, NSObject<TSDContainerInfo>, TSDInfoGeometry, TSPObject<TSDOwningAttachment>;
+@class NSMutableArray, NSObject<TSDContainerInfo>, NSString, TSDInfoGeometry, TSPObject<TSDOwningAttachment>;
 
 __attribute__((visibility("hidden")))
 @interface TSDGroupInfo : TSDDrawableInfo <TSDMutableContainerInfo, TSDMixing, TSKDocumentObject, TSDSelectionStatisticsContributor>
@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 + (id)drawablesToInsertForGroup:(id)arg1 filteredWithTarget:(id)arg2 action:(SEL)arg3;
 + (id)groupGeometryFromChildrenInfos:(id)arg1;
 - (void)processSelectedStoragesWithStatisticsController:(id)arg1;
+- (id)localizedChunkNameForTextureDeliveryStyle:(unsigned int)arg1 animationFilter:(id)arg2 chunkIndex:(unsigned int)arg3;
 - (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
 - (int)mixingTypeWithObject:(id)arg1;
 - (id)commandToFlipWithOrientation:(int)arg1;
@@ -35,6 +36,7 @@ __attribute__((visibility("hidden")))
 - (void)willBeAddedToDocumentRoot:(id)arg1 context:(id)arg2;
 - (void)acceptVisitor:(id)arg1;
 - (id)childEnumerator;
+- (BOOL)canAnchor;
 - (void)didCopy;
 - (void)willCopyWithOtherDrawables:(id)arg1;
 - (void)ensureGeometryFitsChildren;
@@ -54,7 +56,6 @@ __attribute__((visibility("hidden")))
 - (id)allNestedChildrenInfosIncludingGroups;
 - (id)allNestedChildrenInfos;
 - (id)copyWithContext:(id)arg1;
-- (Class)editorClass;
 - (Class)repClass;
 - (Class)layoutClass;
 @property(copy, nonatomic) TSDInfoGeometry *geometry;
@@ -66,17 +67,22 @@ __attribute__((visibility("hidden")))
 - (void)loadFromArchive:(const struct GroupArchive *)arg1 unarchiver:(id)arg2 upgradeDOLC:(BOOL)arg3;
 - (id)subclassInitFromUnarchiver:(id)arg1;
 - (id)initFromUnarchiver:(id)arg1;
-- (id)titleForBuildChunk:(id)arg1;
+- (BOOL)containsDisallowedElementKind:(unsigned int)arg1;
+- (BOOL)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic, getter=isAnchoredToText) BOOL anchoredToText; // @dynamic anchoredToText;
 @property(readonly, nonatomic, getter=isAttachedToBodyText) BOOL attachedToBodyText;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly, nonatomic, getter=isFloatingAboveText) BOOL floatingAboveText; // @dynamic floatingAboveText;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic, getter=isInlineWithText) BOOL inlineWithText; // @dynamic inlineWithText;
 @property(nonatomic) BOOL matchesObjectPlaceholderGeometry;
 @property(nonatomic) TSPObject<TSDOwningAttachment> *owningAttachment; // @dynamic owningAttachment;
 @property(readonly, nonatomic) TSPObject<TSDOwningAttachment> *owningAttachmentNoRecurse; // @dynamic owningAttachmentNoRecurse;
 @property(nonatomic) NSObject<TSDContainerInfo> *parentInfo; // @dynamic parentInfo;
+@property(readonly) Class superclass;
 
 @end
 

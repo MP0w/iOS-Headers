@@ -13,11 +13,12 @@
     MFMailMessage *_message;
     id _content;
     BOOL _isDraft;
+    CDUnknownBlockType _completionBlock;
 }
 
 - (void)loadAttachments;
 - (void)dealloc;
-- (id)initWithMessage:(id)arg1 content:(id)arg2 isDraft:(BOOL)arg3;
+- (id)initWithMessage:(id)arg1 content:(id)arg2 isDraft:(BOOL)arg3 completion:(CDUnknownBlockType)arg4;
 
 @end
 

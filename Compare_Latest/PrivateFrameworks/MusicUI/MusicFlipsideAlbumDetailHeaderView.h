@@ -27,15 +27,15 @@
     double _totalDuration;
 }
 
-+ (float)defaultHeight;
 + (struct CGSize)artworkSize;
-@property(readonly, nonatomic) NSString *year; // @synthesize year=_year;
-@property(readonly, nonatomic) NSString *copyright; // @synthesize copyright=_copyright;
+@property(readonly, copy, nonatomic) NSString *year; // @synthesize year=_year;
+@property(readonly, copy, nonatomic) NSString *copyright; // @synthesize copyright=_copyright;
 @property(nonatomic) double totalDuration; // @synthesize totalDuration=_totalDuration;
 @property(nonatomic) int songCount; // @synthesize songCount=_songCount;
 @property(copy, nonatomic) CDUnknownBlockType downloadActionBlock; // @synthesize downloadActionBlock=_downloadActionBlock;
 @property(nonatomic) float cloudRightInset; // @synthesize cloudRightInset=_cloudRightInset;
 - (void).cxx_destruct;
+- (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)_itemOfferButtonAction:(id)arg1;
 - (void)setCopyright:(id)arg1 year:(id)arg2;
 @property(copy, nonatomic) NSString *album;
@@ -45,7 +45,9 @@
 @property(retain, nonatomic) UIImage *artworkImage;
 - (float)backgroundTransitionProgress;
 - (void)setTableViewStyle:(int)arg1;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

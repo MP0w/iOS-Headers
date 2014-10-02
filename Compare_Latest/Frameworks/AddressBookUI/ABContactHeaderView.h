@@ -6,84 +6,37 @@
 
 #import "UIView.h"
 
-#import "ABPropertyGroupItemDelegate.h"
-#import "UITableViewDataSource.h"
-#import "UITableViewDelegate.h"
+@class ABContactPhotoView, CNContact, NSDictionary, NSMutableArray;
 
-@class ABCachingTableView, ABContactPhotoView, CNContact, NSArray, NSDictionary, NSString, UIColor, UILabel;
-
-@interface ABContactHeaderView : UIView <UITableViewDelegate, UITableViewDataSource, ABPropertyGroupItemDelegate>
+@interface ABContactHeaderView : UIView
 {
-    ABContactPhotoView *_photoView;
-    UILabel *_nameLabel;
-    UILabel *_taglineLabel;
-    ABCachingTableView *_editingTable;
-    CNContact *_contact;
-    UIView *_personHeaderView;
     BOOL _needsReload;
-    BOOL _editing;
-    id <ABPresenterDelegate> _delegate;
-    UIColor *_backgroundColor;
     NSDictionary *_nameTextAttributes;
-    NSDictionary *_taglineTextAttributes;
-    NSArray *_editingGroups;
-    NSString *_alternateName;
-    NSString *_message;
-    NSArray *_headerConstraints;
-    UIView *_sizedToFitForSuperview;
+    id <ABPresenterDelegate> _delegate;
+    id <ABContactHeaderViewDelegate> _headerDelegate;
+    NSMutableArray *_headerConstraints;
+    ABContactPhotoView *_photoView;
+    CNContact *_contact;
     struct UIEdgeInsets _contentMargins;
 }
 
-+ (BOOL)requiresConstraintBasedLayout;
-+ (id)contactHeaderViewWithContact:(id)arg1 editingGroups:(id)arg2 personHeaderView:(id)arg3;
-+ (void)preCacheEdit;
-+ (void)preCacheDisplay;
-+ (void)preCacheContent;
-@property(nonatomic) UIView *sizedToFitForSuperview; // @synthesize sizedToFitForSuperview=_sizedToFitForSuperview;
-@property(retain, nonatomic) NSArray *headerConstraints; // @synthesize headerConstraints=_headerConstraints;
-@property(retain, nonatomic) NSString *message; // @synthesize message=_message;
-@property(retain, nonatomic) NSString *alternateName; // @synthesize alternateName=_alternateName;
-@property(retain, nonatomic) NSArray *editingGroups; // @synthesize editingGroups=_editingGroups;
-@property(nonatomic, getter=isEditing) BOOL editing; // @synthesize editing=_editing;
-@property(nonatomic) struct UIEdgeInsets contentMargins; // @synthesize contentMargins=_contentMargins;
-@property(copy, nonatomic) NSDictionary *taglineTextAttributes; // @synthesize taglineTextAttributes=_taglineTextAttributes;
-@property(copy, nonatomic) NSDictionary *nameTextAttributes; // @synthesize nameTextAttributes=_nameTextAttributes;
-@property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
+@property(readonly, nonatomic) CNContact *contact; // @synthesize contact=_contact;
+@property(readonly, nonatomic) ABContactPhotoView *photoView; // @synthesize photoView=_photoView;
+@property(retain, nonatomic) NSMutableArray *headerConstraints; // @synthesize headerConstraints=_headerConstraints;
+@property(nonatomic) id <ABContactHeaderViewDelegate> headerDelegate; // @synthesize headerDelegate=_headerDelegate;
 @property(nonatomic) id <ABPresenterDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) UIView *personHeaderView; // @synthesize personHeaderView=_personHeaderView;
-- (void)menuWillHide:(id)arg1;
-- (void)handleNameLabelLongPress:(id)arg1;
-- (id)_taglineStringForContact:(id)arg1;
-- (id)_headerStringForContact:(id)arg1;
-- (void)_updatePhotoView;
-- (float)_topMarginToNameBaselineWithName:(id)arg1 tagline:(id)arg2;
-- (id)_phoneticNameForValue:(id)arg1 isFamilyName:(BOOL)arg2;
-- (void)propertyItem:(id)arg1 willChangeValue:(id)arg2;
-- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (BOOL)tableView:(id)arg1 shouldIndentWhileEditingRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
-- (BOOL)canBecomeFirstResponder;
-- (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
-- (void)copy:(id)arg1;
-- (id)selectEditingGroupAtIndex:(unsigned int)arg1;
+@property(copy, nonatomic) NSDictionary *nameTextAttributes; // @synthesize nameTextAttributes=_nameTextAttributes;
+@property(nonatomic) struct UIEdgeInsets contentMargins; // @synthesize contentMargins=_contentMargins;
 - (void)saveContactPhoto;
-- (void)reloadData;
+- (void)reloadDataPreservingChanges:(BOOL)arg1;
 - (void)reloadDataIfNeeded;
 - (void)setNeedsReload;
-- (void)updateWithNewContact:(id)arg1;
-- (id)contentViewEditingConstraints;
-- (id)contentViewConstraints;
-- (void)updateConstraints;
-- (void)setEditingGroups:(id)arg1 withUpdate:(BOOL)arg2;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (float)_labelsVSpacing;
-- (void)willMoveToSuperview:(id)arg1;
 - (void)updateFontSizes;
-- (void)tintColorDidChange;
+- (void)updateWithNewContact:(id)arg1;
+- (void)updateConstraints;
+- (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1 withHorizontalFittingPriority:(float)arg2 verticalFittingPriority:(float)arg3;
 - (void)dealloc;
-- (id)initWithContact:(id)arg1 withEditingGroups:(id)arg2 personHeaderView:(id)arg3 frame:(struct CGRect)arg4;
+- (id)initWithContact:(id)arg1 frame:(struct CGRect)arg2;
 
 @end
 

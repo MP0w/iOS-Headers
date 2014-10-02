@@ -13,13 +13,12 @@
     id _surface;
 }
 
-- (void)dealloc;
-- (id)surface;
 - (void)_addBlackBackground;
+@property(readonly, nonatomic) id surface;
+- (id)initWithContextHostSnapshotView:(id)arg1 screen:(id)arg2;
 - (id)initWithContextHostView:(id)arg1 screen:(id)arg2;
 - (id)initWithImage:(id)arg1 screen:(id)arg2 opaque:(_Bool)arg3;
-- (id)initWithSnapshotFrame:(struct CGRect)arg1 screen:(id)arg2 ioSurface:(void *)arg3 opaque:(_Bool)arg4 snapshotTransform:(struct CGAffineTransform)arg5;
-- (id)initWithSnapshotFrame:(struct CGRect)arg1 screen:(id)arg2 image:(id)arg3 originalImageOrientation:(long long)arg4 currentImageOrientation:(long long)arg5 interfaceOrientation:(long long)arg6 doubleHeightStatusBar:(_Bool)arg7 preventSplit:(_Bool)arg8 needsZoomFilter:(_Bool)arg9 asyncDecodeImage:(_Bool)arg10 opaque:(_Bool)arg11 forJail:(_Bool)arg12;
+- (id)initWithSnapshotFrame:(struct CGRect)arg1 screen:(id)arg2 image:(id)arg3 originalImageOrientation:(long long)arg4 currentImageOrientation:(long long)arg5 interfaceOrientation:(long long)arg6 doubleHeightStatusBar:(_Bool)arg7 preventSplit:(_Bool)arg8 needsZoomFilter:(_Bool)arg9 asyncDecodeImage:(_Bool)arg10 opaque:(_Bool)arg11 forceRotationOnPhone:(_Bool)arg12 forJail:(_Bool)arg13;
 - (id)_initWithView:(id)arg1 screen:(id)arg2 needsBlackBackground:(_Bool)arg3;
 - (id)_initWithFrame:(struct CGRect)arg1;
 

@@ -16,12 +16,13 @@
 - (id)debugDescription;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
-- (unsigned int)methodReturnLength;
-- (const char *)methodReturnType;
+- (BOOL)_isHiddenStructRet;
+@property(readonly) unsigned int methodReturnLength;
+@property(readonly) const char *methodReturnType;
 - (BOOL)isOneway;
-- (unsigned int)frameLength;
+@property(readonly) unsigned int frameLength;
 - (const char *)getArgumentTypeAtIndex:(unsigned int)arg1;
-- (unsigned int)numberOfArguments;
+@property(readonly) unsigned int numberOfArguments;
 - (id)_protocolsForObjectAtArgumentIndex:(int)arg1;
 - (Class)_classForObjectAtArgumentIndex:(int)arg1;
 - (id)_signatureForBlockAtArgumentIndex:(int)arg1;

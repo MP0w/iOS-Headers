@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
-@class CKRecipientSearchListController, MFComposeRecipient, MFRecentComposeRecipient;
+@class CKRecipientSearchListController, MFComposeRecipient, MFRecentComposeRecipient, NSDictionary, NSString;
 
 @protocol CKRecipientSearchListControllerDelegate <NSObject>
+- (int)searchListController:(CKRecipientSearchListController *)arg1 idStatusForIDSID:(NSString *)arg2;
+- (void)searchListController:(CKRecipientSearchListController *)arg1 destinationsUpdated:(NSDictionary *)arg2;
 - (void)searchListControllerDidScroll:(CKRecipientSearchListController *)arg1;
 - (void)searchListController:(CKRecipientSearchListController *)arg1 accessoryPickedForRecipient:(MFRecentComposeRecipient *)arg2;
 - (void)searchListController:(CKRecipientSearchListController *)arg1 didSelectRecipient:(MFComposeRecipient *)arg2;

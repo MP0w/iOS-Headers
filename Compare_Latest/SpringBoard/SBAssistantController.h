@@ -6,11 +6,11 @@
 
 #import "SBUIPluginHost.h"
 
-@class NSHashTable, NSMutableSet, NSString, SBAssistantWindow, SBOperationQueue, SBPasscodeLockDisableAssertion, UIViewController<SBUIPluginViewControllerInterface>;
+@class BSEventQueue, FBUIApplicationResignActiveAssertion, NSHashTable, NSMutableSet, NSString, SBAssistantWindow, SBPasscodeLockDisableAssertion, UIViewController<SBUIPluginViewControllerInterface>;
 
 @interface SBAssistantController : SBUIPluginHost
 {
-    SBOperationQueue *_operationQueue;
+    BSEventQueue *_operationQueue;
     NSString *_appDisplayIDBeingHosted;
     SBAssistantWindow *_assistantWindow;
     _Bool _unlockedDevice;
@@ -21,6 +21,7 @@
     NSMutableSet *_dismissingReasons;
     long long _pendingDismissViewType;
     NSHashTable *_observers;
+    FBUIApplicationResignActiveAssertion *_resignActiveAssertion;
     UIViewController<SBUIPluginViewControllerInterface> *_mainScreenViewController;
 }
 
@@ -58,6 +59,8 @@
 - (void)_notifyObserversViewWillDisappear:(long long)arg1;
 - (void)_notifyObserversViewDidAppear:(long long)arg1;
 - (void)_notifyObserversViewWillAppear:(long long)arg1;
+- (void)_viewDidDisappearWithType:(long long)arg1;
+- (void)_viewDidAppearWithType:(long long)arg1;
 - (void)_bioAuthenticated:(id)arg1;
 - (void)_starkSiriDidDisappear:(id)arg1;
 - (void)_starkSiriWillDisappear:(id)arg1;
@@ -67,8 +70,7 @@
 - (void)_viewWillDisappearOnMainScreen:(_Bool)arg1;
 - (void)_viewDidAppearOnMainScreen:(_Bool)arg1;
 - (void)_viewWillAppearOnMainScreen:(_Bool)arg1;
-- (void)_cleanupContextHosting;
-- (id)_activationContextWithDismissalDisallowed:(_Bool)arg1;
+- (id)_activationSettingsWithDismissalDisallowed:(_Bool)arg1;
 - (_Bool)_isPluginLoaded;
 - (void)_loadPlugin;
 - (_Bool)_isDismissingAllViews;
@@ -77,6 +79,7 @@
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (id)mainScreenView;
+- (id)window;
 - (_Bool)activateIgnoringTouches;
 - (_Bool)shouldShowLockStatusBarTime;
 - (void)dismissAssistantView:(long long)arg1 forAlertActivation:(id)arg2;
@@ -84,7 +87,7 @@
 - (void)dismissAssistantViewIfNecessary:(long long)arg1 withAnimation:(long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)dismissAssistantViewIfNecessary:(long long)arg1 withAnimation:(long long)arg2;
 - (void)dismissAssistantViewIfNecessary:(long long)arg1;
-- (id)activationContext;
+- (id)activationSettings;
 - (void)handleSiriPreheatCommand;
 - (void)handleSiriButtonUpEventFromSource:(int)arg1;
 - (_Bool)handleSiriButtonDownEventFromSource:(int)arg1 activationEvent:(int)arg2;

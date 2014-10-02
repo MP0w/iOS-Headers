@@ -17,6 +17,7 @@
 + (void)migrateFromVersionOne;
 + (void)migrateFromVersionZero;
 + (void)_migrateVersionZeroFromAccessGroup:(id)arg1 toGroup:(id)arg2;
+- (void).cxx_destruct;
 - (void)removeAllTrusts;
 - (void)removeSMIMETrust:(struct __SecTrust *)arg1 sender:(id)arg2;
 - (void)removeSSLTrust:(struct __SecTrust *)arg1 hostname:(id)arg2 service:(id)arg3;
@@ -25,7 +26,6 @@
 - (int)actionForSMIMETrust:(struct __SecTrust *)arg1 sender:(id)arg2;
 - (int)actionForSSLTrust:(struct __SecTrust *)arg1 hostname:(id)arg2 service:(id)arg3;
 - (int)_actionForTrust:(struct __SecTrust *)arg1 exceptions:(id)arg2;
-- (void)dealloc;
 - (id)init;
 - (id)initWithAccessGroup:(id)arg1;
 - (void)clearSavedTrustSettingsForTrust:(struct __SecTrust *)arg1 host:(id)arg2 service:(id)arg3;

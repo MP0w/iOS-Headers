@@ -24,7 +24,7 @@
 @property(nonatomic, setter=_setPermittedArrowDirections:) unsigned int _permittedArrowDirections; // @synthesize _permittedArrowDirections;
 @property(copy, nonatomic, setter=_setPassthroughViews:) NSArray *_passthroughViews; // @synthesize _passthroughViews;
 - (void)perform;
-@property(readonly, nonatomic) UIPopoverController *popoverController; // @synthesize popoverController=_popoverController;
+@property(readonly, retain, nonatomic) UIPopoverController *popoverController; // @synthesize popoverController=_popoverController;
 - (void)dealloc;
 
 @end

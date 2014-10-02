@@ -11,12 +11,13 @@
 @interface RUPreviewSession : NSObject
 {
     NSArray *_items;
+    MPAVItem *_currentItem;
     MPAVController *_player;
     NSHashTable *_sessionObservers;
     double _customTrackPreviewDuration;
 }
 
-@property(readonly, nonatomic) NSArray *items; // @synthesize items=_items;
+@property(readonly, copy, nonatomic) NSArray *items; // @synthesize items=_items;
 @property(nonatomic) double customTrackPreviewDuration; // @synthesize customTrackPreviewDuration=_customTrackPreviewDuration;
 - (void).cxx_destruct;
 - (void)_unregisterForPlayerNotifications;

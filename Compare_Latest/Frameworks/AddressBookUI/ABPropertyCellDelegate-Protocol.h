@@ -9,6 +9,7 @@
 @class ABPropertyCell, ABPropertyGroupItem, NSString;
 
 @protocol ABPropertyCellDelegate <NSObject>
+- (id)defaultValueForPropertyCell:(ABPropertyCell *)arg1;
 - (void)propertyCellDidChangeLayout:(ABPropertyCell *)arg1;
 - (void)propertyCell:(ABPropertyCell *)arg1 performActionForItem:(ABPropertyGroupItem *)arg2 withTransportType:(int)arg3;
 - (void)propertyCell:(ABPropertyCell *)arg1 didUpdateItem:(ABPropertyGroupItem *)arg2 withNewValue:(id)arg3;

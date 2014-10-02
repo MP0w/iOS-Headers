@@ -23,6 +23,7 @@
 - (void)setBaseWritingDirection:(int)arg1 range:(struct _NSRange)arg2;
 - (void)setAlignment:(int)arg1 range:(struct _NSRange)arg2;
 - (void)fixGlyphInfoAttributeInRange:(struct _NSRange)arg1;
+- (void)_fixGlyphInfo:(id)arg1 inRange:(struct _NSRange)arg2;
 - (void)fixAttachmentAttributeInRange:(struct _NSRange)arg1;
 - (void)fixParagraphStyleAttributeInRange:(struct _NSRange)arg1;
 - (void)fixFontAttributeInRange:(struct _NSRange)arg1;

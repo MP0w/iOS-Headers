@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) VKPStyleProperties *properties; // @synthesize properties=_properties;
 @property(nonatomic) float maxZ; // @synthesize maxZ=_maxZ;
 @property(nonatomic) float minZ; // @synthesize minZ=_minZ;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

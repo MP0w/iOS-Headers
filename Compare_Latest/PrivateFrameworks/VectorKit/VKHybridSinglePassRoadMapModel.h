@@ -11,8 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (void)drawScene:(id)arg1 withContext:(id)arg2 pass:(unsigned int)arg3;
-- (unsigned int)supportedRenderPasses;
+- (void)gglLayoutScene:(id)arg1 withContext:(id)arg2 renderQueue:(struct RenderQueue *)arg3;
 
 @end
 

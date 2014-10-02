@@ -6,10 +6,8 @@
 
 #import <UIFoundation/NSATSTypesetter.h>
 
-#import "NSGlyphStorage.h"
-
 __attribute__((visibility("hidden")))
-@interface NSSingleLineTypesetter : NSATSTypesetter <NSGlyphStorage>
+@interface NSSingleLineTypesetter : NSATSTypesetter
 {
     float _lineWidth;
     struct _NSRange _currentBufferRange;
@@ -22,7 +20,7 @@ __attribute__((visibility("hidden")))
     } _slFlags;
 }
 
-+ (_Bool)_validateAttributes:(id)arg1;
++ (_Bool)_validateAttributes:(id)arg1 measuringOnly:(_Bool)arg2;
 + (void)initialize;
 + (id)singleLineTypesetter;
 - (void)setBidiLevels:(const char *)arg1 forGlyphRange:(struct _NSRange)arg2;
@@ -41,6 +39,8 @@ __attribute__((visibility("hidden")))
 - (struct _NSRange)characterRangeForGlyphRange:(struct _NSRange)arg1 actualGlyphRange:(struct _NSRange *)arg2;
 - (id)attributedString;
 - (unsigned int)layoutOptions;
+- (void)setIntAttribute:(int)arg1 value:(int)arg2 forGlyphAtIndex:(unsigned int)arg3;
+- (void)insertGlyphs:(const unsigned int *)arg1 length:(unsigned int)arg2 forStartingGlyphAtIndex:(unsigned int)arg3 characterIndex:(unsigned int)arg4;
 - (void)setGlyphs:(const unsigned short *)arg1 properties:(const int *)arg2 characterIndexes:(const unsigned int *)arg3 font:(id)arg4 forGlyphRange:(struct _NSRange)arg5;
 - (id)createRenderingContextForCharacterRange:(struct _NSRange)arg1 typesetterBehavior:(int)arg2 usesScreenFonts:(BOOL)arg3 hasStrongRight:(BOOL)arg4 maximumWidth:(float)arg5;
 - (id)init;

@@ -19,12 +19,16 @@
     NSMutableDictionary *_inFlightSearchQueries;
     NSMutableDictionary *_inFlightFolderChanges;
     NSMutableDictionary *_inFlightAttachmentDownloads;
+    NSMutableDictionary *_inFlightCalendarAvailabilityRequests;
+    NSMutableDictionary *_inFlightCalendarDirectorySearches;
     NSMutableDictionary *_inFlightShareRequests;
+    NSMutableDictionary *_inFlightOofSettingsRequests;
 }
 
 + (void)setShouldIgnoreAccountChanges;
 + (id)sharedConnectionIfServerIsRunning;
 + (id)sharedConnection;
+- (void).cxx_destruct;
 - (void)_dispatchMessage:(id)arg1;
 - (void)_registerForAppResumedNotification;
 - (void)resetTimersAndWarnings;
@@ -33,6 +37,19 @@
 - (void)dealloc;
 - (id)_init;
 - (id)init;
+- (void)externalIdentificationForAccountID:(id)arg1 resultsBlock:(CDUnknownBlockType)arg2;
+- (void)_calendarDirectorySearchFinished:(id)arg1;
+- (void)_calendarDirectorySearchReturnedResults:(id)arg1;
+- (void)cancelCalendarDirectorySearchWithID:(id)arg1;
+- (id)performCalendarDirectorySearchWithAccountID:(id)arg1 terms:(id)arg2 recordTypes:(id)arg3 resultLimit:(unsigned int)arg4 resultsBlock:(CDUnknownBlockType)arg5 completionBlock:(CDUnknownBlockType)arg6;
+- (void)_calendarAvailabilityRequestFinished:(id)arg1;
+- (void)_calendarAvailabilityRequestReturnedResults:(id)arg1;
+- (void)cancelCalendarAvailabilityRequestWithID:(id)arg1;
+- (id)requestCalendarAvailabilityWithAccountID:(id)arg1 startDate:(id)arg2 endDate:(id)arg3 ignoredEventID:(id)arg4 addresses:(id)arg5 resultsBlock:(CDUnknownBlockType)arg6 completionBlock:(CDUnknownBlockType)arg7;
+- (BOOL)isOofSettingsSupportedForAccountWithID:(id)arg1;
+- (BOOL)updateOofSettingsRequest:(id)arg1 forAccountWithID:(id)arg2;
+- (BOOL)retrieveOofSettingsRequest:(id)arg1 forAccountWithID:(id)arg2;
+- (BOOL)_performOofSettingsRequest:(id)arg1 forAccountWithID:(id)arg2 forUpdate:(BOOL)arg3;
 - (id)activeSyncDeviceIdentifier;
 - (void)fillOutCurrentEASTimeZoneInfo;
 - (BOOL)registerForInterrogationWithBlock:(CDUnknownBlockType)arg1;
@@ -45,7 +62,7 @@
 - (id)beginDownloadingAttachmentWithUUID:(id)arg1 accountID:(id)arg2 queue:(id)arg3 progressBlock:(CDUnknownBlockType)arg4 completionBlock:(CDUnknownBlockType)arg5;
 - (void)_sendSynchronousXPCMessageWithParameters:(id)arg1 handlerBlock:(CDUnknownBlockType)arg2;
 - (void)handleURL:(id)arg1;
-- (void)reportFolderItemsSyncSuccess:(BOOL)arg1 forFolderWithID:(id)arg2 andAccountWithID:(id)arg3;
+- (void)reportFolderItemsSyncSuccess:(BOOL)arg1 forFolderWithID:(id)arg2 withItemsCount:(unsigned int)arg3 andAccountWithID:(id)arg4;
 - (BOOL)setFolderIdsThatExternalClientsCareAboutAdded:(id)arg1 deleted:(id)arg2 foldersTag:(id)arg3 forAccountID:(id)arg4;
 - (BOOL)processMeetingRequests:(id)arg1 deliveryIdsToClear:(id)arg2 deliveryIdsToSoftClear:(id)arg3 inFolderWithId:(id)arg4 forAccountWithId:(id)arg5;
 - (void)cancelServerContactsSearch:(id)arg1;
@@ -72,6 +89,7 @@
 - (BOOL)suspendWatchingFoldersWithKeys:(id)arg1 forAccountID:(id)arg2;
 - (BOOL)resumeWatchingFoldersWithKeys:(id)arg1 forAccountID:(id)arg2;
 - (BOOL)watchFoldersWithKeys:(id)arg1 forAccountID:(id)arg2;
+- (void)_oofSettingsRequestsFinished:(id)arg1;
 - (void)_shareResponseFinished:(id)arg1;
 - (void)_downloadFinished:(id)arg1;
 - (void)_downloadProgress:(id)arg1;

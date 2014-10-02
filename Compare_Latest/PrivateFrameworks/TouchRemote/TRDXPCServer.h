@@ -9,7 +9,7 @@
 #import "NSXPCConnectionDelegate.h"
 #import "NSXPCListenerDelegate.h"
 
-@class NSArray, NSMutableArray, NSObject<OS_dispatch_queue>, NSXPCListener;
+@class NSArray, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, NSXPCListener;
 
 @interface TRDXPCServer : NSObject <NSXPCConnectionDelegate, NSXPCListenerDelegate>
 {
@@ -30,6 +30,12 @@
 - (void)dealloc;
 - (id)_init;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

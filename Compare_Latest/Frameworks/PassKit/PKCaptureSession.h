@@ -8,7 +8,7 @@
 
 #import "AVCaptureMetadataOutputObjectsDelegate.h"
 
-@class AVCaptureDeviceInput, AVCaptureSession, AVCaptureVideoPreviewLayer, NSObject<OS_dispatch_queue>;
+@class AVCaptureDeviceInput, AVCaptureSession, AVCaptureVideoPreviewLayer, NSObject<OS_dispatch_queue>, NSString;
 
 @interface PKCaptureSession : NSObject <AVCaptureMetadataOutputObjectsDelegate>
 {
@@ -19,17 +19,24 @@
     id <PKCaptureDelegate> _delegate;
 }
 
+@property(nonatomic) id <PKCaptureDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) AVCaptureVideoPreviewLayer *previewLayer; // @synthesize previewLayer=_previewLayer;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_changeCameraConfiguration;
 - (void)autoExposeAtPoint:(struct CGPoint)arg1;
 - (void)autoFocusAtPoint:(struct CGPoint)arg1;
-- (BOOL)isRunning;
+@property(readonly, nonatomic) BOOL isRunning;
 - (void)stopRunning;
 - (void)startRunning;
 - (void)setupCameraSession;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

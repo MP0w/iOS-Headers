@@ -20,7 +20,7 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _completionBlock;
     struct CGRect _startFrame;
     struct CGRect _endFrame;
-    id <UIKeyboardSplitTransitionDelegate> _transitionDelegate;
+    id <UIKeyboardKeyplaneTransitionDelegate> _transitionDelegate;
     id <UIKeyboardSplitTransitionDataSource> _transitionDataSource;
     BOOL _centerFilled;
     BOOL _isRebuilding;
@@ -29,7 +29,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) id <UIKeyboardSplitTransitionDataSource> splitTransitionDataSource; // @synthesize splitTransitionDataSource=_transitionDataSource;
-@property(nonatomic) id <UIKeyboardSplitTransitionDelegate> splitTransitionDelegate; // @synthesize splitTransitionDelegate=_transitionDelegate;
+@property(nonatomic) id <UIKeyboardKeyplaneTransitionDelegate> splitTransitionDelegate; // @synthesize splitTransitionDelegate=_transitionDelegate;
 @property(copy) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
 - (BOOL)showDictationKey;
 - (BOOL)showIntlKey;
@@ -58,8 +58,8 @@ __attribute__((visibility("hidden")))
 @property(readonly) NSArray *backgroundLayers;
 @property(readonly) NSArray *shadowLayers;
 - (void)setFrame:(struct CGRect)arg1;
+- (void)didMoveToWindow;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

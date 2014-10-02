@@ -13,7 +13,7 @@
     double _timer_base;
     unsigned long long _timer_start;
     unsigned long long _timer_end;
-    unsigned long long _timer_tics;
+    unsigned long long _timer_ticks;
     double _timer_nsecs;
     NSString *name;
 }
@@ -22,6 +22,7 @@
 + (id)sharedTimer;
 @property(retain) NSString *name; // @synthesize name;
 - (unsigned long long)measure;
+- (unsigned long long)measureWithLogText:(id)arg1;
 - (id)rebase;
 - (id)initWithName:(id)arg1;
 

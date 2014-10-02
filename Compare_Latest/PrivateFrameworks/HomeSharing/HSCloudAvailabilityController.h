@@ -9,7 +9,7 @@
 #import "HSCloudAvailability.h"
 #import "RadiosPreferencesDelegate.h"
 
-@class NSObject<OS_dispatch_queue>, RadiosPreferences;
+@class NSObject<OS_dispatch_queue>, NSString, RadiosPreferences;
 
 @interface HSCloudAvailabilityController : NSObject <RadiosPreferencesDelegate, HSCloudAvailability>
 {
@@ -33,6 +33,7 @@
 }
 
 + (id)sharedController;
+- (void).cxx_destruct;
 - (BOOL)_uncachedIsShowingAllVideo;
 - (BOOL)_uncachedIsShowingAllMusic;
 - (BOOL)_uncachedIsAutoDownloadOnCellularAllowed;
@@ -56,6 +57,12 @@
 - (BOOL)shouldProhibitActionsForCurrentNetworkConditions;
 - (BOOL)isCellularDataRestricted;
 - (BOOL)hasProperNetworkConditionsToPlayMedia;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

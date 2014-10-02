@@ -10,6 +10,7 @@
 
 @interface TDDistillRunner : NSObject
 {
+    int _capabilities;
     TDDistiller *_distiller;
     NSURL *_carScratchURL;
     NSURL *_outputURL;
@@ -24,6 +25,7 @@
 @property(copy, nonatomic) NSURL *outputURL; // @synthesize outputURL=_outputURL;
 - (void)dealloc;
 - (BOOL)runDistillWithDocumentURL:(id)arg1 outputURL:(id)arg2 attemptIncremental:(BOOL)arg3 forceDistill:(BOOL)arg4;
+- (void)setDocumentCapabilities:(int)arg1;
 - (BOOL)_isDistillUnnecessaryForDocument:(id)arg1;
 - (void)_moveScratchToOutputPath;
 - (void)_removeScratchPath;

@@ -14,6 +14,7 @@
 }
 
 - (id)description;
+@property(getter=isSecure) BOOL secure;
 @property(copy) NSString *TVSignalType;
 @property(copy) NSString *TVMode;
 @property int tag;
@@ -26,6 +27,7 @@
 @property float minimumRefreshRate;
 @property float maximumBrightness;
 @property float contrast;
+@property(getter=isGrayscale) BOOL grayscale;
 @property BOOL invertsColors;
 @property float overscanAmount;
 @property(copy) NSString *orientation;

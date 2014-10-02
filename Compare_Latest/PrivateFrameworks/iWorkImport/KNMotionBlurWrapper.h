@@ -6,29 +6,22 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMapTable, TSDGLMotionBlurEffect, TSDGLShader, TSDGLShaderQualifier;
+@class NSArray, NSMapTable, TSDGLMotionBlurEffect, TSDGLShader;
 
 __attribute__((visibility("hidden")))
 @interface KNMotionBlurWrapper : NSObject
 {
     NSMapTable *_objectDataBufferMapTable;
-    NSMapTable *_velocityObjectDataBufferMapTable;
-    TSDGLShaderQualifier *_objectShaderMVPMatrixQualifier;
-    TSDGLShaderQualifier *_objectShaderOpacityQualifier;
-    TSDGLShaderQualifier *_velocityObjectShaderMVPMatrixQualifier;
-    TSDGLShaderQualifier *_velocityObjectShaderPreviousMVPMatrixQualifier;
     double _duration;
     BOOL _isBackFaceCullingEnabled;
+    TSDGLShader *_objectDefaultShader;
+    TSDGLShader *_objectDefaultMotionBlurShader;
     BOOL _shouldDisableMotionBlurFromDefaults;
     BOOL _shouldFillBackground;
-    BOOL _shouldDrawHiddenObjects;
-    TSDGLShader *_hiddenObjectShader;
     BOOL _shouldDrawTextOnSeparatePass;
     BOOL _shouldDrawTexturesInReverseOrder;
     BOOL _shouldDrawMotionBlur;
     TSDGLMotionBlurEffect *_motionBlurEffect;
-    TSDGLShader *_objectShader;
-    TSDGLShader *_velocityObjectShader;
     NSArray *_textures;
 }
 
@@ -36,18 +29,16 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) BOOL shouldDrawMotionBlur; // @synthesize shouldDrawMotionBlur=_shouldDrawMotionBlur;
 @property(nonatomic) BOOL shouldDrawTexturesInReverseOrder; // @synthesize shouldDrawTexturesInReverseOrder=_shouldDrawTexturesInReverseOrder;
 @property(retain, nonatomic) NSArray *textures; // @synthesize textures=_textures;
-@property(retain, nonatomic) TSDGLShader *velocityObjectShader; // @synthesize velocityObjectShader=_velocityObjectShader;
-@property(retain, nonatomic) TSDGLShader *objectShader; // @synthesize objectShader=_objectShader;
 @property(readonly, nonatomic) TSDGLMotionBlurEffect *motionBlurEffect; // @synthesize motionBlurEffect=_motionBlurEffect;
 @property(nonatomic) BOOL shouldDrawTextOnSeparatePass; // @synthesize shouldDrawTextOnSeparatePass=_shouldDrawTextOnSeparatePass;
-- (void)drawMotionBlurAtPercent:(double)arg1 textureDrawOptionsBlock:(CDUnknownBlockType)arg2 setupCustomShaderBlock:(CDUnknownBlockType)arg3;
-- (id)p_textureDrawOptionsMapTableWithPercent:(double)arg1 textureDrawOptionsBlock:(CDUnknownBlockType)arg2 passCounts:(id *)arg3;
-- (void)drawMotionBlurAtPercent:(double)arg1 textureDrawOptionsBlock:(CDUnknownBlockType)arg2;
-- (void)dealloc;
-- (id)initWithFramebufferSize:(struct CGSize)arg1 slideSize:(struct CGSize)arg2 textures:(id)arg3 duration:(double)arg4;
 - (void)p_setBackFaceCullingEnabled:(BOOL)arg1;
 - (void)p_setupDataBuffers;
-- (void)p_setupShaders;
+- (void)drawMotionBlurWithPluginContext:(id)arg1 textureDrawOptionsBlock:(CDUnknownBlockType)arg2 setupCustomShaderBlock:(CDUnknownBlockType)arg3;
+- (id)p_drawPassesWithTextures:(id)arg1 textureDrawOptionsMap:(id)arg2;
+- (id)p_textureDrawOptionsMapTableWithPercent:(double)arg1 isWarmingUp:(BOOL)arg2 textureDrawOptionsBlock:(CDUnknownBlockType)arg3;
+@property(readonly, nonatomic) TSDGLShader *objectShader;
+- (void)dealloc;
+- (id)initWithFramebufferSize:(struct CGSize)arg1 slideSize:(struct CGSize)arg2 textures:(id)arg3 duration:(double)arg4;
 
 @end
 

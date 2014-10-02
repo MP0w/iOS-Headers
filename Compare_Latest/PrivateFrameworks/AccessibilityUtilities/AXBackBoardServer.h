@@ -12,7 +12,6 @@
 {
     BOOL _overrideGestureRecognition;
     NSMutableArray *_eventListeners;
-    NSMutableArray *_zoomListeners;
 }
 
 + (id)server;
@@ -21,7 +20,9 @@
 - (BOOL)isGuidedAccessSelfLockedToApp:(id)arg1;
 - (BOOL)requestGuidedAccessSession:(BOOL)arg1 appID:(id)arg2;
 - (unsigned int)guidedAccessAvailability;
+- (BOOL)isGuidedAccessActive;
 - (id)_springboardParametersForGuidedAccessAvailability;
+- (void)setAccessibilityPreferenceAsMobile:(id)arg1 value:(id)arg2 notification:(id)arg3;
 - (void)setHearingAidControlIsVisible:(BOOL)arg1;
 - (void)removeEventListener:(id)arg1;
 - (void)registerEventListener:(CDUnknownBlockType)arg1 withIdentifierCallback:(CDUnknownBlockType)arg2;
@@ -29,27 +30,20 @@
 - (void)wakeUpDeviceIfNecessary;
 - (void)userEventOccurred;
 - (struct CGRect)convertFrame:(struct CGRect)arg1 forContextId:(unsigned int)arg2;
-- (void)removeZoomLevelHandler:(id)arg1;
-- (id)registerZoomLevelChangeHandler:(CDUnknownBlockType)arg1;
-- (void)zoomDeactivationAnimationWillBegin;
-- (void)zoomActivationAnimationWillBegin;
-- (void)zoomWillBeginAppSwitcherReveal;
-- (float)zoomAppSwitcherRevealAnimationDelay;
-- (double)zoomDeactivationAnimationStartDelay;
 - (void)postEvent:(id)arg1 systemEvent:(BOOL)arg2;
 - (void)postEvent:(id)arg1 afterNamedTap:(id)arg2 includeTaps:(id)arg3;
 @property(nonatomic) BOOL invertColorsEnabled; // @dynamic invertColorsEnabled;
-- (double)zoomActivationAnimationStartDelay;
 - (void)registerAssistiveTouchPID:(int)arg1;
+@property(nonatomic) BOOL inPreboardMode;
+- (id)backboardServiceInstance;
+- (BOOL)_shouldDispatchLocally;
 - (void)registerAccessibilityUIServicePID:(int)arg1;
 - (void)registerSiriViewServicePID:(int)arg1;
 - (void)setLockScreenDimTimerEnabled:(BOOL)arg1;
-- (void)zoomFocusChanged:(id)arg1;
 - (void)adjustSystemZoom:(int)arg1;
 - (void)registerGestureConflictWithZoom:(id)arg1;
 - (void)_willClearServer;
 - (void)_didConnectToServer;
-- (id)_handleZoomListener:(id)arg1;
 - (id)_handleEventListener:(id)arg1;
 - (id)_serviceName;
 - (void)dealloc;

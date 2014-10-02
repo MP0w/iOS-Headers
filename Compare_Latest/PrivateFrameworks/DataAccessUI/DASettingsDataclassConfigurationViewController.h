@@ -8,7 +8,7 @@
 
 #import "UIModalViewDelegate.h"
 
-@class DAAccount;
+@class DAAccount, NSString;
 
 @interface DASettingsDataclassConfigurationViewController : ACUIDataclassConfigurationViewController <UIModalViewDelegate>
 {
@@ -17,6 +17,7 @@
 }
 
 @property(retain, nonatomic) DAAccount *daAccount; // @synthesize daAccount=_daAccount;
+- (void).cxx_destruct;
 - (void)cancelButtonClicked:(id)arg1;
 - (void)operationsHelper:(id)arg1 didRemoveAccount:(id)arg2 withSuccess:(BOOL)arg3 error:(id)arg4;
 - (BOOL)shouldVerifyBeforeAccountSave;
@@ -34,6 +35,12 @@
 - (id)_navTitle;
 - (id)accountDescriptionForFirstTimeSetup;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

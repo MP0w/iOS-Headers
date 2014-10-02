@@ -8,11 +8,12 @@
 
 #import "PKPassLibraryDelegate.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary, PKCatalog, PKPassLibrary;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSString, PKCatalog, PKPassLibrary;
 
 @interface PKGroupsController : NSObject <PKPassLibraryDelegate>
 {
     PKPassLibrary *_passLibrary;
+    unsigned int _passTypeMask;
     NSMutableArray *_groups;
     NSMutableDictionary *_passesByUniqueID;
     NSMutableDictionary *_groupsByGroupID;
@@ -24,9 +25,14 @@
     NSMutableArray *_enqueuedUpdates;
     NSArray *_localPasses;
     BOOL _limitedMode;
+    BOOL _activePassesOnly;
+    BOOL _reorderingEnabled;
+    BOOL _shouldSeparatePaymentPasses;
     id <PKGroupsControllerDelegate> _delegate;
 }
 
+@property(nonatomic) BOOL shouldSeparatePaymentPasses; // @synthesize shouldSeparatePaymentPasses=_shouldSeparatePaymentPasses;
+@property(readonly, nonatomic, getter=isReorderingEnabled) BOOL reorderingEnabled; // @synthesize reorderingEnabled=_reorderingEnabled;
 @property(nonatomic) id <PKGroupsControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)_insertLocalGroupsIntoCatalog:(id)arg1;
 - (id)_copyRemoteCatalog;
@@ -54,6 +60,7 @@
 - (void)suppressRemoteUpdates:(BOOL)arg1;
 - (void)handleUserPassDelete:(id)arg1;
 - (void)handleUserPassIngestionWithData:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (unsigned int)indexOfSeparationGroup;
 - (unsigned int)groupIndexForPassUniqueID:(id)arg1;
 - (unsigned int)indexOfGroup:(id)arg1;
 - (id)groupAtIndex:(unsigned int)arg1;
@@ -63,7 +70,14 @@
 - (void)loadGroupsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)initLimited;
+- (id)initWithPassTypeMask:(unsigned int)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

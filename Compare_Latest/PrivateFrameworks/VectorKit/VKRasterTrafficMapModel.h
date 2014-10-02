@@ -8,22 +8,31 @@
 
 #import "VKMapLayer.h"
 
-@class VKTrafficDrawStyle;
+@class NSString;
 
 __attribute__((visibility("hidden")))
 @interface VKRasterTrafficMapModel : VKMapTileModel <VKMapLayer>
 {
-    VKTrafficDrawStyle *_trafficDrawStyle;
+    shared_ptr_6e6219d6 _trafficDrawStyle;
     int _sourceTileZtoStencilOffset;
     BOOL _needsTileStencil;
+    struct unique_ptr<vk::TrafficManager, std::__1::default_delete<vk::TrafficManager>> _trafficManager;
 }
 
-- (void)drawScene:(id)arg1 withContext:(id)arg2;
-- (void)buildTileStencilWithContext:(id)arg1 scene:(id)arg2;
-- (void)layoutScene:(id)arg1 withContext:(id)arg2;
-- (unsigned int)supportedRenderPasses;
-- (unsigned int)mapLayerPosition;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (void)stylesheetDidChange;
+- (void)gglLayoutScene:(id)arg1 withContext:(id)arg2 renderQueue:(struct RenderQueue *)arg3;
+- (unsigned long long)mapLayerPosition;
+- (unsigned char)commandBufferId;
 - (void)dealloc;
+- (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

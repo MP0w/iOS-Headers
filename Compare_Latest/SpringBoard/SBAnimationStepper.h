@@ -26,6 +26,7 @@
 @property(copy, nonatomic) NSArray *animatingSubviews; // @synthesize animatingSubviews=m_animatingSubviews;
 @property(retain, nonatomic) UIView *view; // @synthesize view=m_view;
 @property(nonatomic) id delegate; // @synthesize delegate=m_delegate;
+- (void)didFinishBackwardToStart;
 - (void)updateFinishBackwardToStart:(id)arg1;
 - (void)finishBackwardToStart;
 - (void)finishForwardToEnd;

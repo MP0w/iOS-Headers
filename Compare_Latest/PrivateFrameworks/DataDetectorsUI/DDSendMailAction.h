@@ -8,6 +8,8 @@
 
 #import "MFMailComposeViewControllerDelegate.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface DDSendMailAction : DDAction <MFMailComposeViewControllerDelegate>
 {
@@ -19,6 +21,12 @@ __attribute__((visibility("hidden")))
 - (int)interactionType;
 - (id)localizedName;
 - (id)initWithURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

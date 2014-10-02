@@ -8,29 +8,25 @@
 
 #import "NSCopying.h"
 
-@class NSMutableArray, WDDocument, WDStyle;
+@class NSMutableArray, NSString, WDDocument;
 
 __attribute__((visibility("hidden")))
 @interface WDListDefinition : NSObject <NSCopying>
 {
+    WDDocument *mDocument;
+    long mListDefinitionId;
+    NSString *mStyleId;
+    NSString *mStyleRefId;
     int mType;
     NSMutableArray *mLevels;
-    long mListId;
-    WDDocument *mDocument;
-    WDStyle *mListStyle;
-    WDStyle *mListStyleLink;
 }
 
+@property(copy, nonatomic) NSString *styleRefId; // @synthesize styleRefId=mStyleRefId;
+@property(readonly, nonatomic) NSString *styleId; // @synthesize styleId=mStyleId;
+@property(readonly, nonatomic) long listDefinitionId; // @synthesize listDefinitionId=mListDefinitionId;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithDocument:(id)arg1;
-- (id)document;
-- (void)setListId:(long)arg1;
-- (long)listId;
-- (void)setListStyleLink:(id)arg1;
-- (id)listStyleLink;
-- (void)setListStyle:(id)arg1;
-- (id)listStyle;
+- (id)initWithDocument:(id)arg1 listDefinitionId:(long)arg2 styleId:(id)arg3;
 - (id)addLevel;
 - (id)levelAt:(int)arg1;
 - (int)levelCount;

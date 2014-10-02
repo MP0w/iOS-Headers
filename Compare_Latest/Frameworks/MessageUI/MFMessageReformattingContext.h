@@ -42,7 +42,7 @@
 @property(readonly, nonatomic) float meanWidth;
 @property(readonly, nonatomic) float maximumWidth;
 - (void)_updateFloatsIfNecessary;
-@property(readonly, nonatomic) NSArray *rightFloats;
+@property(readonly, copy, nonatomic) NSArray *rightFloats;
 @property(readonly, nonatomic) BOOL hasAnyRightFloat;
 @property(readonly, nonatomic) BOOL hasAnyLeftFloat;
 @property(readonly, nonatomic) DOMNode *body;

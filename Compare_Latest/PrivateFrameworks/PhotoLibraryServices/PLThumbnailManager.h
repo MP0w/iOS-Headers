@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary, NSIndexSet, NSLock, NSMutableDictionary, NSMutableSet, PLLargeImageLoader, PLPhotoLibrary;
+@class NSArray, NSDictionary, NSIndexSet, NSLock, NSMutableArray, NSMutableDictionary, NSMutableSet, PLLargeImageLoader, PLPhotoLibrary;
 
 @interface PLThumbnailManager : NSObject
 {
@@ -24,14 +24,13 @@
     PLLargeImageLoader *_largeImageLoaderFilledHalfScreen;
     NSMutableSet *_previouslyRequestedThumbnailFixOIDs;
     NSMutableSet *_requestedThumbnailFixAssets;
+    NSMutableArray *_alreadyFailedAssetObjectIDsForRebuild;
     id _observerToken;
 }
 
 + (void)saveCameraPreviewWellImage:(struct CGImage *)arg1 uuid:(id)arg2;
 + (void)saveCameraPreviewWellImageForAsset:(id)arg1;
 + (id)cameraPreviewWellAssetUUID;
-+ (id)cameraPreviewWellImage;
-+ (id)cameraPreviewWellImageFileURL;
 + (id)cameraPreviewWellImageQueue;
 + (int)largestNonJPEGThumbnailFormat;
 + (id)supportedThumbnailFormats;
@@ -54,8 +53,10 @@
 + (id)defaultThumbnailsDirectory;
 + (BOOL)useImageTableForFormat:(int)arg1;
 + (BOOL)shouldUseLargerNonJPEGThumbnailFormat;
++ (BOOL)isRidingPowderSnow;
++ (BOOL)isRidingCrudSnow;
 @property(retain, nonatomic) id observerToken; // @synthesize observerToken=_observerToken;
-@property(readonly, nonatomic) NSMutableDictionary *thumbManagersByFormat; // @synthesize thumbManagersByFormat=_thumbManagersByFormat;
+@property(readonly, retain, nonatomic) NSMutableDictionary *thumbManagersByFormat; // @synthesize thumbManagersByFormat=_thumbManagersByFormat;
 @property(nonatomic) PLPhotoLibrary *photoLibrary; // @synthesize photoLibrary=_photoLibrary;
 - (id)_thumbManagerForFormat:(int *)arg1;
 - (id)_dataForInFlightAsset:(id)arg1 format:(int)arg2 width:(int *)arg3 height:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 imageDataOffset:(int *)arg8 imageDataFormat:(int *)arg9;
@@ -66,7 +67,7 @@
 - (id)compactImageTables;
 - (id)preflightImageTableCompactionForPhotos:(id)arg1;
 - (id)_anyImageTable;
-- (id)dataForPhoto:(id)arg1 format:(int)arg2 width:(int *)arg3 height:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 imageDataOffset:(int *)arg8 allowPlaceholder:(BOOL)arg9;
+- (id)dataForPhoto:(id)arg1 format:(int)arg2 allowPlaceholder:(BOOL)arg3 width:(int *)arg4 height:(int *)arg5 bytesPerRow:(int *)arg6 dataWidth:(int *)arg7 dataHeight:(int *)arg8 imageDataOffset:(int *)arg9;
 - (void)deleteThumbnailsWithIdentifier:(id)arg1 orIndex:(unsigned int)arg2 uuid:(id)arg3;
 - (void)setThumbnailsForPhoto:(id)arg1 withImage:(id)arg2;
 - (void)_horse_setThumbnailsForPhoto:(id)arg1 withImage:(id)arg2;
@@ -75,11 +76,17 @@
 - (BOOL)copyThumbnailsFromAsset:(id)arg1 toAsset:(id)arg2;
 - (struct __CFDictionary *)placeholderThumbnailDataByFormatID;
 - (void)setThumbnails:(struct __CFDictionary *)arg1 forPhoto:(id)arg2;
-- (id)newImageForPhoto:(id)arg1 withFormat:(int)arg2 outImageProperties:(const struct __CFDictionary **)arg3 allowPlaceholder:(BOOL)arg4;
+- (id)newImageForPhoto:(id)arg1 withFormat:(int)arg2 allowPlaceholder:(BOOL)arg3 optimalSourcePixelSize:(struct CGSize)arg4 networkAccessAllowed:(BOOL)arg5 networkAccessForced:(BOOL)arg6 trackCPLDownload:(BOOL)arg7 outImageProperties:(const struct __CFDictionary **)arg8 outImageDataInfo:(id *)arg9 outCPLDownloadContext:(id *)arg10;
+- (void)imageForPhoto:(id)arg1 withFormat:(int)arg2 allowPlaceholder:(BOOL)arg3 optimalSourcePixelSize:(struct CGSize)arg4 networkAccessAllowed:(BOOL)arg5 networkAccessForced:(BOOL)arg6 trackCPLDownload:(BOOL)arg7 completion:(CDUnknownBlockType)arg8 sync:(BOOL)arg9;
+- (id)newImageDataForPhoto:(id)arg1 withFormat:(int)arg2 allowPlaceholder:(BOOL)arg3 wantURLOnly:(BOOL)arg4 networkAccessAllowed:(BOOL)arg5 networkAccessForced:(BOOL)arg6 trackCPLDownload:(BOOL)arg7 outImageDataInfo:(id *)arg8 outCPLDownloadContext:(id *)arg9;
+- (void)assetsdImageForPhoto:(id)arg1 withFormat:(int)arg2 allowPlaceholder:(BOOL)arg3 wantURLOnly:(BOOL)arg4 optimalSourcePixelSize:(struct CGSize)arg5 networkAccessAllowed:(BOOL)arg6 networkAccessForced:(BOOL)arg7 trackCPLDownload:(BOOL)arg8 completion:(CDUnknownBlockType)arg9;
+- (id)newImageForPhoto:(id)arg1 withFormat:(int)arg2 allowPlaceholder:(BOOL)arg3 outImageProperties:(const struct __CFDictionary **)arg4 outDeliveredPlaceholder:(char *)arg5;
+- (BOOL)_canAccessImageForAsset:(id)arg1;
 - (void)dealloc;
 - (void)clearPhotoLibrary;
 - (id)initWithWeakPhotoLibrary:(id)arg1;
 - (int)_rebuildAssetThumbnailsWithLimit:(int)arg1 error:(id *)arg2;
+- (void)_discardAlreadyFailedAssetObjectIDsForRebuild;
 
 @end
 

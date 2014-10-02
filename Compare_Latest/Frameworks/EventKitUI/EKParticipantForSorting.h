@@ -18,13 +18,13 @@
 }
 
 - (void).cxx_destruct;
-- (id)description;
 - (int)compare:(id)arg1;
 - (id)lastName;
 - (id)firstName;
 - (id)displayName;
 - (BOOL)isEmail;
 - (id)participant;
+- (id)description;
 - (id)initWithEKParticipant:(id)arg1;
 
 @end

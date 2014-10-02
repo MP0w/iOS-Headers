@@ -9,7 +9,7 @@
 #import "CoreDAVTaskDelegate.h"
 #import "CoreDAVTaskGroupDelegate.h"
 
-@class NSDictionary, NSMutableDictionary, NSSet, NSURL;
+@class NSDictionary, NSMutableDictionary, NSSet, NSString, NSURL;
 
 @interface CalDAVAddDropBoxAttachmentsTaskGroup : CoreDAVTaskGroup <CoreDAVTaskDelegate, CoreDAVTaskGroupDelegate>
 {
@@ -25,15 +25,15 @@
 }
 
 + (id)dropboxACEItemsForPrincipalURLs:(id)arg1 baseURL:(id)arg2 writable:(BOOL)arg3;
-@property(retain) NSDictionary *putFailureSizes; // @synthesize putFailureSizes=_putFailureSizes;
-@property(retain) NSSet *aceItems; // @synthesize aceItems=_aceItems;
-@property(retain) NSSet *attendeePrincipalURLs; // @synthesize attendeePrincipalURLs=_attendeePrincipalURLs;
-@property(retain) NSDictionary *contentTypes; // @synthesize contentTypes=_contentTypes;
-@property(retain) NSDictionary *attachments; // @synthesize attachments=_attachments;
-@property(retain) NSURL *dropboxURL; // @synthesize dropboxURL=_dropboxURL;
-@property(retain) NSMutableDictionary *sentAttachmentURLsToETags; // @synthesize sentAttachmentURLsToETags=_sentAttachmentURLsToETags;
-@property BOOL attendeesCanManageDropBox; // @synthesize attendeesCanManageDropBox=_attendeesCanManageDropBox;
-@property int state; // @synthesize state=_state;
+@property(retain, nonatomic) NSDictionary *putFailureSizes; // @synthesize putFailureSizes=_putFailureSizes;
+@property(retain, nonatomic) NSSet *aceItems; // @synthesize aceItems=_aceItems;
+@property(retain, nonatomic) NSSet *attendeePrincipalURLs; // @synthesize attendeePrincipalURLs=_attendeePrincipalURLs;
+@property(retain, nonatomic) NSDictionary *contentTypes; // @synthesize contentTypes=_contentTypes;
+@property(retain, nonatomic) NSDictionary *attachments; // @synthesize attachments=_attachments;
+@property(retain, nonatomic) NSURL *dropboxURL; // @synthesize dropboxURL=_dropboxURL;
+@property(retain, nonatomic) NSMutableDictionary *sentAttachmentURLsToETags; // @synthesize sentAttachmentURLsToETags=_sentAttachmentURLsToETags;
+@property(nonatomic) BOOL attendeesCanManageDropBox; // @synthesize attendeesCanManageDropBox=_attendeesCanManageDropBox;
+@property(nonatomic) int state; // @synthesize state=_state;
 - (void)taskGroup:(id)arg1 didFinishWithError:(id)arg2;
 - (void)task:(id)arg1 didFinishWithError:(id)arg2;
 - (void)startTaskGroup;
@@ -41,12 +41,16 @@
 - (void)_makeDropBox;
 - (void)_updateACLWithState:(int)arg1;
 - (void)_finishWithError:(id)arg1 state:(int)arg2;
-@property(readonly) NSDictionary *etags;
+@property(readonly, retain, nonatomic) NSDictionary *etags;
 - (id)initWithAccountInfoProvider:(id)arg1 dropboxURL:(id)arg2 attachments:(id)arg3 contentTypes:(id)arg4 attendeePrincipalURLs:(id)arg5 attendeesCanManageDropBox:(BOOL)arg6 taskManager:(id)arg7;
 - (void)dealloc;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) id <CoreDAVTaskGroupDelegate> delegate; // @dynamic delegate;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,6 +8,8 @@
 
 @interface NSIndexSet (TSUAdditions)
 + (id)indexSetWithIndices:(unsigned int *)arg1 count:(unsigned int)arg2;
+- (unsigned int)tsu_positionOfIndex:(unsigned int)arg1;
+- (unsigned int)tsu_indexAtPosition:(unsigned int)arg1;
 - (id)indexSetByInsertingIndexes:(id)arg1 inRange:(struct _NSRange)arg2;
 - (BOOL)intersectsIndexesInIndexSet:(id)arg1;
 @property(readonly, nonatomic) BOOL isSingleContiguousRange;

@@ -8,6 +8,8 @@
 
 #import "GQDNameMappableWithDefault.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface GQDSStyle : NSObject <GQDNameMappableWithDefault>
 {
@@ -44,6 +46,12 @@ __attribute__((visibility("hidden")))
 - (id)parent;
 - (void)setPropertyMap:(struct GQDSMap *)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

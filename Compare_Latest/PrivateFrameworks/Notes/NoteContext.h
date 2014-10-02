@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AccountUtilities, CPExclusiveLock, NSManagedObjectContext, NSManagedObjectModel, NSMutableDictionary, NSNumber, NSPersistentStoreCoordinator, NSPredicate, NSString, NoteAccountObject, NoteStoreObject;
+@class AccountUtilities, CPExclusiveLock, NSManagedObjectContext, NSManagedObjectModel, NSMutableDictionary, NSNumber, NSPersistentStoreCoordinator, NSPredicate, NoteAccountObject, NoteStoreObject;
 
 @interface NoteContext : NSObject
 {
@@ -30,11 +30,14 @@
     BOOL _indexInBatches;
     BOOL _hasPriorityInSaveConflicts;
     BOOL _inMigrator;
-    NSString *_testingFilePrefix;
-    NSString *_testingFilePath;
     NSMutableDictionary *_notePropertyObjectsRealized;
 }
 
++ (id)generateGUID;
++ (id)defaultNotesSortDescriptors;
++ (id)fileProtectionOption;
++ (void)clearTestsNotesRootPath;
++ (void)setTestsNotesRootPath:(id)arg1;
 + (BOOL)databaseIsCorrupt:(id)arg1;
 + (BOOL)shouldLogIndexing;
 @property(retain, nonatomic) AccountUtilities *accountUtilities; // @synthesize accountUtilities=_accountUtilities;
@@ -42,7 +45,6 @@
 - (void).cxx_destruct;
 - (BOOL)deleteIndexFile;
 - (int)context:(id)arg1 shouldHandleInaccessibleFault:(id)arg2 forObjectID:(id)arg3 andTrigger:(id)arg4;
-- (BOOL)noteIsSafeToAccess:(id)arg1;
 - (void)cleanUpLocks;
 - (id)findNotesWithText:(id)arg1 betweenDate:(id)arg2 andDate:(id)arg3;
 - (id)copyNotesForSearch:(void *)arg1 predicate:(id)arg2 complete:(char *)arg3;
@@ -66,12 +68,11 @@
 - (void)saveNotesToResumeIndexing:(id)arg1;
 - (id)persistentStoreCoordinator;
 - (id)managedObjectModel;
-@property(readonly, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property(readonly, retain, nonatomic) NSManagedObjectContext *managedObjectContext;
 - (void)setHasPriorityInSaveConflicts:(BOOL)arg1;
 - (id)urlForPersistentStore;
 - (id)pathForIndex;
 - (id)pathForPersistentStore;
-- (id)rootDirectory;
 - (id)nextIndex;
 - (id)getNextIdObject;
 - (void)handleMigration;
@@ -104,11 +105,14 @@
 - (id)allNotesInCollection:(id)arg1;
 - (unsigned int)countOfNotes;
 - (id)allNotes;
+- (id)mostRecentlyModifiedNoteInCollection:(id)arg1;
 - (id)visibleNotesForIntegerIds:(id)arg1;
 - (id)visibleNoteForObjectID:(id)arg1;
 - (unsigned int)countOfVisibleNotesMatchingPredicate:(id)arg1;
+- (id)allVisibleNotesMatchingPredicate:(id)arg1 sorted:(BOOL)arg2;
 - (id)allVisibleNotesMatchingPredicate:(id)arg1;
 - (unsigned int)countOfVisibleNotesInCollection:(id)arg1;
+- (id)allVisibleNotesInCollection:(id)arg1 sorted:(BOOL)arg2;
 - (id)allVisibleNotesInCollection:(id)arg1;
 - (unsigned int)countOfVisibleNotes;
 - (id)allVisibleNotes;
@@ -122,7 +126,10 @@
 - (void)deleteNote:(id)arg1;
 - (id)storeForObjectID:(id)arg1;
 - (id)collectionForObjectID:(id)arg1;
+- (id)newlyAddedAttachment;
+- (id)newlyAddedNoteWithGUID:(id)arg1;
 - (id)newlyAddedNote;
+- (void)batchFaultNotes:(id)arg1;
 - (void)sortNotes:(id)arg1;
 - (void)clearCaches;
 - (id)newFetchRequestForNotes;
@@ -130,14 +137,12 @@
 - (id)liveNotesNeedingBodiesPredicate;
 - (id)visibleNotesPredicate;
 - (void)dealloc;
-- (id)init;
-- (id)initWithTestingFilePrefix:(id)arg1 atPath:(id)arg2 inMigrator:(BOOL)arg3 accountUtilities:(id)arg4;
-- (id)initWithTestingFilePrefix:(id)arg1 atPath:(id)arg2 inMigrator:(BOOL)arg3;
-- (id)initWithTestingFilePrefix:(id)arg1 inMigrator:(BOOL)arg2;
-- (id)initWithTestingFilePrefix:(id)arg1;
+- (id)initWithAccountUtilities:(id)arg1 inMigrator:(BOOL)arg2;
+- (id)initWithAccountUtilities:(id)arg1;
 - (id)initForMigrator;
+- (id)init;
 - (void)tearDownCoreDataStack;
-- (void)setUpCoreDataStack;
+- (BOOL)setUpCoreDataStack;
 - (void)removeConflictingSqliteAndIdxFiles;
 - (void)removeSqliteAndIdxFiles;
 - (void)setUpUniqueObjects;

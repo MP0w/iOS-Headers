@@ -8,7 +8,7 @@
 
 #import "SBIconListLayoutDelegate.h"
 
-@class SBFloatyFolderView, SBFolderIconView, SBFolderZoomSettings;
+@class NSString, SBFloatyFolderView, SBFolderIconView, SBFolderZoomSettings;
 
 @interface _SBInnerFolderIconZoomAnimator : SBIconZoomAnimator <SBIconListLayoutDelegate>
 {
@@ -17,7 +17,7 @@
     struct CGAffineTransform _folderIconViewScaleTransform;
 }
 
-- (void)_calculateZoomedOffset:(struct CGPoint *)arg1 scale:(double *)arg2 forIcon:(id)arg3 withView:(id)arg4;
+- (void)_calculateZoomedOffset:(struct CGPoint *)arg1 scale:(struct CGPoint *)arg2 forIcon:(id)arg3 withView:(id)arg4;
 - (void)_applyFolderFadeForZoomFraction:(double)arg1;
 - (void)_applyIconTransformForZoomFraction:(double)arg1;
 - (void)_applyIconCrossfadeForZoomFraction:(double)arg1;
@@ -27,10 +27,14 @@
 - (void)_setAnimationFraction:(double)arg1;
 - (void)_prepareAnimation;
 - (void)dealloc;
-- (id)initWithFolderController:(id)arg1 iconView:(id)arg2 iconZoomScale:(double)arg3;
+- (id)initWithFolderController:(id)arg1 iconView:(id)arg2 iconZoomScaleDimension:(struct CGPoint)arg3;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
 @property(retain, nonatomic) SBFolderZoomSettings *settings;
+@property(readonly) Class superclass;
 
 @end
 

@@ -9,13 +9,13 @@
 #import "MPUCZCollectionViewControllerDelegate.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class CADisplayLink, CAMediaTimingFunction, MPImageCache, MPUCZCollectionViewController, MPUCoverMaskView, MPUDataSource, NSIndexPath, UIPinchGestureRecognizer, UIView, UIViewController<MPUCoverZoomDetailViewControllerProtocol>;
+@class CADisplayLink, CAMediaTimingFunction, MPUCZCollectionViewController, MPUCoverMaskView, MPUDataSource, NSIndexPath, NSString, UIPinchGestureRecognizer, UIView;
 
 @interface MPUCoverZoomViewController : UIViewController <MPUCZCollectionViewControllerDelegate, UIGestureRecognizerDelegate>
 {
     MPUDataSource *_dataSource;
     id <MPUCoverZoomViewControllerDelegate> _delegate;
-    UIViewController<MPUCoverZoomDetailViewControllerProtocol> *_detailViewController;
+    UIViewController *_detailViewController;
     double _animationStartTimeInterval;
     double _animationDuration;
     float _animationEndProgress;
@@ -23,7 +23,6 @@
     CADisplayLink *_animationTimer;
     MPUCZCollectionViewController *_collectionViewController;
     int _coverCountPerColumn;
-    MPImageCache *_imageCache;
     MPUCoverMaskView *_maskView;
     float _pinchContentOffsetDelta;
     NSIndexPath *_pinchContentOffsetIndexPath;
@@ -55,10 +54,10 @@
 - (void)_beginTransitionForScale:(float)arg1;
 - (void)_pinchAction:(id)arg1;
 - (void)_displayLinkAction:(id)arg1;
-- (id)imageRequestForEntity:(id)arg1;
+- (void)detailViewControllerRequestsExit:(id)arg1;
+- (struct CGSize)maximumImageSize;
 - (float)imageAspectRatio;
 - (void)collectionViewController:(id)arg1 didSelectCell:(id)arg2 atIndexPath:(id)arg3;
-- (void)detailViewControllerRequestsExit:(id)arg1;
 - (BOOL)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)viewWillAppear:(BOOL)arg1;
 - (BOOL)prefersStatusBarHidden;
@@ -66,6 +65,12 @@
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithDataSource:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

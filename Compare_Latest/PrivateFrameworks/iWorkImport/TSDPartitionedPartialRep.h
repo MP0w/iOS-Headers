@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 - (struct CGImage *)p_newImageForCachingBaseRep;
 - (struct CGRect)p_clipRect;
 - (struct UIEdgeInsets)p_edgeInsetsForClipping;
+- (id)hyperlinkRegions;
 - (id)i_queueForTileProvider;
 - (void)resetCachedPartitionedRendering;
 - (void)didUpdateLayer:(id)arg1;

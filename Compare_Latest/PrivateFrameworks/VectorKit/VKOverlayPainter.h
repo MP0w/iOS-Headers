@@ -11,17 +11,19 @@
 __attribute__((visibility("hidden")))
 @interface VKOverlayPainter : NSObject
 {
+    unsigned int _applicationState;
     id <VKOverlay> _overlay;
     VKOverlayContainerModel *_containerModel;
     float _brightness;
 }
 
+@property(nonatomic) unsigned int applicationState; // @synthesize applicationState=_applicationState;
 @property(nonatomic) VKOverlayContainerModel *containerModel; // @synthesize containerModel=_containerModel;
 @property(readonly, nonatomic) id <VKOverlay> overlay; // @synthesize overlay=_overlay;
+- (void)flushPools;
 - (void)stylesheetDidChange;
-- (void)drawDebug:(id)arg1 tiles:(id)arg2;
-- (void)drawWithContext:(id)arg1 tiles:(id)arg2;
 - (void)layoutWithContext:(id)arg1 tiles:(id)arg2 keysInView:(id)arg3;
+- (void)gglLayoutWithContext:(id)arg1 commandBuffer:(struct CommandBuffer *)arg2 tiles:(id)arg3;
 - (void)dealloc;
 - (id)initWithOverlay:(id)arg1;
 

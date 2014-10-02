@@ -17,7 +17,7 @@
 @property(copy, nonatomic) NSString *installedOnDeviceID; // @synthesize installedOnDeviceID=_installedOnDeviceID;
 @property(retain, nonatomic) NSData *certificatePersistentID; // @synthesize certificatePersistentID=_certificatePersistentID;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) NSDate *expiry;
+@property(readonly, retain, nonatomic) NSDate *expiry;
 - (id)description;
 - (id)subtitle2Description;
 - (id)subtitle2Label;

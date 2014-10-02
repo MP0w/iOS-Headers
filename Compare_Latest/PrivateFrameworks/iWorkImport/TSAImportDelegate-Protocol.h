@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
-@class TSAImportController;
+@class NSURL, TSAImportController;
 
 @protocol TSAImportDelegate <NSObject>
 
 @optional
 - (BOOL)areNewExternalReferencesToDataAllowedForImportController:(TSAImportController *)arg1;
+- (void)importController:(TSAImportController *)arg1 documentDidMoveToURL:(NSURL *)arg2;
 - (void)importControllerDidRunOutOfSpace:(TSAImportController *)arg1;
 - (void)importControllerDidCancelImport:(TSAImportController *)arg1;
 - (void)willSaveImportedDocument:(TSAImportController *)arg1;

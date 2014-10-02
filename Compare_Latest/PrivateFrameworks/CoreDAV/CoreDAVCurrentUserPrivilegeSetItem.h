@@ -14,7 +14,7 @@
 }
 
 + (id)copyParseRules;
-@property(retain) NSMutableSet *privileges; // @synthesize privileges=_privileges;
+@property(retain, nonatomic) NSMutableSet *privileges; // @synthesize privileges=_privileges;
 - (BOOL)hasPrivilegeWithNameSpace:(id)arg1 andName:(id)arg2;
 - (void)addPrivilege:(id)arg1;
 - (id)description;

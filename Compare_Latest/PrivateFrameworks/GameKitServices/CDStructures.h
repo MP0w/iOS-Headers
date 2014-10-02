@@ -74,6 +74,8 @@ struct tagCONNRESULT {
     unsigned int dwCellularUniqueTag;
     unsigned short wCellularMTU;
     int bIfUpgrade;
+    int bIfPrimary;
+    int bIfReplaceOnly;
     struct tagCONNRESULT *next;
 };
 

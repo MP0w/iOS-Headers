@@ -8,7 +8,7 @@
 
 #import "TSDPrototypeChange.h"
 
-@class TSDPropertySourceForModifyPrototypeChange, TSSMutablePropertySet, TSSPropertyMap;
+@class NSString, TSDPropertySourceForModifyPrototypeChange, TSSMutablePropertySet, TSSPropertyMap;
 
 __attribute__((visibility("hidden")))
 @interface TSDModifyPrototypeChange : NSObject <TSDPrototypeChange>
@@ -22,22 +22,27 @@ __attribute__((visibility("hidden")))
     TSSMutablePropertySet *mPropertiesWithOldValuesRecordedButNotNewValues;
 }
 
-@property(readonly) TSSMutablePropertySet *i_propertiesWithOldValuesRecordedButNotNewValues; // @synthesize i_propertiesWithOldValuesRecordedButNotNewValues=mPropertiesWithOldValuesRecordedButNotNewValues;
-@property(readonly) TSSPropertyMap *changedPropertyMapAfterChange; // @synthesize changedPropertyMapAfterChange=mChangedPropertyMapAfterChange;
-@property(readonly) TSSPropertyMap *changedPropertyMapBeforeChange; // @synthesize changedPropertyMapBeforeChange=mChangedPropertyMapBeforeChange;
-@property(readonly) TSSMutablePropertySet *changedPropertySet; // @synthesize changedPropertySet=mChangedPropertySet;
-@property(readonly) id prototype; // @synthesize prototype=mPrototype;
+@property(readonly, retain) TSSMutablePropertySet *i_propertiesWithOldValuesRecordedButNotNewValues; // @synthesize i_propertiesWithOldValuesRecordedButNotNewValues=mPropertiesWithOldValuesRecordedButNotNewValues;
+@property(readonly, retain) TSSPropertyMap *changedPropertyMapAfterChange; // @synthesize changedPropertyMapAfterChange=mChangedPropertyMapAfterChange;
+@property(readonly, retain) TSSPropertyMap *changedPropertyMapBeforeChange; // @synthesize changedPropertyMapBeforeChange=mChangedPropertyMapBeforeChange;
+@property(readonly, retain) TSSMutablePropertySet *changedPropertySet; // @synthesize changedPropertySet=mChangedPropertySet;
+@property(readonly, retain) id prototype; // @synthesize prototype=mPrototype;
 - (BOOL)propertiesAreChanging:(id)arg1;
 - (BOOL)propertyIsChanging:(int)arg1;
-@property(readonly) id <TSSPropertySource> propertiesAfterChange;
-@property(readonly) id <TSSPropertySource> propertiesBeforeChange;
-@property(readonly) id replacement;
+@property(readonly, retain) id <TSSPropertySource> propertiesAfterChange;
+@property(readonly, retain) id <TSSPropertySource> propertiesBeforeChange;
+@property(readonly, retain) id replacement;
 @property(readonly) BOOL prototypeIsBeingDeleted;
 @property(readonly) BOOL prototypeIsBeingReplaced;
 @property(readonly) BOOL prototypeIsBeingModified;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initModifyPrototypeChangeForPrototype:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,6 @@
 
 @class UIImageView, UILabel;
 
-__attribute__((visibility("hidden")))
 @interface UIPickerContentView : UIView
 {
     UILabel *_titleLabel;

@@ -17,10 +17,10 @@
 }
 
 + (id)copyParseRules;
-@property(retain) CoreDAVItem *prop; // @synthesize prop=_prop;
-@property(retain) CoreDAVItem *include; // @synthesize include=_include;
-@property(retain) CoreDAVItemWithNoChildren *allProp; // @synthesize allProp=_allProp;
-@property(retain) CoreDAVItemWithNoChildren *propName; // @synthesize propName=_propName;
+@property(retain, nonatomic) CoreDAVItem *prop; // @synthesize prop=_prop;
+@property(retain, nonatomic) CoreDAVItem *include; // @synthesize include=_include;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *allProp; // @synthesize allProp=_allProp;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *propName; // @synthesize propName=_propName;
 - (id)description;
 - (void)dealloc;
 - (id)init;

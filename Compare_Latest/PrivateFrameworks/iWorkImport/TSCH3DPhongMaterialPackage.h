@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSCH3DDiffuseMaterial *diffuse; // @synthesize diffuse=mDiffuse;
 @property(retain, nonatomic) TSCH3DEmissiveMaterial *emissive; // @synthesize emissive=mEmissive;
 - (id)materialEnumerator;
+- (BOOL)hasCompleteData;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

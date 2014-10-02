@@ -9,11 +9,10 @@
 #import "MPURatingControlDelegate.h"
 #import "MusicFlipsideRating.h"
 
-@class MPImageCache, NSIndexPath;
+@class NSIndexPath, NSString;
 
 @interface MusicFlipsideAlbumDetailViewController : MusicAlbumsDetailViewController <MusicFlipsideRating, MPURatingControlDelegate>
 {
-    MPImageCache *_imageCache;
     id <MPURatingControlDelegate> _ratingDelegate;
     NSIndexPath *_ratingItemIndexPath;
 }
@@ -30,14 +29,22 @@
 - (float)maximumDurationWidth;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didEndDisplayingCell:(id)arg2 forRowAtIndexPath:(id)arg3;
+- (void)tableView:(id)arg1 willDisplayFooterView:(id)arg2 forSection:(int)arg3;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
 - (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
-- (void)_updateDownloadabilityStateWithCanReloadActionRows:(BOOL)arg1;
+- (void)_updateDownloadabilityStateWithCanReloadActionRowsSynchronously:(BOOL)arg1 animated:(BOOL)arg2;
 - (BOOL)shouldShowActionCellConfiguration:(Class)arg1;
 - (id)_createTableViewBackgroundView;
+- (id)_createTableView;
 - (void)viewDidLoad;
 - (id)initWithDataSource:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

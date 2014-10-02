@@ -8,7 +8,7 @@
 
 #import "SAAceSerializable.h"
 
-@class NSNumber, NSURL, SACalendar, SAUIAppPunchOut;
+@class NSNumber, NSString, NSURL, SACalendar, SAUIAppPunchOut;
 
 @interface SARestaurantOpening : AceObject <SAAceSerializable>
 {
@@ -22,6 +22,12 @@
 @property(copy, nonatomic) NSURL *bookingId;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

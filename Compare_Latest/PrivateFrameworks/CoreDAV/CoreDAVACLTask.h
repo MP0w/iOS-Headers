@@ -13,7 +13,7 @@
     NSArray *_accessControlEntities;
 }
 
-@property(retain) NSArray *accessControlEntities; // @synthesize accessControlEntities=_accessControlEntities;
+@property(retain, nonatomic) NSArray *accessControlEntities; // @synthesize accessControlEntities=_accessControlEntities;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)requestBody;
 - (id)httpMethod;

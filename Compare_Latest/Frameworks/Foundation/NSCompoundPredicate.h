@@ -29,9 +29,9 @@
 - (BOOL)isEqual:(id)arg1;
 - (id)predicateFormat;
 - (id)_subpredicateDescription:(id)arg1;
-- (id)subpredicates;
+@property(readonly, copy) NSArray *subpredicates;
 - (id)_predicateOperator;
-- (unsigned int)compoundPredicateType;
+@property(readonly) unsigned int compoundPredicateType;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;

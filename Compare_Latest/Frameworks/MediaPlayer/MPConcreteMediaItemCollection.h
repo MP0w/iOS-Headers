@@ -37,10 +37,12 @@
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)invalidateCachedProperties;
-@property(readonly, nonatomic) MPConcreteMediaEntityPropertiesCache *cachedPropertyValues;
+@property(readonly, retain, nonatomic) MPConcreteMediaEntityPropertiesCache *cachedPropertyValues;
+- (int)groupingType;
 - (void)dealloc;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (id)initWithMultiverseIdentifier:(id)arg1;
 - (id)initWithIdentifier:(long long)arg1 itemsQuery:(id)arg2 grouping:(int)arg3;
 - (id)initWithIdentifier:(long long)arg1 valuesForProperties:(id)arg2 itemsQuery:(id)arg3 grouping:(int)arg4 representativeItemIdentifier:(long long)arg5;
 - (id)_initWithIdentifier:(long long)arg1 valuesForProperties:(id)arg2 itemsQuery:(id)arg3 grouping:(int)arg4 representativeItemIdentifier:(long long)arg5 propertiesCache:(id)arg6;

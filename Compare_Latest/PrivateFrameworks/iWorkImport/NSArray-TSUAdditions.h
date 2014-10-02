@@ -7,8 +7,10 @@
 #import "NSArray.h"
 
 @interface NSArray (TSUAdditions)
++ (id)arrayWithUIntegers:(unsigned int *)arg1 count:(unsigned int)arg2;
 + (id)arrayWithInts:(int *)arg1 count:(unsigned int)arg2;
 + (id)arrayWithCGFloats:(float *)arg1 count:(unsigned int)arg2;
+- (id)uniqueObjects;
 - (id)arrayByFlattening;
 - (id)arrayByTransformingWithBlock:(CDUnknownBlockType)arg1;
 - (id)arrayOfObjectsPassingTest:(CDUnknownBlockType)arg1;
@@ -22,6 +24,7 @@
 - (id)indexesOfObjects:(id)arg1;
 - (unsigned int)indexOfSmallestObject;
 - (id)rangeCheckedObjectAtIndex:(unsigned int)arg1;
+- (id)initWithUIntegers:(unsigned int *)arg1 count:(unsigned int)arg2;
 - (id)initWithInts:(int *)arg1 count:(unsigned int)arg2;
 - (id)initWithCGFloats:(float *)arg1 count:(unsigned int)arg2;
 @end

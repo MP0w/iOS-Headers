@@ -16,8 +16,8 @@ __attribute__((visibility("hidden")))
 {
     NSMutableArray *_commands;
     NSMutableIndexSet *_processResults;
+    NSMutableArray *_committedCommands;
     NSString *_actionString;
-    NSMutableArray *_unflushableCommittedCommands;
 }
 
 @property(readonly) NSArray *commands; // @synthesize commands=_commands;
@@ -48,6 +48,12 @@ __attribute__((visibility("hidden")))
 - (void)populateChangePropagationMapBeforeCommit:(id)arg1;
 - (BOOL)modifiesAnyObjectPassingTest:(CDUnknownBlockType)arg1;
 - (BOOL)shouldBePropagated;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

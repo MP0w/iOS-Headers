@@ -6,7 +6,7 @@
 
 #import <EventKit/EKCalendarNotification.h>
 
-@class NSDate, NSString;
+@class NSArray, NSDate, NSString;
 
 @interface EKCalendarEventInvitationNotification : EKCalendarNotification
 {
@@ -15,6 +15,7 @@
     BOOL _timeChanged;
     BOOL _dateChanged;
     BOOL _locationChanged;
+    BOOL _attendeeReplyChanged;
     NSString *_location;
     NSDate *_startDate;
     NSDate *_startDateForNextOccurrence;
@@ -22,8 +23,11 @@
     NSDate *_participationStatusModifiedDate;
     int _participationStatus;
     int _status;
+    NSArray *_attendees;
 }
 
+@property(retain, nonatomic) NSArray *attendees; // @synthesize attendees=_attendees;
+@property(nonatomic) BOOL attendeeReplyChanged; // @synthesize attendeeReplyChanged=_attendeeReplyChanged;
 @property(nonatomic) BOOL locationChanged; // @synthesize locationChanged=_locationChanged;
 @property(nonatomic) BOOL dateChanged; // @synthesize dateChanged=_dateChanged;
 @property(nonatomic) BOOL timeChanged; // @synthesize timeChanged=_timeChanged;
@@ -36,7 +40,6 @@
 @property(retain, nonatomic) NSDate *startDateForNextOccurrence; // @synthesize startDateForNextOccurrence=_startDateForNextOccurrence;
 @property(retain, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
 @property(retain, nonatomic) NSString *location; // @synthesize location=_location;
-- (BOOL)needsAlert;
 - (id)eventFromEventStore:(id)arg1;
 - (void)dealloc;
 - (id)initWithEvent:(id)arg1;

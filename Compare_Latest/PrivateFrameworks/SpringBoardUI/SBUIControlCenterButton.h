@@ -7,14 +7,21 @@
 #import "SBFButton.h"
 
 #import "SBUIControlCenterControl.h"
+#import "_UISettingsKeyObserver.h"
 
-@class UIImage;
+@class NSString, UIImage, UIImageView, UIVisualEffect, UIVisualEffectView;
 
-@interface SBUIControlCenterButton : SBFButton <SBUIControlCenterControl>
+@interface SBUIControlCenterButton : SBFButton <_UISettingsKeyObserver, SBUIControlCenterControl>
 {
     struct UIEdgeInsets _bgCapInsets;
-    BOOL _inverted;
+    UIVisualEffect *_normalStateEffect;
+    UIVisualEffect *_highlightedStateEffect;
+    UIVisualEffect *_disabledStateEffect;
+    UIImageView *_backgroundImageView;
+    UIImageView *_glyphImageView;
+    UIVisualEffectView *_backgroundEffectView;
     BOOL _isCircleButton;
+    BOOL _isRectButton;
     id <SBUIControlCenterButtonDelegate> _delegate;
     UIImage *_normalBGImage;
     UIImage *_selectedBGImage;
@@ -32,9 +39,8 @@
 + (id)roundRectButton;
 + (id)circularButton;
 + (id)_roundRectBackgroundImageForState:(int)arg1;
-+ (id)_circleBackgroundImageForState:(int)arg1 inverted:(BOOL)arg2;
++ (id)_circleBackgroundImageForState:(int)arg1;
 + (void)controlAppearanceDidChangeForState:(int)arg1;
-+ (void)initialize;
 @property(nonatomic) float naturalHeight; // @synthesize naturalHeight=_naturalHeight;
 @property(retain, nonatomic) UIImage *selectedGlyphImage; // @synthesize selectedGlyphImage=_selectedGlyphImage;
 @property(retain, nonatomic) UIImage *sourceSelectedGlyphImage; // @synthesize sourceSelectedGlyphImage=_sourceSelectedGlyphImage;
@@ -42,31 +48,42 @@
 @property(retain, nonatomic) UIImage *sourceGlyphImage; // @synthesize sourceGlyphImage=_sourceGlyphImage;
 @property(retain, nonatomic) UIImage *selectedBGImage; // @synthesize selectedBGImage=_selectedBGImage;
 @property(retain, nonatomic) UIImage *normalBGImage; // @synthesize normalBGImage=_normalBGImage;
+@property(nonatomic) BOOL isRectButton; // @synthesize isRectButton=_isRectButton;
 @property(nonatomic) BOOL isCircleButton; // @synthesize isCircleButton=_isCircleButton;
-@property(nonatomic, getter=isInverted) BOOL inverted; // @synthesize inverted=_inverted;
 @property(nonatomic) id <SBUIControlCenterButtonDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)controlConfigurationDidChangeForState:(int)arg1;
-- (void)controlAppearanceDidChangeForState:(int)arg1;
+- (void)settings:(id)arg1 changedValueForKey:(id)arg2;
+- (void)_updateEffects;
 - (void)setEnabled:(BOOL)arg1;
 - (void)_pressAction;
 - (struct CGSize)visibleContentSize;
 - (void)setBackgroundImage:(id)arg1;
 - (void)_setBackgroundImage:(id)arg1 selectedBackgroundImage:(id)arg2 naturalHeight:(float)arg3;
-- (void)_rebuildBackgroundImages;
 - (void)setGlyphImage:(id)arg1 selectedGlyphImage:(id)arg2;
 - (void)_rebuildGlyphImages;
 - (void)_rebuildSelectedGlyph;
 - (void)_rebuildNormalGlyph;
 - (void)_updateForStateChange;
+- (void)_updateBackgroundForStateChange;
+- (void)_updateGlyphForStateChange;
+- (id)_glyphImageForState:(int)arg1;
 - (void)setBackgroundImage:(id)arg1 forState:(unsigned int)arg2;
 - (void)setImage:(id)arg1 forState:(unsigned int)arg2;
 - (int)_currentState;
+- (BOOL)_drawingAsSelected;
+- (void)setFrame:(struct CGRect)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)drawRect:(struct CGRect)arg1;
+- (struct CGRect)_rectForGlyph:(id)arg1 centeredInRect:(struct CGRect)arg2;
+- (id)_backgroundImageWithGlyphImage:(id)arg1 state:(int)arg2;
 - (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 backgroundImage:(id)arg2 selectedBackgroundImage:(id)arg3 glyphImage:(id)arg4 naturalHeight:(float)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

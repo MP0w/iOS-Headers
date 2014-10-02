@@ -9,32 +9,34 @@
 __attribute__((visibility("hidden")))
 @interface TNPrintProperties : NSObject
 {
+    float _headerInset;
+    float _footerInset;
     struct CGSize _unscaledPageSize;
     struct UIEdgeInsets _printMargins;
 }
 
-+ (float)viewScaleFudgeFactor;
-+ (float)pageGutter;
 + (id)legacyExportPrintProperties;
 + (id)letterSizeLandscapeFormPrintProperties;
 + (id)letterSizePortraitFormPrintProperties;
 + (id)a4SizePrintProperties;
 + (id)letterSizePrintProperties;
+@property(nonatomic) float footerInset; // @synthesize footerInset=_footerInset;
+@property(nonatomic) float headerInset; // @synthesize headerInset=_headerInset;
 @property struct UIEdgeInsets printMargins; // @synthesize printMargins=_printMargins;
 @property struct CGSize unscaledPageSize; // @synthesize unscaledPageSize=_unscaledPageSize;
 - (struct CGAffineTransform)p_transformForContentScale:(float)arg1 portraitOrientation:(BOOL)arg2;
-- (struct CGRect)unscaledPageRectForDisplayForPortraitOrientation:(BOOL)arg1 atPageCoordinate:(CDStruct_0441cfb5)arg2;
-- (struct CGSize)pageSizeWithGutterForContentScale:(float)arg1 portraitOrientation:(BOOL)arg2;
+- (struct CGRect)unscaledPageRectForDisplayForPortraitOrientation:(BOOL)arg1 userViewScale:(float)arg2 atPageCoordinate:(CDStruct_0441cfb5)arg3;
+- (struct CGSize)pageSizeWithGutterForContentScale:(float)arg1 userViewScale:(float)arg2 portraitOrientation:(BOOL)arg3;
 - (struct CGSize)pageSizeForContentScale:(float)arg1 portraitOrientation:(BOOL)arg2;
-- (struct CGRect)pageNumberRectForPortraitOrientation:(BOOL)arg1;
-- (struct CGRect)pageNumberRectForContentScale:(float)arg1 portraitOrientation:(BOOL)arg2;
-- (struct CGRect)contentRectForContentScale:(float)arg1 portraitOrientation:(BOOL)arg2;
+- (struct CGRect)pageHeaderFooterRectForContentScale:(float)arg1 portraitOrientation:(BOOL)arg2 footer:(BOOL)arg3 textHeight:(float)arg4;
+- (struct CGRect)contentRectForContentScale:(float)arg1 portraitOrientation:(BOOL)arg2 headerHeight:(float)arg3 footerHeight:(float)arg4;
 - (float)contentScaleForIntegralWidthWithContentScale:(float)arg1 portraitOrientation:(BOOL)arg2;
-- (struct CGRect)p_unscaledContentRectForOrientation:(BOOL)arg1;
+- (struct CGRect)p_unscaledContentRectForOrientation:(BOOL)arg1 headerHeight:(float)arg2 footerHeight:(float)arg3;
 @property(readonly) float pageHeight;
 @property(readonly) float pageWidth;
 - (id)initWithPageSize:(struct CGSize)arg1 contentRect:(struct CGRect)arg2;
 - (id)initWithPageSize:(struct CGSize)arg1 printMargins:(struct UIEdgeInsets)arg2;
+- (id)initWithPageSize:(struct CGSize)arg1 printMargins:(struct UIEdgeInsets)arg2 headerInset:(float)arg3 footerInset:(float)arg4;
 
 @end
 

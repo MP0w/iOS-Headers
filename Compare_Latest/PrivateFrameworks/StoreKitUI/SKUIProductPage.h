@@ -8,15 +8,18 @@
 
 #import "NSCopying.h"
 
-@class NSArray, NSString, NSURL, SKUIProductPageItem, SKUIReviewConfiguration, SKUIUber, SSMetricsConfiguration;
+@class NSArray, NSData, NSHTTPURLResponse, NSString, NSURL, SKUIProductPageItem, SKUIProductPageProductInfo, SKUIReviewConfiguration, SKUIUber, SSMetricsConfiguration;
 
 @interface SKUIProductPage : NSObject <NSCopying>
 {
     int _defaultPageFragment;
     SKUIProductPageItem *_item;
+    NSData *_itmlData;
+    NSHTTPURLResponse *_itmlResponse;
     SSMetricsConfiguration *_metricsConfiguration;
     NSString *_metricsPageDescription;
     NSURL *_pageURL;
+    SKUIProductPageProductInfo *_productInformation;
     NSArray *_relatedContentSwooshes;
     SKUIReviewConfiguration *_reviewConfiguration;
     SKUIUber *_uber;
@@ -25,9 +28,12 @@
 @property(retain, nonatomic) SKUIUber *uber; // @synthesize uber=_uber;
 @property(retain, nonatomic) SKUIReviewConfiguration *reviewConfiguration; // @synthesize reviewConfiguration=_reviewConfiguration;
 @property(copy, nonatomic) NSArray *relatedContentSwooshes; // @synthesize relatedContentSwooshes=_relatedContentSwooshes;
+@property(retain, nonatomic) SKUIProductPageProductInfo *productInformation; // @synthesize productInformation=_productInformation;
 @property(copy, nonatomic) NSURL *pageURL; // @synthesize pageURL=_pageURL;
 @property(copy, nonatomic) NSString *metricsPageDescription; // @synthesize metricsPageDescription=_metricsPageDescription;
 @property(retain, nonatomic) SSMetricsConfiguration *metricsConfiguration; // @synthesize metricsConfiguration=_metricsConfiguration;
+@property(retain, nonatomic) NSHTTPURLResponse *ITMLResponse; // @synthesize ITMLResponse=_itmlResponse;
+@property(retain, nonatomic) NSData *ITMLData; // @synthesize ITMLData=_itmlData;
 @property(retain, nonatomic) SKUIProductPageItem *item; // @synthesize item=_item;
 @property(nonatomic) int defaultPageFragment; // @synthesize defaultPageFragment=_defaultPageFragment;
 - (void).cxx_destruct;

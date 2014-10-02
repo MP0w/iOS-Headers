@@ -6,16 +6,17 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
-@interface NSIndexPath : NSObject <NSCopying, NSCoding>
+@interface NSIndexPath : NSObject <NSCopying, NSSecureCoding>
 {
     unsigned int *_indexes;
     unsigned int _length;
     void *_reserved;
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)indexPathWithIndexes:(const unsigned int *)arg1 length:(unsigned int)arg2;
 + (id)indexPathWithIndex:(unsigned int)arg1;
 + (id)indexPath;
@@ -30,7 +31,7 @@
 - (void)getIndexes:(unsigned int *)arg1;
 - (void)getIndexes:(unsigned int *)arg1 range:(struct _NSRange)arg2;
 - (unsigned int)indexAtPosition:(unsigned int)arg1;
-- (unsigned int)length;
+@property(readonly) unsigned int length;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithIndexes:(const unsigned int *)arg1 length:(unsigned int)arg2;

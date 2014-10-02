@@ -17,15 +17,21 @@
 + (id)createAssistantWithDictionary:(id)arg1 context:(id)arg2;
 + (id)createAssistant;
 @property(copy, nonatomic) NSData *validationData;
+@property(copy, nonatomic) NSString *speechId;
 @property(copy, nonatomic) NSString *language;
 @property(copy, nonatomic) NSString *connectionType;
+@property(copy, nonatomic) NSString *connectionMode;
 @property(copy, nonatomic) NSData *activationToken;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 
 // Remaining properties
 @property(copy, nonatomic) NSString *aceId; // @dynamic aceId;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(copy, nonatomic) NSString *refId; // @dynamic refId;
+@property(readonly) Class superclass;
 
 @end
 

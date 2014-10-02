@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     WDTableCell *mTableCell;
 }
 
+- (id)description;
 - (id)content;
 - (BOOL)isEmpty;
 - (id)newRunIterator;

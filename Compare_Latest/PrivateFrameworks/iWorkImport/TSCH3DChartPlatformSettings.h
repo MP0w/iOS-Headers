@@ -16,7 +16,6 @@ __attribute__((visibility("hidden")))
 
 + (id)sharedInstance;
 + (id)p_platformSettingsDictionary;
-+ (int)p_platformSettingsType;
 + (id)p_defaultSettingsDictionary;
 - (BOOL)shouldHandleResourceCacheOutOfMemory;
 - (BOOL)backgroundLayoutUsesTiledRendering;
@@ -43,6 +42,8 @@ __attribute__((visibility("hidden")))
 - (unsigned int)insertionIconSupersamplingSamples;
 - (unsigned int)supersamplingSamples;
 - (unsigned int)supersamplingTileSize;
+- (unsigned int)buildFramebufferMemoryLimitInBytes;
+- (BOOL)buildTextureRendersAsSingleImage;
 - (BOOL)buildsCanUseDynamicShadows;
 - (BOOL)buildsUseLowDetailedGeometries;
 - (double)buildTargetFPS;

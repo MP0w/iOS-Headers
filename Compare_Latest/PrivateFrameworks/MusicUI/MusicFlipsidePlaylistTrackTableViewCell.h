@@ -4,22 +4,30 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <MusicUI/_MusicSongListTableViewCell.h>
+#import <MusicUI/MusicSongListTableViewCell.h>
 
-@class MPURatingControl, MusicFlipsidePlaylistTrackCellContentView;
+@class MPURatingControl, NSString;
 
-@interface MusicFlipsidePlaylistTrackTableViewCell : _MusicSongListTableViewCell
+@interface MusicFlipsidePlaylistTrackTableViewCell : MusicSongListTableViewCell
 {
+    BOOL _showsRatingControl;
     MPURatingControl *_ratingControl;
 }
 
++ (struct CGSize)sizeForDuration:(double)arg1;
 + (Class)contentViewClass;
 @property(readonly, nonatomic) MPURatingControl *ratingControl; // @synthesize ratingControl=_ratingControl;
+@property(nonatomic) BOOL showsRatingControl; // @synthesize showsRatingControl=_showsRatingControl;
 - (void).cxx_destruct;
+- (id)_flipsidePlaylistTrackCellContentView;
+@property(copy, nonatomic) NSString *trackNumberText;
+@property(nonatomic) float maximumDurationWidth;
+@property(copy, nonatomic) NSString *durationText;
 - (void)setShowsRatingControl:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setShowsRatingControl:(BOOL)arg1;
-@property(readonly, nonatomic) MusicFlipsidePlaylistTrackCellContentView *playlistContentView;
+- (void)setContentBoundsEdgeInsets:(struct UIEdgeInsets)arg1;
 - (void)layoutSubviews;
+- (void)dealloc;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

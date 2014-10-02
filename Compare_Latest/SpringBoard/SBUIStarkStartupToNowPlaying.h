@@ -15,9 +15,9 @@
 
 - (void)_cleanupAnimation;
 - (void)_startAnimation;
-- (_Bool)_animationShouldStart;
-- (id)_getTransitionWindow;
+- (void)_prepareAnimation;
 - (id)_createViewToAnimate;
+- (void)_setupStartDependencies;
 - (void)dealloc;
 - (id)initWithActivatingApp:(id)arg1 fromLockoutView:(id)arg2 starkScreenController:(id)arg3;
 

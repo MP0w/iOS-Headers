@@ -21,12 +21,12 @@ __attribute__((visibility("hidden")))
 - (id).cxx_construct;
 - (BOOL)shrinkTextToFit;
 - (BOOL)alwaysStartsNewTarget;
-- (float)positionForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2 outWidth:(float *)arg3 outGap:(float *)arg4;
+- (float)positionForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2 target:(id)arg3 outWidth:(float *)arg4 outGap:(float *)arg5;
 - (float)gapForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2;
 - (float)widthForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2;
 - (unsigned int)columnCount;
 - (id)layoutMargins;
-- (struct CGSize)adjustedInsets;
+- (struct CGSize)adjustedInsetsForTarget:(id)arg1;
 - (id)childSearchTargets;
 - (void)layoutSearchForString:(id)arg1 options:(unsigned int)arg2 hitBlock:(CDUnknownBlockType)arg3;
 - (float)maxAutoGrowHeightForTextLayout:(id)arg1;

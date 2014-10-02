@@ -4,34 +4,28 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <AddressBookUI/ABPropertyCell.h>
+#import <AddressBookUI/ABPropertySimpleCell.h>
 
 #import "ABPickerControllerDelegate.h"
 
-@class ABPropertyGroupAlertItem, NSLayoutConstraint, UIImageView;
+@class ABPropertyGroupAlertItem, NSString;
 
-@interface ABPropertyAlertCell : ABPropertyCell <ABPickerControllerDelegate>
+@interface ABPropertyAlertCell : ABPropertySimpleCell <ABPickerControllerDelegate>
 {
-    float _labelWidth;
-    NSLayoutConstraint *_labelWidthConstraint;
-    UIImageView *_chevron;
 }
 
-@property(retain, nonatomic) UIImageView *chevron; // @synthesize chevron=_chevron;
-@property(retain, nonatomic) NSLayoutConstraint *labelWidthConstraint; // @synthesize labelWidthConstraint=_labelWidthConstraint;
-- (id)_vibrationManager;
-- (id)_toneManger;
++ (BOOL)wantsChevron;
 - (void)pickerDidCancel:(id)arg1;
 - (void)picker:(id)arg1 didPickItem:(id)arg2;
-- (id)contentViewEditingConstraints;
-- (id)contentViewConstraints;
-- (float)labelWidth;
-- (void)setLabelWidth:(float)arg1;
 - (void)performDefaultAction;
 - (BOOL)shouldPerformDefaultAction;
 @property(readonly, nonatomic) ABPropertyGroupAlertItem *alertItem;
-- (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

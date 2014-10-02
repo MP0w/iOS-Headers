@@ -88,7 +88,7 @@
 - (BOOL)decodeCGImage:(struct CGImage *)arg1;
 - (BOOL)decodeCGImageImageProvider:(struct CGImage *)arg1 CGImageProvider:(struct CGImageProvider *)arg2;
 - (BOOL)decodeCGImageDataProvider:(struct CGImage *)arg1;
-- (void *)alignmentFix:(unsigned long)arg1 data:(const void *)arg2;
+- (void *)alignmentFix:(unsigned int)arg1 data:(const void *)arg2;
 - (BOOL)loadPVRTCData:(id)arg1 error:(id *)arg2;
 - (id)initWithDecodedData:(id)arg1 width:(unsigned int)arg2 height:(unsigned int)arg3 rowBytes:(unsigned int)arg4 texture:(id)arg5 cubeMapIndex:(int)arg6 options:(id)arg7 error:(id *)arg8;
 - (id)initWithCGImage:(struct CGImage *)arg1 forceCubeMap:(BOOL)arg2 wasCubeMap:(char *)arg3 cubeMapIndex:(int)arg4 options:(id)arg5 error:(id *)arg6;

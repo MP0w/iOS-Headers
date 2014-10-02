@@ -13,8 +13,8 @@ __attribute__((visibility("hidden")))
     CDStruct_03942939 _proposedGLPoint3DValue;
 }
 
-@property(nonatomic) CDStruct_03942939 proposedGLPoint3DValue; // @synthesize proposedGLPoint3DValue=_proposedGLPoint3DValue;
-@property(readonly, nonatomic) CDStruct_03942939 GLPoint3DValue; // @synthesize GLPoint3DValue=_GLPoint3DValue;
+@property(nonatomic) CDStruct_869f9c67 proposedGLPoint3DValue; // @synthesize proposedGLPoint3DValue=_proposedGLPoint3DValue;
+@property(readonly, nonatomic) CDStruct_869f9c67 GLPoint3DValue; // @synthesize GLPoint3DValue=_GLPoint3DValue;
 - (id)description;
 - (void)setGLUniformWithShader:(id)arg1;
 

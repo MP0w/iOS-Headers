@@ -18,9 +18,15 @@
 + (id)metadataGroup;
 @property(copy, nonatomic) NSNumber *selected;
 @property(copy, nonatomic) NSArray *metadata;
-@property(copy, nonatomic) NSString *description;
+@property(copy, nonatomic) NSString *groupTitle;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

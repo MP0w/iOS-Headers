@@ -6,26 +6,34 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSXPCConnection;
+#import "ADAdSheetConnectionDelegate.h"
+#import "ADAdSheetProxyDelegate.h"
 
-@interface ADOptInManager : NSObject
+@class ADAdSheetConnection, NSString;
+
+@interface ADOptInManager : NSObject <ADAdSheetConnectionDelegate, ADAdSheetProxyDelegate>
 {
-    NSXPCConnection *_adSheetConnection;
-    NSMutableArray *_enqueuedHandlers;
+    ADAdSheetConnection *_connection;
 }
 
 + (id)sharedManager;
-@property(retain, nonatomic) NSMutableArray *enqueuedHandlers; // @synthesize enqueuedHandlers=_enqueuedHandlers;
-@property(retain, nonatomic) NSXPCConnection *adSheetConnection; // @synthesize adSheetConnection=_adSheetConnection;
+@property(retain, nonatomic) ADAdSheetConnection *connection; // @synthesize connection=_connection;
+- (id)additionalAdSheetLaunchOptions;
+- (BOOL)shouldLaunchAdSheet;
 - (void)getiAdIDsWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)_considerConnectingToAdSheet;
-- (void)_launchAdSheet;
-- (void)_whenConnectionAvailable:(CDUnknownBlockType)arg1;
 - (void)handleAccountChange;
 - (void)refreshOptInStatusRefreshingWeakToken:(BOOL)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)refreshOptInStatus;
 - (void)setOptInStatus:(BOOL)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)configureConnection:(id)arg1;
+- (id)adSheetMachServiceName;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

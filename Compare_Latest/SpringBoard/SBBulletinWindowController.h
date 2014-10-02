@@ -8,7 +8,7 @@
 
 #import "SBUIActiveOrientationObserver.h"
 
-@class NSMutableSet, SBBulletinRootViewController, UIViewController, UIWindow;
+@class NSMutableSet, NSString, SBBulletinRootViewController, UIViewController, UIWindow;
 
 @interface SBBulletinWindowController : NSObject <SBUIActiveOrientationObserver>
 {
@@ -25,6 +25,7 @@
 }
 
 + (_Bool)shouldSuppressAlertForBulletin:(id)arg1;
++ (_Bool)_isSecure;
 + (id)sharedInstance;
 @property(nonatomic, getter=isWindowAboveAssistant) _Bool windowAboveAssistant; // @synthesize windowAboveAssistant=_aboveAssistant;
 @property(readonly, nonatomic) UIWindow *window; // @synthesize window=_bulletinWindow;
@@ -32,6 +33,8 @@
 - (_Bool)_hasKeyWindowClients;
 - (void)activeInterfaceOrientationDidChangeToOrientation:(long long)arg1 willAnimateWithDuration:(double)arg2 fromOrientation:(long long)arg3;
 - (void)activeInterfaceOrientationWillChangeToOrientation:(long long)arg1;
+- (void)bulletinWindowControllerDismissViewControllerAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)bulletinWindowControllerPresentViewController:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)_shouldAllowRotation:(_Bool)arg1;
 - (void)_setTrueWindowOrientation:(long long)arg1;
 - (void)_setOverrideWindowOrientation:(long long)arg1;
@@ -67,6 +70,12 @@
 - (void)setBusy:(_Bool)arg1 forReason:(id)arg2;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

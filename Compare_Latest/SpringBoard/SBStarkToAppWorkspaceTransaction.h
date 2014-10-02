@@ -6,20 +6,42 @@
 
 #import "SBStarkWorkspaceTransaction.h"
 
-@class SBApplication;
+#import "FBSynchronizedTransactionDelegate.h"
+#import "SBMainScreenApplicationSceneTransactionObserver.h"
 
-@interface SBStarkToAppWorkspaceTransaction : SBStarkWorkspaceTransaction
+@class FBSDisplay, NSSet, NSString, SBApplication, SBSceneBackgroundedStatusAssertion, SBSceneManager;
+
+@interface SBStarkToAppWorkspaceTransaction : SBStarkWorkspaceTransaction <FBSynchronizedTransactionDelegate, SBMainScreenApplicationSceneTransactionObserver>
 {
+    SBSceneBackgroundedStatusAssertion *_scenesBackgroundedStatusAssertion;
+    SBSceneManager *_sceneManager;
     SBApplication *_toApp;
+    NSString *_reasonToPendClearingActivationSettings;
+    NSSet *_scenesToBackground;
     _Bool _fromAssistant;
+    FBSDisplay *_starkDisplay;
 }
 
 @property(readonly, nonatomic) SBApplication *toApp; // @synthesize toApp=_toApp;
-- (void)_commit;
+- (void)synchronizedTransaction:(id)arg1 didCommitSynchronizedTransactions:(id)arg2;
+- (void)synchronizedTransaction:(id)arg1 willCommitSynchronizedTransactions:(id)arg2;
+- (void)synchronizedTransactionReadyToCommit:(id)arg1;
+- (void)mainScreenApplicationSceneDidCommit:(id)arg1;
+- (void)mainScreenApplicationSceneWillCommit:(id)arg1;
+- (void)mainScreenApplicationUpdateScenesTransactionCompleted:(id)arg1;
+- (void)mainScreenApplicationsDidCommitSceneUpdates:(id)arg1;
+- (void)_didComplete;
+- (void)_begin;
+- (void)_fixupSettingsAndCommit;
 - (_Bool)_shouldDisallowSuspension;
-- (void)_transactionComplete;
 - (void)dealloc;
-- (id)initWithWorkspace:(id)arg1 mainScreenAlertManager:(id)arg2 starkScreenController:(id)arg3 to:(id)arg4;
+- (id)initWithMainScreenAlertManager:(id)arg1 starkScreenController:(id)arg2 to:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

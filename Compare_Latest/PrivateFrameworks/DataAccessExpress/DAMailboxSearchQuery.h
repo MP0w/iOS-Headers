@@ -10,28 +10,28 @@
 
 @interface DAMailboxSearchQuery : DASearchQuery
 {
-    NSString *_collectionID;
-    int _bodyType;
-    long long _truncationSize;
     BOOL _allOrNone;
-    NSDate *_priorToDate;
-    int _MIMESupport;
     BOOL _deepTraversal;
     BOOL _rebuildResults;
+    NSString *_collectionID;
+    int _bodyType;
+    NSDate *_priorToDate;
+    int _MIMESupport;
+    long long _truncationSize;
 }
 
 + (id)mailboxSearchQueryWithSearchString:(id)arg1 consumer:(id)arg2;
-@property BOOL rebuildResults; // @synthesize rebuildResults=_rebuildResults;
-@property BOOL deepTraversal; // @synthesize deepTraversal=_deepTraversal;
-@property int MIMESupport; // @synthesize MIMESupport=_MIMESupport;
-@property(retain) NSDate *priorToDate; // @synthesize priorToDate=_priorToDate;
-@property BOOL allOrNone; // @synthesize allOrNone=_allOrNone;
-@property long long truncationSize; // @synthesize truncationSize=_truncationSize;
-@property int bodyType; // @synthesize bodyType=_bodyType;
-@property(retain) NSString *collectionID; // @synthesize collectionID=_collectionID;
+@property(nonatomic) BOOL rebuildResults; // @synthesize rebuildResults=_rebuildResults;
+@property(nonatomic) BOOL deepTraversal; // @synthesize deepTraversal=_deepTraversal;
+@property(nonatomic) int MIMESupport; // @synthesize MIMESupport=_MIMESupport;
+@property(retain, nonatomic) NSDate *priorToDate; // @synthesize priorToDate=_priorToDate;
+@property(nonatomic) BOOL allOrNone; // @synthesize allOrNone=_allOrNone;
+@property(nonatomic) long long truncationSize; // @synthesize truncationSize=_truncationSize;
+@property(nonatomic) int bodyType; // @synthesize bodyType=_bodyType;
+@property(retain, nonatomic) NSString *collectionID; // @synthesize collectionID=_collectionID;
+- (void).cxx_destruct;
 - (id)dictionaryRepresentation;
 - (id)initWithDictionaryRepresentation:(id)arg1 consumer:(id)arg2;
-- (void)dealloc;
 - (id)initWithSearchString:(id)arg1 consumer:(id)arg2;
 
 @end

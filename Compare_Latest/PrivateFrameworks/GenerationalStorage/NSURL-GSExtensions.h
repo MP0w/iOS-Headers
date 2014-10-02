@@ -7,8 +7,8 @@
 #import "NSURL.h"
 
 @interface NSURL (GSExtensions)
-+ (id)gs_fileURLWithFileSystemRepresentation:(const char *)arg1;
-- (void)attachSandboxExtension:(id)arg1;
-- (const char *)gs_fileSystemRepresentation;
+- (id)gs_URLByUpdatingPathExtensionWithPathOrURL:(id)arg1;
+- (id)gs_issueReadExtensionIfNeededForPid:(int)arg1;
+- (id)gs_issueExtension:(const char *)arg1 error:(id *)arg2;
 @end
 

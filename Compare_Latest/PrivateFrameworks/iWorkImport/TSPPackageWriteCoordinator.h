@@ -12,19 +12,23 @@
 #import "TSPExternalReferenceDelegate.h"
 #import "TSPObjectModifyDelegate.h"
 
-@class NSHashTable, NSMutableArray, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSURL, TSPArchiverManager, TSPComponentExternalReferenceMap, TSPObjectContainer, TSPObjectContext, TSPPackageMetadata, TSUPathSet;
+@class NSHashTable, NSMutableArray, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSString, NSURL, TSPArchiverManager, TSPComponentExternalReferenceMap, TSPDocumentRevision, TSPObjectContainer, TSPObjectContext, TSPPackageMetadata, TSUPathSet;
 
 __attribute__((visibility("hidden")))
 @interface TSPPackageWriteCoordinator : NSObject <TSPArchiverManagerDelegate, TSPComponentWriterDelegate, TSPDataArchiver, TSPExternalReferenceDelegate, TSPObjectModifyDelegate>
 {
     TSPObjectContext *_context;
     unsigned char _packageIdentifier;
+    TSPDocumentRevision *_documentRevision;
+    unsigned long long _fileFormatVersion;
+    unsigned long long _saveToken;
+    int _preferredPackageType;
     TSPArchiverManager *_archiverManager;
     NSObject<OS_dispatch_group> *_completionGroup;
     struct hash_map<const long long, TSP::ComponentPropertiesSnapshot, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, TSP::ComponentPropertiesSnapshot>>> _componentPropertiesSnapshot;
     NSObject<OS_dispatch_queue> *_componentQueue;
     struct hash_map<const long long, TSP::WrittenComponentInfo, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, TSP::WrittenComponentInfo>>> _writtenComponents;
-    struct hash_map<const long long, bool, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, bool>>> _skippedComponents;
+    hash_map_18963f5d _skippedComponents;
     struct map<unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>>>> _remainingComponentsQueue;
     TSUPathSet *_packageLocatorPathSet;
     TSPObjectContainer *_objectContainer;
@@ -46,6 +50,7 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_dataFinalizeHandlers;
     BOOL _writeSuccess;
     BOOL _isRecoverableError;
+    BOOL _isCancelled;
     BOOL _didWriteRootObject;
     BOOL _didWriteMetadata;
     NSURL *_documentTargetURL;
@@ -78,7 +83,7 @@ __attribute__((visibility("hidden")))
 - (void)didReferenceData:(id)arg1;
 - (void)calculateExternalReferences;
 - (void)updateExternalReferencesForLinkedComponent:(id)arg1;
-- (void)setArchivedObjects:(id)arg1 externalStrongReferences:(id)arg2 externalWeakReferences:(id)arg3 readVersion:(unsigned long long)arg4 writeVersion:(unsigned long long)arg5 dataReferences:(id)arg6 forComponent:(id)arg7;
+- (void)setArchivedObjects:(id)arg1 objectUUIDToIdentifierDictionary:(id)arg2 externalStrongReferences:(id)arg3 externalWeakReferences:(id)arg4 readVersion:(unsigned long long)arg5 writeVersion:(unsigned long long)arg6 dataReferences:(id)arg7 forComponent:(id)arg8;
 - (id)componentForObjectIdentifier:(long long)arg1 objectOrNil:(id)arg2;
 - (BOOL)isObjectInExternalPackage:(id)arg1 claimingComponent:(id *)arg2;
 - (BOOL)isComponentExternal:(id)arg1 wasWritten:(char *)arg2 wasCopied:(char *)arg3;
@@ -98,15 +103,21 @@ __attribute__((visibility("hidden")))
 - (void)enqueueRootObject:(id)arg1 forceArchive:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)writeRootObjectAndRelatedComponents:(id)arg1 withPackageWriter:(id)arg2 completionQueue:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)enumerateWrittenObjectsWithBlock:(CDUnknownBlockType)arg1;
-- (void)updateObjectContextForSuccessfulSave;
+- (void)updateObjectContextForSuccessfulSaveWithPackageWriter:(id)arg1;
 - (void)writeRootObject:(id)arg1 withPackageWriter:(id)arg2 saveOperationState:(id)arg3 completionQueue:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (unsigned int)writeRootObject:(id)arg1 withPackageWriter:(id)arg2 saveOperationState:(id)arg3 error:(id *)arg4;
 - (void)stopCapturingSnapshots;
 - (void)willModifyObject:(id)arg1 duringReadOperation:(BOOL)arg2;
 - (void)dealloc;
-- (id)initWithContext:(id)arg1 packageIdentifier:(unsigned char)arg2 packageWriteCoordinator:(id)arg3 captureSnapshots:(BOOL)arg4;
-- (id)initWithContext:(id)arg1 packageIdentifier:(unsigned char)arg2;
+- (id)initWithContext:(id)arg1 documentRevision:(id)arg2 saveToken:(unsigned long long)arg3 packageIdentifier:(unsigned char)arg4 fileFormatVersion:(unsigned long long)arg5 preferredPackageType:(int)arg6 packageWriteCoordinator:(id)arg7 captureSnapshots:(BOOL)arg8;
+- (id)initWithContext:(id)arg1 documentRevision:(id)arg2 saveToken:(unsigned long long)arg3 packageIdentifier:(unsigned char)arg4 fileFormatVersion:(unsigned long long)arg5 preferredPackageType:(int)arg6;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

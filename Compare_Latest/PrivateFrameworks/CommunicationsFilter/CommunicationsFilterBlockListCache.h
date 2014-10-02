@@ -11,9 +11,12 @@
 @interface CommunicationsFilterBlockListCache : NSObject
 {
     NSMutableArray *_recentItems;
+    int _notifyEmptyListToken;
+    BOOL _listIsEmpty;
 }
 
 - (void)_blockListChanged:(id)arg1;
+- (void)syncListEmptyState;
 - (void)setResponse:(BOOL)arg1 forItem:(id)arg2;
 - (void)removeItemFromCache:(id)arg1;
 - (long long)cachedResponseForItem:(id)arg1;

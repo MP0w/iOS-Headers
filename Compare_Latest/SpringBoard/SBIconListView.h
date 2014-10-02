@@ -23,6 +23,7 @@
     _Bool _purged;
     NSMutableSet *_notShownIconViews;
     _Bool _isEditing;
+    _Bool _layoutReversed;
     id <SBIconListLayoutDelegate> _layoutDelegate;
     struct CGRect _wallpaperRelativeFrame;
 }
@@ -37,6 +38,7 @@
 @property(nonatomic) struct CGRect wallpaperRelativeFrame; // @synthesize wallpaperRelativeFrame=_wallpaperRelativeFrame;
 @property(nonatomic) double statusBarHeight; // @synthesize statusBarHeight=_statusBarHeight;
 @property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
+@property(nonatomic, getter=isLayoutReversed) _Bool layoutReversed; // @synthesize layoutReversed=_layoutReversed;
 @property(nonatomic) _Bool purged; // @synthesize purged=_purged;
 @property(nonatomic, getter=isEditing) _Bool editing; // @synthesize editing=_isEditing;
 - (void)_sendLayoutDelegateLayoutInvalidated;

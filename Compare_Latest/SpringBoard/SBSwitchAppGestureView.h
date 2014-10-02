@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class SBApplication, SBStretchTransformer;
+@class SBAnimationStepper, SBApplication, SBStretchTransformer;
 
 @interface SBSwitchAppGestureView : UIView
 {
@@ -29,11 +29,19 @@
     _Bool m_underflowing;
     _Bool m_overflowing;
     CDUnknownBlockType m_completion;
+    SBAnimationStepper *_wallpaperAnimationStepper;
+    long long _startingWallpaperStyle;
+    long long _leftwardWallpaperStyle;
+    long long _rightwardWallpaperStyle;
 }
 
+@property(nonatomic) long long rightwardWallpaperStyle; // @synthesize rightwardWallpaperStyle=_rightwardWallpaperStyle;
+@property(nonatomic) long long leftwardWallpaperStyle; // @synthesize leftwardWallpaperStyle=_leftwardWallpaperStyle;
+@property(nonatomic) long long startingWallpaperStyle; // @synthesize startingWallpaperStyle=_startingWallpaperStyle;
+@property(retain, nonatomic) SBAnimationStepper *wallpaperAnimationStepper; // @synthesize wallpaperAnimationStepper=_wallpaperAnimationStepper;
 @property(copy, nonatomic) CDUnknownBlockType completion; // @synthesize completion=m_completion;
-@property(nonatomic) _Bool overflowing; // @synthesize overflowing=m_overflowing;
-@property(nonatomic) _Bool underflowing; // @synthesize underflowing=m_underflowing;
+@property(nonatomic, getter=isOverflowing) _Bool overflowing; // @synthesize overflowing=m_overflowing;
+@property(nonatomic, getter=isUnderflowing) _Bool underflowing; // @synthesize underflowing=m_underflowing;
 @property(retain, nonatomic) SBStretchTransformer *stretchTransformer; // @synthesize stretchTransformer=m_stretchTransformer;
 @property(nonatomic) double contentOffset; // @synthesize contentOffset=m_contentOffset;
 @property(nonatomic) double percentage; // @synthesize percentage=m_percentage;
@@ -49,10 +57,11 @@
 @property(retain, nonatomic) SBApplication *endingApp; // @synthesize endingApp=m_endingApp;
 @property(retain, nonatomic) SBApplication *startingApp; // @synthesize startingApp=m_startingApp;
 @property(nonatomic) long long orientation; // @synthesize orientation=m_orientation;
-@property(readonly, nonatomic) _Bool pagingRightward;
-@property(readonly, nonatomic) _Bool pagingLeftward;
+@property(readonly, nonatomic, getter=isPagingRightward) _Bool pagingRightward;
+@property(readonly, nonatomic, getter=isPagingLeftward) _Bool pagingLeftward;
 - (_Bool)isPagingOverflowPercentage:(double)arg1;
 - (_Bool)isPagingUnderflowPercentage:(double)arg1;
+- (void)cleanUpWallpaperAnimation;
 - (void)stretchTransformerAnimationDidStop:(_Bool)arg1;
 - (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)moveToContentOffset:(double)arg1 percentage:(double)arg2 animated:(_Bool)arg3;

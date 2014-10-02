@@ -8,19 +8,20 @@
 
 #import "NSCopying.h"
 
-@class TSUColor;
+@class OITSUColor;
 
 __attribute__((visibility("hidden")))
 @interface WDBorder : NSObject <NSCopying>
 {
     int mStyle;
-    TSUColor *mColor;
+    OITSUColor *mColor;
     unsigned char mWidth;
     unsigned char mSpace;
     BOOL mShadow;
     BOOL mFrame;
 }
 
+- (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)setFrame:(BOOL)arg1;
 - (BOOL)frame;

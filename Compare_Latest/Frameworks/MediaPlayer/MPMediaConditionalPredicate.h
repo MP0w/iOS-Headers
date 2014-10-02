@@ -6,7 +6,11 @@
 
 #import <MediaPlayer/MPMediaPredicate.h>
 
-@interface MPMediaConditionalPredicate : MPMediaPredicate
+#import "MPPProtobufferCoding.h"
+
+@class NSString;
+
+@interface MPMediaConditionalPredicate : MPMediaPredicate <MPPProtobufferCoding>
 {
     MPMediaPredicate *_conditionPredicate;
     MPMediaPredicate *_thenPredicate;
@@ -14,14 +18,22 @@
 }
 
 + (id)predicateWithConditionPredicate:(id)arg1 thenPredicate:(id)arg2 elsePredicate:(id)arg3;
-@property(readonly, nonatomic) MPMediaPredicate *elsePredicate; // @synthesize elsePredicate=_elsePredicate;
-@property(readonly, nonatomic) MPMediaPredicate *thenPredicate; // @synthesize thenPredicate=_thenPredicate;
-@property(readonly, nonatomic) MPMediaPredicate *conditionPredicate; // @synthesize conditionPredicate=_conditionPredicate;
+@property(readonly, copy, nonatomic) MPMediaPredicate *elsePredicate; // @synthesize elsePredicate=_elsePredicate;
+@property(readonly, copy, nonatomic) MPMediaPredicate *thenPredicate; // @synthesize thenPredicate=_thenPredicate;
+@property(readonly, copy, nonatomic) MPMediaPredicate *conditionPredicate; // @synthesize conditionPredicate=_conditionPredicate;
 - (void).cxx_destruct;
+- (id)protobufferEncodableObject;
+- (id)initWithProtobufferDecodableObject:(id)arg1;
 - (id)initWithConditionPredicate:(id)arg1 thenPredicate:(id)arg2 elsePredicate:(id)arg3;
 - (id)ML3PredicateForContainer;
 - (id)ML3PredicateForTrack;
 - (id)_ML3PredicateForEntityTypeSelector:(SEL)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

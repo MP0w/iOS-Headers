@@ -119,14 +119,17 @@
         unsigned int wasDelayingPinchForSystemGestures:1;
         unsigned int systemGesturesRecognitionPossible:1;
         unsigned int disableContentOffsetRounding:1;
+        unsigned int alwaysDisableContentOffsetRounding:1;
         unsigned int adjustedDecelerationTargetX:1;
         unsigned int adjustedDecelerationTargetY:1;
         unsigned int hasScrolled:1;
         unsigned int wantsConstrainedContentSize:1;
+        unsigned int constrainedContentSizeNeedsUpdate:1;
         unsigned int updateInsetBottom:1;
         unsigned int beingDraggedByChildScrollView:1;
         unsigned int adjustsTargetsOnContentOffsetChanges:1;
         unsigned int forwardsTouchesUpResponderChain:1;
+        unsigned int firstResponderKeyboardAvoidanceDisabled:1;
     } _scrollViewFlags;
     BOOL _useContentDimensionVariablesForConstraintLowering;
     id _scrollTestParameters;
@@ -140,10 +143,11 @@
 + (SEL)_pinchGestureAction;
 + (SEL)_panGestureAction;
 + (void)_scrollWithNSTimer:(BOOL)arg1;
++ (id)_implicitAnimationCulprits;
 @property(copy, nonatomic, setter=_setAutomaticContentConstraints:) NSArray *_automaticContentConstraints; // @synthesize _automaticContentConstraints;
 @property(nonatomic, setter=_setUseContentDimensionVariablesForConstraintLowering:) BOOL _useContentDimensionVariablesForConstraintLowering; // @synthesize _useContentDimensionVariablesForConstraintLowering;
-@property(readonly, nonatomic) NSISVariable *_contentHeightVariable; // @synthesize _contentHeightVariable;
-@property(readonly, nonatomic) NSISVariable *_contentWidthVariable; // @synthesize _contentWidthVariable;
+@property(readonly, retain, nonatomic) NSISVariable *_contentHeightVariable; // @synthesize _contentHeightVariable;
+@property(readonly, retain, nonatomic) NSISVariable *_contentWidthVariable; // @synthesize _contentWidthVariable;
 @property(nonatomic) int keyboardDismissMode; // @synthesize keyboardDismissMode=_keyboardDismissMode;
 @property(retain, nonatomic) id scrollTestParameters; // @synthesize scrollTestParameters=_scrollTestParameters;
 @property(readonly, nonatomic) UIPinchGestureRecognizer *pinchGestureRecognizer; // @synthesize pinchGestureRecognizer=_pinch;
@@ -191,18 +195,15 @@
 - (void)_zoomToCenter:(struct CGPoint)arg1 scale:(float)arg2 duration:(double)arg3;
 @property(nonatomic) float maximumZoomScale; // @synthesize maximumZoomScale=_maximumZoomScale;
 @property(nonatomic) float minimumZoomScale;
+- (void)nsis_valueOfVariable:(id)arg1 didChangeInEngine:(id)arg2;
+- (BOOL)_evaluateWantsConstrainedContentSize;
 - (id)_layoutVariablesWithAmbiguousValue;
-- (void)_didRemoveDependentConstraint:(id)arg1;
-- (void)_didAddDependentConstraint:(id)arg1;
-- (BOOL)_constraintAffectsContentSize:(id)arg1;
-- (void)_resizeWithOldSuperviewSize:(struct CGSize)arg1;
+- (struct UIOffset)_offsetForCenterOfPossibleZoomView:(id)arg1 withIncomingBoundsSize:(struct CGSize)arg2;
 - (struct CGSize)_nsis_contentSize;
 - (id)nsli_contentHeightVariable;
 - (id)nsli_contentWidthVariable;
-- (void)_setSubviewWantsAutolayout;
-- (id)_constraintsFromContentSize;
 - (BOOL)_supportsContentDimensionVariables;
-- (void)_accumulateViewConstraintsIntoArray:(id)arg1;
+@property(nonatomic, setter=_setWantsConstrainedContentSize:) BOOL _wantsConstrainedContentSize;
 - (id)description;
 @property(readonly, nonatomic, getter=_isAnimatingScroll) BOOL isAnimatingScroll;
 - (float)_defaultPagingFriction;
@@ -224,8 +225,7 @@
 @property(readonly, nonatomic, getter=isTracking) BOOL tracking;
 - (BOOL)cancelMouseTracking;
 - (BOOL)cancelTouchTracking;
-- (void)_setForwardsTouchesUpResponderChain:(BOOL)arg1;
-- (BOOL)_forwardsTouchesUpResponderChain;
+@property(nonatomic, getter=_forwardsTouchesUpResponderChain, setter=_setForwardsTouchesUpResponderChain:) BOOL forwardsTouchesUpResponderChain;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
@@ -264,6 +264,8 @@
 - (void)_systemGestureStateChanged:(id)arg1;
 - (void)delayed:(id)arg1;
 - (float)_scrollHysteresis;
+- (void)_setContentOffsetRoundingEnabled:(BOOL)arg1;
+- (BOOL)_contentOffsetRoundingEnabled;
 - (BOOL)tracksImmediatelyWhileDecelerating;
 - (void)setTracksImmediatelyWhileDecelerating:(BOOL)arg1;
 - (BOOL)allowsMultipleFingers;
@@ -297,6 +299,7 @@
 @property(nonatomic, getter=isPagingEnabled) BOOL pagingEnabled;
 @property(readonly, nonatomic, getter=_isScrollingToTop) BOOL scrollingToTop;
 @property(nonatomic, getter=isProgrammaticScrollEnabled) BOOL programmaticScrollEnabled;
+@property(nonatomic, getter=_isFirstResponderKeyboardAvoidanceEnabled, setter=_setFirstResponderKeyboardAvoidanceEnabled:) BOOL firstResponderKeyboardAvoidanceEnabled;
 - (BOOL)isZoomEnabled;
 - (void)setZoomEnabled:(BOOL)arg1;
 - (void)setScrollingEnabled:(BOOL)arg1;
@@ -338,6 +341,8 @@
 - (void)encodeWithCoder:(id)arg1;
 - (void)_populateArchivedSubviews:(id)arg1;
 - (void)layoutSubviews;
+- (void)_applyConstrainedContentSizeIfNecessary;
+- (void)_switchToLayoutEngine:(id)arg1;
 - (void)_centerContentIfNecessary;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
@@ -431,9 +436,20 @@
 - (void)_performScrollTest:(id)arg1 iterations:(int)arg2 delta:(int)arg3 scrollAxis:(int)arg4;
 - (void)_performScrollTest:(id)arg1 iterations:(int)arg2 delta:(int)arg3 length:(int)arg4;
 - (void)_performScrollTest:(id)arg1 iterations:(int)arg2 delta:(int)arg3;
+- (void)_suppressImplicitAnimationsForScrollTest;
+- (void)_reenableImplicitAnimationsAfterScrollTest;
 - (BOOL)isElementAccessibilityExposedToInterfaceBuilder;
 - (float)maxVelocityInDirection:(int)arg1;
 - (int)scrollableDirections;
+- (void)_accumulateViewConstraintsIntoArray:(id)arg1;
+- (void)_old_updateAutomaticContentSizeConstraintsIfNecessaryWithContentSize:(struct CGSize)arg1;
+- (void)_resizeWithOldSuperviewSize:(struct CGSize)arg1;
+- (void)_setSubviewWantsAutolayoutTripWantsAutolayout:(BOOL)arg1;
+- (id)_constraintsFromContentSize;
+- (void)_didRemoveDependentConstraint:(id)arg1;
+- (void)_didAddDependentConstraint:(id)arg1;
+- (BOOL)_constraintAffectsContentSize:(id)arg1;
+- (void)_adjustCrossingConstraintsIfNecessaryForOldContentInset:(struct UIEdgeInsets)arg1;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "AVDelegateStorage.h"
 
-@class AVWeakReference, NSObject<OS_dispatch_queue>;
+@class AVWeakReference, NSObject<OS_dispatch_queue>, NSString;
 
 @interface AVWeakReferencingDelegateStorage : NSObject <AVDelegateStorage>
 {
@@ -29,6 +29,12 @@
 - (void)dealloc;
 - (void)_collectUncollectables;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

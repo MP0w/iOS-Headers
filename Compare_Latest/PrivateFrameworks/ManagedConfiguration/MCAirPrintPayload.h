@@ -21,6 +21,7 @@
 @property(nonatomic) unsigned int airPrintCount; // @synthesize airPrintCount=_airPrintCount;
 - (void).cxx_destruct;
 - (id)restrictions;
+- (id)payloadDescriptionKeyValueSections;
 - (id)description;
 - (id)subtitle1Description;
 - (id)subtitle1Label;

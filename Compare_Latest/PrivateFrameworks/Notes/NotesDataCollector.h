@@ -6,13 +6,12 @@
 
 #import "NSObject.h"
 
-@class ACAccountStore, NSDictionary, NSObject<OS_dispatch_group>, NSString, NotesDataCollectorLogger;
+@class ACAccountStore, NSDictionary, NSObject<OS_dispatch_group>, NotesDataCollectorLogger;
 
 @interface NotesDataCollector : NSObject
 {
     BOOL _automaticCollectionOn;
     NotesDataCollectorLogger *_logger;
-    NSString *_testFilePrefix;
     ACAccountStore *_accountStore;
     NSDictionary *_accountTypesPerIdentifierCache;
     NSObject<OS_dispatch_group> *_logDispatchGroup;
@@ -24,7 +23,6 @@
 @property(copy) NSDictionary *accountTypesPerIdentifierCache; // @synthesize accountTypesPerIdentifierCache=_accountTypesPerIdentifierCache;
 @property(retain, nonatomic) ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
 @property(nonatomic, getter=isAutomaticCollectionOn) BOOL automaticCollectionOn; // @synthesize automaticCollectionOn=_automaticCollectionOn;
-@property(retain, nonatomic) NSString *testFilePrefix; // @synthesize testFilePrefix=_testFilePrefix;
 @property(retain, nonatomic) NotesDataCollectorLogger *logger; // @synthesize logger=_logger;
 - (void).cxx_destruct;
 - (void)logNoteActivityType:(id)arg1;

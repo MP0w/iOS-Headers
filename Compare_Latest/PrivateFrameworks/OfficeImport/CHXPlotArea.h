@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)readFrom:(struct _xmlNode *)arg1 state:(id)arg2;
-+ (BOOL)isAxisElement:(struct _xmlNode *)arg1;
++ (BOOL)isAxisElement:(struct _xmlNode *)arg1 state:(id)arg2;
 
 @end
 

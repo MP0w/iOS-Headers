@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
     struct CGRect _savedEndRect;
 }
 
++ (BOOL)_retroactivelyRequiresConstraintBasedLayout;
 @property(retain, nonatomic) UIKBBackdropView *inputBackdropRightView; // @synthesize inputBackdropRightView=_inputBackdropRightView;
 @property(retain, nonatomic) UIKBBackdropView *inputBackdropLeftView; // @synthesize inputBackdropLeftView=_inputBackdropLeftView;
 @property(retain, nonatomic) UIKBBackdropView *inputBackdropFullView; // @synthesize inputBackdropFullView=_inputBackdropFullView;

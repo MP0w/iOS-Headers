@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class MPMediaItem, MPMediaItemCollection, MPMediaPlaylist, MPMediaQuery, MPRadioStation, MPRadioTrack, NSArray, NSData, NSNumber;
+@class MPMediaItem, MPMediaItemCollection, MPMediaPlaylist, MPMediaQuery, MPRadioStation, NSArray, NSData, NSNumber;
 
 @protocol MPMusicPlayerController
 
@@ -48,7 +48,6 @@
 - (void)setAllowsBackgroundVideo:(NSNumber *)arg1;
 - (void)setUseApplicationSpecificQueue:(NSNumber *)arg1;
 - (void)prepareQueueForPlayback;
-- (MPRadioTrack *)nowPlayingRadioTrack;
 - (MPMediaItem *)nowPlayingItemAtIndex:(NSNumber *)arg1;
 - (MPRadioStation *)queueAsRadioStation;
 - (MPMediaQuery *)queueAsQuery;

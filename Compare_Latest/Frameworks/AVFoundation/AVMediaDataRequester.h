@@ -10,7 +10,7 @@
 
 @interface AVMediaDataRequester : NSObject
 {
-    id _mediaDataConsumer;
+    id <AVMediaDataRequesterConsumer> _mediaDataConsumer;
     NSObject<OS_dispatch_queue> *_requestQueue;
     CDUnknownBlockType _requestBlock;
 }

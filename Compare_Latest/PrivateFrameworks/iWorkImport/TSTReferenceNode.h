@@ -26,7 +26,7 @@ __attribute__((visibility("hidden")))
 
 @property(retain, nonatomic) TSTReferenceColorHelper *referenceColorHelper; // @synthesize referenceColorHelper=mReferenceColorHelper;
 @property(nonatomic) int rangeContext; // @synthesize rangeContext=mRangeContext;
-@property(readonly, nonatomic) TSCECalculationEngine *calculationEngine; // @synthesize calculationEngine=mCalculationEngine;
+@property(readonly, retain, nonatomic) TSCECalculationEngine *calculationEngine; // @synthesize calculationEngine=mCalculationEngine;
 @property(nonatomic, getter=isRangeWithFunction) BOOL rangeWithFunction; // @synthesize rangeWithFunction=mRangeWithFunction;
 @property(nonatomic) unsigned char stickyBits; // @synthesize stickyBits=mStickyBits;
 - (id).cxx_construct;

@@ -15,7 +15,6 @@
 
 + (id)renderContextPropertiesFromFigCompositor:(struct OpaqueFigVideoCompositor *)arg1;
 - (struct __CVBuffer *)newPixelBuffer;
-- (struct __CVPixelBufferPool *)_pixelBufferPool;
 @property(readonly, nonatomic) AVVideoComposition *videoComposition;
 @property(readonly, nonatomic) BOOL highQualityRendering;
 @property(readonly, nonatomic) CDStruct_b8308255 edgeWidths;
@@ -26,8 +25,10 @@
 - (void)dealloc;
 - (void)finalize;
 - (void)_willDeallocOrFinalize;
+- (BOOL)isBufferYCbCr:(struct __CVBuffer *)arg1;
+- (struct __CVPixelBufferPool *)pixelBufferPool;
 - (BOOL)hasEqualPropertiesToFigVideoCompositor:(struct OpaqueFigVideoCompositor *)arg1;
-- (id)initWithFigVideoCompositor:(struct OpaqueFigVideoCompositor *)arg1 clientRequiredPixelBufferAttributes:(id)arg2 videoComposition:(id)arg3;
+- (id)initWithFigVideoCompositor:(struct OpaqueFigVideoCompositor *)arg1 clientRequiredPixelBufferAttributes:(id)arg2 videoComposition:(id)arg3 pixelBufferPool:(struct __CVPixelBufferPool *)arg4;
 
 @end
 

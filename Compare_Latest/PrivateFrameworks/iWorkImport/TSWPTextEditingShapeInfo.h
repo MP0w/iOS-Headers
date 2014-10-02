@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) id <TSWPTextEditingDelegate> delegate; // @synthesize delegate=_delegate;
+- (BOOL)displaysInstructionalText;
 - (Class)repClass;
 - (Class)layoutClass;
 

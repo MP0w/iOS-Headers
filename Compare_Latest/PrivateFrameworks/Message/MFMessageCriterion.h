@@ -23,15 +23,19 @@
     int _type;
     NSArray *_requiredHeaders;
     BOOL _useFlaggedForUnreadCount;
+    BOOL _expressionIsSanitized;
     NSIndexSet *_libraryIdentifiers;
 }
 
 + (id)orCompoundCriterionWithCriteria:(id)arg1;
 + (id)andCompoundCriterionWithCriteria:(id)arg1;
++ (id)notCriterionWithCriterion:(id)arg1;
++ (id)todayMessageCriterion;
 + (id)hasAttachmentsCriterion;
 + (id)includesMeCriterion;
 + (id)unreadMessageCriterion;
 + (id)flaggedMessageCriterion;
++ (id)ThreadNotifyMessageCriterion;
 + (id)VIPSenderMessageCriterion;
 + (id)messageIsServerSearchResultCriterion:(BOOL)arg1;
 + (id)messageIsDeletedCriterion:(BOOL)arg1;
@@ -42,9 +46,10 @@
 + (id)defaultsArrayFromCriteria:(id)arg1;
 + (id)criteriaFromDefaultsArray:(id)arg1 removingRecognizedKeys:(BOOL)arg2;
 + (id)criteriaFromDefaultsArray:(id)arg1;
+@property(nonatomic) BOOL expressionIsSanitized; // @synthesize expressionIsSanitized=_expressionIsSanitized;
+@property(nonatomic) BOOL includeRelatedMessages; // @synthesize includeRelatedMessages=_includeRelatedMessages;
 @property(nonatomic) BOOL useFlaggedForUnreadCount; // @synthesize useFlaggedForUnreadCount=_useFlaggedForUnreadCount;
 @property(retain, nonatomic) NSIndexSet *libraryIdentifiers; // @synthesize libraryIdentifiers=_libraryIdentifiers;
-@property(nonatomic) BOOL includeRelatedMessages; // @synthesize includeRelatedMessages=_includeRelatedMessages;
 - (id)emailAddressesForGroupCriterion;
 - (id)simplifiedCriterion;
 - (id)simplifyOnce;

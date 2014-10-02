@@ -6,32 +6,38 @@
 
 #import "UICollectionViewCell.h"
 
-@class NSMutableArray, NSString, UIButton, UIImage, UILabel;
+@class NSLayoutConstraint, NSMutableArray, NSString, UIButton, UILabel;
 
 @interface _MusicGeniusMixCollectionViewCell : UICollectionViewCell
 {
     UILabel *_artistsLabel;
+    NSLayoutConstraint *_artistsLabelBaselineConstraint;
     UILabel *_basedOnLabel;
+    NSLayoutConstraint *_basedOnLabelBaselineConstraint;
     NSMutableArray *_coverViews;
     UILabel *_titleLabel;
+    NSLayoutConstraint *_titleLabelBaselineConstraint;
     BOOL _offline;
     BOOL _playing;
-    UIImage *_combinedArtworkImage;
     UIButton *_playButton;
 }
 
++ (int)numberOfArtworkImages;
 @property(nonatomic, getter=isPlaying) BOOL playing; // @synthesize playing=_playing;
 @property(nonatomic, getter=isOffline) BOOL offline; // @synthesize offline=_offline;
 @property(readonly, nonatomic) UIButton *playButton; // @synthesize playButton=_playButton;
-@property(retain, nonatomic) UIImage *combinedArtworkImage; // @synthesize combinedArtworkImage=_combinedArtworkImage;
 - (void).cxx_destruct;
 - (void)_updatePlayButtonAlpha;
 - (void)_updateCoverViewsAlpha;
 - (id)_pressedPlayButtonImage;
+- (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
+- (void)setArtworkImage:(id)arg1 atIndex:(int)arg2;
+- (id)artworkImageDestinationAtIndex:(int)arg1;
 @property(copy, nonatomic) NSString *title;
 - (void)setPlaying:(BOOL)arg1 animated:(BOOL)arg2;
 @property(copy, nonatomic) NSString *artistsText;
-- (void)layoutSubviews;
+- (void)updateConstraints;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

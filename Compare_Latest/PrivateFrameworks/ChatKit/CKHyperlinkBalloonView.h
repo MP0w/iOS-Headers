@@ -10,16 +10,7 @@
 {
 }
 
-- (BOOL)isInteractingWithLink;
-- (void)touchCanceled:(id)arg1;
-- (void)touchDraggedInside:(id)arg1 forEvent:(id)arg2;
-- (void)touchUpOutside:(id)arg1 forEvent:(id)arg2;
-- (void)touchUpInside:(id)arg1 forEvent:(id)arg2;
-- (void)doubleTap:(id)arg1 forEvent:(id)arg2;
-- (void)longPress:(id)arg1 forEvent:(id)arg2;
-- (void)tap:(id)arg1 forEvent:(id)arg2;
-- (void)touchDown:(id)arg1 forEvent:(id)arg2;
-- (void)prepareForReuse;
+- (BOOL)_gestureRecognizer:(id)arg1 canBePreventedByGestureRecognizer:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

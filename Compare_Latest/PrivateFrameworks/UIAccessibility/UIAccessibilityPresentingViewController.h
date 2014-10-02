@@ -16,7 +16,7 @@
 - (void)_voiceOverStatusChanged;
 - (void)_cleanUpPresentationWindow;
 - (void)dismissViewControllerWithTransition:(int)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)presentViewController:(id)arg1 withTransition:(int)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)presentViewController:(id)arg1 animated:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)loadView;
 - (void)dealloc;
 - (id)init;

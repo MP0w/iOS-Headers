@@ -9,16 +9,16 @@
 __attribute__((visibility("hidden")))
 @interface CMOutlineState : NSObject
 {
-    int counter[10];
-    int listId;
+    unsigned int counter[10];
+    unsigned int listId;
 }
 
-- (void)increaseCounterAtLevel:(int)arg1;
-- (int)counterAtLevel:(int)arg1;
-- (void)setCounterTo:(int)arg1 atLevel:(int)arg2;
-- (int)listId;
+- (void)increaseCounterAtLevel:(unsigned char)arg1;
+- (unsigned int)counterAtLevel:(unsigned char)arg1;
+- (void)setCounterTo:(unsigned int)arg1 atLevel:(unsigned char)arg2;
+- (unsigned int)listId;
 - (void)reset;
-- (id)initWithListId:(int)arg1;
+- (id)initWithListId:(unsigned int)arg1;
 - (id)init;
 
 @end

@@ -13,7 +13,6 @@
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)requestBody;
 - (id)httpMethod;
-- (id)additionalHeaderValues;
 - (id)initWithPropertiesToFind:(id)arg1 atURL:(id)arg2 withDepth:(int)arg3;
 
 // Remaining properties

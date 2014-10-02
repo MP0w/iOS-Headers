@@ -6,22 +6,22 @@
 
 #import "UIView.h"
 
-@class NSArray, SKUIItemListTableViewController;
+@class NSArray, UIViewController;
 
 @interface SKUIIPadChartsColumnView : UIView
 {
+    struct UIEdgeInsets _contentInset;
     NSArray *_contentViewControllers;
     int _selectedViewControllerIndex;
-    struct UIEdgeInsets _contentInset;
 }
 
-@property(nonatomic) struct UIEdgeInsets contentInset; // @synthesize contentInset=_contentInset;
 @property(copy, nonatomic) NSArray *contentViewControllers; // @synthesize contentViewControllers=_contentViewControllers;
+@property(nonatomic) struct UIEdgeInsets contentInset; // @synthesize contentInset=_contentInset;
 - (void).cxx_destruct;
 - (void)_addSelectedViewController;
 - (void)layoutSubviews;
 - (void)setSelectedViewControllerIndex:(int)arg1;
-@property(readonly, nonatomic) SKUIItemListTableViewController *selectedViewController;
+@property(readonly, nonatomic) UIViewController *selectedViewController;
 
 @end
 

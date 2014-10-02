@@ -29,6 +29,8 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *key; // @synthesize key=_key;
 @property(copy, nonatomic) NSString *label; // @synthesize label=_label;
 @property(copy, nonatomic) NSString *property; // @synthesize property=_property;
+- (id)scriptTag;
+- (int)smartFieldKind;
 - (BOOL)allowsPasteAsSmartField;
 - (id)copyWithContext:(id)arg1;
 - (void)saveToArchiver:(id)arg1;

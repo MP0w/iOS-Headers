@@ -14,8 +14,6 @@
 {
 }
 
-+ (id)startSpeechWithDictionary:(id)arg1 context:(id)arg2;
-+ (id)startSpeech;
 @property(copy, nonatomic) NSString *origin;
 @property(copy, nonatomic) NSNumber *noiseReductionLevel;
 @property(copy, nonatomic) NSNumber *motionConfidence;
@@ -23,6 +21,7 @@
 @property(copy, nonatomic) NSString *headsetName;
 @property(copy, nonatomic) NSString *headsetId;
 @property(copy, nonatomic) NSString *headsetAddress;
+@property(nonatomic) BOOL enablePartialResults;
 @property(copy, nonatomic) NSString *dspStatus;
 @property(nonatomic) BOOL disableAutoEndpointing;
 @property(copy, nonatomic) NSString *deviceModel;
@@ -30,12 +29,17 @@
 @property(nonatomic) int codec;
 @property(nonatomic) BOOL clearContext;
 @property(copy, nonatomic) NSString *audioSource;
+- (id)init;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 
 // Remaining properties
 @property(copy, nonatomic) NSString *aceId; // @dynamic aceId;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(copy, nonatomic) NSString *refId; // @dynamic refId;
+@property(readonly) Class superclass;
 
 @end
 

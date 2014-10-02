@@ -29,8 +29,8 @@
 - (float)integralInitialScale;
 - (float)viewportHeight;
 - (float)viewportWidth;
-- (void)resetViewportConfiguration:(struct _UIWebViewportConfiguration *)arg1;
-- (void)overrideViewportConfiguration:(struct _UIWebViewportConfiguration *)arg1;
+- (void)resetViewportConfiguration:(const struct _UIWebViewportConfiguration *)arg1;
+- (void)overrideViewportConfiguration:(const struct _UIWebViewportConfiguration *)arg1;
 - (void)clearWebKitViewportConfigurationFlags;
 - (void)applyWebKitViewportArgumentsSize:(struct CGSize)arg1 initialScale:(float)arg2 minimumScale:(float)arg3 maximumScale:(float)arg4 allowsUserScaling:(float)arg5;
 - (void)setAvailableViewSize:(struct CGSize)arg1;

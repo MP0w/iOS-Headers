@@ -19,15 +19,18 @@
     BOOL _isAlphabeticPlane;
     BOOL _interfaceIdiomIsPad;
     NSString *_inputMode;
+    NSString *_layoutTag;
 }
 
 + (BOOL)supportsSecureCoding;
 @property(nonatomic) BOOL interfaceIdiomIsPad; // @synthesize interfaceIdiomIsPad=_interfaceIdiomIsPad;
+@property(copy, nonatomic) NSString *layoutTag; // @synthesize layoutTag=_layoutTag;
 @property(nonatomic) BOOL isAlphabeticPlane; // @synthesize isAlphabeticPlane=_isAlphabeticPlane;
 @property(nonatomic) BOOL canMultitap; // @synthesize canMultitap=_canMultitap;
 @property(nonatomic) BOOL hasAccentKey; // @synthesize hasAccentKey=_hasAccentKey;
 @property(nonatomic) BOOL hasCandidateKey; // @synthesize hasCandidateKey=_hasCandidateKey;
 @property(copy, nonatomic) NSString *inputMode; // @synthesize inputMode=_inputMode;
+- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;

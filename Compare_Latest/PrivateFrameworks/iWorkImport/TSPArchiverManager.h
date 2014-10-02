@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMapTable, NSObject<OS_dispatch_queue>;
+@class NSMapTable, NSObject<OS_dispatch_queue>, TSPDescriptionGenerator;
 
 __attribute__((visibility("hidden")))
 @interface TSPArchiverManager : NSObject
@@ -25,8 +25,10 @@ __attribute__((visibility("hidden")))
         unsigned int delegateRespondsToDidCreateArchiver:1;
         unsigned int delegateRespondsToShouldDelayArchivingObject:1;
     } _flags;
+    TSPDescriptionGenerator *_descriptionGenerator;
 }
 
+@property(retain, nonatomic) TSPDescriptionGenerator *descriptionGenerator; // @synthesize descriptionGenerator=_descriptionGenerator;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)stop;

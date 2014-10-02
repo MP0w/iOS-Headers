@@ -10,7 +10,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class MFContactsSearchManager, MFContactsSearchResultsModel, NSArray, NSNumber, UITableView, UIView;
+@class MFContactsSearchManager, MFContactsSearchResultsModel, NSArray, NSNumber, NSString, UITableView, UIView;
 
 @interface SKUIGiftContactSearchController : NSObject <MFContactsSearchConsumer, UITableViewDataSource, UITableViewDelegate>
 {
@@ -33,9 +33,9 @@
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)finishedTaskWithID:(id)arg1;
-- (void)finishedSearchingForType:(int)arg1;
+- (void)finishedSearchingForType:(unsigned int)arg1;
 - (void)endedNetworkActivity;
-- (void)consumeSearchResults:(id)arg1 type:(int)arg2 taskID:(id)arg3;
+- (void)consumeSearchResults:(id)arg1 type:(unsigned int)arg2 taskID:(id)arg3;
 - (void)beganNetworkActivity;
 @property(readonly, nonatomic) UIView *searchResultsView;
 - (void)searchForText:(id)arg1;
@@ -44,6 +44,12 @@
 - (BOOL)cancelSearch;
 - (void)dealloc;
 - (id)initWithAddressBook:(void *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

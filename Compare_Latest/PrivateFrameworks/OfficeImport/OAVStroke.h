@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)readFromManager:(id)arg1;
++ (void)initialize;
 + (void)readFillStyleFromManager:(id)arg1 toStroke:(id)arg2;
 + (id)targetFgColorWithManager:(id)arg1;
 + (void)readJoinStyleFromManager:(id)arg1 toStroke:(id)arg2;

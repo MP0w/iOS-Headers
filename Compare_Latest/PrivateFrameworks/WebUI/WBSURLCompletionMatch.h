@@ -6,7 +6,11 @@
 
 #import "NSObject.h"
 
-@interface WBSURLCompletionMatch : NSObject
+#import "WBSCompletionListItem.h"
+
+@class NSString;
+
+@interface WBSURLCompletionMatch : NSObject <WBSCompletionListItem>
 {
     int _matchLocation;
 }
@@ -15,10 +19,18 @@
 + (int)matchLocationForString:(id)arg1 inURLString:(id)arg2;
 @property(readonly, nonatomic) int matchLocation; // @synthesize matchLocation=_matchLocation;
 - (id)matchingStringWithUserTypedPrefix:(id)arg1;
+@property(readonly, nonatomic) NSString *parsecDomainIdentifier;
+@property(readonly, nonatomic, getter=isTopHit) BOOL topHit;
 - (id)userVisibleURLString;
 - (id)title;
 - (id)originalURLString;
 - (id)initWithMatchLocation:(int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

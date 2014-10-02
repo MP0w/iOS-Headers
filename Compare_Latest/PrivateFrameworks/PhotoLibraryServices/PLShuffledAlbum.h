@@ -24,21 +24,22 @@
 + (struct NSObject *)shuffledAlbum:(struct NSObject *)arg1 startingAsset:(id)arg2;
 @property(retain, nonatomic) NSMutableOrderedSet *_assets; // @synthesize _assets;
 - (void)batchFetchAssets:(id)arg1;
-- (id)displayableIndexesForCount:(unsigned int)arg1;
-- (id)titleForSectionStartingAtIndex:(unsigned int)arg1;
-@property(readonly, nonatomic) CDUnknownBlockType sectioningComparator;
-@property(readonly, nonatomic) CDUnknownBlockType sortingComparator;
-@property(readonly, nonatomic) NSURL *groupURL;
+@property(readonly, copy, nonatomic) CDUnknownBlockType sortingComparator;
+@property(readonly, retain, nonatomic) NSURL *groupURL;
 @property(retain, nonatomic) NSString *importSessionID;
 @property(retain, nonatomic) NSDictionary *slideshowSettings;
 @property(readonly, nonatomic) BOOL shouldDeleteWhenEmpty;
-- (BOOL)canPerformEditOperation:(int)arg1;
-@property(readonly, nonatomic) NSArray *localizedLocationNames;
+- (BOOL)canPerformEditOperation:(unsigned int)arg1;
+@property(readonly, copy, nonatomic) NSArray *localizedLocationNames;
 @property(readonly, nonatomic) BOOL canShowAvalancheStacks;
 @property(readonly, nonatomic) BOOL canShowComments;
 @property(readonly, nonatomic) BOOL canContributeToCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isRecentlyAddedAlbum;
 @property(readonly, nonatomic) BOOL isMultipleContributorCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isFamilyCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL isOwnedCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isInTrash;
+@property(readonly, nonatomic) BOOL isFolder;
 @property(readonly, nonatomic) BOOL isStandInAlbum;
 @property(readonly, nonatomic) BOOL isPendingPhotoStreamAlbum;
 @property(readonly, nonatomic) BOOL isCloudSharedAlbum;
@@ -47,11 +48,11 @@
 @property(readonly, nonatomic) BOOL isPanoramasAlbum;
 @property(readonly, nonatomic) BOOL isCameraAlbum;
 @property(readonly, nonatomic) BOOL isLibrary;
-@property(readonly, nonatomic) UIImage *posterImage;
+@property(readonly, retain, nonatomic) UIImage *posterImage;
 @property(retain, nonatomic) PLManagedAsset *tertiaryKeyAsset;
 @property(retain, nonatomic) PLManagedAsset *secondaryKeyAsset;
 @property(retain, nonatomic) PLManagedAsset *keyAsset;
-@property(readonly, nonatomic) NSString *name;
+@property(readonly, copy, nonatomic) NSString *name;
 - (void)reducePendingItemsCountBy:(unsigned int)arg1;
 @property(nonatomic) int pendingItemsType;
 @property(nonatomic) int pendingItemsCount;
@@ -62,22 +63,22 @@
 - (unsigned int)count;
 @property(readonly, nonatomic) unsigned int assetsCount;
 @property(readonly, nonatomic) unsigned int approximateCount;
-@property(readonly, nonatomic) NSMutableOrderedSet *mutableAssets;
-@property(readonly, nonatomic) NSOrderedSet *assets;
-@property(readonly, nonatomic) NSString *localizedTitle;
-@property(readonly, nonatomic) NSString *title;
+@property(readonly, retain, nonatomic) NSMutableOrderedSet *mutableAssets;
+@property(readonly, retain, nonatomic) NSOrderedSet *assets;
+@property(readonly, copy, nonatomic) NSString *localizedTitle;
+@property(readonly, retain, nonatomic) NSString *title;
 @property(readonly, nonatomic) int kindValue;
-@property(readonly, nonatomic) NSNumber *kind;
-@property(readonly, nonatomic) NSString *uuid;
+@property(readonly, retain, nonatomic) NSNumber *kind;
+@property(readonly, retain, nonatomic) NSString *uuid;
 - (void)dealloc;
 - (id)init;
-@property(readonly, nonatomic) PLManagedAsset *startingAsset;
-@property(readonly, nonatomic) NSObject<PLAlbumProtocol> *backingAlbum;
+@property(readonly, retain, nonatomic) PLManagedAsset *startingAsset;
+@property(readonly, retain, nonatomic) NSObject<PLAlbumProtocol> *backingAlbum;
 - (id)initWithBackingAlbum:(struct NSObject *)arg1 startingAsset:(id)arg2;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (Class)derivedChangeNotificationClass;
 - (BOOL)mappedDataSourceChanged:(id)arg1 remoteNotificationData:(id)arg2;
-@property(readonly, nonatomic) id <NSObject><NSCopying> cachedIndexMapState;
+@property(readonly, copy, nonatomic) id <NSObject><NSCopying> cachedIndexMapState;
 - (void)createShuffledIndexesMaps;
 - (void)createShuffledIndexesMapsIfNeeded;
 - (struct __CFArray *)fromBackingMap;
@@ -89,8 +90,11 @@
 - (unsigned int)countOfShuffledAssets;
 
 // Remaining properties
-@property(readonly, nonatomic) NSDate *endDate;
-@property(readonly, nonatomic) NSDate *startDate;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, retain, nonatomic) NSDate *endDate;
+@property(readonly) unsigned int hash;
+@property(readonly, retain, nonatomic) NSDate *startDate;
+@property(readonly) Class superclass;
 
 @end
 

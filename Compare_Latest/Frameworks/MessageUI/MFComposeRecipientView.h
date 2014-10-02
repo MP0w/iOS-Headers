@@ -13,11 +13,11 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "UITextFieldDelegate.h"
 
-@class MFComposeRecipient, MFComposeTextField, MFCorecipientsIndicatorAtom, MFModernComposeRecipientAtom, NSArray, NSCountedSet, NSMutableArray, NSMutableDictionary, NSString, NSTimer, UIButton, UIFont, UITapGestureRecognizer, UITextField, UIView;
+@class MFComposeRecipient, MFCorecipientsIndicatorAtom, MFModernComposeRecipientAtom, NSArray, NSCountedSet, NSMutableArray, NSMutableDictionary, NSString, NSTimer, UIButton, UIFont, UITapGestureRecognizer, UITextField, UIView, _MFMailRecipientTextField;
 
 @interface MFComposeRecipientView : MFComposeHeaderView <UITextFieldDelegate, UIGestureRecognizerDelegate, MFComposeRecipientAtomDelegate, MFDragSource, MFDragDestination, MFCorecipientsIndicatorAtomDelegate>
 {
-    MFComposeTextField *_textField;
+    _MFMailRecipientTextField *_textField;
     NSArray *_textFieldConstraints;
     NSMutableArray *_recipients;
     NSMutableDictionary *_atoms;
@@ -152,6 +152,12 @@
 @property(nonatomic) id <MFComposeRecipientViewDelegate> delegate; // @dynamic delegate;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

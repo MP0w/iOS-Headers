@@ -18,14 +18,13 @@
     int _responseType;
     NSMutableDictionary *_sectionsCache;
     NSNumber *_shouldResetUserOrdering;
-    NSArray *_sections;
 }
 
 + (void)setLastCachedVersionIdentifier:(id)arg1;
 + (id)sectionsCacheDirectory;
 + (id)lastCachedVersionIdentifier;
 @property(readonly, nonatomic) int responseType; // @synthesize responseType=_responseType;
-@property(readonly, nonatomic) NSDictionary *rawResponseDictionary; // @synthesize rawResponseDictionary=_rawResponseDictionary;
+@property(readonly, copy, nonatomic) NSDictionary *rawResponseDictionary; // @synthesize rawResponseDictionary=_rawResponseDictionary;
 @property(retain, nonatomic) UIImage *moreListSelectedImage; // @synthesize moreListSelectedImage=_moreListSelectedImage;
 @property(retain, nonatomic) UIImage *moreListImage; // @synthesize moreListImage=_moreListImage;
 @property(nonatomic, getter=isCacheable) BOOL cacheable; // @synthesize cacheable=_cacheable;
@@ -44,7 +43,7 @@
 @property(copy, nonatomic) NSString *storeFrontIdentifier;
 @property(nonatomic) BOOL shouldResetUserOrdering;
 @property(readonly, nonatomic) NSDictionary *sectionsDictionary;
-@property(readonly, nonatomic) NSArray *sections; // @synthesize sections=_sections;
+@property(readonly, nonatomic) NSArray *sections;
 @property(readonly, nonatomic) NSString *moreListTitle;
 @property(readonly, nonatomic) SSItemImageCollection *moreListImageCollection;
 - (void)dropEmbeddedImages;

@@ -6,12 +6,11 @@
 
 #import "NSObject.h"
 
-@class UIActionSheet, UIViewController;
+@class UIViewController;
 
 @protocol ABPresenterDelegate <NSObject>
 @property(readonly) BOOL isPresentingModalViewController;
 - (void)sender:(id)arg1 dismissViewController:(UIViewController *)arg2;
-- (void)sender:(id)arg1 presentActionSheet:(UIActionSheet *)arg2;
 - (void)sender:(id)arg1 presentViewController:(UIViewController *)arg2;
 @end
 

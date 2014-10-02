@@ -16,7 +16,8 @@
     BOOL _includesActualByteCount;
     BOOL _adaptive;
     BOOL _zeroPadsFractionDigits;
-    int _reserved[6];
+    int _formattingContext;
+    int _reserved[5];
 }
 
 + (id)stringFromByteCount:(long long)arg1 countStyle:(int)arg2;
@@ -29,6 +30,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property int formattingContext;
 - (id)init;
 - (BOOL)isPartialStringValid:(id *)arg1 proposedSelectedRange:(struct _NSRange *)arg2 originalString:(id)arg3 originalSelectedRange:(struct _NSRange)arg4 errorDescription:(id *)arg5;
 - (BOOL)getObjectValue:(out id *)arg1 forString:(id)arg2 errorDescription:(out id *)arg3;

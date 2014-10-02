@@ -9,35 +9,46 @@
 #import "MusicPickerOverlayDelegate.h"
 #import "UITextFieldDelegate.h"
 
-@class NSCache, UIAlertView, UITextField;
+@class NSCache, NSString, UIAlertController, UIImage, UITextField;
 
 @interface MusicPlaylistsViewController : MusicTableViewController <MusicPickerOverlayDelegate, UITextFieldDelegate>
 {
+    UIImage *_initialPlaceholderImage;
     UITextField *_newPlaylistAlertTextField;
     id _newPlaylistAlertTextFieldChangeObserver;
-    UIAlertView *_newPlaylistAlertView;
+    UIAlertController *_newPlaylistAlertController;
     NSCache *_playlistMetadataCache;
 }
 
 @property(retain, nonatomic) NSCache *playlistMetadataCache; // @synthesize playlistMetadataCache=_playlistMetadataCache;
 - (void).cxx_destruct;
+- (id)_viewControllerForSelectedMediaEntity:(id)arg1 containerItemType:(int)arg2;
 - (void)_updateCloudPlaylist:(id)arg1;
 - (id)_playlistTitle;
+- (void)_cleanupNewPlaylistAlertController;
 - (void)createGeniusPlaylistAction;
 - (void)addPlaylistAction;
+- (void)switchToShortcutIdentifier:(id)arg1;
+- (void)_handlePlaylistSaveAction;
 - (BOOL)textFieldShouldReturn:(id)arg1;
-- (BOOL)_isSaveButtonEnabled;
 - (void)_updateSaveButtonEnabledState;
 - (void)tableView:(id)arg1 commitEditingStyle:(int)arg2 forRowAtIndexPath:(id)arg3;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)pickerOverlayDidFinish:(id)arg1;
 - (void)pickerOverlayRequestsFinish:(id)arg1;
-- (void)reloadData;
-- (BOOL)music_hasContent;
 - (BOOL)MPH_supportsCoverFlow;
-- (void)switchToShortcutIdentifier:(id)arg1;
-- (id)initWithDataSource:(id)arg1 cellConfigurationClass:(Class)arg2;
+- (BOOL)music_hasContent;
+- (void)reloadData;
+- (BOOL)music_handleUserActivityContext:(id)arg1 containerItem:(id)arg2;
+- (BOOL)music_appendCurrentUserActivityContainerItems:(id)arg1 previousViewController:(id)arg2 nextViewController:(id)arg3;
+- (void)dealloc;
+- (id)initWithDataSource:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

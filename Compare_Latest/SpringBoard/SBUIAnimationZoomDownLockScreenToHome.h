@@ -15,10 +15,10 @@
     SBIconAnimator *_iconAnimator;
 }
 
-- (_Bool)_shouldTakeActivationAssertionForDeactivatingApp;
 - (void)animateZoomWithCompletion:(CDUnknownBlockType)arg1;
 - (void)cleanupZoom;
 - (void)prepareZoom;
+- (_Bool)_shouldDismissBanner;
 - (void)_prepareAnimation;
 - (void)dealloc;
 - (id)initWithLockScreenViewController:(id)arg1;

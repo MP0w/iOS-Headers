@@ -5,10 +5,11 @@
 //
 
 #import "TSUIOChannel.h"
+#import "TSUStreamReadChannel.h"
 
 @class NSObject<OS_dispatch_queue>;
 
-@protocol TSUReadChannel <TSUIOChannel>
+@protocol TSUReadChannel <TSUIOChannel, TSUStreamReadChannel>
 - (void)readFromOffset:(long long)arg1 length:(unsigned long)arg2 queue:(NSObject<OS_dispatch_queue> *)arg3 handler:(void (^)(BOOL, NSObject<OS_dispatch_data> *, NSError *))arg4;
 @end
 

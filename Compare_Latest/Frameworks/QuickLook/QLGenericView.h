@@ -26,7 +26,7 @@
 @property(copy) NSString *subtitle;
 @property(copy) NSString *title;
 - (void)layoutSubviews;
-- (void)_updateContainerFrameForOrientation:(int)arg1;
+- (void)_updateContainerFrameForTraitCollection:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

@@ -18,11 +18,13 @@
     float _shadowRadius;
     float _shadowAlpha;
     float _imageOutset;
+    float _minFillHeight;
     NSString *_shadowCompositingFilterName;
 }
 
 + (id)sharedInstanceForStyle:(int)arg1;
 @property(copy, nonatomic) NSString *shadowCompositingFilterName; // @synthesize shadowCompositingFilterName=_shadowCompositingFilterName;
+@property(nonatomic) float minFillHeight; // @synthesize minFillHeight=_minFillHeight;
 @property(nonatomic) float imageOutset; // @synthesize imageOutset=_imageOutset;
 @property(nonatomic) float shadowAlpha; // @synthesize shadowAlpha=_shadowAlpha;
 @property(nonatomic) float shadowRadius; // @synthesize shadowRadius=_shadowRadius;

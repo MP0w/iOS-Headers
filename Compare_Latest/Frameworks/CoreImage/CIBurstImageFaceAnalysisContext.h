@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class FCRFaceDetector, NSArray, NSMutableArray, NSMutableDictionary;
+@class FCRFaceDetector, NSMutableArray, NSMutableDictionary;
 
 __attribute__((visibility("hidden")))
 @interface CIBurstImageFaceAnalysisContext : NSObject
@@ -15,22 +15,26 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *faceIdMapping;
     NSMutableDictionary *renameMapping;
     int faceIdCounter;
+    NSMutableArray *faceInfoArray;
+    int numFramesSinceFullFaceCore;
+    int numFramesNoFaces;
     FCRFaceDetector *faceDetector;
-    NSArray *faces;
-    double timeOfLastAnalyzedFrame;
-    double timeBlinkDetectionDone;
-    double timeFaceDetectionDone;
-    BOOL forceFaceDetectionEnable;
     NSMutableArray *faceTimestampArray;
-    double latestFaceTimestamp;
     double latestImageTimestamp;
     int lastFaceIndex;
+    BOOL forceFaceDetectionEnable;
+    int _version;
+    double timeBlinkDetectionDone;
+    double timeFaceDetectionDone;
+    double latestFaceTimestamp;
 }
 
+@property int version; // @synthesize version=_version;
 @property double latestFaceTimestamp; // @synthesize latestFaceTimestamp;
 @property BOOL forceFaceDetectionEnable; // @synthesize forceFaceDetectionEnable;
 @property double timeFaceDetectionDone; // @synthesize timeFaceDetectionDone;
 @property double timeBlinkDetectionDone; // @synthesize timeBlinkDetectionDone;
+- (void)dumpFaceInfoArray;
 - (void)addFacesToImageStat:(id)arg1 imageSize:(struct CGSize)arg2;
 - (void)extractFacesFromMetadata:(id)arg1;
 - (void)addFaceToArray:(id)arg1;
@@ -38,9 +42,13 @@ __attribute__((visibility("hidden")))
 - (void)calcFaceScores:(id)arg1;
 - (void)calculateFaceFocusInImage:(id)arg1 imageStat:(id)arg2;
 - (int)findFacesInImage:(id)arg1 imageStat:(id)arg2;
+- (struct CGRect)calculateFaceCoreROI:(id)arg1 imageStat:(id)arg2 needFaceCore:(char *)arg3;
+- (struct CGRect)padRoiRect:(struct CGRect)arg1 paddingX:(float)arg2 paddingY:(float)arg3;
 - (void)setupFaceDetector;
 - (void)dealloc;
-- (id)init;
+- (id)initWithVersion:(id)arg1;
+- (id)processSmallFaces:(id)arg1 imageStat:(id)arg2 faces:(id)arg3 extractOptions:(id)arg4;
+- (BOOL)isSmallFace:(struct CGRect)arg1;
 
 @end
 

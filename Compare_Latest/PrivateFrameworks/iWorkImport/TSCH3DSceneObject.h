@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 + (float)textRotationForChartInfo:(id)arg1;
 + (id)sceneObject;
 + (id)renderCacheKey;
+- (float)shadowCameraDepthLimitAdjustmentFactorForScene:(id)arg1;
 - (id)renderInfoForSelectionPath:(id)arg1 info:(id)arg2;
 - (BOOL)canEditTextForSelectionPath:(id)arg1 forInfo:(id)arg2;
 - (BOOL)canRenderSelectionPath:(id)arg1 forInfo:(id)arg2;

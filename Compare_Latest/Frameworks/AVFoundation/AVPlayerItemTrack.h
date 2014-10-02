@@ -13,28 +13,27 @@
     AVPlayerItemTrackInternal *_playerItemTrack;
 }
 
-+ (id)playerItemTrackWithFigPlaybackItem:(struct OpaqueFigPlaybackItem *)arg1 trackID:(int)arg2 asset:(id)arg3 playerItem:(id)arg4;
-- (void)_addLayer:(id)arg1;
-- (void)_removeLayer:(id)arg1;
-- (void)_setAudioTimePitchAlgorithm:(id)arg1;
-- (void)_setAudioTapProcessor:(struct opaqueMTAudioProcessingTap *)arg1;
-- (void)_setAudioVolumeCurve:(id)arg1;
-- (id)_audioVolumeCurve;
++ (id)playerItemTrackWithFigPlaybackItem:(struct OpaqueFigPlaybackItem *)arg1 readyForInspection:(BOOL)arg2 trackID:(int)arg3 asset:(id)arg4 playerItem:(id)arg5;
+- (void)_respondToFigPlaybackItemBecomingReadyForInpection;
+- (void)_attachToFigPlaybackItemOfPlayerItem:(id)arg1;
+- (void)_transferCachedValuesToFig;
 - (void)setLoudnessInfo:(id)arg1;
+- (void)_transferLoudnessInfoToFig;
 - (id)loudnessInfo;
 @property(readonly, nonatomic) float currentVideoFrameRate;
 - (id)fallbackTrack;
 @property(nonatomic, getter=isEnabled) BOOL enabled;
+- (void)_transferEnabledToFig;
 @property(readonly, nonatomic) AVAssetTrack *assetTrack;
 - (int)trackID;
 - (id)_playerItem;
-- (struct OpaqueFigPlaybackItem *)_figPlaybackItem;
+- (id)_weakReferenceToPlayerItem;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)description;
 - (void)finalize;
 - (void)dealloc;
-- (id)_initWithFigPlaybackItem:(struct OpaqueFigPlaybackItem *)arg1 trackID:(int)arg2 asset:(id)arg3 playerItem:(id)arg4;
+- (id)_initWithFigPlaybackItem:(struct OpaqueFigPlaybackItem *)arg1 readyForInspection:(BOOL)arg2 trackID:(int)arg3 asset:(id)arg4 playerItem:(id)arg5;
 
 @end
 

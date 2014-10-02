@@ -8,6 +8,7 @@
 
 @class NSLock, NSMapTable;
 
+__attribute__((visibility("hidden")))
 @interface GEOLocationShiftRequester : NSObject
 {
     NSMapTable *_pendingRequests;

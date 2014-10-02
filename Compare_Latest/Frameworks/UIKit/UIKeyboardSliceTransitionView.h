@@ -47,7 +47,6 @@ __attribute__((visibility("hidden")))
 - (void)rebuildSliceTransitions;
 - (void)refreshKeyplaneImages;
 - (void)updateTransitionForSlice:(id)arg1 withStart:(id)arg2 startContents:(id)arg3 end:(id)arg4 endContents:(id)arg5 updateContents:(BOOL)arg6;
-- (id)timingFunctionForSlice:(id)arg1;
 - (void)rebuildBackgroundGradientTransitions;
 - (void)rebuildBackgroundAndShadowTransitions;
 - (void)rebuildShadows;

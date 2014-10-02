@@ -8,6 +8,8 @@
 
 #import "TSTCellRegionIterating.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TSTCellRegionRowMajorIterator : NSObject <TSTCellRegionIterating>
 {
@@ -22,6 +24,12 @@ __attribute__((visibility("hidden")))
 - (CDStruct_0441cfb5)getNext;
 - (void)dealloc;
 - (id)initWithCellRegion:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

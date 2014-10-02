@@ -37,11 +37,12 @@
 @property(readonly, nonatomic) int imageRowBytes; // @synthesize imageRowBytes=_imageRowBytes;
 @property(readonly, nonatomic) int imageFormat; // @synthesize imageFormat=_format;
 @property(readonly, nonatomic) NSString *path; // @synthesize path=_path;
-- (id)preheatItemForAsset:(id)arg1 options:(unsigned int)arg2;
+- (id)originalPreheatItemForAsset:(id)arg1 optimalSourcePixelSize:(struct CGSize)arg2 options:(unsigned int)arg3;
+- (id)preheatItemForAsset:(id)arg1 format:(int)arg2 optimalSourcePixelSize:(struct CGSize)arg3 options:(unsigned int)arg4;
 - (id)imageDataAtIndex:(unsigned int)arg1 width:(int *)arg2 height:(int *)arg3 bytesPerRow:(int *)arg4 dataWidth:(int *)arg5 dataHeight:(int *)arg6 dataOffset:(int *)arg7;
-- (void)preheatImageDataAtIndex:(unsigned int)arg1;
-- (void)preheatImageDataAtIndexes:(id)arg1;
-- (void)_doPreheat;
+- (void)preheatImageDataAtIndex:(unsigned int)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)preheatImageDataAtIndexes:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_doPreheatWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)_getAndClearPreheatIndexes;
 - (id)imageDataWithIdentifier:(id)arg1 orIndex:(unsigned int)arg2 width:(int *)arg3 height:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 dataOffset:(int *)arg8;
 - (id)_debugDescription;
@@ -79,6 +80,12 @@
 @property(readonly, nonatomic) int imageWidth;
 - (id)initWithPath:(id)arg1 imageFormat:(int)arg2;
 - (id)initWithPath:(id)arg1 imageFormat:(int)arg2 readOnly:(BOOL)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

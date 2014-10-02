@@ -15,8 +15,8 @@
 }
 
 + (id)notification;
-@property(readonly, nonatomic) NSString *assetUUID;
-@property(readonly, nonatomic) UIImage *image;
+@property(readonly, retain, nonatomic) NSString *assetUUID;
+@property(readonly, retain, nonatomic) UIImage *image;
 - (id)description;
 - (id)object;
 - (id)userInfo;

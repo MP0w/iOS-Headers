@@ -8,7 +8,7 @@
 
 #import "TSPDataCullingListener.h"
 
-@class TSUPointerKeyDictionary;
+@class NSString, TSUPointerKeyDictionary;
 
 __attribute__((visibility("hidden")))
 @interface TSDImageProviderPool : NSObject <TSPDataCullingListener>
@@ -18,7 +18,6 @@ __attribute__((visibility("hidden")))
     BOOL mHaveRaisedFileDescriptorLimit;
 }
 
-+ (BOOL)isValidImageData:(id)arg1;
 + (Class)p_providerClassForData:(id)arg1;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)sharedPool;
@@ -43,6 +42,12 @@ __attribute__((visibility("hidden")))
 - (oneway void)release;
 - (unsigned int)retainCount;
 - (id)retain;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

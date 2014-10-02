@@ -21,6 +21,7 @@
 
 @property(retain, nonatomic) NSString *url; // @synthesize url=_url;
 @property(nonatomic) int size; // @synthesize size=_size;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -32,6 +33,7 @@
 @property(readonly, nonatomic) BOOL hasUrl;
 @property(nonatomic) BOOL hasSize;
 - (void)dealloc;
+- (id)initWithPlaceDataPhotoContent:(id)arg1;
 
 @end
 

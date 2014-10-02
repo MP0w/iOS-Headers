@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSArray, NSDictionary, TIKeyboardCandidate;
+@class NSArray, NSDictionary, TIKeyboardCandidate, TIKeyboardIntermediateText;
 
 @interface TIKeyboardCandidateResultSet : NSObject <NSCopying, NSSecureCoding>
 {
@@ -25,12 +25,16 @@
     unsigned int _generatedCandidateCount;
     unsigned int _batchCandidateLocation;
     unsigned int _selectedHiddenCandidateIndex;
+    TIKeyboardIntermediateText *_uncommittedText;
+    TIKeyboardCandidate *_acceptedCandidate;
 }
 
 + (id)dummySet;
 + (id)setWithCandidates:(id)arg1 initialSelectedIndex:(unsigned int)arg2 defaultCandidate:(id)arg3 sortMethods:(id)arg4 sortMethodGroups:(id)arg5 indexTitles:(id)arg6 showExtensionCandidates:(id)arg7 initiallyHiddenCandidates:(id)arg8 selectedHiddenCandidateIndex:(unsigned int)arg9 excludedExtensionCandidates:(BOOL)arg10;
 + (id)setWithCandidates:(id)arg1;
 + (BOOL)supportsSecureCoding;
+@property(retain, nonatomic) TIKeyboardCandidate *acceptedCandidate; // @synthesize acceptedCandidate=_acceptedCandidate;
+@property(retain, nonatomic) TIKeyboardIntermediateText *uncommittedText; // @synthesize uncommittedText=_uncommittedText;
 @property(nonatomic) unsigned int selectedHiddenCandidateIndex; // @synthesize selectedHiddenCandidateIndex=_selectedHiddenCandidateIndex;
 @property(nonatomic) unsigned int batchCandidateLocation; // @synthesize batchCandidateLocation=_batchCandidateLocation;
 @property(nonatomic) unsigned int generatedCandidateCount; // @synthesize generatedCandidateCount=_generatedCandidateCount;

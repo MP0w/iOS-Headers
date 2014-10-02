@@ -11,6 +11,7 @@
 @interface SBLockScreenSettings : _UISettings
 {
     _Bool _alwaysPutPluginsBelowScrollView;
+    _Bool _killsInsecureDrawingApps;
     SBBounceSettings *_verticalBounceSettings;
     SBBounceSettings *_horizontalBounceSettings;
     SBLockScreenPasscodeSettings *_passcodeSettings;
@@ -25,12 +26,15 @@
     double _unlockSlideForIdleTimerDisabledPercentageIPad;
     double _notificationScrollForIdleTimerDisabledOffset;
     double _notificationScrollForIdleTimerDisabledOffsetIPad;
+    double _appGrabberSlideUpVelocityThreshold;
     double _unlockSwipeWallpaperAlpha;
 }
 
 + (id)settingsControllerModule;
+@property _Bool killsInsecureDrawingApps; // @synthesize killsInsecureDrawingApps=_killsInsecureDrawingApps;
 @property _Bool alwaysPutPluginsBelowScrollView; // @synthesize alwaysPutPluginsBelowScrollView=_alwaysPutPluginsBelowScrollView;
 @property double unlockSwipeWallpaperAlpha; // @synthesize unlockSwipeWallpaperAlpha=_unlockSwipeWallpaperAlpha;
+@property double appGrabberSlideUpVelocityThreshold; // @synthesize appGrabberSlideUpVelocityThreshold=_appGrabberSlideUpVelocityThreshold;
 @property double notificationScrollForIdleTimerDisabledOffsetIPad; // @synthesize notificationScrollForIdleTimerDisabledOffsetIPad=_notificationScrollForIdleTimerDisabledOffsetIPad;
 @property double notificationScrollForIdleTimerDisabledOffset; // @synthesize notificationScrollForIdleTimerDisabledOffset=_notificationScrollForIdleTimerDisabledOffset;
 @property double unlockSlideForIdleTimerDisabledPercentageIPad; // @synthesize unlockSlideForIdleTimerDisabledPercentageIPad=_unlockSlideForIdleTimerDisabledPercentageIPad;

@@ -19,7 +19,6 @@ __attribute__((visibility("hidden")))
     unsigned int _programObject;
 }
 
-+ (id)defaultVelocityVisualizerFragmentShaderString;
 @property(readonly, nonatomic) BOOL isActive; // @synthesize isActive=_isActive;
 @property(readonly, nonatomic) unsigned int programObject; // @synthesize programObject=_programObject;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
@@ -33,18 +32,15 @@ __attribute__((visibility("hidden")))
 - (void)setMat4WithTransform3D:(struct CATransform3D)arg1 forShaderQualifier:(id)arg2;
 - (void)setMat3WithAffineTransform:(struct CGAffineTransform)arg1 forUniform:(id)arg2;
 - (void)setMat3WithAffineTransform:(struct CGAffineTransform)arg1 forShaderQualifier:(id)arg2;
-- (void)setColor:(CDStruct_f2e236b6)arg1 forUniform:(id)arg2;
-- (void)setColor:(CDStruct_f2e236b6)arg1 forShaderQualifier:(id)arg2;
-- (void)setPoint4D:(CDStruct_f2e236b6)arg1 forUniform:(id)arg2;
-- (void)setPoint4D:(CDStruct_f2e236b6)arg1 forShaderQualifier:(id)arg2;
-- (void)setPoint3D:(CDStruct_03942939)arg1 forUniform:(id)arg2;
-- (void)setPoint3D:(CDStruct_03942939)arg1 forShaderQualifier:(id)arg2;
+- (void)setColor:(CDStruct_818bb265)arg1 forUniform:(id)arg2;
+- (void)setPoint4D:(CDStruct_818bb265)arg1 forUniform:(id)arg2;
+- (void)setPoint4D:(CDStruct_818bb265)arg1 forShaderQualifier:(id)arg2;
+- (void)setPoint3D:(CDStruct_869f9c67)arg1 forUniform:(id)arg2;
+- (void)setPoint3D:(CDStruct_869f9c67)arg1 forShaderQualifier:(id)arg2;
 - (void)setLifeSpan:(CDStruct_b2fbf00d)arg1 forUniform:(id)arg2;
-- (void)setLifeSpan:(CDStruct_b2fbf00d)arg1 forShaderQualifier:(id)arg2;
 - (void)setPoint2D:(CDStruct_b2fbf00d)arg1 forUniform:(id)arg2;
 - (void)setPoint2D:(CDStruct_b2fbf00d)arg1 forShaderQualifier:(id)arg2;
 - (void)setCGFloat:(float)arg1 forUniform:(id)arg2;
-- (void)setCGFloat:(float)arg1 forShaderQualifier:(id)arg2;
 - (void)setGLFloat:(float)arg1 forUniform:(id)arg2;
 - (void)setGLFloat:(float)arg1 forShaderQualifier:(id)arg2;
 - (void)setInteger:(int)arg1 forUniform:(id)arg2;
@@ -68,13 +64,15 @@ __attribute__((visibility("hidden")))
 - (id)initWithDefaultHorizontalBlurShader;
 - (id)initWithDefaultVerticalBlurShader;
 - (id)initWithDefaultVelocityVisualizerShader;
-- (id)initWithDefaultVelocityCollectionShader;
+- (id)initWithDefaultVelocityCollectionShaderWithSampleCount:(unsigned int)arg1 isSingleObject:(BOOL)arg2;
 - (id)initWithDefaultVelocityMeshShader;
 - (id)initWithDefaultVelocityShader;
 - (id)initWithDefaultRandomColorTextureShader;
 - (id)initWithDefaultRandomColorShader;
+- (id)initWithDefaultTextureAndOpacityShaderWithMotionBlur:(BOOL)arg1 ignoreTextureOpacity:(BOOL)arg2;
 - (id)initWithDefaultTextureAndOpacityShader;
 - (id)initWithDefaultTextureCoordinatesShader;
+- (id)initWithDefaultTextureShaderWithMotionBlur:(BOOL)arg1 ignoreTextureOpacity:(BOOL)arg2;
 - (id)initWithDefaultTextureShader;
 
 @end

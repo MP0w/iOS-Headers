@@ -6,37 +6,38 @@
 
 #import "NSObject.h"
 
-@class TSDGLDataBuffer, TSDGLFrameBuffer, TSDGLFrameBufferTextureConfig, TSDGLShader;
+@class TSDGLDataBuffer, TSDGLFrameBuffer, TSDGLState;
 
 __attribute__((visibility("hidden")))
 @interface TSDGLEdgeDistanceField : NSObject
 {
     unsigned int _inputTexture;
     struct CGSize _textureSize;
+    struct CGSize _resultTextureSize;
     struct CGSize _squareSize;
-    TSDGLFrameBufferTextureConfig *_framebufferTextureConfig;
+    struct UIEdgeInsets _edgeInsets;
+    float _downsampleScale;
     TSDGLFrameBuffer *_exteriorFramebuffer;
     TSDGLFrameBuffer *_interiorFramebuffer;
+    TSDGLDataBuffer *_origDataBuffer;
     TSDGLDataBuffer *_rectDataBuffer;
     TSDGLDataBuffer *_squareDataBuffer;
-    TSDGLShader *_drawShader;
-    TSDGLShader *_combineShader;
-    TSDGLShader *_seedShader;
-    TSDGLShader *_floodShader;
-    TSDGLShader *_gradientShader;
+    TSDGLState *_GLState;
     int _oldViewport[4];
 }
 
-+ (unsigned int)distanceFieldTextureWithTexture:(unsigned int)arg1 textureSize:(struct CGSize)arg2 maxDistance:(float)arg3;
++ (id)distanceFieldTextureWithTexture:(unsigned int)arg1 textureSize:(struct CGSize)arg2 maxDistance:(int)arg3 edgeInsets:(struct UIEdgeInsets)arg4 downsampleScale:(float)arg5 floatTexture:(BOOL)arg6 GLState:(id)arg7;
++ (void)didEndUsingShaders;
++ (void)willBeginUsingShaders;
 - (unsigned int)p_gradientTextureFromCombinedTexture:(unsigned int)arg1 withCurrentGLFramebuffer:(int)arg2;
-- (unsigned int)p_combinedTextureWithCurrentGLFramebuffer:(int)arg1;
-- (void)p_floodTextureInFramebuffer:(id)arg1 maxDistance:(float)arg2;
+- (unsigned int)p_combinedTextureWithCurrentGLFramebuffer:(int)arg1 floatTexture:(BOOL)arg2;
+- (void)p_floodTextureInFramebuffer:(id)arg1 maxDistance:(int)arg2;
 - (void)p_seedTextureFromTexture:(unsigned int)arg1 invertSeed:(BOOL)arg2;
 - (void)p_writeIntoSquareTexture;
 - (void)p_setupShaders;
 - (void)p_setupBuffers;
 - (void)dealloc;
-- (id)initWithTexture:(unsigned int)arg1 textureSize:(struct CGSize)arg2;
+- (id)initWithTexture:(unsigned int)arg1 textureSize:(struct CGSize)arg2 edgeInsets:(struct UIEdgeInsets)arg3 downsampleScale:(float)arg4 GLState:(id)arg5;
 - (void)teardown;
 
 @end

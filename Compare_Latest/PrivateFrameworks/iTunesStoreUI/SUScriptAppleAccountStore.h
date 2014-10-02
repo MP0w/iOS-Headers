@@ -6,7 +6,7 @@
 
 #import <iTunesStoreUI/SUScriptObject.h>
 
-@class ACAccountStore, NSString;
+@class ACAccountStore, NSString, SUScriptAppleAccount;
 
 @interface SUScriptAppleAccountStore : SUScriptObject
 {
@@ -20,6 +20,7 @@
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 - (id)_accountStore;
+- (void)_accountStoreChangeNotification:(id)arg1;
 @property(readonly) int renewResultRenewed;
 @property(readonly) int renewResultRejected;
 @property(readonly) int renewResultFailed;
@@ -31,6 +32,7 @@
 @property(readonly) NSString *accessPurposeRead;
 - (void)setEffectiveBundleID:(id)arg1;
 @property(readonly) NSString *effectiveBundleID;
+@property(readonly) SUScriptAppleAccount *primaryAppleAccount;
 - (id)_className;
 - (void)requestAccessWithInfo:(id)arg1 completionHandler:(id)arg2;
 - (void)renewCredentialsForAccount:(id)arg1 completionHandler:(id)arg2;
@@ -38,6 +40,7 @@
 - (id)accountTypeWithIdentifier:(id)arg1;
 - (id)accountsWithAccountType:(id)arg1;
 - (void)dealloc;
+- (id)init;
 
 @end
 

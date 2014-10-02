@@ -8,7 +8,7 @@
 
 #import "AXTimer.h"
 
-@class NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>;
+@class NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
 
 @interface AXDispatchTimer : NSObject <AXTimer>
 {
@@ -33,6 +33,12 @@
 - (void)dealloc;
 - (id)initWithTargetSerialQueue:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

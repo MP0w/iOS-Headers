@@ -6,12 +6,11 @@
 
 #import "NSObject.h"
 
-@class MFComposeBodyField, MFGenericAttachmentStore, MFMailAccountProxy, MFMailAccountProxyGenerator, MFMessageTextAttachment, MFMutableMessageHeaders, NSArray, NSString;
+@class MFComposeBodyField, MFMailAccountProxy, MFMailAccountProxyGenerator, MFMutableMessageHeaders, NSArray, NSString;
 
 @protocol MFComposeTypeFactoryDelegate <NSObject>
+- (NSArray *)attachments;
 - (BOOL)hasAnyHiddenTrailingEmptyQuote;
-- (MFGenericAttachmentStore *)attachmentStore;
-- (MFMessageTextAttachment *)addInlinedElementToStore:(MFMessageTextAttachment *)arg1 onlyIfNecessary:(BOOL)arg2;
 - (MFMailAccountProxy *)sendingAccountProxy;
 - (NSString *)sendingEmailAddress;
 - (void)setSendingEmailAddress:(NSString *)arg1 addIfNotPresent:(BOOL)arg2;

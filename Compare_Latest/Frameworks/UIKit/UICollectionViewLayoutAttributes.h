@@ -45,11 +45,11 @@
 - (BOOL)_isSupplementaryView;
 - (BOOL)_isDecorationView;
 - (BOOL)_isCell;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (BOOL)_isTransitionVisibleTo:(id)arg1;
 - (BOOL)_isEquivalentTo:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 @property(nonatomic) struct CGAffineTransform transform;
 @property(nonatomic) struct CGRect frame;
 @property(nonatomic) struct CGRect bounds;
@@ -64,6 +64,10 @@
 @property(nonatomic, getter=isHidden) BOOL hidden;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

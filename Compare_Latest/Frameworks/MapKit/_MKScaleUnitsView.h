@@ -35,7 +35,7 @@ __attribute__((visibility("hidden")))
 - (id)_uncachedLegendStringsForDistanceString:(id)arg1;
 @property(nonatomic) BOOL useLightText; // @dynamic useLightText;
 @property(nonatomic) double segmentLengthInPixels; // @dynamic segmentLengthInPixels;
-- (BOOL)canDisplaySegment:(int)arg1;
+- (BOOL)canDisplaySegment:(unsigned int)arg1;
 - (void)_calculateLegend:(BOOL)arg1;
 - (void)setUnits:(id)arg1;
 - (float)_widthForString:(id)arg1 attributes:(id)arg2;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <MediaPlayerUI/MPUQueryDataSource.h>
+#import "MPUQueryDataSource.h"
 
 @class NSMutableDictionary, NSMutableSet;
 
@@ -47,7 +47,6 @@
 - (void)loadCompletionOfferingForSectionAtIndex:(unsigned int)arg1;
 - (void)loadCompletionOfferings;
 @property(readonly, nonatomic) BOOL shouldLoadCompletionArtwork;
-- (id)initWithQuery:(id)arg1 entityType:(int)arg2;
 
 @end
 

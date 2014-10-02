@@ -12,11 +12,11 @@
 
 + (id)subjectFromSubject:(id)arg1 withComposeType:(int)arg2;
 + (id)messageFromDelegate:(id)arg1 originatingBundleID:(id)arg2 sourceAccountManagement:(int)arg3;
++ (id)messageFromDelegate:(id)arg1 withSubstituteDOMDocument:(id)arg2 originatingBundleID:(id)arg3 sourceAccountManagement:(int)arg4;
 + (void)setupWithContent:(id)arg1 delegate:(id)arg2;
 + (void)setupWithCompositionModel:(id)arg1 delegate:(id)arg2;
 + (unsigned int)imageScaleFromUserDefaults;
 + (void)addAttachment:(id)arg1 prepend:(BOOL)arg2 withCompositionModel:(id)arg3 delegate:(id)arg4;
-+ (id)addInlineAttachmentForInclusion:(id)arg1 onlyIfNecessary:(BOOL)arg2 delegate:(id)arg3;
 + (void)_setupForNewMessageWithModel:(id)arg1 delegate:(id)arg2;
 + (void)_setupForReplyAllWithModel:(id)arg1 delegate:(id)arg2;
 + (void)_setupForForwardWithModel:(id)arg1 delegate:(id)arg2;
@@ -29,6 +29,7 @@
 + (void)_quoteFromModel:(id)arg1 delegate:(id)arg2;
 + (void)_setContent:(id)arg1 includeAttachments:(BOOL)arg2 shouldQuote:(BOOL)arg3 prependBlankLine:(BOOL)arg4 delegate:(id)arg5;
 + (id)_markupForInlineAttachment:(id)arg1 willBeIncluded:(BOOL)arg2 prependBlankLine:(BOOL)arg3 delegate:(id)arg4;
++ (id)_markupStringForExcludedInlineAttachmentWithFilename:(id)arg1;
 + (void)_prependQuotedMarkup:(id)arg1 shouldIndent:(BOOL)arg2 toBodyField:(id)arg3;
 + (void)_prependPreamble:(id)arg1 toBodyField:(id)arg2;
 

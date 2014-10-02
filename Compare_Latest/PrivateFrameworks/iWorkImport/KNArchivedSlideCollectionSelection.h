@@ -8,7 +8,7 @@
 
 #import "TSKArchivedSelection.h"
 
-@class KNSlideCollectionSelection, TSKSelection;
+@class KNSlideCollectionSelection, NSString, TSKSelection;
 
 __attribute__((visibility("hidden")))
 @interface KNArchivedSlideCollectionSelection : TSPObject <TSKArchivedSelection>
@@ -22,6 +22,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initFromUnarchiver:(id)arg1;
 - (id)initWithContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

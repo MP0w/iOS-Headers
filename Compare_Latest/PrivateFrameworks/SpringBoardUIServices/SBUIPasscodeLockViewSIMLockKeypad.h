@@ -40,7 +40,7 @@
 @property(copy, nonatomic) NSString *statusSubtitle; // @dynamic statusSubtitle;
 @property(copy, nonatomic) NSString *statusTitle; // @dynamic statusTitle;
 - (void)dealloc;
-- (id)init;
+- (id)initWithLightStyle:(BOOL)arg1;
 
 @end
 

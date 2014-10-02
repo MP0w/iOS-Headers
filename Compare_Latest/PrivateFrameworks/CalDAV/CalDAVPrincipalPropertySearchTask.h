@@ -13,13 +13,13 @@
     NSSet *_searchTypes;
     NSSet *_searchStrings;
     CalDAVPrincipalSearchPropertySet *_serverSupportSet;
-    void *_searchContext;
+    id _searchContext;
 }
 
-@property(nonatomic) void *searchContext; // @synthesize searchContext=_searchContext;
-@property(retain) CalDAVPrincipalSearchPropertySet *serverSupportSet; // @synthesize serverSupportSet=_serverSupportSet;
-@property(retain) NSSet *searchStrings; // @synthesize searchStrings=_searchStrings;
-@property(retain) NSSet *searchTypes; // @synthesize searchTypes=_searchTypes;
+@property(retain, nonatomic) id searchContext; // @synthesize searchContext=_searchContext;
+@property(retain, nonatomic) CalDAVPrincipalSearchPropertySet *serverSupportSet; // @synthesize serverSupportSet=_serverSupportSet;
+@property(retain, nonatomic) NSSet *searchStrings; // @synthesize searchStrings=_searchStrings;
+@property(retain, nonatomic) NSSet *searchTypes; // @synthesize searchTypes=_searchTypes;
 - (id)searchItems;
 - (id)extraAttributes;
 - (id)initWithSearchStrings:(id)arg1 searchTypes:(id)arg2 serverSupportSet:(id)arg3 atURL:(id)arg4;

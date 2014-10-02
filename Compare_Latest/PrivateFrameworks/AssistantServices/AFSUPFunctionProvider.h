@@ -8,7 +8,7 @@
 
 #import "AFSpeakableNamespaceProvider.h"
 
-@class NSDateFormatter;
+@class NSDateFormatter, NSString;
 
 @interface AFSUPFunctionProvider : AFSpeakableUtteranceParser <AFSpeakableNamespaceProvider>
 {
@@ -32,6 +32,12 @@
 - (void)useSpeechMode:(BOOL)arg1;
 - (id)initWithLocale:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

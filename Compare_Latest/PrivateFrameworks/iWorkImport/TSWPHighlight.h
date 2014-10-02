@@ -7,49 +7,54 @@
 #import <iWorkImport/TSPObject.h>
 
 #import "TSDAnnotationHosting.h"
+#import "TSDCommentStorageDelegate.h"
 #import "TSKDocumentObject.h"
 #import "TSPCopying.h"
 
 @class NSDate, NSString, TSDCommentStorage, TSKAnnotationAuthor;
 
 __attribute__((visibility("hidden")))
-@interface TSWPHighlight : TSPObject <TSDAnnotationHosting, TSPCopying, TSKDocumentObject>
+@interface TSWPHighlight : TSPObject <TSDAnnotationHosting, TSPCopying, TSKDocumentObject, TSDCommentStorageDelegate>
 {
-    TSKAnnotationAuthor *author;
-    NSDate *date;
-    int annotationType;
-    id <TSKModel> model;
+    id <TSKModel> hostingModel;
     TSDCommentStorage *_commentStorage;
 }
 
 + (id)defaultHighlightWithContext:(id)arg1 includeCommentWithAuthor:(id)arg2;
 @property(retain, nonatomic) TSDCommentStorage *commentStorage; // @synthesize commentStorage=_commentStorage;
-@property(nonatomic) id <TSKModel> model; // @synthesize model;
-@property(retain, nonatomic) TSKAnnotationAuthor *author; // @synthesize author;
+@property(nonatomic) id <TSKModel> hostingModel; // @synthesize hostingModel;
 - (void)wasRemovedFromDocumentRoot:(id)arg1;
 - (void)willBeRemovedFromDocumentRoot:(id)arg1;
 - (void)wasAddedToDocumentRoot:(id)arg1 context:(id)arg2;
 - (void)willBeAddedToDocumentRoot:(id)arg1 context:(id)arg2;
-- (void)p_invalidateAnnotationResultsForDocumentRoot:(id)arg1;
+- (void)p_invalidateAnnotationResultsForDocumentRoot:(id)arg1 key:(id)arg2;
 - (void)commitText:(id)arg1;
 - (id)commandForDeletingComment;
 @property(readonly, nonatomic) int annotationDisplayStringType;
-@property(readonly, nonatomic) int annotationType; // @synthesize annotationType;
-@property(readonly, nonatomic) NSDate *date; // @synthesize date;
+@property(readonly, nonatomic) int annotationType;
+@property(readonly, nonatomic) NSDate *date;
+- (void)setAuthor:(id)arg1;
+@property(readonly, nonatomic) TSKAnnotationAuthor *author;
+- (void)commentStorageTextDidChange:(id)arg1;
 @property(copy, nonatomic) TSDCommentStorage *storage;
 - (void)saveToArchiver:(id)arg1;
 - (id)initFromUnarchiver:(id)arg1;
 - (void)loadFromArchive:(const struct HighlightArchive *)arg1 unarchiver:(id)arg2;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isCommentEmpty;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithContext:(id)arg1;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1 commentStorage:(id)arg2;
 
 // Remaining properties
-@property(readonly, nonatomic) NSString *changeTrackingString;
+@property(readonly, nonatomic) NSString *changeTrackingContentFormatString;
+@property(readonly, nonatomic) NSString *changeTrackingContentString;
+@property(readonly, nonatomic) NSString *changeTrackingTitleString;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

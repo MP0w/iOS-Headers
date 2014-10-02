@@ -8,6 +8,8 @@
 
 #import "NSCopying.h"
 
+@class NSCharacterSet, NSString;
+
 @interface NSScanner : NSObject <NSCopying>
 {
 }
@@ -15,15 +17,11 @@
 + (id)localizedScannerWithString:(id)arg1;
 + (id)scannerWithString:(id)arg1;
 + (id)allocWithZone:(struct _NSZone *)arg1;
-- (void)setLocale:(id)arg1;
-- (void)setCaseSensitive:(BOOL)arg1;
-- (void)setCharactersToBeSkipped:(id)arg1;
-- (unsigned int)scanLocation;
-- (void)setScanLocation:(unsigned int)arg1;
-- (id)string;
-- (id)locale;
-- (BOOL)caseSensitive;
-- (id)charactersToBeSkipped;
+@property(retain) id locale;
+@property BOOL caseSensitive;
+@property(copy) NSCharacterSet *charactersToBeSkipped;
+@property unsigned int scanLocation;
+@property(readonly, copy) NSString *string;
 - (BOOL)isAtEnd;
 - (BOOL)scanUpToString:(id)arg1 intoString:(id *)arg2;
 - (BOOL)scanString:(id)arg1 intoString:(id *)arg2;

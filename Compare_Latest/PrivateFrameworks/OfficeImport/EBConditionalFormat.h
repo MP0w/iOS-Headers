@@ -17,7 +17,6 @@ __attribute__((visibility("hidden")))
 + (int)convertXlConditionalFmtTypeEnumToED:(int)arg1;
 + (int)convertEDConditionalFmtTypeEnumToXl:(int)arg1;
 + (_Bool)validXlCf:(struct XlCf *)arg1;
-+ (void)convertTokensToSharedTokens:(id)arg1;
 
 @end
 

@@ -38,6 +38,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) float maximumPinchViewScale; // @synthesize maximumPinchViewScale=mMaximumPinchViewScale;
 @property(nonatomic) float minimumPinchViewScale; // @synthesize minimumPinchViewScale=mMinimumPinchViewScale;
 @property(nonatomic) float viewScale; // @synthesize viewScale=mViewScale;
+- (void)p_fixFrameAndScrollView;
 - (struct CGRect)p_fixedBoundsForScrollViewSize:(struct CGSize)arg1 viewScale:(float)arg2 contentInset:(struct UIEdgeInsets)arg3;
 - (void)p_setEnclosingScrollViewZoomParameters;
 - (void)p_setViewScale:(float)arg1 preservingScrollOffset:(BOOL)arg2;

@@ -6,8 +6,11 @@
 
 #import "UITableView.h"
 
+@class UITraitCollection;
+
 @interface MusicTableView : UITableView
 {
+    UITraitCollection *_previousTraitCollection;
     float _headerBackgroundTransitionWeighting;
     float _footerBackgroundTransitionWeighting;
     float _minimumContentSizeHeightAdditions;
@@ -16,12 +19,18 @@
 @property(nonatomic) float minimumContentSizeHeightAdditions; // @synthesize minimumContentSizeHeightAdditions=_minimumContentSizeHeightAdditions;
 @property(nonatomic) float footerBackgroundTransitionWeighting; // @synthesize footerBackgroundTransitionWeighting=_footerBackgroundTransitionWeighting;
 @property(nonatomic) float headerBackgroundTransitionWeighting; // @synthesize headerBackgroundTransitionWeighting=_headerBackgroundTransitionWeighting;
+- (void).cxx_destruct;
 - (void)updateVisibleHeaderFooterState;
 - (void)updateStateForHeaderView:(id)arg1 inSection:(int)arg2;
 - (void)updateStateForFooterView:(id)arg1 inSection:(int)arg2;
 - (void)setTableHeaderBackgroundColor:(id)arg1;
 - (void)setContentSize:(struct CGSize)arg1;
 - (void)layoutSubviews;
+- (void)traitCollectionDidChange:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
+
+// Remaining properties
+@property(nonatomic) id <MusicTableViewDelegate> delegate; // @dynamic delegate;
 
 @end
 

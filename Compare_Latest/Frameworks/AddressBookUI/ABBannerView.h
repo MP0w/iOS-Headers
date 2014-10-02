@@ -17,6 +17,13 @@
 + (float)defaultHeight;
 @property(copy, nonatomic) NSString *value; // @synthesize value=_value;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
+- (void)cellWasDoubleTapped:(id)arg1;
+- (void)cellWasLongPressed:(id)arg1;
+- (void)showMenu;
+- (void)menuDidHide:(id)arg1;
+- (BOOL)canBecomeFirstResponder;
+- (void)copy:(id)arg1;
+- (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (void)_updateLabel;
 - (void)setTitle:(id)arg1 value:(id)arg2;
 - (void)dealloc;

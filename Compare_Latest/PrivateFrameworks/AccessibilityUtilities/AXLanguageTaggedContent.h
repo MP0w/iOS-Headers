@@ -14,6 +14,7 @@
     struct _NSRange _currentChunk;
     BOOL _predictedByTagger;
     BOOL _tagged;
+    BOOL _splitContentOnNewlines;
     NSMutableArray *_tags;
     NSLinguisticTagger *_linguisticTagger;
     NSMutableOrderedSet *_unpredictedAmbiguousLangMaps;
@@ -21,6 +22,7 @@
 }
 
 @property(retain, nonatomic) NSArray *currentDialects; // @synthesize currentDialects=_currentDialects;
+@property(nonatomic) BOOL splitContentOnNewlines; // @synthesize splitContentOnNewlines=_splitContentOnNewlines;
 @property(copy, nonatomic) NSString *userPreferredLangID; // @synthesize userPreferredLangID=_userPreferredLangID;
 @property(retain, nonatomic) NSMutableOrderedSet *unpredictedAmbiguousLangMaps; // @synthesize unpredictedAmbiguousLangMaps=_unpredictedAmbiguousLangMaps;
 @property(retain, nonatomic) NSLinguisticTagger *linguisticTagger; // @synthesize linguisticTagger=_linguisticTagger;

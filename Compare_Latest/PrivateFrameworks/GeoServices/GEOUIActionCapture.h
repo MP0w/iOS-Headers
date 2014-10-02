@@ -23,6 +23,7 @@
 @property(nonatomic) int sequenceNumber; // @synthesize sequenceNumber=_sequenceNumber;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 @property(nonatomic) int actionType; // @synthesize actionType=_actionType;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

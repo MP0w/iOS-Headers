@@ -8,6 +8,8 @@
 
 #import "SBUIQuietModePlayability.h"
 
+@class NSString;
+
 @interface SBUIBannerItem : NSObject <SBUIQuietModePlayability>
 {
 }
@@ -15,7 +17,11 @@
 - (BOOL)overridesQuietMode;
 - (BOOL)isCritical;
 - (BOOL)inertWhenLocked;
-- (CDUnknownBlockType)subActionWithIndex:(unsigned int)arg1;
+- (id)lockScreenActionContextWithContext:(id)arg1;
+- (id)actionWithIdentifier:(id)arg1;
+- (id)defaultActionWithContext:(id)arg1;
+- (BOOL)hasSubActions;
+- (id)subActions;
 - (id)subActionLabels;
 - (id)pullDownNotification;
 - (BOOL)canShowWhileLocked;
@@ -25,6 +31,12 @@
 - (CDUnknownBlockType)action;
 - (BOOL)isSticky;
 - (unsigned int)priority;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

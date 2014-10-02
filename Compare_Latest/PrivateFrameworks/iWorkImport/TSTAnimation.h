@@ -46,6 +46,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) BOOL final; // @synthesize final=mFinal;
 @property(readonly) unsigned int stage; // @synthesize stage=mStage;
 @property(readonly) unsigned int stageCount; // @synthesize stageCount=mStageCount;
+- (BOOL)isHidingContentOfCellID:(CDStruct_0441cfb5)arg1;
 @property(readonly) BOOL drawStrokes;
 @property(readonly) BOOL clipStrokes;
 @property(readonly) BOOL drawCellContent;

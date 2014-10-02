@@ -8,6 +8,8 @@
 
 #import "GQDNameMappable.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface GQDWPPageMaster : NSObject <GQDNameMappable>
 {
@@ -19,6 +21,12 @@ __attribute__((visibility("hidden")))
 - (struct __CFString *)footerIdentifier;
 - (struct __CFString *)headerIdentifier;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

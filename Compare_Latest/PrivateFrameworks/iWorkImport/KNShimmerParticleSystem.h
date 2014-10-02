@@ -27,10 +27,10 @@ __attribute__((visibility("hidden")))
 - (void)p_setupVertexData;
 - (CDStruct_b2fbf00d)p_hullPoint:(CDStruct_b2fbf00d)arg1 inVertexRect:(struct CGRect)arg2;
 - (void)drawGLSLWithPercent:(float)arg1 opacity:(float)arg2 rotation:(float)arg3 clockwise:(BOOL)arg4;
-- (CDStruct_f2e236b6)colorAtIndexPoint:(struct CGPoint)arg1;
+- (CDStruct_818bb265)colorAtIndexPoint:(struct CGPoint)arg1;
 - (CDStruct_b2fbf00d)lifeSpanAtIndexPoint:(struct CGPoint)arg1;
 - (float)scaleAtIndexPoint:(struct CGPoint)arg1;
-- (CDStruct_03942939)speedAtIndexPoint:(struct CGPoint)arg1;
+- (CDStruct_869f9c67)speedAtIndexPoint:(struct CGPoint)arg1;
 - (struct CGPoint)startingPointAtIndexPoint:(struct CGPoint)arg1;
 
 // Remaining properties

@@ -12,15 +12,17 @@
 {
     UIImageView *_imageView;
     UIImageView *_playIcon;
+    struct CGSize _imageSize;
 }
 
+@property(nonatomic) struct CGSize imageSize; // @synthesize imageSize=_imageSize;
 - (void).cxx_destruct;
 - (void)prepareForReuse;
 - (void)layoutSubviews;
 - (void)setHighlighted:(BOOL)arg1;
-@property(readonly, nonatomic) struct CGRect imageFrame;
 @property(nonatomic, getter=isVideo) BOOL video;
 @property(retain, nonatomic) UIImage *image;
+@property(readonly, nonatomic) struct CGRect imageFrame;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

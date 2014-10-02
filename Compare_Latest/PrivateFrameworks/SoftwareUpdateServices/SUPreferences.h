@@ -12,9 +12,13 @@
     BOOL _disableUserWiFiOnlyPeriod;
     BOOL _disableBuildNumberComparison;
     BOOL _allowSameBuildUpdates;
+    BOOL _disableAvailabilityAlerts;
+    BOOL _disableAutoDownload;
 }
 
 + (id)sharedInstance;
+@property(readonly, nonatomic, getter=isAutoDownloadDisabled) BOOL disableAutoDownload; // @synthesize disableAutoDownload=_disableAutoDownload;
+@property(readonly, nonatomic) BOOL disableAvailabilityAlerts; // @synthesize disableAvailabilityAlerts=_disableAvailabilityAlerts;
 @property(readonly, nonatomic) BOOL allowSameBuildUpdates; // @synthesize allowSameBuildUpdates=_allowSameBuildUpdates;
 @property(readonly, nonatomic) BOOL disableBuildNumberComparison; // @synthesize disableBuildNumberComparison=_disableBuildNumberComparison;
 @property(readonly, nonatomic) BOOL disableUserWiFiOnlyPeriod; // @synthesize disableUserWiFiOnlyPeriod=_disableUserWiFiOnlyPeriod;
@@ -23,6 +27,7 @@
 - (BOOL)_getBooleanPreferenceForKey:(id)arg1 withDefaultValue:(BOOL)arg2;
 - (void)_loadPreferences;
 - (int)_defaultLogLevel;
+- (void)reload;
 - (void)dealloc;
 - (id)init;
 

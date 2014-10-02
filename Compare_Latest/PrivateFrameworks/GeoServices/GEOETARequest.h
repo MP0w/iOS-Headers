@@ -8,17 +8,21 @@
 
 #import "NSCopying.h"
 
-@class GEOWaypoint, NSMutableArray;
+@class GEOAutomobileOptions, GEOWalkingOptions, GEOWaypoint, GEOWaypointTyped, NSMutableArray;
 
 @interface GEOETARequest : PBRequest <NSCopying>
 {
     CDStruct_612aec5b _sessionID;
-    CDStruct_4db06779 _timepoint;
+    CDStruct_8c2f87f5 _timepoint;
+    GEOAutomobileOptions *_automobileOptions;
+    NSMutableArray *_destinationWaypointTypeds;
     NSMutableArray *_destinations;
     unsigned int _distanceLimitMeters;
     GEOWaypoint *_origin;
+    GEOWaypointTyped *_originWaypointTyped;
     NSMutableArray *_serviceTags;
     int _transportType;
+    GEOWalkingOptions *_walkingOptions;
     BOOL _allowPartialResults;
     BOOL _includeDistance;
     BOOL _includeHistoricTravelTime;
@@ -34,13 +38,19 @@
 }
 
 @property(retain, nonatomic) NSMutableArray *serviceTags; // @synthesize serviceTags=_serviceTags;
+@property(retain, nonatomic) GEOWalkingOptions *walkingOptions; // @synthesize walkingOptions=_walkingOptions;
+@property(retain, nonatomic) GEOAutomobileOptions *automobileOptions; // @synthesize automobileOptions=_automobileOptions;
+@property(retain, nonatomic) NSMutableArray *destinationWaypointTypeds; // @synthesize destinationWaypointTypeds=_destinationWaypointTypeds;
+@property(retain, nonatomic) GEOWaypointTyped *originWaypointTyped; // @synthesize originWaypointTyped=_originWaypointTyped;
 @property(nonatomic) CDStruct_612aec5b sessionID; // @synthesize sessionID=_sessionID;
 @property(nonatomic) BOOL includeDistance; // @synthesize includeDistance=_includeDistance;
 @property(nonatomic) BOOL allowPartialResults; // @synthesize allowPartialResults=_allowPartialResults;
 @property(nonatomic) BOOL includeHistoricTravelTime; // @synthesize includeHistoricTravelTime=_includeHistoricTravelTime;
 @property(retain, nonatomic) NSMutableArray *destinations; // @synthesize destinations=_destinations;
 @property(retain, nonatomic) GEOWaypoint *origin; // @synthesize origin=_origin;
-@property(nonatomic) CDStruct_4db06779 timepoint; // @synthesize timepoint=_timepoint;
+@property(nonatomic) CDStruct_8c2f87f5 timepoint; // @synthesize timepoint=_timepoint;
+@property(nonatomic) int transportType; // @synthesize transportType=_transportType;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -55,6 +65,13 @@
 - (unsigned int)serviceTagsCount;
 - (void)addServiceTag:(id)arg1;
 - (void)clearServiceTags;
+@property(readonly, nonatomic) BOOL hasWalkingOptions;
+@property(readonly, nonatomic) BOOL hasAutomobileOptions;
+- (id)destinationWaypointTypedAtIndex:(unsigned int)arg1;
+- (unsigned int)destinationWaypointTypedsCount;
+- (void)addDestinationWaypointTyped:(id)arg1;
+- (void)clearDestinationWaypointTypeds;
+@property(readonly, nonatomic) BOOL hasOriginWaypointTyped;
 @property(nonatomic) BOOL hasDistanceLimitMeters;
 @property(nonatomic) unsigned int distanceLimitMeters; // @synthesize distanceLimitMeters=_distanceLimitMeters;
 @property(nonatomic) BOOL hasSessionID;
@@ -68,8 +85,8 @@
 @property(readonly, nonatomic) BOOL hasOrigin;
 @property(nonatomic) BOOL hasTimepoint;
 @property(nonatomic) BOOL hasTransportType;
-@property(nonatomic) int transportType; // @synthesize transportType=_transportType;
 - (void)dealloc;
+- (id)initWithQuickETARequest:(id)arg1;
 
 @end
 

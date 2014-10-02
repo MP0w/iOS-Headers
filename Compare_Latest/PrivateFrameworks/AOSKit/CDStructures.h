@@ -20,12 +20,10 @@ struct AOSTransactionC {
     struct __CFError *_field5;
     CDUnknownFunctionPointerType _field6;
     CDUnknownBlockType _field7;
-    struct dispatch_queue_s *_field8;
+    id _field8;
     void *_field9;
     id _field10;
     CDUnknownFunctionPointerType _field11;
     CDUnknownFunctionPointerType _field12;
 };
-
-struct dispatch_queue_s;
 

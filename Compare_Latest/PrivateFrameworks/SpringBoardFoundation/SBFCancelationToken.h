@@ -8,7 +8,7 @@
 
 #import "SBFCancelable.h"
 
-@class NSMutableArray;
+@class NSMutableArray, NSString;
 
 @interface SBFCancelationToken : NSObject <SBFCancelable>
 {
@@ -25,6 +25,12 @@
 - (void)cancel;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

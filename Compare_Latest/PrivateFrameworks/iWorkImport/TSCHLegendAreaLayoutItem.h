@@ -11,7 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface TSCHLegendAreaLayoutItem : TSCHChartLayoutItem
 {
-    NSValue *mLegendGeoemtryFrame;
+    NSValue *mLegendGeometryFrame;
 }
 
 - (struct CGPath *)newDragAndDropHighlightPathForSelection:(id)arg1;
@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) struct CGRect legendModelGeometryFrame;
 - (struct CGRect)calcDrawingRect;
 - (struct CGSize)calcMinSize;
+- (float)p_legendModelWidth;
 - (void)setLayoutSize:(struct CGSize)arg1;
 - (void)clearAll;
 - (void)clearLayoutSize;

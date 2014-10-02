@@ -14,6 +14,8 @@
 
 + (id)_exportedInterface;
 + (id)_remoteViewControllerInterface;
+- (void)noteActivatedForCustomReason:(id)arg1;
+- (void)handleDoubleHeightStatusBarTap;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

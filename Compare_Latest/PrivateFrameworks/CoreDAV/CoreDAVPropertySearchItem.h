@@ -15,9 +15,9 @@
     NSString *_matchTypeAttribute;
 }
 
-@property(retain) NSString *matchTypeAttribute; // @synthesize matchTypeAttribute=_matchTypeAttribute;
-@property(retain) NSString *match; // @synthesize match=_match;
-@property(retain) CoreDAVLeafItem *prop; // @synthesize prop=_prop;
+@property(retain, nonatomic) NSString *matchTypeAttribute; // @synthesize matchTypeAttribute=_matchTypeAttribute;
+@property(retain, nonatomic) NSString *match; // @synthesize match=_match;
+@property(retain, nonatomic) CoreDAVLeafItem *prop; // @synthesize prop=_prop;
 - (void)write:(id)arg1;
 - (id)description;
 - (void)dealloc;

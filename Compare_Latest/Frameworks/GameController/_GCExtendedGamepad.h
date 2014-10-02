@@ -7,11 +7,12 @@
 #import <GameController/GCExtendedGamepad.h>
 
 #import "GCNamedProfile.h"
+#import "NSSecureCoding.h"
 
 @class GCController, NSString, _GCControllerButtonInput, _GCControllerDirectionPad;
 
 __attribute__((visibility("hidden")))
-@interface _GCExtendedGamepad : GCExtendedGamepad <GCNamedProfile>
+@interface _GCExtendedGamepad : GCExtendedGamepad <GCNamedProfile, NSSecureCoding>
 {
     GCController *_controller;
     CDUnknownBlockType _valueChangedHandler;
@@ -26,15 +27,19 @@ __attribute__((visibility("hidden")))
     _GCControllerButtonInput *_rightShoulder;
     _GCControllerButtonInput *_leftTrigger;
     _GCControllerButtonInput *_rightTrigger;
+    BOOL _dpadFlippedY;
+    BOOL _leftFlippedY;
+    BOOL _rightFlippedY;
 }
 
 + (BOOL)supportsUSBInterfaceProtocol:(unsigned char)arg1;
++ (BOOL)supportsSecureCoding;
 - (id)rightTrigger;
 - (id)leftTrigger;
-- (id)rightShoulder;
-- (id)leftShoulder;
 - (id)rightThumbstick;
 - (id)leftThumbstick;
+- (id)rightShoulder;
+- (id)leftShoulder;
 - (id)buttonY;
 - (id)buttonX;
 - (id)buttonB;
@@ -47,8 +52,16 @@ __attribute__((visibility("hidden")))
 - (void)setController:(id)arg1;
 - (void)setPlayerIndex:(int)arg1;
 @property(readonly) NSString *name;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithController:(id)arg1 dpadFlippedY:(BOOL)arg2 leftFlippedY:(BOOL)arg3 rightFlippedY:(BOOL)arg4;
 - (id)initWithController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

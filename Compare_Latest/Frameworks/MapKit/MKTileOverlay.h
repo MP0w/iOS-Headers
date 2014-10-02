@@ -8,7 +8,7 @@
 
 #import "MKOverlay.h"
 
-@class NSString;
+@class GEOTileCache, NSString;
 
 @interface MKTileOverlay : NSObject <MKOverlay>
 {
@@ -19,6 +19,7 @@
     int _maximumZ;
     BOOL _canReplaceMapContent;
     unsigned int _providerID;
+    GEOTileCache *_tileCache;
 }
 
 @property(nonatomic) BOOL canReplaceMapContent; // @synthesize canReplaceMapContent=_canReplaceMapContent;
@@ -44,8 +45,12 @@
 - (void)_assignProviderID;
 
 // Remaining properties
-@property(readonly, nonatomic) NSString *subtitle;
-@property(readonly, nonatomic) NSString *title;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly, copy, nonatomic) NSString *subtitle;
+@property(readonly) Class superclass;
+@property(readonly, copy, nonatomic) NSString *title;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "TSCEFormulaOwning.h"
 
-@class NSMutableArray, TSCECalculationEngine;
+@class NSMutableArray, NSString, TSCECalculationEngine;
 
 __attribute__((visibility("hidden")))
 @interface TSCEReferenceTracker : TSPObject <TSCEFormulaOwning>
@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
 - (void)trackedReferenceWasDeleted:(id)arg1 fromOwnerID:(struct __CFUUID *)arg2;
 - (id)cellRangeWasInserted:(CDStruct_5744d895)arg1;
 - (id)trackedReferenceAtID:(CDStruct_a91f2c80)arg1;
+- (void)setFormulaOwnerID:(struct __CFUUID *)arg1;
 - (struct __CFUUID *)formulaOwnerID;
 - (unsigned int)numberOfTrackedReferences;
 - (id)allTrackedReferences;
@@ -44,6 +45,7 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithContext:(id)arg1 calculationEngine:(id)arg2 delegate:(id)arg3;
 - (id)objectToArchiveInDependencyTracker;
+- (BOOL)serializeCalculations;
 - (void)releaseForCalculationEngine:(id)arg1;
 - (void)retainForCalculationEngine:(id)arg1;
 - (id)endRewriteForCalculationEngine:(id)arg1 spec:(id)arg2;
@@ -51,7 +53,13 @@ __attribute__((visibility("hidden")))
 - (void)rewriteForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 rewriteSpec:(id)arg3;
 - (void)invalidateForCalculationEngine:(id)arg1;
 - (void)writeResultsForCalculationEngine:(id)arg1;
-- (CDStruct_4d60f806)recalculateForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 isInCycle:(BOOL)arg3 hasCalculatedPrecedents:(BOOL)arg4;
+- (CDStruct_7ddbbeae)recalculateForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 isInCycle:(BOOL)arg3 hasCalculatedPrecedents:(BOOL)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

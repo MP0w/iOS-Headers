@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     CDStruct_0441cfb5 mModelCellID;
     TSTCell *mCell;
     TSWPColumn *mWPColumn;
+    float mMaxWidthForChildren;
     int mVerticalAlignment;
     id mCellContents;
     TSTLayoutContentCachedKey *mKeyVal;
@@ -37,6 +38,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) id cellContents; // @synthesize cellContents=mCellContents;
 @property(nonatomic) int verticalAlignment; // @synthesize verticalAlignment=mVerticalAlignment;
 @property(nonatomic) struct UIEdgeInsets paddingInsets; // @synthesize paddingInsets=mPaddingInsets;
+@property(nonatomic) float maxWidthForChildren; // @synthesize maxWidthForChildren=mMaxWidthForChildren;
 @property(nonatomic) struct CGSize maxSize; // @synthesize maxSize=mMaxSize;
 @property(nonatomic) struct CGSize minSize; // @synthesize minSize=mMinSize;
 @property(retain, nonatomic) TSWPColumn *wpColumn; // @synthesize wpColumn=mWPColumn;

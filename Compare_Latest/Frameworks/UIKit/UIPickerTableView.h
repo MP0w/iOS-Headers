@@ -8,7 +8,7 @@
 
 #import "UITableViewDelegate.h"
 
-@class NSMutableArray, NSMutableIndexSet, UIColor;
+@class NSMutableArray, NSMutableIndexSet, NSString, UIColor;
 
 __attribute__((visibility("hidden")))
 @interface UIPickerTableView : UITableView <UITableViewDelegate>
@@ -49,7 +49,7 @@ __attribute__((visibility("hidden")))
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)_scrollingFinished;
 - (struct CGPoint)contentOffsetForRowAtIndexPath:(id)arg1;
-- (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(struct CGPoint *)arg3;
+- (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (BOOL)_beginTrackingWithEvent:(id)arg1;
 - (BOOL)isRowChecked:(int)arg1;
 - (void)setBounds:(struct CGRect)arg1;
@@ -84,6 +84,12 @@ __attribute__((visibility("hidden")))
 - (id)_pickerView;
 - (struct CGRect)_visibleBounds;
 - (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2 visibleRect:(struct CGRect)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

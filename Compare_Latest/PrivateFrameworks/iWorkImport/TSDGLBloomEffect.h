@@ -26,8 +26,8 @@ __attribute__((visibility("hidden")))
     BOOL _oldViewportRectInitialized;
 }
 
-- (void)drawBloomEffectWithMVPMatrix:(struct CATransform3D)arg1 bloomAmount:(float)arg2 currentGLFramebuffer:(int)arg3;
-- (void)p_blurColorBufferWithPreviousFramebuffer:(int)arg1;
+- (void)drawBloomEffectWithMVPMatrix:(struct CATransform3D)arg1 bloomAmount:(float)arg2 currentGLFramebuffer:(int)arg3 GLState:(id)arg4;
+- (void)p_blurColorBufferWithPreviousFramebuffer:(int)arg1 GLState:(id)arg2;
 - (void)unbindFramebufferAndBindGLFramebuffer:(int)arg1;
 - (void)bindFramebuffer;
 - (void)p_setupBuffers;

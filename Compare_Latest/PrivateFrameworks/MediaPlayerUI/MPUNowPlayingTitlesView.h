@@ -10,12 +10,12 @@
 
 @interface MPUNowPlayingTitlesView : UIView
 {
-    UILabel *_detailLabel;
+    MPUMarqueeView *_titleMarqueeView;
     MPUMarqueeView *_detailMarqueeView;
+    UILabel *_titleLabel;
+    UILabel *_detailLabel;
     UIImageView *_explicitImageView;
     BOOL _needsLabelUpdate;
-    UILabel *_titleLabel;
-    MPUMarqueeView *_titleMarqueeView;
     BOOL _explicit;
     int _style;
     NSDictionary *_titleTextAttributes;
@@ -24,13 +24,19 @@
     NSString *_artistText;
     NSString *_stationNameText;
     float _textMargin;
+    float _titleLeading;
     NSString *_titleText;
     UIImage *_explicitImage;
+    struct UIEdgeInsets _titleMarqueeEdgeInsets;
+    struct UIEdgeInsets _detailMarqueeEdgeInsets;
 }
 
 + (Class)labelClass;
+@property(nonatomic) struct UIEdgeInsets detailMarqueeEdgeInsets; // @synthesize detailMarqueeEdgeInsets=_detailMarqueeEdgeInsets;
+@property(nonatomic) struct UIEdgeInsets titleMarqueeEdgeInsets; // @synthesize titleMarqueeEdgeInsets=_titleMarqueeEdgeInsets;
 @property(retain, nonatomic) UIImage *explicitImage; // @synthesize explicitImage=_explicitImage;
 @property(copy, nonatomic) NSString *titleText; // @synthesize titleText=_titleText;
+@property(nonatomic) float titleLeading; // @synthesize titleLeading=_titleLeading;
 @property(nonatomic) float textMargin; // @synthesize textMargin=_textMargin;
 @property(copy, nonatomic) NSString *stationNameText; // @synthesize stationNameText=_stationNameText;
 @property(nonatomic, getter=isExplicit) BOOL explicit; // @synthesize explicit=_explicit;
@@ -38,14 +44,16 @@
 @property(copy, nonatomic) NSString *albumText; // @synthesize albumText=_albumText;
 @property(retain, nonatomic) NSDictionary *detailTextAttributes; // @synthesize detailTextAttributes=_detailTextAttributes;
 @property(retain, nonatomic) NSDictionary *titleTextAttributes; // @synthesize titleTextAttributes=_titleTextAttributes;
-@property(readonly, nonatomic) int style; // @synthesize style=_style;
+@property(nonatomic) int style; // @synthesize style=_style;
 - (void).cxx_destruct;
 - (void)_updateAttributedTitleLabel;
+- (id)_detailMarqueeView;
+- (id)_titleMarqueeView;
 - (id)_detailLabel;
 - (id)_titleLabel;
 - (void)resetMarqueePositions;
 @property(readonly, nonatomic) float titleBaselineOffsetFromBottom;
-- (void)setMarqueeEnabled:(BOOL)arg1 allowCurrentMarqueeToFinish:(BOOL)arg2;
+- (void)setMarqueeEnabled:(BOOL)arg1 withOptions:(long long)arg2;
 @property(nonatomic, getter=isMarqueeEnabled) BOOL marqueeEnabled;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;

@@ -69,7 +69,10 @@
     UICollectionViewLayout *_nextLayoutForInteractiveTranstion;
     NSMutableDictionary *_interactiveTransitionValueTrackingDict;
     NSMutableArray *_trackedValuesKeys;
-    NSMutableDictionary *_invalidatedAttributes;
+    NSMutableSet *_invalidatedItemIndexPaths;
+    NSMutableDictionary *_invalidatedSupplementaryIndexPaths;
+    NSMutableDictionary *_invalidatedDecorationIndexPaths;
+    CDUnknownBlockType _invalidationBlock;
     struct {
         unsigned int delegateShouldHighlightItemAtIndexPath:1;
         unsigned int delegateDidHighlightItemAtIndexPath:1;
@@ -79,6 +82,8 @@
         unsigned int delegateDidSelectItemAtIndexPath:1;
         unsigned int delegateDidDeselectItemAtIndexPath:1;
         unsigned int delegateSupportsMenus:1;
+        unsigned int delegateWillDisplayCell:1;
+        unsigned int delegateWillDisplaySupplementaryView:1;
         unsigned int delegateDidEndDisplayingCell:1;
         unsigned int delegateDidEndDisplayingSupplementaryView:1;
         unsigned int delegateIndexForReferenceItemDuringLayoutTransition:1;
@@ -100,17 +105,24 @@
         unsigned int doneFirstLayout:1;
         unsigned int loadingOffscreenViews:1;
         unsigned int updating:1;
+        unsigned int updatingVisibleCells:1;
+        unsigned int preRotationBoundsSet:1;
     } _collectionViewFlags;
     struct CGPoint _lastLayoutOffset;
+    BOOL _usesLegacyExternalInputSupport;
     CDUnknownBlockType _navigationCompletion;
 }
 
 + (id)_reuseKeyForSupplementaryViewOfKind:(id)arg1 withReuseIdentifier:(id)arg2;
+@property(nonatomic, getter=_usesLegacyExternalInputSupport, setter=_setUsesLegacyExternalInputSupport:) BOOL usesLegacyExternalInputSupport; // @synthesize usesLegacyExternalInputSupport=_usesLegacyExternalInputSupport;
 @property(copy, nonatomic, getter=_navigationCompletion, setter=_setNavigationCompletion:) CDUnknownBlockType navigationCompletion; // @synthesize navigationCompletion=_navigationCompletion;
 @property(retain, nonatomic, getter=_currentTouch, setter=_setCurrentTouch:) UITouch *currentTouch; // @synthesize currentTouch=_currentTouch;
 @property(retain, nonatomic) UIView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(nonatomic) id <UICollectionViewDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(retain, nonatomic) UICollectionViewLayout *collectionViewLayout; // @synthesize collectionViewLayout=_layout;
+- (void)decodeRestorableStateWithCoder:(id)arg1;
+- (BOOL)_indexPathIsValid:(id)arg1;
+- (void)encodeRestorableStateWithCoder:(id)arg1;
 - (id)_dynamicAnimationsForTrackValues;
 - (void)_updateTrackedLayoutValuesWith:(id)arg1;
 - (float)_trackedLayoutValueForKey:(id)arg1;
@@ -141,6 +153,7 @@
 - (id)_selectableIndexPathForItemContainingHitView:(id)arg1;
 - (void)_unhighlightAllItems;
 - (void)_invalidateLayoutWithContext:(id)arg1;
+- (void)_invalidateWithBlock:(CDUnknownBlockType)arg1;
 - (void)performBatchUpdates:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_endUpdates;
 - (void)_beginUpdates;
@@ -262,9 +275,6 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 collectionViewLayout:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)decodeRestorableStateWithCoder:(id)arg1;
-- (BOOL)_indexPathIsValid:(id)arg1;
-- (void)encodeRestorableStateWithCoder:(id)arg1;
 
 @end
 

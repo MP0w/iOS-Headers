@@ -10,7 +10,7 @@
 #import "SSPurchaseManagerDelegate.h"
 #import "UIAlertViewDelegate.h"
 
-@class NSArray, NSHashTable, NSMapTable, NSMutableArray, NSObject<OS_dispatch_queue>, SSDownloadManager, SSPurchaseManager, UIAlertView;
+@class NSArray, NSHashTable, NSMapTable, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, SSDownloadManager, SSPurchaseManager, UIAlertView;
 
 @interface MPStoreDownloadManager : NSObject <SSDownloadManagerObserver, SSPurchaseManagerDelegate, UIAlertViewDelegate>
 {
@@ -58,6 +58,8 @@
 - (id)downloadForStoreID:(long long)arg1;
 - (id)downloadForMediaItemPersistentID:(unsigned long long)arg1;
 - (id)downloadForMediaItem:(id)arg1;
+- (id)downloadForDownloadPersistentIdentifier:(long long)arg1;
+- (void)resumeDownloads:(id)arg1;
 - (void)pauseDownloads:(id)arg1;
 - (void)cancelDownloads:(id)arg1;
 - (void)addObserver:(id)arg1 forDownloads:(id)arg2;
@@ -67,6 +69,12 @@
 - (void)dealloc;
 - (id)_init;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "PCLoggingDelegate.h"
 
-@class NSDate, NSRunLoop, NSString, PCDispatchTimer;
+@class NSDate, NSObject<OS_dispatch_queue>, NSRunLoop, NSString, PCDispatchTimer;
 
 @interface PCSimpleTimer : NSObject <PCLoggingDelegate>
 {
@@ -30,14 +30,14 @@
     NSRunLoop *_timerRunLoop;
     NSString *_timerMode;
     int _significantTimeChangeToken;
-    struct dispatch_queue_s *_queue;
+    NSObject<OS_dispatch_queue> *_queue;
 }
 
 + (double)currentMachTimeInterval;
 + (id)lastSystemWakeDate;
 @property(readonly, nonatomic) NSString *loggingIdentifier; // @synthesize loggingIdentifier=_serviceIdentifier;
 @property(nonatomic) BOOL disableSystemWaking; // @synthesize disableSystemWaking=_disableSystemWaking;
-- (id)debugDescription;
+@property(readonly, copy) NSString *debugDescription;
 - (void)_setSignificantTimeChangeMonitoringEnabled:(BOOL)arg1;
 - (void)_significantTimeChange;
 - (void)_powerNotificationSleepIsImminent;
@@ -54,7 +54,7 @@
 - (BOOL)isValid;
 - (void)invalidate;
 - (void)_scheduleTimer;
-- (void)scheduleInQueue:(struct dispatch_queue_s *)arg1;
+- (void)scheduleInQueue:(id)arg1;
 - (void)scheduleInRunLoop:(id)arg1 inMode:(id)arg2;
 - (void)scheduleInRunLoop:(id)arg1;
 - (void)updateFireTime:(double)arg1 triggerOnGMTChange:(BOOL)arg2;
@@ -62,6 +62,11 @@
 - (id)initWithAbsoluteTime:(double)arg1 serviceIdentifier:(id)arg2 target:(id)arg3 selector:(SEL)arg4 userInfo:(id)arg5 triggerOnGMTChange:(BOOL)arg6;
 - (id)initWithTimeInterval:(double)arg1 serviceIdentifier:(id)arg2 target:(id)arg3 selector:(SEL)arg4 userInfo:(id)arg5;
 - (id)initWithFireDate:(id)arg1 serviceIdentifier:(id)arg2 target:(id)arg3 selector:(SEL)arg4 userInfo:(id)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

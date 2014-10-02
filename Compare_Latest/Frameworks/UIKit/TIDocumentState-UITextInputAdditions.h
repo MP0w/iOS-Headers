@@ -7,8 +7,9 @@
 #import "TIDocumentState.h"
 
 @interface TIDocumentState (UITextInputAdditions)
++ (id)documentStateOfSecureTextDocument:(id)arg1;
 + (id)documentStateOfDocument:(id)arg1;
-- (BOOL)hasSufficientContextBeforeInputWithTerminatorPredicate:(CDUnknownBlockType)arg1;
+- (id)initWithSecureTextDocument:(id)arg1;
 - (id)initWithDocument:(id)arg1;
 - (id)_contextAfterPosition:(id)arg1 inDocument:(id)arg2;
 - (id)_contextBeforePosition:(id)arg1 inDocument:(id)arg2;

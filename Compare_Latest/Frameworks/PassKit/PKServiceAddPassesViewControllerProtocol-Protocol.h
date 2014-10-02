@@ -9,6 +9,7 @@
 @class NSArray, NSURL;
 
 @protocol PKServiceAddPassesViewControllerProtocol <NSObject>
+- (void)setDisplayPropertiesWithScreenSize:(struct CGSize)arg1 scale:(float)arg2;
 - (void)setAllowsPassIngestion:(BOOL)arg1;
 - (void)ingestCardAtURL:(NSURL *)arg1;
 - (void)ingestPasses:(NSArray *)arg1;

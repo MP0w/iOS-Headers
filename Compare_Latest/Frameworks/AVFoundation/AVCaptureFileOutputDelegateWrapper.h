@@ -6,29 +6,29 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSURL;
+@class AVWeakReferencingDelegateStorage, NSArray, NSURL;
 
 @interface AVCaptureFileOutputDelegateWrapper : NSObject
 {
-    id <AVCaptureFileOutputRecordingDelegate><AVCaptureFileOutputPauseResumeDelegate> _delegate;
+    BOOL _recording;
+    BOOL _paused;
     NSURL *_outputFileURL;
-    BOOL _receivedDidStartRecording;
-    BOOL _receivedDidStopRecording;
-    long _didStopRecordingError;
     NSArray *_metadata;
+    AVWeakReferencingDelegateStorage *_delegateStorage;
     NSArray *_connections;
+    long long _settingsID;
 }
 
-+ (id)wrapperWithURL:(id)arg1 delegate:(id)arg2 connections:(id)arg3;
++ (id)wrapperWithURL:(id)arg1 delegate:(id)arg2 settingsID:(long long)arg3 connections:(id)arg4;
+@property(nonatomic, getter=isPaused) BOOL paused; // @synthesize paused=_paused;
+@property(nonatomic, getter=isRecording) BOOL recording; // @synthesize recording=_recording;
 @property(readonly) NSArray *connections; // @synthesize connections=_connections;
+@property(readonly) AVWeakReferencingDelegateStorage *delegateStorage; // @synthesize delegateStorage=_delegateStorage;
 @property(retain) NSArray *metadata; // @synthesize metadata=_metadata;
-@property long didStopRecordingError; // @synthesize didStopRecordingError=_didStopRecordingError;
-@property BOOL receivedDidStopRecording; // @synthesize receivedDidStopRecording=_receivedDidStopRecording;
-@property BOOL receivedDidStartRecording; // @synthesize receivedDidStartRecording=_receivedDidStartRecording;
 @property(readonly) NSURL *outputFileURL; // @synthesize outputFileURL=_outputFileURL;
-@property(readonly) id <AVCaptureFileOutputRecordingDelegate><AVCaptureFileOutputPauseResumeDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly) long long settingsID; // @synthesize settingsID=_settingsID;
 - (void)dealloc;
-- (id)initWithURL:(id)arg1 delegate:(id)arg2 connections:(id)arg3;
+- (id)initWithURL:(id)arg1 delegate:(id)arg2 settingsID:(long long)arg3 connections:(id)arg4;
 
 @end
 

@@ -21,11 +21,11 @@
     NSURL *_checkCTagURL;
 }
 
-@property(retain) NSString *nextRootSyncToken; // @synthesize nextRootSyncToken=_nextRootSyncToken;
-@property(retain) NSString *nextRootCTag; // @synthesize nextRootCTag=_nextRootCTag;
-@property(readonly) NSDictionary *folderURLToChildrenURLOrder; // @synthesize folderURLToChildrenURLOrder=_folderURLToChildrenURLOrder;
-@property(readonly) NSArray *parsedFolders; // @synthesize parsedFolders=_parsedFolders;
-@property(readonly) NSArray *parsedBookmarks; // @synthesize parsedBookmarks=_parsedBookmarks;
+@property(retain, nonatomic) NSString *nextRootSyncToken; // @synthesize nextRootSyncToken=_nextRootSyncToken;
+@property(retain, nonatomic) NSString *nextRootCTag; // @synthesize nextRootCTag=_nextRootCTag;
+@property(readonly, nonatomic) NSDictionary *folderURLToChildrenURLOrder; // @synthesize folderURLToChildrenURLOrder=_folderURLToChildrenURLOrder;
+@property(readonly, nonatomic) NSArray *parsedFolders; // @synthesize parsedFolders=_parsedFolders;
+@property(readonly, nonatomic) NSArray *parsedBookmarks; // @synthesize parsedBookmarks=_parsedBookmarks;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (void)_foundChildrenOrder:(id)arg1 inFolderWithURL:(id)arg2;
 - (id)copyDefaultParserForContentType:(id)arg1;

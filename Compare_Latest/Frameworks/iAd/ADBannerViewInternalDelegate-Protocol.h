@@ -11,6 +11,8 @@
 @protocol ADBannerViewInternalDelegate <ADBannerViewDelegate>
 
 @optional
+- (void)bannerViewShouldResumeMedia:(ADBannerView *)arg1;
+- (void)bannerViewShouldPauseMedia:(ADBannerView *)arg1;
 - (UIViewController *)viewControllerForStoryboardPresentationFromBannerView:(ADBannerView *)arg1;
 @end
 

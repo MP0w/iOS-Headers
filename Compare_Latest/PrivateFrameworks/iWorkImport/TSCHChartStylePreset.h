@@ -49,7 +49,7 @@ __attribute__((visibility("hidden")))
 - (id)swatchImage;
 @property(readonly, nonatomic) NSString *presetKind;
 - (BOOL)isThemeEquivalent:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)saveToArchiver:(id)arg1;
 - (id)initFromUnarchiver:(id)arg1;
 - (BOOL)isEquivalentToPreset:(id)arg1;
@@ -63,6 +63,11 @@ __attribute__((visibility("hidden")))
 - (id)p_initWithContext:(id)arg1;
 - (id)initWithContext:(id)arg1;
 @property(readonly) TSCHChartStyleState *chartStyleState;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

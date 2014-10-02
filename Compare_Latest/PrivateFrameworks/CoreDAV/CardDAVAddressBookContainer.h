@@ -16,13 +16,13 @@
 }
 
 + (id)copyPropertyMappingsForParser;
-@property(retain) NSURL *meCardURL; // @synthesize meCardURL=_meCardURL;
-@property(retain) NSString *maxImageSize; // @synthesize maxImageSize=_maxImageSize;
-@property(retain) NSString *maxResourceSize; // @synthesize maxResourceSize=_maxResourceSize;
+@property(retain, nonatomic) NSURL *meCardURL; // @synthesize meCardURL=_meCardURL;
+@property(retain, nonatomic) NSString *maxImageSize; // @synthesize maxImageSize=_maxImageSize;
+@property(retain, nonatomic) NSString *maxResourceSize; // @synthesize maxResourceSize=_maxResourceSize;
 - (void)dealloc;
-@property(readonly) BOOL isSharedAddressBook;
-@property(readonly) BOOL isSearchAddressBook;
-@property(readonly) BOOL isAddressBook;
+@property(readonly, nonatomic) BOOL isSharedAddressBook;
+@property(readonly, nonatomic) BOOL isSearchAddressBook;
+@property(readonly, nonatomic) BOOL isAddressBook;
 - (void)applyParsedProperties:(id)arg1;
 - (id)description;
 

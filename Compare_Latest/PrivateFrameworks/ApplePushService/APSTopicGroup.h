@@ -18,13 +18,13 @@
 }
 
 + (void)populateHashDictionary:(id)arg1 withSet:(id)arg2;
-@property(readonly, nonatomic) NSString *logString;
-@property(readonly, nonatomic) NSDictionary *hashesToOpportunisticTopics;
-@property(readonly, nonatomic) NSDictionary *hashesToIgnoredTopics;
-@property(readonly, nonatomic) NSDictionary *hashesToEnabledTopics;
-@property(readonly, nonatomic) NSSet *opportunisticTopics;
-@property(readonly, nonatomic) NSSet *ignoredTopics;
-@property(readonly, nonatomic) NSSet *enabledTopics;
+@property(readonly, retain, nonatomic) NSString *logString;
+@property(readonly, retain, nonatomic) NSDictionary *hashesToOpportunisticTopics;
+@property(readonly, retain, nonatomic) NSDictionary *hashesToIgnoredTopics;
+@property(readonly, retain, nonatomic) NSDictionary *hashesToEnabledTopics;
+@property(readonly, retain, nonatomic) NSSet *opportunisticTopics;
+@property(readonly, retain, nonatomic) NSSet *ignoredTopics;
+@property(readonly, retain, nonatomic) NSSet *enabledTopics;
 - (int)setEnabledTopics:(id)arg1 ignoredTopics:(id)arg2 opportunisticTopics:(id)arg3 pretend:(BOOL)arg4;
 - (void)_logChangesFor:(id)arg1 oldTopics:(id)arg2 newTopics:(id)arg3;
 - (void)dealloc;

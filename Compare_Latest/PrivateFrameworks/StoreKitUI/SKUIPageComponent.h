@@ -8,15 +8,18 @@
 
 #import "SSMetricsEventFieldProvider.h"
 
-@class NSString;
+@class NSString, SKUIViewElement;
 
 @interface SKUIPageComponent : NSObject <SSMetricsEventFieldProvider>
 {
     int _metricsLocationPosition;
+    SKUIViewElement *_viewElement;
 }
 
+@property(readonly, nonatomic) SKUIViewElement *viewElement; // @synthesize viewElement=_viewElement;
 - (void)_setMetricsLocationPosition:(int)arg1;
 @property(nonatomic) int metricsLocationPosition; // @synthesize metricsLocationPosition=_metricsLocationPosition;
+- (void).cxx_destruct;
 - (void)_enumerateMissingItemIdentifiersFromLockups:(id)arg1 startIndex:(int)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (void)_enumerateMissingItemIdentifiersFromLinks:(id)arg1 startIndex:(int)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (void)_enumerateMissingItemIdentifiersFromBricks:(id)arg1 startIndex:(int)arg2 usingBlock:(CDUnknownBlockType)arg3;
@@ -25,8 +28,15 @@
 @property(readonly, nonatomic, getter=isMissingItemData) BOOL missingItemData;
 - (void)enumerateMissingItemIdentifiersFromIndex:(int)arg1 usingBlock:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) int componentType;
+- (id)initWithViewElement:(id)arg1;
 - (id)initWithFeaturedContentContext:(id)arg1 kind:(int)arg2;
 - (id)initWithCustomPageContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

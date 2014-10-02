@@ -8,6 +8,8 @@
 
 #import "SFUOutputStream.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface SFUOffsetOutputStream : NSObject <SFUOutputStream>
 {
@@ -25,6 +27,12 @@ __attribute__((visibility("hidden")))
 - (void)writeBuffer:(const char *)arg1 size:(unsigned long)arg2;
 - (void)dealloc;
 - (id)initWithOutputStream:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

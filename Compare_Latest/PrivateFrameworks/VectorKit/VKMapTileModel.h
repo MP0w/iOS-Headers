@@ -7,12 +7,12 @@
 #import <VectorKit/VKModelObject.h>
 
 #import "VKMapLayer.h"
-#import "VKStylesheetObserver.h"
+#import "VKStyleManagerObserver.h"
 
-@class NSMutableSet, NSSet, VKMapModel, VKStylesheet;
+@class NSMutableSet, NSSet, NSString, VKMapModel, VKStyleManager;
 
 __attribute__((visibility("hidden")))
-@interface VKMapTileModel : VKModelObject <VKMapLayer, VKStylesheetObserver>
+@interface VKMapTileModel : VKModelObject <VKMapLayer, VKStyleManagerObserver>
 {
     NSMutableSet *_tilesWillEnterScene;
     NSMutableSet *_tilesInScene;
@@ -27,7 +27,10 @@ __attribute__((visibility("hidden")))
 
 + (BOOL)reloadOnActiveTileGroupChange;
 + (BOOL)reloadOnStylesheetChange;
+@property(readonly, nonatomic) unsigned char maximumZ; // @synthesize maximumZ=_maximumZ;
+@property(readonly, nonatomic) unsigned char minimumZ; // @synthesize minimumZ=_minimumZ;
 @property(nonatomic) VKMapModel *mapModel; // @synthesize mapModel=_mapModel;
+@property(readonly, nonatomic) NSSet *tilesInScenePlusExitingTiles; // @synthesize tilesInScenePlusExitingTiles=_tilesInScenePlusExitingTiles;
 @property(readonly, nonatomic) NSSet *tilesInScene; // @synthesize tilesInScene=_tilesInScene;
 - (void)updateTilesInScene:(id)arg1 withContext:(id)arg2 categorize:(BOOL)arg3;
 - (void)activeTileGroupChanged;
@@ -45,8 +48,15 @@ __attribute__((visibility("hidden")))
 - (void)clearCollections;
 - (BOOL)maximumZoomLevelBoundsCamera;
 - (BOOL)minimumZoomLevelBoundsCamera;
-@property(readonly, nonatomic) VKStylesheet *stylesheet;
-- (unsigned int)mapLayerPosition;
+@property(readonly, nonatomic) VKStyleManager *styleManager;
+- (BOOL)shouldLayoutWithoutStyleManager;
+- (unsigned long long)mapLayerPosition;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

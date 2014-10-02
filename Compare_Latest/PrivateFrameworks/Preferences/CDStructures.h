@@ -16,8 +16,8 @@ struct CGPoint {
 };
 
 struct CGRect {
-    struct CGPoint origin;
-    struct CGSize size;
+    struct CGPoint _field1;
+    struct CGSize _field2;
 };
 
 struct CGSize {
@@ -29,4 +29,13 @@ struct _NSRange {
     unsigned int location;
     unsigned int length;
 };
+
+#pragma mark Typedef'd Structures
+
+typedef struct {
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+} CDStruct_d8808cea;
 

@@ -26,7 +26,7 @@ __attribute__((visibility("hidden")))
 - (void)addCssStyle:(id)arg1 withName:(id)arg2;
 - (id)addCssStyle:(id)arg1;
 - (id)resourceUrlProtocol;
-- (int)resourceCount;
+- (unsigned int)resourceCount;
 - (id)copyDictionaryWithSizeInfos:(BOOL)arg1;
 - (void)pushText:(id)arg1 toPath:(id)arg2;
 - (void)pushData:(id)arg1 toPath:(id)arg2;

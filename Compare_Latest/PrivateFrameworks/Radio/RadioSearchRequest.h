@@ -21,8 +21,8 @@
     SSMetricsPageEvent *_metricsPageEvent;
 }
 
-@property(readonly, nonatomic) SSMetricsPageEvent *metricsPageEvent; // @synthesize metricsPageEvent=_metricsPageEvent;
-@property(readonly, nonatomic) SSMetricsConfiguration *metricsConfiguration; // @synthesize metricsConfiguration=_metricsConfiguration;
+@property(readonly, copy, nonatomic) SSMetricsPageEvent *metricsPageEvent; // @synthesize metricsPageEvent=_metricsPageEvent;
+@property(readonly, retain, nonatomic) SSMetricsConfiguration *metricsConfiguration; // @synthesize metricsConfiguration=_metricsConfiguration;
 @property(nonatomic) BOOL shouldProcessCategories; // @synthesize shouldProcessCategories=_shouldProcessCategories;
 @property(nonatomic) BOOL excludeFeaturedStations; // @synthesize excludeFeaturedStations=_excludeFeaturedStations;
 @property(nonatomic) unsigned int searchResultsOffset; // @synthesize searchResultsOffset=_searchResultsOffset;

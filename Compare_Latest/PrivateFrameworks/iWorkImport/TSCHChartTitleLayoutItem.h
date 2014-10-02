@@ -13,8 +13,10 @@ __attribute__((visibility("hidden")))
 {
     float mChartBodyWidth;
     NSString *mEditedString;
+    float mMinHitSize;
 }
 
+@property(nonatomic) float minHitSize; // @synthesize minHitSize=mMinHitSize;
 @property(copy, nonatomic) NSString *editedString; // @synthesize editedString=mEditedString;
 @property(nonatomic) float chartBodyWidth; // @synthesize chartBodyWidth=mChartBodyWidth;
 - (struct CGPath *)newDragAndDropHighlightPathForSelection:(id)arg1;

@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 - (void)setId:(id)arg1;
 - (id)id;
 - (id)paragraphProperties;
+- (unsigned int)characterCount;
 - (BOOL)isEmpty;
 - (void)dealloc;
 - (id)init;

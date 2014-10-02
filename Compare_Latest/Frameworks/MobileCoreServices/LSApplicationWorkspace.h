@@ -11,7 +11,7 @@
 }
 
 + (id)defaultWorkspace;
-- (BOOL)_LSPrivateRebuildLaunchServicesDatabase;
+- (void)_LSClearSchemaCaches;
 - (BOOL)_LSPrivateRebuildApplicationDatabasesForSystemApps:(BOOL)arg1 internal:(BOOL)arg2 user:(BOOL)arg3;
 - (void)clearCreatedProgressForBundleID:(id)arg1;
 - (BOOL)installPhaseFinishedForProgress:(id)arg1;
@@ -23,6 +23,9 @@
 - (void)_clearCachedAdvertisingIdentifier;
 - (void)clearAdvertisingIdentifier;
 - (BOOL)invalidateIconCache:(id)arg1;
+- (BOOL)updateSINFWithData:(id)arg1 forApplication:(id)arg2 options:(id)arg3 error:(id *)arg4;
+- (BOOL)unregisterPlugin:(id)arg1;
+- (BOOL)registerPlugin:(id)arg1;
 - (BOOL)unregisterApplication:(id)arg1;
 - (BOOL)registerApplication:(id)arg1;
 - (BOOL)registerApplicationDictionary:(id)arg1;
@@ -32,6 +35,7 @@
 - (BOOL)installApplication:(id)arg1 withOptions:(id)arg2 error:(id *)arg3 usingBlock:(CDUnknownBlockType)arg4;
 - (BOOL)installApplication:(id)arg1 withOptions:(id)arg2 error:(id *)arg3;
 - (BOOL)installApplication:(id)arg1 withOptions:(id)arg2;
+- (BOOL)getClaimedActivityTypes:(id *)arg1 domains:(id *)arg2;
 - (id)privateURLSchemes;
 - (id)publicURLSchemes;
 - (BOOL)applicationIsInstalled:(id)arg1;
@@ -39,7 +43,8 @@
 - (id)unrestrictedApplications;
 - (id)placeholderApplications;
 - (id)allInstalledApplications;
-- (id)installedApplications;
+- (id)installedPlugins;
+- (id)installedVPNPlugins;
 - (id)operationToOpenResource:(id)arg1 usingApplication:(id)arg2 userInfo:(id)arg3;
 - (id)operationToOpenResource:(id)arg1 usingApplication:(id)arg2 uniqueDocumentIdentifier:(id)arg3 userInfo:(id)arg4;
 - (id)operationToOpenResource:(id)arg1 usingApplication:(id)arg2 uniqueDocumentIdentifier:(id)arg3 userInfo:(id)arg4 delegate:(id)arg5;
@@ -51,6 +56,13 @@
 - (id)URLOverrideForURL:(id)arg1;
 - (id)applicationsAvailableForHandlingURLScheme:(id)arg1;
 - (id)applicationsAvailableForOpeningDocument:(id)arg1;
+- (id)pluginsWithIdentifiers:(id)arg1 protocols:(id)arg2 version:(id)arg3;
+- (id)applicationsOfType:(unsigned int)arg1;
+- (id)applicationForUserActivityDomainName:(id)arg1;
+- (id)applicationForUserActivityType:(id)arg1;
+- (id)applicationsWithExternalAccessoryProtocols;
+- (id)applicationsWithVPNPlugins;
+- (id)applicationsWithSettingsBundle;
 - (id)applicationsWithAudioComponents;
 - (id)applicationsWithUIBackgroundModes;
 - (id)directionsApplications;
@@ -60,6 +72,7 @@
 - (id)delegateProxy;
 - (id)remoteObserver;
 - (BOOL)establishConnection;
+- (void)getKnowledgeUUID:(id *)arg1 andSequenceNumber:(id *)arg2;
 
 @end
 

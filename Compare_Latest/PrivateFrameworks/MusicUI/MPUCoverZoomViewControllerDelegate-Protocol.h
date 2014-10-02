@@ -6,11 +6,10 @@
 
 #import "NSObject.h"
 
-@class MPMediaEntity, MPMediaItemImageRequest, UIViewController<MPUCoverZoomDetailViewControllerProtocol>;
+@class MPMediaEntity, UIViewController;
 
 @protocol MPUCoverZoomViewControllerDelegate <NSObject>
-- (UIViewController<MPUCoverZoomDetailViewControllerProtocol> *)detailViewControllerForEntity:(MPMediaEntity *)arg1;
-- (MPMediaItemImageRequest *)imageRequestForEntity:(MPMediaEntity *)arg1;
+- (UIViewController *)detailViewControllerForEntity:(MPMediaEntity *)arg1;
 
 @optional
 - (float)imageAspectRatio;

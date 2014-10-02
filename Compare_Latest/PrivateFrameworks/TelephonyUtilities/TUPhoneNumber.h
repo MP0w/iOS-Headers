@@ -19,7 +19,7 @@
 + (BOOL)supportsSecureCoding;
 + (id)phoneNumberWithDigits:(id)arg1 countryCode:(id)arg2;
 + (id)phoneNumberWithCFPhoneNumberRef:(struct __CFPhoneNumber *)arg1;
-@property(readonly) struct __CFPhoneNumber *phoneNumberRef; // @synthesize phoneNumberRef=_phoneNumberRef;
+@property struct __CFPhoneNumber *phoneNumberRef; // @synthesize phoneNumberRef=_phoneNumberRef;
 - (BOOL)isEqual:(id)arg1;
 @property(readonly) NSString *unformattedInternationalRepresentation; // @dynamic unformattedInternationalRepresentation;
 @property(readonly) NSString *formattedInternationalRepresentation; // @dynamic formattedInternationalRepresentation;

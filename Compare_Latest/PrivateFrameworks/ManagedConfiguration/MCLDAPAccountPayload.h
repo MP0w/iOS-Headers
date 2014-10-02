@@ -23,13 +23,14 @@
 + (id)localizedSingularForm;
 + (id)typeStrings;
 @property(copy, nonatomic) NSString *accountPersistentUUID; // @synthesize accountPersistentUUID=_accountPersistentUUID;
-@property(readonly, nonatomic) NSArray *searchSettings; // @synthesize searchSettings=_searchSettings;
+@property(readonly, retain, nonatomic) NSArray *searchSettings; // @synthesize searchSettings=_searchSettings;
 @property(readonly, nonatomic) BOOL useSSL; // @synthesize useSSL=_useSSL;
 @property(retain, nonatomic) NSString *password; // @synthesize password=_password;
 @property(retain, nonatomic) NSString *username; // @synthesize username=_username;
-@property(readonly, nonatomic) NSString *hostname; // @synthesize hostname=_hostname;
-@property(readonly, nonatomic) NSString *accountDescription; // @synthesize accountDescription=_accountDescription;
+@property(readonly, retain, nonatomic) NSString *hostname; // @synthesize hostname=_hostname;
+@property(readonly, retain, nonatomic) NSString *accountDescription; // @synthesize accountDescription=_accountDescription;
 - (void).cxx_destruct;
+- (id)payloadDescriptionKeyValueSections;
 - (id)subtitle2Description;
 - (id)subtitle2Label;
 - (id)subtitle1Description;

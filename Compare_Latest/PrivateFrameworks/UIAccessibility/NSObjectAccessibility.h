@@ -4,16 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <UIAccessibility/NSObjectAccessibility_super.h>
+#import <UIAccessibility/__NSObjectAccessibility_super.h>
 
-@interface NSObjectAccessibility : NSObjectAccessibility_super
+@interface NSObjectAccessibility : __NSObjectAccessibility_super
 {
 }
 
-+ (id)_accessibilityTargetClassName;
-+ (id)_installSafeCategoryValidationMethod;
-+ (id)_initializeSafeCategoryFromValidationManager;
-+ (void)_initializeSafeCategory;
++ (Class)safeCategoryTargetClass;
++ (id)safeCategoryTargetClassName;
+- (void)setAccessibilityElements:(id)arg1;
+- (id)accessibilityUserDefinedContainer;
 - (id)accessibilityUserDefinedShouldGroupChildren;
 - (id)accessibilityUserDefinedActivationPoint;
 - (id)accessibilityUserDefinedIdentifier;

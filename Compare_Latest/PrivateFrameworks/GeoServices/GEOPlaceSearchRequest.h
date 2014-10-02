@@ -15,12 +15,11 @@
     CDStruct_612aec5b _sessionGUID;
     CDStruct_56d48c16 _additionalPlaceTypes;
     CDStruct_cb16bb10 _businessIDs;
-    CDStruct_815f15fd _placeIDs;
+    CDStruct_56d48c16 _optionalSuppressionReasons;
     CDStruct_0756942c _searchContextSubstring;
     CDStruct_0756942c *_searchSubstrings;
     unsigned int _searchSubstringsCount;
     unsigned int _searchSubstringsSpace;
-    double _distanceTraveled;
     long long _geoId;
     unsigned long long _intersectingGeoId;
     double _timeSinceMapEnteredForeground;
@@ -34,7 +33,6 @@
     GEOLatLng *_deviceLocation;
     NSString *_deviceTimeZone;
     NSMutableArray *_filterByBusinessCategorys;
-    NSMutableArray *_filterByBusinessTelephones;
     GEOIndexQueryNode *_indexFilter;
     NSString *_inputLanguage;
     int _knownAccuracy;
@@ -47,18 +45,16 @@
     NSString *_phoneticLocaleIdentifier;
     int _placeTypeLimit;
     GEOAddress *_preserveFields;
-    int _resultOffset;
     NSString *_search;
     NSString *_searchContext;
+    GEOLatLng *_searchLocation;
     int _searchSource;
     int _sequenceNumber;
     NSMutableArray *_serviceTags;
-    int _sessionID;
     GEOSuggestionsOptions *_suggestionsOptions;
     NSString *_suggestionsPrefix;
     int _transportTypeForTravelTimes;
     NSData *_zilchPoints;
-    BOOL _allowABTestResponse;
     BOOL _excludeAddressInResults;
     BOOL _includeBusinessCategories;
     BOOL _includeBusinessRating;
@@ -66,6 +62,7 @@
     BOOL _includeFeatureSets;
     BOOL _includeGeoId;
     BOOL _includeMatchedToken;
+    BOOL _includeNameForForwardGeocodingResults;
     BOOL _includePhonetics;
     BOOL _includeQuads;
     BOOL _includeRevgeoRequestTemplate;
@@ -76,13 +73,13 @@
     BOOL _includeTravelTime;
     BOOL _includeUnmatchedStrings;
     BOOL _isFromAPI;
+    BOOL _isStrictGeocoding;
     BOOL _isStrictMapRegion;
     BOOL _structuredSearch;
     BOOL _suppressResultsRequiringAttribution;
     struct {
         unsigned int sessionGUID:1;
         unsigned int searchContextSubstring:1;
-        unsigned int distanceTraveled:1;
         unsigned int geoId:1;
         unsigned int intersectingGeoId:1;
         unsigned int timeSinceMapEnteredForeground:1;
@@ -94,12 +91,9 @@
         unsigned int maxBusinessReviews:1;
         unsigned int maxResults:1;
         unsigned int placeTypeLimit:1;
-        unsigned int resultOffset:1;
         unsigned int searchSource:1;
         unsigned int sequenceNumber:1;
-        unsigned int sessionID:1;
         unsigned int transportTypeForTravelTimes:1;
-        unsigned int allowABTestResponse:1;
         unsigned int excludeAddressInResults:1;
         unsigned int includeBusinessCategories:1;
         unsigned int includeBusinessRating:1;
@@ -107,6 +101,7 @@
         unsigned int includeFeatureSets:1;
         unsigned int includeGeoId:1;
         unsigned int includeMatchedToken:1;
+        unsigned int includeNameForForwardGeocodingResults:1;
         unsigned int includePhonetics:1;
         unsigned int includeQuads:1;
         unsigned int includeRevgeoRequestTemplate:1;
@@ -117,12 +112,15 @@
         unsigned int includeTravelTime:1;
         unsigned int includeUnmatchedStrings:1;
         unsigned int isFromAPI:1;
+        unsigned int isStrictGeocoding:1;
         unsigned int isStrictMapRegion:1;
         unsigned int structuredSearch:1;
         unsigned int suppressResultsRequiringAttribution:1;
     } _has;
 }
 
+@property(nonatomic) BOOL includeNameForForwardGeocodingResults; // @synthesize includeNameForForwardGeocodingResults=_includeNameForForwardGeocodingResults;
+@property(retain, nonatomic) GEOLatLng *searchLocation; // @synthesize searchLocation=_searchLocation;
 @property(nonatomic) int searchSource; // @synthesize searchSource=_searchSource;
 @property(nonatomic) BOOL includeMatchedToken; // @synthesize includeMatchedToken=_includeMatchedToken;
 @property(nonatomic) BOOL includeRevgeoRequestTemplate; // @synthesize includeRevgeoRequestTemplate=_includeRevgeoRequestTemplate;
@@ -142,6 +140,7 @@
 @property(nonatomic) BOOL includeQuads; // @synthesize includeQuads=_includeQuads;
 @property(nonatomic) long long geoId; // @synthesize geoId=_geoId;
 @property(nonatomic) BOOL includeTravelDistance; // @synthesize includeTravelDistance=_includeTravelDistance;
+@property(nonatomic) BOOL isStrictGeocoding; // @synthesize isStrictGeocoding=_isStrictGeocoding;
 @property(nonatomic) int placeTypeLimit; // @synthesize placeTypeLimit=_placeTypeLimit;
 @property(retain, nonatomic) GEOSuggestionsOptions *suggestionsOptions; // @synthesize suggestionsOptions=_suggestionsOptions;
 @property(nonatomic) int transportTypeForTravelTimes; // @synthesize transportTypeForTravelTimes=_transportTypeForTravelTimes;
@@ -149,10 +148,8 @@
 @property(retain, nonatomic) GEOClientCapabilities *clientCapabilities; // @synthesize clientCapabilities=_clientCapabilities;
 @property(retain, nonatomic) NSString *deviceTimeZone; // @synthesize deviceTimeZone=_deviceTimeZone;
 @property(nonatomic) BOOL includeSpokenNames; // @synthesize includeSpokenNames=_includeSpokenNames;
-@property(nonatomic) double distanceTraveled; // @synthesize distanceTraveled=_distanceTraveled;
 @property(nonatomic) double timeSinceMapViewportChanged; // @synthesize timeSinceMapViewportChanged=_timeSinceMapViewportChanged;
 @property(nonatomic) double timeSinceMapEnteredForeground; // @synthesize timeSinceMapEnteredForeground=_timeSinceMapEnteredForeground;
-@property(retain, nonatomic) NSMutableArray *filterByBusinessTelephones; // @synthesize filterByBusinessTelephones=_filterByBusinessTelephones;
 @property(nonatomic) BOOL isFromAPI; // @synthesize isFromAPI=_isFromAPI;
 @property(nonatomic) BOOL suppressResultsRequiringAttribution; // @synthesize suppressResultsRequiringAttribution=_suppressResultsRequiringAttribution;
 @property(nonatomic) int sequenceNumber; // @synthesize sequenceNumber=_sequenceNumber;
@@ -161,7 +158,6 @@
 @property(retain, nonatomic) GEOLatLng *deviceLocation; // @synthesize deviceLocation=_deviceLocation;
 @property(retain, nonatomic) NSString *deviceCountryCode; // @synthesize deviceCountryCode=_deviceCountryCode;
 @property(retain, nonatomic) NSString *suggestionsPrefix; // @synthesize suggestionsPrefix=_suggestionsPrefix;
-@property(nonatomic) BOOL allowABTestResponse; // @synthesize allowABTestResponse=_allowABTestResponse;
 @property(nonatomic) BOOL structuredSearch; // @synthesize structuredSearch=_structuredSearch;
 @property(nonatomic) BOOL includeSuggestionsOnly; // @synthesize includeSuggestionsOnly=_includeSuggestionsOnly;
 @property(nonatomic) int localSearchProviderID; // @synthesize localSearchProviderID=_localSearchProviderID;
@@ -176,13 +172,12 @@
 @property(nonatomic) BOOL includeBusinessRating; // @synthesize includeBusinessRating=_includeBusinessRating;
 @property(nonatomic) int businessSortOrder; // @synthesize businessSortOrder=_businessSortOrder;
 @property(nonatomic) CDStruct_612aec5b sessionGUID; // @synthesize sessionGUID=_sessionGUID;
-@property(nonatomic) int sessionID; // @synthesize sessionID=_sessionID;
-@property(nonatomic) int resultOffset; // @synthesize resultOffset=_resultOffset;
 @property(nonatomic) BOOL includePhonetics; // @synthesize includePhonetics=_includePhonetics;
 @property(retain, nonatomic) GEOMapRegion *mapRegion; // @synthesize mapRegion=_mapRegion;
 @property(retain, nonatomic) NSString *search; // @synthesize search=_search;
 @property(retain, nonatomic) GEOLocation *location; // @synthesize location=_location;
 @property(retain, nonatomic) GEOAddress *address; // @synthesize address=_address;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -193,6 +188,14 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) BOOL hasIncludeNameForForwardGeocodingResults;
+@property(readonly, nonatomic) BOOL hasSearchLocation;
+- (void)setOptionalSuppressionReasons:(int *)arg1 count:(unsigned int)arg2;
+- (int)optionalSuppressionReasonAtIndex:(unsigned int)arg1;
+- (void)addOptionalSuppressionReason:(int)arg1;
+- (void)clearOptionalSuppressionReasons;
+@property(readonly, nonatomic) int *optionalSuppressionReasons;
+@property(readonly, nonatomic) unsigned int optionalSuppressionReasonsCount;
 @property(nonatomic) BOOL hasSearchSource;
 @property(nonatomic) BOOL hasIncludeMatchedToken;
 @property(nonatomic) BOOL hasIncludeRevgeoRequestTemplate;
@@ -221,6 +224,7 @@
 @property(nonatomic) BOOL hasIncludeQuads;
 @property(nonatomic) BOOL hasGeoId;
 @property(nonatomic) BOOL hasIncludeTravelDistance;
+@property(nonatomic) BOOL hasIsStrictGeocoding;
 @property(nonatomic) BOOL hasPlaceTypeLimit;
 @property(readonly, nonatomic) BOOL hasSuggestionsOptions;
 @property(nonatomic) BOOL hasTransportTypeForTravelTimes;
@@ -228,13 +232,8 @@
 @property(readonly, nonatomic) BOOL hasClientCapabilities;
 @property(readonly, nonatomic) BOOL hasDeviceTimeZone;
 @property(nonatomic) BOOL hasIncludeSpokenNames;
-@property(nonatomic) BOOL hasDistanceTraveled;
 @property(nonatomic) BOOL hasTimeSinceMapViewportChanged;
 @property(nonatomic) BOOL hasTimeSinceMapEnteredForeground;
-- (id)filterByBusinessTelephoneAtIndex:(unsigned int)arg1;
-- (unsigned int)filterByBusinessTelephonesCount;
-- (void)addFilterByBusinessTelephone:(id)arg1;
-- (void)clearFilterByBusinessTelephones;
 @property(nonatomic) BOOL hasIsFromAPI;
 @property(nonatomic) BOOL hasSuppressResultsRequiringAttribution;
 @property(nonatomic) BOOL hasSequenceNumber;
@@ -243,7 +242,6 @@
 @property(readonly, nonatomic) BOOL hasDeviceLocation;
 @property(readonly, nonatomic) BOOL hasDeviceCountryCode;
 @property(readonly, nonatomic) BOOL hasSuggestionsPrefix;
-@property(nonatomic) BOOL hasAllowABTestResponse;
 @property(nonatomic) BOOL hasStructuredSearch;
 @property(nonatomic) BOOL hasIncludeSuggestionsOnly;
 @property(nonatomic) BOOL hasLocalSearchProviderID;
@@ -261,8 +259,6 @@
 @property(nonatomic) BOOL hasIncludeBusinessRating;
 @property(nonatomic) BOOL hasBusinessSortOrder;
 @property(nonatomic) BOOL hasSessionGUID;
-@property(nonatomic) BOOL hasSessionID;
-@property(nonatomic) BOOL hasResultOffset;
 @property(nonatomic) BOOL hasMaxResults;
 @property(nonatomic) int maxResults; // @synthesize maxResults=_maxResults;
 @property(nonatomic) BOOL hasIncludePhonetics;
@@ -282,14 +278,10 @@
 - (void)clearBusinessIDs;
 @property(readonly, nonatomic) unsigned long long *businessIDs;
 @property(readonly, nonatomic) unsigned int businessIDsCount;
-- (void)setPlaceIDs:(long long *)arg1 count:(unsigned int)arg2;
-- (long long)placeIDAtIndex:(unsigned int)arg1;
-- (void)addPlaceID:(long long)arg1;
-- (void)clearPlaceIDs;
-@property(readonly, nonatomic) long long *placeIDs;
-@property(readonly, nonatomic) unsigned int placeIDsCount;
 - (void)dealloc;
-- (id)initWithPlace:(id)arg1;
+- (id)initWithTraits:(id)arg1 maxResults:(int)arg2;
+- (id)initWithTraits:(id)arg1 includeEntryPoints:(BOOL)arg2;
+- (id)initWithTraits:(id)arg1;
 
 @end
 

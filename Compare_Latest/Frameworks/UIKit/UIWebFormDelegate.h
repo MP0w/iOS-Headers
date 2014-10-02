@@ -8,7 +8,7 @@
 
 #import "WebFormDelegate.h"
 
-@class UIWebBrowserView, _UIWebFormDelegateEditedFormsMap;
+@class NSString, UIWebBrowserView, _UIWebFormDelegateEditedFormsMap;
 
 __attribute__((visibility("hidden")))
 @interface UIWebFormDelegate : NSObject <WebFormDelegate>
@@ -35,6 +35,12 @@ __attribute__((visibility("hidden")))
 - (void)_clearEditedFormsInFrame:(id)arg1;
 - (BOOL)_shouldIgnoreFormTextChangesInFrame:(id)arg1;
 - (void)_didEditFormElement:(id)arg1 inFrame:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

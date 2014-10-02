@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (void)readFontSchemeEntries:(struct _xmlNode *)arg1 font:(id)arg2;
-+ (void)readFontScheme:(struct _xmlNode *)arg1 toFontScheme:(id)arg2;
++ (void)readFontScheme:(struct _xmlNode *)arg1 toFontScheme:(id)arg2 drawingState:(id)arg3;
 
 @end
 

@@ -26,5 +26,11 @@
 - (id)initWithStyle:(int)arg1 title:(id)arg2 message:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)initWithTitle:(id)arg1 message:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
+
 @end
 

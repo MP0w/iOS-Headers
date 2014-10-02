@@ -8,6 +8,8 @@
 
 #import "EKEventEditViewDelegate.h"
 
+@class NSString;
+
 @interface DDCreateEventAction : DDAction <EKEventEditViewDelegate>
 {
 }
@@ -16,6 +18,12 @@
 - (void)eventEditViewController:(id)arg1 didCompleteWithAction:(int)arg2;
 - (int)interactionType;
 - (id)localizedName;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     OADMovie *mMovie;
 }
 
+- (id)description;
 - (void)createPictureFramePresetGeometry;
 - (id)createImageFill;
 - (void)setParentTextListStyle:(id)arg1;

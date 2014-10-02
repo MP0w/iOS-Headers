@@ -6,41 +6,48 @@
 
 #import "NSObject.h"
 
-@class TSDGLShader;
+@class TSDGLShader, TSDGLTextureInfo;
 
 __attribute__((visibility("hidden")))
 @interface TSDGLEdgeDistanceFieldMorphEffect : NSObject
 {
     BOOL _didTeardown;
-    struct CGSize _outgoingTextureSize;
-    struct CGSize _incomingTextureSize;
     struct CGRect _outgoingTextBounds;
     struct CGRect _incomingTextBounds;
-    struct CGPoint _skewAngleOffsetX;
-    BOOL _didSetupSkewAngleOffsetX;
+    struct CGAffineTransform _outgoingTextureEdgeInsetsAdjustmentMatrix;
+    struct CGAffineTransform _incomingTextureEdgeInsetsAdjustmentMatrix;
+    struct {
+        float skew;
+        float skewOffset;
+        float scale;
+    } _textureAdjustment;
+    BOOL _didSetupTextureAdjustment;
     BOOL _isTextStyleIdenticalExceptSize;
-    unsigned int _outgoingTextureName;
-    unsigned int _incomingTextureName;
+    TSDGLTextureInfo *_outgoingTextureInfo;
+    TSDGLTextureInfo *_incomingTextureInfo;
     TSDGLShader *_shader;
 }
 
++ (void)didEndUsingShaders;
++ (void)willBeginUsingShaders;
 @property(nonatomic) BOOL isTextStyleIdenticalExceptSize; // @synthesize isTextStyleIdenticalExceptSize=_isTextStyleIdenticalExceptSize;
 @property(readonly, nonatomic) TSDGLShader *shader; // @synthesize shader=_shader;
-@property(readonly, nonatomic) unsigned int incomingTextureName; // @synthesize incomingTextureName=_incomingTextureName;
-@property(readonly, nonatomic) unsigned int outgoingTextureName; // @synthesize outgoingTextureName=_outgoingTextureName;
+@property(readonly, nonatomic) TSDGLTextureInfo *incomingTextureInfo; // @synthesize incomingTextureInfo=_incomingTextureInfo;
+@property(readonly, nonatomic) TSDGLTextureInfo *outgoingTextureInfo; // @synthesize outgoingTextureInfo=_outgoingTextureInfo;
 - (void)setupShaderWithMorphPercent:(float)arg1 MVPMatrix:(struct CATransform3D)arg2 generateTextureMatrices:(BOOL)arg3;
 - (void)setupShaderWithMorphPercent:(float)arg1 MVPMatrix:(struct CATransform3D)arg2 outgoingTextureMatrix:(struct CGAffineTransform)arg3 incomingTextureMatrix:(struct CGAffineTransform)arg4;
-- (struct CGPoint)textureMatchingSkewAngleOffsetX;
-- (struct CGAffineTransform)p_affineTransformConvertingRect:(struct CGRect)arg1 intoRect:(struct CGRect)arg2 atPercent:(float)arg3;
-- (struct CGAffineTransform)p_affineTransformWithSkewAngleOffsetX:(struct CGPoint)arg1 textureSize:(struct CGSize)arg2;
-- (float)p_errorFromApplyingSkewAngleOffsetX:(struct CGPoint)arg1 toOutgoingScanlines:(float *)arg2 incomingScanlines:(float *)arg3 samples:(unsigned int)arg4;
-- (void)p_fillScanlineLocations:(float *)arg1 samples:(unsigned int)arg2 fromTexture:(unsigned int)arg3 textureSize:(struct CGSize)arg4;
+- (CDStruct_869f9c67)textureMatchingTextureAdjustment;
+- (void)setupIfNecessary;
+- (struct CGAffineTransform)p_affineTransformWithTextureAdjustment:(CDStruct_869f9c67)arg1 textureSize:(struct CGSize)arg2;
+- (float)p_errorFromApplyingTextureAdjustment:(CDStruct_869f9c67)arg1 toOutgoingScanlineCenters:(struct CGPoint *)arg2 outgoingScanlineZeroes:(struct CGPoint *)arg3 incomingScanlineCenters:(struct CGPoint *)arg4 incomingScanlineZeroes:(struct CGPoint *)arg5 samples:(unsigned int)arg6;
+- (float)p_errorFromApplyingTextureAdjustment:(CDStruct_869f9c67)arg1 toOutgoingValue:(float)arg2 incomingValue:(float)arg3 sample:(unsigned int)arg4 sampleCount:(unsigned int)arg5;
+- (void)p_fillScanlineCenters:(struct CGPoint *)arg1 scanlineMinMaxZeroes:(struct CGPoint *)arg2 samples:(unsigned int)arg3 fromTexture:(unsigned int)arg4 textureSize:(struct CGSize)arg5;
 - (struct CGRect)p_actualPixelBoundsOfTexturedRectangle:(id)arg1;
 - (struct CGContext *)newContextFromTexture:(id)arg1;
 - (void)teardown;
 - (void)dealloc;
-- (id)initWithOutgoingTextureName:(unsigned int)arg1 outgoingTextureSize:(struct CGSize)arg2 outgoingTextBounds:(struct CGRect)arg3 outgoingColor:(CDStruct_f2e236b6)arg4 incomingTextureName:(unsigned int)arg5 incomingTextureSize:(struct CGSize)arg6 incomingTextBounds:(struct CGRect)arg7 incomingColor:(CDStruct_f2e236b6)arg8;
-- (id)initWithOutgoingTR:(id)arg1 incomingTR:(id)arg2;
+- (id)initWithOutgoingTextureName:(unsigned int)arg1 outgoingTextureSize:(struct CGSize)arg2 outgoingTextBounds:(struct CGRect)arg3 outgoingColor:(CDStruct_818bb265)arg4 incomingTextureName:(unsigned int)arg5 incomingTextureSize:(struct CGSize)arg6 incomingTextBounds:(struct CGRect)arg7 incomingColor:(CDStruct_818bb265)arg8 GLState:(id)arg9 motionBlur:(BOOL)arg10 motionBlurIgnoreTextureOpacity:(BOOL)arg11;
+- (id)initWithOutgoingTR:(id)arg1 incomingTR:(id)arg2 GLState:(id)arg3 motionBlur:(BOOL)arg4 motionBlurIgnoreTextureOpacity:(BOOL)arg5;
 
 @end
 

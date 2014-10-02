@@ -9,7 +9,7 @@
 #import "TSDCanvasDelegate.h"
 #import "TSDPartitioner.h"
 
-@class NSObject<TSDInfo>, TSDCanvas, TSDLayout, TSUPointerKeyDictionary;
+@class NSObject<TSDInfo>, NSString, TSDCanvas, TSDLayout, TSUPointerKeyDictionary;
 
 __attribute__((visibility("hidden")))
 @interface TSDDefaultPartitioner : NSObject <TSDPartitioner, TSDCanvasDelegate>
@@ -42,6 +42,12 @@ __attribute__((visibility("hidden")))
 - (id)hintForLayout:(id)arg1;
 - (void)dealloc;
 - (id)initWithInfo:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

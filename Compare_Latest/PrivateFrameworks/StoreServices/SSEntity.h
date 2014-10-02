@@ -8,7 +8,7 @@
 
 #import "SSXPCCoding.h"
 
-@class NSArray, NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, SSXPCConnection;
+@class NSArray, NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, SSXPCConnection;
 
 @interface SSEntity : NSObject <SSXPCCoding>
 {
@@ -41,8 +41,8 @@
 - (void)_addCachedPropertyValues:(id)arg1;
 - (void)_addCachedExternalValues:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (id)description;
+@property(readonly) unsigned int hash;
+@property(readonly, copy) NSString *description;
 - (id)valueForExternalProperty:(id)arg1;
 - (BOOL)setExternalValuesWithDictionary:(id)arg1;
 - (void)resetCachedProperties:(const id *)arg1 count:(unsigned int)arg2;
@@ -56,6 +56,10 @@
 - (void)dealloc;
 - (id)_initWithPersistentIdentifier:(long long)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

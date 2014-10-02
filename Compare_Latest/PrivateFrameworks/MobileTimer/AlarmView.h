@@ -6,28 +6,48 @@
 
 #import "UIView.h"
 
-@class DigitalClockLabel, NSString, UILabel, UISwitch;
+#import "MTDateLabelObserver.h"
 
-@interface AlarmView : UIView
+@class DigitalClockLabel, NSString, UIFont, UILabel, UISwitch;
+
+@interface AlarmView : UIView <MTDateLabelObserver>
 {
+    UIView *_singleStyleDetailContainer;
     int _style;
     DigitalClockLabel *_timeLabel;
     NSString *_name;
     NSString *_repeatText;
     UILabel *_detailLabel;
+    UILabel *_nameLabel;
+    UILabel *_repeatLabel;
+    UIFont *_nameFont;
+    UIFont *_repeatFont;
+    UILabel *_secondaryDesignatorLabel;
     UISwitch *_enabledSwitch;
 }
 
 @property(readonly, nonatomic) UISwitch *enabledSwitch; // @synthesize enabledSwitch=_enabledSwitch;
-@property(retain, nonatomic) UILabel *detailLabel; // @synthesize detailLabel=_detailLabel;
+@property(readonly, retain, nonatomic) UILabel *secondaryDesignatorLabel; // @synthesize secondaryDesignatorLabel=_secondaryDesignatorLabel;
+@property(retain, nonatomic) UIFont *repeatFont; // @synthesize repeatFont=_repeatFont;
+@property(retain, nonatomic) UIFont *nameFont; // @synthesize nameFont=_nameFont;
+@property(readonly, retain, nonatomic) UILabel *repeatLabel; // @synthesize repeatLabel=_repeatLabel;
+@property(readonly, retain, nonatomic) UILabel *nameLabel; // @synthesize nameLabel=_nameLabel;
+@property(readonly, retain, nonatomic) UILabel *detailLabel; // @synthesize detailLabel=_detailLabel;
 @property(copy, nonatomic) NSString *repeatText; // @synthesize repeatText=_repeatText;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) DigitalClockLabel *timeLabel; // @synthesize timeLabel=_timeLabel;
 @property(nonatomic) int style; // @synthesize style=_style;
+- (void)dateLabel:(id)arg1 timeDesignatorDidChange:(id)arg2;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (void)setName:(id)arg1 andRepeatText:(id)arg2 textColor:(id)arg3;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

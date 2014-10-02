@@ -10,7 +10,7 @@
 #import "KNContentAwareFrameAnimator.h"
 #import "KNContentAwareTransitionAnimator.h"
 
-@class KNAnimParameterGroup, KNMotionBlurAnimationPluginWrapper;
+@class KNAnimParameterGroup, KNMotionBlurAnimationPluginWrapper, NSString;
 
 __attribute__((visibility("hidden")))
 @interface KNContentAwarePop : KNAnimationEffect <KNContentAwareTransitionAnimator, KNContentAwareFrameAnimator, KNAnimationPluginArchiving>
@@ -22,7 +22,6 @@ __attribute__((visibility("hidden")))
 + (void)downgradeAttributes:(id *)arg1 animationName:(id *)arg2 warning:(id *)arg3 type:(int)arg4 isToClassic:(BOOL)arg5 version:(unsigned long long)arg6;
 + (void)upgradeAttributes:(id *)arg1 animationName:(id)arg2 warning:(id *)arg3 type:(int)arg4 isFromClassic:(BOOL)arg5 version:(unsigned long long)arg6;
 + (BOOL)requiresPerspectiveTransform;
-+ (BOOL)requiresMagicMoveTextures;
 + (BOOL)requiresBullets;
 + (BOOL)isCharacterAwareEffect;
 + (id)thumbnailImageNameForType:(int)arg1;
@@ -39,6 +38,12 @@ __attribute__((visibility("hidden")))
 - (void)animationWillBeginWithContext:(id)arg1;
 - (id)animationsWithContext:(id)arg1;
 - (id)initWithAnimationContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

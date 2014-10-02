@@ -41,7 +41,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) BOOL isRecoverable;
 @property(readonly) BOOL isSuccess;
 @property(readonly) NSError *requestError;
-@property(readonly) NSString *consoleDescription;
+@property(readonly, copy) NSString *consoleDescription;
 @property(readonly) int statusCode;
 - (id)description;
 - (id)initWithCode:(unsigned int)arg1 headerFields:(id)arg2 responseDictionary:(id)arg3 MIMEType:(id)arg4 error:(id)arg5;

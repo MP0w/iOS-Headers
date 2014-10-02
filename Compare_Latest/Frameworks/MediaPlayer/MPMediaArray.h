@@ -14,6 +14,6 @@
 
 
 // Remaining properties
-@property(readonly, nonatomic) MPMediaQuerySectionInfo *sectionInfo; // @dynamic sectionInfo;
+@property(readonly, copy, nonatomic) MPMediaQuerySectionInfo *sectionInfo; // @dynamic sectionInfo;
 @end
 

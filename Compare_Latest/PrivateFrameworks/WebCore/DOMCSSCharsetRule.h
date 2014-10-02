@@ -13,7 +13,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-@property(readonly) NSString *encoding;
+@property(readonly, copy) NSString *encoding;
 
 @end
 

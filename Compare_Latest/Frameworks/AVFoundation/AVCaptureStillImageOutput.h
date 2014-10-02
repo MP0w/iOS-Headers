@@ -13,17 +13,29 @@
     AVCaptureStillImageOutputInternal *_internal;
 }
 
-+ (id)jpegStillImageNSDataRepresentationForBGRASurface:(void *)arg1 size:(unsigned long)arg2;
 + (struct CGImage *)cgImageForBGRASurface:(void *)arg1 size:(unsigned long)arg2;
 + (id)jpegStillImageNSDataRepresentationForSurface:(void *)arg1 size:(unsigned long)arg2 metadata:(id)arg3;
 + (id)jpegStillImageNSDataRepresentation:(struct opaqueCMSampleBuffer *)arg1;
 + (unsigned long)maxStillImageJPEGDataSize;
 + (void)initialize;
++ (id)alloc;
+- (void)playShutterSound:(unsigned long)arg1;
 - (void)handleNotification:(id)arg1 payload:(id)arg2;
-- (void)handlePhotoTakenForRequest:(id)arg1 info:(id)arg2 imageIsEV0:(char *)arg3;
+- (void)handleNotificationForPrepareRequest:(id)arg1 withPayload:(id)arg2;
+- (void)handleNotificationForRequest:(id)arg1 withPayload:(id)arg2 imageIsEV0:(char *)arg3;
+- (void)_setStillImageStabilizationAutomaticallyEnabled:(BOOL)arg1;
+- (void)detachSafelyFromFigCaptureSession:(struct OpaqueFigCaptureSession *)arg1;
+- (void)attachSafelyToFigCaptureSession:(struct OpaqueFigCaptureSession *)arg1;
+- (void)_updateMaxBracketedStillImageCaptureCountForSourceFormat:(id)arg1;
+- (BOOL)_preparedForBracketedCaptureWithSettings:(id)arg1;
+- (id)_figCaptureStillImageSettingsForBracketedCaptureSettingsArray:(id)arg1 fromConnection:(id)arg2;
+- (BOOL)_bracketedSettingsAreValid:(id)arg1 fromConnection:(id)arg2 exceptionReason:(id *)arg3;
+- (void)captureStillImageBracketAsynchronouslyFromConnection:(id)arg1 withSettingsArray:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)prepareToCaptureStillImageBracketFromConnection:(id)arg1 withSettingsArray:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (unsigned int)maxBracketedCaptureStillImageCount;
 - (void)captureStillImageSurfaceAsynchronouslyFromConnection:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)captureStillImageAsynchronouslyFromConnection:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)configureAndInitiateCopyStillImageForRequest:(id)arg1;
+- (id)_figCaptureStillImageSettingsForConnection:(id)arg1;
 - (id)firstActiveConnection;
 @property(readonly, getter=isCapturingStillImage) BOOL capturingStillImage;
 - (BOOL)resumeVideoProcessing;
@@ -34,8 +46,9 @@
 - (void)setRawCaptureEnabled:(BOOL)arg1;
 - (BOOL)isRawCaptureEnabled;
 - (BOOL)isRawCaptureSupported;
-- (void)setChromaNoiseReductionEnabled:(BOOL)arg1;
-- (BOOL)isChromaNoiseReductionEnabled;
+- (void)setNoiseReductionEnabled:(BOOL)arg1;
+- (BOOL)isNoiseReductionEnabled;
+@property(nonatomic, getter=isHighResolutionStillImageOutputEnabled) BOOL highResolutionStillImageOutputEnabled;
 @property(nonatomic) BOOL automaticallyEnablesStillImageStabilizationWhenAvailable;
 @property(readonly, nonatomic, getter=isStillImageStabilizationActive) BOOL stillImageStabilizationActive;
 @property(readonly, nonatomic, getter=isStillImageStabilizationSupported) BOOL stillImageStabilizationSupported;
@@ -56,9 +69,9 @@
 @property(readonly, nonatomic) NSArray *availableImageDataCodecTypes;
 @property(readonly, nonatomic) NSArray *availableImageDataCVPixelFormatTypes;
 @property(copy, nonatomic) NSDictionary *outputSettings;
-- (void)_applyOverridesToCaptureOptions:(id)arg1;
 - (void)removeConnection:(id)arg1;
 - (id)addConnection:(id)arg1 error:(id *)arg2;
+- (void)clearPreparedBracketIfNeeded;
 - (void)updateSISSupportedForSourceDevice:(id)arg1;
 - (void)dealloc;
 - (id)init;

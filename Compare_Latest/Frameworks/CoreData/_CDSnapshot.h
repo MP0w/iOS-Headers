@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "NSMutableCopying.h"
 
-@class NSManagedObjectID;
+@class NSEntityDescription, NSManagedObjectID;
 
 __attribute__((visibility("hidden")))
 @interface _CDSnapshot : NSObject <NSCopying, NSMutableCopying>
@@ -31,8 +31,8 @@ __attribute__((visibility("hidden")))
 + (Class)classForEntity:(id)arg1;
 + (void)initialize;
 - (id)_snapshot_;
-- (id)objectID;
-- (id)entity;
+@property(readonly, nonatomic) NSManagedObjectID *objectID;
+@property(readonly, nonatomic) NSEntityDescription *entity;
 - (void)setValue:(id)arg1 forKey:(id)arg2;
 - (id)valueForKey:(id)arg1;
 - (id)description;

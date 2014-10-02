@@ -8,7 +8,7 @@
 
 #import "UIWebViewDelegate.h"
 
-@class NSArray, NSDictionary, NSMutableArray, NSString, RUIObjectModel, RUIPasscodeView, RUISpinnerView, RUITableView, RUIWebView, UIBarButtonItem, UILabel, UIToolbar, UIView;
+@class NSArray, NSDictionary, NSMutableArray, NSString, RUIBarButtonItem, RUIElement<RUITopLevelPageElement>, RUIObjectModel, RUIPasscodeView, RUISpinnerView, RUITableView, RUIWebView, UIBarButtonItem, UILabel, UIToolbar, UIView;
 
 @interface RUIPage : UIViewController <UIWebViewDelegate>
 {
@@ -22,52 +22,55 @@
     BOOL _loading;
     NSString *_navTitle;
     NSString *_loadingTitle;
-    NSDictionary *_rightNavigationBarButton;
-    NSDictionary *_leftNavigationBarButton;
     BOOL _hidesBackButton;
     UIToolbar *_toolbar;
-    NSDictionary *_rightToolbarButton;
-    NSDictionary *_leftToolbarButton;
     UIBarButtonItem *_leftToolbarItem;
     UIBarButtonItem *_rightToolbarItem;
     UIBarButtonItem *_middleFlexSpace;
     UIBarButtonItem *_leftFlexSpace;
-    RUIObjectModel *_objectModel;
     RUIPage *_parentPage;
     NSMutableArray *_childPages;
     BOOL _showsTitlesAsHeaderViews;
+    RUIElement<RUITopLevelPageElement> *_primaryElement;
     NSString *_backButtonTitle;
     int _loadingIndicatorStyle;
-    NSDictionary *_middleToolbarButton;
+    RUIBarButtonItem *_rightNavigationBarButtonItem;
+    RUIBarButtonItem *_leftNavigationBarButtonItem;
+    RUIBarButtonItem *_rightToolbarButtonItem;
+    RUIBarButtonItem *_leftToolbarButtonItem;
+    RUIBarButtonItem *_middleToolbarButtonItem;
     UIBarButtonItem *_middleToolbarItem;
+    RUIObjectModel *_objectModel;
     float _customMargin;
     struct UIEdgeInsets _titleLabelPadding;
 }
 
 @property(nonatomic) float customMargin; // @synthesize customMargin=_customMargin;
-@property(readonly, nonatomic) RUIPage *parentPage; // @synthesize parentPage=_parentPage;
+@property(readonly, nonatomic) __weak RUIPage *parentPage; // @synthesize parentPage=_parentPage;
 @property(readonly, nonatomic) NSArray *childPages; // @synthesize childPages=_childPages;
-@property(nonatomic) RUIObjectModel *objectModel; // @synthesize objectModel=_objectModel;
+@property(nonatomic) __weak RUIObjectModel *objectModel; // @synthesize objectModel=_objectModel;
+@property(readonly, nonatomic) UIToolbar *toolbar; // @synthesize toolbar=_toolbar;
 @property(retain, nonatomic) UIBarButtonItem *middleToolbarItem; // @synthesize middleToolbarItem=_middleToolbarItem;
-@property(retain, nonatomic) NSDictionary *middleToolbarButton; // @synthesize middleToolbarButton=_middleToolbarButton;
+@property(retain, nonatomic) UIBarButtonItem *leftToolbarItem; // @synthesize leftToolbarItem=_leftToolbarItem;
+@property(retain, nonatomic) UIBarButtonItem *rightToolbarItem; // @synthesize rightToolbarItem=_rightToolbarItem;
+@property(retain, nonatomic) RUIBarButtonItem *middleToolbarButtonItem; // @synthesize middleToolbarButtonItem=_middleToolbarButtonItem;
+@property(retain, nonatomic) RUIBarButtonItem *leftToolbarButtonItem; // @synthesize leftToolbarButtonItem=_leftToolbarButtonItem;
+@property(retain, nonatomic) RUIBarButtonItem *rightToolbarButtonItem; // @synthesize rightToolbarButtonItem=_rightToolbarButtonItem;
+@property(retain, nonatomic) RUIBarButtonItem *leftNavigationBarButtonItem; // @synthesize leftNavigationBarButtonItem=_leftNavigationBarButtonItem;
+@property(retain, nonatomic) RUIBarButtonItem *rightNavigationBarButtonItem; // @synthesize rightNavigationBarButtonItem=_rightNavigationBarButtonItem;
+@property(nonatomic) BOOL hidesBackButton; // @synthesize hidesBackButton=_hidesBackButton;
 @property(nonatomic, getter=isLoading) BOOL loading; // @synthesize loading=_loading;
 @property(nonatomic) int loadingIndicatorStyle; // @synthesize loadingIndicatorStyle=_loadingIndicatorStyle;
 @property(nonatomic) struct UIEdgeInsets titleLabelPadding; // @synthesize titleLabelPadding=_titleLabelPadding;
 @property(nonatomic) BOOL showsTitlesAsHeaderViews; // @synthesize showsTitlesAsHeaderViews=_showsTitlesAsHeaderViews;
 @property(copy, nonatomic) NSString *backButtonTitle; // @synthesize backButtonTitle=_backButtonTitle;
-@property(nonatomic) BOOL hidesBackButton; // @synthesize hidesBackButton=_hidesBackButton;
-@property(readonly, nonatomic) UIToolbar *toolbar; // @synthesize toolbar=_toolbar;
-@property(readonly, nonatomic) UIView *containerView; // @synthesize containerView=_containerView;
-@property(retain, nonatomic) UIBarButtonItem *leftToolbarItem; // @synthesize leftToolbarItem=_leftToolbarItem;
-@property(retain, nonatomic) UIBarButtonItem *rightToolbarItem; // @synthesize rightToolbarItem=_rightToolbarItem;
-@property(retain, nonatomic) NSDictionary *leftToolbarButton; // @synthesize leftToolbarButton=_leftToolbarButton;
-@property(retain, nonatomic) NSDictionary *rightToolbarButton; // @synthesize rightToolbarButton=_rightToolbarButton;
-@property(retain, nonatomic) NSDictionary *leftNavigationBarButton; // @synthesize leftNavigationBarButton=_leftNavigationBarButton;
-@property(retain, nonatomic) NSDictionary *rightNavigationBarButton; // @synthesize rightNavigationBarButton=_rightNavigationBarButton;
 @property(copy, nonatomic) NSString *loadingTitle; // @synthesize loadingTitle=_loadingTitle;
 @property(copy, nonatomic) NSString *navTitle; // @synthesize navTitle=_navTitle;
-@property(retain, nonatomic) NSString *validationFunction; // @synthesize validationFunction=_validationFunction;
+@property(copy, nonatomic) NSString *validationFunction; // @synthesize validationFunction=_validationFunction;
+@property(retain, nonatomic) RUIElement<RUITopLevelPageElement> *primaryElement; // @synthesize primaryElement=_primaryElement;
+@property(readonly, nonatomic) UIView *containerView; // @synthesize containerView=_containerView;
 @property(copy, nonatomic) NSString *pageID; // @synthesize pageID=_pageID;
+- (void).cxx_destruct;
 - (id)contentScrollView;
 - (void)viewDidLayoutSubviews;
 - (unsigned int)supportedInterfaceOrientations;
@@ -86,6 +89,7 @@
 @property(readonly, nonatomic) RUIWebView *webViewOM;
 - (BOOL)hasTableView;
 @property(readonly, nonatomic) RUITableView *tableViewOM;
+- (id)elementsWithName:(id)arg1;
 - (void)_updateParentPage;
 - (void)_updateWithCompletedChild:(id)arg1;
 - (void)_addChildPage:(id)arg1;
@@ -101,17 +105,30 @@
 - (void)_leftNavigationBarButtonPressed:(id)arg1;
 - (void)_rightNavigationBarButtonPressed:(id)arg1;
 - (void)_barButtonPressed:(id)arg1 isRight:(BOOL)arg2 isNavbar:(BOOL)arg3;
+@property(readonly, nonatomic) NSArray *buttons;
+@property(retain, nonatomic) NSDictionary *leftNavigationBarButton;
+@property(retain, nonatomic) NSDictionary *rightNavigationBarButton;
+@property(retain, nonatomic) NSDictionary *leftToolbarButton;
+@property(retain, nonatomic) NSDictionary *middleToolbarButton;
+@property(retain, nonatomic) NSDictionary *rightToolbarButton;
 - (void)_updateToolbar;
 - (id)flexibleSpace;
+- (void)setLeftNavigationBarButtonItem:(id)arg1 barButtonItem:(id)arg2;
+- (void)setRightNavigationBarButtonItem:(id)arg1 barButtonItem:(id)arg2;
 - (void)setButton:(id)arg1 enabled:(BOOL)arg2;
-@property(readonly, nonatomic) NSArray *buttons;
-- (id)_barButtonItemForDict:(id)arg1 action:(SEL)arg2;
+@property(readonly, nonatomic) NSArray *buttonItems;
+- (BOOL)needsToShowToolbarInPrefsAppRoot;
 - (void)setHasToolbar;
 - (void)_reloadTitleLabel;
 @property(readonly, nonatomic) UILabel *titleLabel;
 - (void)_updateLoadingUI;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -14,7 +14,7 @@
 #import "UITextInput.h"
 #import "UITextInputControllerDelegate.h"
 
-@class NSDictionary, NSTextContainer, NSTimer, UIAutoscroll, UITextField, UITextInputController, UITextPosition, UITextRange, UIView, _UICascadingTextStorage, _UIFieldEditorContentView, _UIFieldEditorLayoutManager;
+@class NSDictionary, NSString, NSTextContainer, NSTimer, UIAutoscroll, UITextField, UITextInputController, UITextPosition, UITextRange, UIView, _UICascadingTextStorage, _UIFieldEditorContentView, _UIFieldEditorLayoutManager;
 
 @interface UIFieldEditor : UIScrollView <UITextInputControllerDelegate, NSLayoutManagerDelegate, NSUITextViewCommonMethods, UIAutoscrollContainer, UITextInput, UITextAutoscrolling, UIKeyboardInput>
 {
@@ -126,8 +126,7 @@
 - (BOOL)drawsAsAtom;
 - (void)scrollSelectionToVisible:(BOOL)arg1;
 - (void)_scrollRangeToVisible:(struct _NSRange)arg1 animated:(BOOL)arg2;
-- (BOOL)notificationsDisabled;
-- (void)setNotificationsDisabled:(BOOL)arg1;
+- (void)_performWhileSuppressingDelegateNotifications:(CDUnknownBlockType)arg1;
 - (BOOL)hasMarkedText;
 - (unsigned int)characterOffsetAtPoint:(struct CGPoint)arg1;
 - (void)revealSelection;
@@ -164,6 +163,7 @@
 - (id)textColorForCaretSelection;
 - (id)textInputTraits;
 - (id)_textSelectingContainer;
+- (struct CGRect)_responderExternalTouchRectForWindow:(id)arg1;
 - (BOOL)isFirstResponder;
 - (id)_responderForBecomeFirstResponder;
 - (void)selectAll;
@@ -188,12 +188,16 @@
 // Remaining properties
 @property(nonatomic) int autocapitalizationType; // @dynamic autocapitalizationType;
 @property(nonatomic) int autocorrectionType; // @dynamic autocorrectionType;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(nonatomic) BOOL enablesReturnKeyAutomatically; // @dynamic enablesReturnKeyAutomatically;
+@property(readonly) unsigned int hash;
 @property(nonatomic) int keyboardAppearance; // @dynamic keyboardAppearance;
 @property(nonatomic) int keyboardType; // @dynamic keyboardType;
 @property(nonatomic) int returnKeyType; // @dynamic returnKeyType;
 @property(nonatomic) int selectionAffinity;
 @property(nonatomic) int spellCheckingType; // @dynamic spellCheckingType;
+@property(readonly) Class superclass;
 
 @end
 

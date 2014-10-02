@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary;
+@class NSMutableArray, NSMutableDictionary, NSString;
 
 @interface ICCameraFileProperties : NSObject
 {
@@ -24,8 +24,22 @@
     NSMutableDictionary *_metadata_hidden;
     unsigned int _orientation;
     BOOL _hasOverriddenOrientation;
+    double _duration;
+    NSString *_burstUUID;
+    BOOL _burstFavorite;
+    BOOL _burstPicked;
+    BOOL _highFramerate;
+    BOOL _timeLapse;
+    NSMutableArray *_sidecarFiles;
 }
 
+@property BOOL timeLapse; // @synthesize timeLapse=_timeLapse;
+@property BOOL highFramerate; // @synthesize highFramerate=_highFramerate;
+@property BOOL burstFavorite; // @synthesize burstFavorite=_burstFavorite;
+@property BOOL burstPicked; // @synthesize burstPicked=_burstPicked;
+@property(retain) NSString *burstUUID; // @synthesize burstUUID=_burstUUID;
+@property(retain) NSMutableArray *sidecarFiles; // @synthesize sidecarFiles=_sidecarFiles;
+@property double duration; // @synthesize duration=_duration;
 @property BOOL hasOverriddenOrientation; // @synthesize hasOverriddenOrientation=_hasOverriddenOrientation;
 @property unsigned int orientation; // @synthesize orientation=_orientation;
 @property(retain) NSMutableDictionary *metadata_hidden; // @synthesize metadata_hidden=_metadata_hidden;

@@ -17,15 +17,12 @@
 - (void)forceMMS;
 - (void)forceCancelComposition;
 - (void)setText:(NSString *)arg1 subject:(NSString *)arg2 addresses:(NSArray *)arg3;
-- (void)setText:(NSString *)arg1 addresses:(NSArray *)arg2;
 - (void)setTextEntryContentsVisible:(BOOL)arg1;
 - (void)disableCameraAttachments;
 - (void)setCanEditRecipients:(BOOL)arg1;
 - (void)setPendingAddresses:(NSArray *)arg1;
 - (BOOL)insertFilename:(NSString *)arg1 MIMEType:(NSString *)arg2 exportedFilename:(NSString *)arg3 options:(NSDictionary *)arg4;
-- (BOOL)insertFilename:(NSString *)arg1 MIMEType:(NSString *)arg2 exportedFilename:(NSString *)arg3;
 - (BOOL)insertData:(NSData *)arg1 MIMEType:(NSString *)arg2 exportedFilename:(NSString *)arg3;
 - (BOOL)insertAttachmentWithURL:(NSURL *)arg1 andDescription:(NSString *)arg2;
-- (BOOL)insertTextPart:(NSString *)arg1;
 @end
 

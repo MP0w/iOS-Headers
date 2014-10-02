@@ -8,13 +8,14 @@
 
 #import "TSWPTextSource.h"
 
-@class TSWPRangeMap;
+@class NSString, TSWPRangeMap;
 
 __attribute__((visibility("hidden")))
 @interface TSWPRubyTextSource : NSObject <TSWPTextSource>
 {
     vector_a9c0768e _spaceCharIndexes;
     vector_a9c0768e _bidiCharIndexes;
+    vector_b86883bc _bidiDirectionMarkIsRTLVector;
     id <TSWPTextSource> _source;
     TSWPRangeMap *_rangeMap;
     unsigned int _length;
@@ -51,6 +52,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (unsigned long)composedCharacterAtCharIndex:(unsigned int)arg1 isSurrogatePair:(char *)arg2;
 - (id)initWithSource:(id)arg1 subRange:(struct _NSRange)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

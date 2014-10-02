@@ -9,6 +9,8 @@
 @interface NSError (TSUIO)
 + (id)tsu_IOWriteErrorWithErrno:(int)arg1;
 + (id)tsu_IOReadErrorWithErrno:(int)arg1;
++ (id)tsu_IOErrorWithCode:(int)arg1 userInfo:(id)arg2;
 + (id)tsu_IOErrorWithCode:(int)arg1;
+- (int)tsu_IOErrorNumber;
 @end
 

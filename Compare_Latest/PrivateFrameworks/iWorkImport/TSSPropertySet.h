@@ -15,6 +15,8 @@ __attribute__((visibility("hidden")))
     id mIndexSet;
 }
 
++ (id)propertySetFromUnionOfPropertySets:(id)arg1;
++ (id)propertySetWithArray:(id)arg1;
 + (id)propertySet;
 + (id)propertySetWithProperties:(int)arg1;
 + (id)propertySetWithProperty:(int)arg1;

@@ -38,6 +38,7 @@
     unsigned int _replacedBulletinRecordID;
     unsigned int _originalRecordID;
     NSString *_albumUUID;
+    NSString *_albumCloudGUID;
     NSDate *_date;
     NSDate *_originalDate;
     NSDate *_expirationDate;
@@ -49,6 +50,7 @@
 @property(readonly) NSDate *date; // @synthesize date=_date;
 @property(readonly) NSString *senderEmailAddress; // @synthesize senderEmailAddress=_senderEmailAddress;
 @property(readonly) NSString *mainAssetUUID; // @synthesize mainAssetUUID=_mainAssetUUID;
+@property(readonly) NSString *albumCloudGUID; // @synthesize albumCloudGUID=_albumCloudGUID;
 @property(readonly) NSString *albumUUID; // @synthesize albumUUID=_albumUUID;
 @property unsigned int originalRecordID; // @synthesize originalRecordID=_originalRecordID;
 @property unsigned int replacedBulletinRecordID; // @synthesize replacedBulletinRecordID=_replacedBulletinRecordID;
@@ -71,8 +73,8 @@
 - (id)bulletinByMergingWithBulletin:(id)arg1;
 @property(readonly) BOOL canMergeWithPersistedBulletins;
 - (void)dealloc;
-- (id)_initWithLikesCount:(int)arg1 commentDate:(id)arg2 firstCommentGUID:(id)arg3 toAssetWithUUID:(id)arg4 photosBatchID:(id)arg5 mainAssetIsMine:(BOOL)arg6 mainAssetIsVideo:(BOOL)arg7 inAlbumWithTitle:(id)arg8 albumUUID:(id)arg9 assetUUIDs:(id)arg10 placeholderAssetUUIDs:(id)arg11 lowResThumbAssetUUIDs:(id)arg12 senderNames:(id)arg13 forMultipleAsset:(BOOL)arg14 allMultipleAssetIsMine:(BOOL)arg15 isMixedType:(BOOL)arg16;
-- (id)_initWithCommentsCount:(int)arg1 commentDate:(id)arg2 firstCommentGUID:(id)arg3 toAssetWithUUID:(id)arg4 photosBatchID:(id)arg5 mainAssetIsMine:(BOOL)arg6 mainAssetIsVideo:(BOOL)arg7 inAlbumWithTitle:(id)arg8 albumUUID:(id)arg9 assetUUIDs:(id)arg10 placeholderAssetUUIDs:(id)arg11 lowResThumbAssetUUIDs:(id)arg12;
+- (id)_initWithLikesCount:(int)arg1 commentDate:(id)arg2 firstCommentGUID:(id)arg3 toAssetWithUUID:(id)arg4 photosBatchID:(id)arg5 mainAssetIsMine:(BOOL)arg6 mainAssetIsVideo:(BOOL)arg7 inAlbumWithTitle:(id)arg8 albumUUID:(id)arg9 albumCloudGUID:(id)arg10 assetUUIDs:(id)arg11 placeholderAssetUUIDs:(id)arg12 lowResThumbAssetUUIDs:(id)arg13 senderNames:(id)arg14 forMultipleAsset:(BOOL)arg15 allMultipleAssetIsMine:(BOOL)arg16 isMixedType:(BOOL)arg17;
+- (id)_initWithCommentsCount:(int)arg1 commentDate:(id)arg2 firstCommentGUID:(id)arg3 toAssetWithUUID:(id)arg4 photosBatchID:(id)arg5 mainAssetIsMine:(BOOL)arg6 mainAssetIsVideo:(BOOL)arg7 inAlbumWithTitle:(id)arg8 albumUUID:(id)arg9 albumCloudGUID:(id)arg10 assetUUIDs:(id)arg11 placeholderAssetUUIDs:(id)arg12 lowResThumbAssetUUIDs:(id)arg13;
 - (id)initWithLikeAdded:(id)arg1;
 - (id)initWithCommentAdded:(id)arg1;
 - (id)_initWithPhotosAddedBulletin:(id)arg1 mergedWithBulletinDictionary:(id)arg2;

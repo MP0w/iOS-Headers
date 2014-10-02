@@ -6,17 +6,23 @@
 
 #import "NSObject.h"
 
+@class NSMutableArray;
+
 __attribute__((visibility("hidden")))
 @interface ESDObjectFactory : NSObject
 {
+    struct EshObjectFactory *eshObjectFactory;
+    NSMutableArray *eshObjectFactoryStack;
 }
 
-+ (void)setEshFactory:(struct EshObjectFactory *)arg1;
-+ (void)restoreHostEshFactory;
-+ (void)replaceHostEshFactoryWith:(struct EshObjectFactory *)arg1;
-+ (void)initialize;
-+ (struct EshObject *)createObjectWithType:(unsigned short)arg1 version:(unsigned short)arg2;
-+ (struct EshObject *)createObjectWithType:(unsigned short)arg1;
++ (id)threadLocalFactory;
+- (void)setEshFactory:(struct EshObjectFactory *)arg1;
+- (void)restoreHostEshFactory;
+- (void)replaceHostEshFactoryWith:(struct EshObjectFactory *)arg1;
+- (struct EshObject *)createObjectWithType:(unsigned short)arg1 version:(unsigned short)arg2;
+- (struct EshObject *)createObjectWithType:(unsigned short)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

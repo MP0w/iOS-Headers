@@ -8,11 +8,12 @@
 
 #import "VKInteractiveMap.h"
 #import "VKMapModelDelegate.h"
+#import "VKOverlayContainerRouteDelegate.h"
 
-@class GEOMapRegion, NSArray, VKAnchorWrapper, VKCamera, VKMapCameraController, VKMapModel, VKPolylineOverlayPainter, VKStylesheet;
+@class GEOMapRegion, NSArray, NSString, VKAnchorWrapper, VKCamera, VKMapCameraController, VKMapModel, VKPolylineOverlayPainter, VKStyleManager;
 
 __attribute__((visibility("hidden")))
-@interface VKMapCanvas : VKScreenCanvas <VKMapModelDelegate, VKInteractiveMap>
+@interface VKMapCanvas : VKScreenCanvas <VKMapModelDelegate, VKOverlayContainerRouteDelegate, VKInteractiveMap>
 {
     VKMapModel *_map;
     VKMapCameraController *_cameraController;
@@ -28,6 +29,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) id <VKInteractiveMapDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) VKMapModel *map; // @synthesize map=_map;
 - (id).cxx_construct;
+- (void)setApplicationState:(unsigned int)arg1;
+- (void)overlayContainer:(id)arg1 updatedMatchedSection:(fast_shared_ptr_502c59d0)arg2 index:(struct PolylineCoordinate *)arg3;
 - (void)edgeInsetsDidEndAnimating;
 - (void)edgeInsetsWillBeginAnimating;
 - (void)removeExternalAnchor:(id)arg1;
@@ -45,6 +48,8 @@ __attribute__((visibility("hidden")))
 - (void)clearScene;
 - (void)debugHighlightLabelAtPoint:(struct CGPoint)arg1;
 - (void)goToTileX:(int)arg1 Y:(int)arg2 Z:(int)arg3 tileSize:(int)arg4;
+- (void)mapModelDidUpdateMinMaxZoomLevel:(id)arg1;
+- (void)mapModel:(id)arg1 didUpdateContainsOverlay:(BOOL)arg2;
 - (void)mapModel:(id)arg1 didUpdateNavigationPuckSize:(float)arg2;
 - (void)mapModel:(id)arg1 selectedLabelMarkerWillDisappear:(id)arg2;
 - (double)mapModelZoomScale:(id)arg1;
@@ -57,9 +62,6 @@ __attribute__((visibility("hidden")))
 - (void)mapModelDidBecomeFullyDrawn:(id)arg1 hasFailedTiles:(BOOL)arg2;
 - (void)mapModelWillBecomFullyDrawn:(id)arg1;
 - (id)mapModel:(id)arg1 painterForOverlay:(id)arg2;
-- (void)mapModel:(id)arg1 didFinishAddingAnnotationMarkers:(id)arg2;
-- (void)mapModel:(id)arg1 didAnimateInAnnotationMarkers:(id)arg2;
-- (void)mapModel:(id)arg1 willAnimateInAnnotationMarkers:(id)arg2;
 - (void)mapModel:(id)arg1 needsPanByOffset:(struct CGPoint)arg2 relativeToScreenPoint:(struct CGPoint)arg3 animated:(BOOL)arg4 duration:(double)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (void)mapModel:(id)arg1 willTransitionFrom:(int)arg2 to:(int)arg3 duration:(double)arg4;
 - (BOOL)currentZoomLevelAllowsRotation;
@@ -75,7 +77,7 @@ __attribute__((visibility("hidden")))
 - (void)didStartPanningDeceleration;
 - (void)stopPanningAtPoint:(struct CGPoint)arg1;
 - (void)updatePanWithTranslation:(struct CGPoint)arg1;
-- (void)startPanningAtPoint:(struct CGPoint)arg1;
+- (void)startPanningAtPoint:(struct CGPoint)arg1 panAtStartPoint:(BOOL)arg2;
 - (void)stopPinchingWithFocusPoint:(struct CGPoint)arg1;
 - (void)updatePinchWithFocusPoint:(struct CGPoint)arg1 oldFactor:(double)arg2 newFactor:(double)arg3;
 - (void)startPinchingWithFocusPoint:(struct CGPoint)arg1;
@@ -117,9 +119,8 @@ __attribute__((visibility("hidden")))
 - (void)addAnnotationMarker:(id)arg1 allowAnimation:(BOOL)arg2;
 - (BOOL)restoreViewportFromInfo:(id)arg1;
 - (id)viewportInfo;
-@property(retain, nonatomic) id <VKRoutePreloadSession> routePreloadSession;
-- (void)preloadNavigationSceneAnimationResourcesForDisplayStyle:(int)arg1;
-- (void)preloadNavigationSceneResources;
+@property(retain, nonatomic) id <GEORoutePreloadSession> routePreloadSession;
+- (void)preloadNavigationSceneResourcesWithDevice:(const shared_ptr_807ec9ac *)arg1;
 @property(retain, nonatomic) VKPolylineOverlayPainter *focusedLabelsPolylinePainter;
 - (void)setCurrentLocationText:(id)arg1;
 @property(nonatomic) struct PolylineCoordinate routeUserOffset;
@@ -150,25 +151,24 @@ __attribute__((visibility("hidden")))
 - (void)pauseTracking;
 - (void)stopTracking;
 - (void)updateCameraContext:(id)arg1;
-- (struct CGPoint)convertCoordinate:(CDStruct_c3b9c2ee)arg1 toCameraModelPointToLayer:(id)arg2;
-- (struct CGPoint)convertCoordinate:(CDStruct_c3b9c2ee)arg1 toPointToLayer:(id)arg2;
-- (struct CGPoint)convertMapPoint:(CDStruct_c3b9c2ee)arg1 toPointToLayer:(id)arg2;
-- (CDStruct_c3b9c2ee)convertPoint:(struct CGPoint)arg1 toCoordinateFromLayer:(id)arg2;
-- (CDStruct_c3b9c2ee)convertPoint:(struct CGPoint)arg1 toMapPointFromLayer:(id)arg2;
+- (struct CGPoint)convertCoordinateToCameraModelPoint:(CDStruct_c3b9c2ee)arg1;
+- (struct CGPoint)convertCoordinateToPoint:(CDStruct_c3b9c2ee)arg1;
+- (struct CGPoint)convertMapPointToPoint:(CDStruct_c3b9c2ee)arg1;
+- (CDStruct_c3b9c2ee)convertPointToCoordinate:(struct CGPoint)arg1;
+- (CDStruct_c3b9c2ee)convertPointToMapPoint:(struct CGPoint)arg1;
 - (void)updateCameraForFrameResize;
 - (void)forceSceneLoad;
-- (void)drawWithTimestamp:(double)arg1;
+- (void)gglWillDrawWithTimestamp;
 - (void)_updateViewTransform;
 - (BOOL)currentSceneRequiresMSAA;
 - (id)consoleString:(BOOL)arg1;
-- (void)didPresent;
 - (struct VKEdgeInsets)edgeInsets;
 - (void)setEdgeInsets:(struct VKEdgeInsets)arg1;
 - (id)detailedDescription;
 - (void)dealloc;
-- (void)didReceiveMemoryWarning;
+- (void)clearSceneIsEffectivelyHidden:(BOOL)arg1;
 - (void)setHidden:(BOOL)arg1;
-- (id)initShouldRasterize:(BOOL)arg1 contentScale:(float)arg2 inBackground:(BOOL)arg3;
+- (id)initShouldRasterize:(BOOL)arg1 contentScale:(float)arg2 target:(id)arg3 device:(const shared_ptr_807ec9ac *)arg4 inBackground:(BOOL)arg5 locale:(id)arg6;
 - (void)setCanonicalSkyHeight:(double)arg1;
 - (BOOL)canEnter3DMode;
 @property(readonly, nonatomic, getter=isFullyPitched) BOOL fullyPitched;
@@ -188,7 +188,6 @@ __attribute__((visibility("hidden")))
 - (double)durationToAnimateToMapRegion:(id)arg1;
 - (void)animateToMapRegion:(id)arg1 pitch:(double)arg2 yaw:(double)arg3 duration:(double)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)setMapRegion:(id)arg1 pitch:(double)arg2 yaw:(double)arg3 animated:(BOOL)arg4 completion:(CDUnknownBlockType)arg5;
-- (void)setBounds:(struct CGRect)arg1;
 - (void)setYaw:(double)arg1 animated:(BOOL)arg2;
 - (void)stopRegionAnimation;
 @property(readonly, nonatomic) double yaw;
@@ -201,27 +200,30 @@ __attribute__((visibility("hidden")))
 - (void)setTargetDisplay:(int)arg1;
 - (int)targetDisplay;
 - (void)setContentsScale:(float)arg1;
+- (void)reloadStylesheet;
 - (void)setStylesheetName:(id)arg1;
-@property(retain, nonatomic) VKStylesheet *stylesheet;
+@property(retain, nonatomic) VKStyleManager *styleManager;
 @property(nonatomic) BOOL dynamicMapModesEnabled;
 - (void)setDesiredMapMode:(int)arg1 immediate:(BOOL)arg2;
 - (double)zoomLevelAdjustmentForTileSize:(int)arg1;
 - (double)maximumZoomLevelForTileSize:(int)arg1;
 @property(readonly, nonatomic) double maximumZoomLevel;
 - (double)minimumZoomLevelForTileSize:(int)arg1;
-- (double)topDownMinimumZoomLevelForTileSize:(int)arg1;
 @property(readonly, nonatomic) double minimumZoomLevel;
+- (double)topDownMinimumZoomLevelForTileSize:(int)arg1;
 - (double)currentZoomLevelForTileSize:(int)arg1;
 - (double)currentZoomLevel;
 - (BOOL)canZoomOutForTileSize:(int)arg1;
 - (BOOL)canZoomInForTileSize:(int)arg1;
-- (void)_setStyleTransitionProgress:(float)arg1 targetStyle:(int)arg2 step:(int)arg3;
+- (void)_setStyleTransitionProgress:(float)arg1 targetStyle:(unsigned int)arg2 step:(int)arg3;
 - (float)_styleTransitionProgress;
+- (void)setStylesheetMapDisplayStyle:(unsigned int)arg1;
 - (void)stylesheetAnimationDidEnd:(BOOL)arg1;
 - (void)stylesheetAnimationDidProgress:(float)arg1;
-- (void)stylesheetAnimationWillStartFromStyle:(int)arg1 toStyle:(int)arg2;
-- (void)requestStylesheetAnimation:(id)arg1 targetMapDisplayStyle:(int)arg2 setupHandler:(CDUnknownBlockType)arg3;
+- (void)stylesheetAnimationWillStartFromStyle:(unsigned int)arg1 toStyle:(unsigned int)arg2;
+- (void)requestStylesheetAnimation:(id)arg1 targetMapDisplayStyle:(unsigned int)arg2 setupHandler:(CDUnknownBlockType)arg3;
 @property(nonatomic) int mapType;
+- (void)setNeedsDisplay;
 @property(nonatomic) BOOL staysCenteredDuringRotation;
 @property(nonatomic) BOOL isPitchable;
 @property(nonatomic) BOOL staysCenteredDuringPinch;
@@ -232,8 +234,15 @@ __attribute__((visibility("hidden")))
 - (BOOL)isShowingNoDataPlaceholders;
 - (id)attributionsForCurrentRegion;
 @property(readonly, nonatomic) NSArray *visibleTileSets;
+- (void)resetRenderQueue:(shared_ptr_06328420)arg1;
 - (void)_resetMaximumZoomLevel;
 - (void)_setMaximumZoomLevel:(double)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

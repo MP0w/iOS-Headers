@@ -7,9 +7,9 @@
 #import "NSError.h"
 
 @interface NSError (TSUAdditions)
-+ (id)errorWithDomain:(id)arg1 code:(int)arg2 alertTitle:(id)arg3 alertMessage:(id)arg4 underlyingError:(id)arg5;
++ (id)errorWithDomain:(id)arg1 code:(int)arg2 alertTitle:(id)arg3 alertMessage:(id)arg4 userInfo:(id)arg5;
 + (id)errorWithDomain:(id)arg1 code:(int)arg2 alertTitle:(id)arg3 alertMessage:(id)arg4;
-+ (id)tsuErrorWithCode:(int)arg1;
++ (id)tsuErrorWithCode:(int)arg1 userInfo:(id)arg2;
 + (id)errorWithDomain:(id)arg1 code:(int)arg2 description:(id)arg3 recoverySuggestion:(id)arg4;
 - (BOOL)isCancelError;
 - (BOOL)isOutOfSpaceError;

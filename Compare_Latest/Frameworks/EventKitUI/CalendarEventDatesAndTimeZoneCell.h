@@ -17,8 +17,8 @@
 - (void).cxx_destruct;
 - (void)layoutText:(id)arg1 andValue:(id)arg2;
 - (void)_layoutSubviewsCore;
-@property(readonly, nonatomic) UILabel *detailLabel3;
-@property(readonly, nonatomic) UILabel *textLabel3;
+@property(readonly, retain, nonatomic) UILabel *detailLabel3;
+@property(readonly, retain, nonatomic) UILabel *textLabel3;
 
 @end
 

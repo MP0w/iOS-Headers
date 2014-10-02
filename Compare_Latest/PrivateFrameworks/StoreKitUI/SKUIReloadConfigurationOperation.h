@@ -6,16 +6,18 @@
 
 #import "NSOperation.h"
 
-@class NSObject<OS_dispatch_queue>;
+@class NSObject<OS_dispatch_queue>, SSURLBag;
 
 @interface SKUIReloadConfigurationOperation : NSOperation
 {
-    CDUnknownBlockType _outputBlock;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
+    CDUnknownBlockType _outputBlock;
+    SSURLBag *_urlBag;
 }
 
 - (void).cxx_destruct;
 - (void)main;
+@property(retain) SSURLBag *URLBag;
 @property(copy) CDUnknownBlockType outputBlock;
 - (id)init;
 

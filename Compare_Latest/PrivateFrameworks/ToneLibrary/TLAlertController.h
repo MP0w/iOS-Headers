@@ -18,6 +18,7 @@
 @property(retain, setter=_setAlertsBySoundIDsAccessQueue:) TLAccessQueue *_alertsBySoundIDsAccessQueue; // @synthesize _alertsBySoundIDsAccessQueue;
 @property(retain, nonatomic, setter=_setAlertsBySoundIDs:) NSMutableDictionary *_alertsBySoundIDs; // @synthesize _alertsBySoundIDs;
 @property(readonly, nonatomic) BOOL _hasVibratorCapability;
+- (void)_didReachTimeoutForSystemSound:(id)arg1;
 - (void)_systemSoundDidFinishPlaying:(unsigned long)arg1;
 - (void)_removeSoundID:(unsigned long)arg1 shouldStopSound:(BOOL)arg2 fireCompletionHandler:(BOOL)arg3;
 - (BOOL)_stopAllAlerts;

@@ -13,7 +13,7 @@
     NSFileHandle *_destinationFile;
 }
 
-@property(retain) NSFileHandle *destinationFile; // @synthesize destinationFile=_destinationFile;
+@property(retain, nonatomic) NSFileHandle *destinationFile; // @synthesize destinationFile=_destinationFile;
 - (BOOL)shouldLogResponseBody;
 - (id)copyDefaultParserForContentType:(id)arg1;
 - (id)initWithURL:(id)arg1 destinationFile:(id)arg2;

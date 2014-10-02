@@ -13,6 +13,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (void)p_inputMethodsChanged:(id)arg1;
+- (BOOL)supportsRTL;
 - (id)templateTypeDisplayName;
 - (id)documentTypeDisplayName;
 - (id)defaultAppStoreURLString;
@@ -26,13 +28,14 @@ __attribute__((visibility("hidden")))
 - (id)previewImageNameForEncryptedNativeDocument;
 - (id)previewImageNameForNativeDocument;
 - (id)previewImageNameForDocumentType:(id)arg1;
-- (id)applicationTemplateVariants;
+- (id)applicationTemplateVariantsForLocale:(struct __CFLocale *)arg1;
 - (id)appChartPropertyOverrides;
 @property(readonly, nonatomic) NSArray *excelDocumentTypes;
 - (id)importableDocumentTypes;
 - (Class)documentViewControllerClass;
 - (id)createCompatibilityDelegate;
 - (Class)documentRootClass;
+- (void)applicationDidFinishLaunching:(id)arg1;
 - (void)configureSharedCode;
 - (void)wakeUpDownloadManager;
 - (void)registerClassTypeMappings;

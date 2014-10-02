@@ -26,6 +26,7 @@
     ASTrafficLogger *_trafficLogger;
 }
 
+- (void).cxx_destruct;
 - (void)dealloc;
 - (id)initWithData:(id)arg1;
 - (id)initWithMIMEData:(id)arg1 preflightData:(id)arg2 postflightData:(id)arg3 intendToStream:(BOOL)arg4;

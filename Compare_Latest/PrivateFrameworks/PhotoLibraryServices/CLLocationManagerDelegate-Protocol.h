@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class CLBeaconRegion, CLHeading, CLLocation, CLLocationManager, CLRegion, NSArray, NSError;
+@class CLBeaconRegion, CLHeading, CLLocation, CLLocationManager, CLRegion, CLVisit, NSArray, NSError;
 
 @protocol CLLocationManagerDelegate <NSObject>
 
 @optional
+- (void)locationManager:(CLLocationManager *)arg1 didVisit:(CLVisit *)arg2;
 - (void)locationManager:(CLLocationManager *)arg1 didFinishDeferredUpdatesWithError:(NSError *)arg2;
 - (void)locationManagerDidResumeLocationUpdates:(CLLocationManager *)arg1;
 - (void)locationManagerDidPauseLocationUpdates:(CLLocationManager *)arg1;

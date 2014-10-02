@@ -12,8 +12,8 @@ __attribute__((visibility("hidden")))
     float _roadAlpha;
 }
 
-- (id)_rasterProgram:(id)arg1;
-- (void)layoutScene:(id)arg1 withContext:(id)arg2;
++ (float)roadAlphaForLayoutContext:(id)arg1;
+- (void)gglLayoutScene:(id)arg1 withContext:(id)arg2 renderQueue:(struct RenderQueue *)arg3;
 
 @end
 

@@ -8,10 +8,11 @@
 
 @interface SBSimplePasscodeEntryFieldButton : TPRevealingRingView
 {
+    BOOL _useLightStyle;
 }
 
 - (void)setCustomBackgroundColor:(id)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 paddingOutsideRing:(struct UIEdgeInsets)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 paddingOutsideRing:(struct UIEdgeInsets)arg2 useLightStyle:(BOOL)arg3;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "TSKChangeSourceObserver.h"
 
-@class NSSet;
+@class NSSet, NSString;
 
 __attribute__((visibility("hidden")))
 @interface TPBodyRep : TSWPRep <TSKChangeSourceObserver>
@@ -28,6 +28,12 @@ __attribute__((visibility("hidden")))
 - (id)storage;
 - (void)dealloc;
 - (id)initWithLayout:(id)arg1 canvas:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

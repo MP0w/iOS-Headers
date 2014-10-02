@@ -6,14 +6,14 @@
 
 #import <iWorkImport/TSPFileDataStorage.h>
 
-@class NSString, SFUCryptoKey, TSPBundle;
+@class NSString, TSPBundle;
 
 __attribute__((visibility("hidden")))
 @interface TSPBundleDataStorage : TSPFileDataStorage
 {
     NSString *_path;
-    SFUCryptoKey *_decryptionKey;
     unsigned char _packageIdentifier;
+    BOOL _isMissingData;
     TSPBundle *_bundle;
     BOOL _gilligan_isRemote;
 }
@@ -22,14 +22,18 @@ __attribute__((visibility("hidden")))
 - (BOOL)gilligan_isRemote;
 - (void).cxx_destruct;
 - (id)AVAssetWithOptions:(id)arg1 contentTypeUTI:(id)arg2;
-- (BOOL)copyToTemporaryURL:(id)arg1;
+- (BOOL)copyToTemporaryURL:(id)arg1 encryptionKey:(id)arg2;
 - (BOOL)isInPackage:(id)arg1;
-- (BOOL)writeToBundleWriter:(id)arg1 preferredFilename:(id)arg2 filename:(id *)arg3 didCopyDataToBundle:(char *)arg4;
+- (BOOL)writeData:(id)arg1 toPackageWriter:(id)arg2 preferredFilename:(id)arg3 filename:(id *)arg4 didCopyDataToPackage:(char *)arg5 isMissingData:(char *)arg6;
 - (void)performIOChannelReadWithAccessor:(CDUnknownBlockType)arg1;
 - (void)performReadWithAccessor:(CDUnknownBlockType)arg1;
+- (void)setIsMissingData:(BOOL)arg1;
+- (BOOL)isMissingData;
+- (id)decryptionKey;
 - (unsigned char)packageIdentifier;
 - (id)packageLocator;
-- (id)initWithFilename:(id)arg1 decryptionKey:(id)arg2 bundle:(id)arg3;
+- (void)didInitializeFromDocumentURL:(id)arg1;
+- (id)initWithPath:(id)arg1 bundle:(id)arg2;
 
 @end
 

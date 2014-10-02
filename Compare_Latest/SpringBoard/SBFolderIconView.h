@@ -8,14 +8,14 @@
 
 #import "_UISettingsKeyObserver.h"
 
-@class SBFolderSettings;
+@class NSString, SBFolderSettings;
 
 @interface SBFolderIconView : SBIconView <_UISettingsKeyObserver>
 {
     SBFolderSettings *_folderSettings;
 }
 
-+ (_Bool)canShowUpdatedMark;
++ (_Bool)canShowLabelAccessoryView;
 - (id)_folderIconImageView;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (void)setShouldRasterizeImageView:(_Bool)arg1;
@@ -32,7 +32,7 @@
 - (void)setIconGridImageAlpha:(double)arg1;
 - (double)grabDurationForEvent:(id)arg1;
 - (_Bool)allowsTapWhileEditing;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)folder;
 - (void)scrollToGapOrTopIfFullOfPage:(unsigned long long)arg1 animated:(_Bool)arg2;
 - (void)scrollToTopOfPage:(unsigned long long)arg1 animated:(_Bool)arg2;
@@ -51,6 +51,11 @@
 - (id)folderIcon;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,6 +8,6 @@
 
 @interface NSValue (CATransform3DAdditions)
 + (id)valueWithCATransform3D:(struct CATransform3D)arg1;
-- (struct CATransform3D)CATransform3DValue;
+@property(readonly) struct CATransform3D CATransform3DValue;
 @end
 

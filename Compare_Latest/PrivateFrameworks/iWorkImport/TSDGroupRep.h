@@ -14,6 +14,8 @@ __attribute__((visibility("hidden")))
 }
 
 + (float)magicMoveAttributeMatchPercentBetweenOutgoingObject:(id)arg1 incomingObject:(id)arg2;
+- (BOOL)p_handleSubselectionTapAtPoint:(struct CGPoint)arg1;
+- (BOOL)handleMultipleTapAtPoint:(struct CGPoint)arg1;
 - (BOOL)handleDoubleTapAtPoint:(struct CGPoint)arg1;
 - (BOOL)handleSingleTapAtPoint:(struct CGPoint)arg1;
 - (BOOL)wantsToHandleTapsWhenLocked;
@@ -28,6 +30,8 @@ __attribute__((visibility("hidden")))
 - (BOOL)containsPoint:(struct CGPoint)arg1 withSlop:(struct CGSize)arg2;
 - (BOOL)containsPoint:(struct CGPoint)arg1;
 - (struct CGPoint)convertNaturalPointFromUnscaledCanvas:(struct CGPoint)arg1;
+- (BOOL)shouldShowCommentHighlight;
+- (struct CGRect)frameInUnscaledCanvas;
 - (struct CGColor *)selectionHighlightColor;
 - (BOOL)shouldShowSelectionHighlight;
 - (void)recursivelyDrawInContext:(struct CGContext *)arg1;

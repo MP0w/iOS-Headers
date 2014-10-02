@@ -8,7 +8,7 @@
 
 #import "AVRecorderImpl.h"
 
-@class NSMutableDictionary;
+@class NSMutableDictionary, NSString;
 
 @interface AVRecorderAudioQueueImpl : NSObject <AVRecorderImpl>
 {
@@ -58,6 +58,12 @@
 - (void)dealloc;
 - (id)initWithAttributes:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

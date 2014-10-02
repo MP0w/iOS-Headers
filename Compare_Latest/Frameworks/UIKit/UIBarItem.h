@@ -17,6 +17,8 @@
 }
 
 + (id)_appearanceRecorderWhenContainedIn:(Class)arg1;
++ (id)appearanceForTraitCollection:(id)arg1 whenContainedIn:(Class)arg2;
++ (id)appearanceForTraitCollection:(id)arg1;
 + (id)appearanceWhenContainedIn:(Class)arg1;
 + (id)_appearanceWhenContainedIn:(id)arg1;
 + (id)_appearanceRecorder;
@@ -30,11 +32,15 @@
 - (id)initWithCoder:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(nonatomic, getter=isEnabled) BOOL enabled; // @dynamic enabled;
+@property(readonly) unsigned int hash;
 @property(retain, nonatomic) UIImage *image; // @dynamic image;
 @property(nonatomic) struct UIEdgeInsets imageInsets; // @dynamic imageInsets;
 @property(retain, nonatomic) UIImage *landscapeImagePhone; // @dynamic landscapeImagePhone;
 @property(nonatomic) struct UIEdgeInsets landscapeImagePhoneInsets; // @dynamic landscapeImagePhoneInsets;
+@property(readonly) Class superclass;
 @property(nonatomic) int tag; // @dynamic tag;
 @property(copy, nonatomic) NSString *title; // @dynamic title;
 

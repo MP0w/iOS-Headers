@@ -10,6 +10,6 @@
 
 @interface PKPhysicsBody (SKPhysicsBody)
 - (id)_descriptionClassName;
-@property(readonly, nonatomic) SKNode *node;
+@property(readonly, nonatomic) __weak SKNode *node;
 @end
 

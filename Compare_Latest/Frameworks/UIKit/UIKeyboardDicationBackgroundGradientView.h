@@ -8,7 +8,7 @@
 
 #import "_UIBasicAnimationFactory.h"
 
-@class UIDictationView, UIKBRenderConfig;
+@class NSString, UIDictationView, UIKBRenderConfig;
 
 __attribute__((visibility("hidden")))
 @interface UIKeyboardDicationBackgroundGradientView : UIView <_UIBasicAnimationFactory>
@@ -29,6 +29,12 @@ __attribute__((visibility("hidden")))
 - (id)backgroundColorForCurrentRenderConfig;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

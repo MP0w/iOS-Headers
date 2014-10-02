@@ -19,10 +19,12 @@ __attribute__((visibility("hidden")))
     BOOL _updateEditorRemainders;
     BOOL _syncReferenceHighlightState;
     BOOL _setNeedsDisplay;
+    BOOL _hideStepperHUD;
     CDStruct_5f1f7aa9 dirtyCellRange;
     CDStruct_5f1f7aa9 dirtyStrokeRange;
 }
 
+@property(nonatomic) BOOL hideStepperHUD; // @synthesize hideStepperHUD=_hideStepperHUD;
 @property(nonatomic) BOOL setNeedsDisplay; // @synthesize setNeedsDisplay=_setNeedsDisplay;
 @property(nonatomic) BOOL syncReferenceHighlightState; // @synthesize syncReferenceHighlightState=_syncReferenceHighlightState;
 @property(nonatomic) BOOL updateEditorRemainders; // @synthesize updateEditorRemainders=_updateEditorRemainders;

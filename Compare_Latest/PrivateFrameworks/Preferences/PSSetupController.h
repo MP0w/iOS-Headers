@@ -26,7 +26,7 @@
 - (void)dismissWithCompletion:(CDUnknownBlockType)arg1;
 - (id)controller;
 - (void)setParentController:(id)arg1;
-- (void)pushController:(id)arg1;
+- (void)showController:(id)arg1 animate:(BOOL)arg2;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)setupController;

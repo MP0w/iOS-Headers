@@ -21,13 +21,14 @@ __attribute__((visibility("hidden")))
 - (BOOL)canFetchTileForKey:(const struct VKTileKey *)arg1;
 - (struct _GEOTileKey)downloadKeyAtX:(unsigned int)arg1 y:(unsigned int)arg2 z:(unsigned int)arg3;
 - (int)zEquivalenceClass;
-- (int)maximumDownloadZoomLevel;
-- (int)minimumDownloadZoomLevel;
+- (unsigned int)maximumDownloadZoomLevel;
+- (unsigned int)minimumDownloadZoomLevel;
 - (int)tileSize;
 - (BOOL)maximumZoomLevelBoundsCamera;
 - (BOOL)minimumZoomLevelBoundsCamera;
+- (id)tileLoader;
 - (void)dealloc;
-- (id)init;
+- (id)initWithTileGroupIdentifier:(unsigned int)arg1 locale:(id)arg2;
 
 @end
 

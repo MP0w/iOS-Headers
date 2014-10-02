@@ -20,6 +20,7 @@
 - (void)_setMultiValueForProperty:(int)arg1 values:(id)arg2 valueFromCNValue:(CDUnknownBlockType)arg3;
 - (void)addProperties:(id)arg1 excludingProperties:(id)arg2 fromContact:(id)arg3;
 - (BOOL)addToGroup:(void *)arg1;
+- (BOOL)hasChanges;
 - (BOOL)unlinkContact;
 - (BOOL)linkToContact:(id)arg1;
 - (BOOL)deleteContact;
@@ -39,6 +40,8 @@
 - (void)setPreferredForName;
 @property int contactType;
 @property(copy) NSString *note;
+@property(copy) NSArray *birthdays;
+@property(copy) NSDateComponents *alternateBirthday;
 @property(copy) NSDateComponents *birthday;
 @property(copy) NSString *jobTitle;
 @property(copy) NSString *departmentName;
@@ -53,20 +56,14 @@
 @property(copy) NSString *middleName;
 @property(copy) NSString *givenName;
 @property(copy) NSString *namePrefix;
+- (void)_setValue:(id)arg1 forProperty:(int)arg2;
 - (void)updateContactType:(BOOL)arg1;
 - (BOOL)isEqualToContact:(id)arg1 includeIdentifiers:(BOOL)arg2;
 - (BOOL)isEqualToContact:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
-- (id)initWithRecord:(void *)arg1 unify:(BOOL)arg2;
+- (id)initWithRecord:(void *)arg1 unify:(BOOL)arg2 originalRecord:(void *)arg3;
 - (id)initWithRecord:(void *)arg1;
 - (id)init;
-
-// Remaining properties
-@property void *addressBook;
-@property NSArray *linkedContacts;
-@property(getter=isPreferredForName) BOOL preferredForName;
-@property(getter=isPreferredForPhoto) BOOL preferredForPhoto;
-@property void *source;
 
 @end
 

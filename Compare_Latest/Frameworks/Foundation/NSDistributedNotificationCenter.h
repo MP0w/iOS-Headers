@@ -12,8 +12,7 @@
 
 + (id)notificationCenterForType:(id)arg1;
 + (id)defaultCenter;
-- (BOOL)suspended;
-- (void)setSuspended:(BOOL)arg1;
+@property BOOL suspended;
 - (void)postNotificationName:(id)arg1 object:(id)arg2 userInfo:(id)arg3;
 - (void)postNotificationName:(id)arg1 object:(id)arg2;
 - (void)postNotification:(id)arg1;

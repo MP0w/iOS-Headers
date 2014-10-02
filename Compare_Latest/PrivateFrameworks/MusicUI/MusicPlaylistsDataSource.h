@@ -27,6 +27,7 @@
 - (id)entityCountFormat;
 - (void)_invalidateCalculatedEntities;
 - (BOOL)entityIsNowPlayingAtIndex:(unsigned int)arg1;
+- (int)editingTypeForEntityAtIndex:(unsigned int)arg1;
 - (void)deleteEntityAtIndex:(unsigned int)arg1;
 - (BOOL)canEditEntityAtIndex:(unsigned int)arg1;
 - (void)resetCaches;

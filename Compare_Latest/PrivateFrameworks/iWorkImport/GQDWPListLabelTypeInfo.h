@@ -8,7 +8,7 @@
 
 #import "GQDNameMappable.h"
 
-@class GQDWPTextLabel;
+@class GQDWPTextLabel, NSString;
 
 __attribute__((visibility("hidden")))
 @interface GQDWPListLabelTypeInfo : NSObject <GQDNameMappable>
@@ -22,6 +22,12 @@ __attribute__((visibility("hidden")))
 - (int)type;
 - (void)dealloc;
 - (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

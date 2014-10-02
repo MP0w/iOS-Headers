@@ -6,15 +6,19 @@
 
 #import "UIView.h"
 
-@class SBWallpaperEffectView, _UIBackdropView;
+@class SBWallpaperEffectView, _SBSearchBackdropView;
 
 @interface SBSearchResultsBackdropView : UIView
 {
-    _UIBackdropView *_backdropView;
+    _SBSearchBackdropView *_backdropView;
     SBWallpaperEffectView *_effectView;
     UIView *_tintView;
 }
 
+- (void)transitionCompleted;
+- (void)setTransitionProgress:(double)arg1;
+- (void)prepareForTransition;
+- (_Bool)useHighQualityGraphics;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

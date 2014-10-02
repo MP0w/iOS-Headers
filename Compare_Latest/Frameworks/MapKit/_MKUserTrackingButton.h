@@ -8,7 +8,7 @@
 
 #import "MKUserTrackingButtonTarget.h"
 
-@class MKMapView, NSMutableDictionary, _MKUserTrackingButtonController;
+@class MKMapView, NSMutableDictionary, NSString, _MKUserTrackingButtonController;
 
 @interface _MKUserTrackingButton : UIButton <MKUserTrackingButtonTarget>
 {
@@ -43,6 +43,12 @@
 - (id)_imageForState:(int)arg1 controlState:(unsigned int)arg2;
 @property(retain, nonatomic) id <MKUserTrackingView> userTrackingView;
 @property(retain, nonatomic) MKMapView *mapView;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

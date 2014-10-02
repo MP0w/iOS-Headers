@@ -17,28 +17,31 @@ struct CGSize {
 
 #pragma mark Typedef'd Structures
 
+// Ambiguous groups
 typedef struct {
-    unsigned int pushDataProvider:1;
-    unsigned int dataProviderDidLoad:1;
-    unsigned int bulletinsWithRequestParameters:1;
-    unsigned int bulletinsFilteredByDEPRECATED:1;
-    unsigned int bulletinsFilteredByEnabledSectionsDEPRECATED:1;
-    unsigned int clearedInfoAndBulletinsForClearingAllBulletins:1;
-    unsigned int clearedInfoForBulletins:1;
-    unsigned int clearedInfoForBulletinsDEPRECATED:1;
-    unsigned int attachmentPNGDataForRecordID:1;
-    unsigned int attachmentAspectRatioForRecordID:1;
-    unsigned int defaultSectionInfo:1;
-    unsigned int defaultSubsectionInfos:1;
-    unsigned int displayNameForSubsectionID:1;
-    unsigned int sectionParameters:1;
-    unsigned int migrateSectionInfo:1;
-    unsigned int sectionDisplayName:1;
-    unsigned int sectionIcon:1;
-    unsigned int sectionIconDataDEPRECATED:1;
-    unsigned int receiveMessageWithName:1;
-    unsigned int noteSectionInfoDidChange:1;
-    unsigned int syncBulletinDismissal:1;
-    unsigned int handleBulletinActionResponse:1;
-} CDStruct_c6add5c3;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+} CDStruct_76668f1f;
 

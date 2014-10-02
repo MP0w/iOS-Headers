@@ -10,15 +10,18 @@
 #import "NSCopying.h"
 #import "TSKTransformableObject.h"
 
-@class KNAnimationInfo, KNAnimationPluginMenu, KNBuildAttributes, KNSlide, NSArray, NSSet, NSString, TSDDrawableInfo, TSDEditableBezierPathSource, TSUColor;
+@class KNAbstractSlide, KNAnimationInfo, KNAnimationPluginMenu, KNBuildAttributes, KNBuildChunk, NSArray, NSSet, NSString, TSDDrawableInfo, TSDEditableBezierPathSource, TSUColor;
 
 __attribute__((visibility("hidden")))
 @interface KNBuild : TSPObject <NSCopying, TSKTransformableObject, KNInspectableAnimation>
 {
+    NSArray *mCachedChunks;
+    struct _NSRange mCachedActiveChunkRange;
+    BOOL mCachedActiveChunkRangeIsValid;
     TSDDrawableInfo *mDrawable;
     NSString *mDelivery;
     KNBuildAttributes *mAttributes;
-    KNSlide *mSlide;
+    KNAbstractSlide *mSlide;
 }
 
 + (id)buildWithEffect:(id)arg1 animationType:(int)arg2 drawable:(id)arg3;
@@ -26,7 +29,8 @@ __attribute__((visibility("hidden")))
 + (id)supportedAnimationInfosForDrawableInfo:(id)arg1 animationType:(int)arg2;
 + (id)p_drawableFromInfo:(id)arg1;
 + (BOOL)p_shouldExcludeAnimationName:(id)arg1 forDrawable:(id)arg2;
-@property(nonatomic) KNSlide *slide; // @synthesize slide=mSlide;
++ (BOOL)needsObjectUUID;
+@property(nonatomic) KNAbstractSlide *slide; // @synthesize slide=mSlide;
 @property(readonly, nonatomic) BOOL canEditAnimations;
 - (BOOL)p_supportsCustomTextDeliveryOptionsForAttributes:(id)arg1;
 @property(readonly, nonatomic) NSSet *inspectableAttributes;
@@ -35,6 +39,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned int customScale;
 @property(readonly, nonatomic) BOOL customDecay;
 @property(readonly, nonatomic) unsigned int customRepeatCount;
+@property(readonly, nonatomic) BOOL customMotionBlur;
 @property(readonly, nonatomic) BOOL customBounce;
 @property(readonly, nonatomic) unsigned int customDeliveryOption;
 @property(readonly, nonatomic) int customTextDelivery;
@@ -46,10 +51,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSDEditableBezierPathSource *actionMotionPathSource;
 @property(readonly, nonatomic) unsigned int actionAcceleration;
 @property(readonly, nonatomic) TSUColor *color;
-@property(readonly, nonatomic) unsigned int eventTrigger;
 @property(readonly, nonatomic) unsigned int direction;
-@property(readonly, nonatomic) double duration;
-@property(readonly, nonatomic) double delay;
+@property(readonly, nonatomic) double durationDefaultForInitialChunk;
 @property(readonly, nonatomic) int animationType;
 @property(readonly, nonatomic) BOOL supportsCustomTextDelivery;
 @property(readonly, nonatomic) BOOL supportsDelivery;
@@ -57,15 +60,22 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL supportsDuration;
 @property(readonly, nonatomic) BOOL supportsDirection;
 @property(readonly, nonatomic) BOOL isEmphasisBuild;
+@property(readonly, nonatomic) BOOL isActionMotionBuild;
 @property(readonly, nonatomic) BOOL isActionBuild;
 @property(readonly, nonatomic) BOOL hasComplement;
 - (BOOL)hasComplementInBuilds:(id)arg1;
+- (BOOL)isComplementOfBuild:(id)arg1;
 @property(readonly, nonatomic) BOOL isFirst;
 @property(readonly, nonatomic) unsigned int indexOrderedByFirstChunk;
 @property(readonly, nonatomic) unsigned int index;
-@property(readonly, nonatomic) NSString *buildImageTitle;
 @property(readonly, nonatomic) NSString *title;
+- (id)p_chunkTitleByTruncatingTitle:(id)arg1 toLength:(unsigned int)arg2;
+@property(readonly, nonatomic) BOOL hasInactiveChunks;
+@property(readonly, nonatomic) unsigned int lastActiveChunkIndexInBuild;
+@property(readonly, nonatomic) unsigned int firstActiveChunkIndexInBuild;
 - (unsigned int)endChunkIndexFromEndOffset:(unsigned int)arg1;
+- (struct _NSRange)p_calculateActiveChunkRange;
+@property(readonly, nonatomic) struct _NSRange activeChunkRange;
 @property(readonly, nonatomic) unsigned int endOffset;
 @property(readonly, nonatomic) unsigned int startOffset;
 @property(readonly, nonatomic) unsigned int deliveryStyle;
@@ -73,7 +83,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *delivery;
 @property(readonly, nonatomic) BOOL downgradesDelivery;
 - (id)deliveriesLocalized:(BOOL)arg1;
-@property(readonly, nonatomic) struct _NSRange activeChunkRange;
+@property(readonly, nonatomic) KNBuildChunk *firstChunk;
 @property(readonly, nonatomic) unsigned int chunkCount;
 @property(readonly, nonatomic) unsigned int lastChunkIndexOnSlide;
 @property(readonly, nonatomic) unsigned int firstChunkIndexOnSlide;
@@ -86,7 +96,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) KNAnimationInfo *animationInfo;
 @property(copy, nonatomic) KNBuildAttributes *attributes;
 @property(readonly, nonatomic) NSString *effect;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithSlide:(id)arg1 effect:(id)arg2 buildType:(int)arg3 context:(id)arg4;
@@ -95,7 +105,13 @@ __attribute__((visibility("hidden")))
 - (id)initFromUnarchiver:(id)arg1;
 - (void)saveToArchive:(struct BuildArchive *)arg1 archiver:(id)arg2;
 - (void)loadFromArchive:(const struct BuildArchive *)arg1 unarchiver:(id)arg2;
+- (void)i_invalidateChunkCache;
 - (id)createNewChunks;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -9,7 +9,7 @@
 #import "CLLocationManagerDelegate.h"
 #import "SLPlaceDataSource.h"
 
-@class ACAccount, CLLocation, CLLocationManager, NSHTTPURLResponse, NSMutableData, NSObject<SLPlaceDataSourceDelegate>, NSURLConnection;
+@class ACAccount, CLLocation, CLLocationManager, NSHTTPURLResponse, NSMutableData, NSObject<SLPlaceDataSourceDelegate>, NSString, NSURLConnection;
 
 @interface SLFacebookPlaceManager : NSObject <CLLocationManagerDelegate, SLPlaceDataSource>
 {
@@ -48,6 +48,12 @@
 - (void)startUpdatingLocation;
 @property(readonly) double currentLocationAccuracy;
 - (id)initWithLocationManager:(id)arg1 account:(id)arg2 desiredAccuracy:(double)arg3 timeout:(double)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

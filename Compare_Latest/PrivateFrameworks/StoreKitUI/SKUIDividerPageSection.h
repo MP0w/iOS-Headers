@@ -13,9 +13,14 @@
 }
 
 - (void)willAppearInContext:(id)arg1;
+- (struct UIEdgeInsets)sectionContentInset;
 - (int)numberOfCells;
+- (void)collectionViewDidEndDisplayingCellForItemAtIndexPath:(id)arg1;
+- (void)collectionViewWillDisplayCellForItemAtIndexPath:(id)arg1;
 - (struct CGSize)cellSizeForIndexPath:(id)arg1;
 - (id)cellForIndexPath:(id)arg1;
+- (id)backgroundColorForIndexPath:(id)arg1;
+- (void)addImpressionsForIndexPath:(id)arg1 toSession:(id)arg2;
 - (id)initWithPageComponent:(id)arg1;
 
 // Remaining properties

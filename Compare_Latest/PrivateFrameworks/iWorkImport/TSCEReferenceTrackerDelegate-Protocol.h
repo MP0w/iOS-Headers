@@ -4,16 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSArray, TSCETrackedReference;
+@class NSArray, TSCEFormulaRewriteSpec, TSCETrackedReference, TSKCommand;
 
 @protocol TSCEReferenceTrackerDelegate
-- (void)updateTrackedHeaders:(struct __CFUUID *)arg1;
+- (TSKCommand *)commandForUpdatingWithSpec:(TSCEFormulaRewriteSpec *)arg1 formulas:(NSArray *)arg2;
 - (void)trackedReferenceWasDeleted:(TSCETrackedReference *)arg1 fromOwnerID:(struct __CFUUID *)arg2;
 - (NSArray *)cellRangeWasInserted:(CDStruct_5744d895)arg1;
+- (BOOL)shouldRewriteOnTranspose;
 - (BOOL)shouldRewriteOnCellMerge;
 - (BOOL)shouldRewriteOnTectonicShift;
 - (BOOL)shouldRewriteOnRangeMove;
 - (BOOL)shouldRewriteOnSort;
 - (void)referencedCellWasModified:(TSCETrackedReference *)arg1;
+
+@optional
+- (void)updateTrackedHeaders:(struct __CFUUID *)arg1;
 @end
 

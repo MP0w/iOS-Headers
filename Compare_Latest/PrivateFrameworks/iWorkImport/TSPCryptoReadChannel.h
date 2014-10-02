@@ -8,7 +8,7 @@
 
 #import "TSUStreamReadChannel.h"
 
-@class NSObject<OS_dispatch_data>, NSObject<OS_dispatch_queue>, SFUCryptoKey;
+@class NSObject<OS_dispatch_data>, NSObject<OS_dispatch_queue>, NSString, SFUCryptoKey;
 
 __attribute__((visibility("hidden")))
 @interface TSPCryptoReadChannel : NSObject <TSUStreamReadChannel>
@@ -29,6 +29,12 @@ __attribute__((visibility("hidden")))
 - (void)close;
 - (void)dealloc;
 - (id)initWithReadChannel:(id)arg1 decryptionKey:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "UIKeyInput.h"
 
-@class NSMutableArray, NSMutableString;
+@class NSMutableArray, NSMutableString, NSString;
 
 @interface RUIPasscodeField : UIView <UIKeyInput>
 {
@@ -23,7 +23,8 @@
 
 @property(nonatomic) BOOL securePasscodeEntry; // @synthesize securePasscodeEntry=_securePasscodeEntry;
 @property(readonly, nonatomic) unsigned int numberOfEntryFields; // @synthesize numberOfEntryFields=_numberOfEntryFields;
-@property(nonatomic) id <RUIPasscodeFieldDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <RUIPasscodeFieldDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)deleteBackward;
 - (BOOL)hasText;
 - (void)insertText:(id)arg1;
@@ -34,16 +35,19 @@
 - (id)stringValue;
 - (void)layoutSubviews;
 @property(nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry;
-- (void)dealloc;
 - (id)initWithNumberOfEntryFields:(unsigned int)arg1;
 
 // Remaining properties
 @property(nonatomic) int autocapitalizationType;
 @property(nonatomic) int autocorrectionType;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(nonatomic) BOOL enablesReturnKeyAutomatically;
+@property(readonly) unsigned int hash;
 @property(nonatomic) int keyboardAppearance;
 @property(nonatomic) int returnKeyType;
 @property(nonatomic) int spellCheckingType;
+@property(readonly) Class superclass;
 
 @end
 

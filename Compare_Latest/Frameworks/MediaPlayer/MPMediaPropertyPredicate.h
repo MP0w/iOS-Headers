@@ -6,9 +6,11 @@
 
 #import <MediaPlayer/MPMediaPredicate.h>
 
+#import "MPPProtobufferCoding.h"
+
 @class NSString;
 
-@interface MPMediaPropertyPredicate : MPMediaPredicate
+@interface MPMediaPropertyPredicate : MPMediaPredicate <MPPProtobufferCoding>
 {
     NSString *_property;
     id _value;
@@ -21,15 +23,21 @@
 @property(nonatomic) int comparisonType;
 @property(copy, nonatomic) id value;
 @property(copy, nonatomic) NSString *property;
-- (unsigned int)hash;
+- (id)protobufferEncodableObject;
+- (id)initWithProtobufferDecodableObject:(id)arg1;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)descriptionOfValue:(id)arg1 forProperty:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)_ML3PredicateForML3EntityProperty:(id)arg1;
 - (id)ML3PredicateForContainer;
 - (id)ML3PredicateForTrack;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

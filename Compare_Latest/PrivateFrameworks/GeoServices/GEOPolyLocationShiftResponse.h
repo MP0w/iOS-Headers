@@ -21,6 +21,7 @@
 
 @property(nonatomic) double radius; // @synthesize radius=_radius;
 @property(nonatomic) int status; // @synthesize status=_status;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -10,7 +10,7 @@
 #import "NSCopying.h"
 #import "SSXPCCoding.h"
 
-@class NSSet;
+@class NSSet, NSString;
 
 @interface SSDownloadPolicyRule : NSObject <NSCoding, SSXPCCoding, NSCopying>
 {
@@ -38,7 +38,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (void)unionPolicyRule:(id)arg1;
 @property(readonly, nonatomic, getter=isWiFiAllowed) BOOL wiFiAllowed;
 @property(readonly, nonatomic, getter=isCellularAllowed) BOOL cellularAllowed;
@@ -46,6 +46,11 @@
 - (void)addApplicationState:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

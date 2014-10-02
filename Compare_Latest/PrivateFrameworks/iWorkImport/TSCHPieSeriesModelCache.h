@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
     double mTotalValue;
     TSCHChartSeries *mCurrentSeries;
     unsigned int mCurrentSeriesIndex;
-    double mCurrentSeriesValue;
+    double mCurrentSeriesAxisValue;
     double mCurrentSeriesPercentage;
     double mCurrentSeriesStartAngle;
     double mCurrentSeriesAngleSweep;
@@ -56,7 +56,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) TSCHChartSeries *series; // @synthesize series=mCurrentSeries;
 @property(readonly) BOOL nullData; // @synthesize nullData=mCurrentSeriesNullData;
 @property(readonly) double startAngle; // @synthesize startAngle=mCurrentSeriesStartAngle;
-@property(readonly) double seriesValue; // @synthesize seriesValue=mCurrentSeriesValue;
+@property(readonly) double seriesAxisValue; // @synthesize seriesAxisValue=mCurrentSeriesAxisValue;
 @property(readonly) double totalValue; // @synthesize totalValue=mTotalValue;
 @property(readonly) unsigned int seriesIndex; // @synthesize seriesIndex=mCurrentSeriesIndex;
 @property(readonly) BOOL shouldRenderLabel;

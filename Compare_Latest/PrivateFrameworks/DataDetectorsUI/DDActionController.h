@@ -6,35 +6,42 @@
 
 #import "NSObject.h"
 
-#import "UIAlertViewDelegate.h"
-#import "UIPopoverControllerDelegate.h"
+#import "DDActionDelegate.h"
+#import "UIPopoverPresentationControllerDelegate.h"
 
-@class DDAction, UIPopoverController, UIView, UIViewController, UIWindow;
+@class DDAction, NSString, UIAlertController, UIPopoverController, UIView, UIViewController, UIWindow;
 
 __attribute__((visibility("hidden")))
-@interface DDActionController : NSObject <UIAlertViewDelegate, UIPopoverControllerDelegate>
+@interface DDActionController : NSObject <DDActionDelegate, UIPopoverPresentationControllerDelegate>
 {
     UIViewController *_presentedViewController;
     UIPopoverController *_currentPopoverController;
     UIView *_baseView;
     UIViewController *_currentBaseViewController;
     DDAction *_currentAction;
-    id _interactionDelegate;
+    id <DDDetectionControllerInteractionDelegate> _interactionDelegate;
     UIWindow *_originalWindow;
+    NSString *_idsListenerID;
+    UIAlertController *_alertController;
 }
 
+@property(retain, nonatomic) UIAlertController *alertController; // @synthesize alertController=_alertController;
 @property(retain) DDAction *currentAction; // @synthesize currentAction=_currentAction;
 @property(retain, nonatomic) UIView *baseView; // @synthesize baseView=_baseView;
 @property(retain, nonatomic) UIPopoverController *popoverController; // @synthesize popoverController=_currentPopoverController;
-@property(retain, nonatomic) id interactionDelegate; // @synthesize interactionDelegate=_interactionDelegate;
-- (void)actionDidFinish;
+@property(retain, nonatomic) id <DDDetectionControllerInteractionDelegate> interactionDelegate; // @synthesize interactionDelegate=_interactionDelegate;
+- (BOOL)isPresentingInPopover;
+- (void)actionDidFinish:(id)arg1;
 - (void)failedToPrepareViewControllerForAction:(id)arg1;
 - (void)action:(id)arg1 viewControllerReady:(id)arg2;
 - (void)performAction:(id)arg1;
 - (void)_dismissCurrentViewControllerOurselves;
 - (void)_presentCurrentViewControllerOurselves;
+- (void)popoverPresentationControllerDidDismissPopover:(id)arg1;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
 - (void)dismissCurrentController;
+- (void)tellDelegateActionDidFinish;
+- (void)_legacyPresentController:(id)arg1;
 - (void)_presentController:(id)arg1;
 - (id)defaultActionForURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
 - (id)actionsForURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
@@ -42,6 +49,12 @@ __attribute__((visibility("hidden")))
 - (void)_cleanup;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -39,6 +39,7 @@
 - (void)_setHidesBorderView:(BOOL)arg1;
 - (void)tintColorDidChange;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)setBackgroundColor:(id)arg1;
 - (void)layoutSubviews;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)didMoveToWindow;

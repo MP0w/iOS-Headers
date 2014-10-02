@@ -6,10 +6,12 @@
 
 #import "_UIRemoteViewController.h"
 
+#import "DDRemoteActionPresenter.h"
+
 @class DDAction, DDActionController;
 
 __attribute__((visibility("hidden")))
-@interface DDRemoteActionViewController : _UIRemoteViewController
+@interface DDRemoteActionViewController : _UIRemoteViewController <DDRemoteActionPresenter>
 {
     BOOL _proxyConfigured;
     DDAction *_action;
@@ -22,10 +24,10 @@ __attribute__((visibility("hidden")))
 + (id)exportedInterface;
 @property DDActionController *actionController; // @synthesize actionController=_actionController;
 @property(retain) DDAction *action; // @synthesize action=_action;
+- (void)getIsBeingPresentedInPopover:(CDUnknownBlockType)arg1;
 - (void)actionDidFinish;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 - (void)viewControllerReadyAndIsModal:(BOOL)arg1;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)_prepareForAction:(id)arg1 inActionController:(id)arg2;
 
 @end

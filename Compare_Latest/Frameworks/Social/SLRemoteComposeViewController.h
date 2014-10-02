@@ -6,37 +6,15 @@
 
 #import "_UIRemoteViewController.h"
 
-#import "SLSheetViewHostProtocol.h"
-
 __attribute__((visibility("hidden")))
-@interface SLRemoteComposeViewController : _UIRemoteViewController <SLSheetViewHostProtocol>
+@interface SLRemoteComposeViewController : _UIRemoteViewController
 {
-    id <SLComposeViewControllerServiceProtocol> _serviceProxy;
-    int _controllerResult;
-    BOOL _hasAppeared;
-    id <SLSheetViewHostProtocol> _hostDelegate;
+    id <SLRemoteComposeViewControllerDelegateProtocol> _delegate;
 }
 
-+ (id)serviceViewControllerInterface;
-+ (id)exportedInterface;
-@property(nonatomic) __weak id <SLSheetViewHostProtocol> hostDelegate; // @synthesize hostDelegate=_hostDelegate;
-@property BOOL hasAppeared; // @synthesize hasAppeared=_hasAppeared;
+@property(nonatomic) __weak id <SLRemoteComposeViewControllerDelegateProtocol> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
-- (void)removeAllURLs;
-- (void)removeAllImages;
-- (void)updateAttachment:(id)arg1;
-- (void)addAttachment:(id)arg1;
-- (void)setInitialText:(id)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)sheetDidSendWithSucess:(id)arg1 error:(id)arg2;
-- (void)sheetFailedWithError:(id)arg1;
-- (void)userDidPost;
-- (void)userDidCancel;
-- (void)shouldShowNetworkActivityIndicator:(id)arg1;
-- (void)sheetWillDismissWithUserResult:(id)arg1;
-- (void)setupRemoteViewController;
 
 @end
 

@@ -6,6 +6,8 @@
 
 #import "NSObject.h"
 
+@class MPMediaLibraryArtworkDataSource, MPMediaLibraryArtworkRequest;
+
 @interface MPMediaChapter : NSObject
 {
     int _chapterType;
@@ -15,8 +17,12 @@
     double _playbackTime;
     id _value;
     CDUnknownBlockType _valueLoader;
+    MPMediaLibraryArtworkRequest *_artworkRequest;
+    MPMediaLibraryArtworkDataSource *_artworkDataSource;
 }
 
+@property(nonatomic) __weak MPMediaLibraryArtworkDataSource *artworkDataSource; // @synthesize artworkDataSource=_artworkDataSource;
+@property(retain, nonatomic) MPMediaLibraryArtworkRequest *artworkRequest; // @synthesize artworkRequest=_artworkRequest;
 @property(copy, nonatomic) CDUnknownBlockType valueLoader; // @synthesize valueLoader=_valueLoader;
 @property(retain, nonatomic) id value; // @synthesize value=_value;
 @property(nonatomic) double playbackTime; // @synthesize playbackTime=_playbackTime;
@@ -31,6 +37,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
 - (int)_sortByChapterIndex:(id)arg1;
+- (id)artworkCatalog;
 
 @end
 

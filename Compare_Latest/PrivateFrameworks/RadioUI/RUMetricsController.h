@@ -11,6 +11,10 @@
 }
 
 + (void)getDefaultRadioMetricsControllerWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)_updateWindowOrientation;
+- (void)_statusBarOrientationDidChange:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -11,6 +11,8 @@
 }
 
 + (id)sharedMessageCenter;
+- (BOOL)simulateDeferredMessage;
+- (BOOL)simulateSmsReceived:(id)arg1;
 - (BOOL)getCharacterCount:(int *)arg1 andMessageSplitThreshold:(int *)arg2 forSmsText:(id)arg3;
 - (BOOL)sendSMSWithText:(id)arg1 serviceCenter:(id)arg2 toAddress:(id)arg3 withMoreToFollow:(BOOL)arg4 withID:(unsigned int)arg5;
 - (BOOL)sendSMSWithText:(id)arg1 serviceCenter:(id)arg2 toAddress:(id)arg3 withMoreToFollow:(BOOL)arg4;

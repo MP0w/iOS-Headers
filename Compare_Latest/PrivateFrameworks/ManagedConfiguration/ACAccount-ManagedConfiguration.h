@@ -10,7 +10,9 @@
 
 @interface ACAccount (ManagedConfiguration)
 - (id)mcBackingPayload;
+- (id)mcBackingProfile;
 @property(retain, nonatomic) NSString *mcPayloadUUID;
 @property(retain, nonatomic) NSString *mcProfileUUID;
+- (BOOL)MCIsManaged;
 @end
 

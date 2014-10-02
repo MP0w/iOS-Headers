@@ -8,38 +8,3 @@
 
 typedef void (^CDUnknownBlockType)(void); // return type and parameters are unknown
 
-#pragma mark Named Structures
-
-struct filterTag {
-    int _field1;
-    int _field2;
-    int _field3;
-    id _field4;
-};
-
-struct tagReportingPacket {
-    struct tagReportingPacketHeader _field1;
-    char _field2[1024];
-};
-
-struct tagReportingPacketHeader {
-    unsigned char _field1;
-    unsigned char _field2;
-    unsigned char _field3;
-    unsigned char _field4;
-    unsigned int _field5;
-    unsigned int _field6;
-    unsigned short _field7;
-    unsigned short _field8;
-    unsigned short _field9;
-    unsigned short _field10;
-    unsigned char _field11[40];
-    unsigned short _field12;
-    unsigned short _field13;
-};
-
-struct timeval {
-    int tv_sec;
-    int tv_usec;
-};
-

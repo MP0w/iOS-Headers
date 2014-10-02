@@ -24,17 +24,22 @@
 @property(copy, nonatomic) NSString *temperature;
 @property(copy, nonatomic) NSString *sunset;
 @property(copy, nonatomic) NSString *sunrise;
-@property(retain, nonatomic) NSNumber *percentOfMoonFaceVisible;
+@property(copy, nonatomic) NSNumber *percentOfMoonFaceVisible;
 @property(copy, nonatomic) NSString *percentHumidity;
 @property(copy, nonatomic) NSString *moonPhase;
 @property(copy, nonatomic) NSString *heatIndex;
-@property(copy, nonatomic) NSString *feelsLike;
 @property(copy, nonatomic) NSString *dewPoint;
-@property(retain, nonatomic) NSNumber *dayOfWeek;
+@property(copy, nonatomic) NSNumber *dayOfWeek;
 @property(retain, nonatomic) SAWeatherCondition *condition;
 @property(retain, nonatomic) SAWeatherBarometricPressure *barometricPressure;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

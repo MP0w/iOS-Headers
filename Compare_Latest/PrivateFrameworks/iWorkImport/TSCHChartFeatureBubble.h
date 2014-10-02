@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (BOOL)supportsShowLabelsInFrontOption;
 - (BOOL)supportsConnectingLines;
 - (BOOL)supportsBubbleOptions;
 - (id)supportedSeriesTypes;

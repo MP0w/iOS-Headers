@@ -43,11 +43,11 @@
 @property(readonly) BOOL isContentEditable;
 @property(readonly) DOMElement *parentElement;
 @property(copy) NSString *textContent;
-@property(readonly) NSString *baseURI;
+@property(readonly, copy) NSString *baseURI;
 @property(readonly) DOMNamedNodeMap *attributes;
-@property(readonly) NSString *localName;
+@property(readonly, copy) NSString *localName;
 @property(copy) NSString *prefix;
-@property(readonly) NSString *namespaceURI;
+@property(readonly, copy) NSString *namespaceURI;
 @property(readonly) DOMDocument *ownerDocument;
 @property(readonly) DOMNode *nextSibling;
 @property(readonly) DOMNode *previousSibling;
@@ -57,11 +57,11 @@
 @property(readonly) DOMNode *parentNode;
 @property(readonly) unsigned short nodeType;
 @property(copy) NSString *nodeValue;
-@property(readonly) NSString *nodeName;
+@property(readonly, copy) NSString *nodeName;
 - (void)finalize;
 - (void)dealloc;
 - (struct RootObject *)_rootObject;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)previousFocusNode;
 - (id)nextFocusNode;
 - (float)computedFontSize;
@@ -88,6 +88,11 @@
 - (id)borderRadii;
 - (id)absoluteQuads;
 - (id)boundingBoxes;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

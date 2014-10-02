@@ -18,12 +18,14 @@ __attribute__((visibility("hidden")))
     NSArray *mCategoryAxisIDs;
 }
 
-@property(readonly, nonatomic) NSArray *categoryAxisIDs; // @synthesize categoryAxisIDs=mCategoryAxisIDs;
-@property(readonly, nonatomic) NSArray *valueAxisIDs; // @synthesize valueAxisIDs=mValueAxisIDs;
+@property(readonly, retain, nonatomic) NSArray *categoryAxisIDs; // @synthesize categoryAxisIDs=mCategoryAxisIDs;
+@property(readonly, retain, nonatomic) NSArray *valueAxisIDs; // @synthesize valueAxisIDs=mValueAxisIDs;
+- (BOOL)supportsShowLabelsInFrontOption;
 - (float)sageMaxDepthRatio;
 - (float)maxDepthRatio;
 - (id)initialSceneWithChartInfo:(id)arg1 layoutSettings:(CDStruct_1f804ca1)arg2;
 - (Class)stageClass;
+- (unsigned int)maxCellsToCheckForGridValueType;
 - (BOOL)supportsBubbleOptions;
 - (BOOL)supportsSharedAndSeparateX;
 - (BOOL)supportsCategoryLabelsInChartRangeEditor;
@@ -55,7 +57,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)supportsSeriesLabels;
 - (BOOL)supportsGroupedShadows;
 - (BOOL)drawValueLabelsForZero;
-- (BOOL)requiresAxisOrdinal;
+- (BOOL)requiresYAxisOrdinal;
 - (id)supportedSeriesTypes;
 - (BOOL)supportsMultipleSeriesTypes;
 - (BOOL)reverseSingleColumnLegendOrder;

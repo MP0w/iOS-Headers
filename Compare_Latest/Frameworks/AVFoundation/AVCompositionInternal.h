@@ -6,12 +6,16 @@
 
 #import "NSObject.h"
 
-@class AVAssetInspector, NSMutableArray;
+@class AVAssetInspector, AVAssetInspectorLoader, NSMutableArray;
 
 @interface AVCompositionInternal : NSObject
 {
     struct OpaqueFigMutableComposition *mutableComposition;
+    long formatReaderInitializationOnce;
+    long assetInspectorInitializationOnce;
+    long tracksInitializationOnce;
     struct OpaqueFigFormatReader *formatReader;
+    AVAssetInspectorLoader *assetInspectorLoader;
     AVAssetInspector *assetInspector;
     struct CGSize naturalSize;
     NSMutableArray *tracks;

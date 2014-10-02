@@ -24,9 +24,11 @@ __attribute__((visibility("hidden")))
 - (struct EDRowInfo *)rowInfoWithRowNumber:(unsigned int)arg1;
 - (unsigned int)indexOfRowInfoWithRowNumber:(unsigned int)arg1;
 - (struct EDRowInfo *)rowInfoAtIndex:(unsigned int)arg1;
-- (unsigned int)lastRowNumber;
-- (unsigned int)firstRowNumber;
-- (unsigned int)rowCount;
+@property(readonly, nonatomic) unsigned int maxRowNumber;
+@property(readonly, nonatomic) unsigned int minRowNumber;
+@property(readonly, nonatomic) unsigned int lastRowNumber;
+@property(readonly, nonatomic) unsigned int firstRowNumber;
+@property(readonly, nonatomic) unsigned int rowCount;
 - (void)doneWithContent;
 - (void)dealloc;
 - (id)init;

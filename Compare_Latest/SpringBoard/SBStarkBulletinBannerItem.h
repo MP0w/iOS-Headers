@@ -15,15 +15,20 @@
     unsigned long long _feed;
 }
 
-- (CDUnknownBlockType)subActionWithIndex:(unsigned long long)arg1;
+- (id)_uiBannerActionForBBAction:(id)arg1 context:(id)arg2;
+- (_Bool)_supportsSubActions;
+- (id)subActions;
 - (id)subActionLabels;
+- (id)bbActions;
+- (id)_bbDismissAppearance;
+- (id)_bbDismissAction;
 - (id)sound;
 - (id)sourceDate;
-- (CDUnknownBlockType)ignoreAction;
 - (CDUnknownBlockType)action;
 - (_Bool)matchesContext:(id)arg1;
 - (long long)defaultActionType;
 - (id)categoryImage;
+- (id)message;
 - (id)subTitle;
 - (id)title;
 - (void)updateBulletinToInstance:(id)arg1;

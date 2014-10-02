@@ -6,9 +6,11 @@
 
 #import <MediaPlayer/MPMediaPredicate.h>
 
+#import "MPPProtobufferCoding.h"
+
 @class NSSet, NSString;
 
-@interface _MPMediaSearchStringPredicate : MPMediaPredicate
+@interface _MPMediaSearchStringPredicate : MPMediaPredicate <MPPProtobufferCoding>
 {
     NSString *_searchString;
     NSSet *_properties;
@@ -18,14 +20,20 @@
 @property(copy, nonatomic) NSSet *properties; // @synthesize properties=_properties;
 @property(copy, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
 - (void).cxx_destruct;
-- (unsigned int)hash;
+- (id)protobufferEncodableObject;
+- (id)initWithProtobufferDecodableObject:(id)arg1;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)ML3PredicateForContainer;
 - (id)ML3PredicateForTrack;
 - (id)_ML3PredicateForEntityClass:(Class)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

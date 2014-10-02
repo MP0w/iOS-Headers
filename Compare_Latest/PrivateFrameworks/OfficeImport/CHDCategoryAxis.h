@@ -13,8 +13,13 @@ __attribute__((visibility("hidden")))
     _Bool mNoMultipleLevelLabel;
     int mLabelAlignment;
     long mLabelFrequency;
+    _Bool mLabelFrequencyAutomatic;
+    _Bool mShowSeriesNames;
 }
 
+- (_Bool)isLabelFrequencyAutomatic;
+- (_Bool)showSeriesLabels;
+- (void)setShowSeriesLabels:(_Bool)arg1;
 - (void)setLabelFrequency:(long)arg1;
 - (long)labelFrequency;
 - (void)adjustAxisPositionForHorizontalChart;

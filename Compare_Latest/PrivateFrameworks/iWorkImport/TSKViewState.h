@@ -17,8 +17,6 @@ __attribute__((visibility("hidden")))
 - (void)saveToArchiver:(id)arg1;
 - (id)initFromUnarchiver:(id)arg1;
 - (id)packageLocator;
-- (BOOL)dirtiesDocumentPackage;
-- (BOOL)allowsDuplicatesOutsideOfDocumentPackage;
 - (void)dealloc;
 - (id)initWithViewStateRoot:(id)arg1 context:(id)arg2;
 

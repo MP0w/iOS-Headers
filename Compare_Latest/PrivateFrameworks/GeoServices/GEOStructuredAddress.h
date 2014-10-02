@@ -13,7 +13,11 @@
 
 @interface GEOStructuredAddress : PBCodable <GEOURLSerializable, NSCopying>
 {
-    CDStruct_815f15fd _geoIds;
+    struct {
+        long long *list;
+        unsigned int count;
+        unsigned int size;
+    } _geoIds;
     NSString *_administrativeArea;
     NSString *_administrativeAreaCode;
     NSMutableArray *_areaOfInterests;
@@ -56,14 +60,15 @@
 @property(retain, nonatomic) NSString *administrativeArea; // @synthesize administrativeArea=_administrativeArea;
 @property(retain, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
 @property(retain, nonatomic) NSString *country; // @synthesize country=_country;
-- (unsigned int)hash;
+- (void)mergeFrom:(id)arg1;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)setGeoIds:(long long *)arg1 count:(unsigned int)arg2;
 - (long long)geoIdAtIndex:(unsigned int)arg1;
 - (void)addGeoId:(long long)arg1;
@@ -104,6 +109,10 @@
 - (BOOL)_isEquivalentURLRepresentationTo:(id)arg1;
 - (id)urlRepresentation;
 - (id)initWithUrlRepresentation:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

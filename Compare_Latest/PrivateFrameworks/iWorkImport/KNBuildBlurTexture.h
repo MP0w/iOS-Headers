@@ -9,6 +9,7 @@
 __attribute__((visibility("hidden")))
 @interface KNBuildBlurTexture : NSObject
 {
+    BOOL _didTeardown;
     unsigned int _textureName;
     float _blurAmount;
     struct CGRect _frame;
@@ -20,6 +21,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) struct CGRect frame; // @synthesize frame=_frame;
 @property(nonatomic) unsigned int textureName; // @synthesize textureName=_textureName;
 - (id)description;
+- (void)dealloc;
 - (void)teardown;
 - (id)initWithTextureName:(unsigned int)arg1 frame:(struct CGRect)arg2 blurAmount:(float)arg3;
 

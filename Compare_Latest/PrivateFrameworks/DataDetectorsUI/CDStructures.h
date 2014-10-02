@@ -30,8 +30,6 @@ struct _NSRange {
     unsigned int length;
 };
 
-struct __CFArray;
-
 struct __CFRuntimeBase {
     unsigned int _field1;
     unsigned char _field2[4];
@@ -69,26 +67,5 @@ struct __DDScanQuery {
     int _field4;
     CDUnknownFunctionPointerType _field5;
     void *_field6;
-};
-
-struct __DDScanner {
-    struct __CFRuntimeBase _field1;
-    struct __DDLRTable *_field2;
-    struct __DDLexer *_field3;
-    struct __DDLookupTable *_field4;
-    struct __DDCache *_field5;
-    struct __DDTokenCache *_field6;
-    struct __DDLexemCache *_field7;
-    struct __DDScanQuery *_field8;
-    struct __DDScanQuery *_field9;
-    struct __CFArray *_field10;
-    struct __CFArray *_field11;
-    int _field12;
-    int _field13;
-    int _field14;
-    char *_field15;
-    CDUnknownBlockType _field16;
-    unsigned int :1;
-    unsigned int :1;
 };
 

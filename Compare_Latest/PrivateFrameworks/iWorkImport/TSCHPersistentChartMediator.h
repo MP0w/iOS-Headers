@@ -9,7 +9,7 @@
 #import "TSCHMediatorProvider.h"
 #import "TSCHNotifyOnModify.h"
 
-@class TSCHChartMediator;
+@class NSString, TSCHChartMediator;
 
 __attribute__((visibility("hidden")))
 @interface TSCHPersistentChartMediator : TSPObject <TSCHNotifyOnModify, TSCHMediatorProvider>
@@ -17,11 +17,17 @@ __attribute__((visibility("hidden")))
     TSCHChartMediator *mMediator;
 }
 
-@property(readonly, nonatomic) TSCHChartMediator *mediator; // @synthesize mediator=mMediator;
+@property(readonly, retain, nonatomic) TSCHChartMediator *mediator; // @synthesize mediator=mMediator;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1 andMediator:(id)arg2;
 - (void)saveToArchive:(struct ChartMediatorArchive *)arg1;
 - (void)loadFromArchive:(const struct ChartMediatorArchive *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

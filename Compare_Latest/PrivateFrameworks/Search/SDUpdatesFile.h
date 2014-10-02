@@ -14,7 +14,7 @@
     NSString *_category;
     NSFileHandle *_fileHandle;
     BOOL _justFakeIt;
-    unsigned long long _readLength;
+    unsigned int _readLength;
 }
 
 - (void)addUpdates:(id)arg1;

@@ -15,6 +15,8 @@
     struct opaqueCMFormatDescription *formatDescription;
     struct OpaqueCMClock *clock;
     BOOL enabled;
+    int changeSeed;
+    NSString *sourceID;
 }
 
 - (void)dealloc;

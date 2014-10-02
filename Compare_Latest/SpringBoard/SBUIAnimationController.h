@@ -6,73 +6,96 @@
 
 #import "NSObject.h"
 
-@class BKSApplicationActivationAssertion, SBActivationContext, SBApplication, UIView, UIWindow;
+#import "BSTransactionObserver.h"
 
-@interface SBUIAnimationController : NSObject
+@class BSTransaction, NSHashTable, NSMutableArray, NSString, SBApplication, SBDisplaySettings, UIView, UIWindow;
+
+@interface SBUIAnimationController : NSObject <BSTransactionObserver>
 {
-    id <SBUIAnimationControllerDelegate> _delegate;
     UIWindow *_transitionWindow;
     UIView *_transitionContainer;
     SBApplication *_activatingApp;
     SBApplication *_deactivatingApp;
-    SBActivationContext *_activatingContext;
-    SBActivationContext *_deactivatingContext;
-    BKSApplicationActivationAssertion *_activationAssertion;
+    SBDisplaySettings *_activatingAppSettings;
+    SBDisplaySettings *_deactivatingAppSettings;
     CDUnknownBlockType _commitBlock;
     int _animationState;
     _Bool _cancelOnNextSuspendIfNecessary;
     _Bool _didPostBeginAnimationNotification;
-    _Bool _didNotifyDelegateOfCompletion;
+    _Bool _didNotifyObserversOfCompletion;
     _Bool _needsCATransactionActivate;
+    NSHashTable *_observers;
+    NSMutableArray *_startDependencies;
+    _Bool _preparing;
+    SBApplication *_progressDependency;
+    BSTransaction *_waitForActivationDependency;
+    id <BSLogging> _debugLogger;
 }
 
 @property(nonatomic) _Bool needsCATransactionActivate; // @synthesize needsCATransactionActivate=_needsCATransactionActivate;
 @property(nonatomic) _Bool cancelOnNextSuspendIfNecessary; // @synthesize cancelOnNextSuspendIfNecessary=_cancelOnNextSuspendIfNecessary;
-@property(retain, nonatomic) SBActivationContext *deactivatingContext; // @synthesize deactivatingContext=_deactivatingContext;
-@property(retain, nonatomic) SBActivationContext *activatingContext; // @synthesize activatingContext=_activatingContext;
-@property(retain, nonatomic) BKSApplicationActivationAssertion *activationAssertion; // @synthesize activationAssertion=_activationAssertion;
+@property(retain, nonatomic) SBDisplaySettings *deactivatingAppSettings; // @synthesize deactivatingAppSettings=_deactivatingAppSettings;
+@property(retain, nonatomic) SBDisplaySettings *activatingAppSettings; // @synthesize activatingAppSettings=_activatingAppSettings;
 @property(copy, nonatomic) CDUnknownBlockType commitBlock; // @synthesize commitBlock=_commitBlock;
 @property(retain, nonatomic) SBApplication *deactivatingApp; // @synthesize deactivatingApp=_deactivatingApp;
 @property(retain, nonatomic) SBApplication *activatingApp; // @synthesize activatingApp=_activatingApp;
-@property(nonatomic) id <SBUIAnimationControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) UIView *containerView; // @synthesize containerView=_transitionContainer;
+@property(readonly, retain, nonatomic) UIView *containerView; // @synthesize containerView=_transitionContainer;
+- (void)transactionDidComplete:(id)arg1;
+- (void)_stopMonitoringStartDependency:(id)arg1;
+- (void)_startMonitoringStartDependency:(id)arg1;
+- (void)_enumerateObserversSafely:(CDUnknownBlockType)arg1;
 - (void)__cleanupAnimation;
+- (_Bool)__animationShouldStart;
 - (void)__noteAnimationDidTerminateWithSuccess:(_Bool)arg1;
 - (void)_noteAnimationDidFail;
 - (void)_noteAnimationDidFinish;
-- (void)_notifyDelegateOfCompletion;
+- (void)_noteAnimationDidRevealApplication;
+- (void)_notifyObserversOfCompletion;
 - (void)_noteAnimationDidCommit:(_Bool)arg1 withDuration:(double)arg2 afterDelay:(double)arg3;
-- (_Bool)_shouldTakeActivationAssertionForDeactivatingApp;
 - (_Bool)_shouldDismissBanner;
 - (void)_cleanupAnimation;
 - (void)_cancelAnimation;
 - (void)_startAnimation;
+- (void)_startTransactionDependency:(id)arg1 didComplete:(_Bool)arg2;
+- (void)_applicationDependencyStateChanged;
+- (_Bool)_waitsForApplicationActivationIfNecessary;
 - (void)_prepareAnimation;
 - (void)_setHidden:(_Bool)arg1;
 - (id)_animationProgressDependency;
-- (_Bool)_animationShouldStart;
 - (id)_animationIdentifier;
 - (_Bool)_willAnimate;
+- (void)_removeStartTransactionDependency:(id)arg1;
+- (void)_addStartTransactionDependency:(id)arg1;
+- (id)_startTransactionDependencies;
 - (void)endAnimation;
 - (_Bool)isReasonableMomentToInterrupt;
 - (_Bool)isComplete;
 - (_Bool)waitingToStart;
-- (_Bool)_wantsInitialProgressStateChange;
+- (_Bool)__wantsInitialProgressStateChange;
 - (void)beginAnimation;
+- (void)_setupStartDependencies;
+- (id)__newWaitForAppActivationTransaction;
 - (void)_applicationActivationStateDidChange;
-- (void)_applicationDependencyStateChanged;
-- (void)_evaluateProgressConditions;
+- (void)__evaluateStartDependencies;
 - (void)__cancelAnimation;
 - (void)__startAnimation;
-- (void)_releaseActivationAssertion;
+- (void)removeObserver:(id)arg1;
+- (void)addObserver:(id)arg1;
 - (void)_setAnimationState:(int)arg1;
 - (_Bool)_isNullAnimation;
 - (_Bool)animating;
 - (int)_animationState;
+@property(retain, nonatomic) id <BSLogging> debugLogger;
 - (void)dealloc;
 - (id)initWithActivatingApp:(id)arg1 deactivatingApp:(id)arg2;
 - (id)init;
 - (id)_getTransitionWindow;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

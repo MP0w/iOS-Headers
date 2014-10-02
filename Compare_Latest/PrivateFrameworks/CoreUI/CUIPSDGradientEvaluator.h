@@ -11,6 +11,7 @@
 
 @class NSArray;
 
+__attribute__((visibility("hidden")))
 @interface CUIPSDGradientEvaluator : NSObject <NSCoding, NSCopying>
 {
     NSArray *colorStops;

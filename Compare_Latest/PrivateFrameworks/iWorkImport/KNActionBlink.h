@@ -8,7 +8,7 @@
 
 #import "KNActionEffectBuildAnimator.h"
 
-@class KNAnimParameterGroup;
+@class KNAnimParameterGroup, NSString;
 
 __attribute__((visibility("hidden")))
 @interface KNActionBlink : KNAnimationEffect <KNActionEffectBuildAnimator>
@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 + (void)fillLocalizedDirectionMenu:(id)arg1 forType:(int)arg2;
 + (unsigned int)directionType;
 + (id)localizedMenuString:(int)arg1;
++ (BOOL)isEmphasisBuildAnimation;
 + (id)supportedTypes;
 + (id)animationFilter;
 + (int)animationCategory;
@@ -32,6 +33,12 @@ __attribute__((visibility("hidden")))
 - (void)p_addAnimationToLayer:(id)arg1 blinkCount:(float)arg2 duration:(double)arg3 minOpacity:(float)arg4 decreaseOpacityTiming:(id)arg5 increaseOpacityTiming:(id)arg6 result:(id)arg7;
 - (void)dealloc;
 - (id)initWithAnimationContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

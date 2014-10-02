@@ -18,7 +18,7 @@
 - (id)description;
 - (id)focusWindow;
 - (void)dropReason:(id)arg1;
-- (void)takeWithPriority:(double)arg1 reason:(id)arg2 forWindow:(id)arg3 bundleIdentifier:(id)arg4;
+- (void)takeWithPriority:(double)arg1 reason:(id)arg2 forWindow:(id)arg3 bundleIdentifier:(id)arg4 pid:(int)arg5;
 - (void)invalidate;
 - (void)_applyAssertion:(id)arg1;
 - (void)_updateEventFocus;

@@ -10,7 +10,7 @@
 
 @interface SBLaunchAppListener : NSObject
 {
-    NSString *_displayIdentifier;
+    NSString *_bundleIdentifier;
     CDUnknownBlockType _block;
     NSLock *_lock;
     BOOL _launched;
@@ -25,7 +25,7 @@
 - (void)_didFailToLaunch;
 - (void)_didLaunch;
 - (void)dealloc;
-- (id)initWithDisplayIdentifier:(id)arg1 handlerBlock:(CDUnknownBlockType)arg2;
+- (id)initWithBundleIdentifier:(id)arg1 handlerBlock:(CDUnknownBlockType)arg2;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "UITableViewDataSource.h"
 
-@class ABModel, ACAccountStore, NSArray, NSDictionary;
+@class ABModel, ACAccountStore, NSArray, NSDictionary, NSString;
 
 @interface ABAccountsAndGroupDataSource : NSObject <UITableViewDataSource>
 {
@@ -44,6 +44,12 @@
 - (void)reloadDataIncludingAccountStore:(BOOL)arg1 usingArchivedState:(BOOL)arg2;
 - (id)defaultGroupWrapper;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

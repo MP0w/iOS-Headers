@@ -42,6 +42,7 @@ __attribute__((visibility("hidden")))
 - (const struct BarExtrusionDetails *)extrusionDetailsForShape:(int)arg1;
 - (float)maxValueForSeries:(int)arg1;
 - (void)reset;
+- (float)chartInitialDepthOffset;
 - (void)updateLabels;
 - (void)createResources;
 - (void)updateMaxValuesAndBevels;

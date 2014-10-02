@@ -7,22 +7,21 @@
 #import <VectorKit/VKModelObject.h>
 
 #import "VKMapLayer.h"
-#import "VKStylesheetObserver.h"
+#import "VKStyleManagerObserver.h"
 
-@class NSArray, NSMutableArray, NSMutableSet, VKAnnotationMarker, VKMapModel, VKStylesheet;
+@class NSArray, NSMutableArray, NSMutableSet, NSString, VKAnnotationMarker, VKMapModel, VKStyleManager;
 
 __attribute__((visibility("hidden")))
-@interface VKAnnotationModel : VKModelObject <VKMapLayer, VKStylesheetObserver>
+@interface VKAnnotationModel : VKModelObject <VKMapLayer, VKStyleManagerObserver>
 {
     NSMutableArray *_annotationMarkers;
     VKAnnotationMarker *_selectedAnnotationMarker;
     NSMutableSet *_animatingMarkers;
     NSMutableArray *_markersToAnimate;
-    id <VKAnnotationModelDelegate> _delegate;
     VKAnnotationMarker *_draggingAnnotationMarker;
     BOOL _didDragMarker;
     BOOL _hasEverDrawnSomething;
-    CDStruct_c71ade79 _styleTransitionState;
+    CDStruct_4f8a95cd _styleTransitionState;
     CDUnknownBlockType _annotationMarkerDeselectionCallback;
     VKMapModel *_mapModel;
 }
@@ -30,27 +29,32 @@ __attribute__((visibility("hidden")))
 + (BOOL)reloadOnStylesheetChange;
 @property(nonatomic) VKMapModel *mapModel; // @synthesize mapModel=_mapModel;
 @property(copy, nonatomic) CDUnknownBlockType annotationMarkerDeselectionCallback; // @synthesize annotationMarkerDeselectionCallback=_annotationMarkerDeselectionCallback;
-@property(nonatomic) CDStruct_c71ade79 styleTransitionState; // @synthesize styleTransitionState=_styleTransitionState;
+@property(nonatomic) CDStruct_4f8a95cd styleTransitionState; // @synthesize styleTransitionState=_styleTransitionState;
 @property(readonly, nonatomic) NSArray *annotationMarkers; // @synthesize annotationMarkers=_annotationMarkers;
-@property(nonatomic) id <VKAnnotationModelDelegate> delegate; // @synthesize delegate=_delegate;
 - (id).cxx_construct;
 - (void)stylesheetDidChange;
-@property(readonly, nonatomic) VKStylesheet *stylesheet;
+@property(readonly, nonatomic) VKStyleManager *styleManager;
 - (void)deselectAnnotationMarker:(id)arg1;
 - (void)selectAnnotationMarker:(id)arg1;
 - (id)annotationMarkerForSelectionAtPoint:(struct VKPoint)arg1 avoidCurrent:(BOOL)arg2 canvasSize:(struct CGSize)arg3;
 - (void)removeAnnotationMarker:(id)arg1;
 - (void)addAnnotationMarker:(id)arg1 allowAnimation:(BOOL)arg2;
-- (void)drawScene:(id)arg1 withContext:(id)arg2;
-- (void)layoutScene:(id)arg1 withContext:(id)arg2;
+- (void)gglLayoutScene:(id)arg1 withContext:(id)arg2 renderQueue:(struct RenderQueue *)arg3;
 - (CDUnknownBlockType)annotationCoordinateTest;
 - (CDUnknownBlockType)annotationRectTest;
 - (void)dealloc;
 @property(readonly, nonatomic) BOOL needsLayout;
 - (void)anchorPositionChangedForMarker:(id)arg1;
 @property(readonly, nonatomic) VKAnnotationMarker *selectedAnnotationMarker;
-- (unsigned int)supportedRenderPasses;
-- (unsigned int)mapLayerPosition;
+- (unsigned long long)mapLayerPosition;
+- (id)init;
+- (BOOL)shouldLayoutWithoutStyleManager;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,24 +6,39 @@
 
 #import <ManagedConfiguration/MCPayload.h>
 
-@class NSArray;
+@class NSArray, NSDictionary, NSString;
 
 @interface MCWebContentFilterPayload : MCPayload
 {
     BOOL _autoFilterEnabled;
+    BOOL _filterBrowsers;
+    BOOL _filterSockets;
+    NSString *_filterType;
     NSArray *_permittedURLStrings;
     NSArray *_whitelistedBookmarks;
     NSArray *_blacklistedURLStrings;
+    NSDictionary *_pluginConfiguration;
+    NSString *_name;
+    NSString *_pluginBundleID;
 }
 
++ (id)pluginFilterKeysAndClasses;
 + (id)localizedPluralForm;
 + (id)localizedSingularForm;
 + (id)typeStrings;
+@property(nonatomic) BOOL filterSockets; // @synthesize filterSockets=_filterSockets;
+@property(nonatomic) BOOL filterBrowsers; // @synthesize filterBrowsers=_filterBrowsers;
+@property(copy, nonatomic) NSString *pluginBundleID; // @synthesize pluginBundleID=_pluginBundleID;
+@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
+@property(retain, nonatomic) NSDictionary *pluginConfiguration; // @synthesize pluginConfiguration=_pluginConfiguration;
 @property(retain, nonatomic) NSArray *blacklistedURLStrings; // @synthesize blacklistedURLStrings=_blacklistedURLStrings;
 @property(retain, nonatomic) NSArray *whitelistedBookmarks; // @synthesize whitelistedBookmarks=_whitelistedBookmarks;
 @property(retain, nonatomic) NSArray *permittedURLStrings; // @synthesize permittedURLStrings=_permittedURLStrings;
 @property(nonatomic) BOOL autoFilterEnabled; // @synthesize autoFilterEnabled=_autoFilterEnabled;
+@property(copy, nonatomic) NSString *filterType; // @synthesize filterType=_filterType;
 - (void).cxx_destruct;
+- (id)installationWarnings;
+- (id)payloadDescriptionKeyValueSections;
 - (id)subtitle1Description;
 - (id)subtitle1Label;
 - (id)title;

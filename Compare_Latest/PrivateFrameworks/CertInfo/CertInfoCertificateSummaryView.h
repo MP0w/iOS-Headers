@@ -30,6 +30,7 @@
 @property(retain, nonatomic) NSString *trustSubtitle; // @synthesize trustSubtitle=_trustSubtitle;
 @property(retain, nonatomic) NSString *trustTitle; // @synthesize trustTitle=_trustTitle;
 @property(readonly, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
+- (void).cxx_destruct;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
@@ -37,8 +38,13 @@
 - (id)_cellForReuseIdentifier:(id)arg1;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (void)setMoreDetailsSelectedBlock:(CDUnknownBlockType)arg1;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

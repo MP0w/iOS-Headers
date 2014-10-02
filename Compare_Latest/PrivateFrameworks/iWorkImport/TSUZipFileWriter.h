@@ -12,9 +12,12 @@ __attribute__((visibility("hidden")))
     id <TSURandomWriteChannel> _writeChannel;
 }
 
++ (void)zipDirectoryAtURL:(id)arg1 customDirectoryFilename:(id)arg2 toURL:(id)arg3 queue:(id)arg4 progressHandler:(CDUnknownBlockType)arg5;
++ (void)zipDirectoryAtURL:(id)arg1 toURL:(id)arg2 queue:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (id)writeChannel;
 - (void).cxx_destruct;
-- (id)initWithURL:(id)arg1;
+- (id)initWithURL:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
+- (id)initWithURL:(id)arg1 error:(id *)arg2;
 
 @end
 

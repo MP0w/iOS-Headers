@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding.h"
 
-@class NSArray, NSData, NSDate, NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSURL, RadioArtworkCollection, RadioAudioClip;
+@class NSArray, NSData, NSDate, NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSURL, RadioArtworkCollection, RadioAudioClip, RadioTrackAdInfo;
 
 @interface RadioTrack : NSObject <NSSecureCoding>
 {
@@ -20,7 +20,7 @@
 }
 
 + (BOOL)supportsSecureCoding;
-@property(readonly, nonatomic) NSDictionary *trackDictionary; // @synthesize trackDictionary=_trackDictionary;
+@property(readonly, copy, nonatomic) NSDictionary *trackDictionary; // @synthesize trackDictionary=_trackDictionary;
 @property(readonly, nonatomic) BOOL isPreorderAlbum; // @synthesize isPreorderAlbum=_isPreorderAlbum;
 @property(retain, nonatomic) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
 - (void).cxx_destruct;
@@ -32,33 +32,34 @@
 - (void)_performWriteTransaction:(CDUnknownBlockType)arg1;
 - (void)_performTransactionAndWait:(CDUnknownBlockType)arg1;
 - (void)_performTransaction:(CDUnknownBlockType)arg1;
-@property(readonly, nonatomic) NSDictionary *trackInfo;
-@property(readonly, nonatomic) NSString *title;
+@property(readonly, copy, nonatomic) NSDictionary *trackInfo;
+@property(readonly, copy, nonatomic) NSString *title;
 @property(readonly, nonatomic) long long storeID;
 @property(readonly, nonatomic) double startTime;
 @property(readonly, nonatomic) long long shuffleSeed;
 @property(copy, nonatomic) NSDictionary *metadataDictionary;
 @property(nonatomic) BOOL inWishList;
-@property(readonly, nonatomic) NSURL *previewURL;
-@property(readonly, nonatomic) NSArray *offers;
+@property(readonly, copy, nonatomic) NSURL *previewURL;
+@property(readonly, copy, nonatomic) NSArray *offers;
 @property(readonly, nonatomic) int likeStatus;
 @property(readonly, nonatomic) BOOL isExplicit;
-@property(readonly, nonatomic) NSDictionary *feedbackDictionaryRepresentation;
+@property(readonly, copy, nonatomic) NSDictionary *feedbackDictionaryRepresentation;
 @property(readonly, nonatomic) double duration;
-@property(readonly, nonatomic) NSString *debugMessage;
+@property(readonly, copy, nonatomic) NSString *debugMessage;
 @property(readonly, nonatomic) long long dateFetched;
-@property(readonly, nonatomic) NSString *copyrightText;
+@property(readonly, copy, nonatomic) NSString *copyrightText;
 @property(readonly, nonatomic) RadioAudioClip *beforePromoAudioClip;
-@property(readonly, nonatomic) NSArray *assets;
+@property(readonly, copy, nonatomic) NSArray *assets;
 @property(readonly, nonatomic) RadioArtworkCollection *artworkCollection;
-@property(readonly, nonatomic) NSString *artist;
-@property(readonly, nonatomic) NSURL *albumURL;
+@property(readonly, copy, nonatomic) NSString *artist;
+@property(readonly, copy, nonatomic) NSURL *albumURL;
 @property(readonly, nonatomic) long long albumID;
 @property(readonly, nonatomic) int albumBuyButtonType;
-@property(readonly, nonatomic) NSString *albumBuyButtonText;
-@property(readonly, nonatomic) NSString *album;
+@property(readonly, copy, nonatomic) NSString *albumBuyButtonText;
+@property(readonly, copy, nonatomic) NSString *album;
 @property(readonly, nonatomic) RadioAudioClip *afterPromoAudioClip;
-@property(readonly, nonatomic) NSData *adData;
+@property(readonly, nonatomic) RadioTrackAdInfo *adInfo;
+@property(readonly, copy, nonatomic) NSData *adData;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)description;

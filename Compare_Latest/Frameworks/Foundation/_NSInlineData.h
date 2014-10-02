@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
 
 - (id)initWithBytes:(const void *)arg1 length:(unsigned int)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (BOOL)_isCompact;
 - (const void *)bytes;
 - (unsigned int)length;
 

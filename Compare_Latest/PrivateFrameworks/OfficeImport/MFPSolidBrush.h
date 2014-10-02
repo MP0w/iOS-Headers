@@ -6,12 +6,12 @@
 
 #import <OfficeImport/MFPBrush.h>
 
-@class TSUColor;
+@class OITSUColor;
 
 __attribute__((visibility("hidden")))
 @interface MFPSolidBrush : MFPBrush
 {
-    TSUColor *mColor;
+    OITSUColor *mColor;
 }
 
 - (void)fillPath:(id)arg1 evenOddRule:(BOOL)arg2;

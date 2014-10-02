@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)isVertical;
 - (BOOL)chunkedBuildsIncludeInterceptValues;
 - (id)genericToSpecificPropertyMap;
-- (unsigned int)adjustLabelPosition:(unsigned int)arg1 forValue:(double)arg2;
+- (unsigned int)adjustLabelPosition:(unsigned int)arg1 forAxisValue:(double)arg2 intercept:(double)arg3;
 - (unsigned int)filterChartLabelPosition:(unsigned int)arg1;
 - (id)userInterfaceNameForLabelPosition:(id)arg1;
 - (id)legalChartLabelPositions;

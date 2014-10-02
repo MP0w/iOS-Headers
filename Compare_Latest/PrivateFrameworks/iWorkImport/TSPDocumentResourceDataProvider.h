@@ -9,7 +9,7 @@
 #import "TSPDocumentResourceDownloadNotificationProtocol.h"
 #import "TSPDocumentResourceDownloader.h"
 
-@class NSHashTable, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, TSPDocumentResourceManager, TSPObjectContext;
+@class NSHashTable, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, TSPDocumentResourceManager, TSPObjectContext;
 
 __attribute__((visibility("hidden")))
 @interface TSPDocumentResourceDataProvider : NSObject <TSPDocumentResourceDownloadNotificationProtocol, TSPDocumentResourceDownloader>
@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
     long long _estimatedDownloadSize;
     BOOL _isEstimatedDownloadSizePrecise;
     BOOL _didCancelDownloads;
+    BOOL _didNotifyObjectContext;
 }
 
 + (void)didCompleteDocumentResourceDownloadWithDigestString:(id)arg1;
@@ -33,6 +34,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL needsDownload;
 - (void)cancelDownloads;
 - (id)downloadWithDelegate:(id)arg1 description:(id)arg2;
+- (id)dataStorageForSageLocator:(id)arg1;
 - (id)dataForDigestString:(id)arg1 locator:(id)arg2 filename:(id)arg3 needsDownload:(char *)arg4;
 - (id)dataForDigestString:(id)arg1 locator:(id)arg2 filename:(id)arg3;
 - (void)cacheDataForDigestString:(id)arg1 locator:(id)arg2 extension:(id)arg3;
@@ -40,6 +42,12 @@ __attribute__((visibility("hidden")))
 - (id)dataStorageForDigestString:(id)arg1 locator:(id)arg2 extension:(id)arg3;
 - (id)initWithManager:(id)arg1 context:(id)arg2;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray;
+@class NSArray, UITableViewCell;
 
 __attribute__((visibility("hidden")))
 @interface UIViewAnimationContext : NSObject
@@ -14,8 +14,10 @@ __attribute__((visibility("hidden")))
     NSArray *_viewAnimations;
     int _animationCount;
     id _completionHandler;
+    UITableViewCell *_swipeToDeleteCell;
 }
 
+@property(retain, nonatomic) UITableViewCell *swipeToDeleteCell; // @synthesize swipeToDeleteCell=_swipeToDeleteCell;
 @property(readonly, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(nonatomic) int animationCount; // @synthesize animationCount=_animationCount;
 @property(retain, nonatomic) NSArray *viewAnimations; // @synthesize viewAnimations=_viewAnimations;

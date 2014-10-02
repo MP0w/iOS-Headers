@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     NSDictionary *_animationCacheDict;
     CDUnknownBlockType _textureDrawOptionsBlock;
     NSArray *_generatedTextures;
+    BOOL _shouldDrawMotionBlur;
     BOOL _shouldGenerateNewTexturesFromLayers;
     BOOL _isSetup;
     KNMotionBlurWrapper *_motionBlurWrapper;
@@ -37,6 +38,7 @@ __attribute__((visibility("hidden")))
 - (void)setupWithContext:(id)arg1 animationContext:(id)arg2 animationDict:(id)arg3 textures:(id)arg4 projectionTransformType:(int)arg5 customProjectionTransform:(struct CATransform3D)arg6;
 - (id)p_generatedTexturesFromLayersInAnimationDict:(id)arg1 context:(id)arg2 animationContext:(id)arg3 textures:(id)arg4;
 - (void)p_setupAnimationDictionariesWithAnimationDict:(id)arg1 context:(id)arg2;
+@property(nonatomic) BOOL shouldDrawMotionBlur;
 - (void)dealloc;
 - (void)teardown;
 - (id)initWithAnimationPlugin:(id)arg1 drawableFrame:(struct CGRect)arg2 animationFrame:(struct CGRect)arg3;

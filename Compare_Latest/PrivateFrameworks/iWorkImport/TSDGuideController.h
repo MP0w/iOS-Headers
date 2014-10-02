@@ -8,7 +8,7 @@
 
 #import "TSDDecorator.h"
 
-@class NSMutableArray, NSMutableDictionary, NSMutableSet, NSSet, TSDInteractiveCanvasController;
+@class NSMutableArray, NSMutableDictionary, NSMutableSet, NSSet, NSString, TSDInteractiveCanvasController;
 
 __attribute__((visibility("hidden")))
 @interface TSDGuideController : NSObject <TSDDecorator>
@@ -26,6 +26,14 @@ __attribute__((visibility("hidden")))
     NSMutableArray *mSpacingCenterGuidesForSnappingY;
     NSSet *mCurrentGuides;
     NSMutableSet *mCurrentSizingGuideUILayers;
+    BOOL mShouldAlignEdges;
+    BOOL mShouldAlignCenters;
+    BOOL mShouldAlignToSpacingGuides;
+    BOOL mShouldAlignToSizingGuides;
+    BOOL mShouldAlignEdgesToMasterGuides;
+    BOOL mDoNotRemoveExistingGuidesWhenDisplaying;
+    BOOL mDidJustSnapInX;
+    BOOL mDidJustSnapInY;
 }
 
 + (id)guideColor;
@@ -42,6 +50,9 @@ __attribute__((visibility("hidden")))
 + (void)setShouldAlignEdges:(BOOL)arg1;
 + (id)defaultGuideColor;
 + (void)initialize;
+@property(readonly, nonatomic) BOOL didJustSnapInY; // @synthesize didJustSnapInY=mDidJustSnapInY;
+@property(readonly, nonatomic) BOOL didJustSnapInX; // @synthesize didJustSnapInX=mDidJustSnapInX;
+@property(nonatomic) BOOL doNotRemoveExistingGuidesWhenDisplaying; // @synthesize doNotRemoveExistingGuidesWhenDisplaying=mDoNotRemoveExistingGuidesWhenDisplaying;
 @property(readonly, nonatomic) TSDInteractiveCanvasController *interactiveCanvasController; // @synthesize interactiveCanvasController=mICC;
 - (float)p_spacingForCenterOrSpacingGuide:(id)arg1;
 - (id)p_closestGuideForOffset:(float)arg1 predicate:(id)arg2 inArray:(id)arg3;
@@ -67,9 +78,16 @@ __attribute__((visibility("hidden")))
 - (struct CGPoint)snapRectToGuides:(struct CGRect)arg1 forKnobTag:(unsigned int)arg2 snapSize:(BOOL)arg3;
 - (struct CGPoint)snapRectToGuides:(struct CGRect)arg1 forKnobTag:(unsigned int)arg2;
 - (struct CGPoint)snapRectToGuides:(struct CGRect)arg1;
+- (void)beginAlignmentOperationForReps:(id)arg1 preventCenterGuides:(BOOL)arg2 preventSpacingGuides:(BOOL)arg3;
 - (void)beginAlignmentOperationForReps:(id)arg1;
 - (void)beginAlignmentOperationForRep:(id)arg1;
 - (id)initWithInteractiveCanvasController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

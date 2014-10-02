@@ -8,7 +8,7 @@
 
 #import "SBBulletinDateLabel.h"
 
-@class NSTimer;
+@class NSString, NSTimer;
 
 @interface SBBulletinTimerDateLabel : UILabel <SBBulletinDateLabel>
 {
@@ -35,6 +35,12 @@
 - (id)_formatDuration:(double)arg1;
 - (void)dealloc;
 - (void)_invalidateTimer;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

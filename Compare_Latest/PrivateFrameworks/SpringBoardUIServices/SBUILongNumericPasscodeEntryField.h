@@ -29,8 +29,7 @@
 - (void)_resetForFailedPasscode:(BOOL)arg1 playUnlockFailedSound:(BOOL)arg2;
 - (void)_autofillForMesaWithCompletion:(CDUnknownBlockType)arg1;
 - (struct CGSize)_viewSize;
-- (struct CGSize)_passcodeFieldSize;
-- (struct CGSize)_okButtonSize;
+- (void)_getPasscodeFieldSize:(struct CGSize *)arg1 okButtonSize:(struct CGSize *)arg2;
 - (void)_okButtonHit;
 - (void)_handleKeyUIEvent:(id)arg1;
 - (void)setBackgroundAlpha:(float)arg1;
@@ -44,7 +43,7 @@
 - (BOOL)becomeFirstResponder;
 - (BOOL)canBecomeFirstResponder;
 - (void)dealloc;
-- (id)initWithDefaultSize;
+- (id)initWithDefaultSizeAndLightStyle:(BOOL)arg1;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class NSDate, UIColor, UILabel, _UILegibilityLabel, _UILegibilitySettings;
+@class NSDate, NSString, UIColor, UILabel, _UILegibilityLabel, _UILegibilitySettings;
 
 @interface SBFLockScreenDateView : UIView
 {
@@ -17,6 +17,8 @@
     _UILegibilityLabel *_legibilityDateLabel;
     float _timeAlpha;
     float _dateAlpha;
+    NSString *_customSubtitleText;
+    UIColor *_customSubtitleColor;
     NSDate *_date;
     id <SBFLockScreenDateFormatter> _formatter;
     _UILegibilitySettings *_legibilitySettings;
@@ -34,7 +36,6 @@
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
 @property(retain, nonatomic) id <SBFLockScreenDateFormatter> formatter; // @synthesize formatter=_formatter;
 @property(retain, nonatomic) NSDate *date; // @synthesize date=_date;
-- (float)_dateBaselineOffsetFromTime;
 - (id)_dateFont;
 - (id)_timeFont;
 - (void)_layoutTimeLabel;
@@ -44,12 +45,15 @@
 - (float)_effectiveDateAlpha;
 - (void)_updateLabelAlpha;
 - (void)_setDateAlpha:(float)arg1;
+- (id)_dateColor;
+- (id)_dateText;
 - (void)_updateLabels;
 - (void)_addLabels;
-- (void)_updateLegibilityLabels;
+- (void)_updateLegibilityLabelsWithUpdatedDateString:(BOOL)arg1;
 - (float)dateBaselineOffsetFromOrigin;
 - (float)timeBaselineOffsetFromOrigin;
 - (void)updateFormat;
+- (void)setCustomSubtitleText:(id)arg1 withColor:(id)arg2;
 - (void)setContentAlpha:(float)arg1 withDateVisible:(BOOL)arg2;
 @property(nonatomic, getter=isDateHidden) BOOL dateHidden;
 - (void)dealloc;

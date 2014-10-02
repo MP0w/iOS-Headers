@@ -6,13 +6,19 @@
 
 #import <iWorkImport/TSSStyle.h>
 
+#import "TSCHCustomFormatPasteSupport.h"
 #import "TSCHStyleActAlike.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
-@interface TSCHBaseStyle : TSSStyle <TSCHStyleActAlike>
+@interface TSCHBaseStyle : TSSStyle <TSCHCustomFormatPasteSupport, TSCHStyleActAlike>
 {
 }
 
++ (id)defaultPropertyMap;
+- (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
+- (int)mixingTypeWithObject:(id)arg1;
 - (id)shortDescription;
 - (id)boxedDefaultValueForProperty:(int)arg1;
 - (float)defaultFloatValueForProperty:(int)arg1;
@@ -22,7 +28,15 @@ __attribute__((visibility("hidden")))
 - (void)g_splitProperty:(int)arg1 outStyleOwner:(id *)arg2 outSpecifier:(id *)arg3 outKeyName:(id *)arg4;
 - (id)g_objectTypeForSpecific:(int)arg1;
 - (id)g_specificToGenericPropertyMap;
+- (void)updateAfterPasteForProperties:(id)arg1 documentRoot:(id)arg2 pasteboardCustomFormatList:(id)arg3;
+- (void)updateAfterPasteForDocumentRoot:(id)arg1 pasteboardCustomFormatList:(id)arg2;
 - (id)initFromPreUFFArchiveWithUnarchiver:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class WDTableCellProperties, WDTableRow, WDText;
+@class NSString, WDTableCellProperties, WDTableRow, WDText;
 
 __attribute__((visibility("hidden")))
 @interface WDTableCell : NSObject
@@ -15,9 +15,12 @@ __attribute__((visibility("hidden")))
     WDTableRow *mRow;
     WDTableCellProperties *mProperties;
     WDText *mText;
+    NSString *mIdentifier;
     BOOL mUseTrackedProperties;
 }
 
+- (void)setIdentifier:(id)arg1;
+- (id)identifier;
 - (id)text;
 - (void)clearProperties;
 - (id)properties;

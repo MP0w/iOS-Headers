@@ -84,17 +84,25 @@ __attribute__((visibility("hidden")))
 - (void)showNextPage;
 - (void)showPreviousCandidate;
 - (void)showNextCandidate;
-- (void)showCandidate:(id)arg1;
+- (BOOL)showCandidate:(id)arg1;
 - (void)showCandidateAtIndex:(unsigned int)arg1;
 - (BOOL)isExtendedList;
 - (BOOL)isHiddenCandidatesList;
 - (void)showArrowButton:(BOOL)arg1;
 - (void)statusBarFrameWillChange:(id)arg1;
+- (void)candidateViewDidFinishExtending;
+- (void)candidateViewWillBeginExtendingWithVisibleCandidates:(id)arg1;
 - (void)layout;
 - (void)layoutSubviews;
 - (void)clearViews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

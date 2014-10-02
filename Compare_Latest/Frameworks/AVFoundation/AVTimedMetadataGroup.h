@@ -15,7 +15,10 @@
     AVTimedMetadataGroupInternal *_priv;
 }
 
-@property(readonly) NSArray *items;
++ (void)initialize;
+- (struct opaqueCMSampleBuffer *)_createSerializedRepresentationWithFormatDescription:(struct opaqueCMFormatDescription *)arg1 error:(id *)arg2;
+- (struct opaqueCMFormatDescription *)copyFormatDescription;
+@property(readonly, copy) NSArray *items;
 @property(readonly) CDStruct_e83c9415 timeRange;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
@@ -24,6 +27,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)finalize;
 - (void)dealloc;
+- (id)initWithSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
 - (id)initWithItems:(id)arg1 timeRange:(CDStruct_e83c9415)arg2;
 - (id)init;
 

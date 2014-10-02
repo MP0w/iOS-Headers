@@ -9,7 +9,7 @@
 #import "EDKeyedObject.h"
 #import "NSCopying.h"
 
-@class EDString;
+@class EDString, NSString;
 
 __attribute__((visibility("hidden")))
 @interface EDContentFormat : NSObject <EDKeyedObject, NSCopying>
@@ -28,7 +28,7 @@ __attribute__((visibility("hidden")))
 - (unsigned int)formatId;
 - (id)formatString;
 - (int)key;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isEqualToContentFormat:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -36,6 +36,11 @@ __attribute__((visibility("hidden")))
 - (id)init;
 - (void)setReferenced:(_Bool)arg1;
 - (void)setFormatId:(unsigned int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

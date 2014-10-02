@@ -53,17 +53,22 @@
 - (struct CGRect)_highlightBounds;
 - (void)setDelegate:(id)arg1;
 - (void)addressBookDidChange:(id)arg1;
+- (id)presentationOptionsDescription;
+@property(readonly, copy) NSString *description;
 - (id)forwardingTargetForSelector:(SEL)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (BOOL)respondsToSelector:(SEL)arg1;
 - (id)initWithAddress:(id)arg1 presentationOptions:(unsigned int)arg2 isPhoneNumber:(BOOL)arg3 maxWidth:(float)arg4 addressBook:(void *)arg5;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(readonly, nonatomic) struct UIEdgeInsets edgeInsets; // @dynamic edgeInsets;
+@property(readonly) unsigned int hash;
 @property(nonatomic) BOOL hidesVIPIndicator; // @dynamic hidesVIPIndicator;
 @property(nonatomic) BOOL separatorHidden; // @dynamic separatorHidden;
 @property(nonatomic) BOOL separatorIsLeftAligned; // @dynamic separatorIsLeftAligned;
 @property(nonatomic) int separatorStyle; // @dynamic separatorStyle;
+@property(readonly) Class superclass;
 @property(retain, nonatomic) UIFont *titleFont; // @dynamic titleFont;
 
 @end

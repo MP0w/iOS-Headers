@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (BOOL)mapIdentifier:(id)arg1 state:(id)arg2;
+- (void)dealloc;
 - (void)map;
 - (void)mapNode:(id)arg1;
 - (struct CGRect)boundsOfNode:(id)arg1;
@@ -26,7 +27,6 @@ __attribute__((visibility("hidden")))
 - (struct ODIHRangeVector *)mapRangesForNode:(id)arg1;
 - (void)createInfoForNode:(id)arg1 depth:(int)arg2;
 - (id)infoForNode:(id)arg1;
-- (void)dealloc;
 - (id)initWithType:(int)arg1 state:(id)arg2;
 
 @end

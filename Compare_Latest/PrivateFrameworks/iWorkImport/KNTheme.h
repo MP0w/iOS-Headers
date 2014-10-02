@@ -6,18 +6,20 @@
 
 #import <iWorkImport/TSATheme.h>
 
+#import "TSKDocumentObject.h"
 #import "TSKTransformableObject.h"
 #import "TSSPresetSource.h"
 
-@class KNSlideNode, NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, TSUPointerKeyDictionary;
+@class KNSlideNode, NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, TSUPointerKeyDictionary, TSUWeakReference;
 
 __attribute__((visibility("hidden")))
-@interface KNTheme : TSATheme <TSSPresetSource, TSKTransformableObject>
+@interface KNTheme : TSATheme <TSSPresetSource, TSKTransformableObject, TSKDocumentObject>
 {
     NSString *mUUID;
     NSArray *mMasters;
     NSObject<OS_dispatch_queue> *mDefaultMasterSlideNodeQueue;
-    KNSlideNode *mDefaultMasterSlideNode;
+    TSUWeakReference *mDefaultMasterSlideNodeReference;
+    BOOL mDefaultMasterSlideNodeIsOurBestGuess;
     int mSlideStyleIndex;
     NSMutableArray *mClassicThemeRecords;
     NSMutableDictionary *mSlideNodesForFormulaReferenceNamesCache;
@@ -27,9 +29,17 @@ __attribute__((visibility("hidden")))
 + (void)bootstrapPresetsOfKind:(id)arg1 inTheme:(id)arg2 alternate:(int)arg3;
 + (id)presetKinds;
 + (void)registerPresetSourceClasses;
++ (id)themeNameForCustomOrUnknownTheme;
++ (id)classicThemeNameFromTheme:(id)arg1;
++ (id)nativeThemeNameFromTheme:(id)arg1;
 + (id)generateUUID;
 + (void)initialize;
+@property(readonly, nonatomic) BOOL defaultMasterSlideNodeIsOurBestGuess; // @synthesize defaultMasterSlideNodeIsOurBestGuess=mDefaultMasterSlideNodeIsOurBestGuess;
 @property(retain, nonatomic) NSArray *classicThemeRecords; // @synthesize classicThemeRecords=mClassicThemeRecords;
+- (void)wasRemovedFromDocumentRoot:(id)arg1;
+- (void)willBeRemovedFromDocumentRoot:(id)arg1;
+- (void)wasAddedToDocumentRoot:(id)arg1 context:(id)arg2;
+- (void)willBeAddedToDocumentRoot:(id)arg1 context:(id)arg2;
 - (id)modelPathComponentForChild:(id)arg1;
 - (id)childEnumerator;
 - (id)commandForTransformingByTransform:(struct CGAffineTransform)arg1 context:(id)arg2 transformedObjects:(id)arg3 inBounds:(struct CGRect)arg4;
@@ -39,13 +49,20 @@ __attribute__((visibility("hidden")))
 - (id)slideNodeForFormulaReferenceName:(id)arg1 caseSensitive:(BOOL)arg2;
 - (id)formulaReferenceNameForSlideNode:(id)arg1;
 - (void)resolveDefaultMaster;
+- (id)p_findDefaultMaster;
+- (id)i_findDefaultMaster;
 - (void)selectSecondMasterAsDefault;
 - (void)p_selectSecondMasterAsDefault;
+- (id)p_findSecondMaster;
 - (void)removeAllClassicThemeRecords;
 - (void)addClassicThemeRecord:(id)arg1;
 - (void)addDefaultPresenterNotesStylesIfAbsent;
-- (id)mappedMasterForSlide:(id)arg1;
-- (id)mappedMasterForMaster:(id)arg1;
+- (id)undeletableStyles;
+- (id)mappedMasterForPasteForSlide:(id)arg1;
+- (id)mappedMasterForThemeChangeForMaster:(id)arg1;
+- (id)mappedMasterForPasteForMaster:(id)arg1;
+- (id)p_mappedMasterForMaster:(id)arg1 scoringHeuristic:(CDUnknownBlockType)arg2;
+- (int)p_matchScoreForMaster:(id)arg1 toMaster:(id)arg2;
 - (void)removeAllMasters;
 - (void)removeMasterSlideNode:(id)arg1;
 - (id)nameForMasterCopyWithName:(id)arg1;
@@ -70,6 +87,12 @@ __attribute__((visibility("hidden")))
 - (void)saveToArchive:(struct ThemeArchive *)arg1 archiver:(id)arg2;
 - (id)initFromUnarchiver:(id)arg1;
 - (void)loadFromArchive:(const struct ThemeArchive *)arg1 unarchiver:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

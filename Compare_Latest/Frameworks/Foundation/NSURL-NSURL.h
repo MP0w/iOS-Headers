@@ -7,6 +7,8 @@
 #import "NSURL.h"
 
 @interface NSURL (NSURL)
++ (id)URLByResolvingAliasFileAtURL:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
++ (id)URLByResolvingBookmarkData:(id)arg1 options:(unsigned int)arg2 relativeToURL:(id)arg3 bookmarkDataIsStale:(char *)arg4 error:(id *)arg5;
 + (id)fileURLWithFileSystemRepresentation:(const char *)arg1 isDirectory:(BOOL)arg2 relativeToURL:(id)arg3;
 + (id)fileURLWithPath:(id)arg1 isDirectory:(BOOL)arg2;
 + (id)fileURLWithPath:(id)arg1;
@@ -32,6 +34,8 @@
 - (void)encodeWithCoder:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (id)initByResolvingAliasFileAtURL:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
+- (id)initByResolvingBookmarkData:(id)arg1 options:(unsigned int)arg2 relativeToURL:(id)arg3 bookmarkDataIsStale:(char *)arg4 error:(id *)arg5;
 - (const char *)fileSystemRepresentation;
 - (BOOL)getFileSystemRepresentation:(char *)arg1 maxLength:(unsigned int)arg2;
 - (id)initFileURLWithFileSystemRepresentation:(const char *)arg1 isDirectory:(BOOL)arg2 relativeToURL:(id)arg3;

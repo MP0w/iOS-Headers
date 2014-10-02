@@ -6,24 +6,25 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSMutableSet, VKLRUCache;
+@class NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, VKRasterMapTileCache;
 
 @interface VKRasterMapTileServer : NSObject
 {
-    VKLRUCache *_superTileCache;
+    VKRasterMapTileCache *_superTileCache;
     NSMutableDictionary *_activeTileCreators;
     NSMutableDictionary *_pendingRequests;
     NSMutableSet *_tileCreators;
     unsigned int _superTileSize;
     BOOL _softwareRendering;
+    NSObject<OS_dispatch_queue> *_homeQueue;
 }
 
 @property(readonly, nonatomic) unsigned int superTileSize; // @synthesize superTileSize=_superTileSize;
+- (void)_renderRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)renderRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)renderTile:(const struct VKRasterTileKey *)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)detailedDescription;
 - (void)dealloc;
-- (id)initWithSuperTileSize:(unsigned int)arg1 cacheCapacity:(int)arg2 softwareRendering:(BOOL)arg3;
+- (id)initWithSuperTileSize:(unsigned int)arg1 cache:(id)arg2 softwareRendering:(BOOL)arg3 homeQueue:(id)arg4;
 - (id)init;
 
 @end

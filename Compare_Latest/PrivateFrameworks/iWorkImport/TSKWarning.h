@@ -6,29 +6,28 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString;
+@class NSDictionary, NSSet, NSString;
 
 __attribute__((visibility("hidden")))
 @interface TSKWarning : NSObject
 {
-    NSString *mMessage;
-    NSArray *mInfos;
-    unsigned int mKind;
-    int mSeverity;
+    NSString *_message;
+    NSDictionary *_userInfo;
+    NSSet *_affectedObjects;
+    NSString *_localizedLocation;
 }
 
-+ (id)warningWithMessage:(id)arg1 kind:(unsigned int)arg2 severity:(int)arg3 infos:(id)arg4;
-+ (id)warningWithMessage:(id)arg1 kind:(unsigned int)arg2 infos:(id)arg3;
++ (id)warningWithMessage:(id)arg1 affectedObjects:(id)arg2;
++ (id)warningWithMessage:(id)arg1 affectedObject:(id)arg2;
 + (id)warningWithMessage:(id)arg1;
-+ (id)warningWithMessage:(id)arg1 severity:(int)arg2;
-@property(readonly, nonatomic) int severity; // @synthesize severity=mSeverity;
-@property(readonly, nonatomic) unsigned int kind; // @synthesize kind=mKind;
-@property(copy, nonatomic) NSArray *infos; // @synthesize infos=mInfos;
-@property(copy, nonatomic) NSString *message; // @synthesize message=mMessage;
+@property(copy, nonatomic) NSString *localizedLocation; // @synthesize localizedLocation=_localizedLocation;
+@property(copy, nonatomic) NSSet *affectedObjects; // @synthesize affectedObjects=_affectedObjects;
+@property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
+@property(copy, nonatomic) NSString *message; // @synthesize message=_message;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (void)dealloc;
-- (id)initWithMessage:(id)arg1 kind:(unsigned int)arg2 severity:(int)arg3 infos:(id)arg4;
+- (id)initWithMessage:(id)arg1 affectedObjects:(id)arg2;
 
 @end
 

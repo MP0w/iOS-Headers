@@ -7,6 +7,6 @@
 @class TSDInteractiveCanvasController, TSDLayout, TSKCommand;
 
 @protocol TSDAttachmentPositioner
-- (TSKCommand *)commandForPositioningLayout:(TSDLayout *)arg1 withNewPosition:(struct CGPoint)arg2 interactiveCanvasController:(TSDInteractiveCanvasController *)arg3;
+- (TSKCommand *)commandForPositioningLayout:(TSDLayout *)arg1 withNewPosition:(struct CGPoint)arg2 interactiveCanvasController:(TSDInteractiveCanvasController *)arg3 pointIsAlignmentFrameOrigin:(BOOL)arg4;
 @end
 

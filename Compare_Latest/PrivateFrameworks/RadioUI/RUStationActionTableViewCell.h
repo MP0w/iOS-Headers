@@ -4,13 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UITableViewCell.h"
+#import <RadioUI/RUTableViewCell.h>
 
-@interface RUStationActionTableViewCell : UITableViewCell
+@interface RUStationActionTableViewCell : RUTableViewCell
 {
     struct UIOffset _imageOffset;
 }
 
++ (id)_textLabelFont;
++ (float)defaultHeightForTraitCollection:(id)arg1;
 @property(nonatomic) struct UIOffset imageOffset; // @synthesize imageOffset=_imageOffset;
 - (void)layoutSubviews;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;

@@ -8,7 +8,7 @@
 
 #import "ABPersonTabsLayoutManager.h"
 
-@class ABPersonOverlayingContainerView, ABPersonTableView, ABPersonTableViewDataSource, UIImageView, UIScrollView<ABPersonTabsScrollView>, UISegmentedControl;
+@class ABPersonOverlayingContainerView, ABPersonTableView, ABPersonTableViewDataSource, NSString, UIImageView, UIScrollView<ABPersonTabsScrollView>, UISegmentedControl;
 
 @interface ABPersonContainerView : UIView <ABPersonTabsLayoutManager>
 {
@@ -42,6 +42,12 @@
 @property(readonly, nonatomic) UIScrollView<ABPersonTabsScrollView> *currentScrollView;
 - (id)viewContainingHeaderView;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

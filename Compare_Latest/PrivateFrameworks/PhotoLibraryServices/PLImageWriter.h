@@ -28,13 +28,14 @@
 
 + (void)decorateThumbnailInRect:(struct CGRect)arg1 size:(struct CGSize)arg2 duration:(id)arg3 inContext:(struct CGContext *)arg4 format:(int)arg5;
 + (void)decorateThumbnail:(id)arg1 inContext:(struct CGContext *)arg2;
-+ (void)writeableDataForImage:(id)arg1 previewImage:(id)arg2 imageData:(id)arg3 imageUTIType:(struct __CFString *)arg4 exifProperties:(id)arg5 imageRefOut:(struct CGImage **)arg6 lowResImageRefOut:(struct CGImage **)arg7 thumbnailDataOut:(id *)arg8 imageUTITypeOut:(const struct __CFString **)arg9 exifPropertiesOut:(id *)arg10 isJPEGOut:(char *)arg11 imageDataOut:(id *)arg12 imageOrientation:(int)arg13;
++ (BOOL)setAdjustmentsForNewPhoto:(id)arg1 withEffectFilterName:(id)arg2 filteredImagePath:(id)arg3 isSubstandardRender:(BOOL)arg4;
 + (id)sharedWriter;
 - (void)_writerThread;
 - (void)_processJob:(id)arg1;
 - (void)_processSyncedVideoSaveJob:(id)arg1;
 - (void)_processVideoSaveJob:(id)arg1;
 - (BOOL)_sufficientDiskSpaceToCopyVideoAtPath:(id)arg1;
+- (void)_setAdjustmentsForNewVideo:(id)arg1 withAdjustmentsDictionary:(id)arg2;
 - (void)_processVideoJob:(id)arg1;
 - (void)decorateThumbnail:(id)arg1 inContext:(struct CGContext *)arg2;
 - (void)_decorateThumbnail:(id)arg1;
@@ -51,19 +52,13 @@
 - (void)_processImportImageJob:(id)arg1;
 - (void)_processAvalancheJob:(id)arg1;
 - (void)_processBatchImageJob:(id)arg1;
+- (void)_removeInProgressExtendedAttributesForFileAtURL:(id)arg1;
 - (void)_processImageJob:(id)arg1;
 - (void)setAvalancheInProgress:(BOOL)arg1 uuid:(id)arg2;
-- (void)_writeJPEGFromIOSurface:(void *)arg1 toPath:(id)arg2 orientation:(int)arg3;
-- (BOOL)saveImageJobToDisk:(id)arg1;
-- (BOOL)saveToDiskSlalomRegions:(id)arg1 forJob:(id)arg2;
 - (id)uuidFromIncomingFilename:(id)arg1;
-- (id)uniqueIncomingPathForAssetWithUUID:(id)arg1 andExtension:(id)arg2 isPhotoStream:(BOOL)arg3;
-- (id)incomingDirectoryPath;
-- (id)incomingDirectoryPathForPhotoStream;
 - (void)_removeTransientKeys:(id)arg1;
 - (id)pathForNewAssetPathAtAlbumDirectoryPath:(id)arg1 assetType:(unsigned int)arg2 extension:(id)arg3;
 - (id)cameraAssetPathForNewAssetWithExtension:(id)arg1;
-- (id)cameraAssetExtensionForType:(long long)arg1;
 - (BOOL)enqueueJob:(id)arg1;
 - (void)_decrementJobCount:(id)arg1;
 - (void)_incrementJobCount:(id)arg1;

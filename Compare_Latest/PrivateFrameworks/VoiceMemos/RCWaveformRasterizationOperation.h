@@ -6,26 +6,26 @@
 
 #import "NSOperation.h"
 
-@class NSObject<OS_dispatch_semaphore>, RCAudioFileWaveformDataSource, RCGLWaveformRenderer, RCSavedRecording, RCUIConfiguration, UIImage;
+@class RCComposition, RCCompositionWaveformDataSource, RCGLWaveformRenderer, RCUIConfiguration, UIImage;
 
 @interface RCWaveformRasterizationOperation : NSOperation
 {
     RCGLWaveformRenderer *_renderer;
-    RCAudioFileWaveformDataSource *_dataSource;
+    RCCompositionWaveformDataSource *_dataSource;
     BOOL _loadingSuccessful;
-    NSObject<OS_dispatch_semaphore> *_completionSemaphore;
-    RCSavedRecording *_recording;
+    RCComposition *_composition;
     UIImage *_rasterizedImage;
-    struct CGSize _outputImageSize;
+    struct CGSize _imageSize;
 }
 
++ (id)waveformImageForComposition:(id)arg1 imageSize:(struct CGSize)arg2;
 @property(readonly, nonatomic) UIImage *rasterizedImage; // @synthesize rasterizedImage=_rasterizedImage;
-@property(readonly, nonatomic) struct CGSize outputImageSize; // @synthesize outputImageSize=_outputImageSize;
-@property(readonly, nonatomic) RCSavedRecording *recording; // @synthesize recording=_recording;
+@property(readonly, nonatomic) struct CGSize imageSize; // @synthesize imageSize=_imageSize;
+@property(readonly, nonatomic) RCComposition *composition; // @synthesize composition=_composition;
 - (void).cxx_destruct;
 - (void)main;
 @property(copy, nonatomic) RCUIConfiguration *UIConfiguration;
-- (id)initWithRecording:(id)arg1 outputImageSize:(struct CGSize)arg2;
+- (id)initWithComposition:(id)arg1 imageSize:(struct CGSize)arg2;
 
 @end
 

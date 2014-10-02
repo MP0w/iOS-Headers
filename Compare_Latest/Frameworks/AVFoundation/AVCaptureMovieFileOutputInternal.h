@@ -6,14 +6,17 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray;
+@class AVWeakReference, NSArray, NSMutableArray;
 
 @interface AVCaptureMovieFileOutputInternal : NSObject
 {
+    AVWeakReference *weakReference;
     NSMutableArray *recordingDelegatesArray;
     CDStruct_1b6d18a9 movieFragmentInterval;
     NSArray *metadata;
     BOOL sendLastVideoPreviewFrame;
+    BOOL recording;
+    BOOL paused;
 }
 
 - (void)dealloc;

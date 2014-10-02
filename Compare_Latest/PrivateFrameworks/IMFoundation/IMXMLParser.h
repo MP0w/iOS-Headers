@@ -8,7 +8,7 @@
 
 #import "NSXMLParserDelegate.h"
 
-@class IMXMLParserContext, IMXMLParserFrame, NSMutableArray, NSXMLParser;
+@class IMXMLParserContext, IMXMLParserFrame, NSMutableArray, NSString, NSXMLParser;
 
 @interface IMXMLParser : NSObject <NSXMLParserDelegate>
 {
@@ -30,6 +30,12 @@
 - (id)_newDataByTidyingData:(id)arg1;
 - (void)_teardownTidy;
 - (void)_setupTidy;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

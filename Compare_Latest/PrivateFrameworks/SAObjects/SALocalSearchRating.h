@@ -19,10 +19,15 @@
 @property(nonatomic) double value;
 @property(copy, nonatomic) NSString *providerId;
 @property(nonatomic) double maxValue;
-@property(copy, nonatomic) NSString *description;
 @property(nonatomic) int count;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

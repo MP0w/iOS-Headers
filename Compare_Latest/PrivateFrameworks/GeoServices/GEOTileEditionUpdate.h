@@ -17,9 +17,9 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) BOOL flushEverything; // @synthesize flushEverything=_flushEverything;
 - (void)dealloc;
-- (void)tileset:(unsigned int *)arg1 edition:(unsigned int *)arg2 provider:(unsigned int *)arg3 atIndex:(unsigned int)arg4;
+- (void)tileset:(unsigned int *)arg1 edition:(unsigned int *)arg2 provider:(unsigned int *)arg3 invalidateOnly:(char *)arg4 atIndex:(unsigned int)arg5;
 - (unsigned int)tilesetCount;
-- (void)addTileset:(unsigned int)arg1 edition:(unsigned int)arg2 provider:(unsigned int)arg3;
+- (void)addTileset:(unsigned int)arg1 edition:(unsigned int)arg2 provider:(unsigned int)arg3 invalidateOnly:(BOOL)arg4;
 - (id)init;
 
 @end

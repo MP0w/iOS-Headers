@@ -9,7 +9,7 @@
 #import "SKUICategoryArtworkLoaderObserver.h"
 #import "SKUICategoryTableViewControllerDelegate.h"
 
-@class NSArray, NSURL, SKUICategory, SKUICategoryArtworkLoader, SKUIClientContext;
+@class NSArray, NSString, NSURL, SKUICategory, SKUICategoryArtworkLoader, SKUIClientContext;
 
 @interface SKUICategoryTableViewController : UITableViewController <SKUICategoryArtworkLoaderObserver, SKUICategoryTableViewControllerDelegate>
 {
@@ -51,6 +51,12 @@
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)loadView;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

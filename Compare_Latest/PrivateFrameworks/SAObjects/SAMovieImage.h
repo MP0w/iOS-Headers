@@ -8,7 +8,7 @@
 
 #import "SAAceSerializable.h"
 
-@class NSURL, SAMovieResolution;
+@class NSString, NSURL, SAMovieResolution;
 
 @interface SAMovieImage : AceObject <SAAceSerializable>
 {
@@ -20,6 +20,12 @@
 @property(retain, nonatomic) SAMovieResolution *resolution;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

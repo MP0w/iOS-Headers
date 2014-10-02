@@ -6,26 +6,31 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>;
+@class GEOResourceManifestConfiguration, NSLocale, NSObject<OS_dispatch_queue>;
 
 @interface GEOTileServerProxy : NSObject
 {
     id <GEOTileServerProxyDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_delegateQ;
+    GEOResourceManifestConfiguration *_manifestConfiguration;
+    NSLocale *_locale;
 }
 
 @property(nonatomic) NSObject<OS_dispatch_queue> *delegateQ; // @synthesize delegateQ=_delegateQ;
 @property(nonatomic) id <GEOTileServerProxyDelegate> delegate; // @synthesize delegate=_delegate;
 - (BOOL)skipNetworkForKeysWhenPreloading:(id)arg1;
 - (void)endPreloadSession;
-- (void)beginPreloadSessionOfSize:(unsigned long long)arg1;
+- (void)beginPreloadSessionOfSize:(unsigned long long)arg1 exclusive:(BOOL)arg2;
 - (void)shrinkDiskCacheToSize:(unsigned long long)arg1;
+- (void)calculateFreeableSize;
 - (void)flushPendingWrites;
 - (void)reportCorruptTile:(const struct _GEOTileKey *)arg1;
 - (void)cancel:(const struct _GEOTileKey *)arg1;
 - (void)loadTiles:(id)arg1 priorities:(unsigned int *)arg2 options:(unsigned int)arg3 client:(id)arg4;
 - (void)close;
 - (void)open;
+- (void)dealloc;
+- (id)initWithCacheLocation:(id)arg1 manifestConfiguration:(id)arg2 locale:(id)arg3;
 
 @end
 

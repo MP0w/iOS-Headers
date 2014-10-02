@@ -44,5 +44,11 @@
 - (id)initWithServer:(id)arg1 socket:(int)arg2;
 - (void)dealloc;
 
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
+
 @end
 

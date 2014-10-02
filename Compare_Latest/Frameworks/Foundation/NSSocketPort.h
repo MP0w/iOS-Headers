@@ -6,6 +6,8 @@
 
 #import <Foundation/NSPort.h>
 
+@class NSData;
+
 @interface NSSocketPort : NSPort
 {
     void *_receiver;
@@ -48,11 +50,11 @@
 - (id)initWithTCPPort:(unsigned short)arg1;
 - (id)init;
 - (id)_initWithRetainedCFSocket:(struct __CFSocket *)arg1 protocolFamily:(int)arg2 socketType:(int)arg3 protocol:(int)arg4;
-- (id)address;
-- (int)socket;
-- (int)protocol;
-- (int)socketType;
-- (int)protocolFamily;
+@property(readonly, copy) NSData *address;
+@property(readonly) int socket;
+@property(readonly) int protocol;
+@property(readonly) int socketType;
+@property(readonly) int protocolFamily;
 - (id)signature;
 - (id)delegate;
 - (void)setDelegate:(id)arg1;

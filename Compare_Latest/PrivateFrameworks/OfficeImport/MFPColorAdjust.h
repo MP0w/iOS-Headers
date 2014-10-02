@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, TSUColor;
+@class NSDictionary, OITSUColor;
 
 __attribute__((visibility("hidden")))
 @interface MFPColorAdjust : NSObject
@@ -15,8 +15,8 @@ __attribute__((visibility("hidden")))
     struct MFPColorMatrix *mGrayMatrix;
     int mColorMatrixFlags;
     struct {
-        TSUColor *mLow;
-        TSUColor *mHigh;
+        OITSUColor *mLow;
+        OITSUColor *mHigh;
     } mTransparentRange;
     float mGamma;
     NSDictionary *mRecolorMap;

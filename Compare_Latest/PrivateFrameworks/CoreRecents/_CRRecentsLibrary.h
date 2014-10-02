@@ -23,19 +23,12 @@
     struct __CFDictionary *_cachedProperties;
     CRDelayedWorkQueue *_pendingDomainExpunges;
     CRDelayedWorkQueue *_pendingStoreSyncEvents;
+    double _storeSyncDelay;
 }
 
 + (id)storeMapping;
 + (id)defaultPath;
-- (BOOL)handleScanTableAndCreateGroupsMessage:(id)arg1 replyObject:(id *)arg2 error:(id *)arg3;
-- (BOOL)handleSearchMessage:(id)arg1 replyObject:(id *)arg2 error:(id *)arg3;
-- (id)_createReplyForMessage:(id)arg1 withEncodedRecents:(id)arg2;
-- (id)_copyEncodedRecentsFromRecents:(id)arg1;
-- (BOOL)handleRegistrationMessage:(id)arg1 replyObject:(id *)arg2 error:(id *)arg3;
-- (BOOL)handleRemovalMessage:(id)arg1 replyObject:(id *)arg2 error:(id *)arg3;
-- (BOOL)handlePropertyAccessMessage:(id)arg1 replyObject:(id *)arg2 error:(id *)arg3;
-- (unsigned int)_scanTableAndCreateImplicitGroupsForDomain:(id)arg1;
-- (id)_copyRecentsForDomain:(id)arg1;
+@property(nonatomic) double storeSyncDelay; // @synthesize storeSyncDelay=_storeSyncDelay;
 - (BOOL)_synchronizeAllStores;
 - (BOOL)_synchronizeStore:(id)arg1;
 - (void)scheduleSynchronizationForStore:(id)arg1;
@@ -55,7 +48,7 @@
 - (id)recentsHashForExternalAddress:(id)arg1 kind:(id)arg2;
 - (id)addressHandlerForAddressKind:(id)arg1;
 - (void)removeContact:(id)arg1;
-- (unsigned int)recordContactEvents:(id)arg1 recentsDomain:(id)arg2 sendingAddress:(id)arg3 source:(id)arg4 userInitiated:(BOOL)arg5;
+- (unsigned int)recordContactEvents:(id)arg1 recentsDomain:(id)arg2 sendingAddress:(id)arg3 source:(id)arg4;
 - (void)_deleteRecentsWithRecentIDs:(id)arg1 storeKeys:(id)arg2 recentsDomain:(id)arg3;
 - (void)_deleteRecentWithRecordHash:(id)arg1 kind:(id)arg2 recentsDomain:(id)arg3;
 - (void)_saveRecentContacts:(id)arg1;
@@ -69,8 +62,6 @@
 - (id)_nts_expungeRecentsOlderThanDate:(id)arg1 domain:(id)arg2 storeKeys:(id *)arg3 connection:(id)arg4;
 - (void)performExpungeRecentsOverLimitsForDomain:(id)arg1 afterDelay:(double)arg2;
 - (void)cancelPerformExpungeRecentsOverLimitsForDomain:(id)arg1;
-- (void)setGroupCreationEventThreshold:(unsigned int)arg1 forDomain:(id)arg2;
-- (unsigned int)groupCreationEventThresholdForDomain:(id)arg1;
 - (void)setMaximumRecentsAgeInDays:(unsigned int)arg1 forRecentsDomain:(id)arg2;
 - (unsigned int)maximumRecentsAgeInDaysForDomain:(id)arg1;
 - (void)setMaximumGroupRecents:(unsigned int)arg1 forRecentsDomain:(id)arg2;
@@ -81,20 +72,22 @@
 - (unsigned int)_propertyValueForKey:(id)arg1 defaultValue:(unsigned int)arg2;
 - (BOOL)_setDatabasePropertyValue:(unsigned int)arg1 forKey:(id)arg2;
 - (unsigned int)_databasePropertyValueByKey:(id)arg1;
+- (void)removeRecentContactsWithRecentIDs:(id)arg1 syncKeys:(id)arg2 domain:(id)arg3;
 - (void)enumerateRecentsForDomain:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)_copyRecentContactForID:(long long)arg1;
 - (id)_copyRecentContactForRecordHash:(id)arg1 recentsDomain:(id)arg2;
 - (id)hashForGroupMemberHashes:(id)arg1;
 - (id)hashesForGroupMembers:(id)arg1 recentsDomain:(id)arg2;
 - (id)hashForGroupMembers:(id)arg1 recentsDomain:(id)arg2;
-- (id)copyContactRecentsFromStatement:(struct sqlite3_stmt *)arg1 selectIndexes:(CDStruct_8a47c5f7)arg2;
+- (id)copyContactRecentsFromStatement:(struct sqlite3_stmt *)arg1 selectIndexes:(CDStruct_3990e8ec)arg2 groupThreshold:(unsigned int)arg3 options:(unsigned int)arg4;
+- (id)upcomingEventIdentifierForRecentID:(long long)arg1;
 - (void)populateMetadataForRecents:(id)arg1;
-- (id)_copyRecentsForPredicate:(id)arg1 inDomains:(id)arg2 error:(id *)arg3;
+- (id)copyRecentsForQuery:(id)arg1 error:(id *)arg2;
 - (id)ageOutClause;
 - (CDUnknownBlockType)bindingForDomain:(id)arg1;
 - (id)domainClauseWithDomains:(id)arg1 bindings:(id)arg2;
 - (id)_whereClauseFromPredicate:(id)arg1 inDomains:(id)arg2 bindings:(id *)arg3 error:(id *)arg4;
-- (id)copyRecentContactFromStatement:(struct sqlite3_stmt *)arg1 columnIndexes:(CDStruct_8a47c5f7)arg2 populateMetadata:(BOOL)arg3;
+- (id)copyRecentContactFromStatement:(struct sqlite3_stmt *)arg1 columnIndexes:(CDStruct_3990e8ec)arg2 populateMetadata:(BOOL)arg3;
 - (void)performReadTransaction:(CDUnknownBlockType)arg1;
 - (void)performWriteTransaction:(CDUnknownBlockType)arg1;
 - (void)_performTransaction:(CDUnknownBlockType)arg1 forWriting:(BOOL)arg2;
@@ -116,6 +109,12 @@
 - (void)closeDatabaseConnections;
 - (void)dealloc;
 - (id)initWithPath:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

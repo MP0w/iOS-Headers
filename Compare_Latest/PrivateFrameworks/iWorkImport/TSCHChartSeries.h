@@ -30,6 +30,8 @@ __attribute__((visibility("hidden")))
 
 + (id)computedFillOrStroke:(id)arg1 forSeriesIndex:(unsigned int)arg2 numberOfThemeSeries:(unsigned int)arg3;
 + (id)computableProperties;
++ (id)stackedPercentageNumberFormat;
++ (id)defaultNumberFormat;
 @property(nonatomic) unsigned int barGapIndex; // @synthesize barGapIndex=mBarGapIndex;
 @property(readonly, nonatomic) unsigned int seriesIndex; // @synthesize seriesIndex=mSeriesIndex;
 @property(readonly, nonatomic) NSObject<TSCHUnretainedParent> *seriesStorage; // @synthesize seriesStorage=mSeriesStorage;
@@ -63,7 +65,11 @@ __attribute__((visibility("hidden")))
 - (void)modelSyncSetStyle:(id)arg1;
 - (void)modelSyncSetNonStyle:(id)arg1;
 - (id)formattedValueLabelStringForValueIndex:(unsigned int)arg1;
-- (id)p_axisTypesForValueLabelString;
+- (id)axisTypesForValueLabelString;
+- (BOOL)hasCustomFormatForGridValueType:(int)arg1;
+- (int)adjustedNumberFormatType;
+- (int)gridValueType;
+- (id)customFormatForGridValueType:(int)arg1;
 - (void)resetSeriesStorage;
 - (void)setSeriesStorage:(id)arg1;
 - (BOOL)renderSeriesForClass:(Class)arg1;
@@ -94,12 +100,17 @@ __attribute__((visibility("hidden")))
 - (id)p_axisStorageForType:(int)arg1 create:(BOOL)arg2;
 @property(retain, nonatomic) NSString *name;
 - (id)drawableInfo;
-@property(readonly, nonatomic) unsigned int yAxisOrdinal;
 - (void)dealloc;
 - (id)initWithChartModel:(id)arg1 index:(unsigned int)arg2;
 - (id)g_genericToDefaultPropertyMap;
 - (float)effectiveLabelExplosion;
 - (BOOL)floatValueForLabelExplosion:(float *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

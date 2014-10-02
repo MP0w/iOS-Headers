@@ -15,14 +15,12 @@
 
 + (id)supportedVideoSettingsKeys;
 + (void)initialize;
-- (void)_AVCaptureVideoDataOutput_VideoDataBecameReady;
++ (id)alloc;
+- (int)requiredOutputFormatForConnection:(id)arg1;
+- (BOOL)hasRequiredOutputFormatForConnection:(id)arg1;
 - (BOOL)appliesMirroringWithPhysicalFlipForConnection:(id)arg1;
 - (BOOL)appliesOrientationWithPhysicalRotationForConnection:(id)arg1;
-- (struct CGSize)outputSizeForCaptureOptions:(id)arg1;
-- (void)didStartForSession:(id)arg1;
-- (void)didStopForSession:(id)arg1 error:(id)arg2;
-- (void)handleEnabledChangedForConnection:(id)arg1;
-- (void)_applyOverridesToCaptureOptions:(id)arg1;
+- (struct CGSize)outputSizeForSourceFormat:(id)arg1;
 - (id)addConnection:(id)arg1 error:(id *)arg2;
 - (id)connectionMediaTypes;
 @property(nonatomic) BOOL alwaysDiscardsLateVideoFrames;
@@ -32,13 +30,14 @@
 - (id)supportedAssetWriterOutputFileTypes;
 @property(copy, nonatomic) NSDictionary *videoSettings;
 - (id)vettedVideoSettingsForSettingsDictionary:(id)arg1;
+- (id)outputScalingModeForSourceFormat:(id)arg1;
+- (int)outputFormat;
+- (BOOL)usesPreviewSizedBuffers;
 @property(readonly, nonatomic) NSArray *availableVideoCodecTypes;
 @property(readonly, nonatomic) NSArray *availableVideoCVPixelFormatTypes;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *sampleBufferCallbackQueue;
 @property(readonly, nonatomic) id <AVCaptureVideoDataOutputSampleBufferDelegate> sampleBufferDelegate;
 - (void)setSampleBufferDelegate:(id)arg1 queue:(id)arg2;
-- (void)setSession:(id)arg1;
-- (BOOL)isTheOnlyDataOutput;
 - (void)dealloc;
 - (id)init;
 

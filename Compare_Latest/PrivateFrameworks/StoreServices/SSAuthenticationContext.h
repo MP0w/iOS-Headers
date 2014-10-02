@@ -24,6 +24,7 @@
     BOOL _canSetActiveAccount;
     NSString *_clientIdentifierHeader;
     BOOL _demoAccount;
+    BOOL _displaysOnLockScreen;
     NSDictionary *_httpHeaders;
     NSString *_initialPassword;
     BOOL _persistsAcrossDeviceLock;
@@ -43,35 +44,36 @@
 }
 
 + (id)contextForSignIn;
-@property(readonly, nonatomic) NSArray *userAgentComponents; // @synthesize userAgentComponents=_userAgentComponents;
+@property(readonly, copy, nonatomic) NSArray *userAgentComponents; // @synthesize userAgentComponents=_userAgentComponents;
 @property(readonly, nonatomic) int tokenType; // @synthesize tokenType=_tokenType;
-@property(readonly, nonatomic) NSDictionary *signupRequestParameters; // @synthesize signupRequestParameters=_signupRequestParameters;
+@property(readonly, copy, nonatomic) NSDictionary *signupRequestParameters; // @synthesize signupRequestParameters=_signupRequestParameters;
 @property(readonly, nonatomic) BOOL shouldSuppressDialogs; // @synthesize shouldSuppressDialogs=_shouldSuppressDialogs;
 @property(readonly, nonatomic) BOOL shouldIgnoreProtocol; // @synthesize shouldIgnoreProtocol=_shouldIgnoreProtocol;
 @property(readonly, nonatomic) BOOL shouldFollowAccountButtons; // @synthesize shouldFollowAccountButtons=_shouldFollowAccountButtons;
 @property(readonly, nonatomic) BOOL shouldCreateNewSession; // @synthesize shouldCreateNewSession=_shouldCreateNewSession;
-@property(readonly, nonatomic) NSNumber *requiredUniqueIdentifier; // @synthesize requiredUniqueIdentifier=_requiredUniqueIdentifier;
-@property(readonly, nonatomic) NSDictionary *requestParameters; // @synthesize requestParameters=_requestParameters;
-@property(readonly, nonatomic) NSString *reasonDescription; // @synthesize reasonDescription=_reasonDescription;
+@property(readonly, retain, nonatomic) NSNumber *requiredUniqueIdentifier; // @synthesize requiredUniqueIdentifier=_requiredUniqueIdentifier;
+@property(readonly, copy, nonatomic) NSDictionary *requestParameters; // @synthesize requestParameters=_requestParameters;
+@property(readonly, copy, nonatomic) NSString *reasonDescription; // @synthesize reasonDescription=_reasonDescription;
 @property(readonly, nonatomic) int promptStyle; // @synthesize promptStyle=_promptStyle;
-@property(readonly, nonatomic) NSString *preferredITunesStoreClient; // @synthesize preferredITunesStoreClient=_preferredITunesStoreClient;
+@property(readonly, copy, nonatomic) NSString *preferredITunesStoreClient; // @synthesize preferredITunesStoreClient=_preferredITunesStoreClient;
 @property(readonly, nonatomic) BOOL persistsPasswordFallback; // @synthesize persistsPasswordFallback=_persistsPasswordFallback;
 @property(readonly, nonatomic) BOOL persistsAcrossDeviceLock; // @synthesize persistsAcrossDeviceLock=_persistsAcrossDeviceLock;
-@property(readonly, nonatomic) NSString *initialPassword; // @synthesize initialPassword=_initialPassword;
-@property(readonly, nonatomic) NSDictionary *HTTPHeaders; // @synthesize HTTPHeaders=_httpHeaders;
+@property(readonly, copy, nonatomic) NSString *initialPassword; // @synthesize initialPassword=_initialPassword;
+@property(readonly, copy, nonatomic) NSDictionary *HTTPHeaders; // @synthesize HTTPHeaders=_httpHeaders;
+@property(readonly, nonatomic) BOOL displaysOnLockScreen; // @synthesize displaysOnLockScreen=_displaysOnLockScreen;
 @property(readonly, nonatomic, getter=isDemoAccount) BOOL demoAccount; // @synthesize demoAccount=_demoAccount;
-@property(readonly, nonatomic) NSString *clientIdentifierHeader; // @synthesize clientIdentifierHeader=_clientIdentifierHeader;
+@property(readonly, copy, nonatomic) NSString *clientIdentifierHeader; // @synthesize clientIdentifierHeader=_clientIdentifierHeader;
 @property(readonly, nonatomic) BOOL canSetActiveAccount; // @synthesize canSetActiveAccount=_canSetActiveAccount;
 @property(readonly, nonatomic) BOOL canCreateNewAccount; // @synthesize canCreateNewAccount=_canCreateNewAccount;
 @property(readonly, nonatomic) BOOL allowsRetry; // @synthesize allowsRetry=_allowsRetry;
 @property(readonly, nonatomic) BOOL allowsBootstrapCellularData; // @synthesize allowsBootstrapCellularData=_allowsBootstrapCellularData;
 @property(readonly, nonatomic) BOOL allowsBioAuthentication; // @synthesize allowsBioAuthentication=_allowsBioAuthentication;
 @property(readonly) int accountScope; // @synthesize accountScope=_accountScope;
-@property(readonly, nonatomic) NSString *accountName; // @synthesize accountName=_accountName;
+@property(readonly, copy, nonatomic) NSString *accountName; // @synthesize accountName=_accountName;
 - (void)_copyIvarsToCopy:(id)arg1 withZone:(struct _NSZone *)arg2;
 - (BOOL)_allowCreateAccount;
 @property(readonly, nonatomic, getter=isAccountNameEditable) BOOL accountNameEditable; // @synthesize accountNameEditable=_accountNameEditable;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithXPCEncoding:(id)arg1;
@@ -82,6 +84,11 @@
 - (id)initWithAccount:(id)arg1;
 - (id)init;
 - (id)_initSSAuthenticationContext;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

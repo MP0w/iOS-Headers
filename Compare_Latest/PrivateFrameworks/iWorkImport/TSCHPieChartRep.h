@@ -6,12 +6,10 @@
 
 #import <iWorkImport/TSCHChartRep.h>
 
-#import "TSCHChartPieWedgeExplosionTracking.h"
-
-@class NSArray, NSDictionary, TSCHChartPieElementsRenderer, TSCHChartPieWedgeKnobTracker;
+@class NSArray, NSDictionary, TSCHChartPieElementsRenderer;
 
 __attribute__((visibility("hidden")))
-@interface TSCHPieChartRep : TSCHChartRep <TSCHChartPieWedgeExplosionTracking>
+@interface TSCHPieChartRep : TSCHChartRep
 {
     TSCHChartPieElementsRenderer *mPieElementRenderer;
     NSArray *mWedgeKnobs;
@@ -19,30 +17,6 @@ __attribute__((visibility("hidden")))
     BOOL mHasDrawnSinceWedgeKnobTrackerCreated;
 }
 
-- (void)renderIntoContext:(struct CGContext *)arg1 visible:(struct CGRect)arg2;
-- (void)explosionsDidUpdateForNewSeriesIndexedExplosions:(id)arg1;
-- (BOOL)pieWedgeHitByUnscaledPoint:(struct CGPoint)arg1 seriesIndex:(unsigned int)arg2 distanceFromCenter:(struct CGPoint *)arg3;
-- (float)newExplosionValueForFinalDragPoint:(struct CGPoint)arg1 startingFrom:(struct CGPoint)arg2 forSeries:(unsigned int)arg3 knob:(id)arg4;
-- (struct CGPoint)effectivePointForDragPoint:(struct CGPoint)arg1 startingFrom:(struct CGPoint)arg2 forSeries:(unsigned int)arg3;
-- (float)p_radius;
-- (float)dragTravelAlongBisectorBetweenStartPoint:(struct CGPoint)arg1 andEndingPoint:(struct CGPoint)arg2 forSeries:(unsigned int)arg3;
-- (void)knobTrackingDidEnd:(id)arg1;
-- (void)knobTrackingDidBegin:(id)arg1;
-@property(readonly) TSCHChartPieWedgeKnobTracker *wedgeExplosionTracker;
-- (void)setCurrentKnobTracker:(id)arg1;
-- (id)newTrackerForKnob:(id)arg1;
-- (void)updatePositionsOfKnobs:(id)arg1;
-- (struct CGPoint)p_distanceForExplosionValue:(float)arg1 startExplosionValue:(float)arg2 seriesIndex:(unsigned int)arg3;
-- (void)addChartKnobsToArray:(id)arg1;
-- (id)knobForDynamicStyleChangeKey:(id)arg1;
-- (id)p_makePieWedgeKnob;
-- (id)subselectionLayer;
-- (void)addAdditionalChildLayersToArray:(id)arg1;
-- (int)dragTypeAtCanvasPoint:(struct CGPoint)arg1;
-- (void)processChanges:(id)arg1;
-- (void)clearRenderers;
-- (id)pieElementRenderer;
-- (BOOL)forceRenderBlankBackground;
 - (void)dealloc;
 - (id)initWithLayout:(id)arg1 canvas:(id)arg2;
 

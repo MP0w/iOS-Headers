@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
 - (id)tableBorderStyle;
 - (id)defaultCellFillForRow:(unsigned int)arg1 withState:(id)arg2;
 - (id)defaultCellFillWithState:(id)arg1;
-- (float)columnWidthAtIndex:(int)arg1 state:(id)arg2;
+- (float)columnWidthAtIndex:(unsigned int)arg1 state:(id)arg2;
 - (id)grid;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
 - (void)dealloc;

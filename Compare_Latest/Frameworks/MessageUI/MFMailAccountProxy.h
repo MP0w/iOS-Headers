@@ -17,6 +17,7 @@
 - (BOOL)_isRestricted;
 - (BOOL)_isActive;
 @property(readonly, nonatomic) BOOL restrictsRepliesAndForwards;
+@property(readonly, nonatomic) BOOL supportsThreadNotifications;
 @property(readonly, nonatomic) BOOL supportsSoftBankCodePoints;
 @property(readonly, nonatomic) NSString *uniqueID;
 - (id)_emailAddressesAndAliases;

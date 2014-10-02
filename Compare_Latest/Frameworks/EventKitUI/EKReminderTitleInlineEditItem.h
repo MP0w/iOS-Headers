@@ -14,7 +14,7 @@
 - (id)textFromReminder;
 - (int)cellStyle;
 - (id)newCell;
-- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
+- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(unsigned int)arg2;
 
 @end
 

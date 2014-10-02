@@ -136,6 +136,7 @@
 - (void)_addInnerGlowFromPreset:(id)arg1 atIndex:(unsigned int)arg2;
 - (void)_setInteriorGradientFromPreset:(id)arg1 atIndex:(unsigned int)arg2;
 - (void)_setColorFillFromPreset:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)_setOutputOpacityFromPreset:(id)arg1 atIndex:(unsigned int)arg2;
 - (void)_setShapeOpacityFromPreset:(id)arg1 atIndex:(unsigned int)arg2;
 
 @end

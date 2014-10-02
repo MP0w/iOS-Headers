@@ -7,6 +7,8 @@
 #import "NSString.h"
 
 @interface NSString (RUAdditions)
-- (id)RU_attributedStringByEmphasizingStationNameWithRegularTextAttributes:(id)arg1 emphasizedTextAttributes:(id)arg2;
+- (id)RU_emphasizedTextByEmphasizingStationName;
+- (BOOL)_RU_stationTitleRadioIsSuffix;
+- (id)_RU_stationTitleRadioSubstring;
 @end
 

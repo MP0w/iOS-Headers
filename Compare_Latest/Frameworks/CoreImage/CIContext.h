@@ -11,7 +11,6 @@
     struct CIContextInternal *_priv;
 }
 
-+ (BOOL)applicationIsInForegroundState;
 + (int)_crashed_because_nonaddressable_memory_was_passed_to_render:(id)arg1 toBitmap:(void *)arg2 rowBytes:(int)arg3 bounds:(struct CGRect)arg4 format:(int)arg5 colorSpace:(struct CGColorSpace *)arg6;
 + (id)contextWithEAGLContext:(id)arg1 options:(id)arg2;
 + (id)contextWithEAGLContext:(id)arg1;
@@ -22,6 +21,7 @@
 + (id)glesContextOptions:(id)arg1;
 + (struct Context *)glesInternalContextWithEAGLContext:(id)arg1 options:(id)arg2;
 + (struct Context *)glesInternalContextWithOptions:(id)arg1;
+- (id)createColorCubeDataForFilters:(id)arg1 dimension:(int)arg2;
 - (struct CGSize)outputImageMaximumSize;
 - (struct CGSize)inputImageMaximumSize;
 - (unsigned long)maximumOutputImageSize;
@@ -29,6 +29,7 @@
 - (struct CGImage *)createCGImage:(id)arg1 fromRect:(struct CGRect)arg2 format:(int)arg3 colorSpace:(struct CGColorSpace *)arg4;
 - (struct CGImage *)createCGImage:(id)arg1 fromRect:(struct CGRect)arg2 format:(int)arg3;
 - (struct CGImage *)createCGImage:(id)arg1 fromRect:(struct CGRect)arg2;
+- (void)render:(id)arg1 toTexture:(unsigned int)arg2 bounds:(struct CGRect)arg3 colorSpace:(struct CGColorSpace *)arg4;
 - (void)drawImage:(id)arg1 inRect:(struct CGRect)arg2 fromRect:(struct CGRect)arg3;
 - (void)drawImage:(id)arg1 atPoint:(struct CGPoint)arg2 fromRect:(struct CGRect)arg3;
 - (void)_insertEventMarker:(const char *)arg1;

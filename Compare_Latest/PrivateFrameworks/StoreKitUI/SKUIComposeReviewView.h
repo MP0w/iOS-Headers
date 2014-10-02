@@ -9,7 +9,7 @@
 #import "SKUIComposeReviewHeaderDelegate.h"
 #import "UITextContentViewDelegate.h"
 
-@class SKUIComposeReviewHeaderView, SKUIReviewMetadata, SULoadingView, SUTextContentView, UIControl, UILabel, UIScrollView;
+@class NSString, SKUIComposeReviewHeaderView, SKUIReviewMetadata, SULoadingView, SUTextContentView, UIScrollView;
 
 @interface SKUIComposeReviewView : UIView <SKUIComposeReviewHeaderDelegate, UITextContentViewDelegate>
 {
@@ -19,8 +19,6 @@
     unsigned int _loading:1;
     SULoadingView *_loadingView;
     SKUIReviewMetadata *_review;
-    UIControl *_reviewCountControl;
-    UILabel *_reviewCountLabel;
     UIScrollView *_scrollView;
     int _style;
     SUTextContentView *_textContentView;
@@ -33,14 +31,12 @@
 - (void)_showLoadingView;
 - (void)_showComposeView;
 - (id)_reviewPlaceholder;
-- (id)_reviewCountString;
 - (void)_layoutLoadingView;
 - (void)_layoutComposeView;
 - (BOOL)_isReviewTextOptional;
 - (void)_delayedUpdateReviewLength;
 - (id)_body;
 - (void)_keyboardVisibilityDidChangeNotification:(id)arg1;
-- (void)_reviewCountAction:(id)arg1;
 - (void)textContentViewDidChange:(id)arg1;
 - (BOOL)textContentView:(id)arg1 shouldScrollForPendingContentSize:(struct CGSize)arg2;
 - (BOOL)textContentView:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
@@ -58,6 +54,12 @@
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

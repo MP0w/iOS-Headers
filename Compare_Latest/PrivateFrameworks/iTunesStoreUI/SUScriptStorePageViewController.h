@@ -49,7 +49,6 @@
 @property id alwaysDispatchesScrollEvents;
 @property(readonly) id rootObject;
 - (id)_className;
-- (void)setShowcaseWithDictionary:(id)arg1;
 - (void)setScrollEdgeInsetsWithTop:(float)arg1 left:(float)arg2 bottom:(float)arg3 right:(float)arg4;
 - (id)saveWebArchiveWithIdentifier:(id)arg1 toDirectory:(id)arg2;
 - (void)reloadWithCallback:(id)arg1;

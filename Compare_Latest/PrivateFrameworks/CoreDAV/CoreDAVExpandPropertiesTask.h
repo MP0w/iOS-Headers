@@ -13,7 +13,7 @@
     NSMutableSet *_propertiesToExpand;
 }
 
-@property(retain) NSMutableSet *propertiesToExpand; // @synthesize propertiesToExpand=_propertiesToExpand;
+@property(retain, nonatomic) NSMutableSet *propertiesToExpand; // @synthesize propertiesToExpand=_propertiesToExpand;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)parseHints;
 - (id)requestBody;

@@ -8,6 +8,8 @@
 
 #import "SBUIBannerTarget.h"
 
+@class NSString;
+
 @interface SBUIBannerTargetProxy : NSObject <SBUIBannerTarget>
 {
     void *_identifier;
@@ -17,14 +19,23 @@
 
 @property(readonly, nonatomic) int bannerTargetIdiom; // @synthesize bannerTargetIdiom=_idiom;
 @property(readonly, nonatomic) void *bannerTargetIdentifier; // @synthesize bannerTargetIdentifier=_identifier;
-- (id)description;
+@property(readonly, copy) NSString *description;
+- (void)removeCachedBannerForContext:(id)arg1;
+- (void)cacheBannerForContext:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)dismissCurrentBannerContextForSource:(id)arg1;
 - (id)currentBannerContextForSource:(id)arg1;
 - (void)signalSource:(id)arg1;
+- (BOOL)isShowingModalBanner;
+- (void)modallyPresentBannerWithContext:(id)arg1;
 - (void)unregisterSource:(id)arg1;
 - (void)registerSource:(id)arg1;
 - (void)invalidate;
 - (id)initWithTargetImplementation:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -23,9 +23,9 @@
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
+- (unsigned int)supportedInterfaceOrientations;
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (unsigned int)supportedInterfaceOrientations;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (BOOL)prefersStatusBarHidden;
 - (BOOL)shouldAutorotate;
@@ -34,9 +34,9 @@
 - (BOOL)canBecomeFirstResponder;
 @property(readonly, nonatomic) MPMoviePlayerController *moviePlayer;
 - (void)dealloc;
-- (id)initWithContentURL:(id)arg1;
-- (id)initWithAsset:(id)arg1;
 - (id)init;
+- (id)initWithAsset:(id)arg1;
+- (id)initWithContentURL:(id)arg1;
 
 @end
 

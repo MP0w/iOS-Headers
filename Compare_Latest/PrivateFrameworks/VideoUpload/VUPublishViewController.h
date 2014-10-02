@@ -45,17 +45,18 @@
     BOOL _showHDSection;
     BOOL _enableHDSection;
     id <VUPublishViewControllerDelegate> _delegate;
-    int _SDSize;
-    int _HDSize;
     int _selectedOption;
+    long long _SDSize;
+    long long _HDSize;
 }
 
 @property(readonly, nonatomic) int selectedOption; // @synthesize selectedOption=_selectedOption;
-@property(nonatomic) int HDSize; // @synthesize HDSize=_HDSize;
-@property(nonatomic) int SDSize; // @synthesize SDSize=_SDSize;
+@property(nonatomic) long long HDSize; // @synthesize HDSize=_HDSize;
+@property(nonatomic) long long SDSize; // @synthesize SDSize=_SDSize;
 @property(nonatomic) BOOL enableHDSection; // @synthesize enableHDSection=_enableHDSection;
 @property(nonatomic) BOOL showHDSection; // @synthesize showHDSection=_showHDSection;
-@property(nonatomic) id <VUPublishViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <VUPublishViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) VUCategory *videoCategory;
 @property(readonly, nonatomic) NSArray *videoTags;
 @property(readonly, nonatomic) NSString *videoDescription;
@@ -110,12 +111,17 @@
 - (void)showAlertWithTitle:(id)arg1 message:(id)arg2;
 - (BOOL)checkParametersAndWarn;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)viewDidUnload;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)loadView;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     struct XlLinkTable *mXlLinkTable;
 }
 
++ (id)formulaStringForEDFormula:(id)arg1 edWorksheet:(id)arg2 xlFormulaProcessor:(struct XlFormulaProcessor *)arg3;
 - (struct XlFormulaProcessor *)xlFormulaProcessorXl;
 - (struct XlFormulaProcessor *)xlFormulaProcessorLasso;
 - (void)setupWithWorkbook:(id)arg1;

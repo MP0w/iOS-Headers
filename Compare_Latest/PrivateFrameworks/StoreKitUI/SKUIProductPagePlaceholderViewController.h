@@ -9,7 +9,7 @@
 #import "SKUIProductPageChildViewController.h"
 #import "UIScrollViewDelegate.h"
 
-@class SKUIClientContext, SKUIColorScheme, SKUIProductPageHeaderViewController, SKUIProductPagePlaceholderScrollView, UIActivityIndicatorView, UIScrollView;
+@class NSString, SKUIClientContext, SKUIColorScheme, SKUIProductPageHeaderViewController, SKUIProductPagePlaceholderScrollView, UIActivityIndicatorView, UIScrollView;
 
 @interface SKUIProductPagePlaceholderViewController : UIViewController <UIScrollViewDelegate, SKUIProductPageChildViewController>
 {
@@ -34,6 +34,12 @@
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)loadView;
 - (id)initWithStyle:(int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

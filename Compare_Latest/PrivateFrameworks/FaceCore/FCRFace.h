@@ -22,8 +22,10 @@
     int faceType;
     NSDictionary *faceLandmarkPoints;
     NSDictionary *expressionFeatures;
+    NSDictionary *additionalInfo;
 }
 
+@property(retain) NSDictionary *additionalInfo; // @synthesize additionalInfo;
 @property int trackID; // @synthesize trackID;
 @property unsigned int trackDuration; // @synthesize trackDuration;
 @property CDStruct_53bda269 rightEye; // @synthesize rightEye;

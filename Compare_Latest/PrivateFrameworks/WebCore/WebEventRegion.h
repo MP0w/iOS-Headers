@@ -17,6 +17,10 @@
 }
 
 - (id).cxx_construct;
+- (struct CGPoint)p4;
+- (struct CGPoint)p3;
+- (struct CGPoint)p2;
+- (struct CGPoint)p1;
 - (struct FloatQuad)quad;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)hitTest:(struct CGPoint)arg1;

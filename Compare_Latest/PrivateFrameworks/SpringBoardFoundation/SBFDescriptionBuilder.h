@@ -6,18 +6,18 @@
 
 #import "NSObject.h"
 
-@class NSMutableString, NSString;
+@class NSMutableString;
 
 @interface SBFDescriptionBuilder : NSObject
 {
     NSObject *_object;
     NSMutableString *_description;
-    NSString *_separator;
 }
 
 + (id)descriptionForObject:(id)arg1 withNamesAndObjects:(id)arg2;
 + (id)descriptionBuilderWithObject:(id)arg1;
-@property(copy, nonatomic) NSString *separator; // @synthesize separator=_separator;
++ (id)nameObjectSeparator;
++ (id)componentSeparator;
 - (id)build;
 - (void)tryAppendKey:(id)arg1;
 - (id)appendKeys:(id)arg1;

@@ -21,7 +21,7 @@
 - (BOOL)containsCoordinate:(CDStruct_c3b9c2ee)arg1;
 @property(nonatomic) BOOL notifyOnExit;
 @property(nonatomic) BOOL notifyOnEntry;
-@property(readonly, nonatomic) NSString *identifier;
+@property(readonly, copy, nonatomic) NSString *identifier;
 @property(readonly, nonatomic) double radius;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee center;
 - (id)description;

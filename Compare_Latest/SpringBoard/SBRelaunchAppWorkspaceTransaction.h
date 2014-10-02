@@ -6,16 +6,15 @@
 
 #import "SBToAppWorkspaceTransaction.h"
 
-#import "SBUIAnimationControllerDelegate.h"
+#import "SBUIAnimationControllerObserver.h"
 
-@class SBDisableActiveInterfaceOrientationChangeAssertion, SBStarkScreenController, SBUIAnimationController;
+@class NSString, SBDisableActiveInterfaceOrientationChangeAssertion, SBStarkScreenController, SBUIAnimationController;
 
-@interface SBRelaunchAppWorkspaceTransaction : SBToAppWorkspaceTransaction <SBUIAnimationControllerDelegate>
+@interface SBRelaunchAppWorkspaceTransaction : SBToAppWorkspaceTransaction <SBUIAnimationControllerObserver>
 {
     SBUIAnimationController *_animationController;
     _Bool _relaunchSuspended;
-    _Bool _keepWorkspaceSuspended;
-    _Bool _waitForReceiverChange;
+    _Bool _willBeOccluded;
     SBDisableActiveInterfaceOrientationChangeAssertion *_disableActiveOrientationChangeAssertion;
     SBStarkScreenController *_starkScreenController;
 }
@@ -24,22 +23,20 @@
 - (void)animationControllerDidFinishAnimation:(id)arg1;
 - (void)animationController:(id)arg1 willBeginAnimation:(_Bool)arg2;
 - (void)_handleAppRelaunch:(id)arg1;
-- (_Bool)selfApplicationExited:(id)arg1;
-- (_Bool)selfApplicationLaunchDidFail:(id)arg1;
-- (_Bool)selfApplicationActivated:(id)arg1;
-- (_Bool)selfApplicationDidFinishLaunching:(id)arg1 withInfo:(id)arg2;
-- (_Bool)selfApplicationDidStartLaunching:(id)arg1 withInfo:(id)arg2;
-- (_Bool)selfApplicationDidBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
-- (_Bool)selfApplicationWillBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
-- (void)_transactionComplete;
-- (void)_commit;
+- (void)_didComplete;
+- (void)_begin;
 - (void)_endAnimation;
 - (id)_setupAnimationForApp:(id)arg1;
 - (id)_animationForApp:(id)arg1;
 - (_Bool)shouldToggleSpringBoardStatusBarOnCleanup;
-- (id)debugDescription;
+@property(readonly, copy) NSString *debugDescription;
 - (void)dealloc;
-- (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 application:(id)arg3;
+- (id)initWithAlertManager:(id)arg1 application:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

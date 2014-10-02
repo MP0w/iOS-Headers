@@ -9,7 +9,7 @@
 #import "CKSMSCompose.h"
 #import "CKSMSComposeRemoteViewControllerDelegate.h"
 
-@class CKSMSComposeQueuingRemoteViewControllerProxy, CKSMSComposeRemoteViewController, UINavigationController, _UIAsyncInvocation;
+@class CKSMSComposeQueuingRemoteViewControllerProxy, CKSMSComposeRemoteViewController, NSString, UINavigationController, _UIAsyncInvocation;
 
 @interface CKSMSComposeController : UIViewController <CKSMSCompose, CKSMSComposeRemoteViewControllerDelegate>
 {
@@ -50,16 +50,19 @@
 - (void)setCanEditRecipients:(BOOL)arg1;
 - (void)setPendingAddresses:(id)arg1;
 - (void)setText:(id)arg1 subject:(id)arg2 addresses:(id)arg3;
-- (void)setText:(id)arg1 addresses:(id)arg2;
 - (BOOL)insertAttachmentWithURL:(id)arg1 andDescription:(id)arg2;
-- (BOOL)insertTextPart:(id)arg1;
 - (BOOL)insertData:(id)arg1 MIMEType:(id)arg2 exportedFilename:(id)arg3;
 - (BOOL)insertFilename:(id)arg1 MIMEType:(id)arg2 exportedFilename:(id)arg3 options:(id)arg4;
-- (BOOL)insertFilename:(id)arg1 MIMEType:(id)arg2 exportedFilename:(id)arg3;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 - (void)dealloc;
 - (id)initWithNavigationController:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

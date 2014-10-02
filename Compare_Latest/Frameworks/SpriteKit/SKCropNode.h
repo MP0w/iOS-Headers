@@ -13,6 +13,8 @@
 }
 
 - (void).cxx_destruct;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 @property(retain, nonatomic) SKNode *maskNode;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

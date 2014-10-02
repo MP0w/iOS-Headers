@@ -7,12 +7,15 @@
 #import "NSURL.h"
 
 @interface NSURL (LSAdditions)
+- (id)betaStoreURL;
 - (id)fmipURL;
 - (id)photosURL;
+- (id)twitterURL;
 - (id)facebookURL;
 - (id)iTunesStoreURL;
 - (id)gamecenterURL;
 - (id)youTubeURL;
+- (id)iCloudFamilyURL;
 - (id)fmfURL;
 - (id)mapsURL;
 - (id)iWorkDocumentName;

@@ -8,7 +8,7 @@
 
 #import "SADomainObjectCommand.h"
 
-@class SADomainObject;
+@class NSString, SADomainObject;
 
 @interface SADomainObjectUpdate : SABaseClientBoundCommand <SADomainObjectCommand>
 {
@@ -23,6 +23,12 @@
 @property(retain, nonatomic) SADomainObject *addFields;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

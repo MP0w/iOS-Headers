@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSString;
+@class GEOVectorTile, NSString;
 
 #pragma mark Blocks
 
@@ -12,21 +12,29 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
+struct AlphaAtlas {
+    unsigned int _field1;
+    _Bool _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    unsigned int _field5;
+    float _field6;
+    struct Texture2D *_field7;
+};
+
 struct AltitudeDebugSettings {
     char altitudePauseLoading;
+    char altitudeTexturePaging;
     char altitudeShowTileBounds;
+    char altitudeThreadDrawing;
     char altitudeHighResSatellite;
     char altitudeMipmapSatellite;
     char altitudeMipmapFlyover;
+    char altitudeMipmapObjectTree;
     char altitudeShowNightLight;
     float lodScale;
-    float animationSpinTime;
     float tileQualityThreshold;
     float forceGridTime;
-    float tourAnimationAltitude;
-    float tourAnimationStepDuration;
-    float tourAnimationCameraOffset;
-    float tourAnimationTilt;
 };
 
 struct AnchorContext {
@@ -47,29 +55,49 @@ struct AngularSpringDamper {
     _Bool _directionIsPositive;
 };
 
-struct Arrow;
+struct BaseVertexData;
 
-struct BRectImp<double> {
-    struct Vec2Imp<double> p0;
-    struct Vec2Imp<double> p1;
+struct BitmapData;
+
+struct BitmapDataBase;
+
+struct BlendState {
+    CDUnknownFunctionPointerType *_field1;
+    _Bool _field2;
+    int _field3;
 };
 
-struct BRectImp<float> {
-    Vec2Imp_1782d7e3 _field1;
-    Vec2Imp_1782d7e3 _field2;
+struct Box<double, 2> {
+    struct Matrix<double, 2, 1> _minimum;
+    struct Matrix<double, 2, 1> _maximum;
 };
 
-struct BufferRange;
-
-struct BuildingTopMeshFactory {
-    struct unordered_map<unsigned int, vk::BuildingTopMeshFactory::Group, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, vk_allocator<std::__1::pair<const unsigned int, vk::BuildingTopMeshFactory::Group>>> _field1;
-    struct unordered_map<unsigned int, vk::BuildingTopMeshFactory::Group, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, vk_allocator<std::__1::pair<const unsigned int, vk::BuildingTopMeshFactory::Group>>> _field2;
-    unsigned int _field3;
+struct Box<float, 2> {
+    Matrix_8746f91e _field1;
+    Matrix_8746f91e _field2;
 };
 
-struct CGColor;
+struct Box<unsigned int, 2> {
+    struct Matrix<unsigned int, 2, 1> _minimum;
+    struct Matrix<unsigned int, 2, 1> _maximum;
+};
 
-struct CGContext;
+struct BufferLoadItem;
+
+struct BufferMemory {
+    struct BufferUser *_user;
+    struct ResourceAccessor *_accessor;
+    struct Range _range;
+    int _access;
+    int _sync;
+    char *_data;
+};
+
+struct BufferUser;
+
+struct BuildingMesh;
+
+struct CGColorSpace;
 
 struct CGPoint {
     float x;
@@ -96,6 +124,7 @@ struct CameraManager {
     struct Vector2i _panStartCursor;
     struct Position3d _panStartPosition;
     double _panDistance;
+    _Bool _panAtStartPosition;
     _Bool _rotateBegin;
     _Bool _rotateInProgress;
     _Bool _rotateEnd;
@@ -128,9 +157,16 @@ struct CameraManager {
     double _fullZoomTiltLimitFactor;
 };
 
-struct CollisionItem;
-
-struct CollisionPair;
+struct ClearItem {
+    unsigned char colorMask;
+    Matrix_5173352a color;
+    _Bool clearDepthBuffer;
+    float depth;
+    unsigned char clearStencilBuffer;
+    int stencil;
+    unsigned char scissorRegion;
+    struct Box<unsigned int, 2> scissorRect;
+};
 
 struct Color {
     unsigned char _field1;
@@ -139,11 +175,95 @@ struct Color {
     unsigned char _field4;
 };
 
-struct DiscontinuityEdgeInfo {
-    id _field1;
+struct ColorState {
+    CDUnknownFunctionPointerType *_field1;
     _Bool _field2;
-    unsigned int _field3;
+    _Bool _field3;
+    _Bool _field4;
+    _Bool _field5;
 };
+
+struct CommandBuffer {
+    CDUnknownFunctionPointerType *_field1;
+    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field2;
+    struct RenderQueue *_field3;
+    struct ClearItem *_field4;
+    struct vector<ggl::RenderItem *, std::__1::allocator<ggl::RenderItem *>> _field5;
+    struct vector<ggl::Texture2DLoadItem, std::__1::allocator<ggl::Texture2DLoadItem>> _field6;
+    struct vector<ggl::BufferLoadItem, std::__1::allocator<ggl::BufferLoadItem>> _field7;
+    struct deque<geo::fast_shared_ptr<ggl::QueryItem>, std::__1::allocator<geo::fast_shared_ptr<ggl::QueryItem>>> _field8;
+    struct deque<ggl::PendingQuery, std::__1::allocator<ggl::PendingQuery>> _field9;
+    id _field10;
+};
+
+struct CommandBufferIdSet {
+    struct vector<md::CommandBufferId, std::__1::allocator<md::CommandBufferId>> _ids;
+};
+
+struct CompressedMeshMesh {
+    CDUnknownFunctionPointerType *_field1;
+    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field2;
+    CDUnknownFunctionPointerType *_field3;
+    struct ResourceManager *_field4;
+    struct RenderResource *_field5;
+    struct shared_ptr<ggl::VertexData> _field6;
+    struct shared_ptr<ggl::IndexData> _field7;
+    struct shared_ptr<ggl::PolygonBase::CompressedMeshVertexData> _field8;
+};
+
+struct CompressedMeshVertexData;
+
+struct CullingGridWithHeight {
+    float _heights[16];
+};
+
+struct DataWrite<ggl::ColoredText::MyVertexElement>;
+
+struct DataWrite<ggl::PolygonBase::DefaultVboVertexElement> {
+    struct BufferMemory _memory;
+};
+
+struct DataWrite<ggl::PolygonMesh::DefaultVboVertexElement> {
+    struct BufferMemory _memory;
+};
+
+struct DataWrite<unsigned short> {
+    struct BufferMemory _memory;
+};
+
+struct DebugConsole {
+    Matrix_8746f91e _field1;
+    Matrix_8746f91e _field2;
+    Matrix_8746f91e _field3;
+    Matrix_8746f91e _field4;
+    unsigned int _field5;
+    struct RenderItem *_field6;
+    struct unique_ptr<ggl::DataWrite<ggl::ColoredText::MyVertexElement>, std::__1::default_delete<ggl::DataWrite<ggl::ColoredText::MyVertexElement>>> _field7;
+    unsigned int _field8;
+    Matrix_8746f91e *_field9;
+    struct Matrix<unsigned char, 4, 1> _field10;
+    struct Matrix<unsigned char, 4, 1> _field11;
+    float _field12;
+};
+
+struct DebugConsoleManager;
+
+struct DepthState {
+    CDUnknownFunctionPointerType *_field1;
+    int _field2;
+    _Bool _field3;
+    _Bool _field4;
+    _Bool _field5;
+    float _field6;
+    float _field7;
+};
+
+struct Device {
+    CDUnknownFunctionPointerType *_field1;
+    int _field2;
+};
+
+struct FillUniformData;
 
 struct Flow {
     long long _field1;
@@ -152,35 +272,96 @@ struct Flow {
     int _field4;
 };
 
-struct FontAtlas {
-    CDUnknownFunctionPointerType *_field1;
-    struct shared_ptr<vk::FontAtlasPage> _field2;
-    struct vector<std::__1::shared_ptr<vk::FontAtlasPage>, vk_allocator<std::__1::shared_ptr<vk::FontAtlasPage>>> _field3;
-    struct FontAtlasCell *_field4;
-    struct FontAtlasCell *_field5;
-    int _field6;
-    struct CGColor *_field7;
-    struct CGContext *_field8;
-    void *_field9;
-    unsigned int _field10;
-    unsigned int _field11;
-    unsigned int _field12;
-    struct FontGlyphCache *_field13;
-};
-
-struct FontAtlasCell;
-
-struct FontAtlasPage;
-
-struct FontGlyphCache;
+struct FogUniformData;
 
 struct FontOptions {
-    struct _retain_ptr<const __CFString *, geo::_retain_cf<const __CFString *>, geo::_release_cf> _field1;
-    _Bool _field2;
+    struct _retain_ptr<const __CFString *, geo::_retain_cf<const __CFString *>, geo::_release_cf, geo::_hash_cf, geo::_equal_cf> _field1;
+    float _field2;
     float _field3;
-    _Bool _field4;
-    float _field5;
+    float _field4;
+    _Bool _field5;
+    _Bool _field6;
+};
+
+struct FragmentBuffer;
+
+struct FragmentedPool<ggl::Building::Shader::Setup>;
+
+struct FragmentedPool<ggl::BuildingFlat::Shader::Setup>;
+
+struct FragmentedPool<ggl::BuildingFlatStroke::Shader::Setup>;
+
+struct FragmentedPool<ggl::BuildingPointyRoof::Shader::Setup>;
+
+struct FragmentedPool<ggl::BuildingShadow::Shader::Setup>;
+
+struct FragmentedPool<ggl::BuildingTop::Shader::Setup>;
+
+struct FragmentedPool<ggl::Debug::BaseMesh>;
+
+struct FragmentedPool<ggl::Debug::Shader::Setup>;
+
+struct FragmentedPool<ggl::DebugPoints::Shader::Setup>;
+
+struct FragmentedPool<ggl::Glow::Shader::Setup>;
+
+struct FragmentedPool<ggl::PolygonAnimatableFill::Shader::Setup>;
+
+struct FragmentedPool<ggl::PolygonAnimatableStroke::Shader::Setup>;
+
+struct FragmentedPool<ggl::PolygonFill::Shader::Setup>;
+
+struct FragmentedPool<ggl::PolygonShadowedStroke::Shader::Setup>;
+
+struct FragmentedPool<ggl::PolygonSolidFill::Shader::Setup>;
+
+struct FragmentedPool<ggl::PolygonStroke::Shader::Setup>;
+
+struct FragmentedPool<ggl::PrefilteredLine::Shader::Setup>;
+
+struct FragmentedPool<ggl::RealisticAnimatableRoad::Shader::Setup>;
+
+struct FragmentedPool<ggl::RealisticAnimatableTexture::Shader::Setup>;
+
+struct FragmentedPool<ggl::RealisticCasingFacade::Shader::Setup>;
+
+struct FragmentedPool<ggl::RealisticCasingShadow::Shader::Setup>;
+
+struct FragmentedPool<ggl::RealisticCasingTop::Shader::Setup>;
+
+struct FragmentedPool<ggl::RealisticRoad::Shader::Setup>;
+
+struct FragmentedPool<ggl::RealisticRoadShadow::Shader::Setup>;
+
+struct FragmentedPool<ggl::RealisticTexture::Shader::Setup>;
+
+struct FragmentedPool<ggl::RenderItem>;
+
+struct FreeList;
+
+struct GLDevice;
+
+struct GLRenderer {
+    CDUnknownFunctionPointerType *_field1;
+    struct Device *_field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    _Bool _field5;
     float _field6;
+    _Bool _field7;
+    id _field8;
+    struct RenderState *_field9;
+    struct unique_ptr<ggl::OESContext, std::__1::default_delete<ggl::OESContext>> _field10;
+    struct RenderTarget *_field11;
+    struct TransactionBuffer _field12;
+    struct unique_ptr<ggl::PerformanceHUD, std::__1::default_delete<ggl::PerformanceHUD>> _field13;
+    struct vector<std::__1::shared_ptr<ggl::DebugRenderer>, std::__1::allocator<std::__1::shared_ptr<ggl::DebugRenderer>>> _field14;
+    struct deque<std::__1::pair<unsigned long, void *>, std::__1::allocator<std::__1::pair<unsigned long, void *>>> _field15;
+    struct unique_ptr<ggl::RenderQueue, std::__1::default_delete<ggl::RenderQueue>> _field16;
+    struct vector<ggl::BufferLoadItem, std::__1::allocator<ggl::BufferLoadItem>> _field17;
+    struct vector<ggl::Texture2DLoadItem, std::__1::allocator<ggl::Texture2DLoadItem>> _field18;
+    unsigned int _field19;
+    struct unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>> _field20;
 };
 
 struct GeoCoordinates {
@@ -188,10 +369,7 @@ struct GeoCoordinates {
     struct Latitude _field2;
 };
 
-struct GeoPolyline {
-    struct shared_ptr<const std::__1::vector<zilch::GeoCoordinates, std::__1::allocator<zilch::GeoCoordinates>>> _field1;
-    int _field2;
-};
+struct GeoServicesLoadJob;
 
 struct GlobeAdapter {
     struct shared_ptr<vk::GlobeAdapterData> _field1;
@@ -201,7 +379,7 @@ struct GlobeAdapter {
         double _field1;
         double _field2;
     } _field4;
-    struct vector<std::__1::shared_ptr<vk::InfoMapTile>, vk_allocator<std::__1::shared_ptr<vk::InfoMapTile>>> _field5;
+    struct vector<std::__1::shared_ptr<vk::LabelMapTile>, std::__1::allocator<std::__1::shared_ptr<vk::LabelMapTile>>> _field5;
     shared_ptr_dd1f7020 _field6;
 };
 
@@ -211,7 +389,11 @@ struct GlobeView {
     CDUnknownFunctionPointerType *_field1;
 };
 
-struct IconLabelPart;
+struct GridBaseUniformData;
+
+struct GridMesh;
+
+struct GridUniformData;
 
 struct Incident {
     struct GeoCoordinates _field1;
@@ -227,238 +409,163 @@ struct Incident {
     int _field11;
     unsigned char _field12;
     _Bool _field13;
+    int _field14;
+    unsigned char _field15;
+    unsigned char _field16;
 };
 
-struct IndicesQuad;
+struct IndexData;
+
+struct IndexDataTyped<unsigned short>;
 
 struct InfoLabel;
 
-struct InfoLabelCollider {
-    struct vector<vk::CollisionItem, vk_allocator<vk::CollisionItem>> _field1;
-    struct vector<vk::CollisionPair, vk_allocator<vk::CollisionPair>> _field2;
-};
-
-struct InfoLabelFeaturePool {
-    struct mutex _field1;
+struct IsoAlphaAtlas {
+    unsigned int _field1;
     unsigned int _field2;
-    id _field3;
-    struct map<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Value, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Less, vk_allocator<std::__1::pair<const vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Value>>> _field4;
-    struct map<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Value, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Less, vk_allocator<std::__1::pair<const vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Value>>> _field5;
-    struct unordered_map<GEOVectorTile *, vk::InfoLabelFeaturePool::TileFeatureValueEntry, std::__1::hash<GEOVectorTile *>, std::__1::equal_to<GEOVectorTile *>, vk_allocator<std::__1::pair<GEOVectorTile *const, vk::InfoLabelFeaturePool::TileFeatureValueEntry>>> _field6;
-    struct mutex _field7;
-    _Bool _field8;
-    struct vector<geo::_retain_ptr<GEOVectorTile *, geo::_retain_objc, geo::_release_objc>, vk_allocator<geo::_retain_ptr<GEOVectorTile *, geo::_retain_objc, geo::_release_objc>>> _field9;
-};
-
-struct InfoMapTile;
-
-struct InfoOcclusionTester {
-    CDUnknownFunctionPointerType *_field1;
-    struct deque<std::__1::shared_ptr<vk::InfoOcclusionQuery>, vk_allocator<std::__1::shared_ptr<vk::InfoOcclusionQuery>>> _field2;
-    struct deque<std::__1::shared_ptr<vk::InfoOcclusionQuery>, vk_allocator<std::__1::shared_ptr<vk::InfoOcclusionQuery>>> _field3;
-    struct deque<unsigned int, vk_allocator<unsigned int>> _field4;
-    id _field5;
-    unsigned int _field6;
-    _Bool _field7;
-    CDStruct_aa5aacbc _field8;
-};
-
-struct LabelFeature;
-
-struct LabelManager {
-    CDUnknownFunctionPointerType *_field1;
-    struct weak_ptr<vk::LabelManager> _field2;
-    id _field3;
+    unsigned int _field3;
     unsigned int _field4;
-    int _field5;
-    int _field6;
-    _Bool _field7;
-    _Bool _field8;
-    _Bool _field9;
-    _Bool _field10;
-    _Bool _field11;
-    _Bool _field12;
-    _Bool _field13;
-    _Bool _field14;
-    _Bool _field15;
-    _Bool _field16;
-    _Bool _field17;
-    _Bool _field18;
-    _Bool _field19;
-    _Bool _field20;
-    _Bool _field21;
-    _Bool _field22;
-    _Bool _field23;
-    _Bool _field24;
-    _Bool _field25;
-    _Bool _field26;
-    _Bool _field27;
-    Vec3Imp_f658403c _field28;
-    Vec3Imp_f658403c _field29;
-    Vec3Imp_f658403c _field30;
-    Vec3Imp_f658403c _field31;
-    Vec3Imp_f658403c _field32;
-    Vec3Imp_f658403c _field33;
-    double _field34;
-    double _field35;
-    double _field36;
-    double _field37;
-    double _field38;
-    float _field39;
-    CDStruct_aa5aacbc _field40;
-    struct Mat4Imp<double> _field41;
-    struct CGSize _field42;
-    BRectImp_7721609a _field43;
-    BRectImp_7721609a _field44;
-    float _field45;
-    float _field46;
-    float _field47;
-    unsigned long long _field48;
-    double _field49[5];
-    double _field50;
-    int _field51;
-    struct vector<std::__1::shared_ptr<vk::InfoMapTile>, vk_allocator<std::__1::shared_ptr<vk::InfoMapTile>>> _field52;
-    struct InfoLabelFeaturePool _field53;
-    struct LabelPool _field54;
-    struct vector<std::__1::shared_ptr<vk::InfoLabel>, vk_allocator<std::__1::shared_ptr<vk::InfoLabel>>> _field55;
-    struct vector<vk::InfoLabel *, vk_allocator<vk::InfoLabel *>> _field56;
-    struct FontAtlas _field57;
-    struct LabelMesh _field58;
-    struct LabelStyleCache _field59;
-    struct InfoLabelCollider _field60;
-    struct InfoOcclusionTester _field61;
-    struct shared_ptr<vk::LabelTrafficTilePool> _field62;
-    struct vector<std::__1::shared_ptr<vk::LabelIcon>, vk_allocator<std::__1::shared_ptr<vk::LabelIcon>>> _field63;
-    struct shared_ptr<vk::LabelManagerNotifierHook> _field64;
-    unsigned int _field65;
-    unsigned int _field66;
-    double _field67;
-    double _field68;
-    _Bool _field69;
-    float _field70;
-    int _field71;
-    unsigned int _field72;
-    unsigned int _field73;
-    double _field74;
-    shared_ptr_0c41964b _field75;
-    struct shared_ptr<vk::LabelFeature> _field76;
-    int _field77;
-    int _field78;
-    int _field79;
-    float _field80;
-    int _field81;
-    _Bool _field82;
-    _Bool _field83;
-    _Bool _field84;
-    int _field85;
-    int _field86;
-    struct _retain_ptr<VKLabelMarker *, geo::_retain_objc, geo::_release_objc> {
-        CDUnknownFunctionPointerType *_field1;
-        id _field2;
-        struct _retain_objc _field3;
-        struct _release_objc _field4;
-    } _field87;
-    struct _retain_ptr<VKLabelNavSupport *, geo::_retain_objc, geo::_release_objc> {
-        CDUnknownFunctionPointerType *_field1;
-        id _field2;
-        struct _retain_objc _field3;
-        struct _release_objc _field4;
-    } _field88;
-    struct LabelNavTrafficSupport _field89;
-    _Bool _field90;
-    vector_a3d7a989 _field91;
-    BRectImp_d02b3a99 _field92;
-    BRectImp_7721609a _field93;
-    BRectImp_7721609a _field94;
-    BRectImp_7721609a _field95;
+    float _field5;
+    struct Texture2D *_field6;
 };
 
-struct LabelManagerNotifierHook;
-
-struct LabelMesh {
-    struct vector<vk::IconLabelPart *, vk_allocator<vk::IconLabelPart *>> _field1;
-    struct vector<vk::LabelMesh::BufferRange, vk_allocator<vk::LabelMesh::BufferRange>> _field2;
-    struct VGLIconMeshVAO _field3;
-    struct vector<vk::TextLabelPart *, vk_allocator<vk::TextLabelPart *>> _field4;
-    struct vector<vk::LabelMesh::BufferRange, vk_allocator<vk::LabelMesh::BufferRange>> _field5;
-    struct VGLTextMeshVAO _field6;
-    struct FontAtlas *_field7;
-    id _field8;
-    id _field9;
-    _Bool _field10;
+struct LabelFeatureInfo {
+    unsigned long long _field1;
+    unsigned char _field2;
+    struct _retain_ptr<GEOVectorTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> _field3;
 };
+
+struct LabelManager;
+
+struct LabelMapTile;
 
 struct LabelNavJunctionInfo;
 
-struct LabelNavTrafficSupport {
-    struct LabelManager *_field1;
-    struct _retain_ptr<NSArray *, geo::_retain_objc, geo::_release_objc> {
-        CDUnknownFunctionPointerType *_field1;
-        id _field2;
-        struct _retain_objc _field3;
-        struct _release_objc _field4;
-    } _field2;
-    struct vector<std::__1::shared_ptr<vk::TrafficIncidentLabelFeature>, vk_allocator<std::__1::shared_ptr<vk::TrafficIncidentLabelFeature>>> _field3;
-    struct PolylineCoordinate _field4;
-    struct PolylineCoordinate _field5;
-    struct vector<std::__1::shared_ptr<vk::TrafficIncidentLabelFeature>, vk_allocator<std::__1::shared_ptr<vk::TrafficIncidentLabelFeature>>> _field6;
-    _Bool _field7;
-};
-
-struct LabelPool {
-    unsigned int _field1;
-    struct map<std::__1::pair<unsigned long long, unsigned int>, std::__1::weak_ptr<vk::InfoLabel>, std::__1::less<std::__1::pair<unsigned long long, unsigned int>>, vk_allocator<std::__1::pair<const std::__1::pair<unsigned long long, unsigned int>, std::__1::weak_ptr<vk::InfoLabel>>>> _field2;
-    struct map<std::__1::pair<unsigned long long, unsigned int>, std::__1::shared_ptr<vk::InfoLabel>, std::__1::less<std::__1::pair<unsigned long long, unsigned int>>, vk_allocator<std::__1::pair<const std::__1::pair<unsigned long long, unsigned int>, std::__1::shared_ptr<vk::InfoLabel>>>> _field3;
-    unsigned int _field4;
-};
-
-struct LabelStyle;
-
-struct LabelStyleCache {
-    struct mutex _field1;
-    float _field2;
-    _Bool _field3;
-    int _field4;
-    int _field5;
-    int _field6;
-    float _field7;
-    struct _retain_ptr<VKStylesheet *, geo::_retain_objc, geo::_release_objc> {
-        CDUnknownFunctionPointerType *_field1;
-        id _field2;
-        struct _retain_objc _field3;
-        struct _release_objc _field4;
-    } _field8;
-    struct _retain_ptr<VKStyleResolutionSession *, geo::_retain_objc, geo::_release_objc> {
-        CDUnknownFunctionPointerType *_field1;
-        id _field2;
-        struct _retain_objc _field3;
-        struct _release_objc _field4;
-    } _field9;
-    struct map<VKLabelDrawStyle *, std::__1::shared_ptr<vk::LabelStyle>, std::__1::less<VKLabelDrawStyle *>, vk_allocator<std::__1::pair<VKLabelDrawStyle *const, std::__1::shared_ptr<vk::LabelStyle>>>> _field10;
-    struct map<VKLabelDrawStyle *, std::__1::shared_ptr<vk::LabelStyle>, std::__1::less<VKLabelDrawStyle *>, vk_allocator<std::__1::pair<VKLabelDrawStyle *const, std::__1::shared_ptr<vk::LabelStyle>>>> _field11;
-    struct shared_ptr<vk::LabelStyle> _field12;
-};
-
 struct LabelTile;
-
-struct LabelTrafficTilePool;
 
 struct Latitude {
     unsigned int _field1;
 };
 
-struct LineDash;
+struct Loader {
+    struct unique_ptr<ggl::LoaderImpl, std::__1::default_delete<ggl::LoaderImpl>> _loaderImpl;
+};
 
-struct LineStipple;
+struct LoaderImpl;
 
 struct Longitude {
     unsigned int _field1;
 };
 
-struct MapEdge;
+struct MapCamera {
+    struct View *_view;
+    struct Viewport *_viewport;
+    void *_layoutContext;
+};
 
-struct Mat4Imp<double> {
-    double _field1[16];
+struct Matrix<double, 2, 1> {
+    double _e[2];
+};
+
+struct Matrix<double, 3, 1> {
+    double _e[3];
+};
+
+struct Matrix<double, 4, 1> {
+    double _field1[4];
+};
+
+struct Matrix<double, 4, 4> {
+    double _e[16];
+};
+
+struct Matrix<float, 2, 1> {
+    float _e[2];
+};
+
+struct Matrix<float, 4, 1> {
+    float _e[4];
+};
+
+struct Matrix<float, 4, 4> {
+    float _e[16];
+};
+
+struct Matrix<int, 2, 1> {
+    int _field1[2];
+};
+
+struct Matrix<unsigned char, 4, 1> {
+    unsigned char _field1[4];
+};
+
+struct Matrix<unsigned int, 2, 1> {
+    unsigned int _e[2];
+};
+
+struct Mesh {
+    CDUnknownFunctionPointerType *_field1;
+    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field2;
+    CDUnknownFunctionPointerType *_field3;
+    struct ResourceManager *_field4;
+    struct RenderResource *_field5;
+    struct shared_ptr<ggl::VertexData> _field6;
+    struct shared_ptr<ggl::IndexData> _field7;
+};
+
+struct MeshMesh;
+
+struct MeshSet<ggl::PolygonBase::MeshMesh, ggl::PolygonBase::DefaultVboVertexElement> {
+    struct vector<std::__1::pair<unsigned short, unsigned int>, std::__1::allocator<std::__1::pair<unsigned short, unsigned int>>> _vertexAndIndexCounts;
+    vector_54f0f967 _meshes;
+    struct DataWrite<ggl::PolygonBase::DefaultVboVertexElement> _vertexDataWrite;
+    struct DataWrite<unsigned short> _indexDataWrite;
+    unsigned char _meshIndex;
+    unsigned short _meshVertexOffset;
+    unsigned int _meshIndexOffset;
+};
+
+struct MeshSet<ggl::PolygonMesh::MeshMesh, ggl::PolygonMesh::DefaultVboVertexElement> {
+    struct vector<std::__1::pair<unsigned short, unsigned int>, std::__1::allocator<std::__1::pair<unsigned short, unsigned int>>> _vertexAndIndexCounts;
+    vector_0edf1665 _meshes;
+    struct DataWrite<ggl::PolygonMesh::DefaultVboVertexElement> _vertexDataWrite;
+    struct DataWrite<unsigned short> _indexDataWrite;
+    unsigned char _meshIndex;
+    unsigned short _meshVertexOffset;
+    unsigned int _meshIndexOffset;
+};
+
+struct MeshVendor<ggl::Building::BuildingMesh> {
+    struct vector<ggl::Building::BuildingMesh *, std::__1::allocator<ggl::Building::BuildingMesh *>> _field1;
+    struct BuildingMesh *_field2;
+};
+
+struct MeshVendor<ggl::BuildingPointyRoof::BuildingMesh> {
+    struct vector<ggl::BuildingPointyRoof::BuildingMesh *, std::__1::allocator<ggl::BuildingPointyRoof::BuildingMesh *>> _field1;
+    struct BuildingMesh *_field2;
+};
+
+struct MeshVendor<ggl::Glow::MeshMesh> {
+    struct vector<ggl::Glow::MeshMesh *, std::__1::allocator<ggl::Glow::MeshMesh *>> _field1;
+    struct MeshMesh *_field2;
+};
+
+struct MeshVendor<ggl::PolygonBase::CompressedMeshMesh>;
+
+struct MeshVendor<ggl::PolygonMesh::MeshMesh> {
+    struct vector<ggl::PolygonMesh::MeshMesh *, std::__1::allocator<ggl::PolygonMesh::MeshMesh *>> _field1;
+    struct MeshMesh *_field2;
+};
+
+struct MeshVendor<ggl::PrefilteredLine::PrefilteredLineMesh> {
+    struct vector<ggl::PrefilteredLine::PrefilteredLineMesh *, std::__1::allocator<ggl::PrefilteredLine::PrefilteredLineMesh *>> _field1;
+    struct PrefilteredLineMesh *_field2;
+};
+
+struct MultiRange;
+
+struct Mutex {
+    void *mMutex;
 };
 
 struct NavContext {
@@ -468,10 +575,63 @@ struct NavContext {
 
 struct NavLabel;
 
+struct OESContext;
+
+struct OffscreenQueue;
+
+struct Pass;
+
+struct PatternedBatch;
+
+struct PatternedLayer {
+    CDUnknownFunctionPointerType *_field1;
+    struct vector<vk::PatternedBatch *, std::__1::allocator<vk::PatternedBatch *>> _field2;
+    struct vector<ggl::PatternedRibbon::BaseMesh *, std::__1::allocator<ggl::PatternedRibbon::BaseMesh *>> _field3;
+    struct RenderState *_field4[2];
+    shared_ptr_1fee3c91 _field5;
+    struct shared_ptr<ggl::RenderState> _field6[2];
+    unsigned int _field7;
+    struct PatternedManager *_field8;
+    id _field9;
+};
+
+struct PatternedManager;
+
+struct PendingQuery;
+
+struct PerformanceHUD;
+
+struct PolygonState {
+    CDUnknownFunctionPointerType *_field1;
+    _Bool _field2;
+    int _field3;
+    int _field4;
+};
+
 struct PolylineCoordinate {
     unsigned int index;
     float offset;
 };
+
+struct Pool<ggl::RenderItem> {
+    struct set<void *, std::__1::less<void *>, std::__1::allocator<void *>> mAllocatedSlabs;
+    unsigned int mElementsPerSlab;
+    unsigned int mSlabSize;
+    struct FreeList *mFreeElement;
+};
+
+struct Pos2DUVMesh {
+    CDUnknownFunctionPointerType *_field1;
+    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field2;
+    CDUnknownFunctionPointerType *_field3;
+    struct ResourceManager *_field4;
+    struct RenderResource *_field5;
+    struct shared_ptr<ggl::VertexData> _field6;
+    struct shared_ptr<ggl::IndexData> _field7;
+    struct shared_ptr<ggl::Texture::Pos2DUVVertexData> _field8;
+};
+
+struct Pos2DUVVertexData;
 
 struct Position3d {
     double _latitude;
@@ -485,6 +645,22 @@ struct PositionGeo3d {
     double _z;
 };
 
+struct PrefilteredLineMesh;
+
+struct Range {
+    unsigned int _start;
+    unsigned int _count;
+};
+
+struct RealisticUniformData {
+    unsigned int _field1;
+    unsigned int _field2;
+    struct UniformCReflection *_field3;
+    struct vector<unsigned char, std::__1::allocator<unsigned char>> _field4;
+};
+
+struct RealisticVertexData;
+
 struct Record {
     unsigned int _field1;
     unsigned int _field2;
@@ -496,97 +672,142 @@ struct Record {
     float _field8;
 };
 
-struct RenderStepsSet {
-    struct vector<PolygonRenderStep, vk_allocator<PolygonRenderStep>> renderSteps;
-    struct vector<PolygonRenderStep, vk_allocator<PolygonRenderStep>> transparentRenderSteps;
+struct RenderBuffer;
+
+struct RenderItem {
+    CDUnknownFunctionPointerType *_vptr$RenderItem;
+    char *_name;
+    struct RenderState *_renderState;
+    struct ShaderSetup *_shaderSetup;
+    unsigned int _stencilRefValue;
+    unsigned int _renderOrder;
+    float _lineWidth;
+    struct Mesh *_mesh;
+    struct Range _range;
+    struct Range *_ranges;
+    unsigned int _rangeCount;
 };
 
-struct RenderThread {
+struct RenderItemBatcher {
+    struct vector<ggl::Range, std::__1::allocator<ggl::Range>> _activeRanges;
+    unsigned int _rangePoolCount;
+    struct vector<ggl::MultiRange, std::__1::allocator<ggl::MultiRange>> _rangePool;
+    struct vector<ggl::Range, std::__1::allocator<ggl::Range>> _activeRanges;
+    struct RenderItem *_prototype;
+    struct Pool<ggl::RenderItem> _pool;
+    unsigned int _rangePoolCount;
+    struct vector<ggl::MultiRange, std::__1::allocator<ggl::MultiRange>> _rangePool;
+};
+
+struct RenderResource;
+
+struct RenderState {
     CDUnknownFunctionPointerType *_field1;
-    void *_field2;
-    struct Renderer *_field3;
+    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field2;
+    struct DepthState _field3;
+    struct ColorState _field4;
+    struct BlendState _field5;
+    struct StencilState _field6;
+    struct ScissorState _field7;
+    struct PolygonState _field8;
 };
 
-struct Renderer;
+struct RenderStyle {
+    float *_blendFactor;
+    struct StyleData *_sourceStyleData;
+    struct StyleData *_targetStyleData;
+};
 
-struct RoadPathElement<std::__1::shared_ptr<geo::MapEdge>> {
+struct RenderTarget {
+    CDUnknownFunctionPointerType *_field1;
+    struct ResourceManager *_field2;
+    struct RenderResource *_field3;
+    CDUnknownFunctionPointerType *_field4;
+    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field5;
+    struct vector<ggl::FragmentBuffer *, std::__1::allocator<ggl::FragmentBuffer *>> _field6;
+    struct FragmentBuffer *_field7;
+    unsigned int _field8;
+    unsigned int _field9;
+    _Bool _field10;
+};
+
+struct RenderTargetOperation {
     CDUnknownFunctionPointerType *_field1;
     int _field2;
-    unsigned int _field3;
-    shared_ptr_035a2da2 _field4;
-    struct GeoPolyline _field5;
-    int _field6;
 };
 
-struct RouteCalibration {
-    unsigned int _field1;
-    float _field2;
+struct RenderTransaction;
+
+struct RenderTree {
+    CDUnknownFunctionPointerType *_field1;
+    id _field2;
 };
+
+struct Renderer {
+    CDUnknownFunctionPointerType *_field1;
+    struct Device *_field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    _Bool _field5;
+    float _field6;
+};
+
+struct ResourceAccessor {
+    CDUnknownFunctionPointerType *_field1;
+};
+
+struct ResourceManager;
+
+struct RoadBatch;
+
+struct RoadLayer {
+    CDUnknownFunctionPointerType *_field1;
+    struct vector<vk::RoadBatch *, std::__1::allocator<vk::RoadBatch *>> _field2;
+    struct vector<ggl::Ribbon::BaseMesh *, std::__1::allocator<ggl::Ribbon::BaseMesh *>> _field3;
+    struct RenderState *_field4[4];
+    shared_ptr_1fee3c91 _field5;
+    struct shared_ptr<ggl::RenderState> _field6[4];
+    unsigned int _field7;
+    struct RoadManager *_field8;
+    id _field9;
+};
+
+struct RoadManager;
 
 struct RouteJunctionInfo;
 
-struct RouteLineSection {
-    CDUnknownFunctionPointerType *_field1;
-    struct vector<vk::RouteLineSection::Vertex, vk_allocator<vk::RouteLineSection::Vertex>> _field2;
-    struct vector<vk::RouteLineSection::Arrow, vk_allocator<vk::RouteLineSection::Arrow>> _field3;
-    struct vector<vk::RouteLineSection::Arrow, vk_allocator<vk::RouteLineSection::Arrow>> _field4;
-    _Bool _field5;
-    _Bool _field6;
-    float _field7;
-    float _field8;
-    struct list<VGLRouteLineMesh *, vk_allocator<VGLRouteLineMesh *>> _field9;
-    struct VertexSource *_field10;
-    struct VKPolylineWalker<vk::RouteLineSection::Vertex> _field11;
-    struct VKRouteLineToMeshPathMap _field12;
-    struct PolylineCoordinate _field13;
-    struct PolylineCoordinate _field14;
-    unsigned int *_field15;
-    unsigned int _field16;
-    double _field17;
-    float _field18;
-    _Bool _field19;
-    float _field20;
-    float _field21;
-};
+struct RouteLineArrowManager;
 
-struct RouteLineStyle {
-    float strokeWidthRegularPoints;
-    double halfWidthRegularPoints;
-    double halfWidthRegularUnselectedScale;
-    double halfWidthRealistic;
-    struct _VGLColor travelledRegularRouteLineColor;
-    struct _VGLColor inverseBaseColorSelected;
-    struct _VGLColor inverseBaseColorUnselected;
-    NSString *selectedTextureNameRealistic;
-    NSString *obscuredTextureNameRealistic;
-    NSString *travelledTextureNameRealistic;
-    double widthEnlargementStartZoom;
-    double widthEnlargementScale;
-    double maxEnlargement;
-    float arrowMinZoom;
-    float selectedArrowMinZoom;
-    float brightnessRealistic;
-};
+struct RouteLineLayer;
 
-struct RouteMapMatchingSection {
-    CDUnknownFunctionPointerType *_field1;
-};
+struct RouteLineManager;
 
 struct RouteSegment;
 
-struct SimpleBuffer<unsigned char> {
-    unsigned int _size;
-    unsigned int _capacity;
-    char *_buf;
+struct ScissorState {
+    CDUnknownFunctionPointerType *_field1;
+    _Bool _field2;
+    Box_3fb92e00 _field3;
 };
 
-struct SimpleBuffer<unsigned short> {
-    unsigned int _size;
-    unsigned int _capacity;
-    unsigned short *_buf;
+struct Setup {
+    CDUnknownFunctionPointerType *_vptr$ShaderSetup;
+    struct vector<ggl::UniformDataElement, std::__1::allocator<ggl::UniformDataElement>> _dataArray;
+    struct vector<ggl::TextureBase *, std::__1::allocator<ggl::TextureBase *>> _textures;
+    struct shared_ptr<ggl::Shader> _shader;
 };
 
-struct SnappedPathMapMatchingSection;
+struct Shader;
+
+struct ShaderLoadItem;
+
+struct ShaderSetup;
+
+struct SimpleGridUniformData;
+
+struct SkyMesh;
+
+struct SkyUniformData;
 
 struct SpringDamper {
     double _position;
@@ -598,48 +819,182 @@ struct SpringDamper {
     _Bool _directionIsPositive;
 };
 
-struct String {
-    struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> {
-        struct __rep {
-            union {
-                struct __long {
-                    unsigned int _field1;
-                    unsigned int _field2;
-                    char *_field3;
-                } _field1;
-                struct __short {
-                    union {
-                        unsigned char _field1;
-                        char _field2;
-                    } _field1;
-                    char _field2[11];
-                } _field2;
-                struct __raw {
-                    unsigned long _field1[3];
-                } _field3;
-            } _field1;
-        } _field1;
-    } _field1;
+struct StencilManager {
+    unsigned char _stencilStart;
+    unsigned char _stencilEnd;
+    unsigned char _stencilMax;
+    struct ClearItem _stencilResetItem;
 };
 
-struct TextLabelPart;
+struct StencilState {
+    CDUnknownFunctionPointerType *_field1;
+    _Bool _field2;
+    _Bool _field3;
+    unsigned int _field4;
+    int _field5;
+    int _field6;
+    unsigned int _field7;
+    int _field8;
+    int _field9;
+    int _field10;
+};
+
+struct String {
+    struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
+};
+
+struct StyleData {
+    struct {
+        unsigned int width:1;
+        unsigned int strokeWidth:1;
+        unsigned int fillColor:1;
+        unsigned int strokeColor:1;
+        unsigned int fillTexture:1;
+        unsigned int obscuredFillTexture:1;
+        unsigned int travelledFillTexture:1;
+        unsigned int buildingStrokeWidth3d:1;
+        unsigned int buildingStrokeColor3d:1;
+        unsigned int brightness:1;
+        unsigned int puckCircleBrightness:1;
+        unsigned int puckArrowBrightness:1;
+        unsigned int puckArrowColor:1;
+        unsigned int puckArrowColorStale:1;
+        unsigned int puckSize:1;
+        unsigned int puckOffset:1;
+        unsigned int shieldFillColor:1;
+    } hasValueInStylesheet;
+    struct map<gss::PropertyID, signed char, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, signed char>>> _boolMap;
+    struct map<gss::PropertyID, float, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, float>>> _floatMap;
+    struct map<gss::PropertyID, unsigned char, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, unsigned char>>> _uint8Map;
+    struct map<gss::PropertyID, int, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, int>>> _intMap;
+    struct map<gss::PropertyID, unsigned int, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, unsigned int>>> _uintMap;
+    struct map<gss::PropertyID, gm::Matrix<float, 4, 1>, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, gm::Matrix<float, 4, 1>>>> _colorMap;
+    struct map<gss::PropertyID, geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>> _stringMap;
+    struct map<gss::PropertyID, gss::StyleDataPair, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, gss::StyleDataPair>>> _pairMap;
+    struct map<gss::PropertyID, gss::SparseRamp<signed char>, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, gss::SparseRamp<signed char>>>> _boolRampMap;
+    struct map<gss::PropertyID, gss::SparseRamp<float>, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, gss::SparseRamp<float>>>> _floatRampMap;
+    struct map<gss::PropertyID, gss::SparseRamp<unsigned char>, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, gss::SparseRamp<unsigned char>>>> _uint8RampMap;
+    struct map<gss::PropertyID, gss::SparseRamp<int>, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, gss::SparseRamp<int>>>> _intRampMap;
+    struct map<gss::PropertyID, gss::SparseRamp<unsigned int>, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, gss::SparseRamp<unsigned int>>>> _uintRampMap;
+    struct map<gss::PropertyID, gss::SparseRamp<gm::Matrix<float, 4, 1>>, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, gss::SparseRamp<gm::Matrix<float, 4, 1>>>>> _colorRampMap;
+    struct map<gss::PropertyID, gss::SparseRamp<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, gss::SparseRamp<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>>> _stringRampMap;
+    struct map<gss::PropertyID, gss::SparseRamp<gss::StyleDataPair>, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, gss::SparseRamp<gss::StyleDataPair>>>> _pairRampMap;
+    struct map<gss::PropertyID, std::__1::vector<gss::LinePattern, std::__1::allocator<gss::LinePattern>>, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, std::__1::vector<gss::LinePattern, std::__1::allocator<gss::LinePattern>>>>> _linePatternMap;
+    struct map<int, gss::StyleData, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, gss::StyleData>>> _subStyleDataMap;
+};
+
+struct StyleMatchingTree {
+    int _field1;
+    struct unordered_map<unsigned long long, md::StyleMatchingTree *, std::__1::hash<unsigned long long>, std::__1::equal_to<unsigned long long>, std::__1::allocator<std::__1::pair<const unsigned long long, md::StyleMatchingTree *>>> _field2;
+    struct _retain_ptr<VKCartoStyle *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> {
+        CDUnknownFunctionPointerType *_field1;
+        id _field2;
+        struct _retain_objc _field3;
+        struct _release_objc _field4;
+    } _field3;
+    unsigned int _field4;
+};
+
+struct StyleQuery;
+
+struct StyleResolutionSession {
+    struct _retain_ptr<VKStyleManager *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> {
+        CDUnknownFunctionPointerType *_field1;
+        id _field2;
+        struct _retain_objc _field3;
+        struct _release_objc _field4;
+    } _field1;
+    struct unordered_map<std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::hash<std::__1::shared_ptr<md::StyleQuery>>, std::__1::equal_to<std::__1::shared_ptr<md::StyleQuery>>, std::__1::allocator<std::__1::pair<const std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>> _field2;
+    _Bool _field3;
+    int _field4;
+    unsigned int _field5;
+};
+
+struct Texture2D {
+    CDUnknownFunctionPointerType *_field1;
+    struct ResourceManager *_field2;
+    struct RenderResource *_field3;
+    int _field4;
+    int _field5;
+    unsigned int _field6;
+    int _field7;
+    int _field8;
+    int _field9;
+    float _field10;
+    struct TextureDataAbstract *_field11;
+    _Bool _field12;
+    _Bool _field13;
+    _Bool _field14;
+    unsigned int _field15;
+    unsigned int _field16;
+    int _field17;
+    int _field18;
+};
+
+struct Texture2DLoadItem;
+
+struct TextureBase;
+
+struct TextureBuffer;
+
+struct TextureData2D {
+    CDUnknownFunctionPointerType *_field1;
+    unsigned int _field2;
+    int _field3;
+    unsigned int _field4;
+    unsigned int _field5;
+    char *_field6;
+    char **_field7;
+    unsigned int _field8;
+};
+
+struct TextureDataAbstract;
+
+struct TexturePool;
+
+struct TexturedDrawable {
+    struct unique_ptr<ggl::MeshVendor<ggl::PolygonBase::CompressedMeshMesh>, std::__1::default_delete<ggl::MeshVendor<ggl::PolygonBase::CompressedMeshMesh>>> _field1;
+    struct vector<std::__1::vector<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>, std::__1::allocator<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>>>, std::__1::allocator<std::__1::vector<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>, std::__1::allocator<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>>>>> _field2;
+    shared_ptr_479d1306 _field3;
+    id _field4;
+    shared_ptr_479d1306 _field5;
+    id _field6;
+    shared_ptr_6e6219d6 _field7;
+};
 
 struct TileExclusionArea;
 
 struct TrafficAccum {
     int _field1;
-    struct vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>> _field2;
+    struct vector<gm::Matrix<float, 2, 1>, std::__1::allocator<gm::Matrix<float, 2, 1>>> _field2;
     int _field3;
     int _field4;
     int _field5;
-    id _field6;
+    struct unordered_map<vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>, std::__1::hash<vk::TrafficBatchKey>, std::__1::equal_to<vk::TrafficBatchKey>, std::__1::allocator<std::__1::pair<const vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>>>> *_field6;
     int _field7;
     CDStruct_183601bc *_field8;
-    int _field9;
-    float _field10;
+    shared_ptr_6e6219d6 _field9;
+    int _field10;
+    float _field11;
 };
 
+struct TrafficBatch;
+
 struct TrafficDynamicTile;
+
+struct TrafficLayer {
+    CDUnknownFunctionPointerType *_field1;
+    struct vector<vk::TrafficBatch *, std::__1::allocator<vk::TrafficBatch *>> _field2;
+    struct vector<ggl::OptimizedTraffic::BaseMesh *, std::__1::allocator<ggl::OptimizedTraffic::BaseMesh *>> _field3;
+    struct RenderState *_field4[1];
+    shared_ptr_1fee3c91 _field5;
+    struct shared_ptr<ggl::RenderState> _field6[1];
+    unsigned int _field7;
+    struct TrafficManager *_field8;
+    id _field9;
+};
+
+struct TrafficManager;
 
 struct TrafficSegment {
     struct PolylineCoordinate _field1;
@@ -650,44 +1005,22 @@ struct TrafficSkeletonTile {
     struct vector<zilch::TrafficSkeletonTile::Record, std::__1::allocator<zilch::TrafficSkeletonTile::Record>> m_records;
 };
 
-struct TrafficWalking {
-    double _field1;
-    int _field2;
-    int _field3;
-    unsigned int *_field4;
-    unsigned int *_field5;
+struct TransactionBuffer {
+    struct deque<std::__1::shared_ptr<ggl::RenderTransaction>, std::__1::allocator<std::__1::shared_ptr<ggl::RenderTransaction>>> _field1;
 };
 
-struct UniformHandle;
+struct UniformCReflection;
 
-struct VGLIconMeshVAO {
-    CDUnknownFunctionPointerType *_field1;
-    struct vector<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::VertexQuad, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::VertexQuad>> _field2;
-    struct vector<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::IndicesQuad, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::IndicesQuad>> _field3;
-    unsigned int _field4;
-    id _field5;
-    id _field6;
-    id _field7;
-    unsigned int _field8;
-    _Bool _field9;
-    _Bool _field10;
-};
+struct UniformDataElement;
 
-struct VGLMeshLeafNode;
-
-struct VGLMeshNode;
-
-struct VGLTextMeshVAO {
-    CDUnknownFunctionPointerType *_field1;
-    struct vector<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::VertexQuad, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::VertexQuad>> _field2;
-    struct vector<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::IndicesQuad, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::IndicesQuad>> _field3;
-    unsigned int _field4;
-    id _field5;
-    id _field6;
-    id _field7;
-    unsigned int _field8;
-    _Bool _field9;
-    _Bool _field10;
+struct VGLBitmapInfo {
+    unsigned int width;
+    unsigned int height;
+    unsigned int bitsPerComponent;
+    unsigned int bitsPerPixel;
+    unsigned int bytesPerRow;
+    struct CGColorSpace *space;
+    unsigned int bitmapInfo;
 };
 
 struct VKCacheKey {
@@ -702,11 +1035,10 @@ struct VKCameraState {
     CDStruct_aa5aacbc orientation;
     float aspectRatio;
     float verticalFieldOfView;
-    double horizontalOffset;
 };
 
 struct VKCircularBuffer<double> {
-    struct vector<double, vk_allocator<double>> _field1;
+    struct vector<double, std::__1::allocator<double>> _field1;
     unsigned int _field2;
     _Bool _field3;
     double _field4;
@@ -722,7 +1054,7 @@ struct VKEdgeInsets {
 struct VKFootprintConvexHull_struct {
     int edgeCount;
     struct VKPoint edgeOrigin[6];
-    Vec3Imp_f658403c edgeNormal[6];
+    Matrix_6e1d3589 edgeNormal[6];
 };
 
 struct VKGlobeRouteSplit {
@@ -744,6 +1076,9 @@ struct VKGlobeRouteStyle {
     float _field11;
     float _field12;
     float _field13;
+    int _field14;
+    shared_ptr_6e6219d6 _field15;
+    shared_ptr_6e6219d6 _field16;
 };
 
 struct VKGlobeStylesheet;
@@ -757,30 +1092,30 @@ struct VKLabelNavRouteRoadEdge {
 struct VKLabelStyle {
     char _field1;
     unsigned int _field2;
-    float _field3;
-    char _field4;
-    struct _VGLColor _field5;
-    struct _VGLColor _field6;
-    unsigned int _field7;
-    float _field8;
+    unsigned int _field3;
+    float _field4;
+    char _field5;
+    Matrix_5173352a _field6;
+    Matrix_5173352a _field7;
+    unsigned int _field8;
     float _field9;
-    CDStruct_d3c687f7 _field10;
+    float _field10;
     int _field11;
-    char _field12;
-    float _field13;
-    float _field14;
-    struct _VGLColor _field15;
-    struct _VGLColor _field16;
-    int _field17;
-    int _field18;
-    int _field19;
-    char _field20;
-    char _field21;
-    char _field22;
-    float _field23;
-    int _field24;
-    float _field25;
-    float _field26;
+    CDStruct_5977520b _field12;
+    int _field13;
+    char _field14;
+    float _field15;
+    float _field16;
+    float _field17;
+    float _field18;
+    Matrix_5173352a _field19;
+    Matrix_5173352a _field20;
+    int _field21;
+    int _field22;
+    int _field23;
+    char _field24;
+    char _field25;
+    char _field26;
     float _field27;
     float _field28;
     float _field29;
@@ -789,26 +1124,45 @@ struct VKLabelStyle {
     float _field32;
     float _field33;
     float _field34;
-    char _field35;
-    int _field36;
-    float _field37;
-    float _field38;
+    float _field35;
+    float _field36;
+    char _field37;
+    int _field38;
     float _field39;
-    char _field40;
-    char _field41;
-    float _field42;
-    int _field43;
-    int _field44;
-    struct _retain_ptr<const __CFString *, geo::_retain_cf<const __CFString *>, geo::_release_cf> _field45;
-    struct _retain_ptr<const __CFString *, geo::_retain_cf<const __CFString *>, geo::_release_cf> _field46;
-    struct _retain_ptr<const __CFString *, geo::_retain_cf<const __CFString *>, geo::_release_cf> _field47;
-    struct FontOptions _field48;
+    float _field40;
+    float _field41;
+    unsigned char _field42;
+    unsigned char _field43;
+    unsigned short _field44;
+    unsigned char _field45;
+    unsigned char _field46;
+    unsigned char _field47;
+    unsigned char _field48;
+    unsigned char _field49;
+    char _field50;
+    char _field51;
+    float _field52;
+    int _field53;
+    char _field54;
+    char _field55;
+    float _field56;
+    char _field57;
+    char _field58;
+    struct _retain_ptr<const __CFString *, geo::_retain_cf<const __CFString *>, geo::_release_cf, geo::_hash_cf, geo::_equal_cf> _field59;
+    struct _retain_ptr<const __CFString *, geo::_retain_cf<const __CFString *>, geo::_release_cf, geo::_hash_cf, geo::_equal_cf> _field60;
+    struct _retain_ptr<const __CFString *, geo::_retain_cf<const __CFString *>, geo::_release_cf, geo::_hash_cf, geo::_equal_cf> _field61;
+    struct _retain_ptr<const __CFString *, geo::_retain_cf<const __CFString *>, geo::_release_cf, geo::_hash_cf, geo::_equal_cf> _field62;
+    struct _retain_ptr<const __CFString *, geo::_retain_cf<const __CFString *>, geo::_release_cf, geo::_hash_cf, geo::_equal_cf> _field63;
+    Matrix_5173352a _field64;
+    char _field65;
+    struct FontOptions _field66;
 };
 
 struct VKNavigationCameraModel {
     double _halfVerticalFov;
     double _horizontalFov;
     double _tanHalfHorizontalFov;
+    double _courseOverride;
     struct SpringDamper _pitchSpring;
     struct AngularSpringDamper _courseSpring;
     struct SpringDamper _referenceScreenOffsetSpring;
@@ -828,52 +1182,15 @@ struct VKPoint {
     double z;
 };
 
-struct VKPolylineWalker<vk::RouteLineSection::Vertex> {
-    struct VKPolylineWalkerDataSource<vk::RouteLineSection::Vertex> *_field1;
-};
-
-struct VKPolylineWalkerDataSource<vk::RouteLineSection::Vertex>;
-
-struct VKProfileSparseRamp<CGSize> {
-    union _u {
-        struct VKProfileSparseRampValue {
-            struct CGSize value;
-            unsigned char hi;
-        } v[2];
-        struct CGSize *extra;
-    } u;
-    unsigned char count;
-};
-
-struct VKProfileSparseRamp<VKBlendMode> {
-    _u_73374b6e u;
-    unsigned char count;
-};
-
-struct VKProfileSparseRamp<VKIconGlyphStyle> {
-    _u_73374b6e u;
-    unsigned char count;
-};
-
-struct VKProfileSparseRamp<VKLabelTextVisibility> {
-    _u_73374b6e u;
-    unsigned char count;
-};
-
-struct VKProfileSparseRamp<VKPStyleProperties_GenericShieldStyle> {
-    _u_73374b6e u;
-    unsigned char count;
-};
-
-struct VKProfileSparseRamp<VKPStyleProperties_ShieldSize> {
-    _u_73374b6e u;
-    unsigned char count;
-};
-
 struct VKProfileSparseRamp<_VGLColor> {
     union _u {
         struct VKProfileSparseRampValue {
-            struct _VGLColor value;
+            struct _VGLColor {
+                float r;
+                float g;
+                float b;
+                float a;
+            } value;
             unsigned char hi;
         } v[2];
         struct _VGLColor *extra;
@@ -892,19 +1209,14 @@ struct VKProfileSparseRamp<float> {
     unsigned char count;
 };
 
-struct VKProfileSparseRamp<geo::Vec2Imp<float>> {
+struct VKProfileSparseRamp<int> {
     union _u {
         struct VKProfileSparseRampValue {
-            Vec2Imp_1782d7e3 value;
+            int value;
             unsigned char hi;
         } v[2];
-        Vec2Imp_1782d7e3 *extra;
+        int *extra;
     } u;
-    unsigned char count;
-};
-
-struct VKProfileSparseRamp<int> {
-    _u_73374b6e u;
     unsigned char count;
 };
 
@@ -919,17 +1231,6 @@ struct VKProfileSparseRamp<signed char> {
     unsigned char count;
 };
 
-struct VKProfileSparseRamp<unsigned int> {
-    union _u {
-        struct VKProfileSparseRampValue {
-            unsigned int value;
-            unsigned char hi;
-        } v[2];
-        unsigned int *extra;
-    } u;
-    unsigned char count;
-};
-
 struct VKRasterTileKey {
     unsigned int x;
     unsigned int y;
@@ -937,28 +1238,21 @@ struct VKRasterTileKey {
     unsigned int pointSize;
 };
 
-struct VKRibbonMakerData {
-    id _field1;
-    id _field2;
-    char _field3;
-    char _field4;
-    char _field5;
-    float _field6;
-    char _field7;
-    char _field8;
-    char _field9;
-    struct vector<VKRibbonPolylineSegment, vk_allocator<VKRibbonPolylineSegment>> _field10;
-};
-
-struct VKRibbonMultiPolylineSegment;
-
-struct VKRibbonPolylineSegment;
-
-struct VKRouteLineToMeshPathMap {
-    struct list<VKRouteLineToMeshPathMap::Range, vk_allocator<VKRouteLineToMeshPathMap::Range>> _field1;
-    struct __list_iterator<VKRouteLineToMeshPathMap::Range, void *> {
-        struct __list_node<VKRouteLineToMeshPathMap::Range, void *> *_field1;
-    } _field2;
+struct VKRequestKey {
+    struct {
+        struct {
+            double _field1;
+            double _field2;
+        } _field1;
+        struct {
+            double _field1;
+            double _field2;
+        } _field2;
+    } _field1;
+    int _field2;
+    struct CGSize _field3;
+    unsigned int _field4;
+    unsigned short _field5;
 };
 
 struct VKTileKey {
@@ -968,21 +1262,7 @@ struct VKTileKey {
     unsigned int pointSize;
 };
 
-struct Vec2Imp<double> {
-    double x;
-    double y;
-};
-
-struct Vec2Imp<float> {
-    float x;
-    float y;
-};
-
-struct Vec3Imp<double> {
-    double x;
-    double y;
-    double z;
-};
+struct VariantUniformData;
 
 struct Vector2i {
     int _x;
@@ -995,16 +1275,48 @@ struct Vector3d {
     double _z;
 };
 
-struct Vertex;
+struct VertexData;
 
-struct VertexQuad;
-
-struct VertexSource;
+struct View;
 
 struct ViewTransform;
 
+struct ViewUniformData;
+
 struct Viewer {
     CDUnknownFunctionPointerType *_field1;
+};
+
+struct Viewport;
+
+struct _GEOGenericContainer<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, std::__1::hash<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::equal_to<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, geo::GEOGenericContainerWeakReferenceTag, 0, 0, geo::GEOGenericContainerLockingTag, detail::_default_pointer_type> {
+    struct mutex _lock;
+    struct list<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, std::__1::allocator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>>> _list;
+    struct unordered_map<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>, std::__1::hash<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::equal_to<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::allocator<std::__1::pair<const geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>>>> _map;
+    unsigned int _maxCapacity;
+    unsigned int _maxCost;
+    unsigned int _currentCost;
+    unsigned int _currentCount;
+};
+
+struct _GEOGenericContainer<md::GenericShieldCacheKey, VKShieldArtwork *, std::__1::hash<md::GenericShieldCacheKey>, std::__1::equal_to<md::GenericShieldCacheKey>, geo::GEOGenericContainerWeakReferenceTag, 0, 0, geo::GEOGenericContainerLockingTag, detail::_default_pointer_type> {
+    struct mutex _lock;
+    struct list<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, std::__1::allocator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>>> _list;
+    struct unordered_map<md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>, std::__1::hash<md::GenericShieldCacheKey>, std::__1::equal_to<md::GenericShieldCacheKey>, std::__1::allocator<std::__1::pair<const md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>>> _map;
+    unsigned int _maxCapacity;
+    unsigned int _maxCost;
+    unsigned int _currentCost;
+    unsigned int _currentCount;
+};
+
+struct _GEOGenericContainer<md::ShieldCacheKey, VKShieldArtwork *, std::__1::hash<md::ShieldCacheKey>, std::__1::equal_to<md::ShieldCacheKey>, geo::GEOGenericContainerWeakReferenceTag, 0, 0, geo::GEOGenericContainerLockingTag, detail::_default_pointer_type> {
+    struct mutex _lock;
+    struct list<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, std::__1::allocator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>>> _list;
+    struct unordered_map<md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>, std::__1::hash<md::ShieldCacheKey>, std::__1::equal_to<md::ShieldCacheKey>, std::__1::allocator<std::__1::pair<const md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>>> _map;
+    unsigned int _maxCapacity;
+    unsigned int _maxCost;
+    unsigned int _currentCost;
+    unsigned int _currentCount;
 };
 
 struct _GEOTileKey {
@@ -1025,48 +1337,81 @@ struct _NSRange {
     unsigned int length;
 };
 
-struct _VGLColor {
-    float r;
-    float g;
-    float b;
-    float a;
-};
-
 struct _VKRealisticPolygonMetaData;
 
-struct __hash_node<int, void *>;
+struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> {
+    struct __rep {
+        union {
+            struct __long {
+                unsigned int _field1;
+                unsigned int _field2;
+                char *_field3;
+            } _field1;
+            struct __short {
+                union {
+                    unsigned char _field1;
+                    char _field2;
+                } _field1;
+                char _field2[11];
+            } _field2;
+            struct __raw {
+                unsigned long _field1[3];
+            } _field3;
+        } _field1;
+    } _field1;
+};
 
-struct __hash_node<std::__1::pair<GEOVectorTile *, vk::InfoLabelFeaturePool::TileFeatureValueEntry>, void *>;
+struct __hash_node<GEOComposedRouteSection *, void *>;
 
-struct __hash_node<std::__1::pair<VKPolylineOverlaySection *, std::__1::vector<VGLRect, vk_allocator<VGLRect>>>, void *>;
+struct __hash_node<std::__1::__hash_value_type<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>, void *>;
 
-struct __hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>;
+struct __hash_node<std::__1::__hash_value_type<GEOTransportType, vk::TransportTypeInfo>, void *>;
 
-struct __hash_node<std::__1::pair<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>>, void *>;
+struct __hash_node<std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery>>, void *>;
 
-struct __hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>;
+struct __hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>;
 
-struct __hash_node<std::__1::pair<long long, const zilch::TrafficDynamicTile::Flow *>, void *>;
+struct __hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>>, void *>;
 
-struct __hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>;
+struct __hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>>, void *>;
 
-struct __hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>;
+struct __hash_node<std::__1::__hash_value_type<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>;
 
-struct __hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>;
+struct __hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>;
 
-struct __hash_node<std::__1::pair<unsigned int, unsigned int>, void *>;
+struct __hash_node<std::__1::__hash_value_type<md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>;
 
-struct __hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>;
+struct __hash_node<std::__1::__hash_value_type<md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>;
 
-struct __list_node<VGLRouteLineMesh *, void *>;
+struct __hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>;
 
-struct __list_node<VKRouteLineToMeshPathMap::Range, void *>;
+struct __hash_node<std::__1::__hash_value_type<std::__1::pair<void *, unsigned long>, std::__1::vector<Edge, std::__1::allocator<Edge>>>, void *>;
+
+struct __hash_node<std::__1::__hash_value_type<std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>;
+
+struct __hash_node<std::__1::__hash_value_type<unsigned int, unsigned long long>, void *>;
+
+struct __hash_node<std::__1::__hash_value_type<unsigned long long, md::StyleMatchingTree *>, void *>;
+
+struct __hash_node<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, void *>;
+
+struct __hash_node<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, void *>;
+
+struct __hash_node<std::__1::__hash_value_type<vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>>, void *>;
+
+struct __list_node<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>;
+
+struct __list_node<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>;
+
+struct __list_node<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>;
 
 struct __shared_weak_count;
 
 struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
     struct __tree_node_base<void *> *__left_;
 };
+
+struct _fast_shared_ptr_control;
 
 struct _opaque_pthread_mutex_t {
     long __sig;
@@ -1077,51 +1422,100 @@ struct _release_objc;
 
 struct _retain_objc;
 
-struct _retain_ptr<GEOVectorTile *, geo::_retain_objc, geo::_release_objc>;
+struct _retain_ptr<GEOVectorTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> {
+    CDUnknownFunctionPointerType *_vptr$_retain_ptr;
+    GEOVectorTile *_obj;
+    struct _retain_objc _retain;
+    struct _release_objc _release;
+};
 
-struct _retain_ptr<const __CFString *, geo::_retain_cf<const __CFString *>, geo::_release_cf> {
+struct _retain_ptr<const __CFString *, geo::_retain_cf<const __CFString *>, geo::_release_cf, geo::_hash_cf, geo::_equal_cf> {
     CDUnknownFunctionPointerType *_field1;
     struct __CFString *_field2;
     struct _retain_cf<const __CFString *> _field3;
     struct _release_cf _field4;
 };
 
-struct bitset<16> {
-    unsigned int __first_;
+struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
+    struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
 };
 
-struct bitset<32> {
-    unsigned int __first_;
-};
-
-struct deque<std::__1::shared_ptr<vk::InfoOcclusionQuery>, vk_allocator<std::__1::shared_ptr<vk::InfoOcclusionQuery>>> {
-    struct __split_buffer<std::__1::shared_ptr<vk::InfoOcclusionQuery>*, vk_allocator<std::__1::shared_ptr<vk::InfoOcclusionQuery>*>> {
-        struct shared_ptr<vk::InfoOcclusionQuery> **_field1;
-        struct shared_ptr<vk::InfoOcclusionQuery> **_field2;
-        struct shared_ptr<vk::InfoOcclusionQuery> **_field3;
-        struct __compressed_pair<std::__1::shared_ptr<vk::InfoOcclusionQuery>**, vk_allocator<std::__1::shared_ptr<vk::InfoOcclusionQuery>*>> {
-            struct shared_ptr<vk::InfoOcclusionQuery> **_field1;
+struct deque<geo::fast_shared_ptr<ggl::QueryItem>, std::__1::allocator<geo::fast_shared_ptr<ggl::QueryItem>>> {
+    struct __split_buffer<geo::fast_shared_ptr<ggl::QueryItem>*, std::__1::allocator<geo::fast_shared_ptr<ggl::QueryItem>*>> {
+        struct fast_shared_ptr<ggl::QueryItem> **_field1;
+        struct fast_shared_ptr<ggl::QueryItem> **_field2;
+        struct fast_shared_ptr<ggl::QueryItem> **_field3;
+        struct __compressed_pair<geo::fast_shared_ptr<ggl::QueryItem>**, std::__1::allocator<geo::fast_shared_ptr<ggl::QueryItem>*>> {
+            struct fast_shared_ptr<ggl::QueryItem> **_field1;
         } _field4;
     } _field1;
     unsigned int _field2;
-    struct __compressed_pair<unsigned long, vk_allocator<std::__1::shared_ptr<vk::InfoOcclusionQuery>>> {
+    struct __compressed_pair<unsigned long, std::__1::allocator<geo::fast_shared_ptr<ggl::QueryItem>>> {
         unsigned long _field1;
     } _field3;
 };
 
-struct deque<unsigned int, vk_allocator<unsigned int>> {
-    struct __split_buffer<unsigned int *, vk_allocator<unsigned int *>> {
-        unsigned int **_field1;
-        unsigned int **_field2;
-        unsigned int **_field3;
-        struct __compressed_pair<unsigned int **, vk_allocator<unsigned int *>> {
-            unsigned int **_field1;
+struct deque<ggl::PendingQuery, std::__1::allocator<ggl::PendingQuery>> {
+    struct __split_buffer<ggl::PendingQuery *, std::__1::allocator<ggl::PendingQuery *>> {
+        struct PendingQuery **_field1;
+        struct PendingQuery **_field2;
+        struct PendingQuery **_field3;
+        struct __compressed_pair<ggl::PendingQuery **, std::__1::allocator<ggl::PendingQuery *>> {
+            struct PendingQuery **_field1;
         } _field4;
     } _field1;
     unsigned int _field2;
-    struct __compressed_pair<unsigned long, vk_allocator<unsigned int>> {
+    struct __compressed_pair<unsigned long, std::__1::allocator<ggl::PendingQuery>> {
         unsigned long _field1;
     } _field3;
+};
+
+struct deque<std::__1::pair<unsigned long, void *>, std::__1::allocator<std::__1::pair<unsigned long, void *>>> {
+    struct __split_buffer<std::__1::pair<unsigned long, void *>*, std::__1::allocator<std::__1::pair<unsigned long, void *>*>> {
+        struct pair<unsigned long, void *> **_field1;
+        struct pair<unsigned long, void *> **_field2;
+        struct pair<unsigned long, void *> **_field3;
+        struct __compressed_pair<std::__1::pair<unsigned long, void *>**, std::__1::allocator<std::__1::pair<unsigned long, void *>*>> {
+            struct pair<unsigned long, void *> **_field1;
+        } _field4;
+    } _field1;
+    unsigned int _field2;
+    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::pair<unsigned long, void *>>> {
+        unsigned long _field1;
+    } _field3;
+};
+
+struct deque<std::__1::shared_ptr<ggl::RenderTransaction>, std::__1::allocator<std::__1::shared_ptr<ggl::RenderTransaction>>> {
+    struct __split_buffer<std::__1::shared_ptr<ggl::RenderTransaction>*, std::__1::allocator<std::__1::shared_ptr<ggl::RenderTransaction>*>> {
+        struct shared_ptr<ggl::RenderTransaction> **_field1;
+        struct shared_ptr<ggl::RenderTransaction> **_field2;
+        struct shared_ptr<ggl::RenderTransaction> **_field3;
+        struct __compressed_pair<std::__1::shared_ptr<ggl::RenderTransaction>**, std::__1::allocator<std::__1::shared_ptr<ggl::RenderTransaction>*>> {
+            struct shared_ptr<ggl::RenderTransaction> **_field1;
+        } _field4;
+    } _field1;
+    unsigned int _field2;
+    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::shared_ptr<ggl::RenderTransaction>>> {
+        unsigned long _field1;
+    } _field3;
+};
+
+struct fast_shared_ptr<ggl::PolygonBase::CompressedMeshMesh> {
+    struct _fast_shared_ptr_control *_control;
+};
+
+struct fast_shared_ptr<ggl::QueryItem>;
+
+struct fast_shared_ptr<ggl::RealisticCasingFacade::RealisticMesh> {
+    struct _fast_shared_ptr_control *_control;
+};
+
+struct fast_shared_ptr<ggl::RealisticRoadShadow::RealisticMesh> {
+    struct _fast_shared_ptr_control *_control;
+};
+
+struct fast_shared_ptr<vk::RouteLineSection> {
+    struct _fast_shared_ptr_control *_control;
 };
 
 struct function<void (const vk::RoadPiece &)> {
@@ -1129,134 +1523,550 @@ struct function<void (const vk::RoadPiece &)> {
     struct __base<void (const vk::RoadPiece &)> *_field2;
 };
 
-struct list<VGLRouteLineMesh *, vk_allocator<VGLRouteLineMesh *>> {
-    struct __list_node_base<VGLRouteLineMesh *, void *> {
-        struct __list_node<VGLRouteLineMesh *, void *> *_field1;
-        struct __list_node<VGLRouteLineMesh *, void *> *_field2;
-    } _field1;
-    struct __compressed_pair<unsigned long, vk_allocator<std::__1::__list_node<VGLRouteLineMesh *, void *>>> {
-        unsigned long _field1;
-    } _field2;
+struct list<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, std::__1::allocator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>>> {
+    struct __list_node_base<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *> {
+        struct __list_node<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *> *__prev_;
+        struct __list_node<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *> *__next_;
+    } __end_;
+    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>>> {
+        unsigned long __first_;
+    } __size_alloc_;
 };
 
-struct list<VKRouteLineToMeshPathMap::Range, vk_allocator<VKRouteLineToMeshPathMap::Range>> {
-    struct __list_node_base<VKRouteLineToMeshPathMap::Range, void *> {
-        struct __list_node<VKRouteLineToMeshPathMap::Range, void *> *_field1;
-        struct __list_node<VKRouteLineToMeshPathMap::Range, void *> *_field2;
-    } _field1;
-    struct __compressed_pair<unsigned long, vk_allocator<std::__1::__list_node<VKRouteLineToMeshPathMap::Range, void *>>> {
-        unsigned long _field1;
-    } _field2;
+struct list<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, std::__1::allocator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>>> {
+    struct __list_node_base<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *> {
+        struct __list_node<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *> *__prev_;
+        struct __list_node<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *> *__next_;
+    } __end_;
+    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>> {
+        unsigned long __first_;
+    } __size_alloc_;
 };
 
-struct map<VKLabelDrawStyle *, std::__1::shared_ptr<vk::LabelStyle>, std::__1::less<VKLabelDrawStyle *>, vk_allocator<std::__1::pair<VKLabelDrawStyle *const, std::__1::shared_ptr<vk::LabelStyle>>>> {
-    struct __tree<std::__1::pair<VKLabelDrawStyle *, std::__1::shared_ptr<vk::LabelStyle>>, std::__1::__map_value_compare<VKLabelDrawStyle *, std::__1::shared_ptr<vk::LabelStyle>, std::__1::less<VKLabelDrawStyle *>, true>, vk_allocator<std::__1::pair<VKLabelDrawStyle *, std::__1::shared_ptr<vk::LabelStyle>>>> {
-        struct __tree_node<std::__1::pair<VKLabelDrawStyle *, std::__1::shared_ptr<vk::LabelStyle>>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, vk_allocator<std::__1::__tree_node<std::__1::pair<VKLabelDrawStyle *, std::__1::shared_ptr<vk::LabelStyle>>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<VKLabelDrawStyle *, std::__1::shared_ptr<vk::LabelStyle>, std::__1::less<VKLabelDrawStyle *>, true>> {
-            unsigned long _field1;
-        } _field3;
-    } _field1;
+struct list<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, std::__1::allocator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>>> {
+    struct __list_node_base<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *> {
+        struct __list_node<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *> *__prev_;
+        struct __list_node<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *> *__next_;
+    } __end_;
+    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>> {
+        unsigned long __first_;
+    } __size_alloc_;
 };
 
-struct map<VKPolylineOverlay *, std::__1::weak_ptr<altitude::RouteLineData>, std::__1::less<VKPolylineOverlay *>, vk_allocator<std::__1::pair<VKPolylineOverlay *const, std::__1::weak_ptr<altitude::RouteLineData>>>> {
-    struct __tree<std::__1::pair<VKPolylineOverlay *, std::__1::weak_ptr<altitude::RouteLineData>>, std::__1::__map_value_compare<VKPolylineOverlay *, std::__1::weak_ptr<altitude::RouteLineData>, std::__1::less<VKPolylineOverlay *>, true>, vk_allocator<std::__1::pair<VKPolylineOverlay *, std::__1::weak_ptr<altitude::RouteLineData>>>> {
-        struct __tree_node<std::__1::pair<VKPolylineOverlay *, std::__1::weak_ptr<altitude::RouteLineData>>, void *> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, vk_allocator<std::__1::__tree_node<std::__1::pair<VKPolylineOverlay *, std::__1::weak_ptr<altitude::RouteLineData>>, void *>>> {
+struct map<VKPolylineOverlay *, std::__1::weak_ptr<altitude::RouteLineData>, std::__1::less<VKPolylineOverlay *>, std::__1::allocator<std::__1::pair<VKPolylineOverlay *const, std::__1::weak_ptr<altitude::RouteLineData>>>> {
+    struct __tree<std::__1::__value_type<VKPolylineOverlay *, std::__1::weak_ptr<altitude::RouteLineData>>, std::__1::__map_value_compare<VKPolylineOverlay *, std::__1::__value_type<VKPolylineOverlay *, std::__1::weak_ptr<altitude::RouteLineData>>, std::__1::less<VKPolylineOverlay *>, true>, std::__1::allocator<std::__1::__value_type<VKPolylineOverlay *, std::__1::weak_ptr<altitude::RouteLineData>>>> {
+        struct __tree_node<std::__1::__value_type<VKPolylineOverlay *, std::__1::weak_ptr<altitude::RouteLineData>>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<VKPolylineOverlay *, std::__1::weak_ptr<altitude::RouteLineData>>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<VKPolylineOverlay *, std::__1::weak_ptr<altitude::RouteLineData>, std::__1::less<VKPolylineOverlay *>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<VKPolylineOverlay *, std::__1::__value_type<VKPolylineOverlay *, std::__1::weak_ptr<altitude::RouteLineData>>, std::__1::less<VKPolylineOverlay *>, true>> {
             unsigned long __first_;
         } __pair3_;
     } __tree_;
 };
 
-struct map<std::__1::pair<unsigned long long, unsigned int>, std::__1::shared_ptr<vk::InfoLabel>, std::__1::less<std::__1::pair<unsigned long long, unsigned int>>, vk_allocator<std::__1::pair<const std::__1::pair<unsigned long long, unsigned int>, std::__1::shared_ptr<vk::InfoLabel>>>> {
-    struct __tree<std::__1::pair<std::__1::pair<unsigned long long, unsigned int>, std::__1::shared_ptr<vk::InfoLabel>>, std::__1::__map_value_compare<std::__1::pair<unsigned long long, unsigned int>, std::__1::shared_ptr<vk::InfoLabel>, std::__1::less<std::__1::pair<unsigned long long, unsigned int>>, true>, vk_allocator<std::__1::pair<std::__1::pair<unsigned long long, unsigned int>, std::__1::shared_ptr<vk::InfoLabel>>>> {
-        struct __tree_node<std::__1::pair<std::__1::pair<unsigned long long, unsigned int>, std::__1::shared_ptr<vk::InfoLabel>>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, vk_allocator<std::__1::__tree_node<std::__1::pair<std::__1::pair<unsigned long long, unsigned int>, std::__1::shared_ptr<vk::InfoLabel>>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<unsigned long long, unsigned int>, std::__1::shared_ptr<vk::InfoLabel>, std::__1::less<std::__1::pair<unsigned long long, unsigned int>>, true>> {
-            unsigned long _field1;
-        } _field3;
-    } _field1;
+struct map<_GEOTileKey, std::__1::shared_ptr<altitude::GeoServicesLoadJob>, GEOTileKeyComp, std::__1::allocator<std::__1::pair<const _GEOTileKey, std::__1::shared_ptr<altitude::GeoServicesLoadJob>>>> {
+    struct __tree<std::__1::__value_type<_GEOTileKey, std::__1::shared_ptr<altitude::GeoServicesLoadJob>>, std::__1::__map_value_compare<_GEOTileKey, std::__1::__value_type<_GEOTileKey, std::__1::shared_ptr<altitude::GeoServicesLoadJob>>, GEOTileKeyComp, true>, std::__1::allocator<std::__1::__value_type<_GEOTileKey, std::__1::shared_ptr<altitude::GeoServicesLoadJob>>>> {
+        struct __tree_node<std::__1::__value_type<_GEOTileKey, std::__1::shared_ptr<altitude::GeoServicesLoadJob>>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<_GEOTileKey, std::__1::shared_ptr<altitude::GeoServicesLoadJob>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<_GEOTileKey, std::__1::__value_type<_GEOTileKey, std::__1::shared_ptr<altitude::GeoServicesLoadJob>>, GEOTileKeyComp, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
 };
 
-struct map<std::__1::pair<unsigned long long, unsigned int>, std::__1::weak_ptr<vk::InfoLabel>, std::__1::less<std::__1::pair<unsigned long long, unsigned int>>, vk_allocator<std::__1::pair<const std::__1::pair<unsigned long long, unsigned int>, std::__1::weak_ptr<vk::InfoLabel>>>> {
-    struct __tree<std::__1::pair<std::__1::pair<unsigned long long, unsigned int>, std::__1::weak_ptr<vk::InfoLabel>>, std::__1::__map_value_compare<std::__1::pair<unsigned long long, unsigned int>, std::__1::weak_ptr<vk::InfoLabel>, std::__1::less<std::__1::pair<unsigned long long, unsigned int>>, true>, vk_allocator<std::__1::pair<std::__1::pair<unsigned long long, unsigned int>, std::__1::weak_ptr<vk::InfoLabel>>>> {
-        struct __tree_node<std::__1::pair<std::__1::pair<unsigned long long, unsigned int>, std::__1::weak_ptr<vk::InfoLabel>>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, vk_allocator<std::__1::__tree_node<std::__1::pair<std::__1::pair<unsigned long long, unsigned int>, std::__1::weak_ptr<vk::InfoLabel>>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<unsigned long long, unsigned int>, std::__1::weak_ptr<vk::InfoLabel>, std::__1::less<std::__1::pair<unsigned long long, unsigned int>>, true>> {
-            unsigned long _field1;
-        } _field3;
-    } _field1;
+struct map<gss::PropertyID, float, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, float>>> {
+    struct __tree<std::__1::__value_type<gss::PropertyID, float>, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, float>, std::__1::less<gss::PropertyID>, true>, std::__1::allocator<std::__1::__value_type<gss::PropertyID, float>>> {
+        struct __tree_node<std::__1::__value_type<gss::PropertyID, float>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<gss::PropertyID, float>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, float>, std::__1::less<gss::PropertyID>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<gss::PropertyID, geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>> {
+    struct __tree<std::__1::__value_type<gss::PropertyID, geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::less<gss::PropertyID>, true>, std::__1::allocator<std::__1::__value_type<gss::PropertyID, geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>> {
+        struct __tree_node<std::__1::__value_type<gss::PropertyID, geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<gss::PropertyID, geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::less<gss::PropertyID>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<gss::PropertyID, gm::Matrix<float, 4, 1>, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, gm::Matrix<float, 4, 1>>>> {
+    struct __tree<std::__1::__value_type<gss::PropertyID, gm::Matrix<float, 4, 1>>, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, gm::Matrix<float, 4, 1>>, std::__1::less<gss::PropertyID>, true>, std::__1::allocator<std::__1::__value_type<gss::PropertyID, gm::Matrix<float, 4, 1>>>> {
+        struct __tree_node<std::__1::__value_type<gss::PropertyID, gm::Matrix<float, 4, 1>>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<gss::PropertyID, gm::Matrix<float, 4, 1>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, gm::Matrix<float, 4, 1>>, std::__1::less<gss::PropertyID>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<gss::PropertyID, gss::SparseRamp<float>, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, gss::SparseRamp<float>>>> {
+    struct __tree<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<float>>, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, gss::SparseRamp<float>>, std::__1::less<gss::PropertyID>, true>, std::__1::allocator<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<float>>>> {
+        struct __tree_node<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<float>>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<float>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, gss::SparseRamp<float>>, std::__1::less<gss::PropertyID>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<gss::PropertyID, gss::SparseRamp<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, gss::SparseRamp<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>>> {
+    struct __tree<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, gss::SparseRamp<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>, std::__1::less<gss::PropertyID>, true>, std::__1::allocator<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>>> {
+        struct __tree_node<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, gss::SparseRamp<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>, std::__1::less<gss::PropertyID>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<gss::PropertyID, gss::SparseRamp<gm::Matrix<float, 4, 1>>, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, gss::SparseRamp<gm::Matrix<float, 4, 1>>>>> {
+    struct __tree<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<gm::Matrix<float, 4, 1>>>, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, gss::SparseRamp<gm::Matrix<float, 4, 1>>>, std::__1::less<gss::PropertyID>, true>, std::__1::allocator<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<gm::Matrix<float, 4, 1>>>>> {
+        struct __tree_node<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<gm::Matrix<float, 4, 1>>>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<gm::Matrix<float, 4, 1>>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, gss::SparseRamp<gm::Matrix<float, 4, 1>>>, std::__1::less<gss::PropertyID>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<gss::PropertyID, gss::SparseRamp<gss::StyleDataPair>, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, gss::SparseRamp<gss::StyleDataPair>>>> {
+    struct __tree<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<gss::StyleDataPair>>, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, gss::SparseRamp<gss::StyleDataPair>>, std::__1::less<gss::PropertyID>, true>, std::__1::allocator<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<gss::StyleDataPair>>>> {
+        struct __tree_node<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<gss::StyleDataPair>>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<gss::StyleDataPair>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, gss::SparseRamp<gss::StyleDataPair>>, std::__1::less<gss::PropertyID>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<gss::PropertyID, gss::SparseRamp<int>, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, gss::SparseRamp<int>>>> {
+    struct __tree<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<int>>, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, gss::SparseRamp<int>>, std::__1::less<gss::PropertyID>, true>, std::__1::allocator<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<int>>>> {
+        struct __tree_node<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<int>>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<int>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, gss::SparseRamp<int>>, std::__1::less<gss::PropertyID>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<gss::PropertyID, gss::SparseRamp<signed char>, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, gss::SparseRamp<signed char>>>> {
+    struct __tree<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<signed char>>, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, gss::SparseRamp<signed char>>, std::__1::less<gss::PropertyID>, true>, std::__1::allocator<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<signed char>>>> {
+        struct __tree_node<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<signed char>>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<signed char>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, gss::SparseRamp<signed char>>, std::__1::less<gss::PropertyID>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<gss::PropertyID, gss::SparseRamp<unsigned char>, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, gss::SparseRamp<unsigned char>>>> {
+    struct __tree<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<unsigned char>>, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, gss::SparseRamp<unsigned char>>, std::__1::less<gss::PropertyID>, true>, std::__1::allocator<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<unsigned char>>>> {
+        struct __tree_node<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<unsigned char>>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<unsigned char>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, gss::SparseRamp<unsigned char>>, std::__1::less<gss::PropertyID>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<gss::PropertyID, gss::SparseRamp<unsigned int>, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, gss::SparseRamp<unsigned int>>>> {
+    struct __tree<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<unsigned int>>, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, gss::SparseRamp<unsigned int>>, std::__1::less<gss::PropertyID>, true>, std::__1::allocator<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<unsigned int>>>> {
+        struct __tree_node<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<unsigned int>>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<gss::PropertyID, gss::SparseRamp<unsigned int>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, gss::SparseRamp<unsigned int>>, std::__1::less<gss::PropertyID>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<gss::PropertyID, gss::StyleDataPair, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, gss::StyleDataPair>>> {
+    struct __tree<std::__1::__value_type<gss::PropertyID, gss::StyleDataPair>, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, gss::StyleDataPair>, std::__1::less<gss::PropertyID>, true>, std::__1::allocator<std::__1::__value_type<gss::PropertyID, gss::StyleDataPair>>> {
+        struct __tree_node<std::__1::__value_type<gss::PropertyID, gss::StyleDataPair>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<gss::PropertyID, gss::StyleDataPair>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, gss::StyleDataPair>, std::__1::less<gss::PropertyID>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<gss::PropertyID, int, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, int>>> {
+    struct __tree<std::__1::__value_type<gss::PropertyID, int>, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, int>, std::__1::less<gss::PropertyID>, true>, std::__1::allocator<std::__1::__value_type<gss::PropertyID, int>>> {
+        struct __tree_node<std::__1::__value_type<gss::PropertyID, int>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<gss::PropertyID, int>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, int>, std::__1::less<gss::PropertyID>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<gss::PropertyID, signed char, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, signed char>>> {
+    struct __tree<std::__1::__value_type<gss::PropertyID, signed char>, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, signed char>, std::__1::less<gss::PropertyID>, true>, std::__1::allocator<std::__1::__value_type<gss::PropertyID, signed char>>> {
+        struct __tree_node<std::__1::__value_type<gss::PropertyID, signed char>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<gss::PropertyID, signed char>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, signed char>, std::__1::less<gss::PropertyID>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<gss::PropertyID, std::__1::vector<gss::LinePattern, std::__1::allocator<gss::LinePattern>>, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, std::__1::vector<gss::LinePattern, std::__1::allocator<gss::LinePattern>>>>> {
+    struct __tree<std::__1::__value_type<gss::PropertyID, std::__1::vector<gss::LinePattern, std::__1::allocator<gss::LinePattern>>>, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, std::__1::vector<gss::LinePattern, std::__1::allocator<gss::LinePattern>>>, std::__1::less<gss::PropertyID>, true>, std::__1::allocator<std::__1::__value_type<gss::PropertyID, std::__1::vector<gss::LinePattern, std::__1::allocator<gss::LinePattern>>>>> {
+        struct __tree_node<std::__1::__value_type<gss::PropertyID, std::__1::vector<gss::LinePattern, std::__1::allocator<gss::LinePattern>>>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<gss::PropertyID, std::__1::vector<gss::LinePattern, std::__1::allocator<gss::LinePattern>>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, std::__1::vector<gss::LinePattern, std::__1::allocator<gss::LinePattern>>>, std::__1::less<gss::PropertyID>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<gss::PropertyID, unsigned char, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, unsigned char>>> {
+    struct __tree<std::__1::__value_type<gss::PropertyID, unsigned char>, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, unsigned char>, std::__1::less<gss::PropertyID>, true>, std::__1::allocator<std::__1::__value_type<gss::PropertyID, unsigned char>>> {
+        struct __tree_node<std::__1::__value_type<gss::PropertyID, unsigned char>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<gss::PropertyID, unsigned char>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, unsigned char>, std::__1::less<gss::PropertyID>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<gss::PropertyID, unsigned int, std::__1::less<gss::PropertyID>, std::__1::allocator<std::__1::pair<const gss::PropertyID, unsigned int>>> {
+    struct __tree<std::__1::__value_type<gss::PropertyID, unsigned int>, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, unsigned int>, std::__1::less<gss::PropertyID>, true>, std::__1::allocator<std::__1::__value_type<gss::PropertyID, unsigned int>>> {
+        struct __tree_node<std::__1::__value_type<gss::PropertyID, unsigned int>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<gss::PropertyID, unsigned int>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<gss::PropertyID, std::__1::__value_type<gss::PropertyID, unsigned int>, std::__1::less<gss::PropertyID>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<int, gss::StyleData, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, gss::StyleData>>> {
+    struct __tree<std::__1::__value_type<int, gss::StyleData>, std::__1::__map_value_compare<int, std::__1::__value_type<int, gss::StyleData>, std::__1::less<int>, true>, std::__1::allocator<std::__1::__value_type<int, gss::StyleData>>> {
+        struct __tree_node<std::__1::__value_type<int, gss::StyleData>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<int, gss::StyleData>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<int, std::__1::__value_type<int, gss::StyleData>, std::__1::less<int>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>, std::__1::less<md::CommandBufferId>, std::__1::allocator<std::__1::pair<const md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>>>> {
+    struct __tree<std::__1::__value_type<md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>>, std::__1::__map_value_compare<md::CommandBufferId, std::__1::__value_type<md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>>, std::__1::less<md::CommandBufferId>, true>, std::__1::allocator<std::__1::__value_type<md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>>>> {
+        struct __tree_node<std::__1::__value_type<md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<md::CommandBufferId, std::__1::__value_type<md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>>, std::__1::less<md::CommandBufferId>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D>, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D>>>> {
+    struct __tree<std::__1::__value_type<std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D>>, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D>>, std::__1::less<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D>>>> {
+        struct __tree_node<std::__1::__value_type<std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D>>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D>>, std::__1::less<std::__1::basic_string<char>>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<std::__1::basic_string<char>, unsigned long, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, unsigned long>>> {
+    struct __tree<std::__1::__value_type<std::__1::basic_string<char>, unsigned long>, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, unsigned long>, std::__1::less<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::basic_string<char>, unsigned long>>> {
+        struct __tree_node<std::__1::__value_type<std::__1::basic_string<char>, unsigned long>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::basic_string<char>, unsigned long>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, unsigned long>, std::__1::less<std::__1::basic_string<char>>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
 };
 
 struct map<vk::Anchor *, float, std::__1::less<vk::Anchor *>, std::__1::allocator<std::__1::pair<vk::Anchor *const, float>>> {
-    struct __tree<std::__1::pair<vk::Anchor *, float>, std::__1::__map_value_compare<vk::Anchor *, float, std::__1::less<vk::Anchor *>, true>, std::__1::allocator<std::__1::pair<vk::Anchor *, float>>> {
-        struct __tree_node<std::__1::pair<vk::Anchor *, float>, void *> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<vk::Anchor *, float>, void *>>> {
+    struct __tree<std::__1::__value_type<vk::Anchor *, float>, std::__1::__map_value_compare<vk::Anchor *, std::__1::__value_type<vk::Anchor *, float>, std::__1::less<vk::Anchor *>, true>, std::__1::allocator<std::__1::__value_type<vk::Anchor *, float>>> {
+        struct __tree_node<std::__1::__value_type<vk::Anchor *, float>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<vk::Anchor *, float>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<vk::Anchor *, float, std::__1::less<vk::Anchor *>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<vk::Anchor *, std::__1::__value_type<vk::Anchor *, float>, std::__1::less<vk::Anchor *>, true>> {
             unsigned long __first_;
         } __pair3_;
     } __tree_;
-};
-
-struct map<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Value, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Less, vk_allocator<std::__1::pair<const vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Value>>> {
-    struct __tree<std::__1::pair<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Value>, std::__1::__map_value_compare<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Value, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Less, true>, vk_allocator<std::__1::pair<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Value>>> {
-        struct __tree_node<std::__1::pair<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Value>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, vk_allocator<std::__1::__tree_node<std::__1::pair<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Value>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Value, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Less, true>> {
-            unsigned long _field1;
-        } _field3;
-    } _field1;
-};
-
-struct map<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Value, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Less, vk_allocator<std::__1::pair<const vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Value>>> {
-    struct __tree<std::__1::pair<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Value>, std::__1::__map_value_compare<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Value, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Less, true>, vk_allocator<std::__1::pair<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Value>>> {
-        struct __tree_node<std::__1::pair<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Value>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, vk_allocator<std::__1::__tree_node<std::__1::pair<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Value>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Value, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Less, true>> {
-            unsigned long _field1;
-        } _field3;
-    } _field1;
 };
 
 struct mutex {
     struct _opaque_pthread_mutex_t __m_;
 };
 
-struct pair<unsigned int, VKRibbonMultiPolylineSegment *>;
+struct pair<unsigned long, void *>;
 
-struct recursive_mutex {
-    struct _opaque_pthread_mutex_t __m_;
+struct pair<unsigned short, unsigned int>;
+
+struct set<void *, std::__1::less<void *>, std::__1::allocator<void *>> {
+    struct __tree<void *, std::__1::less<void *>, std::__1::allocator<void *>> {
+        struct __tree_node<void *, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<void *, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::less<void *>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
 };
 
-struct routelineTrafficSegment;
+struct shared_ptr<altitude::GeoServicesLoadJob> {
+    struct GeoServicesLoadJob *_field1;
+    struct __shared_weak_count *_field2;
+};
 
 struct shared_ptr<bool> {
     _Bool *__ptr_;
     struct __shared_weak_count *__cntrl_;
 };
 
-struct shared_ptr<const std::__1::vector<zilch::GeoCoordinates, std::__1::allocator<zilch::GeoCoordinates>>> {
-    struct vector<zilch::GeoCoordinates, std::__1::allocator<zilch::GeoCoordinates>> *_field1;
+struct shared_ptr<ggl::AnimatableTexture::VariantUniformData> {
+    struct VariantUniformData *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::BitmapData> {
+    struct BitmapData *_field1;
     struct __shared_weak_count *_field2;
 };
 
-struct shared_ptr<geo::MapEdge> {
-    struct MapEdge *__ptr_;
+struct shared_ptr<ggl::BitmapDataBase> {
+    struct BitmapDataBase *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::Debug::BaseMesh> {
+    struct BaseMesh *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::Debug::BaseVertexData> {
+    struct BaseVertexData *_field1;
+    struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<ggl::DebugPoints::BaseVertexData> {
+    struct BaseVertexData *_field1;
+    struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<ggl::DebugRenderer>;
+
+struct shared_ptr<ggl::Device> {
+    struct Device *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::Fog::FogUniformData> {
+    struct FogUniformData *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::GLDevice> {
+    struct GLDevice *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::GLRenderer> {
+    struct GLRenderer *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::Grid::GridUniformData> {
+    struct GridUniformData *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::GridBase::GridBaseUniformData> {
+    struct GridBaseUniformData *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::GridBase::GridMesh> {
+    struct GridMesh *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::IndexData> {
+    struct IndexData *_field1;
+    struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<ggl::IndexDataTyped<unsigned short>> {
+    struct IndexDataTyped<unsigned short> *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::PolygonBase::CompressedMeshVertexData> {
+    struct CompressedMeshVertexData *_field1;
+    struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<ggl::PolygonBase::MeshMesh> {
+    struct MeshMesh *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::PolygonFill::FillUniformData> {
+    struct FillUniformData *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::PolygonSolidFill::Shader::Setup>;
+
+struct shared_ptr<ggl::RealisticCasingFacade::RealisticMesh> {
+    struct RealisticMesh *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::RealisticCasingFacade::RealisticVertexData> {
+    struct RealisticVertexData *_field1;
+    struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<ggl::RealisticRoadShadow::RealisticVertexData> {
+    struct RealisticVertexData *_field1;
+    struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<ggl::RealisticTexture::RealisticUniformData> {
+    struct RealisticUniformData *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::RenderItem> {
+    struct RenderItem *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::RenderQueue> {
+    struct RenderQueue *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::RenderState> {
+    struct RenderState *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::RenderTransaction> {
+    struct RenderTransaction *_field1;
+    struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<ggl::Shader> {
+    struct Shader *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::SimpleGrid::SimpleGridUniformData> {
+    struct SimpleGridUniformData *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::Sky::Shader::Setup> {
+    struct Setup *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::Sky::SkyMesh> {
+    struct SkyMesh *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::Sky::SkyUniformData> {
+    struct SkyUniformData *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::Texture2D> {
+    struct Texture2D *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::Texture::Pos2DUVVertexData> {
+    struct Pos2DUVVertexData *_field1;
+    struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<ggl::TextureAlphaMask::Shader::Setup> {
+    struct Setup *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::TextureMesh::MeshMesh> {
+    struct MeshMesh *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::TextureWithBrightness::Shader::Setup> {
+    struct Setup *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::Tile::ViewUniformData> {
+    struct ViewUniformData *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ggl::VertexData> {
+    struct VertexData *_field1;
+    struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<md::StyleQuery> {
+    struct StyleQuery *__ptr_;
     struct __shared_weak_count *__cntrl_;
 };
 
@@ -1275,11 +2085,6 @@ struct shared_ptr<vk::AnchorFactory> {
     struct __shared_weak_count *__cntrl_;
 };
 
-struct shared_ptr<vk::FontAtlasPage> {
-    struct FontAtlasPage *_field1;
-    struct __shared_weak_count *_field2;
-};
-
 struct shared_ptr<vk::GlobeAdapterData> {
     struct GlobeAdapterData *_field1;
     struct __shared_weak_count *_field2;
@@ -1290,33 +2095,14 @@ struct shared_ptr<vk::InfoLabel> {
     struct __shared_weak_count *__cntrl_;
 };
 
-struct shared_ptr<vk::InfoMapTile> {
-    struct InfoMapTile *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<vk::InfoOcclusionQuery>;
-
-struct shared_ptr<vk::LabelFeature> {
-    struct LabelFeature *_field1;
-    struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<vk::LabelIcon>;
-
 struct shared_ptr<vk::LabelManager> {
     struct LabelManager *__ptr_;
     struct __shared_weak_count *__cntrl_;
 };
 
-struct shared_ptr<vk::LabelManagerNotifierHook> {
-    struct LabelManagerNotifierHook *_field1;
-    struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<vk::LabelStyle> {
-    struct LabelStyle *_field1;
-    struct __shared_weak_count *_field2;
+struct shared_ptr<vk::LabelMapTile> {
+    struct LabelMapTile *__ptr_;
+    struct __shared_weak_count *__cntrl_;
 };
 
 struct shared_ptr<vk::LabelTile> {
@@ -1324,17 +2110,10 @@ struct shared_ptr<vk::LabelTile> {
     struct __shared_weak_count *__cntrl_;
 };
 
-struct shared_ptr<vk::LabelTrafficTilePool> {
-    struct LabelTrafficTilePool *_field1;
-    struct __shared_weak_count *_field2;
-};
-
 struct shared_ptr<vk::NavLabel> {
     struct NavLabel *__ptr_;
     struct __shared_weak_count *__cntrl_;
 };
-
-struct shared_ptr<vk::TrafficIncidentLabelFeature>;
 
 struct shared_ptr<vk::VKGlobeStylesheet> {
     struct VKGlobeStylesheet *__ptr_;
@@ -1355,711 +2134,1401 @@ struct type {
     unsigned char _field1[12];
 };
 
-struct unique_ptr<VGLMeshNode, std::__1::default_delete<VGLMeshNode>> {
-    struct __compressed_pair<VGLMeshNode *, std::__1::default_delete<VGLMeshNode>> {
-        struct VGLMeshNode *__first_;
+struct unique_ptr<ggl::AlphaAtlas, std::__1::default_delete<ggl::AlphaAtlas>> {
+    struct __compressed_pair<ggl::AlphaAtlas *, std::__1::default_delete<ggl::AlphaAtlas>> {
+        struct AlphaAtlas *__first_;
     } __ptr_;
 };
 
-struct unique_ptr<std::__1::__hash_node<int, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<int, void *>*>>> {
-    struct __compressed_pair<std::__1::__hash_node<int, void *>**, std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<int, void *>*>>> {
-        struct __hash_node<int, void *> **__first_;
-        struct __bucket_list_deallocator<vk_allocator<std::__1::__hash_node<int, void *>*>> {
-            struct __compressed_pair<unsigned long, vk_allocator<std::__1::__hash_node<int, void *>*>> {
+struct unique_ptr<ggl::ClearItem, std::__1::default_delete<ggl::ClearItem>> {
+    struct __compressed_pair<ggl::ClearItem *, std::__1::default_delete<ggl::ClearItem>> {
+        struct ClearItem *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::Clut::Shader::Setup, std::__1::default_delete<ggl::Clut::Shader::Setup>> {
+    struct __compressed_pair<ggl::Clut::Shader::Setup *, std::__1::default_delete<ggl::Clut::Shader::Setup>> {
+        struct Setup *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>> {
+    struct __compressed_pair<ggl::CommandBuffer *, std::__1::default_delete<ggl::CommandBuffer>> {
+        struct CommandBuffer *_field1;
+    } _field1;
+};
+
+struct unique_ptr<ggl::DataWrite<ggl::ColoredText::MyVertexElement>, std::__1::default_delete<ggl::DataWrite<ggl::ColoredText::MyVertexElement>>> {
+    struct __compressed_pair<ggl::DataWrite<ggl::ColoredText::MyVertexElement>*, std::__1::default_delete<ggl::DataWrite<ggl::ColoredText::MyVertexElement>>> {
+        struct DataWrite<ggl::ColoredText::MyVertexElement> *_field1;
+    } _field1;
+};
+
+struct unique_ptr<ggl::Debug::BaseMesh, std::__1::default_delete<ggl::Debug::BaseMesh>> {
+    struct __compressed_pair<ggl::Debug::BaseMesh *, std::__1::default_delete<ggl::Debug::BaseMesh>> {
+        struct BaseMesh *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::DebugPoints::BaseMesh, std::__1::default_delete<ggl::DebugPoints::BaseMesh>> {
+    struct __compressed_pair<ggl::DebugPoints::BaseMesh *, std::__1::default_delete<ggl::DebugPoints::BaseMesh>> {
+        struct BaseMesh *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::Building::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::Building::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::Building::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::Building::Shader::Setup>>> {
+        struct FragmentedPool<ggl::Building::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::BuildingFlat::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingFlat::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::BuildingFlat::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingFlat::Shader::Setup>>> {
+        struct FragmentedPool<ggl::BuildingFlat::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::BuildingFlatStroke::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingFlatStroke::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::BuildingFlatStroke::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingFlatStroke::Shader::Setup>>> {
+        struct FragmentedPool<ggl::BuildingFlatStroke::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::BuildingPointyRoof::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingPointyRoof::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::BuildingPointyRoof::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingPointyRoof::Shader::Setup>>> {
+        struct FragmentedPool<ggl::BuildingPointyRoof::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::BuildingShadow::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingShadow::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::BuildingShadow::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingShadow::Shader::Setup>>> {
+        struct FragmentedPool<ggl::BuildingShadow::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::BuildingTop::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingTop::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::BuildingTop::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingTop::Shader::Setup>>> {
+        struct FragmentedPool<ggl::BuildingTop::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::Debug::BaseMesh>, std::__1::default_delete<ggl::FragmentedPool<ggl::Debug::BaseMesh>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::Debug::BaseMesh>*, std::__1::default_delete<ggl::FragmentedPool<ggl::Debug::BaseMesh>>> {
+        struct FragmentedPool<ggl::Debug::BaseMesh> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::Debug::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::Debug::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::Debug::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::Debug::Shader::Setup>>> {
+        struct FragmentedPool<ggl::Debug::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::DebugPoints::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::DebugPoints::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::DebugPoints::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::DebugPoints::Shader::Setup>>> {
+        struct FragmentedPool<ggl::DebugPoints::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::Glow::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::Glow::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::Glow::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::Glow::Shader::Setup>>> {
+        struct FragmentedPool<ggl::Glow::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::PolygonAnimatableFill::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonAnimatableFill::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::PolygonAnimatableFill::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonAnimatableFill::Shader::Setup>>> {
+        struct FragmentedPool<ggl::PolygonAnimatableFill::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::PolygonAnimatableStroke::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonAnimatableStroke::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::PolygonAnimatableStroke::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonAnimatableStroke::Shader::Setup>>> {
+        struct FragmentedPool<ggl::PolygonAnimatableStroke::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::PolygonFill::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonFill::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::PolygonFill::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonFill::Shader::Setup>>> {
+        struct FragmentedPool<ggl::PolygonFill::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::PolygonShadowedStroke::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonShadowedStroke::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::PolygonShadowedStroke::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonShadowedStroke::Shader::Setup>>> {
+        struct FragmentedPool<ggl::PolygonShadowedStroke::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::PolygonSolidFill::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonSolidFill::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::PolygonSolidFill::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonSolidFill::Shader::Setup>>> {
+        struct FragmentedPool<ggl::PolygonSolidFill::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::PolygonStroke::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonStroke::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::PolygonStroke::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonStroke::Shader::Setup>>> {
+        struct FragmentedPool<ggl::PolygonStroke::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::PrefilteredLine::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::PrefilteredLine::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::PrefilteredLine::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::PrefilteredLine::Shader::Setup>>> {
+        struct FragmentedPool<ggl::PrefilteredLine::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::RealisticAnimatableRoad::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticAnimatableRoad::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::RealisticAnimatableRoad::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticAnimatableRoad::Shader::Setup>>> {
+        struct FragmentedPool<ggl::RealisticAnimatableRoad::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::RealisticAnimatableTexture::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticAnimatableTexture::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::RealisticAnimatableTexture::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticAnimatableTexture::Shader::Setup>>> {
+        struct FragmentedPool<ggl::RealisticAnimatableTexture::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::RealisticCasingFacade::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticCasingFacade::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::RealisticCasingFacade::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticCasingFacade::Shader::Setup>>> {
+        struct FragmentedPool<ggl::RealisticCasingFacade::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::RealisticCasingShadow::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticCasingShadow::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::RealisticCasingShadow::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticCasingShadow::Shader::Setup>>> {
+        struct FragmentedPool<ggl::RealisticCasingShadow::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::RealisticCasingTop::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticCasingTop::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::RealisticCasingTop::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticCasingTop::Shader::Setup>>> {
+        struct FragmentedPool<ggl::RealisticCasingTop::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::RealisticRoad::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticRoad::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::RealisticRoad::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticRoad::Shader::Setup>>> {
+        struct FragmentedPool<ggl::RealisticRoad::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::RealisticRoadShadow::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticRoadShadow::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::RealisticRoadShadow::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticRoadShadow::Shader::Setup>>> {
+        struct FragmentedPool<ggl::RealisticRoadShadow::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::RealisticTexture::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticTexture::Shader::Setup>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::RealisticTexture::Shader::Setup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticTexture::Shader::Setup>>> {
+        struct FragmentedPool<ggl::RealisticTexture::Shader::Setup> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::FragmentedPool<ggl::RenderItem>, std::__1::default_delete<ggl::FragmentedPool<ggl::RenderItem>>> {
+    struct __compressed_pair<ggl::FragmentedPool<ggl::RenderItem>*, std::__1::default_delete<ggl::FragmentedPool<ggl::RenderItem>>> {
+        struct FragmentedPool<ggl::RenderItem> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::Grid::Shader::Setup, std::__1::default_delete<ggl::Grid::Shader::Setup>> {
+    struct __compressed_pair<ggl::Grid::Shader::Setup *, std::__1::default_delete<ggl::Grid::Shader::Setup>> {
+        struct Setup *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::IsoAlphaAtlas, std::__1::default_delete<ggl::IsoAlphaAtlas>> {
+    struct __compressed_pair<ggl::IsoAlphaAtlas *, std::__1::default_delete<ggl::IsoAlphaAtlas>> {
+        struct IsoAlphaAtlas *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::LoaderImpl, std::__1::default_delete<ggl::LoaderImpl>> {
+    struct __compressed_pair<ggl::LoaderImpl *, std::__1::default_delete<ggl::LoaderImpl>> {
+        struct LoaderImpl *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::Mesh, std::__1::default_delete<ggl::Mesh>> {
+    struct __compressed_pair<ggl::Mesh *, std::__1::default_delete<ggl::Mesh>> {
+        struct Mesh *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::MeshVendor<ggl::Building::BuildingMesh>, std::__1::default_delete<ggl::MeshVendor<ggl::Building::BuildingMesh>>> {
+    struct __compressed_pair<ggl::MeshVendor<ggl::Building::BuildingMesh>*, std::__1::default_delete<ggl::MeshVendor<ggl::Building::BuildingMesh>>> {
+        MeshVendor_3faa0a72 *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::MeshVendor<ggl::BuildingPointyRoof::BuildingMesh>, std::__1::default_delete<ggl::MeshVendor<ggl::BuildingPointyRoof::BuildingMesh>>> {
+    struct __compressed_pair<ggl::MeshVendor<ggl::BuildingPointyRoof::BuildingMesh>*, std::__1::default_delete<ggl::MeshVendor<ggl::BuildingPointyRoof::BuildingMesh>>> {
+        MeshVendor_c6d8e5cd *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::MeshVendor<ggl::Glow::MeshMesh>, std::__1::default_delete<ggl::MeshVendor<ggl::Glow::MeshMesh>>> {
+    struct __compressed_pair<ggl::MeshVendor<ggl::Glow::MeshMesh>*, std::__1::default_delete<ggl::MeshVendor<ggl::Glow::MeshMesh>>> {
+        MeshVendor_43d71dca *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::MeshVendor<ggl::PolygonBase::CompressedMeshMesh>, std::__1::default_delete<ggl::MeshVendor<ggl::PolygonBase::CompressedMeshMesh>>> {
+    struct __compressed_pair<ggl::MeshVendor<ggl::PolygonBase::CompressedMeshMesh>*, std::__1::default_delete<ggl::MeshVendor<ggl::PolygonBase::CompressedMeshMesh>>> {
+        struct MeshVendor<ggl::PolygonBase::CompressedMeshMesh> *_field1;
+    } _field1;
+};
+
+struct unique_ptr<ggl::MeshVendor<ggl::PolygonMesh::MeshMesh>, std::__1::default_delete<ggl::MeshVendor<ggl::PolygonMesh::MeshMesh>>> {
+    struct __compressed_pair<ggl::MeshVendor<ggl::PolygonMesh::MeshMesh>*, std::__1::default_delete<ggl::MeshVendor<ggl::PolygonMesh::MeshMesh>>> {
+        MeshVendor_82aa5b9e *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::MeshVendor<ggl::PrefilteredLine::PrefilteredLineMesh>, std::__1::default_delete<ggl::MeshVendor<ggl::PrefilteredLine::PrefilteredLineMesh>>> {
+    struct __compressed_pair<ggl::MeshVendor<ggl::PrefilteredLine::PrefilteredLineMesh>*, std::__1::default_delete<ggl::MeshVendor<ggl::PrefilteredLine::PrefilteredLineMesh>>> {
+        MeshVendor_8027e961 *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::OESContext, std::__1::default_delete<ggl::OESContext>> {
+    struct __compressed_pair<ggl::OESContext *, std::__1::default_delete<ggl::OESContext>> {
+        struct OESContext *_field1;
+    } _field1;
+};
+
+struct unique_ptr<ggl::PerformanceHUD, std::__1::default_delete<ggl::PerformanceHUD>> {
+    struct __compressed_pair<ggl::PerformanceHUD *, std::__1::default_delete<ggl::PerformanceHUD>> {
+        struct PerformanceHUD *_field1;
+    } _field1;
+};
+
+struct unique_ptr<ggl::PolygonFill::Shader::Setup, std::__1::default_delete<ggl::PolygonFill::Shader::Setup>> {
+    struct __compressed_pair<ggl::PolygonFill::Shader::Setup *, std::__1::default_delete<ggl::PolygonFill::Shader::Setup>> {
+        struct Setup *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::RenderBuffer, std::__1::default_delete<ggl::RenderBuffer>> {
+    struct __compressed_pair<ggl::RenderBuffer *, std::__1::default_delete<ggl::RenderBuffer>> {
+        struct RenderBuffer *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::RenderItem, std::__1::default_delete<ggl::RenderItem>> {
+    struct __compressed_pair<ggl::RenderItem *, std::__1::default_delete<ggl::RenderItem>> {
+        struct RenderItem *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::RenderQueue, std::__1::default_delete<ggl::RenderQueue>> {
+    struct __compressed_pair<ggl::RenderQueue *, std::__1::default_delete<ggl::RenderQueue>> {
+        struct RenderQueue *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> {
+    struct __compressed_pair<ggl::RenderState *, std::__1::default_delete<ggl::RenderState>> {
+        struct RenderState *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::RenderTarget, std::__1::default_delete<ggl::RenderTarget>> {
+    struct __compressed_pair<ggl::RenderTarget *, std::__1::default_delete<ggl::RenderTarget>> {
+        struct RenderTarget *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::RenderTargetOperation, std::__1::default_delete<ggl::RenderTargetOperation>> {
+    struct __compressed_pair<ggl::RenderTargetOperation *, std::__1::default_delete<ggl::RenderTargetOperation>> {
+        struct RenderTargetOperation *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::SimpleGrid::Shader::Setup, std::__1::default_delete<ggl::SimpleGrid::Shader::Setup>> {
+    struct __compressed_pair<ggl::SimpleGrid::Shader::Setup *, std::__1::default_delete<ggl::SimpleGrid::Shader::Setup>> {
+        struct Setup *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::Texture2D, std::__1::default_delete<ggl::Texture2D>> {
+    struct __compressed_pair<ggl::Texture2D *, std::__1::default_delete<ggl::Texture2D>> {
+        struct Texture2D *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::Texture::Shader::Setup, std::__1::default_delete<ggl::Texture::Shader::Setup>> {
+    struct __compressed_pair<ggl::Texture::Shader::Setup *, std::__1::default_delete<ggl::Texture::Shader::Setup>> {
+        struct Setup *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::TextureBuffer, std::__1::default_delete<ggl::TextureBuffer>> {
+    struct __compressed_pair<ggl::TextureBuffer *, std::__1::default_delete<ggl::TextureBuffer>> {
+        struct TextureBuffer *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::TexturePool, std::__1::default_delete<ggl::TexturePool>> {
+    struct __compressed_pair<ggl::TexturePool *, std::__1::default_delete<ggl::TexturePool>> {
+        struct TexturePool *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<ggl::TextureWithReverseAlpha::Shader::Setup, std::__1::default_delete<ggl::TextureWithReverseAlpha::Shader::Setup>> {
+    struct __compressed_pair<ggl::TextureWithReverseAlpha::Shader::Setup *, std::__1::default_delete<ggl::TextureWithReverseAlpha::Shader::Setup>> {
+        struct Setup *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<md::DebugConsoleManager, std::__1::default_delete<md::DebugConsoleManager>> {
+    struct __compressed_pair<md::DebugConsoleManager *, std::__1::default_delete<md::DebugConsoleManager>> {
+        struct DebugConsoleManager *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<md::OffscreenQueue, std::__1::default_delete<md::OffscreenQueue>> {
+    struct __compressed_pair<md::OffscreenQueue *, std::__1::default_delete<md::OffscreenQueue>> {
+        struct OffscreenQueue *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<md::RenderQueue, std::__1::default_delete<md::RenderQueue>> {
+    struct __compressed_pair<md::RenderQueue *, std::__1::default_delete<md::RenderQueue>> {
+        struct RenderQueue *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<md::TexturedDrawable, std::__1::default_delete<md::TexturedDrawable>>;
+
+struct unique_ptr<std::__1::__hash_node<GEOComposedRouteSection *, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<GEOComposedRouteSection *, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<GEOComposedRouteSection *, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<GEOComposedRouteSection *, void *>*>>> {
+        struct __hash_node<GEOComposedRouteSection *, void *> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<GEOComposedRouteSection *, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<GEOComposedRouteSection *, void *>*>> {
                 unsigned long __first_;
             } __data_;
         } __second_;
     } __ptr_;
 };
 
-struct unique_ptr<std::__1::__hash_node<std::__1::pair<GEOVectorTile *, vk::InfoLabelFeaturePool::TileFeatureValueEntry>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<GEOVectorTile *, vk::InfoLabelFeaturePool::TileFeatureValueEntry>, void *>*>>> {
-    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<GEOVectorTile *, vk::InfoLabelFeaturePool::TileFeatureValueEntry>, void *>**, std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<GEOVectorTile *, vk::InfoLabelFeaturePool::TileFeatureValueEntry>, void *>*>>> {
-        struct __hash_node<std::__1::pair<GEOVectorTile *, vk::InfoLabelFeaturePool::TileFeatureValueEntry>, void *> **_field1;
-        struct __bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<GEOVectorTile *, vk::InfoLabelFeaturePool::TileFeatureValueEntry>, void *>*>> {
-            struct __compressed_pair<unsigned long, vk_allocator<std::__1::__hash_node<std::__1::pair<GEOVectorTile *, vk::InfoLabelFeaturePool::TileFeatureValueEntry>, void *>*>> {
+struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::__hash_value_type<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>, void *>*>>> {
+        struct __hash_node<std::__1::__hash_value_type<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>, void *> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>, void *>*>> {
+                unsigned long __first_;
+            } __data_;
+        } __second_;
+    } __ptr_;
+};
+
+struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<GEOTransportType, vk::TransportTypeInfo>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<GEOTransportType, vk::TransportTypeInfo>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::__hash_value_type<GEOTransportType, vk::TransportTypeInfo>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<GEOTransportType, vk::TransportTypeInfo>, void *>*>>> {
+        struct __hash_node<std::__1::__hash_value_type<GEOTransportType, vk::TransportTypeInfo>, void *> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<GEOTransportType, vk::TransportTypeInfo>, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<GEOTransportType, vk::TransportTypeInfo>, void *>*>> {
+                unsigned long __first_;
+            } __data_;
+        } __second_;
+    } __ptr_;
+};
+
+struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery>>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery>>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery>>, void *>*>>> {
+        struct __hash_node<std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery>>, void *> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery>>, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery>>, void *>*>> {
+                unsigned long __first_;
+            } __data_;
+        } __second_;
+    } __ptr_;
+};
+
+struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>*>>> {
+        struct __hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>*>> {
+                unsigned long __first_;
+            } __data_;
+        } __second_;
+    } __ptr_;
+};
+
+struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>>, void *>*>>> {
+        struct __hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>>, void *> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>>, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>>, void *>*>> {
+                unsigned long __first_;
+            } __data_;
+        } __second_;
+    } __ptr_;
+};
+
+struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>>, void *>*>>> {
+        struct __hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>>, void *> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>>, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>>, void *>*>> {
+                unsigned long __first_;
+            } __data_;
+        } __second_;
+    } __ptr_;
+};
+
+struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::__hash_value_type<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>*>>> {
+        struct __hash_node<std::__1::__hash_value_type<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>*>> {
+                unsigned long __first_;
+            } __data_;
+        } __second_;
+    } __ptr_;
+};
+
+struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*>>> {
+        struct __hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*>> {
+                unsigned long __first_;
+            } __data_;
+        } __second_;
+    } __ptr_;
+};
+
+struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::__hash_value_type<md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>*>>> {
+        struct __hash_node<std::__1::__hash_value_type<md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>*>> {
+                unsigned long __first_;
+            } __data_;
+        } __second_;
+    } __ptr_;
+};
+
+struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::__hash_value_type<md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>*>>> {
+        struct __hash_node<std::__1::__hash_value_type<md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>*>> {
+                unsigned long __first_;
+            } __data_;
+        } __second_;
+    } __ptr_;
+};
+
+struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>>> {
+        struct __hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>> {
+                unsigned long __first_;
+            } __data_;
+        } __second_;
+    } __ptr_;
+};
+
+struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::pair<void *, unsigned long>, std::__1::vector<Edge, std::__1::allocator<Edge>>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::pair<void *, unsigned long>, std::__1::vector<Edge, std::__1::allocator<Edge>>>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::pair<void *, unsigned long>, std::__1::vector<Edge, std::__1::allocator<Edge>>>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::pair<void *, unsigned long>, std::__1::vector<Edge, std::__1::allocator<Edge>>>, void *>*>>> {
+        struct __hash_node<std::__1::__hash_value_type<std::__1::pair<void *, unsigned long>, std::__1::vector<Edge, std::__1::allocator<Edge>>>, void *> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::pair<void *, unsigned long>, std::__1::vector<Edge, std::__1::allocator<Edge>>>, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::pair<void *, unsigned long>, std::__1::vector<Edge, std::__1::allocator<Edge>>>, void *>*>> {
+                unsigned long __first_;
+            } __data_;
+        } __second_;
+    } __ptr_;
+};
+
+struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>*>>> {
+        struct __hash_node<std::__1::__hash_value_type<std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *> **_field1;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>*>> {
                 unsigned long _field1;
             } _field1;
         } _field2;
     } _field1;
 };
 
-struct unique_ptr<std::__1::__hash_node<std::__1::pair<VKPolylineOverlaySection *, std::__1::vector<VGLRect, vk_allocator<VGLRect>>>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<VKPolylineOverlaySection *, std::__1::vector<VGLRect, vk_allocator<VGLRect>>>, void *>*>>> {
-    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<VKPolylineOverlaySection *, std::__1::vector<VGLRect, vk_allocator<VGLRect>>>, void *>**, std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<VKPolylineOverlaySection *, std::__1::vector<VGLRect, vk_allocator<VGLRect>>>, void *>*>>> {
-        struct __hash_node<std::__1::pair<VKPolylineOverlaySection *, std::__1::vector<VGLRect, vk_allocator<VGLRect>>>, void *> **__first_;
-        struct __bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<VKPolylineOverlaySection *, std::__1::vector<VGLRect, vk_allocator<VGLRect>>>, void *>*>> {
-            struct __compressed_pair<unsigned long, vk_allocator<std::__1::__hash_node<std::__1::pair<VKPolylineOverlaySection *, std::__1::vector<VGLRect, vk_allocator<VGLRect>>>, void *>*>> {
-                unsigned long __first_;
-            } __data_;
-        } __second_;
-    } __ptr_;
-};
-
-struct unique_ptr<std::__1::__hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>*>>> {
-    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>**, std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>*>>> {
-        struct __hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *> **__first_;
-        struct __bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>*>> {
-            struct __compressed_pair<unsigned long, vk_allocator<std::__1::__hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>*>> {
-                unsigned long __first_;
-            } __data_;
-        } __second_;
-    } __ptr_;
-};
-
-struct unique_ptr<std::__1::__hash_node<std::__1::pair<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>>, void *>*>>> {
-    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>>, void *>*>>> {
-        struct __hash_node<std::__1::pair<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>>, void *> **__first_;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>>, void *>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::pair<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>>, void *>*>> {
-                unsigned long __first_;
-            } __data_;
-        } __second_;
-    } __ptr_;
-};
-
-struct unique_ptr<std::__1::__hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>*>>> {
-    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>**, std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>*>>> {
-        struct __hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *> **__first_;
-        struct __bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>*>> {
-            struct __compressed_pair<unsigned long, vk_allocator<std::__1::__hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>*>> {
-                unsigned long __first_;
-            } __data_;
-        } __second_;
-    } __ptr_;
-};
-
-struct unique_ptr<std::__1::__hash_node<std::__1::pair<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*>>> {
-    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<long long, const zilch::TrafficDynamicTile::Flow *>, void *>**, std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*>>> {
-        struct __hash_node<std::__1::pair<long long, const zilch::TrafficDynamicTile::Flow *>, void *> **__first_;
-        struct __bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*>> {
-            struct __compressed_pair<unsigned long, vk_allocator<std::__1::__hash_node<std::__1::pair<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*>> {
-                unsigned long __first_;
-            } __data_;
-        } __second_;
-    } __ptr_;
-};
-
-struct unique_ptr<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>>> {
-    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>**, std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>>> {
-        struct __hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *> **__first_;
-        struct __bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>> {
-            struct __compressed_pair<unsigned long, vk_allocator<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>> {
-                unsigned long __first_;
-            } __data_;
-        } __second_;
-    } __ptr_;
-};
-
-struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*>>> {
-    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>**, std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*>>> {
-        struct __hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *> **__first_;
-        struct __bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*>> {
-            struct __compressed_pair<unsigned long, vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*>> {
-                unsigned long __first_;
-            } __data_;
-        } __second_;
-    } __ptr_;
-};
-
-struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*>>> {
-    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>**, std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*>>> {
-        struct __hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *> **_field1;
-        struct __bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*>> {
-            struct __compressed_pair<unsigned long, vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*>> {
+struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned long long>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned long long>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned long long>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned long long>, void *>*>>> {
+        struct __hash_node<std::__1::__hash_value_type<unsigned int, unsigned long long>, void *> **_field1;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned long long>, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned long long>, void *>*>> {
                 unsigned long _field1;
             } _field1;
         } _field2;
     } _field1;
 };
 
-struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, unsigned int>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, unsigned int>, void *>*>>> {
-    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<unsigned int, unsigned int>, void *>**, std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, unsigned int>, void *>*>>> {
-        struct __hash_node<std::__1::pair<unsigned int, unsigned int>, void *> **__first_;
-        struct __bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, unsigned int>, void *>*>> {
-            struct __compressed_pair<unsigned long, vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, unsigned int>, void *>*>> {
-                unsigned long __first_;
-            } __data_;
-        } __second_;
-    } __ptr_;
-};
-
-struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>*>>> {
-    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>**, std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>*>>> {
-        struct __hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *> **_field1;
-        struct __bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>*>> {
-            struct __compressed_pair<unsigned long, vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>*>> {
+struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::StyleMatchingTree *>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::StyleMatchingTree *>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::StyleMatchingTree *>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::StyleMatchingTree *>, void *>*>>> {
+        struct __hash_node<std::__1::__hash_value_type<unsigned long long, md::StyleMatchingTree *>, void *> **_field1;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::StyleMatchingTree *>, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::StyleMatchingTree *>, void *>*>> {
                 unsigned long _field1;
             } _field1;
         } _field2;
     } _field1;
 };
 
-struct unique_ptr<vk::SnappedPathMapMatchingSection, std::__1::default_delete<vk::SnappedPathMapMatchingSection>> {
-    struct __compressed_pair<vk::SnappedPathMapMatchingSection *, std::__1::default_delete<vk::SnappedPathMapMatchingSection>> {
-        struct SnappedPathMapMatchingSection *__first_;
+struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, void *>*>>> {
+        struct __hash_node<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, void *> **_field1;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, void *>*>> {
+                unsigned long _field1;
+            } _field1;
+        } _field2;
+    } _field1;
+};
+
+struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, void *>*>>> {
+        struct __hash_node<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, void *> **_field1;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, void *>*>> {
+                unsigned long _field1;
+            } _field1;
+        } _field2;
+    } _field1;
+};
+
+struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::__hash_value_type<vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>>, void *>*>>> {
+        struct __hash_node<std::__1::__hash_value_type<vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>>, void *> **_field1;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>>, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>>, void *>*>> {
+                unsigned long _field1;
+            } _field1;
+        } _field2;
+    } _field1;
+};
+
+struct unique_ptr<vk::PatternedLayer, std::__1::default_delete<vk::PatternedLayer>> {
+    struct __compressed_pair<vk::PatternedLayer *, std::__1::default_delete<vk::PatternedLayer>> {
+        struct PatternedLayer *__first_;
     } __ptr_;
 };
 
-struct unordered_map<GEOVectorTile *, vk::InfoLabelFeaturePool::TileFeatureValueEntry, std::__1::hash<GEOVectorTile *>, std::__1::equal_to<GEOVectorTile *>, vk_allocator<std::__1::pair<GEOVectorTile *const, vk::InfoLabelFeaturePool::TileFeatureValueEntry>>> {
-    struct __hash_table<std::__1::pair<GEOVectorTile *, vk::InfoLabelFeaturePool::TileFeatureValueEntry>, std::__1::__unordered_map_hasher<GEOVectorTile *, vk::InfoLabelFeaturePool::TileFeatureValueEntry, std::__1::hash<GEOVectorTile *>, true>, std::__1::__unordered_map_equal<GEOVectorTile *, vk::InfoLabelFeaturePool::TileFeatureValueEntry, std::__1::equal_to<GEOVectorTile *>, true>, vk_allocator<std::__1::pair<GEOVectorTile *, vk::InfoLabelFeaturePool::TileFeatureValueEntry>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<GEOVectorTile *, vk::InfoLabelFeaturePool::TileFeatureValueEntry>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<GEOVectorTile *, vk::InfoLabelFeaturePool::TileFeatureValueEntry>, void *>*>>> _field1;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<GEOVectorTile *, vk::InfoLabelFeaturePool::TileFeatureValueEntry>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<GEOVectorTile *, vk::InfoLabelFeaturePool::TileFeatureValueEntry>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<GEOVectorTile *, vk::InfoLabelFeaturePool::TileFeatureValueEntry>, void *>*> {
-                struct __hash_node<std::__1::pair<GEOVectorTile *, vk::InfoLabelFeaturePool::TileFeatureValueEntry>, void *> *_field1;
+struct unique_ptr<vk::PatternedManager, std::__1::default_delete<vk::PatternedManager>> {
+    struct __compressed_pair<vk::PatternedManager *, std::__1::default_delete<vk::PatternedManager>> {
+        struct PatternedManager *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<vk::RoadLayer, std::__1::default_delete<vk::RoadLayer>> {
+    struct __compressed_pair<vk::RoadLayer *, std::__1::default_delete<vk::RoadLayer>> {
+        struct RoadLayer *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<vk::RoadManager, std::__1::default_delete<vk::RoadManager>> {
+    struct __compressed_pair<vk::RoadManager *, std::__1::default_delete<vk::RoadManager>> {
+        struct RoadManager *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<vk::RouteLineArrowLayer, std::__1::default_delete<vk::RouteLineArrowLayer>>;
+
+struct unique_ptr<vk::RouteLineArrowManager, std::__1::default_delete<vk::RouteLineArrowManager>> {
+    struct __compressed_pair<vk::RouteLineArrowManager *, std::__1::default_delete<vk::RouteLineArrowManager>> {
+        struct RouteLineArrowManager *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<vk::RouteLineLayer, std::__1::default_delete<vk::RouteLineLayer>> {
+    struct __compressed_pair<vk::RouteLineLayer *, std::__1::default_delete<vk::RouteLineLayer>> {
+        struct RouteLineLayer *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<vk::RouteLineManager, std::__1::default_delete<vk::RouteLineManager>> {
+    struct __compressed_pair<vk::RouteLineManager *, std::__1::default_delete<vk::RouteLineManager>> {
+        struct RouteLineManager *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<vk::TrafficLayer, std::__1::default_delete<vk::TrafficLayer>> {
+    struct __compressed_pair<vk::TrafficLayer *, std::__1::default_delete<vk::TrafficLayer>> {
+        struct TrafficLayer *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<vk::TrafficManager, std::__1::default_delete<vk::TrafficManager>> {
+    struct __compressed_pair<vk::TrafficManager *, std::__1::default_delete<vk::TrafficManager>> {
+        struct TrafficManager *__first_;
+    } __ptr_;
+};
+
+struct unordered_map<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>, std::__1::hash<GEOGenericTileType>, std::__1::equal_to<GEOGenericTileType>, std::__1::allocator<std::__1::pair<const GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>>> {
+    struct __hash_table<std::__1::__hash_value_type<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>, std::__1::__unordered_map_hasher<GEOGenericTileType, std::__1::__hash_value_type<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>, std::__1::hash<GEOGenericTileType>, true>, std::__1::__unordered_map_equal<GEOGenericTileType, std::__1::__hash_value_type<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>, std::__1::equal_to<GEOGenericTileType>, true>, std::__1::allocator<std::__1::__hash_value_type<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>, void *> *__next_;
+            } __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<GEOGenericTileType, std::__1::__hash_value_type<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>, std::__1::hash<GEOGenericTileType>, true>> {
+            unsigned long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<GEOGenericTileType, std::__1::__hash_value_type<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>, std::__1::equal_to<GEOGenericTileType>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+};
+
+struct unordered_map<GEOTransportType, vk::TransportTypeInfo, std::__1::hash<GEOTransportType>, std::__1::equal_to<GEOTransportType>, std::__1::allocator<std::__1::pair<const GEOTransportType, vk::TransportTypeInfo>>> {
+    struct __hash_table<std::__1::__hash_value_type<GEOTransportType, vk::TransportTypeInfo>, std::__1::__unordered_map_hasher<GEOTransportType, std::__1::__hash_value_type<GEOTransportType, vk::TransportTypeInfo>, std::__1::hash<GEOTransportType>, true>, std::__1::__unordered_map_equal<GEOTransportType, std::__1::__hash_value_type<GEOTransportType, vk::TransportTypeInfo>, std::__1::equal_to<GEOTransportType>, true>, std::__1::allocator<std::__1::__hash_value_type<GEOTransportType, vk::TransportTypeInfo>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<GEOTransportType, vk::TransportTypeInfo>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<GEOTransportType, vk::TransportTypeInfo>, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<GEOTransportType, vk::TransportTypeInfo>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<GEOTransportType, vk::TransportTypeInfo>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<GEOTransportType, vk::TransportTypeInfo>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<GEOTransportType, vk::TransportTypeInfo>, void *> *__next_;
+            } __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<GEOTransportType, std::__1::__hash_value_type<GEOTransportType, vk::TransportTypeInfo>, std::__1::hash<GEOTransportType>, true>> {
+            unsigned long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<GEOTransportType, std::__1::__hash_value_type<GEOTransportType, vk::TransportTypeInfo>, std::__1::equal_to<GEOTransportType>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+};
+
+struct unordered_map<StyleKey, std::__1::weak_ptr<md::StyleQuery>, std::__1::hash<StyleKey>, std::__1::equal_to<StyleKey>, std::__1::allocator<std::__1::pair<const StyleKey, std::__1::weak_ptr<md::StyleQuery>>>> {
+    struct __hash_table<std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery>>, std::__1::__unordered_map_hasher<StyleKey, std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery>>, std::__1::hash<StyleKey>, true>, std::__1::__unordered_map_equal<StyleKey, std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery>>, std::__1::equal_to<StyleKey>, true>, std::__1::allocator<std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery>>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery>>, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery>>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery>>, void *> *__next_;
+            } __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<StyleKey, std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery>>, std::__1::hash<StyleKey>, true>> {
+            unsigned long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<StyleKey, std::__1::__hash_value_type<StyleKey, std::__1::weak_ptr<md::StyleQuery>>, std::__1::equal_to<StyleKey>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+};
+
+struct unordered_map<VKVectorTile *, OccluderGroupList, std::__1::hash<VKVectorTile *>, std::__1::equal_to<VKVectorTile *>, std::__1::allocator<std::__1::pair<VKVectorTile *const, OccluderGroupList>>> {
+    struct __hash_table<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, std::__1::__unordered_map_hasher<VKVectorTile *, std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, std::__1::hash<VKVectorTile *>, true>, std::__1::__unordered_map_equal<VKVectorTile *, std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, std::__1::equal_to<VKVectorTile *>, true>, std::__1::allocator<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *> *__next_;
+            } __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<VKVectorTile *, std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, std::__1::hash<VKVectorTile *>, true>> {
+            unsigned long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<VKVectorTile *, std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, std::__1::equal_to<VKVectorTile *>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+};
+
+struct unordered_map<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>, std::__1::hash<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::equal_to<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::allocator<std::__1::pair<const geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>>>> {
+    struct __hash_table<std::__1::__hash_value_type<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>>, std::__1::__unordered_map_hasher<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__hash_value_type<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>>, std::__1::hash<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, true>, std::__1::__unordered_map_equal<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__hash_value_type<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>>, std::__1::equal_to<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, true>, std::__1::allocator<std::__1::__hash_value_type<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>>, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>>, void *> *__next_;
+            } __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__hash_value_type<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>>, std::__1::hash<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, true>> {
+            unsigned long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__hash_value_type<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::shared_ptr<md::StyleQuery>>, std::__1::equal_to<geo::_retain_ptr<NSData *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+};
+
+struct unordered_map<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>, std::__1::hash<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::equal_to<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::allocator<std::__1::pair<const geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>>>> {
+    struct __hash_table<std::__1::__hash_value_type<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>>, std::__1::__unordered_map_hasher<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__hash_value_type<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>>, std::__1::hash<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, true>, std::__1::__unordered_map_equal<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__hash_value_type<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>>, std::__1::equal_to<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, true>, std::__1::allocator<std::__1::__hash_value_type<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>>, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>>, void *> *__next_;
+            } __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__hash_value_type<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>>, std::__1::hash<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, true>> {
+            unsigned long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__hash_value_type<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, id, _value_ptr>, void *>>, std::__1::equal_to<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+};
+
+struct unordered_map<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::hash<int>, std::__1::equal_to<int>, std::__1::allocator<std::__1::pair<const int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>> {
+    struct __hash_table<std::__1::__hash_value_type<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::__unordered_map_hasher<int, std::__1::__hash_value_type<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::hash<int>, true>, std::__1::__unordered_map_equal<int, std::__1::__hash_value_type<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::equal_to<int>, true>, std::__1::allocator<std::__1::__hash_value_type<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *> *__next_;
+            } __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<int, std::__1::__hash_value_type<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::hash<int>, true>> {
+            unsigned long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<int, std::__1::__hash_value_type<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::equal_to<int>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+};
+
+struct unordered_map<md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>, std::__1::hash<md::GenericShieldCacheKey>, std::__1::equal_to<md::GenericShieldCacheKey>, std::__1::allocator<std::__1::pair<const md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>>> {
+    struct __hash_table<std::__1::__hash_value_type<md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, std::__1::__unordered_map_hasher<md::GenericShieldCacheKey, std::__1::__hash_value_type<md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, std::__1::hash<md::GenericShieldCacheKey>, true>, std::__1::__unordered_map_equal<md::GenericShieldCacheKey, std::__1::__hash_value_type<md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, std::__1::equal_to<md::GenericShieldCacheKey>, true>, std::__1::allocator<std::__1::__hash_value_type<md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *> *__next_;
+            } __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<md::GenericShieldCacheKey, std::__1::__hash_value_type<md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, std::__1::hash<md::GenericShieldCacheKey>, true>> {
+            unsigned long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<md::GenericShieldCacheKey, std::__1::__hash_value_type<md::GenericShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, std::__1::equal_to<md::GenericShieldCacheKey>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+};
+
+struct unordered_map<md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>, std::__1::hash<md::ShieldCacheKey>, std::__1::equal_to<md::ShieldCacheKey>, std::__1::allocator<std::__1::pair<const md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>>> {
+    struct __hash_table<std::__1::__hash_value_type<md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, std::__1::__unordered_map_hasher<md::ShieldCacheKey, std::__1::__hash_value_type<md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, std::__1::hash<md::ShieldCacheKey>, true>, std::__1::__unordered_map_equal<md::ShieldCacheKey, std::__1::__hash_value_type<md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, std::__1::equal_to<md::ShieldCacheKey>, true>, std::__1::allocator<std::__1::__hash_value_type<md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *> *__next_;
+            } __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<md::ShieldCacheKey, std::__1::__hash_value_type<md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, std::__1::hash<md::ShieldCacheKey>, true>> {
+            unsigned long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<md::ShieldCacheKey, std::__1::__hash_value_type<md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, std::__1::equal_to<md::ShieldCacheKey>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+};
+
+struct unordered_map<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>>> {
+    struct __hash_table<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, std::__1::__unordered_map_hasher<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, std::__1::hash<std::__1::basic_string<char>>, true>, std::__1::__unordered_map_equal<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, std::__1::equal_to<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *> *__next_;
+            } __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, std::__1::hash<std::__1::basic_string<char>>, true>> {
+            unsigned long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, std::__1::equal_to<std::__1::basic_string<char>>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+};
+
+struct unordered_map<std::__1::pair<void *, unsigned long>, std::__1::vector<Edge, std::__1::allocator<Edge>>, std::__1::hash<SectionKey>, std::__1::equal_to<std::__1::pair<void *, unsigned long>>, std::__1::allocator<std::__1::pair<const std::__1::pair<void *, unsigned long>, std::__1::vector<Edge, std::__1::allocator<Edge>>>>> {
+    struct __hash_table<std::__1::__hash_value_type<std::__1::pair<void *, unsigned long>, std::__1::vector<Edge, std::__1::allocator<Edge>>>, std::__1::__unordered_map_hasher<std::__1::pair<void *, unsigned long>, std::__1::__hash_value_type<std::__1::pair<void *, unsigned long>, std::__1::vector<Edge, std::__1::allocator<Edge>>>, std::__1::hash<SectionKey>, true>, std::__1::__unordered_map_equal<std::__1::pair<void *, unsigned long>, std::__1::__hash_value_type<std::__1::pair<void *, unsigned long>, std::__1::vector<Edge, std::__1::allocator<Edge>>>, std::__1::equal_to<std::__1::pair<void *, unsigned long>>, true>, std::__1::allocator<std::__1::__hash_value_type<std::__1::pair<void *, unsigned long>, std::__1::vector<Edge, std::__1::allocator<Edge>>>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::pair<void *, unsigned long>, std::__1::vector<Edge, std::__1::allocator<Edge>>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::pair<void *, unsigned long>, std::__1::vector<Edge, std::__1::allocator<Edge>>>, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::pair<void *, unsigned long>, std::__1::vector<Edge, std::__1::allocator<Edge>>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::pair<void *, unsigned long>, std::__1::vector<Edge, std::__1::allocator<Edge>>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::pair<void *, unsigned long>, std::__1::vector<Edge, std::__1::allocator<Edge>>>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<std::__1::pair<void *, unsigned long>, std::__1::vector<Edge, std::__1::allocator<Edge>>>, void *> *__next_;
+            } __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<std::__1::pair<void *, unsigned long>, std::__1::__hash_value_type<std::__1::pair<void *, unsigned long>, std::__1::vector<Edge, std::__1::allocator<Edge>>>, std::__1::hash<SectionKey>, true>> {
+            unsigned long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<std::__1::pair<void *, unsigned long>, std::__1::__hash_value_type<std::__1::pair<void *, unsigned long>, std::__1::vector<Edge, std::__1::allocator<Edge>>>, std::__1::equal_to<std::__1::pair<void *, unsigned long>>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+};
+
+struct unordered_map<std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::hash<std::__1::shared_ptr<md::StyleQuery>>, std::__1::equal_to<std::__1::shared_ptr<md::StyleQuery>>, std::__1::allocator<std::__1::pair<const std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>> {
+    struct __hash_table<std::__1::__hash_value_type<std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::__unordered_map_hasher<std::__1::shared_ptr<md::StyleQuery>, std::__1::__hash_value_type<std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::hash<std::__1::shared_ptr<md::StyleQuery>>, true>, std::__1::__unordered_map_equal<std::__1::shared_ptr<md::StyleQuery>, std::__1::__hash_value_type<std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::equal_to<std::__1::shared_ptr<md::StyleQuery>>, true>, std::__1::allocator<std::__1::__hash_value_type<std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, void *> *_field1;
             } _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<GEOVectorTile *, vk::InfoLabelFeaturePool::TileFeatureValueEntry, std::__1::hash<GEOVectorTile *>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<std::__1::shared_ptr<md::StyleQuery>, std::__1::__hash_value_type<std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::hash<std::__1::shared_ptr<md::StyleQuery>>, true>> {
             unsigned long _field1;
         } _field3;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<GEOVectorTile *, vk::InfoLabelFeaturePool::TileFeatureValueEntry, std::__1::equal_to<GEOVectorTile *>, true>> {
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<std::__1::shared_ptr<md::StyleQuery>, std::__1::__hash_value_type<std::__1::shared_ptr<md::StyleQuery>, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::equal_to<std::__1::shared_ptr<md::StyleQuery>>, true>> {
             float _field1;
         } _field4;
     } _field1;
 };
 
-struct unordered_map<VKPolylineOverlaySection *, std::__1::vector<VGLRect, vk_allocator<VGLRect>>, std::__1::hash<VKPolylineOverlaySection *>, std::__1::equal_to<VKPolylineOverlaySection *>, vk_allocator<std::__1::pair<VKPolylineOverlaySection *const, std::__1::vector<VGLRect, vk_allocator<VGLRect>>>>> {
-    struct __hash_table<std::__1::pair<VKPolylineOverlaySection *, std::__1::vector<VGLRect, vk_allocator<VGLRect>>>, std::__1::__unordered_map_hasher<VKPolylineOverlaySection *, std::__1::vector<VGLRect, vk_allocator<VGLRect>>, std::__1::hash<VKPolylineOverlaySection *>, true>, std::__1::__unordered_map_equal<VKPolylineOverlaySection *, std::__1::vector<VGLRect, vk_allocator<VGLRect>>, std::__1::equal_to<VKPolylineOverlaySection *>, true>, vk_allocator<std::__1::pair<VKPolylineOverlaySection *, std::__1::vector<VGLRect, vk_allocator<VGLRect>>>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<VKPolylineOverlaySection *, std::__1::vector<VGLRect, vk_allocator<VGLRect>>>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<VKPolylineOverlaySection *, std::__1::vector<VGLRect, vk_allocator<VGLRect>>>, void *>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<VKPolylineOverlaySection *, std::__1::vector<VGLRect, vk_allocator<VGLRect>>>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<VKPolylineOverlaySection *, std::__1::vector<VGLRect, vk_allocator<VGLRect>>>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<VKPolylineOverlaySection *, std::__1::vector<VGLRect, vk_allocator<VGLRect>>>, void *>*> {
-                struct __hash_node<std::__1::pair<VKPolylineOverlaySection *, std::__1::vector<VGLRect, vk_allocator<VGLRect>>>, void *> *__next_;
-            } __first_;
-        } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<VKPolylineOverlaySection *, std::__1::vector<VGLRect, vk_allocator<VGLRect>>, std::__1::hash<VKPolylineOverlaySection *>, true>> {
-            unsigned long __first_;
-        } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<VKPolylineOverlaySection *, std::__1::vector<VGLRect, vk_allocator<VGLRect>>, std::__1::equal_to<VKPolylineOverlaySection *>, true>> {
-            float __first_;
-        } __p3_;
-    } __table_;
-};
-
-struct unordered_map<VKVectorTile *, OccluderGroupList, std::__1::hash<VKVectorTile *>, std::__1::equal_to<VKVectorTile *>, vk_allocator<std::__1::pair<VKVectorTile *const, OccluderGroupList>>> {
-    struct __hash_table<std::__1::pair<VKVectorTile *, OccluderGroupList>, std::__1::__unordered_map_hasher<VKVectorTile *, OccluderGroupList, std::__1::hash<VKVectorTile *>, true>, std::__1::__unordered_map_equal<VKVectorTile *, OccluderGroupList, std::__1::equal_to<VKVectorTile *>, true>, vk_allocator<std::__1::pair<VKVectorTile *, OccluderGroupList>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>*> {
-                struct __hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *> *__next_;
-            } __first_;
-        } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<VKVectorTile *, OccluderGroupList, std::__1::hash<VKVectorTile *>, true>> {
-            unsigned long __first_;
-        } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<VKVectorTile *, OccluderGroupList, std::__1::equal_to<VKVectorTile *>, true>> {
-            float __first_;
-        } __p3_;
-    } __table_;
-};
-
-struct unordered_map<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>, std::__1::hash<int>, std::__1::equal_to<int>, std::__1::allocator<std::__1::pair<const int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>>>> {
-    struct __hash_table<std::__1::pair<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>>, std::__1::__unordered_map_hasher<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>, std::__1::hash<int>, true>, std::__1::__unordered_map_equal<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>, std::__1::equal_to<int>, true>, std::__1::allocator<std::__1::pair<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>>, void *>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::pair<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>>, void *>*> {
-                struct __hash_node<std::__1::pair<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>>, void *> *__next_;
-            } __first_;
-        } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>, std::__1::hash<int>, true>> {
-            unsigned long __first_;
-        } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>, std::__1::equal_to<int>, true>> {
-            float __first_;
-        } __p3_;
-    } __table_;
-};
-
-struct unordered_map<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>, std::__1::hash<int>, std::__1::equal_to<int>, vk_allocator<std::__1::pair<const int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>>> {
-    struct __hash_table<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, std::__1::__unordered_map_hasher<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>, std::__1::hash<int>, true>, std::__1::__unordered_map_equal<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>, std::__1::equal_to<int>, true>, vk_allocator<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>*> {
-                struct __hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *> *__next_;
-            } __first_;
-        } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>, std::__1::hash<int>, true>> {
-            unsigned long __first_;
-        } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>, std::__1::equal_to<int>, true>> {
-            float __first_;
-        } __p3_;
-    } __table_;
-};
-
-struct unordered_map<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, vk_allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>>> {
-    struct __hash_table<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, std::__1::__unordered_map_hasher<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>, std::__1::hash<std::__1::basic_string<char>>, true>, std::__1::__unordered_map_equal<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>, std::__1::equal_to<std::__1::basic_string<char>>, true>, vk_allocator<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*> {
-                struct __hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *> *__next_;
-            } __first_;
-        } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>, std::__1::hash<std::__1::basic_string<char>>, true>> {
-            unsigned long __first_;
-        } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>, std::__1::equal_to<std::__1::basic_string<char>>, true>> {
-            float __first_;
-        } __p3_;
-    } __table_;
-};
-
-struct unordered_map<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, vk_allocator<std::__1::pair<const unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>>> {
-    struct __hash_table<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, std::__1::__unordered_map_hasher<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>, std::__1::equal_to<unsigned int>, true>, vk_allocator<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*>>> _field1;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*> {
-                struct __hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *> *_field1;
+struct unordered_map<unsigned int, unsigned long long, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, unsigned long long>>> {
+    struct __hash_table<std::__1::__hash_value_type<unsigned int, unsigned long long>, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, unsigned long long>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, unsigned long long>, std::__1::equal_to<unsigned int>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned int, unsigned long long>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned long long>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned long long>, void *>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned long long>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned long long>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned long long>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<unsigned int, unsigned long long>, void *> *_field1;
             } _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>, std::__1::hash<unsigned int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, unsigned long long>, std::__1::hash<unsigned int>, true>> {
             unsigned long _field1;
         } _field3;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>, std::__1::equal_to<unsigned int>, true>> {
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, unsigned long long>, std::__1::equal_to<unsigned int>, true>> {
             float _field1;
         } _field4;
     } _field1;
 };
 
-struct unordered_map<unsigned int, unsigned int, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, vk_allocator<std::__1::pair<const unsigned int, unsigned int>>> {
-    struct __hash_table<std::__1::pair<unsigned int, unsigned int>, std::__1::__unordered_map_hasher<unsigned int, unsigned int, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, unsigned int, std::__1::equal_to<unsigned int>, true>, vk_allocator<std::__1::pair<unsigned int, unsigned int>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, unsigned int>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, unsigned int>, void *>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, unsigned int>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, unsigned int>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, unsigned int>, void *>*> {
-                struct __hash_node<std::__1::pair<unsigned int, unsigned int>, void *> *__next_;
-            } __first_;
-        } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned int, unsigned int, std::__1::hash<unsigned int>, true>> {
-            unsigned long __first_;
-        } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned int, unsigned int, std::__1::equal_to<unsigned int>, true>> {
-            float __first_;
-        } __p3_;
-    } __table_;
-};
-
-struct unordered_map<unsigned int, vk::BuildingTopMeshFactory::Group, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, vk_allocator<std::__1::pair<const unsigned int, vk::BuildingTopMeshFactory::Group>>> {
-    struct __hash_table<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, std::__1::__unordered_map_hasher<unsigned int, vk::BuildingTopMeshFactory::Group, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, vk::BuildingTopMeshFactory::Group, std::__1::equal_to<unsigned int>, true>, vk_allocator<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>*>>> _field1;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>*> {
-                struct __hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *> *_field1;
+struct unordered_map<unsigned long long, md::StyleMatchingTree *, std::__1::hash<unsigned long long>, std::__1::equal_to<unsigned long long>, std::__1::allocator<std::__1::pair<const unsigned long long, md::StyleMatchingTree *>>> {
+    struct __hash_table<std::__1::__hash_value_type<unsigned long long, md::StyleMatchingTree *>, std::__1::__unordered_map_hasher<unsigned long long, std::__1::__hash_value_type<unsigned long long, md::StyleMatchingTree *>, std::__1::hash<unsigned long long>, true>, std::__1::__unordered_map_equal<unsigned long long, std::__1::__hash_value_type<unsigned long long, md::StyleMatchingTree *>, std::__1::equal_to<unsigned long long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long long, md::StyleMatchingTree *>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::StyleMatchingTree *>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::StyleMatchingTree *>, void *>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::StyleMatchingTree *>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::StyleMatchingTree *>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::StyleMatchingTree *>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<unsigned long long, md::StyleMatchingTree *>, void *> *_field1;
             } _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned int, vk::BuildingTopMeshFactory::Group, std::__1::hash<unsigned int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned long long, std::__1::__hash_value_type<unsigned long long, md::StyleMatchingTree *>, std::__1::hash<unsigned long long>, true>> {
             unsigned long _field1;
         } _field3;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned int, vk::BuildingTopMeshFactory::Group, std::__1::equal_to<unsigned int>, true>> {
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned long long, std::__1::__hash_value_type<unsigned long long, md::StyleMatchingTree *>, std::__1::equal_to<unsigned long long>, true>> {
             float _field1;
         } _field4;
     } _field1;
 };
 
-struct unordered_multimap<long long, const zilch::TrafficDynamicTile::Flow *, std::__1::hash<long long>, std::__1::equal_to<long long>, vk_allocator<std::__1::pair<const long long, const zilch::TrafficDynamicTile::Flow *>>> {
-    struct __hash_table<std::__1::pair<long long, const zilch::TrafficDynamicTile::Flow *>, std::__1::__unordered_map_hasher<long long, const zilch::TrafficDynamicTile::Flow *, std::__1::hash<long long>, true>, std::__1::__unordered_map_equal<long long, const zilch::TrafficDynamicTile::Flow *, std::__1::equal_to<long long>, true>, vk_allocator<std::__1::pair<long long, const zilch::TrafficDynamicTile::Flow *>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<long long, const zilch::TrafficDynamicTile::Flow *>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*> {
-                struct __hash_node<std::__1::pair<long long, const zilch::TrafficDynamicTile::Flow *>, void *> *__next_;
+struct unordered_map<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>, std::__1::hash<vk::PatternedBatchKey>, std::__1::equal_to<vk::PatternedBatchKey>, std::__1::allocator<std::__1::pair<const vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>>> {
+    struct __hash_table<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, std::__1::__unordered_map_hasher<vk::PatternedBatchKey, std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, std::__1::hash<vk::PatternedBatchKey>, true>, std::__1::__unordered_map_equal<vk::PatternedBatchKey, std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, std::__1::equal_to<vk::PatternedBatchKey>, true>, std::__1::allocator<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, void *>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, void *> *_field1;
+            } _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<vk::PatternedBatchKey, std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, std::__1::hash<vk::PatternedBatchKey>, true>> {
+            unsigned long _field1;
+        } _field3;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<vk::PatternedBatchKey, std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, std::__1::equal_to<vk::PatternedBatchKey>, true>> {
+            float _field1;
+        } _field4;
+    } _field1;
+};
+
+struct unordered_map<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>, std::__1::hash<vk::RoadBatchKey>, std::__1::equal_to<vk::RoadBatchKey>, std::__1::allocator<std::__1::pair<const vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>>> {
+    struct __hash_table<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, std::__1::__unordered_map_hasher<vk::RoadBatchKey, std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, std::__1::hash<vk::RoadBatchKey>, true>, std::__1::__unordered_map_equal<vk::RoadBatchKey, std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, std::__1::equal_to<vk::RoadBatchKey>, true>, std::__1::allocator<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, void *>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, void *> *_field1;
+            } _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<vk::RoadBatchKey, std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, std::__1::hash<vk::RoadBatchKey>, true>> {
+            unsigned long _field1;
+        } _field3;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<vk::RoadBatchKey, std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, std::__1::equal_to<vk::RoadBatchKey>, true>> {
+            float _field1;
+        } _field4;
+    } _field1;
+};
+
+struct unordered_map<vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>, std::__1::hash<vk::TrafficBatchKey>, std::__1::equal_to<vk::TrafficBatchKey>, std::__1::allocator<std::__1::pair<const vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>>>> {
+    struct __hash_table<std::__1::__hash_value_type<vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>>, std::__1::__unordered_map_hasher<vk::TrafficBatchKey, std::__1::__hash_value_type<vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>>, std::__1::hash<vk::TrafficBatchKey>, true>, std::__1::__unordered_map_equal<vk::TrafficBatchKey, std::__1::__hash_value_type<vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>>, std::__1::equal_to<vk::TrafficBatchKey>, true>, std::__1::allocator<std::__1::__hash_value_type<vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>>, void *>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>>, void *> *_field1;
+            } _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<vk::TrafficBatchKey, std::__1::__hash_value_type<vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>>, std::__1::hash<vk::TrafficBatchKey>, true>> {
+            unsigned long _field1;
+        } _field3;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<vk::TrafficBatchKey, std::__1::__hash_value_type<vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>>, std::__1::equal_to<vk::TrafficBatchKey>, true>> {
+            float _field1;
+        } _field4;
+    } _field1;
+};
+
+struct unordered_multimap<long long, const zilch::TrafficDynamicTile::Flow *, std::__1::hash<long long>, std::__1::equal_to<long long>, std::__1::allocator<std::__1::pair<const long long, const zilch::TrafficDynamicTile::Flow *>>> {
+    struct __hash_table<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, std::__1::__unordered_map_hasher<long long, std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, std::__1::hash<long long>, true>, std::__1::__unordered_map_equal<long long, std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, std::__1::equal_to<long long>, true>, std::__1::allocator<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *> *__next_;
             } __first_;
         } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<long long, const zilch::TrafficDynamicTile::Flow *, std::__1::hash<long long>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<long long, std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, std::__1::hash<long long>, true>> {
             unsigned long __first_;
         } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<long long, const zilch::TrafficDynamicTile::Flow *, std::__1::equal_to<long long>, true>> {
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<long long, std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, std::__1::equal_to<long long>, true>> {
             float __first_;
         } __p3_;
     } __table_;
 };
 
-struct unordered_multimap<unsigned int, VKRibbonMultiPolylineSegment *, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, vk_allocator<std::__1::pair<const unsigned int, VKRibbonMultiPolylineSegment *>>> {
-    struct __hash_table<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, std::__1::__unordered_map_hasher<unsigned int, VKRibbonMultiPolylineSegment *, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, VKRibbonMultiPolylineSegment *, std::__1::equal_to<unsigned int>, true>, vk_allocator<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*> {
-                struct __hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *> *__next_;
+struct unordered_set<GEOComposedRouteSection *, std::__1::hash<GEOComposedRouteSection *>, std::__1::equal_to<GEOComposedRouteSection *>, std::__1::allocator<GEOComposedRouteSection *>> {
+    struct __hash_table<GEOComposedRouteSection *, std::__1::hash<GEOComposedRouteSection *>, std::__1::equal_to<GEOComposedRouteSection *>, std::__1::allocator<GEOComposedRouteSection *>> {
+        struct unique_ptr<std::__1::__hash_node<GEOComposedRouteSection *, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<GEOComposedRouteSection *, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<GEOComposedRouteSection *, void *>*>, std::__1::allocator<std::__1::__hash_node<GEOComposedRouteSection *, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<GEOComposedRouteSection *, void *>*> {
+                struct __hash_node<GEOComposedRouteSection *, void *> *__next_;
             } __first_;
         } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned int, VKRibbonMultiPolylineSegment *, std::__1::hash<unsigned int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::hash<GEOComposedRouteSection *>> {
             unsigned long __first_;
         } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned int, VKRibbonMultiPolylineSegment *, std::__1::equal_to<unsigned int>, true>> {
+        struct __compressed_pair<float, std::__1::equal_to<GEOComposedRouteSection *>> {
             float __first_;
         } __p3_;
     } __table_;
 };
 
-struct unordered_set<int, std::__1::hash<int>, std::__1::equal_to<int>, vk_allocator<int>> {
-    struct __hash_table<int, std::__1::hash<int>, std::__1::equal_to<int>, vk_allocator<int>> {
-        struct unique_ptr<std::__1::__hash_node<int, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<int, void *>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<int, void *>*>, vk_allocator<std::__1::__hash_node<int, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<int, void *>*> {
-                struct __hash_node<int, void *> *__next_;
-            } __first_;
-        } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::hash<int>> {
-            unsigned long __first_;
-        } __p2_;
-        struct __compressed_pair<float, std::__1::equal_to<int>> {
-            float __first_;
-        } __p3_;
-    } __table_;
+struct vector<GEO3DBuildingFeature, std::__1::allocator<GEO3DBuildingFeature>> {
+    CDStruct_183601bc *_field1;
+    CDStruct_183601bc *_field2;
+    struct __compressed_pair<GEO3DBuildingFeature *, std::__1::allocator<GEO3DBuildingFeature>> {
+        CDStruct_183601bc *_field1;
+    } _field3;
 };
 
-struct vector<GEOLocationCoordinate2D, vk_allocator<GEOLocationCoordinate2D>> {
+struct vector<GEOLocationCoordinate2D, std::__1::allocator<GEOLocationCoordinate2D>> {
     CDStruct_183601bc *__begin_;
     CDStruct_183601bc *__end_;
-    struct __compressed_pair<GEOLocationCoordinate2D *, vk_allocator<GEOLocationCoordinate2D>> {
+    struct __compressed_pair<GEOLocationCoordinate2D *, std::__1::allocator<GEOLocationCoordinate2D>> {
         CDStruct_183601bc *__first_;
     } __end_cap_;
 };
 
-struct vector<LabelNavJunctionInfo, vk_allocator<LabelNavJunctionInfo>> {
+struct vector<LabelNavJunctionInfo, std::__1::allocator<LabelNavJunctionInfo>> {
     struct LabelNavJunctionInfo *__begin_;
     struct LabelNavJunctionInfo *__end_;
-    struct __compressed_pair<LabelNavJunctionInfo *, vk_allocator<LabelNavJunctionInfo>> {
+    struct __compressed_pair<LabelNavJunctionInfo *, std::__1::allocator<LabelNavJunctionInfo>> {
         struct LabelNavJunctionInfo *__first_;
     } __end_cap_;
 };
 
-struct vector<LineDash, vk_allocator<LineDash>> {
-    struct LineDash *__begin_;
-    struct LineDash *__end_;
-    struct __compressed_pair<LineDash *, vk_allocator<LineDash>> {
-        struct LineDash *__first_;
-    } __end_cap_;
-};
-
-struct vector<LineStipple, vk_allocator<LineStipple>> {
-    struct LineStipple *__begin_;
-    struct LineStipple *__end_;
-    struct __compressed_pair<LineStipple *, vk_allocator<LineStipple>> {
-        struct LineStipple *__first_;
-    } __end_cap_;
-};
-
-struct vector<PolygonRenderStep, vk_allocator<PolygonRenderStep>> {
-    CDStruct_183601bc *__begin_;
-    CDStruct_183601bc *__end_;
-    struct __compressed_pair<PolygonRenderStep *, vk_allocator<PolygonRenderStep>> {
-        CDStruct_183601bc *__first_;
-    } __end_cap_;
-};
-
-struct vector<RouteJunctionInfo, vk_allocator<RouteJunctionInfo>> {
+struct vector<RouteJunctionInfo, std::__1::allocator<RouteJunctionInfo>> {
     struct RouteJunctionInfo *_field1;
     struct RouteJunctionInfo *_field2;
-    struct __compressed_pair<RouteJunctionInfo *, vk_allocator<RouteJunctionInfo>> {
+    struct __compressed_pair<RouteJunctionInfo *, std::__1::allocator<RouteJunctionInfo>> {
         struct RouteJunctionInfo *_field1;
     } _field3;
 };
 
-struct vector<RouteSegment, vk_allocator<RouteSegment>> {
+struct vector<RouteSegment, std::__1::allocator<RouteSegment>> {
     struct RouteSegment *__begin_;
     struct RouteSegment *__end_;
-    struct __compressed_pair<RouteSegment *, vk_allocator<RouteSegment>> {
+    struct __compressed_pair<RouteSegment *, std::__1::allocator<RouteSegment>> {
         struct RouteSegment *__first_;
     } __end_cap_;
 };
 
-struct vector<TrafficSegment, vk_allocator<TrafficSegment>> {
+struct vector<TrafficSegment, std::__1::allocator<TrafficSegment>> {
     struct TrafficSegment *__begin_;
     struct TrafficSegment *__end_;
-    struct __compressed_pair<TrafficSegment *, vk_allocator<TrafficSegment>> {
+    struct __compressed_pair<TrafficSegment *, std::__1::allocator<TrafficSegment>> {
         struct TrafficSegment *__first_;
     } __end_cap_;
 };
 
-struct vector<UniformHandle, vk_allocator<UniformHandle>> {
-    struct UniformHandle *__begin_;
-    struct UniformHandle *__end_;
-    struct __compressed_pair<UniformHandle *, vk_allocator<UniformHandle>> {
-        struct UniformHandle *__first_;
-    } __end_cap_;
-};
-
-struct vector<VGLArrowMeshInfo, vk_allocator<VGLArrowMeshInfo>> {
+struct vector<VGLRect, std::__1::allocator<VGLRect>> {
     CDStruct_183601bc *__begin_;
     CDStruct_183601bc *__end_;
-    struct __compressed_pair<VGLArrowMeshInfo *, vk_allocator<VGLArrowMeshInfo>> {
+    struct __compressed_pair<VGLRect *, std::__1::allocator<VGLRect>> {
         CDStruct_183601bc *__first_;
     } __end_cap_;
 };
 
-struct vector<VGLGroupInfo, vk_allocator<VGLGroupInfo>> {
+struct vector<VKBuildingHeightMap, std::__1::allocator<VKBuildingHeightMap>> {
     CDStruct_183601bc *__begin_;
     CDStruct_183601bc *__end_;
-    struct __compressed_pair<VGLGroupInfo *, vk_allocator<VGLGroupInfo>> {
+    struct __compressed_pair<VKBuildingHeightMap *, std::__1::allocator<VKBuildingHeightMap>> {
         CDStruct_183601bc *__first_;
     } __end_cap_;
 };
 
-struct vector<VGLMeshLeafNode, vk_allocator<VGLMeshLeafNode>> {
-    struct VGLMeshLeafNode *__begin_;
-    struct VGLMeshLeafNode *__end_;
-    struct __compressed_pair<VGLMeshLeafNode *, vk_allocator<VGLMeshLeafNode>> {
-        struct VGLMeshLeafNode *__first_;
-    } __end_cap_;
-};
-
-struct vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>> {
+struct vector<VKMapTile *, std::__1::allocator<VKMapTile *>> {
     id *__begin_;
     id *__end_;
-    struct __compressed_pair<VGLMeshVendor **, vk_allocator<VGLMeshVendor *>> {
+    struct __compressed_pair<VKMapTile **, std::__1::allocator<VKMapTile *>> {
         id *__first_;
     } __end_cap_;
 };
 
-struct vector<VGLRect, vk_allocator<VGLRect>> {
+struct vector<VKRect, std::__1::allocator<VKRect>> {
     CDStruct_183601bc *__begin_;
     CDStruct_183601bc *__end_;
-    struct __compressed_pair<VGLRect *, vk_allocator<VGLRect>> {
+    struct __compressed_pair<VKRect *, std::__1::allocator<VKRect>> {
         CDStruct_183601bc *__first_;
     } __end_cap_;
 };
 
-struct vector<VKBuildingHeightMap, vk_allocator<VKBuildingHeightMap>> {
-    CDStruct_183601bc *__begin_;
-    CDStruct_183601bc *__end_;
-    struct __compressed_pair<VKBuildingHeightMap *, vk_allocator<VKBuildingHeightMap>> {
-        CDStruct_183601bc *__first_;
+struct vector<VKTileKey, std::__1::allocator<VKTileKey>> {
+    struct VKTileKey *__begin_;
+    struct VKTileKey *__end_;
+    struct __compressed_pair<VKTileKey *, std::__1::allocator<VKTileKey>> {
+        struct VKTileKey *__first_;
     } __end_cap_;
 };
 
-struct vector<VKMapTile *, vk_allocator<VKMapTile *>> {
-    id *__begin_;
-    id *__end_;
-    struct __compressed_pair<VKMapTile **, vk_allocator<VKMapTile *>> {
-        id *__first_;
-    } __end_cap_;
-};
-
-struct vector<VKRibbonMultiPolylineSegment, vk_allocator<VKRibbonMultiPolylineSegment>> {
-    struct VKRibbonMultiPolylineSegment *__begin_;
-    struct VKRibbonMultiPolylineSegment *__end_;
-    struct __compressed_pair<VKRibbonMultiPolylineSegment *, vk_allocator<VKRibbonMultiPolylineSegment>> {
-        struct VKRibbonMultiPolylineSegment *__first_;
-    } __end_cap_;
-};
-
-struct vector<VKRibbonPolylineSegment, vk_allocator<VKRibbonPolylineSegment>> {
-    struct VKRibbonPolylineSegment *_field1;
-    struct VKRibbonPolylineSegment *_field2;
-    struct __compressed_pair<VKRibbonPolylineSegment *, vk_allocator<VKRibbonPolylineSegment>> {
-        struct VKRibbonPolylineSegment *_field1;
-    } _field3;
-};
-
-struct vector<_VKRealisticPolygonMetaData, vk_allocator<_VKRealisticPolygonMetaData>> {
+struct vector<_VKRealisticPolygonMetaData, std::__1::allocator<_VKRealisticPolygonMetaData>> {
     struct _VKRealisticPolygonMetaData *__begin_;
     struct _VKRealisticPolygonMetaData *__end_;
-    struct __compressed_pair<_VKRealisticPolygonMetaData *, vk_allocator<_VKRealisticPolygonMetaData>> {
+    struct __compressed_pair<_VKRealisticPolygonMetaData *, std::__1::allocator<_VKRealisticPolygonMetaData>> {
         struct _VKRealisticPolygonMetaData *__first_;
     } __end_cap_;
 };
 
-struct vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>> {
-    struct DiscontinuityEdgeInfo **_field1;
-    struct DiscontinuityEdgeInfo **_field2;
-    struct __compressed_pair<const vk::DiscontinuityEdgeInfo **, vk_allocator<const vk::DiscontinuityEdgeInfo *>> {
-        struct DiscontinuityEdgeInfo **_field1;
-    } _field3;
-};
-
-struct vector<double, vk_allocator<double>> {
+struct vector<double, std::__1::allocator<double>> {
     double *_field1;
     double *_field2;
-    struct __compressed_pair<double *, vk_allocator<double>> {
+    struct __compressed_pair<double *, std::__1::allocator<double>> {
         double *_field1;
     } _field3;
 };
 
-struct vector<geo::PolylineCoordinate, vk_allocator<geo::PolylineCoordinate>> {
-    struct PolylineCoordinate *__begin_;
-    struct PolylineCoordinate *__end_;
-    struct __compressed_pair<geo::PolylineCoordinate *, vk_allocator<geo::PolylineCoordinate>> {
-        struct PolylineCoordinate *__first_;
+struct vector<geo::fast_shared_ptr<vk::RouteLineSection>, std::__1::allocator<geo::fast_shared_ptr<vk::RouteLineSection>>> {
+    fast_shared_ptr_502c59d0 *__begin_;
+    fast_shared_ptr_502c59d0 *__end_;
+    struct __compressed_pair<geo::fast_shared_ptr<vk::RouteLineSection>*, std::__1::allocator<geo::fast_shared_ptr<vk::RouteLineSection>>> {
+        fast_shared_ptr_502c59d0 *__first_;
     } __end_cap_;
 };
 
-struct vector<geo::Vec2Imp<double>, vk_allocator<geo::Vec2Imp<double>>> {
-    struct Vec2Imp<double> *__begin_;
-    struct Vec2Imp<double> *__end_;
-    struct __compressed_pair<geo::Vec2Imp<double>*, vk_allocator<geo::Vec2Imp<double>>> {
-        struct Vec2Imp<double> *__first_;
-    } __end_cap_;
-};
-
-struct vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>> {
-    Vec2Imp_1782d7e3 *__begin_;
-    Vec2Imp_1782d7e3 *__end_;
-    struct __compressed_pair<geo::Vec2Imp<float>*, vk_allocator<geo::Vec2Imp<float>>> {
-        Vec2Imp_1782d7e3 *__first_;
-    } __end_cap_;
-};
-
-struct vector<geo::_retain_ptr<GEOVectorTile *, geo::_retain_objc, geo::_release_objc>, vk_allocator<geo::_retain_ptr<GEOVectorTile *, geo::_retain_objc, geo::_release_objc>>> {
-    struct _retain_ptr<GEOVectorTile *, geo::_retain_objc, geo::_release_objc> *_field1;
-    struct _retain_ptr<GEOVectorTile *, geo::_retain_objc, geo::_release_objc> *_field2;
-    struct __compressed_pair<geo::_retain_ptr<GEOVectorTile *, geo::_retain_objc, geo::_release_objc>*, vk_allocator<geo::_retain_ptr<GEOVectorTile *, geo::_retain_objc, geo::_release_objc>>> {
-        struct _retain_ptr<GEOVectorTile *, geo::_retain_objc, geo::_release_objc> *_field1;
+struct vector<ggl::BufferLoadItem, std::__1::allocator<ggl::BufferLoadItem>> {
+    struct BufferLoadItem *_field1;
+    struct BufferLoadItem *_field2;
+    struct __compressed_pair<ggl::BufferLoadItem *, std::__1::allocator<ggl::BufferLoadItem>> {
+        struct BufferLoadItem *_field1;
     } _field3;
 };
 
-struct vector<int, vk_allocator<int>> {
-    int *__begin_;
-    int *__end_;
-    struct __compressed_pair<int *, vk_allocator<int>> {
-        int *__first_;
-    } __end_cap_;
-};
-
-struct vector<routelineTrafficSegment, vk_allocator<routelineTrafficSegment>> {
-    struct routelineTrafficSegment *__begin_;
-    struct routelineTrafficSegment *__end_;
-    struct __compressed_pair<routelineTrafficSegment *, vk_allocator<routelineTrafficSegment>> {
-        struct routelineTrafficSegment *__first_;
-    } __end_cap_;
-};
-
-struct vector<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, vk_allocator<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>>> {
-    struct pair<unsigned int, VKRibbonMultiPolylineSegment *> *__begin_;
-    struct pair<unsigned int, VKRibbonMultiPolylineSegment *> *__end_;
-    struct __compressed_pair<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>*, vk_allocator<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>>> {
-        struct pair<unsigned int, VKRibbonMultiPolylineSegment *> *__first_;
-    } __end_cap_;
-};
-
-struct vector<std::__1::shared_ptr<vk::FontAtlasPage>, vk_allocator<std::__1::shared_ptr<vk::FontAtlasPage>>> {
-    struct shared_ptr<vk::FontAtlasPage> *_field1;
-    struct shared_ptr<vk::FontAtlasPage> *_field2;
-    struct __compressed_pair<std::__1::shared_ptr<vk::FontAtlasPage>*, vk_allocator<std::__1::shared_ptr<vk::FontAtlasPage>>> {
-        struct shared_ptr<vk::FontAtlasPage> *_field1;
+struct vector<ggl::Building::BuildingMesh *, std::__1::allocator<ggl::Building::BuildingMesh *>> {
+    struct BuildingMesh **_field1;
+    struct BuildingMesh **_field2;
+    struct __compressed_pair<ggl::Building::BuildingMesh **, std::__1::allocator<ggl::Building::BuildingMesh *>> {
+        struct BuildingMesh **_field1;
     } _field3;
 };
 
-struct vector<std::__1::shared_ptr<vk::InfoLabel>, vk_allocator<std::__1::shared_ptr<vk::InfoLabel>>> {
-    shared_ptr_0c41964b *_field1;
-    shared_ptr_0c41964b *_field2;
-    struct __compressed_pair<std::__1::shared_ptr<vk::InfoLabel>*, vk_allocator<std::__1::shared_ptr<vk::InfoLabel>>> {
-        shared_ptr_0c41964b *_field1;
+struct vector<ggl::BuildingPointyRoof::BuildingMesh *, std::__1::allocator<ggl::BuildingPointyRoof::BuildingMesh *>> {
+    struct BuildingMesh **_field1;
+    struct BuildingMesh **_field2;
+    struct __compressed_pair<ggl::BuildingPointyRoof::BuildingMesh **, std::__1::allocator<ggl::BuildingPointyRoof::BuildingMesh *>> {
+        struct BuildingMesh **_field1;
     } _field3;
 };
 
-struct vector<std::__1::shared_ptr<vk::InfoMapTile>, vk_allocator<std::__1::shared_ptr<vk::InfoMapTile>>> {
-    shared_ptr_a619b154 *__begin_;
-    shared_ptr_a619b154 *__end_;
-    struct __compressed_pair<std::__1::shared_ptr<vk::InfoMapTile>*, vk_allocator<std::__1::shared_ptr<vk::InfoMapTile>>> {
-        shared_ptr_a619b154 *__first_;
+struct vector<ggl::CommandBuffer *, std::__1::allocator<ggl::CommandBuffer *>> {
+    struct CommandBuffer **_field1;
+    struct CommandBuffer **_field2;
+    struct __compressed_pair<ggl::CommandBuffer **, std::__1::allocator<ggl::CommandBuffer *>> {
+        struct CommandBuffer **_field1;
+    } _field3;
+};
+
+struct vector<ggl::FragmentBuffer *, std::__1::allocator<ggl::FragmentBuffer *>> {
+    struct FragmentBuffer **_field1;
+    struct FragmentBuffer **_field2;
+    struct __compressed_pair<ggl::FragmentBuffer **, std::__1::allocator<ggl::FragmentBuffer *>> {
+        struct FragmentBuffer **_field1;
+    } _field3;
+};
+
+struct vector<ggl::Glow::MeshMesh *, std::__1::allocator<ggl::Glow::MeshMesh *>> {
+    struct MeshMesh **_field1;
+    struct MeshMesh **_field2;
+    struct __compressed_pair<ggl::Glow::MeshMesh **, std::__1::allocator<ggl::Glow::MeshMesh *>> {
+        struct MeshMesh **_field1;
+    } _field3;
+};
+
+struct vector<ggl::MultiRange, std::__1::allocator<ggl::MultiRange>> {
+    struct MultiRange *__begin_;
+    struct MultiRange *__end_;
+    struct __compressed_pair<ggl::MultiRange *, std::__1::allocator<ggl::MultiRange>> {
+        struct MultiRange *__first_;
     } __end_cap_;
 };
 
-struct vector<std::__1::shared_ptr<vk::LabelIcon>, vk_allocator<std::__1::shared_ptr<vk::LabelIcon>>> {
-    struct shared_ptr<vk::LabelIcon> *_field1;
-    struct shared_ptr<vk::LabelIcon> *_field2;
-    struct __compressed_pair<std::__1::shared_ptr<vk::LabelIcon>*, vk_allocator<std::__1::shared_ptr<vk::LabelIcon>>> {
-        struct shared_ptr<vk::LabelIcon> *_field1;
+struct vector<ggl::OptimizedTraffic::BaseMesh *, std::__1::allocator<ggl::OptimizedTraffic::BaseMesh *>> {
+    struct BaseMesh **_field1;
+    struct BaseMesh **_field2;
+    struct __compressed_pair<ggl::OptimizedTraffic::BaseMesh **, std::__1::allocator<ggl::OptimizedTraffic::BaseMesh *>> {
+        struct BaseMesh **_field1;
     } _field3;
 };
 
-struct vector<std::__1::shared_ptr<vk::NavLabel>, vk_allocator<std::__1::shared_ptr<vk::NavLabel>>> {
+struct vector<ggl::PatternedRibbon::BaseMesh *, std::__1::allocator<ggl::PatternedRibbon::BaseMesh *>> {
+    struct BaseMesh **_field1;
+    struct BaseMesh **_field2;
+    struct __compressed_pair<ggl::PatternedRibbon::BaseMesh **, std::__1::allocator<ggl::PatternedRibbon::BaseMesh *>> {
+        struct BaseMesh **_field1;
+    } _field3;
+};
+
+struct vector<ggl::PolygonBase::MeshMesh, std::__1::allocator<ggl::PolygonBase::MeshMesh>> {
+    struct MeshMesh *__begin_;
+    struct MeshMesh *__end_;
+    struct __compressed_pair<ggl::PolygonBase::MeshMesh *, std::__1::allocator<ggl::PolygonBase::MeshMesh>> {
+        struct MeshMesh *__first_;
+    } __end_cap_;
+};
+
+struct vector<ggl::PolygonMesh::MeshMesh *, std::__1::allocator<ggl::PolygonMesh::MeshMesh *>> {
+    struct MeshMesh **_field1;
+    struct MeshMesh **_field2;
+    struct __compressed_pair<ggl::PolygonMesh::MeshMesh **, std::__1::allocator<ggl::PolygonMesh::MeshMesh *>> {
+        struct MeshMesh **_field1;
+    } _field3;
+};
+
+struct vector<ggl::PolygonMesh::MeshMesh, std::__1::allocator<ggl::PolygonMesh::MeshMesh>> {
+    struct MeshMesh *__begin_;
+    struct MeshMesh *__end_;
+    struct __compressed_pair<ggl::PolygonMesh::MeshMesh *, std::__1::allocator<ggl::PolygonMesh::MeshMesh>> {
+        struct MeshMesh *__first_;
+    } __end_cap_;
+};
+
+struct vector<ggl::PrefilteredLine::PrefilteredLineMesh *, std::__1::allocator<ggl::PrefilteredLine::PrefilteredLineMesh *>> {
+    struct PrefilteredLineMesh **_field1;
+    struct PrefilteredLineMesh **_field2;
+    struct __compressed_pair<ggl::PrefilteredLine::PrefilteredLineMesh **, std::__1::allocator<ggl::PrefilteredLine::PrefilteredLineMesh *>> {
+        struct PrefilteredLineMesh **_field1;
+    } _field3;
+};
+
+struct vector<ggl::Range, std::__1::allocator<ggl::Range>> {
+    struct Range *__begin_;
+    struct Range *__end_;
+    struct __compressed_pair<ggl::Range *, std::__1::allocator<ggl::Range>> {
+        struct Range *__first_;
+    } __end_cap_;
+};
+
+struct vector<ggl::RenderItem *, std::__1::allocator<ggl::RenderItem *>> {
+    struct RenderItem **_field1;
+    struct RenderItem **_field2;
+    struct __compressed_pair<ggl::RenderItem **, std::__1::allocator<ggl::RenderItem *>> {
+        struct RenderItem **_field1;
+    } _field3;
+};
+
+struct vector<ggl::RenderItemBatcher, std::__1::allocator<ggl::RenderItemBatcher>> {
+    struct RenderItemBatcher *__begin_;
+    struct RenderItemBatcher *__end_;
+    struct __compressed_pair<ggl::RenderItemBatcher *, std::__1::allocator<ggl::RenderItemBatcher>> {
+        struct RenderItemBatcher *__first_;
+    } __end_cap_;
+};
+
+struct vector<ggl::RenderQueue::Pass, std::__1::allocator<ggl::RenderQueue::Pass>> {
+    struct Pass *_field1;
+    struct Pass *_field2;
+    struct __compressed_pair<ggl::RenderQueue::Pass *, std::__1::allocator<ggl::RenderQueue::Pass>> {
+        struct Pass *_field1;
+    } _field3;
+};
+
+struct vector<ggl::Ribbon::BaseMesh *, std::__1::allocator<ggl::Ribbon::BaseMesh *>> {
+    struct BaseMesh **_field1;
+    struct BaseMesh **_field2;
+    struct __compressed_pair<ggl::Ribbon::BaseMesh **, std::__1::allocator<ggl::Ribbon::BaseMesh *>> {
+        struct BaseMesh **_field1;
+    } _field3;
+};
+
+struct vector<ggl::ShaderLoadItem, std::__1::allocator<ggl::ShaderLoadItem>> {
+    struct ShaderLoadItem *_field1;
+    struct ShaderLoadItem *_field2;
+    struct __compressed_pair<ggl::ShaderLoadItem *, std::__1::allocator<ggl::ShaderLoadItem>> {
+        struct ShaderLoadItem *_field1;
+    } _field3;
+};
+
+struct vector<ggl::Texture2DLoadItem, std::__1::allocator<ggl::Texture2DLoadItem>> {
+    struct Texture2DLoadItem *_field1;
+    struct Texture2DLoadItem *_field2;
+    struct __compressed_pair<ggl::Texture2DLoadItem *, std::__1::allocator<ggl::Texture2DLoadItem>> {
+        struct Texture2DLoadItem *_field1;
+    } _field3;
+};
+
+struct vector<ggl::TextureBase *, std::__1::allocator<ggl::TextureBase *>> {
+    struct TextureBase **__begin_;
+    struct TextureBase **__end_;
+    struct __compressed_pair<ggl::TextureBase **, std::__1::allocator<ggl::TextureBase *>> {
+        struct TextureBase **__first_;
+    } __end_cap_;
+};
+
+struct vector<ggl::UniformDataElement, std::__1::allocator<ggl::UniformDataElement>> {
+    struct UniformDataElement *__begin_;
+    struct UniformDataElement *__end_;
+    struct __compressed_pair<ggl::UniformDataElement *, std::__1::allocator<ggl::UniformDataElement>> {
+        struct UniformDataElement *__first_;
+    } __end_cap_;
+};
+
+struct vector<gm::Matrix<double, 2, 1>, std::__1::allocator<gm::Matrix<double, 2, 1>>> {
+    struct Matrix<double, 2, 1> *__begin_;
+    struct Matrix<double, 2, 1> *__end_;
+    struct __compressed_pair<gm::Matrix<double, 2, 1>*, std::__1::allocator<gm::Matrix<double, 2, 1>>> {
+        struct Matrix<double, 2, 1> *__first_;
+    } __end_cap_;
+};
+
+struct vector<gm::Matrix<float, 2, 1>, std::__1::allocator<gm::Matrix<float, 2, 1>>> {
+    Matrix_8746f91e *_field1;
+    Matrix_8746f91e *_field2;
+    struct __compressed_pair<gm::Matrix<float, 2, 1>*, std::__1::allocator<gm::Matrix<float, 2, 1>>> {
+        Matrix_8746f91e *_field1;
+    } _field3;
+};
+
+struct vector<md::CommandBufferId, std::__1::allocator<md::CommandBufferId>> {
+    unsigned char *__begin_;
+    unsigned char *__end_;
+    struct __compressed_pair<md::CommandBufferId *, std::__1::allocator<md::CommandBufferId>> {
+        unsigned char *__first_;
+    } __end_cap_;
+};
+
+struct vector<md::StyleMatchingTree *, std::__1::allocator<md::StyleMatchingTree *>> {
+    struct StyleMatchingTree **__begin_;
+    struct StyleMatchingTree **__end_;
+    struct __compressed_pair<md::StyleMatchingTree **, std::__1::allocator<md::StyleMatchingTree *>> {
+        struct StyleMatchingTree **__first_;
+    } __end_cap_;
+};
+
+struct vector<std::__1::pair<unsigned short, unsigned int>, std::__1::allocator<std::__1::pair<unsigned short, unsigned int>>> {
+    struct pair<unsigned short, unsigned int> *__begin_;
+    struct pair<unsigned short, unsigned int> *__end_;
+    struct __compressed_pair<std::__1::pair<unsigned short, unsigned int>*, std::__1::allocator<std::__1::pair<unsigned short, unsigned int>>> {
+        struct pair<unsigned short, unsigned int> *__first_;
+    } __end_cap_;
+};
+
+struct vector<std::__1::shared_ptr<ggl::DebugRenderer>, std::__1::allocator<std::__1::shared_ptr<ggl::DebugRenderer>>> {
+    struct shared_ptr<ggl::DebugRenderer> *_field1;
+    struct shared_ptr<ggl::DebugRenderer> *_field2;
+    struct __compressed_pair<std::__1::shared_ptr<ggl::DebugRenderer>*, std::__1::allocator<std::__1::shared_ptr<ggl::DebugRenderer>>> {
+        struct shared_ptr<ggl::DebugRenderer> *_field1;
+    } _field3;
+};
+
+struct vector<std::__1::shared_ptr<ggl::PolygonSolidFill::Shader::Setup>, std::__1::allocator<std::__1::shared_ptr<ggl::PolygonSolidFill::Shader::Setup>>> {
+    struct shared_ptr<ggl::PolygonSolidFill::Shader::Setup> *__begin_;
+    struct shared_ptr<ggl::PolygonSolidFill::Shader::Setup> *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<ggl::PolygonSolidFill::Shader::Setup>*, std::__1::allocator<std::__1::shared_ptr<ggl::PolygonSolidFill::Shader::Setup>>> {
+        struct shared_ptr<ggl::PolygonSolidFill::Shader::Setup> *__first_;
+    } __end_cap_;
+};
+
+struct vector<std::__1::shared_ptr<ggl::RenderItem>, std::__1::allocator<std::__1::shared_ptr<ggl::RenderItem>>> {
+    struct shared_ptr<ggl::RenderItem> *__begin_;
+    struct shared_ptr<ggl::RenderItem> *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<ggl::RenderItem>*, std::__1::allocator<std::__1::shared_ptr<ggl::RenderItem>>> {
+        struct shared_ptr<ggl::RenderItem> *__first_;
+    } __end_cap_;
+};
+
+struct vector<std::__1::shared_ptr<ggl::RenderState>, std::__1::allocator<std::__1::shared_ptr<ggl::RenderState>>> {
+    struct shared_ptr<ggl::RenderState> *__begin_;
+    struct shared_ptr<ggl::RenderState> *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<ggl::RenderState>*, std::__1::allocator<std::__1::shared_ptr<ggl::RenderState>>> {
+        struct shared_ptr<ggl::RenderState> *__first_;
+    } __end_cap_;
+};
+
+struct vector<std::__1::shared_ptr<ggl::Texture2D>, std::__1::allocator<std::__1::shared_ptr<ggl::Texture2D>>> {
+    shared_ptr_479d1306 *__begin_;
+    shared_ptr_479d1306 *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<ggl::Texture2D>*, std::__1::allocator<std::__1::shared_ptr<ggl::Texture2D>>> {
+        shared_ptr_479d1306 *__first_;
+    } __end_cap_;
+};
+
+struct vector<std::__1::shared_ptr<md::StyleQuery>, std::__1::allocator<std::__1::shared_ptr<md::StyleQuery>>> {
+    shared_ptr_6e6219d6 *__begin_;
+    shared_ptr_6e6219d6 *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<md::StyleQuery>*, std::__1::allocator<std::__1::shared_ptr<md::StyleQuery>>> {
+        shared_ptr_6e6219d6 *__first_;
+    } __end_cap_;
+};
+
+struct vector<std::__1::shared_ptr<vk::LabelMapTile>, std::__1::allocator<std::__1::shared_ptr<vk::LabelMapTile>>> {
+    shared_ptr_89f9185e *__begin_;
+    shared_ptr_89f9185e *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<vk::LabelMapTile>*, std::__1::allocator<std::__1::shared_ptr<vk::LabelMapTile>>> {
+        shared_ptr_89f9185e *__first_;
+    } __end_cap_;
+};
+
+struct vector<std::__1::shared_ptr<vk::NavLabel>, std::__1::allocator<std::__1::shared_ptr<vk::NavLabel>>> {
     shared_ptr_338aa11d *__begin_;
     shared_ptr_338aa11d *__end_;
-    struct __compressed_pair<std::__1::shared_ptr<vk::NavLabel>*, vk_allocator<std::__1::shared_ptr<vk::NavLabel>>> {
+    struct __compressed_pair<std::__1::shared_ptr<vk::NavLabel>*, std::__1::allocator<std::__1::shared_ptr<vk::NavLabel>>> {
         shared_ptr_338aa11d *__first_;
     } __end_cap_;
 };
 
-struct vector<std::__1::shared_ptr<vk::TrafficIncidentLabelFeature>, vk_allocator<std::__1::shared_ptr<vk::TrafficIncidentLabelFeature>>> {
-    struct shared_ptr<vk::TrafficIncidentLabelFeature> *_field1;
-    struct shared_ptr<vk::TrafficIncidentLabelFeature> *_field2;
-    struct __compressed_pair<std::__1::shared_ptr<vk::TrafficIncidentLabelFeature>*, vk_allocator<std::__1::shared_ptr<vk::TrafficIncidentLabelFeature>>> {
-        struct shared_ptr<vk::TrafficIncidentLabelFeature> *_field1;
-    } _field3;
-};
-
-struct vector<std::__1::vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>>, vk_allocator<std::__1::vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>>>> {
-    struct vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>> *__begin_;
-    struct vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>> *__end_;
-    struct __compressed_pair<std::__1::vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>>*, vk_allocator<std::__1::vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>>>> {
-        struct vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>> *__first_;
+struct vector<std::__1::unique_ptr<md::TexturedDrawable, std::__1::default_delete<md::TexturedDrawable>>, std::__1::allocator<std::__1::unique_ptr<md::TexturedDrawable, std::__1::default_delete<md::TexturedDrawable>>>> {
+    struct unique_ptr<md::TexturedDrawable, std::__1::default_delete<md::TexturedDrawable>> *__begin_;
+    struct unique_ptr<md::TexturedDrawable, std::__1::default_delete<md::TexturedDrawable>> *__end_;
+    struct __compressed_pair<std::__1::unique_ptr<md::TexturedDrawable, std::__1::default_delete<md::TexturedDrawable>>*, std::__1::allocator<std::__1::unique_ptr<md::TexturedDrawable, std::__1::default_delete<md::TexturedDrawable>>>> {
+        struct unique_ptr<md::TexturedDrawable, std::__1::default_delete<md::TexturedDrawable>> *__first_;
     } __end_cap_;
 };
 
-struct vector<unsigned int, vk_allocator<unsigned int>> {
-    unsigned int *_field1;
-    unsigned int *_field2;
-    struct __compressed_pair<unsigned int *, vk_allocator<unsigned int>> {
-        unsigned int *_field1;
-    } _field3;
-};
-
-struct vector<vk::CollisionItem, vk_allocator<vk::CollisionItem>> {
-    struct CollisionItem *_field1;
-    struct CollisionItem *_field2;
-    struct __compressed_pair<vk::CollisionItem *, vk_allocator<vk::CollisionItem>> {
-        struct CollisionItem *_field1;
-    } _field3;
-};
-
-struct vector<vk::CollisionPair, vk_allocator<vk::CollisionPair>> {
-    struct CollisionPair *_field1;
-    struct CollisionPair *_field2;
-    struct __compressed_pair<vk::CollisionPair *, vk_allocator<vk::CollisionPair>> {
-        struct CollisionPair *_field1;
-    } _field3;
-};
-
-struct vector<vk::IconLabelPart *, vk_allocator<vk::IconLabelPart *>> {
-    struct IconLabelPart **_field1;
-    struct IconLabelPart **_field2;
-    struct __compressed_pair<vk::IconLabelPart **, vk_allocator<vk::IconLabelPart *>> {
-        struct IconLabelPart **_field1;
-    } _field3;
-};
-
-struct vector<vk::InfoLabel *, vk_allocator<vk::InfoLabel *>> {
-    struct InfoLabel **_field1;
-    struct InfoLabel **_field2;
-    struct __compressed_pair<vk::InfoLabel **, vk_allocator<vk::InfoLabel *>> {
-        struct InfoLabel **_field1;
-    } _field3;
-};
-
-struct vector<vk::LabelMesh::BufferRange, vk_allocator<vk::LabelMesh::BufferRange>> {
-    struct BufferRange *_field1;
-    struct BufferRange *_field2;
-    struct __compressed_pair<vk::LabelMesh::BufferRange *, vk_allocator<vk::LabelMesh::BufferRange>> {
-        struct BufferRange *_field1;
-    } _field3;
-};
-
-struct vector<vk::RouteLineSection, vk_allocator<vk::RouteLineSection>> {
-    struct RouteLineSection *__begin_;
-    struct RouteLineSection *__end_;
-    struct __compressed_pair<vk::RouteLineSection *, vk_allocator<vk::RouteLineSection>> {
-        struct RouteLineSection *__first_;
+struct vector<std::__1::unique_ptr<vk::RouteLineArrowLayer, std::__1::default_delete<vk::RouteLineArrowLayer>>, std::__1::allocator<std::__1::unique_ptr<vk::RouteLineArrowLayer, std::__1::default_delete<vk::RouteLineArrowLayer>>>> {
+    struct unique_ptr<vk::RouteLineArrowLayer, std::__1::default_delete<vk::RouteLineArrowLayer>> *__begin_;
+    struct unique_ptr<vk::RouteLineArrowLayer, std::__1::default_delete<vk::RouteLineArrowLayer>> *__end_;
+    struct __compressed_pair<std::__1::unique_ptr<vk::RouteLineArrowLayer, std::__1::default_delete<vk::RouteLineArrowLayer>>*, std::__1::allocator<std::__1::unique_ptr<vk::RouteLineArrowLayer, std::__1::default_delete<vk::RouteLineArrowLayer>>>> {
+        struct unique_ptr<vk::RouteLineArrowLayer, std::__1::default_delete<vk::RouteLineArrowLayer>> *__first_;
     } __end_cap_;
 };
 
-struct vector<vk::RouteLineSection::Arrow, vk_allocator<vk::RouteLineSection::Arrow>> {
-    struct Arrow *_field1;
-    struct Arrow *_field2;
-    struct __compressed_pair<vk::RouteLineSection::Arrow *, vk_allocator<vk::RouteLineSection::Arrow>> {
-        struct Arrow *_field1;
+struct vector<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>, std::__1::allocator<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>>>;
+
+struct vector<std::__1::vector<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>, std::__1::allocator<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>>>, std::__1::allocator<std::__1::vector<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>, std::__1::allocator<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>>>>> {
+    struct vector<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>, std::__1::allocator<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>>> *__begin_;
+    struct vector<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>, std::__1::allocator<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>>> *__end_;
+    struct __compressed_pair<std::__1::vector<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>, std::__1::allocator<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>>>*, std::__1::allocator<std::__1::vector<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>, std::__1::allocator<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>>>>> {
+        struct vector<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>, std::__1::allocator<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>>> *__first_;
+    } __end_cap_;
+};
+
+struct vector<unsigned char, std::__1::allocator<unsigned char>> {
+    char *_field1;
+    char *_field2;
+    struct __compressed_pair<unsigned char *, std::__1::allocator<unsigned char>> {
+        char *_field1;
     } _field3;
 };
 
-struct vector<vk::RouteLineSection::Vertex, vk_allocator<vk::RouteLineSection::Vertex>> {
-    struct Vertex *_field1;
-    struct Vertex *_field2;
-    struct __compressed_pair<vk::RouteLineSection::Vertex *, vk_allocator<vk::RouteLineSection::Vertex>> {
-        struct Vertex *_field1;
+struct vector<vk::PatternedBatch *, std::__1::allocator<vk::PatternedBatch *>> {
+    struct PatternedBatch **_field1;
+    struct PatternedBatch **_field2;
+    struct __compressed_pair<vk::PatternedBatch **, std::__1::allocator<vk::PatternedBatch *>> {
+        struct PatternedBatch **_field1;
     } _field3;
 };
 
-struct vector<vk::TextLabelPart *, vk_allocator<vk::TextLabelPart *>> {
-    struct TextLabelPart **_field1;
-    struct TextLabelPart **_field2;
-    struct __compressed_pair<vk::TextLabelPart **, vk_allocator<vk::TextLabelPart *>> {
-        struct TextLabelPart **_field1;
+struct vector<vk::RoadBatch *, std::__1::allocator<vk::RoadBatch *>> {
+    struct RoadBatch **_field1;
+    struct RoadBatch **_field2;
+    struct __compressed_pair<vk::RoadBatch **, std::__1::allocator<vk::RoadBatch *>> {
+        struct RoadBatch **_field1;
     } _field3;
 };
 
@@ -2071,39 +3540,13 @@ struct vector<vk::TileExclusionArea, std::__1::allocator<vk::TileExclusionArea>>
     } __end_cap_;
 };
 
-struct vector<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::IndicesQuad, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::IndicesQuad>> {
-    struct IndicesQuad *_field1;
-    struct IndicesQuad *_field2;
-    struct __compressed_pair<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::IndicesQuad *, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::IndicesQuad>> {
-        struct IndicesQuad *_field1;
+struct vector<vk::TrafficBatch *, std::__1::allocator<vk::TrafficBatch *>> {
+    struct TrafficBatch **_field1;
+    struct TrafficBatch **_field2;
+    struct __compressed_pair<vk::TrafficBatch **, std::__1::allocator<vk::TrafficBatch *>> {
+        struct TrafficBatch **_field1;
     } _field3;
 };
-
-struct vector<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::VertexQuad, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::VertexQuad>> {
-    struct VertexQuad *_field1;
-    struct VertexQuad *_field2;
-    struct __compressed_pair<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::VertexQuad *, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::VertexQuad>> {
-        struct VertexQuad *_field1;
-    } _field3;
-};
-
-struct vector<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::IndicesQuad, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::IndicesQuad>> {
-    struct IndicesQuad *_field1;
-    struct IndicesQuad *_field2;
-    struct __compressed_pair<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::IndicesQuad *, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::IndicesQuad>> {
-        struct IndicesQuad *_field1;
-    } _field3;
-};
-
-struct vector<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::VertexQuad, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::VertexQuad>> {
-    struct VertexQuad *_field1;
-    struct VertexQuad *_field2;
-    struct __compressed_pair<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::VertexQuad *, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::VertexQuad>> {
-        struct VertexQuad *_field1;
-    } _field3;
-};
-
-struct vector<zilch::GeoCoordinates, std::__1::allocator<zilch::GeoCoordinates>>;
 
 struct vector<zilch::TrafficSkeletonTile::Record, std::__1::allocator<zilch::TrafficSkeletonTile::Record>> {
     struct Record *__begin_;
@@ -2111,11 +3554,6 @@ struct vector<zilch::TrafficSkeletonTile::Record, std::__1::allocator<zilch::Tra
     struct __compressed_pair<zilch::TrafficSkeletonTile::Record *, std::__1::allocator<zilch::TrafficSkeletonTile::Record>> {
         struct Record *__first_;
     } __end_cap_;
-};
-
-struct weak_ptr<vk::LabelManager> {
-    struct LabelManager *_field1;
-    struct __shared_weak_count *_field2;
 };
 
 #if 0
@@ -2137,6 +3575,50 @@ typedef struct {
     id _field4;
 } Anchor_facb9ede;
 
+typedef struct {
+    CDUnknownFunctionPointerType *_field1;
+    shared_ptr_06328420 _field2;
+} RenderQueue_da5f8b9c;
+
+typedef struct {
+    struct vector<ggl::RenderQueue::Pass, std::__1::allocator<ggl::RenderQueue::Pass>> _field1;
+    struct vector<ggl::CommandBuffer *, std::__1::allocator<ggl::CommandBuffer *>> _field2;
+    struct shared_ptr<ggl::RenderTransaction> _field3;
+} RenderQueue_e4212455;
+
+typedef struct {
+    CDUnknownFunctionPointerType *_field1;
+    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field2;
+    CDUnknownFunctionPointerType *_field3;
+    struct ResourceManager *_field4;
+    struct RenderResource *_field5;
+    struct shared_ptr<ggl::VertexData> _field6;
+    struct shared_ptr<ggl::IndexData> _field7;
+    struct shared_ptr<ggl::Debug::BaseVertexData> _field8;
+} BaseMesh_dfada1e3;
+
+typedef struct {
+    CDUnknownFunctionPointerType *_field1;
+    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field2;
+    CDUnknownFunctionPointerType *_field3;
+    struct ResourceManager *_field4;
+    struct RenderResource *_field5;
+    struct shared_ptr<ggl::VertexData> _field6;
+    struct shared_ptr<ggl::IndexData> _field7;
+    struct shared_ptr<ggl::DebugPoints::BaseVertexData> _field8;
+} BaseMesh_90c5a177;
+
+typedef struct {
+    CDUnknownFunctionPointerType *_field1;
+    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field2;
+    CDUnknownFunctionPointerType *_field3;
+    struct ResourceManager *_field4;
+    struct RenderResource *_field5;
+    struct shared_ptr<ggl::VertexData> _field6;
+    struct shared_ptr<ggl::IndexData> _field7;
+    struct shared_ptr<ggl::RealisticCasingFacade::RealisticVertexData> _field8;
+} RealisticMesh_8b7fd8a0;
+
 #endif
 
 #pragma mark Typedef'd Structures
@@ -2153,9 +3635,10 @@ typedef struct {
     char _field9;
     unsigned long long _field10;
     float _field11;
-    id _field12;
-    int _field13;
-} CDStruct_4c1ff046;
+    unsigned long long _field12;
+    id _field13;
+    int _field14;
+} CDStruct_fafc065c;
 
 typedef struct {
     unsigned int _field1;
@@ -2189,6 +3672,12 @@ typedef struct {
 } CDStruct_084d6ede;
 
 typedef struct {
+    unsigned long long *list;
+    unsigned int count;
+    unsigned int size;
+} CDStruct_cb16bb10;
+
+typedef struct {
     float *list;
     unsigned int count;
     unsigned int size;
@@ -2199,6 +3688,14 @@ typedef struct {
     unsigned int count;
     unsigned int size;
 } CDStruct_56d48c16;
+
+typedef struct {
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+} CDStruct_a12fb154;
 
 typedef struct {
     char orthographic;
@@ -2215,6 +3712,13 @@ typedef struct {
 } CDStruct_32f014a0;
 
 typedef struct {
+    double x0;
+    double x1;
+    double y0;
+    double y1;
+} CDStruct_aca18c62;
+
+typedef struct {
     double latitude;
     double longitude;
     double altitude;
@@ -2228,51 +3732,27 @@ typedef struct {
 } CDStruct_58ec0031;
 
 typedef struct {
-    float x0;
-    float x1;
-    float y0;
-    float y1;
-    float z0;
-    float z1;
-} CDStruct_f3463f58;
-
-typedef struct {
-    float x;
-    float y;
-    float z;
-} CDStruct_03942939;
-
-typedef struct {
-    float factor;
-    float units;
-} CDStruct_e5f4ed30;
-
-typedef struct {
-    int blendMode;
-    float opacity;
-} CDStruct_c0b8bb23;
-
-typedef struct {
-    int _field1;
-    int _field2;
-    float _field3;
-    int _field4;
-    float _field5;
-} CDStruct_8471daaf;
+    float _field1;
+    float _field2;
+} CDStruct_b2fbf00d;
 
 typedef struct {
     int from;
     int to;
-    int fromDisplayStyle;
-    int toDisplayStyle;
+    unsigned int fromDisplayStyle;
+    unsigned int toDisplayStyle;
     float fraction;
-} CDStruct_c71ade79;
+} CDStruct_4f8a95cd;
 
 typedef struct {
-    int _field1;
-    int _field2;
-    int _field3;
-} CDStruct_77932685;
+    int vectorType;
+    int timePeriod;
+    int mapOverlayType;
+    char iconTappable;
+    NSString *localeString;
+    char isSelected;
+    unsigned int applicationState;
+} CDStruct_0504f6c7;
 
 typedef struct {
     int _field1;
@@ -2295,14 +3775,17 @@ typedef struct {
     unsigned int _field3;
     unsigned int _field4;
     int _field5;
-    struct {
-        unsigned int :1;
-        unsigned int :1;
-        unsigned int :1;
-        unsigned int :1;
-        unsigned int :1;
-    } _field6;
+    CDStruct_a12fb154 _field6;
 } CDStruct_e9f6a06b;
+
+typedef struct {
+    unsigned int _field1;
+    int _field2;
+    int _field3;
+    float _field4;
+    unsigned int _field5;
+    CDStruct_a12fb154 _field6;
+} CDStruct_033e8ed6;
 
 typedef struct {
     CDStruct_183601bc *_field1;
@@ -2315,35 +3798,39 @@ typedef struct {
 } CDStruct_fc3c0eb0;
 
 typedef struct {
+    float _field1;
+    float _field2;
+    float _field3;
+    Matrix_5173352a _field4;
+    Matrix_5173352a _field5;
+} CDStruct_ac74ac41;
+
+typedef struct {
     int iconStyle;
-    struct _VGLColor iconBadgeColor;
-    struct _VGLColor iconGradientColor[2];
-    struct _VGLColor iconBadgeLightColor;
+    Matrix_5173352a iconBadgeColor;
+    Matrix_5173352a iconGradientColor[2];
+    Matrix_5173352a iconBadgeLightColor;
     int iconBadgeLightBlendMode;
-    struct _VGLColor iconGlyphColor;
+    Matrix_5173352a iconGlyphColor;
     int iconGlyphStyle;
     int iconGlyphBlendMode;
     float iconHaloSize;
-    struct _VGLColor iconHaloColor;
+    Matrix_5173352a iconHaloColor;
     struct CGSize iconDropShadowOffset;
     float iconDropShadowSize;
-    struct _VGLColor iconDropShadowColor;
+    Matrix_5173352a iconDropShadowColor;
     float iconCornerRadius;
     float iconBrightness;
     float iconBevelAmount;
     unsigned int iconSourceStyleAttributeKey;
-} CDStruct_d3c687f7;
+    unsigned int iconSourceStyleMultipoiAttributeKey;
+} CDStruct_5977520b;
 
 typedef struct {
-    CDStruct_4c1ff046 _field1;
+    CDStruct_fafc065c _field1;
     char *_field2;
     unsigned int _field3;
-} CDStruct_0f5ec4c6;
-
-typedef struct {
-    CDStruct_34734122 origin;
-    CDStruct_8caa76fc size;
-} CDStruct_02837cd9;
+} CDStruct_f31c98c6;
 
 typedef struct {
     CDStruct_58ec0031 _color;
@@ -2362,15 +3849,8 @@ typedef struct {
 } CDStruct_f43f0670;
 
 typedef struct {
-    CDStruct_03942939 _field1;
-    Vec2Imp_1782d7e3 _field2;
-    CDStruct_03942939 _field3;
-} CDStruct_2066d242;
-
-typedef struct {
-    CDStruct_03942939 _field1;
-    Vec2Imp_1782d7e3 _field2;
-} CDStruct_3ef7eac3;
+    Matrix_5173352a _field1;
+} CDStruct_aed172a0;
 
 typedef struct {
     struct VKPoint position;
@@ -2380,51 +3860,9 @@ typedef struct {
 
 typedef struct {
     struct VKPoint position;
-    Vec3Imp_f658403c tangent;
+    Matrix_6e1d3589 tangent;
     char tangentValid;
-} CDStruct_87a99b1f;
-
-typedef struct {
-    struct VKPoint p;
-    Vec3Imp_f658403c n;
-} CDStruct_257eabe6;
-
-typedef struct {
-    double _field1;
-    struct PolylineCoordinate _field2;
-    struct VKPoint _field3;
-    double _field4;
-    double _field5;
-    unsigned int _field6;
-    char _field7;
-    struct {
-        unsigned int _field1;
-        double _field2;
-        struct PolylineCoordinate _field3;
-        struct {
-            double _field1;
-            double _field2;
-        } _field4;
-    } _field8;
-} CDStruct_34e0fc6f;
-
-typedef struct {
-    CDStruct_4c1ff046 _field1;
-    unsigned int _field2;
-    unsigned int _field3;
-    int _field4;
-    int _field5;
-    int _field6;
-    unsigned int _field7;
-    unsigned int _field8;
-    BRectImp_7721609a _field9;
-    CDStruct_183601bc *_field10;
-    struct {
-        unsigned short _field1[2];
-        unsigned short _field2[2];
-    } _field11;
-    unsigned char _field12;
-} CDStruct_c272c4e8;
+} CDStruct_cb41008d;
 
 typedef struct {
     struct {
@@ -2449,20 +3887,46 @@ typedef struct {
     } _field2;
 } CDStruct_dab2d0bd;
 
-// Ambiguous groups
 typedef struct {
-    double _field1;
-    double _field2;
-    double _field3;
-    double _field4;
-} CDStruct_d2b197d1;
+    CDStruct_fafc065c _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    int _field4;
+    int _field5;
+    int _field6;
+    unsigned int _field7;
+    unsigned int _field8;
+    union {
+        struct {
+            CDStruct_b2fbf00d _field1;
+            CDStruct_b2fbf00d _field2;
+        } _field1;
+        struct {
+            float _field1;
+            float _field2;
+            float _field3;
+            float _field4;
+        } _field2;
+    } _field9;
+    CDStruct_183601bc *_field10;
+    struct {
+        unsigned short _field1[2];
+        unsigned short _field2[2];
+    } _field11;
+    unsigned char _field12;
+} CDStruct_153464bf;
 
 typedef struct {
-    double x0;
-    double x1;
-    double y0;
-    double y1;
-} CDStruct_aca18c62;
+    CDStruct_153464bf _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    char _field4;
+} CDStruct_f5d783cd;
+
+// Ambiguous groups
+typedef struct {
+    unsigned int styleReference:1;
+} CDStruct_629f0dde;
 
 typedef struct {
     double _field1;
@@ -2473,11 +3937,6 @@ typedef struct {
     double latitude;
     double longitude;
 } CDStruct_2c43369c;
-
-typedef struct {
-    double width;
-    double height;
-} CDStruct_8caa76fc;
 
 typedef struct {
     double x;
@@ -2492,58 +3951,174 @@ typedef struct {
 } CDStruct_818bb265;
 
 typedef struct {
-    float x;
-    float y;
-    float z;
-    float w;
-} CDStruct_f2e236b6;
+    struct {
+        double _field1;
+        double _field2;
+    } _field1;
+    struct {
+        double _field1;
+        double _field2;
+    } _field2;
+} CDStruct_90e2a262;
 
-typedef struct {
-    float x0;
-    float x1;
-    float y0;
-    float y1;
-} CDStruct_ff03d24e;
+typedef struct Box<double, 2> {
+    struct Matrix<double, 2, 1> _minimum;
+    struct Matrix<double, 2, 1> _maximum;
+} Box_3d7e3c2c;
 
-typedef struct BRectImp<double> {
-    struct Vec2Imp<double> p0;
-    struct Vec2Imp<double> p1;
-} BRectImp_d02b3a99;
+typedef struct Box<float, 2> {
+    Matrix_8746f91e _field1;
+    Matrix_8746f91e _field2;
+} Box_3fb92e00;
 
-typedef struct BRectImp<float> {
-    Vec2Imp_1782d7e3 _field1;
-    Vec2Imp_1782d7e3 _field2;
-} BRectImp_7721609a;
+typedef struct Matrix<double, 3, 1> {
+    double _e[3];
+} Matrix_6e1d3589;
 
-typedef struct RoadPathElement<std::__1::shared_ptr<geo::MapEdge>> {
-    CDUnknownFunctionPointerType *_field1;
-    int _field2;
-    unsigned int _field3;
-    shared_ptr_035a2da2 _field4;
-    struct GeoPolyline _field5;
-    int _field6;
-} RoadPathElement_777899a4;
+typedef struct Matrix<double, 4, 1> {
+    double _field1[4];
+} Matrix_ec0d872f;
 
-typedef struct Vec2Imp<float> {
-    float x;
-    float y;
-} Vec2Imp_1782d7e3;
+typedef struct Matrix<double, 4, 4> {
+    double _e[16];
+} Matrix_08d701e4;
 
-typedef struct Vec3Imp<double> {
-    double x;
-    double y;
-    double z;
-} Vec3Imp_f658403c;
+typedef struct Matrix<float, 2, 1> {
+    float _e[2];
+} Matrix_8746f91e;
+
+typedef struct Matrix<float, 4, 1> {
+    float _e[4];
+} Matrix_5173352a;
+
+typedef struct Matrix<float, 4, 4> {
+    float _e[16];
+} Matrix_99e705ad;
+
+typedef struct Matrix<int, 2, 1> {
+    int _field1[2];
+} Matrix_12bc3712;
+
+typedef struct MeshVendor<ggl::Building::BuildingMesh> {
+    struct vector<ggl::Building::BuildingMesh *, std::__1::allocator<ggl::Building::BuildingMesh *>> _field1;
+    struct BuildingMesh *_field2;
+} MeshVendor_3faa0a72;
+
+typedef struct MeshVendor<ggl::BuildingPointyRoof::BuildingMesh> {
+    struct vector<ggl::BuildingPointyRoof::BuildingMesh *, std::__1::allocator<ggl::BuildingPointyRoof::BuildingMesh *>> _field1;
+    struct BuildingMesh *_field2;
+} MeshVendor_c6d8e5cd;
+
+typedef struct MeshVendor<ggl::Glow::MeshMesh> {
+    struct vector<ggl::Glow::MeshMesh *, std::__1::allocator<ggl::Glow::MeshMesh *>> _field1;
+    struct MeshMesh *_field2;
+} MeshVendor_43d71dca;
+
+typedef struct MeshVendor<ggl::PolygonMesh::MeshMesh> {
+    struct vector<ggl::PolygonMesh::MeshMesh *, std::__1::allocator<ggl::PolygonMesh::MeshMesh *>> _field1;
+    struct MeshMesh *_field2;
+} MeshVendor_82aa5b9e;
+
+typedef struct MeshVendor<ggl::PrefilteredLine::PrefilteredLineMesh> {
+    struct vector<ggl::PrefilteredLine::PrefilteredLineMesh *, std::__1::allocator<ggl::PrefilteredLine::PrefilteredLineMesh *>> _field1;
+    struct PrefilteredLineMesh *_field2;
+} MeshVendor_8027e961;
+
+typedef struct fast_shared_ptr<vk::RouteLineSection> {
+    struct _fast_shared_ptr_control *_control;
+} fast_shared_ptr_502c59d0;
 
 typedef struct function<void (const vk::RoadPiece &)> {
     struct type _field1;
     struct __base<void (const vk::RoadPiece &)> *_field2;
 } function_ccedc87b;
 
-typedef struct shared_ptr<geo::MapEdge> {
-    struct MapEdge *__ptr_;
+typedef struct map<std::__1::basic_string<char>, unsigned long, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, unsigned long>>> {
+    struct __tree<std::__1::__value_type<std::__1::basic_string<char>, unsigned long>, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, unsigned long>, std::__1::less<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::basic_string<char>, unsigned long>>> {
+        struct __tree_node<std::__1::__value_type<std::__1::basic_string<char>, unsigned long>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::basic_string<char>, unsigned long>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, unsigned long>, std::__1::less<std::__1::basic_string<char>>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+} map_63821800;
+
+typedef struct shared_ptr<altitude::GeoServicesLoadJob> {
+    struct GeoServicesLoadJob *_field1;
+    struct __shared_weak_count *_field2;
+} shared_ptr_97fa0047;
+
+typedef struct shared_ptr<ggl::BitmapData> {
+    struct BitmapData *_field1;
+    struct __shared_weak_count *_field2;
+} shared_ptr_4ce39eb2;
+
+typedef struct shared_ptr<ggl::BitmapDataBase> {
+    struct BitmapDataBase *__ptr_;
     struct __shared_weak_count *__cntrl_;
-} shared_ptr_035a2da2;
+} shared_ptr_edb96180;
+
+typedef struct shared_ptr<ggl::Debug::BaseMesh> {
+    struct BaseMesh *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_a5e35864;
+
+typedef struct shared_ptr<ggl::Device> {
+    struct Device *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_807ec9ac;
+
+typedef struct shared_ptr<ggl::Fog::FogUniformData> {
+    struct FogUniformData *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_1573687d;
+
+typedef struct shared_ptr<ggl::GLDevice> {
+    struct GLDevice *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_77723e34;
+
+typedef struct shared_ptr<ggl::GLRenderer> {
+    struct GLRenderer *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_3f8cd81b;
+
+typedef struct shared_ptr<ggl::PolygonBase::MeshMesh> {
+    struct MeshMesh *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_78ff922b;
+
+typedef struct shared_ptr<ggl::RealisticTexture::RealisticUniformData> {
+    struct RealisticUniformData *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_9b6b7821;
+
+typedef struct shared_ptr<ggl::RenderQueue> {
+    struct RenderQueue *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_06328420;
+
+typedef struct shared_ptr<ggl::Texture2D> {
+    struct Texture2D *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_479d1306;
+
+typedef struct shared_ptr<ggl::TextureMesh::MeshMesh> {
+    struct MeshMesh *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_7c9fbd8a;
+
+typedef struct shared_ptr<ggl::Tile::ViewUniformData> {
+    struct ViewUniformData *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_1fee3c91;
+
+typedef struct shared_ptr<md::StyleQuery> {
+    struct StyleQuery *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_6e6219d6;
 
 typedef struct shared_ptr<vk::Anchor> {
     struct Anchor *__ptr_;
@@ -2565,15 +4140,15 @@ typedef struct shared_ptr<vk::InfoLabel> {
     struct __shared_weak_count *__cntrl_;
 } shared_ptr_0c41964b;
 
-typedef struct shared_ptr<vk::InfoMapTile> {
-    struct InfoMapTile *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-} shared_ptr_a619b154;
-
 typedef struct shared_ptr<vk::LabelManager> {
     struct LabelManager *__ptr_;
     struct __shared_weak_count *__cntrl_;
 } shared_ptr_dd1f7020;
+
+typedef struct shared_ptr<vk::LabelMapTile> {
+    struct LabelMapTile *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_89f9185e;
 
 typedef struct shared_ptr<vk::LabelTile> {
     struct LabelTile *__ptr_;
@@ -2590,120 +4165,161 @@ typedef struct shared_ptr<vk::ViewTransform> {
     struct __shared_weak_count *__cntrl_;
 } shared_ptr_d1ecf7a2;
 
-typedef struct unordered_map<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, vk_allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>>> {
-    struct __hash_table<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, std::__1::__unordered_map_hasher<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>, std::__1::hash<std::__1::basic_string<char>>, true>, std::__1::__unordered_map_equal<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>, std::__1::equal_to<std::__1::basic_string<char>>, true>, vk_allocator<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*> {
-                struct __hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *> *__next_;
+typedef struct unordered_map<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>>> {
+    struct __hash_table<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, std::__1::__unordered_map_hasher<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, std::__1::hash<std::__1::basic_string<char>>, true>, std::__1::__unordered_map_equal<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, std::__1::equal_to<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *> *__next_;
             } __first_;
         } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>, std::__1::hash<std::__1::basic_string<char>>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, std::__1::hash<std::__1::basic_string<char>>, true>> {
             unsigned long __first_;
         } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>, std::__1::equal_to<std::__1::basic_string<char>>, true>> {
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, std::__1::equal_to<std::__1::basic_string<char>>, true>> {
             float __first_;
         } __p3_;
     } __table_;
-} unordered_map_ad9b4de7;
+} unordered_map_68316259;
 
-typedef struct unordered_map<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, vk_allocator<std::__1::pair<const unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>>> {
-    struct __hash_table<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, std::__1::__unordered_map_hasher<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>, std::__1::equal_to<unsigned int>, true>, vk_allocator<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*>>> _field1;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*> {
-                struct __hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *> *_field1;
+typedef struct unordered_map<unsigned int, unsigned long long, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, unsigned long long>>> {
+    struct __hash_table<std::__1::__hash_value_type<unsigned int, unsigned long long>, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, unsigned long long>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, unsigned long long>, std::__1::equal_to<unsigned int>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned int, unsigned long long>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned long long>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned long long>, void *>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned long long>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned long long>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned long long>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<unsigned int, unsigned long long>, void *> *_field1;
             } _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>, std::__1::hash<unsigned int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, unsigned long long>, std::__1::hash<unsigned int>, true>> {
             unsigned long _field1;
         } _field3;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>, std::__1::equal_to<unsigned int>, true>> {
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, unsigned long long>, std::__1::equal_to<unsigned int>, true>> {
             float _field1;
         } _field4;
     } _field1;
-} unordered_map_2e8bbe9f;
+} unordered_map_debc365d;
 
-typedef struct unordered_multimap<unsigned int, VKRibbonMultiPolylineSegment *, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, vk_allocator<std::__1::pair<const unsigned int, VKRibbonMultiPolylineSegment *>>> {
-    struct __hash_table<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, std::__1::__unordered_map_hasher<unsigned int, VKRibbonMultiPolylineSegment *, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, VKRibbonMultiPolylineSegment *, std::__1::equal_to<unsigned int>, true>, vk_allocator<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*> {
-                struct __hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *> *__next_;
-            } __first_;
-        } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned int, VKRibbonMultiPolylineSegment *, std::__1::hash<unsigned int>, true>> {
-            unsigned long __first_;
-        } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned int, VKRibbonMultiPolylineSegment *, std::__1::equal_to<unsigned int>, true>> {
-            float __first_;
-        } __p3_;
-    } __table_;
-} unordered_multimap_058b834e;
+typedef struct unordered_map<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>, std::__1::hash<vk::PatternedBatchKey>, std::__1::equal_to<vk::PatternedBatchKey>, std::__1::allocator<std::__1::pair<const vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>>> {
+    struct __hash_table<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, std::__1::__unordered_map_hasher<vk::PatternedBatchKey, std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, std::__1::hash<vk::PatternedBatchKey>, true>, std::__1::__unordered_map_equal<vk::PatternedBatchKey, std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, std::__1::equal_to<vk::PatternedBatchKey>, true>, std::__1::allocator<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, void *>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, void *> *_field1;
+            } _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<vk::PatternedBatchKey, std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, std::__1::hash<vk::PatternedBatchKey>, true>> {
+            unsigned long _field1;
+        } _field3;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<vk::PatternedBatchKey, std::__1::__hash_value_type<vk::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::PatternedRibbon, std::__1::default_delete<vk::PatternedRibbon>>>>>, std::__1::equal_to<vk::PatternedBatchKey>, true>> {
+            float _field1;
+        } _field4;
+    } _field1;
+} unordered_map_a82d44c3;
 
-typedef struct vector<RouteJunctionInfo, vk_allocator<RouteJunctionInfo>> {
+typedef struct unordered_map<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>, std::__1::hash<vk::RoadBatchKey>, std::__1::equal_to<vk::RoadBatchKey>, std::__1::allocator<std::__1::pair<const vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>>> {
+    struct __hash_table<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, std::__1::__unordered_map_hasher<vk::RoadBatchKey, std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, std::__1::hash<vk::RoadBatchKey>, true>, std::__1::__unordered_map_equal<vk::RoadBatchKey, std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, std::__1::equal_to<vk::RoadBatchKey>, true>, std::__1::allocator<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, void *>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, void *> *_field1;
+            } _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<vk::RoadBatchKey, std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, std::__1::hash<vk::RoadBatchKey>, true>> {
+            unsigned long _field1;
+        } _field3;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<vk::RoadBatchKey, std::__1::__hash_value_type<vk::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::RoadRibbon, std::__1::default_delete<vk::RoadRibbon>>>>>, std::__1::equal_to<vk::RoadBatchKey>, true>> {
+            float _field1;
+        } _field4;
+    } _field1;
+} unordered_map_3a7a7b2f;
+
+typedef struct vector<GEO3DBuildingFeature, std::__1::allocator<GEO3DBuildingFeature>> {
+    CDStruct_183601bc *_field1;
+    CDStruct_183601bc *_field2;
+    struct __compressed_pair<GEO3DBuildingFeature *, std::__1::allocator<GEO3DBuildingFeature>> {
+        CDStruct_183601bc *_field1;
+    } _field3;
+} vector_25c79282;
+
+typedef struct vector<RouteJunctionInfo, std::__1::allocator<RouteJunctionInfo>> {
     struct RouteJunctionInfo *_field1;
     struct RouteJunctionInfo *_field2;
-    struct __compressed_pair<RouteJunctionInfo *, vk_allocator<RouteJunctionInfo>> {
+    struct __compressed_pair<RouteJunctionInfo *, std::__1::allocator<RouteJunctionInfo>> {
         struct RouteJunctionInfo *_field1;
     } _field3;
-} vector_b376ae98;
+} vector_682a2c99;
 
-typedef struct vector<VGLRect, vk_allocator<VGLRect>> {
+typedef struct vector<VGLRect, std::__1::allocator<VGLRect>> {
     CDStruct_183601bc *__begin_;
     CDStruct_183601bc *__end_;
-    struct __compressed_pair<VGLRect *, vk_allocator<VGLRect>> {
+    struct __compressed_pair<VGLRect *, std::__1::allocator<VGLRect>> {
         CDStruct_183601bc *__first_;
     } __end_cap_;
-} vector_3bee010d;
+} vector_d61b411b;
 
-typedef struct vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>> {
-    struct DiscontinuityEdgeInfo **_field1;
-    struct DiscontinuityEdgeInfo **_field2;
-    struct __compressed_pair<const vk::DiscontinuityEdgeInfo **, vk_allocator<const vk::DiscontinuityEdgeInfo *>> {
-        struct DiscontinuityEdgeInfo **_field1;
+typedef struct vector<VKRect, std::__1::allocator<VKRect>> {
+    CDStruct_183601bc *__begin_;
+    CDStruct_183601bc *__end_;
+    struct __compressed_pair<VKRect *, std::__1::allocator<VKRect>> {
+        CDStruct_183601bc *__first_;
+    } __end_cap_;
+} vector_6c1b99c0;
+
+typedef struct vector<ggl::PolygonBase::MeshMesh, std::__1::allocator<ggl::PolygonBase::MeshMesh>> {
+    struct MeshMesh *__begin_;
+    struct MeshMesh *__end_;
+    struct __compressed_pair<ggl::PolygonBase::MeshMesh *, std::__1::allocator<ggl::PolygonBase::MeshMesh>> {
+        struct MeshMesh *__first_;
+    } __end_cap_;
+} vector_54f0f967;
+
+typedef struct vector<ggl::PolygonMesh::MeshMesh, std::__1::allocator<ggl::PolygonMesh::MeshMesh>> {
+    struct MeshMesh *__begin_;
+    struct MeshMesh *__end_;
+    struct __compressed_pair<ggl::PolygonMesh::MeshMesh *, std::__1::allocator<ggl::PolygonMesh::MeshMesh>> {
+        struct MeshMesh *__first_;
+    } __end_cap_;
+} vector_0edf1665;
+
+typedef struct vector<ggl::ShaderLoadItem, std::__1::allocator<ggl::ShaderLoadItem>> {
+    struct ShaderLoadItem *_field1;
+    struct ShaderLoadItem *_field2;
+    struct __compressed_pair<ggl::ShaderLoadItem *, std::__1::allocator<ggl::ShaderLoadItem>> {
+        struct ShaderLoadItem *_field1;
     } _field3;
-} vector_9adfa044;
+} vector_b35310ee;
 
-typedef struct vector<geo::Vec2Imp<double>, vk_allocator<geo::Vec2Imp<double>>> {
-    struct Vec2Imp<double> *__begin_;
-    struct Vec2Imp<double> *__end_;
-    struct __compressed_pair<geo::Vec2Imp<double>*, vk_allocator<geo::Vec2Imp<double>>> {
-        struct Vec2Imp<double> *__first_;
+typedef struct vector<gm::Matrix<double, 2, 1>, std::__1::allocator<gm::Matrix<double, 2, 1>>> {
+    struct Matrix<double, 2, 1> *__begin_;
+    struct Matrix<double, 2, 1> *__end_;
+    struct __compressed_pair<gm::Matrix<double, 2, 1>*, std::__1::allocator<gm::Matrix<double, 2, 1>>> {
+        struct Matrix<double, 2, 1> *__first_;
     } __end_cap_;
-} vector_d5845d09;
+} vector_e20517dc;
 
-typedef struct vector<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, vk_allocator<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>>> {
-    struct pair<unsigned int, VKRibbonMultiPolylineSegment *> *__begin_;
-    struct pair<unsigned int, VKRibbonMultiPolylineSegment *> *__end_;
-    struct __compressed_pair<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>*, vk_allocator<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>>> {
-        struct pair<unsigned int, VKRibbonMultiPolylineSegment *> *__first_;
+typedef struct vector<std::__1::shared_ptr<ggl::Texture2D>, std::__1::allocator<std::__1::shared_ptr<ggl::Texture2D>>> {
+    shared_ptr_479d1306 *__begin_;
+    shared_ptr_479d1306 *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<ggl::Texture2D>*, std::__1::allocator<std::__1::shared_ptr<ggl::Texture2D>>> {
+        shared_ptr_479d1306 *__first_;
     } __end_cap_;
-} vector_012c76ef;
+} vector_dc840c5c;
 
-typedef struct vector<std::__1::shared_ptr<vk::NavLabel>, vk_allocator<std::__1::shared_ptr<vk::NavLabel>>> {
+typedef struct vector<std::__1::shared_ptr<vk::NavLabel>, std::__1::allocator<std::__1::shared_ptr<vk::NavLabel>>> {
     shared_ptr_338aa11d *__begin_;
     shared_ptr_338aa11d *__end_;
-    struct __compressed_pair<std::__1::shared_ptr<vk::NavLabel>*, vk_allocator<std::__1::shared_ptr<vk::NavLabel>>> {
+    struct __compressed_pair<std::__1::shared_ptr<vk::NavLabel>*, std::__1::allocator<std::__1::shared_ptr<vk::NavLabel>>> {
         shared_ptr_338aa11d *__first_;
     } __end_cap_;
-} vector_a3d7a989;
+} vector_4ea116aa;
 
-typedef struct vector<std::__1::vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>>, vk_allocator<std::__1::vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>>>> {
-    struct vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>> *__begin_;
-    struct vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>> *__end_;
-    struct __compressed_pair<std::__1::vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>>*, vk_allocator<std::__1::vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>>>> {
-        struct vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>> *__first_;
+typedef struct vector<std::__1::unique_ptr<md::TexturedDrawable, std::__1::default_delete<md::TexturedDrawable>>, std::__1::allocator<std::__1::unique_ptr<md::TexturedDrawable, std::__1::default_delete<md::TexturedDrawable>>>> {
+    struct unique_ptr<md::TexturedDrawable, std::__1::default_delete<md::TexturedDrawable>> *__begin_;
+    struct unique_ptr<md::TexturedDrawable, std::__1::default_delete<md::TexturedDrawable>> *__end_;
+    struct __compressed_pair<std::__1::unique_ptr<md::TexturedDrawable, std::__1::default_delete<md::TexturedDrawable>>*, std::__1::allocator<std::__1::unique_ptr<md::TexturedDrawable, std::__1::default_delete<md::TexturedDrawable>>>> {
+        struct unique_ptr<md::TexturedDrawable, std::__1::default_delete<md::TexturedDrawable>> *__first_;
     } __end_cap_;
-} vector_f457f7ad;
-
-typedef struct vector<unsigned int, vk_allocator<unsigned int>> {
-    unsigned int *_field1;
-    unsigned int *_field2;
-    struct __compressed_pair<unsigned int *, vk_allocator<unsigned int>> {
-        unsigned int *_field1;
-    } _field3;
-} vector_81578dfd;
+} vector_5bdcb8f5;
 
 typedef struct vector<vk::TileExclusionArea, std::__1::allocator<vk::TileExclusionArea>> {
     struct TileExclusionArea *__begin_;
@@ -2712,20 +4328,6 @@ typedef struct vector<vk::TileExclusionArea, std::__1::allocator<vk::TileExclusi
         struct TileExclusionArea *__first_;
     } __end_cap_;
 } vector_a2f7343e;
-
-#pragma mark Named Unions
-
-#if 0
-// Names with conflicting types:
-typedef union {
-    struct VKProfileSparseRampValue {
-        int value;
-        unsigned char hi;
-    } v[2];
-    int *extra;
-} _u_73374b6e;
-
-#endif
 
 #pragma mark Typedef'd Unions
 
@@ -2750,30 +4352,4 @@ typedef union {
     } ;
     float m[16];
 } CDUnion_f5b85e25;
-
-typedef union {
-    struct {
-        float _field1;
-        float _field2;
-        float _field3;
-        float _field4;
-        float _field5;
-        float _field6;
-        float _field7;
-        float _field8;
-        float _field9;
-    } _field1;
-    float _field2[9];
-} CDUnion_2b8b3256;
-
-typedef union {
-    struct {
-        float _field1;
-        float _field2;
-        float _field3;
-        float _field4;
-    } _field1;
-    float _field2[2][2];
-    float _field3[4];
-} CDUnion_552b2134;
 

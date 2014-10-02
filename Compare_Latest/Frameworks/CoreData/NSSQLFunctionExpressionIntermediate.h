@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 
 + (BOOL)functionIsAcceptableAsAggregate:(id)arg1;
 - (id)generateSQLStringInContext:(id)arg1;
+- (id)_generateNowStringInContext:(id)arg1;
 - (id)_generateDistinctStringInContext:(id)arg1;
 - (id)_generateType4SQLForSymbol:(id)arg1 inContext:(id)arg2;
 - (id)_generateSQLForCountInContext:(id)arg1;

@@ -8,21 +8,27 @@
 
 #import "GEOMapAccessRestrictions.h"
 
-@class GEOMapAccess;
+@class GEOMapAccess, NSString;
 
 @interface VKMapMatcher : NSObject <GEOMapAccessRestrictions>
 {
     GEOMapAccess *_map;
-    id <VKRoutePreloadSession> _routePreloader;
+    id <GEORoutePreloadSession> _routePreloader;
 }
 
 + (id)mapMatcherOfType:(id)arg1;
-@property(retain, nonatomic) id <VKRoutePreloadSession> routePreloader; // @synthesize routePreloader=_routePreloader;
+@property(retain, nonatomic) id <GEORoutePreloadSession> routePreloader; // @synthesize routePreloader=_routePreloader;
 - (id)matchLocation:(id)arg1 transportType:(int)arg2;
 @property(readonly, nonatomic) BOOL allowsNetworkTileLoad;
 - (id)tilesAround:(CDStruct_c3b9c2ee)arg1 radius:(double)arg2;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

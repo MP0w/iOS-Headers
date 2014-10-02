@@ -4,23 +4,27 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <AddressBookUI/ABContactCell.h>
+#import <AddressBookUI/ABLabeledCell.h>
 
-@class ABCardActionGroupItem, ABContactAction, NSDictionary;
+@class ABCardActionGroupItem, ABContactAction, ABTransportButton, UILabel;
 
-@interface ABContactActionCell : ABContactCell
+@interface ABContactActionCell : ABLabeledCell
 {
-    NSDictionary *_textAttributes;
+    UILabel *_label;
+    ABTransportButton *_transportIcon;
 }
 
-@property(copy, nonatomic) NSDictionary *textAttributes; // @synthesize textAttributes=_textAttributes;
-- (void)_updateTextFont;
+@property(retain, nonatomic) ABTransportButton *transportIcon; // @synthesize transportIcon=_transportIcon;
+@property(retain, nonatomic) UILabel *label; // @synthesize label=_label;
+- (id)variableConstraints;
 @property(readonly, nonatomic) ABContactAction *action;
 @property(readonly, nonatomic) ABCardActionGroupItem *actionGroupItem;
 - (void)setCardGroupItem:(id)arg1;
-- (void)tintColorDidChange;
+- (void)setLabelTextAttributes:(id)arg1;
 - (BOOL)shouldPerformDefaultAction;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (float)minCellHeight;
+- (id)labelView;
+- (void)dealloc;
 
 @end
 

@@ -17,13 +17,13 @@
     NSString *_responseDescription;
 }
 
-@property(retain) NSString *responseDescription; // @synthesize responseDescription=_responseDescription;
-@property(retain) CoreDAVErrorItem *topLevelErrorItem; // @synthesize topLevelErrorItem=_topLevelErrorItem;
-@property(retain) ICSDocument *calendarData; // @synthesize calendarData=_calendarData;
-@property(retain) CoreDAVLeafItem *requestStatus; // @synthesize requestStatus=_requestStatus;
-@property(retain) CoreDAVItemWithHrefChildItem *recipientHREF; // @synthesize recipientHREF=_recipientHREF;
+@property(retain, nonatomic) NSString *responseDescription; // @synthesize responseDescription=_responseDescription;
+@property(retain, nonatomic) CoreDAVErrorItem *topLevelErrorItem; // @synthesize topLevelErrorItem=_topLevelErrorItem;
+@property(retain, nonatomic) ICSDocument *calendarData; // @synthesize calendarData=_calendarData;
+@property(retain, nonatomic) CoreDAVLeafItem *requestStatus; // @synthesize requestStatus=_requestStatus;
+@property(retain, nonatomic) CoreDAVItemWithHrefChildItem *recipientHREF; // @synthesize recipientHREF=_recipientHREF;
 - (id)description;
-@property(readonly) NSString *recipientString;
+@property(readonly, nonatomic) NSString *recipientString;
 - (id)copyParseRules;
 - (void)_setCalendarDataWithLeafItem:(id)arg1;
 - (id)initWithNameSpace:(id)arg1 andName:(id)arg2;

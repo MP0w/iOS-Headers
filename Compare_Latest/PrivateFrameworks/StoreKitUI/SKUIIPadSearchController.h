@@ -8,7 +8,7 @@
 
 #import "SKUISearchFieldDelegate.h"
 
-@class SKUIClientContext, SKUISearchFieldController, UIViewController;
+@class NSString, SKUIClientContext, SKUISearchFieldController, UIViewController;
 
 @interface SKUIIPadSearchController : NSObject <SKUISearchFieldDelegate>
 {
@@ -17,17 +17,16 @@
     SKUISearchFieldController *_searchFieldController;
 }
 
-@property(readonly, nonatomic) UIViewController *parentViewController; // @synthesize parentViewController=_parentViewController;
+@property(readonly, nonatomic) __weak UIViewController *parentViewController; // @synthesize parentViewController=_parentViewController;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
-- (void)_searchFieldController:(id)arg1 requestSearchWithURL:(id)arg2 orSearchTerm:(id)arg3 andMetricsEvent:(id)arg4;
 - (id)_sharedResultsViewController;
 - (id)_searchFieldController;
+- (void)_requestSearch:(id)arg1;
 - (id)_existingSharedResultsViewController;
 - (void)_termDidChangeNotification:(id)arg1;
 - (BOOL)searchFieldControllerShouldBeginEditing:(id)arg1;
-- (void)searchFieldController:(id)arg1 requestSearchWithSearchTerm:(id)arg2 metricsEvent:(id)arg3;
-- (void)searchFieldController:(id)arg1 requestSearchWithURL:(id)arg2 metricsEvent:(id)arg3;
+- (void)searchFieldController:(id)arg1 requestSearch:(id)arg2;
 - (void)setNumberOfSearchResults:(int)arg1;
 - (void)reloadSearchField;
 - (id)newSearchFieldBarItem;
@@ -36,6 +35,12 @@
 @property(readonly, nonatomic) SKUISearchFieldController *searchFieldController;
 - (void)dealloc;
 - (id)initWithParentViewController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

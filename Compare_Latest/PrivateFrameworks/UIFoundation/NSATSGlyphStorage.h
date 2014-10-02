@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
     struct __CTGlyphStorage *_glyphStorage;
     struct __CFArray *_masterRuns;
     NSATSTypesetter *_typesetter;
-    CDStruct_0de91d73 *_runs;
+    CDStruct_211ccd69 *_runs;
     long _numRuns;
     long _runBufferSize;
     struct _NSRange _glyphRange;
@@ -35,10 +35,19 @@ __attribute__((visibility("hidden")))
             int _field5;
         } _field2[0];
     } *_stack;
-    const CDStruct_0de91d73 *_lastElasticRun;
+    const CDStruct_211ccd69 *_lastElasticRun;
     long _lastElasticRunLocation;
     long _totalAbsorbedCount;
-    CDStruct_9f69489a _gFlags;
+    struct {
+        unsigned int _hasNonNominalGlyph:1;
+        unsigned int _hasPositionalStake:1;
+        unsigned int _hasBidiRun:1;
+        unsigned int _isEllipsisStorage:1;
+        unsigned int _hasNonNominalStringIndexes:1;
+        unsigned int _isUnordered:1;
+        unsigned int _hasTotalAbsorbedCount:1;
+        unsigned int _reserved:25;
+    } _gFlags;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
@@ -58,7 +67,7 @@ __attribute__((visibility("hidden")))
 - (struct __CTGlyphStorage *)createCopy:(CDStruct_dff5684f)arg1;
 - (void)finalize;
 - (void)dealloc;
-- (const CDStruct_0de91d73 *)_attributeRunForCharacterAtIndex:(long)arg1;
+- (const CDStruct_211ccd69 *)_attributeRunForCharacterAtIndex:(long)arg1;
 - (float)_widthForStringRange:(struct _NSRange)arg1;
 - (struct _NSRange)_collectElasticRangeSurroundingCharacterAtIndex:(long)arg1 minimumCharacterIndex:(long)arg2;
 - (_Bool)_resolvePositionalStakeGlyphsForLineFragment:(struct __CTLine *)arg1 lineFragmentRect:(struct CGRect)arg2 minPosition:(float)arg3 maxPosition:(float)arg4 maxLineFragmentWidth:(float)arg5 breakHint:(int *)arg6;

@@ -8,9 +8,8 @@
 
 #import "NSXPCListenerDelegate.h"
 
-@class NSMutableArray, NSXPCListener;
+@class NSMutableArray, NSString, NSXPCListener;
 
-__attribute__((visibility("hidden")))
 @interface _UIViewServiceSessionManager : NSObject <NSXPCListenerDelegate>
 {
     int _lock;
@@ -19,17 +18,25 @@ __attribute__((visibility("hidden")))
     int _connectionNotificationToken;
 }
 
++ (id)__serviceSessionManager;
 + (BOOL)hasActiveSessions;
-+ (void)startViewServiceSessionManager;
-+ (BOOL)_shouldUseXPCObjects;
++ (void)startViewServiceSessionManagerAsPlugin:(BOOL)arg1;
 - (void)_startOrStopSystemsForBackgroundRunning;
 - (BOOL)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
+- (void)_configureSessionForConnection:(id)arg1;
 - (BOOL)_hasActiveSessions;
 - (void)_registerSessionForDefaultDeputies:(id)arg1;
+- (void)_startListenerWithName:(id)arg1;
 - (void)_startListener;
-- (id)_init;
+- (id)_initAsPlugIn:(BOOL)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

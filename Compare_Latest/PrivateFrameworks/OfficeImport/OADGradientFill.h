@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
     BOOL mIsShadeOverridden;
 }
 
++ (id)stringForTileFlipMode:(int)arg1;
 + (id)defaultProperties;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
@@ -40,6 +41,7 @@ __attribute__((visibility("hidden")))
 - (void)setTileRect:(id)arg1;
 - (id)tileRect;
 - (void)addStopColor:(id)arg1 position:(float)arg2;
+- (void)sortStops;
 - (float)stopPositionAtIndex:(unsigned int)arg1;
 - (id)stopColorAtIndex:(unsigned int)arg1;
 - (unsigned int)stopCount;

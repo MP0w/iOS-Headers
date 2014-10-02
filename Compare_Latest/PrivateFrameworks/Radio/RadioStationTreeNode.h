@@ -24,15 +24,15 @@
     NSDictionary *_stationTreeNodeDictionary;
 }
 
-@property(readonly, nonatomic) NSDictionary *stationTreeNodeDictionary; // @synthesize stationTreeNodeDictionary=_stationTreeNodeDictionary;
-@property(readonly, nonatomic) NSDictionary *stationDictionary; // @synthesize stationDictionary=_stationDictionary;
+@property(readonly, copy, nonatomic) NSDictionary *stationTreeNodeDictionary; // @synthesize stationTreeNodeDictionary=_stationTreeNodeDictionary;
+@property(readonly, copy, nonatomic) NSDictionary *stationDictionary; // @synthesize stationDictionary=_stationDictionary;
 @property(readonly, nonatomic) long long nodeID; // @synthesize nodeID=_nodeID;
-@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) BOOL hasAdditionalChildNodes; // @synthesize hasAdditionalChildNodes=_hasAdditionalChildNodes;
 @property(readonly, nonatomic) int displayStyle; // @synthesize displayStyle=_displayStyle;
-@property(readonly, nonatomic) NSArray *childNodes; // @synthesize childNodes=_childNodes;
+@property(readonly, copy, nonatomic) NSArray *childNodes; // @synthesize childNodes=_childNodes;
 @property(readonly, nonatomic) int childNodeLoadingStyle; // @synthesize childNodeLoadingStyle=_childNodeLoadingStyle;
-@property(readonly, nonatomic) RadioArtworkCollection *artworkCollection; // @synthesize artworkCollection=_artworkCollection;
+@property(readonly, copy, nonatomic) RadioArtworkCollection *artworkCollection; // @synthesize artworkCollection=_artworkCollection;
 - (void).cxx_destruct;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

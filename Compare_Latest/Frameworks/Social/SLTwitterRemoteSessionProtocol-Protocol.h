@@ -9,16 +9,16 @@
 @protocol SLTwitterRemoteSessionProtocol
 - (void)getPermaLinkFromLastStatusUpdate:(void (^)(NSString *, NSError *))arg1;
 - (void)showTwitterSettingsIfNeeded:(void (^)(NSNumber *, NSError *))arg1;
+- (void)sendDirectMessage:(NSString *)arg1 toUser:(NSString *)arg2 withScreenName:(NSString *)arg3 completion:(void (^)(NSError *))arg4;
+- (void)retweetTweetWithID:(NSString *)arg1 completion:(void (^)(NSError *))arg2;
 - (void)sendStatus:(SLMicroBlogStatus *)arg1 completion:(void (^)(NSNumber *, NSError *))arg2;
 - (void)fetchProfileImageDataForScreenName:(NSString *)arg1 completion:(void (^)(NSData *, NSError *))arg2;
 - (void)recordsMatchingPrefixString:(NSString *)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
 - (void)fetchRecordForScreenName:(NSString *)arg1 completion:(void (^)(SLTwitterUserRecord *, NSError *))arg2;
 - (void)fetchCurrentImageLimits:(void (^)(NSDictionary *, NSError *))arg1;
 - (void)fetchCurrentTCoLength:(void (^)(NSNumber *, NSError *))arg1;
-- (void)setOverrideGeotagInfo:(NSDictionary *)arg1;
 - (void)setGeotagStatus:(NSNumber *)arg1;
 - (void)fetchGeotagStatus:(void (^)(NSNumber *, NSError *))arg1;
-- (void)fetchRelationshipWithScreenName:(NSString *)arg1 completion:(void (^)(NSNumber *, NSError *))arg2;
 - (void)fetchSessionInfo:(void (^)(NSDictionary *, NSError *))arg1;
 - (void)setActiveAccountIdentifier:(NSString *)arg1;
 - (void)ensureUserRecordStore;

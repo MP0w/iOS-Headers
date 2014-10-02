@@ -15,8 +15,6 @@
 
 + (id)sharedInstance;
 - (id)_cacheForStyleProvider:(id)arg1;
-- (id)disabledBoldTextAttributesForStyleProvider:(id)arg1;
-- (id)disabledRegularTextAttributesForStyleProvider:(id)arg1;
 - (id)placeholderTextAttributesForStyleProvider:(id)arg1;
 - (id)boldTextAttributesForStyleProvider:(id)arg1;
 - (id)regularTextAttributesForStyleProvider:(id)arg1;

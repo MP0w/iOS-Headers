@@ -8,7 +8,7 @@
 
 #import "SAAceSerializable.h"
 
-@class NSArray, SALocalSearchBusiness2;
+@class NSArray, NSString, SALocalSearchBusiness2;
 
 @interface SAMovieMovieTheaterShowtimes : AceObject <SAAceSerializable>
 {
@@ -21,6 +21,12 @@
 @property(copy, nonatomic) NSArray *movieShowtimes;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

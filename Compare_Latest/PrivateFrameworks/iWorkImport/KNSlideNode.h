@@ -29,10 +29,11 @@ __attribute__((visibility("hidden")))
     BOOL mHasNote;
     BOOL mSlideNumberVisible;
     unsigned int mSlideSpecificHyperlinksCount;
+    BOOL mHasExplicitBuilds;
+    unsigned int mEventCount;
     NSString *mClassicUniqueID;
     NSString *mUniqueIdentifier;
     NSString *mCopiedFromSlideIdentifier;
-    unsigned int mEventCount;
     unsigned int mTableNameCounter;
 }
 
@@ -43,6 +44,8 @@ __attribute__((visibility("hidden")))
 + (id)slideNodeForSelectionModel:(id)arg1 withSelection:(id)arg2;
 + (id)parentSlideNodeForInfo:(id)arg1;
 + (id)lastSlideUnderSlideNode:(id)arg1;
++ (BOOL)needsObjectUUID;
+@property(readonly, nonatomic) BOOL hasExplicitBuilds; // @synthesize hasExplicitBuilds=mHasExplicitBuilds;
 @property(readonly, nonatomic) unsigned int eventCount; // @synthesize eventCount=mEventCount;
 @property(nonatomic, getter=isCollapsed) BOOL collapsed; // @synthesize collapsed=mIsCollapsed;
 @property(readonly, nonatomic) NSDictionary *thumbnails; // @synthesize thumbnails=mThumbnails;
@@ -66,11 +69,12 @@ __attribute__((visibility("hidden")))
 - (void)willBeAddedToDocumentRoot:(id)arg1 context:(id)arg2;
 @property(nonatomic, getter=isHidden) BOOL hidden;
 @property(retain, nonatomic) KNAbstractSlide *slide;
+@property(readonly, nonatomic) KNAbstractSlide *slideIfLoaded;
 - (id)childSearchTargets;
 - (id)childEnumerator;
 - (void)uniquifyTableNamesForUpgradeOrImport;
 - (void)updateEventCount;
-@property(readonly, nonatomic) BOOL hasBuilds;
+@property(readonly, nonatomic) BOOL hasBuildEvents;
 @property(retain, nonatomic) NSArray *children;
 @property(readonly, nonatomic) BOOL hasChildren;
 @property(readonly, nonatomic) KNSlideNode *previousSkippingHidden;
@@ -82,7 +86,6 @@ __attribute__((visibility("hidden")))
 - (void)revert;
 - (unsigned int)depth;
 @property(readonly, nonatomic) NSString *uniqueIdentifier;
-- (void)p_setEventCount:(unsigned int)arg1;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1;
 @property(retain, nonatomic) NSString *copiedFromSlideIdentifier;
@@ -99,6 +102,12 @@ __attribute__((visibility("hidden")))
 - (void)saveToArchive:(struct SlideNodeArchive *)arg1 archiver:(id)arg2;
 - (void)loadFromArchive:(const struct SlideNodeArchive *)arg1 unarchiver:(id)arg2;
 - (void)didLoadSlide:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

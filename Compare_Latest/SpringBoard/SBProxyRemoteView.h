@@ -14,6 +14,7 @@
     SBApplication *_app;
     NSString *_remoteViewIdentifier;
     _Bool _remoteViewOpaque;
+    NSString *_hostRequester;
 }
 
 + (Class)layerClass;

@@ -6,25 +6,25 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
+@class ACRemoteAccountStoreSession, NSArray, NSObject<OS_dispatch_queue>, NSString;
 
 @interface ACAccountStore : NSObject
 {
-    NSXPCConnection *_connection;
     NSString *_clientBundleID;
     NSObject<OS_dispatch_queue> *_replyQueue;
-    BOOL _shouldSendClientState;
-    BOOL _notificationsEnabled;
     id _daemonAccountStoreDidChangeObserver;
-    id <ACDAccountStoreProtocol> _remoteAccountStore;
+    ACRemoteAccountStoreSession *_remoteAccountStoreSession;
 }
 
 + (BOOL)canSaveAccountsOfAccountTypeIdentifier:(id)arg1;
 + (int)countOfAccountsWithAccountTypeIdentifier:(id)arg1;
 + (int)accountsWithAccountTypeIdentifierExist:(id)arg1;
-@property(retain, nonatomic) id <ACDAccountStoreProtocol> remoteAccountStore; // @synthesize remoteAccountStore=_remoteAccountStore;
+@property(retain, nonatomic) ACRemoteAccountStoreSession *remoteAccountStoreSession; // @synthesize remoteAccountStoreSession=_remoteAccountStoreSession;
 @property(readonly) NSString *effectiveBundleID; // @synthesize effectiveBundleID=_clientBundleID;
 - (void).cxx_destruct;
+- (void)notifyRemoteDevicesOfNewAccount:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)notifyRemoteDevicesOfNewAccount:(id)arg1;
+- (void)notifyRemoteDevicesOfModifiedAccount:(id)arg1;
 - (void)accountsWithAccountTypeIdentifiers:(id)arg1 preloadedProperties:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)accountsWithAccountTypeIdentifiers:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)visibleTopLevelAccountsWithAccountTypeIdentifiers:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -63,14 +63,16 @@
 - (id)childAccountsForAccount:(id)arg1;
 - (id)parentAccountForAccount:(id)arg1;
 - (id)credentialForAccount:(id)arg1 bundleID:(id)arg2;
+- (id)credentialForAccount:(id)arg1 serviceID:(id)arg2;
 - (id)credentialForAccount:(id)arg1 error:(id *)arg2;
 - (id)credentialForAccount:(id)arg1;
 - (id)allDataclasses;
 - (id)allAccountTypes;
-- (void)promptForWebLoginForAccount:(id)arg1 atURL:(id)arg2 callbackURL:(id)arg3 force:(BOOL)arg4 reason:(id)arg5 completion:(CDUnknownBlockType)arg6;
+- (void)renewCredentialsForAccount:(id)arg1 services:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)renewCredentialsForAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)renewCredentialsForAccount:(id)arg1 reason:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)renewCredentialsForAccount:(id)arg1 force:(BOOL)arg2 reason:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)renewCredentialsForAccount:(id)arg1 options:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)verifyCredentialsForAccount:(id)arg1 saveWhenAuthorized:(BOOL)arg2 withHandler:(CDUnknownBlockType)arg3;
 - (void)verifyCredentialsForAccount:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)requestAccessToAccountsWithType:(id)arg1 options:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -87,13 +89,12 @@
 - (void)insertAccountType:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)accountsWithAccountType:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)accountsWithAccountType:(id)arg1;
-@property(readonly, nonatomic) NSArray *accounts;
+@property(readonly, nonatomic) __weak NSArray *accounts;
 - (void)accountTypeWithIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)accountTypeWithAccountTypeIdentifier:(id)arg1;
 - (id)accountWithIdentifier:(id)arg1;
 - (void)disconnectFromRemoteAccountStore;
-- (void)_connectToRemoteAccountStoreUsingEndpoint:(id)arg1;
-- (id)_remoteAccountStore;
+- (void)connectToRemoteAccountStoreUsingEndpoint:(id)arg1;
 - (void)dealloc;
 - (id)initWithRemoteEndpoint:(id)arg1 effectiveBundleID:(id)arg2;
 - (id)initWithEffectiveBundleID:(id)arg1;

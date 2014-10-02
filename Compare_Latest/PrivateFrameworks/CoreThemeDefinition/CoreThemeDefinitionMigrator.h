@@ -20,7 +20,6 @@
 @property(copy) NSString *temporaryMigrationPath; // @synthesize temporaryMigrationPath;
 - (BOOL)migrateWithError:(id *)arg1;
 - (id)mappingModelForMigrationWithError:(id *)arg1;
-- (BOOL)_shouldUseCustomRenditionMigration;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1 oldVersion:(int)arg2 newVersion:(int)arg3;
 - (BOOL)_updateMetadata:(id *)arg1;

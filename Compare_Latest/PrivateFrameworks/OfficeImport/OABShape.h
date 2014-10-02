@@ -11,8 +11,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)writeGraphicDefaults:(id)arg1 toShapeDefaults:(struct EshShapeDefaults *)arg2 state:(id)arg3;
-+ (void)writeShape:(id)arg1 toParentContainer:(id)arg2 state:(id)arg3;
 + (void)readGraphicDefaults:(id)arg1 to:(id)arg2 state:(id)arg3;
 + (id)readShape:(id)arg1 state:(id)arg2;
 

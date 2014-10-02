@@ -6,68 +6,56 @@
 
 #import "UITableViewCell.h"
 
-@class NSOperation, NSString, UIImageView, UILabel, UIView;
+@class NSArray, NSLayoutConstraint, UIView;
 
 @interface SBSearchTableViewCell : UITableViewCell
 {
-    _Bool _badged;
-    _Bool _starred;
-    _Bool _isFirstInSection;
-    _Bool _isLastInSection;
-    _Bool _hasImage;
+    NSLayoutConstraint *_clippingConstraint;
+    _Bool _addedConstantsConstraints;
+    NSArray *_variableConstraints;
     _Bool _aboveSelectedCell;
-    UILabel *_titleLabel;
-    UILabel *_subtitleLabel;
-    UILabel *_auxiliaryTitleLabel;
-    UILabel *_auxiliarySubtitleLabel;
-    UILabel *_summaryLabel;
-    UIImageView *_titleImageView;
-    UIImageView *_badgeImageView;
-    UIImageView *_starImageView;
-    NSOperation *_fetchImageOperation;
     UIView *_background;
     UIView *_clippingContainer;
     UIView *_separatorView;
-    _Bool _hasRoundedImage;
-    _Bool _shouldKnockoutImage;
+    double _leftSeparatorMargin;
 }
 
-+ (double)rowHeightForPreferredContentSizeWithSubtitle:(_Bool)arg1 numberOfSummaryLines:(long long)arg2;
-+ (void)resetContentSizeCache;
-+ (id)starImage;
-+ (id)unreadImage;
++ (void)configureViewForDisplay:(id)arg1 viewType:(long long)arg2;
++ (id)attributedString:(id)arg1 withLineBreakMode:(long long)arg2 defaultParagraphStyle:(id)arg3;
++ (id)attributedStringForImage:(id)arg1 baselineOffset:(double)arg2;
 + (id)selectedTextColor;
-+ (id)secontaryTextColor;
++ (id)textColor;
 + (id)maskedSelectedBackgroundColor;
 + (id)unmaskedSelectedBackgroundColor;
 + (id)backgroundColor;
 + (id)lineColor;
++ (id)cellIdentifierForSection:(id)arg1 result:(id)arg2;
++ (id)tableViewCellClasses;
++ (void)registerClass:(Class)arg1;
++ (_Bool)supportsSection:(id)arg1 result:(id)arg2;
++ (_Bool)shouldDisplayImagesForDomain:(unsigned int)arg1;
 + (void)initialize;
-@property(nonatomic) _Bool shouldKnockoutImage; // @synthesize shouldKnockoutImage=_shouldKnockoutImage;
-@property(nonatomic, getter=hasRoundedImage) _Bool hasRoundedImage; // @synthesize hasRoundedImage=_hasRoundedImage;
-@property(retain, nonatomic) NSOperation *fetchImageOperation; // @synthesize fetchImageOperation=_fetchImageOperation;
+@property double leftSeparatorMargin; // @synthesize leftSeparatorMargin=_leftSeparatorMargin;
+@property(readonly, nonatomic) UIView *separatorView; // @synthesize separatorView=_separatorView;
+@property(readonly, nonatomic) UIView *clippingContainer; // @synthesize clippingContainer=_clippingContainer;
+@property(readonly, nonatomic) UIView *background; // @synthesize background=_background;
 @property(nonatomic, getter=isAboveSelectedCell) _Bool aboveSelectedCell; // @synthesize aboveSelectedCell=_aboveSelectedCell;
-@property(nonatomic, getter=hasImage) _Bool hasImage; // @synthesize hasImage=_hasImage;
-@property(nonatomic, getter=isLastInSection) _Bool lastInSection; // @synthesize lastInSection=_isLastInSection;
-@property(nonatomic, getter=isFirstInSection) _Bool firstInSection; // @synthesize firstInSection=_isFirstInSection;
-@property(nonatomic, getter=isStarred) _Bool starred; // @synthesize starred=_starred;
-@property(nonatomic, getter=isBadged) _Bool badged; // @synthesize badged=_badged;
 - (void)setHighlighted:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)updateSelectedState;
 - (void)prepareForReuse;
-- (void)layoutSubviews;
-- (void)setTitleImage:(id)arg1 animated:(_Bool)arg2;
-- (id)_scriptingInfo;
-- (void)clipToTopHeaderInTableView:(id)arg1;
+- (void)updateWithSection:(id)arg1 result:(id)arg2 traitCollection:(id)arg3;
+@property(readonly, nonatomic) NSArray *constantConstraints;
+@property(readonly, nonatomic) NSArray *variableConstraints;
+- (void)updateConstraints;
+- (struct CGSize)_systemLayoutSizeFittingSize:(struct CGSize)arg1 withHorizontalFittingPriority:(float)arg2 verticalFittingPriority:(float)arg3;
+@property(readonly, nonatomic) double verticalImageMargin;
+@property(readonly, nonatomic) double rightMargin;
+@property(readonly, nonatomic) double leftMargin;
+- (void)clipToTopHeaderWithHeight:(double)arg1 inTableView:(id)arg2;
+- (void)setFrame:(struct CGRect)arg1;
 - (void)updateBottomLine;
-- (void)setIsLastInSection:(_Bool)arg1;
-- (void)setSummary:(id)arg1 withNumberOfLines:(long long)arg2;
-@property(retain, nonatomic) NSString *summary;
-@property(retain, nonatomic) NSString *auxiliarySubtitle;
-@property(retain, nonatomic) NSString *auxiliaryTitle;
-@property(retain, nonatomic) NSString *subtitle;
-@property(retain, nonatomic) NSString *title;
+- (_Bool)aboveSelectedCell;
 - (void)dealloc;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 

@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     PDAnimationTarget *mTgtElement;
 }
 
+- (BOOL)isEqual:(id)arg1;
 - (void)setTarget:(id)arg1;
 - (id)target;
 - (void)dealloc;

@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 - (void)endDynamicAdaptiveLayout;
 - (void)beginDynamicAdaptiveLayout;
 - (id)p_shiftedObjects;
+- (struct CGRect)clippedRectInRoot:(struct CGRect)arg1;
 - (BOOL)isRootLayoutForInspectorGeometry;
 - (id)layoutsForProvidingGuidesForChildLayouts;
 - (BOOL)providesGuidesForChildLayouts;

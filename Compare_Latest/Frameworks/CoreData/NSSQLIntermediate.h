@@ -43,9 +43,10 @@ __attribute__((visibility("hidden")))
 - (BOOL)expressionIsBasicKeypath:(id)arg1;
 - (id)fetchIntermediateForKeypathExpression:(id)arg1;
 - (id)fetchIntermediate;
+- (BOOL)isUpdateScoped;
 - (BOOL)isHavingScoped;
 - (BOOL)isFunctionScoped;
-- (BOOL)isSelectTargetScoped;
+- (BOOL)isTargetColumnsScoped;
 - (BOOL)isOrScoped;
 - (id)generateSQLStringInContext:(id)arg1;
 - (id)scope;

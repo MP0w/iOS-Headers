@@ -8,7 +8,7 @@
 
 #import "TSCHSupportsRendering.h"
 
-@class NSArray, TSCHChartInfo, TSCHChartLayout;
+@class NSArray, NSString, TSCHChartInfo, TSCHChartLayout;
 
 __attribute__((visibility("hidden")))
 @interface TSCHChartNonRep : NSObject <TSCHSupportsRendering>
@@ -21,8 +21,10 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSCHChartLayout *chartLayout; // @synthesize chartLayout=mChartLayout;
 @property(retain, nonatomic) TSCHChartInfo *chartInfo; // @synthesize chartInfo=mChartInfo;
 - (void)drawInContext:(struct CGContext *)arg1;
+- (BOOL)requireSeparateLabelLayer;
 - (BOOL)renderTrendLinesForSeriesIndex:(unsigned int)arg1;
 - (struct CGRect)outerShadowFrame;
+- (struct CGRect)convertNaturalRectToLayerRelative:(struct CGRect)arg1;
 - (struct CGRect)convertUnscaledToBoundsRect:(struct CGRect)arg1;
 - (void)didDrawInLayer:(id)arg1 context:(struct CGContext *)arg2;
 - (void)setupForDrawingInLayer:(id)arg1 context:(struct CGContext *)arg2;
@@ -43,6 +45,12 @@ __attribute__((visibility("hidden")))
 - (id)renderers;
 - (void)dealloc;
 - (id)initWithChartInfo:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

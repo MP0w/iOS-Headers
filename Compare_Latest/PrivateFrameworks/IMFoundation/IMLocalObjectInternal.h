@@ -23,6 +23,7 @@
     NSRecursiveLock *_componentQueueProcessingLock;
     BOOL _pendingComponentQueueProcessing;
     BOOL _busyForwarding;
+    BOOL _offMainThread;
 }
 
 - (void)dealloc;

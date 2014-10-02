@@ -39,7 +39,7 @@
 @property(copy, nonatomic) SUDescriptor *lastScannedDescriptor; // @synthesize lastScannedDescriptor=_lastScannedDescriptor;
 @property(copy, nonatomic) SUDownload *lastDownload; // @synthesize lastDownload=_lastDownload;
 - (Class)unarchiver:(id)arg1 cannotDecodeObjectOfClassName:(id)arg2 originalClasses:(id)arg3;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)save;
 - (void)load;
 - (id)_stateAsDictionary;
@@ -47,6 +47,11 @@
 - (void)resetDownloadAndScanHistory;
 - (id)init;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

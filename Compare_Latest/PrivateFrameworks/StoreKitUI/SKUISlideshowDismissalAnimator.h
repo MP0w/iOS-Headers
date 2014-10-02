@@ -8,7 +8,7 @@
 
 #import "UIViewControllerAnimatorTransitioning.h"
 
-@class UIImageView;
+@class NSString, UIImageView;
 
 @interface SKUISlideshowDismissalAnimator : NSObject <UIViewControllerAnimatorTransitioning>
 {
@@ -22,6 +22,12 @@
 - (void)animationEnded:(BOOL)arg1;
 - (void)animateTransition:(id)arg1;
 - (double)transitionDuration:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

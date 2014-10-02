@@ -6,10 +6,13 @@
 
 #import <CoreUI/CUIPSDLayerBaseRef.h>
 
+__attribute__((visibility("hidden")))
 @interface CUIPSDLayerRef : CUIPSDLayerBaseRef
 {
 }
 
+- (id)colorFill;
+- (id)layerEffects;
 - (id)gradient;
 - (id)fillSample;
 - (id)maskFromSlice:(unsigned int)arg1;

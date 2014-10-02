@@ -17,6 +17,8 @@
     BOOL _displaysNonForcedSubtitles;
 }
 
+- (int)trackID;
+- (id)track;
 - (id)associatedMediaSelectionOptionInMediaSelectionGroup:(id)arg1;
 - (id)metadataForFormat:(id)arg1;
 - (id)availableMetadataFormats;
@@ -26,9 +28,7 @@
 - (BOOL)hasMediaCharacteristic:(id)arg1;
 - (id)mediaSubTypes;
 - (id)mediaType;
-- (int)trackID;
 - (BOOL)displaysNonForcedSubtitles;
-- (id)track;
 - (id)_groupID;
 - (id)group;
 - (id)dictionary;

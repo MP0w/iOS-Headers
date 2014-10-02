@@ -14,17 +14,17 @@ __attribute__((visibility("hidden")))
     EDRowBlock *mRowBlock;
     struct EDRowInfo *mRowInfo;
     double *columnGrid;
-    int columnCount;
+    unsigned int columnCount;
 }
 
-+ (void)mapEmptyRowAt:(id)arg1 colspan:(int)arg2 height:(double)arg3;
++ (void)mapEmptyRowAt:(id)arg1 colspan:(unsigned int)arg2 height:(double)arg3;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
-- (void)mapEmptyCellsAt:(id)arg1 withState:(id)arg2 firstColumn:(int)arg3 lastColumn:(int)arg4;
-- (BOOL)isColumnHidden:(int)arg1;
+- (void)mapEmptyCellsAt:(id)arg1 withState:(id)arg2 firstColumn:(unsigned int)arg3 lastColumn:(unsigned int)arg4;
+- (BOOL)isColumnHidden:(unsigned int)arg1;
 - (id)initWithEDRowBlock:(id)arg1 rowInfo:(struct EDRowInfo *)arg2 parent:(id)arg3;
-- (void)insertEmptyCellAt:(id)arg1 withColSpan:(int)arg2 height:(double)arg3;
+- (void)insertEmptyCellAt:(id)arg1 withColSpan:(unsigned int)arg2 height:(double)arg3;
 - (BOOL)isMergedCell:(struct EDCellHeader *)arg1;
-- (struct EDCellHeader *)cellWithColumnNumber:(int)arg1;
+- (struct EDCellHeader *)cellWithColumnNumber:(unsigned int)arg1;
 
 @end
 

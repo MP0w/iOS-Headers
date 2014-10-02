@@ -6,6 +6,7 @@
 
 #import <CoreUI/CUIThemeRendition.h>
 
+__attribute__((visibility("hidden")))
 @interface _CUIThemeEffectRendition : CUIThemeRendition
 {
     const struct _cuieffectdata *effectData;

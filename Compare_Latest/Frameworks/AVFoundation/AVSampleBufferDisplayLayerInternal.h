@@ -6,20 +6,29 @@
 
 #import "NSObject.h"
 
-@class AVMediaDataRequester, CALayer, NSObject<OS_dispatch_queue>, NSString;
+@class AVMediaDataRequester, AVWeakReference, CALayer, NSError, NSObject<OS_dispatch_queue>, NSString;
 
 @interface AVSampleBufferDisplayLayerInternal : NSObject
 {
     CALayer *contentLayer;
     struct OpaqueFigVideoQueue *videoQueue;
-    BOOL controlTimebaseSetByUser;
-    BOOL hasEnqueuedSamples;
+    BOOL outputObscured;
+    int status;
+    NSError *error;
     NSString *videoGravity;
     struct CGSize presentationSize;
+    struct CGRect bounds;
     BOOL isRequestingMediaData;
     AVMediaDataRequester *mediaDataRequester;
     BOOL aboveHighWaterLevel;
     NSObject<OS_dispatch_queue> *serialQueue;
+    AVWeakReference *weakReferenceToSelf;
+    AVWeakReference *weakReferenceToSynchronizer;
+    BOOL addedToSynchronizer;
+    BOOL controlTimebaseSetByUserIsInUse;
+    struct OpaqueCMTimebase *controlTimebaseSetByUser;
+    struct OpaqueCMTimebase *readOnlyVideoQueueTimebase;
+    struct OpaqueCMTimebase *readOnlyRenderingTimebase;
 }
 
 @end

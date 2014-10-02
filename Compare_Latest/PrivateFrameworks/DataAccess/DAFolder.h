@@ -10,24 +10,24 @@
 
 @interface DAFolder : NSObject
 {
+    BOOL _isDefault;
+    BOOL _hasRemoteChanges;
     NSString *_folderName;
     NSString *_folderID;
     NSString *_parentFolderID;
     int _dataclass;
-    BOOL _isDefault;
-    BOOL _hasRemoteChanges;
 }
 
-@property BOOL hasRemoteChanges; // @synthesize hasRemoteChanges=_hasRemoteChanges;
-@property BOOL isDefault; // @synthesize isDefault=_isDefault;
-@property int dataclass; // @synthesize dataclass=_dataclass;
-@property(copy) NSString *parentFolderID; // @synthesize parentFolderID=_parentFolderID;
-@property(copy) NSString *folderID; // @synthesize folderID=_folderID;
-@property(copy) NSString *folderName; // @synthesize folderName=_folderName;
+@property(nonatomic) BOOL hasRemoteChanges; // @synthesize hasRemoteChanges=_hasRemoteChanges;
+@property(nonatomic) BOOL isDefault; // @synthesize isDefault=_isDefault;
+@property(nonatomic) int dataclass; // @synthesize dataclass=_dataclass;
+@property(copy, nonatomic) NSString *parentFolderID; // @synthesize parentFolderID=_parentFolderID;
+@property(copy, nonatomic) NSString *folderID; // @synthesize folderID=_folderID;
+@property(copy, nonatomic) NSString *folderName; // @synthesize folderName=_folderName;
+- (void).cxx_destruct;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (id)description;
-- (void)dealloc;
 - (id)parentMailboxID;
 - (id)mailboxID;
 

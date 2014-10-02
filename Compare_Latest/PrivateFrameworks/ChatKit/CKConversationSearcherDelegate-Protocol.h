@@ -20,5 +20,6 @@
 - (void)searcherWillEndSearch:(CKConversationSearcher *)arg1;
 - (void)searcherDidBeginSearch:(CKConversationSearcher *)arg1;
 - (void)searcherWillBeginSearch:(CKConversationSearcher *)arg1;
+- (void)searcherWillBeginEditing:(CKConversationSearcher *)arg1;
 @end
 

@@ -9,7 +9,7 @@
 #import "AFContextProvider.h"
 #import "UIViewControllerRestoration.h"
 
-@class ABPersonTableViewActionsDelegate, ABPersonTableViewDataSource, ABPersonTableViewSharingDelegate, ABPersonViewControllerHelper, ABUIPerson, AFContextManager, NSArray, NSString, NSTimer, UIFont, UIImage, UIView;
+@class ABContactViewController, ABPersonTableViewActionsDelegate, ABPersonTableViewDataSource, ABPersonTableViewSharingDelegate, ABPersonViewControllerHelper, ABUIPerson, AFContextManager, NSArray, NSString, NSTimer, UIFont, UIImage, UIView;
 
 @interface ABPersonViewController : UIViewController <AFContextProvider, UIViewControllerRestoration>
 {
@@ -24,16 +24,17 @@
     ABPersonTableViewDataSource *_dataSource;
     ABPersonTableViewActionsDelegate *_actionsDelegate;
     ABPersonTableViewSharingDelegate *_sharingDelegate;
+    ABContactViewController *_contactViewController;
 }
 
 + (id)viewControllerWithRestorationIdentifierPath:(id)arg1 coder:(id)arg2;
 @property(nonatomic) BOOL allowsOnlyFaceTimeActions; // @synthesize allowsOnlyFaceTimeActions=_allowsOnlyFaceTimeActions;
 @property(nonatomic) BOOL allowsOnlyPhoneActions; // @synthesize allowsOnlyPhoneActions=_allowsOnlyPhoneActions;
+@property(retain, nonatomic) ABContactViewController *contactViewController; // @synthesize contactViewController=_contactViewController;
 @property(nonatomic) BOOL allowsContactBlocking; // @synthesize allowsContactBlocking=_allowsContactBlocking;
 @property(readonly, nonatomic) ABPersonTableViewSharingDelegate *sharingDelegate; // @synthesize sharingDelegate=_sharingDelegate;
 @property(readonly, nonatomic) ABPersonTableViewActionsDelegate *actionsDelegate; // @synthesize actionsDelegate=_actionsDelegate;
 @property(readonly, nonatomic) ABPersonTableViewDataSource *dataSource; // @synthesize dataSource=_dataSource;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (float)ab_heightToFitForViewInPopoverView;
 - (void)setHighlightedItemForProperty:(int)arg1 withIdentifier:(int)arg2 person:(void *)arg3 important:(BOOL)arg4;
 - (void)setHighlightedItemForProperty:(int)arg1 withIdentifier:(int)arg2 person:(void *)arg3;
@@ -107,7 +108,6 @@
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
-- (void)viewDidUnload;
 - (void)viewDidLoad;
 - (void)loadView;
 - (void)cancelEditing:(BOOL)arg1;
@@ -133,7 +133,7 @@
 - (void)encodeRestorableStateWithCoder:(id)arg1;
 - (void)dealloc;
 - (void)_removeContextProviderOnMainThread;
-- (void)dismissModalViewControllerAnimated:(BOOL)arg1;
+- (void)dismissViewControllerAnimated:(BOOL)arg1 completion:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) ABPersonViewControllerHelper *helper;
 - (id)initWithAddressBook:(void *)arg1;
 - (id)initWithStyle:(int)arg1;

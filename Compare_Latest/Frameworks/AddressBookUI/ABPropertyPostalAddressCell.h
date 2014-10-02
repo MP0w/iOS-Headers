@@ -4,28 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <AddressBookUI/ABPropertySimpleCell.h>
+#import <AddressBookUI/ABPropertySimpleTransportCell.h>
 
-@class ABPostalAddressEditorView;
-
-@interface ABPropertyPostalAddressCell : ABPropertySimpleCell
+@interface ABPropertyPostalAddressCell : ABPropertySimpleTransportCell
 {
-    ABPostalAddressEditorView *_addressEditor;
 }
 
-+ (void)initialize;
-@property(retain, nonatomic) ABPostalAddressEditorView *addressEditor; // @synthesize addressEditor=_addressEditor;
-- (void)setValueTextAttributes:(id)arg1;
-- (void)setBackgroundColor:(id)arg1;
-- (id)contentViewEditingConstraints;
-- (void)layoutChanged:(id)arg1;
-- (void)valueChanged:(id)arg1;
-- (void)updateWithPropertyItem:(id)arg1;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setPresentingDelegate:(id)arg1;
-- (id)firstResponderItem;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end

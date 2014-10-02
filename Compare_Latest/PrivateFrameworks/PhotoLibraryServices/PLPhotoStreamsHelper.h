@@ -31,10 +31,10 @@
 - (id)derivedAssetForMasterAsset:(id)arg1;
 - (struct CGSize)derivedAssetSizeForMasterSizeWidth:(float)arg1 height:(float)arg2;
 - (id)temporaryPathForRecentlyUploadedAsset:(id)arg1;
-- (float)derivedAssetDimensionLimit;
 - (int)friendsLimit;
 - (int)imageLimitForFriendStream;
 - (int)imageLimitForOwnStream;
+- (int)maxPixelSizeForDerivative;
 - (id)imageLimitsByAssetType;
 - (int)_serverIntegerLimitForKey:(id)arg1 debugDefaultKey:(id)arg2;
 - (BOOL)shouldUploadVideos;

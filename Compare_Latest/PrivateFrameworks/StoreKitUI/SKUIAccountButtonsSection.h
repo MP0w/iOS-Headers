@@ -8,7 +8,7 @@
 
 #import "SKUIAccountButtonsDelegate.h"
 
-@class SKUIAccountButtonsComponent, SKUIAccountButtonsViewController;
+@class NSString, SKUIAccountButtonsComponent, SKUIAccountButtonsViewController;
 
 @interface SKUIAccountButtonsSection : SKUIStorePageSection <SKUIAccountButtonsDelegate>
 {
@@ -19,15 +19,23 @@
 - (id)_accountButtonsViewController;
 - (void)accountButtonsViewControllerDidSignOut:(id)arg1;
 - (void)accountButtonsViewControllerDidSignIn:(id)arg1;
+- (void)willAppearInContext:(id)arg1;
 - (int)numberOfCells;
+- (void)collectionViewDidEndDisplayingCellForItemAtIndexPath:(id)arg1;
+- (void)collectionViewWillDisplayCellForItemAtIndexPath:(id)arg1;
 - (struct CGSize)cellSizeForIndexPath:(id)arg1;
 - (id)cellForIndexPath:(id)arg1;
-- (void)willAppearInContext:(id)arg1;
+- (id)backgroundColorForIndexPath:(id)arg1;
+- (void)addImpressionsForIndexPath:(id)arg1 toSession:(id)arg2;
 - (void)dealloc;
 - (id)initWithPageComponent:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) SKUIAccountButtonsComponent *pageComponent; // @dynamic pageComponent;
+@property(readonly) Class superclass;
 
 @end
 

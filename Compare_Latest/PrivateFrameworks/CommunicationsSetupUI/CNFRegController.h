@@ -55,7 +55,7 @@
 }
 
 + (id)controllerForServiceType:(int)arg1;
-@property(readonly, nonatomic) NSDictionary *cachedCallerIDMap; // @synthesize cachedCallerIDMap=_cachedCallerIDMap;
+@property(readonly, copy, nonatomic) NSDictionary *cachedCallerIDMap; // @synthesize cachedCallerIDMap=_cachedCallerIDMap;
 @property(copy, nonatomic) CDUnknownBlockType willLaunchURLBlock; // @synthesize willLaunchURLBlock=_willLaunchURLBlock;
 @property(copy, nonatomic) CDUnknownBlockType accountActivationChangedBlock; // @synthesize accountActivationChangedBlock=_accountActivationChangedBlock;
 @property(nonatomic) int serviceType; // @synthesize serviceType=_serviceType;
@@ -134,11 +134,11 @@
 - (id)aliasNamed:(id)arg1;
 - (BOOL)hasAlias:(id)arg1;
 - (BOOL)hasAliasNamed:(id)arg1;
-@property(readonly, nonatomic) NSArray *emailAliases;
-@property(readonly, nonatomic) NSArray *useableAliases;
-@property(readonly, nonatomic) NSArray *allAvailableAliases;
-@property(readonly, nonatomic) NSArray *vettedAliases;
-@property(readonly, nonatomic) NSArray *aliases;
+@property(readonly, retain, nonatomic) NSArray *emailAliases;
+@property(readonly, retain, nonatomic) NSArray *useableAliases;
+@property(readonly, retain, nonatomic) NSArray *allAvailableAliases;
+@property(readonly, retain, nonatomic) NSArray *vettedAliases;
+@property(readonly, retain, nonatomic) NSArray *aliases;
 - (id)useableAliasesForAccounts:(id)arg1;
 - (id)allAvailableAliasesForAccounts:(id)arg1;
 - (id)vettedAliasesForAccounts:(id)arg1;
@@ -170,18 +170,18 @@
 - (void)_purgeExcessAccounts;
 - (id)accountWithLogin:(id)arg1;
 - (id)firstAccount;
-@property(readonly, nonatomic) NSArray *accounts;
+@property(readonly, copy, nonatomic) NSArray *accounts;
 - (void)systemApplicationDidEnterBackground;
 - (void)dealloc;
-@property(readonly, nonatomic) NSSet *serviceNames; // @dynamic serviceNames;
-@property(readonly, nonatomic) IMServiceImpl *firstService; // @dynamic firstService;
+@property(readonly, retain, nonatomic) NSSet *serviceNames; // @dynamic serviceNames;
+@property(readonly, retain, nonatomic) IMServiceImpl *firstService; // @dynamic firstService;
 - (id)initWithServiceType:(int)arg1;
 - (id)init;
 - (void)showSetupFaceTimeOverCellularAlertWithCompletion:(CDUnknownBlockType)arg1;
-@property(readonly, nonatomic) NSArray *failedAccounts;
+@property(readonly, copy, nonatomic) NSArray *failedAccounts;
 - (id)activeAccounts;
-@property(readonly, nonatomic) NSArray *appleIDAccounts;
-@property(readonly, nonatomic) NSArray *phoneAccounts;
+@property(readonly, copy, nonatomic) NSArray *appleIDAccounts;
+@property(readonly, copy, nonatomic) NSArray *phoneAccounts;
 - (id)_predicatesWithFilter:(int)arg1;
 - (id)_accountsPassingTests:(id)arg1 message:(id)arg2;
 - (id)accountsWithFilter:(int)arg1;
@@ -219,7 +219,7 @@
 - (void)openURL:(id)arg1;
 - (void)refreshSystemAccount;
 @property(readonly, nonatomic) int systemAccountType;
-@property(readonly, nonatomic) IMAccount *systemAccount;
+@property(readonly, retain, nonatomic) IMAccount *systemAccount;
 - (BOOL)hasSystemAccount;
 - (void)__updateSystemAccount;
 

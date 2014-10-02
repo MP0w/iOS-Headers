@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
     struct CGSize _actualSize;
     struct CGPoint *_bottomRow;
+    unsigned int _bottomRowCount;
     BOOL shouldDraw;
 }
 
@@ -20,10 +21,10 @@ __attribute__((visibility("hidden")))
 - (BOOL)shouldDraw;
 - (void)p_setupParticleDataWithTexture:(id)arg1;
 - (float)rotationMax;
-- (CDStruct_03942939)rotationAtIndexPoint:(struct CGPoint)arg1;
+- (CDStruct_869f9c67)rotationAtIndexPoint:(struct CGPoint)arg1;
 - (CDStruct_b2fbf00d)lifeSpanAtIndexPoint:(struct CGPoint)arg1;
 - (float)speedMax;
-- (CDStruct_03942939)speedAtIndexPoint:(struct CGPoint)arg1;
+- (CDStruct_869f9c67)speedAtIndexPoint:(struct CGPoint)arg1;
 - (struct CGPoint)startingPointAtIndexPoint:(struct CGPoint)arg1;
 - (void)dealloc;
 

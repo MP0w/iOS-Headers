@@ -24,7 +24,6 @@
 - (BOOL)usernameIsEmpty;
 - (void)setUsernameText:(id)arg1;
 - (id)usernameTextField;
-- (void)_updateDescriptionText;
 - (void)viewDidLoad;
 - (id)specifierList;
 - (void)viewWillAppear:(BOOL)arg1;

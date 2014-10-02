@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVAssetResourceLoadingContentInformationRequestInternal, NSString;
+@class AVAssetResourceLoadingContentInformationRequestInternal, NSDate, NSString;
 
 @interface AVAssetResourceLoadingContentInformationRequest : NSObject
 {
@@ -15,6 +15,7 @@
 
 - (BOOL)isDiskCachingPermitted;
 - (void)setDiskCachingPermitted:(BOOL)arg1;
+@property(copy, nonatomic) NSDate *renewalDate;
 @property(nonatomic, getter=isByteRangeAccessSupported) BOOL byteRangeAccessSupported;
 @property(nonatomic) long long contentLength;
 @property(copy, nonatomic) NSString *contentType;
@@ -22,6 +23,7 @@
 - (id)description;
 - (void)finalize;
 - (void)dealloc;
+- (id)initWithLoadingRequest:(id)arg1;
 - (id)init;
 
 @end

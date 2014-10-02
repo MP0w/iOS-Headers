@@ -14,6 +14,7 @@
 - (NSDictionary *)animationsForTextureSet:(TSDTextureSet *)arg1 finalTextureSet:(TSDTextureSet *)arg2 duration:(double)arg3 attributes:(NSDictionary *)arg4 previousAttributes:(NSDictionary *)arg5;
 
 @optional
++ (BOOL)isEmphasisBuildAnimation;
 - (NSDictionary *)animationsForTextureSet:(TSDTextureSet *)arg1 context:(KNAnimationPluginContext *)arg2;
 @end
 

@@ -8,5 +8,6 @@
 
 @interface NSString (CKUtilities)
 - (struct _NSRange)__ck_rangeOfSequenceOfCharactersFromSet:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3;
+- (BOOL)__ck_containsOnlyCharactersFromSet:(id)arg1;
 @end
 

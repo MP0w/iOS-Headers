@@ -9,14 +9,14 @@
 #import "PCInterfaceUsabilityMonitorDelegate.h"
 #import "PCInterfaceUsabilityMonitorProtocol.h"
 
-@class CUTWeakReference, NSString, PCInterfaceUsabilityMonitor;
+@class CUTWeakReference, NSObject<OS_dispatch_queue>, NSString, PCInterfaceUsabilityMonitor;
 
 __attribute__((visibility("hidden")))
 @interface PCWWANUsabilityMonitor : NSObject <PCInterfaceUsabilityMonitorProtocol, PCInterfaceUsabilityMonitorDelegate>
 {
-    struct dispatch_queue_s *_delegateQueue;
-    struct dispatch_queue_s *_ivarQueue;
-    struct dispatch_queue_s *_monitorDelegateQueue;
+    NSObject<OS_dispatch_queue> *_delegateQueue;
+    NSObject<OS_dispatch_queue> *_ivarQueue;
+    NSObject<OS_dispatch_queue> *_monitorDelegateQueue;
     CUTWeakReference *_delegateReference;
     BOOL _isInCall;
     BOOL _isInHighPowerState;
@@ -28,7 +28,7 @@ __attribute__((visibility("hidden")))
     struct __CFString *_currentRAT;
     int _powerlogCDRXToken;
     long _wwanContextID;
-    struct dispatch_queue_s *_ctServerQueue;
+    NSObject<OS_dispatch_queue> *_ctServerQueue;
 }
 
 - (void)interfaceReachabilityChanged:(id)arg1;
@@ -36,8 +36,9 @@ __attribute__((visibility("hidden")))
 - (void)_callDelegateOnIvarQueueWithBlock:(CDUnknownBlockType)arg1;
 @property(nonatomic) id <PCInterfaceUsabilityMonitorDelegate> delegate;
 @property(readonly, nonatomic) BOOL isRadioHot;
+@property(readonly, nonatomic) BOOL isBadLinkQuality;
 @property(readonly, nonatomic) BOOL isPoorLinkQuality;
-@property(readonly, nonatomic) NSString *linkQualityString;
+@property(readonly, retain, nonatomic) NSString *linkQualityString;
 @property(readonly, nonatomic) BOOL isInternetReachable;
 @property(readonly, nonatomic) BOOL isInterfaceHistoricallyUsable;
 @property(readonly, nonatomic) BOOL isInterfaceUsable;
@@ -53,7 +54,13 @@ __attribute__((visibility("hidden")))
 - (void)_adjustInterfaceNameForWWANContextID:(long)arg1;
 - (void)_setupWWANMonitor;
 - (void)dealloc;
-- (id)initWithDelegateQueue:(struct dispatch_queue_s *)arg1;
+- (id)initWithDelegateQueue:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

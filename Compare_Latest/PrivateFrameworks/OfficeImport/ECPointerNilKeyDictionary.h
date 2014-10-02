@@ -4,14 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <OfficeImport/TSUPointerKeyDictionary.h>
+#import <OfficeImport/OITSUPointerKeyDictionary.h>
 
 __attribute__((visibility("hidden")))
-@interface ECPointerNilKeyDictionary : TSUPointerKeyDictionary
+@interface ECPointerNilKeyDictionary : OITSUPointerKeyDictionary
 {
     id mNilKeyObject;
 }
 
+- (void)setObject:(id)arg1 forUncopiedKey:(id)arg2;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 - (id)objectForKey:(id)arg1;
 

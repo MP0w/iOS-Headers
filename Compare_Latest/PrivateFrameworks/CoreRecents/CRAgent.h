@@ -6,22 +6,34 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_xpc_object>, _CRRecentsLibrary;
+#import "NSXPCListenerDelegate.h"
 
-@interface CRAgent : NSObject
+@class CREventHarvester, NSMutableSet, NSString, NSXPCListener, _CRRecentsLibrary;
+
+@interface CRAgent : NSObject <NSXPCListenerDelegate>
 {
-    NSObject<OS_xpc_object> *_listener;
+    NSXPCListener *_listener;
     _CRRecentsLibrary *_library;
+    NSMutableSet *_clients;
+    CREventHarvester *_harvester;
 }
 
 - (void)stop;
-- (void)startListeningForXPCServiceRequests;
 - (void)start;
+- (void)startHarvestingEvents;
 - (void)_lockStateChanged:(id)arg1;
-- (void)eventHandler:(id)arg1;
-- (void)peerEventHandler:(id)arg1 event:(id)arg2;
+- (void)_adjustLibraryStoreSyncBehaviorWithLockedState:(BOOL)arg1;
+- (BOOL)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
+- (id)daemonLibraryForClient:(id)arg1;
+- (id)clientForConnection:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

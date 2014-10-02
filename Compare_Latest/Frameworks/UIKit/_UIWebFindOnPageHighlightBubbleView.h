@@ -13,7 +13,6 @@ __attribute__((visibility("hidden")))
     struct CGPoint _highlightedContentOrigin;
 }
 
-- (id).cxx_construct;
 - (void)dealloc;
 - (void)setHighlightedContent:(struct CGImage *)arg1 withOrigin:(struct CGPoint)arg2;
 - (void)drawRect:(struct CGRect)arg1;

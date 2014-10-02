@@ -10,7 +10,6 @@
 {
 }
 
-+ (unsigned short)providerID;
 - (void)cancelRequest;
 - (void)startNotificationAvailabilityRequest:(id)arg1 finished:(CDUnknownBlockType)arg2 error:(CDUnknownBlockType)arg3;
 - (void)startStatusRequest:(id)arg1 finished:(CDUnknownBlockType)arg2 error:(CDUnknownBlockType)arg3;

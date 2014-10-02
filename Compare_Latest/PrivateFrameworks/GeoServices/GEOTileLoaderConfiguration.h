@@ -8,22 +8,26 @@
 
 #import "NSCopying.h"
 
-@class NSString;
+@class GEOResourceManifestConfiguration, NSLocale, NSString;
 
 @interface GEOTileLoaderConfiguration : NSObject <NSCopying>
 {
-    BOOL _useRemoteLoader;
+    Class _serverProxyClass;
     BOOL _trackUsage;
     unsigned int _memoryCacheCountLimit;
     unsigned int _memoryCacheCostLimit;
     NSString *_diskCacheLocation;
+    GEOResourceManifestConfiguration *_manifestConfiguration;
+    NSLocale *_locale;
 }
 
+@property(retain, nonatomic) NSLocale *locale; // @synthesize locale=_locale;
+@property(retain, nonatomic) GEOResourceManifestConfiguration *manifestConfiguration; // @synthesize manifestConfiguration=_manifestConfiguration;
 @property(copy, nonatomic) NSString *diskCacheLocation; // @synthesize diskCacheLocation=_diskCacheLocation;
 @property(nonatomic) unsigned int memoryCacheCostLimit; // @synthesize memoryCacheCostLimit=_memoryCacheCostLimit;
 @property(nonatomic) unsigned int memoryCacheCountLimit; // @synthesize memoryCacheCountLimit=_memoryCacheCountLimit;
 @property(nonatomic) BOOL trackUsage; // @synthesize trackUsage=_trackUsage;
-@property(nonatomic) BOOL useRemoteLoader; // @synthesize useRemoteLoader=_useRemoteLoader;
+@property(nonatomic) Class serverProxyClass; // @synthesize serverProxyClass=_serverProxyClass;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;

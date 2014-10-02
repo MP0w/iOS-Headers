@@ -22,6 +22,7 @@
     SPSearchResultSection *_topHitResultSection;
     SPSearchResultSection *_searchThroughSection;
     BOOL _searchThroughAllowed;
+    BOOL _observersAdded;
     BOOL _queryComplete;
     NSObject<SPSearchAgentDelegate> *_delegate;
 }
@@ -34,14 +35,18 @@
 - (void)dealloc;
 - (id)init;
 - (id)initWithOptions:(int)arg1;
+- (void)internetDomainsChanged;
 - (void)stuffChanged;
 - (void)profileConnectionDidReceiveEffectiveSettingsChangedNotification:(id)arg1 userInfo:(id)arg2;
 - (void)searchDaemonQueryCompleted:(id)arg1;
+- (void)searchDaemonQueryReset:(id)arg1;
 - (void)searchDaemonQuery:(id)arg1 encounteredError:(id)arg2;
 - (void)searchDaemonQuery:(id)arg1 addedResults:(id)arg2;
+- (BOOL)cleanupObsoleteResults;
 - (BOOL)setQueryString:(id)arg1;
 - (BOOL)_shouldIgnoreQuery:(id)arg1;
 - (id)queryString;
+- (void)retrieveImageDataForIdentifier:(id)arg1 inSection:(id)arg2 preferredSize:(struct CGSize)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)retrieveImageDataForResult:(id)arg1 inSection:(id)arg2 preferredSize:(struct CGSize)arg3 completion:(CDUnknownBlockType)arg4;
 - (BOOL)hasResults;
 - (void)updateSearchThroughWithString:(id)arg1;
@@ -52,8 +57,14 @@
 - (void)invalidate;
 - (void)addDeserializer:(id)arg1;
 - (void)addSections:(id)arg1;
-- (int)_indexOfCompatibleSection:(id)arg1;
+- (id)_indexesOfCompatibleSection:(id)arg1;
 - (void)handleOptionsForNewSections:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -43,8 +43,8 @@ __attribute__((visibility("hidden")))
 - (void)setGradientType:(unsigned int)arg1;
 - (void)evenlyDistributeStops;
 - (void)reverseStopOrder;
-- (void)insertStopAtFraction:(float)arg1 withColor:(id)arg2;
-- (void)insertStopAtFraction:(float)arg1;
+- (id)insertStopAtFraction:(float)arg1 withColor:(id)arg2;
+- (id)insertStopAtFraction:(float)arg1;
 - (id)removeStopAtIndex:(unsigned int)arg1;
 - (void)removeStop:(id)arg1;
 - (void)insertGradientStop:(id)arg1;

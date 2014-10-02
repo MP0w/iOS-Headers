@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 
 + (id)tokenWithString:(id)arg1 andLevel:(int)arg2;
 - (int)level;
-- (id)stringForIndex:(int)arg1 withFormat:(int)arg2 initialNumber:(int)arg3;
+- (id)stringForIndex:(unsigned int)arg1 withFormat:(int)arg2 orNumberFormatter:(void **)arg3 initialNumber:(unsigned int)arg4;
 - (id)string;
 - (void)dealloc;
 - (id)initWithString:(id)arg1 andLevel:(int)arg2;

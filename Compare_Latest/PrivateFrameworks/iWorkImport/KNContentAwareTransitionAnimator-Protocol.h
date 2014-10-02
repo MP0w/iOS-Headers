@@ -8,7 +8,6 @@
 
 @protocol KNContentAwareTransitionAnimator <KNAnimationPluginAnimationRendering>
 + (BOOL)requiresPerspectiveTransform;
-+ (BOOL)requiresMagicMoveTextures;
 + (BOOL)requiresBullets;
 + (BOOL)isCharacterAwareEffect;
 @end

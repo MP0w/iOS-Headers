@@ -11,7 +11,7 @@
 #import "EKDayViewContentDelegate.h"
 #import "UIScrollViewDelegate.h"
 
-@class EKDayAllDayView, EKDayTimeView, EKDayViewContent, EKEvent, NSArray, NSCalendar, NSDate, NSDateComponents, NSTimer, UIColor, UIImageView, UIScrollAnimation, UIScrollView;
+@class EKDayAllDayView, EKDayTimeView, EKDayViewContent, EKDayViewSpringLoadedScrollAnimation, EKEvent, NSArray, NSCalendar, NSDate, NSDateComponents, NSString, NSTimer, UIColor, UIImageView, UIPinchGestureRecognizer, UIScrollView, UITapGestureRecognizer;
 
 @interface EKDayView : UIView <UIScrollViewDelegate, EKDayAllDayViewDelegate, EKDayViewContentDelegate, EKDayTimeViewDelegate>
 {
@@ -33,26 +33,31 @@
     EKDayAllDayView *_allDayView;
     EKDayViewContent *_dayContent;
     EKDayTimeView *_timeView;
-    UIScrollAnimation *_scrollAnimation;
+    EKDayViewSpringLoadedScrollAnimation *_scrollAnimation;
     UIScrollView *_scroller;
     NSTimer *_timeMarkerTimer;
+    struct CGPoint _lastPinchDistance;
+    struct CGPoint _lastPinchPoint1;
+    BOOL _pinching;
+    UIPinchGestureRecognizer *_pinchGestureRecognizer;
+    UITapGestureRecognizer *_doubleTapGestureRecognizer;
     BOOL _allowsOccurrenceSelection;
     BOOL _alignsMidnightToTop;
     BOOL _shouldEverShowTimeIndicators;
-    BOOL _showsTimeLabel;
     BOOL _usesVibrantGridDrawing;
+    BOOL _allowPinchingHourHeights;
     id <EKDayViewDelegate> _delegate;
     id <EKDayViewDataSource> _dataSource;
     NSDateComponents *_displayDate;
     NSCalendar *_calendar;
     int _outlineStyle;
-    UIColor *_occurrenceTextBackgroundColor;
+    float _hourScale;
 }
 
+@property(nonatomic) float hourScale; // @synthesize hourScale=_hourScale;
+@property(nonatomic) BOOL allowPinchingHourHeights; // @synthesize allowPinchingHourHeights=_allowPinchingHourHeights;
 @property(nonatomic) BOOL usesVibrantGridDrawing; // @synthesize usesVibrantGridDrawing=_usesVibrantGridDrawing;
-@property(retain, nonatomic) UIColor *occurrenceTextBackgroundColor; // @synthesize occurrenceTextBackgroundColor=_occurrenceTextBackgroundColor;
 @property(nonatomic) int outlineStyle; // @synthesize outlineStyle=_outlineStyle;
-@property(nonatomic) BOOL showsTimeLabel; // @synthesize showsTimeLabel=_showsTimeLabel;
 @property(nonatomic) BOOL shouldEverShowTimeIndicators; // @synthesize shouldEverShowTimeIndicators=_shouldEverShowTimeIndicators;
 @property(nonatomic) BOOL alignsMidnightToTop; // @synthesize alignsMidnightToTop=_alignsMidnightToTop;
 @property(nonatomic) BOOL allowsOccurrenceSelection; // @synthesize allowsOccurrenceSelection=_allowsOccurrenceSelection;
@@ -78,6 +83,11 @@
 - (BOOL)_showingAllDaySection;
 - (double)dateAtPoint:(struct CGPoint)arg1 isAllDay:(char *)arg2;
 - (id)occurrenceViewAtPoint:(struct CGPoint)arg1;
+- (void)_dayViewPinched:(id)arg1;
+- (float)maximumHourScale;
+- (float)minimumHourScale;
+- (struct CGPoint)_pinchDistanceForGestureRecognizer:(id)arg1;
+- (void)_doubleTap:(id)arg1;
 - (void)_timeViewTapped:(id)arg1;
 - (void)dayViewContent:(id)arg1 didTapPinnedOccurrence:(id)arg2;
 - (void)dayViewContent:(id)arg1 didTapInEmptySpaceOnDay:(double)arg2;
@@ -92,6 +102,7 @@
 - (void)scrollEventsIntoViewAnimated:(BOOL)arg1;
 - (void)_disposeAllDayView;
 - (void)_createAllDayView;
+- (void)_updateContentForSizeCategoryChange:(id)arg1;
 - (void)scrollViewDidEndScrollingAnimation:(id)arg1;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(BOOL)arg2;
@@ -99,12 +110,14 @@
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)_notifyDelegateOfFinishedScrollingToOccurrence;
+- (BOOL)containsOccurrences;
 @property(retain, nonatomic) EKEvent *dimmedOccurrence;
 - (id)selectedEvent;
 - (void)selectEvent:(id)arg1;
 - (struct CGRect)rectForEvent:(id)arg1;
 - (float)yPositionPerhapsMatchingAllDayOccurrence:(id)arg1;
 - (id)occurrenceViewForEvent:(id)arg1;
+- (BOOL)eventOccursOnThisDay:(id)arg1;
 - (void)resetLastSelectedOccurrencePoint;
 - (id)_generateVerticalGridExtensionImage;
 - (void)_clearVerticalGridExtensionImageCache;
@@ -120,16 +133,17 @@
 - (void)dayAllDayView:(id)arg1 occurrenceViewClicked:(id)arg2;
 - (void)dayContentView:(id)arg1 atPoint:(struct CGPoint)arg2;
 - (void)dayOccurrenceViewClicked:(id)arg1 atPoint:(struct CGPoint)arg2;
-- (CDStruct_79f9e052)_selectedDate;
 - (void)scrollToDate:(id)arg1 animated:(BOOL)arg2 whenFinished:(CDUnknownBlockType)arg3;
 - (void)_finishedScrollToSecond;
 - (void)_scrollToSecond:(int)arg1 animated:(BOOL)arg2 whenFinished:(CDUnknownBlockType)arg3;
-- (void)scrollToEvent:(id)arg1 animated:(BOOL)arg2;
+- (void)scrollToEvent:(id)arg1 animated:(BOOL)arg2 completionBlock:(CDUnknownBlockType)arg3;
 @property(nonatomic) struct CGPoint normalizedContentOffset;
 @property(readonly, nonatomic) float scrollOffset;
 @property(readonly, nonatomic) EKDayAllDayView *allDayView;
 @property(nonatomic) int occurrenceBackgroundStyle;
+@property(retain, nonatomic) UIColor *occurrenceTextBackgroundColor;
 @property(retain, nonatomic) UIColor *occurrenceLocationColor;
+@property(retain, nonatomic) UIColor *occurrenceTimeColor;
 @property(retain, nonatomic) UIColor *occurrenceTitleColor;
 @property(retain, nonatomic) UIColor *gridLineColor;
 @property(nonatomic) struct _NSRange hoursToRender;
@@ -141,6 +155,8 @@
 @property(nonatomic) BOOL showsTimeLine;
 - (struct CGRect)currentTimeRectInView:(id)arg1;
 @property(nonatomic) BOOL showsTimeMarker;
+@property(nonatomic) BOOL animatesTimeMarker;
+@property(nonatomic) BOOL showsTimeLabel;
 - (void)adjustForSignificantTimeChange;
 - (void)setOrientation:(int)arg1;
 - (void)setTimeZone:(id)arg1;
@@ -155,8 +171,13 @@
 - (void)removeFromSuperview;
 - (void)willMoveToSuperview:(id)arg1;
 - (void)_localeChanged;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)initWithFrame:(struct CGRect)arg1 orientation:(int)arg2 displayDate:(id)arg3 backgroundColor:(id)arg4 opaque:(BOOL)arg5 scrollbarShowsInside:(BOOL)arg6;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

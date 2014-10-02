@@ -9,7 +9,7 @@
 #import "NSCoding.h"
 #import "UIScrollViewDelegate.h"
 
-@class NSURLRequest, UIScrollView, UIWebViewInternal;
+@class NSString, NSURLRequest, UIScrollView, UIWebViewInternal;
 
 @interface UIWebView : UIView <NSCoding, UIScrollViewDelegate>
 {
@@ -131,11 +131,11 @@
 - (void)goBack;
 - (void)stopLoading;
 - (void)reload;
-@property(readonly, nonatomic) NSURLRequest *request;
+@property(readonly, retain, nonatomic) NSURLRequest *request;
 - (void)loadData:(id)arg1 MIMEType:(id)arg2 textEncodingName:(id)arg3 baseURL:(id)arg4;
 - (void)loadHTMLString:(id)arg1 baseURL:(id)arg2;
 - (void)loadRequest:(id)arg1;
-@property(readonly, nonatomic) UIScrollView *scrollView;
+@property(readonly, retain, nonatomic) UIScrollView *scrollView;
 @property(nonatomic) id <UIWebViewDelegate> delegate;
 @property(readonly, nonatomic, getter=isLoading) BOOL loading;
 @property(nonatomic) BOOL scalesPageToFit;
@@ -151,7 +151,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)_initWithFrame:(struct CGRect)arg1 enableReachability:(BOOL)arg2;
-- (void)_webViewCommonInitWithWebView:(id)arg1 scalesPageToFit:(BOOL)arg2 shouldEnableReachability:(BOOL)arg3;
+- (void)_webViewCommonInitWithWebView:(id)arg1 scalesPageToFit:(BOOL)arg2;
 - (void)_updateBrowserViewExposedScrollViewRect;
 - (void)_updateViewSettings;
 - (void)_setRichTextReaderViewportSettings;
@@ -162,6 +162,12 @@
 - (void)encodeRestorableStateWithCoder:(id)arg1;
 - (BOOL)isElementAccessibilityExposedToInterfaceBuilder;
 - (Class)_printFormatterClass;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "SAServerBoundCommand.h"
 
-@class NSString, NSURL;
+@class NSArray, NSString, NSURL;
 
 @interface SAAlarmUpdateCompleted : SABaseCommand <SAServerBoundCommand>
 {
@@ -16,13 +16,18 @@
 
 + (id)updateCompletedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)updateCompleted;
+@property(copy, nonatomic) NSArray *alarmIds;
 @property(copy, nonatomic) NSURL *alarmId;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 
 // Remaining properties
 @property(copy, nonatomic) NSString *aceId; // @dynamic aceId;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(copy, nonatomic) NSString *refId; // @dynamic refId;
+@property(readonly) Class superclass;
 
 @end
 

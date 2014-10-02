@@ -11,18 +11,18 @@
 __attribute__((visibility("hidden")))
 @interface TPTextWrapCookie : NSObject
 {
-    TSWPColumn *_column;
     TSDLayout<TSWPLayoutTarget> *_target;
     NSMutableArray *_floatingWrappables;
+    TSUPointerKeyDictionary *_wrapPathInverseTransformInRootDictionary;
+    TSWPColumn *_column;
     TSDWrapPolygon *_interiorWrapPolygon;
     struct CGAffineTransform _targetInverseTransformInRoot;
-    TSUPointerKeyDictionary *_wrapPathInverseTransformInRootDictionary;
 }
 
 + (id)textWrapCookieForColumn:(id)arg1 targetLayout:(id)arg2;
 @property(readonly, nonatomic) struct CGAffineTransform targetInverseTransformInRoot; // @synthesize targetInverseTransformInRoot=_targetInverseTransformInRoot;
 @property(retain, nonatomic) TSDWrapPolygon *interiorWrapPolygon; // @synthesize interiorWrapPolygon=_interiorWrapPolygon;
-@property(readonly, nonatomic) NSArray *floatingWrappables; // @synthesize floatingWrappables=_floatingWrappables;
+@property(readonly, retain, nonatomic) NSArray *floatingWrappables; // @synthesize floatingWrappables=_floatingWrappables;
 @property(retain, nonatomic) TSWPColumn *column; // @synthesize column=_column;
 - (id)transformedWrapPolygonForWrappable:(id)arg1 canvasSpaceToWrapSpaceTransform:(struct CGAffineTransform)arg2;
 - (void)addFloatingWrappable:(id)arg1;

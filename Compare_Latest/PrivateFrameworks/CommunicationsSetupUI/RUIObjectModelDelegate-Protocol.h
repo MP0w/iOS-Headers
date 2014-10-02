@@ -6,13 +6,15 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSIndexPath, NSString, NSURL, RUIObjectModel, RUIPage, RUITableView, RUITableViewRow, RUITableViewSection, UINavigationController, UIView;
+@class NSDictionary, NSIndexPath, NSString, NSURL, RUIElement, RUIObjectModel, RUIPage, RUITableView, RUITableViewRow, RUITableViewSection, UINavigationController, UIView, UIViewController;
 
 @protocol RUIObjectModelDelegate <NSObject>
-- (void)objectModelPressedBack:(RUIObjectModel *)arg1;
 - (UINavigationController *)parentViewControllerForObjectModel:(RUIObjectModel *)arg1;
 
 @optional
+- (void)objectModel:(RUIObjectModel *)arg1 pressedButton:(NSString *)arg2 attributes:(NSDictionary *)arg3;
+- (void)objectModel:(RUIObjectModel *)arg1 pressedLink:(NSURL *)arg2 httpMethod:(NSString *)arg3;
+- (void)objectModelPressedBack:(RUIObjectModel *)arg1;
 - (Class)objectModel:(RUIObjectModel *)arg1 customTableCellClassForTableViewRow:(RUITableViewRow *)arg2;
 - (Class)objectModel:(RUIObjectModel *)arg1 customFooterClassForSection:(RUITableViewSection *)arg2;
 - (Class)objectModel:(RUIObjectModel *)arg1 customHeaderClassForSection:(RUITableViewSection *)arg2;
@@ -27,7 +29,9 @@
 - (void)objectModelDidChange:(RUIObjectModel *)arg1;
 - (void)objectModel:(RUIObjectModel *)arg1 page:(RUIPage *)arg2 toggledEditing:(BOOL)arg3;
 - (BOOL)objectModel:(RUIObjectModel *)arg1 shouldShowModalHTMLViewWithURL:(NSURL *)arg2;
-- (void)objectModel:(RUIObjectModel *)arg1 pressedLink:(NSURL *)arg2 httpMethod:(NSString *)arg3;
-- (void)objectModel:(RUIObjectModel *)arg1 pressedButton:(NSString *)arg2 attributes:(NSDictionary *)arg3;
+- (void)objectModel:(RUIObjectModel *)arg1 pressedLink:(NSURL *)arg2 httpMethod:(NSString *)arg3 completion:(void (^)(BOOL, NSError *))arg4;
+- (void)objectModel:(RUIObjectModel *)arg1 elementDidChange:(RUIElement *)arg2;
+- (void)objectModel:(RUIObjectModel *)arg1 didNavigateBackFromController:(UIViewController *)arg2 withGesture:(BOOL)arg3;
+- (UIViewController *)viewControllerForAlertPresentation;
 @end
 

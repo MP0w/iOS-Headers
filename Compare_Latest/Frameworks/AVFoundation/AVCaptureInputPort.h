@@ -15,6 +15,11 @@
 
 + (BOOL)automaticallyNotifiesObserversOfClock;
 + (id)portWithInput:(id)arg1 mediaType:(id)arg2 formatDescription:(struct opaqueCMFormatDescription *)arg3 enabled:(BOOL)arg4;
++ (id)alloc;
+- (void)bumpChangeSeed;
+- (int)changeSeed;
+- (id)figCaptureSourceConfigurationForSessionPreset:(id)arg1;
+- (id)sourceID;
 - (id)valueForUndefinedKey:(id)arg1;
 - (void)_setClock:(struct OpaqueCMClock *)arg1;
 @property(readonly, nonatomic) struct OpaqueCMClock *clock;

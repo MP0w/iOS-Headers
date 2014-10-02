@@ -18,6 +18,7 @@
 + (void)_registerIMLocalObject:(id)arg1;
 + (id)_registeredIMLocalObjectForPort:(unsigned int)arg1;
 + (void)_setExceptionHandlingDisabled:(BOOL)arg1;
++ (id)_imLocalObjectQueue;
 - (id)description;
 - (void)invalidate;
 @property(readonly, nonatomic) BOOL isValid;
@@ -42,6 +43,7 @@
 - (void)_clearPort:(BOOL)arg1;
 @property(nonatomic) id target;
 - (id)initWithTarget:(id)arg1 portName:(id)arg2 protocol:(id)arg3;
+- (id)initWithTarget:(id)arg1 connection:(id)arg2 protocol:(id)arg3 offMainThread:(BOOL)arg4;
 - (id)initWithTarget:(id)arg1 connection:(id)arg2 protocol:(id)arg3;
 - (id)initWithTarget:(id)arg1 protocol:(id)arg2;
 

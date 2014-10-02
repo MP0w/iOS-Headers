@@ -6,6 +6,8 @@
 
 #import "NSObject.h"
 
+@class NSMutableDictionary, NSString;
+
 @interface NSThread : NSObject
 {
     id _private;
@@ -30,17 +32,15 @@
 - (void)start;
 - (id)description;
 - (void)cancel;
-- (BOOL)isCancelled;
-- (BOOL)isFinished;
-- (BOOL)isExecuting;
-- (BOOL)isMainThread;
-- (void)setThreadPriority:(double)arg1;
-- (double)threadPriority;
-- (unsigned int)stackSize;
-- (void)setStackSize:(unsigned int)arg1;
-- (id)name;
-- (void)setName:(id)arg1;
-- (id)threadDictionary;
+@property(readonly, getter=isCancelled) BOOL cancelled;
+@property(readonly, getter=isFinished) BOOL finished;
+@property(readonly, getter=isExecuting) BOOL executing;
+@property(readonly) BOOL isMainThread;
+@property double threadPriority;
+@property int qualityOfService;
+@property unsigned int stackSize;
+@property(copy) NSString *name;
+@property(readonly, retain) NSMutableDictionary *threadDictionary;
 - (void)dealloc;
 - (id)initWithTarget:(id)arg1 selector:(SEL)arg2 object:(id)arg3;
 - (id)init;

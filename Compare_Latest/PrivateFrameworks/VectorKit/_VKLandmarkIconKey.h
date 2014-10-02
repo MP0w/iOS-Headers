@@ -11,15 +11,16 @@
 __attribute__((visibility("hidden")))
 @interface _VKLandmarkIconKey : NSObject
 {
-    CDStruct_d3c687f7 _style;
+    CDStruct_5977520b _style;
     NSString *_name;
+    int _size;
 }
 
 - (id).cxx_construct;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (void)dealloc;
-- (id)initWithName:(id)arg1 style:(CDStruct_d3c687f7 *)arg2;
+- (id)initWithName:(id)arg1 style:(CDStruct_5977520b *)arg2 size:(int)arg3;
 
 @end
 

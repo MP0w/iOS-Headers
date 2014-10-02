@@ -8,6 +8,8 @@
 
 @interface NSObject (UIAccessibilityAutomation)
 - (id)_accessibilityUserTestingChildren;
+- (BOOL)_accessibilityFauxCollectionViewCellsDisabled;
+- (void)_setAccessibilityFauxCollectionViewCellsDisabled:(BOOL)arg1;
 - (id)_accessibilityUserTestingChildrenWithRange:(struct _NSRange)arg1;
 - (int)_accessibilityUserTestingChildrenCount;
 - (id)_accessibilityUserTestingSupplementaryViews:(BOOL)arg1;
@@ -17,6 +19,7 @@
 - (id)_accessibilityAbsoluteValue;
 - (id)_accessibilityUserTestingElementBaseType;
 - (id)_accessibilityUserTestingElementAttributes;
+- (BOOL)_accessibilityUserTestingIsContinuityButton;
 - (id)_accessibilityKeyboardKeyEnteredString;
 - (BOOL)_accessibilityUserTestingIsRightNavButton;
 - (BOOL)_accessibilityUserTestingIsBackNavButton;

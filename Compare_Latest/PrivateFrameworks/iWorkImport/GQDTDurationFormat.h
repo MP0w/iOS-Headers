@@ -8,6 +8,8 @@
 
 #import "GQDNameMappable.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface GQDTDurationFormat : NSObject <GQDNameMappable>
 {
@@ -19,6 +21,12 @@ __attribute__((visibility("hidden")))
 - (struct __CFString *)formatString;
 - (void)dealloc;
 - (id)initWithFormatString:(struct __CFString *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

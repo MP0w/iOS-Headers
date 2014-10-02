@@ -6,10 +6,13 @@
 
 #import <iWorkImport/TSPObject.h>
 
-@class NSArray, NSString, TSCECalculationEngine, TSCECellCoordinateVector, TSCEOwnerFormulaMap, TSDFill, TSDStroke, TSKDocumentRoot, TSTCell, TSTCellDictionary, TSTCellStyle, TSTConditionalStyleFormulaOwner, TSTHiddenStateFormulaOwner, TSTTableDataStore, TSTTableFilterSet, TSTTableStyle, TSWPParagraphStyle, TSWPShapeStyle, TSWPStorage;
+#import "TSDMixing.h"
+#import "TSTTableStrokeProviding.h"
+
+@class NSArray, NSString, TSCECalculationEngine, TSCECellCoordinateVector, TSCEOwnerFormulaMap, TSDFill, TSDStroke, TSKDocumentRoot, TSTCell, TSTCellDictionary, TSTCellStyle, TSTConditionalStyleFormulaOwner, TSTHiddenStateFormulaOwner, TSTImportWarningSetByCoordinateMap, TSTSortRuleReferenceTracker, TSTTableDataStore, TSTTableFilterSet, TSTTableSortOrder, TSTTableStyle, TSWPParagraphStyle, TSWPShapeStyle, TSWPStorage;
 
 __attribute__((visibility("hidden")))
-@interface TSTTableModel : TSPObject
+@interface TSTTableModel : TSPObject <TSTTableStrokeProviding, TSDMixing>
 {
     TSTTableDataStore *mDataStore;
     struct __CFUUID *mTableID;
@@ -36,7 +39,8 @@ __attribute__((visibility("hidden")))
     BOOL mRepeatingHeaderColumnsEnabled;
     TSTHiddenStateFormulaOwner *mHiddenStateFormulaOwnerForRows;
     TSTHiddenStateFormulaOwner *mHiddenStateFormulaOwnerForColumns;
-    unsigned int mPresetIndex;
+    TSTSortRuleReferenceTracker *mSortRuleReferenceTracker;
+    unsigned int mPresetID;
     BOOL mStyleApplyClearsAll;
     struct {
         TSTTableStyle *tableStyle;
@@ -53,6 +57,7 @@ __attribute__((visibility("hidden")))
     } mStyles;
     struct _TSTDefaultCellBlock mDefaultCells;
     TSCEOwnerFormulaMap *mFormulasForUndo;
+    TSTImportWarningSetByCoordinateMap *mWarningSetsForUndo;
     TSCECalculationEngine *mCalcEngine;
     TSTCellDictionary *mCellsPendingWrite;
     struct _opaque_pthread_mutex_t mCellsToInvalidateAfterRecalcLock;
@@ -62,15 +67,17 @@ __attribute__((visibility("hidden")))
     TSWPStorage *mDeprecatedProvider;
     BOOL mWasUnarchivedFromAProvidedTable;
     TSTTableFilterSet *mFilterSet;
-    TSCEOwnerFormulaMap *_formulasForUndo;
+    TSTTableSortOrder *mSortOrder;
 }
 
 + (struct __CFDictionary *)newIDMapForPastedTablesInDrawables:(id)arg1 calculationEngine:(id)arg2;
 + (CDStruct_5f1f7aa9)cellRangeForTableArea:(int)arg1 givenTableSize:(CDStruct_d65e47c4)arg2 numberOfHeaderRows:(unsigned short)arg3 numberOfFooterRows:(unsigned short)arg4 numberOfHeaderColumns:(unsigned short)arg5;
 + (int)tableAreaForCellID:(CDStruct_0441cfb5)arg1 inTableWithHeaderColumns:(unsigned short)arg2 headerRows:(unsigned short)arg3 footerRows:(unsigned short)arg4 totalRows:(unsigned short)arg5;
++ (void)chooseUniqueNameForTables:(id)arg1 inContainer:(id)arg2 forPaste:(BOOL)arg3;
 + (id)unnamedTableString;
 + (void)load;
-@property(retain, nonatomic) TSCEOwnerFormulaMap *formulasForUndo; // @synthesize formulasForUndo=_formulasForUndo;
+@property(retain, nonatomic) TSTImportWarningSetByCoordinateMap *warningSetsForUndo; // @synthesize warningSetsForUndo=mWarningSetsForUndo;
+@property(retain, nonatomic) TSCEOwnerFormulaMap *formulasForUndo; // @synthesize formulasForUndo=mFormulasForUndo;
 @property(nonatomic) TSCECalculationEngine *calcEngine; // @synthesize calcEngine=mCalcEngine;
 @property(readonly, nonatomic) TSCECellCoordinateVector *cellsToInvalidateNonoverflowingAfterRecalc; // @synthesize cellsToInvalidateNonoverflowingAfterRecalc=mCellsToInvalidateNonoverflowingAfterRecalc;
 @property(readonly, nonatomic) TSCECellCoordinateVector *cellsToInvalidateAfterRecalc; // @synthesize cellsToInvalidateAfterRecalc=mCellsToInvalidateAfterRecalc;
@@ -81,6 +88,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned short numberOfHiddenColumns; // @synthesize numberOfHiddenColumns=mNumberOfHiddenColumns;
 @property(readonly, nonatomic) unsigned short numberOfHiddenRows; // @synthesize numberOfHiddenRows=mNumberOfHiddenRows;
 - (id).cxx_construct;
+- (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
+- (int)mixingTypeWithObject:(id)arg1;
 - (id)allRichTextPayloadStorages;
 - (void)upgradeFromPreUFF;
 - (void)transformStrokes:(struct CGAffineTransform)arg1 transformedObjects:(id)arg2 inBounds:(struct CGRect)arg3;
@@ -117,8 +126,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSDStroke *headerColumnBorderStroke;
 @property(readonly, nonatomic) TSDStroke *bodyRowStroke;
 @property(readonly, nonatomic) TSDStroke *bodyColumnStroke;
-@property(readonly, nonatomic) TSDStroke *parentBorderStroke;
 @property(readonly, nonatomic) TSDStroke *borderStrokeEvenIfNotVisible;
+@property(readonly, nonatomic) TSDStroke *defaultVerticalBorderStroke;
+@property(readonly, nonatomic) TSDStroke *defaultHorizontalBorderStroke;
 @property(readonly, nonatomic) TSDFill *footerRowsFill;
 @property(readonly, nonatomic) TSDFill *headerRowsFill;
 @property(readonly, nonatomic) TSDFill *headerColumnsFill;
@@ -148,10 +158,12 @@ __attribute__((visibility("hidden")))
 - (id)defaultTextStyleForTableArea:(int)arg1;
 - (id)defaultCellStyleForTableArea:(int)arg1;
 - (void)p_fetchCellHoldingReadLock:(void *)arg1 returnCode:(void *)arg2;
+- (id)applyCellDiff:(id)arg1 atCellID:(CDStruct_0441cfb5)arg2;
 - (int)defaultCell:(id)arg1 forTableArea:(int)arg2;
 - (id)defaultCellForTableArea:(int)arg1;
 - (CDStruct_5f1f7aa9)cellRangeForTableArea:(int)arg1;
 - (int)tableAreaForCellID:(CDStruct_0441cfb5)arg1;
+- (void)chooseUniqueNameInContainer:(id)arg1 forPaste:(BOOL)arg2 needsNewName:(BOOL)arg3 avoidNames:(id)arg4;
 - (void)chooseUniqueNameInContainer:(id)arg1 forPaste:(BOOL)arg2 needsNewName:(BOOL)arg3;
 - (void)chooseUniqueNameInContainer:(id)arg1 forPaste:(BOOL)arg2;
 - (void)setStorageParentToInfo:(id)arg1;
@@ -161,9 +173,11 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSTCell *defaultHeaderRowCell;
 @property(readonly, nonatomic) TSTCell *defaultFooterRowCell;
 @property(readonly, nonatomic) TSTCell *defaultBodyCell;
+- (void)clearFromTableID;
 @property(readonly, nonatomic) struct __CFUUID *fromTableID;
 - (void)setTableID:(struct __CFUUID *)arg1;
 @property(readonly, nonatomic) struct __CFUUID *tableID;
+- (BOOL)canTranspose;
 - (void)dirtyFilterState;
 - (void)filterSetUpdated;
 - (BOOL)hasActiveFilters;
@@ -183,10 +197,14 @@ __attribute__((visibility("hidden")))
 - (id)duplicateFilterSet;
 @property(copy, nonatomic) TSTTableFilterSet *filterSet;
 @property(readonly, nonatomic) TSTHiddenStateFormulaOwner *hiddenStateFormulaOwnerForColumns;
+- (void)resetSortRuleReferenceTrackerForInsert;
+@property(copy, nonatomic) TSTTableSortOrder *sortOrder;
+@property(readonly, nonatomic) TSTSortRuleReferenceTracker *sortRuleReferenceTracker;
 @property(nonatomic) TSTConditionalStyleFormulaOwner *conditionalStyleFormulaOwner;
 @property(readonly, nonatomic) TSTHiddenStateFormulaOwner *hiddenStateFormulaOwnerForRows;
 - (id)dataStore;
 @property(readonly, nonatomic) TSDStroke *tableNameBorderStroke;
+@property(readonly, nonatomic) int tableWritingDirection;
 @property(readonly, nonatomic) BOOL hasAlternatingRows;
 @property(readonly, nonatomic) BOOL hasTableBorder;
 - (void)setTableNameShapeStyle:(id)arg1;
@@ -213,7 +231,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSTTableStyle *tableStyle;
 @property(nonatomic) BOOL headerColumnsFrozen;
 @property(nonatomic) BOOL headerRowsFrozen;
-@property(nonatomic) unsigned int presetIndex;
+@property(nonatomic) unsigned int presetID;
 @property(nonatomic) unsigned short numberOfHeaderColumns;
 @property(nonatomic) unsigned short numberOfFooterRows;
 @property(nonatomic) unsigned short numberOfHeaderRows;
@@ -232,14 +250,19 @@ __attribute__((visibility("hidden")))
 - (id)initFromUnarchiver:(id)arg1;
 - (void)dealloc;
 @property(readonly, nonatomic) TSKDocumentRoot *documentRoot;
-- (id)initWithContext:(id)arg1 fromSourceModel:(id)arg2 region:(id)arg3 tableInfo:(id)arg4;
+- (id)initWithContext:(id)arg1 fromSourceModel:(id)arg2 region:(id)arg3 tableInfo:(id)arg4 waitForCalcEngine:(BOOL)arg5;
 - (id)initWithContext:(id)arg1 rows:(unsigned short)arg2 columns:(unsigned short)arg3 styles:(id)arg4 tableInfo:(id)arg5;
-- (id)documentStylesheet;
 - (void)setupDefaultCells;
 - (void)resetStyles:(id)arg1;
 - (void)p_releaseExistingDefaultStyles;
 - (id)init;
 - (void)p_clearDataListEntriesInRange:(CDStruct_5f1f7aa9)arg1 ignoreSizeChecks:(BOOL)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,12 +6,14 @@
 
 #import "NSObject.h"
 
-@class AVCaptureConnection, AVCaptureSession, CALayer, NSString;
+@class AVCaptureConnection, AVCaptureSession, AVWeakReference, CALayer, NSString;
 
 @interface AVCaptureVideoPreviewLayerInternal : NSObject
 {
+    NSString *sinkID;
     AVCaptureSession *session;
     AVCaptureConnection *connection;
+    struct OpaqueFigCaptureSession *figCaptureSession;
     CALayer *sublayer;
     struct CGSize sensorSize;
     NSString *sensorToPreviewVTScalingMode;
@@ -19,6 +21,7 @@
     float previewRotationDegrees;
     NSString *gravity;
     BOOL disableActions;
+    AVWeakReference *weakReference;
     int orientation;
     BOOL automaticallyAdjustsMirroring;
     BOOL mirrored;

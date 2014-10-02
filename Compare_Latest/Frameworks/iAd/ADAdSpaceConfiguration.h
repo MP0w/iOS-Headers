@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding.h"
 
-@class NSString, NSURL;
+@class NSSet, NSString, NSURL;
 
 @interface ADAdSpaceConfiguration : NSObject <NSSecureCoding>
 {
@@ -18,9 +18,11 @@
     NSURL *_serverURL;
     NSString *_advertisingSection;
     NSString *_authenticationUserName;
+    NSSet *_context;
 }
 
 + (BOOL)supportsSecureCoding;
+@property(copy, nonatomic) NSSet *context; // @synthesize context=_context;
 @property(copy, nonatomic) NSString *authenticationUserName; // @synthesize authenticationUserName=_authenticationUserName;
 @property(copy, nonatomic) NSString *advertisingSection; // @synthesize advertisingSection=_advertisingSection;
 @property(copy, nonatomic) NSURL *serverURL; // @synthesize serverURL=_serverURL;

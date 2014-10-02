@@ -33,8 +33,8 @@
 @property(readonly) NSArray *contents;
 - (void)pendNotifyingDelegateOfAddedItem:(id)arg1;
 - (void)notifyDelegateOfAddedItem:(id)arg1;
-- (struct dispatch_semaphore_s *)deviceQSemaphore;
-- (struct dispatch_queue_s *)generalQ;
+- (id)deviceQSemaphore;
+- (id)generalQ;
 @property(getter=isAccessRestrictedAppleDevice) BOOL accessRestrictedAppleDevice;
 @property unsigned int contentCatalogPercentCompleted;
 - (void)incrementNumberOfDownloadableItems;

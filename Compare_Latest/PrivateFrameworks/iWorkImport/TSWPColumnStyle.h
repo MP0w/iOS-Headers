@@ -28,13 +28,13 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL columnsAreLeftToRight;
 @property(readonly, nonatomic) BOOL shrinkTextToFit;
 @property(readonly, nonatomic) BOOL alwaysStartsNewTarget;
-- (float)positionForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2 outWidth:(float *)arg3 outGap:(float *)arg4;
+- (float)positionForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2 target:(id)arg3 outWidth:(float *)arg4 outGap:(float *)arg5;
 - (float)gapForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2;
 - (float)widthForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2;
 @property(readonly, nonatomic) unsigned int columnCount;
 - (BOOL)equalWidth;
 @property(readonly, nonatomic) TSWPPadding *layoutMargins;
-@property(readonly, nonatomic) struct CGSize adjustedInsets;
+- (struct CGSize)adjustedInsetsForTarget:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) float textScaleFactor;

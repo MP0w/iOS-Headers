@@ -9,7 +9,7 @@
 #import "UIImagePickerControllerDelegate.h"
 #import "UINavigationControllerDelegate.h"
 
-@class NSDictionary, UIImagePickerController, UINavigationItem;
+@class NSDictionary, NSString, UIImagePickerController, UINavigationItem;
 
 @interface PLUIEditVideoViewController : PLUIImageViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
@@ -44,11 +44,18 @@
 - (id)delegate;
 - (id)navigationItem;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (id)initWithVideoURL:(id)arg1 trimTitle:(id)arg2;
 - (id)initWithProperties:(id)arg1;
 - (id)initWithPhoto:(id)arg1 trimTitle:(id)arg2;
 - (void)_setupNavigationItemAndTrimTitle:(id)arg1;
 - (BOOL)_editingForThirdParty;
 - (BOOL)_displaysFullScreen;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

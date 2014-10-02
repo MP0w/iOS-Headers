@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class OCCancel, TSUTemporaryDirectory;
+@class OCCancel, OITSUTemporaryDirectory;
 
 __attribute__((visibility("hidden")))
 @interface OCMapper : NSObject
 {
     OCCancel *mCancel;
-    TSUTemporaryDirectory *mTemporaryDirectoryObject;
+    OITSUTemporaryDirectory *mTemporaryDirectoryObject;
 }
 
 + (id)mapperForCurrentThread;

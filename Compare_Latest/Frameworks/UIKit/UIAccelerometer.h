@@ -6,6 +6,8 @@
 
 #import "NSObject.h"
 
+@class CMMotionManager;
+
 @interface UIAccelerometer : NSObject
 {
     double _updateInterval;
@@ -14,12 +16,19 @@
         unsigned int delegateDidAccelerate:1;
         unsigned int reserved:31;
     } _accelerometerFlags;
+    CMMotionManager *_motionManager;
 }
 
 + (id)sharedAccelerometer;
 @property(nonatomic) id <UIAccelerometerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) double updateInterval; // @synthesize updateInterval=_updateInterval;
+- (void)_didSuspend:(id)arg1;
+- (void)_willResume:(id)arg1;
+- (void)_stopAccelerometer;
+- (void)_startAccelerometerIfNecessary;
+- (id)_motionManager;
 - (void)_acceleratedInX:(double)arg1 y:(double)arg2 z:(double)arg3 timestamp:(double)arg4;
+- (void)dealloc;
 - (id)init;
 
 @end

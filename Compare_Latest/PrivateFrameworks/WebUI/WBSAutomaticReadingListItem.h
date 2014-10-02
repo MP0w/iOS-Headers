@@ -10,6 +10,7 @@
 
 @interface WBSAutomaticReadingListItem : NSObject
 {
+    UIImage *_fallbackProfileImage;
     BOOL _repostedByAuthenticatedUser;
     BOOL _fetchingProfileImage;
     NSString *_uniqueIdentifier;
@@ -27,24 +28,31 @@
 
 + (id)keyPathsForValuesAffectingDomainString;
 @property(nonatomic) BOOL fetchingProfileImage; // @synthesize fetchingProfileImage=_fetchingProfileImage;
-@property(readonly, nonatomic) NSString *socialSourceAccountIdentifier; // @synthesize socialSourceAccountIdentifier=_socialSourceAccountIdentifier;
+@property(readonly, copy, nonatomic) NSString *socialSourceAccountIdentifier; // @synthesize socialSourceAccountIdentifier=_socialSourceAccountIdentifier;
 @property(nonatomic, getter=isRepostedByAuthenticatedUser) BOOL repostedByAuthenticatedUser; // @synthesize repostedByAuthenticatedUser=_repostedByAuthenticatedUser;
 @property(retain, nonatomic) UIImage *originatorProfileImage; // @synthesize originatorProfileImage=_originatorProfileImage;
 @property(readonly, nonatomic) NSString *reposterScreenName; // @synthesize reposterScreenName=_reposterScreenName;
 @property(readonly, nonatomic) NSString *reposterDisplayName; // @synthesize reposterDisplayName=_reposterDisplayName;
-@property(readonly, nonatomic) NSString *urlString; // @synthesize urlString=_urlString;
-@property(readonly, nonatomic) NSString *originatorDisplayName; // @synthesize originatorDisplayName=_originatorDisplayName;
-@property(readonly, nonatomic) id originatorID; // @synthesize originatorID=_originatorID;
-@property(readonly, nonatomic) NSString *sourceRecordText; // @synthesize sourceRecordText=_sourceRecordText;
-@property(readonly, nonatomic) NSDate *sourceRecordCreationDate; // @synthesize sourceRecordCreationDate=_sourceRecordCreationDate;
-@property(readonly, nonatomic) id sourceRecordID; // @synthesize sourceRecordID=_sourceRecordID;
+@property(readonly, copy, nonatomic) NSString *urlString; // @synthesize urlString=_urlString;
+@property(readonly, copy, nonatomic) NSString *originatorDisplayName; // @synthesize originatorDisplayName=_originatorDisplayName;
+@property(readonly, copy, nonatomic) id originatorID; // @synthesize originatorID=_originatorID;
+@property(readonly, copy, nonatomic) NSString *sourceRecordText; // @synthesize sourceRecordText=_sourceRecordText;
+@property(readonly, copy, nonatomic) NSDate *sourceRecordCreationDate; // @synthesize sourceRecordCreationDate=_sourceRecordCreationDate;
+@property(readonly, copy, nonatomic) id sourceRecordID; // @synthesize sourceRecordID=_sourceRecordID;
 @property(copy, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
+- (void).cxx_destruct;
 - (id)description;
 - (void)_fetchOriginatorProfileImageForSize:(struct CGSize)arg1;
+- (void)_getFallbackImage;
+- (void)updateFallbackImageIfNecessary;
 - (id)bestOriginatorProfileImageForSize:(struct CGSize)arg1;
+- (BOOL)isAcceptableOriginatorProfileImage:(id)arg1;
 @property(readonly, nonatomic) NSURL *biggerOriginatorProfileImageURL;
 @property(readonly, nonatomic) NSURL *originatorProfileImageURL;
+@property(readonly, nonatomic) struct _NSRange emphasizedTextRange;
 @property(readonly, nonatomic) struct _NSRange displayURLRange;
+@property(readonly, nonatomic) NSString *continuousBannerTitle;
+@property(readonly, nonatomic) NSString *continuousBannerDisplayString;
 @property(readonly, nonatomic) NSString *displayString;
 @property(readonly, nonatomic) NSURL *originatorProfileURL;
 @property(readonly, nonatomic) NSURL *sourceRecordURL;
@@ -52,7 +60,6 @@
 @property(readonly, nonatomic) WBSAutomaticReadingListSocialSource *socialSource;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
-- (void)dealloc;
 - (id)initWithDictionary:(id)arg1 socialSourceAccountIdentifier:(id)arg2;
 
 @end

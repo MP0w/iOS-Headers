@@ -8,7 +8,7 @@
 
 #import "_SBFVibrantView.h"
 
-@class UIColor, _SBFVibrantSettings;
+@class NSString, UIColor, _SBFVibrantSettings;
 
 @interface SBChevronView : UIView <_SBFVibrantView>
 {
@@ -29,7 +29,7 @@
 @property(retain, nonatomic) _SBFVibrantSettings *vibrantSettings; // @synthesize vibrantSettings=_vibrantSettings;
 @property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
 - (void)setBackgroundView:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)setState:(long long)arg1 animated:(_Bool)arg2;
 - (_Bool)_setUnified:(_Bool)arg1;
 - (_Bool)_setState:(long long)arg1;
@@ -42,6 +42,11 @@
 - (void)dealloc;
 - (id)initWithColor:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

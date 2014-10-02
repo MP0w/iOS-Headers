@@ -6,7 +6,7 @@
 
 #import <UIKit/UICollectionViewLayout.h>
 
-@class NSArray, NSMutableArray, NSMutableDictionary;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSSet;
 
 __attribute__((visibility("hidden")))
 @interface UIKeyboardCandidateGridLayout : UICollectionViewLayout
@@ -22,15 +22,18 @@ __attribute__((visibility("hidden")))
     CDStruct_961fb75c _visualStyling;
     int _candidatesVisualStyle;
     float _headerViewHeight;
+    NSSet *_emphasizedCandidates;
     NSMutableArray *_cellAttributes;
     NSMutableDictionary *_supplementaryAttributes;
 }
 
++ (void)deemphasizeLastItemIfNeeded:(id)arg1;
 + (Class)layoutAttributesClass;
 + (id)layout;
 @property(retain, nonatomic) NSMutableDictionary *supplementaryAttributes; // @synthesize supplementaryAttributes=_supplementaryAttributes;
 @property(retain, nonatomic) NSMutableArray *cellAttributes; // @synthesize cellAttributes=_cellAttributes;
 @property(nonatomic) BOOL needsLayout; // @synthesize needsLayout=_needsLayout;
+@property(retain, nonatomic) NSSet *emphasizedCandidates; // @synthesize emphasizedCandidates=_emphasizedCandidates;
 @property(nonatomic) BOOL hasSecondaryCandidates; // @synthesize hasSecondaryCandidates=_hasSecondaryCandidates;
 @property(nonatomic) BOOL supportsNumberKeySelection; // @synthesize supportsNumberKeySelection=_supportsNumberKeySelection;
 @property(nonatomic) float headerViewHeight; // @synthesize headerViewHeight=_headerViewHeight;
@@ -44,7 +47,7 @@ __attribute__((visibility("hidden")))
 - (id)nextCandidateIndexPathFromIndexPath:(id)arg1;
 @property(readonly, nonatomic) struct CGSize rowSize;
 - (id)layoutAttributesForCandidateIndexPath:(id)arg1;
-- (void)finishLayoutForRowWithAttributes:(id)arg1 cellsTotalWidth:(float)arg2 rowOrigin:(struct CGPoint)arg3 isLastCandidateInGroup:(BOOL)arg4 isFirstRow:(BOOL)arg5 isLastRow:(BOOL)arg6 zIndex:(int)arg7;
+- (void)finishLayoutForRowWithAttributes:(id)arg1 minimumCellWidth:(float)arg2 remainingWidth:(float)arg3 rowOrigin:(struct CGPoint)arg4 isFirstRow:(BOOL)arg5 isLastRow:(BOOL)arg6 zIndex:(int)arg7;
 - (void)prepareLayout;
 - (void)getGroupBarWidth:(float *)arg1 headerAttributes:(id *)arg2;
 @property(readonly, nonatomic) float groupBarWidth;
@@ -56,6 +59,8 @@ __attribute__((visibility("hidden")))
 - (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutAttributesForItemAtIndexPath:(id)arg1;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
+- (void)invalidateLayout;
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(struct CGRect)arg1;
 - (void)dealloc;
 - (id)init;
 

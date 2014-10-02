@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableSet, NSProgress;
+@class NSMutableSet, NSProgress, _NSProgressFraction;
 
 __attribute__((visibility("hidden")))
 @interface _NSProgressGroup : NSObject
@@ -14,23 +14,23 @@ __attribute__((visibility("hidden")))
     NSProgress *_parent;
     long long _portionOfParent;
     NSMutableSet *_children;
-    double _fractionCompleted;
+    _NSProgressFraction *_childrenFraction;
     unsigned long long _finishedChildrenCount;
     BOOL _closed;
 }
 
 - (id)description;
+- (id)_indentedDescription:(unsigned int)arg1;
 - (void)stopNotifications;
 - (void)close;
-- (double)fractionCompleted;
-- (void)updateChild:(id)arg1 oldFractionCompleted:(double)arg2 newFractionCompleted:(double)arg3 finished:(BOOL)arg4;
-- (void)setPortionOfParent:(long long)arg1;
-- (long long)portionOfParent;
+- (void)updateChildWithOldFraction:(id)arg1 newFraction:(id)arg2;
 - (void)addChild:(id)arg1;
+- (void)prioritize;
+- (void)pause;
+- (void)cancel;
 - (id)parent;
-- (id)children;
 - (void)dealloc;
-- (id)initWithParent:(id)arg1;
+- (id)initWithParent:(id)arg1 portion:(long long)arg2;
 
 @end
 

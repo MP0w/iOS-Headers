@@ -18,7 +18,7 @@
 @property(copy, nonatomic) NSDictionary *promptDictionary; // @synthesize promptDictionary=_promptDictionary;
 @property(retain, nonatomic) HSControlPrompt *prompt; // @synthesize prompt=_prompt;
 @property(nonatomic) unsigned int nextPromptID; // @synthesize nextPromptID=_nextPromptID;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

@@ -9,12 +9,12 @@
 @class NSArray, NSData, NSString, NSURL;
 
 @protocol CoreDAVLeafDataPayload <NSObject>
-@property(readonly) NSString *syncKey;
-@property(readonly) NSData *dataPayload;
-@property(retain) NSURL *serverID;
+@property(readonly, nonatomic) NSString *syncKey;
+@property(readonly, nonatomic) NSData *dataPayload;
+@property(retain, nonatomic) NSURL *serverID;
 - (id)initWithURL:(NSURL *)arg1 eTag:(NSString *)arg2 dataPayload:(NSData *)arg3 inContainerWithURL:(NSURL *)arg4 withAccountInfoProvider:(id <CoreDAVAccountInfoProvider>)arg5;
 
 @optional
-@property(readonly) NSArray *childrenOrder;
+@property(readonly, nonatomic) NSArray *childrenOrder;
 @end
 

@@ -24,6 +24,7 @@
 @property(retain, nonatomic) NSData *zilchPoints; // @synthesize zilchPoints=_zilchPoints;
 @property(nonatomic) int matchingStatus; // @synthesize matchingStatus=_matchingStatus;
 @property(nonatomic) int status; // @synthesize status=_status;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

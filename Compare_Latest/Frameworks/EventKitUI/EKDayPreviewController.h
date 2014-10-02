@@ -9,12 +9,18 @@
 #import "EKDayViewDataSource.h"
 #import "EKEditItemViewControllerProtocol.h"
 
-@class EKDayView, EKEvent;
+@class EKDayView, EKEvent, NSDate, NSString;
 
 @interface EKDayPreviewController : UIViewController <EKDayViewDataSource, EKEditItemViewControllerProtocol>
 {
     EKDayView *_dayView;
+    NSDate *_date;
     EKEvent *_event;
+    NSDate *_originalEventStartDate;
+    NSDate *_originalEventEndDate;
+    BOOL _hasOverriddenEventDates;
+    NSDate *_overriddenEventStartDate;
+    NSDate *_overriddenEventEndDate;
 }
 
 - (void).cxx_destruct;
@@ -22,13 +28,20 @@
 - (unsigned int)supportedInterfaceOrientations;
 - (id)_eventsForStartDate:(id)arg1 endDate:(id)arg2;
 - (id)dayView:(id)arg1 eventsForStartDate:(id)arg2 endDate:(id)arg3;
+- (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
-- (id)initWithEvent:(id)arg1;
+- (id)initWithDate:(id)arg1 event:(id)arg2 overriddenEventStartDate:(id)arg3 overriddenEventEndDate:(id)arg4;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(nonatomic) __weak id <EKEditItemViewControllerDelegate> editDelegate;
+@property(nonatomic) BOOL editItemShouldBeAskedForInjectableViewController;
+@property(readonly) unsigned int hash;
+@property(nonatomic) BOOL presentModally;
+@property(readonly) Class superclass;
 
 @end
 

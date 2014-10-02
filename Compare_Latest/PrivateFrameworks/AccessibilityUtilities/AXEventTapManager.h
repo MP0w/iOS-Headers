@@ -18,6 +18,7 @@
     CDUnknownBlockType _installationGSCallback;
     CDUnknownBlockType _installationHIDCallback;
     NSRecursiveLock *_eventTapLock;
+    struct __IOHIDEventSystemClient *_ioSystemPostBackClient;
     CDUnknownBlockType _installationEventRepPost;
 }
 
@@ -25,14 +26,19 @@
 @property(copy, nonatomic) CDUnknownBlockType installationEventRepPost; // @synthesize installationEventRepPost=_installationEventRepPost;
 @property(copy, nonatomic) CDUnknownBlockType installationHIDCallback; // @synthesize installationHIDCallback=_installationHIDCallback;
 @property(copy, nonatomic) CDUnknownBlockType installationGSCallback; // @synthesize installationGSCallback=_installationGSCallback;
+- (void)_removeHIDEventTapFilter:(id)arg1;
 - (void)removeEventTap:(id)arg1;
-- (id)installEventTap:(CDUnknownBlockType)arg1 identifier:(id)arg2;
+- (id)installEventTap:(CDUnknownBlockType)arg1 identifier:(id)arg2 type:(int)arg3;
+- (void)_installSystemEventTap:(id)arg1;
+- (void)_installHIDFilter:(id)arg1;
 - (void)_installEventTap:(id)arg1;
+- (void)_setEventTapPriority:(id)arg1 priority:(int)arg2;
 - (void)setEventTapPriority:(id)arg1 priority:(int)arg2;
 - (void)_reorderEventTaps;
 - (BOOL)_processGSEvent:(CDStruct_cee7353d *)arg1;
 - (BOOL)_processHIDEvent:(struct __IOHIDEvent *)arg1 taskPort:(unsigned int)arg2 bundleId:(id)arg3;
 - (void)sendEvent:(id)arg1 afterTap:(id)arg2 useGSEvent:(BOOL)arg3 namedTaps:(id)arg4;
+- (void)sendHIDSystemEvent:(id)arg1 senderID:(unsigned long long)arg2;
 - (void)_enumerateEventTapPairsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)_copyCurrentEventTapPairs;
 - (void)_setHIDEventTapCallback:(void *)arg1;

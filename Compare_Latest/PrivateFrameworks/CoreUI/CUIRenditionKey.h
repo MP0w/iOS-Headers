@@ -16,6 +16,8 @@
     unsigned short _highwaterKeyCount;
 }
 
++ (id)renditionKeyWithKeyList:(const struct _renditionkeytoken *)arg1;
++ (id)renditionKey;
 + (id)_placeHolderKey;
 + (void)initialize;
 - (id)descriptionBasedOnKeyFormat:(const struct _renditionkeyfmt *)arg1;
@@ -23,6 +25,14 @@
 - (id)description;
 - (int)themeIdentifier;
 - (void)setThemeIdentifier:(int)arg1;
+- (int)themeGraphicsClass;
+- (void)setThemeGraphicsClass:(int)arg1;
+- (int)themeMemoryClass;
+- (void)setThemeMemoryClass:(int)arg1;
+- (int)themeSizeClassVertical;
+- (void)setThemeSizeClassVertical:(int)arg1;
+- (int)themeSizeClassHorizontal;
+- (void)setThemeSizeClassHorizontal:(int)arg1;
 - (int)themeSubtype;
 - (void)setThemeSubtype:(int)arg1;
 - (int)themeIdiom;
@@ -33,12 +43,16 @@
 - (void)setThemeLayer:(int)arg1;
 - (int)themePresentationState;
 - (void)setThemePresentationState:(int)arg1;
+- (int)themePreviousState;
+- (void)setThemePreviousState:(int)arg1;
 - (int)themeState;
 - (void)setThemeState:(int)arg1;
 - (int)themeDimension2;
 - (void)setThemeDimension2:(int)arg1;
 - (int)themeDimension1;
 - (void)setThemeDimension1:(int)arg1;
+- (int)themePreviousValue;
+- (void)setThemePreviousValue:(int)arg1;
 - (int)themeValue;
 - (void)setThemeValue:(int)arg1;
 - (int)themeDirection;

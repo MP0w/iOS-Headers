@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (BOOL)exportingFootnotes;
+- (BOOL)preserveChangeTracking;
 - (id)description;
 
 @end

@@ -8,6 +8,8 @@
 
 #import "_UIAppearanceContainer.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface UIDeviceAppearanceContainer : NSObject <_UIAppearanceContainer>
 {
@@ -16,6 +18,12 @@ __attribute__((visibility("hidden")))
 + (BOOL)_preventsAppearanceProxyCustomization;
 - (id)_appearanceGuideClass;
 - (id)_appearanceContainer;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

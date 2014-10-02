@@ -10,7 +10,7 @@
 #import "UIAlertViewDelegate.h"
 #import "UIWebViewDelegate.h"
 
-@class CNFRegController, CNFRegLoadingView, NSMutableArray, NSTimer, RUILoader, UIAlertView, UIWebView;
+@class CNFRegController, CNFRegLoadingView, NSMutableArray, NSString, NSTimer, RUILoader, UIAlertView, UIWebView;
 
 @interface CNFRegServerWebViewController : UIViewController <UIWebViewDelegate, UIAlertViewDelegate, RUIObjectModelDelegate>
 {
@@ -80,6 +80,12 @@
 - (void)loadView;
 - (id)init;
 - (id)initWithRegController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

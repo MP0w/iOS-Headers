@@ -35,7 +35,7 @@ __attribute__((visibility("hidden")))
 - (double)defaultRowHeight;
 - (int)maxRowNumber;
 - (double *)rowGrid;
-- (int)columnCount;
+- (unsigned int)columnCount;
 - (double *)columnGrid;
 - (BOOL)isVisible;
 - (void)dealloc;

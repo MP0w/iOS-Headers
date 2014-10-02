@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL hasFramebuffer; // @synthesize hasFramebuffer=mHasFramebuffer;
 @property(readonly, nonatomic) TSCH3DChartRenderPresenter *presenter; // @synthesize presenter=mPresenter;
 @property(readonly, nonatomic) TSCH3DSceneRenderPipeline *pipeline; // @synthesize pipeline=mPipeline;
-- (void)setLayerVisibleBounds:(struct CGRect)arg1;
+- (void)setVisibleBoundsInLayerRelativeSpace:(struct CGRect)arg1;
 - (Class)layerCacheLogicClass;
 - (Class)layerClass;
 - (BOOL)shouldRenderLegendIntoSeparateLayer;
@@ -37,7 +37,7 @@ __attribute__((visibility("hidden")))
 - (void)cleanupRenderingWithPresenterInfo:(const struct PresenterInfo *)arg1;
 - (void)presentRenderingWithPresenterInfo:(const struct PresenterInfo *)arg1;
 - (BOOL)shouldDiscardRenderbuffers;
-- (void)layoutWithBoundsSpaces:(const struct ChartProjectedBoundsSpaces *)arg1 scale:(float)arg2;
+- (void)layoutWithBoundsSpaces:(const struct ChartProjectedBoundsSpaces *)arg1 scale:(float)arg2 offsetFromLayerRelativeToBodyCanvas:(struct CGPoint)arg3;
 - (void)destroyFramebuffer;
 - (BOOL)usesMultipassRendering;
 - (unsigned int)multisamples;

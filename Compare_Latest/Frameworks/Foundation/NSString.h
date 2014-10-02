@@ -39,6 +39,7 @@
 + (const unsigned int *)availableStringEncodings;
 + (unsigned int)defaultCStringEncoding;
 + (id)_web_stringRepresentationForBytes:(long long)arg1;
++ (unsigned int)stringEncodingForData:(id)arg1 encodingOptions:(id)arg2 convertedString:(id *)arg3 usedLossyConversion:(char *)arg4;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (BOOL)_allowsDirectEncoding;
@@ -109,6 +110,8 @@
 - (id)stringByReplacingOccurrencesOfString:(id)arg1 withString:(id)arg2 options:(unsigned int)arg3 range:(struct _NSRange)arg4;
 - (id)stringByPaddingToLength:(unsigned int)arg1 withString:(id)arg2 startingAtIndex:(unsigned int)arg3;
 - (id)stringByTrimmingCharactersInSet:(id)arg1;
+- (BOOL)localizedCaseInsensitiveContainsString:(id)arg1;
+- (BOOL)containsString:(id)arg1;
 - (BOOL)hasSuffix:(id)arg1;
 - (BOOL)hasPrefix:(id)arg1;
 - (id)commonPrefixWithString:(id)arg1 options:(unsigned int)arg2;
@@ -142,8 +145,9 @@
 - (BOOL)_isCString;
 - (const char *)_fastCStringContents:(BOOL)arg1;
 - (const unsigned short *)_fastCharacterContents;
+- (id)init;
 - (unsigned short)characterAtIndex:(unsigned int)arg1;
-- (unsigned int)length;
+@property(readonly) unsigned int length;
 - (BOOL)_getCString:(char *)arg1 maxLength:(unsigned int)arg2 encoding:(unsigned long)arg3;
 - (unsigned long)_fastestEncodingInCFStringEncoding;
 - (unsigned long)_smallestEncodingInCFStringEncoding;
@@ -199,7 +203,7 @@
 - (id)standardizedURLPath;
 - (id)stringByReplacingPercentEscapesUsingEncoding:(unsigned int)arg1;
 - (id)stringByAddingPercentEscapesUsingEncoding:(unsigned int)arg1;
-- (id)stringByRemovingPercentEncoding;
+@property(readonly, copy) NSString *stringByRemovingPercentEncoding;
 - (id)stringByAddingPercentEncodingWithAllowedCharacters:(id)arg1;
 - (CDStruct_5fe7aead)decimalValue;
 - (id)_web_HTTPStyleLanguageCodeWithoutRegion;

@@ -23,6 +23,7 @@
 @property(retain, nonatomic) NSString *username; // @synthesize username=_username;
 @property(retain, nonatomic) NSString *apnName; // @synthesize apnName=_apnName;
 - (void).cxx_destruct;
+- (id)installationWarnings;
 - (id)defaultsRepresentation;
 - (id)strippedDefaultsRepresentation;
 - (id)description;

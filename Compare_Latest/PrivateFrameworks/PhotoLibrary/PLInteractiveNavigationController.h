@@ -7,10 +7,11 @@
 #import "UIViewController.h"
 
 #import "PLExpandableViewDelegate.h"
+#import "UINavigationBarDelegate.h"
 
-@class NSMutableArray, PLExpandableView, PLInteractiveNavigationControllerView, UIView;
+@class NSMutableArray, NSString, PLExpandableView, PLInteractiveNavigationControllerView, UIView;
 
-@interface PLInteractiveNavigationController : UIViewController <PLExpandableViewDelegate>
+@interface PLInteractiveNavigationController : UIViewController <UINavigationBarDelegate, PLExpandableViewDelegate>
 {
     NSMutableArray *_stack;
     PLInteractiveNavigationControllerView *_contentView;
@@ -108,6 +109,12 @@
 - (id)initWithRootViewController:(id)arg1;
 - (id)init;
 - (BOOL)pl_behavesLikeNavigationControllerForNotifications;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

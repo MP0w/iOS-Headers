@@ -26,6 +26,8 @@
 + (float)labelFontSize;
 + (id)_systemFontsOfSize:(float)arg1 traits:(int)arg2;
 + (id)fontWithDescriptor:(id)arg1 size:(float)arg2;
++ (id)systemFontOfSize:(float)arg1 weight:(float)arg2 design:(id)arg3;
++ (id)systemFontOfSize:(float)arg1 weight:(float)arg2;
 + (id)_ultraLightSystemFontOfSize:(float)arg1;
 + (id)_lightSystemFontOfSize:(float)arg1;
 + (id)_thinSystemFontOfSize:(float)arg1;
@@ -62,8 +64,8 @@
 - (BOOL)isSystemFont;
 @property(readonly, nonatomic) float pointSize;
 - (int)traits;
-@property(readonly, nonatomic) NSString *fontName;
-@property(readonly, nonatomic) NSString *familyName;
+@property(readonly, retain, nonatomic) NSString *fontName;
+@property(readonly, retain, nonatomic) NSString *familyName;
 - (id)fontWithSize:(float)arg1;
 - (Class)classForCoder;
 - (void)encodeWithCoder:(id)arg1;
@@ -72,6 +74,7 @@
 - (id)initWithMarkupDescription:(id)arg1;
 - (id)initWithFamilyName:(id)arg1 traits:(int)arg2 size:(float)arg3;
 - (id)initWithName:(id)arg1 size:(float)arg2;
+- (float)_scaledValueForValue:(float)arg1;
 - (id)_alternateSystemFonts;
 - (id)fontDescriptor;
 - (unsigned int)mostCompatibleStringEncoding;
@@ -89,6 +92,7 @@
 - (float)underlineThickness;
 - (struct CGRect)boundingRectForFont;
 - (struct CGFont *)_backingCGSFont;
+- (void)getVerticalOriginTranslations:(struct CGSize *)arg1 forCGGlyphs:(const unsigned short *)arg2 count:(unsigned int)arg3;
 - (void)getAdvancements:(struct CGSize *)arg1 forCGGlyphs:(const unsigned short *)arg2 count:(unsigned int)arg3;
 - (float)_totalAdvancementForNativeGlyphs:(const unsigned short *)arg1 count:(long)arg2;
 - (unsigned int)renderingMode;

@@ -8,7 +8,7 @@
 
 #import "TSWPFootnoteHeightMeasurer.h"
 
-@class TPFootnoteContainerLayout, TSDLayoutController, TSULRUCache;
+@class NSString, TPFootnoteContainerLayout, TSDLayoutController, TSULRUCache;
 
 __attribute__((visibility("hidden")))
 @interface TPFootnoteHeightMeasurer : NSObject <TSWPFootnoteHeightMeasurer>
@@ -27,6 +27,12 @@ __attribute__((visibility("hidden")))
 - (void)addFootnoteReferenceStorage:(id)arg1;
 - (void)dealloc;
 - (id)initWithFootnoteMarkProvider:(id)arg1 maxFootnoteWidth:(float)arg2 maxFootnoteHeight:(float)arg3 footnoteSpacing:(float)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

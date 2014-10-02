@@ -7,11 +7,9 @@
 #import <iWorkImport/TSDStyledRep.h>
 
 #import "TSDMagicMoveMatching.h"
-#import "TSDPathEditableRep.h"
-#import "TSDShapeControlRep.h"
 
 __attribute__((visibility("hidden")))
-@interface TSDShapeRep : TSDStyledRep <TSDMagicMoveMatching, TSDShapeControlRep, TSDPathEditableRep>
+@interface TSDShapeRep : TSDStyledRep <TSDMagicMoveMatching>
 {
     struct CGRect mFrameInUnscaledCanvasRelativeToSuper;
     BOOL mFrameInUnscaledCanvasIsValid;
@@ -32,18 +30,7 @@ __attribute__((visibility("hidden")))
 - (void)p_endDynamicallyResizingOrMovingLineEnd;
 - (void)p_beginDynamicallyResizingOrMovingLineEnd;
 - (void)p_drawLineEndForHead:(BOOL)arg1 withDelta:(struct CGPoint)arg2 andStroke:(id)arg3 inContext:(struct CGContext *)arg4 useFastDrawing:(BOOL)arg5;
-- (void)dynamicMoveSmartShapeKnobDidEndWithTracker:(id)arg1;
-- (void)enqueuePathSourceChanges;
-- (void)dynamicallyMovedSmartShapeKnobTo:(struct CGPoint)arg1 withTracker:(id)arg2;
-- (id)dynamicMoveSmartShapeKnobDidBegin;
-- (void)dynamicMoveLineSegmentDidEndWithTracker:(id)arg1;
-- (void)dynamicallyMovingLineSegmentWithTracker:(id)arg1;
-- (id)dynamicMoveLineSegmentDidBegin;
-- (void)dynamicMovePathKnobDidEndWithTracker:(id)arg1;
-- (void)dynamicallyMovedPathKnobTo:(struct CGPoint)arg1 withTracker:(id)arg2;
-- (void)dynamicMovePathKnobDidBegin;
-- (BOOL)isEditingPath;
-- (id)p_pathEditor;
+- (void)setTextureAttributes:(id)arg1;
 - (struct CGAffineTransform)naturalToEditablePathSpaceTransform;
 - (id)editablePathSource;
 - (BOOL)canMakePathEditable;
@@ -52,15 +39,10 @@ __attribute__((visibility("hidden")))
 - (BOOL)canDrawInParallel;
 - (BOOL)isInvisible;
 - (void)invalidateEffectLayersForChildren;
-- (void)dynamicResizeDidEndWithTracker:(id)arg1;
-- (id)dynamicResizeDidBegin;
 - (id)overlayLayers;
 - (id)additionalLayersOverLayer;
 - (BOOL)selectionIsAppropriateToShowInvisiblePathHighlight;
 - (BOOL)shouldShowInvisiblePathHighlight;
-- (id)newTrackerForKnob:(id)arg1;
-- (void)updatePositionsOfKnobs:(id)arg1;
-- (BOOL)directlyManagesVisibilityOfKnob:(id)arg1;
 - (BOOL)canUseSpecializedHitRegionForKnob:(id)arg1;
 - (BOOL)shouldShowSmartShapeKnobs;
 - (BOOL)shouldShowAdvancedGradientKnobs;
@@ -81,6 +63,7 @@ __attribute__((visibility("hidden")))
 - (float)shortestDistanceToPoint:(struct CGPoint)arg1 countAsHit:(char *)arg2;
 - (BOOL)shouldExpandHitRegionWhenSmall;
 - (BOOL)containsPoint:(struct CGPoint)arg1;
+- (BOOL)shouldHitTestWithFill;
 - (void)didUpdateLayer:(id)arg1;
 - (id)imageOfStroke:(struct CGRect *)arg1;
 - (void)p_drawInContext:(struct CGContext *)arg1 withContent:(BOOL)arg2 withStroke:(BOOL)arg3 withOpacity:(BOOL)arg4;
@@ -92,7 +75,6 @@ __attribute__((visibility("hidden")))
 - (void)addBitmapsToRenderingQualityInfo:(id)arg1 inContext:(struct CGContext *)arg2;
 - (void)p_endApplyOpacity:(struct CGContext *)arg1 apply:(BOOL)arg2;
 - (BOOL)p_beginApplyOpacity:(struct CGContext *)arg1 forDrawingInOneStep:(BOOL)arg2;
-- (BOOL)shouldAlwaysSmoothText;
 - (struct CGRect)clipRect;
 - (BOOL)directlyManagesLayerContent;
 - (void)layoutInRootChangedFrom:(id)arg1 to:(id)arg2 translatedOnly:(BOOL)arg3;

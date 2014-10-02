@@ -6,12 +6,12 @@
 
 #import <OfficeImport/MFPhoneBrush.h>
 
-@class TSUColor;
+@class OITSUColor;
 
 __attribute__((visibility("hidden")))
 @interface MFPhoneSolidBrush : MFPhoneBrush
 {
-    TSUColor *m_colour;
+    OITSUColor *m_colour;
 }
 
 + (id)solidBrushWithColour:(id)arg1;

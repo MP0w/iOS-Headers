@@ -33,6 +33,7 @@
 @property(retain, nonatomic) NSString *provider; // @synthesize provider=_provider;
 @property(nonatomic) int numberOfRatings; // @synthesize numberOfRatings=_numberOfRatings;
 @property(nonatomic) double score; // @synthesize score=_score;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -53,6 +54,8 @@
 @property(nonatomic) double maxScore; // @synthesize maxScore=_maxScore;
 @property(nonatomic) BOOL hasScore;
 - (void)dealloc;
+- (id)initWithPlaceDataRating:(id)arg1 reviews:(id)arg2;
+- (id)initWithSampleSizeForUserRatingScore:(unsigned int)arg1 normalizedUserRatingScore:(float)arg2;
 
 @end
 

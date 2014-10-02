@@ -6,94 +6,107 @@
 
 #import "UIView.h"
 
+#import "EKDayOccurrenceTravelTimeViewMetricsDelegate.h"
 #import "NSCopying.h"
 
-@class EKDayOccurrenceContentView, EKEvent, NSString, UIColor, UIImageView;
+@class EKDayOccurrenceContentView, EKDayOccurrenceTravelTimeView, EKEvent, NSString, UIColor, UIImageView;
 
-@interface EKDayOccurrenceView : UIView <NSCopying>
+@interface EKDayOccurrenceView : UIView <NSCopying, EKDayOccurrenceTravelTimeViewMetricsDelegate>
 {
     float _visibleHeight;
-    UIImageView *_colorBar;
+    UIImageView *_eventBackgroundView;
+    UIImageView *_travelBackgroundView;
     EKDayOccurrenceContentView *_content;
+    EKDayOccurrenceTravelTimeView *_travelTimeContentView;
     BOOL _needsContentCalc;
-    BOOL _needsColorBarUpdate;
+    BOOL _needsBackgroundImageUpdate;
     UIView *_startResizeHandle;
     UIView *_endResizeHandle;
     float _originalXBeforeOffset;
     unsigned int _touchKeptInsideOccurrence:1;
     unsigned int _offsetContentForLandscape:1;
     BOOL _visibleHeightLocked;
+    struct UIEdgeInsets _padding;
+    unsigned int _bottomPinningState;
+    struct CGRect _unpinnedEventBackgroundFrame;
+    struct CGRect _unpinnedTravelBackgroundFrame;
+    UIView *_pinFadeView;
+    float _travelTimeSubviewHeightInPoints;
     BOOL _selected;
     BOOL _dimmed;
-    BOOL _dragging;
     BOOL _allDayDrawingStyle;
     BOOL _drawsResizeHandles;
-    BOOL _hideColorBar;
+    BOOL _hideBackgroundImage;
     BOOL _hideText;
+    BOOL _isSelectedCopyView;
     BOOL _tentative;
     BOOL _declined;
     BOOL _needsReply;
     BOOL _allDay;
+    BOOL _showsTravelTime;
+    BOOL _reduceLayoutProcessingForAnimation;
     id _delegate;
+    EKDayOccurrenceView *_selectedCopy;
     EKEvent *_occurrence;
     UIColor *_color;
     float _cappedColorBarHeight;
-    UIColor *_titleTextColor;
-    UIColor *_secondaryTextColor;
-    UIColor *_textBackgroundColor;
     int _occurrenceBackgroundStyle;
+    float _bottomPinningProximity;
+    double _travelTime;
     struct UIEdgeInsets _margin;
-    struct UIEdgeInsets _padding;
 }
 
 + (struct UIEdgeInsets)defaultPadding;
 + (struct UIEdgeInsets)defaultMargin;
 + (float)barToBarHorizontalDistanceIncludingBarWidth;
-+ (float)colorBarImageSideLength;
++ (float)colorBarThickness;
 + (float)barToBarGapWidth;
 + (id)_adjustedStripeColorForDarkBackground:(id)arg1;
 + (id)_adjustedOccurrenceColorForDarkBackground:(id)arg1 opaque:(BOOL)arg2;
 + (id)_lightStripeColorForColor:(id)arg1;
 + (id)_lightColorForColor:(id)arg1 opaque:(BOOL)arg2;
 + (id)_color:(id)arg1 lightenedToPercentage:(float)arg2 withFinalAlpha:(float)arg3;
-+ (id)_cachedImageForCalendarColor:(id)arg1 selected:(BOOL)arg2 declined:(BOOL)arg3 cancelled:(BOOL)arg4 tentative:(BOOL)arg5 needsReply:(BOOL)arg6 dayViewBackgroundStyle:(int)arg7;
-+ (id)_imageForBarColor:(id)arg1 backgroundColor:(id)arg2 stripeColor:(id)arg3 stripedImageAlpha:(float)arg4;
-+ (id)_imageForBarColor:(id)arg1 backgroundColor:(id)arg2;
++ (id)_cachedImageForCalendarColor:(id)arg1 selected:(BOOL)arg2 declined:(BOOL)arg3 cancelled:(BOOL)arg4 tentative:(BOOL)arg5 needsReply:(BOOL)arg6 colorBarStyle:(int)arg7 dayViewBackgroundStyle:(int)arg8;
++ (id)_imageForBarColor:(id)arg1 backgroundColor:(id)arg2 stripeColor:(id)arg3 stripedImageAlpha:(float)arg4 colorBarStyle:(int)arg5;
++ (id)_imageForBarColor:(id)arg1 backgroundColor:(id)arg2 colorBarStyle:(int)arg3;
 + (struct CGRect)contentStretchRectForFrame:(struct CGRect)arg1;
 + (float)bottomShadowMargin;
++ (float)minimumHeightForOrientation:(int)arg1 isAllDay:(BOOL)arg2 usesSmallText:(BOOL)arg3;
 + (float)minimumHeightForOrientation:(int)arg1 isAllDay:(BOOL)arg2;
 + (float)minimumHeightForOrientation:(int)arg1;
 + (id)occurrenceViewWithFrame:(struct CGRect)arg1;
 + (void)clearCaches;
 + (void)_clearViewCache;
 + (id)_viewCache;
+@property(nonatomic) float bottomPinningProximity; // @synthesize bottomPinningProximity=_bottomPinningProximity;
+@property(nonatomic) BOOL reduceLayoutProcessingForAnimation; // @synthesize reduceLayoutProcessingForAnimation=_reduceLayoutProcessingForAnimation;
 @property(nonatomic) int occurrenceBackgroundStyle; // @synthesize occurrenceBackgroundStyle=_occurrenceBackgroundStyle;
-@property(retain, nonatomic) UIColor *textBackgroundColor; // @synthesize textBackgroundColor=_textBackgroundColor;
-@property(retain, nonatomic) UIColor *secondaryTextColor; // @synthesize secondaryTextColor=_secondaryTextColor;
-@property(retain, nonatomic) UIColor *titleTextColor; // @synthesize titleTextColor=_titleTextColor;
+@property(nonatomic) double travelTime; // @synthesize travelTime=_travelTime;
+@property(nonatomic) BOOL showsTravelTime; // @synthesize showsTravelTime=_showsTravelTime;
 @property(nonatomic) float cappedColorBarHeight; // @synthesize cappedColorBarHeight=_cappedColorBarHeight;
 @property(nonatomic, getter=isAllDay) BOOL allDay; // @synthesize allDay=_allDay;
 @property(nonatomic) BOOL needsReply; // @synthesize needsReply=_needsReply;
 @property(nonatomic, getter=isDeclined) BOOL declined; // @synthesize declined=_declined;
 @property(nonatomic, getter=isTentative) BOOL tentative; // @synthesize tentative=_tentative;
 @property(copy, nonatomic) UIColor *color; // @synthesize color=_color;
-@property(nonatomic) struct UIEdgeInsets padding; // @synthesize padding=_padding;
+@property(nonatomic) float travelTimeSubviewHeightInPoints; // @synthesize travelTimeSubviewHeightInPoints=_travelTimeSubviewHeightInPoints;
+@property(nonatomic) BOOL isSelectedCopyView; // @synthesize isSelectedCopyView=_isSelectedCopyView;
 @property(nonatomic) struct UIEdgeInsets margin; // @synthesize margin=_margin;
 @property(nonatomic) BOOL hideText; // @synthesize hideText=_hideText;
-@property(nonatomic) BOOL hideColorBar; // @synthesize hideColorBar=_hideColorBar;
+@property(nonatomic) BOOL hideBackgroundImage; // @synthesize hideBackgroundImage=_hideBackgroundImage;
 @property(nonatomic) BOOL drawsResizeHandles; // @synthesize drawsResizeHandles=_drawsResizeHandles;
 @property(nonatomic) BOOL allDayDrawingStyle; // @synthesize allDayDrawingStyle=_allDayDrawingStyle;
-@property(nonatomic) BOOL dragging; // @synthesize dragging=_dragging;
 @property(nonatomic) BOOL dimmed; // @synthesize dimmed=_dimmed;
 @property(nonatomic) BOOL selected; // @synthesize selected=_selected;
 @property(retain, nonatomic) EKEvent *occurrence; // @synthesize occurrence=_occurrence;
+@property(nonatomic) __weak EKDayOccurrenceView *selectedCopy; // @synthesize selectedCopy=_selectedCopy;
 @property(nonatomic) __weak id delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)setHideText:(BOOL)arg1 animate:(BOOL)arg2;
 - (void)_resetContentViewPosition;
+- (BOOL)_isTimedOccurrenceDrawingStyle;
 - (BOOL)resetContentViewToOriginalState:(BOOL)arg1;
 - (void)fadeInContentViewAt:(float)arg1 minWidth:(float)arg2 animated:(BOOL)arg3;
-@property(readonly, nonatomic) BOOL colorBarExtendsPastOrEqualToNaturalTextHeight;
 - (float)_verticalContentInset;
 - (float)enoughHeightForOneLine;
 - (float)viewMaxNaturalTextHeight;
@@ -106,9 +119,11 @@
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
+- (void)invalidateTravelTimeHeight;
 - (struct CGRect)_frameMutatedForProximityToHourLine:(struct CGRect)arg1;
 - (id)_timedEventBackgroundColor;
 - (id)_backgroundColor;
+- (struct CGRect)_computeTravelTimeContentRect;
 - (struct CGRect)_computeContentRect;
 - (id)_newResizeHandleView;
 - (void)animateToFrame:(struct CGRect)arg1 isAllDay:(BOOL)arg2 beginFromCurrentState:(BOOL)arg3 whenFinished:(CDUnknownBlockType)arg4;
@@ -119,21 +134,36 @@
 - (void)setHidden:(BOOL)arg1;
 - (void)didMoveToSuperview;
 - (void)removeFromSuperview;
-- (void)_updateBackgroundColor;
+- (void)_updateColors;
 - (void)setAllDayDrawingStyle:(BOOL)arg1 animated:(BOOL)arg2;
 - (BOOL)hasIcon;
 @property(nonatomic, getter=isFacebook) BOOL facebook;
 @property(nonatomic, getter=isBirthday) BOOL birthday;
 @property(nonatomic, getter=isCancelled) BOOL cancelled;
 - (void)_invalidateContentBounds;
+@property(nonatomic) int routingMode;
 @property(copy, nonatomic) NSString *location;
+- (id)time;
+- (void)setTime:(id)arg1;
 @property(copy, nonatomic) NSString *title;
+@property(retain, nonatomic) UIColor *textBackgroundColor;
+@property(retain, nonatomic) UIColor *secondaryTextColor;
+@property(retain, nonatomic) UIColor *timeTextColor;
+@property(retain, nonatomic) UIColor *titleTextColor;
+@property(nonatomic) struct UIEdgeInsets padding;
+- (void)_removeTravelTimeSubviews;
+- (void)_addTravelTimeSubviews;
 @property(nonatomic) BOOL usesSmallText;
 - (void)prepareForReuse;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

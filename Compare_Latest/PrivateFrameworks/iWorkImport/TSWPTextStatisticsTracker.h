@@ -9,7 +9,7 @@
 #import "TSWPStorageObserver.h"
 #import "TSWPTextStatisticsTracking.h"
 
-@class NSMutableArray, TSWPStorage, TSWPTextStatistics;
+@class NSMutableArray, NSString, TSWPStorage, TSWPTextStatistics;
 
 __attribute__((visibility("hidden")))
 @interface TSWPTextStatisticsTracker : NSObject <TSWPStorageObserver, TSWPTextStatisticsTracking>
@@ -35,6 +35,12 @@ __attribute__((visibility("hidden")))
 - (void)incrementallyUpdateStatisticsUntil:(id)arg1;
 - (void)dealloc;
 - (id)initWithController:(id)arg1 andObject:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

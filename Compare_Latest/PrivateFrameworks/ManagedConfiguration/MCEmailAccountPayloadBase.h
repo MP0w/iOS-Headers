@@ -13,24 +13,25 @@
     BOOL _preventMove;
     BOOL _preventAppSheet;
     BOOL _SMIMEEnabled;
-    BOOL _SMIMEEncryptionEnabled;
+    BOOL _isRecentsSyncingDisabled;
+    BOOL _SMIMEPerMessageSwitchEnabled;
     NSString *_SMIMESigningIdentityUUID;
     NSString *_SMIMEEncryptionIdentityUUID;
     NSData *_SMIMESigningIdentityPersistentID;
     NSData *_SMIMEEncryptionIdentityPersistentID;
-    BOOL _isRecentsSyncingDisabled;
 }
 
+@property(nonatomic) BOOL SMIMEPerMessageSwitchEnabled; // @synthesize SMIMEPerMessageSwitchEnabled=_SMIMEPerMessageSwitchEnabled;
 @property(retain, nonatomic) NSData *SMIMEEncryptionIdentityPersistentID; // @synthesize SMIMEEncryptionIdentityPersistentID=_SMIMEEncryptionIdentityPersistentID;
 @property(retain, nonatomic) NSData *SMIMESigningIdentityPersistentID; // @synthesize SMIMESigningIdentityPersistentID=_SMIMESigningIdentityPersistentID;
-@property(readonly, nonatomic) NSString *SMIMEEncryptionIdentityUUID; // @synthesize SMIMEEncryptionIdentityUUID=_SMIMEEncryptionIdentityUUID;
-@property(readonly, nonatomic) NSString *SMIMESigningIdentityUUID; // @synthesize SMIMESigningIdentityUUID=_SMIMESigningIdentityUUID;
-@property(readonly, nonatomic) BOOL isRecentsSyncingDisabled; // @synthesize isRecentsSyncingDisabled=_isRecentsSyncingDisabled;
-@property(readonly, nonatomic) BOOL SMIMEEncryptionEnabled; // @synthesize SMIMEEncryptionEnabled=_SMIMEEncryptionEnabled;
-@property(readonly, nonatomic) BOOL SMIMEEnabled; // @synthesize SMIMEEnabled=_SMIMEEnabled;
-@property(readonly, nonatomic) BOOL preventAppSheet; // @synthesize preventAppSheet=_preventAppSheet;
-@property(readonly, nonatomic) BOOL preventMove; // @synthesize preventMove=_preventMove;
+@property(retain, nonatomic) NSString *SMIMEEncryptionIdentityUUID; // @synthesize SMIMEEncryptionIdentityUUID=_SMIMEEncryptionIdentityUUID;
+@property(retain, nonatomic) NSString *SMIMESigningIdentityUUID; // @synthesize SMIMESigningIdentityUUID=_SMIMESigningIdentityUUID;
+@property(nonatomic) BOOL isRecentsSyncingDisabled; // @synthesize isRecentsSyncingDisabled=_isRecentsSyncingDisabled;
+@property(nonatomic) BOOL SMIMEEnabled; // @synthesize SMIMEEnabled=_SMIMEEnabled;
+@property(nonatomic) BOOL preventAppSheet; // @synthesize preventAppSheet=_preventAppSheet;
+@property(nonatomic) BOOL preventMove; // @synthesize preventMove=_preventMove;
 - (void).cxx_destruct;
+- (id)payloadDescriptionKeyValueSections;
 - (id)description;
 - (id)stubDictionary;
 - (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;

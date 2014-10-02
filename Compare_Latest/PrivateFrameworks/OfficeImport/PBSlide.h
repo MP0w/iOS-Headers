@@ -11,8 +11,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)writeSlideAtIndex:(long)arg1 presentationState:(id)arg2;
-+ (void)writeLayoutFromSlide:(id)arg1 toSlideAtom:(struct PptSlideAtom *)arg2 presentationState:(id)arg3;
 + (void)readFromSlideContainer:(id)arg1 toSlide:(id)arg2 state:(id)arg3;
 
 @end

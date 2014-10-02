@@ -10,7 +10,7 @@
 #import "KNCustomFrameBuildAnimator.h"
 #import "TSCH3DChartAnimationPlugin.h"
 
-@class TSDGLLayer;
+@class NSString, TSDGLLayer;
 
 __attribute__((visibility("hidden")))
 @interface KNChart3DBuild : KNAnimationEffect <KNCustomFrameBuildAnimator, KNAnimationPluginArchiving, TSCH3DChartAnimationPlugin>
@@ -37,6 +37,7 @@ __attribute__((visibility("hidden")))
 - (void)animationWillBeginWithContext:(id)arg1;
 - (id)GLLayer;
 - (id)layerWithFrame:(struct CGRect)arg1 context:(id)arg2;
+- (id)p_repFromContext:(id)arg1;
 - (void)p_applyAttributes:(id)arg1 forRep:(id)arg2 animationLayer:(id)arg3;
 - (struct CGAffineTransform)p_transformForAttributes:(id)arg1 rep:(id)arg2;
 - (float)p_scaleForAttributes:(id)arg1;
@@ -46,6 +47,12 @@ __attribute__((visibility("hidden")))
 - (id)animationInfoForAnimatedBuild:(id)arg1;
 - (int)p_buildTypeForAnimatedBuild:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

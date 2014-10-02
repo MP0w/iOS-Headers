@@ -8,17 +8,15 @@
 
 #import "PBRequesterDelegate.h"
 
-@class GEORequester;
+@class GEORequester, NSString;
 
+__attribute__((visibility("hidden")))
 @interface GEOVoltaireDirectionsProvider : GEODirectionsProvider <PBRequesterDelegate>
 {
     GEORequester *_requester;
     BOOL _cancelled;
 }
 
-+ (void)setUsePersistentConnection:(BOOL)arg1;
-+ (unsigned short)providerID;
-+ (id)providerURL;
 @property(retain, nonatomic) GEORequester *requester; // @synthesize requester=_requester;
 - (void)requesterDidCancel:(id)arg1;
 - (void)requester:(id)arg1 didFailWithError:(id)arg2;
@@ -27,6 +25,12 @@
 - (void)cancelProviderRequest;
 - (void)startProviderWithRequest:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

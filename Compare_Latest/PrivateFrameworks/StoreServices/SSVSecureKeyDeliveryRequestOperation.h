@@ -15,6 +15,7 @@
     NSURL *_keyServerURL;
     AVAssetResourceLoadingRequest *_resourceLoadingRequest;
     CDUnknownBlockType _responseBlock;
+    BOOL _iTunesStoreRequest;
 }
 
 - (void).cxx_destruct;
@@ -24,6 +25,7 @@
 - (id)_contentKeyContextForStreamingKeyID:(long long)arg1 streamingKeyDictionaries:(id)arg2 error:(id *)arg3;
 - (void)start;
 - (void)main;
+@property(getter=isITunesStoreRequest) BOOL ITunesStoreRequest;
 @property(copy) CDUnknownBlockType responseBlock; // @synthesize responseBlock=_responseBlock;
 @property(retain) AVAssetResourceLoadingRequest *resourceLoadingRequest; // @synthesize resourceLoadingRequest=_resourceLoadingRequest;
 @property(retain) NSURL *keyServerURL; // @synthesize keyServerURL=_keyServerURL;

@@ -23,6 +23,7 @@
 @property(retain, nonatomic) NSString *addressID; // @synthesize addressID=_addressID;
 @property(retain, nonatomic) NSMutableArray *significantLocations; // @synthesize significantLocations=_significantLocations;
 @property(nonatomic) int correctionStatus; // @synthesize correctionStatus=_correctionStatus;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

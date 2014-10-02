@@ -9,7 +9,7 @@
 #import "GEOResourceManifestTileGroupObserver.h"
 #import "NSXMLParserDelegate.h"
 
-@class GEOAltitudeManifestReserved;
+@class GEOAltitudeManifestReserved, NSString;
 
 @interface GEOAltitudeManifest : NSObject <NSXMLParserDelegate, GEOResourceManifestTileGroupObserver>
 {
@@ -20,8 +20,12 @@
 - (void)parser:(id)arg1 didStartElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4 attributes:(id)arg5;
 - (void)parseManifest:(id)arg1;
 - (id)availableRegions;
+- (id)tripIdsForRegion:(unsigned int)arg1;
+- (id)tourIdsForRegion:(unsigned int)arg1;
+- (id)nameForRegion:(unsigned int)arg1;
 - (unsigned int)versionForRegion:(unsigned int)arg1;
 - (void)dealloc;
+- (BOOL)isValidTourId:(unsigned long long)arg1;
 - (BOOL)parseXml:(id)arg1;
 - (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
 - (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;
@@ -29,6 +33,12 @@
 - (void)commonInit;
 - (id)initWithoutObserver;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,6 +8,7 @@
 
 @class CUIImage;
 
+__attribute__((visibility("hidden")))
 @interface _CUINineImagePieces : NSObject
 {
     CUIImage *_center;

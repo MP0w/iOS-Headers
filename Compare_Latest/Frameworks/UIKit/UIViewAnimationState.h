@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CAMediaTimingFunction, NSMutableArray, NSMutableSet, NSString, NSUUID, UIView;
+@class CAMediaTimingFunction, NSMutableArray, NSString, NSUUID, UIView;
 
 __attribute__((visibility("hidden")))
 @interface UIViewAnimationState : NSObject
@@ -35,8 +35,9 @@ __attribute__((visibility("hidden")))
     unsigned int _cacheTransition:1;
     unsigned int _autoreverses:1;
     unsigned int _roundsToInteger:1;
+    unsigned int _preventsAdditive:1;
     unsigned int _layoutSubviews:1;
-    NSMutableSet *_trackedAnimations;
+    NSMutableArray *_trackedAnimations;
     NSUUID *_uuid;
     id <_UIBasicAnimationFactory> _animationFactory;
     CAMediaTimingFunction *_customCurve;
@@ -51,7 +52,7 @@ __attribute__((visibility("hidden")))
 + (void)popAnimationState;
 + (void)pushViewAnimationState:(id)arg1 context:(void *)arg2;
 - (id)_defaultAnimationForKey:(id)arg1;
-- (void)_trackAnimation:(id)arg1 forProperty:(id)arg2 inLayer:(id)arg3;
+- (void)_trackAnimation:(id)arg1 withAnimationKey:(id)arg2 forKeyPath:(id)arg3 inLayer:(id)arg4;
 - (void)_addAnimationStateForTracking:(id)arg1;
 - (id)_trackedAnimations;
 - (void)_removeAnimationStateFromTrackingMap:(BOOL)arg1 disableTrackingIfNeeded:(BOOL)arg2;
@@ -72,7 +73,10 @@ __attribute__((visibility("hidden")))
 - (void)pop;
 - (void)setupWithDuration:(double)arg1 delay:(double)arg2 view:(id)arg3 options:(unsigned int)arg4 factory:(id)arg5 parentState:(id)arg6 start:(CDUnknownBlockType)arg7 completion:(CDUnknownBlockType)arg8;
 - (id)actionForLayer:(id)arg1 forKey:(id)arg2 forView:(id)arg3;
-- (void)prepareAction:(id)arg1 forLayer:(id)arg2 forKey:(id)arg3;
+- (BOOL)_shouldAnimateAdditivelyForKey:(id)arg1 onLayer:(id)arg2;
+- (id)animationForLayer:(id)arg1 forKey:(id)arg2 forView:(id)arg3;
+- (BOOL)_shouldStartFromCurrentStateForLayer:(id)arg1 key:(id)arg2;
+- (void)configureAnimation:(id)arg1 forLayer:(id)arg2 forKey:(id)arg3;
 - (id)init;
 
 @end

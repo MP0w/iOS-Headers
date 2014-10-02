@@ -9,7 +9,7 @@
 #import "SBFLegibilitySettingsProviderDelegate.h"
 #import "UIActionSheetDelegate.h"
 
-@class NSArray, NSString, PLWallpaperNavigationItem, SBSUIWallpaperPreviewViewController, UIActionSheet;
+@class NSArray, NSString, PLWallpaperNavigationItem, SBSUIWallpaperPreviewViewController;
 
 @interface PLWallpaperImageViewController : PLUIEditImageViewController <SBFLegibilitySettingsProviderDelegate, UIActionSheetDelegate>
 {
@@ -18,7 +18,6 @@
     NSArray *_navigationToolbarItems;
     BOOL _saveWallpaperData;
     NSString *_wallpaperTitle;
-    UIActionSheet *_wallpaperOptionsSheet;
     unsigned int _didSetImageMode:1;
     BOOL _isWallpaperEdit;
     SBSUIWallpaperPreviewViewController *_wallpaperPreviewViewController;
@@ -36,7 +35,6 @@
 - (void)providerLegibilitySettingsChanged:(id)arg1;
 - (void)setupWallpaperPreview;
 - (void)_updatePreviewFrame:(id)arg1;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (void)cropOverlayWasCancelled:(id)arg1;
 - (void)_displayWallpaperOptionsSheet;
 - (void)cropOverlayWasOKed:(id)arg1;
@@ -74,6 +72,12 @@
 - (id)init;
 - (void)setWallpaperSynchronouslyFromArgs:(id)arg1;
 - (void)setWallpaperFromArgs:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

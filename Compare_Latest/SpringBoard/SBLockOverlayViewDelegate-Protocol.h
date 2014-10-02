@@ -5,10 +5,8 @@
 //
 
 #import "NSObject.h"
+#import "SBUILockOverlayViewDelegate.h"
 
-@class SBLockOverlayView;
-
-@protocol SBLockOverlayViewDelegate <NSObject>
-- (void)handleTapGestureFromView:(SBLockOverlayView *)arg1;
+@protocol SBLockOverlayViewDelegate <SBUILockOverlayViewDelegate, NSObject>
 @end
 

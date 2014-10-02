@@ -14,9 +14,13 @@
     UIImageView *_emptyStarsImageView;
     UIImageView *_filledStarsImageView;
     int _userRating;
+    float _starSpacing;
+    float _starWidth;
 }
 
 @property(nonatomic) int userRating; // @synthesize userRating=_userRating;
+@property(nonatomic) float starWidth; // @synthesize starWidth=_starWidth;
+@property(nonatomic) float starSpacing; // @synthesize starSpacing=_starSpacing;
 - (void).cxx_destruct;
 - (void)_updateUserRatingWithTouch:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

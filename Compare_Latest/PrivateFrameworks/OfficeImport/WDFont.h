@@ -8,18 +8,19 @@
 
 #import "NSCopying.h"
 
-@class NSString;
+@class NSMutableArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface WDFont : NSObject <NSCopying>
 {
     NSString *mName;
-    NSString *mSecondName;
+    NSMutableArray *mAlternateNames;
     int mFontFamily;
     int mCharacterSet;
     int mPitch;
 }
 
++ (int)cpFontClassFromWdFontFamily:(int)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -32,8 +33,9 @@ __attribute__((visibility("hidden")))
 - (int)characterSet;
 - (void)setFontFamily:(int)arg1;
 - (int)fontFamily;
-- (void)setSecondName:(id)arg1;
 - (id)secondName;
+- (void)addAlternateName:(id)arg1;
+- (id)alternateNames;
 - (void)setName:(id)arg1;
 - (id)name;
 

@@ -30,6 +30,7 @@
 
 @optional
 - (BOOL)isPerformanceLoggingEnabled;
+- (NSURL *)contentURLForPersonID:(NSString *)arg1;
 - (BOOL)shouldEnableNewFeatures;
 - (NSData *)pushToken;
 - (NSData *)pushTokenForPersonID:(NSString *)arg1;

@@ -10,7 +10,7 @@
 
 @protocol VKTileSourceClient <NSObject>
 - (void)dirtyTilesFromTileSource:(VKTileSource *)arg1;
-- (void)tileSource:(VKTileSource *)arg1 dirtyTilesWithinRect:(const CDStruct_d2b197d1 *)arg2 level:(int)arg3;
+- (void)tileSource:(VKTileSource *)arg1 dirtyTilesWithinRect:(const CDStruct_aca18c62 *)arg2 level:(int)arg3;
 - (void)didStopLoadingTilesWithError:(NSError *)arg1;
 - (void)willStartLoadingTiles;
 - (BOOL)tileSource:(VKTileSource *)arg1 keyIsNeeded:(const struct VKTileKey *)arg2;

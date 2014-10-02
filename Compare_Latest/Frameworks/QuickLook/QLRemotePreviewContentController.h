@@ -9,7 +9,7 @@
 #import "QLPreviewContentControllerProtocol.h"
 #import "QLPrintPageRendererDataSource.h"
 
-@class NSMapTable, QLPreviewController, QLPrintPageRenderer, _UIRemoteView;
+@class NSMapTable, NSString, QLPreviewController, QLPrintPageRenderer, _UIRemoteView;
 
 @interface QLRemotePreviewContentController : _UIRemoteViewController <QLPreviewContentControllerProtocol, QLPrintPageRendererDataSource>
 {
@@ -46,9 +46,9 @@
 - (void)_previewContentControllerGetPreviewItemAtIndex:(int)arg1 sourceUUID:(int)arg2 handler:(CDUnknownBlockType)arg3;
 - (id)_proxyForPreviewItem:(id)arg1;
 - (id)_previewItemFromProxy:(id)arg1;
-- (id)printPageRenderer:(id)arg1 pdfDataForPageAtIndex:(int)arg2 withSize:(struct CGSize)arg3 printingDone:(char *)arg4;
+- (id)printPageRenderer:(id)arg1 pdfDataForPageAtIndex:(int)arg2 printingDone:(char *)arg3;
 - (void)printPageRenderer:(id)arg1 prepareForDrawingPages:(struct _NSRange)arg2;
-- (int)numberOfPageInPrintPageRenderer:(id)arg1 withSize:(struct CGSize)arg2;
+- (int)numberOfPagesInPrintPageRenderer:(id)arg1;
 - (id)printPageHelper;
 - (id)printPageRenderer;
 - (void)togglePlayState;
@@ -66,6 +66,7 @@
 - (void)setTransitioning:(BOOL)arg1 synchronizedWithBlock:(CDUnknownBlockType)arg2;
 - (void)setBlockRemoteImages:(BOOL)arg1;
 - (void)checkCurrentPreviewItem;
+- (void)stopLoadingCurrentPreviewItem;
 - (void)refreshCurrentPreviewItem;
 - (int)numberOfPreviewItems;
 - (void)setNumberOfPreviewItems:(int)arg1;
@@ -75,10 +76,16 @@
 - (void)_updateNavigationBarVerticalOffset;
 - (void)viewDidLayoutSubviews;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (BOOL)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

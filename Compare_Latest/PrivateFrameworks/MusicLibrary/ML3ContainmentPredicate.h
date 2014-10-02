@@ -8,7 +8,6 @@
 
 @class NSSet;
 
-__attribute__((visibility("hidden")))
 @interface ML3ContainmentPredicate : ML3PropertyPredicate
 {
     NSSet *_values;

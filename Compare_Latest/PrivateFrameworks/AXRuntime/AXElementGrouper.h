@@ -19,11 +19,10 @@
 @property(nonatomic) unsigned int maximumGroupSize; // @synthesize maximumGroupSize=_maximumGroupSize;
 @property(nonatomic) unsigned int minimumGroupSize; // @synthesize minimumGroupSize=_minimumGroupSize;
 - (id)_groupablesForItems:(id)arg1;
-- (void)_preprocessTraitsInGroup:(id)arg1;
 - (id)_buildHierarchyForGroup:(id)arg1 indexOfKeyboard:(unsigned int *)arg2;
 - (id)_flattenHierarchyForGroup:(id)arg1 rootLevel:(BOOL)arg2;
 - (BOOL)_frame:(struct CGRect)arg1 isApproximatelySameSizeAsFrame:(struct CGRect)arg2;
-- (id)_groupRemovingTooSmallGroups:(id)arg1 isRootLevel:(BOOL)arg2;
+- (id)_groupRemovingImpossibleGroups:(id)arg1 isRootLevel:(BOOL)arg2;
 - (id)groupElementsInRootGroup:(id)arg1;
 - (id)initWithPadInterfaceHeuristics:(BOOL)arg1;
 

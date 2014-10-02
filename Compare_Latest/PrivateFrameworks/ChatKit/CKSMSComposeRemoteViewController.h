@@ -8,6 +8,8 @@
 
 #import "CKSMSComposeRemoteViewControllerDelegate.h"
 
+@class NSString;
+
 @interface CKSMSComposeRemoteViewController : _UIRemoteViewController <CKSMSComposeRemoteViewControllerDelegate>
 {
     id <CKSMSComposeRemoteViewControllerDelegate> _delegate;
@@ -23,6 +25,12 @@
 - (void)smsComposeControllerDataInserted;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

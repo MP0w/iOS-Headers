@@ -28,7 +28,6 @@ __attribute__((visibility("hidden")))
     unsigned char mAlign;
     unsigned char mWrap;
     unsigned char mFontAlign;
-    unsigned int mIsRightToLeft:1;
     unsigned int mIsLatinLineBreak:1;
     unsigned int mIsHangingPunctuation:1;
     unsigned int mHasTabStops:1;
@@ -38,7 +37,6 @@ __attribute__((visibility("hidden")))
     unsigned int mHasIndent:1;
     unsigned int mHasAlign:1;
     unsigned int mHasDefaultTab:1;
-    unsigned int mHasIsRightToLeft:1;
     unsigned int mHasWrap:1;
     unsigned int mHasFontAlign:1;
     unsigned int mHasIsLatinLineBreak:1;
@@ -50,6 +48,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (void)removeUnnecessaryOverrides;
+- (void)overrideWithCharacterProperties:(id)arg1;
 - (void)overrideWithProperties:(id)arg1;
 - (void)setBulletCharSet:(int)arg1;
 - (int)bulletCharSet;
@@ -78,9 +77,6 @@ __attribute__((visibility("hidden")))
 - (void)setWrap:(int)arg1;
 - (int)wrap;
 - (BOOL)hasWrap;
-- (void)setIsRightToLeft:(BOOL)arg1;
-- (BOOL)isRightToLeft;
-- (BOOL)hasIsRightToLeft;
 - (void)setDefaultTab:(double)arg1;
 - (double)defaultTab;
 - (BOOL)hasDefaultTab;

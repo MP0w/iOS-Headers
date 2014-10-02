@@ -9,13 +9,14 @@
 #import "UICollectionViewDataSource.h"
 #import "UICollectionViewDelegate.h"
 
-@class NSMutableArray, NSMutableDictionary, NSOperationQueue, SKUIClientContext, SKUIGiftThemeCollectionView, SKUIScreenshotDataConsumer, UIPageControl;
+@class NSMutableArray, NSMutableDictionary, NSOperationQueue, NSString, SKUIClientContext, SKUIGiftThemeCollectionView, SKUIScreenshotDataConsumer, UIPageControl;
 
 @interface SKUIIPhoneSlideshowViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 {
     SKUIClientContext *_clientContext;
-    id <SKUISlideshowViewControllerDataSource> _dataSource;
     SKUIGiftThemeCollectionView *_collectionView;
+    id <SKUISlideshowViewControllerDataSource> _dataSource;
+    id <SKUISlideshowViewControllerDelegate> _delegate;
     UIPageControl *_pageControl;
     NSOperationQueue *_operationQueue;
     NSOperationQueue *_placeholderQueue;
@@ -28,9 +29,11 @@
     BOOL _respondsToImage;
 }
 
+@property(nonatomic) __weak id <SKUISlideshowViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak id <SKUISlideshowViewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
+- (void)_reloadSize;
 - (void)_reloadPageControl;
 - (void)_setLowResImage:(id)arg1 atIndex:(int)arg2;
 - (void)_setImage:(id)arg1 atIndex:(int)arg2;
@@ -42,10 +45,17 @@
 - (void)scrollViewDidScroll:(id)arg1;
 @property(nonatomic) int currentIndex;
 - (void)reloadData;
+- (void)viewDidLayoutSubviews;
 - (unsigned int)supportedInterfaceOrientations;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

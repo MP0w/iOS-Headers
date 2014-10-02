@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "SSXPCCoding.h"
 
-@class NSData, NSError;
+@class NSData, NSError, NSString;
 
 @interface SSPlayInfoResponse : NSObject <SSXPCCoding, NSCopying>
 {
@@ -20,11 +20,16 @@
 @property(readonly, nonatomic) NSData *playInfoData; // @synthesize playInfoData=_playInfoData;
 @property(readonly, nonatomic) NSError *error; // @synthesize error=_error;
 - (id)initWithPlayInfoData:(id)arg1 error:(id)arg2;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (void)itemAtLocation:(id)arg1 wasReplacedByItemAtLocation:(id)arg2;
 - (void)devalueSelf;
 - (void)invokeClaimer;
+- (void)resolveURLsThenContinueInvokingClaimer:(CDUnknownBlockType)arg1;
 - (void)granted;
 - (BOOL)isBlockedByWritingItemAtLocation:(id)arg1 options:(unsigned int)arg2;
 - (BOOL)isBlockedByReadingItemAtLocation:(id)arg1 options:(unsigned int)arg2;

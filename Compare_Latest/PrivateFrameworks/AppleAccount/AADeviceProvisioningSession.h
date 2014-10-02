@@ -11,6 +11,7 @@
 @interface AADeviceProvisioningSession : NSObject
 {
     NSString *_dsid;
+    unsigned long long _dsidNumber;
     struct OpaqueCFHTTPCookieStorage *_cookieStorageRef;
 }
 
@@ -18,10 +19,14 @@
 - (long)eraseProvisioning;
 - (long)synchronizeProvisioningWithData:(id)arg1;
 - (long)provisionDeviceWithData:(id)arg1;
-- (id)deviceProvisioningInfo;
+- (id)_deviceProvisioningInfo;
+- (void)addProvisioningInfoToURLRequest:(id)arg1;
+- (void)addProvisioningInfoToAARequest:(id)arg1 withFallback:(BOOL)arg2;
+- (void)addProvisioningInfoToAARequest:(id)arg1;
 - (void)setCookieStorageRef:(struct OpaqueCFHTTPCookieStorage *)arg1;
 - (id)initWithAccount:(id)arg1;
 - (id)initWithDSID:(id)arg1;
+- (id)init;
 
 @end
 

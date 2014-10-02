@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSLock, NSString;
+@class NSLock, NSObject<OS_dispatch_queue>, NSString;
 
 @interface CPDistributedNotificationCenter : NSObject
 {
@@ -16,6 +16,7 @@
     BOOL _isServer;
     struct __CFDictionary *_sendPorts;
     unsigned int _startCount;
+    NSObject<OS_dispatch_queue> *_queue;
 }
 
 + (id)centerForServerPort:(unsigned int)arg1;

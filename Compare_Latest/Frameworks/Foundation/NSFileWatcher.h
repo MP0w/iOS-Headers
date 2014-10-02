@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
 
 - (void)stop;
 - (void)settle;
+- (void)_coalesceSubitemObservations;
 - (void)unsettle;
 - (void)start;
 - (void)setObserver:(CDUnknownBlockType)arg1;

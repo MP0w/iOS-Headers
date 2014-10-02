@@ -11,6 +11,7 @@
 @interface RCChronologicalAnnotationView : UIView
 {
     double _majorTickTimeUnit;
+    float _majorTickMinimumSpacing;
     unsigned int _maximumMajorUnitsInVisibleDuration;
     RCUIConfiguration *_UIConfiguration;
     UIColor *_backgroundDebugColor;
@@ -26,6 +27,8 @@
 - (void).cxx_destruct;
 - (id)_timeLabelAttributes;
 - (void)_updateMajorTickTimeUnit;
+- (void)_loadMajorTickMinimumSpacing;
+- (void)setFrame:(struct CGRect)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 - (struct CGSize)labelsSize;
 - (id)description;

@@ -7,7 +7,7 @@
 #import "NSObject.h"
 #import "UIScrollViewDelegate.h"
 
-@class NSIndexPath, NSString, UITableView, UITableViewCell, UIView;
+@class NSArray, NSIndexPath, NSString, UITableView, UITableViewCell, UIView;
 
 @protocol UITableViewDelegate <NSObject, UIScrollViewDelegate>
 
@@ -20,6 +20,7 @@
 - (void)tableView:(UITableView *)arg1 didEndEditingRowAtIndexPath:(NSIndexPath *)arg2;
 - (void)tableView:(UITableView *)arg1 willBeginEditingRowAtIndexPath:(NSIndexPath *)arg2;
 - (_Bool)tableView:(UITableView *)arg1 shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)arg2;
+- (NSArray *)tableView:(UITableView *)arg1 editActionsForRowAtIndexPath:(NSIndexPath *)arg2;
 - (NSString *)tableView:(UITableView *)arg1 titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)arg2;
 - (long long)tableView:(UITableView *)arg1 editingStyleForRowAtIndexPath:(NSIndexPath *)arg2;
 - (void)tableView:(UITableView *)arg1 didDeselectRowAtIndexPath:(NSIndexPath *)arg2;

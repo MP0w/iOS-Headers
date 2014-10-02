@@ -23,7 +23,7 @@
 
 @property(readonly, nonatomic) int type; // @synthesize type=_type;
 @property(readonly, nonatomic) long long storeID; // @synthesize storeID=_storeID;
-@property(readonly, nonatomic) RadioSeedMetadata *seedMetadata; // @synthesize seedMetadata=_seedMetadata;
+@property(readonly, copy, nonatomic) RadioSeedMetadata *seedMetadata; // @synthesize seedMetadata=_seedMetadata;
 @property(readonly, nonatomic) BOOL isSeed; // @synthesize isSeed=_isSeed;
 @property(readonly, nonatomic) RadioArtworkCollection *artworkCollection; // @synthesize artworkCollection=_artworkCollection;
 @property(readonly, nonatomic) long long albumID; // @synthesize albumID=_albumID;

@@ -6,17 +6,22 @@
 
 #import "NSObject.h"
 
-@class NSLock, NSString;
+@class NSObject<OS_voucher>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface _NSActivityAssertion : NSObject
 {
+    long long _ended;
     unsigned long long _options;
-    NSLock *_lock;
-    BOOL _ended;
     NSString *_reason;
+    unsigned int _systemSleepAssertionID;
+    NSObject<OS_voucher> *_voucher;
+    NSObject<OS_voucher> *_previousVoucher;
+    id <NSObject> _xpcBoost;
 }
 
++ (void)_performActivityWithOptions:(unsigned long long)arg1 reason:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
+- (void)_reactivate;
 - (void)_end;
 - (id)debugDescription;
 - (void)dealloc;

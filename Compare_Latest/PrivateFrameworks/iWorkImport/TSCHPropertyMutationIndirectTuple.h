@@ -15,7 +15,7 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) unsigned int index; // @synthesize index=mStyleOwnerIndex;
 @property(readonly, nonatomic) int type; // @synthesize type=mStyleOwnerType;
-- (CDStruct_f1d50d6b)styleOwnerRef;
+- (id)styleOwnerRef;
 - (id)indirectTuple;
 - (id)styleOwner;
 - (id)initWithStyleOwner:(id)arg1 mutations:(id)arg2;

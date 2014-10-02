@@ -9,10 +9,10 @@
 @class GEOActiveTileGroup;
 
 @protocol GEOResourceManifestServerProxyDelegate <NSObject>
-- (oneway void)serverProxyDidChangeActiveTileGroup:(GEOActiveTileGroup *)arg1 finishedCallback:(void (^)(void))arg2;
-- (oneway void)serverProxyDidStopLoadingResources;
-- (oneway void)serverProxyWillStartLoadingResources;
-- (oneway void)serverProxyDidStopUpdatingResourceManifest;
-- (oneway void)serverProxyWillStartUpdatingResourceManifest;
+- (oneway void)serverProxy:(id <GEOResourceManifestServerProxy>)arg1 didChangeActiveTileGroup:(GEOActiveTileGroup *)arg2 finishedCallback:(void (^)(void))arg3;
+- (oneway void)serverProxyDidStopLoadingResources:(id <GEOResourceManifestServerProxy>)arg1;
+- (oneway void)serverProxyWillStartLoadingResources:(id <GEOResourceManifestServerProxy>)arg1;
+- (oneway void)serverProxyDidStopUpdatingResourceManifest:(id <GEOResourceManifestServerProxy>)arg1;
+- (oneway void)serverProxyWillStartUpdatingResourceManifest:(id <GEOResourceManifestServerProxy>)arg1;
 @end
 

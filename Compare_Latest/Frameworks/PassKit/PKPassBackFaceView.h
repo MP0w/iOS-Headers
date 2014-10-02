@@ -10,7 +10,7 @@
 #import "UITableViewDelegate.h"
 #import "UITextViewDelegate.h"
 
-@class BluetoothManager, NSArray, NSMutableDictionary, NSTimer, PKLinkedAppView, PKSettingTableCell, UIAlertView, UIButton, UILabel, UIRefreshControl, UITableView, UIView;
+@class BluetoothManager, NSArray, NSMutableDictionary, NSString, NSTimer, PKLinkedAppView, PKSettingTableCell, UIAlertView, UIButton, UILabel, UIRefreshControl, UITableView, UIView;
 
 @interface PKPassBackFaceView : PKPassFaceView <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate>
 {
@@ -63,7 +63,7 @@
 - (void)_doneButtonPressed:(id)arg1;
 - (id)_relevantBuckets;
 - (void)createBodyInvariantViews;
-- (id)_formattedUpdateDate:(id)arg1;
+- (id)_updateLabelAttributedStringWithDate:(id)arg1;
 - (id)_updateLabelAttributedStringWithString:(id)arg1;
 - (void)setupRefreshControl:(id)arg1;
 - (BOOL)shouldAllowRefresh;
@@ -93,6 +93,12 @@
 - (BOOL)isFrontFace;
 - (void)dealloc;
 - (id)initTall:(BOOL)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

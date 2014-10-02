@@ -44,7 +44,7 @@ __attribute__((visibility("hidden")))
 + (id)colorWithCGColor:(struct CGColor *)arg1;
 + (id)colorWithColor:(id)arg1;
 + (id)instanceWithArchive:(const struct FillArchive *)arg1 unarchiver:(id)arg2;
-@property(readonly, nonatomic) TSUColor *color; // @synthesize color=mColor;
+@property(readonly, copy, nonatomic) TSUColor *color; // @synthesize color=mColor;
 @property(readonly, nonatomic) float brightness;
 @property(readonly, nonatomic) float saturation;
 @property(readonly, nonatomic) float hue;

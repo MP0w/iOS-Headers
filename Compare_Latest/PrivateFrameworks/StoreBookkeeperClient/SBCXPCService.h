@@ -6,40 +6,46 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSXPCConnection;
+@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSXPCConnection, SBCClientConfiguration, SBCXPCServiceInterface;
 
-__attribute__((visibility("hidden")))
 @interface SBCXPCService : NSObject
 {
     BOOL _isConnecting;
-    id _serviceProxy;
     NSObject<OS_dispatch_queue> *_queue;
+    id _serviceProxy;
+    id _applicationWillTerminateObserver;
     NSXPCConnection *_xpcConnection;
-    NSDictionary *_clientConfiguration;
-    NSMutableDictionary *_pendingServiceCompletionHandlers;
-    Class _serviceInterfaceClass;
+    SBCClientConfiguration *_clientConfiguration;
+    NSMutableDictionary *_pendingReplyBlockCompletionHandlers;
+    SBCXPCServiceInterface *_XPCServiceInterface;
 }
 
++ (id)newListener;
++ (id)XPCInterfaceDebugDescription;
++ (Class)XPCServiceInterfaceClass;
 @property(readonly) BOOL isConnecting; // @synthesize isConnecting=_isConnecting;
-@property(readonly) Class serviceInterfaceClass; // @synthesize serviceInterfaceClass=_serviceInterfaceClass;
-@property(readonly) NSMutableDictionary *pendingServiceCompletionHandlers; // @synthesize pendingServiceCompletionHandlers=_pendingServiceCompletionHandlers;
-@property(readonly) NSDictionary *clientConfiguration; // @synthesize clientConfiguration=_clientConfiguration;
+@property(readonly) SBCXPCServiceInterface *XPCServiceInterface; // @synthesize XPCServiceInterface=_XPCServiceInterface;
+@property(readonly) NSMutableDictionary *pendingReplyBlockCompletionHandlers; // @synthesize pendingReplyBlockCompletionHandlers=_pendingReplyBlockCompletionHandlers;
+@property(readonly) SBCClientConfiguration *clientConfiguration; // @synthesize clientConfiguration=_clientConfiguration;
 @property(readonly) NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
+@property(readonly) __weak id applicationWillTerminateObserver; // @synthesize applicationWillTerminateObserver=_applicationWillTerminateObserver;
+@property(readonly) id serviceProxy; // @synthesize serviceProxy=_serviceProxy;
 @property(readonly) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 - (void).cxx_destruct;
 - (oneway void)setClientConfiguration:(id)arg1;
 - (void)sendMessage:(SEL)arg1 withClientCompletionHandler:(CDUnknownBlockType)arg2 messageBlock:(CDUnknownBlockType)arg3;
-- (id)_enqueueMessage:(SEL)arg1 withClientCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)_dequeueRequestWithEnqueuedToken:(id)arg1;
+- (id)_enqueueReplyBlockMessageWithSelector:(SEL)arg1 withClientCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)_dequeueReplyBlockMessageWithEnqueuedToken:(id)arg1;
 - (void)_invalidateOutstandingRequests:(id)arg1;
 - (void)_onQueueInvalidateOutstandingRequests:(id)arg1;
 - (void)_onQueueCloseServiceConnection;
-@property(readonly) id serviceProxy; // @synthesize serviceProxy=_serviceProxy;
+- (id)_serviceProxy;
 - (void)didConnectToService;
 - (void)closeServiceConnection;
 - (void)_openServiceConnection;
+- (id)newServiceConnection;
 - (void)dealloc;
-- (id)initWithServiceInterfaceClass:(Class)arg1 clientConfiguration:(id)arg2;
+- (id)initWithClientConfiguration:(id)arg1;
 
 @end
 

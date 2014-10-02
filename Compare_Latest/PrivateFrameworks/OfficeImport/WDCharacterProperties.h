@@ -15,16 +15,17 @@ __attribute__((visibility("hidden")))
     unsigned int mOriginal:1;
     unsigned int mTracked:1;
     unsigned int mResolved:1;
-    CDStruct_b675bd9c *mOriginalProperties;
-    CDStruct_b675bd9c *mTrackedProperties;
+    CDStruct_2bc0833e *mOriginalProperties;
+    CDStruct_2bc0833e *mTrackedProperties;
 }
 
 + (int)languageFromString:(id)arg1;
 + (BOOL)languageIsArabicOrHebrew:(int)arg1;
 + (BOOL)languageIsCJK:(int)arg1;
 + (BOOL)languageIsChinese:(int)arg1;
-+ (SEL)fontOverriddenSelectorForLanguageType:(int)arg1;
-+ (SEL)fontSelectorForLanguageType:(int)arg1;
++ (SEL)setFontSelectorForFontType:(int)arg1;
++ (SEL)fontOverriddenSelectorForFontType:(int)arg1;
++ (SEL)fontSelectorForFontType:(int)arg1;
 - (void)copyPropertiesInto:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (BOOL)isBracketTwoLinesInOneOverridden;
@@ -96,6 +97,9 @@ __attribute__((visibility("hidden")))
 - (BOOL)isDeletedOverridden;
 - (void)setDeleted:(int)arg1;
 - (int)deleted;
+- (BOOL)isUseCsFontOverridden;
+- (void)setUseCsFont:(int)arg1;
+- (int)useCsFont;
 - (BOOL)isRightToLeftOverridden;
 - (void)setRightToLeft:(int)arg1;
 - (int)rightToLeft;
@@ -159,6 +163,9 @@ __attribute__((visibility("hidden")))
 - (BOOL)isUnderlineOverridden;
 - (void)setUnderline:(int)arg1;
 - (int)underline;
+- (BOOL)isTextScaleOverridden;
+- (void)setTextScale:(unsigned short)arg1;
+- (unsigned short)textScale;
 - (BOOL)isKerningOverridden;
 - (void)setKerning:(unsigned short)arg1;
 - (unsigned short)kerning;
@@ -177,20 +184,36 @@ __attribute__((visibility("hidden")))
 - (BOOL)isEmbossedOverridden;
 - (void)setEmbossed:(int)arg1;
 - (int)embossed;
+- (BOOL)isOutline2010WidthOverridden;
+- (void)setOutline2010Width:(float)arg1;
+- (float)outline2010Width;
+- (BOOL)isOutlineColorOverridden;
+- (void)setOutlineColor:(id)arg1;
+- (id)outlineColor;
 - (BOOL)isOutlineOverridden;
 - (void)setOutline:(int)arg1;
 - (int)outline;
+- (BOOL)isItalicForBiTextOverridden;
+- (void)setItalicForBiText:(int)arg1;
+- (int)italicForBiText;
 - (BOOL)isItalicOverridden;
 - (void)setItalic:(int)arg1;
 - (int)italic;
+- (BOOL)isBoldForBiTextOverridden;
+- (void)setBoldForBiText:(int)arg1;
+- (int)boldForBiText;
 - (BOOL)isBoldOverridden;
 - (void)setBold:(int)arg1;
 - (int)bold;
 - (BOOL)isSymbolCharacterOverridden;
 - (void)setSymbolCharacter:(unsigned short)arg1;
 - (unsigned short)symbolCharacter;
-- (BOOL)isFontOverriddenForLanguageType:(int)arg1;
-- (id)fontForLanguageType:(int)arg1;
+- (BOOL)isFontHintOverridden;
+- (void)setFontHint:(int)arg1;
+- (int)fontHint;
+- (void)setFont:(id)arg1 forFontType:(int)arg2;
+- (BOOL)isFontOverriddenForFontType:(int)arg1;
+- (id)fontForFontType:(int)arg1;
 - (BOOL)isSymbolFontOverridden;
 - (void)setSymbolFont:(id)arg1;
 - (id)symbolFont;
@@ -227,7 +250,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)editDifferentFrom:(id)arg1 mode:(int)arg2;
 - (BOOL)deletionDifferentFrom:(id)arg1 mode:(int)arg2;
 - (BOOL)isBooleanProbablyDifferent:(unsigned char)arg1 than:(unsigned char)arg2;
-- (BOOL)isAnythingOverriddenIn:(CDStruct_b675bd9c *)arg1;
+- (BOOL)isAnythingOverriddenIn:(CDStruct_2bc0833e *)arg1;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "_UISettingsKeyObserver.h"
 
-@class NSMutableDictionary, SBLockScreenPlugin, SBLockScreenPluginLoader, SBLockScreenPluginTransitionFactory, SBLockScreenTestPluginSettings, SBLockScreenViewController, UIWindow;
+@class NSMutableDictionary, NSString, SBLockScreenPlugin, SBLockScreenPluginLoader, SBLockScreenPluginTransitionFactory, SBLockScreenTestPluginSettings, SBLockScreenViewController, UIWindow;
 
 @interface SBLockScreenPluginController : NSObject <_UISettingsKeyObserver>
 {
@@ -22,6 +22,7 @@
     _Bool _pluginControllerReceivedViewWillDisappear;
     _Bool _pluginControllerReceivedViewDidDisappear;
     UIWindow *_previousWindow;
+    _Bool _removedDisplayedPluginTemporarily;
     SBLockScreenTestPluginSettings *_testSettings;
     _Bool _lockScreenHasNotifications;
     _Bool _allowDisplayOfPlugins;
@@ -35,6 +36,7 @@
 @property(retain, nonatomic) SBLockScreenPluginLoader *pluginLoader; // @synthesize pluginLoader=_pluginLoader;
 @property(nonatomic) SBLockScreenViewController *lockScreenViewController; // @synthesize lockScreenViewController=_lockScreenViewController;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
+- (void)_passcodeLockedStateChanged:(id)arg1;
 - (_Bool)_pluginHidesNotificationList:(id)arg1;
 - (void)_updateNotificationListForNewlyActivatedPlugin;
 - (void)_transitionFromNotificationListToExclusionaryPlugin;
@@ -45,14 +47,16 @@
 - (void)_lockScreenWillMoveToWindow;
 - (void)_disablePluginsPassingTest:(CDUnknownBlockType)arg1 withReason:(id)arg2;
 - (void)_removeActivePlugin;
-- (void)_removeDisplayedPlugin;
+- (void)_removeDisplayedPluginPermanently:(_Bool)arg1;
 - (void)_handleUIRelock;
+- (void)handleLockScreenTemporarilyDismissed;
 - (void)handleUIUnlock;
 - (id)_pluginForName:(id)arg1 controller:(id)arg2;
-- (void)_loadLockScreenPluginWithName:(id)arg1 activationContext:(id)arg2;
+- (_Bool)_loadLockScreenPluginWithName:(id)arg1 activationContext:(id)arg2;
 - (void)_handleApplicationExit:(id)arg1;
-- (void)disableLockScreenBundleWithName:(id)arg1 deactivationContext:(id)arg2;
+- (_Bool)disableLockScreenBundleWithName:(id)arg1 deactivationContext:(id)arg2;
 - (void)_handlePluginDisable:(id)arg1;
+- (void)_handleUpdatePluginLegibilitySettings:(id)arg1;
 - (id)_transitionContextWithOldPlugin:(id)arg1 newPlugin:(id)arg2;
 - (void)_updateCallPluginPresentationStyle;
 - (void)_setEffectivePresentationStyleForDisplayedPluginIfNecessary;
@@ -62,7 +66,7 @@
 - (_Bool)isPhonePluginActive;
 - (void)_refreshLockScreenPlugin;
 - (void)reset;
-- (void)enableLockScreenBundleWithName:(id)arg1 activationContext:(id)arg2;
+- (_Bool)enableLockScreenBundleWithName:(id)arg1 activationContext:(id)arg2;
 - (id)_pluginView;
 - (id)_lockScreenView;
 - (_Bool)handleHeadsetButtonPressed:(_Bool)arg1;
@@ -85,6 +89,12 @@
 - (void)dealloc;
 - (void)_addObservers;
 - (id)initWithLockScreenViewController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

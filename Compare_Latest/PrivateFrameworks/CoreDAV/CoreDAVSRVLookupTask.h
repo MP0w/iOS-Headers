@@ -15,9 +15,9 @@
     struct __CFHost *_host;
 }
 
-@property struct __CFHost *host; // @synthesize host=_host;
-@property(retain) NSArray *fetchedRecords; // @synthesize fetchedRecords=_fetchedRecords;
-@property(retain) NSString *serviceString; // @synthesize serviceString=_serviceString;
+@property(nonatomic) struct __CFHost *host; // @synthesize host=_host;
+@property(retain, nonatomic) NSArray *fetchedRecords; // @synthesize fetchedRecords=_fetchedRecords;
+@property(retain, nonatomic) NSString *serviceString; // @synthesize serviceString=_serviceString;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (void)performCoreDAVTask;
 - (id)description;

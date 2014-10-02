@@ -7,11 +7,11 @@
 @class TSWPPadding;
 
 @protocol TSWPTextDelegate
+@property(readonly, nonatomic) float maxWidthForChildren;
 - (TSWPPadding *)padding;
 - (int)verticalAlignment;
 
 @optional
 - (BOOL)forceWesternLineBreaking;
-- (BOOL)adjustColumnOriginForAlignment;
 @end
 

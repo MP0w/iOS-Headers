@@ -29,7 +29,8 @@
 @property(readonly, nonatomic) id <AVPlayerItemOutputPullDelegate> delegate;
 - (void)setDelegate:(id)arg1 queue:(id)arg2;
 - (void)_detachFromPlayerItem;
-- (void)_attachToPlayerItem:(id)arg1;
+- (BOOL)_attachToPlayerItem:(id)arg1;
+- (id)_pixelBufferAttributes;
 - (void)dealloc;
 - (void)finalize;
 - (id)initWithPixelBufferAttributes:(id)arg1;

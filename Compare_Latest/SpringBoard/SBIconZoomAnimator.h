@@ -8,7 +8,7 @@
 
 #import "SBIconIndexNodeObserver.h"
 
-@class NSMapTable, NSSet, SBIconListModel, SBIconListView, SBIconZoomSettings;
+@class NSMapTable, NSSet, NSString, SBIconListModel, SBIconListView, SBIconZoomSettings;
 
 @interface SBIconZoomAnimator : SBIconAnimator <SBIconIndexNodeObserver>
 {
@@ -20,8 +20,8 @@
     SBIconListView *_dockListView;
 }
 
-@property(readonly, nonatomic) SBIconListView *dockListView; // @synthesize dockListView=_dockListView;
-@property(readonly, nonatomic) SBIconListView *iconListView; // @synthesize iconListView=_iconListView;
+@property(readonly, retain, nonatomic) SBIconListView *dockListView; // @synthesize dockListView=_dockListView;
+@property(readonly, retain, nonatomic) SBIconListView *iconListView; // @synthesize iconListView=_iconListView;
 @property(retain, nonatomic) NSSet *criticalIconNodeIdentifiers; // @synthesize criticalIconNodeIdentifiers=_criticalIconNodeIdentifiers;
 - (void)_invalidateAnimationForSignificantIconModelChangesForReason:(id)arg1;
 - (void)_iconModelDidReload;
@@ -45,7 +45,11 @@
 - (id)initWithFolderController:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
 @property(retain, nonatomic) SBIconZoomSettings *settings;
+@property(readonly) Class superclass;
 
 @end
 

@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly) double elapsedTime;
-@property(readonly) NSString *animationName;
+@property(readonly, copy) NSString *animationName;
 
 @end
 

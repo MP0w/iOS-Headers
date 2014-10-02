@@ -57,6 +57,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL horizontalFlip;
 @property(readonly, nonatomic) BOOL heightValid;
 @property(readonly, nonatomic) BOOL widthValid;
+- (id)initWithLayoutGeometry:(id)arg1;
 - (id)initWithTransformedBoundsOrigin:(struct CGPoint)arg1 size:(struct CGSize)arg2 horizontalFlip:(BOOL)arg3 verticalFlip:(BOOL)arg4 angle:(float)arg5;
 - (id)initWithTransformedBoundsOrigin:(struct CGPoint)arg1 size:(struct CGSize)arg2 angle:(float)arg3;
 - (id)initWithCenter:(struct CGPoint)arg1 size:(struct CGSize)arg2;

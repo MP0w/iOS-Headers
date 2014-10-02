@@ -9,10 +9,13 @@
 @interface SKUIScreenshotDataConsumer : SKUIImageDataConsumer
 {
     BOOL _forcesPortrait;
+    BOOL _drawsBorder;
     struct CGSize _screenshotSize;
 }
 
 + (id)consumerWithScreenshotSize:(struct CGSize)arg1;
++ (id)consumer;
+@property(nonatomic) BOOL drawsBorder; // @synthesize drawsBorder=_drawsBorder;
 @property(nonatomic) BOOL forcesPortrait; // @synthesize forcesPortrait=_forcesPortrait;
 @property(readonly, nonatomic) struct CGSize constraintSize; // @synthesize constraintSize=_screenshotSize;
 - (id)imageForImage:(id)arg1;

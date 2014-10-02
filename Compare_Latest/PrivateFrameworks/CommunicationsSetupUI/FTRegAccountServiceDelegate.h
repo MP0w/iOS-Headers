@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+#import "AAAppleIDLoginPlugin.h"
 #import "AASetupAssistantDelegateService.h"
 
-@class CNFRegController, NSDictionary;
+@class CNFRegController, NSDictionary, NSString;
 
-@interface FTRegAccountServiceDelegate : NSObject <AASetupAssistantDelegateService>
+@interface FTRegAccountServiceDelegate : NSObject <AASetupAssistantDelegateService, AAAppleIDLoginPlugin>
 {
     CNFRegController *_regController;
     NSDictionary *_responseDictionary;
@@ -27,8 +28,12 @@
 - (void)setupOperationFailed;
 - (void)completeSetupWithResponseParameters:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (id)accountSetupRequestParameters;
-- (id)_defaultSetupRequestParameters;
 - (id)delegateServiceIdentifier;
+- (void)handleLoginResponse:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)parametersForIdentityEstablishmentRequest;
+- (id)_defaultSetupRequestParameters;
+- (id)parametersForLoginRequest;
+- (id)serviceIdentifier;
 - (BOOL)_shouldSkipAccountSetup:(id)arg1;
 - (id)_existingOperationalAccount;
 - (id)_existingAccountForSetupParameters:(id)arg1;
@@ -42,6 +47,12 @@
 - (void)dealloc;
 - (id)init;
 - (id)initWithRegController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

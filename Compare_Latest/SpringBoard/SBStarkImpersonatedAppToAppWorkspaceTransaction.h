@@ -6,10 +6,11 @@
 
 #import "SBStarkAppToAppWorkspaceTransaction.h"
 
-@class SBAlert;
+@class SBAlert, SBAlertChangeTransaction;
 
 @interface SBStarkImpersonatedAppToAppWorkspaceTransaction : SBStarkAppToAppWorkspaceTransaction
 {
+    SBAlertChangeTransaction *_deactivateAlertTransaction;
     SBAlert *_deactivatingAlert;
     _Bool _animatedAppActivation;
 }
@@ -18,18 +19,15 @@
 - (void)animationController:(id)arg1 willBeginAnimation:(_Bool)arg2;
 - (void)_deactivateAlertIfPossible;
 - (void)_handleFailureToLaunch;
-- (_Bool)selfStarkAlertDidDeactivate:(id)arg1;
-- (_Bool)selfStarkAlertWillDeactivate:(id)arg1;
-- (_Bool)selfApplicationExited:(id)arg1;
-- (_Bool)selfApplicationLaunchDidFail:(id)arg1;
+- (void)mainScreenApplicationUpdateScenesTransactionCompleted:(id)arg1;
 - (id)_newAnimationFromAppToLauncher;
 - (id)_newAnimationFromAppToNowPlaying;
 - (id)_newAnimationFromAppToApp;
-- (void)_transactionComplete;
-- (int)_setupMilestonesFrom:(id)arg1 to:(id)arg2;
+- (void)_didComplete;
+- (void)_setupMilestonesFrom:(id)arg1 to:(id)arg2;
 - (void)_doCommit;
 - (void)dealloc;
-- (id)initWithWorkspace:(id)arg1 mainScreenAlertManager:(id)arg2 starkScreenController:(id)arg3 from:(id)arg4 to:(id)arg5;
+- (id)initWithMainScreenAlertManager:(id)arg1 starkScreenController:(id)arg2 from:(id)arg3 to:(id)arg4;
 
 @end
 

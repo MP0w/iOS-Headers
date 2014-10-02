@@ -8,7 +8,7 @@
 
 #import "SBNumberPadDelegate.h"
 
-@class NSArray, SBNumberPadWithDelegate, SBUIButton, UIColor, UIControl<SBUIPasscodeNumberPadButton>;
+@class NSArray, NSString, SBNumberPadWithDelegate, SBUIButton, UIColor, UIControl<SBUIPasscodeNumberPadButton>;
 
 @interface SBUIPasscodeLockNumberPad : UIView <SBNumberPadDelegate>
 {
@@ -25,11 +25,12 @@
     BOOL _showsEmergencyCallButton;
     BOOL _showsCancelButton;
     UIColor *_customBackgroundColor;
+    BOOL _useLightStyle;
 }
 
 + (struct UIEdgeInsets)_inputButtonCircleSpacing;
 + (struct CGSize)_inputButtonCircleSize;
-+ (id)_buttonForCharacter:(unsigned int)arg1;
++ (id)_buttonForCharacter:(unsigned int)arg1 withLightStyle:(BOOL)arg2;
 @property(retain, nonatomic) UIControl<SBUIPasscodeNumberPadButton> *downButton; // @synthesize downButton=_downButton;
 @property(nonatomic) BOOL showsCancelButton; // @synthesize showsCancelButton=_showsCancelButton;
 @property(nonatomic) BOOL showsEmergencyCallButton; // @synthesize showsEmergencyCallButton=_showsEmergencyCallButton;
@@ -49,8 +50,14 @@
 - (void)setCustomBackgroundColor:(id)arg1;
 - (void)setBackgroundAlpha:(float)arg1;
 - (void)dealloc;
-- (id)initWithDefaultSize;
+- (id)initWithDefaultSizeAndLightStyle:(BOOL)arg1;
 @property(readonly, nonatomic) NSArray *buttons;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

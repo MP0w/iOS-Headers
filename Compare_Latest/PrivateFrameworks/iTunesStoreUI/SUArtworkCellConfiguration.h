@@ -8,7 +8,7 @@
 
 #import "ISStoreURLOperationDelegate.h"
 
-@class NSMutableArray, NSMutableDictionary;
+@class NSMutableArray, NSMutableDictionary, NSString;
 
 @interface SUArtworkCellConfiguration : SUArrayCellConfiguration <ISStoreURLOperationDelegate>
 {
@@ -27,6 +27,12 @@
 - (id)artworkImageForURL:(id)arg1;
 - (id)artworkImageForItemImage:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

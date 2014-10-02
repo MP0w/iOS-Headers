@@ -6,17 +6,16 @@
 
 #import "NSObject.h"
 
-@class NSMapTable, VKObjectPool, VKPShieldPack;
+@class NSMapTable, VKPShieldPack;
 
 __attribute__((visibility("hidden")))
 @interface VKShieldAtlas : NSObject
 {
     NSMapTable *_atlasToImages;
     VKPShieldPack *_shieldPack;
-    VKObjectPool *_artworkPool;
 }
 
-- (id)artworkForShieldIdentifier:(id)arg1 textLength:(unsigned int)arg2 contentScale:(float)arg3 extraScale:(float)arg4 size:(int)arg5 numberOfLines:(unsigned int)arg6;
+- (id)artworkForShieldIdentifier:(id)arg1 textLength:(unsigned int)arg2 contentScale:(float)arg3 size:(int)arg4 numberOfLines:(unsigned int)arg5 genericShieldGenerator:(id)arg6 colors:(CDStruct_aed172a0 *)arg7;
 - (void)purge;
 - (void)dealloc;
 - (id)initWithShieldPack:(id)arg1;

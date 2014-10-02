@@ -6,14 +6,15 @@
 
 #import <CoreImage/CIKernel.h>
 
-__attribute__((visibility("hidden")))
 @interface CIColorKernel : CIKernel
 {
 }
 
-+ (id)kernelWithOptions:(id)arg1;
 - (id)applyWithExtent:(struct CGRect)arg1 andArguments:(id)arg2;
-- (id)initWithOptions:(id)arg1;
+- (id)applyWithExtent:(struct CGRect)arg1 arguments:(id)arg2;
+- (id)applyWithExtent:(struct CGRect)arg1 roiCallback:(CDUnknownBlockType)arg2 andArguments:(id)arg3;
+- (id)initWithDict:(id)arg1;
+- (id)initWithString:(id)arg1;
 
 @end
 

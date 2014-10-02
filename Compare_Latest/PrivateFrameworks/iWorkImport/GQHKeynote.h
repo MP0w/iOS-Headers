@@ -8,6 +8,8 @@
 
 #import "GQKeynoteGenerator.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface GQHKeynote : NSObject <GQKeynoteGenerator>
 {
@@ -20,6 +22,12 @@ __attribute__((visibility("hidden")))
 + (int)handleSlideSize:(id)arg1 state:(id)arg2;
 + (int)endPresentation:(id)arg1 state:(id)arg2;
 + (int)beginPresentation:(id)arg1 state:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

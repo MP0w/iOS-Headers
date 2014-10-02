@@ -14,8 +14,8 @@
     CoreDAVLeafItem *_commonName;
 }
 
-@property(retain) CoreDAVLeafItem *commonName; // @synthesize commonName=_commonName;
-@property(retain) CoreDAVHrefItem *href; // @synthesize href=_href;
+@property(retain, nonatomic) CoreDAVLeafItem *commonName; // @synthesize commonName=_commonName;
+@property(retain, nonatomic) CoreDAVHrefItem *href; // @synthesize href=_href;
 - (id)copyParseRules;
 - (id)description;
 - (void)dealloc;

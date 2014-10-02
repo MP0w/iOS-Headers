@@ -6,7 +6,7 @@
 
 #import <UIKit/UICollectionViewLayout.h>
 
-@class NSDictionary, NSMutableDictionary;
+@class NSDictionary, NSMutableArray, NSMutableDictionary, _UIFlowLayoutInfo;
 
 @interface UICollectionViewFlowLayout : UICollectionViewLayout
 {
@@ -20,14 +20,16 @@
         unsigned int delegateAlignmentOptions:1;
         unsigned int layoutDataIsValid:1;
         unsigned int delegateInfoIsValid:1;
+        unsigned int roundsToScreenScale:1;
     } _gridLayoutFlags;
     float _interitemSpacing;
     float _lineSpacing;
     struct CGSize _itemSize;
+    struct CGSize _estimatedItemSize;
     struct CGSize _headerReferenceSize;
     struct CGSize _footerReferenceSize;
     struct UIEdgeInsets _sectionInset;
-    id _data;
+    _UIFlowLayoutInfo *_data;
     struct CGSize _currentLayoutSize;
     NSMutableDictionary *_insertedItemsAttributesDict;
     NSMutableDictionary *_insertedSectionHeadersAttributesDict;
@@ -37,41 +39,25 @@
     NSMutableDictionary *_deletedSectionFootersAttributesDict;
     int _scrollDirection;
     NSDictionary *_rowAlignmentsOptionsDictionary;
-    struct CGRect _visibleBounds;
+    struct CGPoint _contentOffsetAdjustment;
+    struct CGSize _contentSizeAdjustment;
+    NSMutableArray *_indexPathsToValidate;
 }
 
 + (Class)invalidationContextClass;
+@property(nonatomic) struct CGSize estimatedItemSize; // @synthesize estimatedItemSize=_estimatedItemSize;
 @property(nonatomic) struct UIEdgeInsets sectionInset; // @synthesize sectionInset=_sectionInset;
 @property(nonatomic) struct CGSize footerReferenceSize; // @synthesize footerReferenceSize=_footerReferenceSize;
 @property(nonatomic) struct CGSize headerReferenceSize; // @synthesize headerReferenceSize=_headerReferenceSize;
 @property(nonatomic) struct CGSize itemSize; // @synthesize itemSize=_itemSize;
 @property(nonatomic) float minimumInteritemSpacing; // @synthesize minimumInteritemSpacing=_interitemSpacing;
 @property(nonatomic) float minimumLineSpacing; // @synthesize minimumLineSpacing=_lineSpacing;
-@property(nonatomic) int scrollDirection;
-- (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
-- (id)_layoutAttributesForItemsInRect:(struct CGRect)arg1;
-- (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2;
-- (id)layoutAttributesForItemAtIndexPath:(id)arg1;
-- (id)layoutAttributesForFooterInSection:(int)arg1;
-- (id)layoutAttributesForHeaderInSection:(int)arg1;
-- (id)layoutAttributesForItemAtIndexPath:(id)arg1 usingData:(id)arg2;
-- (id)layoutAttributesForFooterInSection:(int)arg1 usingData:(id)arg2;
-- (id)layoutAttributesForHeaderInSection:(int)arg1 usingData:(id)arg2;
-- (id)indexPathForItemAtPoint:(struct CGPoint)arg1;
-- (id)indexesForSectionFootersInRect:(struct CGRect)arg1;
-- (id)indexesForSectionHeadersInRect:(struct CGRect)arg1;
-- (id)indexPathsForItemsInRect:(struct CGRect)arg1 usingData:(id)arg2;
-- (id)indexesForSectionFootersInRect:(struct CGRect)arg1 usingData:(id)arg2;
-- (id)indexesForSectionHeadersInRect:(struct CGRect)arg1 usingData:(id)arg2;
-- (struct CGSize)collectionViewContentSize;
-- (id)invalidationContextForBoundsChange:(struct CGRect)arg1;
-- (BOOL)shouldInvalidateLayoutForBoundsChange:(struct CGRect)arg1;
-- (void)prepareLayout;
-- (void)invalidateLayoutWithContext:(id)arg1;
-- (void)dealloc;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (id)init;
+- (BOOL)_roundsToScreenScale;
+- (void)_setRoundsToScreenScale:(BOOL)arg1;
+- (int)_sectionArrayIndexForIndexPath:(id)arg1;
+- (void)_updateContentSizeScrollingDimensionWithDelta:(float)arg1;
+- (id)_rowAlignmentOptions;
+- (void)_setRowAlignmentsOptions:(id)arg1;
 - (void)_invalidateButKeepAllInfo;
 - (void)_invalidateButKeepDelegateInfo;
 - (struct CGSize)synchronizeLayout;
@@ -82,14 +68,43 @@
 - (id)initialLayoutAttributesForHeaderInInsertedSection:(int)arg1;
 - (id)initialLayoutAttributesForInsertedItemAtIndexPath:(id)arg1;
 - (void)finalizeCollectionViewUpdates;
+- (void)_setNeedsLayoutComputationWithoutInvalidation;
 - (struct CGRect)_frameForFooterInSection:(int)arg1 usingData:(id)arg2;
 - (struct CGRect)_frameForHeaderInSection:(int)arg1 usingData:(id)arg2;
-- (struct CGRect)_frameForItemAtSection:(int)arg1 andRow:(int)arg2 usingData:(id)arg3;
-- (void)_fetchItemsInfo;
-- (void)_updateItemsLayout;
+- (struct CGRect)_frameForItem:(int)arg1 inSection:(int)arg2 usingData:(id)arg3;
+- (void)_fetchItemsInfoForRect:(struct CGRect)arg1;
+- (void)_updateItemsLayoutForRect:(struct CGRect)arg1;
 - (void)_getSizingInfos;
 - (void)_updateDelegateFlags;
-@property(retain, nonatomic, setter=_setRowAlignmentsOptions:) NSDictionary *_rowAlignmentOptions;
+@property(nonatomic) int scrollDirection;
+- (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
+- (id)_layoutAttributesForItemsInRect:(struct CGRect)arg1;
+- (BOOL)_estimatesSizes;
+- (id)invalidationContextForPreferredLayoutAttributes:(id)arg1 withOriginalAttributes:(id)arg2;
+- (BOOL)shouldInvalidateLayoutForPreferredLayoutAttributes:(id)arg1 withOriginalAttributes:(id)arg2;
+- (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2;
+- (id)layoutAttributesForItemAtIndexPath:(id)arg1;
+- (id)layoutAttributesForFooterInSection:(int)arg1;
+- (id)layoutAttributesForHeaderInSection:(int)arg1;
+- (id)layoutAttributesForItemAtIndexPath:(id)arg1 usingData:(id)arg2;
+- (id)layoutAttributesForFooterInSection:(int)arg1 usingData:(id)arg2;
+- (id)layoutAttributesForHeaderInSection:(int)arg1 usingData:(id)arg2;
+- (id)indexPathForItemAtPoint:(struct CGPoint)arg1;
+- (id)indexesForSectionFootersInRect:(struct CGRect)arg1;
+- (id)indexesForSectionHeadersInRect:(struct CGRect)arg1;
+- (id)indexesForSectionFootersInRect:(struct CGRect)arg1 usingData:(id)arg2;
+- (id)indexesForSectionHeadersInRect:(struct CGRect)arg1 usingData:(id)arg2;
+- (struct CGSize)collectionViewContentSize;
+- (id)invalidationContextForBoundsChange:(struct CGRect)arg1;
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(struct CGRect)arg1;
+- (void)prepareLayout;
+- (void)invalidateLayoutWithContext:(id)arg1;
+- (struct CGSize)_estimatedItemSize;
+- (void)_setEstimatedItemSize:(struct CGSize)arg1;
+- (void)dealloc;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)init;
 
 @end
 

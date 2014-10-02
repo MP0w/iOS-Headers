@@ -6,9 +6,12 @@
 
 #import <iWorkImport/KNTransitionRenderer.h>
 
+@class NSMapTable;
+
 __attribute__((visibility("hidden")))
 @interface KNContentAwareRenderer : KNTransitionRenderer
 {
+    NSMapTable *_layerToOldHiddenValueMap;
 }
 
 - (void)removeAnimationsAndFinish:(BOOL)arg1;
@@ -17,7 +20,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)addAnimationsAtTime:(double)arg1 relativeToCurrentMediaTime:(BOOL)arg2;
 - (void)renderOutgoingSlideAndPrecacheIncomingSlide;
 - (void)setupPluginContext;
-- (void)teardown;
+- (void)teardownTransitionIsExitingShow:(BOOL)arg1;
 - (void)dealloc;
 - (id)initWithEffectClass:(Class)arg1 direction:(unsigned int)arg2 duration:(double)arg3 session:(id)arg4 attributes:(id)arg5 animatedSlideView:(id)arg6;
 

@@ -12,7 +12,6 @@
 
 @interface CalDAVServerVersion : NSObject <NSCopying>
 {
-    double _version;
     BOOL _supportsTimeRangeFilter;
     BOOL _supportsTodoTimeRangeFilter;
     BOOL _supportsTimeRangeFilterWithoutEndDate;
@@ -32,14 +31,19 @@
     BOOL _supportsCheckForValidEmail;
     BOOL _supportsChecksumming;
     BOOL _supportsCalendarHomeSync;
+    BOOL _supportsCalendarNoTimezone;
     NSString *_supportedCalendarComponentSets;
     NSSet *_complianceClasses;
     NSString *_serverHeader;
+    double _version;
 }
 
 + (id)versionWithPropertyValue:(id)arg1;
 + (id)versionWithHTTPHeaders:(id)arg1;
 + (id)_prototypeMatchingServerHeaders:(id)arg1;
+@property(copy, nonatomic) NSString *serverHeader; // @synthesize serverHeader=_serverHeader;
+@property(retain, nonatomic) NSSet *complianceClasses; // @synthesize complianceClasses=_complianceClasses;
+@property(nonatomic) BOOL supportsCalendarNoTimezone; // @synthesize supportsCalendarNoTimezone=_supportsCalendarNoTimezone;
 @property(copy, nonatomic) NSString *supportedCalendarComponentSets; // @synthesize supportedCalendarComponentSets=_supportedCalendarComponentSets;
 @property(nonatomic) BOOL supportsCalendarHomeSync; // @synthesize supportsCalendarHomeSync=_supportsCalendarHomeSync;
 @property(nonatomic) BOOL supportsChecksumming; // @synthesize supportsChecksumming=_supportsChecksumming;
@@ -47,8 +51,6 @@
 @property(nonatomic) BOOL supportsManagedAttachments; // @synthesize supportsManagedAttachments=_supportsManagedAttachments;
 @property(nonatomic) BOOL supportsRequestCompression; // @synthesize supportsRequestCompression=_supportsRequestCompression;
 @property(nonatomic) BOOL supportsExtendedCalendarQuery; // @synthesize supportsExtendedCalendarQuery=_supportsExtendedCalendarQuery;
-@property(copy, nonatomic) NSString *serverHeader; // @synthesize serverHeader=_serverHeader;
-@property(retain, nonatomic) NSSet *complianceClasses; // @synthesize complianceClasses=_complianceClasses;
 @property(nonatomic) BOOL supportsPrincipalPropertySearch; // @synthesize supportsPrincipalPropertySearch=_supportsPrincipalPropertySearch;
 @property(nonatomic) BOOL supportsSubscriptionCalendars; // @synthesize supportsSubscriptionCalendars=_supportsSubscriptionCalendars;
 @property(nonatomic) BOOL supportsPrivateEvents; // @synthesize supportsPrivateEvents=_supportsPrivateEvents;

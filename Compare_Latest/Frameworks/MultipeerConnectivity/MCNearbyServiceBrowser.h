@@ -13,12 +13,13 @@
 
 @interface MCNearbyServiceBrowser : NSObject <NSNetServiceBrowserDelegate, NSNetServiceDelegate>
 {
+    id <MCNearbyServiceBrowserDelegate> _delegate;
     BOOL _isBrowsing;
     BOOL _wasBrowsing;
-    id <MCNearbyServiceBrowserDelegate> _delegate;
     MCPeerID *_myPeerID;
     NSString *_serviceType;
     NSString *_formattedServiceType;
+    NSMutableDictionary *_netServices;
     NSMutableDictionary *_peers;
     NSNetServiceBrowser *_networkBrowser;
     int _outgoingInviteID;
@@ -33,10 +34,10 @@
 @property(nonatomic) int outgoingInviteID; // @synthesize outgoingInviteID=_outgoingInviteID;
 @property(retain, nonatomic) NSNetServiceBrowser *networkBrowser; // @synthesize networkBrowser=_networkBrowser;
 @property(retain, nonatomic) NSMutableDictionary *peers; // @synthesize peers=_peers;
+@property(retain, nonatomic) NSMutableDictionary *netServices; // @synthesize netServices=_netServices;
 @property(copy, nonatomic) NSString *formattedServiceType; // @synthesize formattedServiceType=_formattedServiceType;
 @property(copy, nonatomic) NSString *serviceType; // @synthesize serviceType=_serviceType;
 @property(readonly, nonatomic) MCPeerID *myPeerID; // @synthesize myPeerID=_myPeerID;
-@property(nonatomic) id <MCNearbyServiceBrowserDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)netService:(id)arg1 didUpdateTXTRecordData:(id)arg2;
 - (id)rebuildUserDiscoveryInfoFromTXTRecordDictionary:(id)arg1;
 - (void)netServiceBrowserWillSearch:(id)arg1;
@@ -65,10 +66,16 @@
 - (void)syncStartBrowsingForPeers;
 - (void)parseIDString:(id *)arg1 displayName:(id *)arg2 fromIdentifier:(id)arg3;
 - (int)syncNextOutgoingInviteID;
-- (id)description;
+@property(nonatomic) __weak id <MCNearbyServiceBrowserDelegate> delegate;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithPeer:(id)arg1 serviceType:(id)arg2;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

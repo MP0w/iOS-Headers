@@ -4,19 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "SBCDomainSyncServiceProtocol.h"
+#import "SBCDomainValueServiceProtocol.h"
 
-@class NSDictionary;
-
-@protocol SBCPlaybackPositionServiceProtocol <NSObject>
-- (oneway void)setClientConfiguration:(NSDictionary *)arg1;
-- (oneway void)synchronizeImmediately;
-- (oneway void)synchronizeLocalChangesSoon;
-- (oneway void)updateMusicLibraryByApplyingUbiquitousBookmarkMetadataToTrackWithPersistentID:(long long)arg1;
-- (oneway void)updateUbiquitousDatabaseByRemovingUbiquitousMetadataFromTrackWithPersistentID:(long long)arg1;
-- (oneway void)noteChangedPlaybackPositionMetadataForTrackPersistentID:(long long)arg1 isCheckpoint:(BOOL)arg2;
-- (oneway void)noteChangedNowPlayingTrackPersistentID:(long long)arg1;
-- (oneway void)endUsingPlaybackPositions;
-- (oneway void)beginUsingPlaybackPositions;
+@protocol SBCPlaybackPositionServiceProtocol <SBCDomainSyncServiceProtocol, SBCDomainValueServiceProtocol>
 @end
 

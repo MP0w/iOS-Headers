@@ -8,10 +8,11 @@
 
 #import "EKEventTitleDetailItemDelegate.h"
 #import "EKUIEventStatusButtonsViewDelegate.h"
+#import "UIAlertViewDelegate.h"
 
-@class EKEvent, EKEventDetailItem, EKUIEventStatusButtonsView, EKUIRecurrenceAlertController, NSArray, SingleToolbarItemContainerView, UITableView, _UIAccessDeniedView;
+@class EKEvent, EKEventDetailItem, EKEventEditViewController, EKUIEventStatusButtonsView, EKUIRecurrenceAlertController, NSArray, NSString, SingleToolbarItemContainerView, UITableView, UIView, _UIAccessDeniedView;
 
-@interface EKEventViewController : UIViewController <EKEventTitleDetailItemDelegate, EKUIEventStatusButtonsViewDelegate>
+@interface EKEventViewController : UIViewController <EKEventTitleDetailItemDelegate, EKUIEventStatusButtonsViewDelegate, UIAlertViewDelegate>
 {
     BOOL _ignoreDBChanges;
     int _lastAuthorizationStatus;
@@ -20,7 +21,7 @@
     int _disclosedTableSection;
     struct _NSRange _disclosedTableRange;
     int _pendingStatus;
-    id _editor;
+    EKEventEditViewController *_activeEventEditor;
     EKUIRecurrenceAlertController *_recurrenceAlertController;
     EKUIEventStatusButtonsView *_statusButtonsView;
     SingleToolbarItemContainerView *_statusButtonsContainerView;
@@ -29,6 +30,7 @@
     EKEventDetailItem *_currentEditItem;
     UITableView *_tableView;
     BOOL _didAppear;
+    BOOL _viewIsVisible;
     BOOL _autoPop;
     BOOL _allowsSubitems;
     BOOL _showsPreview;
@@ -47,35 +49,36 @@
     NSArray *_items;
     NSArray *_currentSections;
     int _scrollToSection;
+    UIView *_blankFooterView;
+    BOOL _showingBlankFooterView;
     BOOL _allowsEditing;
-    BOOL _showsTimeZone;
     BOOL _hideNavigationBar;
-    BOOL _leaveNavBarHidden;
+    BOOL _minimalMode;
     id <EKEventViewDelegate> _delegate;
     EKEvent *_event;
     int _editorShowTransition;
     int _editorHideTransition;
+    UIViewController *_eventDetailContainer;
     float _leftInset;
     float _rightInset;
-    int _interfaceOrientationStartingModalEditingSession;
 }
 
 + (void)adjustLayoutForCell:(id)arg1 tableViewWidth:(float)arg2 numRowsInSection:(unsigned int)arg3 cellRow:(unsigned int)arg4;
 + (void)setDefaultDatesForEvent:(id)arg1;
-@property(nonatomic) int interfaceOrientationStartingModalEditingSession; // @synthesize interfaceOrientationStartingModalEditingSession=_interfaceOrientationStartingModalEditingSession;
 @property(nonatomic) float rightInset; // @synthesize rightInset=_rightInset;
 @property(nonatomic) float leftInset; // @synthesize leftInset=_leftInset;
+@property(retain, nonatomic) UIViewController *eventDetailContainer; // @synthesize eventDetailContainer=_eventDetailContainer;
 @property(nonatomic) int editorHideTransition; // @synthesize editorHideTransition=_editorHideTransition;
 @property(nonatomic) int editorShowTransition; // @synthesize editorShowTransition=_editorShowTransition;
-@property(nonatomic) BOOL leaveNavBarHidden; // @synthesize leaveNavBarHidden=_leaveNavBarHidden;
+@property(nonatomic) BOOL minimalMode; // @synthesize minimalMode=_minimalMode;
 @property(nonatomic) BOOL hideNavigationBar; // @synthesize hideNavigationBar=_hideNavigationBar;
 @property(nonatomic) BOOL showsDelegateMessage; // @synthesize showsDelegateMessage=_showsDelegateMessage;
 @property(nonatomic) BOOL showsDelegatorMessage; // @synthesize showsDelegatorMessage=_showsDelegatorMessage;
 @property(nonatomic) BOOL showsOutOfDateMessage; // @synthesize showsOutOfDateMessage=_showsOutOfDateMessage;
 @property(nonatomic) BOOL showsDoneButton; // @synthesize showsDoneButton=_showsDoneButton;
-@property(nonatomic) BOOL showsTimeZone; // @synthesize showsTimeZone=_showsTimeZone;
 @property(nonatomic) BOOL allowsSubitems; // @synthesize allowsSubitems=_allowsSubitems;
 @property(nonatomic) BOOL showsAddToCalendar; // @synthesize showsAddToCalendar=_showsAddToCalendar;
+@property(nonatomic) BOOL allowsInviteResponses; // @synthesize allowsInviteResponses=_allowsInviteResponses;
 @property(nonatomic, getter=isICSPreview) BOOL ICSPreview; // @synthesize ICSPreview=_ICSPreview;
 @property(nonatomic) BOOL allowsEditing; // @synthesize allowsEditing=_allowsEditing;
 @property(retain, nonatomic) EKEvent *event; // @synthesize event=_event;
@@ -92,27 +95,27 @@
 - (BOOL)allowContextProvider:(id)arg1;
 - (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 didUnhighlightRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 didHighlightRowAtIndexPath:(id)arg2;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
 - (void)_layoutStatusButtonsForInterfaceOrientation:(int)arg1;
 - (void)viewWillLayoutSubviews;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)traitCollectionDidChange:(id)arg1;
 - (unsigned int)supportedInterfaceOrientations;
 - (void)eventStatusButtonsView:(id)arg1 calculatedFontSizeToFit:(float)arg2;
 - (float)eventStatusButtonsViewButtonFontSize:(id)arg1;
-- (void)eventStatusButtonsView:(id)arg1 didSelectButtonAtIndex:(unsigned int)arg2;
-- (void)_responseChanged:(id)arg1;
-- (void)_declineButtonPressed:(id)arg1;
-- (void)_maybeButtonPressed:(id)arg1;
-- (void)_acceptButtonPressed:(id)arg1;
+- (void)eventStatusButtonsView:(id)arg1 didSelectAction:(int)arg2;
+- (id)_statusButtons;
+- (BOOL)_shouldDisplayStatusButtons;
 - (void)_updateResponse;
 - (void)_updateResponseVisibility;
-- (void)_segmentedControlHit:(id)arg1;
 - (void)_addToCalendarClicked:(id)arg1;
 - (void)_deleteClicked:(id)arg1;
-- (void)invokeInviteAction:(int)arg1;
+- (void)_saveStatus:(int)arg1;
+- (void)invokeAction:(int)arg1;
 - (void)_prepareEventForEdit;
 - (void)eventEditViewController:(id)arg1 didCompleteWithAction:(int)arg2;
 - (void)_dismissEditor:(BOOL)arg1 deleted:(BOOL)arg2;
@@ -122,17 +125,24 @@
 - (void)eventItemDidStartEditing:(id)arg1;
 - (void)_presentDetachSheet;
 - (struct CGSize)preferredContentSize;
-- (void)_performDelete;
+- (void)_performDelete:(int)arg1;
 - (void)_presentValidationAlert:(id)arg1;
 - (BOOL)_performSave:(int)arg1 animated:(BOOL)arg2;
 - (void)_saveStatus:(int)arg1 span:(int)arg2;
-- (void)resumeEventEditing;
+- (id)_viewControllerForEditorPresentation;
+- (void)presentEditorAnimated:(BOOL)arg1;
+@property(retain, nonatomic) EKEventEditViewController *activeEventEditor;
 - (void)editEvent;
 - (void)doneButtonPressed;
+- (void)_updateStatusButtonsActions;
 - (id)_statusButtonsContainerView;
 - (id)_statusButtonsView;
 - (void)_setUpForEvent;
+- (id)_footerLabelContainingText:(id)arg1;
 - (void)_updateFooterIfNeeded;
+- (BOOL)_shouldDisplayDelegateOrOutOfDateMessage;
+- (BOOL)_isDisplayingInvitation;
+- (BOOL)_isDisplayingDeletableEvent;
 - (void)_configureItemsForStoreConstraintsGivenCalendar:(id)arg1;
 - (id)_items;
 - (void)_setUpAttendeesWithAcceptedItem:(id)arg1 declinedItem:(id)arg2 maybeItem:(id)arg3 noReplyItem:(id)arg4;
@@ -141,6 +151,7 @@
 - (void)_localeChanged;
 - (void)_storeChanged:(id)arg1;
 - (void)_refreshEventAndReload;
+- (void)_setObservesKeyboardNotifications:(BOOL)arg1;
 - (void)_updateFrameForInsets;
 @property(nonatomic) float topInset;
 - (id)accessDeniedView;
@@ -159,15 +170,24 @@
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)_updateTableContentInsetForKeyboard:(id)arg1;
 - (void)_updateTableContentForSizeCategoryChange:(id)arg1;
+- (void)openAttendeesDetailItem;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidLoad;
+- (id)_indexPathForAttendeesDetailItem;
+- (id)_indexPathForSection:(int)arg1;
 - (void)loadView;
 - (id)tableView;
 - (void)dealloc;
 - (void)_teardownTableView;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithEvent:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

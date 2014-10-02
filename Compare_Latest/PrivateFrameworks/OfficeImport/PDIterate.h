@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     double mValue;
 }
 
+- (BOOL)isEqual:(id)arg1;
 - (void)setValue:(double)arg1;
 - (double)value;
 - (void)setIsValuePercentage:(BOOL)arg1;

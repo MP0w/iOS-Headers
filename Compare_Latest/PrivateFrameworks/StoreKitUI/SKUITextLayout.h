@@ -8,6 +8,8 @@
 
 #import "SKUICachedLayout.h"
 
+@class NSString;
+
 @interface SKUITextLayout : NSObject <SKUICachedLayout>
 {
     struct __CTFramesetter *_framesetter;
@@ -25,6 +27,12 @@
 @property(readonly, nonatomic) BOOL requiresTruncation; // @synthesize requiresTruncation=_requiresTruncation;
 - (void)dealloc;
 - (id)initWithLayoutRequest:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

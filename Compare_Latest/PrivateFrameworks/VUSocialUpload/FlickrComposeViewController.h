@@ -8,18 +8,19 @@
 
 #import "FlickrComposeOptionViewDelegate.h"
 
-@class ACAccount, ACAccountStore, FlickrAudienceController, FlickrPhotoSetController, FlickrPhotoSetManager, NSString, SLSheetAction, UIImageView;
+@class ACAccount, ACAccountStore, FlickrAudienceController, FlickrPhotoSetController, FlickrPhotoSetManager, FlickrUploadSession, NSString, SLComposeSheetConfigurationItem, UIImageView;
 
 @interface FlickrComposeViewController : SLComposeServiceViewController <FlickrComposeOptionViewDelegate>
 {
+    FlickrUploadSession *_session;
     UIImageView *_logoView;
     BOOL _hasFlickrAccount;
-    SLSheetAction *_photoSetAction;
+    SLComposeSheetConfigurationItem *_photoSetConfigurationItem;
     FlickrPhotoSetController *_photoSetController;
     NSString *_photoSetTitle;
     long long _photoSetID;
     FlickrPhotoSetManager *_manager;
-    SLSheetAction *_audienceAction;
+    SLComposeSheetConfigurationItem *_audienceConfigurationItem;
     FlickrAudienceController *_audienceController;
     int _audience;
     ACAccountStore *_accountStore;
@@ -28,13 +29,19 @@
 
 @property(retain, nonatomic) ACAccount *flickrAccount; // @synthesize flickrAccount=_flickrAccount;
 @property(retain, nonatomic) ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
-- (void)send;
+- (void).cxx_destruct;
+- (void)didSelectPost;
 - (unsigned int)postVisibility;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)flickrComposeOptionView:(id)arg1 didFinishWithSelection:(id)arg2;
-- (id)sheetActions;
-- (void)dealloc;
+- (id)configurationItems;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

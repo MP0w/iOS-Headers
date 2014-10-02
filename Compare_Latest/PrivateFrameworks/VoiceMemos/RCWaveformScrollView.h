@@ -11,6 +11,8 @@
     unsigned int _ignoreContentOffsetChangesCount;
 }
 
+- (struct CGRect)convertRect:(struct CGRect)arg1 fromView:(id)arg2 inPresentationLayer:(BOOL)arg3;
+- (struct CGPoint)contentOffsetInPresentationLayer:(BOOL)arg1;
 - (void)setContentOffset:(struct CGPoint)arg1 animated:(BOOL)arg2;
 - (void)setContentOffset:(struct CGPoint)arg1;
 - (void)endIgnoringContentOffsetChanges;

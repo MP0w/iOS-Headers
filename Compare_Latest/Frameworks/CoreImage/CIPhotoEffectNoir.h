@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)customAttributes;
+- (void)setDefaults;
 
 @end
 

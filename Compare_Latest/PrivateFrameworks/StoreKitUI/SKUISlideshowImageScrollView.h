@@ -19,10 +19,9 @@
 @property(readonly, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 - (void).cxx_destruct;
+- (void)_resetMinMaxZoomScales;
 - (void)_recoverFromResize;
 - (void)_prepareToResize;
-- (void)_resetMinMaxZoomScales;
-- (float)_computeMinimumZoomScale;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)layoutSubviews;
 - (struct CGRect)visibleRect;

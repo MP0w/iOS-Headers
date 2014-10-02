@@ -17,11 +17,11 @@
     SBLockOverlayContext *_toOverlay;
 }
 
-@property(readonly) SBLockOverlayContext *toOverlay; // @synthesize toOverlay=_toOverlay;
-@property(readonly) SBAwayViewPluginController *toController; // @synthesize toController=_toController;
-@property(readonly) SBLockOverlayContext *fromOverlay; // @synthesize fromOverlay=_fromOverlay;
-@property(readonly) SBAwayViewPluginController *fromController; // @synthesize fromController=_fromController;
-@property(readonly) SBLockScreenViewController *lockScreenViewController; // @synthesize lockScreenViewController=_lockScreenViewController;
+@property(readonly, retain) SBLockOverlayContext *toOverlay; // @synthesize toOverlay=_toOverlay;
+@property(readonly, retain) SBAwayViewPluginController *toController; // @synthesize toController=_toController;
+@property(readonly, retain) SBLockOverlayContext *fromOverlay; // @synthesize fromOverlay=_fromOverlay;
+@property(readonly, retain) SBAwayViewPluginController *fromController; // @synthesize fromController=_fromController;
+@property(readonly, retain) SBLockScreenViewController *lockScreenViewController; // @synthesize lockScreenViewController=_lockScreenViewController;
 - (void)_addToView;
 - (void)_removeFromView;
 - (void)_removeViewFromHierarchy:(id)arg1;

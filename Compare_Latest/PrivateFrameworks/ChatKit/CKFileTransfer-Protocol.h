@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSError, NSString, NSURL;
+@class IMMessage, NSDictionary, NSError, NSString, NSURL;
 
 @protocol CKFileTransfer <NSObject>
 @property(readonly, nonatomic, getter=isRestoring) BOOL restoring;
@@ -16,15 +16,15 @@
 @property(readonly, nonatomic, getter=isFileURLFinalized) BOOL fileURLFinalized;
 @property(readonly, nonatomic) unsigned long long totalBytes;
 @property(readonly, nonatomic) unsigned long long currentBytes;
-@property(readonly, nonatomic) NSError *error;
-@property(readonly, nonatomic) NSDictionary *transcoderUserInfo;
-@property(readonly, nonatomic) NSString *filename;
-@property(readonly, nonatomic) NSURL *fileURL;
-@property(readonly, nonatomic) NSString *guid;
-@property(retain, nonatomic) id <CKMessage> message;
+@property(readonly, copy, nonatomic) NSError *error;
+@property(readonly, copy, nonatomic) NSDictionary *transcoderUserInfo;
+@property(readonly, copy, nonatomic) NSString *filename;
+@property(readonly, copy, nonatomic) NSURL *fileURL;
+@property(readonly, copy, nonatomic) NSString *guid;
+@property(retain, nonatomic) IMMessage *IMMessage;
 - (void)mediaObjectRemoved;
 - (void)mediaObjectAdded;
 - (id)initWithFileURL:(NSURL *)arg1 transcoderUserInfo:(NSDictionary *)arg2;
-- (id)initWithTransferGUID:(NSString *)arg1 message:(id <CKMessage>)arg2;
+- (id)initWithTransferGUID:(NSString *)arg1 imMessage:(IMMessage *)arg2;
 @end
 

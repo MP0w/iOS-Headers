@@ -9,22 +9,24 @@
 #import "SBBulletinActionHandler.h"
 #import "SBBulletinViewControllerDelegate.h"
 #import "SBNotificationCenterWidgetHost.h"
-#import "SBSizeObservingViewDelegate.h"
+#import "SBReachabilityObserver.h"
+#import "SBUISizeObservingViewDelegate.h"
+#import "UIGestureRecognizerDelegate.h"
 
-@class SBBulletinObserverViewController, SBChevronView, SBModeViewController, SBNotificationCenterSeparatorView, UIStatusBar, UIView, _UIBackdropView;
+@class NSSet, NSString, SBBulletinObserverViewController, SBChevronView, SBModeViewController, SBNotificationSeparatorView, UIGestureRecognizer, UIStatusBar, UIView, _UIBackdropView;
 
-@interface SBNotificationCenterViewController : UIViewController <SBBulletinViewControllerDelegate, SBSizeObservingViewDelegate, SBNotificationCenterWidgetHost, SBBulletinActionHandler>
+@interface SBNotificationCenterViewController : UIViewController <SBBulletinViewControllerDelegate, SBUISizeObservingViewDelegate, UIGestureRecognizerDelegate, SBNotificationCenterWidgetHost, SBBulletinActionHandler, SBReachabilityObserver>
 {
     id <SBNotificationCenterViewControllerDelegate> _delegate;
     UIView *_clippingView;
     UIView *_containerView;
     UIView *_contentView;
     UIView *_backgroundView;
-    SBNotificationCenterSeparatorView *_bottomSeparator;
+    UIView *_modeClippingView;
+    SBNotificationSeparatorView *_bottomSeparator;
     SBModeViewController *_modeController;
     SBBulletinObserverViewController *_todayViewController;
     SBBulletinObserverViewController *_allModeViewController;
-    SBBulletinObserverViewController *_missedModeViewController;
     UIStatusBar *_statusBar;
     SBChevronView *_grabberView;
     UIView *_grabberContentView;
@@ -41,19 +43,36 @@
         unsigned int viewHitTestsAsOpaque:1;
         unsigned int isViewHitTestingValid:1;
     } _notificationCenterViewControllerFlags;
+    _Bool _showingForReachability;
+    struct CGPoint _preReachabilityOrigin;
+    struct CGPoint _reachabilityOrigin;
+    _Bool _preReachabilityGrabberHidden;
+    struct CGRect _preReachabilityGrabberFrame;
+    struct CGPoint _preReachabilitySeparatorOrigin;
+    struct CGPoint _reachabilitySeparatorOrigin;
+    UIGestureRecognizer *_tapToCancelReachabilityGestureRecognizer;
 }
 
 + (id)_localizableTitleForBulletinViewControllerOfClass:(Class)arg1;
 + (id)grayControlInteractionTintColor;
 @property(nonatomic) id <SBNotificationCenterViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) SBChevronView *grabberView; // @synthesize grabberView=_grabberView;
-- (void)runScrollTest:(id)arg1 iterations:(long long)arg2 delta:(long long)arg3;
-- (_Bool)handleActionForBulletin:(id)arg1;
+- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
+- (void)handleCancelReachabilityGesture:(id)arg1;
+- (void)handleReachabilityModeDeactivated;
+- (void)handleReachabilityModeActivated;
+- (void)_animateForReachabilityDeactivatedWithHandler:(CDUnknownBlockType)arg1;
+- (void)_animateForReachabilityActivatedWithHandler:(CDUnknownBlockType)arg1;
+- (void)_performReachabilityTransactionForActivate:(_Bool)arg1 immediately:(_Bool)arg2;
+- (void)runScrollTest:(id)arg1 iterations:(long long)arg2 delta:(long long)arg3 useAAGView:(_Bool)arg4;
+- (_Bool)handleAction:(id)arg1 forBulletin:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)hostDidDismiss;
 - (void)hostWillDismiss;
 - (void)hostDidPresent;
 - (void)hostWillPresent;
-@property(nonatomic) id <SBWidgetViewControllerHostDelegate> widgetDelegate;
+@property(nonatomic) id <SBWidgetViewControllerDelegate> widgetDelegate;
+@property(readonly, nonatomic) struct UIEdgeInsets todayContentEdgeInsets;
+@property(readonly, nonatomic) struct CGSize todayContentMaxSize;
 - (struct CGRect)grabberContentRect;
 - (void)updateForChangeInMessagePrivacy;
 @property(readonly, nonatomic) struct CGRect contentFrame;
@@ -79,10 +98,12 @@
 - (void)_configureGrabberForSoloMode:(_Bool)arg1;
 - (id)unregisterSharedGrabberView;
 - (void)registerSharedGrabberView:(id)arg1 withHideBlock:(CDUnknownBlockType)arg2;
-- (void)_register:(_Bool)arg1 grabberView:(id)arg2 withHideBlock:(CDUnknownBlockType)arg3;
+- (void)_registerGrabberView:(id)arg1 withHideBlock:(CDUnknownBlockType)arg2;
 - (struct CGRect)revealRectForBulletin:(id)arg1;
 - (void)prepareLayoutForPresentationFromBanner;
 @property(nonatomic, getter=isSuppressingNotificationUpdates) _Bool suppressesNotificationUpdates;
+- (_Bool)shouldAutomaticallyForwardAppearanceMethods;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)loadInitialViewState;
 - (void)viewWillLayoutSubviews;
@@ -90,7 +111,8 @@
 @property(readonly, nonatomic) long long layoutMode;
 - (void)viewDidLoad;
 - (void)loadView;
-- (void)_configureModeControllerView;
+- (void)_loadModeControllerView;
+- (void)_loadModeClippingView;
 - (void)_loadBottomSeparator;
 - (void)_loadGrabberContentView;
 - (id)_newGrabberView;
@@ -102,18 +124,24 @@
 - (void)_loadClippingView;
 - (void)_configureView;
 - (void)_validateBackgroundViewIfNecessary;
-@property(readonly, nonatomic) _UIBackdropView *backdropView;
+@property(readonly, retain, nonatomic) _UIBackdropView *backdropView;
 @property(nonatomic) _Bool blursBackground;
 @property(nonatomic) _Bool showsBackground;
 - (id)_newBackgroundView;
+@property(readonly, nonatomic) NSSet *widgetHandlingViewControllers;
 - (void)_loadContentViewControllersForCurrentState;
-- (id)_missedModeViewControllerCreateIfNecessary:(_Bool)arg1;
 - (id)_allModeViewControllerCreateIfNecessary:(_Bool)arg1;
 - (id)_todayViewControllerCreateIfNecessary:(_Bool)arg1;
 - (id)_newBulletinObserverViewControllerOfClass:(Class)arg1;
 - (void)_backgroundContrastDidChange:(id)arg1;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

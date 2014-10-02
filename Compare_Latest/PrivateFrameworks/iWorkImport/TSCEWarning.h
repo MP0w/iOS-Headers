@@ -22,14 +22,11 @@ __attribute__((visibility("hidden")))
 + (void)reportBoolToNumberConversionWarningInContext:(struct TSCEWarningReportingContext *)arg1;
 + (void)reportDayOutOfRangeWarningInContext:(struct TSCEWarningReportingContext *)arg1;
 + (void)reportMonthOutOfRangeWarningInContext:(struct TSCEWarningReportingContext *)arg1;
-+ (void)reportStaleInternetDataWarningInContext:(struct TSCEWarningReportingContext *)arg1 validAsOfDate:(id)arg2;
 + (void)reportNonNumericCellWarningInContext:(struct TSCEWarningReportingContext *)arg1 reference:(id)arg2;
-+ (id)setKeepingOnlyImportAndIgnoredWarningsFromSet:(id)arg1;
 + (BOOL)setHasVisibleWarnings:(id)arg1;
 - (id)description;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
-- (BOOL)isImportWarning;
 - (id)displayStringWithCalculationEngine:(id)arg1 forTable:(struct __CFUUID *)arg2 andCellID:(CDStruct_0441cfb5)arg3;
 - (void)setIgnored:(BOOL)arg1;
 - (BOOL)isIgnored;

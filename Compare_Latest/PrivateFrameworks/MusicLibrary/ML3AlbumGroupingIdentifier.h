@@ -10,7 +10,6 @@
 
 @class NSData, NSString;
 
-__attribute__((visibility("hidden")))
 @interface ML3AlbumGroupingIdentifier : NSObject <NSCopying>
 {
     long long _albumArtistPersisentID;

@@ -12,16 +12,18 @@
 {
     NSObject<OS_xpc_object> *_xpcReply;
     PLXPCTransaction *_transaction;
+    NSObject<OS_xpc_object> *_connection;
 }
 
-+ (void)runDaemonSideWithXPCEvent:(id)arg1;
++ (void)runDaemonSideWithXPCEvent:(id)arg1 connection:(id)arg2;
+@property(readonly, retain, nonatomic) NSObject<OS_xpc_object> *connection; // @synthesize connection=_connection;
 @property(nonatomic) NSObject<OS_xpc_object> *xpcReply;
 - (void)run;
 - (BOOL)shouldArchiveXPCToDisk;
 - (void)archiveXPCToDisk:(id)arg1;
 - (void)encodeToXPCObject:(id)arg1;
-- (id)initFromXPCObject:(id)arg1;
-@property(readonly, nonatomic) NSError *replyError;
+- (id)initFromXPCObject:(id)arg1 connection:(id)arg2;
+@property(readonly, retain, nonatomic) NSError *replyError;
 @property(readonly, nonatomic) BOOL replyIsError;
 @property(readonly, nonatomic) BOOL clientWantsReply;
 - (void)runDaemonSide;

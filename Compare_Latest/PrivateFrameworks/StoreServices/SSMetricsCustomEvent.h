@@ -12,6 +12,7 @@
 {
 }
 
+- (id)decorateReportingURL:(id)arg1;
 @property(retain, nonatomic) NSString *topic;
 - (BOOL)isFieldBlacklistEnabled;
 

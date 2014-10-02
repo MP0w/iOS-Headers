@@ -6,7 +6,11 @@
 
 #import "NSObject.h"
 
+@class UITraitCollection;
+
 @protocol UIAppearance <NSObject>
++ (id)appearanceForTraitCollection:(UITraitCollection *)arg1 whenContainedIn:(Class)arg2;
++ (id)appearanceForTraitCollection:(UITraitCollection *)arg1;
 + (id)appearanceWhenContainedIn:(Class)arg1;
 + (id)appearance;
 @end

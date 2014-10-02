@@ -19,14 +19,12 @@
     int _type;
 }
 
-+ (id)_storeDownloadForMediaItem:(id)arg1 type:(int)arg2 attributes:(id)arg3;
++ (id)_storeDownloadForContext:(id)arg1 type:(int)arg2 attributes:(id)arg3;
 + (id)_storeDownloadForCompletionOffer:(id)arg1 type:(int)arg2 attributes:(id)arg3;
 + (id)_SSPurchaseForType:(int)arg1 attributes:(id)arg2 buyParameters:(id)arg3 purchaseValuesForDownloadProperties:(id)arg4 URLBagKeyOverride:(id)arg5;
 + (id)storeDownloadForCompletionOffering:(id)arg1 type:(int)arg2 attributes:(id)arg3;
-+ (id)storeDownloadsForRadioTracks:(id)arg1 type:(int)arg2 attributes:(id)arg3;
 + (id)storeDownloadForStoreItemOffer:(id)arg1 attributes:(id)arg2;
-+ (id)storeDownloadsForMediaQuery:(id)arg1 type:(int)arg2 attributes:(id)arg3;
-+ (id)storeDownloadsForMediaItems:(id)arg1 type:(int)arg2 attributes:(id)arg3;
++ (id)storeDownloadsForContexts:(id)arg1 type:(int)arg2 attributes:(id)arg3;
 @property(readonly, nonatomic) int type; // @synthesize type=_type;
 @property(readonly, nonatomic) NSDictionary *attributes; // @synthesize attributes=_attributes;
 - (void).cxx_destruct;
@@ -38,16 +36,19 @@
 - (void)_setSSDownload:(id)arg1;
 - (void)_setCanceled:(BOOL)arg1;
 - (BOOL)_isCanceled;
+- (id)assetsForType:(id)arg1;
 @property(readonly, nonatomic) long long storeItemIdentifier;
 @property(readonly, nonatomic) NSError *purchaseError;
 @property(readonly, nonatomic) NSString *phaseIdentifier;
 @property(readonly, nonatomic) double percentComplete;
 @property(readonly, nonatomic) unsigned long long libraryItemIdentifier;
+@property(readonly, nonatomic, getter=isPaused) BOOL paused;
 @property(readonly, nonatomic, getter=isRestore) BOOL restore;
 @property(readonly, nonatomic, getter=isPurchasing) BOOL purchasing;
 @property(readonly, nonatomic, getter=isFinished) BOOL finished;
 @property(readonly, nonatomic, getter=isCanceled) BOOL canceled;
 @property(readonly, nonatomic) NSError *failureError;
+@property(readonly, nonatomic) long long downloadSizeLimit;
 @property(readonly, nonatomic) long long downloadIdentifier;
 @property(readonly, nonatomic) long long bytesTotal;
 @property(readonly, nonatomic) long long bytesDownloaded;

@@ -8,7 +8,7 @@
 
 #import "MFReader.h"
 
-@class EMFPlayer;
+@class EMFPlayer, NSString;
 
 __attribute__((visibility("hidden")))
 @interface EMFReader : NSObject <MFReader>
@@ -20,6 +20,12 @@ __attribute__((visibility("hidden")))
 - (oneway void)release;
 - (void)dealloc;
 - (id)initWithEMFPlayer:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

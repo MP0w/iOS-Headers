@@ -33,11 +33,12 @@
 - (void)setEffectsEnabled:(BOOL)arg1;
 - (struct UIImage *)_headingImageForAccuracy:(double)arg1 anchorPoint:(struct CGPoint *)arg2;
 - (void)_setupLayers;
+- (void)_updateInnerImage;
 - (void)_updateBaseImage;
 - (void)_resetLayerToMatchAccuracyRing;
 - (id)_layerToMatchAccuracyRing;
 - (id)_pulseAnimation;
-- (void)_setMapDisplayStyle:(int)arg1;
+- (void)_setMapDisplayStyle:(unsigned int)arg1;
 - (void)_setMapType:(unsigned int)arg1;
 - (id)_pulseLayer;
 - (void)_updatePulseColor;

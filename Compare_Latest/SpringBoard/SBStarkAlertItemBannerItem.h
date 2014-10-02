@@ -17,7 +17,7 @@
     NSDate *_originDate;
 }
 
-- (CDUnknownBlockType)subActionWithIndex:(unsigned long long)arg1;
+- (id)subActions;
 - (id)subActionLabels;
 - (id)sourceDate;
 - (id)sound;

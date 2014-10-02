@@ -8,7 +8,7 @@
 
 #import "TSWPReplaceAction.h"
 
-@class TSWPChangeSession;
+@class NSString, TSWPChangeSession;
 
 __attribute__((visibility("hidden")))
 @interface TSWPTrackedDeletion : NSObject <TSWPReplaceAction>
@@ -24,6 +24,12 @@ __attribute__((visibility("hidden")))
 - (void)performWithStorage:(id)arg1 delta:(int)arg2 undoTransaction:(struct TSWPStorageTransaction *)arg3 replaceBlock:(CDUnknownBlockType)arg4;
 - (void)dealloc;
 - (id)initWithRange:(struct _NSRange)arg1 changeSession:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

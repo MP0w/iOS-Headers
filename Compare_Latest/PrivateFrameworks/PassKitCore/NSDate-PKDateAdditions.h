@@ -7,13 +7,13 @@
 #import "NSDate.h"
 
 @interface NSDate (PKDateAdditions)
-+ (id)PKDateYesterday;
-+ (id)PKDateTomorrow;
-+ (id)PKDateWithDaysBeforeNow:(unsigned int)arg1;
-+ (id)PKDateWithDaysFromNow:(unsigned int)arg1;
-- (BOOL)PKIsYesterday;
-- (BOOL)PKIsTomorrow;
-- (BOOL)PKIsToday;
-- (BOOL)PKIsEqualToDateIgnoringTime:(id)arg1;
++ (id)dateForYesterday;
++ (id)dateForTomorrow;
++ (id)dateWithDaysBeforeNow:(unsigned int)arg1;
++ (id)dateWithDaysFromNow:(unsigned int)arg1;
+- (BOOL)isYesterday;
+- (BOOL)isTomorrow;
+- (BOOL)isToday;
+- (BOOL)isDateEqualToDateIgnoringTime:(id)arg1;
 @end
 

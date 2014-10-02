@@ -9,6 +9,8 @@
 #import "MCProfileConnectionObserver.h"
 #import "SSDownloadManagerObserver.h"
 
+@class NSString;
+
 @interface MusicStoreClientController : SUClientController <MCProfileConnectionObserver, SSDownloadManagerObserver>
 {
     BOOL _hasContinueSearchCapability;
@@ -26,6 +28,12 @@
 - (void)dealloc;
 - (id)initWithClientIdentifier:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

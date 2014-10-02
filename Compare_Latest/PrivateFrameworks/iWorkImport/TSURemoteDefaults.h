@@ -11,7 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface TSURemoteDefaults : NSObject
 {
-    NSObject<OS_dispatch_queue> *_accessQueue;
+    NSObject<OS_dispatch_queue> *_checkQueue;
     NSObject<OS_dispatch_source> *_updateTimer;
 }
 

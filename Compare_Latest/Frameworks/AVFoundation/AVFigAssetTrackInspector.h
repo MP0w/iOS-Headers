@@ -11,15 +11,11 @@
 @interface AVFigAssetTrackInspector : AVAssetTrackInspector
 {
     struct OpaqueFigAsset *_figAsset;
+    struct OpaqueFigFormatReader *_figFormatReader;
     struct OpaqueFigAssetTrack *_figAssetTrack;
+    struct OpaqueFigTrackReader *_figTrackReader;
     struct OpaqueFigSimpleMutex *_loadingMutex;
-    struct OpaqueFigSimpleMutex *_validationMutex;
-    struct OpaqueFigSemaphore *_playabilityValidationSemaphore;
     NSObject<OS_dispatch_queue> *_completionHandlerQueue;
-    int _playableStatus;
-    long _playableResult;
-    long _playabilityValidationResult;
-    BOOL _playable;
     NSMutableArray *_loadingBatches;
     AVWeakReference *_weakReferenceToAsset;
 }
@@ -30,6 +26,7 @@
 - (BOOL)hasProtectedContent;
 - (id)_trackReferences;
 - (BOOL)isExcludedFromAutoselectionInTrackGroup;
+- (int)alternateGroupID;
 - (id)metadataForFormat:(id)arg1;
 - (id)availableMetadataFormats;
 - (id)commonMetadata;
@@ -47,21 +44,23 @@
 - (id)languageCode;
 - (float)estimatedDataRate;
 - (int)naturalTimeScale;
+- (BOOL)requiresFrameReordering;
+- (CDStruct_e83c9415)mediaDecodeTimeRange;
+- (CDStruct_e83c9415)mediaPresentationTimeRange;
 - (CDStruct_e83c9415)timeRange;
 - (long long)totalSampleDataLength;
 - (BOOL)isSelfContained;
 - (BOOL)isEnabled;
 - (long)playabilityValidationResult;
 - (BOOL)isPlayable;
-- (BOOL)_loadValueOfPlayableByWaitingForAsyncValidationIfNeeded:(BOOL)arg1;
 - (id)formatDescriptions;
 - (void *)_valueAsCFTypeForProperty:(struct __CFString *)arg1;
 - (id)mediaType;
 - (unsigned long)_figMediaType;
 - (int)trackID;
-- (struct OpaqueFigSemaphore *)_playabilityValidationSemaphore;
 - (id)_loadingBatches;
 - (struct OpaqueFigSimpleMutex *)_loadingMutex;
+- (struct OpaqueFigTrackReader *)_figTrackReader;
 - (struct OpaqueFigAssetTrack *)_figAssetTrack;
 - (id)asset;
 - (void)_ensureAllDependenciesOfKeyAreLoaded:(id)arg1;

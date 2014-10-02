@@ -8,6 +8,7 @@
 
 @class CUIPSDImageRef;
 
+__attribute__((visibility("hidden")))
 @interface CUIPSDLayerBaseRef : NSObject
 {
     CUIPSDImageRef *_imageRef;
@@ -20,6 +21,7 @@
 @property(readonly) BOOL hasVectorMask;
 @property(readonly) BOOL hasLayerMask;
 @property(readonly) int blendMode;
+@property(readonly) float fillOpacity;
 @property(readonly) float opacity;
 @property(readonly) BOOL visibility;
 @property(readonly) struct CGRect bounds;

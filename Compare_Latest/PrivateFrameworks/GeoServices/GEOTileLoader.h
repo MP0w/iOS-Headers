@@ -17,8 +17,11 @@
 + (void)setTrackUsage:(BOOL)arg1;
 + (void)useLocalLoader;
 + (void)useRemoteLoader;
++ (void)setServerProxyClass:(Class)arg1;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)alloc;
++ (id)modernLoaderForResourceManifestConfiguration:(id)arg1 locale:(id)arg2;
++ (id)modernLoaderForTileGroupIdentifier:(unsigned int)arg1 locale:(id)arg2;
 + (id)modernLoader;
 + (id)singletonConfiguration;
 + (id)sharedLoader;
@@ -30,6 +33,7 @@
 - (void)setInternalDelegate:(id)arg1;
 - (void)registerTileLoader:(Class)arg1;
 - (void)shrinkDiskCacheToSize:(unsigned long long)arg1 callbackQ:(id)arg2 finished:(CDUnknownBlockType)arg3;
+- (void)calculateFreeableSizeWithCallbackQ:(id)arg1 finished:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) int networkHits;
 @property(readonly, nonatomic) int diskHits;
 @property(readonly, nonatomic) int memoryHits;
@@ -39,7 +43,7 @@
 - (void)expireTilesWithPredicate:(CDUnknownBlockType)arg1;
 - (void)clearAllCaches;
 - (void)endPreloadSessionForClient:(id)arg1;
-- (void)beginPreloadSessionOfSize:(unsigned long long)arg1 forClient:(id)arg2;
+- (void)beginPreloadSessionOfSize:(unsigned long long)arg1 forClient:(id)arg2 exclusive:(BOOL)arg3;
 - (void)cancelAllForClient:(id)arg1;
 - (void)cancelKey:(const struct _GEOTileKey *)arg1 forClient:(id)arg2;
 - (BOOL)reprioritizeKey:(const struct _GEOTileKey *)arg1 forClient:(id)arg2 newPriority:(unsigned int)arg3;

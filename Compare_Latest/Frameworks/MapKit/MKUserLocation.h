@@ -37,13 +37,18 @@
 - (double)course;
 @property(copy, nonatomic) NSString *title;
 @property(nonatomic) double timestamp;
-@property(nonatomic) int source;
 @property(retain, nonatomic) CLHeading *heading;
 @property(retain, nonatomic) CLLocation *predictedLocation;
 @property(retain, nonatomic) CLLocation *fixedLocation;
 @property(nonatomic, getter=isUpdating) BOOL updating;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

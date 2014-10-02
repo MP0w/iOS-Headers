@@ -6,7 +6,7 @@
 
 #import <UIKit/UIActivity.h>
 
-@class LSApplicationProxy, UIDocumentInteractionController;
+@class LSApplicationProxy, NSString, UIDocumentInteractionController;
 
 __attribute__((visibility("hidden")))
 @interface _UIOpenWithAppActivity : UIActivity
@@ -14,12 +14,14 @@ __attribute__((visibility("hidden")))
     LSApplicationProxy *_appProxy;
     BOOL _defaultApp;
     UIDocumentInteractionController *_documentInteractionController;
+    NSString *_activityType;
 }
 
 + (int)activityCategory;
 @property(nonatomic, getter=isDefaultApp) BOOL defaultApp; // @synthesize defaultApp=_defaultApp;
 - (void)performActivity;
 - (BOOL)canPerformWithActivityItems:(id)arg1;
+- (id)_activitySettingsImage;
 - (id)_activityImage;
 - (id)activityTitle;
 - (id)activityType;

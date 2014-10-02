@@ -6,9 +6,18 @@
 
 #import "NSObject.h"
 
+@class NSDate;
+
 @interface NSTimer : NSObject
 {
 }
 
+
+// Remaining properties
+@property(copy) NSDate *fireDate; // @dynamic fireDate;
+@property(readonly) double timeInterval; // @dynamic timeInterval;
+@property double tolerance; // @dynamic tolerance;
+@property(readonly, retain) id userInfo; // @dynamic userInfo;
+@property(readonly, getter=isValid) BOOL valid; // @dynamic valid;
 @end
 

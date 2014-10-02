@@ -6,7 +6,6 @@
 
 #import <MusicLibrary/ML3Predicate.h>
 
-__attribute__((visibility("hidden")))
 @interface ML3TruthPredicate : ML3Predicate
 {
     BOOL _truthValue;

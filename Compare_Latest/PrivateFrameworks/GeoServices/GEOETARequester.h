@@ -8,16 +8,14 @@
 
 @class NSLock, NSMapTable;
 
+__attribute__((visibility("hidden")))
 @interface GEOETARequester : NSObject
 {
     NSMapTable *_pendingRequests;
     NSLock *_pendingRequestsLock;
-    NSMapTable *_providers;
 }
 
 + (id)sharedRequester;
-- (Class)classForProviderID:(short)arg1;
-- (void)registerProvider:(Class)arg1;
 - (void)cancelRequest:(id)arg1;
 - (void)startSimpleETARequest:(id)arg1 finished:(CDUnknownBlockType)arg2 networkActivity:(CDUnknownBlockType)arg3 error:(CDUnknownBlockType)arg4;
 - (void)_startRequest:(id)arg1 provider:(id)arg2 isRequestUpdate:(BOOL)arg3 connectionProperties:(const CDStruct_3d12f1c7 *)arg4 willSendRequest:(CDUnknownBlockType)arg5 finished:(CDUnknownBlockType)arg6 networkActivity:(CDUnknownBlockType)arg7 error:(CDUnknownBlockType)arg8;

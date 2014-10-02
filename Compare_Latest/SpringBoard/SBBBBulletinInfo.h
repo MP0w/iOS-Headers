@@ -12,6 +12,7 @@
 {
 }
 
+- (void)prepareWithCompletion:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) NSString *originalSectionIdentifier;
 - (id)identifier;
 @property(readonly, nonatomic) BBBulletin *representedBulletin;

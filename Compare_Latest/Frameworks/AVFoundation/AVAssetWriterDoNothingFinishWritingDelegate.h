@@ -8,6 +8,8 @@
 
 #import "AVAssetWriterFinishWritingHelperDelegate.h"
 
+@class NSString;
+
 @interface AVAssetWriterDoNothingFinishWritingDelegate : NSObject <AVAssetWriterFinishWritingHelperDelegate>
 {
     CDUnknownBlockType _handler;
@@ -21,6 +23,12 @@
 - (void)finishWritingHelper:(id)arg1 didInitiateFinishWritingForFigAssetWriter:(struct OpaqueFigAssetWriter *)arg2;
 - (void)dealloc;
 - (id)initWithHandler:(CDUnknownBlockType)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,16 +6,19 @@
 
 #import "UITextView.h"
 
-@class NSAttributedString, NSString, UIFont, UILabel;
+@class NSAttributedString, NSString, UILabel;
 
 @interface CKMessageEntryTextView : UITextView
 {
     BOOL _showingDictationPlaceholder;
-    UIFont *_font;
+    NSString *_autocorrectionContext;
+    NSString *_responseContext;
     UILabel *_placeholderLabel;
 }
 
 @property(retain, nonatomic) UILabel *placeholderLabel; // @synthesize placeholderLabel=_placeholderLabel;
+@property(copy, nonatomic) NSString *responseContext; // @synthesize responseContext=_responseContext;
+@property(copy, nonatomic) NSString *autocorrectionContext; // @synthesize autocorrectionContext=_autocorrectionContext;
 @property(nonatomic, getter=isShowingDictationPlaceholder) BOOL showingDictationPlaceholder; // @synthesize showingDictationPlaceholder=_showingDictationPlaceholder;
 - (void)textViewDidChange:(id)arg1;
 - (void)updateTextView;
@@ -24,11 +27,9 @@
 @property(copy, nonatomic) NSAttributedString *compositionText;
 - (void)removeDictationResultPlaceholder:(id)arg1 willInsertResult:(BOOL)arg2;
 - (id)insertDictationResultPlaceholder;
-- (id)typingAttributes;
 - (void)setAttributedText:(id)arg1;
-@property(retain, nonatomic) UIFont *font; // @synthesize font=_font;
+- (void)setFont:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 textContainer:(id)arg2;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;
 

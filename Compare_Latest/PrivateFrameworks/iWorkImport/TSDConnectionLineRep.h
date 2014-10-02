@@ -30,7 +30,6 @@ __attribute__((visibility("hidden")))
 - (BOOL)isDraggable;
 - (BOOL)isSelectable;
 - (id)additionalRepsForDragging;
-- (id)overlayLayers;
 - (BOOL)shouldCreateSelectionKnobs;
 - (unsigned long long)enabledKnobMask;
 - (float)shortestDistanceToPoint:(struct CGPoint)arg1 countAsHit:(char *)arg2;

@@ -31,7 +31,7 @@
 - (void)_removeExplicitBoundaries;
 - (void)_setupExplicitBoundaries;
 - (void)removeAllBoundaries;
-@property(readonly, nonatomic) NSArray *boundaryIdentifiers;
+@property(readonly, copy, nonatomic) NSArray *boundaryIdentifiers;
 - (void)removeBoundaryWithIdentifier:(id)arg1;
 - (id)boundaryWithIdentifier:(id)arg1;
 - (void)addBoundaryWithIdentifier:(id)arg1 fromPoint:(struct CGPoint)arg2 toPoint:(struct CGPoint)arg3;
@@ -54,7 +54,7 @@
 - (void)addItem:(id)arg1;
 - (void)_addItem:(id)arg1;
 - (void)dealloc;
-@property(readonly, nonatomic) NSArray *items;
+@property(readonly, copy, nonatomic) NSArray *items;
 - (id)initWithItems:(id)arg1;
 - (id)init;
 

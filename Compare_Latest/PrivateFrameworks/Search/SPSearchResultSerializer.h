@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "PBDataWriter.h"
+#import "NSObject.h"
 
 @class NSMutableArray;
 
-@interface SPSearchResultSerializer : PBDataWriter
+@interface SPSearchResultSerializer : NSObject
 {
     unsigned int _byteVector;
     unsigned int _byteVectorCnt;
@@ -36,7 +36,6 @@
 - (BOOL)appendResult:(id)arg1 toSection:(id)arg2;
 - (unsigned int)sectionCount;
 - (id)_convertConformingResult:(id)arg1;
-- (unsigned int)write:(const char *)arg1 maxLength:(unsigned int)arg2;
 - (void)dealloc;
 - (id)initWithInitialCapacity:(unsigned int)arg1;
 - (id)initWithInitialCapacity:(unsigned int)arg1 inProc:(BOOL)arg2;

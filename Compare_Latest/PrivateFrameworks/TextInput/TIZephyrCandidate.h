@@ -6,6 +6,8 @@
 
 #import <TextInput/TIKeyboardCandidateSingle.h>
 
+@class NSString;
+
 @interface TIZephyrCandidate : TIKeyboardCandidateSingle
 {
     BOOL extensionCandidate;
@@ -13,10 +15,12 @@
     BOOL _isFromTextChecker;
     unsigned int _wordOriginFeedbackID;
     unsigned int _usageTrackingMask;
+    NSString *_label;
 }
 
 + (int)type;
 + (BOOL)supportsSecureCoding;
+@property(copy, nonatomic) NSString *label; // @synthesize label=_label;
 @property(nonatomic) BOOL isFromTextChecker; // @synthesize isFromTextChecker=_isFromTextChecker;
 @property(nonatomic) BOOL isFromPhraseDictionary; // @synthesize isFromPhraseDictionary=_isFromPhraseDictionary;
 @property(nonatomic, getter=isExtensionCandidate) BOOL extensionCandidate; // @synthesize extensionCandidate;
@@ -30,6 +34,7 @@
 - (unsigned int)wordOriginFeedbackID;
 - (id)initWithCandidate:(id)arg1 forInput:(id)arg2 wordOriginFeedbackID:(unsigned int)arg3 usageTrackingMask:(unsigned int)arg4;
 - (id)initWithCandidate:(id)arg1 forInput:(id)arg2 wordOriginFeedbackID:(unsigned int)arg3;
+- (void)dealloc;
 
 @end
 

@@ -17,11 +17,11 @@
     BOOL _hadMoreInstances;
 }
 
-@property BOOL hadMoreInstances; // @synthesize hadMoreInstances=_hadMoreInstances;
-@property(retain) ICSDateValue *nextInstance; // @synthesize nextInstance=_nextInstance;
-@property(retain) NSString *displayName; // @synthesize displayName=_displayName;
-@property(retain) NSString *summary; // @synthesize summary=_summary;
-@property(retain) NSString *componentType; // @synthesize componentType=_componentType;
+@property(nonatomic) BOOL hadMoreInstances; // @synthesize hadMoreInstances=_hadMoreInstances;
+@property(retain, nonatomic) ICSDateValue *nextInstance; // @synthesize nextInstance=_nextInstance;
+@property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
+@property(retain, nonatomic) NSString *summary; // @synthesize summary=_summary;
+@property(retain, nonatomic) NSString *componentType; // @synthesize componentType=_componentType;
 - (id)copyParseRules;
 - (void)setHadMoreInstancesItem:(id)arg1;
 - (void)setNextInstanceItem:(id)arg1;

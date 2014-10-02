@@ -8,7 +8,7 @@
 
 #import "_UIViewServiceUIBehaviorInterface.h"
 
-@class _UIViewServiceFencingControlProxy;
+@class NSString, _UIViewServiceFencingControlProxy;
 
 __attribute__((visibility("hidden")))
 @interface _UIViewServiceUIBehaviorProxy : _UITargetedProxy <_UIViewServiceUIBehaviorInterface>
@@ -28,6 +28,12 @@ __attribute__((visibility("hidden")))
 - (oneway void)release;
 - (id)retain;
 - (int)__automatic_invalidation_logic;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

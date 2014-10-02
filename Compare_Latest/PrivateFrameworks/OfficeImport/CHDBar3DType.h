@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
     int mShapeType;
 }
 
++ (id)stringWithShapeType:(int)arg1;
 + (_Bool)is3DType;
 - (void)setShapeType:(int)arg1;
 - (int)shapeType;

@@ -9,7 +9,7 @@
 #import "CoreDAVPropPatchTaskDelegate.h"
 #import "CoreDAVTaskGroupDelegate.h"
 
-@class NSSet;
+@class NSSet, NSString;
 
 @interface CalDAVUpdateGrantedDelegatesTaskGroup : CoreDAVTaskGroup <CoreDAVPropPatchTaskDelegate, CoreDAVTaskGroupDelegate>
 {
@@ -21,12 +21,12 @@
     NSSet *_updatedReadURLs;
 }
 
-@property(retain) NSSet *updatedReadURLs; // @synthesize updatedReadURLs=_updatedReadURLs;
-@property(retain) NSSet *updatedWriteURLs; // @synthesize updatedWriteURLs=_updatedWriteURLs;
-@property(retain) NSSet *removeURLs; // @synthesize removeURLs=_removeURLs;
-@property(retain) NSSet *addReadURLs; // @synthesize addReadURLs=_addReadURLs;
-@property(retain) NSSet *addWriteURLs; // @synthesize addWriteURLs=_addWriteURLs;
-@property int state; // @synthesize state=_state;
+@property(retain, nonatomic) NSSet *updatedReadURLs; // @synthesize updatedReadURLs=_updatedReadURLs;
+@property(retain, nonatomic) NSSet *updatedWriteURLs; // @synthesize updatedWriteURLs=_updatedWriteURLs;
+@property(retain, nonatomic) NSSet *removeURLs; // @synthesize removeURLs=_removeURLs;
+@property(retain, nonatomic) NSSet *addReadURLs; // @synthesize addReadURLs=_addReadURLs;
+@property(retain, nonatomic) NSSet *addWriteURLs; // @synthesize addWriteURLs=_addWriteURLs;
+@property(nonatomic) int state; // @synthesize state=_state;
 - (void)propPatchTask:(id)arg1 parsedResponses:(id)arg2 error:(id)arg3;
 - (void)taskGroup:(id)arg1 didFinishWithError:(id)arg2;
 - (void)startTaskGroup;
@@ -36,6 +36,12 @@
 - (void)_finishWithError:(id)arg1 state:(int)arg2;
 - (id)initWithAccountInfoProvider:(id)arg1 addWriteURLs:(id)arg2 addReadURLs:(id)arg3 removeURLs:(id)arg4 taskManager:(id)arg5;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

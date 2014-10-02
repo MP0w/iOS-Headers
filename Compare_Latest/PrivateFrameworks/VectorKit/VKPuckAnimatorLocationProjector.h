@@ -6,21 +6,21 @@
 
 #import "NSObject.h"
 
-@class VKAttributedRouteMatch;
+@class GEORouteMatch;
 
 __attribute__((visibility("hidden")))
 @interface VKPuckAnimatorLocationProjector : NSObject
 {
-    VKAttributedRouteMatch *_routeMatch;
-    VKAttributedRouteMatch *_projectedRouteMatch;
+    GEORouteMatch *_routeMatch;
+    GEORouteMatch *_projectedRouteMatch;
     struct VKPoint _projectedPosition;
     double _projectedCourse;
 }
 
 @property(readonly, nonatomic) double projectedCourse; // @synthesize projectedCourse=_projectedCourse;
 @property(readonly, nonatomic) struct VKPoint projectedPosition; // @synthesize projectedPosition=_projectedPosition;
-@property(retain, nonatomic) VKAttributedRouteMatch *projectedRouteMatch; // @synthesize projectedRouteMatch=_projectedRouteMatch;
-@property(retain, nonatomic) VKAttributedRouteMatch *routeMatch; // @synthesize routeMatch=_routeMatch;
+@property(retain, nonatomic) GEORouteMatch *projectedRouteMatch; // @synthesize projectedRouteMatch=_projectedRouteMatch;
+@property(retain, nonatomic) GEORouteMatch *routeMatch; // @synthesize routeMatch=_routeMatch;
 - (id).cxx_construct;
 @property(readonly, nonatomic) BOOL projectedLocationOnRoute;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee projectedLocation;

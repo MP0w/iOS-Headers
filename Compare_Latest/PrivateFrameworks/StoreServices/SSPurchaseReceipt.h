@@ -13,6 +13,7 @@
     ISPurchaseReceipt *_purchaseReceipt;
 }
 
++ (void)getReceiptPathWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void).cxx_destruct;
 @property(readonly) NSDate *expirationDate;
 @property(readonly) BOOL isRevoked;

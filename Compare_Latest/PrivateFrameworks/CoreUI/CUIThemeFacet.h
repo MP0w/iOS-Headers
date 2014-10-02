@@ -10,6 +10,9 @@
 #import "NSCoding.h"
 #import "NSCopying.h"
 
+@class NSString;
+
+__attribute__((visibility("hidden")))
 @interface CUIThemeFacet : NSObject <CUIThemeImageSource, NSCopying, NSCoding>
 {
     struct _renditionkeytoken *_renditionKeyList;
@@ -42,7 +45,7 @@
 - (id)imageWithSize:(struct CGSize)arg1 keyAdjustment:(id)arg2;
 - (id)imageForSlice:(int)arg1 withKeyAdjustment:(id)arg2;
 - (id)maskForSlice:(int)arg1 withKeyAdjustment:(id)arg2;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (int)_sliceIndexForSlice:(int)arg1 ofRendition:(id)arg2;
 - (void)_applyFixedAttributesToKey:(id)arg1;
 - (struct CGSize)topLeftCapSize;
@@ -71,41 +74,39 @@
 - (id)imageForState:(int)arg1;
 - (id)renditionSliceInformationForRect:(struct CGRect)arg1 keyAdjustment:(id)arg2;
 - (id)renditionMetricsWithKeyAdjustment:(id)arg1;
-- (void)_drawSlice:(int)arg1 inFrame:(struct CGRect)arg2 withKeyAdjustment:(id)arg3;
-- (void)_drawSpecificRenditionKey:(id)arg1 rendition:(id)arg2 inFrame:(struct CGRect)arg3 context:(struct CGContext *)arg4 alpha:(float)arg5 operation:(int)arg6 isFocused:(BOOL)arg7 isFlipped:(BOOL)arg8;
-- (void)_drawSpecificRenditionKey:(id)arg1 inFrame:(struct CGRect)arg2 context:(struct CGContext *)arg3 alpha:(float)arg4 operation:(int)arg5 isFocused:(BOOL)arg6 isFlipped:(BOOL)arg7;
-- (void)_drawSpecificRenditionKey:(id)arg1 inFrame:(struct CGRect)arg2 context:(struct CGContext *)arg3 isFocused:(BOOL)arg4 isFlipped:(BOOL)arg5;
-- (void)_drawAsMaskSpecificRenditionKey:(id)arg1 inFrame:(struct CGRect)arg2 context:(struct CGContext *)arg3 alpha:(float)arg4 operation:(int)arg5 isFocused:(BOOL)arg6;
+- (void)_drawSlice:(int)arg1 inFrame:(struct CGRect)arg2 withKeyAdjustment:(id)arg3 context:(struct CGContext *)arg4;
+- (void)_drawSpecificRenditionKey:(id)arg1 rendition:(id)arg2 inFrame:(struct CGRect)arg3 context:(struct CGContext *)arg4 alpha:(float)arg5 operation:(int)arg6 isFocused:(int)arg7 isFlipped:(BOOL)arg8;
+- (void)_drawSpecificRenditionKey:(id)arg1 inFrame:(struct CGRect)arg2 context:(struct CGContext *)arg3 alpha:(float)arg4 operation:(int)arg5 isFocused:(int)arg6 isFlipped:(BOOL)arg7;
+- (void)_drawSpecificRenditionKey:(id)arg1 inFrame:(struct CGRect)arg2 context:(struct CGContext *)arg3 isFocused:(int)arg4 isFlipped:(BOOL)arg5;
+- (void)_drawAsMaskSpecificRenditionKey:(id)arg1 inFrame:(struct CGRect)arg2 context:(struct CGContext *)arg3 alpha:(float)arg4 operation:(int)arg5 isFocused:(int)arg6;
 - (id)renditionForSpecificKeyWrapper:(id)arg1;
-- (void)_drawMaskFromSpecificRenditionKey:(id)arg1 inFrame:(struct CGRect)arg2 alpha:(float)arg3 operation:(int)arg4 isFocused:(BOOL)arg5;
-- (void)drawPulseInFrame:(struct CGRect)arg1 pulseValue:(float)arg2 isFocused:(BOOL)arg3 keyAdjustment:(id)arg4;
-- (void)drawMaskInFrame:(struct CGRect)arg1 alpha:(float)arg2 operation:(int)arg3 isFocused:(BOOL)arg4 keyAdjustment:(id)arg5;
-- (void)drawMaskInFrame:(struct CGRect)arg1 alpha:(float)arg2 isFocused:(BOOL)arg3 keyAdjustment:(id)arg4;
-- (void)drawHighlightInFrame:(struct CGRect)arg1 alpha:(float)arg2 operation:(int)arg3 keyAdjustment:(id)arg4;
-- (void)drawHighlightInFrame:(struct CGRect)arg1 alpha:(float)arg2 keyAdjustment:(id)arg3;
-- (void)drawInFrame:(struct CGRect)arg1 alpha:(float)arg2 operation:(int)arg3 isFocused:(BOOL)arg4 keyAdjustment:(id)arg5;
-- (void)drawInFrame:(struct CGRect)arg1 alpha:(float)arg2 isFocused:(BOOL)arg3 keyAdjustment:(id)arg4;
-- (void)drawGradientInFrame:(struct CGRect)arg1 angle:(float)arg2 alpha:(float)arg3 operation:(int)arg4 isFocused:(BOOL)arg5 keyAdjustment:(id)arg6 context:(struct CGContext *)arg7;
-- (void)drawGradientInFrame:(struct CGRect)arg1 angle:(float)arg2 alpha:(float)arg3 operation:(int)arg4 isFocused:(BOOL)arg5 keyAdjustment:(id)arg6;
-- (void)drawHighlightInFrame:(struct CGRect)arg1 alpha:(float)arg2 operation:(int)arg3 owner:(id)arg4 userInfo:(id)arg5;
-- (void)drawInFrame:(struct CGRect)arg1 alpha:(float)arg2 operation:(int)arg3 owner:(id)arg4 userInfo:(id)arg5;
-- (void)drawPulseInFrame:(struct CGRect)arg1 pulseValue:(float)arg2 owner:(id)arg3 userInfo:(id)arg4;
-- (void)drawMaskInFrame:(struct CGRect)arg1 alpha:(float)arg2 owner:(id)arg3 userInfo:(id)arg4;
-- (void)drawHighlightInFrame:(struct CGRect)arg1 alpha:(float)arg2 owner:(id)arg3 userInfo:(id)arg4;
-- (void)drawInFrame:(struct CGRect)arg1 alpha:(float)arg2 owner:(id)arg3 userInfo:(id)arg4;
+- (void)_drawMaskFromSpecificRenditionKey:(id)arg1 inFrame:(struct CGRect)arg2 alpha:(float)arg3 operation:(int)arg4 isFocused:(int)arg5 context:(struct CGContext *)arg6;
+- (void)drawPulseInFrame:(struct CGRect)arg1 pulseValue:(float)arg2 isFocused:(int)arg3 keyAdjustment:(id)arg4 context:(struct CGContext *)arg5;
+- (void)drawMaskInFrame:(struct CGRect)arg1 alpha:(float)arg2 operation:(int)arg3 isFocused:(int)arg4 keyAdjustment:(id)arg5 context:(struct CGContext *)arg6;
+- (void)drawMaskInFrame:(struct CGRect)arg1 alpha:(float)arg2 isFocused:(int)arg3 keyAdjustment:(id)arg4 context:(struct CGContext *)arg5;
+- (void)drawHighlightInFrame:(struct CGRect)arg1 alpha:(float)arg2 operation:(int)arg3 keyAdjustment:(id)arg4 context:(struct CGContext *)arg5;
+- (void)drawHighlightInFrame:(struct CGRect)arg1 alpha:(float)arg2 keyAdjustment:(id)arg3 context:(struct CGContext *)arg4;
+- (void)drawInFrame:(struct CGRect)arg1 alpha:(float)arg2 operation:(int)arg3 isFocused:(int)arg4 keyAdjustment:(id)arg5 context:(struct CGContext *)arg6;
+- (void)drawInFrame:(struct CGRect)arg1 alpha:(float)arg2 isFocused:(int)arg3 keyAdjustment:(id)arg4 context:(struct CGContext *)arg5;
+- (void)drawGradientInFrame:(struct CGRect)arg1 angle:(float)arg2 alpha:(float)arg3 operation:(int)arg4 isFocused:(int)arg5 keyAdjustment:(id)arg6 context:(struct CGContext *)arg7;
+- (void)drawHighlightInFrame:(struct CGRect)arg1 alpha:(float)arg2 operation:(int)arg3 owner:(id)arg4 userInfo:(id)arg5 context:(struct CGContext *)arg6;
+- (void)drawInFrame:(struct CGRect)arg1 alpha:(float)arg2 operation:(int)arg3 owner:(id)arg4 userInfo:(id)arg5 context:(struct CGContext *)arg6;
+- (void)drawPulseInFrame:(struct CGRect)arg1 pulseValue:(float)arg2 owner:(id)arg3 userInfo:(id)arg4 context:(struct CGContext *)arg5;
+- (void)drawMaskInFrame:(struct CGRect)arg1 alpha:(float)arg2 owner:(id)arg3 userInfo:(id)arg4 context:(struct CGContext *)arg5;
+- (void)drawHighlightInFrame:(struct CGRect)arg1 alpha:(float)arg2 owner:(id)arg3 userInfo:(id)arg4 context:(struct CGContext *)arg5;
+- (void)drawInFrame:(struct CGRect)arg1 alpha:(float)arg2 owner:(id)arg3 userInfo:(id)arg4 context:(struct CGContext *)arg5;
 - (BOOL)hitTestAtPoint:(struct CGPoint)arg1 inFrame:(struct CGRect)arg2 owner:(id)arg3 userInfo:(id)arg4;
 - (BOOL)_canGetRenditionForKey:(id)arg1 withDrawingLayer:(int)arg2;
-- (void)drawMaskInFrame:(struct CGRect)arg1 owner:(id)arg2 userInfo:(id)arg3;
-- (void)drawHighlightInFrame:(struct CGRect)arg1 owner:(id)arg2 userInfo:(id)arg3;
-- (void)drawInFrame:(struct CGRect)arg1 owner:(id)arg2 userInfo:(id)arg3;
-- (void)drawSegmentInFrame:(struct CGRect)arg1 isFocused:(BOOL)arg2 segmentType:(int)arg3;
-- (void)drawAnimationFrameMappedFrom0_1RangedValue:(double)arg1 destinationFrame:(struct CGRect)arg2 isFocused:(BOOL)arg3 context:(struct CGContext *)arg4;
-- (void)drawAbsoluteAnimationFrame:(double)arg1 destinationFrame:(struct CGRect)arg2 isFocused:(BOOL)arg3 context:(struct CGContext *)arg4;
-- (void)drawAsOnePartWithSlice:(int)arg1 inFrame:(struct CGRect)arg2 isFocused:(BOOL)arg3;
-- (void)drawInFrame:(struct CGRect)arg1 alpha:(float)arg2 operation:(int)arg3 isFocused:(BOOL)arg4 context:(struct CGContext *)arg5;
-- (void)drawInFrame:(struct CGRect)arg1 alpha:(float)arg2 operation:(int)arg3 isFocused:(BOOL)arg4;
-- (void)drawInFrame:(struct CGRect)arg1 alpha:(float)arg2 isFocused:(BOOL)arg3;
-- (void)drawInFrame:(struct CGRect)arg1 isFocused:(BOOL)arg2 context:(struct CGContext *)arg3;
+- (void)drawMaskInFrame:(struct CGRect)arg1 owner:(id)arg2 userInfo:(id)arg3 context:(struct CGContext *)arg4;
+- (void)drawHighlightInFrame:(struct CGRect)arg1 owner:(id)arg2 userInfo:(id)arg3 context:(struct CGContext *)arg4;
+- (void)drawInFrame:(struct CGRect)arg1 owner:(id)arg2 userInfo:(id)arg3 context:(struct CGContext *)arg4;
+- (void)drawSegmentInFrame:(struct CGRect)arg1 isFocused:(int)arg2 segmentType:(int)arg3 context:(struct CGContext *)arg4;
+- (void)drawAnimationFrameMappedFrom0_1RangedValue:(double)arg1 destinationFrame:(struct CGRect)arg2 isFocused:(int)arg3 context:(struct CGContext *)arg4;
+- (void)drawAbsoluteAnimationFrame:(double)arg1 destinationFrame:(struct CGRect)arg2 isFocused:(int)arg3 context:(struct CGContext *)arg4;
+- (void)drawAsOnePartWithSlice:(int)arg1 inFrame:(struct CGRect)arg2 isFocused:(int)arg3 context:(struct CGContext *)arg4;
+- (void)drawInFrame:(struct CGRect)arg1 alpha:(float)arg2 operation:(int)arg3 isFocused:(int)arg4 context:(struct CGContext *)arg5;
+- (void)drawInFrame:(struct CGRect)arg1 alpha:(float)arg2 isFocused:(int)arg3 context:(struct CGContext *)arg4;
+- (void)drawInFrame:(struct CGRect)arg1 isFocused:(int)arg2 context:(struct CGContext *)arg3;
 - (void)updateLayer:(id)arg1;
 - (id)makeLayer;
 - (struct CGImage *)copyLayerImageContentsAndCenter:(struct CGRect *)arg1;
@@ -119,7 +120,6 @@
 - (id)init;
 - (id)initWithRenditionKey:(id)arg1 fromTheme:(unsigned int)arg2;
 - (void)_initWithRenditionKey:(id)arg1;
-- (struct CGContext *)currentCGContext;
 - (id)_imageForRenditionFromKey:(id)arg1 withSize:(struct CGSize)arg2 isMask:(BOOL)arg3;
 - (BOOL)_isButtonGlyph;
 - (void)_setIsButtonGlyph:(BOOL)arg1;
@@ -131,6 +131,11 @@
 - (void)_updateSpecificRenditionKey:(id)arg1 isFocused:(char *)arg2 owner:(id)arg3 userInfo:(id)arg4;
 - (struct CGPoint)_hotSpot;
 - (id)_themeStore;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

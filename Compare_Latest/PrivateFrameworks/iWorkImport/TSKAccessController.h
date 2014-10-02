@@ -21,6 +21,8 @@ __attribute__((visibility("hidden")))
     struct _TSKThreadInfo _readerInfo[64];
     unsigned int _readerCount;
     NSMutableArray *_writerQueue;
+    struct _TSKThreadTicketInfo _ticketInfo[64];
+    unsigned int _ticketCount;
     BOOL _writeHeld;
     BOOL _writeBlockedMainThread;
     TSUWeakReference *_delegate;
@@ -40,9 +42,13 @@ __attribute__((visibility("hidden")))
 - (void)p_writeLockAndBlockMainThread:(BOOL)arg1;
 - (void)p_asyncPerformSelectorOnMainThread:(SEL)arg1 withTarget:(id)arg2 argument:(void *)arg3;
 - (void)p_blockMainThreadForWrite;
+- (void)p_readUnlockReleasingRealLock:(BOOL)arg1;
 - (void)p_readUnlock;
+- (BOOL)hasWrite;
+- (BOOL)hasRead;
 - (BOOL)p_hasWrite;
 - (BOOL)p_hasRead;
+- (void)p_readLockTakingRealLock:(BOOL)arg1;
 - (void)p_readLock;
 - (void)performRead:(SEL)arg1 thenWrite:(SEL)arg2 thenReadOnMainThread:(SEL)arg3 withTarget:(id)arg4 argument:(void *)arg5 passReadResultToMainThreadRead:(BOOL)arg6;
 - (void)performRead:(SEL)arg1 thenWrite:(SEL)arg2 thenReadOnMainThread:(SEL)arg3 withTarget:(id)arg4 argument:(void *)arg5;
@@ -52,6 +58,8 @@ __attribute__((visibility("hidden")))
 - (void)performWrite:(CDUnknownBlockType)arg1;
 - (void)performRead:(SEL)arg1 withTarget:(id)arg2 argument:(void *)arg3 argument2:(void *)arg4;
 - (void)performRead:(SEL)arg1 withTarget:(id)arg2 argument:(void *)arg3;
+- (void)performReadWithTicket:(id)arg1 block:(CDUnknownBlockType)arg2;
+- (void)performReadGrantingTicket:(CDUnknownBlockType)arg1;
 - (void)performRead:(CDUnknownBlockType)arg1;
 - (void)spinMainThreadRunLoopUntil:(SEL)arg1 onTarget:(id)arg2;
 - (void)signalIdentifier:(id)arg1;

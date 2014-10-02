@@ -6,8 +6,11 @@
 
 #import "NSObject.h"
 
+@class TSKAnnotationAuthor;
+
 @protocol TSKAnnotation <NSObject>
 @property(readonly, nonatomic) int annotationDisplayStringType;
+@property(readonly, nonatomic) TSKAnnotationAuthor *author;
 @property(readonly, nonatomic) int annotationType;
 @end
 

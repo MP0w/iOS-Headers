@@ -32,13 +32,16 @@ __attribute__((visibility("hidden")))
 - (BOOL)identifyContainer:(id *)arg1;
 - (BOOL)writeToDisk:(id *)arg1;
 - (void)setUUIDStringFromLocation:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithLocalPeerID:(id)arg1 storeName:(id)arg2 andUbiquityRootLocation:(id)arg3;
 - (id)init;
 
 // Remaining properties
-@property(readonly) NSURL *primaryPresentedItemURL;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly, copy) NSURL *primaryPresentedItemURL;
+@property(readonly) Class superclass;
 
 @end
 

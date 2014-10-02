@@ -6,14 +6,21 @@
 
 #import "NSObject.h"
 
-@class IDSAccount, IDSService, NSArray, NSDictionary, NSError, NSSet, NSString;
+@class IDSAccount, IDSMessageContext, IDSProtobuf, IDSService, IDSSession, NSArray, NSData, NSDictionary, NSError, NSSet, NSString;
 
 @protocol IDSServiceDelegate <NSObject>
 
 @optional
+- (void)service:(IDSService *)arg1 account:(IDSAccount *)arg2 inviteReceivedForSession:(IDSSession *)arg3 fromID:(NSString *)arg4 withContext:(NSData *)arg5;
+- (void)service:(IDSService *)arg1 account:(IDSAccount *)arg2 inviteReceivedForSession:(IDSSession *)arg3 fromID:(NSString *)arg4 withOptions:(NSDictionary *)arg5;
+- (void)service:(IDSService *)arg1 account:(IDSAccount *)arg2 inviteReceivedForSession:(IDSSession *)arg3 fromID:(NSString *)arg4;
+- (void)service:(IDSService *)arg1 account:(IDSAccount *)arg2 identifier:(NSString *)arg3 hasBeenDeliveredWithContext:(id)arg4;
 - (void)service:(IDSService *)arg1 account:(IDSAccount *)arg2 identifier:(NSString *)arg3 didSendWithSuccess:(BOOL)arg4 error:(NSError *)arg5;
+- (void)service:(IDSService *)arg1 nearbyDevicesChanged:(NSArray *)arg2;
 - (void)service:(IDSService *)arg1 devicesChanged:(NSArray *)arg2;
 - (void)service:(IDSService *)arg1 activeAccountsChanged:(NSSet *)arg2;
-- (void)service:(IDSService *)arg1 account:(IDSAccount *)arg2 incomingMessage:(NSDictionary *)arg3 fromID:(NSString *)arg4;
+- (void)service:(IDSService *)arg1 account:(IDSAccount *)arg2 incomingUnhandledProtobuf:(IDSProtobuf *)arg3 fromID:(NSString *)arg4 context:(IDSMessageContext *)arg5;
+- (void)service:(IDSService *)arg1 account:(IDSAccount *)arg2 incomingData:(NSData *)arg3 fromID:(NSString *)arg4 context:(IDSMessageContext *)arg5;
+- (void)service:(IDSService *)arg1 account:(IDSAccount *)arg2 incomingMessage:(NSDictionary *)arg3 fromID:(NSString *)arg4 context:(IDSMessageContext *)arg5;
 @end
 

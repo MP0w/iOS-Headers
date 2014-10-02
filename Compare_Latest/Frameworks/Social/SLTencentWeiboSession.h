@@ -9,7 +9,7 @@
 #import "SLMicroBlogSheetDelegate.h"
 #import "SLTencentWeiboClientSessionProtocol.h"
 
-@class NSCache, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, SLRemoteSessionProxy<SLTencentWeiboRemoteSessionProtocol>;
+@class CLInUseAssertion, NSBundle, NSCache, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString, SLRemoteSessionProxy<SLTencentWeiboRemoteSessionProtocol>;
 
 @interface SLTencentWeiboSession : NSObject <SLTencentWeiboClientSessionProtocol, SLMicroBlogSheetDelegate>
 {
@@ -17,6 +17,8 @@
     NSCache *_profileImageCache;
     NSObject<OS_dispatch_queue> *_remoteSessionQueue;
     NSObject<OS_dispatch_semaphore> *_remoteSessionQueueSemaphore;
+    NSBundle *_serviceBundle;
+    CLInUseAssertion *_locationInUseAssertion;
     CDUnknownBlockType _connectionResetBlock;
     CDUnknownBlockType _locationInformationChangedBlock;
 }
@@ -33,27 +35,30 @@
 - (int)characterCountForText:(id)arg1 shortenedURLCost:(int)arg2;
 - (void)setGeotagAccountSetting:(BOOL)arg1;
 - (void)fetchGeotagStatus:(CDUnknownBlockType)arg1;
-- (void)overrideLocationWithLatitude:(float)arg1 longitude:(float)arg2 name:(id)arg3;
-- (void)setOverrideGeotagInfo:(id)arg1;
 - (void)setGeotagStatus:(int)arg1;
-- (void)fetchRelationshipWithScreenName:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchCurrentImageLimits:(CDUnknownBlockType)arg1;
 - (void)fetchCurrentUrlLimits:(CDUnknownBlockType)arg1;
 - (void)recordsMatchingPrefixString:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchProfileImageDataForScreenName:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)fetchRecordForScreenName:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)ensureUserRecordStore;
 - (void)fetchSessionInfo:(CDUnknownBlockType)arg1;
 - (void)setActiveAccountIdentifier:(id)arg1;
 - (void)revokeAllAccessTokensForDevice;
-- (void)revokeAllAccessTokensForDeviceWithCompletion:(CDUnknownBlockType)arg1;
 - (void)revokeAccessTokenForAppWithOauthToken:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setClientInfo:(id)arg1;
 - (void)tearDownConnectionToRemoteSession;
 - (void)stopDeferringExpensiveOperations;
 - (void)deferExpensiveOperations;
 - (id)_createOrGetRemoteSession;
+- (void)endPotentialLocationUse;
+- (void)beginPotentialLocationUse;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

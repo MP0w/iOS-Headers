@@ -6,7 +6,7 @@
 
 #import <OfficeImport/OADProperties.h>
 
-@class OADHyperlink, OADOrientedBounds;
+@class NSString, OADHyperlink, OADOrientedBounds;
 
 __attribute__((visibility("hidden")))
 @interface OADDrawableProperties : OADProperties
@@ -14,6 +14,8 @@ __attribute__((visibility("hidden")))
     OADOrientedBounds *mOrientedBounds;
     OADHyperlink *mClickHyperlink;
     OADHyperlink *mHoverHyperlink;
+    NSString *mTitle;
+    NSString *mDescription;
     unsigned int mHasAspectRatioLocked:1;
     unsigned int mAspectRatioLocked:1;
     unsigned int mHasWrdInline:1;
@@ -23,6 +25,12 @@ __attribute__((visibility("hidden")))
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (void)removeUnnecessaryOverrides;
+- (BOOL)hasAltDescription;
+- (void)setAltDescription:(id)arg1;
+- (id)altDescription;
+- (BOOL)hasAltTitle;
+- (void)setAltTitle:(id)arg1;
+- (id)altTitle;
 - (BOOL)hasWrdInline;
 - (void)setWrdInline:(BOOL)arg1;
 - (BOOL)isWrdInline;

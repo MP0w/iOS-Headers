@@ -12,6 +12,7 @@
 
 @interface MSASAlbum : NSObject <NSCopying>
 {
+    BOOL _isFamilySharedAlbum;
     NSString *_ownerEmail;
     NSString *_ownerPersonID;
     NSString *_ownerFullName;
@@ -31,6 +32,7 @@
 + (id)albumWithAlbum:(id)arg1;
 + (BOOL)supportsSecureCoding;
 + (id)album;
+@property(nonatomic) BOOL isFamilySharedAlbum; // @synthesize isFamilySharedAlbum=_isFamilySharedAlbum;
 @property(retain, nonatomic) id context; // @synthesize context=_context;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(retain, nonatomic) NSString *publicURLString; // @synthesize publicURLString=_publicURLString;

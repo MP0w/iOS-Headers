@@ -6,10 +6,16 @@
 
 #import "NSObject.h"
 
-@class CLLocation, NSDate, RTLocationOfInterest;
+@class CLLocation, NSDate, NSString, RTAction, RTLocationOfInterest;
 
 @protocol RTDaemonProtocol <NSObject>
+- (void)fetchPathToDiagnosticFilesWithReply:(void (^)(NSString *, NSError *))arg1;
+- (void)stopMonitoringVisits;
+- (void)startMonitoringVisits;
+- (void)fetchPredictedLocationsOfInterestOnDate:(NSDate *)arg1 withReply:(void (^)(NSArray *, NSError *))arg2;
+- (void)fetchLocationsOfInterestAssociatedToIdentifier:(NSString *)arg1 withReply:(void (^)(NSArray *, NSError *))arg2;
 - (void)fetchRoutineModeFromLocation:(CLLocation *)arg1 withReply:(void (^)(int, NSError *))arg2;
+- (void)fetchPredictedConditionsForAction:(RTAction *)arg1 withReply:(void (^)(NSArray *, NSError *))arg2;
 - (void)clearRoutine;
 - (void)setRoutineEnabled:(BOOL)arg1;
 - (void)fetchBBPluginSupportedWithReply:(void (^)(BOOL))arg1;

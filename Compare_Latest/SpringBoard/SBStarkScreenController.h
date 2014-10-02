@@ -7,18 +7,22 @@
 #import "NSObject.h"
 
 #import "AVExternalDeviceDelegate.h"
+#import "FBWindowContextManagerDelegate.h"
+#import "FBWindowContextManagerObserver.h"
 #import "SBAlertManagerDelegate.h"
 #import "SBAlertManagerObserver.h"
 #import "SBAlertObserver.h"
 #import "UIStatusBarStyleDelegate.h"
 #import "_UISettingsKeyObserver.h"
 
-@class AVExternalDevice, NSHashTable, NSMapTable, NSMutableOrderedSet, SBAlertManager, SBAssistantWindow, SBCarDisplaySettings, SBStarkDefaultHostingWindow, SBStarkFakeIconOperationController, SBStarkIconController, SBStarkIconWindow, SBStarkLockOutViewController, SBStarkLockOutWindow, SBStarkNotificationViewController, SBStarkNotificationWindow, SBStarkNowPlayingController, SBStarkNowPlayingWindow, SBStarkScreenFocusController, SBStarkStatusBarViewController, SBStarkStatusBarWindow, SBWindow, UIScreen, UIWindow;
+@class AVExternalDevice, FBSDisplay, FBScene, NSHashTable, NSMapTable, NSMutableOrderedSet, NSString, SBAlertManager, SBAssistantWindow, SBCarDisplaySettings, SBStarkAnimationWindow, SBStarkFakeIconOperationController, SBStarkIconController, SBStarkIconWindow, SBStarkLockOutViewController, SBStarkLockOutWindow, SBStarkNotificationViewController, SBStarkNotificationWindow, SBStarkNowPlayingController, SBStarkNowPlayingWindow, SBStarkScreenFocusController, SBStarkStatusBarViewController, SBStarkStatusBarWindow, SBWindow, UIScreen, UIWindow;
 
-@interface SBStarkScreenController : NSObject <SBAlertManagerDelegate, SBAlertManagerObserver, SBAlertObserver, UIStatusBarStyleDelegate, _UISettingsKeyObserver, AVExternalDeviceDelegate>
+@interface SBStarkScreenController : NSObject <SBAlertManagerDelegate, SBAlertManagerObserver, SBAlertObserver, UIStatusBarStyleDelegate, _UISettingsKeyObserver, AVExternalDeviceDelegate, FBWindowContextManagerDelegate, FBWindowContextManagerObserver>
 {
+    FBSDisplay *_fbsDisplay;
     UIScreen *_screen;
     unsigned long long _interactionAffordances;
+    long long _layoutJustification;
     SBCarDisplaySettings *_settings;
     id <SBStarkScreenControllerDelegate> _delegate;
     id <SBDisplayProtocol> _actualTopDisplay;
@@ -31,7 +35,8 @@
     _Bool _delayUpdatingLockOutMode;
     SBStarkLockOutViewController *_lockOutViewController;
     SBStarkLockOutWindow *_lockOutWindow;
-    SBStarkDefaultHostingWindow *_defaultHostingWindow;
+    SBStarkAnimationWindow *_animationWindow;
+    FBScene *_nowPlayingScene;
     SBStarkNowPlayingController *_nowPlayingController;
     SBStarkNowPlayingWindow *_nowPlayingWindow;
     _Bool _showingNowPlaying;
@@ -48,14 +53,23 @@
     SBStarkScreenFocusController *_focusController;
     SBStarkFakeIconOperationController *_fakeIconOperationController;
     AVExternalDevice *_externalDevice;
-    long long _layoutJustification;
+    _Bool _externalDeviceScreenAvailable;
+    SBWindow *_mainWindow;
 }
 
-@property(readonly, nonatomic) SBAlertManager *alertManager; // @synthesize alertManager=_alertManager;
++ (void)_launchNowPlaying;
+@property(readonly, retain, nonatomic) SBWindow *mainWindow; // @synthesize mainWindow=_mainWindow;
+@property(readonly, retain, nonatomic) FBSDisplay *fbsDisplay; // @synthesize fbsDisplay=_fbsDisplay;
+@property(readonly, retain, nonatomic) SBAlertManager *alertManager; // @synthesize alertManager=_alertManager;
 @property(nonatomic) id <SBStarkScreenControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) long long layoutJustification; // @synthesize layoutJustification=_layoutJustification;
-@property(readonly, nonatomic) UIScreen *screen; // @synthesize screen=_screen;
+@property(readonly, nonatomic) unsigned long long interactionAffordances; // @synthesize interactionAffordances=_interactionAffordances;
+@property(readonly, retain, nonatomic) UIScreen *screen; // @synthesize screen=_screen;
+- (void)windowContextManagerDidStopTrackingContexts:(id)arg1;
+- (void)windowContextManagerWillStartTrackingContexts:(id)arg1;
+- (_Bool)windowContextManager:(id)arg1 shouldAddContext:(id)arg2;
 - (void)siriRequestedWithAction:(long long)arg1;
+- (void)iOSUIRequestedForApplicationURL:(id)arg1;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (void)statusBar:(id)arg1 didTriggerButtonType:(long long)arg2 withAction:(long long)arg3;
 - (void)statusBar:(id)arg1 didAnimateFromHeight:(double)arg2 toHeight:(double)arg3 animation:(int)arg4;
@@ -66,8 +80,11 @@
 - (void)alertManager:(id)arg1 didDeactivateAlert:(id)arg2 top:(_Bool)arg3;
 - (void)alertManager:(id)arg1 willActivateAlert:(id)arg2 overAlerts:(id)arg3;
 - (_Bool)alertManager:(id)arg1 shouldDeactivateDismissedAlert:(id)arg2;
-- (id)alertManager:(id)arg1 newAlertWindowForLockAlerts:(_Bool)arg2;
+- (id)alertManager:(id)arg1 newAlertWindowForScene:(id)arg2;
+- (double)sceneLevelForAlerts;
+- (struct CGRect)sceneFrameForAlerts:(id)arg1;
 - (void)alertBannerSuppressionChanged:(id)arg1;
+- (struct CGRect)_defaultScreenFrameOffsetForStatusBar:(id)arg1;
 - (void)_toggleNotificationSuspendedState;
 - (_Bool)_allowNavigationOverrideStyle;
 - (_Bool)_allowInCallOverrideStyle;
@@ -77,30 +94,31 @@
 - (void)_didChangeFromState:(long long)arg1;
 - (void)_updateLockOutMode;
 - (void)_hideWindowsForSetup:(_Bool)arg1;
-- (void)_takeScreenRequested:(id)arg1;
 - (void)_setSiriState:(long long)arg1;
 - (void)_viewController:(id)arg1 animateDisappearanceWithContext:(id)arg2;
 - (void)_viewController:(id)arg1 willAnimateDisappearanceWithContext:(id)arg2;
 - (void)_viewController:(id)arg1 animateAppearanceWithContext:(id)arg2;
 - (void)_viewController:(id)arg1 willAnimateAppearanceWithContext:(id)arg2;
+- (void)_externalDeviceScreenBecameUnavailable:(id)arg1;
+- (void)_externalDeviceScreenBecameAvailable:(id)arg1;
 - (void)_updateAlertSheetFocus;
 - (void)_alertSheetDismissed:(id)arg1;
 - (void)_alertSheetPresented:(id)arg1;
 - (void)_dismissSiriWithFactory:(id)arg1 animations:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_takeScreenIfNecessaryForTopDisplayActivation;
 - (void)_handleMenuEventAndTakeScreen:(_Bool)arg1;
+- (id)_newNowPlayingScene;
 - (void)_noteSetupCompleted;
 - (void)_noteInitializationCompleted;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (void)cleanupForTopDisplayIfNecessaryWithAnimationFactory:(id)arg1;
 - (void)dismissSiriWithAnimation:(long long)arg1 factory:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)presentSiri:(_Bool)arg1 viewController:(id)arg2;
-@property(readonly, nonatomic) SBWindow *lockoutWindow;
-@property(readonly, nonatomic) UIWindow *focusWindow;
-@property(readonly, nonatomic) SBWindow *iconWindow;
-@property(readonly, nonatomic) SBWindow *animationWindow;
-@property(readonly, nonatomic) SBWindow *mainWindow;
+- (_Bool)presentSiri:(_Bool)arg1 viewController:(id)arg2;
+@property(readonly, retain, nonatomic) SBWindow *lockoutWindow;
+@property(readonly, retain, nonatomic) UIWindow *focusWindow;
+@property(readonly, retain, nonatomic) SBWindow *iconWindow;
+@property(readonly, retain, nonatomic) SBWindow *animationWindow;
 - (void)updateStatusBarStateForDisplay:(id)arg1 withAnimationFactory:(id)arg2;
 - (_Bool)isShowingNowPlaying;
 - (void)notifyWhenNowPlayingIsActive:(CDUnknownBlockType)arg1 withTimeout:(double)arg2;
@@ -114,14 +132,20 @@
 - (void)setEffectiveTopDisplay:(id)arg1 withAnimationFactory:(id)arg2;
 @property(retain, nonatomic) id <SBDisplayProtocol> effectiveTopDisplay;
 @property(readonly, nonatomic) long long state;
-@property(readonly, nonatomic) SBStarkStatusBarViewController *statusBarController;
-@property(readonly, nonatomic) SBStarkNotificationViewController *notificationController;
-@property(readonly, nonatomic) SBStarkIconController *iconController;
+@property(readonly, retain, nonatomic) SBStarkStatusBarViewController *statusBarController;
+@property(readonly, retain, nonatomic) SBStarkNotificationViewController *notificationController;
+@property(readonly, retain, nonatomic) SBStarkIconController *iconController;
 - (void)invalidate;
 - (void)_tearDownAndInvalidate:(_Bool)arg1;
 - (void)dealloc;
 - (id)init;
 - (id)initWithScreen:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

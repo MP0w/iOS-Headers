@@ -48,10 +48,9 @@ struct NSMethodFrameArgInfo {
     char _field10[0];
 };
 
-struct _CFXPreferencesStatInfo {
-    unsigned long long st_ino;
-    long long st_size;
-    struct timespec st_mtimex;
+struct _CFPrefsShmemEntry {
+    unsigned int generation:31;
+    unsigned int multiprocess:1;
 };
 
 struct _NSRange {
@@ -59,15 +58,15 @@ struct _NSRange {
     unsigned int _field2;
 };
 
+struct _opaque_pthread_mutex_t {
+    long __sig;
+    char __opaque[40];
+};
+
 struct edge {
     unsigned int _field1;
     unsigned int _field2[2];
     unsigned int _field3;
-};
-
-struct timespec {
-    int tv_sec;
-    long tv_nsec;
 };
 
 struct vertex {
@@ -104,4 +103,11 @@ typedef struct {
     unsigned int _field3;
     unsigned int _field4;
 } CDStruct_52991635;
+
+#pragma mark Typedef'd Unions
+
+typedef union {
+    struct _CFPrefsShmemEntry entry;
+    int value;
+} CDUnion_694411ff;
 

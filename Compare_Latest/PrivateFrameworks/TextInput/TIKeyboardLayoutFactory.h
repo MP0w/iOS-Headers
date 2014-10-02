@@ -18,6 +18,7 @@
 + (id)sharedKeyboardFactory;
 @property(retain) NSMutableDictionary *internalCache; // @synthesize internalCache=_internalCache;
 @property(readonly, nonatomic) void *layoutsLibraryHandle; // @synthesize layoutsLibraryHandle=_layoutsLibraryHandle;
+- (id)keyboardPrefixForWidth:(float)arg1;
 - (id)keyboardWithName:(id)arg1 inCache:(id)arg2;
 - (id)init;
 - (void)dealloc;

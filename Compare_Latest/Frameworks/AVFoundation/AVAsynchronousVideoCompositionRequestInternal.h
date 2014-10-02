@@ -20,9 +20,9 @@
     BOOL _isFinished;
 }
 
-@property(retain, nonatomic) NSArray *sourceTrackIDsInClientOrder; // @synthesize sourceTrackIDsInClientOrder=_sourceTrackIDsInClientOrder;
 @property(nonatomic) BOOL isFinished; // @synthesize isFinished=_isFinished;
 @property(retain, nonatomic) id <AVVideoCompositionInstruction> instruction; // @synthesize instruction=_instruction;
+@property(retain, nonatomic) NSArray *sourceTrackIDsInClientOrder; // @synthesize sourceTrackIDsInClientOrder=_sourceTrackIDsInClientOrder;
 @property(retain, nonatomic) NSDictionary *sourcesByTrackID; // @synthesize sourcesByTrackID=_sourcesByTrackID;
 @property(nonatomic) CDStruct_1b6d18a9 compositionTime; // @synthesize compositionTime=_compositionTime;
 @property(nonatomic) struct OpaqueFigVideoCompositorFrame *compositionFrame; // @synthesize compositionFrame=_compositionFrame;

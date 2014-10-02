@@ -8,6 +8,8 @@
 
 #import "UIWebViewDelegate.h"
 
+@class NSString;
+
 @interface PSAboutHTMLSheetViewController : UIViewController <UIWebViewDelegate>
 {
 }
@@ -19,6 +21,12 @@
 - (void)viewDidBecomeVisible;
 - (void)dealloc;
 - (void)loadView;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

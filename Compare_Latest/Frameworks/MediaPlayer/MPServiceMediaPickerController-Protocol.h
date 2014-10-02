@@ -10,7 +10,6 @@
 
 @protocol MPServiceMediaPickerController <NSObject>
 - (void)serviceMediaPickerSetMediaTypes:(unsigned int)arg1;
-- (void)serviceMediaPickerSetUserInterfaceIdiom:(int)arg1;
 - (void)serviceMediaPickerSetShowsCloudItems:(BOOL)arg1;
 - (void)serviceMediaPickerSetPrompt:(NSString *)arg1;
 - (void)serviceMediaPickerSetAllowsPickingMultipleItems:(BOOL)arg1;

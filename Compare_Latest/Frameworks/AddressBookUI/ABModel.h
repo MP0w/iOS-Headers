@@ -94,10 +94,6 @@
 - (void)_waitUntilBackgroundThreadFinished;
 - (void)dealloc;
 - (id)initWithAddressBook:(void *)arg1;
-- (id)allDatabaseDirectories;
-- (id)databaseSubdirectory;
-- (id)databaseFullDirectory;
-- (id)databaseHomeDirectory;
 
 @end
 

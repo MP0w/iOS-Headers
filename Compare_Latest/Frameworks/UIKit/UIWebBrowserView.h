@@ -151,6 +151,7 @@
 @property(nonatomic) BOOL mediaPlaybackRequiresUserAction;
 @property(nonatomic) BOOL allowsInlineMediaPlayback;
 - (void)assistFormNode:(id)arg1;
+- (void)_assistFormNode:(id)arg1;
 - (void)_endAllowingFocusRedirects;
 - (void)_beginAllowingFocusRedirects;
 - (void)_updateAccessory;
@@ -167,6 +168,7 @@
 - (void)_updateFixedPositioningObjectsLayoutAfterVisibleGeometryChange;
 - (void)_updateFixedPositioningObjectsLayoutAfterScroll;
 - (void)_updateFixedPositioningObjectsLayoutDuringScroll;
+- (void)_keyboardDidHide:(id)arg1;
 - (void)_keyboardWillHide:(id)arg1;
 - (void)_keyboardWillShow:(id)arg1;
 - (void)_keyboardDidChangeFrame:(id)arg1;
@@ -176,6 +178,7 @@
 - (void)_startAssistingNode:(id)arg1;
 - (void)_stopAssistingKeyboard;
 - (void)_startAssistingKeyboard;
+- (void)_transliterateChinese:(id)arg1;
 - (void)_promptForReplace:(id)arg1;
 - (BOOL)playsNicelyWithGestures;
 - (id)_editingDelegate;

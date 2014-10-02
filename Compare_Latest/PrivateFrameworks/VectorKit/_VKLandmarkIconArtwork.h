@@ -9,18 +9,17 @@
 __attribute__((visibility("hidden")))
 @interface _VKLandmarkIconArtwork : VKIconArtwork
 {
-    CDStruct_d3c687f7 _style;
-    float _contentScale;
+    CDStruct_5977520b _style;
     struct CGImage *_maskImage;
     struct CGImage *_outlineMaskImage;
 }
 
 - (id).cxx_construct;
 - (void)_cleanUpAfterDrawing;
-- (id)_newIcon;
+- (id)_newImage;
 - (struct CGSize)size;
 - (void)dealloc;
-- (id)initWithMask:(struct CGImage *)arg1 outlineMask:(struct CGImage *)arg2 style:(CDStruct_d3c687f7 *)arg3 contentScale:(float)arg4;
+- (id)initWithMask:(struct CGImage *)arg1 outlineMask:(struct CGImage *)arg2 style:(CDStruct_5977520b *)arg3 contentScale:(float)arg4;
 
 @end
 

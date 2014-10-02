@@ -20,7 +20,6 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)propertiesThatInvalidateLayout;
-- (id)mutationTuplesToApplyDuringResize;
 - (struct CGPath *)newDragAndDropHighlightPathForSelection:(id)arg1;
 - (id)subselectionHaloPositionsForSelections:(id)arg1;
 - (id)subselectionKnobPositionsForSelection:(id)arg1;
@@ -30,16 +29,16 @@ __attribute__((visibility("hidden")))
 - (unsigned int)dataSetIndex;
 - (id)model;
 @property(copy, nonatomic) NSDictionary *seriesIndexedPieWedgeExplosions;
-- (void)endResize;
-- (void)takeSizeFromTracker:(id)arg1;
-- (void)beginResize;
-- (void)endDynamicOperation;
-- (void)beginDynamicOperation;
-- (void)p_ensureValidForCircumscribingSizeLayout;
+- (void)setLegendSize:(struct CGSize)arg1;
+- (void)layoutForResizingSize:(struct CGSize)arg1;
+- (struct CGRect)boundsForResize;
+- (void)p_ensureValidForInwardLayout;
 - (void)invalidate;
 - (void)p_layoutNowForChartBodySize:(struct CGSize)arg1;
+- (void)p_layoutNowForChartAreaSize:(struct CGSize)arg1;
 - (void)p_layoutNowForCircumscribingSize:(struct CGSize)arg1;
 - (void)layoutForChartBodySize:(struct CGSize)arg1;
+- (void)layoutForChartAreaSize:(struct CGSize)arg1;
 - (void)layoutForCircumscribingSize:(struct CGSize)arg1;
 - (void)processChanges:(id)arg1;
 @property(readonly) TSCHChartRootLayoutItem *p_layoutTree;
@@ -50,6 +49,8 @@ __attribute__((visibility("hidden")))
 - (void)setLegendGeometryFrame:(struct CGRect)arg1;
 - (struct CGRect)legendGeometryFrame;
 - (struct CGPoint)p_cachedOriginRelativeToChartAreaFrame;
+- (void)invalidateCachedOriginRelativeToChartAreaFrame;
+- (struct CGRect)titleFrame;
 - (struct CGRect)legendDrawingFrame;
 - (struct CGRect)legendFrame;
 - (struct CGRect)chartAreaFrame;

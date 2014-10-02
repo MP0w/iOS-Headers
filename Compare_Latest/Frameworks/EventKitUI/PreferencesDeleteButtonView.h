@@ -16,7 +16,7 @@
 - (void).cxx_destruct;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
-@property(readonly, nonatomic) UIButton *button;
+@property(readonly, retain, nonatomic) UIButton *button;
 - (id)initWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3;
 
 @end

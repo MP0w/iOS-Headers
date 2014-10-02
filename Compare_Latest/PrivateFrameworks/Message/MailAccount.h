@@ -90,8 +90,6 @@
 + (void)_removeAccountFromSortedPaths:(id)arg1;
 + (void)setMailAccounts:(id)arg1 saveIfChanged:(BOOL)arg2;
 + (void)setMailAccounts:(id)arg1;
-+ (void)removeMailAccount:(id)arg1 saveIfChanged:(BOOL)arg2;
-+ (void)addMailAccount:(id)arg1 saveIfChanged:(BOOL)arg2;
 + (id)lastMailAccountsReloadError;
 + (id)lastMailAccountsReloadDate;
 + (id)mailAccountsWithError:(id *)arg1;
@@ -99,9 +97,8 @@
 + (void)reloadAccounts;
 + (void)_invalidateAccounts:(id)arg1 missingFromNewAccounts:(id)arg2;
 + (id)_loadDataAccessAccountsWithError:(id *)arg1;
-+ (id)_loadAllAccountsWithError:(id *)arg1;
-+ (void)_unregisterPendingAccount:(id)arg1;
-+ (void)_registerPendingAccount:(id)arg1;
++ (id)_loadAllAccountsWithOptions:(unsigned int)arg1 error:(id *)arg2;
++ (void)setMailAccountLoadOptions:(unsigned int)arg1;
 + (id)existingDAMailAccountForDAAccount:(id)arg1;
 + (id)existingAccountForUniqueID:(id)arg1;
 + (void)_setupSortedPathsForAccounts:(id)arg1;
@@ -115,6 +112,7 @@
 - (int)archiveDestinationForMailbox:(id)arg1;
 - (BOOL)canArchiveForMailbox:(id)arg1;
 - (BOOL)preventArchiveForMailbox:(id)arg1;
+- (BOOL)supportsThreadNotifications;
 - (BOOL)supportsArchiving;
 - (void)setCustomSignature:(id)arg1;
 - (id)customSignature;
@@ -125,6 +123,7 @@
 - (id)copyDataForRemoteEncryptionCertificatesForAddress:(id)arg1 error:(id *)arg2;
 - (int)secureCompositionEncryptionPolicyForAddress:(id)arg1;
 - (int)secureCompositionSigningPolicyForAddress:(id)arg1;
+- (BOOL)perMessageEncryptionEnabled;
 - (BOOL)secureMIMEEnabled;
 - (void)setEncryptionIdentityPersistentReference:(id)arg1 forAddress:(id)arg2;
 - (id)encryptionIdentityPersistentReferenceForAddress:(id)arg1;
@@ -177,12 +176,12 @@
 - (id)_copyMailboxUidWithParent:(id)arg1 name:(id)arg2 attributes:(unsigned int)arg3 existingMailboxUid:(id)arg4 dictionary:(id)arg5;
 - (id)_uidNameForPathComponent:(id)arg1;
 - (id)_pathComponentForUidName:(id)arg1;
+- (BOOL)shouldFetchAgainWithError:(id)arg1 foregroundRequest:(BOOL)arg2;
 - (int)_emptyFrequencyForKey:(id)arg1 defaultValue:(id)arg2;
 - (void)_didBecomeActive:(BOOL)arg1;
 - (void)setActive:(BOOL)arg1;
 - (BOOL)isActive;
 - (BOOL)isActiveWithPersistentAccount:(id)arg1;
-- (BOOL)areAnyDataclassesConsideredActiveEnabled;
 - (BOOL)_setPath:(id)arg1;
 - (void)changePushedMailboxUidsAdded:(id)arg1 deleted:(id)arg2;
 - (BOOL)supportsUserPushedMailboxes;
@@ -194,11 +193,11 @@
 - (BOOL)willPerformActionForChokePoint:(id)arg1 coalescePoint:(id)arg2 result:(id *)arg3;
 - (BOOL)_registerPushNotificationPrefix:(id)arg1 forMailboxNames:(id)arg2;
 - (BOOL)canReceiveNewMailNotifications;
-- (BOOL)_canReceiveNewMailNotifications;
 - (BOOL)hasEnoughInformationForEasySetup;
 - (id)unactionableInvitationICSRepresentationInMessage:(id)arg1 summary:(id *)arg2;
 - (BOOL)reconstituteOrphanedMeetingInMessage:(id)arg1;
 - (id)meetingStorePersistentID;
+- (id)loggingIdentifier;
 - (id)statisticsKind;
 - (id)displayNameUsingSpecialNamesForMailboxUid:(id)arg1;
 - (BOOL)deleteInPlaceForMailbox:(id)arg1;

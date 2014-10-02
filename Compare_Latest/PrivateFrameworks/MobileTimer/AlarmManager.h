@@ -26,7 +26,7 @@
 + (BOOL)isAlarmNotification:(id)arg1;
 + (id)sharedManager;
 @property(retain, nonatomic) NSDate *lastModified; // @synthesize lastModified;
-@property(readonly, nonatomic) NSArray *alarms; // @synthesize alarms=_alarms;
+@property(readonly, retain, nonatomic) NSArray *alarms; // @synthesize alarms=_alarms;
 @property(nonatomic) BOOL invalidAlarmsDetected; // @synthesize invalidAlarmsDetected;
 @property(retain, nonatomic) NSMutableArray *logMessageList; // @synthesize logMessageList;
 - (void)handleNotificationFired:(id)arg1;

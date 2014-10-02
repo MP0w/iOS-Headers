@@ -6,14 +6,15 @@
 
 #import "NSObject.h"
 
-@class CKBalloonView, NSArray, UIEvent;
+@class CKBalloonView, NSArray;
 
 @protocol CKBalloonViewDelegate <NSObject>
 - (void)balloonViewWillResignFirstResponder:(CKBalloonView *)arg1;
-- (void)balloonViewTapped:(CKBalloonView *)arg1 withEvent:(UIEvent *)arg2;
-- (void)balloonViewTouchedDown:(CKBalloonView *)arg1 withEvent:(UIEvent *)arg2;
+- (void)balloonViewTapped:(CKBalloonView *)arg1;
+- (void)balloonView:(CKBalloonView *)arg1 performAction:(SEL)arg2 withSender:(id)arg3;
 - (BOOL)balloonView:(CKBalloonView *)arg1 canPerformAction:(SEL)arg2 withSender:(id)arg3;
 - (struct CGRect)calloutTargetRectForBalloonView:(CKBalloonView *)arg1;
+- (BOOL)shouldShowMenuForBalloonView:(CKBalloonView *)arg1;
 - (NSArray *)menuItemsForBalloonView:(CKBalloonView *)arg1;
 - (void)balloonViewDidFinishDataDetectorAction:(CKBalloonView *)arg1;
 @end

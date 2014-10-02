@@ -36,8 +36,8 @@
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (id)description;
+@property(readonly) unsigned int hash;
+@property(readonly, copy) NSString *description;
 - (void)_setTitle:(id)arg1;
 - (void)_setStorePreorderIdentifier:(long long)arg1;
 - (void)_setStoreItemIdentifier:(long long)arg1;
@@ -51,6 +51,10 @@
 - (id)copyReleaseDateStringWithStyle:(long)arg1;
 - (void)dealloc;
 - (id)_initWithPersistentIdentifier:(long long)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

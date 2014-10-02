@@ -8,7 +8,7 @@
 
 #import "CoreDAVPropFindTaskDelegate.h"
 
-@class CoreDAVPropFindTask, ICSDocument, NSURL;
+@class CoreDAVPropFindTask, ICSDocument, NSString, NSURL;
 
 @interface CalDAVGetOfficeHoursTaskGroup : CoreDAVTaskGroup <CoreDAVPropFindTaskDelegate>
 {
@@ -17,9 +17,9 @@
     ICSDocument *_calendarAvailability;
 }
 
-@property(retain) CoreDAVPropFindTask *fetchTask; // @synthesize fetchTask=_fetchTask;
-@property(retain) ICSDocument *calendarAvailability; // @synthesize calendarAvailability=_calendarAvailability;
-@property(retain) NSURL *inboxURL; // @synthesize inboxURL=_inboxURL;
+@property(retain, nonatomic) CoreDAVPropFindTask *fetchTask; // @synthesize fetchTask=_fetchTask;
+@property(retain, nonatomic) ICSDocument *calendarAvailability; // @synthesize calendarAvailability=_calendarAvailability;
+@property(retain, nonatomic) NSURL *inboxURL; // @synthesize inboxURL=_inboxURL;
 - (void)propFindTask:(id)arg1 parsedResponses:(id)arg2 error:(id)arg3;
 - (void)_finishWithError:(id)arg1;
 - (void)startTaskGroup;
@@ -27,7 +27,11 @@
 - (void)dealloc;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) id <CoreDAVTaskGroupDelegate> delegate; // @dynamic delegate;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

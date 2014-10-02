@@ -34,10 +34,13 @@
     CDStruct_1b6d18a9 minVideoFrameDuration;
     BOOL canUseFastFrameRateConversion;
     NSString *videoFrameRateConversionAlgorithm;
+    BOOL waitingForFastFrameRateResponse;
     NSObject<OS_dispatch_semaphore> *canUseFastFrameRateConversionSemaphore;
     long long maxFileSize;
     CDUnknownBlockType handler;
     BOOL optimizeForNetworkUse;
+    BOOL useMultiPass;
+    NSURL *directoryForTemporaryFiles;
     BOOL outputFileCreatedByRemaker;
     long compatibleFileTypesDispatchOncePredicate;
     NSArray *compatibleFileTypes;

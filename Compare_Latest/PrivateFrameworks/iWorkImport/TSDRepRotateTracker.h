@@ -10,7 +10,7 @@
 #import "TSDLayoutManipulatingTracker.h"
 #import "TSDRepTracker.h"
 
-@class CAShapeLayer, TSDRep;
+@class CAShapeLayer, NSString, TSDRep;
 
 __attribute__((visibility("hidden")))
 @interface TSDRepRotateTracker : NSObject <TSDDecorator, TSDLayoutManipulatingTracker, TSDRepTracker>
@@ -30,6 +30,7 @@ __attribute__((visibility("hidden")))
     BOOL mHaveSproingedHUD;
     BOOL mShouldShowHUD;
     id <TSDRepTrackerDelegate> mDelegate;
+    BOOL mDelegateRespondsToContinuedDragging;
     TSDRep *mOriginalNonFloatingRep;
     BOOL mIsInspectorDrivenTracking;
 }
@@ -61,6 +62,12 @@ __attribute__((visibility("hidden")))
 - (void)addRotateDelta:(float)arg1;
 - (void)dealloc;
 - (id)initWithRep:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

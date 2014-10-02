@@ -6,13 +6,16 @@
 
 #import <iCalendar/ICSProperty.h>
 
-@class NSString;
+@class ICSDuration, NSString;
 
 @interface ICSTravelDuration : ICSProperty
 {
 }
 
-@property(retain) NSString *transparency;
+- (BOOL)alwaysHasParametersToSerialize;
+@property(retain, nonatomic) ICSDuration *duration;
+@property(retain, nonatomic) NSString *transparency;
+- (void)_ICSStringWithOptions:(unsigned int)arg1 appendingToString:(id)arg2 additionalParameters:(id)arg3;
 
 @end
 

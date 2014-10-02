@@ -16,7 +16,6 @@ __attribute__((visibility("hidden")))
 
 @property(retain) NSString *albumIdentifier; // @synthesize albumIdentifier=_albumIdentifier;
 - (void).cxx_destruct;
-- (void)layoutSubviews;
 
 @end
 

@@ -14,6 +14,7 @@
 }
 
 + (id)sharedInstance;
+- (void)_noteRemotePushAppsDidChange:(id)arg1;
 - (void)_notePushStoreAppsDidChange:(id)arg1;
 - (void)_noteInstalledAppsDidChange:(id)arg1;
 - (void)reloadDataProviders;

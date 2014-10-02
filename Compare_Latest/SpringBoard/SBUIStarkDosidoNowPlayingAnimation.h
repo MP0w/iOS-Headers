@@ -16,7 +16,8 @@
 
 - (void)_cleanupAnimation;
 - (void)_startAnimation;
-- (_Bool)_animationShouldStart;
+- (_Bool)_waitsForApplicationActivationIfNecessary;
+- (void)_setupStartDependencies;
 - (id)initFromAlertImpersonator:(id)arg1 toNowPlayingWithStarkScreenController:(id)arg2;
 - (id)initFromNowPlayingToAlertImpersonator:(id)arg1 starkScreenController:(id)arg2;
 - (id)initFromApp:(id)arg1 toNowPlayingWithStarkScreenController:(id)arg2;

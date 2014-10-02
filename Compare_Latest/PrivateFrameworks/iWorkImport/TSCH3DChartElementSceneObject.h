@@ -41,7 +41,7 @@ __attribute__((visibility("hidden")))
 - (float)depthForScene:(id)arg1;
 - (void)renderLabelsSceneObject:(id)arg1 pipeline:(id)arg2;
 - (tvec2_84d5962d)labelOffset:(unsigned int)arg1 labelSize:(const tvec2_84d5962d *)arg2 textureSize:(const tvec2_84d5962d *)arg3 dataSpaceValue:(float)arg4;
-- (tvec2_84d5962d)labelObjectSpacePosition:(unsigned int)arg1 dataSpaceValue:(float)arg2;
+- (tvec2_84d5962d)labelObjectSpacePosition:(unsigned int)arg1 axisValue:(double)arg2 intercept:(double)arg3;
 - (void)updateLightingEffectsState:(id)arg1 scene:(id)arg2;
 - (struct GeometryResource)geometryForSeries:(id)arg1 index:(const tvec2_3b141483 *)arg2 scene:(id)arg3;
 - (id)modelEnumeratorFromScene:(id)arg1;

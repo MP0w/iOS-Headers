@@ -7,7 +7,7 @@
 @class NSString, TSCEFunctionArgumentSpec;
 
 @protocol TSTFormulaToken
-@property(readonly, nonatomic) TSCEFunctionArgumentSpec *argumentSpec;
+@property(readonly, retain, nonatomic) TSCEFunctionArgumentSpec *argumentSpec;
 @property(readonly, nonatomic) NSString *string;
 @property(readonly, nonatomic) int tokenType;
 @end

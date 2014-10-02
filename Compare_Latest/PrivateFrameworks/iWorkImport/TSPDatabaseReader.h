@@ -8,7 +8,7 @@
 
 #import "TSPDatabaseUnarchiverDelegate.h"
 
-@class NSHashTable, NSObject<OS_dispatch_queue>, TSPDatabase;
+@class NSHashTable, NSObject<OS_dispatch_queue>, NSString, TSPDatabase;
 
 __attribute__((visibility("hidden")))
 @interface TSPDatabaseReader : TSPReader <TSPDatabaseUnarchiverDelegate>
@@ -16,13 +16,14 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_databaseQueue;
     TSPDatabase *_database;
     unsigned long long _databaseVersion;
-    struct hash_map<const long long, bool, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, bool>>> _readIdentifiers;
+    hash_map_18963f5d _readIdentifiers;
     NSHashTable *_datas;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (set_149bae43 *)filterIdentifiers:(const set_149bae43 *)arg1;
+- (id)objectUUIDMap;
 - (id)filenameFromOldDataArchive:(const struct DatabaseDataArchive *)arg1;
 - (id)dataForOldDataArchive:(const struct DatabaseDataArchive *)arg1;
 - (struct Message *)newImageDataMessageForDatabaseObject:(id)arg1;
@@ -38,11 +39,15 @@ __attribute__((visibility("hidden")))
 - (id)init;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) BOOL didFinishResolvingReferences;
-@property(readonly, nonatomic) BOOL documentHasCurrentFileFormatVersion;
+@property(readonly, nonatomic) unsigned long long fileFormatVersion;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) BOOL isCrossAppPaste;
 @property(readonly, nonatomic) BOOL isCrossDocumentPaste;
 @property(readonly, nonatomic) BOOL isFromPasteboard;
+@property(readonly) Class superclass;
 
 @end
 

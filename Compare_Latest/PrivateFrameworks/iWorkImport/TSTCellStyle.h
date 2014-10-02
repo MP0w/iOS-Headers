@@ -6,22 +6,26 @@
 
 #import <iWorkImport/TSSStyle.h>
 
+#import "TSDMixing.h"
+
 __attribute__((visibility("hidden")))
-@interface TSTCellStyle : TSSStyle
+@interface TSTCellStyle : TSSStyle <TSDMixing>
 {
 }
 
-+ (void)initDefaultPropertyMap:(id)arg1 forTableArea:(int)arg2 presetIndex:(unsigned int)arg3 colors:(id)arg4 alternate:(int)arg5;
-+ (void)p_initFooterRowRegionPropertyMap:(id)arg1 presetIndex:(unsigned int)arg2 colors:(id)arg3 alternate:(int)arg4;
-+ (void)p_initHeaderColumnRegionPropertyMap:(id)arg1 presetIndex:(unsigned int)arg2 colors:(id)arg3 alternate:(int)arg4;
-+ (void)p_initHeaderRowRegionPropertyMap:(id)arg1 presetIndex:(unsigned int)arg2 colors:(id)arg3 alternate:(int)arg4;
-+ (void)p_initBodyRegionPropertyMap:(id)arg1 presetIndex:(unsigned int)arg2 colors:(id)arg3 alternate:(int)arg4;
++ (void)initDefaultPropertyMap:(id)arg1 forTableArea:(int)arg2 presetID:(unsigned int)arg3 colors:(id)arg4 alternate:(int)arg5;
++ (void)p_initFooterRowRegionPropertyMap:(id)arg1 presetID:(unsigned int)arg2 colors:(id)arg3 alternate:(int)arg4;
++ (void)p_initHeaderColumnRegionPropertyMap:(id)arg1 presetID:(unsigned int)arg2 colors:(id)arg3 alternate:(int)arg4;
++ (void)p_initHeaderRowRegionPropertyMap:(id)arg1 presetID:(unsigned int)arg2 colors:(id)arg3 alternate:(int)arg4;
++ (void)p_initBodyRegionPropertyMap:(id)arg1 presetID:(unsigned int)arg2 colors:(id)arg3 alternate:(int)arg4;
 + (id)textStyleIDForPreset:(unsigned int)arg1 andTableArea:(int)arg2;
 + (id)styleIDForPreset:(unsigned int)arg1 andTableArea:(int)arg2;
 + (id)regionStringForTableArea:(int)arg1;
 + (id)nonEmphasisCellProperties;
 + (id)propertiesAllowingNSNull;
 + (id)properties;
+- (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
+- (int)mixingTypeWithObject:(id)arg1;
 - (SEL)mapThemePropertyMapSelector;
 - (void)tstMapCellStylePropertyMap:(id)arg1;
 - (void)dealloc;

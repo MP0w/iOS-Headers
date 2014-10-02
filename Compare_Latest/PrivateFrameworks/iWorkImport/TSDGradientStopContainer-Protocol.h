@@ -20,9 +20,9 @@
 - (void)reverseStopOrder;
 - (TSDGradientStop *)removeStopAtIndex:(unsigned int)arg1;
 - (void)removeStop:(TSDGradientStop *)arg1;
-- (void)insertStopAtFraction:(float)arg1 withColor:(TSUColor *)arg2;
+- (TSDGradientStop *)insertStopAtFraction:(float)arg1 withColor:(TSUColor *)arg2;
 - (void)swapStopAtIndex:(unsigned int)arg1 withStopAtIndex:(unsigned int)arg2;
-- (void)insertStopAtFraction:(float)arg1;
+- (TSDGradientStop *)insertStopAtFraction:(float)arg1;
 - (void)insertGradientStop:(TSDGradientStop *)arg1;
 @end
 

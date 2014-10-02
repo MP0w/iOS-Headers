@@ -8,7 +8,7 @@
 
 #import "NSURLConnectionDataDelegate.h"
 
-@class NSMutableData, NSURLConnection, NSURLRequest;
+@class NSMutableData, NSString, NSURLConnection, NSURLRequest;
 
 @interface RUIHTTPRequest : NSObject <NSURLConnectionDataDelegate>
 {
@@ -24,6 +24,8 @@
 + (id)nonSecureConnectionNotAllowedError;
 + (id)invalidResponseError;
 + (id)serviceUnavailableError;
+@property(nonatomic) __weak id delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (BOOL)receivedValidResponse:(id)arg1;
 - (void)failWithError:(id)arg1;
 - (void)parseData:(id)arg1;
@@ -38,12 +40,16 @@
 - (BOOL)isLoading;
 - (void)cancel;
 - (void)loadRequest:(id)arg1;
-- (BOOL)loggingEnabled;
 - (void)_finishedLoading;
 - (void)_startedLoading;
-- (void)setDelegate:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

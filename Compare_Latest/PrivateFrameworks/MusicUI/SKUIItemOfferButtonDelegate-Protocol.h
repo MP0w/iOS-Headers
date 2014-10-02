@@ -12,5 +12,6 @@
 
 @optional
 - (void)itemOfferButtonWillAnimateTransition:(SKUIItemOfferButton *)arg1;
+- (void)itemOfferButtonDidAnimateTransition:(SKUIItemOfferButton *)arg1;
 @end
 

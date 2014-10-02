@@ -9,7 +9,7 @@
 #import "SKUIArtworkRequestDelegate.h"
 #import "SKUIEmbeddedMediaViewDelegate.h"
 
-@class SKUIArtwork, SKUIEmbeddedMediaView, SKUIMediaComponent;
+@class NSString, SKUIArtwork, SKUIEmbeddedMediaView, SKUIMediaComponent;
 
 @interface SKUIMediaPageSection : SKUIStorePageSection <SKUIArtworkRequestDelegate, SKUIEmbeddedMediaViewDelegate>
 {
@@ -17,7 +17,6 @@
     unsigned int _artworkRequestID;
     struct CGSize _imageSize;
     SKUIEmbeddedMediaView *_mediaView;
-    BOOL _pinned;
 }
 
 - (void).cxx_destruct;
@@ -26,13 +25,13 @@
 - (void)artworkRequest:(id)arg1 didLoadImage:(id)arg2;
 - (void)willAppearInContext:(id)arg1;
 - (void)setSectionIndex:(int)arg1;
-- (void)restorePinnedHeaderView:(id)arg1;
 - (void)prefetchResourcesWithReason:(int)arg1;
-- (id)popPinnedHeaderView;
 - (int)numberOfCells;
+- (int)defaultItemPinningStyle;
 - (float)contentInsetAdjustmentForCollectionView:(id)arg1;
 - (void)collectionViewDidSelectItemAtIndexPath:(id)arg1;
 - (void)collectionViewDidEndDisplayingCellForItemAtIndexPath:(id)arg1;
+- (void)collectionViewWillDisplayCellForItemAtIndexPath:(id)arg1;
 - (struct CGSize)cellSizeForIndexPath:(id)arg1;
 - (id)cellForIndexPath:(id)arg1;
 - (void)addImpressionsForIndexPath:(id)arg1 toSession:(id)arg2;
@@ -40,7 +39,11 @@
 - (id)initWithPageComponent:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) SKUIMediaComponent *pageComponent; // @dynamic pageComponent;
+@property(readonly) Class superclass;
 
 @end
 

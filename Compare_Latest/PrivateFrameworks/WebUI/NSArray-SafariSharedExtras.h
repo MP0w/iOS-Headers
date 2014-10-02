@@ -7,6 +7,9 @@
 #import "NSArray.h"
 
 @interface NSArray (SafariSharedExtras)
+- (id)safari_filterObjectsUsingBlock:(CDUnknownBlockType)arg1;
+- (id)safari_mapObjectsUsingBlock:(CDUnknownBlockType)arg1;
+- (id)safari_mapAndFilterObjectsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)safari_arrayAtIndex:(unsigned int)arg1;
 - (id)safari_dictionaryAtIndex:(unsigned int)arg1;
 - (id)safari_stringAtIndex:(unsigned int)arg1;

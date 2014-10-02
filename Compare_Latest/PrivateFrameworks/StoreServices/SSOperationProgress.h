@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "SSXPCCoding.h"
 
-@class NSMutableArray, NSObject<OS_dispatch_queue>;
+@class NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
 
 @interface SSOperationProgress : NSObject <SSXPCCoding, NSCopying>
 {
@@ -30,7 +30,7 @@
 - (void)_updateStatisticsFromSnapshots;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
-- (id)description;
+@property(readonly, copy) NSString *description;
 @property int units;
 - (void)snapshot;
 @property int operationType;
@@ -45,6 +45,11 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -7,10 +7,11 @@
 #import "UIViewController.h"
 
 #import "RCCurrentRecordingViewControllerDelegate.h"
+#import "RCUIServiceCurrentRecordingViewController.h"
 
-@class RCCurrentRecordingRemoteViewController, UIColor;
+@class NSString, RCAVState, RCCurrentRecordingRemoteViewController, UIColor;
 
-@interface RCCurrentRecordingViewController : UIViewController <RCCurrentRecordingViewControllerDelegate>
+@interface RCCurrentRecordingViewController : UIViewController <RCCurrentRecordingViewControllerDelegate, RCUIServiceCurrentRecordingViewController>
 {
     BOOL _screenUpdatesDisabled;
     BOOL _isDisplayingLockscreenInterface;
@@ -18,16 +19,20 @@
     UIColor *_waveformForegroundColor;
     RCCurrentRecordingRemoteViewController *_remoteViewController;
     id <RCCurrentRecordingViewControllerDelegate> _delegate;
+    RCAVState *_AVState;
 }
 
 + (Class)remoteViewControllerClass;
 + (id)serviceViewControllerClassName;
+@property(retain, nonatomic) RCAVState *AVState; // @synthesize AVState=_AVState;
 @property(nonatomic) __weak id <RCCurrentRecordingViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_failedToBecomeReadyWithMessage:(id)arg1;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (void)currentRecordingViewController:(id)arg1 didChangeAVState:(id)arg2;
 - (void)currentRecordingViewControllerRecordingDidEnd:(id)arg1;
 - (void)currentRecordingViewController:(id)arg1 didDeterminteAvailability:(BOOL)arg2;
+- (void)loadCaptureStateWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)dismissLockscreenInterface;
 - (void)presentLockscreenInterfaceWithBackgroundColor:(id)arg1 waveformForegroundColor:(id)arg2;
 - (void)setScreenUpdatesDisabled:(BOOL)arg1;
@@ -36,6 +41,12 @@
 - (BOOL)shouldAutomaticallyForwardRotationMethods;
 - (BOOL)shouldAutomaticallyForwardAppearanceMethods;
 - (id)initWithDelegate:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

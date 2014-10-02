@@ -20,6 +20,8 @@ __attribute__((visibility("hidden")))
     id <SLFacebookAlbumChooserViewControllerDelegate> _delegate;
 }
 
++ (id)_squareImageFromAlbumImage:(id)arg1;
++ (id)_blankSurrogateAlbumImage;
 @property __weak id <SLFacebookAlbumChooserViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain) NSArray *albums; // @synthesize albums=_albums;
 @property(retain) SLFacebookAlbumManager *albumManager; // @synthesize albumManager=_albumManager;
@@ -38,7 +40,6 @@ __attribute__((visibility("hidden")))
 - (void)albumManager:(id)arg1 didLoadCoverImage:(id)arg2 forAlbum:(id)arg3;
 - (void)albumManager:(id)arg1 didFailAlbumRefreshWithError:(id)arg2;
 - (void)albumManager:(id)arg1 didRefreshAlbums:(id)arg2;
-- (struct CGSize)contentSizeForViewInPopover;
 - (void)flipBackTapped:(id)arg1;
 - (void)didReceiveMemoryWarning;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

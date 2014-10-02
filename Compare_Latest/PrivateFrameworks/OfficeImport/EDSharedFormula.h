@@ -11,27 +11,27 @@
 __attribute__((visibility("hidden")))
 @interface EDSharedFormula : EDFormula
 {
-    unsigned int mBaseFormulaIndex;
-    int mRowBaseOrOffset;
-    int mColumnBaseOrOffset;
-    EDReference *mBaseFormulaRange;
+    _Bool _forceNonBaseFormula;
+    unsigned int _baseFormulaIndex;
+    int _rowBaseOrOffset;
+    int _columnBaseOrOffset;
+    EDReference *_baseFormulaRange;
 }
 
+@property(readonly, nonatomic) EDReference *baseFormulaRange; // @synthesize baseFormulaRange=_baseFormulaRange;
+@property(nonatomic) int columnBaseOrOffset; // @synthesize columnBaseOrOffset=_columnBaseOrOffset;
+@property(nonatomic) int rowBaseOrOffset; // @synthesize rowBaseOrOffset=_rowBaseOrOffset;
+@property(nonatomic) _Bool forceNonBaseFormula; // @synthesize forceNonBaseFormula=_forceNonBaseFormula;
+@property(nonatomic) unsigned int baseFormulaIndex; // @synthesize baseFormulaIndex=_baseFormulaIndex;
 - (_Bool)isSharedFormula;
 - (id)warningWithRowBlocks:(id)arg1;
-- (void)setColumnBaseOrOffset:(int)arg1;
-- (int)columnBaseOrOffset;
-- (void)setRowBaseOrOffset:(int)arg1;
-- (int)rowBaseOrOffset;
 - (_Bool)isBaseFormula;
 - (id)baseFormulaWithRowBlocks:(id)arg1;
-- (void)setBaseFormulaIndex:(unsigned int)arg1;
-- (unsigned int)baseFormulaIndex;
+- (_Bool)convertTokensToShared;
 - (void)dealloc;
 - (id)init;
 - (id)initWithFormula:(id)arg1;
 - (void)updateBaseFormulaRangeWithRow:(int)arg1 column:(int)arg2;
-- (id)baseFormulaRange;
 - (void)archiveByAppendingToMutableData:(struct __CFData *)arg1;
 - (void)unarchiveFromData:(struct __CFData *)arg1 offset:(unsigned int *)arg2;
 

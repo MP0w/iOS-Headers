@@ -29,7 +29,7 @@
 - (void)_startAnimation;
 - (void)_prepareAnimation;
 - (id)_animationProgressDependency;
-- (_Bool)_animationShouldStart;
+- (_Bool)_waitsForApplicationActivationIfNecessary;
 - (void)dealloc;
 - (id)initFromAlertImpersonator:(id)arg1 toApp:(id)arg2 starkScreenController:(id)arg3;
 - (id)initFromApp:(id)arg1 toAlertImpersonator:(id)arg2 starkScreenController:(id)arg3;

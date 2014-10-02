@@ -22,6 +22,7 @@
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithLoadingRequest:(id)arg1 requestedOffset:(long long)arg2 requestedLength:(int)arg3 canSupplyIncrementalDataImmediately:(BOOL)arg4;
+- (id)init;
 
 @end
 

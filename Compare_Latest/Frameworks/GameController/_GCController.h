@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     id <GCNamedProfile> _profile;
     struct __IOHIDDevice *_deviceRef;
     unsigned int _service;
+    unsigned int _deviceHash;
 }
 
 + (BOOL)supportsSecureCoding;
@@ -29,8 +30,10 @@ __attribute__((visibility("hidden")))
 - (void)setControllerPausedHandler:(CDUnknownBlockType)arg1;
 - (CDUnknownBlockType)controllerPausedHandler;
 - (void).cxx_destruct;
+- (id)motion;
 - (id)extendedGamepad;
 - (id)gamepad;
+- (id)description;
 - (void)setPlayerIndex:(int)arg1;
 - (int)playerIndex;
 - (BOOL)isAttachedToDevice;
@@ -38,7 +41,9 @@ __attribute__((visibility("hidden")))
 - (void)clearDeviceRef;
 - (id)initWithDeviceRef:(struct __IOHIDDevice *)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (void)dealloc;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithProfile:(id)arg1;
 - (unsigned int)deviceHash;
 
 @end

@@ -6,25 +6,29 @@
 
 #import "UIView.h"
 
-@class UIButton;
+@class MPUTransportButtonAttributes, NSArray, NSMutableDictionary, UIButton, UIButton<MPUTransportButton>, UIFont;
 
 @interface MPUTransportControlsView : UIView
 {
-    UIButton *_leftButton;
-    UIButton *_middleButton;
-    UIButton *_rightButton;
+    UIButton<MPUTransportButton> *_leftButton;
+    UIButton<MPUTransportButton> *_middleButton;
+    UIButton<MPUTransportButton> *_rightButton;
+    MPUTransportButtonAttributes *_leftButtonAttributes;
+    MPUTransportButtonAttributes *_middleButtonAttributes;
+    MPUTransportButtonAttributes *_rightButtonAttributes;
+    NSMutableDictionary *_availableControlsByGroup;
     UIButton *_shuffleButton;
     UIButton *_repeatButton;
-    int _substyle;
     struct UIEdgeInsets _insetsForExpandingButtons;
+    BOOL _useCustomHighlightAppearance;
     BOOL _alwaysLive;
     BOOL _showAccessoryButtons;
     BOOL _showIsPlaying;
-    int _style;
-    int _availableControls;
-    int _highlightedControls;
+    NSArray *_availableControls;
+    UIFont *_displayedSkipIntervalFont;
     unsigned int _repeatType;
     unsigned int _shuffleType;
+    Class _transportButtonClass;
     id <MPUTransportControlsViewDelegate> _delegate;
     double _displayedSkipForwardInterval;
     double _displayedSkipBackwardInterval;
@@ -32,49 +36,46 @@
 
 + (id)_skipIntervalButtonImageForInterval:(double)arg1 baseImage:(id)arg2 font:(id)arg3 scale:(float)arg4;
 + (id)_stringForDisplayedSkipInterval:(double)arg1;
++ (id)defaultTransportControls;
 @property(nonatomic) __weak id <MPUTransportControlsViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) Class transportButtonClass; // @synthesize transportButtonClass=_transportButtonClass;
 @property(nonatomic) BOOL showIsPlaying; // @synthesize showIsPlaying=_showIsPlaying;
 @property(nonatomic) unsigned int shuffleType; // @synthesize shuffleType=_shuffleType;
 @property(nonatomic) unsigned int repeatType; // @synthesize repeatType=_repeatType;
 @property(nonatomic) BOOL showAccessoryButtons; // @synthesize showAccessoryButtons=_showAccessoryButtons;
+@property(retain, nonatomic) UIFont *displayedSkipIntervalFont; // @synthesize displayedSkipIntervalFont=_displayedSkipIntervalFont;
 @property(nonatomic) double displayedSkipBackwardInterval; // @synthesize displayedSkipBackwardInterval=_displayedSkipBackwardInterval;
 @property(nonatomic) double displayedSkipForwardInterval; // @synthesize displayedSkipForwardInterval=_displayedSkipForwardInterval;
 @property(nonatomic, getter=isAlwaysLive) BOOL alwaysLive; // @synthesize alwaysLive=_alwaysLive;
-@property(nonatomic) int highlightedControls; // @synthesize highlightedControls=_highlightedControls;
-@property(nonatomic) int availableControls; // @synthesize availableControls=_availableControls;
-@property(readonly, nonatomic) int style; // @synthesize style=_style;
+@property(copy, nonatomic) NSArray *availableControls; // @synthesize availableControls=_availableControls;
 - (void).cxx_destruct;
-- (id)_skipIntervalButtonImageForInterval:(double)arg1;
+- (void)_restoreButtonHighlightAfterTouchUpForButton:(id)arg1;
 - (id)_accessoryButtonEmphasizedTextAttributes;
 - (id)_accessoryButtonTextAttributes;
-- (struct CGPath *)_createGlowPathForButton:(id)arg1;
-- (id)_classBundleImageNamed:(id)arg1;
-- (void)_setImage:(id)arg1 forButton:(id)arg2;
-- (void)_animateFadeGlowForButton:(id)arg1;
-- (void)_addGlowToButton:(id)arg1;
+- (struct CGSize)_transportControlButtonSize;
+- (void)_layoutButton:(id)arg1 withAttributes:(id)arg2 frame:(struct CGRect)arg3 inExpandedTouchRect:(struct CGRect)arg4;
 - (void)_accessoryControlTap:(id)arg1;
+- (void)_transportControlTouchExited:(id)arg1;
+- (void)_transportControlTouchEntered:(id)arg1;
 - (void)_transportControlLongPressEnd:(id)arg1;
 - (void)_transportControlLongPressBegin:(id)arg1;
 - (void)_transportControlTap:(id)arg1;
-- (void)_transportControlDeactivate:(id)arg1;
-- (void)_transportControlActivate:(id)arg1;
-- (void)_updateTransportControlHighlightedStates;
+- (void)_updateTransportControlButtonsAndDeferApplyingAttributes:(BOOL)arg1;
 - (void)_updateTransportControlButtons;
-- (id)_createAccessoryButtonWithStyle:(int)arg1;
-- (id)_createTransportButtonWithStyle:(int)arg1;
-- (void)_setInsetsForExpandingButtons:(struct UIEdgeInsets)arg1;
-- (struct UIEdgeInsets)_insetsForExpandingButtons;
-- (void)_setSubstyle:(int)arg1;
-- (int)_substyle;
-- (id)_repeatButton;
-- (id)_shuffleButton;
-- (id)_rightButton;
-- (id)_middleButton;
-- (id)_leftButton;
-- (void)_updateMiddleButtonProperties;
-- (void)_layoutButton:(id)arg1 withNewFrame:(struct CGRect)arg2 inExpandedTouchRect:(struct CGRect)arg3;
+- (void)_reloadTransportButtons;
+- (id)_createAccessoryButton;
+- (id)_createTransportButton;
+- (void)_configureButton:(id)arg1 withAttributes:(id)arg2 forTransportControl:(id)arg3 deferApplyingAttributes:(BOOL)arg4;
+- (void)_clearTransportButtonWeakReferencesToSelf;
+- (id)_availableControlForGroup:(int)arg1;
+- (struct CGRect)_adjustedFrameForButton:(id)arg1 proposedFrame:(struct CGRect)arg2;
+- (id)_transportButtonForControlType:(int)arg1;
+@property(nonatomic, setter=_setInsetsForExpandingButtons:) struct UIEdgeInsets _insetsForExpandingButtons;
+- (void)reload;
+- (id)availableTransportControlWithType:(int)arg1;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
-- (id)initWithStyle:(int)arg1;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

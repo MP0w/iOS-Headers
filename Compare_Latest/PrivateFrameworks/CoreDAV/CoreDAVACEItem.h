@@ -20,12 +20,12 @@
 
 + (id)privilegeItemWithNameSpace:(id)arg1 andName:(id)arg2;
 + (id)copyParseRules;
-@property(retain) CoreDAVItemWithHrefChildItem *inherited; // @synthesize inherited=_inherited;
-@property(retain) CoreDAVItemWithNoChildren *protectedItem; // @synthesize protectedItem=_protectedItem;
-@property(retain) CoreDAVDenyItem *deny; // @synthesize deny=_deny;
-@property(retain) CoreDAVGrantItem *grant; // @synthesize grant=_grant;
-@property(retain) CoreDAVInvertItem *invert; // @synthesize invert=_invert;
-@property(retain) CoreDAVPrincipalItem *principal; // @synthesize principal=_principal;
+@property(retain, nonatomic) CoreDAVItemWithHrefChildItem *inherited; // @synthesize inherited=_inherited;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *protectedItem; // @synthesize protectedItem=_protectedItem;
+@property(retain, nonatomic) CoreDAVDenyItem *deny; // @synthesize deny=_deny;
+@property(retain, nonatomic) CoreDAVGrantItem *grant; // @synthesize grant=_grant;
+@property(retain, nonatomic) CoreDAVInvertItem *invert; // @synthesize invert=_invert;
+@property(retain, nonatomic) CoreDAVPrincipalItem *principal; // @synthesize principal=_principal;
 - (void)write:(id)arg1;
 - (id)description;
 - (void)dealloc;

@@ -9,7 +9,7 @@
 #import "UIAlertViewDelegate.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class EKCalendarDate, EKDayOccurrenceView, EKEvent, NSTimer, UILongPressGestureRecognizer;
+@class EKCalendarDate, EKDayOccurrenceView, EKEvent, NSString, NSTimer, UILongPressGestureRecognizer;
 
 @interface EKEventGestureController : NSObject <UIGestureRecognizerDelegate, UIAlertViewDelegate>
 {
@@ -45,8 +45,12 @@
     BOOL _commitBlocked;
     id <EKEventGestureControllerUntimedDelegate> _untimedDelegate;
     id <EKEventGestureControllerDelegate> _delegate;
+    NSString *_sessionIdentifierForDebug;
+    EKDayOccurrenceView *_draggingViewSource;
 }
 
+@property(retain, nonatomic) EKDayOccurrenceView *draggingViewSource; // @synthesize draggingViewSource=_draggingViewSource;
+@property(retain, nonatomic) NSString *sessionIdentifierForDebug; // @synthesize sessionIdentifierForDebug=_sessionIdentifierForDebug;
 @property(readonly, nonatomic) EKDayOccurrenceView *draggingView; // @synthesize draggingView=_draggingView;
 @property(readonly, nonatomic) struct CGPoint touchOffset; // @synthesize touchOffset=_touchOffset;
 @property(readonly, nonatomic) struct CGPoint latestTouchPoint; // @synthesize latestTouchPoint=_latestTouchPoint;
@@ -58,6 +62,7 @@
 @property(nonatomic) __weak id <EKEventGestureControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak id <EKEventGestureControllerUntimedDelegate> untimedDelegate; // @synthesize untimedDelegate=_untimedDelegate;
 - (void).cxx_destruct;
+- (float)_Debug_HoursSinceStartOfDay:(double)arg1;
 - (BOOL)_isPointInCancelRegion:(struct CGPoint)arg1;
 - (struct CGPoint)_computeOriginAtTouchPoint:(struct CGPoint)arg1 forDate:(double)arg2 isAllDay:(BOOL)arg3 allowXOffset:(BOOL)arg4 allowFloorAtRegionBottom:(BOOL)arg5;
 - (float)_computeHeightForOccurrenceViewOfDuration:(double)arg1 allDay:(BOOL)arg2;
@@ -69,6 +74,7 @@
 - (void)_cancel;
 - (void)_commit;
 - (void)_update;
+- (float)_minimumDuration;
 - (void)_setUpAfterForcedStartFromPoint:(struct CGPoint)arg1;
 - (void)_setTouchOffsetsFromPoint:(struct CGPoint)arg1;
 - (void)_setUpAtPoint:(struct CGPoint)arg1;
@@ -79,17 +85,27 @@
 - (void)_commitUntimed;
 - (void)_longPress:(id)arg1;
 - (void)endForcedStart;
-- (void)forceStartWithOccurrence:(id)arg1;
+- (void)forceStartWithOccurrence:(id)arg1 shouldUpdateViewSource:(BOOL)arg2 shouldUpdateOrigin:(BOOL)arg3;
+- (void)updateDraggingOccurrenceFrameFromSource;
+- (void)updateDraggingOccurrenceOrigin;
 - (BOOL)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (BOOL)isDraggingOccurrence;
 - (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)promptUserForRecurrenceActionOnOccurrence:(id)arg1 whenFinished:(CDUnknownBlockType)arg2;
 - (void)removeDraggedOccurrence;
+- (void)updateDraggingOccurrenceFrame;
+- (struct CGRect)_calculateFrameForDraggingViewIncludingTravelTime:(BOOL)arg1;
 - (void)updateDraggingOccurrenceForced:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)updateDraggingOccurrence;
 - (void)invalidate;
 - (void)dealloc;
 - (id)initWithView:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

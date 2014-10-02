@@ -22,8 +22,10 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned int zOrderIntersectionsCount; // @synthesize zOrderIntersectionsCount=_zOrderIntersectionsCount;
 - (void)p_calculateTextureArraysFromIntersections;
 - (unsigned int)p_bestZIndexForUnassignedMatch:(id)arg1 inMatchArray:(id)arg2;
+- (id)p_debugDescription;
 - (unsigned int)p_zIntersectionsBetweenZOrdererMatches:(id)arg1;
 - (void)p_setupZOrderMatchesWithAnimationMatches:(id)arg1;
+- (void)p_adjustZOrdererMatchesZIndexByTextureType:(id)arg1;
 - (id)p_arrayBySortingMatches:(id)arg1 withInterpolatedPercent:(float)arg2;
 - (void)p_addVisibleTexturesFromMatches:(id)arg1 toArray:(id)arg2 interpolatedPercent:(float)arg3;
 - (id)texturedRectanglesAtPercent:(double)arg1;

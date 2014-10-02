@@ -4,26 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <VectorKit/VKDrawStyle.h>
+#import <VectorKit/VKRenderStyle.h>
 
 @class NSString;
 
 __attribute__((visibility("hidden")))
-@interface VKGridDrawStyle : VKDrawStyle
+@interface VKGridDrawStyle : VKRenderStyle
 {
-    NSString *_texture;
-    struct _VGLColor _fillColor;
-    struct _VGLColor _lineColor;
 }
 
-@property(readonly, nonatomic) NSString *texture; // @synthesize texture=_texture;
-- (id).cxx_construct;
-@property(readonly, nonatomic) struct _VGLColor lineColor;
-@property(readonly, nonatomic) struct _VGLColor fillColor;
-- (void)takeFromZoomInvariantProperties:(id)arg1;
-- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2 globals:(id)arg3;
-- (id)variant;
-- (void)dealloc;
++ (int)renderStyleID;
+@property(readonly, nonatomic) Matrix_5173352a lineColor;
+@property(readonly, nonatomic) Matrix_5173352a fillColor;
+@property(readonly, nonatomic) NSString *texture;
 
 @end
 

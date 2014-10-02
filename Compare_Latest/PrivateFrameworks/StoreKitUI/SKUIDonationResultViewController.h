@@ -8,7 +8,7 @@
 
 #import "SKUIDonationConfigurationObserver.h"
 
-@class SKUIDonationResultView, SKUIGiftAmount;
+@class NSString, SKUIDonationResultView, SKUIGiftAmount;
 
 @interface SKUIDonationResultViewController : SKUIDonationStepViewController <SKUIDonationConfigurationObserver>
 {
@@ -22,6 +22,12 @@
 - (void)donationConfigurationController:(id)arg1 didLoadLogoForCharity:(id)arg2;
 - (void)loadView;
 - (id)initWithCharity:(id)arg1 configuration:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

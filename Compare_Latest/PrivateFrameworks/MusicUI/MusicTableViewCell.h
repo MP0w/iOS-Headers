@@ -16,9 +16,11 @@
 
 + (Class)contentViewClass;
 @property(nonatomic) float maximumContentViewHeight; // @synthesize maximumContentViewHeight=_maximumContentViewHeight;
-@property(retain, nonatomic) MusicTableViewCellContentView *cellContentView; // @synthesize cellContentView=_cellContentView;
+@property(readonly, nonatomic) MusicTableViewCellContentView *cellContentView; // @synthesize cellContentView=_cellContentView;
 - (void).cxx_destruct;
+- (void)prepareForReuse;
 - (void)layoutSubviews;
+- (struct UIEdgeInsets)layoutMargins;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end

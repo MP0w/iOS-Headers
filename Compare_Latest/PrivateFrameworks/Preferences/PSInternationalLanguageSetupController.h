@@ -6,21 +6,42 @@
 
 #import <Preferences/PSSetupController.h>
 
-@class NSString;
+#import "UIActionSheetDelegate.h"
+#import "UIAlertViewDelegate.h"
 
-@interface PSInternationalLanguageSetupController : PSSetupController
+@class NSString, PSLanguageSelector;
+
+@interface PSInternationalLanguageSetupController : PSSetupController <UIActionSheetDelegate, UIAlertViewDelegate>
 {
     NSString *_languageToSet;
+    BOOL _notOfficialLanguage;
+    BOOL _useOfficialLanguages;
+    PSLanguageSelector *_languageSelector;
 }
 
+@property(retain, nonatomic) PSLanguageSelector *languageSelector; // @synthesize languageSelector=_languageSelector;
+- (void)changeLanguageWithIndex:(unsigned int)arg1 tag:(unsigned int)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (BOOL)disablesAutomaticKeyboardDismissal;
 - (void)setupController;
+- (BOOL)useOfficialLanguages;
 - (id)language:(id)arg1;
 - (void)setLanguage:(id)arg1 specifier:(id)arg2;
+- (void)setNotOfficialLanguage:(BOOL)arg1;
 - (void)didFinishCommit;
+- (void)saveLanguage:(BOOL)arg1;
 - (void)commit;
-- (void)rotateView:(id)arg1 toOrientation:(int)arg2;
-- (void)showBlackViewWithLabel:(id)arg1;
+- (void)showBlackViewWithLabel:(id)arg1 moveLanguageToTop:(BOOL)arg2 withLanguageIdentifier:(id)arg3;
 - (void)dealloc;
+- (id)init;
+- (id)initWithOfficialLanguages;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 - (void)removeUnnecessaryOverrides;
 - (void)setProperties:(id)arg1;
 - (id)properties;
+- (unsigned int)characterCount;
 - (BOOL)isEmpty;
 - (void)dealloc;
 - (id)init;

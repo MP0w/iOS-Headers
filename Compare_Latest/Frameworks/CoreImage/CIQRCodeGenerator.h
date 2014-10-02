@@ -18,7 +18,6 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *inputCorrectionLevel; // @synthesize inputCorrectionLevel;
 - (struct CGImage *)outputCGImage;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
-- (void)setDefaults;
 
 @end
 

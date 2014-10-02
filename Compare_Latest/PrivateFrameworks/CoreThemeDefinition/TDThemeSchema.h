@@ -18,6 +18,7 @@
 - (void)loadSchemaDefinitions;
 - (void)loadSchemaCategories;
 - (void)loadStandardEffectDefinitions;
+- (void)loadTemplateRenderingModeConstants;
 - (void)loadEffectConstants;
 - (void)loadDefaultFontCustomizations;
 - (void)loadMetafontSizes;
@@ -31,6 +32,7 @@
 - (void)loadThemeDefaultLook;
 - (void)loadThemeLooks;
 - (void)loadIterationTypes;
+- (void)loadThemeUISizeClasses;
 - (void)loadThemeIdioms;
 - (void)loadThemeDrawingLayers;
 - (void)loadThemeDirections;
@@ -48,6 +50,7 @@
 - (void)_sanityCheckSchemaCategoriesAndUpdateIfNecessary;
 - (void)_addSchemaPartDefinitionsForStandardElement:(const CDStruct_9508427b *)arg1 withElement:(id)arg2;
 - (void)_sanityCheckSchemaPartDefinitionsForStandardElement:(const CDStruct_9508427b *)arg1 withElement:(id)arg2;
+- (void)_sanityCheckColorNamesAndUpdateIfNecessary;
 - (void)_sanityCheckMetafontSizeSelectorsAndUpdateIfNecessary;
 - (void)_sanityCheckObjectsWithEntityName:(id)arg1 globalDescriptor:(void *)arg2 matchIdentifierOnly:(BOOL)arg3;
 - (void)dealloc;

@@ -11,7 +11,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class ABContactViewController, ABPersonTableViewActionsDelegate, ABPersonTableViewDataSource, ABPersonTableViewSharingDelegate, ABPersonViewControllerHelper, ABUIPerson, NSArray, NSMutableArray, NSString, UIActionSheet, UIFont, UIImage, UITableView, UIView;
+@class ABContactViewController, ABPersonTableViewActionsDelegate, ABPersonTableViewDataSource, ABPersonTableViewSharingDelegate, ABPersonViewControllerHelper, ABUIPerson, NSArray, NSMutableArray, NSString, UIFont, UIImage, UITableView, UIView;
 
 @interface ABUnknownPersonViewController_Modern : UIViewController <ABContactViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
 {
@@ -19,7 +19,6 @@
     void *_displayedPerson;
     BOOL _allowsActions;
     BOOL _allowsAddingToAddressBook;
-    BOOL _allowsSendingTextMessage;
     BOOL _allowsConferencing;
     BOOL _allowsContactBlocking;
     BOOL _allowsOnlyPhoneActions;
@@ -43,15 +42,11 @@
     UITableView *_vCardTableView;
     NSArray *_vCards;
     NSArray *_vCardsProperties;
-    UIActionSheet *_addAllVCardsSheet;
     NSMutableArray *_unmergedRecords;
-    UIActionSheet *_unmergedAlertSheet;
 }
 
 + (id)defaultLabelsForProperty:(int)arg1 person:(void *)arg2 addressBook:(void *)arg3;
-@property(retain, nonatomic) UIActionSheet *unmergedAlertSheet; // @synthesize unmergedAlertSheet=_unmergedAlertSheet;
 @property(retain, nonatomic) NSMutableArray *unmergedRecords; // @synthesize unmergedRecords=_unmergedRecords;
-@property(retain, nonatomic) UIActionSheet *addAllVCardsSheet; // @synthesize addAllVCardsSheet=_addAllVCardsSheet;
 @property(retain, nonatomic) NSArray *vCardsProperties; // @synthesize vCardsProperties=_vCardsProperties;
 @property(retain, nonatomic) NSArray *vCards; // @synthesize vCards=_vCards;
 @property(retain, nonatomic) UITableView *vCardTableView; // @synthesize vCardTableView=_vCardTableView;
@@ -72,7 +67,6 @@
 @property(nonatomic) BOOL allowsOnlyPhoneActions; // @synthesize allowsOnlyPhoneActions=_allowsOnlyPhoneActions;
 @property(nonatomic) BOOL allowsContactBlocking; // @synthesize allowsContactBlocking=_allowsContactBlocking;
 @property(nonatomic) BOOL allowsConferencing; // @synthesize allowsConferencing=_allowsConferencing;
-@property(nonatomic) BOOL allowsSendingTextMessage; // @synthesize allowsSendingTextMessage=_allowsSendingTextMessage;
 @property(nonatomic) BOOL allowsAddingToAddressBook; // @synthesize allowsAddingToAddressBook=_allowsAddingToAddressBook;
 @property(nonatomic) BOOL allowsActions; // @synthesize allowsActions=_allowsActions;
 @property(copy, nonatomic) NSString *message; // @synthesize message=_message;
@@ -110,7 +104,6 @@
 @property(copy, nonatomic) NSString *messageDetail;
 @property(retain, nonatomic) UIFont *messageFont;
 - (void)addToExistingContacts;
-- (void)dismissAnimated:(BOOL)arg1;
 - (id)findMatchingCardsForRecord:(void *)arg1;
 - (void)showUnmergedContactsAlert;
 - (void)addUnmergedRecords;
@@ -119,7 +112,6 @@
 - (id)primaryPropertyStringForContact:(id)arg1;
 - (void)setPrimaryProperty:(int)arg1;
 - (void)setPrimaryProperty:(int)arg1 countryCode:(id)arg2;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
@@ -144,6 +136,12 @@
 - (void)replaceActionWithTarget:(id)arg1 selector:(SEL)arg2 withTitle:(id)arg3 target:(id)arg4 selector:(SEL)arg5 location:(int)arg6 destructive:(BOOL)arg7;
 - (void)removeActionWithSelector:(SEL)arg1 target:(id)arg2 location:(int)arg3;
 - (void)addActionWithTitle:(id)arg1 target:(id)arg2 selector:(SEL)arg3 location:(int)arg4 destructive:(BOOL)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

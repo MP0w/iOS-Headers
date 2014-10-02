@@ -12,10 +12,10 @@
 {
 }
 
-@property(retain) NSString *region;
-@property(retain) NSString *language;
-@property(retain) NSString *info;
-@property(retain) NSString *feature;
+@property(retain, nonatomic) NSString *region;
+@property(retain, nonatomic) NSString *language;
+@property(retain, nonatomic) NSString *info;
+@property(retain, nonatomic) NSString *feature;
 - (void)_ICSStringWithOptions:(unsigned int)arg1 appendingToString:(id)arg2;
 
 @end

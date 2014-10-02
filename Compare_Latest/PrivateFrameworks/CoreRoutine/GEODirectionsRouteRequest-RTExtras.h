@@ -8,7 +8,6 @@
 
 @interface GEODirectionsRouteRequest (RTExtras)
 - (void)fetchDirectionsWithCompletion:(CDUnknownBlockType)arg1;
-- (id)initWithRoutineRoute:(id)arg1;
 - (id)initWithZilch:(id)arg1 departure:(double)arg2;
 - (id)initWithOrigin:(id)arg1 andDestination:(id)arg2 departure:(double)arg3;
 - (id)initWithDeparture:(double)arg1;

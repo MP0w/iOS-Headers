@@ -10,6 +10,7 @@
 
 @protocol CKMessageEntryContentViewDelegate <UIScrollViewDelegate>
 - (BOOL)messageEntryContentView:(CKMessageEntryContentView *)arg1 shouldInsertMediaObjects:(NSArray *)arg2;
+- (void)messageEntryContentViewDidEndEditing:(CKMessageEntryContentView *)arg1;
 - (void)messageEntryContentViewDidBeginEditing:(CKMessageEntryContentView *)arg1;
 - (BOOL)messageEntryContentViewShouldBeginEditing:(CKMessageEntryContentView *)arg1;
 - (void)messageEntryContentViewDidChange:(CKMessageEntryContentView *)arg1;

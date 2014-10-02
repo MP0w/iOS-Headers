@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSString;
+@class NSNumber, NSString;
 
 @interface NSURL : NSObject <NSSecureCoding, NSCopying>
 {
@@ -22,12 +22,13 @@
 + (id)bookmarkDataWithContentsOfURL:(id)arg1 error:(id *)arg2;
 + (BOOL)writeBookmarkData:(id)arg1 toURL:(id)arg2 options:(unsigned int)arg3 error:(id *)arg4;
 + (id)resourceValuesForKeys:(id)arg1 fromBookmarkData:(id)arg2;
-+ (id)URLByResolvingBookmarkData:(id)arg1 options:(unsigned int)arg2 relativeToURL:(id)arg3 bookmarkDataIsStale:(char *)arg4 error:(id *)arg5;
 + (BOOL)supportsSecureCoding;
++ (id)__unurl;
+- (void)stopAccessingSecurityScopedResource;
+- (BOOL)startAccessingSecurityScopedResource;
 - (id)bookmarkDataWithAliasRecord:(id)arg1;
-- (id)initByResolvingBookmarkData:(id)arg1 options:(unsigned int)arg2 relativeToURL:(id)arg3 bookmarkDataIsStale:(char *)arg4 error:(id *)arg5;
 - (id)bookmarkDataWithOptions:(unsigned int)arg1 includingResourceValuesForKeys:(id)arg2 relativeToURL:(id)arg3 error:(id *)arg4;
-- (id)filePathURL;
+@property(readonly, copy) NSURL *filePathURL;
 - (id)fileReferenceURL;
 - (BOOL)isFileReferenceURL;
 - (BOOL)checkResourceIsReachableAndReturnError:(id *)arg1;
@@ -38,6 +39,26 @@
 - (BOOL)setResourceValue:(id)arg1 forKey:(id)arg2 error:(id *)arg3;
 - (id)resourceValuesForKeys:(id)arg1 error:(id *)arg2;
 - (BOOL)getResourceValue:(out id *)arg1 forKey:(id)arg2 error:(out id *)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *absoluteString; // @dynamic absoluteString;
+@property(readonly, copy) NSURL *absoluteURL; // @dynamic absoluteURL;
+@property(readonly, copy) NSURL *baseURL; // @dynamic baseURL;
+@property(readonly) const char *fileSystemRepresentation; // @dynamic fileSystemRepresentation;
+@property(readonly, getter=isFileURL) BOOL fileURL; // @dynamic fileURL;
+@property(readonly, copy) NSString *fragment; // @dynamic fragment;
+@property(readonly, copy) NSString *host; // @dynamic host;
+@property(readonly, copy) NSString *parameterString; // @dynamic parameterString;
+@property(readonly, copy) NSString *password; // @dynamic password;
+@property(readonly, copy) NSString *path; // @dynamic path;
+@property(readonly, copy) NSNumber *port; // @dynamic port;
+@property(readonly, copy) NSString *query; // @dynamic query;
+@property(readonly, copy) NSString *relativePath; // @dynamic relativePath;
+@property(readonly, copy) NSString *relativeString; // @dynamic relativeString;
+@property(readonly, copy) NSString *resourceSpecifier; // @dynamic resourceSpecifier;
+@property(readonly, copy) NSString *scheme; // @dynamic scheme;
+@property(readonly, copy) NSURL *standardizedURL; // @dynamic standardizedURL;
+@property(readonly, copy) NSString *user; // @dynamic user;
 
 @end
 

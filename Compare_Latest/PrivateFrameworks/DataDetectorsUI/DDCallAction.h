@@ -11,6 +11,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (BOOL)isAvailable;
+- (int)interactionType;
 - (void)perform;
 - (id)localizedName;
 - (BOOL)_titleFitsInActionSheet:(id)arg1;

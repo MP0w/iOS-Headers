@@ -9,7 +9,7 @@
 #import "RUILoaderDelegate.h"
 #import "RUIObjectModelDelegate.h"
 
-@class NSMutableArray, NSObject<AAUICredentialRecoveryPresentationDelegate>, NSURL, RUILoader, RUIPage, UINavigationController, UIViewController;
+@class NSMutableArray, NSObject<AAUICredentialRecoveryPresentationDelegate>, NSString, NSURL, RUILoader, RUIPage, UIActivityIndicatorView, UIBarButtonItem, UINavigationController, UINavigationItem, UIViewController;
 
 @interface AAUICredentialRecoveryController : NSObject <RUIObjectModelDelegate, RUILoaderDelegate>
 {
@@ -21,6 +21,10 @@
     UIViewController *_presentationViewController;
     UIViewController *_navigationBaseViewController;
     BOOL _isModal;
+    UIActivityIndicatorView *_spinnerView;
+    UIBarButtonItem *_originalRightBarButtonItem;
+    UINavigationItem *_navigationItemShowingSpinner;
+    BOOL _isShowingSpinner;
     NSObject<AAUICredentialRecoveryPresentationDelegate> *_delegate;
 }
 
@@ -35,6 +39,8 @@
 - (void)objectModel:(id)arg1 pressedLink:(id)arg2 httpMethod:(id)arg3;
 - (void)loader:(id)arg1 receivedObjectModel:(id)arg2 actionSignal:(int)arg3;
 - (void)loader:(id)arg1 didFailWithError:(id)arg2;
+- (void)_hideActivitySpinnerInNavigationBar;
+- (void)_showActivitySpinnerInNavigationBar;
 - (void)_cancelButtonTapped:(id)arg1;
 - (void)_finishPresentationWithSuccess:(BOOL)arg1;
 - (void)_addHeadersToRequest:(id)arg1;
@@ -44,6 +50,12 @@
 - (id)remoteUIURL;
 - (id)initWithRemoteUIURL:(id)arg1 modalPresentation:(BOOL)arg2;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

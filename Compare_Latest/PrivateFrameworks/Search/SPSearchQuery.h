@@ -20,8 +20,10 @@
     int _nextDomainIndex;
     double _creationTime;
     double _cancellationTime;
+    BOOL _extendedTime;
 }
 
+@property(nonatomic) BOOL extendedTime; // @synthesize extendedTime=_extendedTime;
 @property(readonly, nonatomic) NSArray *searchDomains; // @synthesize searchDomains=_searchDomains;
 @property(readonly, nonatomic) double cancellationTime; // @synthesize cancellationTime=_cancellationTime;
 @property(readonly, nonatomic) double creationTime; // @synthesize creationTime=_creationTime;

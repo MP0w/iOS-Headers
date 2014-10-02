@@ -9,6 +9,7 @@
 @interface EKEvent (AttendeeSorting)
 - (BOOL)hasHumanInviteesToDisplay;
 - (id)sortedEKParticipantsDisplayStringsIgnoringNonHumans:(id)arg1;
+- (id)_commentIconString;
 - (id)sortEKParticipantsIgnoringNonHumans:(id)arg1;
 - (id)_sortedEKParticipantsForSortingIgnoringNonHumans:(id)arg1;
 @end

@@ -16,12 +16,18 @@
 
 + (Class)imageDataClass;
 + (BOOL)isPreviewable;
++ (id)attachmentSummary:(unsigned int)arg1;
 + (id)fallbackFilenamePrefix;
 + (id)UTITypes;
-@property(readonly, nonatomic) CKImageData *imageData;
-- (id)generateThumbnailFillToSize:(struct CGSize)arg1;
-- (id)generateThumbnail;
++ (Class)__ck_attachmentItemClass;
+@property(readonly, retain, nonatomic) CKImageData *imageData;
+- (BOOL)canBeAttachmentContiguous;
+- (void)export:(id)arg1;
+- (BOOL)canExport;
+- (id)generateThumbnailFillToSize:(struct CGSize)arg1 contentAlignmentInsets:(struct UIEdgeInsets)arg2;
+- (id)generateThumbnailForWidth:(float)arg1 orientation:(BOOL)arg2;
 - (struct CGSize)bbSize;
+- (id)location;
 - (int)mediaType;
 - (void)dealloc;
 

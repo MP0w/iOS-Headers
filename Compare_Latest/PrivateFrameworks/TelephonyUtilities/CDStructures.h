@@ -8,10 +8,3 @@
 
 typedef void (^CDUnknownBlockType)(void); // return type and parameters are unknown
 
-#pragma mark Named Structures
-
-struct _opaque_pthread_mutex_t {
-    long __sig;
-    char __opaque[40];
-};
-

@@ -34,7 +34,7 @@
 - (struct CGImage *)copyCGImageAtTime:(CDStruct_1b6d18a9)arg1 actualTime:(CDStruct_1b6d18a9 *)arg2 error:(id *)arg3;
 - (id)_makeAutoreleasedAssetReader;
 - (struct __CFDictionary *)_createPixelBufferAttributesWithSize:(struct CGSize)arg1;
-- (void)_ensureFigAssetImageGenerator;
+- (BOOL)_ensureFigAssetImageGeneratorReturningError:(id *)arg1;
 @property(readonly, nonatomic) AVAsset *asset;
 - (void)finalize;
 - (void)dealloc;

@@ -8,7 +8,7 @@
 
 #import "SBAlertManagerObserver.h"
 
-@class SBAlertManager, SBStarkScreenController;
+@class NSString, SBAlertManager, SBStarkScreenController;
 
 @interface SBStarkWorkspaceTransaction : SBWorkspaceTransaction <SBAlertManagerObserver>
 {
@@ -17,20 +17,18 @@
     SBAlertManager *_mainScreenAlertManager;
 }
 
-- (void)alertManager:(id)arg1 didDeactivateAlert:(id)arg2 top:(_Bool)arg3;
-- (void)alertManager:(id)arg1 willDeactivateAlert:(id)arg2 top:(_Bool)arg3;
-- (void)alertManager:(id)arg1 didActivateAlert:(id)arg2 overAlerts:(id)arg3;
-- (void)alertManager:(id)arg1 willActivateAlert:(id)arg2 overAlerts:(id)arg3;
-- (_Bool)selfStarkAlertDidDeactivate:(id)arg1;
-- (_Bool)selfStarkAlertWillDeactivate:(id)arg1;
-- (_Bool)selfStarkAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
-- (_Bool)selfStarkAlertWillActivate:(id)arg1 overAlerts:(id)arg2;
-- (void)_transactionComplete;
-@property(readonly, nonatomic) SBAlertManager *starkScreenAlertManager; // @synthesize starkScreenAlertManager=_starkScreenAlertManager;
-@property(readonly, nonatomic) SBStarkScreenController *starkScreenController;
-@property(readonly, nonatomic) SBAlertManager *mainScreenAlertManager; // @dynamic mainScreenAlertManager;
+- (void)_didComplete;
+@property(readonly, retain, nonatomic) SBAlertManager *starkScreenAlertManager; // @synthesize starkScreenAlertManager=_starkScreenAlertManager;
+@property(readonly, retain, nonatomic) SBStarkScreenController *starkScreenController;
+@property(readonly, retain, nonatomic) SBAlertManager *mainScreenAlertManager; // @dynamic mainScreenAlertManager;
 - (void)dealloc;
-- (id)initWithWorkspace:(id)arg1 mainScreenAlertManager:(id)arg2 starkScreenController:(id)arg3;
+- (id)initWithMainScreenAlertManager:(id)arg1 starkScreenController:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

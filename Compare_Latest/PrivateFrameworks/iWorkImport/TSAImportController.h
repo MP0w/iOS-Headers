@@ -11,7 +11,7 @@
 #import "TSKImportExportDelegate.h"
 #import "TSPObjectContextDelegate.h"
 
-@class NSError, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_group>, NSOperationQueue, NSString, NSURL, TSPObjectContext, TSUProgressContext, TSUTemporaryDirectory;
+@class NSError, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_group>, NSOperationQueue, NSString, NSURL, NSUUID, TSPObjectContext, TSUProgressContext, TSUTemporaryDirectory;
 
 __attribute__((visibility("hidden")))
 @interface TSAImportController : NSObject <TSADocumentRootDelegate, TSPObjectContextDelegate, NSFilePresenter, TSKImportExportDelegate>
@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_deferredWriters;
     struct {
         unsigned int success:1;
+        unsigned int isPasswordProtected:1;
         unsigned int isCleanedUp:1;
         unsigned int isImportCancelled:1;
         unsigned int preserveDocumentAfterImport:1;
@@ -46,8 +47,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSError *error; // @synthesize error=_error;
 @property(readonly, nonatomic) NSString *sourcePath; // @synthesize sourcePath=_sourcePath;
 @property(nonatomic) id <TSAImportDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly) NSURL *presentedItemURL; // @synthesize presentedItemURL=_presentedItemURL;
-@property(readonly) NSOperationQueue *presentedItemOperationQueue; // @synthesize presentedItemOperationQueue=_presentedItemOperationQueue;
+@property(readonly, copy) NSURL *presentedItemURL; // @synthesize presentedItemURL=_presentedItemURL;
+@property(readonly, retain) NSOperationQueue *presentedItemOperationQueue; // @synthesize presentedItemOperationQueue=_presentedItemOperationQueue;
 @property(readonly, nonatomic) BOOL areNewExternalReferencesToDataAllowed;
 - (void)addPersistenceWarnings:(id)arg1;
 - (void)presentPersistenceError:(id)arg1;
@@ -61,17 +62,19 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *name;
 - (void)_setPresentedItemURL:(id)arg1;
 - (void)removeFilePresenter;
+- (void)presentedItemDidMoveToURL:(id)arg1;
 - (void)relinquishPresentedItemToWriter:(CDUnknownBlockType)arg1;
 - (id)_prepareTemplate:(id)arg1;
 @property(nonatomic) BOOL preserveDocumentAfterImport;
 @property(readonly, nonatomic) BOOL isBrowsingVersions;
+@property(readonly, nonatomic) BOOL isPasswordProtected;
 @property(readonly, nonatomic) BOOL isImportCancelled;
 - (void)cancelImport;
 - (void)finishImportWithSuccess:(BOOL)arg1 error:(id)arg2;
 - (void)didSaveImportedDocumentWithPassphrase:(id)arg1;
 - (void)willSaveImportedDocument;
 - (void)_performImportWithCompletedSteps:(int)arg1;
-- (BOOL)_saveContextToURL:(id)arg1 passphrase:(id)arg2 originalURL:(id)arg3 documentUUID:(id)arg4 error:(id *)arg5;
+- (BOOL)_saveContextToTemporaryURL:(id)arg1 passphrase:(id)arg2 originalURL:(id)arg3 documentUUID:(id)arg4 error:(id *)arg5;
 - (BOOL)needsFileCoordination;
 - (id)templateInfoWithName:(id)arg1 variantIndex:(unsigned int)arg2;
 - (id)templateInfoWithName:(id)arg1;
@@ -93,11 +96,18 @@ __attribute__((visibility("hidden")))
 - (id)initWithPath:(id)arg1 delegate:(id)arg2;
 
 // Remaining properties
+@property(readonly, nonatomic) NSUUID *baseUUIDForObjectUUID;
+@property(readonly, nonatomic) BOOL canUpgradeDocumentSupport;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) NSString *documentCachePath;
 @property(readonly, nonatomic) id <NSFilePresenter> filePresenter;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) BOOL importingDesignDemoDoc;
 @property(readonly, nonatomic) BOOL isDocumentSupportTemporary;
-@property(readonly) NSURL *primaryPresentedItemURL;
+@property(readonly, nonatomic) BOOL preserveDocumentRevisionIdentifierForSequenceZero;
+@property(readonly, copy) NSURL *primaryPresentedItemURL;
+@property(readonly) Class superclass;
 
 @end
 

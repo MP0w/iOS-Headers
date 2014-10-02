@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class NSString, WDWebService;
+@class NSString, PDWebService;
 
 @protocol PDDatabaseManagerWebServicesDelegate <NSObject>
-- (void)handlePushDisabled:(NSString *)arg1 authToken:(NSString *)arg2 webService:(WDWebService *)arg3;
-- (void)handlePushEnabled:(NSString *)arg1 authToken:(NSString *)arg2 webService:(WDWebService *)arg3;
-- (void)handleModification:(NSString *)arg1 webService:(WDWebService *)arg2 pushEnabled:(BOOL)arg3 source:(int)arg4;
-- (void)handleDeletion:(NSString *)arg1 authToken:(NSString *)arg2 webService:(WDWebService *)arg3 pushEnabled:(BOOL)arg4;
-- (void)handleInsertion:(NSString *)arg1 authToken:(NSString *)arg2 webService:(WDWebService *)arg3 pushEnabled:(BOOL)arg4 source:(int)arg5;
+- (void)handlePushDisabled:(NSString *)arg1 authToken:(NSString *)arg2 webService:(PDWebService *)arg3;
+- (void)handlePushEnabled:(NSString *)arg1 authToken:(NSString *)arg2 webService:(PDWebService *)arg3;
+- (void)handleModification:(NSString *)arg1 webService:(PDWebService *)arg2 pushEnabled:(BOOL)arg3 source:(int)arg4;
+- (void)handleDeletion:(NSString *)arg1 authToken:(NSString *)arg2 webService:(PDWebService *)arg3 pushEnabled:(BOOL)arg4;
+- (void)handleInsertion:(NSString *)arg1 authToken:(NSString *)arg2 webService:(PDWebService *)arg3 pushEnabled:(BOOL)arg4 source:(int)arg5;
 @end
 

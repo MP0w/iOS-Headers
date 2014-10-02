@@ -40,9 +40,9 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initFromReader:(struct OcReader *)arg1 type:(unsigned short)arg2 version:(unsigned short)arg3;
 - (id)initWithEshObject:(struct EshObject *)arg1;
-- (id)ebInitWithType:(unsigned short)arg1 version:(unsigned short)arg2 state:(id)arg3;
 - (id)shapeContainer;
 - (struct EshGroup *)eshGroup;
+- (id)ebInitWithType:(unsigned short)arg1 version:(unsigned short)arg2 state:(id)arg3;
 - (id)pbInitWithType:(unsigned short)arg1 version:(unsigned short)arg2 state:(id)arg3;
 - (void)addCStringWithChar2String:(const unsigned short *)arg1 instance:(int)arg2;
 - (void)addCStringWithNSString:(id)arg1 instance:(int)arg2;

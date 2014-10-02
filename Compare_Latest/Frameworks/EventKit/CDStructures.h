@@ -30,12 +30,14 @@ struct CalDatabase {
     unsigned int _field10;
     struct __CFArray *_field11;
     struct __CFString *_field12;
-    int _field13;
+    struct __CFArray *_field13;
     int _field14;
-    struct __CFString *_field15;
-    int _field16;
-    CDUnknownBlockType _field17;
-    struct _opaque_pthread_mutex_t _field18;
+    int _field15;
+    struct __CFString *_field16;
+    struct __CFString *_field17;
+    int _field18;
+    CDUnknownBlockType _field19;
+    struct _opaque_pthread_mutex_t _field20;
 };
 
 struct CalEventIdsSearchContext {
@@ -187,7 +189,17 @@ typedef struct {
     unsigned int supportsSharedCalendars:1;
     unsigned int isFacebook:1;
     unsigned int recurrenceSeriesMustIncludeMoreThanFirstOccurrence:1;
-} CDStruct_75923904;
+    unsigned int supportsPrivateEvents:1;
+    unsigned int prohibitsPrivateEventsWithAttendees:1;
+    unsigned int supportsAvailabilityRequests:1;
+    unsigned int supportsIgnoringEventsInAvailabilityRequests:1;
+    unsigned int supportsLocationDirectorySearches:1;
+    unsigned int requiresSamePrivacyLevelAcrossRecurrenceSeries:1;
+    unsigned int prohibitsMultipleMonthsInYearlyRecurrence:1;
+    unsigned int prohibitsMultipleDaysInMonthlyRecurrence:1;
+    unsigned int prohibitsYearlyRecurrenceInterval:1;
+    unsigned int prohibitsDetachmentOnCommentChange:1;
+} CDStruct_13f89de5;
 
 typedef struct {
     int year;
@@ -221,12 +233,6 @@ typedef struct {
     int _field6;
     int _field7;
 } CDStruct_9bd77fb5;
-
-typedef struct {
-    int notificationType;
-    CDStruct_f683c4ba objectID;
-    double date;
-} CDStruct_0580fcef;
 
 typedef struct {
     CDStruct_f683c4ba objectID;

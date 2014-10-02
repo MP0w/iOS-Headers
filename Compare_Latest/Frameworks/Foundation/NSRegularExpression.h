@@ -27,7 +27,7 @@
 + (id)escapedTemplateForString:(id)arg1;
 @property(readonly) unsigned int numberOfCaptureGroups;
 @property(readonly) unsigned int options;
-@property(readonly) NSString *pattern;
+@property(readonly, copy) NSString *pattern;
 - (id)description;
 - (void)finalize;
 - (void)dealloc;

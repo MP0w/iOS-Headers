@@ -37,8 +37,10 @@
 - (void)touchesEnded:(struct __SBGestureContext *)arg1;
 - (void)touchesMoved:(struct __SBGestureContext *)arg1;
 - (void)touchesBegan:(struct __SBGestureContext *)arg1;
+- (void)updateActiveTouches:(struct __SBGestureContext *)arg1;
 - (int)templateMatch;
 - (void)addTouchTemplate:(id)arg1;
+- (void)invalidate;
 - (void)reset;
 - (_Bool)shouldReportRecognitionPossibleToAppsForTotalMotion:(struct CGPoint)arg1;
 - (_Bool)shouldReceiveTouches;

@@ -6,12 +6,13 @@
 
 #import "SBUIMainScreenAnimationController.h"
 
-@class SBAppStatusBarTransitionInfo, UIView;
+@class FBWindowContextHostManager, SBAppStatusBarTransitionInfo, UIView;
 
 @interface SBUIAnimationZoomDownApp : SBUIMainScreenAnimationController
 {
     UIView *_viewToAnimate;
     SBAppStatusBarTransitionInfo *_appStatusBarTransitionInfo;
+    FBWindowContextHostManager *_deactivatingContextHostManager;
 }
 
 - (void)_cleanupAnimation;
@@ -23,7 +24,7 @@
 - (void)prepareZoom;
 - (double)animationDelay;
 - (double)animationDuration;
-- (id)appContext;
+- (id)appSettings;
 - (_Bool)prefersLayerHostSnapshot;
 - (id)appStatusBarTransitionInfoWithStartEffectivelyHidden:(_Bool)arg1 endStyleRequest:(id)arg2 endOrientation:(long long)arg3;
 - (void)dealloc;

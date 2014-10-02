@@ -11,7 +11,7 @@
 #import "UITextInputPrivate.h"
 #import "UITextInputTokenizer.h"
 
-@class NSDictionary, UIColor, UIImage, UITextInteractionAssistant, UITextPosition, UITextRange, UIView;
+@class NSDictionary, NSString, UIColor, UIImage, UITextInteractionAssistant, UITextPosition, UITextRange, UIView;
 
 @interface DOMNode (UITextInputAdditions) <UIKeyboardInput, UITextInputPrivate, UIKeyInput, UITextInputTokenizer>
 - (id)textDocument;
@@ -129,19 +129,25 @@
 @property(nonatomic) BOOL acceptsFloatingKeyboard;
 @property(nonatomic) BOOL acceptsSplitKeyboard;
 @property(nonatomic) int autocapitalizationType;
+@property(copy, nonatomic) NSString *autocorrectionContext;
 @property(nonatomic) int autocorrectionType;
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) BOOL deferBecomingResponder;
+@property(readonly, copy) NSString *description;
+@property(nonatomic) BOOL disablePrediction;
 @property(nonatomic) BOOL displaySecureTextUsingPlainText;
 @property(nonatomic) int emptyContentReturnKeyType;
 @property(nonatomic) BOOL enablesReturnKeyAutomatically;
 @property(nonatomic) BOOL enablesReturnKeyOnNonWhiteSpaceContent;
 @property(nonatomic) BOOL forceEnableDictation;
+@property(readonly) unsigned int hash;
 @property(retain, nonatomic) UIColor *insertionPointColor;
 @property(nonatomic) unsigned int insertionPointWidth;
 @property(nonatomic) BOOL isSingleLineDocument;
 @property(nonatomic) int keyboardAppearance;
 @property(nonatomic) int keyboardType;
 @property(nonatomic) BOOL learnsCorrections;
+@property(copy, nonatomic) NSString *responseContext;
 @property(nonatomic) BOOL returnKeyGoesToNextResponder;
 @property(nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry;
 @property(retain, nonatomic) UIColor *selectionBarColor;
@@ -150,6 +156,7 @@
 @property(retain, nonatomic) UIColor *selectionHighlightColor;
 @property(nonatomic) int shortcutConversionType;
 @property(nonatomic) int spellCheckingType;
+@property(readonly) Class superclass;
 @property(nonatomic) BOOL suppressReturnKeyStyling;
 @property(readonly, nonatomic) UIView *textInputView;
 @property(nonatomic) int textSelectionBehavior;

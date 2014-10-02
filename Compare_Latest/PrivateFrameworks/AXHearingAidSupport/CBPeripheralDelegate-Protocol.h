@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CBCharacteristic, CBDescriptor, CBPeripheral, CBService, NSArray, NSError;
+@class CBCharacteristic, CBDescriptor, CBPeripheral, CBService, NSArray, NSError, NSNumber;
 
 @protocol CBPeripheralDelegate <NSObject>
 
@@ -20,6 +20,7 @@
 - (void)peripheral:(CBPeripheral *)arg1 didDiscoverCharacteristicsForService:(CBService *)arg2 error:(NSError *)arg3;
 - (void)peripheral:(CBPeripheral *)arg1 didDiscoverIncludedServicesForService:(CBService *)arg2 error:(NSError *)arg3;
 - (void)peripheral:(CBPeripheral *)arg1 didDiscoverServices:(NSError *)arg2;
+- (void)peripheral:(CBPeripheral *)arg1 didReadRSSI:(NSNumber *)arg2 error:(NSError *)arg3;
 - (void)peripheralDidUpdateRSSI:(CBPeripheral *)arg1 error:(NSError *)arg2;
 - (void)peripheral:(CBPeripheral *)arg1 didModifyServices:(NSArray *)arg2;
 - (void)peripheralDidInvalidateServices:(CBPeripheral *)arg1;

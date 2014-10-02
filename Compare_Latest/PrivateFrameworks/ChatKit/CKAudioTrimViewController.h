@@ -6,11 +6,9 @@
 
 #import "UIViewController.h"
 
-#import "RCAudioTrimmingModalItemDelegate.h"
-
 @class CKMediaObject;
 
-@interface CKAudioTrimViewController : UIViewController <RCAudioTrimmingModalItemDelegate>
+@interface CKAudioTrimViewController : UIViewController
 {
     id <CKTrimControllerDelegate> _delegate;
     double _maxDuration;
@@ -22,7 +20,6 @@
 @property(nonatomic) id <CKTrimControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) CKMediaObject *trimmedMediaObject; // @synthesize trimmedMediaObject=_trimmedMediaObject;
 @property(retain, nonatomic) CKMediaObject *originalMediaObject; // @synthesize originalMediaObject=_originalMediaObject;
-- (void)viewDidAppear:(BOOL)arg1;
 - (void)loadView;
 - (id)initWithMediaObject:(id)arg1;
 

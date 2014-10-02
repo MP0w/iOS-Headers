@@ -8,24 +8,27 @@
 
 #import "AVAssetResourceLoaderDelegate.h"
 
-@class AVPlayer, AVPlayerItem, AVURLAsset, NSMutableDictionary, NSURL, SUPlayerStatus;
+@class AVPlayer, AVPlayerItem, AVURLAsset, NSMutableDictionary, NSString, NSURL, SUPlayerStatus;
 
 @interface SUAudioPlayer : NSObject <AVAssetResourceLoaderDelegate>
 {
     AVURLAsset *_asset;
     NSURL *_certificateUrl;
+    BOOL _didPostForPreviewHistory;
     NSURL *_keyUrl;
     NSMutableDictionary *_nowPlayingInfo;
     AVPlayer *_player;
     AVPlayerItem *_playerItem;
+    long long _storeItemIdentifier;
     SUPlayerStatus *_status;
     id _timeObserver;
     NSURL *_url;
 }
 
-@property(retain, nonatomic) NSURL *certificateURL; // @synthesize certificateURL=_certificateUrl;
-@property(retain, nonatomic) NSURL *keyURL; // @synthesize keyURL=_keyUrl;
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_url;
+@property(nonatomic) long long storeItemIdentifier; // @synthesize storeItemIdentifier=_storeItemIdentifier;
+@property(retain, nonatomic) NSURL *keyURL; // @synthesize keyURL=_keyUrl;
+@property(retain, nonatomic) NSURL *certificateURL; // @synthesize certificateURL=_certificateUrl;
 - (void)_updateForPeriodicTickWithTime:(double)arg1;
 - (void)_setPlayerState:(int)arg1;
 - (void)_postStatusChangeNotification;
@@ -48,6 +51,12 @@
 @property(readonly, nonatomic) SUPlayerStatus *playerStatus;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

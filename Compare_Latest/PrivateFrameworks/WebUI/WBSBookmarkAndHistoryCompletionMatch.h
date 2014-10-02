@@ -8,15 +8,17 @@
 
 @interface WBSBookmarkAndHistoryCompletionMatch : WBSURLCompletionMatch
 {
-    void *_private;
+    struct RefPtr<SafariShared::BookmarkAndHistoryCompletionMatch> _match;
 }
 
+- (id).cxx_construct;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) float weight;
+- (id)parsecDomainIdentifier;
 - (id)userVisibleURLString;
 - (id)title;
 - (id)originalURLString;
 @property(readonly, nonatomic) id <WBSURLCompletionMatchData> data;
-- (void)dealloc;
 - (id)initWithBookmarkAndHistoryCompletionMatch:(PassRefPtr_8dece646)arg1;
 
 @end

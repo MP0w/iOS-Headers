@@ -18,10 +18,18 @@
 + (id)photo;
 @property(copy, nonatomic) NSURL *thumbnail;
 @property(retain, nonatomic) SAUIAppPunchOut *photoPunchOut;
+@property(copy, nonatomic) NSURL *maximumSize;
+@property(copy, nonatomic) NSURL *largeSize;
 @property(copy, nonatomic) NSString *identifier;
 @property(copy, nonatomic) NSURL *fullsize;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

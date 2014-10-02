@@ -9,7 +9,6 @@
 @protocol MKAnnotationModel <NSObject>
 - (void)moveAnnotationRepresentation:(id <MKAnnotationRepresentation>)arg1 fromCoordinate:(CDStruct_c3b9c2ee)arg2 animated:(BOOL)arg3 duration:(double)arg4;
 - (void)deselectAnnotationRepresentation:(id <MKAnnotationRepresentation>)arg1 animated:(BOOL)arg2;
-- (void)showCalloutIfNecessaryForAnnotationRepresentation:(id <MKAnnotationRepresentation>)arg1 animated:(BOOL)arg2 avoid:(struct CGRect)arg3;
 - (void)selectAnnotationRepresentation:(id <MKAnnotationRepresentation>)arg1 animated:(BOOL)arg2 avoid:(struct CGRect)arg3;
 - (void)removeAnnotationRepresentation:(id <MKAnnotationRepresentation>)arg1;
 - (void)addAnnotationRepresentation:(id <MKAnnotationRepresentation>)arg1 allowAnimation:(BOOL)arg2;

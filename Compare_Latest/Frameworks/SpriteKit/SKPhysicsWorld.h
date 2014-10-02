@@ -21,15 +21,19 @@
 @property(nonatomic) struct CGVector gravity; // @synthesize gravity=_gravity;
 @property(nonatomic) float speed; // @synthesize speed;
 - (id).cxx_construct;
+-     // Error parsing type: 24@0:48, name: sampleFieldsAt:
+-     // Error parsing type: 24@0:48, name: sampleFields:
 - (id)bodyAlongRayStart:(struct CGPoint)arg1 end:(struct CGPoint)arg2;
 - (id)bodyInRect:(struct CGRect)arg1;
 - (id)bodyAtPoint:(struct CGPoint)arg1;
 - (void)enumerateBodiesAlongRayStart:(struct CGPoint)arg1 end:(struct CGPoint)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (void)enumerateBodiesInRect:(struct CGRect)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateBodiesAtPoint:(struct CGPoint)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (BOOL)hasFields;
 - (void)removeAllJoints;
 - (void)removeJoint:(id)arg1;
 - (void)addJoint:(id)arg1;
+- (id)fields;
 - (id)bodies;
 - (BOOL)hasBodies;
 - (void)removeAllBodies;

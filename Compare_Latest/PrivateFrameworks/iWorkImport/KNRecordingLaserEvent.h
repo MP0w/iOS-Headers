@@ -9,16 +9,16 @@
 __attribute__((visibility("hidden")))
 @interface KNRecordingLaserEvent : KNRecordingEvent
 {
-    struct CGPoint mUnscaledLocation;
+    struct CGPoint mUnitLocation;
 }
 
-@property(readonly, nonatomic) struct CGPoint unscaledLocation; // @synthesize unscaledLocation=mUnscaledLocation;
+@property(readonly, nonatomic) struct CGPoint unitLocation; // @synthesize unitLocation=mUnitLocation;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithStartTime:(double)arg1;
-- (id)initWithStartTime:(double)arg1 unscaledLocation:(struct CGPoint)arg2;
+- (id)initWithStartTime:(double)arg1 unitLocation:(struct CGPoint)arg2;
 - (void)saveToArchive:(struct RecordingEventArchive *)arg1 archiver:(id)arg2;
 - (id)initWithContext:(id)arg1 archive:(const struct RecordingEventArchive *)arg2 unarchiver:(id)arg3;
 

@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class CUTWeakReference, NSDate;
+@class CUTWeakReference, NSDate, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>;
 
 __attribute__((visibility("hidden")))
 @interface PCDispatchTimer : NSObject
 {
-    struct dispatch_source_s *_timerSource;
-    struct dispatch_queue_s *_queue;
+    NSObject<OS_dispatch_source> *_timerSource;
+    NSObject<OS_dispatch_queue> *_queue;
     unsigned long long _fireTime;
     NSDate *_fireDate;
     CUTWeakReference *_target;
@@ -27,7 +27,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL isValid;
 - (void)_callTarget;
 - (void)dealloc;
-- (id)initWithQueue:(struct dispatch_queue_s *)arg1 target:(id)arg2 selector:(SEL)arg3 fireTime:(unsigned long long)arg4;
+- (id)initWithQueue:(id)arg1 target:(id)arg2 selector:(SEL)arg3 fireTime:(unsigned long long)arg4;
 
 @end
 

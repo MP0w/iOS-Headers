@@ -14,8 +14,8 @@
     id _value;
 }
 
-@property(readonly, nonatomic) id value; // @synthesize value=_value;
-@property(readonly, nonatomic) NSDate *date; // @synthesize date=_date;
+@property(readonly, retain, nonatomic) id value; // @synthesize value=_value;
+@property(readonly, retain, nonatomic) NSDate *date; // @synthesize date=_date;
 - (void)dealloc;
 - (id)initWithValue:(id)arg1;
 

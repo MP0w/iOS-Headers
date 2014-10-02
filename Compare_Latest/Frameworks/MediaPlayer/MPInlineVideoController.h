@@ -140,13 +140,14 @@
 - (void)_tearDownTVOutWindow;
 - (void)_showVideoSnapshotView;
 - (void)_showStillFrameIfNotAlreadyPlaying;
-- (void)_showOverlayDidEnd;
+- (void)_showOverlayDidEnd:(BOOL)arg1;
+- (void)_showOverlayAnimated:(BOOL)arg1 quickHide:(BOOL)arg2;
 - (void)_showOverlayAnimated:(BOOL)arg1;
-- (void)_showChapters;
 - (BOOL)_shouldShowDestinationPlaceholder;
 - (void)_setupTVOutWindow;
 - (void)_setupSubviews;
 - (void)_scheduleLoadingIndicatorIfNeeded;
+- (void)_resetOverlayIdleTimer:(double)arg1;
 - (void)_resetOverlayIdleTimer;
 - (void)_registerForPlayerNotifications;
 - (void)_postViewControllerRequestsExitWithReason:(int)arg1;
@@ -195,7 +196,6 @@
 - (void)_applicationResumedEventsOnly:(id)arg1;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)chapterList:(id)arg1 selectedChapter:(unsigned int)arg2;
 - (void)overlayTappedFullscreenButton:(id)arg1;
 - (void)overlayTappedBackButton:(id)arg1;
 - (void)overlay:(id)arg1 didEndUserEvent:(int)arg2;
@@ -212,8 +212,8 @@
 - (void)fullscreenOverlayWillShowAnimated:(BOOL)arg1;
 - (void)fullscreenOverlayWillHideAnimated:(BOOL)arg1;
 @property(readonly, nonatomic) BOOL viewControllerWillRequestExit;
-@property(readonly, nonatomic) MPVideoView *videoView;
-@property(readonly, nonatomic) UIView<MPVideoOverlay> *videoOverlayView;
+@property(readonly, retain, nonatomic) MPVideoView *videoView;
+@property(readonly, retain, nonatomic) UIView<MPVideoOverlay> *videoOverlayView;
 - (void)showAlternateTracksController:(id)arg1;
 - (void)setVisibleParts:(unsigned long long)arg1 animate:(BOOL)arg2;
 - (void)setUseHostedWindowWhenFullscreen:(BOOL)arg1;
@@ -236,13 +236,19 @@
 - (BOOL)canHideOverlay:(BOOL)arg1;
 @property(readonly, nonatomic) BOOL canChangeScaleMode;
 - (void)setOwnsStatusBar:(BOOL)arg1;
-@property(readonly, nonatomic) UIView *view;
+@property(readonly, retain, nonatomic) UIView *view;
 - (void)setOrientation:(int)arg1 animate:(BOOL)arg2;
 @property(nonatomic) int orientation;
 - (void)noteIgnoredChangeTypes:(unsigned int)arg1;
 - (void)clearWeakReferencesToObject:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

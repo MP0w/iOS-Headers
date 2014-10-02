@@ -45,6 +45,12 @@
 - (id)chatsForMessage:(id)arg1;
 - (id)chatForMessageGUID:(id)arg1;
 - (id)chatForMessage:(id)arg1;
+- (id)frequentRepliesForForChatIdentifiers:(id)arg1 onServices:(id)arg2 limit:(unsigned int)arg3;
+- (id)messageActionItemsForOriginalMessageGUID:(id)arg1;
+- (id)attachmentsWithRoomNames:(id)arg1 onServices:(id)arg2;
+- (id)attachmentsWithHandles:(id)arg1 onServices:(id)arg2;
+- (id)lastMessageWithRoomNames:(id)arg1 onServices:(id)arg2;
+- (id)lastMessageWithHandles:(id)arg1 onServices:(id)arg2;
 - (id)messagesWithRoomNames:(id)arg1 onServices:(id)arg2 messageGUID:(id)arg3 limit:(unsigned int)arg4;
 - (id)messagesWithRoomNames:(id)arg1 onServices:(id)arg2 limit:(unsigned int)arg3;
 - (id)messagesWithHandles:(id)arg1 onServices:(id)arg2 messageGUID:(id)arg3 limit:(unsigned int)arg4;
@@ -53,22 +59,25 @@
 - (void)markMessageAsDeduplicated:(id)arg1;
 - (id)existingMessageSimilarToMessage:(id)arg1 skipServices:(id)arg2 skipGUIDs:(id)arg3 withinTimeInterval:(double)arg4 participants:(id)arg5;
 - (id)messageWithGUID:(id)arg1;
+- (id)itemWithGUID:(id)arg1;
 - (BOOL)hasStoredMessageWithGUID:(id)arg1;
 - (BOOL)canStoreMessage:(id)arg1 onService:(id)arg2;
+- (BOOL)canStoreItem:(id)arg1 onService:(id)arg2;
 - (id)messagesWithGUIDs:(id)arg1;
 - (void)registerTransfersWithGUIDs:(id)arg1 forMessageGUID:(id)arg2;
-- (id)_messagesWithRoomNames:(id)arg1 onServices:(id)arg2 messageGUID:(id)arg3 limit:(unsigned int)arg4;
-- (id)_messagesWithHandles:(id)arg1 onServices:(id)arg2 messageGUID:(id)arg3 limit:(unsigned int)arg4;
-- (id)_messagesWithGUIDs:(id)arg1;
+- (id)_messagesWithRoomNames:(id)arg1 onServices:(id)arg2 messageGUID:(id)arg3 limit:(unsigned int)arg4 onlyMessages:(BOOL)arg5;
+- (id)_messagesWithHandles:(id)arg1 onServices:(id)arg2 messageGUID:(id)arg3 limit:(unsigned int)arg4 onlyMessages:(BOOL)arg5;
+- (id)_itemsWithGUIDs:(id)arg1;
 - (BOOL)_hasMessagesWithGUIDs:(id)arg1;
 - (void)updateUnformattedID:(id)arg1 forBuddyID:(id)arg2 onService:(id)arg3;
 - (id)storeMessage:(id)arg1 forceReplace:(BOOL)arg2 modifyError:(BOOL)arg3 modifyFlags:(BOOL)arg4 flagMask:(unsigned long long)arg5;
+- (id)storeItem:(id)arg1 forceReplace:(BOOL)arg2;
 - (void)updateFileTransfer:(id)arg1;
 - (void)_storeAttachmentsForMessage:(id)arg1;
 - (void)_performBlock:(CDUnknownBlockType)arg1 afterDelay:(double)arg2;
 - (void)_updateModificationDate;
 - (void)dealloc;
-- (void)_performInitialHousekeeping;
+- (void)performInitialHousekeeping;
 - (id)init;
 
 @end

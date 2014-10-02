@@ -9,17 +9,18 @@
 #import "TSPLazyReferenceDelegate.h"
 #import "TSPReaderDelegate.h"
 
-@class NSHashTable, NSMutableArray, NSObject<OS_dispatch_queue>;
+@class NSHashTable, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, NSUUID;
 
 __attribute__((visibility("hidden")))
 @interface TSPReadCoordinatorBase : NSObject <TSPReaderDelegate, TSPLazyReferenceDelegate>
 {
     NSObject<OS_dispatch_queue> *_lazyReferenceQueue;
     NSHashTable *_lazyReferences;
+    NSHashTable *_lazyReferenceCopies;
     NSMutableArray *_lazyReferenceObserverBlocks;
     NSObject<OS_dispatch_queue> *_externalReferenceQueue;
     struct hash_map<long long, TSP::ExternalReferenceInfo, TSP::ObjectIdentifierHash, std::__1::equal_to<long long>, std::__1::allocator<std::__1::pair<const long long, TSP::ExternalReferenceInfo>>> _externalReferences;
-    struct queue<TSP::RepeatedExternalReferenceCompletionInfo, std::__1::deque<TSP::RepeatedExternalReferenceCompletionInfo, std::__1::allocator<TSP::RepeatedExternalReferenceCompletionInfo>>> _repeatedExternalReferences;
+    struct vector<TSP::RepeatedExternalReferenceCompletionInfo, std::__1::allocator<TSP::RepeatedExternalReferenceCompletionInfo>> _repeatedExternalReferences;
     BOOL _success;
 }
 
@@ -39,6 +40,8 @@ __attribute__((visibility("hidden")))
 - (id)objectDelegateForReader:(id)arg1;
 - (id)contextForReader:(id)arg1;
 @property(readonly, nonatomic) BOOL isReadingFromDocument;
+@property(readonly, nonatomic) NSUUID *baseObjectUUID;
+@property(readonly, nonatomic) unsigned long long fileFormatVersion;
 - (void)didReferenceExternalObject:(id)arg1 withIdentifier:(long long)arg2;
 - (id)externalObjectForIdentifier:(long long)arg1 componentIdentifier:(long long)arg2 isReadFinished:(BOOL)arg3;
 - (id)unarchivedObjectForIdentifier:(long long)arg1 isReadFinished:(BOOL)arg2;
@@ -50,9 +53,13 @@ __attribute__((visibility("hidden")))
 - (id)init;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) BOOL isCrossAppPaste;
 @property(readonly, nonatomic) BOOL isCrossDocumentPaste;
 @property(readonly, nonatomic) BOOL isFromPasteboard;
+@property(readonly) Class superclass;
 
 @end
 

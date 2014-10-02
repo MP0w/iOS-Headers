@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 - (void)removeAllObjects;
 - (void)removeObjectsForKeys:(id)arg1;
 - (void)enumerateKeysAndObjectsUsingBlock:(CDUnknownBlockType)arg1;
-- (int)count;
+- (unsigned long)count;
 - (void)removeObjectForKey:(const struct VKTileKey *)arg1;
 - (void)setObject:(id)arg1 forKey:(const struct VKTileKey *)arg2;
 - (id)objectForKey:(const struct VKTileKey *)arg1;

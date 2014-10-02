@@ -15,6 +15,7 @@
     _SBInnerFolderIconZoomAnimator *_innerZoomAnimator;
 }
 
+- (_Bool)_forceSquareZoomDimension;
 - (struct CGRect)_zoomedFrame;
 - (void)_animateToFraction:(double)arg1 afterDelay:(double)arg2 withSharedCompletion:(CDUnknownBlockType)arg3;
 - (unsigned long long)_numberOfSignificantAnimations;
@@ -26,8 +27,8 @@
 
 // Remaining properties
 @property(retain, nonatomic) SBFolderZoomSettings *settings;
-@property(readonly, nonatomic) SBFolderIcon *targetIcon;
-@property(readonly, nonatomic) SBFolderIconView *targetIconView;
+@property(readonly, retain, nonatomic) SBFolderIcon *targetIcon;
+@property(readonly, retain, nonatomic) SBFolderIconView *targetIconView;
 
 @end
 

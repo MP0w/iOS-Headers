@@ -29,7 +29,6 @@ __attribute__((visibility("hidden")))
 - (void)setAccountUserRecords:(id)arg1;
 - (void)setSelectionDelegate:(id)arg1;
 - (void)cancelButtonTapped:(id)arg1;
-- (struct CGSize)contentSizeForViewInPopover;
 - (void)viewDidLoad;
 - (id)_blankImage;
 - (id)initWithStyle:(int)arg1;

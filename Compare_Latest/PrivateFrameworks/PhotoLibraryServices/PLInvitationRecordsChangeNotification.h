@@ -16,7 +16,7 @@
 
 + (id)notificationWithAlbum:(id)arg1 snapshot:(id)arg2;
 - (void)_calculateDiffs;
-@property(readonly, nonatomic) PLGenericAlbum *album;
+@property(readonly, retain, nonatomic) PLGenericAlbum *album;
 - (id)name;
 @property(readonly, nonatomic) BOOL invitationRecordsDidChange;
 - (id)userInfo;

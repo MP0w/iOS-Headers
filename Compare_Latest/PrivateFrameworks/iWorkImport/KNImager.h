@@ -8,7 +8,7 @@
 
 #import "TSDConnectedInfoReplacing.h"
 
-@class KNAbstractSlide;
+@class KNAbstractSlide, NSString;
 
 __attribute__((visibility("hidden")))
 @interface KNImager : TSDImager <TSDConnectedInfoReplacing>
@@ -23,6 +23,12 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned int slideNumber; // @synthesize slideNumber=mSlideNumber;
 - (id)infoToConnectToForConnectionLineConnectedToInfo:(id)arg1;
 - (id)initWithDocumentRoot:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

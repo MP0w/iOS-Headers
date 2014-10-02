@@ -44,6 +44,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) BOOL drawsInBackground;
 - (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
 - (void)layoutSublayers;
+- (void)cancelLayoutForTilingLayers;
 - (void)setNeedsLayoutForTilingLayers;
 - (void)setNeedsLayout;
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1;

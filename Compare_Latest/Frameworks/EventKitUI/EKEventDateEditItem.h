@@ -9,7 +9,7 @@
 #import "EKCellShortener.h"
 #import "EKTimeZoneViewControllerDelegate.h"
 
-@class NSDateComponents, NSTimeZone, PreferencesTwoPartValueCell, UIDatePicker, UITableViewCell;
+@class NSDateComponents, NSString, NSTimeZone, PreferencesTwoPartValueCell, UIDatePicker, UITableViewCell;
 
 __attribute__((visibility("hidden")))
 @interface EKEventDateEditItem : EKEventEditItem <EKTimeZoneViewControllerDelegate, EKCellShortener>
@@ -17,11 +17,14 @@ __attribute__((visibility("hidden")))
     NSDateComponents *_startComponents;
     NSDateComponents *_endComponents;
     BOOL _allDay;
-    NSTimeZone *_timeZone;
+    NSTimeZone *_startTimeZone;
+    NSTimeZone *_endTimeZone;
+    BOOL _showTimeZones;
     PreferencesTwoPartValueCell *_startDateCell;
     PreferencesTwoPartValueCell *_endDateCell;
     UITableViewCell *_allDayCell;
-    UITableViewCell *_timeZoneCell;
+    UITableViewCell *_startTimeZoneCell;
+    UITableViewCell *_endTimeZoneCell;
     UITableViewCell *_startDatePickerCell;
     UITableViewCell *_endDatePickerCell;
     int _selectedSubitem;
@@ -30,17 +33,16 @@ __attribute__((visibility("hidden")))
     BOOL _endTimeWasMessedUp;
     BOOL _changingDate;
     int _shorteningStatus;
-    BOOL _supportsTimeZone;
+    BOOL _pushingTZController;
     BOOL _showsAllDay;
 }
 
 @property(nonatomic) BOOL showsAllDay; // @synthesize showsAllDay=_showsAllDay;
-@property(nonatomic) BOOL supportsTimeZone; // @synthesize supportsTimeZone=_supportsTimeZone;
 - (void).cxx_destruct;
 - (BOOL)_shouldShowTimeZone;
 - (id)_dateComponentsInSystemCalendarFromDate:(id)arg1;
 - (id)_dateInSystemCalendarFromComponents:(id)arg1;
-- (id)_timeZoneDescription;
+- (id)_timeZoneDescription:(id)arg1;
 - (void)_allDayChanged:(id)arg1;
 - (void)_datePickerChanged:(id)arg1;
 - (void)_updateDateColors;
@@ -49,41 +51,53 @@ __attribute__((visibility("hidden")))
 - (void)_resetStartString:(BOOL)arg1 endString:(BOOL)arg2;
 - (void)_updateTimeWidths;
 - (void)_pickNextReasonableTime;
-- (void)_hideDatePicker;
-- (void)_setTimeZone:(id)arg1;
+- (void)_hideInlineDateControls;
+- (void)_setEndTimeZone:(id)arg1;
+- (void)_setStartTimeZone:(id)arg1;
+- (void)_validateTimezones;
 - (void)_setAllDay:(BOOL)arg1;
 - (void)_setEndDate:(id)arg1;
 - (void)_setStartDate:(id)arg1;
 - (void)timeZoneViewControllerDidCancel:(id)arg1;
 - (void)timeZoneViewController:(id)arg1 didSelectTimeZone:(id)arg2;
+- (void)_contentSizeCategoryDidChange:(id)arg1;
 - (BOOL)saveAndDismissWithForce:(BOOL)arg1;
-- (id)_calendarForEventComponents;
+- (id)_calendarForEventComponents:(BOOL)arg1;
 - (void)endInlineEditing;
 - (void)editor:(id)arg1 didStartEditingItem:(id)arg2;
-- (BOOL)usesDetailViewControllerForSubitem:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
-- (void)editor:(id)arg1 didSelectSubitem:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
-- (BOOL)editor:(id)arg1 canSelectSubitem:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
-- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2 forWidth:(float)arg3;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
+- (BOOL)usesDetailViewControllerForSubitem:(unsigned int)arg1;
+- (void)editor:(id)arg1 didSelectSubitem:(unsigned int)arg2;
+- (BOOL)editor:(id)arg1 canSelectSubitem:(unsigned int)arg2;
+- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1;
 - (void)shortenCell:(id)arg1;
 - (void)_datePickerDoubleTapped:(id)arg1;
 - (id)_endDatePickerCell;
 - (id)_startDatePickerCell;
 - (id)_newDatePicker;
-- (id)_timeZoneCell;
+- (id)_endTimeZoneCell;
+- (id)_startTimeZoneCell;
 - (id)_allDayCell;
 - (id)_endDateCell;
 - (id)_startDateCell;
-- (unsigned int)numberOfSubitemsInSubsection:(unsigned int)arg1;
+- (unsigned int)numberOfSubitems;
 - (int)_subitemForRow:(int)arg1;
 - (int)_rowForSubitem:(int)arg1;
 - (BOOL)isInline;
+- (BOOL)forceRefreshLocationItemOnCommit;
+- (BOOL)forceRefreshInviteesItemOnCommit;
 - (BOOL)requiresReconfigurationOnCommit;
 - (BOOL)configureForCalendarConstraints:(id)arg1;
 - (BOOL)canBeConfiguredForCalendarConstraints:(id)arg1;
 - (void)refreshFromCalendarItemAndStore;
-- (id)description;
+@property(readonly, copy) NSString *description;
+- (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

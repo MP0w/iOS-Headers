@@ -7,6 +7,7 @@
 #import "UICollectionView.h"
 
 @interface UICollectionView (CKUtilities)
+- (void)__ck_reloadDataKeepingSelection;
 - (struct CGSize)__ck_contentSize;
 - (id)__ck_indexPathForLastItem;
 @end

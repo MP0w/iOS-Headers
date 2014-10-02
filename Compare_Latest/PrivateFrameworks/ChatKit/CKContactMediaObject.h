@@ -14,17 +14,18 @@
     UIImage *_vCardImage;
 }
 
++ (id)attachmentSummary:(unsigned int)arg1;
 + (id)fallbackFilenamePrefix;
 + (id)UTITypes;
 @property(retain, nonatomic) UIImage *vCardImage; // @synthesize vCardImage=_vCardImage;
 @property(retain, nonatomic) ABVCardRecord *vCard; // @synthesize vCard=_vCard;
 - (id)vCardImageOfSize:(struct CGSize)arg1;
-- (id)generateThumbnailFillToSize:(struct CGSize)arg1;
+- (id)generateThumbnailFillToSize:(struct CGSize)arg1 contentAlignmentInsets:(struct UIEdgeInsets)arg2;
 - (struct CGSize)bbSize;
 - (id)subtitle;
 - (id)icon;
 - (id)title;
-- (Class)balloonViewClass;
+- (Class)coloredBalloonViewClass;
 - (int)mediaType;
 - (void)dealloc;
 

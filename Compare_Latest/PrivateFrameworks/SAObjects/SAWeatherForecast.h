@@ -8,7 +8,7 @@
 
 #import "SAAceSerializable.h"
 
-@class NSNumber, SAWeatherCondition;
+@class NSNumber, NSString, SAWeatherCondition;
 
 @interface SAWeatherForecast : AceObject <SAAceSerializable>
 {
@@ -22,6 +22,12 @@
 @property(copy, nonatomic) NSNumber *chanceOfPrecipitation;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

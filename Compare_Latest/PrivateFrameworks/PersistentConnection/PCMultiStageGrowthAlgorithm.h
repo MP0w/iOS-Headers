@@ -36,7 +36,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned int countOfGrowthActions; // @synthesize countOfGrowthActions=_countOfGrowthActions;
 - (id)_stringForStage:(int)arg1;
 - (id)_stringForAction:(int)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (double)_steadyStateTimeout;
 - (void)_processRefinedGrowthAction:(int)arg1;
 - (void)_processSteadyStateAction:(int)arg1;
@@ -45,11 +45,16 @@ __attribute__((visibility("hidden")))
 - (void)processNextAction:(int)arg1;
 - (void)_resetAlgorithmToInterval:(double)arg1;
 - (void)_resetAlgorithmToInterval:(double)arg1 stage:(int)arg2;
-@property(readonly, nonatomic) NSDictionary *cacheInfo;
+@property(readonly, copy, nonatomic) NSDictionary *cacheInfo;
 - (BOOL)useIntervalIfImprovement:(double)arg1;
 - (void)_setCurrentKeepAliveInterval:(double)arg1;
 - (void)dealloc;
 - (id)initWithCacheInfo:(id)arg1 loggingIdentifier:(id)arg2 algorithmName:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

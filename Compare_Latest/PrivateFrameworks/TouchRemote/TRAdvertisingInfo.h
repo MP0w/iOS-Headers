@@ -19,8 +19,8 @@
 }
 
 + (BOOL)supportsSecureCoding;
-@property(readonly, nonatomic) NSData *wirelessProximityIdentifier; // @synthesize wirelessProximityIdentifier=_wirelessProximityIdentifier;
-@property(readonly, nonatomic) NSData *pairingPublicKey; // @synthesize pairingPublicKey=_pairingPublicKey;
+@property(readonly, copy, nonatomic) NSData *wirelessProximityIdentifier; // @synthesize wirelessProximityIdentifier=_wirelessProximityIdentifier;
+@property(readonly, copy, nonatomic) NSData *pairingPublicKey; // @synthesize pairingPublicKey=_pairingPublicKey;
 - (void).cxx_destruct;
 - (id)_TXTRecordRepresentation;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;

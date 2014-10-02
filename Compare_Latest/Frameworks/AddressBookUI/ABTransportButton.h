@@ -19,7 +19,7 @@
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(retain, nonatomic) UIColor *glyphColor; // @synthesize glyphColor=_glyphColor;
 @property(nonatomic) int transportType; // @synthesize transportType=_transportType;
-- (id)_imageNameForType:(int)arg1;
+- (id)imageNameForType:(int)arg1;
 - (void)_updateImageWithType:(int)arg1;
 - (void)tintColorDidChange;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

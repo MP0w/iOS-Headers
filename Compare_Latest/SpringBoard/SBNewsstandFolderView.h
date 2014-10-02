@@ -8,7 +8,7 @@
 
 #import "SBIconIndexNodeObserver.h"
 
-@class SBNewsstandBackgroundView, UIButton;
+@class NSString, SBNewsstandBackgroundView, UIButton;
 
 @interface SBNewsstandFolderView : SBFolderView <SBIconIndexNodeObserver>
 {
@@ -19,6 +19,7 @@
 
 - (void)node:(id)arg1 didRemoveContainedNodeIdentifiers:(id)arg2;
 - (void)node:(id)arg1 didAddContainedNodeIdentifiers:(id)arg2;
+- (void)handleReachabilityActivated:(_Bool)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_updateEmptyState;
 - (void)_storeButtonTapped:(id)arg1;
 - (void)_newsstandStoreAvailabilityDidChangeNotification:(id)arg1;
@@ -29,6 +30,12 @@
 - (void)setFolder:(id)arg1;
 - (void)dealloc;
 - (id)initWithFolder:(id)arg1 orientation:(long long)arg2 viewMap:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

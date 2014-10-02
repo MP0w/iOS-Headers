@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 - (id)areaFormulaWithCalcEngine:(id)arg1 inOwner:(struct __CFUUID *)arg2;
 - (void)saveToArchive:(struct ChartMediatorFormulaStorage *)arg1 archiver:(id)arg2;
 - (id)initWithArchive:(const struct ChartMediatorFormulaStorage *)arg1 unarchiver:(id)arg2;
+- (void)clearCachesForCalculationEngine:(id)arg1;
 - (BOOL)dataFormulaAreRegularForSeriesInsertionWithCalcEngine:(id)arg1 inOwner:(struct __CFUUID *)arg2;
 - (int)categoryLabelFormulaType;
 - (int)seriesLabelFormulaType;

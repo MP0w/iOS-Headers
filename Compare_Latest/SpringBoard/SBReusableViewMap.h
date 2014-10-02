@@ -11,10 +11,12 @@
 @interface SBReusableViewMap : NSObject
 {
     NSMapTable *_recycledViewsByClass;
+    _Bool _invalidated;
     id <SBReusableViewMapDelegate> _delegate;
 }
 
 @property(nonatomic) id <SBReusableViewMapDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)invalidate;
 - (void)purgeAllViews;
 - (void)purgeViewsForClass:(Class)arg1;
 - (void)recycleView:(id)arg1;

@@ -8,7 +8,7 @@
 
 #import "TSDChangePropagationMap.h"
 
-@class NSMutableSet, TSUNoCopyDictionary;
+@class NSMutableSet, NSString, TSUNoCopyDictionary;
 
 __attribute__((visibility("hidden")))
 @interface TSDChangePropagationMap : NSObject <TSDChangePropagationMap>
@@ -28,6 +28,12 @@ __attribute__((visibility("hidden")))
 - (void)recordReplacementChangeForPrototype:(id)arg1 replacement:(id)arg2;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

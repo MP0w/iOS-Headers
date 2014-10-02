@@ -6,27 +6,26 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, WDDocument, WDListDefinition;
+@class NSMutableArray, WDDocument;
 
 __attribute__((visibility("hidden")))
 @interface WDList : NSObject
 {
-    NSMutableArray *mLevelOverrides;
     WDDocument *mDocument;
-    unsigned int mIndex;
-    WDListDefinition *mListDefinition;
+    long mListId;
+    long mListDefinitionId;
+    NSMutableArray *mLevelOverrides;
 }
 
-- (id)initWithDocument:(id)arg1 listDefinition:(id)arg2;
-- (long)listId;
-- (void)setIndex:(unsigned int)arg1;
-- (unsigned int)index;
+@property(readonly, nonatomic) long listDefinitionId; // @synthesize listDefinitionId=mListDefinitionId;
+@property(readonly, nonatomic) long listId; // @synthesize listId=mListId;
+- (id)description;
+- (id)initWithDocument:(id)arg1 listId:(long)arg2 listDefinitionId:(long)arg3;
 - (id)levelOverrides;
-- (id)addLevelOverride;
+- (id)addLevelOverrideWithLevel:(unsigned char)arg1;
+- (id)levelOverrideForLevel:(unsigned char)arg1;
 - (id)levelOverrideAt:(unsigned int)arg1;
 - (unsigned int)levelOverrideCount;
-- (id)listDefinition;
-- (id)document;
 - (void)dealloc;
 
 @end

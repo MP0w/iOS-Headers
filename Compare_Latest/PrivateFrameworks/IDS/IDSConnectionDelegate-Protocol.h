@@ -6,14 +6,19 @@
 
 #import "NSObject.h"
 
-@class IDSConnection, NSArray, NSDictionary, NSError, NSString;
+@class IDSConnection, IDSMessageContext, IDSProtobuf, NSArray, NSData, NSDictionary, NSError, NSString;
 
 @protocol IDSConnectionDelegate <NSObject>
 
 @optional
+- (void)connection:(IDSConnection *)arg1 incomingMessage:(NSDictionary *)arg2 fromID:(NSString *)arg3;
+- (void)connection:(IDSConnection *)arg1 identifier:(NSString *)arg2 hasBeenDeliveredWithContext:(id)arg3;
 - (void)connection:(IDSConnection *)arg1 identifier:(NSString *)arg2 didSendWithSuccess:(BOOL)arg3 error:(NSError *)arg4;
+- (void)connection:(IDSConnection *)arg1 nearbyDevicesChanged:(NSArray *)arg2;
 - (void)connection:(IDSConnection *)arg1 devicesChanged:(NSArray *)arg2;
 - (void)connection:(IDSConnection *)arg1 isActiveChanged:(BOOL)arg2;
-- (void)connection:(IDSConnection *)arg1 incomingMessage:(NSDictionary *)arg2 fromID:(NSString *)arg3;
+- (void)connection:(IDSConnection *)arg1 incomingProtobuf:(IDSProtobuf *)arg2 fromID:(NSString *)arg3 context:(IDSMessageContext *)arg4;
+- (void)connection:(IDSConnection *)arg1 incomingData:(NSData *)arg2 fromID:(NSString *)arg3 context:(IDSMessageContext *)arg4;
+- (void)connection:(IDSConnection *)arg1 incomingMessage:(NSDictionary *)arg2 fromID:(NSString *)arg3 context:(IDSMessageContext *)arg4;
 @end
 

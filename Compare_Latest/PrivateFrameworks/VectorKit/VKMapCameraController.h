@@ -4,38 +4,23 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <VectorKit/VKCameraController.h>
+#import <VectorKit/VKScreenCameraController.h>
 
-#import "VKCameraControllerDelegate.h"
+#import "VKInteractiveCameraController.h"
 #import "VKTrackingCameraControllerDelegate.h"
 
-@class GEOMapRegion, VKAnimation, VKAnnotationTrackingCameraController, VKMapModel, VKTrackingCameraController;
+@class GEOMapRegion, NSString, VKAnimation, VKMapCanvas, VKMapModel, VKTrackingCameraController;
 
 __attribute__((visibility("hidden")))
-@interface VKMapCameraController : VKCameraController <VKTrackingCameraControllerDelegate, VKCameraControllerDelegate>
+@interface VKMapCameraController : VKScreenCameraController <VKTrackingCameraControllerDelegate, VKInteractiveCameraController>
 {
     VKMapModel *_mapModel;
-    VKAnimation *_zoomAnimation;
-    VKAnimation *_pitchAnimation;
-    VKAnimation *_rotationAnimation;
+    VKMapCanvas *_mapCanvas;
     VKAnimation *_horizontalOffsetAnimation;
     VKTrackingCameraController *_trackingCameraController;
-    VKAnnotationTrackingCameraController *_annotationTrackingCameraController;
     double _minDistanceToGroundAlongForwardVector;
     double _maxDistanceToGroundAlongForwardVector;
     double _canonicalSkyHeight;
-    struct VKEdgeInsets _edgeInsets;
-    double _beganDoublePanPitch;
-    BOOL _isPitchable;
-    BOOL _isPitchIncreasing;
-    int _annotationTrackingZoomStyle;
-    BOOL _staysCenteredDuringPinch;
-    double _lastRotation;
-    BOOL _rotationLowZoomSnappingEnabled;
-    BOOL _shouldRotationRubberband;
-    BOOL _staysCenteredDuringRotation;
-    struct CGPoint _panStartScreenPoint;
-    struct CGPoint _panLastScreenPoint;
     double _tracePlaybackSpeedMultiplier;
     BOOL _shouldLimitTrackingCameraHeight;
     int _trackingCameraPanStyle;
@@ -45,33 +30,25 @@ __attribute__((visibility("hidden")))
     double _cameraHorizontalOffset;
     double _finalYaw;
     double _finalPitch;
-    VKAnimation *_regionAnimation;
     float _navigationPuckSize;
+    BOOL _pinching;
+    struct CGPoint _pinchStartFocusPoint;
+    BOOL _pitching;
+    struct CGPoint _pitchStartFocusPoint;
+    BOOL _panning;
 }
 
 @property(nonatomic) BOOL shouldLimitTrackingCameraHeight; // @synthesize shouldLimitTrackingCameraHeight=_shouldLimitTrackingCameraHeight;
 @property(nonatomic) float navigationPuckSize; // @synthesize navigationPuckSize=_navigationPuckSize;
 @property(nonatomic) int trackingCameraPanStyle; // @synthesize trackingCameraPanStyle=_trackingCameraPanStyle;
-@property(nonatomic) BOOL isPitchable; // @synthesize isPitchable=_isPitchable;
 @property(nonatomic) double tracePlaybackSpeedMultiplier; // @synthesize tracePlaybackSpeedMultiplier=_tracePlaybackSpeedMultiplier;
 @property(nonatomic) double canonicalSkyHeight; // @synthesize canonicalSkyHeight=_canonicalSkyHeight;
-@property(nonatomic) struct VKEdgeInsets edgeInsets; // @synthesize edgeInsets=_edgeInsets;
-@property(nonatomic) BOOL staysCenteredDuringRotation; // @synthesize staysCenteredDuringRotation=_staysCenteredDuringRotation;
-@property(nonatomic) BOOL staysCenteredDuringPinch; // @synthesize staysCenteredDuringPinch=_staysCenteredDuringPinch;
+@property(nonatomic) VKMapCanvas *mapCanvas; // @synthesize mapCanvas=_mapCanvas;
 @property(retain, nonatomic) VKMapModel *mapModel; // @synthesize mapModel=_mapModel;
 - (id).cxx_construct;
+- (void)updatedMatchedSection:(fast_shared_ptr_502c59d0)arg1 index:(struct PolylineCoordinate *)arg2;
 - (void)edgeInsetsDidEndAnimating;
 - (void)edgeInsetsWillBeginAnimating;
-- (void)cameraController:(id)arg1 canZoomOutDidChange:(BOOL)arg2;
-- (void)cameraController:(id)arg1 canZoomInDidChange:(BOOL)arg2;
-- (id)cameraController:(id)arg1 presentationForAnnotation:(id)arg2;
-- (void)cameraController:(id)arg1 didBecomePitched:(BOOL)arg2;
-- (void)cameraController:(id)arg1 canEnter3DModeDidChange:(BOOL)arg2;
-- (void)cameraControllerDidChangeCameraState:(id)arg1;
-- (void)cameraController:(id)arg1 didChangeRegionAnimated:(BOOL)arg2;
-- (void)cameraController:(id)arg1 willChangeRegionAnimated:(BOOL)arg2;
-- (void)cameraController:(id)arg1 requestsDisplayRate:(int)arg2;
-- (void)runAnimation:(id)arg1;
 - (void)setCameraHorizontalOffset:(double)arg1 duration:(double)arg2 timingFunction:(id)arg3;
 - (double)altitude;
 - (void)setCenterCoordinate:(CDStruct_c3b9c2ee)arg1 altitude:(double)arg2 yaw:(double)arg3 pitch:(double)arg4 duration:(double)arg5 timingCurve:(CDUnknownBlockType)arg6 completion:(CDUnknownBlockType)arg7;
@@ -89,22 +66,21 @@ __attribute__((visibility("hidden")))
 - (void)setYaw:(double)arg1 animated:(BOOL)arg2;
 @property(readonly, nonatomic) double yaw;
 @property(readonly, nonatomic) double presentationYaw;
-- (void)stopRegionAnimation;
 @property(nonatomic) double userZoomFocusStyleMaxGroundspanMeters;
 @property(nonatomic) double userZoomFocusStyleMinGroundspanMeters;
 @property(nonatomic) double userZoomFocusStyleGroundspanMeters;
 - (void)canvasFrameDidChange;
 - (void)trackingCameraController:(id)arg1 updatedStartAnimationTargetPosition:(struct VKPoint)arg2 orientation:(const CDStruct_aa5aacbc *)arg3;
-- (void)stopSnappingAnimations;
 - (void)updateCameraZBounds;
 - (BOOL)updateCameraToPositionOrientationLimits;
 - (BOOL)currentZoomLevelAllowsRotation;
 - (BOOL)clampZoomLevelIfNecessary;
 - (void)setGesturing:(BOOL)arg1;
 - (void)panWithOffset:(struct CGPoint)arg1 relativeToScreenPoint:(struct CGPoint)arg2 animated:(BOOL)arg3 duration:(double)arg4 completionHandler:(CDUnknownBlockType)arg5;
-@property(readonly, nonatomic) BOOL canEnter3DMode;
-@property(readonly, nonatomic, getter=isFullyPitched) BOOL fullyPitched;
-@property(readonly, nonatomic, getter=isPitched) BOOL pitched;
+- (BOOL)canEnter3DModeNoUpdate;
+- (BOOL)canEnter3DMode;
+- (BOOL)isFullyPitched;
+- (BOOL)isPitched;
 @property(nonatomic) BOOL allowDatelineWraparound;
 - (void)exit3DMode;
 - (void)enter3DMode;
@@ -116,7 +92,7 @@ __attribute__((visibility("hidden")))
 - (void)startRotatingWithFocusPoint:(struct CGPoint)arg1;
 - (void)stopPanningAtPoint:(struct CGPoint)arg1;
 - (void)updatePanWithTranslation:(struct CGPoint)arg1;
-- (void)startPanningAtPoint:(struct CGPoint)arg1;
+- (void)startPanningAtPoint:(struct CGPoint)arg1 panAtStartPoint:(BOOL)arg2;
 - (void)stopPinchingWithFocusPoint:(struct CGPoint)arg1;
 - (void)updatePinchWithFocusPoint:(struct CGPoint)arg1 oldFactor:(double)arg2 newFactor:(double)arg3;
 - (void)startPinchingWithFocusPoint:(struct CGPoint)arg1;
@@ -134,12 +110,6 @@ __attribute__((visibility("hidden")))
 - (void)puckAnimator:(id)arg1 updatedTargetPosition:(struct VKPoint)arg2;
 - (void)puckAnimatorDidStop:(id)arg1;
 - (void)puckAnimator:(id)arg1 updatedPosition:(CDStruct_cc67e4ef *)arg2;
-@property(readonly, nonatomic, getter=isAnimatingToTrackAnnotation) BOOL animatingToTrackAnnotation;
-- (void)didAnimateInAnnotationMarkers:(id)arg1;
-@property(readonly, nonatomic, getter=isTrackingHeading) BOOL trackingHeading;
-@property(readonly, nonatomic) id <VKTrackableAnnotation> trackingAnnotation;
-- (void)willAnimateInAnnotationMarkers:(id)arg1;
-- (void)stopTrackingAnnotation;
 - (void)startTrackingAnnotation:(id)arg1 trackHeading:(BOOL)arg2 animated:(BOOL)arg3;
 - (void)startCameraMotionAnimated:(BOOL)arg1 pounceCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)pauseCameraMotion;
@@ -148,21 +118,12 @@ __attribute__((visibility("hidden")))
 - (BOOL)restoreViewportFromInfo:(id)arg1;
 - (id)viewportInfo;
 - (void)tapZoom:(struct CGPoint)arg1 levels:(double)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)stopPinching:(struct CGPoint)arg1;
 - (void)pinch:(struct CGPoint)arg1 oldFactor:(double)arg2 newFactor:(double)arg3;
-- (void)startPinching:(struct CGPoint)arg1;
-- (void)stopPanning:(struct CGPoint)arg1;
-- (void)startPanning:(struct CGPoint)arg1;
 - (void)pan:(struct CGPoint)arg1;
-- (void)stopPitching:(struct CGPoint)arg1;
-- (void)startPitching:(struct CGPoint)arg1;
 - (void)pitch:(struct CGPoint)arg1 translation:(double)arg2;
-- (void)stopRotating:(struct CGPoint)arg1;
-- (void)startRotating:(struct CGPoint)arg1;
 - (void)rotate:(double)arg1 atScreenPoint:(struct CGPoint)arg2;
 - (void)zoom:(double)arg1 withPoint:(struct VKPoint)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)zoomToLevel:(double)arg1 withPoint:(struct VKPoint)arg2;
-- (double)rubberBandOffsetForOffset:(double)arg1 maxOffset:(double)arg2 minOffset:(double)arg3 range:(double)arg4;
 - (void)rotateToYaw:(double)arg1 withPoint:(const struct VKPoint *)arg2 animated:(BOOL)arg3;
 - (void)rotateToPitch:(double)arg1 withPoint:(const struct VKPoint *)arg2 preserveAltitude:(BOOL)arg3 animated:(BOOL)arg4 exaggerate:(BOOL)arg5;
 - (float)maxPitchForNormalizedZoomLevel:(float)arg1;
@@ -180,11 +141,17 @@ __attribute__((visibility("hidden")))
 - (int)tileSize;
 - (struct VKPoint)groundPointFromScreenPoint:(struct CGPoint)arg1;
 - (void)canvasDidLayout;
-- (BOOL)isAnimating;
 - (id)detailedDescription;
 - (void)dealloc;
 - (id)init;
+- (void)setEdgeInsets:(struct VKEdgeInsets)arg1;
+
+// Remaining properties
 @property(nonatomic) int annotationTrackingZoomStyle;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

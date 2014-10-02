@@ -13,8 +13,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
-@property(readonly) NSString *systemId;
-@property(readonly) NSString *publicId;
+@property(readonly, copy) NSString *systemId;
+@property(readonly, copy) NSString *publicId;
 
 @end
 

@@ -143,6 +143,7 @@
 - (id)mailboxName;
 - (void)kill;
 - (void)setSubscribed:(BOOL)arg1;
+- (BOOL)isVVMAvailableOverWiFi;
 - (BOOL)isSubscribed;
 - (unsigned int)capabilities;
 - (void)dealloc;

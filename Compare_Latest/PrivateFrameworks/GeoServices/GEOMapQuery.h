@@ -60,6 +60,7 @@
 @property(nonatomic) int mapCenterX; // @synthesize mapCenterX=_mapCenterX;
 @property(nonatomic) int requestType; // @synthesize requestType=_requestType;
 @property(retain, nonatomic) NSString *query; // @synthesize query=_query;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

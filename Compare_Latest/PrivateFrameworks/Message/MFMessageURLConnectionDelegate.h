@@ -8,7 +8,7 @@
 
 #import "NSURLConnectionDelegate.h"
 
-@class NSError, NSMutableData, NSURLResponse;
+@class NSError, NSMutableData, NSString, NSURLResponse;
 
 @interface MFMessageURLConnectionDelegate : NSObject <NSURLConnectionDelegate>
 {
@@ -23,6 +23,12 @@
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
 - (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

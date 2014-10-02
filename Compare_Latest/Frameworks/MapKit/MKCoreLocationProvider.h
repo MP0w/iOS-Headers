@@ -31,9 +31,6 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)locationManager:(id)arg1 didUpdateVehicleHeading:(id)arg2;
 - (void)locationManager:(id)arg1 didUpdateVehicleSpeed:(id)arg2;
-- (void)locationManager:(id)arg1 monitoringDidFailForRegion:(id)arg2 withError:(id)arg3;
-- (void)locationManager:(id)arg1 didExitRegion:(id)arg2;
-- (void)locationManager:(id)arg1 didEnterRegion:(id)arg2;
 - (void)locationManagerDidResumeLocationUpdates:(id)arg1;
 - (void)locationManagerDidPauseLocationUpdates:(id)arg1;
 - (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
@@ -43,10 +40,12 @@ __attribute__((visibility("hidden")))
 - (void)locationManager:(id)arg1 didUpdateHeading:(id)arg2;
 - (void)locationManager:(id)arg1 didUpdateLocations:(id)arg2;
 - (void)dismissHeadingCalibrationDisplay;
+@property(readonly, nonatomic) BOOL isSimulation;
 @property(readonly, nonatomic) BOOL airplaneModeBlocksLocation;
 @property(readonly, nonatomic) int authorizationStatus;
 @property(readonly, nonatomic) double expectedGpsUpdateInterval;
 @property(nonatomic) int headingOrientation;
+@property(nonatomic) BOOL matchInfoEnabled;
 @property(nonatomic) double distanceFilter;
 @property(nonatomic) int activityType;
 @property(nonatomic, getter=isLocationServicesPreferencesDialogEnabled) BOOL locationServicesPreferencesDialogEnabled;
@@ -58,19 +57,22 @@ __attribute__((visibility("hidden")))
 - (void)startUpdatingVehicleHeading;
 - (void)stopUpdatingVehicleSpeed;
 - (void)startUpdatingVehicleSpeed;
-- (void)stopMonitoringRegion:(id)arg1;
-- (void)startMonitoringRegion:(id)arg1;
 - (void)stopUpdatingHeading;
 - (void)startUpdatingHeading;
 - (void)stopUpdatingLocation;
 - (void)startUpdatingLocation;
 - (void)_updateAuthorizationStatus;
-@property(readonly, nonatomic, getter=isMonitoringRegionsAvailable) BOOL monitoringRegionsAvailable;
 @property(readonly, nonatomic) BOOL usesCLMapCorrection;
 @property(readonly, nonatomic) CLLocationManager *_clLocationManager;
 - (void)_createCLLocationManager;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,43 +6,66 @@
 
 #import <RemoteUI/RUIElement.h>
 
-@class NSArray, NSMutableArray, NSNumber, RUITableViewRow, UIView<RemoteUITableFooter>, UIView<RemoteUITableHeader>;
+#import "RUITableFooterDelegate.h"
+#import "RUITableHeaderDelegate.h"
 
-@interface RUITableViewSection : RUIElement
+@class NSArray, NSDictionary, NSMutableArray, NSNumber, NSString, RUITableViewRow, UIView<RemoteUITableFooter>, UIView<RemoteUITableHeader>;
+
+@interface RUITableViewSection : RUIElement <RUITableHeaderDelegate, RUITableFooterDelegate>
 {
     NSMutableArray *_rows;
-    UIView<RemoteUITableHeader> *_header;
-    UIView<RemoteUITableFooter> *_footer;
-    id _delegate;
     int _disclosureLimit;
     RUITableViewRow *_showAllRow;
     NSNumber *_drawsTopSeparator;
     BOOL _configured;
+    id <RUITableViewSectionDelegate> _delegate;
+    UIView<RemoteUITableHeader> *_headerView;
     UIView<RemoteUITableFooter> *_footerView;
     float _headerHeight;
     float _footerHeight;
+    NSString *_headerText;
+    NSDictionary *_headerAttributes;
+    NSString *_HTMLHeaderContent;
+    NSString *_detailHeaderText;
+    NSString *_subHeaderText;
+    NSDictionary *_subHeaderAttributes;
+    NSString *_footerText;
+    NSString *_HTMLFooterContent;
+    NSDictionary *_footerAttributes;
 }
 
 @property(nonatomic) BOOL configured; // @synthesize configured=_configured;
+@property(copy, nonatomic) NSDictionary *footerAttributes; // @synthesize footerAttributes=_footerAttributes;
+@property(copy, nonatomic) NSString *HTMLFooterContent; // @synthesize HTMLFooterContent=_HTMLFooterContent;
+@property(copy, nonatomic) NSString *footerText; // @synthesize footerText=_footerText;
+@property(copy, nonatomic) NSDictionary *subHeaderAttributes; // @synthesize subHeaderAttributes=_subHeaderAttributes;
+@property(copy, nonatomic) NSString *subHeaderText; // @synthesize subHeaderText=_subHeaderText;
+@property(copy, nonatomic) NSString *detailHeaderText; // @synthesize detailHeaderText=_detailHeaderText;
+@property(copy, nonatomic) NSString *HTMLHeaderContent; // @synthesize HTMLHeaderContent=_HTMLHeaderContent;
+@property(copy, nonatomic) NSDictionary *headerAttributes; // @synthesize headerAttributes=_headerAttributes;
+@property(copy, nonatomic) NSString *headerText; // @synthesize headerText=_headerText;
 @property(nonatomic) float footerHeight; // @synthesize footerHeight=_footerHeight;
 @property(nonatomic) float headerHeight; // @synthesize headerHeight=_headerHeight;
 @property(retain, nonatomic) UIView<RemoteUITableFooter> *footerView; // @synthesize footerView=_footerView;
-@property(retain, nonatomic) UIView<RemoteUITableHeader> *headerView; // @synthesize headerView=_header;
-- (void)dealloc;
+@property(retain, nonatomic) UIView<RemoteUITableHeader> *headerView; // @synthesize headerView=_headerView;
+@property(nonatomic) __weak id <RUITableViewSectionDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (id)sourceURL;
+- (id)subElementsWithName:(id)arg1;
 - (void)populatePostbackDictionary:(id)arg1;
 - (BOOL)hasCustomFooter;
+- (void)footerView:(id)arg1 activatedLinkWithURL:(id)arg2;
+- (Class)_customFooterClass;
 - (BOOL)hasCustomHeader;
 - (void)setImageAlignment:(int)arg1;
 - (void)setImageSize:(struct CGSize)arg1;
 - (void)setImage:(id)arg1;
-- (void)remoteUILinkFooterActivatedLink:(id)arg1;
-- (Class)_customFooterClass;
+- (void)headerView:(id)arg1 activatedLinkWithURL:(id)arg2;
 - (Class)_customHeaderClass;
+- (id)colorFromAttributeString:(id)arg1;
 - (void)setAttributes:(id)arg1;
-- (void)setDelegate:(id)arg1;
 - (void)didTapShowAllRowWithTable:(id)arg1;
-@property(readonly, nonatomic) NSArray *rows; // @synthesize rows=_rows;
+@property(readonly, nonatomic) NSArray *rows;
 - (void)removeRowAtIndex:(unsigned int)arg1;
 - (void)addRow:(id)arg1;
 - (void)insertRow:(id)arg1 atIndex:(unsigned int)arg2;

@@ -28,8 +28,8 @@
 @property(readonly, nonatomic) struct CGSize imageSize;
 - (id)initWithArtworkDictionary:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (id)description;
+@property(readonly) unsigned int hash;
+@property(readonly, copy) NSString *description;
 - (id)valueForProperty:(id)arg1;
 @property(readonly, nonatomic) int width;
 @property(readonly, nonatomic, getter=isPrerendered) BOOL prerendered;
@@ -38,6 +38,10 @@
 @property(readonly, nonatomic) int height;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

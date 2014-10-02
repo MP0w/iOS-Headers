@@ -27,6 +27,7 @@
     BOOL _simulatesMasks;
     BOOL _backdropVisibilitySetOnce;
     BOOL _blurRadiusSetOnce;
+    BOOL _disablesOccludedBackdropBlurs;
     BOOL __backdropVisible;
     BOOL __zoomsBack;
     int _style;
@@ -57,6 +58,10 @@
     NSMutableDictionary *_grayscaleTintMaskViewMap;
     UIView *_colorTintMaskViewContainer;
     NSMutableDictionary *_colorTintMaskViewMap;
+    UIView *_colorBurnTintMaskViewContainer;
+    NSMutableDictionary *_colorBurnTintMaskViewMap;
+    UIView *_darkeningTintMaskViewContainer;
+    NSMutableDictionary *_darkeningTintMaskViewMap;
     UIView *_filterMaskViewContainer;
     NSMutableDictionary *_filterMaskViewMap;
     id _computeAndApplySettingsNotificationObserver;
@@ -93,6 +98,7 @@
 @property(nonatomic) float _saturationDeltaFactor; // @synthesize _saturationDeltaFactor=__saturationDeltaFactor;
 @property(nonatomic) float _blurRadius; // @synthesize _blurRadius=__blurRadius;
 @property(copy, nonatomic) NSString *_blurQuality; // @synthesize _blurQuality=__blurQuality;
+@property(nonatomic) BOOL disablesOccludedBackdropBlurs; // @synthesize disablesOccludedBackdropBlurs=_disablesOccludedBackdropBlurs;
 @property(nonatomic) id <_UIBackdropViewGraphicsQualityChangeDelegate> graphicsQualityChangeDelegate; // @synthesize graphicsQualityChangeDelegate=_graphicsQualityChangeDelegate;
 @property(nonatomic) float previousBackdropStatisticsContrast; // @synthesize previousBackdropStatisticsContrast=_previousBackdropStatisticsContrast;
 @property(nonatomic) float previousBackdropStatisticsBlue; // @synthesize previousBackdropStatisticsBlue=_previousBackdropStatisticsBlue;
@@ -112,6 +118,10 @@
 @property(nonatomic) BOOL applySettingsAfterLayout; // @synthesize applySettingsAfterLayout=_applySettingsAfterLayout;
 @property(retain, nonatomic) NSMutableDictionary *filterMaskViewMap; // @synthesize filterMaskViewMap=_filterMaskViewMap;
 @property(retain, nonatomic) UIView *filterMaskViewContainer; // @synthesize filterMaskViewContainer=_filterMaskViewContainer;
+@property(retain, nonatomic) NSMutableDictionary *darkeningTintMaskViewMap; // @synthesize darkeningTintMaskViewMap=_darkeningTintMaskViewMap;
+@property(retain, nonatomic) UIView *darkeningTintMaskViewContainer; // @synthesize darkeningTintMaskViewContainer=_darkeningTintMaskViewContainer;
+@property(retain, nonatomic) NSMutableDictionary *colorBurnTintMaskViewMap; // @synthesize colorBurnTintMaskViewMap=_colorBurnTintMaskViewMap;
+@property(retain, nonatomic) UIView *colorBurnTintMaskViewContainer; // @synthesize colorBurnTintMaskViewContainer=_colorBurnTintMaskViewContainer;
 @property(retain, nonatomic) NSMutableDictionary *colorTintMaskViewMap; // @synthesize colorTintMaskViewMap=_colorTintMaskViewMap;
 @property(retain, nonatomic) UIView *colorTintMaskViewContainer; // @synthesize colorTintMaskViewContainer=_colorTintMaskViewContainer;
 @property(retain, nonatomic) NSMutableDictionary *grayscaleTintMaskViewMap; // @synthesize grayscaleTintMaskViewMap=_grayscaleTintMaskViewMap;
@@ -153,8 +163,6 @@
 @property(retain, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
 @property(nonatomic) BOOL autosizesToFitSuperview; // @synthesize autosizesToFitSuperview=_autosizesToFitSuperview;
 @property(nonatomic) int style; // @synthesize style=_style;
-- (BOOL)disablesOccludedBackdropBlurs;
-- (void)setDisablesOccludedBackdropBlurs:(BOOL)arg1;
 - (void)applySettings:(id)arg1;
 - (void)applySettingsWithBuiltInAnimation:(id)arg1;
 - (void)computeAndApplySettingsForTransition;
@@ -173,6 +181,7 @@
 - (void)transitionComplete;
 - (void)transitionIncrementallyToPrivateStyle:(int)arg1 weighting:(float)arg2;
 - (void)transitionIncrementallyToStyle:(int)arg1 weighting:(float)arg2;
+- (void)transitionIncrementallyToSettings:(id)arg1 weighting:(float)arg2;
 - (void)transitionToSettings:(id)arg1;
 - (void)transitionToColor:(id)arg1;
 - (void)transitionToPrivateStyle:(int)arg1;

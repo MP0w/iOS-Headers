@@ -8,7 +8,7 @@
 
 #import "NSStreamDelegate.h"
 
-@class NSOutputStream;
+@class NSOutputStream, NSString;
 
 @interface HSControlConnection : NSObject <NSStreamDelegate>
 {
@@ -21,6 +21,7 @@
 
 @property(nonatomic) unsigned int protocolVersion; // @synthesize protocolVersion=_protocolVersion;
 @property(nonatomic) id <HSControlConnectionDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)_sendTouchEvent:(int)arg1 locations:(const unsigned int *)arg2 count:(unsigned int)arg3 velocity:(CDStruct_b2fbf00d)arg4;
 - (id)_newDataForControlTouchEventMessage_v1_1:(CDStruct_9a46e3d5)arg1;
 - (id)_newDataForControlTouchEventMessage_v1:(CDStruct_16f720f6)arg1;
@@ -36,6 +37,12 @@
 - (void)stream:(id)arg1 handleEvent:(unsigned int)arg2;
 - (void)dealloc;
 - (id)initWithHost:(id)arg1 port:(unsigned int)arg2 key:(unsigned int)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -4,25 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <CoreBluetooth/CBPeer.h>
 
-#import "NSCopying.h"
-
-@class NSUUID;
-
-@interface CBCentral : NSObject <NSCopying>
+@interface CBCentral : CBPeer
 {
-    struct __CFUUID *_UUID;
-    NSUUID *_identifier;
-    unsigned int _maximumUpdateValueLength;
 }
 
-@property(nonatomic) unsigned int maximumUpdateValueLength; // @synthesize maximumUpdateValueLength=_maximumUpdateValueLength;
-@property(readonly, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
-@property(readonly, nonatomic) struct __CFUUID *UUID; // @synthesize UUID=_UUID;
+@property(readonly, nonatomic) unsigned int maximumUpdateValueLength; // @dynamic maximumUpdateValueLength;
 - (id)description;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)initWithUUID:(id)arg1;
 
 @end

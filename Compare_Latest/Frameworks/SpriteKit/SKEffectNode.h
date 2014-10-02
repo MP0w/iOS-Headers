@@ -6,12 +6,13 @@
 
 #import <SpriteKit/SKNode.h>
 
-@class CIFilter;
+@class CIFilter, SKShader;
 
 @interface SKEffectNode : SKNode
 {
 }
 
+@property(retain, nonatomic) SKShader *shader;
 - (void)dealloc;
 @property(nonatomic) BOOL shouldCenterFilter;
 - (void)_flippedChangedFrom:(BOOL)arg1 to:(BOOL)arg2;
@@ -20,6 +21,8 @@
 @property(nonatomic) BOOL shouldRasterize;
 @property(nonatomic) BOOL shouldEnableEffects;
 @property(retain, nonatomic) CIFilter *filter;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

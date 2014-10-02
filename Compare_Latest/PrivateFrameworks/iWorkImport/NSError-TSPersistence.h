@@ -9,7 +9,7 @@
 @interface NSError (TSPersistence)
 + (id)tsp_recoverableErrorWithError:(id)arg1;
 + (id)tsp_recoverableErrorWithCode:(int)arg1;
-+ (id)tsp_errorWithCode:(int)arg1 underlyingError:(id)arg2;
++ (id)tsp_errorWithCode:(int)arg1 userInfo:(id)arg2;
 + (id)tsp_errorWithCode:(int)arg1;
 - (BOOL)tsp_isRecoverable;
 @end

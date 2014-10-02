@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class GCExtendedGamepad, GCGamepad, NSString;
+@class GCExtendedGamepad, GCGamepad, GCMotion, NSString;
 
 @interface GCController : NSObject
 {
@@ -14,17 +14,26 @@
 
 + (void)stopWirelessControllerDiscovery;
 + (void)startWirelessControllerDiscoveryWithCompletionHandler:(CDUnknownBlockType)arg1;
++ (void)_startWirelessControllerDiscoveryWithCompanions:(BOOL)arg1 btClassic:(BOOL)arg2 btle:(BOOL)arg3 completionHandler:(CDUnknownBlockType)arg4;
 + (id)controllers;
++ (void)__daemon__controllerWithUDID:(unsigned int)arg1 setValue:(float)arg2 forElement:(int)arg3;
++ (void)__daemon__removeController:(id)arg1;
++ (void)__daemon__addController:(id)arg1;
++ (void)__daemon__requestConnectedHostUpdatesWithHandler:(CDUnknownBlockType)arg1;
++ (void)__daemon__startBonjourService;
 + (void)__setLogger__:(CDUnknownBlockType)arg1;
 + (void)__open__;
 @property(readonly) unsigned int service;
 @property(readonly) struct __IOHIDDevice *deviceRef;
 @property(retain) id <GCNamedProfile> profile;
-@property(readonly) GCExtendedGamepad *extendedGamepad;
-@property(readonly) GCGamepad *gamepad;
+@property(readonly, retain) GCMotion *motion;
+@property(readonly, retain) GCExtendedGamepad *extendedGamepad;
+@property(readonly, retain) GCGamepad *gamepad;
+- (BOOL)isForwarded;
+- (unsigned int)deviceHash;
 @property(nonatomic) int playerIndex;
 @property(readonly, getter=isAttachedToDevice) BOOL attachedToDevice;
-@property(readonly) NSString *vendorName;
+@property(readonly, copy) NSString *vendorName;
 @property(copy) CDUnknownBlockType controllerPausedHandler;
 
 @end

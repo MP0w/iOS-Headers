@@ -6,15 +6,18 @@
 
 #import <MusicLibrary/ML3Predicate.h>
 
+@class NSArray;
+
 @interface ML3PersistentIDsPredicate : ML3Predicate
 {
-    unsigned int _count;
-    long long *_persistentIDs;
+    NSArray *_persistentIDs;
     BOOL _shouldContain;
 }
 
++ (id)predicateWithPersistentIDs:(id)arg1 shouldContain:(BOOL)arg2;
 + (id)predicateWithPersistentIDs:(const long long *)arg1 count:(unsigned int)arg2 shouldContain:(BOOL)arg3;
 @property(readonly, nonatomic) BOOL shouldContain; // @synthesize shouldContain=_shouldContain;
+- (void).cxx_destruct;
 - (id)databaseStatementParameters;
 - (void)appendSQLToMutableString:(id)arg1 entityClass:(Class)arg2;
 - (BOOL)isEqual:(id)arg1;
@@ -22,7 +25,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
-- (id)initWithPersistentIDs:(const long long *)arg1 count:(unsigned int)arg2 shouldContain:(BOOL)arg3;
+- (id)initWithPersistentIDs:(id)arg1 shouldContain:(BOOL)arg2;
 
 @end
 

@@ -116,7 +116,7 @@
 - (BOOL)_hasObjects;
 - (unsigned long)_cfTypeID;
 - (id)objectAtIndex:(unsigned int)arg1;
-- (unsigned int)count;
+@property(readonly) unsigned int count;
 
 @end
 

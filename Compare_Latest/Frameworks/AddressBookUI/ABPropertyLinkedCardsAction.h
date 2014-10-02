@@ -10,12 +10,14 @@
 
 @interface ABPropertyLinkedCardsAction : ABPropertyAction
 {
+    id <ABContactViewControllerDelegate> _contactDelegate;
     ABContactViewController *_contactController;
     CNMutableContact *_linkedContact;
 }
 
 @property(retain) CNMutableContact *linkedContact; // @synthesize linkedContact=_linkedContact;
 @property(retain) ABContactViewController *contactController; // @synthesize contactController=_contactController;
+@property id <ABContactViewControllerDelegate> contactDelegate; // @synthesize contactDelegate=_contactDelegate;
 - (void)setPreferredName;
 - (void)setPreferredPhoto;
 - (void)performActionForItem:(id)arg1 sender:(id)arg2;

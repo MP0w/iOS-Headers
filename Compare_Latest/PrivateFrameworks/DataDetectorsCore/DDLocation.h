@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) int lastLine; // @synthesize lastLine=_lastLine;
 @property(readonly) int firstColumn; // @synthesize firstColumn=_firstColumn;
 @property(readonly) int firstLine; // @synthesize firstLine=_firstLine;
-@property(readonly) NSString *fileName; // @synthesize fileName=_fileName;
+@property(readonly, copy) NSString *fileName; // @synthesize fileName=_fileName;
 - (struct __DDExpressionPosition)position;
 - (id)description;
 - (id)initWithCoder:(id)arg1;

@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (void)i_removeAllLayouts;
 - (void)i_unregisterLayout:(id)arg1;
 - (void)i_registerLayout:(id)arg1;
+- (void)notifyThatLayoutsChangedOutsideOfLayout;
 - (id)validatedLayoutForInfo:(id)arg1 childOfLayout:(id)arg2;
 - (id)validatedLayoutsForInfo:(id)arg1;
 - (id)validatedLayoutForInfo:(id)arg1;

@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class TSUColor;
+@class OITSUColor;
 
 __attribute__((visibility("hidden")))
 @interface MFPGradientStop : NSObject
 {
-    TSUColor *mColor;
+    OITSUColor *mColor;
     float mPosition;
 }
 

@@ -13,7 +13,7 @@
 @interface GEORPProblemStatus : PBCodable <NSCopying>
 {
     double _creationDate;
-    NSString *_problemID;
+    NSString *_problemId;
     GEORPResolution *_problemResolution;
     int _problemState;
     struct {
@@ -25,7 +25,8 @@
 @property(retain, nonatomic) GEORPResolution *problemResolution; // @synthesize problemResolution=_problemResolution;
 @property(nonatomic) int problemState; // @synthesize problemState=_problemState;
 @property(nonatomic) double creationDate; // @synthesize creationDate=_creationDate;
-@property(retain, nonatomic) NSString *problemID; // @synthesize problemID=_problemID;
+@property(retain, nonatomic) NSString *problemId; // @synthesize problemId=_problemId;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -37,7 +38,7 @@
 @property(readonly, nonatomic) BOOL hasProblemResolution;
 @property(nonatomic) BOOL hasProblemState;
 @property(nonatomic) BOOL hasCreationDate;
-@property(readonly, nonatomic) BOOL hasProblemID;
+@property(readonly, nonatomic) BOOL hasProblemId;
 - (void)dealloc;
 
 @end

@@ -8,7 +8,7 @@
 
 #import "GQDNameMappable.h"
 
-@class GQDPath, GQDWPLayoutFrame;
+@class GQDPath, GQDWPLayoutFrame, NSString;
 
 __attribute__((visibility("hidden")))
 @interface GQDShape : GQDGraphic <GQDNameMappable>
@@ -25,6 +25,12 @@ __attribute__((visibility("hidden")))
 - (id)layoutFrame;
 - (void)dealloc;
 - (id)initWithGraphic:(id)arg1 path:(id)arg2 geometry:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

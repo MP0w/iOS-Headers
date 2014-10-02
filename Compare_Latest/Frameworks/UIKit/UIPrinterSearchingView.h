@@ -6,16 +6,16 @@
 
 #import <UIKit/UIView.h>
 
-@class UIActivityIndicatorView, UILabel;
+@class NSArray, UIActivityIndicatorView, UILabel;
 
 __attribute__((visibility("hidden")))
 @interface UIPrinterSearchingView : UIView
 {
     UILabel *_searchingLabel;
     UIActivityIndicatorView *_searchingIndicator;
+    NSArray *_searchingLabelConstraints;
 }
 
-- (void)layoutSubviews;
 - (void)setSearching:(BOOL)arg1;
 - (void)searchTimeout;
 - (void)dealloc;

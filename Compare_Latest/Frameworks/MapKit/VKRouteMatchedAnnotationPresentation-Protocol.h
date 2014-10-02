@@ -6,10 +6,10 @@
 
 #import "VKTrackableAnnotationPresentation.h"
 
-@class VKAttributedRouteMatch;
+@class GEORouteMatch;
 
 @protocol VKRouteMatchedAnnotationPresentation <VKTrackableAnnotationPresentation>
-@property(retain, nonatomic) VKAttributedRouteMatch *routeMatch;
+@property(retain, nonatomic) GEORouteMatch *routeMatch;
 - (void)removePresentationCoordinateChangedObserver:(id <VKRouteMatchedAnnotationPresentationObserver>)arg1;
 - (void)addPresentationCoordinateChangedObserver:(id <VKRouteMatchedAnnotationPresentationObserver>)arg1;
 @end

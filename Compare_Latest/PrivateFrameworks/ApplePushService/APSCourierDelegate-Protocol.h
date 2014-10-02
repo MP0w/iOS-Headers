@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
-@class APSCourier;
+@class APSCourier, APSIDSProxyManager;
 
 @protocol APSCourierDelegate <NSObject>
-- (void)shouldRunDidChange:(APSCourier *)arg1;
+@property(readonly, retain, nonatomic) APSIDSProxyManager *proxyManager;
+- (void)shouldUseInternetDidChange:(APSCourier *)arg1;
 - (void)courierConnectionStatusDidChange:(APSCourier *)arg1;
 - (void)courierHasNoConnections:(APSCourier *)arg1;
 @end

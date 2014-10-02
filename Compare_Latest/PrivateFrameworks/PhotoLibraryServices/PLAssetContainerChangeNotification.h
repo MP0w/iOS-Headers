@@ -20,10 +20,11 @@
 - (BOOL)_getOldSet:(id *)arg1 newSet:(id *)arg2;
 - (id)_contentRelationshipName;
 - (id)assetContainer;
+- (BOOL)hasDeletes;
 @property(readonly, nonatomic) BOOL keyAssetDidChange;
 @property(readonly, nonatomic) BOOL titleDidChange;
-@property(readonly, nonatomic) NSObject<PLAlbumProtocol> *album;
-@property(readonly, nonatomic) id <PLAssetContainer> container;
+@property(readonly, retain, nonatomic) NSObject<PLAlbumProtocol> *album;
+@property(readonly, retain, nonatomic) id <PLAssetContainer> container;
 - (id)description;
 - (id)userInfo;
 - (id)name;

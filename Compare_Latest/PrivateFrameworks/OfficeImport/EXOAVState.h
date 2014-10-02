@@ -4,18 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <OfficeImport/OAVState.h>
+#import <OfficeImport/OAVReadState.h>
 
-@class EXState;
+@class EXReadState;
 
 __attribute__((visibility("hidden")))
-@interface EXOAVState : OAVState
+@interface EXOAVState : OAVReadState
 {
-    EXState *mEXState;
+    EXReadState *mEXReadState;
 }
 
 - (id)exState;
-- (id)initWithEXState:(id)arg1 packagePart:(id)arg2;
+- (id)initWithEXReadState:(id)arg1 packagePart:(id)arg2;
 
 @end
 

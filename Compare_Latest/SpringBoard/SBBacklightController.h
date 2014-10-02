@@ -15,7 +15,6 @@
     double _lastTimeIdleCausedDim;
     double _nextLockDurationAfterDim;
     unsigned int _disableAutoDimming:1;
-    unsigned int _lockScreenCameraWantsIdleTimerDisabled:1;
     NSMutableSet *_idleTimerDisabledReasons;
     NSMutableSet *_spuriousScreenUndimmingAssertions;
     _Bool _isPendingScreenUnblankAfterCACommit;
@@ -44,6 +43,7 @@
 - (void)removeSpuriousScreenUndimmingAssertion:(id)arg1;
 - (void)addSpuriousScreenUndimmingAssertion:(id)arg1;
 - (void)autoLockPrefsChanged;
+- (void)_animateBacklightToFactor:(float)arg1 duration:(double)arg2 source:(int)arg3 silently:(_Bool)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)animateBacklightToFactor:(float)arg1 duration:(double)arg2 source:(int)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)setBacklightFactor:(float)arg1 source:(int)arg2;
 - (_Bool)shouldTurnOnScreenForBacklightSource:(int)arg1;
@@ -52,8 +52,8 @@
 @property(readonly, nonatomic) _Bool screenIsOff;
 - (void)_deferredScreenUnblankDone;
 - (void)turnOnScreenFullyWithBacklightSource:(int)arg1;
+- (void)_performDeferredBacklightRampWorkWithInfo:(id)arg1;
 - (void)setIdleTimerDisabled:(_Bool)arg1 forReason:(id)arg2;
-- (void)setIdleTimerDisabled:(_Bool)arg1;
 - (double)defaultLockScreenDimIntervalWhenNotificationsPresent;
 - (double)defaultLockScreenDimInterval;
 - (void)_resetLockScreenIdleTimerWithDuration:(double)arg1 mode:(int)arg2;

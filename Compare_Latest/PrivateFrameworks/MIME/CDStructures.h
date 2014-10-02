@@ -17,8 +17,6 @@ struct _NSRange {
     unsigned int length;
 };
 
-struct __CFDictionary;
-
 #pragma mark Typedef'd Structures
 
 typedef struct {

@@ -6,17 +6,18 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSObject<OS_dispatch_queue>;
+@class AVWeakReference, AVWeakReferencingDelegateStorage, NSDictionary, NSObject<OS_dispatch_queue>;
 
 @interface AVCaptureVideoDataOutputInternal : NSObject
 {
-    id <AVCaptureVideoDataOutputSampleBufferDelegate> delegate;
-    NSObject<OS_dispatch_queue> *clientQueue;
-    BOOL delegateRespondsToDidOutputSBufCallback;
-    BOOL delegateRespondsToDidDropSBufCallback;
+    AVWeakReference *weakReference;
+    AVWeakReferencingDelegateStorage *delegateStorage;
     NSDictionary *videoSettings;
     CDStruct_1b6d18a9 deprecatedMinFrameDuration;
     BOOL alwaysDiscardsLateVideoFrames;
+    NSObject<OS_dispatch_queue> *bufferQueue;
+    struct OpaqueFigSimpleMutex *remoteQueueMutex;
+    void *remoteReceiverQueue;
 }
 
 - (void)dealloc;

@@ -19,11 +19,11 @@
     NSURL *_URL;
 }
 
-@property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_URL;
-@property(readonly, nonatomic) NSString *subject; // @synthesize subject=_subject;
-@property(readonly, nonatomic) NSString *message; // @synthesize message=_message;
-@property(readonly, nonatomic) NSString *messageMIMEType; // @synthesize messageMIMEType=_messageMIMEType;
-@property(readonly, nonatomic) RadioArtworkCollection *artworkCollection; // @synthesize artworkCollection=_artworkCollection;
+@property(readonly, retain, nonatomic) NSURL *URL; // @synthesize URL=_URL;
+@property(readonly, copy, nonatomic) NSString *subject; // @synthesize subject=_subject;
+@property(readonly, copy, nonatomic) NSString *message; // @synthesize message=_message;
+@property(readonly, copy, nonatomic) NSString *messageMIMEType; // @synthesize messageMIMEType=_messageMIMEType;
+@property(readonly, copy, nonatomic) RadioArtworkCollection *artworkCollection; // @synthesize artworkCollection=_artworkCollection;
 - (void).cxx_destruct;
 - (id)_initWithShareInfoResponse:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

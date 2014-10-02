@@ -9,18 +9,16 @@
 __attribute__((visibility("hidden")))
 @interface KNSlideNumberPlaceholderInfo : KNPlaceholderInfo
 {
-    unsigned int mSlideNumber;
 }
 
 - (void)acceptVisitor:(id)arg1;
 - (id)textureDeliveryStylesLocalized:(BOOL)arg1 animationFilter:(id)arg2;
+- (id)localizedChunkNameForTextureDeliveryStyle:(unsigned int)arg1 animationFilter:(id)arg2 chunkIndex:(unsigned int)arg3;
 - (id)instructionalText;
-- (BOOL)isMagicMoveEquivalentToInfo:(id)arg1;
 - (Class)layoutClass;
 - (Class)repClass;
 - (int)kind;
 - (id)initFromUnarchiver:(id)arg1;
-- (id)titleForBuildChunk:(id)arg1;
 
 @end
 

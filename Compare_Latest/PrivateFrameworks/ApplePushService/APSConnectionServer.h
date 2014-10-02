@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSData, NSObject<OS_xpc_object>, NSOperationQueue, NSSet, NSString;
+#import "APSOutgoingMessageOriginator.h"
 
-@interface APSConnectionServer : NSObject
+@class APSTokenState, NSData, NSObject<OS_xpc_object>, NSOperationQueue, NSSet, NSString;
+
+@interface APSConnectionServer : NSObject <APSOutgoingMessageOriginator>
 {
     id <APSConnectionServerDelegate> _delegate;
     NSString *_environmentName;
@@ -19,39 +21,45 @@
     NSSet *_ignoredTopics;
     NSSet *_opportunisticTopics;
     unsigned int _messageSize;
+    unsigned int _largeMessageSize;
     BOOL _enableCriticalReliability;
     BOOL _usesAppLaunchStats;
     BOOL _enableStatusChangeNotifications;
     int _clientPID;
     NSObject<OS_xpc_object> *_connection;
     NSOperationQueue *_queue;
+    APSTokenState *_tokenState;
 }
 
 + (id)serversWithEnvironmentName:(id)arg1 delegate:(id)arg2;
 + (id)serverEnvironmentNames;
-@property(readonly, nonatomic) NSString *environmentName; // @synthesize environmentName=_environmentName;
+@property(readonly, retain, nonatomic) NSString *environmentName; // @synthesize environmentName=_environmentName;
 @property(nonatomic) NSObject<OS_xpc_object> *connection; // @synthesize connection=_connection;
 @property(nonatomic) BOOL enableStatusChangeNotifications; // @synthesize enableStatusChangeNotifications=_enableStatusChangeNotifications;
 @property(nonatomic) BOOL usesAppLaunchStats; // @synthesize usesAppLaunchStats=_usesAppLaunchStats;
 @property(nonatomic) BOOL enableCriticalReliability; // @synthesize enableCriticalReliability=_enableCriticalReliability;
+@property(nonatomic) unsigned int largeMessageSize; // @synthesize largeMessageSize=_largeMessageSize;
 @property(nonatomic) unsigned int messageSize; // @synthesize messageSize=_messageSize;
-@property(retain, nonatomic) NSData *publicToken; // @synthesize publicToken=_publicToken;
-@property(readonly, nonatomic) NSSet *opportunisticTopics; // @synthesize opportunisticTopics=_opportunisticTopics;
-@property(readonly, nonatomic) NSSet *ignoredTopics; // @synthesize ignoredTopics=_ignoredTopics;
-@property(readonly, nonatomic) NSSet *enabledTopics; // @synthesize enabledTopics=_enabledTopics;
+@property(copy, nonatomic) NSData *publicToken; // @synthesize publicToken=_publicToken;
+@property(readonly, retain, nonatomic) NSSet *opportunisticTopics; // @synthesize opportunisticTopics=_opportunisticTopics;
+@property(readonly, retain, nonatomic) NSSet *ignoredTopics; // @synthesize ignoredTopics=_ignoredTopics;
+@property(readonly, retain, nonatomic) NSSet *enabledTopics; // @synthesize enabledTopics=_enabledTopics;
 @property(nonatomic) id <APSConnectionServerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, retain, nonatomic) NSString *tokenName;
 - (void)_savePersistentConnectionTopics;
 @property(readonly, nonatomic) BOOL isConnected; // @dynamic isConnected;
 @property(readonly, nonatomic) BOOL hasIdentity; // @dynamic hasIdentity;
 - (void)saveAndUpdateDelegate;
 - (void)setEnabledTopics:(id)arg1 ignoredTopics:(id)arg2 opportunisticTopics:(id)arg3;
-- (void)handleReceivedPublicToken:(id)arg1 forTopic:(id)arg2 identifier:(id)arg3;
+- (void)handleReceivedPerAppToken:(id)arg1 forTopic:(id)arg2 identifier:(id)arg3;
 - (void)handleAckIncomingMessageWithGuid:(id)arg1;
-- (void)handleInvalidatePublicTokenForTopic:(id)arg1 identifier:(id)arg2;
-- (void)handleRequestPublicTokenForTopic:(id)arg1 identifier:(id)arg2;
+- (void)handleInvalidatePerAppTokenForTopic:(id)arg1 identifier:(id)arg2;
+- (void)handleRequestPerAppTokenForTopic:(id)arg1 identifier:(id)arg2;
+- (void)_requestMissingPerAppTokenForTopic:(id)arg1 identifier:(id)arg2;
 - (void)handleFakeMessage:(id)arg1;
 - (void)handleCancelOutgoingMessageWithID:(unsigned int)arg1;
 - (void)handleSendOutgoingMessage:(id)arg1;
+- (void)handleResult:(id)arg1 forSendingOutgoingMessage:(id)arg2;
 - (void)handleResult:(id)arg1 forSendingOutgoingMessageWithID:(unsigned int)arg2;
 - (void)handleReceivedMessage:(id)arg1;
 - (void)_initiateConnectionIfNecessary;
@@ -61,14 +69,19 @@
 - (void)_suspendQueue;
 - (void)_resumeQueue;
 - (void)connectionHandshakeDidComplete;
-- (id)debugDescription;
+@property(readonly, copy) NSString *debugDescription;
 - (id)processNameWithLabels:(BOOL)arg1;
-@property(readonly, nonatomic) NSString *processName;
+@property(readonly, retain, nonatomic) NSString *processName;
 - (void)close;
 - (void)_lookUpMachPort;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1 environmentName:(id)arg2 connectionPortName:(id)arg3 connection:(id)arg4;
 - (void)_enqueueXPCMessage:(CDUnknownBlockType)arg1 wakingClient:(BOOL)arg2 highPriority:(BOOL)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

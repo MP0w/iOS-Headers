@@ -11,8 +11,8 @@
 @protocol MPVideoControllerProtocol <MPControllerProtocol>
 @property(nonatomic) BOOL autoPlayWhenLikelyToKeepUp;
 @property(nonatomic) unsigned long long visibleParts;
-@property(readonly, nonatomic) MPVideoView *videoView;
-@property(readonly, nonatomic) UIView<MPVideoOverlay> *videoOverlayView;
+@property(readonly, retain, nonatomic) MPVideoView *videoView;
+@property(readonly, retain, nonatomic) UIView<MPVideoOverlay> *videoOverlayView;
 @property(readonly, nonatomic) BOOL viewControllerWillRequestExit;
 @property(nonatomic) BOOL TVOutEnabled;
 @property(nonatomic) unsigned int scaleMode;

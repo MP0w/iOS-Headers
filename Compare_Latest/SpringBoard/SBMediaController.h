@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
-@class MPAVRoutingController, NSDictionary, NSTimer;
+#import "MPAVRoutingControllerDelegate.h"
 
-@interface SBMediaController : NSObject
+@class MPAVRoutingController, NSDictionary, NSString, NSTimer, SBApplication;
+
+@interface SBMediaController : NSObject <MPAVRoutingControllerDelegate>
 {
     int _manualVolumeChangeCount;
     NSDictionary *_nowPlayingInfo;
@@ -25,13 +27,13 @@
     NSTimer *_screenSharingStatusBarOverrideTimer;
     NSTimer *_videoOutStatusBarOverrideTimer;
     MPAVRoutingController *_routingController;
+    int _nowPlayingProcessPID;
 }
 
 + (void)sendResetPlaybackTimeoutCommand;
-+ (void)interrupt;
 + (_Bool)applicationCanBeConsideredNowPlaying:(id)arg1;
 + (id)sharedInstance;
-- (void)_delayedExtendSleepTimer;
+@property(nonatomic) int nowPlayingProcessPID; // @synthesize nowPlayingProcessPID=_nowPlayingProcessPID;
 - (void)_commitVolumeChange:(id)arg1;
 - (void)_cancelPendingVolumeChange;
 - (void)_nowPlayingAppIsPlayingDidChange;
@@ -80,34 +82,10 @@
 - (void)updateScreenSharingStatusBarStyleOverrideSuppressionPreference;
 - (void)_clearScreenSharingStatusBarStyleOverride;
 @property _Bool suppressHUD;
-- (id)mediaControlsDestinationApp;
-- (id)nowPlayingApplication;
-- (_Bool)trackIsBeingPlayedByMusicApp;
-- (void)setCurrentTrackTime:(float)arg1;
-- (double)trackElapsedTime;
-- (id)artwork;
-- (double)trackDuration;
-- (int)shuffleMode;
-- (int)repeatMode;
-- (id)nowPlayingAlbum;
-- (id)nowPlayingTitle;
-- (id)nowPlayingArtist;
-- (_Bool)trackSupports15SecondFF;
-- (_Bool)trackSupports15SecondRewind;
-- (_Bool)trackIsOnWishList;
+@property(readonly, nonatomic) SBApplication *nowPlayingApplication;
 - (_Bool)addTrackToWishList;
 - (_Bool)likeTrack;
 - (_Bool)banTrack;
-- (_Bool)trackProhibitsSkip;
-- (_Bool)trackSupportsIsLiked;
-- (_Bool)trackSupportsIsBanned;
-- (_Bool)trackIsLiked;
-- (_Bool)trackIsBanned;
-- (_Bool)isRadioTrack;
-- (_Bool)isAdvertisement;
-- (unsigned long long)trackUniqueIdentifier;
-- (_Bool)isTVOut;
-- (_Bool)isMovie;
 - (_Bool)isPaused;
 - (_Bool)isPlaying;
 - (_Bool)isLastTrack;
@@ -117,6 +95,12 @@
 - (id)_nowPlayingInfo;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

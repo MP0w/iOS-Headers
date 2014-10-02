@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
-@class SBBBBulletinInfo, SBBBSectionInfo, SBBulletinViewController;
+@class BBAction, SBBBBulletinInfo, SBBBSectionInfo, SBBulletinViewController;
 
 @protocol SBBulletinViewControllerDelegate <NSObject>
 
 @optional
 - (long long)layoutModeForBulletinViewController:(SBBulletinViewController *)arg1;
+- (_Bool)bulletinViewController:(SBBulletinViewController *)arg1 didSelectAction:(BBAction *)arg2 forBulletin:(SBBBBulletinInfo *)arg3 inSection:(SBBBSectionInfo *)arg4;
 - (_Bool)bulletinViewController:(SBBulletinViewController *)arg1 didSelectBulletin:(SBBBBulletinInfo *)arg2 inSection:(SBBBSectionInfo *)arg3;
 - (_Bool)bulletinViewController:(SBBulletinViewController *)arg1 shouldHighlightBulletin:(SBBBBulletinInfo *)arg2 inSection:(SBBBSectionInfo *)arg3;
 - (long long)bulletinViewController:(SBBulletinViewController *)arg1 replacementAnimationForBulletin:(SBBBBulletinInfo *)arg2 inSection:(SBBBSectionInfo *)arg3;

@@ -8,7 +8,7 @@
 
 #import "SBUIBannerTargetImplementation.h"
 
-@class NSHashTable, NSMutableArray, NSMutableSet, SBUIBannerContext, SBUISound;
+@class NSHashTable, NSMutableArray, NSMutableSet, NSString, SBUIBannerContext, SBUISound;
 
 @interface SBStarkBannerTarget : NSObject <SBUIBannerTargetImplementation>
 {
@@ -22,11 +22,15 @@
     long long _displayAssertions;
 }
 
-@property(readonly, nonatomic) SBUIBannerContext *currentContext; // @synthesize currentContext=_currentContext;
+@property(readonly, retain, nonatomic) SBUIBannerContext *currentContext; // @synthesize currentContext=_currentContext;
 @property(nonatomic) id <SBStarkBannerTargetObserver> observer; // @synthesize observer=_observer;
+- (void)removeCachedBannerForContext:(id)arg1;
+- (void)cacheBannerForContext:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)dismissCurrentBannerContextForSource:(id)arg1;
 - (id)currentBannerContextForSource:(id)arg1;
 - (void)signalSource:(id)arg1;
+- (_Bool)isShowingModalBanner;
+- (void)modallyPresentBannerWithContext:(id)arg1;
 - (void)unregisterSource:(id)arg1;
 - (void)registerSource:(id)arg1;
 @property(readonly, nonatomic) long long bannerTargetIdiom;
@@ -49,6 +53,12 @@
 @property(nonatomic, getter=isPausedForUserInteraction) _Bool pausedForUserInteraction;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

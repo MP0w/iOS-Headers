@@ -11,8 +11,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (id)mixableObjectClasses;
 - (BOOL)canBeginEditingChildRepOnDoubleTap:(id)arg1;
-@property(readonly, nonatomic) BOOL shouldBeginEditingOnSingleClick;
 - (BOOL)isPlaceholder;
 - (id)textureForContext:(id)arg1;
 

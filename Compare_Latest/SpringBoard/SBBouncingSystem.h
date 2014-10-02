@@ -8,12 +8,20 @@
 
 #import "_UIDynamicReferenceSystem.h"
 
+@class NSString;
+
 @interface SBBouncingSystem : NSObject <_UIDynamicReferenceSystem>
 {
     struct CGRect _bounds;
 }
 
 @property struct CGRect bounds; // @synthesize bounds=_bounds;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

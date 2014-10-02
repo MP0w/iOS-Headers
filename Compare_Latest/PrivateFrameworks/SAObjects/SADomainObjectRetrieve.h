@@ -8,7 +8,7 @@
 
 #import "SADomainObjectCommand.h"
 
-@class NSArray;
+@class NSArray, NSString;
 
 @interface SADomainObjectRetrieve : SABaseClientBoundCommand <SADomainObjectCommand>
 {
@@ -20,6 +20,12 @@
 @property(copy, nonatomic) NSArray *identifiers;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

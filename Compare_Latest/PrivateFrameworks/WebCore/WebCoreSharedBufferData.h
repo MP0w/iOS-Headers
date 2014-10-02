@@ -9,6 +9,7 @@
 __attribute__((visibility("hidden")))
 @interface WebCoreSharedBufferData : NSData
 {
+    struct RefPtr<WebCore::SharedBuffer::DataBuffer> sharedBufferDataBuffer;
     struct RefPtr<WebCore::SharedBuffer> sharedBuffer;
 }
 
@@ -17,7 +18,8 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (const void *)bytes;
 - (unsigned int)length;
-- (id)initWithSharedBuffer:(struct SharedBuffer *)arg1;
+- (id)initWithMemoryMappedSharedBuffer:(struct SharedBuffer *)arg1;
+-     // Error parsing type: @12@0:4^{DataBuffer={atomic<int>=Ai}{Vector<char, 0, WTF::CrashOnOverflow>=*II}}8, name: initWithSharedBufferDataBuffer:
 - (void)finalize;
 - (void)dealloc;
 

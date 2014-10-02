@@ -6,11 +6,8 @@
 
 #import "NSObject.h"
 
-@class NSBundle;
-
 @interface MFSignatures : NSObject
 {
-    NSBundle *_bundle;
 }
 
 + (id)sharedInstance;
@@ -21,6 +18,8 @@
 - (id)signatureMarkupForSendingEmailAddress:(id)arg1;
 - (void)setSignature:(id)arg1 forEmailAddress:(id)arg2;
 - (id)signatureForSendingEmailAddress:(id)arg1;
+- (void)setSignature:(id)arg1 forAccount:(id)arg2;
+- (id)signatureForAccount:(id)arg1;
 - (void)setUseAccountSignatures:(BOOL)arg1;
 - (BOOL)useAccountSignatures;
 - (void)clearSignature;

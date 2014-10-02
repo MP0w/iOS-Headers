@@ -6,23 +6,23 @@
 
 #import <OfficeImport/WDRun.h>
 
-@class NSDate, NSString, WDCharacterRun, WDText;
+@class WDAnnotationData, WDCharacterRun;
 
 __attribute__((visibility("hidden")))
 @interface WDAnnotation : WDRun
 {
     int mType;
-    WDText *mText;
     WDCharacterRun *mReference;
     BOOL mReferencePopertiesFixed;
-    NSDate *mDate;
-    NSString *mOwner;
+    WDAnnotationData *mData;
     WDAnnotation *mOtherEndOfRangedAnnotation;
 }
 
 - (void)dealloc;
 - (void)setOtherEndOfRangedAnnotation:(id)arg1;
 - (id)otherEndOfRangedAnnotation;
+- (void)useDataFromOtherEnd;
+- (id)data;
 - (void)setOwner:(id)arg1;
 - (id)owner;
 - (void)setDate:(id)arg1;

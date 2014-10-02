@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CPTracing, EDResources, EDWorkbook;
+@class EDResources, EDWorkbook, TCTracing;
 
 __attribute__((visibility("hidden")))
 @interface EBState : NSObject
@@ -17,11 +17,11 @@ __attribute__((visibility("hidden")))
     struct XlFormulaProcessor *mXlFormulaProcessor;
     EDWorkbook *mWorkbook;
     EDResources *mResources;
-    id <OCCancelDelegate> mCancelDelegate;
-    CPTracing *mTracing;
+    id <TCCancelDelegate> mCancelDelegate;
+    TCTracing *mTracing;
 }
 
-@property(readonly, nonatomic) id <OCCancelDelegate> cancelDelegate; // @synthesize cancelDelegate=mCancelDelegate;
+@property(readonly, nonatomic) id <TCCancelDelegate> cancelDelegate; // @synthesize cancelDelegate=mCancelDelegate;
 - (id)tracing;
 - (BOOL)isCancelled;
 - (void)setResources:(id)arg1;

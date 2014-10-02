@@ -8,6 +8,8 @@
 
 #import "AVAssetWriterFinishWritingHelperDelegate.h"
 
+@class NSString;
+
 @interface AVAssetWriterSynchronousMainThreadFinishWritingDelegate : NSObject <AVAssetWriterFinishWritingHelperDelegate>
 {
 }
@@ -16,6 +18,12 @@
 - (void)finishWritingHelperDidFail:(id)arg1;
 - (void)finishWritingHelperDidCancelFinishWriting:(id)arg1;
 - (void)finishWritingHelper:(id)arg1 didInitiateFinishWritingForFigAssetWriter:(struct OpaqueFigAssetWriter *)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

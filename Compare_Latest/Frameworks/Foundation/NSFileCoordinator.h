@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSURL;
+@class NSMutableDictionary, NSString, NSURL;
 
 @interface NSFileCoordinator : NSObject
 {
@@ -23,6 +23,7 @@
 + (id)filePresenters;
 + (void)removeFilePresenter:(id)arg1;
 + (void)addFilePresenter:(id)arg1;
++ (void)_printDebugInfo;
 + (id)_currentFileCoordinator;
 + (id)_fileProviders;
 + (void)_removeFileProvider:(id)arg1;
@@ -31,39 +32,54 @@
 + (void)__itemAtURL:(id)arg1 didResolveConflictVersionWithClientID:(id)arg2 name:(id)arg3 purposeID:(id)arg4;
 + (void)__itemAtURL:(id)arg1 didLoseVersionWithClientID:(id)arg2 name:(id)arg3 purposeID:(id)arg4;
 + (void)__itemAtURL:(id)arg1 didGainVersionWithClientID:(id)arg2 name:(id)arg3 purposeID:(id)arg4;
++ (void)__itemAtURL:(id)arg1 didDisappearWithPurposeID:(id)arg2;
 + (void)__itemAtURL:(id)arg1 didChangeUbiquityWithPurposeID:(id)arg2;
 + (void)__itemAtURL:(id)arg1 didReconnectWithPurposeID:(id)arg2;
 + (void)__itemAtURL:(id)arg1 didDisconnectWithPurposeID:(id)arg2;
 + (void)__itemAtURL:(id)arg1 didMoveToURL:(id)arg2 purposeID:(id)arg3;
 + (BOOL)_skipCoordinationWork;
++ (void)_removeProcessIdentifierForID:(id)arg1;
++ (void)_addProcessIdentifier:(int)arg1 forID:(id)arg2;
++ (void)_accessProcessIdentifiersUsingBlock:(CDUnknownBlockType)arg1;
++ (int)_processIdentifierForID:(id)arg1;
++ (int)_processIdentifierForPresenterWithID:(id)arg1;
 - (void)cancel;
 - (void)itemAtURL:(id)arg1 didMoveToURL:(id)arg2;
 - (void)itemAtURL:(id)arg1 willMoveToURL:(id)arg2;
 - (void)prepareForReadingItemsAtURLs:(id)arg1 options:(unsigned int)arg2 writingItemsAtURLs:(id)arg3 options:(unsigned int)arg4 error:(id *)arg5 byAccessor:(CDUnknownBlockType)arg6;
+- (void)coordinateAccessWithIntents:(id)arg1 queue:(id)arg2 byAccessor:(CDUnknownBlockType)arg3;
 - (void)coordinateWritingItemAtURL:(id)arg1 options:(unsigned int)arg2 writingItemAtURL:(id)arg3 options:(unsigned int)arg4 error:(id *)arg5 byAccessor:(CDUnknownBlockType)arg6;
 - (void)coordinateReadingItemAtURL:(id)arg1 options:(unsigned int)arg2 writingItemAtURL:(id)arg3 options:(unsigned int)arg4 error:(id *)arg5 byAccessor:(CDUnknownBlockType)arg6;
 - (void)coordinateWritingItemAtURL:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3 byAccessor:(CDUnknownBlockType)arg4;
 - (void)coordinateReadingItemAtURL:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3 byAccessor:(CDUnknownBlockType)arg4;
 - (void)_invokeAccessor:(CDUnknownBlockType)arg1 thenCompletionHandler:(CDUnknownBlockType)arg2;
+@property(copy) NSString *purposeIdentifier;
 - (void)dealloc;
 - (id)initWithFilePresenter:(id)arg1;
 - (id)init;
-- (id)purposeIdentifier;
-- (void)setPurposeIdentifier:(id)arg1;
+- (void)releaseAccess:(id)arg1;
+- (id)retainAccess;
+- (void)_setPurposeIdentifier:(id)arg1;
+- (BOOL)_purposeIdentifierLockedDown;
+- (void)_lockdownPurposeIdentifier;
 - (void)_setFileProvider:(id)arg1;
 - (void)__prepareForReadingItemsAtURLs:(id)arg1 options:(unsigned int)arg2 writingItemsAtURLs:(id)arg3 options:(unsigned int)arg4 byAccessor:(CDUnknownBlockType)arg5;
 - (void)__coordinateWritingItemAtURL:(id)arg1 options:(unsigned int)arg2 writingItemAtURL:(id)arg3 options:(unsigned int)arg4 purposeID:(id)arg5 byAccessor:(CDUnknownBlockType)arg6;
 - (void)__coordinateReadingItemAtURL:(id)arg1 options:(unsigned int)arg2 writingItemAtURL:(id)arg3 options:(unsigned int)arg4 purposeID:(id)arg5 byAccessor:(CDUnknownBlockType)arg6;
 - (void)__coordinateWritingItemAtURL:(id)arg1 options:(unsigned int)arg2 purposeID:(id)arg3 byAccessor:(CDUnknownBlockType)arg4;
 - (void)__coordinateReadingItemAtURL:(id)arg1 options:(unsigned int)arg2 purposeID:(id)arg3 byAccessor:(CDUnknownBlockType)arg4;
+- (void)_itemDidDisappearAtURL:(id)arg1;
 - (void)_ubiquityDidChangeForItemAtURL:(id)arg1;
 - (void)_itemAtURL:(id)arg1 didMoveToURL:(id)arg2;
 - (void)_itemAtURL:(id)arg1 willMoveToURL:(id)arg2;
+- (void)_coordinateAccessWithIntents:(id)arg1 queue:(id)arg2 byAccessor:(CDUnknownBlockType)arg3;
 - (void)_coordinateWritingItemAtURL:(id)arg1 options:(unsigned int)arg2 writingItemAtURL:(id)arg3 options:(unsigned int)arg4 error:(id *)arg5 byAccessor:(CDUnknownBlockType)arg6;
 - (void)_coordinateReadingItemAtURL:(id)arg1 options:(unsigned int)arg2 writingItemAtURL:(id)arg3 options:(unsigned int)arg4 error:(id *)arg5 byAccessor:(CDUnknownBlockType)arg6;
 - (void)_coordinateWritingItemAtURL:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3 byAccessor:(CDUnknownBlockType)arg4;
 - (void)_coordinateReadingItemAtURL:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3 byAccessor:(CDUnknownBlockType)arg4;
-- (void)_invokeAccessor:(CDUnknownBlockType)arg1 orDont:(BOOL)arg2 thenRelinquishAccessClaimForID:(id)arg3;
+- (void)_invokeAccessor:(CDUnknownBlockType)arg1 orDont:(BOOL)arg2 andRelinquishAccessClaim:(id)arg3;
+- (void)_didEndWrite:(id)arg1;
+- (id)_willStartWriteWithIntents:(id)arg1 async:(BOOL)arg2;
 - (void)_blockOnAccessClaim:(id)arg1;
 - (void)_forgetAccessClaimForID:(id)arg1;
 - (void)_requestAccessClaim:(id)arg1 withProcedure:(CDUnknownBlockType)arg2;

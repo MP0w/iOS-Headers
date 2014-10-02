@@ -32,10 +32,13 @@
     _Bool _primaryInterfaceHasBeenSet;
     _Bool _isPrimaryInterface;
     _Bool _isPrimaryInterfaceChanging;
+    int linkToken;
+    int powerToken;
 }
 
 + (id)sharedInstance;
 - (void)_primaryInterfaceChanged:(_Bool)arg1;
+- (void)_setPrimaryInterfaceHasBeenSet;
 - (id)_wifiInterface;
 - (_Bool)isPrimaryInterface;
 - (void)resetSettings;

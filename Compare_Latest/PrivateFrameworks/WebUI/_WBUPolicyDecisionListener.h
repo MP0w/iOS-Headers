@@ -8,7 +8,7 @@
 
 #import "WebPolicyDecisionListener.h"
 
-@class NSDictionary, WebFrame;
+@class NSDictionary, NSString, WebFrame;
 
 @interface _WBUPolicyDecisionListener : NSObject <WebPolicyDecisionListener>
 {
@@ -18,11 +18,17 @@
     id <WebPolicyDecisionListener> _originalListener;
 }
 
+- (void).cxx_destruct;
 - (void)ignore;
 - (void)download;
 - (void)use;
-- (void)dealloc;
 - (id)initWithFrame:(id)arg1 navigationType:(int)arg2 formMetadata:(id)arg3 originalListener:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

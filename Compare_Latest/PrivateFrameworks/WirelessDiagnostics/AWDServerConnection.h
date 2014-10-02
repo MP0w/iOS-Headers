@@ -11,11 +11,11 @@
     struct AWDServerConnection *fServerConnection;
 }
 
-- (void)flushToQueue:(id)arg1 block:(CDUnknownBlockType)arg2;
+- (void)flushToQueue:(struct dispatch_queue_s *)arg1 block:(CDUnknownBlockType)arg2;
 - (unsigned long long)getAWDTimestamp;
 - (BOOL)registerConfigChangeCallback:(CDUnknownBlockType)arg1;
-- (BOOL)registerQueriableMetricCallbackForLogging:(CDUnknownBlockType)arg1;
 - (BOOL)registerQueriableMetricCallback:(CDUnknownBlockType)arg1 forIdentifier:(unsigned long)arg2;
+- (BOOL)registerQueriableMetric:(unsigned long)arg1 callback:(CDUnknownBlockType)arg2;
 - (BOOL)submitMetric:(id)arg1;
 - (id)newMetricContainerWithIdentifier:(unsigned long)arg1;
 - (void)dealloc;

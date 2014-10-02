@@ -10,7 +10,6 @@
 {
 }
 
-- (void)setWallpaperColor:(struct CGColor *)arg1 phase:(struct CGSize)arg2;
 - (id)_contentsImageForColor:(struct CGColor *)arg1;
 - (id)initWithDefaultSize;
 

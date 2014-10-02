@@ -22,25 +22,31 @@
 }
 
 + (id)copyPropertyMappingsForParser;
-@property(retain) CoreDAVErrorItem *bulkUploadErrorItem; // @synthesize bulkUploadErrorItem=_bulkUploadErrorItem;
-@property(retain) NSString *bulkParsedPTag; // @synthesize bulkParsedPTag=_bulkParsedPTag;
-@property(retain) NSString *bulkParsedCTag; // @synthesize bulkParsedCTag=_bulkParsedCTag;
-@property(readonly) NSDictionary *appleAttributes; // @synthesize appleAttributes=_appleAttributes;
-@property(readonly) NSArray *childrenOrder; // @synthesize childrenOrder=_childrenOrder;
-@property(readonly) NSString *syncKey;
-@property(readonly) NSData *dataPayload;
-@property(retain) NSURL *serverID;
+@property(retain, nonatomic) CoreDAVErrorItem *bulkUploadErrorItem; // @synthesize bulkUploadErrorItem=_bulkUploadErrorItem;
+@property(retain, nonatomic) NSString *bulkParsedPTag; // @synthesize bulkParsedPTag=_bulkParsedPTag;
+@property(retain, nonatomic) NSString *bulkParsedCTag; // @synthesize bulkParsedCTag=_bulkParsedCTag;
+@property(readonly, nonatomic) NSDictionary *appleAttributes; // @synthesize appleAttributes=_appleAttributes;
+@property(readonly, nonatomic) NSArray *childrenOrder; // @synthesize childrenOrder=_childrenOrder;
+@property(readonly, nonatomic) NSString *syncKey;
+@property(readonly, nonatomic) NSData *dataPayload;
+@property(retain, nonatomic) NSURL *serverID;
 - (id)copyMkcolTask;
 - (id)copyPropPatchTask;
 - (id)_appleAttributesString;
-@property BOOL isBookmarkMenuFolder; // @dynamic isBookmarkMenuFolder;
-@property BOOL isBookmarkBarFolder; // @dynamic isBookmarkBarFolder;
-@property BOOL isBookmarkFolder; // @dynamic isBookmarkFolder;
+@property(nonatomic) BOOL isBookmarkMenuFolder; // @dynamic isBookmarkMenuFolder;
+@property(nonatomic) BOOL isBookmarkBarFolder; // @dynamic isBookmarkBarFolder;
+@property(nonatomic) BOOL isBookmarkFolder; // @dynamic isBookmarkFolder;
 - (void)_faultResourceType;
 - (void)applyParsedProperties:(id)arg1;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1 eTag:(id)arg2 dataPayload:(id)arg3 inContainerWithURL:(id)arg4 withAccountInfoProvider:(id)arg5;
 - (id)initWithServerID:(id)arg1 containerName:(id)arg2 appleAttributes:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

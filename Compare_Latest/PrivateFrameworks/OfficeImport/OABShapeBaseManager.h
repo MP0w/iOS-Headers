@@ -8,6 +8,8 @@
 
 #import "OABBasePropertiesManager.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface OABShapeBaseManager : OABFillPropertiesManager <OABBasePropertiesManager>
 {
@@ -43,6 +45,12 @@ __attribute__((visibility("hidden")))
 - (BOOL)isStroked;
 - (void)dealloc;
 - (id)initWithShapeBase:(struct EshShapeBase *)arg1 shapeType:(int)arg2 masterShape:(struct EshShape *)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

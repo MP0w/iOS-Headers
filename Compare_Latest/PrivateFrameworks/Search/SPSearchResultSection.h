@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying.h"
+
 @class NSMutableArray, NSString;
 
-@interface SPSearchResultSection : PBCodable
+@interface SPSearchResultSection : PBCodable <NSCopying>
 {
     NSString *_category;
     NSString *_displayIdentifier;
@@ -32,6 +34,7 @@
 @property(nonatomic) unsigned int domain; // @synthesize domain=_domain;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;

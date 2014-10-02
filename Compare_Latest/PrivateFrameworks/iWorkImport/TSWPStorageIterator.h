@@ -12,7 +12,6 @@ __attribute__((visibility("hidden")))
 @interface TSWPStorageIterator : NSObject
 {
     TSWPStorage *_storage;
-    NSCharacterSet *_markers;
     unsigned int _charIndex;
     unsigned int _startCharIndex;
     NSMutableArray *_rangeProviders;
@@ -20,6 +19,7 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_pendingEvents;
     BOOL _sendEventsForNilObjects;
     BOOL _lastEventWasMarker;
+    NSCharacterSet *_markers;
 }
 
 @property(retain, nonatomic) NSCharacterSet *markers; // @synthesize markers=_markers;

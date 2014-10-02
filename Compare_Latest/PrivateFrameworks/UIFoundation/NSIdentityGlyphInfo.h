@@ -6,18 +6,19 @@
 
 #import <UIFoundation/NSGlyphInfo.h>
 
-@class UIFont;
+@class NSFont;
 
 __attribute__((visibility("hidden")))
 @interface NSIdentityGlyphInfo : NSGlyphInfo
 {
-    UIFont *_font;
+    NSFont *_font;
     unsigned int _glyph;
 }
 
 + (void)initialize;
 + (id)glyphInfoWithGlyph:(unsigned int)arg1 forFont:(id)arg2 baseString:(id)arg3;
 - (id)description;
+- (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (unsigned int)_glyph;
 - (id)_font;

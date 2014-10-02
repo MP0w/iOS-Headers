@@ -16,8 +16,8 @@
     NSDictionary *_stationDictionary;
 }
 
-@property(readonly, nonatomic) NSDictionary *stationDictionary; // @synthesize stationDictionary=_stationDictionary;
-@property(readonly, nonatomic) NSDictionary *highlightRanges; // @synthesize highlightRanges=_highlightRanges;
+@property(readonly, copy, nonatomic) NSDictionary *stationDictionary; // @synthesize stationDictionary=_stationDictionary;
+@property(readonly, copy, nonatomic) NSDictionary *highlightRanges; // @synthesize highlightRanges=_highlightRanges;
 - (void).cxx_destruct;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;

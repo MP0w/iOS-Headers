@@ -6,15 +6,14 @@
 
 #import "NSObject.h"
 
-#import "XPCProxyTarget.h"
 #import "_UIViewServiceDeputy.h"
 #import "_UIViewServiceDeputyRotationDelegate.h"
 #import "_UIViewServiceTextEffectsOperator_RemoteViewControllerInterface.h"
 
-@class UIWindow, _UIAsyncInvocation;
+@class NSArray, NSString, UIWindow, _UIAsyncInvocation;
 
 __attribute__((visibility("hidden")))
-@interface _UIViewServiceTextEffectsOperator : NSObject <XPCProxyTarget, _UIViewServiceTextEffectsOperator_RemoteViewControllerInterface, _UIViewServiceDeputy, _UIViewServiceDeputyRotationDelegate>
+@interface _UIViewServiceTextEffectsOperator : NSObject <_UIViewServiceTextEffectsOperator_RemoteViewControllerInterface, _UIViewServiceDeputy, _UIViewServiceDeputyRotationDelegate>
 {
     id _remoteViewControllerProxy;
     _UIAsyncInvocation *_prepareForDisconnectionInvocation;
@@ -24,20 +23,20 @@ __attribute__((visibility("hidden")))
     BOOL _canRestoreInputViews;
     BOOL _isRestoringInputViews;
     BOOL _didResignForDisappear;
-    id <_UIViewServiceDeputyDelegate> _delegate;
+    BOOL _localVCDisablesAutomaticBehaviors;
+    NSArray *_allowedNotifications;
     int __automatic_invalidation_retainCount;
     BOOL __automatic_invalidation_invalidated;
 }
 
 + (id)XPCInterface;
 + (id)operatorWithRemoteViewControllerProxy:(id)arg1 hostPID:(int)arg2;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
-- (void)finishRotation;
-- (void)rotateToInterfaceOrientation:(int)arg1;
-- (void)willRotateToInterfaceOrientation:(int)arg1;
-- (void)setHostedWindow:(id)arg1;
+- (void)finishRotationFromInterfaceOrientation:(int)arg1;
+- (void)rotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)setHostedWindow:(id)arg1 disableAutomaticBehaviors:(BOOL)arg2;
+- (void)forceSyncToStatusBarOrientation;
 - (id)invalidate;
-- (void)setDeputyDelegate:(id)arg1;
 - (void)__prepareForDisconnectionWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)__hostViewWillDisappear:(BOOL)arg1;
 - (void)__hostViewWillAppear:(BOOL)arg1;
@@ -45,8 +44,9 @@ __attribute__((visibility("hidden")))
 - (void)__hostWillEnterForeground;
 - (void)_restoreInputViews;
 - (void)__hostDidEnterBackground;
+- (void)__setHostAllowedNotifications:(id)arg1;
 - (void)__setNextAutomaticOrderOutDirection:(int)arg1 duration:(double)arg2;
-- (void)__setContentSize:(id)arg1 windowOffset:(id)arg2;
+- (void)__setWindowOffset:(struct CGPoint)arg1;
 - (void)__createHostedTextEffectsWithReplyHandler:(CDUnknownBlockType)arg1;
 - (void)_sendNotification:(id)arg1;
 - (void)windowDidGainFirstResponder:(id)arg1;
@@ -60,6 +60,12 @@ __attribute__((visibility("hidden")))
 - (oneway void)release;
 - (id)retain;
 - (int)__automatic_invalidation_logic;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

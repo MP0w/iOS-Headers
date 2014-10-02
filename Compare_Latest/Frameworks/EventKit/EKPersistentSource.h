@@ -13,6 +13,8 @@
     EKSourceConstraints *_constraints;
 }
 
++ (int)_calEventPrivacyLevelToEKPrivacyLevel:(int)arg1;
++ (int)_ekPrivacyLevelToCalEventPrivacyLevel:(int)arg1;
 + (id)relations;
 + (id)defaultPropertiesToLoad;
 @property(readonly, nonatomic) EKSourceConstraints *constraints; // @synthesize constraints=_constraints;
@@ -26,6 +28,8 @@
 @property(nonatomic) NSString *UUID;
 @property(copy, nonatomic) NSNumber *defaultAlarmOffset;
 @property(copy, nonatomic) NSString *title;
+@property(nonatomic) int strictestEventPrivateValue;
+@property(nonatomic) int preferredEventPrivateValue;
 @property(nonatomic) int sourceType;
 - (int)entityType;
 - (void)dealloc;

@@ -32,6 +32,7 @@
 - (BOOL)shouldMescalVerifyResponseFromURL:(id)arg1;
 - (BOOL)shouldMescalSignRequestWithURL:(id)arg1;
 @property(readonly, nonatomic) NSString *platformLookupURLString;
+@property(readonly, nonatomic, getter=isAdFreeRadioEnabled) BOOL adFreeRadioEnabled;
 @property(readonly, nonatomic) NSURL *baseURL;
 - (id)_initWithURLBagDictionary:(id)arg1;
 

@@ -8,19 +8,24 @@
 
 #import "NSCopying.h"
 
-@class NSMutableArray, NSString;
+@class GEOVersionManifest, NSMutableArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface GEOResources : PBCodable <NSCopying>
 {
     NSString *_addressCorrectionInitURL;
     NSString *_addressCorrectionUpdateURL;
+    NSMutableArray *_announcementsSupportedLanguages;
+    NSString *_announcementsURL;
     NSMutableArray *_attributionBadges;
     NSMutableArray *_attributions;
     NSString *_authToken;
     NSString *_autocompleteURL;
     NSString *_batchReverseGeocoderURL;
+    NSString *_businessCallerIDURL;
+    NSString *_businessNameResolutionURL;
     NSString *_directionsURL;
+    NSString *_dispatcherURL;
     NSString *_etaURL;
     NSMutableArray *_fontChecksums;
     NSMutableArray *_fonts;
@@ -32,6 +37,7 @@ __attribute__((visibility("hidden")))
     NSString *_polyLocationShiftURL;
     NSString *_problemCategoriesURL;
     NSString *_problemNotificationAvailabilityURL;
+    NSString *_problemOptInURL;
     NSString *_problemStatusURL;
     NSString *_problemSubmissionURL;
     NSMutableArray *_regionalResources;
@@ -49,11 +55,19 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_tileGroups;
     NSMutableArray *_tileSets;
     NSString *_usageURL;
+    GEOVersionManifest *_versionManifest;
     NSMutableArray *_xmlChecksums;
     NSMutableArray *_xmls;
 }
 
+@property(retain, nonatomic) GEOVersionManifest *versionManifest; // @synthesize versionManifest=_versionManifest;
+@property(retain, nonatomic) NSString *problemOptInURL; // @synthesize problemOptInURL=_problemOptInURL;
+@property(retain, nonatomic) NSString *dispatcherURL; // @synthesize dispatcherURL=_dispatcherURL;
+@property(retain, nonatomic) NSString *businessNameResolutionURL; // @synthesize businessNameResolutionURL=_businessNameResolutionURL;
+@property(retain, nonatomic) NSMutableArray *announcementsSupportedLanguages; // @synthesize announcementsSupportedLanguages=_announcementsSupportedLanguages;
+@property(retain, nonatomic) NSString *announcementsURL; // @synthesize announcementsURL=_announcementsURL;
 @property(retain, nonatomic) NSString *problemNotificationAvailabilityURL; // @synthesize problemNotificationAvailabilityURL=_problemNotificationAvailabilityURL;
+@property(retain, nonatomic) NSString *businessCallerIDURL; // @synthesize businessCallerIDURL=_businessCallerIDURL;
 @property(retain, nonatomic) NSString *usageURL; // @synthesize usageURL=_usageURL;
 @property(retain, nonatomic) NSString *problemCategoriesURL; // @synthesize problemCategoriesURL=_problemCategoriesURL;
 @property(retain, nonatomic) NSString *reverseGeocoderVersionsURL; // @synthesize reverseGeocoderVersionsURL=_reverseGeocoderVersionsURL;
@@ -91,6 +105,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableArray *styleSheets; // @synthesize styleSheets=_styleSheets;
 @property(retain, nonatomic) NSMutableArray *tileSets; // @synthesize tileSets=_tileSets;
 @property(retain, nonatomic) NSMutableArray *tileGroups; // @synthesize tileGroups=_tileGroups;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -99,7 +114,17 @@ __attribute__((visibility("hidden")))
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) BOOL hasVersionManifest;
+@property(readonly, nonatomic) BOOL hasProblemOptInURL;
+@property(readonly, nonatomic) BOOL hasDispatcherURL;
+@property(readonly, nonatomic) BOOL hasBusinessNameResolutionURL;
+- (id)announcementsSupportedLanguagesAtIndex:(unsigned int)arg1;
+- (unsigned int)announcementsSupportedLanguagesCount;
+- (void)addAnnouncementsSupportedLanguages:(id)arg1;
+- (void)clearAnnouncementsSupportedLanguages;
+@property(readonly, nonatomic) BOOL hasAnnouncementsURL;
 @property(readonly, nonatomic) BOOL hasProblemNotificationAvailabilityURL;
+@property(readonly, nonatomic) BOOL hasBusinessCallerIDURL;
 @property(readonly, nonatomic) BOOL hasUsageURL;
 @property(readonly, nonatomic) BOOL hasProblemCategoriesURL;
 @property(readonly, nonatomic) BOOL hasReverseGeocoderVersionsURL;

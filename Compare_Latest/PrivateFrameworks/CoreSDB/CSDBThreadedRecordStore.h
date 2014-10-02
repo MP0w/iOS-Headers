@@ -23,7 +23,7 @@
 - (void)registerClass:(const CDStruct_2cac97d9 *)arg1;
 - (void)teardownDatabase;
 - (void)_teardownDatabaseOnQueue;
-- (void)setupDatabaseWithAllowLocalMigration:(BOOL)arg1 pathBlock:(CDUnknownBlockType)arg2 setupStoreHandler:(CDUnknownFunctionPointerType)arg3 connectionInitializer:(CDUnknownFunctionPointerType)arg4 versionChecker:(CDUnknownFunctionPointerType)arg5 migrationHandler:(CDUnknownFunctionPointerType)arg6 schemaVersion:(int)arg7 registerBlock:(CDUnknownBlockType)arg8;
+- (void)setupDatabaseWithAllowLocalMigration:(BOOL)arg1 pathBlock:(CDUnknownBlockType)arg2 setupStoreHandler:(CDUnknownFunctionPointerType)arg3 connectionInitializer:(CDUnknownFunctionPointerType)arg4 versionChecker:(CDUnknownFunctionPointerType)arg5 migrationHandler:(CDUnknownFunctionPointerType)arg6 schemaVersion:(int)arg7 classCProtection:(BOOL)arg8 registerBlock:(CDUnknownBlockType)arg9;
 - (void)dealloc;
 - (id)initWithIdentifier:(struct __CFString *)arg1;
 

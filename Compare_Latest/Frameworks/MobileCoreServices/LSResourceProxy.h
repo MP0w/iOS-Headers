@@ -13,6 +13,7 @@
     NSString *_localizedName;
     NSString *_boundApplicationIdentifier;
     NSURL *_boundContainerURL;
+    NSURL *_boundDataContainerURL;
     NSURL *_boundResourcesDirURL;
     NSDictionary *_boundIconsDictionary;
     NSString *_boundIconCacheKey;
@@ -41,6 +42,8 @@
 - (id)boundIconsDictionary;
 - (void)setBoundResourcesDirectoryURL:(id)arg1;
 - (id)boundResourcesDirectoryURL;
+- (void)setBoundDataContainerURL:(id)arg1;
+- (id)boundDataContainerURL;
 - (void)setBoundContainerURL:(id)arg1;
 - (id)boundContainerURL;
 - (void)setBoundApplicationIdentifier:(id)arg1;
@@ -48,7 +51,7 @@
 - (void)setLocalizedName:(id)arg1;
 - (void)dealloc;
 - (id)_initWithLocalizedName:(id)arg1;
-- (id)_initWithLocalizedName:(id)arg1 boundApplicationIdentifier:(id)arg2 boundContainerURL:(id)arg3 boundResourcesDirectoryURL:(id)arg4 boundIconsDictionary:(id)arg5 boundIconCacheKey:(id)arg6 boundIconFileNames:(id)arg7 typeOwner:(id)arg8 boundIconIsPrerendered:(BOOL)arg9 boundIconIsBadge:(BOOL)arg10;
+- (id)_initWithLocalizedName:(id)arg1 boundApplicationIdentifier:(id)arg2 boundContainerURL:(id)arg3 dataContainerURL:(id)arg4 boundResourcesDirectoryURL:(id)arg5 boundIconsDictionary:(id)arg6 boundIconCacheKey:(id)arg7 boundIconFileNames:(id)arg8 typeOwner:(id)arg9 boundIconIsPrerendered:(BOOL)arg10 boundIconIsBadge:(BOOL)arg11;
 
 @end
 

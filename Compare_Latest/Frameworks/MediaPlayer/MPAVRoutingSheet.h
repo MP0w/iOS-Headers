@@ -8,7 +8,7 @@
 
 #import "MPAVRoutingViewControllerDelegate.h"
 
-@class MPAVRoutingViewController, UIButton, UIWindow;
+@class MPAVRoutingViewController, NSString, UIButton, UIWindow;
 
 @interface MPAVRoutingSheet : UIView <MPAVRoutingViewControllerDelegate>
 {
@@ -26,7 +26,6 @@
 - (struct CGRect)_cancelButtonFrame;
 - (struct CGRect)_routingViewFrame;
 - (void)_updateRoutingSheetFrame;
-- (float)_rotationForCurrentOrientation;
 - (void)_animateControls:(BOOL)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)_cancelButtonAction:(id)arg1;
 - (void)routingViewControllerDidShowAirPlayDebugScreen:(id)arg1;
@@ -39,6 +38,12 @@
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithAVItemType:(unsigned int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

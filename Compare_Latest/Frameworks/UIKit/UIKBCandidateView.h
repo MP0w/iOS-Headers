@@ -8,7 +8,7 @@
 
 #import "UIKeyboardCandidateGridCollectionViewControllerDelegate.h"
 
-@class TIKeyboardCandidateResultSet, UIKeyboardCandidateGridCollectionViewController, UIKeyboardCandidateSortControl, UIView;
+@class NSString, TIKeyboardCandidateResultSet, UIKeyboardCandidateGridCollectionViewController, UIKeyboardCandidateSortControl, UIView;
 
 __attribute__((visibility("hidden")))
 @interface UIKBCandidateView : UIKBKeyView <UIKeyboardCandidateGridCollectionViewControllerDelegate>
@@ -25,7 +25,6 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIKeyboardCandidateSortControl *scrollViewSortControl; // @synthesize scrollViewSortControl=_scrollViewSortControl;
 @property(retain, nonatomic) UIKeyboardCandidateGridCollectionViewController *collectionViewController; // @synthesize collectionViewController=_collectionViewController;
 @property(nonatomic) unsigned int selectedSortIndex; // @synthesize selectedSortIndex=_selectedSortIndex;
-- (id).cxx_construct;
 @property(readonly, nonatomic) TIKeyboardCandidateResultSet *candidateResultSet;
 - (id)headerViewForCandidateSet:(id)arg1;
 - (unsigned int)gridCollectionViewNumberOfColumns:(id)arg1;
@@ -47,7 +46,7 @@ __attribute__((visibility("hidden")))
 - (void)showNextPage;
 - (void)showPreviousCandidate;
 - (void)showNextCandidate;
-- (void)showCandidate:(id)arg1;
+- (BOOL)showCandidate:(id)arg1;
 - (void)showCandidateAtIndex:(unsigned int)arg1;
 - (void)setUIKeyboardCandidateListDelegate:(id)arg1;
 - (void)setCandidates:(id)arg1 inlineText:(id)arg2 inlineRect:(struct CGRect)arg3 maxX:(float)arg4 layout:(BOOL)arg5;
@@ -61,6 +60,12 @@ __attribute__((visibility("hidden")))
 - (void)addSubview:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 keyplane:(id)arg2 key:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

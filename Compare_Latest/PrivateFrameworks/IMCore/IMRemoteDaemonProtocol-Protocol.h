@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class FZMessage, NSArray, NSData, NSDictionary, NSNumber, NSString;
+@class IMItem, IMMessageItem, NSArray, NSData, NSDate, NSDictionary, NSNumber, NSString;
 
 @protocol IMRemoteDaemonProtocol <NSObject>
 - (void)validateProfileAccount:(NSString *)arg1;
@@ -30,10 +30,14 @@
 - (void)setAllowList:(NSArray *)arg1 account:(NSString *)arg2;
 - (void)setBlockingMode:(unsigned int)arg1 account:(NSString *)arg2;
 - (void)setProperties:(NSDictionary *)arg1 ofParticipant:(NSString *)arg2 inChatID:(NSString *)arg3 identifier:(NSString *)arg4 style:(unsigned char)arg5 account:(NSString *)arg6;
-- (void)sendReadReceiptForMessage:(FZMessage *)arg1 toChatID:(NSString *)arg2 identifier:(NSString *)arg3 style:(unsigned char)arg4 account:(NSString *)arg5;
-- (void)sendMessage:(FZMessage *)arg1 toChatID:(NSString *)arg2 identifier:(NSString *)arg3 style:(unsigned char)arg4 account:(NSString *)arg5;
+- (void)sendSavedReceiptForMessage:(IMMessageItem *)arg1 toChatID:(NSString *)arg2 identifier:(NSString *)arg3 style:(unsigned char)arg4 account:(NSString *)arg5;
+- (void)sendPlayedReceiptForMessage:(IMMessageItem *)arg1 toChatID:(NSString *)arg2 identifier:(NSString *)arg3 style:(unsigned char)arg4 account:(NSString *)arg5;
+- (void)sendReadReceiptForMessage:(IMMessageItem *)arg1 toChatID:(NSString *)arg2 identifier:(NSString *)arg3 style:(unsigned char)arg4 account:(NSString *)arg5;
+- (void)sendMessage:(IMMessageItem *)arg1 toChatID:(NSString *)arg2 identifier:(NSString *)arg3 style:(unsigned char)arg4 account:(NSString *)arg5;
 - (void)declineInvitationToChatID:(NSString *)arg1 identifier:(NSString *)arg2 style:(unsigned char)arg3 account:(NSString *)arg4;
-- (void)invitePersonInfo:(NSDictionary *)arg1 withMessage:(FZMessage *)arg2 toChatID:(NSString *)arg3 identifier:(NSString *)arg4 style:(unsigned char)arg5 account:(NSString *)arg6;
+- (void)removePersonInfo:(NSDictionary *)arg1 chatID:(NSString *)arg2 identifier:(NSString *)arg3 style:(unsigned char)arg4 account:(NSString *)arg5;
+- (void)invitePersonInfo:(NSDictionary *)arg1 withMessage:(IMMessageItem *)arg2 toChatID:(NSString *)arg3 identifier:(NSString *)arg4 style:(unsigned char)arg5 account:(NSString *)arg6;
+- (void)removeChatID:(NSString *)arg1 identifier:(NSString *)arg2 style:(unsigned char)arg3 account:(NSString *)arg4;
 - (void)leaveChatID:(NSString *)arg1 identifier:(NSString *)arg2 style:(unsigned char)arg3 account:(NSString *)arg4;
 - (void)joinChatID:(NSString *)arg1 handleInfo:(NSArray *)arg2 identifier:(NSString *)arg3 style:(unsigned char)arg4 joinProperties:(NSDictionary *)arg5 account:(NSString *)arg6;
 - (void)updateAuthorizationCredentials:(NSString *)arg1 token:(NSString *)arg2 account:(NSString *)arg3;
@@ -52,18 +56,27 @@
 - (void)authenticateAccount:(NSString *)arg1;
 - (void)resumeBuddyUpdatesAccount:(NSString *)arg1;
 - (void)holdBuddyUpdatesAccount:(NSString *)arg1;
+- (void)sendMappingPacket:(NSString *)arg1 toHandle:(NSString *)arg2 account:(NSString *)arg3;
 - (void)logoutAccount:(NSString *)arg1;
 - (void)loginAccount:(NSString *)arg1;
 - (void)autoReconnectAccount:(NSString *)arg1;
 - (void)autoLoginAccount:(NSString *)arg1;
-- (void)leaveChat:(NSString *)arg1;
+- (void)removeChat:(NSString *)arg1;
+- (void)silenceChat:(NSString *)arg1 untilDate:(NSDate *)arg2;
 - (void)chat:(NSString *)arg1 updateDisplayName:(NSString *)arg2;
 - (void)chat:(NSString *)arg1 updateProperties:(NSDictionary *)arg2;
 - (void)cleanupAttachments;
+- (void)loadAttachmentsForIDs:(NSArray *)arg1 style:(unsigned char)arg2 onServices:(NSArray *)arg3 chatID:(NSString *)arg4 queryID:(NSString *)arg5;
+- (void)loadFrequentRepliesForIDs:(NSArray *)arg1 style:(unsigned char)arg2 onServices:(NSArray *)arg3 limit:(unsigned int)arg4 chatID:(NSString *)arg5 queryID:(NSString *)arg6;
 - (void)updateUnformattedID:(NSString *)arg1 forBuddyID:(NSString *)arg2 onService:(NSString *)arg3;
+- (void)markSavedForIDs:(NSArray *)arg1 style:(unsigned char)arg2 onServices:(NSArray *)arg3 message:(IMMessageItem *)arg4;
+- (void)markSavedForMessageGUID:(NSString *)arg1;
+- (void)markPlayedForIDs:(NSArray *)arg1 style:(unsigned char)arg2 onServices:(NSArray *)arg3 message:(IMMessageItem *)arg4;
+- (void)markPlayedForMessageGUID:(NSString *)arg1;
+- (void)storeItem:(IMItem *)arg1 inChatGUID:(NSString *)arg2;
 - (void)markReadForIDs:(NSArray *)arg1 style:(unsigned char)arg2 onServices:(NSArray *)arg3 messages:(NSArray *)arg4;
 - (void)markReadForMessageGUID:(NSString *)arg1;
-- (void)updateMessage:(FZMessage *)arg1;
+- (void)updateMessage:(IMMessageItem *)arg1;
 - (void)clearHistoryForIDs:(NSArray *)arg1 style:(unsigned char)arg2 onServices:(NSArray *)arg3 beforeGUID:(NSString *)arg4 afterGUID:(NSString *)arg5 chatID:(NSString *)arg6 queryID:(NSString *)arg7;
 - (void)deleteMessageWithGUIDs:(NSArray *)arg1 queryID:(NSString *)arg2;
 - (void)requestPendingMessages;

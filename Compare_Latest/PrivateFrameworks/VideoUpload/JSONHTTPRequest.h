@@ -39,6 +39,7 @@
 @property(retain, nonatomic) NSDictionary *unsignedPostParams; // @synthesize unsignedPostParams=_unsignedPostParams;
 @property(retain, nonatomic) NSDictionary *postParams; // @synthesize postParams=_postParams;
 @property(retain, nonatomic) NSDictionary *getParams; // @synthesize getParams=_getParams;
+- (void).cxx_destruct;
 - (void)connection:(id)arg1 didSendBodyData:(int)arg2 totalBytesWritten:(int)arg3 totalBytesExpectedToWrite:(int)arg4;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)connectionDidFinishLoading:(id)arg1;
@@ -53,6 +54,12 @@
 - (id)HTTPRequestBoundary;
 - (id)initWithURL:(id)arg1 delegate:(id)arg2;
 - (id)initWithURL:(id)arg1 delegate:(id)arg2 signer:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

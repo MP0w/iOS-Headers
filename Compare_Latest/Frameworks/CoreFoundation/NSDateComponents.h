@@ -9,6 +9,8 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
+@class NSCalendar, NSDate, NSTimeZone;
+
 @interface NSDateComponents : NSObject <NSCopying, NSSecureCoding>
 {
 }
@@ -17,47 +19,30 @@
 + (id)allocWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (BOOL)isValidDateInCalendar:(id)arg1;
-- (BOOL)isValidDate;
-- (void)setValue:(int)arg1 forComponent:(unsigned int)arg2;
+@property(readonly, getter=isValidDate) BOOL validDate;
 - (int)valueForComponent:(unsigned int)arg1;
-- (id)date;
-- (void)setLeapMonth:(BOOL)arg1;
-- (void)setYearForWeekOfYear:(int)arg1;
-- (void)setWeekOfMonth:(int)arg1;
-- (void)setWeekOfYear:(int)arg1;
-- (void)setNanosecond:(int)arg1;
-- (void)setQuarter:(int)arg1;
-- (void)setWeekdayOrdinal:(int)arg1;
-- (void)setWeekday:(int)arg1;
+- (void)setValue:(int)arg1 forComponent:(unsigned int)arg2;
+@property(readonly, copy) NSDate *date;
+@property(getter=isLeapMonth) BOOL leapMonth;
+@property int yearForWeekOfYear;
+@property int weekOfMonth;
+@property int weekOfYear;
+@property int nanosecond;
+@property int quarter;
+@property int weekdayOrdinal;
+@property int weekday;
 - (void)setWeek:(int)arg1;
-- (void)setSecond:(int)arg1;
-- (void)setMinute:(int)arg1;
-- (void)setHour:(int)arg1;
-- (void)setDay:(int)arg1;
-- (void)setMonth:(int)arg1;
-- (void)setYear:(int)arg1;
-- (void)setEra:(int)arg1;
-- (void)setTimeZone:(id)arg1;
-- (void)setCalendar:(id)arg1;
+@property int second;
+@property int minute;
+@property int hour;
+@property int day;
+@property int month;
+@property int year;
+@property int era;
+@property(copy) NSTimeZone *timeZone;
+@property(copy) NSCalendar *calendar;
 - (BOOL)isLeapMonthSet;
-- (BOOL)isLeapMonth;
-- (int)yearForWeekOfYear;
-- (int)weekOfMonth;
-- (int)weekOfYear;
-- (int)nanosecond;
-- (int)quarter;
-- (int)weekdayOrdinal;
-- (int)weekday;
 - (int)week;
-- (int)second;
-- (int)minute;
-- (int)hour;
-- (int)day;
-- (int)month;
-- (int)year;
-- (int)era;
-- (id)timeZone;
-- (id)calendar;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

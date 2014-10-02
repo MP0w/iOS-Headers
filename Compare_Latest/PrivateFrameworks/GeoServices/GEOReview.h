@@ -28,6 +28,7 @@
 @property(nonatomic) double reviewTime; // @synthesize reviewTime=_reviewTime;
 @property(nonatomic) double score; // @synthesize score=_score;
 @property(retain, nonatomic) NSString *snippet; // @synthesize snippet=_snippet;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -42,6 +43,7 @@
 @property(nonatomic) BOOL hasScore;
 @property(readonly, nonatomic) BOOL hasSnippet;
 - (void)dealloc;
+- (id)initWithPlaceDataReview:(id)arg1;
 
 @end
 

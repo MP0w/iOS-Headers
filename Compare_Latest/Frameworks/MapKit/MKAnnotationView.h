@@ -9,7 +9,7 @@
 #import "MKAnnotationRepresentation.h"
 #import "MKLocatableObject.h"
 
-@class MKAnnotationManager, MKUserLocationAnnotationViewProxy, NSString, UICalloutView, UIImage, VKAnchorWrapper, VKAttributedRouteMatch, _MKAnnotationViewAnchor;
+@class GEORouteMatch, MKAnnotationManager, MKUserLocationAnnotationViewProxy, NSString, UICalloutView, UIImage, VKAnchorWrapper, _MKAnnotationViewAnchor;
 
 @interface MKAnnotationView : UIView <MKAnnotationRepresentation, MKLocatableObject>
 {
@@ -23,13 +23,13 @@
     MKUserLocationAnnotationViewProxy *_userLocationProxy;
     float _rotationRadians;
     _MKAnnotationViewAnchor *_anchor;
-    VKAttributedRouteMatch *_routeMatch;
+    GEORouteMatch *_routeMatch;
     float _mapRotationRadians;
     BOOL _explicitlyHidden;
     BOOL _hiddenForOffscreen;
     BOOL _hiddenForInvalidPoint;
     float _mapPitchRadians;
-    int _mapDisplayStyle;
+    unsigned int _mapDisplayStyle;
     MKAnnotationManager *_annotationManager;
     id <MKAnnotation> _annotation;
     UICalloutView *_calloutView;
@@ -65,10 +65,10 @@
 + (id)droppedPinTitle;
 + (id)currentLocationTitle;
 @property(nonatomic, getter=_isHiddenForInvalidPoint, setter=_setHiddenForInvalidPoint:) BOOL hiddenForInvalidPoint; // @synthesize hiddenForInvalidPoint=_hiddenForInvalidPoint;
-@property(nonatomic, getter=_mapDisplayStyle, setter=_setMapDisplayStyle:) int mapDisplayStyle; // @synthesize mapDisplayStyle=_mapDisplayStyle;
+@property(nonatomic, getter=_mapDisplayStyle, setter=_setMapDisplayStyle:) unsigned int mapDisplayStyle; // @synthesize mapDisplayStyle=_mapDisplayStyle;
 @property(nonatomic, getter=_mapPitchRadians, setter=_setMapPitchRadians:) float mapPitchRadians; // @synthesize mapPitchRadians=_mapPitchRadians;
 @property(nonatomic, getter=_mapRotationRadians, setter=_setMapRotationRadians:) float mapRotationRadians; // @synthesize mapRotationRadians=_mapRotationRadians;
-@property(retain, nonatomic, setter=_setRouteMatch:) VKAttributedRouteMatch *_routeMatch; // @synthesize _routeMatch;
+@property(retain, nonatomic, setter=_setRouteMatch:) GEORouteMatch *_routeMatch; // @synthesize _routeMatch;
 @property(retain, nonatomic) UIView *detailCalloutAccessoryView; // @synthesize detailCalloutAccessoryView=_detailCalloutAccessoryView;
 @property(retain, nonatomic) UIView *rightCalloutAccessoryView; // @synthesize rightCalloutAccessoryView=_rightCalloutAccessoryView;
 @property(retain, nonatomic) UIView *leftCalloutAccessoryView; // @synthesize leftCalloutAccessoryView=_leftCalloutAccessoryView;
@@ -83,6 +83,7 @@
 - (void).cxx_destruct;
 - (void)_didUpdatePosition;
 - (void)_updateFromMap;
+- (float)_pointsForDistance:(double)arg1;
 - (id)_vkMarker;
 - (id)_containerView;
 - (BOOL)_canChangeOrientation;
@@ -137,6 +138,12 @@
 - (id)initWithAnnotation:(id)arg1 reuseIdentifier:(id)arg2;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

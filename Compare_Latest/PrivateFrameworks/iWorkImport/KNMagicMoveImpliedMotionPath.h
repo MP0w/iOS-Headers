@@ -11,28 +11,22 @@
 #import "KNMagicMoveFrameAnimator.h"
 #import "KNMagicMoveTransitionAnimator.h"
 
-@class KNMotionBlurWrapper, NSDictionary, NSMapTable, NSMutableArray, NSMutableDictionary, TSDGLDataBuffer, TSDGLShader, TSDMagicMoveTextureZOrderer;
+@class KNMagicMoveWrapper, KNMotionBlurWrapper, NSString;
 
 __attribute__((visibility("hidden")))
 @interface KNMagicMoveImpliedMotionPath : KNAnimationEffect <KNMagicMoveTransitionAnimator, KNMagicMoveFrameAnimator, KNAnimationPluginObsoleteNames, KNAnimationPluginArchiving>
 {
-    TSDGLShader *_magicMoveShader;
-    TSDGLShader *_magicMoveBlendShader;
-    TSDGLDataBuffer *_dataBuffer;
     CDUnknownBlockType _motionBlurWrapperTextureDrawOptionsBlock;
     CDUnknownBlockType _motionBlurWrapperSetupShaderBlock;
     KNMotionBlurWrapper *_motionBlurWrapper;
-    TSDMagicMoveTextureZOrderer *_mmTextureZOrderer;
-    NSMutableDictionary *_animationDict;
-    NSDictionary *_animationCacheDict;
-    NSMutableArray *_texturesOrderingArray;
-    NSMapTable *_textureToShaderMapTable;
-    NSMapTable *_textureToMorphEffectDict;
+    KNMagicMoveWrapper *_magicMoveWrapper;
+    BOOL _isTextMorphEnabled;
 }
 
 + (void)downgradeAttributes:(id *)arg1 animationName:(id *)arg2 warning:(id *)arg3 type:(int)arg4 isToClassic:(BOOL)arg5 version:(unsigned long long)arg6;
 + (void)upgradeAttributes:(id *)arg1 animationName:(id)arg2 warning:(id *)arg3 type:(int)arg4 isFromClassic:(BOOL)arg5 version:(unsigned long long)arg6;
 + (id)obsoleteAnimationNames;
++ (int)rendererTypeForCapabilities:(id)arg1;
 + (id)customAttributes;
 + (id)thumbnailImageNameForType:(int)arg1;
 + (id)defaultAttributes;
@@ -40,24 +34,28 @@ __attribute__((visibility("hidden")))
 + (unsigned int)directionType;
 + (id)localizedMenuString:(int)arg1;
 + (id)supportedTypes;
++ (BOOL)supportsMorphTextures;
 + (BOOL)requiresPerspectiveTransform;
-+ (BOOL)requiresMagicMoveTextures;
 + (BOOL)requiresBullets;
 + (BOOL)isCharacterAwareEffect;
 + (id)animationFilter;
 + (int)animationCategory;
 + (id)animationName;
-+ (void)initialize;
 - (void)animationDidEndWithContext:(id)arg1;
 - (void)renderFrameWithContext:(id)arg1;
 - (void)animationWillBeginWithContext:(id)arg1;
-- (id)p_texturesBySortingArray:(id)arg1;
-- (id)p_magicMoveShaderWithShouldBlendIncoming:(BOOL)arg1 enableDebugColors:(BOOL)arg2;
 - (id)animationsWithContext:(id)arg1;
-- (void)p_setAnimationGroup:(id)arg1 forLayer:(id)arg2 inDictionary:(id)arg3;
-- (void)p_addDebugAnimationsToArray:(id)arg1 forType:(int)arg2 duration:(double)arg3;
+- (void)p_setupMagicMoveWrapperWithContext:(id)arg1;
+- (BOOL)p_isTextMorphWithTR:(id)arg1 match:(id)arg2;
 - (void)dealloc;
+- (void)teardown;
 - (id)initWithAnimationContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

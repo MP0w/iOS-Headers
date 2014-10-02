@@ -8,7 +8,7 @@
 
 #import "UITableViewDelegate.h"
 
-@class ABAccountsAndGroupDataSource, ABPeoplePickerNavigationController, UIRefreshControl;
+@class ABAccountsAndGroupDataSource, ABPeoplePickerNavigationController, NSString, UIRefreshControl;
 
 @interface ABAccountsAndGroupsViewController : ABAbstractViewController <UITableViewDelegate>
 {
@@ -46,7 +46,12 @@
 - (id)model;
 - (void)dealloc;
 - (id)initWithModel:(id)arg1;
-- (id)allGroupWrapperIndexPaths;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

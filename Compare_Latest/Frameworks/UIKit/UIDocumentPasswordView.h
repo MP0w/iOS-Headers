@@ -8,7 +8,7 @@
 
 #import "UITextFieldDelegate.h"
 
-@class NSObject<UIDocumentPasswordViewDelegate>, UIDocumentPasswordField, UIImageView, UILabel, UITextField;
+@class NSObject<UIDocumentPasswordViewDelegate>, NSString, UIDocumentPasswordField, UIImageView, UILabel, UITextField;
 
 @interface UIDocumentPasswordView : UIView <UITextFieldDelegate>
 {
@@ -33,6 +33,12 @@
 - (struct CGRect)_iconRectForContainerRect:(struct CGRect)arg1;
 - (void)dealloc;
 - (id)initWithDocumentName:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -10,17 +10,18 @@
 
 @interface ABRepeatingGradientSeparatorView : UIView
 {
-    NSArray *_gradientColors;
     UIColor *_startColor;
     UIColor *_endColor;
-    float _step;
+    int _lineCount;
 }
 
-@property(nonatomic) float step; // @synthesize step=_step;
+@property(nonatomic) int lineCount; // @synthesize lineCount=_lineCount;
 @property(retain, nonatomic) UIColor *endColor; // @synthesize endColor=_endColor;
 @property(retain, nonatomic) UIColor *startColor; // @synthesize startColor=_startColor;
 @property(readonly, nonatomic) NSArray *gradientColors;
 - (void)layoutSubviews;
+- (void)_updateGradients;
+- (struct CGSize)intrinsicContentSize;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

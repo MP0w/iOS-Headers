@@ -19,6 +19,7 @@
 + (id)default;
 @property(retain, nonatomic) PKPaper *paper; // @synthesize paper;
 @property(retain, nonatomic) NSMutableDictionary *dict; // @synthesize dict=_dict;
+- (id)description;
 - (id)objectForKey:(id)arg1;
 - (void)removeObjectForKey:(id)arg1;
 - (void)setObject:(id)arg1 forKey:(id)arg2;

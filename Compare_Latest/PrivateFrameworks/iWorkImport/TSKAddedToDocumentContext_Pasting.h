@@ -6,9 +6,12 @@
 
 #import <iWorkImport/TSKAddedToDocumentContext.h>
 
+@class NSMutableArray;
+
 __attribute__((visibility("hidden")))
 @interface TSKAddedToDocumentContext_Pasting : TSKAddedToDocumentContext
 {
+    NSMutableArray *mAddedDrawables;
     struct __CFDictionary *mTableIDMap;
 }
 
@@ -19,6 +22,8 @@ __attribute__((visibility("hidden")))
 - (id)description;
 - (void)setTableIDMap:(struct __CFDictionary *)arg1;
 - (struct __CFDictionary *)tableIDMap;
+- (id)addedDrawables;
+- (void)addDrawable:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

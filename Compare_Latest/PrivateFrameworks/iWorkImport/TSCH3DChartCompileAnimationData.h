@@ -8,7 +8,7 @@
 
 #import "TSCH3DChartGeometryArrayCompilerDelegate.h"
 
-@class NSMutableDictionary, TSCH3DAnimationTimeSlice, TSCH3DChartElementSceneObject, TSCH3DChartGeometryArrayCompiler, TSCH3DGeometryElementArrays, TSCH3DGeometryInterleavedArray;
+@class NSMutableDictionary, NSString, TSCH3DAnimationTimeSlice, TSCH3DChartElementSceneObject, TSCH3DChartGeometryArrayCompiler, TSCH3DGeometryElementArrays, TSCH3DGeometryInterleavedArray;
 
 __attribute__((visibility("hidden")))
 @interface TSCH3DChartCompileAnimationData : NSObject <TSCH3DChartGeometryArrayCompilerDelegate>
@@ -39,6 +39,12 @@ __attribute__((visibility("hidden")))
 - (tvec2_3b141483)elementIndex;
 - (void)dealloc;
 - (id)initWithTimeSlice:(id)arg1 sceneObject:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

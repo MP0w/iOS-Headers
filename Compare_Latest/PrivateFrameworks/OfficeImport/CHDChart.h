@@ -8,7 +8,7 @@
 
 #import "OADDrawableContainer.h"
 
-@class CHDDefaultTextProperties, CHDLegend, CHDPlotArea, CHDTitle, CHDView3D, EDSheet, EDWorkbook, NSMutableArray, OADGraphicProperties;
+@class CHDDefaultTextProperties, CHDLegend, CHDPlotArea, CHDTitle, CHDView3D, EDSheet, EDWorkbook, NSMutableArray, NSString, OADGraphicProperties;
 
 __attribute__((visibility("hidden")))
 @interface CHDChart : OADGraphic <OADDrawableContainer>
@@ -18,7 +18,9 @@ __attribute__((visibility("hidden")))
     _Bool mAutoTitleDeleted;
     _Bool mPlotVisibleCellsOnly;
     _Bool mMSGraph;
+    _Bool mHasSharedXValues;
     _Bool mDirectionChanged;
+    _Bool mHasVisibleSeriesNames;
     int mDisplayBlankCellsAs;
     CHDPlotArea *mPlotArea;
     CHDView3D *mView3D;
@@ -37,13 +39,18 @@ __attribute__((visibility("hidden")))
 
 + (id)binaryEffects:(BOOL)arg1;
 - (id).cxx_construct;
+- (void)setVisibleSeriesNames:(_Bool)arg1;
+- (_Bool)hasVisibleSeriesNames;
 - (void)setDirectionChanged:(_Bool)arg1;
 - (_Bool)isDirectionChanged;
+- (void)setHasSharedXValues:(_Bool)arg1;
+- (_Bool)hasSharedXValues;
 - (void)setMSGraph:(_Bool)arg1;
 - (_Bool)isMSGraph;
 - (unsigned int)categoryCount;
 - (unsigned int)seriesCount;
 - (_Bool)isBinary;
+- (_Bool)isScatterOrBubble;
 - (_Bool)isPie;
 - (_Bool)is3D;
 - (id)mainType;
@@ -101,6 +108,12 @@ __attribute__((visibility("hidden")))
 - (id)sheet;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -10,7 +10,7 @@
 #import "TSCH3DSceneDelegate.h"
 #import "TSCH3DSceneObjectDelegator.h"
 
-@class TSCH3DGetBoundsPipeline, TSCH3DLabelsRendererTransforms, TSUMutablePointerSet;
+@class NSString, TSCH3DGetBoundsPipeline, TSCH3DLabelsRendererTransforms, TSUMutablePointerSet;
 
 __attribute__((visibility("hidden")))
 @interface TSCH3DChartBoundsLayoutSceneDelegate : NSObject <TSCH3DSceneObjectDelegator, TSCH3DSceneDelegate, TSCH3DChartAllSceneObjectDelegate>
@@ -60,6 +60,12 @@ __attribute__((visibility("hidden")))
 - (id)interestedClasses;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

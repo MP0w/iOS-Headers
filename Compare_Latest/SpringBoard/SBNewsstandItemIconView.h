@@ -12,8 +12,8 @@
 
 + (struct CGSize)defaultIconSize;
 + (int)_defaultIconFormat;
-- (struct CGRect)_frameForUpdatedMarkWithLabelFrame:(struct CGRect)arg1;
-- (struct CGRect)_baseFrameForUpdatedMarkWithLabelFrame:(struct CGRect)arg1;
+- (struct CGRect)_frameForLabelAccessoryViewWithLabelFrame:(struct CGRect)arg1;
+- (struct CGRect)_baseFrameForLabelAccessoryViewWithLabelFrame:(struct CGRect)arg1;
 - (struct CGRect)_frameForLabel;
 - (struct CGRect)_baseFrameForLabel;
 - (struct CGRect)_frameForImageView;

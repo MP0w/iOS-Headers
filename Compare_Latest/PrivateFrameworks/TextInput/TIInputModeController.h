@@ -11,6 +11,7 @@
 @interface TIInputModeController : NSObject
 {
     NSArray *_supportedInputModeIdentifiers;
+    NSArray *_supportedInputModeLanguageAndRegions;
     NSString *currentLocale;
     NSString *currentLanguage;
     NSArray *enabledInputModes;
@@ -24,6 +25,7 @@
 @property(copy, nonatomic) NSString *currentLanguage; // @synthesize currentLanguage;
 @property(copy, nonatomic) NSString *currentLocale; // @synthesize currentLocale;
 @property(readonly) NSArray *enabledInputModeIdentifiers;
+@property(readonly) NSArray *supportedInputModeLanguageAndRegions;
 @property(readonly) NSArray *supportedInputModeIdentifiers;
 - (id)defaultEnabledInputModesForCurrentLocale;
 - (void)dealloc;

@@ -8,7 +8,7 @@
 
 #import "MSPlatform.h"
 
-@class NSData;
+@class NSData, NSString;
 
 @interface MSMSPlatform : NSObject <MSPlatform>
 {
@@ -25,6 +25,7 @@
 - (BOOL)shouldEnableNewFeatures;
 - (id)pushTokenForPersonID:(id)arg1;
 - (BOOL)personIDUsesProductionPushEnvironment:(id)arg1;
+- (id)contentURLForPersonID:(id)arg1;
 - (id)baseURLForPersonID:(id)arg1;
 - (id)authTokenForPersonID:(id)arg1;
 - (id)_accountForPersonID:(id)arg1;
@@ -50,6 +51,12 @@
 - (struct __CFString *)_facilityStringForFacility:(int)arg1;
 - (BOOL)shouldLogAtLevel:(int)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

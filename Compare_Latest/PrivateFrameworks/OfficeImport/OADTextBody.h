@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     OADTextListStyle *mTextListStyle;
 }
 
+- (void)propagateActualTextStyleToTextListStyle;
 - (void)removeUnnecessaryOverrides;
 - (void)flattenProperties;
 - (BOOL)isEmpty;
@@ -28,14 +29,15 @@ __attribute__((visibility("hidden")))
 - (void)removeAllParagraphs;
 - (id)addParagraph;
 - (id)paragraphAtIndex:(unsigned int)arg1;
+- (unsigned int)nonEmptyParagraphCount;
 - (unsigned int)paragraphCount;
 - (void)setProperties:(id)arg1;
 - (id)properties;
 - (void)dealloc;
 - (id)init;
-- (id)findFirstTextRunOfClass:(Class)arg1;
-- (void)addParagraphsFromTextBody:(id)arg1;
 - (id)plainText;
+- (void)addParagraphsFromTextBody:(id)arg1;
+- (id)findFirstTextRunOfClass:(Class)arg1;
 
 @end
 

@@ -6,13 +6,12 @@
 
 #import "UIViewController.h"
 
-#import "UIAlertViewDelegate.h"
+#import "UINavigationControllerDelegate.h"
 
-@class SKUIAccountButtonsView, SKUIClientContext, SKUIColorScheme, SKUILink, UIAlertView;
+@class NSString, SKUIAccountButtonsView, SKUIClientContext, SKUILink;
 
-@interface SKUIAccountButtonsViewController : UIViewController <UIAlertViewDelegate>
+@interface SKUIAccountButtonsViewController : UIViewController <UINavigationControllerDelegate>
 {
-    UIAlertView *_alertView;
     SKUIAccountButtonsView *_buttonsView;
     SKUIClientContext *_clientContext;
     id <SKUIAccountButtonsDelegate> _delegate;
@@ -30,6 +29,7 @@
 - (void)_reloadAccountsButton;
 - (void)_openIForgot;
 - (id)_buttonsView;
+- (unsigned int)navigationControllerSupportedInterfaceOrientations:(id)arg1;
 - (void)_restrictionsChangedNotification:(id)arg1;
 - (void)_accountStoreChangedNotification:(id)arg1;
 - (void)_usernameButtonAction:(id)arg1;
@@ -39,14 +39,17 @@
 - (void)_giftAction:(id)arg1;
 - (void)_ecommerceLinkAction:(id)arg1;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
 - (void)loadView;
 @property(nonatomic, getter=isTermsAndConditionsHidden) BOOL termsAndConditionsHidden;
 @property(nonatomic, getter=isGiftingHidden) BOOL giftingHidden;
-@property(copy, nonatomic) SKUIColorScheme *colorScheme;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

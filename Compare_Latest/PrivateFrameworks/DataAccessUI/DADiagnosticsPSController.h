@@ -9,7 +9,7 @@
 #import "DADiagnosticSaveNotesDelegate.h"
 #import "UIAlertViewDelegate.h"
 
-@class UIAlertView;
+@class NSString, UIAlertView;
 
 @interface DADiagnosticsPSController : PSListController <DADiagnosticSaveNotesDelegate, UIAlertViewDelegate>
 {
@@ -21,6 +21,7 @@
 + (id)dumpRuntimeStateSpecifiers;
 + (id)linkSpecifier;
 + (BOOL)diagnosticsVisible;
+- (void).cxx_destruct;
 - (void)purgeFileAtPath:(id)arg1;
 - (id)pathsOfPurgableFiles;
 - (id)pathsOfAllLogFiles;
@@ -43,9 +44,14 @@
 - (void)runSimpleAlertWithTitle:(id)arg1 message:(id)arg2 dismissedSelector:(SEL)arg3;
 - (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)dealloc;
 - (id)specifiers;
 - (id)diagnosticSpecifiers;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

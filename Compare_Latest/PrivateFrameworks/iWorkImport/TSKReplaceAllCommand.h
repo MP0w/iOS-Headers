@@ -19,8 +19,8 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, nonatomic) unsigned int options; // @synthesize options=_options;
-@property(readonly, nonatomic) NSString *replaceString; // @synthesize replaceString=_replaceString;
-@property(readonly, nonatomic) NSString *findString; // @synthesize findString=_findString;
+@property(readonly, retain, nonatomic) NSString *replaceString; // @synthesize replaceString=_replaceString;
+@property(readonly, retain, nonatomic) NSString *findString; // @synthesize findString=_findString;
 @property(nonatomic) unsigned int countOfItemsReplaced; // @synthesize countOfItemsReplaced=_countOfItemsReplaced;
 - (void)redo;
 - (void)undo;

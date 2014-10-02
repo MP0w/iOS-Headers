@@ -8,10 +8,11 @@
 
 #import "UITextInput.h"
 #import "UITextInputAdditions.h"
+#import "UITextInput_Internal.h"
 
-@class NSArray, NSDictionary, NSHashTable, NSLayoutManager, UITextChecker, UITextInputTraits, UITextPosition, UITextRange, UIView, UIView<UITextInput>, _UIDictationAttachment, _UITextInputControllerTokenizer, _UITextKitTextRange, _UITextServiceSession, _UITextUndoManager, _UITextUndoOperationTyping;
+@class NSArray, NSDictionary, NSHashTable, NSLayoutManager, NSString, UIResponder<UITextInput>, UITextChecker, UITextInputTraits, UITextPosition, UITextRange, UIView, UIView<UITextInput>, UIView<UITextInputPrivate>, _UIDictationAttachment, _UITextInputControllerTokenizer, _UITextKitTextRange, _UITextServiceSession, _UITextUndoManager, _UITextUndoOperationTyping;
 
-@interface UITextInputController : NSObject <UITextInput, UITextInputAdditions>
+@interface UITextInputController : NSObject <UITextInput_Internal, UITextInput, UITextInputAdditions>
 {
     id <UITextInputDelegate> _inputDelegate;
     _UITextKitTextRange *_selectedTextRange;
@@ -37,6 +38,7 @@
         unsigned int textOrSelectionChangeOriginatesWithMarkedText:1;
         unsigned int nextSelectionChangeMustUpdate:1;
         unsigned int hasTextAlternatives:1;
+        unsigned int suppressDelegateChangeNotifications:1;
     } _tiFlags;
     NSArray *_extraItemsBeforeTextStyleOptions;
     UIView<UITextInput> *_firstTextView;
@@ -75,6 +77,7 @@
 - (void)_removeShortcutController;
 - (void)_define:(id)arg1;
 - (void)_removeDefinitionController;
+- (void)_transliterateChinese:(id)arg1;
 - (void)_promptForReplace:(id)arg1;
 - (void)selectAll:(id)arg1;
 - (void)select:(id)arg1;
@@ -149,6 +152,7 @@
 @property(readonly, nonatomic) UITextRange *markedTextRange;
 @property(nonatomic) int selectionAffinity;
 @property(copy) UITextRange *selectedTextRange;
+- (void)_performWhileSuppressingDelegateNotifications:(CDUnknownBlockType)arg1;
 - (void)replaceRangeWithTextWithoutClosingTyping:(id)arg1 replacementText:(id)arg2;
 - (void)replaceRange:(id)arg1 withText:(id)arg2;
 - (id)textInRange:(id)arg1;
@@ -206,7 +210,7 @@
 - (void)_textContainerDidChangeView:(id)arg1;
 - (void)_teardownTextContainerView:(id)arg1;
 - (void)_setupTextContainerView:(id)arg1;
-- (void)_setGestureRecognizers;
+- (void)_setInternalGestureRecognizers;
 - (id)_textStorage;
 - (id)_layoutManager;
 - (BOOL)_delegateShouldChangeTextInRange:(struct _NSRange)arg1 replacementText:(id)arg2;
@@ -216,16 +220,89 @@
 - (void)dealloc;
 - (void)_commonInitWithLayoutManager:(id)arg1;
 - (id)initWithLayoutManager:(id)arg1;
+- (id)_selectableText;
+- (BOOL)_shouldPerformUICalloutBarButtonReplaceAction:(SEL)arg1 forText:(id)arg2 checkAutocorrection:(BOOL)arg3;
+- (void)_phraseBoundaryGesture:(id)arg1;
+- (id)_newPhraseBoundaryGestureRecognizer;
+- (void)_unmarkText;
+- (void)_setMarkedText:(id)arg1 selectedRange:(struct _NSRange)arg2;
+- (BOOL)_hasMarkedText;
+- (BOOL)_usesAsynchronousProtocol;
+- (void)_setGestureRecognizers;
+- (int)_selectionAffinity;
+- (void)_setSelectedTextRange:(id)arg1 withAffinityDownstream:(BOOL)arg2;
+- (id)_positionFromPosition:(id)arg1 inDirection:(int)arg2 offset:(int)arg3 withAffinityDownstream:(BOOL)arg4;
+- (id)_moveRight:(BOOL)arg1 withHistory:(id)arg2;
+- (id)_moveLeft:(BOOL)arg1 withHistory:(id)arg2;
+- (id)_moveDown:(BOOL)arg1 withHistory:(id)arg2;
+- (id)_moveUp:(BOOL)arg1 withHistory:(id)arg2;
+- (id)_moveToEndOfDocument:(BOOL)arg1 withHistory:(id)arg2;
+- (id)_moveToStartOfDocument:(BOOL)arg1 withHistory:(id)arg2;
+- (id)_moveToEndOfParagraph:(BOOL)arg1 withHistory:(id)arg2;
+- (id)_moveToStartOfParagraph:(BOOL)arg1 withHistory:(id)arg2;
+- (id)_moveToEndOfLine:(BOOL)arg1 withHistory:(id)arg2;
+- (id)_moveToStartOfLine:(BOOL)arg1 withHistory:(id)arg2;
+- (id)_moveToEndOfWord:(BOOL)arg1 withHistory:(id)arg2;
+- (id)_moveToStartOfWord:(BOOL)arg1 withHistory:(id)arg2;
+- (id)_setHistory:(id)arg1 withExtending:(BOOL)arg2 withAnchor:(int)arg3 withAffinityDownstream:(BOOL)arg4;
+- (id)_setSelectionRangeWithHistory:(id)arg1;
+- (void)_updateSelectionWithTextRange:(id)arg1 withAffinityDownstream:(BOOL)arg2;
+- (id)_fontForCaretSelection;
+- (id)_textColorForCaretSelection;
+- (id)_clampedpositionFromPosition:(id)arg1 offset:(int)arg2;
+- (id)_findPleasingWordBoundaryFromPosition:(id)arg1;
+- (id)_fullRange;
+- (id)_rangeOfParagraphEnclosingPosition:(id)arg1;
+- (id)_rangeOfLineEnclosingPosition:(id)arg1;
+- (id)_rangeOfEnclosingWord:(id)arg1;
+- (id)_rangeOfText:(id)arg1 endingAtPosition:(id)arg2;
+- (void)_scrollRectToVisible:(struct CGRect)arg1 animated:(BOOL)arg2;
+- (void)_replaceCurrentWordWithText:(id)arg1;
+- (void)_deleteForwardAndNotify:(BOOL)arg1;
+- (void)_deleteBackwardAndNotify:(BOOL)arg1;
+- (void)_deleteToEndOfLine;
+- (void)_deleteToStartOfLine;
+- (void)_deleteByWord;
+- (void)_setCaretSelectionAtEndOfSelection;
+- (id)_positionAtStartOfWords:(unsigned int)arg1 beforePosition:(id)arg2;
+- (void)_expandSelectionToStartOfWordsBeforeCaretSelection:(int)arg1;
+- (void)_expandSelectionToStartOfWordBeforeCaretSelection;
+- (void)_expandSelectionToBackwardDeletionCluster;
+- (void)_moveCurrentSelection:(int)arg1;
+- (void)_extendCurrentSelection:(int)arg1;
+- (BOOL)_hasMarkedTextOrRangedSelection;
+- (BOOL)_isEmptySelection;
+- (struct CGRect)_selectionClipRect;
+- (BOOL)_selectionAtDocumentEnd;
+- (BOOL)_selectionAtDocumentStart;
+- (BOOL)_selectionAtWordStart;
+- (id)_fullText;
+- (id)_wordContainingCaretSelection;
+- (unsigned long)_characterInRelationToRangedSelection:(int)arg1;
+- (unsigned long)_characterInRelationToCaretSelection:(int)arg1;
+- (unsigned long)_characterBeforeCaretSelection;
+- (unsigned long)_characterAfterCaretSelection;
+- (struct _NSRange)_nsrangeForTextRange:(id)arg1;
+- (int)_indexForTextPosition:(id)arg1;
+- (void)_selectAll;
+- (struct _NSRange)_selectedNSRange;
+- (id)_keyInput;
+@property(readonly, nonatomic, getter=_proxyTextInput) UIResponder<UITextInput> *__content;
 
 // Remaining properties
+@property(readonly, nonatomic) UIView<UITextInputPrivate> *_textSelectingContainer;
 @property(nonatomic) int autocapitalizationType;
 @property(nonatomic) int autocorrectionType;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(nonatomic) BOOL enablesReturnKeyAutomatically;
+@property(readonly) unsigned int hash;
 @property(nonatomic) int keyboardAppearance;
 @property(nonatomic) int keyboardType;
 @property(nonatomic) int returnKeyType;
 @property(nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry;
 @property(nonatomic) int spellCheckingType;
+@property(readonly) Class superclass;
 @property(readonly, nonatomic) UIView *textInputView;
 
 @end

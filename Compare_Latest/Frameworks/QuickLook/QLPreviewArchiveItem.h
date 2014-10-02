@@ -8,7 +8,7 @@
 
 #import "QLPreviewUIItem.h"
 
-@class NSMutableArray, NSOperation, NSString, NSURL, QLPreviewThumbnailGenerator, UIDocumentInteractionController, UIImage;
+@class NSArray, NSError, NSMutableArray, NSOperation, NSOperationQueue, NSString, NSURL, QLPreviewThumbnailGenerator, UIDocumentInteractionController, UIImage;
 
 @interface QLPreviewArchiveItem : NSObject <QLPreviewUIItem>
 {
@@ -17,21 +17,31 @@
     NSString *_path;
     NSURL *_unarchivedURL;
     NSOperation *_unarchiveOperation;
+    NSOperationQueue *_unarchiveOperationQueue;
     NSMutableArray *_completionBlocks;
+    NSError *_unarchivingError;
     int _previewItemIndex;
     int _UIItemIndex;
     int _level;
+    NSURL *_rootUnzippingURL;
+    NSArray *_subItems;
 }
 
+@property(copy) NSArray *subItems; // @synthesize subItems=_subItems;
+@property(retain) NSURL *rootUnzippingURL; // @synthesize rootUnzippingURL=_rootUnzippingURL;
 @property int level; // @synthesize level=_level;
 @property int UIItemIndex; // @synthesize UIItemIndex=_UIItemIndex;
 @property int previewItemIndex; // @synthesize previewItemIndex=_previewItemIndex;
+@property(readonly, copy) NSString *description;
+- (BOOL)isPromisedItem;
 - (void)cancelIconUpdate;
 - (void)updateIconWithSize:(struct CGSize)arg1 completionBlock:(CDUnknownBlockType)arg2;
 @property(readonly) UIImage *icon;
 @property(readonly) BOOL isFolder;
 - (void)cleanup;
 - (void)unarchiveWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (id)unarchivingError;
+@property(readonly) BOOL unarchived;
 @property(readonly) NSURL *previewItemURL;
 @property(readonly) NSString *path;
 - (void)dealloc;
@@ -39,7 +49,10 @@
 - (id)initWithPath:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
 @property(readonly) NSString *previewItemTitle;
+@property(readonly) Class superclass;
 
 @end
 

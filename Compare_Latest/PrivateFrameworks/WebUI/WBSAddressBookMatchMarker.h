@@ -14,7 +14,7 @@
 }
 
 @property(readonly, nonatomic) NSArray *array; // @synthesize array=_array;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)initWithArray:(id)arg1;
 
 @end

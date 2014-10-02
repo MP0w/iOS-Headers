@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class AVMediaSelectionOptionInternal, NSArray, NSLocale, NSString;
+@class AVAssetTrack, AVMediaSelectionOptionInternal, NSArray, NSLocale, NSString;
 
 @interface AVMediaSelectionOption : NSObject <NSCopying>
 {
@@ -16,8 +16,14 @@
 }
 
 + (id)mediaSelectionOptionForAsset:(id)arg1 group:(id)arg2 dictionary:(id)arg3 hasUnderlyingTrack:(BOOL)arg4;
+@property(readonly, nonatomic) int trackID;
+@property(readonly, nonatomic) AVAssetTrack *track;
+- (id)outOfBandIdentifier;
+- (id)outOfBandSource;
 @property(readonly, nonatomic) NSString *displayName;
 - (id)displayNameWithLocale:(id)arg1;
+- (id)displayNameWithLocale:(id)arg1 fallingBackToMatchingUndeterminedAndMultilingual:(BOOL)arg2;
+- (id)_preferredMetadataTitleAccordingToPreferredLanguages:(id)arg1 fallingBackToMatchingEmptyLocale:(BOOL)arg2;
 - (id)propertyList;
 - (id)associatedMediaSelectionOptionInMediaSelectionGroup:(id)arg1;
 - (id)metadataForFormat:(id)arg1;

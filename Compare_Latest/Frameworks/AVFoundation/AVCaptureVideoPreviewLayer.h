@@ -13,9 +13,13 @@
     AVCaptureVideoPreviewLayerInternal *_internal;
 }
 
++ (id)layerWithSessionWithNoConnection:(id)arg1;
 + (id)layerWithSession:(id)arg1;
++ (id)alloc;
 + (void)initialize;
+- (void)_handleNotification:(id)arg1 payload:(id)arg2;
 - (void)_updateCaptureDeviceTransform;
+- (void)_setSensorAndEstimatedPreviewSizes;
 - (struct CGRect)rectForMetadataOutputRectOfInterest:(struct CGRect)arg1;
 - (struct CGRect)metadataOutputRectOfInterestForRect:(struct CGRect)arg1;
 - (id)transformedMetadataObjectForMetadataObject:(id)arg1;
@@ -25,19 +29,18 @@
 - (struct CGPoint)pointForCaptureDevicePointOfInterest:(struct CGPoint)arg1;
 - (struct CGPoint)captureDevicePointOfInterestForPoint:(struct CGPoint)arg1;
 - (id)liveConnections;
+- (void)setSinkID:(id)arg1;
+- (id)sinkID;
+- (void)detachFromFigCaptureSession:(struct OpaqueFigCaptureSession *)arg1;
+- (void)attachToFigCaptureSession:(struct OpaqueFigCaptureSession *)arg1;
 - (void)bumpChangeSeed;
 - (int)changeSeed;
-- (id)notReadyError;
 - (BOOL)canAddConnectionForMediaType:(id)arg1;
 - (void)removeConnection:(id)arg1;
 - (id)addConnection:(id)arg1 error:(id *)arg2;
 - (id)connectionMediaTypes;
 - (id)connections;
 - (id)activeConnections;
-- (void)_applyOverridesToCaptureOptions:(id)arg1;
-- (void)didStopForSession:(id)arg1 error:(id)arg2;
-- (void)didStartForSession:(id)arg1;
-- (void)setHidden:(BOOL)arg1;
 - (void)layerDidBecomeVisible:(BOOL)arg1;
 - (void)setChromaNoiseReductionEnabled:(BOOL)arg1;
 - (BOOL)isChromaNoiseReductionEnabled;
@@ -54,20 +57,19 @@
 @property(readonly, nonatomic, getter=isOrientationSupported) BOOL orientationSupported;
 @property(copy) NSString *videoGravity;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)updateInternalStateForCaptureOptions:(id)arg1;
-- (void)handleNotification:(id)arg1 payload:(id)arg2;
-- (void)handleEnabledChangedForConnection:(id)arg1;
-- (id)subLayer;
 - (void)layoutSublayers;
 - (void)setBounds:(struct CGRect)arg1;
+- (void)setSessionWithNoConnection:(id)arg1;
 @property(retain, nonatomic) AVCaptureSession *session;
 @property(readonly, nonatomic) AVCaptureConnection *connection;
 - (void)dealloc;
 - (id)initWithLayer:(id)arg1;
 - (float)previewRotationDegrees;
+- (id)_initWithSession:(id)arg1 makeConnection:(BOOL)arg2;
+- (id)initWithSessionWithNoConnection:(id)arg1;
 - (id)initWithSession:(id)arg1;
 - (id)init;
-- (void)centerSublayer;
+- (void)centerSublayer:(int)arg1;
 
 @end
 

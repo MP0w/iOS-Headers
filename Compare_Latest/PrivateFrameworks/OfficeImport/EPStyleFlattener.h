@@ -6,7 +6,7 @@
 
 #import <OfficeImport/EDProcessor.h>
 
-@class EDColumnInfoCollection, EDRowBlock, EDRowBlocks, EDWorksheet, NSArray, NSMutableArray;
+@class ECIntToTwoIntKeyCache, EDColumnInfoCollection, EDRowBlock, EDRowBlocks, EDWorksheet, NSArray, NSMutableArray;
 
 __attribute__((visibility("hidden")))
 @interface EPStyleFlattener : EDProcessor
@@ -17,6 +17,8 @@ __attribute__((visibility("hidden")))
     EDColumnInfoCollection *mColumnInfos;
     NSArray *mKeys;
     NSMutableArray *mRanges;
+    ECIntToTwoIntKeyCache *mFlattenedStyleCache;
+    ECIntToTwoIntKeyCache *mFillCache;
     int mFirstRow;
     int mLastRow;
     int mFirstColumn;
@@ -30,7 +32,7 @@ __attribute__((visibility("hidden")))
 - (void)applyProcessorToObject:(id)arg1 sheet:(id)arg2;
 - (void)dealloc;
 - (id)copyFlattenFont:(id)arg1 differentialFont:(id)arg2;
-- (id)copyFlattenFill:(id)arg1 differentialFill:(id)arg2;
+- (unsigned int)flattenFillIndex:(unsigned int)arg1 differentialFill:(id)arg2;
 - (id)copyFlattenBorder:(int)arg1 borders:(id)arg2 differentialBorders:(id)arg3 flag:(_Bool)arg4 precedence:(unsigned int)arg5 row:(int)arg6 column:(int)arg7;
 - (id)copyFlattenBorders:(id)arg1 differentialBorders:(id)arg2 borderFlags:(int)arg3 precedence:(unsigned int)arg4 row:(int)arg5 column:(int)arg6;
 - (void)applyDifferentialStyle:(id)arg1 borderFlags:(int)arg2 precedence:(unsigned int)arg3 toCell:(struct EDCellHeader **)arg4 row:(int)arg5 column:(int)arg6;
@@ -42,10 +44,10 @@ __attribute__((visibility("hidden")))
 - (void)cacheRange:(id)arg1;
 - (int)borderFlagsForStyleType:(int)arg1 row:(int)arg2 column:(int)arg3;
 - (id)keysInTheOrderTheyShouldBeApplied;
-- (id)extractCellStyleElements:(id)arg1 parentScope:(id)arg2 row:(int)arg3 column:(int)arg4;
-- (id)extractRowStyleElements:(id)arg1 parentScope:(id)arg2 row:(int)arg3;
-- (id)extractGlobalStyleElements:(id)arg1;
-- (id)extractKeys:(id)arg1 from:(id)arg2 parent:(id)arg3;
+- (id)newExtractedCellStyleElements:(id)arg1 parentScope:(id)arg2 row:(int)arg3 column:(int)arg4;
+- (id)newExtractedRowStyleElements:(id)arg1 parentScope:(id)arg2 row:(int)arg3;
+- (id)newExtractedGlobalStyleElements:(id)arg1;
+- (id)newExtractedKeys:(id)arg1 from:(id)arg2 parent:(id)arg3;
 - (id)wrapDifferentialStyleInATableStyleElement:(id)arg1 type:(int)arg2;
 - (id)styleFromObject:(id)arg1;
 - (id)collectionFromWorksheet:(id)arg1;

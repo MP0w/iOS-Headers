@@ -6,19 +6,21 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>;
+@class NSHashTable, NSObject<OS_dispatch_queue>;
 
 @interface DAAccountMonitor : NSObject
 {
-    struct __CFSet *_accounts;
+    NSHashTable *_accounts;
     NSObject<OS_dispatch_queue> *_accountsQueue;
 }
 
 + (id)sharedMonitor;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *accountsQueue; // @synthesize accountsQueue=_accountsQueue;
+@property(retain, nonatomic) NSHashTable *accounts; // @synthesize accounts=_accounts;
+- (void).cxx_destruct;
 - (id)monitoredAccounts;
 - (void)unmonitorAccount:(id)arg1;
 - (void)monitorAccount:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

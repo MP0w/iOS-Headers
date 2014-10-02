@@ -6,7 +6,7 @@
 
 #import "UITableViewCell.h"
 
-@class NSString, PSSpecifier, UIImageView, UILongPressGestureRecognizer;
+@class NSString, PSSpecifier, PSTableCellHighlightContext, UIImageView, UILongPressGestureRecognizer;
 
 @interface PSTableCell : UITableViewCell
 {
@@ -26,10 +26,13 @@
     BOOL _lazyIconForceSynchronous;
     NSString *_lazyIconAppID;
     BOOL _reusedCell;
+    PSTableCellHighlightContext *_customHighlightContext;
+    BOOL _forceHideDisclosureIndicator;
     BOOL _isCopyable;
     UILongPressGestureRecognizer *_longTapRecognizer;
 }
 
++ (float)defaultCellHeight;
 + (Class)cellClassForSpecifier:(id)arg1;
 + (int)cellStyle;
 + (id)reuseIdentifierForSpecifier:(id)arg1;
@@ -39,9 +42,12 @@
 + (int)cellTypeFromString:(id)arg1;
 @property(retain, nonatomic) UILongPressGestureRecognizer *longTapRecognizer; // @synthesize longTapRecognizer=_longTapRecognizer;
 @property(nonatomic) BOOL isCopyable; // @synthesize isCopyable=_isCopyable;
+@property(nonatomic) BOOL forceHideDisclosureIndicator; // @synthesize forceHideDisclosureIndicator=_forceHideDisclosureIndicator;
 @property(nonatomic) BOOL reusedCell; // @synthesize reusedCell=_reusedCell;
-@property(nonatomic) int type; // @synthesize type=_type;
 @property(retain, nonatomic) PSSpecifier *specifier; // @synthesize specifier=_specifier;
+@property(nonatomic) int type; // @synthesize type=_type;
+- (void)_invalidateHighlightContext;
+- (void)highlightCellForDuration:(double)arg1 animateUnighlight:(BOOL)arg2;
 - (float)textFieldOffset;
 - (void)reloadWithSpecifier:(id)arg1 animated:(BOOL)arg2;
 - (BOOL)cellEnabled;
@@ -82,6 +88,7 @@
 - (void)layoutSubviews;
 - (void)prepareForReuse;
 - (void)refreshCellContentsWithSpecifier:(id)arg1;
+- (void)_updateAccessoryTypeForSpecifier:(id)arg1;
 - (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (void)copy:(id)arg1;
 - (id)_copyableText;

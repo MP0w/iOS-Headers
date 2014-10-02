@@ -12,6 +12,7 @@
 {
 }
 
+@property(nonatomic) struct UIEdgeInsets fontLanguageInsets; // @dynamic fontLanguageInsets;
 @property(nonatomic) struct UIEdgeInsets textInsets; // @dynamic textInsets;
 @property(retain, nonatomic) UIColor *focusHighlightColor; // @dynamic focusHighlightColor;
 @property(nonatomic) _Bool accessibilityIncreaseContrastEnabled; // @dynamic accessibilityIncreaseContrastEnabled;
@@ -20,6 +21,7 @@
 @property(nonatomic) long long style; // @dynamic style;
 @property(nonatomic) _Bool canUseMemoryPool;
 @property(nonatomic) _Bool containsEmoji; // @dynamic containsEmoji;
+@property(nonatomic) _Bool canTighten; // @dynamic canTighten;
 @property(nonatomic) _Bool canEllipsize; // @dynamic canEllipsize;
 @property(nonatomic) int iconLocation; // @dynamic iconLocation;
 @property(nonatomic) _Bool containsNonLatinLikeCharacters; // @dynamic containsNonLatinLikeCharacters;

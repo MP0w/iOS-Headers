@@ -24,6 +24,5 @@ typedef struct {
     unsigned char _field2[16];
     unsigned char _field3[16];
     unsigned int _field4;
-    unsigned char _field5;
-} CDStruct_a554bdc7;
+} CDStruct_86971917;
 

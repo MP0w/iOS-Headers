@@ -8,16 +8,19 @@
 
 #import "MPUStackViewDataSource.h"
 
-@class MPUStackView, UIImage, UIView;
+@class MPUBorderConfiguration, MPUBorderDrawingCache, MPUStackView, NSString, UIImage, UIView;
 
 @interface RUWelcomeCollectionViewCell : UICollectionViewCell <MPUStackViewDataSource>
 {
+    MPUBorderConfiguration *_stackItemBorderConfiguration;
     MPUStackView *_stackView;
     UIImage *_artworkImage;
+    MPUBorderDrawingCache *_stackItemBorderDrawingCache;
     struct CGSize _artworkSize;
 }
 
 + (struct CGSize)artworkSizeForOrientation:(int)arg1;
+@property(retain, nonatomic) MPUBorderDrawingCache *stackItemBorderDrawingCache; // @synthesize stackItemBorderDrawingCache=_stackItemBorderDrawingCache;
 @property(nonatomic) struct CGSize artworkSize; // @synthesize artworkSize=_artworkSize;
 @property(retain, nonatomic) UIImage *artworkImage; // @synthesize artworkImage=_artworkImage;
 - (void).cxx_destruct;
@@ -29,6 +32,12 @@
 - (int)numberOfItemsInStackView:(id)arg1;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

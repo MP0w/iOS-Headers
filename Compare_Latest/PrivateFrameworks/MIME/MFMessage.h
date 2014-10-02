@@ -30,6 +30,7 @@
     NSString *_externalID;
     MFMimePart *_parentPart;
     NSURL *_messageURL;
+    NSString *_cachedMessageIDHeader;
     unsigned int _calculatedAttachmentInfo:1;
     unsigned short _numberOfAttachments;
 }
@@ -117,6 +118,7 @@
 - (BOOL)isMessageContentsLocallyAvailable;
 - (long long)_messageIDHeaderHashIvar;
 - (id)messageIDHeaderInFortyBytesOrLess;
+- (void)setMessageIDHeader:(id)arg1;
 - (id)messageIDHeader;
 - (long long)messageIDHash;
 - (id)messageURL;

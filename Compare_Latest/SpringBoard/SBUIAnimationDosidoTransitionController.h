@@ -6,15 +6,16 @@
 
 #import "SBUIMainScreenAnimationController.h"
 
-@class SBDosidoAnimator, SBUIAnimationWindow, UIView;
+@class FBWindowContextHostManager, SBDosidoAnimator, UIView;
 
 @interface SBUIAnimationDosidoTransitionController : SBUIMainScreenAnimationController
 {
-    SBUIAnimationWindow *_transitionWindow;
     UIView *_fromAppContextHostView;
     UIView *_fromView;
     UIView *_toView;
     SBDosidoAnimator *_dosidoAnimator;
+    FBWindowContextHostManager *_toAppContextHostManager;
+    FBWindowContextHostManager *_fromAppContextHostManager;
     long long _fromOrientation;
     _Bool _fromNC;
     _Bool _fromCC;
@@ -25,16 +26,15 @@
 - (void)_performDosido;
 - (void)_kickOffAnimation;
 - (void)_setFromView:(id)arg1;
-- (void)captureFlagsForActivatingDisplay:(id)arg1;
-- (void)hideRealFromView;
+- (void)captureFlagsForActivatingApp:(id)arg1;
+- (void)_cleanupFromContextHostView;
 - (void)setToView:(id)arg1;
 - (long long)orientationAtLaunch;
 - (void)_cleanupAnimation;
 - (void)_startAnimation;
 - (void)_prepareAnimation;
+- (_Bool)_waitsForApplicationActivationIfNecessary;
 - (void)_setHidden:(_Bool)arg1;
-- (id)_animationProgressDependency;
-- (_Bool)_animationShouldStart;
 - (void)dealloc;
 - (id)initWithActivatingApp:(id)arg1 deactivatingApp:(id)arg2;
 - (id)_getTransitionWindow;

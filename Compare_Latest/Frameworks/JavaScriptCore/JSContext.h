@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class JSValue, JSVirtualMachine, JSWrapperMap;
+@class JSValue, JSVirtualMachine, JSWrapperMap, NSString;
 
 @interface JSContext : NSObject
 {
@@ -18,16 +18,25 @@
 }
 
 + (id)currentArguments;
++ (id)currentCallee;
 + (id)currentThis;
 + (id)currentContext;
 + (id)contextWithJSGlobalContextRef:(struct OpaqueJSContext *)arg1;
 @property(copy) CDUnknownBlockType exceptionHandler; // @synthesize exceptionHandler;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (void)_setDebuggerRunLoop:(struct __CFRunLoop *)arg1;
+- (struct __CFRunLoop *)_debuggerRunLoop;
+- (void)_setIncludesNativeCallStackWhenReportingExceptions:(BOOL)arg1;
+- (BOOL)_includesNativeCallStackWhenReportingExceptions;
+- (void)_setRemoteInspectionEnabled:(BOOL)arg1;
+- (BOOL)_remoteInspectionEnabled;
+@property(copy) NSString *name;
 @property(readonly) JSVirtualMachine *virtualMachine;
-- (id)globalObject;
-@property(readonly) JSWrapperMap *wrapperMap;
+@property(readonly) JSValue *globalObject;
+@property(readonly, retain) JSWrapperMap *wrapperMap;
 @property(retain) JSValue *exception;
+- (id)evaluateScript:(id)arg1 withSourceURL:(id)arg2;
 - (id)evaluateScript:(id)arg1;
 - (void)dealloc;
 - (id)initWithVirtualMachine:(id)arg1;
@@ -38,7 +47,7 @@
 - (id)wrapperForJSObject:(struct OpaqueJSValue *)arg1;
 - (id)wrapperForObjCObject:(id)arg1;
 - (void)endCallbackWithData:(struct CallbackData *)arg1;
-- (void)beginCallbackWithData:(struct CallbackData *)arg1 thisValue:(struct OpaqueJSValue *)arg2 argumentCount:(unsigned long)arg3 arguments:(const struct OpaqueJSValue **)arg4;
+- (void)beginCallbackWithData:(struct CallbackData *)arg1 calleeValue:(struct OpaqueJSValue *)arg2 thisValue:(struct OpaqueJSValue *)arg3 argumentCount:(unsigned long)arg4 arguments:(const struct OpaqueJSValue **)arg5;
 - (BOOL)boolFromNotifyException:(struct OpaqueJSValue *)arg1;
 - (id)valueFromNotifyException:(struct OpaqueJSValue *)arg1;
 - (void)notifyException:(struct OpaqueJSValue *)arg1;

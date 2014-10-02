@@ -8,7 +8,7 @@
 
 #import "SAAceSerializable.h"
 
-@class NSArray, NSNumber;
+@class NSArray, NSNumber, NSString;
 
 @interface SAWebWebSearchResult : AceObject <SAAceSerializable>
 {
@@ -27,6 +27,12 @@
 @property(copy, nonatomic) NSArray *imageResults;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 
 - (id)formattedStringForSeries:(id)arg1 index:(unsigned int)arg2;
 - (BOOL)supportsFormattedStringForInvalidValue;
+- (BOOL)supportsAxisValueLabels;
 - (id)computeMinorGridlinesFromMajorGridlinesInAnalysis:(id)arg1;
 - (id)computeMajorGridlinesFromMinMaxInAnalysis:(id)arg1;
 

@@ -6,7 +6,7 @@
 
 #import <iWorkImport/TSPObject.h>
 
-@class NSArray;
+@class NSArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface KNPasteboardNativeStorage : TSPObject
@@ -15,12 +15,17 @@ __attribute__((visibility("hidden")))
     NSArray *mBuilds;
     NSArray *mBuildChunks;
     NSArray *mSlideNodes;
+    NSArray *mMasterSlideNodes;
     struct CGSize mOriginalShowSize;
     NSArray *mTextStorageTitleRanges;
+    NSArray *mGeometriesInRoot;
+    NSString *mSlideNodeUUID;
     struct CGSize _originalShowSize;
 }
 
 @property(nonatomic) struct CGSize originalShowSize; // @synthesize originalShowSize=_originalShowSize;
+@property(readonly, nonatomic) NSString *slideNodeUUID; // @synthesize slideNodeUUID=mSlideNodeUUID;
+@property(readonly, nonatomic) NSArray *geometriesInRoot; // @synthesize geometriesInRoot=mGeometriesInRoot;
 @property(readonly, nonatomic) NSArray *textStorageTitleRanges; // @synthesize textStorageTitleRanges=mTextStorageTitleRanges;
 @property(readonly, nonatomic) NSArray *slideNodes; // @synthesize slideNodes=mSlideNodes;
 @property(readonly, nonatomic) NSArray *buildChunks; // @synthesize buildChunks=mBuildChunks;
@@ -30,7 +35,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithContext:(id)arg1 slideNodes:(id)arg2;
 - (id)initWithContext:(id)arg1 slideNodes:(id)arg2 textStorageTitleRanges:(id)arg3;
 - (id)initWithContext:(id)arg1 drawables:(id)arg2 builds:(id)arg3 buildChunks:(id)arg4;
-- (id)initWithContext:(id)arg1 slideNodes:(id)arg2 textStorageTitleRanges:(id)arg3 drawables:(id)arg4 builds:(id)arg5 buildChunks:(id)arg6;
+- (id)initWithContext:(id)arg1 slideNodes:(id)arg2 textStorageTitleRanges:(id)arg3 drawables:(id)arg4 builds:(id)arg5 buildChunks:(id)arg6 drawableGeometriesInRoot:(id)arg7 slideNodeUUID:(id)arg8;
 - (void)originalShowSize:(struct CGSize)arg1;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct PasteboardNativeStorageArchive *)arg1 archiver:(id)arg2;

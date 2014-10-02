@@ -7,7 +7,7 @@
 #import "GEODirectionsRouteRequest.h"
 
 @interface GEODirectionsRouteRequest (MKDirections)
-- (id)initWithDirectionsRequest:(id)arg1 withFeedback:(id)arg2;
+- (id)initWithDirectionsRequest:(id)arg1 origin:(id)arg2 destination:(id)arg3 withFeedback:(id)arg4;
 - (void)_commonSetup:(id)arg1;
 @end
 

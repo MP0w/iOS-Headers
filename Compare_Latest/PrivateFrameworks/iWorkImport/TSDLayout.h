@@ -8,7 +8,7 @@
 
 #import "TSKSearchTarget.h"
 
-@class NSMutableSet, NSObject<TSDInfo>, NSSet, TPInteractiveCanvasController, TSDLayoutGeometry;
+@class NSMutableSet, NSObject<TSDInfo>, NSSet, NSString, TPInteractiveCanvasController, TSDLayoutGeometry;
 
 __attribute__((visibility("hidden")))
 @interface TSDLayout : TSDAbstractLayout <TSKSearchTarget>
@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
     struct {
         unsigned int position:1;
         unsigned int size:1;
+        unsigned int inlineSize:1;
     } mInvalidFlags;
     TSDLayoutGeometry *mBaseGeometry;
     struct CGRect mInitialBoundsForStandardKnobs;
@@ -74,6 +75,7 @@ __attribute__((visibility("hidden")))
 - (struct CGAffineTransform)originalPureTransformInRoot;
 - (struct CGAffineTransform)pureTransformInRoot;
 - (id)inspectorGeometry;
+- (id)pureGeometryInParent;
 - (id)pureGeometryInRoot;
 - (id)pureGeometry;
 - (id)originalPureGeometry;
@@ -83,7 +85,6 @@ __attribute__((visibility("hidden")))
 - (void)endResize;
 - (void)takeSizeFromTracker:(id)arg1;
 - (void)resizeWithTransform:(struct CGAffineTransform)arg1 asChild:(BOOL)arg2;
-- (struct CGSize)maximumSizeForChildLayout:(id)arg1;
 - (struct CGSize)minimumSize;
 - (void)beginResize;
 @property(readonly, nonatomic) BOOL canAspectRatioLockBeChangedByUser;
@@ -117,7 +118,7 @@ __attribute__((visibility("hidden")))
 - (struct CGPoint)infoGeometryPositionForCurrentAttachedLayoutGeometry;
 - (Class)repClassOverride;
 - (void)processChanges:(id)arg1;
-- (id)computeInfoGeometryFromLayoutGeometry:(id)arg1;
+- (id)computeInfoGeometryFromPureLayoutGeometry:(id)arg1;
 - (id)layoutGeometryFromInfo;
 - (struct CGPoint)capturedInfoPositionForAttachment;
 - (void)validate;
@@ -133,6 +134,7 @@ __attribute__((visibility("hidden")))
 - (void)updateChildrenFromInfo;
 - (void)invalidateChildren;
 - (void)invalidateExteriorWrap;
+- (void)invalidateInlineSize;
 - (void)invalidateFrame;
 - (void)invalidateSize;
 - (void)invalidatePosition;
@@ -144,6 +146,12 @@ __attribute__((visibility("hidden")))
 - (void)setAdjustedInterimPositionY:(float)arg1;
 - (void)setAdjustedInterimPositionX:(float)arg1;
 @property(readonly, nonatomic) TPInteractiveCanvasController *interactiveCanvasController;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

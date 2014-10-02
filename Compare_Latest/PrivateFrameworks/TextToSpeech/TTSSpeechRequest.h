@@ -8,17 +8,19 @@
 
 #import "NSSecureCoding.h"
 
-@class NSAttributedString, NSString, NSURL;
+@class NSAttributedString, NSString, NSURL, TTSSpeechChannel;
 
 @interface TTSSpeechRequest : NSObject <NSSecureCoding>
 {
+    id <TTSSpeechRequestDelegate> _delegate;
+    TTSSpeechChannel *_speechChannel;
     BOOL _useCustomVoice;
     BOOL _maintainsInput;
     BOOL _audioSessionIDIsValid;
+    BOOL _useVoiceBooster;
     NSString *_text;
     NSAttributedString *_attributedText;
     NSString *_languageCode;
-    NSString *_voiceName;
     int _footprint;
     int _gender;
     NSURL *_outputPath;
@@ -27,9 +29,16 @@
     double _rate;
     double _pitch;
     double _volume;
+    double _latency;
+    double _dispatchTime;
+    double _handledTime;
 }
 
 + (BOOL)supportsSecureCoding;
+@property(nonatomic) BOOL useVoiceBooster; // @synthesize useVoiceBooster=_useVoiceBooster;
+@property(nonatomic) double handledTime; // @synthesize handledTime=_handledTime;
+@property(nonatomic) double dispatchTime; // @synthesize dispatchTime=_dispatchTime;
+@property(nonatomic) double latency; // @synthesize latency=_latency;
 @property(nonatomic) unsigned int audioQueueFlags; // @synthesize audioQueueFlags=_audioQueueFlags;
 @property(nonatomic) unsigned int audioSessionID; // @synthesize audioSessionID=_audioSessionID;
 @property(nonatomic) BOOL audioSessionIDIsValid; // @synthesize audioSessionIDIsValid=_audioSessionIDIsValid;
@@ -41,14 +50,22 @@
 @property(nonatomic) int gender; // @synthesize gender=_gender;
 @property(nonatomic) BOOL useCustomVoice; // @synthesize useCustomVoice=_useCustomVoice;
 @property(nonatomic) int footprint; // @synthesize footprint=_footprint;
-@property(copy, nonatomic) NSString *voiceName; // @synthesize voiceName=_voiceName;
 @property(copy, nonatomic) NSString *languageCode; // @synthesize languageCode=_languageCode;
 @property(copy, nonatomic) NSAttributedString *attributedText; // @synthesize attributedText=_attributedText;
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;
-- (void).cxx_destruct;
+@property(retain, nonatomic) TTSSpeechChannel *speechChannel; // @synthesize speechChannel=_speechChannel;
+- (void)speechRequestDidStopWithSuccess:(BOOL)arg1 phonemesSpoken:(id)arg2 forService:(id)arg3 error:(id)arg4;
+- (void)speechRequestMark:(int)arg1 didStartForRange:(struct _NSRange)arg2 forService:(id)arg3;
+- (void)speechRequestDidContinueForService:(id)arg1;
+- (void)speechRequestDidPauseForService:(id)arg1;
+- (void)speechRequestDidStartForService:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithSpeechChannel:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
+- (void)dealloc;
+- (id)delegate;
+- (void)setDelegate:(id)arg1;
 - (long)vocalizerGender;
 - (long)vocalizerFootprint;
 

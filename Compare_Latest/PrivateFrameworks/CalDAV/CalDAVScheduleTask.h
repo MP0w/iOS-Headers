@@ -15,9 +15,9 @@
     CalDAVScheduleResponseItem *_scheduleResponse;
 }
 
-@property(retain) NSArray *attendees; // @synthesize attendees=_attendees;
-@property(retain) NSString *originator; // @synthesize originator=_originator;
-@property(retain) CalDAVScheduleResponseItem *scheduleResponse; // @synthesize scheduleResponse=_scheduleResponse;
+@property(retain, nonatomic) NSArray *attendees; // @synthesize attendees=_attendees;
+@property(retain, nonatomic) NSString *originator; // @synthesize originator=_originator;
+@property(retain, nonatomic) CalDAVScheduleResponseItem *scheduleResponse; // @synthesize scheduleResponse=_scheduleResponse;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)copyDefaultParserForContentType:(id)arg1;
 - (id)additionalHeaderValues;

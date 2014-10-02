@@ -4,16 +4,21 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <AddressBookUI/ABContactCell.h>
+#import <AddressBookUI/ABLabeledCell.h>
 
-@interface ABPropertyPlaceholderCell : ABContactCell
+@class UILabel;
+
+@interface ABPropertyPlaceholderCell : ABLabeledCell
 {
+    UILabel *_label;
 }
 
+@property(retain, nonatomic) UILabel *label; // @synthesize label=_label;
+- (float)minCellHeight;
 - (void)setCardGroupItem:(id)arg1;
-- (void)tintColorDidChange;
 - (BOOL)shouldPerformDefaultAction;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)labelView;
+- (void)dealloc;
 
 @end
 

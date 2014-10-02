@@ -8,7 +8,7 @@
 
 #import "SBIconStateUnarchiveContext.h"
 
-@class NSMutableArray, NSMutableSet, SBIconModel;
+@class NSMutableArray, NSMutableSet, NSString, SBIconModel;
 
 @interface SBIconStateUnarchiveResult : NSObject <SBIconStateUnarchiveContext>
 {
@@ -37,6 +37,12 @@
 @property(readonly, nonatomic, getter=isDirty) _Bool dirty;
 @property(readonly, nonatomic, getter=isValid) _Bool valid;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

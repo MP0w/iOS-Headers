@@ -21,10 +21,10 @@
 
 @property(retain, nonatomic) NSURL *priorOrderedURL; // @synthesize priorOrderedURL=_priorOrderedURL;
 @property(nonatomic) int absoluteOrder; // @synthesize absoluteOrder=_absoluteOrder;
-@property(retain) NSData *requestDataPayload; // @synthesize requestDataPayload=_requestDataPayload;
-@property(retain) NSString *requestDataContentType; // @synthesize requestDataContentType=_requestDataContentType;
-@property(retain) NSString *previousETag; // @synthesize previousETag=_previousETag;
-@property BOOL forceToServer; // @synthesize forceToServer=_forceToServer;
+@property(retain, nonatomic) NSData *requestDataPayload; // @synthesize requestDataPayload=_requestDataPayload;
+@property(retain, nonatomic) NSString *requestDataContentType; // @synthesize requestDataContentType=_requestDataContentType;
+@property(retain, nonatomic) NSString *previousETag; // @synthesize previousETag=_previousETag;
+@property(nonatomic) BOOL forceToServer; // @synthesize forceToServer=_forceToServer;
 - (id)requestBody;
 - (id)additionalHeaderValues;
 - (id)description;

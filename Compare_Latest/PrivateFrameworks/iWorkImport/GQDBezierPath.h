@@ -8,6 +8,8 @@
 
 #import "GQDNameMappable.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface GQDBezierPath : GQDPath <GQDNameMappable>
 {
@@ -32,6 +34,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithPathString:(const char *)arg1;
 - (int)readAttributesFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

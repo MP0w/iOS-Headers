@@ -9,6 +9,7 @@
 @class UIColor;
 
 @protocol RCUIServiceCurrentRecordingViewController <NSObject>
+- (void)loadCaptureStateWithCompletionBlock:(void (^)(RCAVState *))arg1;
 - (void)dismissLockscreenInterface;
 - (void)presentLockscreenInterfaceWithBackgroundColor:(UIColor *)arg1 waveformForegroundColor:(UIColor *)arg2;
 - (void)setScreenUpdatesDisabled:(BOOL)arg1;

@@ -6,29 +6,24 @@
 
 #import "UITableViewCell.h"
 
-@class ABMemberNameView, ABStyleProvider, ABUIPerson;
+@class ABStyleProvider, ABUIPerson;
 
 @interface ABMemberCell : UITableViewCell
 {
     ABStyleProvider *_styleProvider;
-    BOOL _layoutComplete;
     BOOL _isMeCard;
-    ABMemberNameView *_contactNameView;
     ABUIPerson *_person;
 }
 
 @property(nonatomic) BOOL isMeCard; // @synthesize isMeCard=_isMeCard;
 @property(retain, nonatomic) ABUIPerson *person; // @synthesize person=_person;
 @property(readonly, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
-@property(retain, nonatomic) ABMemberNameView *contactNameView; // @synthesize contactNameView=_contactNameView;
-- (id)_scriptingInfo;
-- (id)description;
-- (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setHighlighted:(BOOL)arg1;
-- (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
+- (id)_cachedPlaceholderTextAttributes;
+- (id)_cachedBoldTextAttributes;
+- (id)_cachedRegularTextAttributes;
+- (id)_cachedMemberNameRegularFont;
+- (id)_attributedNameWithNameComponents:(id)arg1 delimiter:(id)arg2 highlightedIndex:(int)arg3 romanName:(BOOL)arg4;
 - (void)setUserInteractionEnabled:(BOOL)arg1;
-- (void)layoutSubviews;
-- (void)setNeedsLayout;
 - (void)dealloc;
 - (id)initWithStyleProvider:(id)arg1 reuseIdentifier:(id)arg2;
 

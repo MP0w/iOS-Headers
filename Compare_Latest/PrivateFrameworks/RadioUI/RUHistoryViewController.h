@@ -8,26 +8,28 @@
 
 #import "RUAudioPreviewViewDelegate.h"
 #import "RUHistoryDataSourceDelegate.h"
+#import "RUPreviewSessionObserver.h"
 #import "RUWishlistDataSourceDelegate.h"
 #import "UIActionSheetDelegate.h"
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class MPAVItem, NSArray, NSMutableArray, RUHistoryDataSource, RUPreviewSession, RUWishlistDataSource, RadioHistoryCategory, SKUICircleProgressIndicator, UIActionSheet, UILabel, UITableView;
+@class MPAVItem, MPMoviePlayerController, NSArray, NSMutableArray, NSString, RUHistoryDataSource, RUPreviewSession, RURadioAdTrack, RUWishlistDataSource, RadioHistoryCategory, SKUICircleProgressIndicator, UIActionSheet, UILabel, UITableView;
 
-@interface RUHistoryViewController : UIViewController <RUAudioPreviewViewDelegate, RUHistoryDataSourceDelegate, RUWishlistDataSourceDelegate, UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface RUHistoryViewController : UIViewController <RUAudioPreviewViewDelegate, RUHistoryDataSourceDelegate, RUPreviewSessionObserver, RUWishlistDataSourceDelegate, UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     SKUICircleProgressIndicator *_activityIndicator;
     UIActionSheet *_confirmationActionSheet;
     NSArray *_historyCategories;
     RUHistoryDataSource *_historyDataSource;
-    BOOL _isVisible;
     UILabel *_loadingLabel;
     UILabel *_noHistoryLabel;
     RUPreviewSession *_previewSession;
     MPAVItem *_previewingAVItem;
     RadioHistoryCategory *_previewingHistoryCategory;
     UITableView *_tableView;
+    RURadioAdTrack *_videoAdTrack;
+    MPMoviePlayerController *_videoAdPreviewMoviePlayerController;
     RUWishlistDataSource *_wishlistDataSource;
     NSMutableArray *_wishlistedTracks;
     id <RUHistoryViewControllerDelegate> _delegate;
@@ -38,12 +40,14 @@
 @property(nonatomic) __weak id <RUHistoryViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)_wishlistedTrackAtIndexPath:(id)arg1;
+- (void)_updateViewForTraitCollectionChange;
+- (void)_updateViewForHorizontalSizeClassChange;
 - (void)_updateViewForHistoryChange;
+- (void)_updateTableViewRowHeight;
+- (void)_reportVideoAdPreviewDidFinishIfNeeded;
 - (void)_refreshWishlistedTracks;
 - (void)_refreshHistoryTracks;
 - (id)_newSegmentedControl;
-- (id)_newSectionHeaderForType:(int)arg1 withAttributedText:(id)arg2 detailAttributedText:(id)arg3;
-- (id)_newSectionFooterForType:(int)arg1 inSection:(int)arg2;
 - (BOOL)_isLoading;
 - (BOOL)_isHistoryItem:(id)arg1 effectivelyPlayingWithAVItem:(id)arg2;
 - (id)_indexPathForPreviewingItem;
@@ -52,6 +56,8 @@
 - (unsigned int)_count;
 - (void)_configureCell:(id)arg1 forRadioTrack:(id)arg2;
 - (void)_configureCell:(id)arg1 forAdTrack:(id)arg2;
+- (void)_videoAdPreviewMoviePlaybackDidFinishNotification:(id)arg1;
+- (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)_selectedSegmentIndexDidChangeAction:(id)arg1;
 - (void)_doneAction:(id)arg1;
 - (void)_clearAction:(id)arg1;
@@ -69,16 +75,25 @@
 - (int)numberOfSectionsInTableView:(id)arg1;
 - (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (void)wishlistDataSourceDidInvalidate:(id)arg1;
+- (void)previewSession:(id)arg1 didChangeFromItem:(id)arg2 toItem:(id)arg3;
 - (id)historyDataSource:(id)arg1 viewControllerForPresentingAdTrack:(id)arg2;
 - (void)historyDataSourceDidUpdateHistoryCategories:(id)arg1;
 - (void)audioPreviewViewDidCancel:(id)arg1 forReason:(int)arg2;
+- (void)traitCollectionDidChange:(id)arg1;
 - (id)contentScrollView;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidLoad;
+- (void)viewDidAppear:(BOOL)arg1;
 - (unsigned int)supportedInterfaceOrientations;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

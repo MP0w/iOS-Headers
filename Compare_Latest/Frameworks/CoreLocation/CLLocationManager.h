@@ -19,6 +19,8 @@
 + (BOOL)dumpLogsWithMessage:(id)arg1;
 + (void)setDefaultEffectiveBundle:(id)arg1;
 + (void)setDefaultEffectiveBundleIdentifier:(id)arg1;
++ (void)setAuthorizationStatusByType:(int)arg1 forBundle:(id)arg2;
++ (void)setAuthorizationStatusByType:(int)arg1 forBundleIdentifier:(id)arg2;
 + (void)setAuthorizationStatus:(BOOL)arg1 forBundle:(id)arg2;
 + (void)setAuthorizationStatus:(BOOL)arg1 forBundleIdentifier:(id)arg2;
 + (int)authorizationStatus;
@@ -41,7 +43,10 @@
 + (BOOL)locationServicesEnabled:(BOOL)arg1;
 + (BOOL)locationServicesEnabled;
 + (id)sharedManager;
++ (void)setEntityAuthorization:(unsigned int)arg1 forLocationDictionary:(id)arg2;
 + (void)setEntityAuthorized:(BOOL)arg1 forLocationDictionary:(id)arg2;
++ (unsigned int)allowableAuthorizationForLocationDictionary:(id)arg1;
++ (unsigned int)entityAuthorizationForLocationDictionary:(id)arg1;
 + (BOOL)isEntityAuthorizedForLocationDictionary:(id)arg1;
 + (BOOL)hasUsedBackgroundLocationServices:(id)arg1;
 + (id)dateLocationLastUsedForLocationDictionary:(id)arg1;
@@ -52,8 +57,12 @@
 + (BOOL)isStatusBarIconEnabledForLocationEntityClass:(unsigned int)arg1;
 + (void)setStatusBarIconEnabled:(BOOL)arg1 forLocationEntityClass:(unsigned int)arg2;
 - (void)registerAsLocationClient;
+@property(nonatomic, getter=isDynamicAccuracyReductionEnabled) BOOL dynamicAccuracyReductionEnabled;
 @property(nonatomic, getter=isLocationServicesPreferencesDialogEnabled) BOOL locationServicesPreferencesDialogEnabled;
 @property(nonatomic, getter=isPersistentMonitoringEnabled) BOOL persistentMonitoringEnabled;
+- (void)requestAlwaysAuthorization;
+- (void)requestWhenInUseAuthorization;
+- (void)onClientEventSignificantLocationVisit:(id)arg1;
 - (void)onClientEventVehicleHeading:(id)arg1;
 - (void)onClientEventVehicleSpeed:(id)arg1;
 - (void)onClientEventInterrupted:(id)arg1;
@@ -81,10 +90,10 @@
 - (id)appsUsingLocationWithDetails;
 - (id)appsUsingLocation;
 - (void)resetApps;
-@property(readonly, nonatomic) NSSet *rangedRegions;
+@property(readonly, copy, nonatomic) NSSet *rangedRegions;
 - (void)stopRangingBeaconsInRegion:(id)arg1;
 - (void)startRangingBeaconsInRegion:(id)arg1;
-@property(readonly, nonatomic) NSSet *monitoredRegions;
+@property(readonly, copy, nonatomic) NSSet *monitoredRegions;
 @property(readonly, nonatomic) double maximumRegionMonitoringDistance;
 - (void)requestStateForRegion:(id)arg1;
 - (void)stopMonitoringForRegion:(id)arg1;
@@ -99,7 +108,7 @@
 - (void)dismissHeadingCalibrationDisplay;
 - (void)stopUpdatingHeading;
 - (void)startUpdatingHeading;
-@property(readonly, nonatomic) CLHeading *heading;
+@property(readonly, copy, nonatomic) CLHeading *heading;
 @property(nonatomic) int headingOrientation;
 @property(nonatomic) double headingFilter;
 @property(readonly, nonatomic) BOOL headingAvailable;
@@ -109,6 +118,7 @@
 - (void)stopUpdatingLocation;
 - (void)startUpdatingLocation;
 - (void)startUpdatingLocationWithPrompt;
+- (void)markAsHavingReceivedLocation;
 @property(nonatomic) int activityType;
 @property(copy, nonatomic) NSString *purpose;
 @property(nonatomic) BOOL privateMode;
@@ -119,7 +129,7 @@
 @property(readonly, nonatomic) BOOL locationServicesApproved;
 @property(readonly, nonatomic) BOOL locationServicesEnabled;
 @property(readonly, nonatomic) BOOL locationServicesAvailable;
-@property(readonly, nonatomic) CLLocation *location;
+@property(readonly, copy, nonatomic) CLLocation *location;
 @property(nonatomic) BOOL pausesLocationUpdatesAutomatically;
 @property(nonatomic) double desiredAccuracy;
 @property(nonatomic) double distanceFilter;
@@ -133,6 +143,9 @@
 - (void)startUpdatingVehicleHeading;
 - (void)stopUpdatingVehicleSpeed;
 - (void)startUpdatingVehicleSpeed;
+@property(nonatomic, getter=isMatchInfoEnabled) BOOL matchInfoEnabled;
+- (void)stopMonitoringVisits;
+- (void)startMonitoringVisits;
 
 @end
 

@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSNumber;
 
-@interface MCNumber : NSObject <NSCoding>
+@interface MCNumber : NSObject <NSSecureCoding>
 {
     NSNumber *_number;
 }
@@ -18,7 +18,9 @@
 + (id)numberWithInteger:(int)arg1;
 + (id)numberWithUnsignedInteger:(unsigned int)arg1;
 + (id)numberWithInt:(int)arg1;
++ (BOOL)supportsSecureCoding;
 + (id)numberWithUnsignedInt:(unsigned int)arg1;
+@property(retain, nonatomic) NSNumber *number; // @synthesize number=_number;
 - (void).cxx_destruct;
 - (id)descriptionWithLocale:(id)arg1;
 - (id)initWithCoder:(id)arg1;

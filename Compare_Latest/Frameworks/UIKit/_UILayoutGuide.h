@@ -25,6 +25,8 @@
 @property(copy, nonatomic, setter=_setArchivedIdentifier:) NSString *_archivedIdentifier; // @synthesize _archivedIdentifier;
 @property(nonatomic, setter=_setAllowsArchivingAsSubview:) BOOL _allowsArchivingAsSubview; // @synthesize _allowsArchivingAsSubview;
 @property(copy, nonatomic, setter=_setConstraintsToRemoveAtRuntime:) NSArray *_constraintsToRemoveAtRuntime; // @synthesize _constraintsToRemoveAtRuntime;
+- (id)_layoutVariablesWithAmbiguousValue;
+- (BOOL)_isFloatingLayoutItem;
 - (id)_relevantLayoutVariables;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -32,6 +34,12 @@
 - (void)_setUpCounterDimensionConstraint;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,6 +8,8 @@
 
 #import "TSWPStyleProvider.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TSWPStorageStyleProvider : NSObject <TSWPStyleProvider>
 {
@@ -17,6 +19,10 @@ __attribute__((visibility("hidden")))
 - (id)paragraphStyleAtParIndex:(unsigned int)arg1 effectiveRange:(struct _NSRange *)arg2;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 @property(readonly, nonatomic) BOOL supportsBoldItalicUnderlineShortcuts;
 
 @end

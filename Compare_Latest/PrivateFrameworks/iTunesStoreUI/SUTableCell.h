@@ -29,7 +29,7 @@
 @property(nonatomic) BOOL drawAsDisabled;
 @property(retain, nonatomic) SUCellConfiguration *configuration;
 @property(nonatomic) int clipCorners;
-@property(readonly, nonatomic) SUItemOfferButton *itemOfferButton;
+@property(readonly, retain, nonatomic) SUItemOfferButton *itemOfferButton;
 @property(readonly, nonatomic) UIBezierPath *clippingPath;
 - (void)setShowingDeleteConfirmation:(BOOL)arg1;
 - (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;

@@ -13,9 +13,13 @@
     NSString *_meid;
     NSString *_imei;
     NSString *_iccid;
+    NSString *_csn;
+    _Bool _isOnBootstrap;
     double _alertHeight;
 }
 
+- (id)_formattedString:(id)arg1 withSpaceAfterDigits:(unsigned long long)arg2;
+- (id)_formattedCSN;
 - (id)_formattedIMEI;
 - (id)_formattedICCID;
 - (void)_simStatusChanged:(id)arg1;

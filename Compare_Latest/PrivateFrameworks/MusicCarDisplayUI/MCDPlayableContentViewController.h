@@ -15,8 +15,9 @@
     NSString *_bundleID;
 }
 
-@property(readonly, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
+@property(readonly, copy, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
 - (void).cxx_destruct;
+- (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidLoad;
 - (void)refreshNavigationStack;
 - (void)_embedAppropriateViewController;

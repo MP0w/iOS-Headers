@@ -20,8 +20,8 @@
     NSString *_appSpecificHomeSetPropName;
 }
 
-@property(readonly) NSSet *containerURLs; // @synthesize containerURLs=_containerURLs;
-@property int containerInfoDepth; // @synthesize containerInfoDepth=_containerInfoDepth;
+@property(readonly, nonatomic) NSSet *containerURLs; // @synthesize containerURLs=_containerURLs;
+@property(nonatomic) int containerInfoDepth; // @synthesize containerInfoDepth=_containerInfoDepth;
 - (id)_copyContainerParserMappings;
 - (id)_copyContainerWithURL:(id)arg1 andProperties:(id)arg2;
 - (void)propFindTask:(id)arg1 parsedResponses:(id)arg2 error:(id)arg3;
@@ -30,12 +30,15 @@
 - (int)containerInfoDepthForURL:(id)arg1;
 - (void)taskGroupWillCancelWithError:(id)arg1;
 - (void)startTaskGroup;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithAccountInfoProvider:(id)arg1 containerURLs:(id)arg2 taskManager:(id)arg3;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) id <CoreDAVContainerInfoTaskGroupDelegate> delegate; // @dynamic delegate;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

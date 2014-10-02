@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSMapTable, NSMutableArray, NSMutableDictionary, QLPreviewController;
+#import "UIDocumentInteractionControllerDelegatePrivate.h"
 
-@interface QLPreviewItemsSource : NSObject
+@class NSMapTable, NSMutableArray, NSMutableDictionary, NSString, NSURL, QLPreviewController;
+
+@interface QLPreviewItemsSource : NSObject <UIDocumentInteractionControllerDelegatePrivate>
 {
     QLPreviewController *_previewController;
     id <QLPreviewControllerDataSource> _dataSource;
@@ -22,6 +24,7 @@
     int _archiveDataSourceIndex;
     NSMutableArray *_archiveItems;
     NSMapTable *_uiItems;
+    NSURL *_unzippingURL;
 }
 
 @property(readonly) int UUID; // @synthesize UUID=_UUID;
@@ -37,7 +40,10 @@
 @property(readonly) int realNumberOfPreviewItems;
 @property(readonly) id <QLPreviewItem> currentPreviewItem;
 @property int currentPreviewItemIndex;
+- (void)resolvePreviewItem:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)preparedPreviewItemAtIndex:(int)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void)removeArchiveItemAtIndex:(int)arg1;
+- (void)addArchiveItem:(id)arg1;
 - (id)previewItemAtIndex:(int)arg1;
 @property(readonly) int numberOfPreviewItems;
 @property(readonly) BOOL shouldShowFileList;
@@ -46,9 +52,16 @@
 @property id <QLPreviewControllerDataSource> dataSource;
 - (void)reset;
 - (void)prepare;
+- (id)documentInteractionControllerURLOfDirectoryForUnzippedDocument:(id)arg1;
 - (void)purgeCache;
 - (void)dealloc;
 - (id)initWithPreviewController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

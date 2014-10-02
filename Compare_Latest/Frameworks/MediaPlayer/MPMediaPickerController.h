@@ -6,7 +6,7 @@
 
 #import "UIViewController.h"
 
-@class MPRemoteMediaPickerController, NSString, UIPopoverController, _UIAsyncInvocation;
+@class MPRemoteMediaPickerController, NSString, _UIAsyncInvocation;
 
 @interface MPMediaPickerController : UIViewController
 {
@@ -15,7 +15,6 @@
     MPRemoteMediaPickerController *_remoteViewController;
     BOOL _allowsPickingMultipleItems;
     BOOL _showsCloudItems;
-    UIPopoverController *_containingPopover;
     unsigned int _mediaTypes;
     id <MPMediaPickerControllerDelegate> _delegate;
     NSString *_prompt;
@@ -39,7 +38,6 @@
 @property(nonatomic) BOOL allowsPickingMultipleItems;
 - (void)remoteMediaPickerDidCancel;
 - (void)remoteMediaPickerDidPickMediaItems:(id)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)loadView;

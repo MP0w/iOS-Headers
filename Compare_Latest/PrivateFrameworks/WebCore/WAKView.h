@@ -11,7 +11,7 @@
 @interface WAKView : WAKResponder
 {
     struct _WKViewContext viewContext;
-    struct WKView *viewRef;
+    struct _WKView *viewRef;
     NSMutableSet *subviewReferences;
     BOOL _isHidden;
     BOOL _drawsOwnDescendants;
@@ -19,7 +19,7 @@
 
 + (void)_setInterpolationQuality:(int)arg1;
 + (id)focusView;
-+ (id)_wrapperForViewRef:(struct WKView *)arg1;
++ (id)_wrapperForViewRef:(struct _WKView *)arg1;
 - (id).cxx_construct;
 - (void)_appendDescriptionToString:(id)arg1 atLevel:(int)arg2;
 - (id)description;
@@ -84,12 +84,12 @@
 - (id)superview;
 - (id)subviews;
 - (id)_subviewReferences;
-- (struct WKView *)_viewRef;
+- (struct _WKView *)_viewRef;
 - (id)window;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)init;
-- (id)_initWithViewRef:(struct WKView *)arg1;
+- (id)_initWithViewRef:(struct _WKView *)arg1;
 - (BOOL)_handleResponderCall:(int)arg1;
 - (id)nextResponder;
 - (BOOL)_selfHandleEvent:(id)arg1;

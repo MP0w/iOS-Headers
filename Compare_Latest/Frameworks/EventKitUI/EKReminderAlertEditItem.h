@@ -37,6 +37,7 @@
     BOOL _showsLocation;
     BOOL _isAtALocation;
     BOOL _isOnADay;
+    unsigned int _alertType;
     NSDate *_date;
     EKStructuredLocation *_structuredLocation;
     int _alarmProximity;
@@ -48,12 +49,13 @@
 @property(nonatomic) BOOL showsLocation; // @synthesize showsLocation=_showsLocation;
 @property(copy, nonatomic) EKStructuredLocation *structuredLocation; // @synthesize structuredLocation=_structuredLocation;
 @property(retain, nonatomic) NSDate *date; // @synthesize date=_date;
+@property unsigned int alertType; // @synthesize alertType=_alertType;
 - (void).cxx_destruct;
 - (int)_recurrenceOffset;
 - (int)_dueDateOffset;
-- (BOOL)_isRecurrenceSubitem:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
-- (BOOL)_isDueDateSubitem:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
-- (BOOL)_isDatePickerSubitem:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
+- (BOOL)_isRecurrenceSubitem:(unsigned int)arg1;
+- (BOOL)_isDueDateSubitem:(unsigned int)arg1;
+- (BOOL)_isDatePickerSubitem:(unsigned int)arg1;
 - (BOOL)_shouldShowRecurrence;
 - (void)setCalendarItem:(id)arg1 store:(id)arg2;
 - (void)setDelegate:(id)arg1;
@@ -78,7 +80,7 @@
 - (void)_removeExistingWifiAlert;
 - (void)_datePickerDateChanged:(id)arg1;
 - (void)_setDate:(id)arg1 updateTable:(BOOL)arg2 updateReminder:(BOOL)arg3;
-- (id)_indexPathsForDueDate;
+- (struct _NSRange)_rowsForDueDate;
 - (void)_setStructuredLocation:(id)arg1 updateModel:(BOOL)arg2;
 - (void)_localeChanged;
 - (void)_isAtALocationChanged:(id)arg1;
@@ -92,24 +94,23 @@
 - (void)_updateDateText;
 - (void)_updateDateTextOnCell:(id)arg1;
 - (id)_locationPickerModel;
-- (void)_updateReminderFromInlineSubitem:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
+- (void)_updateReminderFromInlineSubitem:(unsigned int)arg1;
 - (BOOL)editItemViewControllerCommit:(id)arg1;
-- (void)_cleanupAndCommitFromSubitem:(unsigned int)arg1 inSubsection:(unsigned int)arg2 wasAllDay:(BOOL)arg3;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
+- (void)_cleanupAndCommitFromSubitem:(unsigned int)arg1 wasAllDay:(BOOL)arg2;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1;
 - (id)_setupLocationPickerCell;
 - (id)_makeSwitchCell:(BOOL)arg1;
 - (id)_getProximityCellAtIndex:(unsigned int)arg1;
 - (void)editor:(id)arg1 didStartEditingItem:(id)arg2;
 - (void)editorDidScroll:(id)arg1;
-- (void)editor:(id)arg1 didDeselectSubitem:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
-- (void)editor:(id)arg1 didSelectSubitem:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
-- (BOOL)editor:(id)arg1 canSelectSubitem:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
-- (BOOL)editor:(id)arg1 shouldClearSelectionFromSubitem:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
-- (BOOL)usesDetailViewControllerForSubitem:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
-- (unsigned int)numberOfSubitemsInSubsection:(unsigned int)arg1;
-- (unsigned int)numberOfSubsections;
-- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
+- (void)editor:(id)arg1 didDeselectSubitem:(unsigned int)arg2;
+- (void)editor:(id)arg1 didSelectSubitem:(unsigned int)arg2;
+- (BOOL)editor:(id)arg1 canSelectSubitem:(unsigned int)arg2;
+- (BOOL)editor:(id)arg1 shouldClearSelectionFromSubitem:(unsigned int)arg2;
+- (BOOL)usesDetailViewControllerForSubitem:(unsigned int)arg1;
+- (unsigned int)numberOfSubitems;
+- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(unsigned int)arg2;
 - (id)footerView;
 - (id)_footerLabel;
 - (float)footerHeightForWidth:(float)arg1;
@@ -122,6 +123,12 @@
 - (void)_updateShowsDueDate;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

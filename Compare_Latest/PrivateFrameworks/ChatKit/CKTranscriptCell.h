@@ -16,11 +16,14 @@
 @property(nonatomic) float drawerPercentRevealed; // @synthesize drawerPercentRevealed=_drawerPercentRevealed;
 @property(nonatomic) BOOL orientation; // @synthesize orientation=_orientation;
 @property(nonatomic) BOOL wantsDrawerLayout; // @synthesize wantsDrawerLayout=_wantsDrawerLayout;
+- (void)performReload:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)performRemoval:(CDUnknownBlockType)arg1;
+- (void)performInsertion:(CDUnknownBlockType)arg1;
+- (void)layoutSubviewsForAlignmentContents;
 - (void)layoutSubviewsForDrawer;
 - (void)layoutSubviewsForContents;
 - (void)layoutSubviews;
-- (void)configureForRow:(id)arg1;
-- (void)configureForRowObject:(id)arg1;
+- (void)configureForChatItem:(id)arg1;
 
 @end
 

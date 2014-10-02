@@ -10,12 +10,13 @@
 #import "UIActionSheetDelegate.h"
 #import "UIAlertViewDelegate.h"
 
-@class EKCalendarItem, EKCalendarItemEditItem, EKEventStore, EKUIRecurrenceAlertController, NSArray, NSMutableSet, UIBarButtonItem, UIResponder, _UIAccessDeniedView;
+@class EKCalendarItem, EKCalendarItemEditItem, EKEventStore, EKUIRecurrenceAlertController, NSArray, NSMutableSet, NSString, UIBarButtonItem, UIResponder, _UIAccessDeniedView;
 
 __attribute__((visibility("hidden")))
 @interface EKCalendarItemEditor : UITableViewController <EKCalendarItemEditItemDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
 {
     NSArray *_editItems;
+    NSArray *_orderedEditItems;
     id _revertState;
     BOOL _showsTimeZone;
     NSArray *_currentItems;
@@ -40,7 +41,7 @@ __attribute__((visibility("hidden")))
     EKEventStore *_store;
     EKCalendarItem *_calendarItem;
     UIResponder *_responderToRestoreOnAppearence;
-    int _visibleSectionToRestoreOnAppearence;
+    unsigned int _visibleSectionToRestoreOnAppearence;
     _UIAccessDeniedView *_accessDeniedView;
 }
 
@@ -48,7 +49,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) EKCalendarItemEditItem *currentEditItem; // @synthesize currentEditItem=_currentEditItem;
 @property(nonatomic) BOOL canHideDoneAndCancelButtons; // @synthesize canHideDoneAndCancelButtons=_canHideDoneAndCancelButtons;
 @property(nonatomic) BOOL showsTimeZone; // @synthesize showsTimeZone=_showsTimeZone;
-@property(nonatomic) int visibleSectionToRestoreOnAppearence; // @synthesize visibleSectionToRestoreOnAppearence=_visibleSectionToRestoreOnAppearence;
+@property(nonatomic) unsigned int visibleSectionToRestoreOnAppearence; // @synthesize visibleSectionToRestoreOnAppearence=_visibleSectionToRestoreOnAppearence;
 @property(retain, nonatomic) UIResponder *responderToRestoreOnAppearence; // @synthesize responderToRestoreOnAppearence=_responderToRestoreOnAppearence;
 @property(nonatomic) BOOL scrollToNotes; // @synthesize scrollToNotes=_scrollToNotes;
 @property(retain, nonatomic) EKCalendarItem *calendarItem; // @synthesize calendarItem=_calendarItem;
@@ -59,7 +60,6 @@ __attribute__((visibility("hidden")))
 - (id)_viewForSheet;
 - (id)_nameForDeleteButton;
 - (BOOL)_canDetachSingleOccurrence;
-- (void)scrollViewDidScroll:(id)arg1;
 - (BOOL)_performSave:(int)arg1 animated:(BOOL)arg2;
 - (void)_performDelete:(int)arg1;
 - (void)deleteClicked:(id)arg1;
@@ -67,7 +67,10 @@ __attribute__((visibility("hidden")))
 - (void)tableViewDidFinishReload:(id)arg1;
 - (void)tableViewDidStartReload:(id)arg1;
 - (id)tableView:(id)arg1 viewForFooterInSection:(int)arg2;
+- (id)tableView:(id)arg1 titleForFooterInSection:(int)arg2;
 - (float)tableView:(id)arg1 heightForFooterInSection:(int)arg2;
+- (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
+- (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
 - (void)tableView:(id)arg1 didDeselectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
@@ -75,15 +78,16 @@ __attribute__((visibility("hidden")))
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
-- (void)_getEditItem:(id *)arg1 andSubsection:(int *)arg2 forSection:(int)arg3;
+- (id)_editItemAtIndexPath:(id)arg1 firstRowIndex:(int *)arg2;
 - (id)defaultAlertTitleForEditItem:(id)arg1;
 - (void)editItemRequiresPopoverSizeUpdate:(id)arg1;
 - (void)editItemRequiresHeightChange:(id)arg1;
-- (void)editItem:(id)arg1 wantsIndexPathsScrolledToVisible:(id)arg2;
+- (void)editItem:(id)arg1 wantsRowsScrolledToVisible:(id)arg2;
 - (void)editItem:(id)arg1 wantsRowInsertions:(id)arg2 rowDeletions:(id)arg3 rowReloads:(id)arg4;
 - (void)editItem:(id)arg1 wantsRowInsertions:(id)arg2 rowDeletions:(id)arg3;
+- (int)rowNumberForEditItem:(id)arg1;
 - (void)editItem:(id)arg1 wantsRowReload:(id)arg2;
-- (void)editItem:(id)arg1 performActionsOnCellAtSubitem:(unsigned int)arg2 inSubsection:(unsigned int)arg3 actions:(CDUnknownBlockType)arg4;
+- (void)editItem:(id)arg1 performActionsOnCellAtSubitem:(unsigned int)arg2 actions:(CDUnknownBlockType)arg3;
 - (void)_reallyHandleCellHeightChange;
 - (void)_tableViewDidUpdateHeights;
 - (void)_tableViewWillUpdateHeights;
@@ -92,8 +96,10 @@ __attribute__((visibility("hidden")))
 - (void)editItem:(id)arg1 wantsKeyboardPinned:(BOOL)arg2;
 - (id)viewControllerForEditItem:(id)arg1;
 - (void)editItem:(id)arg1 textViewShouldReturn:(id)arg2;
+- (void)editItemWantsInjectableViewControllerToBeShown:(id)arg1;
 - (void)editItemTextChanged:(id)arg1;
 - (void)editItemDidEndEditing:(id)arg1;
+- (void)_setWantsToEnableDoneButtonAfterTextChanged;
 - (void)editItem:(id)arg1 didCommitFromDetailViewController:(BOOL)arg2;
 - (void)editItemDidStartEditing:(id)arg1;
 - (void)_revertEvent;
@@ -106,7 +112,8 @@ __attribute__((visibility("hidden")))
 - (void)_keyboardWillHide;
 - (void)_pinKeyboard:(BOOL)arg1;
 - (struct CGSize)preferredContentSize;
-- (void)didReceiveMemoryWarning;
+- (void)refreshLocation;
+- (void)refreshInvitees;
 - (void)refreshStartAndEndDates;
 - (void)_setShowingAccessDeniedView:(BOOL)arg1 showSettingsInstructions:(BOOL)arg2;
 - (void)storeChanged:(id)arg1;
@@ -140,15 +147,22 @@ __attribute__((visibility("hidden")))
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)loadView;
-- (id)sectionsForEditItem:(id)arg1;
-- (unsigned int)firstSectionForEditItem:(id)arg1;
+- (int)firstTableRowForEditItem:(id)arg1;
+- (unsigned int)tableSectionForEditItem:(id)arg1;
 - (int)editItemVisibility;
 - (void)setEditItemVisibility:(int)arg1 animated:(BOOL)arg2;
 - (void)_updateCurrentEditItemsFromVisibility:(int)arg1 toVisibility:(int)arg2 animated:(BOOL)arg3;
 - (void)_localeChanged;
+- (id)_orderedEditItems;
 - (id)_editItems;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -7,37 +7,39 @@
 #import "SBLockScreenViewControllerBase.h"
 
 #import "SBLockScreenBatteryChargingViewControllerDelegate.h"
-#import "SBLockScreenCameraControllerDelegate.h"
 #import "SBLockScreenInfoOverlayDelegate.h"
 #import "SBLockScreenNotificationListDelegate.h"
 #import "SBLockScreenPluginControllerDelegate.h"
+#import "SBLockScreenSlideUpToAppControllerDelegate.h"
 #import "SBLockScreenTimerViewControllerDelegate.h"
 #import "SBLockScreenViewDelegate.h"
 #import "SBUIPasscodeLockViewDelegate_Internal.h"
 #import "SBWallpaperObserver.h"
 
-@class MPUSystemMediaControlsViewController, NSMutableArray, SBDisableAppStatusBarUserInteractionChangesAssertion, SBLockOverlayContext, SBLockScreenBatteryChargingViewController, SBLockScreenBuddyViewController, SBLockScreenCameraController, SBLockScreenDateViewController, SBLockScreenDeviceBlockViewController, SBLockScreenEmergencyCallViewController, SBLockScreenFullscreenBulletinViewController, SBLockScreenHintManager, SBLockScreenInfoOverlayViewController, SBLockScreenLegalViewController, SBLockScreenModalAlertViewController, SBLockScreenNotificationListController, SBLockScreenNowPlayingPluginController, SBLockScreenPluginController, SBLockScreenResetRestoreViewController, SBLockScreenSystemAlertFullscreenViewController, SBLockScreenTemperatureWarningViewController, SBLockScreenTimerViewController, SBUnlockActionContext;
+@class MPUSystemMediaControlsViewController, NSMutableArray, NSString, SBDisableAppStatusBarUserInteractionChangesAssertion, SBLockOverlayContext, SBLockScreenActionContext, SBLockScreenBatteryChargingViewController, SBLockScreenBuddyViewController, SBLockScreenDateViewController, SBLockScreenDeviceBlockViewController, SBLockScreenEmergencyCallViewController, SBLockScreenFullscreenBulletinViewController, SBLockScreenHintManager, SBLockScreenInfoOverlayViewController, SBLockScreenModalAlertViewController, SBLockScreenNotificationListController, SBLockScreenNowPlayingPluginController, SBLockScreenPasscodeOverlayViewController, SBLockScreenPluginController, SBLockScreenResetRestoreViewController, SBLockScreenSlideUpToAppController, SBLockScreenStatusTextViewController, SBLockScreenTemperatureWarningViewController, SBLockScreenTimerViewController;
 
-@interface SBLockScreenViewController : SBLockScreenViewControllerBase <SBLockScreenViewDelegate, SBLockScreenTimerViewControllerDelegate, SBLockScreenNotificationListDelegate, SBUIPasscodeLockViewDelegate_Internal, SBLockScreenBatteryChargingViewControllerDelegate, SBLockScreenInfoOverlayDelegate, SBWallpaperObserver, SBLockScreenCameraControllerDelegate, SBLockScreenPluginControllerDelegate>
+@interface SBLockScreenViewController : SBLockScreenViewControllerBase <SBLockScreenViewDelegate, SBLockScreenTimerViewControllerDelegate, SBLockScreenNotificationListDelegate, SBUIPasscodeLockViewDelegate_Internal, SBLockScreenBatteryChargingViewControllerDelegate, SBLockScreenInfoOverlayDelegate, SBWallpaperObserver, SBLockScreenPluginControllerDelegate, SBLockScreenSlideUpToAppControllerDelegate>
 {
     _Bool _isInScreenOffMode;
     SBLockScreenDeviceBlockViewController *_blockedController;
     SBLockScreenDateViewController *_dateViewController;
-    SBLockScreenLegalViewController *_legalViewController;
+    SBLockScreenStatusTextViewController *_statusTextViewController;
     SBLockScreenTimerViewController *_timerViewController;
     SBLockScreenNotificationListController *_notificationController;
-    SBLockScreenCameraController *_cameraController;
+    SBLockScreenSlideUpToAppController *_cameraController;
+    SBLockScreenSlideUpToAppController *_bottomLeftAppController;
     MPUSystemMediaControlsViewController *_mediaControlsViewController;
     _Bool _ignoreFirstMediaToggle;
     SBLockScreenModalAlertViewController *_modalAlertController;
-    SBLockScreenSystemAlertFullscreenViewController *_fullscreenSystemAlertController;
-    NSMutableArray *_pendingFullscreenSystemAlerts;
     SBLockScreenBatteryChargingViewController *_chargingViewController;
     _Bool _attemptingPasscodeUnlock;
     _Bool _chargingViewControllerVisible;
     _Bool _wasAutoUnlocked;
+    _Bool _slideToUnlockTextShouldUpdateWithAnimation;
+    _Bool _ignoreStatusBarUpdatesForBottomCornerController;
     _Bool _forcePasscodeWhileInCall;
     _Bool _isHidingPasscodeWhileInCall;
+    _Bool _nextUnlockShouldReturnToCall;
     SBLockScreenPluginController *_pluginController;
     SBLockScreenNowPlayingPluginController *_nowPlayingController;
     SBLockScreenBuddyViewController *_buddyController;
@@ -53,26 +55,42 @@
     SBLockOverlayContext *_thermalWarningContext;
     SBLockScreenResetRestoreViewController *_resetRestoreViewController;
     SBLockOverlayContext *_resetRestoreOverlayContext;
+    SBLockScreenPasscodeOverlayViewController *_passcodeOverlayViewController;
+    SBLockOverlayContext *_passcodeOverlayContext;
     SBLockScreenEmergencyCallViewController *_emergencyCallController;
     _Bool _suppressWallpaperAlphaChangeOnScroll;
-    SBUnlockActionContext *_bioUnlockActionContext;
+    SBLockScreenActionContext *_bioLockScreenActionContext;
     _Bool _disabledMesaForPhoneCall;
+    SBLockScreenActionContext *_slideUpControllerActionContext;
     SBLockScreenHintManager *_hintManager;
     SBDisableAppStatusBarUserInteractionChangesAssertion *_statusBarUserInteractionAssertion;
+    _Bool _hasAuthenticatedForNotificationAction;
 }
 
+@property(nonatomic) _Bool hasAuthenticatedForNotificationAction; // @synthesize hasAuthenticatedForNotificationAction=_hasAuthenticatedForNotificationAction;
 @property(readonly, nonatomic) SBLockScreenPluginController *pluginController; // @synthesize pluginController=_pluginController;
-@property(retain, nonatomic, setter=_setBioUnlockActionContext:) SBUnlockActionContext *_bioUnlockActionContext; // @synthesize _bioUnlockActionContext;
+@property(retain, nonatomic, setter=_setBioLockScreenActionContext:) SBLockScreenActionContext *_bioLockScreenActionContext; // @synthesize _bioLockScreenActionContext;
 - (id)_wallpaperLegibilitySettings;
 - (id)_pluginLegibilitySettings;
 - (id)_overlayLegibilitySettings;
 - (id)_notificationListLegibilitySettings;
 - (id)_effectiveLegibilitySettings;
 - (void)_updateLegibility;
+- (void)updateLegibility;
 - (id)legibilitySettings;
-- (void)_cameraControllerDidHide:(id)arg1;
-- (void)_cameraControllerDidShow:(id)arg1;
-- (id)cameraParentViewController;
+- (id)viewControllerToUseAsParent;
+- (void)passcodeViewDidBecomeActive:(_Bool)arg1 forController:(id)arg2;
+- (void)updateSlideToUnlockTextForController:(id)arg1;
+- (void)setUnlockActionContext:(id)arg1;
+- (_Bool)isAnotherSlideUpControllerBlockingController:(id)arg1;
+- (_Bool)controllerShouldInvertVerticalPadding:(id)arg1;
+- (_Bool)controllerShouldUseAdditionalTopPadding:(id)arg1;
+- (void)adjustWallpaperForVerticalScrollPercentage:(double)arg1;
+- (id)grabberViewInLockScreenView:(id)arg1 forController:(id)arg2;
+- (void)addGrabberView:(id)arg1 toLockScreenView:(id)arg2 forController:(id)arg3;
+- (long long)presentingControllerIdentifierForController:(id)arg1;
+- (void)prepareForSlideUpAppLaunchAnimated:(_Bool)arg1;
+- (id)lockScreenBottomLeftAppController;
 - (id)lockScreenCameraController;
 - (void)wallpaperDidChangeForVariant:(long long)arg1;
 - (void)wallpaperLegibilitySettingsDidChange:(id)arg1 forVariant:(long long)arg2;
@@ -92,6 +110,9 @@
 - (void)_setNowPlayingControllerEnabled:(_Bool)arg1;
 - (void)_removeActivePluginView;
 - (void)_resetActivePlugin;
+- (_Bool)allowAnimatedDismissalForLockScreenPlugin;
+- (void)updateCustomSubtitleTextForAwayViewPlugin:(id)arg1;
+- (void)adjustLockScreenContentByOffset:(double)arg1 forPluginController:(id)arg2 withAnimationDuration:(double)arg3;
 - (struct CGRect)defaultContentRegionForPluginController:(id)arg1 withOrientation:(long long)arg2;
 - (void)disableLockScreenBundleWithName:(id)arg1 deactivationContext:(id)arg2;
 - (void)enableLockScreenBundleWithName:(id)arg1 activationContext:(id)arg2;
@@ -105,9 +126,8 @@
 - (id)dequeueAllPendingSuperModalAlertItems;
 - (id)currentAlertItem;
 - (void)cleanupAlertItemsForDeactivation;
-- (void)deactivateAlertItem:(id)arg1;
-- (_Bool)activateAlertItem:(id)arg1;
-- (void)pendOrDeactivateFullscreenSystemAlert:(id)arg1;
+- (void)deactivateAlertItem:(id)arg1 animated:(_Bool)arg2;
+- (_Bool)activateAlertItem:(id)arg1 animated:(_Bool)arg2;
 - (_Bool)wantsToHandleAlert:(id)arg1;
 - (_Bool)canHandleAlerts;
 - (_Bool)shouldPendAlertItemsWhileActive;
@@ -116,6 +136,8 @@
 - (void)_fadeViewsForChargingViewVisible:(_Bool)arg1;
 - (void)_acStatusChanged:(id)arg1;
 - (void)_updateBatteryChargingViewAnimated:(_Bool)arg1;
+- (void)authenticateForNotificationActionWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_dismissFullscreenBulletinAlertAnimated:(_Bool)arg1;
 - (void)dismissFullscreenBulletinAlertWithItem:(id)arg1;
 - (void)modifyFullscreenBulletinAlertWithItem:(id)arg1;
 - (void)presentFullscreenBulletinAlertWithItem:(id)arg1;
@@ -169,12 +191,15 @@
 - (void)_handleDisplayTurnedOff;
 - (void)noteResetRestoreStateUpdated;
 - (void)noteDeviceBlockedStatusUpdated;
+- (void)_removePasscodeOverlayWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_addPasscodeOverlayWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_unsupportedChargingAccessoryStateChanged:(id)arg1;
 - (void)infoOverlayWantsDismissal;
 - (void)_removeInfoOverlayViewAnimated:(_Bool)arg1;
 - (void)_addInfoOverlayViewWithTitle:(id)arg1;
 - (void)overlay:(id)arg1 wantsStyleChange:(unsigned long long)arg2;
 - (void)removeOverlay:(id)arg1 transitionIfNecessary:(_Bool)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)removeOverlay;
 - (void)addOverlay:(id)arg1 transitionIfNecessary:(_Bool)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)__transitionOverlayAnimated:(_Bool)arg1 from:(id)arg2 to:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_removeAllOverlays;
@@ -183,6 +208,10 @@
 - (void)didRotateFromInterfaceOrientation:(long long)arg1;
 - (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
+- (long long)interfaceOrientationForActivation;
+- (_Bool)_forcesPortraitOrientation;
 - (_Bool)suppressesControlCenter;
 - (_Bool)suppressesNotificationCenter;
 - (_Bool)suppressesBanners;
@@ -207,6 +236,7 @@
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)_setStatusBarUserInteractionEnabledForTopGrabber:(_Bool)arg1;
 - (void)displayDidDisappear;
+- (void)willBeginDeactivationForTransitionToApps:(id)arg1 animated:(_Bool)arg2;
 - (void)deactivate;
 - (void)activate;
 - (_Bool)allowSystemGestureAtLocation:(struct CGPoint)arg1;
@@ -222,27 +252,27 @@
 - (void)noteExitingLostMode;
 - (void)prepareToEnterLostMode;
 - (_Bool)isShowingOverheatUI;
-- (void)prepareToReturnToCameraFromCall;
-- (void)cancelReturnToCameraAfterCall;
-- (_Bool)shouldReturnToCameraAfterCall;
+- (void)noteNextUnlockShouldReturnToCallIfPossible:(_Bool)arg1;
 - (void)handlePhoneAppExitedIfNecessary;
 - (void)noteStartingPhoneCallWhileUILocked;
-- (void)dismissCameraImmediately;
 - (void)activateCameraAnimated:(_Bool)arg1;
-- (_Bool)cameraIsVisible;
-- (_Bool)cameraIsActive;
+- (_Bool)wantsSupportedInterfaceOrientationsIgnoredDuringDeactivation;
 - (void)finishUIUnlockFromSource:(int)arg1;
 - (void)prepareForUIUnlock;
 - (void)prepareForExternalUIUnlock;
 - (_Bool)canBeDeactivatedForUIUnlockFromSource:(int)arg1;
 - (_Bool)wantsPasscodeLockForUIUnlockFromSource:(int)arg1 withOptions:(id)arg2;
-- (id)_effectiveUnlockActionContext;
-- (id)currentUnlockActionContext;
+- (id)_effectiveLockScreenActionContext;
+- (id)currentLockScreenActionContext;
 - (void)setForcesPasscodeViewDuringCall:(_Bool)arg1;
+- (void)setInScreenOffMode:(_Bool)arg1 forAutoUnlock:(_Bool)arg2;
 - (void)setInScreenOffMode:(_Bool)arg1;
 - (void)_updateGrabbersForScreenOffMode;
 - (_Bool)isInScreenOffMode;
 - (_Bool)isLockScreenVisible;
+- (_Bool)isAllowingWallpaperBlurUpdates;
+- (_Bool)lockScreenViewIsCurrentlyBeingDisplayed;
+- (_Bool)shouldShowSlideToUnlockTextImmediately;
 - (void)addCoordinatedPresentingController:(id)arg1;
 - (void)removeCoordinatedPresentingController:(id)arg1;
 - (id)effectiveCustomSlideToUnlockText;
@@ -250,26 +280,24 @@
 - (void)lockScreenView:(id)arg1 didEndScrollingOnPage:(long long)arg2;
 - (void)lockScreenViewWillEndDraggingWithPercentScrolled:(double)arg1 percentScrolledVelocity:(double)arg2 targetScrollPercentage:(double)arg3;
 - (void)lockScreenViewDidScrollWithNewScrollPercentage:(double)arg1 tracking:(_Bool)arg2;
+- (void)_adjustLockScreenWallpaperAlphaForPercentScrolled:(double)arg1 scrollViewTracking:(_Bool)arg2;
 - (void)lockScreenViewDidBeginScrolling:(id)arg1;
 - (void)lockScreenView:(id)arg1 didScrollToPage:(long long)arg2;
+- (void)_postPasscodeLockNotification:(long long)arg1;
 - (void)_setHintManagerEnabledIfPossible:(_Bool)arg1;
 - (void)_setHintManagerEnabledIfPossible:(_Bool)arg1 removingLockScreenView:(_Bool)arg2;
 - (_Bool)isBounceEnabledForPresentingController:(id)arg1 locationInWindow:(struct CGPoint)arg2;
 - (_Bool)isPresentationEnabledForPresentingController:(id)arg1 locationInWindow:(struct CGPoint)arg2;
 - (_Bool)isSystemGesturePermittedForPresentingController:(id)arg1;
-- (_Bool)_isLockScreenViewObscuredBySomethingLikeSayTheCamera;
 - (unsigned long long)hintEdgeForController:(id)arg1;
 - (double)hintDisplacementForController:(id)arg1;
+- (void)_handleSuggestedAppChanged:(id)arg1;
 - (_Bool)_disableIdleTimer:(_Bool)arg1;
 - (_Bool)wasAutoUnlocked;
 - (void)_removeMediaControls;
 - (void)_addMediaControls;
-- (id)_cameraView;
-- (id)viewToAnimateForAlertTransition;
 - (void)_removeBatteryChargingView;
 - (void)_addBatteryChargingView;
-- (void)_removeFullscreenSystemAlertViewAnimated:(_Bool)arg1;
-- (void)_addFullscreenSystemAlertViewForSystemNotification:(id)arg1 withTitle:(id)arg2 andSubtitle:(id)arg3;
 - (void)_removeNotificationView;
 - (void)_addNotificationView;
 - (void)_removeModalAlertView;
@@ -277,8 +305,8 @@
 - (void)_removeTimerView;
 - (void)_addTimerView;
 - (void)_addTimerViewIfNecessary;
-- (void)_removeLegalView;
-- (void)_addLegalView;
+- (void)_removeStatusTextView;
+- (void)_addStatusTextView;
 - (void)_removeDateView;
 - (void)_addDateView;
 - (void)_addRemoveOrChangePasscodeViewIfNecessary;
@@ -289,6 +317,7 @@
 - (void)_addOrRemoveThermalTrapViewIfNecessary:(_Bool)arg1;
 - (void)_removeBlockedView:(_Bool)arg1;
 - (void)_addOrRemoveBlockedViewIfNecessary:(_Bool)arg1;
+- (void)_addBottomLeftGrabberIfNecessaryForAutoUnlock:(_Bool)arg1;
 - (void)_addCameraGrabberIfNecessary;
 - (id)lockScreenHintManager;
 - (id)_lockScreenViewCreatingIfNecessary;
@@ -297,6 +326,12 @@
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

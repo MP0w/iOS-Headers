@@ -8,6 +8,8 @@
 
 #import "OCDDelayedMediaContext.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface ESDBlipContext : NSObject <OCDDelayedMediaContext>
 {
@@ -22,6 +24,12 @@ __attribute__((visibility("hidden")))
 - (_Bool)loadDelayedNode:(id)arg1;
 - (_Bool)saveDelayedMedia:(id)arg1 toFile:(id)arg2;
 - (id)initWithOffset:(unsigned int)arg1 byteCount:(unsigned int)arg2 stream:(struct SsrwOOStream *)arg3 streamID:(unsigned int)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

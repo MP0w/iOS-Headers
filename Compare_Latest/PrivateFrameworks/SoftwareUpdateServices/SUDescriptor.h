@@ -28,9 +28,11 @@
     BOOL _downloadAllowableForCellular;
     BOOL _downloadable;
     BOOL _downloadableOverCellular;
+    BOOL _streamingZipCapable;
 }
 
 + (BOOL)supportsSecureCoding;
+@property(nonatomic, getter=_isStreamingZipCapable, setter=_setStreamingZipCapable:) BOOL streamingZipCapable; // @synthesize streamingZipCapable=_streamingZipCapable;
 @property(nonatomic, getter=isDownloadableOverCellular) BOOL downloadableOverCellular; // @synthesize downloadableOverCellular=_downloadableOverCellular;
 @property(nonatomic, getter=isDownloadable) BOOL downloadable; // @synthesize downloadable=_downloadable;
 @property(nonatomic) BOOL autoDownloadAllowableForCellular; // @synthesize autoDownloadAllowableForCellular=_autoDownloadAllowableForCellular;

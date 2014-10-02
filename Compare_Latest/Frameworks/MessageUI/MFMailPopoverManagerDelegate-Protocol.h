@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class UIPopoverController;
+@class UIPopoverController, UIViewController;
 
 @protocol MFMailPopoverManagerDelegate <NSObject>
 
 @optional
+- (int)popoverPresentationStyleForViewController:(UIViewController *)arg1;
 - (BOOL)popoverControllerSupportsRotation:(UIPopoverController *)arg1;
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)arg1 isUserAction:(BOOL)arg2;
 - (BOOL)popoverControllerShouldDismissPopover:(UIPopoverController *)arg1;

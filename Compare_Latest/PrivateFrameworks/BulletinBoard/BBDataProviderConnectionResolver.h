@@ -6,23 +6,36 @@
 
 #import "NSObject.h"
 
-#import "BBXPCConnectionDelegate.h"
-#import "XPCProxyTarget.h"
+#import "BBDataProviderConnectionClientEndpoint.h"
+#import "NSXPCListenerDelegate.h"
 
-@class BBXPCIncomingConnection;
+@class BBDataProviderConnection, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection, NSXPCListener;
 
-@interface BBDataProviderConnectionResolver : NSObject <BBXPCConnectionDelegate, XPCProxyTarget>
+@interface BBDataProviderConnectionResolver : NSObject <NSXPCListenerDelegate, BBDataProviderConnectionClientEndpoint>
 {
-    BBXPCIncomingConnection *_connection;
-    CDUnknownBlockType _establishedBlock;
+    NSXPCListener *_wakeupListener;
+    BBDataProviderConnection *__dataProviderConnection;
+    NSObject<OS_dispatch_queue> *_queue;
+    NSXPCConnection *_connectionToServer;
+    int _listeningToken;
 }
 
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
-- (void)connection:(id)arg1 connectionStateDidChange:(BOOL)arg2;
-- (void)establishSectionID:(id)arg1 completion:(CDUnknownBlockType)arg2;
++ (id)resolverForConnection:(id)arg1;
+- (void)ping:(CDUnknownBlockType)arg1;
+- (BOOL)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
+- (void)_queue_registerWithServer:(CDUnknownBlockType)arg1;
+- (void)_registerForPublicationNotification;
+- (id)dataProviderConnection;
+- (void)setDataProviderConnection:(id)arg1;
 - (void)invalidate;
 - (void)dealloc;
-- (id)initWithConnection:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)initWithConnection:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

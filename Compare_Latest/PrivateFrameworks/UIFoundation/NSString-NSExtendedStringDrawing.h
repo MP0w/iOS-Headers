@@ -7,6 +7,8 @@
 #import "NSString.h"
 
 @interface NSString (NSExtendedStringDrawing)
+- (struct CGRect)boundingRectWithSize:(struct CGSize)arg1 options:(int)arg2 attributes:(id)arg3;
+- (void)drawWithRect:(struct CGRect)arg1 options:(int)arg2 attributes:(id)arg3;
 - (struct CGRect)boundingRectWithSize:(struct CGSize)arg1 options:(int)arg2 attributes:(id)arg3 context:(id)arg4;
 - (void)drawWithRect:(struct CGRect)arg1 options:(int)arg2 attributes:(id)arg3 context:(id)arg4;
 @end

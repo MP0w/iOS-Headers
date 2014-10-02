@@ -6,12 +6,18 @@
 
 #import "NSObject.h"
 
+@class OITSUNoCopyDictionary;
+
 __attribute__((visibility("hidden")))
 @interface PDAnimationCacheState : NSObject
 {
+    OITSUNoCopyDictionary *mMediaNodeMap;
 }
 
+- (id)mediaNodeMap;
 - (BOOL)isValid:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

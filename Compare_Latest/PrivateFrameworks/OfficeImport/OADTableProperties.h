@@ -8,7 +8,7 @@
 
 #import "OADEffectsParent.h"
 
-@class NSArray, OADTableStyle;
+@class NSArray, NSString, OADTableStyle;
 
 __attribute__((visibility("hidden")))
 @interface OADTableProperties : OADDrawableProperties <OADEffectsParent>
@@ -48,6 +48,12 @@ __attribute__((visibility("hidden")))
 - (id)style;
 - (void)dealloc;
 - (id)initWithDefaults;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

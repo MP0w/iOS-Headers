@@ -8,6 +8,8 @@
 
 #import "KNFrameAnimator.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface KNTransitionIris : KNIrisBase <KNFrameAnimator>
 {
@@ -18,6 +20,12 @@ __attribute__((visibility("hidden")))
 + (BOOL)isTransition;
 - (void)renderFrameWithContext:(id)arg1;
 - (void)animationWillBeginWithContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

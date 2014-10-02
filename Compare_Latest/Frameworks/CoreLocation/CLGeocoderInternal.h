@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class GEOGeocodeRequest, NSObject<OS_dispatch_queue>;
+@class NSObject<OS_dispatch_queue>;
 
 @interface CLGeocoderInternal : NSObject
 {
     CDUnknownBlockType _geocodeCompletionHandler;
-    GEOGeocodeRequest *_request;
+    id <GEOMapServiceTicket> _ticket;
     NSObject<OS_dispatch_queue> *_queue;
 }
 

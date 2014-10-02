@@ -8,7 +8,7 @@
 
 #import "UIDocumentInteractionControllerDelegate.h"
 
-@class EKAttachment, EKEventAttachmentCell;
+@class EKAttachment, EKEventAttachmentCell, NSString;
 
 @interface EKEventAttachmentCellController : NSObject <UIDocumentInteractionControllerDelegate>
 {
@@ -36,6 +36,12 @@
 - (void)tearDown;
 - (void)_clearDownloadID;
 - (id)initWithAttachment:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -9,7 +9,7 @@
 #import "KNAnimationPluginArchiving.h"
 #import "KNFrameAnimator.h"
 
-@class KNBuildConfettiSystem, TSDGLDataBuffer, TSDGLShader;
+@class KNBuildConfettiSystem, NSString, TSDGLDataBuffer, TSDGLShader;
 
 __attribute__((visibility("hidden")))
 @interface KNTransitionConfetti : KNAnimationEffect <KNFrameAnimator, KNAnimationPluginArchiving>
@@ -39,6 +39,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (void)p_teardown;
 - (id)initWithAnimationContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

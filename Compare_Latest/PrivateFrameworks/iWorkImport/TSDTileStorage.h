@@ -8,7 +8,7 @@
 
 #import "NSCacheDelegate.h"
 
-@class NSCache, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, TSUPointerKeyDictionary;
+@class NSCache, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString, TSUPointerKeyDictionary;
 
 __attribute__((visibility("hidden")))
 @interface TSDTileStorage : NSObject <NSCacheDelegate>
@@ -28,6 +28,12 @@ __attribute__((visibility("hidden")))
 - (void)storeContents:(id)arg1 inRect:(struct CGRect)arg2 contentsScale:(float)arg3 forTileAtLocation:(CDStruct_c0454aff)arg4 inBucket:(id)arg5;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

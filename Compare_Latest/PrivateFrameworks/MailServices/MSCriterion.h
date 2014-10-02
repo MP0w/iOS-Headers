@@ -6,17 +6,18 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSString;
 
-@interface MSCriterion : NSObject <NSCoding>
+@interface MSCriterion : NSObject <NSSecureCoding>
 {
     NSString *_type;
     NSString *_qualifier;
     id <NSObject> _criteria;
 }
 
++ (BOOL)supportsSecureCoding;
 - (id)criteria;
 - (id)qualifier;
 - (id)type;

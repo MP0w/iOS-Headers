@@ -9,6 +9,8 @@
 #import "UIActionSheetDelegate.h"
 #import "UIAlertViewDelegate.h"
 
+@class NSString;
+
 @interface SUScriptDialogNativeObject : SUScriptNativeObject <UIActionSheetDelegate, UIAlertViewDelegate>
 {
 }
@@ -24,6 +26,12 @@
 - (void)showFromRect:(struct CGRect)arg1 inView:(id)arg2;
 - (void)show;
 - (void)dismiss;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

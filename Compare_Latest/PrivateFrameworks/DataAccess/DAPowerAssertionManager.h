@@ -6,20 +6,27 @@
 
 #import "NSObject.h"
 
-@class NSCountedSet, NSMutableDictionary, NSMutableSet;
+@class NSCountedSet, NSMapTable, NSMutableSet;
 
 @interface DAPowerAssertionManager : NSObject
 {
     NSCountedSet *_contexts;
-    NSMutableDictionary *_groupIdentifierToContexts;
-    struct __CFDictionary *_contextToGroupIdentifier;
+    NSMapTable *_groupIdentifierToContexts;
+    NSMapTable *_contextToGroupIdentifier;
     NSMutableSet *_heldAsideGroupIdentifiers;
     NSCountedSet *_heldAsideContexts;
-    struct __CFDictionary *_contextToPowerAssertionRef;
+    NSMapTable *_contextToPowerAssertionRef;
 }
 
 + (id)sharedPowerAssertionManager;
 + (void)vendDaemons:(Class)arg1;
+@property(retain, nonatomic) NSMapTable *contextToPowerAssertionRef; // @synthesize contextToPowerAssertionRef=_contextToPowerAssertionRef;
+@property(retain, nonatomic) NSCountedSet *heldAsideContexts; // @synthesize heldAsideContexts=_heldAsideContexts;
+@property(retain, nonatomic) NSMutableSet *heldAsideGroupIdentifiers; // @synthesize heldAsideGroupIdentifiers=_heldAsideGroupIdentifiers;
+@property(retain, nonatomic) NSMapTable *contextToGroupIdentifier; // @synthesize contextToGroupIdentifier=_contextToGroupIdentifier;
+@property(retain, nonatomic) NSMapTable *groupIdentifierToContexts; // @synthesize groupIdentifierToContexts=_groupIdentifierToContexts;
+@property(retain, nonatomic) NSCountedSet *contexts; // @synthesize contexts=_contexts;
+- (void).cxx_destruct;
 - (void)_releaseAssertionForContext:(id)arg1;
 - (void)_retainAssertionForContext:(id)arg1;
 - (void)reattainPowerAssertionsForGroupIdentifier:(id)arg1;
@@ -28,7 +35,6 @@
 - (void)releasePowerAssertion:(id)arg1;
 - (void)retainPowerAssertion:(id)arg1 withGroupIdentifier:(id)arg2;
 - (unsigned int)powerAssertionRetainCount:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

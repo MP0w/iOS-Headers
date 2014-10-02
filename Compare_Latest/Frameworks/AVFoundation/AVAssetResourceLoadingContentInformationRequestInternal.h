@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSDate, NSString;
 
 @interface AVAssetResourceLoadingContentInformationRequestInternal : NSObject
 {
     NSString *contentType;
     long long contentLength;
     BOOL byteRangeAccessSupported;
+    NSDate *renewalDate;
     BOOL diskCachingPermitted;
 }
 

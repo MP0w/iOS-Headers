@@ -8,13 +8,13 @@
 
 #import "NSCoding.h"
 
-@class NSArray, NSEntityDescription, NSPredicate;
+@class NSArray, NSEntityDescription, NSPredicate, NSString;
 
 @interface NSFetchRequest : NSPersistentStoreRequest <NSCoding>
 {
     NSArray *_groupByProperties;
     NSPredicate *_havingPredicate;
-    unsigned int _offset;
+    id *_additionalPrivateIvars;
     NSArray *_valuesToFetch;
     NSEntityDescription *_entity;
     NSPredicate *_predicate;
@@ -41,47 +41,31 @@
 + (id)fetchRequestWithEntityName:(id)arg1;
 + (BOOL)accessInstanceVariablesDirectly;
 + (void)initialize;
-- (void)setHavingPredicate:(id)arg1;
-- (id)havingPredicate;
-- (void)setPropertiesToGroupBy:(id)arg1;
+@property(retain, nonatomic) NSPredicate *havingPredicate;
+@property(copy, nonatomic) NSArray *propertiesToGroupBy;
 - (void)setGroupByProperties:(id)arg1;
-- (id)propertiesToGroupBy;
 - (id)groupByProperties;
-- (id)entityName;
+@property(readonly, nonatomic) NSString *entityName;
 - (id)initWithEntityName:(id)arg1;
-- (void)setShouldRefreshRefetchedObjects:(BOOL)arg1;
-- (BOOL)shouldRefreshRefetchedObjects;
-- (void)setAffectedStores:(id)arg1;
-- (id)affectedStores;
-- (void)setFetchBatchSize:(unsigned int)arg1;
-- (unsigned int)fetchBatchSize;
-- (void)setFetchOffset:(unsigned int)arg1;
-- (unsigned int)fetchOffset;
-- (void)setPropertiesToFetch:(id)arg1;
+@property(nonatomic) BOOL shouldRefreshRefetchedObjects;
+@property(retain, nonatomic) NSArray *affectedStores;
+@property(nonatomic) unsigned int fetchBatchSize;
+@property(nonatomic) unsigned int fetchOffset;
+@property(copy, nonatomic) NSArray *propertiesToFetch;
 - (id)_newValidatedProperties:(id)arg1 groupBy:(BOOL)arg2 error:(id *)arg3;
-- (id)propertiesToFetch;
-- (void)setReturnsDistinctResults:(BOOL)arg1;
-- (BOOL)returnsDistinctResults;
-- (void)setIncludesPendingChanges:(BOOL)arg1;
-- (BOOL)includesPendingChanges;
-- (void)setResultType:(unsigned int)arg1;
-- (unsigned int)resultType;
-- (void)setIncludesPropertyValues:(BOOL)arg1;
-- (BOOL)includesPropertyValues;
-- (void)setIncludesSubentities:(BOOL)arg1;
-- (BOOL)includesSubentities;
-- (void)setReturnsObjectsAsFaults:(BOOL)arg1;
-- (BOOL)returnsObjectsAsFaults;
-- (void)setRelationshipKeyPathsForPrefetching:(id)arg1;
-- (id)relationshipKeyPathsForPrefetching;
-- (void)setFetchLimit:(unsigned int)arg1;
-- (unsigned int)fetchLimit;
-- (void)setSortDescriptors:(id)arg1;
-- (id)sortDescriptors;
-- (void)setPredicate:(id)arg1;
-- (id)predicate;
-- (void)setEntity:(id)arg1;
-- (id)entity;
+- (id)_asyncResultHandle;
+- (void)_setAsyncResultHandle:(id)arg1;
+@property(nonatomic) BOOL returnsDistinctResults;
+@property(nonatomic) BOOL includesPendingChanges;
+@property(nonatomic) unsigned int resultType;
+@property(nonatomic) BOOL includesPropertyValues;
+@property(nonatomic) BOOL includesSubentities;
+@property(nonatomic) BOOL returnsObjectsAsFaults;
+@property(copy, nonatomic) NSArray *relationshipKeyPathsForPrefetching;
+@property(nonatomic) unsigned int fetchLimit;
+@property(retain, nonatomic) NSArray *sortDescriptors;
+@property(retain, nonatomic) NSPredicate *predicate;
+@property(retain, nonatomic) NSEntityDescription *entity;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;

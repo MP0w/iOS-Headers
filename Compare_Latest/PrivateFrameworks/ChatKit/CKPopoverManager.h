@@ -8,7 +8,7 @@
 
 #import "UIPopoverControllerDelegate.h"
 
-@class UIPopoverController, UIViewController;
+@class NSString, UIPopoverController, UIViewController;
 
 @interface CKPopoverManager : NSObject <UIPopoverControllerDelegate>
 {
@@ -24,12 +24,19 @@
 - (void)replaceCurrentControllerWithController:(id)arg1;
 - (BOOL)isShowingPopover;
 - (void)representCurrentPopover;
-@property(readonly, nonatomic) UIViewController *currentContentController;
+@property(readonly, retain, nonatomic) UIViewController *currentContentController;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
 - (void)didFinishRotating;
+- (void)dismissCurrentPopoverAnimated:(BOOL)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)dismissCurrentPopoverAnimated:(BOOL)arg1;
 - (void)showPopoverWithContentViewController:(id)arg1 withPresenter:(CDUnknownBlockType)arg2 withHandler:(CDUnknownBlockType)arg3;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

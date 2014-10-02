@@ -8,21 +8,24 @@
 
 #import "SBControlCenterObserver.h"
 
-@class SBChevronView, SBControlCenterContentContainerView;
+@class NSString, SBChevronView, SBControlCenterContentContainerView;
 
 @interface SBControlCenterContainerView : UIView <SBControlCenterObserver>
 {
     UIView *_darkeningView;
     double _revealPercentage;
     SBChevronView *_chevronToTrack;
+    _Bool _useMaxDarkness;
     _Bool _animatingDynamically;
+    _Bool _adjustingBrightness;
     UIView *_dynamicsContainerView;
     SBControlCenterContentContainerView *_contentContainerView;
 }
 
+@property(nonatomic, getter=isAdjustingBrightness) _Bool adjustingBrightness; // @synthesize adjustingBrightness=_adjustingBrightness;
 @property(nonatomic) _Bool animatingDynamically; // @synthesize animatingDynamically=_animatingDynamically;
-@property(readonly, nonatomic) SBControlCenterContentContainerView *contentContainerView; // @synthesize contentContainerView=_contentContainerView;
-@property(readonly, nonatomic) UIView *dynamicsContainerView; // @synthesize dynamicsContainerView=_dynamicsContainerView;
+@property(readonly, retain, nonatomic) SBControlCenterContentContainerView *contentContainerView; // @synthesize contentContainerView=_contentContainerView;
+@property(readonly, retain, nonatomic) UIView *dynamicsContainerView; // @synthesize dynamicsContainerView=_dynamicsContainerView;
 - (void)controlCenterDidFinishTransition;
 - (void)controlCenterWillFinishTransitionOpen:(_Bool)arg1 withDuration:(double)arg2;
 - (void)controlCenterWillBeginTransition;
@@ -40,6 +43,12 @@
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

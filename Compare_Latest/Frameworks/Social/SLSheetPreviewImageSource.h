@@ -18,9 +18,9 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)cancelVideoPreviewGeneration;
 - (void)_generatePreviewImageForVideoFileURL:(id)arg1 resultBlock:(CDUnknownBlockType)arg2;
-- (void)_generatePreviewImageForAttachment:(id)arg1 resultBlock:(CDUnknownBlockType)arg2;
+- (void)_generatePreviewImageForAttachment:(id)arg1 queueToBlockWhileDownsampling:(id)arg2 resultBlock:(CDUnknownBlockType)arg3;
 - (void)_fetchPreviewImageForAssetURL:(id)arg1 resultBlock:(CDUnknownBlockType)arg2;
-- (void)previewImageForAttachment:(id)arg1 resultBlock:(CDUnknownBlockType)arg2;
+- (void)previewImageForAttachment:(id)arg1 queueToBlockWhileDownsampling:(id)arg2 resultBlock:(CDUnknownBlockType)arg3;
 @property(readonly) ALAssetsLibrary *assetsLibrary;
 
 @end

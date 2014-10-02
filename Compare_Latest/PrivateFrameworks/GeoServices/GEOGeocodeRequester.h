@@ -13,12 +13,10 @@
     NSMapTable *_pendingGeocodes;
     NSMapTable *_pendingBatchGeocodes;
     NSLock *_pendingGeocodesLock;
-    NSMapTable *_providers;
 }
 
 + (void)_countryProvidersDidChange:(id)arg1;
 + (id)sharedGeocodeRequester;
-- (void)registerProvider:(Class)arg1;
 - (void)cancelBatchReverseGeocode:(id)arg1;
 - (void)batchReverseGeocode:(id)arg1 success:(CDUnknownBlockType)arg2 networkActivity:(CDUnknownBlockType)arg3 error:(CDUnknownBlockType)arg4;
 - (void)cancelGeocode:(id)arg1;

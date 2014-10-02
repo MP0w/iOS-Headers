@@ -24,6 +24,9 @@
     float _flickVelocityThreshold;
     double _tapVelocityThreshold;
     double _echoWaitTime;
+    struct CGRect _tapSpeedRegion;
+    double _tapVelocityThresholdForRegion;
+    BOOL _inTapSpeedRegionForDownEvent;
     struct CGRect _mainFrame;
     struct CGRect _gutterFrame;
     double _lastTime;
@@ -54,6 +57,7 @@
         id tap;
         id gutterUp;
         id splitTap;
+        id canSplitTap;
     } _delegate;
     SCRCTargetSelectorTimer *_trackingTimer;
     struct {
@@ -64,8 +68,8 @@
         unsigned int digits;
         unsigned int count;
         struct CGRect frame;
-        struct CGPoint location[5];
-        struct CGPoint locationPerTap[5];
+        struct CGPoint location[8];
+        struct CGPoint locationPerTap[8];
         unsigned int digitsPerTap;
         double thisTime;
         double lastTime;
@@ -99,6 +103,7 @@
 - (struct CGRect)tapFrame;
 - (struct CGPoint)endLocation;
 - (struct CGPoint)startLocation;
+- (struct CGPoint)rawAverageLocation;
 - (struct CGPoint)rawLocation;
 - (BOOL)tapIsDown;
 - (unsigned int)tapCount;
@@ -130,6 +135,7 @@
 - (int)orientation;
 - (void)setOrientation:(int)arg1;
 - (float)tapSpeed;
+- (void)setTapSpeedTimeThreshold:(float)arg1 forRegion:(struct CGRect)arg2;
 - (void)setTapSpeed:(float)arg1;
 - (float)flickSpeed;
 - (void)setFlickSpeed:(float)arg1;

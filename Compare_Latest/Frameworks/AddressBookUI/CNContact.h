@@ -8,10 +8,11 @@
 
 #import "NSCopying.h"
 #import "NSMutableCopying.h"
+#import "NSSecureCoding.h"
 
 @class CNContactIdentifier, NSArray, NSData, NSDateComponents, NSString;
 
-@interface CNContact : NSObject <NSCopying, NSMutableCopying>
+@interface CNContact : NSObject <NSSecureCoding, NSCopying, NSMutableCopying>
 {
     void *_record;
     void *_originalRecord;
@@ -20,22 +21,25 @@
     NSArray *_linkedContacts;
     BOOL _unified;
     int _isFacebook;
+    BOOL _checkedForOriginalRecord;
     CNContactIdentifier *_identifier;
     unsigned int _recordType;
 }
 
-+ (int)defaultNameOrder;
++ (id)contactWithUserActivityUserInfo:(id)arg1 addressBook:(void *)arg2;
++ (int)defaultNameOrderForEdit;
 + (int)propertyIDForProperty:(id)arg1;
 + (id)propertyForPropertyID:(int)arg1;
 + (id)propertiesFromPropertyIDs:(id)arg1;
++ (BOOL)supportsSecureCoding;
 + (id)contactWithStateRestorationCoder:(id)arg1 addressBook:(void *)arg2;
++ (id)contactWithRecordID:(int)arg1 addressBook:(void *)arg2;
 + (id)contactWithRecord:(void *)arg1 unify:(BOOL)arg2;
 + (id)contactWithRecord:(void *)arg1;
 + (id)contact;
-@property(readonly) void *addressBook; // @synthesize addressBook=_addressBook;
 @property(readonly) unsigned int recordType; // @synthesize recordType=_recordType;
-@property(readonly, getter=isUnified) BOOL unified; // @synthesize unified=_unified;
-@property(readonly) CNContactIdentifier *identifier; // @synthesize identifier=_identifier;
+@property(readonly, copy) CNContactIdentifier *identifier; // @synthesize identifier=_identifier;
+- (id)userActivityUserInfo;
 - (id)_squareImage:(id)arg1;
 - (struct CGRect)_squareCropRectForSize:(struct CGSize)arg1;
 - (id)_CNLabelFromABLabel:(struct __CFString *)arg1;
@@ -47,65 +51,69 @@
 - (id)supportedLabelsForProperty:(id)arg1;
 - (int)maximumNumberOfValuesForProperty:(id)arg1;
 - (id)_labeledValueForSoundIdentifier:(int)arg1;
-@property(readonly) NSArray *textTone;
-@property(readonly) NSArray *ringtone;
-@property(readonly) NSArray *postalAddresses;
-@property(readonly) NSArray *socialProfiles;
-@property(readonly) NSArray *relatedNames;
-@property(readonly) NSArray *instantMessageAddresses;
-@property(readonly) NSArray *dates;
-@property(readonly) NSArray *urlAddresses;
-@property(readonly) NSArray *emailAddresses;
-@property(readonly) NSArray *phoneNumbers;
-@property(readonly) CNContact *preferredContactForPhoto;
-@property(readonly) CNContact *preferredContactForName;
-@property(readonly) NSString *primarySourceName;
-- (void)setPreferredForPhoto:(BOOL)arg1;
-@property(readonly, getter=isPreferredForPhoto) BOOL preferredForPhoto;
-- (void)setPreferredForName:(BOOL)arg1;
-@property(readonly, getter=isPreferredForName) BOOL preferredForName;
+@property(readonly, copy) NSArray *textTone;
+@property(readonly, copy) NSArray *ringtone;
+@property(readonly, copy) NSArray *postalAddresses;
+@property(readonly, copy) NSArray *socialProfiles;
+@property(readonly, copy) NSArray *relatedNames;
+@property(readonly, copy) NSArray *instantMessageAddresses;
+@property(readonly, copy) NSArray *dates;
+@property(readonly, copy) NSArray *urlAddresses;
+@property(readonly, copy) NSArray *emailAddresses;
+@property(readonly, copy) NSArray *phoneNumbers;
+@property(readonly, copy) CNContact *preferredContactForPhoto;
+@property(readonly, copy) CNContact *preferredContactForName;
+@property(readonly, copy) NSString *primarySourceName;
+@property(getter=isPreferredForPhoto) BOOL preferredForPhoto;
+@property(getter=isPreferredForName) BOOL preferredForName;
 @property(readonly) int nameOrder;
 @property(readonly) int contactType;
-@property(readonly) NSString *note;
-@property(readonly) NSDateComponents *birthday;
+@property(readonly, copy) NSString *note;
+@property(readonly, copy) NSArray *birthdays;
+@property(readonly, copy) NSDateComponents *alternateBirthday;
+@property(readonly, copy) NSDateComponents *birthday;
 - (id)vCardRepresentation;
-@property(readonly) NSString *displayName;
-@property(readonly) NSString *personName;
-@property(readonly) NSString *phoneticFullName;
-@property(readonly) NSString *fullName;
-@property(readonly) NSString *jobTitle;
-@property(readonly) NSString *departmentName;
-@property(readonly) NSString *organizationName;
-@property(readonly) NSString *phoneticFamilyName;
-@property(readonly) NSString *phoneticMiddleName;
-@property(readonly) NSString *phoneticGivenName;
-@property(readonly) NSString *nickname;
-@property(readonly) NSString *previousFamilyName;
-@property(readonly) NSString *nameSuffix;
-@property(readonly) NSString *familyName;
-@property(readonly) NSString *middleName;
-@property(readonly) NSString *givenName;
-@property(readonly) NSString *namePrefix;
+@property(readonly, copy) NSString *displayName;
+@property(readonly, copy) NSString *personName;
+@property(readonly, copy) NSString *phoneticFullName;
+@property(readonly, copy) NSString *fullName;
+@property(readonly, copy) NSString *jobTitle;
+@property(readonly, copy) NSString *departmentName;
+@property(readonly, copy) NSString *organizationName;
+@property(readonly, copy) NSString *phoneticFamilyName;
+@property(readonly, copy) NSString *phoneticMiddleName;
+@property(readonly, copy) NSString *phoneticGivenName;
+@property(readonly, copy) NSString *nickname;
+@property(readonly, copy) NSString *previousFamilyName;
+@property(readonly, copy) NSString *nameSuffix;
+@property(readonly, copy) NSString *familyName;
+@property(readonly, copy) NSString *middleName;
+@property(readonly, copy) NSString *givenName;
+@property(readonly, copy) NSString *namePrefix;
 - (id)largestAvailablePhotoAndCropRect:(struct CGRect *)arg1;
 @property(readonly) NSData *largestAvailablePhoto;
 @property(readonly) NSData *photoThumbnail;
 - (void)removePhoto;
 - (void)setImageData:(id)arg1 forFormat:(int)arg2 cropRect:(struct CGRect)arg3;
 - (void)setPhoto:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (BOOL)validatesPredicate:(id)arg1 onPropertyKey:(id)arg2 propertyIdentifier:(int)arg3;
 - (void)reloadRecord;
 - (BOOL)deleteContact;
+@property(readonly, nonatomic, getter=isMeContact) BOOL meContact;
 @property(readonly, nonatomic, getter=isFacebook) BOOL facebook;
 @property(readonly, nonatomic, getter=isUnknown) BOOL unknown;
 @property(readonly, nonatomic, getter=isReadonly) BOOL readonly;
+@property(readonly, getter=isUnified) BOOL unified;
 - (id)localizedNameForProperty:(id)arg1;
-- (void)setAddressBook:(void *)arg1;
-- (void)setLinkedContacts:(id)arg1;
-@property(readonly) NSArray *linkedContacts;
+@property void *addressBook;
+@property(retain) NSArray *linkedContacts;
+@property(readonly) BOOL hasChanges;
 - (BOOL)hasLinkedContacts;
 - (BOOL)hasValidRecordID;
 @property(readonly) int recordID;
-- (void)setSource:(void *)arg1;
-@property(readonly) void *source;
+@property void *source;
 @property(readonly) void *originalRecord;
 @property(readonly) void *record;
 - (BOOL)isEqualToContact:(id)arg1 includeIdentifiers:(BOOL)arg2;
@@ -117,6 +125,7 @@
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithRecord:(void *)arg1 unify:(BOOL)arg2;
+- (id)initWithRecord:(void *)arg1 unify:(BOOL)arg2 originalRecord:(void *)arg3;
 - (id)initWithRecord:(void *)arg1;
 
 @end

@@ -6,10 +6,12 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying.h"
+
 @class NSMutableArray;
 
 __attribute__((visibility("hidden")))
-@interface GEOVJunction : PBCodable
+@interface GEOVJunction : PBCodable <NSCopying>
 {
     NSMutableArray *_connectingRoads;
     NSMutableArray *_laneConnections;
@@ -19,6 +21,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableArray *connectingRoads; // @synthesize connectingRoads=_connectingRoads;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;

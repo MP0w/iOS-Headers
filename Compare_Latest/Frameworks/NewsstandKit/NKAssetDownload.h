@@ -35,7 +35,8 @@
 - (void)_setIssue:(id)arg1;
 - (void)_issueWasRemovedFromLibrary;
 @property(copy) NSDictionary *userInfo;
-@property NKIssue *issue; // @synthesize issue=_issue;
+- (void)setIssue:(id)arg1;
+@property(readonly) __weak NKIssue *issue; // @synthesize issue=_issue;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;

@@ -10,6 +10,8 @@
 #import "KNAnimationPluginArchiving.h"
 #import "KNAnimationPluginObsoleteNames.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface KNActionOpacity : KNAnimationEffect <KNActionEffectBuildAnimator, KNAnimationPluginArchiving, KNAnimationPluginObsoleteNames>
 {
@@ -31,6 +33,12 @@ __attribute__((visibility("hidden")))
 + (int)animationCategory;
 + (id)animationName;
 - (id)animationsForTextureSet:(id)arg1 finalTextureSet:(id)arg2 duration:(double)arg3 attributes:(id)arg4 previousAttributes:(id)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -25,6 +25,7 @@
     BOOL _cachedIsHotmailAccount;
     BOOL _cachedCalendarEnabled;
     BOOL _cachedSecureMIMEEnabled;
+    BOOL _cachedPerMessageEncryptionEnabled;
     BOOL _cachedSecureMIMEShouldSign;
     BOOL _cachedSecureMIMEShouldEncrypt;
     BOOL _cachedRestrictMessageTransfersToOtherAccounts;
@@ -43,6 +44,7 @@
     BOOL _observingPushedFoldersPrefsChanged;
     int _supportsServerSearch;
     int _supportsMessageFlagging;
+    int _supportsConversations;
     unsigned int _daysToSync;
     NSMutableDictionary *_requestQueuesByFolderID;
     NSLock *_watchedFolderIdsLock;
@@ -65,6 +67,7 @@
 - (id)copyDataForRemoteEncryptionCertificatesForAddress:(id)arg1 error:(id *)arg2;
 - (int)secureCompositionEncryptionPolicyForAddress:(id)arg1;
 - (int)secureCompositionSigningPolicyForAddress:(id)arg1;
+- (BOOL)perMessageEncryptionEnabled;
 - (BOOL)secureMIMEEnabled;
 - (void)setEncryptionIdentityPersistentReference:(id)arg1 forAddress:(id)arg2;
 - (id)encryptionIdentityPersistentReferenceForAddress:(id)arg1;
@@ -104,9 +107,11 @@
 - (void)invalidate;
 - (id)accountPropertyForKey:(id)arg1;
 - (BOOL)isActive;
+- (BOOL)shouldFetchAgainWithError:(id)arg1 foregroundRequest:(BOOL)arg2;
 - (BOOL)_isUnitTesting;
 - (BOOL)sourceIsManaged;
 - (BOOL)shouldArchiveByDefault;
+- (BOOL)supportsThreadNotifications;
 - (BOOL)supportsMessageFlagging;
 - (id)primaryMailboxUid;
 - (void)_ensureWeHaveLoadedInitialMailboxList;

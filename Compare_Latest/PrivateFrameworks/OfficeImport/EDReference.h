@@ -14,12 +14,13 @@ __attribute__((visibility("hidden")))
     struct EDAreaReference mAreaReference;
 }
 
++ (id)referenceWithReference:(id)arg1;
 + (id)referenceWithAreaReference:(struct EDAreaReference *)arg1;
 + (id)referenceWithFirstRow:(int)arg1 lastRow:(int)arg2 firstColumn:(int)arg3 lastColumn:(int)arg4;
 + (id)reference;
 - (id).cxx_construct;
 - (_Bool)fullyAdjacentToReference:(id)arg1;
-- (unsigned int)countOfCellsBeingReferenced;
+- (unsigned long long)countOfCellsBeingReferenced;
 - (_Bool)isValidAreaReference;
 - (_Bool)isValidCellReference;
 - (_Bool)isColumnReference;
@@ -35,6 +36,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isEqualToReference:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithReference:(id)arg1;
 - (id)initWithAreaReference:(struct EDAreaReference *)arg1;
 - (id)initWithFirstRow:(int)arg1 lastRow:(int)arg2 firstColumn:(int)arg3 lastColumn:(int)arg4;
 - (id)init;

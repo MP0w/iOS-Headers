@@ -8,7 +8,7 @@
 
 #import "TSWPTextSource.h"
 
-@class TSWPDeletionRangeMap, TSWPStorage;
+@class NSString, TSWPDeletionRangeMap, TSWPStorage;
 
 __attribute__((visibility("hidden")))
 @interface TSWPFilteredStorage : NSObject <TSWPTextSource>
@@ -56,6 +56,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithStorage:(id)arg1 subRange:(struct _NSRange)arg2 removeRanges:(id)arg3;
 - (id)initWithStorage:(id)arg1 subRange:(struct _NSRange)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

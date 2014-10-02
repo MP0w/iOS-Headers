@@ -4,12 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSArray, NSString, NSValue, UIColor, XPCMachSendRight;
+@class NSArray, NSString, NSValue, UIColor, _UIViewServiceXPCMachSendRight;
 
 @protocol _UIRemoteViewController_ViewControllerOperatorInterface
 - (void)__viewServiceDidUpdatePreferredStatusBarStyle:(int)arg1 hidden:(BOOL)arg2;
+- (void)__viewServiceInstrinsicContentSizeDidChange:(struct CGSize)arg1 fenceSendRight:(_UIViewServiceXPCMachSendRight *)arg2;
+- (void)__viewServicePreferredContentSizeDidChange:(struct CGSize)arg1 fenceSendRight:(_UIViewServiceXPCMachSendRight *)arg2;
 - (void)__viewServicePopoverDidSetUseToolbarShine:(BOOL)arg1;
-- (void)__viewServicePopoverDidChangeContentSize:(struct CGSize)arg1 animated:(BOOL)arg2 fenceSendRight:(XPCMachSendRight *)arg3 withReplyHandler:(void (^)(struct CGSize))arg4;
+- (void)__viewServicePopoverDidChangeContentSize:(struct CGSize)arg1 animated:(BOOL)arg2 fenceSendRight:(_UIViewServiceXPCMachSendRight *)arg3 withReplyHandler:(void (^)(struct CGSize))arg4;
 - (void)__setViewServiceIsDisplayingPopover:(BOOL)arg1;
 - (void)__dismissTextServiceSessionAnimated:(BOOL)arg1;
 - (void)__showServiceForText:(NSString *)arg1 type:(int)arg2 fromRectValue:(NSValue *)arg3 replyHandler:(void (^)(id, NSError *))arg4;

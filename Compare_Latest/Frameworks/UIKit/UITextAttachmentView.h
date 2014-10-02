@@ -8,7 +8,7 @@
 
 #import "NSTextAttachmentCell.h"
 
-@class NSTextAttachment, UIImage;
+@class NSString, NSTextAttachment, UIImage;
 
 __attribute__((visibility("hidden")))
 @interface UITextAttachmentView : UIView <NSTextAttachmentCell>
@@ -29,6 +29,12 @@ __attribute__((visibility("hidden")))
 - (id)contentView;
 - (void)dealloc;
 - (id)initWithContentView:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

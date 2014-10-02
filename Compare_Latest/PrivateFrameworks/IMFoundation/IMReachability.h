@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSObject<OS_dispatch_queue>, NSString;
 
 @interface IMReachability : NSObject
 {
@@ -15,11 +15,13 @@
     unsigned int _flags;
     NSString *_description;
     void *_reachabilityRef;
+    NSObject<OS_dispatch_queue> *_queue;
 }
 
 + (id)reachabilityWithLocalAddress:(id)arg1 remoteAddress:(id)arg2;
 + (id)reachabilityWithRemoteAddress:(id)arg1;
 + (id)reachabilityWithHostName:(id)arg1;
+@property(nonatomic) NSObject<OS_dispatch_queue> *_queue; // @synthesize _queue;
 @property(nonatomic) void *reachabilityRef; // @synthesize reachabilityRef=_reachabilityRef;
 @property(retain, nonatomic) NSString *reachabilityDescription; // @synthesize reachabilityDescription=_description;
 @property(nonatomic) unsigned int flags; // @synthesize flags=_flags;

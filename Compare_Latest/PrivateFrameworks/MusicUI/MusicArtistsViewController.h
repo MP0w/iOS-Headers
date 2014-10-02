@@ -14,12 +14,16 @@
 + (id)persistentIDProperty;
 + (id)itemPersistentIDProperty;
 + (int)groupingType;
++ (int)containerItemType;
 + (id)actionCellConfigurationClasses;
 @property(nonatomic) BOOL allowsActions; // @synthesize allowsActions=_allowsActions;
+- (id)_viewControllerForSelectedMediaEntity:(id)arg1;
 - (void)defaultsDidChange;
 - (void)_appDefaultsDidChangeNotification:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (BOOL)shouldShowActionCellConfiguration:(Class)arg1;
+- (BOOL)music_handleUserActivityContext:(id)arg1 containerItem:(id)arg2;
+- (BOOL)music_appendCurrentUserActivityContainerItems:(id)arg1 previousViewController:(id)arg2 nextViewController:(id)arg3;
 - (void)dealloc;
 - (id)initWithDataSource:(id)arg1 cellConfigurationClass:(Class)arg2;
 

@@ -6,23 +6,30 @@
 
 #import "NSObject.h"
 
-@class NSBundle, NSString;
+@class NSBundle, NSDictionary, NSString;
 
 @interface Client : NSObject
 {
     int _client_type;
     NSString *_client;
-    NSString *_client_name;
+    NSString *_name;
+    int _pid;
     NSString *_path;
     NSBundle *_bundle;
+    NSDictionary *_plugin;
 }
 
-@property(retain) NSBundle *bundle; // @synthesize bundle=_bundle;
-@property(retain) NSString *path; // @synthesize path=_path;
-@property(retain) NSString *client_name; // @synthesize client_name=_client_name;
-@property(retain) NSString *client; // @synthesize client=_client;
-@property int client_type; // @synthesize client_type=_client_type;
+@property(readonly) NSDictionary *plugin; // @synthesize plugin=_plugin;
+@property(readonly) NSBundle *bundle; // @synthesize bundle=_bundle;
+@property(readonly) NSString *path; // @synthesize path=_path;
+@property(readonly) int pid; // @synthesize pid=_pid;
+@property(readonly) NSString *name; // @synthesize name=_name;
+@property(readonly) NSString *client; // @synthesize client=_client;
+@property(readonly) int client_type; // @synthesize client_type=_client_type;
 - (void).cxx_destruct;
+- (void)dealloc;
+- (id)initWithMessage:(id)arg1;
+- (id)initWithPid:(int)arg1;
 
 @end
 

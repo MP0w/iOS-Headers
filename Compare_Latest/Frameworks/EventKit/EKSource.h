@@ -6,13 +6,28 @@
 
 #import <EventKit/EKObject.h>
 
-@class EKSourceConstraints, NSNumber, NSSet, NSString;
+@class EKAvailabilityCache, EKSourceConstraints, NSDate, NSNumber, NSSet, NSString;
 
 @interface EKSource : EKObject
 {
+    EKAvailabilityCache *_availabilityCache;
+    NSDate *_timeOfLastExternalIdentificationCache;
+    NSString *_cachedHost;
+    int _cachedPort;
+    NSSet *_cachedOwnerAddresses;
 }
 
 + (id)sourceWithEventStore:(id)arg1;
+@property(retain, nonatomic) NSSet *cachedOwnerAddresses; // @synthesize cachedOwnerAddresses=_cachedOwnerAddresses;
+@property(nonatomic) int cachedPort; // @synthesize cachedPort=_cachedPort;
+@property(retain, nonatomic) NSString *cachedHost; // @synthesize cachedHost=_cachedHost;
+@property(retain, nonatomic) NSDate *timeOfLastExternalIdentificationCache; // @synthesize timeOfLastExternalIdentificationCache=_timeOfLastExternalIdentificationCache;
+@property(readonly, nonatomic) NSSet *ownerAddresses;
+@property(readonly, nonatomic) int serverPort;
+@property(readonly, nonatomic) NSString *serverHost;
+- (void)_cacheExternalIdentificationIfNeeded;
+@property(readonly, nonatomic) EKAvailabilityCache *availabilityCache;
+@property(readonly, nonatomic) BOOL wantsCommentPromptWhenDeclining;
 - (BOOL)remove:(id *)arg1;
 - (BOOL)commit:(id *)arg1;
 - (id)description;
@@ -30,8 +45,11 @@
 @property(readonly, nonatomic) NSString *sourceIdentifier;
 @property(copy, nonatomic) NSNumber *defaultAlarmOffset;
 @property(copy, nonatomic) NSString *title;
+@property(readonly, nonatomic) int strictestEventPrivateValue;
+@property(readonly, nonatomic) int preferredEventPrivateValue;
 @property(readonly, nonatomic) int sourceType;
 - (id)_persistentItem;
+- (void)dealloc;
 - (id)init;
 
 @end

@@ -18,9 +18,9 @@
 + (id)portInfoRequestWithInterfaceID:(unsigned int)arg1 key:(unsigned int)arg2;
 @property(readonly, nonatomic) unsigned int interfaceID; // @synthesize interfaceID=_interfaceID;
 @property(readonly, nonatomic) NSDictionary *attributes; // @synthesize attributes=_attributes;
+- (void).cxx_destruct;
 - (id)_commandStringForCommand:(unsigned int)arg1;
 - (id)_bodyDataForAttributes:(id)arg1;
-- (void)dealloc;
 - (id)initWithInterfaceID:(unsigned int)arg1 attributes:(id)arg2;
 
 @end

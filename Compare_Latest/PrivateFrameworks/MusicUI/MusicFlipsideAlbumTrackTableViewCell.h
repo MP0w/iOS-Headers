@@ -10,14 +10,19 @@
 
 @interface MusicFlipsideAlbumTrackTableViewCell : MusicCollectionTrackTableViewCell
 {
+    BOOL _showsRatingControl;
     MPURatingControl *_ratingControl;
 }
 
++ (Class)contentViewClass;
+@property(nonatomic) BOOL showsRatingControl; // @synthesize showsRatingControl=_showsRatingControl;
 @property(readonly, nonatomic) MPURatingControl *ratingControl; // @synthesize ratingControl=_ratingControl;
 - (void).cxx_destruct;
 - (void)setShowsRatingControl:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setShowsRatingControl:(BOOL)arg1;
+- (void)setContentBoundsEdgeInsets:(struct UIEdgeInsets)arg1;
 - (void)layoutSubviews;
+- (void)dealloc;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

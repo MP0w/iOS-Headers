@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 @interface VKPStyleAttribute : PBCodable <NSCopying>
 {
     CDStruct_56d48c16 _intValues;
+    CDStruct_cb16bb10 _longIntValues;
     int _key;
     int _score;
     struct {
@@ -20,6 +21,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) int key; // @synthesize key=_key;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -28,6 +30,12 @@ __attribute__((visibility("hidden")))
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (void)setLongIntValues:(unsigned long long *)arg1 count:(unsigned int)arg2;
+- (unsigned long long)longIntValueAtIndex:(unsigned int)arg1;
+- (void)addLongIntValue:(unsigned long long)arg1;
+- (void)clearLongIntValues;
+@property(readonly, nonatomic) unsigned long long *longIntValues;
+@property(readonly, nonatomic) unsigned int longIntValuesCount;
 @property(nonatomic) BOOL hasScore;
 @property(nonatomic) int score; // @synthesize score=_score;
 - (void)setIntValues:(int *)arg1 count:(unsigned int)arg2;

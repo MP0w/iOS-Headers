@@ -8,7 +8,7 @@
 
 #import "EKEventAttachmentCellControllerDelegate.h"
 
-@class NSArray;
+@class NSArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface EKEventAttachmentDetailItem : EKEventDetailItem <EKEventAttachmentCellControllerDelegate>
@@ -29,6 +29,12 @@ __attribute__((visibility("hidden")))
 - (void)reset;
 - (void)setEvent:(id)arg1 store:(id)arg2;
 - (void)_cleanUpCellControllers;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

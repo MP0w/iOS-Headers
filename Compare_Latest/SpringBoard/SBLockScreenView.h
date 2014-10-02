@@ -12,7 +12,7 @@
 #import "_UIGlintyStringViewDelegate.h"
 #import "_UISettingsKeyObserver.h"
 
-@class NSMutableArray, NSMutableSet, NSSet, SBChevronView, SBChevronView<_SBFVibrantView>, SBDisableAppStatusBarAlphaChangesAssertion, SBFLockScreenDateView, SBFakeStatusBarView, SBLockOverlayStylePropertiesFactory, SBLockScreenBatteryChargingView, SBLockScreenBounceAnimator, SBLockScreenScrollView, SBLockScreenTimerView, SBSlideToUnlockFailureRecognizer, SBWallpaperEffectView, UIScrollView, UIView, UIView<SBLegibility>, UIView<SBLegibility><_SBFVibrantView>, UIView<SBUIPasscodeLockView>, UIView<_SBFVibrantView>, _UIBackdropView, _UIGlintyStringView<_SBFVibrantView>, _UILegibilitySettings;
+@class NSCountedSet, NSMutableArray, NSMutableSet, NSSet, NSString, SBChevronView, SBChevronView<_SBFVibrantView>, SBDisableAppStatusBarAlphaChangesAssertion, SBFLockScreenDateView, SBFakeStatusBarView, SBLockOverlayStylePropertiesFactory, SBLockScreenBatteryChargingView, SBLockScreenBounceAnimator, SBLockScreenScrollView, SBLockScreenTimerView, SBSlideToUnlockFailureRecognizer, SBSlideUpAppGrabberView<SBLegibility><_SBFVibrantView>, SBSlideUpAppGrabberView<_SBFVibrantView>, SBWallpaperEffectView, UIColor, UIScrollView, UIView, UIView<SBLegibility>, UIView<SBUIPasscodeLockView>, _UIBackdropView, _UIGlintyStringView<_SBFVibrantView>, _UILegibilitySettings;
 
 @interface SBLockScreenView : SBAlertView <UIScrollViewDelegate, _UIGlintyStringViewDelegate, _UISettingsKeyObserver, SBCoordinatedPresenting, SBPresentingDelegate>
 {
@@ -29,20 +29,24 @@
     UIView *_foregroundLockContentOverlaysView;
     UIView *_foregroundLockHUDView;
     SBFLockScreenDateView *_dateView;
-    UIView<SBLegibility> *_legalView;
+    UIView<SBLegibility> *_statusTextView;
     SBLockScreenTimerView *_timerView;
     _UIGlintyStringView<_SBFVibrantView> *_slideToUnlockView;
     UIView *_slideToUnlockParentSpringView;
     UIView *_slideToUnlockSpringView;
     _Bool _isShakingSlideToUnlockText;
     _Bool _isAnimatingSlideToUnlockText;
+    _Bool _isUpdatingSlideToUnlockTextAnimated;
+    NSCountedSet *_slideToUnlockWhiteModeRequesters;
     SBWallpaperEffectView *_slideToUnlockBackgroundView;
     SBWallpaperEffectView *_topGrabberBackgroundView;
     SBWallpaperEffectView *_bottomGrabberBackgroundView;
     SBWallpaperEffectView *_cameraGrabberBackgroundView;
+    SBWallpaperEffectView *_bottomLeftGrabberBackgroundView;
     SBChevronView<_SBFVibrantView> *_topGrabberView;
     SBChevronView<_SBFVibrantView> *_bottomGrabberView;
-    UIView<SBLegibility><_SBFVibrantView> *_cameraGrabberView;
+    SBSlideUpAppGrabberView<SBLegibility><_SBFVibrantView> *_cameraGrabberView;
+    SBSlideUpAppGrabberView<SBLegibility><_SBFVibrantView> *_bottomLeftGrabberView;
     UIView<SBUIPasscodeLockView> *_passcodeView;
     UIView *_passcodeOverscrollBackgroundView;
     SBLockScreenBatteryChargingView *_batteryChargingView;
@@ -65,7 +69,8 @@
     NSMutableSet *_topGrabberHiddenRequesters;
     NSMutableSet *_bottomGrabberHiddenRequesters;
     NSMutableSet *_cameraGrabberHiddenRequesters;
-    NSMutableSet *_legalTextHiddenRequesters;
+    NSMutableSet *_bottomLeftGrabberHiddenRequesters;
+    NSMutableSet *_statusTextHiddenRequesters;
     NSMutableSet *_mediaControlsHiddenRequesters;
     NSMutableSet *_pluginHiddenRequesters;
     NSMutableSet *_scrollingDisabledRequesters;
@@ -74,8 +79,9 @@
     SBLockScreenBounceAnimator *_bounceAnimator;
     NSMutableArray *_scrollCompletionBlocks;
     long long _currentPage;
-    struct CGPoint _staringContentOffset;
+    struct CGPoint _startingContentOffset;
     _Bool _scrolling;
+    double _notificationViewVerticalOffset;
     _Bool _setGrabberOrigins;
     double _topGrabberOriginalOriginY;
     double _bottomGrabberOriginalOriginY;
@@ -92,12 +98,18 @@
     _Bool _showingEmergencyCall;
     id <SBPresentingDelegate> _presentingDelegate;
     _Bool _statusBarLegibilityEnabled;
+    _Bool _legibilitySettingsOverrideVibrancy;
     id <SBLockScreenViewDelegate> _delegate;
     _UILegibilitySettings *_legibilitySettings;
+    UIColor *_effectivePasscodeTintColor;
+    double _effectivePasscodeTintAlpha;
 }
 
+@property(nonatomic, getter=_effectivePasscodeTintAlpha, setter=_setEffectivePasscodeTintAlpha:) double effectivePasscodeTintAlpha; // @synthesize effectivePasscodeTintAlpha=_effectivePasscodeTintAlpha;
+@property(retain, nonatomic, getter=_effectivePasscodeTintColor, setter=_setEffectivePasscodeTintColor:) UIColor *effectivePasscodeTintColor; // @synthesize effectivePasscodeTintColor=_effectivePasscodeTintColor;
 @property(retain, nonatomic) SBChevronView *bottomGrabberView; // @synthesize bottomGrabberView=_bottomGrabberView;
 @property(retain, nonatomic) SBChevronView *topGrabberView; // @synthesize topGrabberView=_topGrabberView;
+@property(nonatomic) _Bool legibilitySettingsOverrideVibrancy; // @synthesize legibilitySettingsOverrideVibrancy=_legibilitySettingsOverrideVibrancy;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
 @property(retain, nonatomic) UIView *mediaControlsView; // @synthesize mediaControlsView=_mediaControlsView;
 @property(readonly, nonatomic) _Bool isShakingSlideToUnlockText; // @synthesize isShakingSlideToUnlockText=_isShakingSlideToUnlockText;
@@ -106,12 +118,13 @@
 @property(readonly, nonatomic) UIView *foregroundView; // @synthesize foregroundView=_foregroundView;
 @property(readonly, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_foregroundScrollView;
 @property(retain, nonatomic) SBLockScreenBatteryChargingView *batteryChargingView; // @synthesize batteryChargingView=_batteryChargingView;
-@property(retain, nonatomic) UIView<_SBFVibrantView> *cameraGrabberView; // @synthesize cameraGrabberView=_cameraGrabberView;
+@property(retain, nonatomic) SBSlideUpAppGrabberView<_SBFVibrantView> *bottomLeftGrabberView; // @synthesize bottomLeftGrabberView=_bottomLeftGrabberView;
+@property(retain, nonatomic) SBSlideUpAppGrabberView<_SBFVibrantView> *cameraGrabberView; // @synthesize cameraGrabberView=_cameraGrabberView;
 @property(retain, nonatomic) UIView<SBUIPasscodeLockView> *passcodeView; // @synthesize passcodeView=_passcodeView;
 @property(retain, nonatomic) UIView *notificationView; // @synthesize notificationView=_notificationView;
 @property(retain, nonatomic) UIView *modalAlertView; // @synthesize modalAlertView=_modalAlertView;
 @property(retain, nonatomic) SBLockScreenTimerView *timerView; // @synthesize timerView=_timerView;
-@property(retain, nonatomic) UIView<SBLegibility> *legalView; // @synthesize legalView=_legalView;
+@property(retain, nonatomic) UIView<SBLegibility> *statusTextView; // @synthesize statusTextView=_statusTextView;
 @property(retain, nonatomic) SBFLockScreenDateView *dateView; // @synthesize dateView=_dateView;
 @property id <SBLockScreenViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
@@ -132,6 +145,7 @@
 - (void)scrollViewDidEndScrollingAnimation:(id)arg1;
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
 - (void)scrollViewDidScroll:(id)arg1;
+- (void)_updateBlurAndPasscodeView:(id)arg1 forPercentScrolled:(double)arg2;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)_updateSlideToUnlockBlurVisibility;
@@ -146,7 +160,7 @@
 - (void)_preventScrollingOnGrabberView:(id)arg1;
 - (double)_percentScrolled;
 - (double)_percentScrolledForOffset:(double)arg1;
-- (void)_updateOverlaysForScroll:(double)arg1;
+- (void)_updateOverlaysForScroll:(double)arg1 passcodeView:(id)arg2;
 - (void)resetContentOffsetToCurrentPage;
 - (void)scrollToPage:(long long)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)scrollToPage:(long long)arg1 animated:(_Bool)arg2;
@@ -173,11 +187,12 @@
 - (double)_topGrabberYOriginForPercentScrolled:(double)arg1;
 - (void)_layoutGrabberView:(id)arg1 atTop:(_Bool)arg2 percentScrolled:(double)arg3;
 - (void)_layoutGrabberView:(id)arg1 atTop:(_Bool)arg2;
+- (void)_layoutBottomLeftGrabberView;
 - (void)_layoutCameraGrabberView;
 - (void)_layoutSlideToUnlockView;
 - (void)invalidateGrabberOrigins;
 - (void)_layoutTimerView;
-- (void)_layoutLegalView;
+- (void)_layoutStatusTextView;
 - (void)_layoutMediaControlsView;
 - (void)_layoutDateView;
 - (void)_layoutLockHUDView;
@@ -189,7 +204,7 @@
 - (void)_setLockContentUnderlayPropertiesFactoryOverride:(id)arg1;
 - (void)_removeLockContentUnderlayWithRequester:(id)arg1;
 - (void)_addLockContentUnderlayWithRequester:(id)arg1;
-- (_Bool)_hasLockContentUnderlayRequester:(id)arg1;
+- (_Bool)_hasLockContentUnderlayRequesterOtherThanRequester:(id)arg1;
 - (void)_evaluateOverlaysForChange;
 - (void)_setCurrentBlurRadius:(double)arg1;
 - (_Bool)_needsRealBlur;
@@ -205,7 +220,7 @@
 - (void)reenableGestureRecognizer:(id)arg1;
 - (void)cancelGestureRecognizer:(id)arg1;
 - (void)abortAnimatedTransition;
-- (void)endTransitionWithVelocity:(struct CGPoint)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)endTransitionWithVelocity:(struct CGPoint)arg1 wasCancelled:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)updateTransitionWithTouchLocation:(struct CGPoint)arg1 velocity:(struct CGPoint)arg2;
 - (void)beginPresentationWithTouchLocation:(struct CGPoint)arg1;
 - (_Bool)isPresentingControllerTransitioning;
@@ -217,19 +232,20 @@
 @property(readonly, nonatomic) long long coordinatedPresentingControllerIdentifier;
 - (void)_updateDateViewLegibility;
 - (void)_updateVibrantViewBackgrounds;
-- (void)_updateCameraGrabberBackground;
+- (void)_updateCornerGrabberBackground;
 - (void)_updateBottomGrabberBackground;
 - (void)_updateTopGrabberBackground;
 - (void)_updateSlideToUnlockBackground;
 - (double)_wallpaperContrastForFrame:(struct CGRect)arg1;
 - (id)_averageWallpaperColorForFrame:(struct CGRect)arg1;
 - (void)_updateVibrantView:(id)arg1 screenRect:(struct CGRect)arg2 backgroundView:(id)arg3;
+- (_Bool)_shouldUseVibrancy;
 - (long long)_effectiveStatusBarLegibilityStyle;
 - (id)_effectiveStatusBarColor;
 - (void)_updateStatusBarLegibility;
 - (void)_updateGrabbersLegibilityIfNecessary;
-- (void)_updateCameraGrabberLegibilityIfNecessary;
-- (void)_updateLegalLegibility;
+- (void)_updateCornerGrabberLegibilityIfNecessary;
+- (void)_updateStatusTextLegibility;
 - (void)_updateTimerLegibility;
 - (void)_updateLegibility;
 - (void)_passcodePropertiesChanged;
@@ -244,11 +260,12 @@
 - (_Bool)isCurrentPageTransparent;
 - (void)setCustomSlideToUnlockLanguage:(id)arg1;
 - (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
-- (void)setCustomSlideToUnlockText:(id)arg1;
+- (void)setCustomSlideToUnlockText:(id)arg1 animated:(_Bool)arg2;
 - (void)shakeSlideToUnlockTextWithCustomText:(id)arg1;
 - (void)stopAnimating;
 - (void)startAnimating;
-- (void)setCustomSlideToUnlockDisplayForBuddyMode:(_Bool)arg1;
+- (void)setUsesCustomSlideToUnlockDisplayForWhiteBackground:(_Bool)arg1 forRequester:(id)arg2;
+- (id)_scrollViewInteractionDisabledRequesters;
 - (void)setScrollViewInteractionDisabled:(_Bool)arg1 forRequester:(id)arg2;
 - (void)setScrollingDisabled:(_Bool)arg1 forRequester:(id)arg2;
 - (_Bool)pluginViewHidden;
@@ -268,7 +285,9 @@
 - (void)setModalAlertHidden:(_Bool)arg1 forRequester:(id)arg2;
 - (void)setSlideToUnlockBlurHidden:(_Bool)arg1 forRequester:(id)arg2;
 - (void)setSlideToUnlockHidden:(_Bool)arg1 forRequester:(id)arg2;
-- (void)setLegalTextHidden:(_Bool)arg1 forRequester:(id)arg2;
+- (void)setStatusTextHidden:(_Bool)arg1 forRequester:(id)arg2;
+- (void)setBottomLeftGrabberHidden:(_Bool)arg1 forRequester:(id)arg2;
+- (_Bool)isBottomLeftGrabberHidden;
 - (void)setCameraGrabberHidden:(_Bool)arg1 forRequester:(id)arg2;
 - (_Bool)isCameraGrabberHidden;
 - (void)setLockHUDHidden:(_Bool)arg1 forRequester:(id)arg2;
@@ -283,6 +302,8 @@
 - (void)setPluginView:(id)arg1 presentationStyle:(unsigned long long)arg2 notificationBehavior:(unsigned long long)arg3;
 - (_Bool)_isPluginBelowForegroundScrollView;
 - (void)setEmergencyCallViewController:(id)arg1 withDuration:(double)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_updateCornerGrabberView:(id *)arg1 withNewView:(id)arg2;
+- (void)setNotificationViewOffset:(double)arg1 withAnimationDuration:(double)arg2;
 - (_Bool)hasTransparentUnderlay;
 - (id)_debugDescription;
 - (void)dealloc;
@@ -290,6 +311,10 @@
 
 // Remaining properties
 @property(readonly, nonatomic) NSSet *conflictingGestures;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

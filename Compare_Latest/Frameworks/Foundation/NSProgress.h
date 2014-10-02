@@ -8,7 +8,7 @@
 
 #import "NSProgressPublisher.h"
 
-@class NSLock, NSMutableDictionary, NSMutableSet, NSString, NSXPCConnection;
+@class NSDictionary, NSLock, NSMutableDictionary, NSMutableSet, NSString, NSXPCConnection;
 
 @interface NSProgress : NSObject <NSProgressPublisher>
 {
@@ -19,7 +19,7 @@
     CDUnknownBlockType _cancellationHandler;
     CDUnknownBlockType _pausingHandler;
     CDUnknownBlockType _prioritizationHandler;
-    long long _reserved3;
+    unsigned long long _flags;
     id _userInfoProxy;
     NSString *_publisherID;
     NSXPCConnection *_connection;
@@ -33,11 +33,12 @@
     NSMutableSet *_childrenGroups;
 }
 
++ (id)_addSubscriberForFileURL:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 + (id)addSubscriberForFileURL:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 + (id)_addSubscriberForCategory:(id)arg1 usingPublishingHandler:(CDUnknownBlockType)arg2;
 + (void)_removeSubscriber:(id)arg1;
-+ (id)_addSubscriberForFileURL:(id)arg1 withPublishingHandler:(CDUnknownBlockType)arg2;
 + (void)removeSubscriber:(id)arg1;
++ (id)_addSubscriberForFileURL:(id)arg1 withPublishingHandler:(CDUnknownBlockType)arg2;
 + (id)addSubscriberForFileURL:(id)arg1 withPublishingHandler:(CDUnknownBlockType)arg2;
 + (id)keyPathsForValuesAffectingLocalizedAdditionalDescription;
 + (id)keyPathsForValuesAffectingLocalizedDescription;
@@ -54,32 +55,32 @@
 - (BOOL)isPrioritizable;
 - (void)setPrioritizable:(BOOL)arg1;
 - (id)_publishingAppBundleIdentifier;
-- (void)_acknowledgeWithSuccess:(BOOL)arg1;
-- (CDUnknownBlockType)_acknowledgementHandlerForAppBundleIdentifier:(id)arg1;
-- (void)_setAcknowledgementHandler:(CDUnknownBlockType)arg1 forAppBundleIdentifier:(id)arg2;
-- (void)_unpublish;
-- (void)_publish;
 @property(readonly, getter=isOld) BOOL old;
 - (void)acknowledgeWithSuccess:(BOOL)arg1;
 - (oneway void)appWithBundleID:(id)arg1 didAcknowledgeWithSuccess:(BOOL)arg2;
 - (oneway void)stopProvidingValues;
 - (oneway void)startProvidingValuesWithInitialAcceptor:(CDUnknownBlockType)arg1;
+- (CDUnknownBlockType)_acknowledgementHandlerForAppBundleIdentifier:(id)arg1;
 - (CDUnknownBlockType)acknowledgementHandlerForAppBundleIdentifier:(id)arg1;
+- (void)_setAcknowledgementHandler:(CDUnknownBlockType)arg1 forAppBundleIdentifier:(id)arg2;
 - (void)setAcknowledgementHandler:(CDUnknownBlockType)arg1 forAppBundleIdentifier:(id)arg2;
+- (void)_unpublish;
 - (void)unpublish;
 - (void)_unblockUnpublishing;
 - (void)_unblockDisconnecting;
+- (void)_publish;
 - (void)publish;
 @property(copy) NSString *kind;
 - (id)ownedDictionaryObjectForKey:(id)arg1;
 - (id)ownedDictionaryKeyEnumerator;
 - (unsigned int)ownedDictionaryCount;
-- (id)userInfo;
+@property(readonly, copy) NSDictionary *userInfo;
 - (void)pause;
 - (void)cancel;
 @property(readonly) double fractionCompleted;
 @property(readonly, getter=isIndeterminate) BOOL indeterminate;
-- (id)description;
+@property(readonly, copy) NSString *description;
+- (id)_indentedDescription:(unsigned int)arg1;
 - (void)setUserInfoObject:(id)arg1 forKey:(id)arg2;
 - (void)_setUserInfoValue:(id)arg1 forKey:(id)arg2;
 @property(copy) CDUnknownBlockType pausingHandler;
@@ -92,9 +93,11 @@
 @property(copy) NSString *localizedAdditionalDescription;
 @property(copy) NSString *localizedDescription;
 @property long long completedUnitCount;
-- (void)_removeGroup:(id)arg1;
-- (void)_updateGroupFractionCompletedFrom:(double)arg1 to:(double)arg2 forPortion:(long long)arg3;
+- (void)_removeGroup:(id)arg1 fraction:(id)arg2 portion:(long long)arg3;
+- (void)_updateGroup:(id)arg1 oldFraction:(id)arg2 newFraction:(id)arg3 portion:(long long)arg4;
+- (void)_setCompletedUnitCount:(long long)arg1 totalUnitCount:(long long)arg2;
 @property long long totalUnitCount;
+- (void)_updateFractionCompletedFromOldFraction:(id)arg1 toNewFraction:(id)arg2;
 - (void)_setValueForKeys:(CDUnknownBlockType)arg1 settingBlock:(CDUnknownBlockType)arg2;
 - (void)_notifyRemoteObserversOfValueForKey:(id)arg1 inUserInfo:(BOOL)arg2;
 - (void)__notifyRemoteObserversOfValueForKey:(id)arg1 inUserInfo:(BOOL)arg2;
@@ -109,6 +112,11 @@
 - (id)_initWithValues:(id)arg1;
 - (void)acknowledge;
 - (void)handleAcknowledgementByAppWithBundleIdentifer:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

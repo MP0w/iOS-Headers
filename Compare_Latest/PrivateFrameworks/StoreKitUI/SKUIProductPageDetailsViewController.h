@@ -11,10 +11,11 @@
 #import "SKUIScreenshotsDelegate.h"
 #import "SKUITableViewSectionDelegate.h"
 
-@class NSMutableArray, NSOperationQueue, SKUIClientContext, SKUILayoutCache, SKUIProductPage, SKUIProductPageHeaderViewController, SKUIProductPageTableHeaderOnlySection, SKUIProductPageTableTextBoxSection, SKUIProductPageTableViewController, SKUIResourceLoader, UIScrollView;
+@class NSMutableArray, NSOperationQueue, NSString, SKUIClientContext, SKUILayoutCache, SKUIProductPage, SKUIProductPageHeaderViewController, SKUIProductPageTableHeaderOnlySection, SKUIProductPageTableTextBoxSection, SKUIProductPageTableViewController, SKUIResourceLoader, UIScrollView;
 
 @interface SKUIProductPageDetailsViewController : UIViewController <SKUIScreenshotsDelegate, SKUIItemStateCenterObserver, SKUITableViewSectionDelegate, SKUIProductPageChildViewController>
 {
+    BOOL _askPermission;
     SKUIClientContext *_clientContext;
     SKUIProductPageTableHeaderOnlySection *_copyrightSection;
     id <SKUIProductPageChildViewControllerDelegate> _delegate;
@@ -35,6 +36,7 @@
 @property(retain, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
 @property(nonatomic) __weak id <SKUIProductPageChildViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
+@property(nonatomic) BOOL askPermission; // @synthesize askPermission=_askPermission;
 - (void).cxx_destruct;
 - (id)_whatsNewSection;
 - (id)_textLayoutRequestWithText:(id)arg1 widthOffset:(float)arg2;
@@ -59,6 +61,12 @@
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithProductPage:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

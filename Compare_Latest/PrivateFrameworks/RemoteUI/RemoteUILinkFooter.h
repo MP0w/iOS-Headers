@@ -4,25 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UIView.h"
+#import <RemoteUI/RemoteUISectionFooter.h>
 
-#import "RemoteUITableFooter.h"
-
-@class UIButton;
-
-@interface RemoteUILinkFooter : UIView <RemoteUITableFooter>
+@interface RemoteUILinkFooter : RemoteUISectionFooter
 {
-    UIButton *_linkButton;
-    id _delegate;
 }
-
-@property(readonly, nonatomic) UIButton *linkButton; // @synthesize linkButton=_linkButton;
-- (void)dealloc;
-- (void)_linkPressed;
-- (float)footerHeightForWidth:(float)arg1 inTableView:(id)arg2;
-- (void)layoutSubviews;
-- (void)setDelegate:(id)arg1;
-- (id)initWithAttributes:(id)arg1;
 
 @end
 

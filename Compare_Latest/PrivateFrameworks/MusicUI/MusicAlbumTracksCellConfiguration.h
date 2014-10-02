@@ -11,13 +11,10 @@
 }
 
 + (struct CGSize)sizeForDuration:(double)arg1;
-+ (id)mediaEntityPropertiesToFetch;
 + (float)cloudRightInsetForDurationWidth:(float)arg1;
 + (struct UIEdgeInsets)tableViewSeparatorInset;
-+ (float)tableViewCellHeight;
 + (Class)tableViewCellClass;
-+ (id)tableViewCellBackgroundColor;
-+ (id)tableViewBackgroundColor;
++ (id)mediaEntityPropertiesToFetch;
 + (void)configureCell:(id)arg1 withViewController:(id)arg2 entity:(id)arg3 atIndex:(unsigned int)arg4 animated:(BOOL)arg5;
 
 @end

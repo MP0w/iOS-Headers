@@ -4,59 +4,31 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MPPlaybackControlsView.h"
+#import "RUNowPlayingPlaybackControlsView.h"
 
-#import "MPDetailSliderDelegate.h"
-#import "UIActionSheetDelegate.h"
+@class UIView;
 
-@class MPVolumeSlider, MusicNowPlayingTransportControls, SKUICircleProgressIndicator, UIActionSheet, UIButton, UIView;
-
-@interface MusicNowPlayingPlaybackControlsView : MPPlaybackControlsView <MPDetailSliderDelegate, UIActionSheetDelegate>
+@interface MusicNowPlayingPlaybackControlsView : RUNowPlayingPlaybackControlsView
 {
-    UIActionSheet *_createActionSheet;
-    SKUICircleProgressIndicator *_createActivityIndicatorView;
-    UIButton *_createButton;
-    int _createButtonActions[4];
-    UIButton *_infoButton;
-    BOOL _isDetailScrubbing;
-    MusicNowPlayingTransportControls *_transportControls;
-    MPVolumeSlider *_volumeSlider;
-    BOOL _usesMiniProgressControl;
-    int _orientation;
 }
 
 + (unsigned long long)defaultVisibleParts;
-@property(readonly, nonatomic) UIActionSheet *createActionSheet; // @synthesize createActionSheet=_createActionSheet;
-@property(nonatomic) BOOL usesMiniProgressControl; // @synthesize usesMiniProgressControl=_usesMiniProgressControl;
-@property(nonatomic) int orientation; // @synthesize orientation=_orientation;
-@property(readonly, nonatomic) UIButton *infoButton; // @synthesize infoButton=_infoButton;
-- (void).cxx_destruct;
-- (void)_updateForItemDidChangeAnimated:(BOOL)arg1;
-- (BOOL)_isCreateAvailable;
+- (void)_shuffleTypeChangedNotification:(id)arg1;
+- (void)_repeatTypeChangedNotification:(id)arg1;
+- (void)_cloudControllerIsJaliscoGeniusEnabledDidChangeNotification:(id)arg1;
 - (void)_applyShuffleSettingsToButton:(id)arg1;
 - (void)_applyRepeatSettingsToButton:(id)arg1;
-- (void)_playbackContentsDidChangeNotification:(id)arg1;
-- (void)_defaultsDidChangeNotification;
-- (void)_infoButtonAction:(id)arg1;
-- (void)_createAction:(id)arg1;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
 @property(readonly, nonatomic) UIView *viewForPresentingRepeat;
-- (void)setUsesMiniProgressControl:(BOOL)arg1 animated:(BOOL)arg2;
-@property(nonatomic, getter=isShowingCreateLoadingIndicator) BOOL showingCreateLoadingIndicator;
-- (id)shuffleButtonImage;
-- (BOOL)shouldOverrideProgressTimeLabelStyle;
-- (void)setPlayer:(id)arg1;
-- (void)setItem:(id)arg1;
-@property(nonatomic) __weak id <MusicNowPlayingPlaybackControlsViewDelegate><MPTransportControlsTarget> delegate;
-- (id)repeatButtonImage;
+- (void)_updateForItemDidChangeAnimated:(BOOL)arg1;
+- (Class)_transportControlsClass;
+- (id)_titleForCreateAction:(int)arg1;
+- (id)_availableCreateActionsForItem:(id)arg1;
+- (void)unregisterForPlayerNotifications;
 - (void)reloadView;
+- (void)registerForPlayerNotifications;
 - (id)playbackSpeedTitleForPlaybackSpeed:(unsigned int)arg1;
 - (id)playbackSpeedButtonImageForPlaybackSpeed:(unsigned int)arg1;
-- (id)newProgressIndicator;
 - (id)newButtonForPart:(unsigned long long)arg1;
-- (BOOL)detailScrubbingHidesControls;
-- (int)buttonType;
-- (void)tintColorDidChange;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

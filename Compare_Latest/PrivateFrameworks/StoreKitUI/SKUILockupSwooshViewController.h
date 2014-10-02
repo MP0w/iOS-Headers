@@ -9,12 +9,13 @@
 #import "UICollectionViewDataSource.h"
 #import "UICollectionViewDelegate.h"
 
-@class NSArray, NSMutableIndexSet, NSString, NSURL, SKUIItemArtworkContext, SKUISwooshView, UICollectionView;
+@class NSArray, NSMutableIndexSet, NSString, NSURL, SKUIItemArtworkContext, SKUISwooshView, SKUIVideoImageDataConsumer, UICollectionView;
 
 @interface SKUILockupSwooshViewController : SKUISwooshViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 {
     SKUIItemArtworkContext *_artworkContext;
     UICollectionView *_collectionView;
+    struct SKUILockupStyle _defaultLockupStyle;
     BOOL _delegateWantsWillDisplay;
     BOOL _didInitialReload;
     struct CGSize _expectedImageSize;
@@ -22,12 +23,14 @@
     NSArray *_lockups;
     struct CGSize _maxCellSize;
     struct CGSize _maxImageSize;
+    CDStruct_56286497 _metrics;
     BOOL _seeAllHidden;
     int _seeAllStyle;
     NSString *_seeAllTitle;
     NSURL *_seeAllURL;
     SKUISwooshView *_swooshView;
     int _swooshType;
+    SKUIVideoImageDataConsumer *_videoImageConsumer;
 }
 
 + (int)_swooshTypeForLockups:(id)arg1;
@@ -37,6 +40,7 @@
 @property(copy, nonatomic) NSArray *lockups; // @synthesize lockups=_lockups;
 @property(readonly, nonatomic) SKUIItemArtworkContext *artworkContext; // @synthesize artworkContext=_artworkContext;
 - (void).cxx_destruct;
+- (CDStruct_56286497)_lockupSwooshMetrics;
 - (void)_reloadSizes;
 - (id)_newLockupComponentWithItem:(id)arg1 defaultStyle:(struct SKUILockupStyle)arg2;
 - (id)_newArtworkContextForSwooshType:(int)arg1;
@@ -51,6 +55,7 @@
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)loadView;
 - (void)unhideImages;
+- (void)setVideoThumbnail:(id)arg1 forItemAtIndex:(int)arg2;
 - (void)setImage:(id)arg1 forItemAtIndex:(int)arg2;
 - (void)setDelegate:(id)arg1;
 - (void)setColorScheme:(id)arg1;
@@ -59,12 +64,19 @@
 - (id)indexPathsForVisibleItems;
 - (struct CGRect)frameForItemAtIndex:(int)arg1;
 - (void)deselectAllItems;
+@property(readonly, nonatomic) SKUIVideoImageDataConsumer *videoImageConsumer;
 - (void)setItemsWithLockups:(id)arg1;
 @property(readonly, nonatomic) struct CGRect seeAllButtonFrame;
 @property(readonly, nonatomic) NSArray *items;
 - (void)dealloc;
 - (id)initWithSwoosh:(id)arg1;
 - (id)initWithItemList:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -10,25 +10,33 @@
 #import "UIActionSheetDelegate.h"
 #import "UIAlertViewDelegate.h"
 
-@class DAAccount;
+@class DAAccount, NSString;
 
 @interface DASettingsAccountsUIController : ACUIViewController <DAValidityCheckConsumer, UIActionSheetDelegate, UIAlertViewDelegate>
 {
     DAAccount *_account;
+    BOOL _didSetFullHostURL;
+    BOOL _needsSave;
+    BOOL _attemptedValidation;
     BOOL _isSettingUpNewAccount;
     BOOL _accountNeedsAdd;
-    BOOL _attemptedValidation;
     BOOL _validatedSuccessfully;
     BOOL _confirmedUnvalidatedAccount;
-    BOOL _needsSave;
     BOOL _haveRegisteredForAccountsChanged;
     BOOL _transitioningToFinishedAccountSetup;
-    BOOL _didSetFullHostURL;
 }
 
+@property(nonatomic) BOOL transitioningToFinishedAccountSetup; // @synthesize transitioningToFinishedAccountSetup=_transitioningToFinishedAccountSetup;
+@property(nonatomic) BOOL haveRegisteredForAccountsChanged; // @synthesize haveRegisteredForAccountsChanged=_haveRegisteredForAccountsChanged;
+@property(nonatomic) BOOL confirmedUnvalidatedAccount; // @synthesize confirmedUnvalidatedAccount=_confirmedUnvalidatedAccount;
+@property(nonatomic) BOOL validatedSuccessfully; // @synthesize validatedSuccessfully=_validatedSuccessfully;
+@property(nonatomic) BOOL accountNeedsAdd; // @synthesize accountNeedsAdd=_accountNeedsAdd;
+@property(nonatomic) BOOL isSettingUpNewAccount; // @synthesize isSettingUpNewAccount=_isSettingUpNewAccount;
+@property(retain, nonatomic) DAAccount *account; // @synthesize account=_account;
+@property(nonatomic) BOOL attemptedValidation; // @synthesize attemptedValidation=_attemptedValidation;
+@property(nonatomic) BOOL needsSave; // @synthesize needsSave=_needsSave;
 @property(nonatomic) BOOL didSetFullHostURL; // @synthesize didSetFullHostURL=_didSetFullHostURL;
-@property BOOL attemptedValidation; // @synthesize attemptedValidation=_attemptedValidation;
-@property BOOL needsSave; // @synthesize needsSave=_needsSave;
+- (void).cxx_destruct;
 - (void)deleteAccountButtonTapped;
 - (id)localizedAccountTitleString;
 - (id)localizedAccountSetupTitleString;
@@ -79,8 +87,13 @@
 - (id)daAccountWithBackingAccountInfo:(id)arg1;
 - (id)accountFromSpecifier;
 - (void)reloadAccount;
-@property(readonly, nonatomic) DAAccount *account;
 - (void)_accountsChanged:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

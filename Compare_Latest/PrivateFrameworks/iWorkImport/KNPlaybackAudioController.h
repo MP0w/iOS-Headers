@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "TSKAVPlayerControllerDelegate.h"
+#import "TSKMediaPlayerControllerDelegate.h"
 
-@class AVQueuePlayer, KNSoundtrack, TSKAVQueuePlayerController;
+@class AVQueuePlayer, KNSoundtrack, NSString, TSKAVQueuePlayerController;
 
 __attribute__((visibility("hidden")))
-@interface KNPlaybackAudioController : NSObject <TSKAVPlayerControllerDelegate>
+@interface KNPlaybackAudioController : NSObject <TSKMediaPlayerControllerDelegate>
 {
     KNSoundtrack *mSoundtrack;
     AVQueuePlayer *mAudioPlayer;
@@ -26,19 +26,23 @@ __attribute__((visibility("hidden")))
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)playbackDidStopForPlayerController:(id)arg1;
 - (void)playerController:(id)arg1 playbackDidFailWithError:(id)arg2;
-- (void)p_stopAudioPlayback;
 - (void)p_tearDownAudioPlayback;
 - (void)p_startAudioPlayback;
 - (void)p_initAudioPlaybackAtMediaIndex:(unsigned int)arg1;
 - (void)resume;
 - (void)pause;
 - (void)interruptAndReset;
-- (void)audioPlayerDidFinishPlaying:(id)arg1 successfully:(BOOL)arg2;
 - (void)stop;
 - (void)startAtMediaIndex:(unsigned int)arg1 time:(double)arg2;
 - (void)start;
 - (void)dealloc;
 - (id)initWithSoundtrack:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

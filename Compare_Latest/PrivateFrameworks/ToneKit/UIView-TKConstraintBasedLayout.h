@@ -7,6 +7,8 @@
 #import "UIView.h"
 
 @interface UIView (TKConstraintBasedLayout)
+- (id)_tk_autolayoutTrace;
+- (id)_tk_recursiveAutolayoutTraceAtLevel:(int)arg1 anyDescendantHasAmbiguousLayout:(char *)arg2;
 - (id)tk_firstCommonAncestorWithView:(id)arg1;
 - (unsigned int)_tl_depth;
 - (id)tk_addedConstraintForLayoutAttribute:(int)arg1 relatedBy:(int)arg2 toItem:(id)arg3 attribute:(int)arg4 multiplier:(float)arg5 constant:(float)arg6;

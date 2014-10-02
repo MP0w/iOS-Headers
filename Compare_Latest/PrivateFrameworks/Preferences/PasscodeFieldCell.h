@@ -9,15 +9,17 @@
 #import "PSPasscodeFieldDelegate.h"
 #import "UIKeyInput.h"
 
-@class PSPasscodeField;
+@class NSString, PSPasscodeField;
 
 @interface PasscodeFieldCell : PSTableCell <UIKeyInput, PSPasscodeFieldDelegate>
 {
     PSPasscodeField *_passcodeField;
     BOOL _convertsNumeralsToASCII;
+    BOOL _denyFirstResponder;
     id <KeychainSyncPasscodeFieldDelegate> _delegate;
 }
 
+@property(nonatomic) BOOL denyFirstResponder; // @synthesize denyFirstResponder=_denyFirstResponder;
 @property(nonatomic) BOOL convertsNumeralsToASCII; // @synthesize convertsNumeralsToASCII=_convertsNumeralsToASCII;
 @property(nonatomic) id <KeychainSyncPasscodeFieldDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)layoutSubviews;
@@ -26,6 +28,7 @@
 - (void)insertText:(id)arg1;
 - (BOOL)hasText;
 - (id)passcodeText;
+- (BOOL)becomeFirstResponder;
 - (void)setPasscodeText:(id)arg1;
 - (void)passcodeField:(id)arg1 enteredPasscode:(id)arg2;
 - (void)_setSecureTextEntry:(BOOL)arg1;
@@ -35,11 +38,15 @@
 // Remaining properties
 @property(nonatomic) int autocapitalizationType;
 @property(nonatomic) int autocorrectionType;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(nonatomic) BOOL enablesReturnKeyAutomatically;
+@property(readonly) unsigned int hash;
 @property(nonatomic) int keyboardAppearance;
 @property(nonatomic) int returnKeyType;
 @property(nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry;
 @property(nonatomic) int spellCheckingType;
+@property(readonly) Class superclass;
 
 @end
 

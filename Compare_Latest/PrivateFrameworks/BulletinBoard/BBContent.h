@@ -6,18 +6,19 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
 @class NSString;
 
-@interface BBContent : NSObject <NSCopying, NSCoding>
+@interface BBContent : NSObject <NSCopying, NSSecureCoding>
 {
     NSString *_title;
     NSString *_subtitle;
     NSString *_message;
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)contentWithTitle:(id)arg1 subtitle:(id)arg2 message:(id)arg3;
 @property(copy, nonatomic) NSString *message; // @synthesize message=_message;
 @property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;

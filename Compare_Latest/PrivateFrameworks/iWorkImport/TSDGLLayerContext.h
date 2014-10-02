@@ -8,7 +8,7 @@
 
 #import "TSDGLLayerContext.h"
 
-@class EAGLContext;
+@class EAGLContext, NSString;
 
 __attribute__((visibility("hidden")))
 @interface TSDGLLayerContext : NSObject <TSDGLLayerContext>
@@ -27,6 +27,12 @@ __attribute__((visibility("hidden")))
 - (BOOL)makeCurrentContext;
 - (BOOL)isValid;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

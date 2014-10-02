@@ -4,20 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <MediaPlayer/MPAVItem.h>
+#import <MediaPlayer/MPStoreAVItem.h>
 
-@class MPMediaItem, NSCache;
+@class NSCache;
 
-@interface MPMediaQueryNowPlayingItem : MPAVItem
+@interface MPMediaQueryNowPlayingItem : MPStoreAVItem
 {
-    MPMediaItem *_mediaItem;
     NSCache *_cache;
-    unsigned int _nowPlayingItemOptions;
 }
 
-+ (void)setShouldAlwaysAirplayFromCloud:(BOOL)arg1;
 + (void)applyVolumeNormalizationWithSoundCheckEnabled:(BOOL)arg1 forQueuedItems:(id)arg2 currentQuery:(id)arg3;
-@property(readonly, nonatomic) unsigned int nowPlayingItemOptions; // @synthesize nowPlayingItemOptions=_nowPlayingItemOptions;
 - (void).cxx_destruct;
 - (void)_updateBookmarkTimeIfNecessary:(double)arg1 isCheckpoint:(BOOL)arg2;
 - (id)_newTimeMarkersForChapterType:(int)arg1;
@@ -30,7 +26,6 @@
 - (unsigned int)type;
 - (id)titlesForTime:(double)arg1;
 - (BOOL)supportsRewindAndFastForward15Seconds;
-- (BOOL)supportsAddStation;
 - (long long)storeID;
 - (void)setRating:(float)arg1;
 - (void)setPlaybackStoppedTime:(double)arg1;
@@ -42,9 +37,7 @@
 - (double)playbackCheckpointCurrentTime;
 - (unsigned long long)persistentID;
 - (void)notePlaybackFinishedByHittingEnd;
-@property(readonly, nonatomic) MPMediaItem *mediaItem; // @synthesize mediaItem=_mediaItem;
 - (id)mainTitle;
-- (id)imageCacheRequestWithSize:(struct CGSize)arg1 time:(double)arg2 usePlaceholderAsFallback:(BOOL)arg3;
 - (BOOL)hasAlternatesForTypes:(unsigned int)arg1;
 - (void)handlePlaybackFinishedTime:(double)arg1 finishedByHittingEnd:(BOOL)arg2;
 - (id)genre;
@@ -55,6 +48,7 @@
 - (BOOL)isAssetURLValid;
 - (BOOL)isPlaceholderForItem:(id)arg1;
 - (BOOL)isValidPlayerSubstituteForItem:(id)arg1;
+- (BOOL)isCloudItem;
 - (BOOL)isExplicitTrack;
 - (double)durationFromExternalMetadata;
 - (id)displayableText;
@@ -70,9 +64,8 @@
 - (id)albumArtist;
 - (id)artist;
 - (id)album;
-- (void)loadAssetAndPlayerItem;
 - (id)description;
-- (id)initWithMediaItem:(id)arg1 nowPlayingItemOptions:(unsigned int)arg2;
+- (id)initWithMediaItem:(id)arg1 allowCloudDialogue:(BOOL)arg2;
 
 @end
 

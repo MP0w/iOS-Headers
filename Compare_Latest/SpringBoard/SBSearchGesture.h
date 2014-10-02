@@ -8,13 +8,15 @@
 
 #import "UIScrollViewDelegate.h"
 
-@class NSHashTable, SBSearchScrollView, UIView;
+@class NSHashTable, NSString, SBSearchScrollView, UIPanGestureRecognizer, UIView;
 
 @interface SBSearchGesture : NSObject <UIScrollViewDelegate>
 {
     NSHashTable *_observers;
     SBSearchScrollView *_scrollView;
     _Bool _suppressObserverCallbacks;
+    UIPanGestureRecognizer *_panGestureRecognizer;
+    _Bool _isActivated;
     _Bool _animatingResetOrReveal;
     _Bool _enabled;
     UIView *_targetView;
@@ -24,6 +26,7 @@
 @property(nonatomic) _Bool enabled; // @synthesize enabled=_enabled;
 @property(readonly, nonatomic, getter=isAnimatingResetOrReveal) _Bool animatingResetOrReveal; // @synthesize animatingResetOrReveal=_animatingResetOrReveal;
 @property(retain, nonatomic) UIView *targetView; // @synthesize targetView=_targetView;
+- (void)requireGestureRecognizerToFail:(id)arg1;
 - (void)scrollViewDidEndScrollingAnimation:(id)arg1;
 - (void)scrollViewDidScrollToTop:(id)arg1;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
@@ -34,6 +37,7 @@
 - (void)_openFolderChanged:(id)arg1;
 - (void)_iconEditingStateChanged:(id)arg1;
 - (void)_updateScrollingEnabled;
+@property(readonly, nonatomic, getter=isActivated) _Bool activated;
 - (_Bool)_isShowingSearch;
 - (void)_updateForFinalContentOffset;
 - (void)_updateForScrollingEnded;
@@ -44,6 +48,12 @@
 - (void)updateForRotation;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -21,10 +21,15 @@
 - (void)startGrowAnimation;
 - (void)_applicationDidEnterBackground:(id)arg1;
 - (void)_applicationWillEnterForeground:(id)arg1;
+- (void)performRemoval:(CDUnknownBlockType)arg1;
+- (void)performInsertion:(CDUnknownBlockType)arg1;
+- (void)layoutSubviewsForAlignmentContents;
+- (void)setOrientation:(BOOL)arg1;
+- (void)prepareForReuse;
 - (void)didMoveToWindow;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)dealloc;
-- (void)configureForRowObject:(id)arg1;
+- (void)configureForChatItem:(id)arg1;
 
 @end
 

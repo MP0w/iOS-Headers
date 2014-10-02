@@ -9,7 +9,7 @@
 #import "NSCoding.h"
 #import "NSCopying.h"
 
-@class NSArray, NSData, NSEntityDescription, NSMutableDictionary, NSString;
+@class NSArray, NSData, NSDictionary, NSEntityDescription, NSMutableDictionary, NSString;
 
 @interface NSPropertyDescription : NSObject <NSCoding, NSCopying>
 {
@@ -35,28 +35,25 @@
     void *_extraIvars;
     NSMutableDictionary *_userInfo;
     long _entitysReferenceIDForProperty;
+    BOOL _indexedBySpotlight;
+    BOOL _storedInExternalRecord;
 }
 
 + (void)initialize;
-- (id)renamingIdentifier;
-- (void)setRenamingIdentifier:(id)arg1;
-- (void)setVersionHashModifier:(id)arg1;
-- (id)versionHashModifier;
-- (id)versionHash;
-- (id)userInfo;
-- (void)setUserInfo:(id)arg1;
+@property(getter=isStoredInExternalRecord) BOOL storedInExternalRecord; // @synthesize storedInExternalRecord=_storedInExternalRecord;
+@property(getter=isIndexedBySpotlight) BOOL indexedBySpotlight; // @synthesize indexedBySpotlight=_indexedBySpotlight;
+@property(copy) NSString *renamingIdentifier;
+@property(copy) NSString *versionHashModifier;
+@property(readonly, copy) NSData *versionHash;
+@property(retain, nonatomic) NSDictionary *userInfo;
 - (void)setValidationPredicates:(id)arg1 withValidationWarnings:(id)arg2;
-- (void)setName:(id)arg1;
-- (void)setTransient:(BOOL)arg1;
-- (void)setOptional:(BOOL)arg1;
-- (id)validationWarnings;
-- (id)validationPredicates;
-- (id)entity;
-- (id)name;
-- (void)setIndexed:(BOOL)arg1;
-- (BOOL)isIndexed;
-- (BOOL)isOptional;
-- (BOOL)isTransient;
+@property(copy, nonatomic) NSString *name;
+@property(getter=isTransient) BOOL transient;
+@property(getter=isOptional) BOOL optional;
+@property(readonly) NSArray *validationWarnings;
+@property(readonly) NSArray *validationPredicates;
+@property(readonly, nonatomic) NSEntityDescription *entity;
+@property(getter=isIndexed) BOOL indexed;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
@@ -92,10 +89,6 @@
 - (void)_replaceValidationPredicates:(id)arg1 andWarnings:(id)arg2;
 - (struct _NSExtraPropertyIVars *)_extraIVars;
 - (void)_initializeExtraIVars;
-- (void)setStoredInExternalRecord:(BOOL)arg1;
-- (BOOL)isStoredInExternalRecord;
-- (void)setIndexedBySpotlight:(BOOL)arg1;
-- (BOOL)isIndexedBySpotlight;
 - (void)setStoredInTruth:(BOOL)arg1;
 - (BOOL)isStoredInTruth;
 - (void)setStoredInTruthFile:(BOOL)arg1;

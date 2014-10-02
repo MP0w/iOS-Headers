@@ -8,7 +8,7 @@
 
 #import "UIAlertViewDelegate.h"
 
-@class SBIcon;
+@class NSObject<OS_dispatch_semaphore>, NSString, SBIcon;
 
 @interface SBDeleteIconAlertItem : SBAlertItem <UIAlertViewDelegate>
 {
@@ -18,8 +18,16 @@
     _Bool _appHasDocumentsWithPendingUpdates;
     _Bool _askedUserAboutDocumentsDocumentsInCloud;
     _Bool _askedUserAboutDocumentsWithPendingUpdates;
+    _Bool _checkedForRelatedData;
+    _Bool _finishedCheckingForRelatedData;
+    _Bool _appHasHealthKitData;
+    _Bool _appHasGameKitData;
+    NSObject<OS_dispatch_semaphore> *_healthKitResponseSem;
 }
 
+- (_Bool)_hasRelatedData;
+- (void)_waitForRelatedDataResponsesIfNeeded;
+- (void)_startCheckingForRelatedExternalDataIfNeeded;
 - (_Bool)dismissOnLock;
 - (_Bool)shouldShowInLockScreen;
 - (void)configure:(_Bool)arg1 requirePasscodeForActions:(_Bool)arg2;
@@ -28,6 +36,12 @@
 - (id)icon;
 - (void)dealloc;
 - (id)initWithIcon:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

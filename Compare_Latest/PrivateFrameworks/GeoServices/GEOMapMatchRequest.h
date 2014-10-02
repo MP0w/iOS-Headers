@@ -18,6 +18,7 @@
 
 @property(retain, nonatomic) NSMutableArray *locations; // @synthesize locations=_locations;
 @property(retain, nonatomic) NSMutableArray *waypoints; // @synthesize waypoints=_waypoints;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

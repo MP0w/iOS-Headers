@@ -11,6 +11,9 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (void)writeForStyle:(id)arg1 state:(id)arg2;
++ (void)writeForDocument:(id)arg1 state:(id)arg2;
++ (unsigned long)bitfieldForCnfStyleFrom:(struct _xmlNode *)arg1 state:(id)arg2;
 + (void)readFrom:(struct _xmlNode *)arg1 to:(id)arg2 state:(id)arg3;
 + (void)initialize;
 

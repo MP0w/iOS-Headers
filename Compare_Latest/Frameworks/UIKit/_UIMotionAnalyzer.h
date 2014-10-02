@@ -8,7 +8,7 @@
 
 #import "_UISettingsKeyObserver.h"
 
-@class UILabel, UIView, UIWindow, _UIMotionAnalyzerSettings, _UIViewerRelativeDevicePose;
+@class NSString, UILabel, UIView, UIWindow, _UIMotionAnalyzerSettings, _UIViewerRelativeDevicePose;
 
 __attribute__((visibility("hidden")))
 @interface _UIMotionAnalyzer : NSObject <_UISettingsKeyObserver>
@@ -61,10 +61,15 @@ __attribute__((visibility("hidden")))
 - (void)reset;
 - (void)updateWithDeviceMotionStruct:(const CDStruct_04e8b4cd *)arg1 timestamp:(double)arg2;
 - (void)updateWithDeviceMotion:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)init;
 - (id)initWithSettings:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,10 +6,10 @@
 
 #import "NSObject.h"
 
-@class CLRegion, NSBundle, NSString;
+@class NSBundle, NSString;
 
 @protocol MKLocationProvider <NSObject>
-@property(readonly, nonatomic, getter=isMonitoringRegionsAvailable) BOOL monitoringRegionsAvailable;
+@property(readonly, nonatomic) BOOL isSimulation;
 @property(readonly, nonatomic) BOOL usesCLMapCorrection;
 @property(nonatomic) int activityType;
 @property(readonly, nonatomic) BOOL airplaneModeBlocksLocation;
@@ -17,6 +17,7 @@
 @property(readonly, nonatomic) double expectedGpsUpdateInterval;
 @property(copy, nonatomic) CDUnknownBlockType authorizationRequestBlock;
 @property(nonatomic) int headingOrientation;
+@property(nonatomic) BOOL matchInfoEnabled;
 @property(nonatomic) double distanceFilter;
 @property(nonatomic, getter=isLocationServicesPreferencesDialogEnabled) BOOL locationServicesPreferencesDialogEnabled;
 @property(nonatomic) double desiredAccuracy;
@@ -28,8 +29,6 @@
 - (void)startUpdatingVehicleHeading;
 - (void)stopUpdatingVehicleSpeed;
 - (void)startUpdatingVehicleSpeed;
-- (void)stopMonitoringRegion:(CLRegion *)arg1;
-- (void)startMonitoringRegion:(CLRegion *)arg1;
 - (void)stopUpdatingHeading;
 - (void)startUpdatingHeading;
 - (void)stopUpdatingLocation;

@@ -18,7 +18,7 @@
     NSString *_bundleID;
 }
 
-@property(readonly, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
+@property(readonly, copy, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
 - (void).cxx_destruct;
 - (BOOL)remoteAppIsPlaying;
 - (void)unregisterListenerAtIndexPath:(id)arg1;

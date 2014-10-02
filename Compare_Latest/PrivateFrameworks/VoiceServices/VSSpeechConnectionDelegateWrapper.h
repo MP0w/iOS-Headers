@@ -8,7 +8,7 @@
 
 #import "VSSpeechServiceDelegate.h"
 
-@class VSSpeechConnection, VSSpeechRequest;
+@class NSString, VSSpeechConnection, VSSpeechRequest;
 
 @interface VSSpeechConnectionDelegateWrapper : NSObject <VSSpeechServiceDelegate>
 {
@@ -26,6 +26,12 @@
 - (oneway void)speechRequestDidContinue;
 - (oneway void)speechRequestDidPause;
 - (oneway void)speechRequestDidStart;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>, SBCPlaybackPositionServiceProxy;
+@class NSObject<OS_dispatch_queue>, SBCPlaybackPositionDomain, SBCPlaybackPositionSyncService;
 
 @interface MPUbiquitousPlaybackPositionController : NSObject
 {
@@ -17,18 +17,19 @@
     BOOL _applicationBecomingActive;
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_queue> *_serviceQueue;
-    SBCPlaybackPositionServiceProxy *_uppServiceProxy;
+    SBCPlaybackPositionSyncService *_uppServiceProxy;
+    SBCPlaybackPositionDomain *_uppDomain;
 }
 
 + (id)sharedUbiquitousPlaybackPositionController;
 @property(readonly, nonatomic) BOOL applicationBecomingActive; // @synthesize applicationBecomingActive=_applicationBecomingActive;
 @property(nonatomic, getter=isServiceActive) BOOL beganUsingPlaybackPositionMetadata; // @synthesize beganUsingPlaybackPositionMetadata=_beganUsingPlaybackPositionMetadata;
-@property(retain, nonatomic) SBCPlaybackPositionServiceProxy *uppServiceProxy; // @synthesize uppServiceProxy=_uppServiceProxy;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *serviceQueue; // @synthesize serviceQueue=_serviceQueue;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
+@property(retain, nonatomic) SBCPlaybackPositionDomain *uppDomain; // @synthesize uppDomain=_uppDomain;
+@property(retain, nonatomic) SBCPlaybackPositionSyncService *uppServiceProxy; // @synthesize uppServiceProxy=_uppServiceProxy;
+@property(readonly, retain, nonatomic) NSObject<OS_dispatch_queue> *serviceQueue; // @synthesize serviceQueue=_serviceQueue;
+@property(readonly, retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(nonatomic, getter=isServiceActive) BOOL serviceActive; // @synthesize serviceActive=_isServiceActive;
 - (void).cxx_destruct;
-- (void)synchronizeImmediatelyWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)_onServiceQueue_updateBoomkarkabilityState;
 - (void)_onServiceQueue_setDatabaseHasBookmarkableContents:(BOOL)arg1;
 - (void)_onServiceQueue_updateActiveServiceIfNeeded;
@@ -37,6 +38,7 @@
 - (id)_onServiceQueue_connectedUPPServiceProxy;
 - (BOOL)_onQueue_isEnabled;
 - (BOOL)_onQueue_shouldBeActive;
+- (id)_playbackPositionEntityWithValuesFromMusicLibraryTrackPersistentID:(long long)arg1;
 @property(nonatomic) BOOL databaseHasBookmarkableContents; // @synthesize databaseHasBookmarkableContents=_databaseHasBookmarkableContents;
 @property(nonatomic) BOOL externallyActive; // @synthesize externallyActive=_externallyActive;
 - (void)noteChangedPlaybackPositionMetadataForTrackPersistentID:(long long)arg1 isCheckpoint:(BOOL)arg2;

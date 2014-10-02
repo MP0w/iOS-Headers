@@ -20,9 +20,10 @@
 - (BOOL)_canDetachSingleOccurrence;
 - (void)_revertEvent;
 - (void)_copyEventForPossibleRevert;
+- (void)scrollViewDidScroll:(id)arg1;
 - (void)editItemTextChanged:(id)arg1;
 - (void)editItem:(id)arg1 didEndDatePickingAnimated:(BOOL)arg2;
-- (void)editItem:(id)arg1 willBeginDatePickingWithDate:(id)arg2 action:(SEL)arg3 animated:(BOOL)arg4 forSubitem:(unsigned int)arg5 inSubsection:(unsigned int)arg6;
+- (void)editItem:(id)arg1 willBeginDatePickingWithDate:(id)arg2 action:(SEL)arg3 animated:(BOOL)arg4 forSubitem:(unsigned int)arg5;
 - (BOOL)shouldDisplayEditItem:(id)arg1 withVisibility:(int)arg2;
 - (unsigned int)entityType;
 - (id)notificationNamesForLocaleChange;

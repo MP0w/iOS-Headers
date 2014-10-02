@@ -18,6 +18,7 @@
     int _actions;
     NSHashTable *_postObservers;
     _Bool _notifyingPostObservers;
+    long long _showsRecordingOverrides;
     NSDateFormatter *_timeItemDateFormatter;
     NSTimer *_timeItemTimer;
     NSString *_timeItemTimeString;
@@ -25,6 +26,8 @@
     NSString *_serviceString;
     NSString *_serviceCrossfadeString;
     NSArray *_countryCodesShowingEmergencyOnlyStatus;
+    unsigned long long _airplaneTransitionToken;
+    _Bool _suppressCellServiceForAirplaneModeTransition;
     _Bool _showsActivityIndicatorOnHomeScreen;
     long long _activityIndicatorEverywhereCount;
     _Bool _showsActivityIndicatorForNewsstand;
@@ -34,10 +37,13 @@
     NSString *_batteryDetailString;
     _Bool _alarmEnabled;
     _Bool _applyingAssistantStyle;
+    int _locationStatusBarIconType;
 }
 
 + (int)_thermalColorForLevel:(int)arg1;
 + (id)sharedInstance;
+- (void)_updateLocationState;
+- (void)_buildLocationState;
 - (void)_noteNotChargingStatusChanged;
 - (void)_setShowingNotChargingItem;
 - (_Bool)_shouldShowNotChargingItem;
@@ -85,6 +91,8 @@
 - (void)setShowsActivityIndicatorEverywhere:(_Bool)arg1;
 - (void)setShowsActivityIndicatorOnHomeScreen:(_Bool)arg1;
 - (void)setAlarmEnabled:(_Bool)arg1;
+- (void)setShowsOverridesForRecording:(_Bool)arg1;
+- (void)_tickRefCount:(long long *)arg1 up:(_Bool)arg2 withTransitionBlock:(CDUnknownBlockType)arg3;
 - (id)operatorName;
 - (void)endCoalescentBlock;
 - (void)beginCoalescentBlock;

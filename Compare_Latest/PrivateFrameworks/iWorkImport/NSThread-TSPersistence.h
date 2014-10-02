@@ -7,9 +7,11 @@
 #import "NSThread.h"
 
 @interface NSThread (TSPersistence)
-+ (void)tsp_performSynchronousOperationMarkingThreadWithKey:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
++ (void)tsp_performSynchronousOperationWithThreadDictionaryObject:(id)arg1 forKey:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
 + (void)tsp_performSynchronousOperationWithReadFileAccessUsingBlock:(CDUnknownBlockType)arg1;
 + (BOOL)tsp_hasReadFileAccess;
++ (void)tsp_runFinalizeHandlersForReadCoordinator:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
++ (BOOL)tsp_isRunningFinalizeHandlersForLegacyDocument;
 + (void)tsp_performSynchronousArchiverOperationUsingBlock:(CDUnknownBlockType)arg1;
 + (BOOL)tsp_isArchiverThread;
 @end

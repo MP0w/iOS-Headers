@@ -18,7 +18,7 @@
 
 @property(readonly, nonatomic) int ackCount; // @synthesize ackCount=_ackCount;
 @property(readonly, nonatomic) int synCount; // @synthesize synCount=_synCount;
-@property(readonly, nonatomic) id <CLIntersiloServiceProtocol> service; // @synthesize service=_service;
+@property(readonly, nonatomic) __weak id <CLIntersiloServiceProtocol> service; // @synthesize service=_service;
 @property(readonly, nonatomic) CLSilo *silo; // @synthesize silo=_silo;
 - (void).cxx_destruct;
 - (void)ack;

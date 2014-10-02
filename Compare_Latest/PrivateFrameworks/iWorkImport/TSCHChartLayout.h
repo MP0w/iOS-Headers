@@ -18,13 +18,11 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)propertiesThatInvalidateLayout;
-+ (BOOL)layoutFrameEnclosesInfoGeometry;
 + (struct CGSize)legendSizeForChartInfo:(id)arg1 initialWidth:(float)arg2;
 + (id)chartLayoutWithChartInfo:(id)arg1;
 @property struct CGRect legendModelGeometryFrame; // @synthesize legendModelGeometryFrame=_legendModelGeometryFrame;
 @property CDStruct_1f804ca1 layoutSettings; // @synthesize layoutSettings=mLayoutSettings;
 @property(readonly) TSCHChartInfo *chartInfo; // @synthesize chartInfo=mChartInfo;
-- (id)mutationTuplesToApplyDuringResize;
 - (struct CGPath *)newDragAndDropHighlightPathForSelection:(id)arg1;
 - (id)subselectionHaloPositionsForSelections:(id)arg1;
 - (id)subselectionKnobPositionsForSelection:(id)arg1;
@@ -39,17 +37,23 @@ __attribute__((visibility("hidden")))
 - (void)endResize;
 - (void)takeSizeFromTracker:(id)arg1;
 - (void)beginResize;
+- (void)setLegendSize:(struct CGSize)arg1;
+- (void)layoutForResizingSize:(struct CGSize)arg1;
+- (struct CGRect)boundsForResize;
 - (void)endDynamicOperation;
 - (void)beginDynamicOperation;
 - (BOOL)isValid;
 - (void)invalidate;
 - (void)processChanges:(id)arg1;
+- (BOOL)layoutFrameShouldEncloseInfoGeometry;
 - (void)layoutForChartBodySize:(struct CGSize)arg1;
+- (void)layoutForChartAreaSize:(struct CGSize)arg1;
 - (void)layoutForCircumscribingSize:(struct CGSize)arg1;
 @property unsigned int dataSetIndex;
 @property(readonly) struct CGRect chartBodyFrame;
 @property struct CGRect legendGeometryFrame;
 @property(readonly) struct CGRect legendDrawingFrame;
+@property(readonly) struct CGRect titleFrame;
 @property(readonly) struct CGRect legendFrame;
 @property(readonly) struct CGRect chartAreaFrame;
 @property(readonly) struct CGRect outerShadowFrame;

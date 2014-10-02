@@ -10,7 +10,7 @@
 #import "TSKModel.h"
 #import "TSWPSection.h"
 
-@class NSString, TPDocumentRoot, TPPageMaster, TSWPStorage;
+@class NSString, TPDocumentRoot, TPGuideStorageMap, TPPageMaster, TSWPStorage;
 
 __attribute__((visibility("hidden")))
 @interface TPSection : TSPObject <TSKDocumentObject, TSKModel, TSWPSection>
@@ -26,20 +26,15 @@ __attribute__((visibility("hidden")))
     unsigned int _sectionStartKind;
     unsigned int _sectionPageNumberKind;
     unsigned int _sectionPageNumberStart;
+    TPGuideStorageMap *_userGuideStorageMap;
 }
 
-@property(nonatomic) unsigned int sectionPageNumberStart; // @synthesize sectionPageNumberStart=_sectionPageNumberStart;
-@property(nonatomic) unsigned int sectionPageNumberKind; // @synthesize sectionPageNumberKind=_sectionPageNumberKind;
-@property(nonatomic) unsigned int sectionStartKind; // @synthesize sectionStartKind=_sectionStartKind;
-@property(nonatomic) BOOL pageMasterEvenOddPagesDifferent; // @synthesize pageMasterEvenOddPagesDifferent=_pageMasterEvenOddPagesDifferent;
-@property(nonatomic) BOOL pageMasterFirstPageHidesHeaderFooter; // @synthesize pageMasterFirstPageHidesHeaderFooter=_pageMasterFirstPageHidesHeaderFooter;
-@property(nonatomic) BOOL pageMasterFirstPageDifferent; // @synthesize pageMasterFirstPageDifferent=_pageMasterFirstPageDifferent;
-@property(nonatomic) BOOL inheritPreviousHeaderFooter; // @synthesize inheritPreviousHeaderFooter=_inheritPreviousHeaderFooter;
-@property(retain, nonatomic) NSString *name; // @synthesize name=_name;
-- (id)description;
++ (BOOL)needsObjectUUID;
+@property(readonly, copy) NSString *description;
 - (id)pageMasterOwningModel:(id)arg1;
 - (id)pageMasterForType:(int)arg1;
 - (id)pageMasters;
+- (void)p_makeUserGuideStorage;
 - (void)p_upgradePageSizeAndMarginsFromParsedArchive:(const struct SectionArchive *)arg1;
 - (void)p_unarchiveAndUpgrade:(id)arg1 archive:(const struct SectionArchive *)arg2;
 - (void)i_clearPropertiesToDefaults;
@@ -51,7 +46,7 @@ __attribute__((visibility("hidden")))
 - (void)wasAddedToDocumentRoot:(id)arg1 context:(id)arg2;
 - (void)willBeAddedToDocumentRoot:(id)arg1 context:(id)arg2;
 - (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
-@property(nonatomic) TSWPStorage *parentStorage; // @synthesize parentStorage=_parentStorage;
+@property(nonatomic) TSWPStorage *parentStorage;
 - (id)copyWithContext:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isHeaderFooterEmpty:(int)arg1;
@@ -60,8 +55,24 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initFromUnarchiver:(id)arg1;
 - (void)i_setDocumentRoot:(id)arg1;
+- (id)objectUUIDPath;
 - (id)initWithContext:(id)arg1;
 - (id)initWithContext:(id)arg1 section:(id)arg2;
+- (void)setUserGuideStorageMap:(id)arg1;
+@property(readonly, nonatomic) TPGuideStorageMap *userGuideStorageMap;
+@property(nonatomic) unsigned int sectionPageNumberStart;
+@property(nonatomic) unsigned int sectionPageNumberKind;
+@property(nonatomic) unsigned int sectionStartKind;
+@property(nonatomic) BOOL pageMasterEvenOddPagesDifferent;
+@property(nonatomic) BOOL pageMasterFirstPageHidesHeaderFooter;
+@property(nonatomic) BOOL pageMasterFirstPageDifferent;
+@property(nonatomic) BOOL inheritPreviousHeaderFooter;
+@property(retain, nonatomic) NSString *name;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

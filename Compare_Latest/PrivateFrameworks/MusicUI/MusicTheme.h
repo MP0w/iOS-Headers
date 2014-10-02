@@ -16,10 +16,11 @@
 + (float)tableViewContentLeftInset;
 + (id)tintColor;
 + (id)tableViewCellSeparatorColor;
-+ (id)disabledPlaybackControlColor;
 + (id)unplayedIndicatorImageWithStyle:(int)arg1 selected:(BOOL)arg2;
++ (id)keepLocalErrorStatusImage;
++ (id)keepLocalMixedStatusImage;
++ (id)keepLocalImageWithEnabledState:(BOOL)arg1;
 + (id)shuffleImage;
-+ (id)miniPlayerEmptyStationPlaceholderImage;
 + (id)miniPlayerEmptyAlbumPlaceholderImage;
 + (id)gradientMaskImageWithGradientDistance:(float)arg1;
 + (id)grayColorGeniusPlaylistImage;

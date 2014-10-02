@@ -23,13 +23,23 @@
     SKInvocationQueueProxy<SKUIServiceProductPageViewController> *_serviceProxy;
     NSDictionary *_scriptContextDictionary;
     BOOL _showsStoreButton;
+    NSString *_cancelButtonTitle;
+    NSString *_rightBarButtonTitle;
+    BOOL _showsRightBarButton;
+    BOOL _askToBuy;
+    NSString *_promptString;
 }
 
 + (void)_validateURL:(id)arg1 withSheetInfo:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 + (void)getCanLoadURL:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 + (void)getCanLoadURL:(id)arg1 withURLBag:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 @property(nonatomic) BOOL showsStoreButton; // @synthesize showsStoreButton=_showsStoreButton;
+@property(nonatomic) BOOL askToBuy; // @synthesize askToBuy=_askToBuy;
 @property(copy, nonatomic) NSDictionary *scriptContextDictionary; // @synthesize scriptContextDictionary=_scriptContextDictionary;
+@property(nonatomic) BOOL showsRightBarButton; // @synthesize showsRightBarButton=_showsRightBarButton;
+@property(copy, nonatomic) NSString *cancelButtonTitle; // @synthesize cancelButtonTitle=_cancelButtonTitle;
+@property(copy, nonatomic) NSString *rightBarButtonTitle; // @synthesize rightBarButtonTitle=_rightBarButtonTitle;
+@property(copy, nonatomic) NSString *promptString; // @synthesize promptString=_promptString;
 @property(nonatomic) int productPageStyle; // @synthesize productPageStyle=_productPageStyle;
 @property(nonatomic) id <SKStoreProductViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
@@ -39,6 +49,7 @@
 - (void)_throwUnsupportedPresentationException;
 - (void)_setLoadBlock:(CDUnknownBlockType)arg1;
 - (void)_requestRemoteViewController;
+- (void)_forceOrientationBackToSupportedOrientation;
 - (void)_addRemoteView;
 - (void)_resetRemoteViewController;
 - (void)_presentPageWithRequest:(id)arg1 animated:(BOOL)arg2;
@@ -48,11 +59,13 @@
 - (void)loadProductWithURL:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)loadProductWithRequest:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)loadProductWithPageDictionary:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
-- (void)applicationWillEnterForeground:(id)arg1;
+- (void)finishImmediately;
+- (void)_sk_applicationWillEnterForeground:(id)arg1;
+- (void)_sk_applicationDidEnterBackground:(id)arg1;
 - (void)_willBecomeContentViewControllerOfPopover:(id)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
 - (unsigned int)supportedInterfaceOrientations;
 - (void)loadView;
 - (void)loadProductWithParameters:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;

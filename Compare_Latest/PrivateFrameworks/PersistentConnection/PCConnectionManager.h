@@ -9,24 +9,24 @@
 #import "PCInterfaceMonitorDelegate.h"
 #import "PCLoggingDelegate.h"
 
-@class NSRunLoop, NSString, PCDarwinNotificationRunLoopSource, PCPersistentTimer;
+@class NSObject<OS_dispatch_queue>, NSRunLoop, NSString, PCPersistentTimer;
 
 @interface PCConnectionManager : NSObject <PCLoggingDelegate, PCInterfaceMonitorDelegate>
 {
     int _connectionClass;
     id <PCConnectionManagerDelegate> _delegate;
     NSString *_serviceIdentifier;
+    NSString *_duetIdentifier;
     int _prefsStyle;
     int _onlyAllowedStyle;
     BOOL _onlyAllowedStyleSet;
     int _interfaceIdentifier;
     unsigned int _guidancePriority;
     NSRunLoop *_delegateRunLoop;
-    struct dispatch_queue_s *_delegateQueue;
+    NSObject<OS_dispatch_queue> *_delegateQueue;
     id <PCGrowthAlgorithm> _wwanGrowthAlgorithm;
     id <PCGrowthAlgorithm> _wifiGrowthAlgorithm;
     id <PCGrowthAlgorithm> _lastScheduledGrowthAlgorithm;
-    PCDarwinNotificationRunLoopSource *_prefsChangedSource;
     PCPersistentTimer *_intervalTimer;
     PCPersistentTimer *_reconnectWakeTimer;
     PCPersistentTimer *_delayTimer;
@@ -42,6 +42,7 @@
     unsigned int _reconnectIteration;
     int _timerGuidanceToken;
     int _pushIsConnectedToken;
+    int _prefsChangedToken;
     double _defaultPollingInterval;
     double _pollingIntervalOverride;
     BOOL _pollingIntervalOverrideSet;
@@ -84,6 +85,7 @@
 - (void)_callDelegateWithEvent:(id)arg1;
 - (void)_delayTimerFired;
 - (void)_intervalTimerFired;
+- (BOOL)_hasBudgetRemaining;
 - (void)_setupKeepAliveForReconnect;
 - (void)_setupTimerForPollForAdjustment:(BOOL)arg1;
 - (void)_adjustPollTimerIfNecessary;
@@ -112,11 +114,18 @@
 - (void)_loadPreferencesGeneratingEvent:(BOOL)arg1;
 - (void)_preferencesChanged;
 - (void)dealloc;
+@property(copy, nonatomic) NSString *duetIdentifier;
 @property(nonatomic) id <PCConnectionManagerDelegate> delegate;
 - (id)initWithConnectionClass:(int)arg1 delegate:(id)arg2 serviceIdentifier:(id)arg3;
 - (id)initWithConnectionClass:(int)arg1 interfaceIdentifier:(int)arg2 guidancePriority:(unsigned int)arg3 delegate:(id)arg4 serviceIdentifier:(id)arg5;
-- (id)initWithConnectionClass:(int)arg1 delegate:(id)arg2 delegateQueue:(struct dispatch_queue_s *)arg3 serviceIdentifier:(id)arg4;
-- (id)_initWithConnectionClass:(int)arg1 interfaceIdentifier:(int)arg2 guidancePriority:(unsigned int)arg3 delegate:(id)arg4 delegateQueue:(struct dispatch_queue_s *)arg5 serviceIdentifier:(id)arg6;
+- (id)initWithConnectionClass:(int)arg1 delegate:(id)arg2 delegateQueue:(id)arg3 serviceIdentifier:(id)arg4;
+- (id)_initWithConnectionClass:(int)arg1 interfaceIdentifier:(int)arg2 guidancePriority:(unsigned int)arg3 delegate:(id)arg4 delegateQueue:(id)arg5 serviceIdentifier:(id)arg6;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "UITextFieldDelegate.h"
 
-@class NSMutableArray, NSMutableString, UIButton;
+@class NSMutableArray, NSMutableString, NSString, UIButton;
 
 @interface UIPasscodeField : UIView <UITextFieldDelegate>
 {
@@ -52,6 +52,12 @@
 - (void)setKeyboardType:(int)arg1 appearance:(int)arg2;
 - (void)setKeyboardType:(int)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

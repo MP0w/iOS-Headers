@@ -8,7 +8,7 @@
 
 #import "NSISRowBody.h"
 
-@class NSMutableArray;
+@class NSMutableArray, NSString;
 
 @interface NSISObjectiveLinearExpression : NSObject <NSISRowBody>
 {
@@ -34,10 +34,15 @@
 - (BOOL)constantTermIsZero;
 - (void)incrementConstantWithPriorityVector:(struct __CFData *)arg1 timesScalarCoefficient:(double)arg2;
 - (void)incrementConstantWithPriority:(float)arg1 value:(double)arg2;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithLinearExpression:(id)arg1 priority:(float)arg2;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

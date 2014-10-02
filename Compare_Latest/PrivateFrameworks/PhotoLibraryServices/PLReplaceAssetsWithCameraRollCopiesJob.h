@@ -21,11 +21,11 @@
 @property(copy, nonatomic) NSArray *assets; // @synthesize assets=_assets;
 - (id)_cameraRollAssetDerivedFromAsset:(id)arg1;
 - (void)runDaemonSide;
-- (id)initFromXPCObject:(id)arg1;
+- (id)initFromXPCObject:(id)arg1 connection:(id)arg2;
 - (void)encodeToXPCObject:(id)arg1;
 - (void)run;
-@property(readonly, nonatomic) NSPersistentStoreCoordinator *coordinator;
-@property(readonly, nonatomic) PLManagedObjectContext *managedObjectContext;
+@property(readonly, retain, nonatomic) NSPersistentStoreCoordinator *coordinator;
+@property(readonly, retain, nonatomic) PLManagedObjectContext *managedObjectContext;
 - (long long)daemonOperation;
 - (void)dealloc;
 

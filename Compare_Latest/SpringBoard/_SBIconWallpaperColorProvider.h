@@ -9,7 +9,7 @@
 #import "SBWallpaperObserver.h"
 #import "_UISettingsKeyObserver.h"
 
-@class NSHashTable, SBIconColorSettings;
+@class NSHashTable, NSString, SBIconColorSettings;
 
 @interface _SBIconWallpaperColorProvider : NSObject <_UISettingsKeyObserver, SBWallpaperObserver>
 {
@@ -33,6 +33,12 @@
 - (void)addClient:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

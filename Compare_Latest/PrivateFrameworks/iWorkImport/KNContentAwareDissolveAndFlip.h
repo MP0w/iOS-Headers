@@ -6,18 +6,21 @@
 
 #import <iWorkImport/KNAnimationEffect.h>
 
+#import "KNAnimationPluginArchiving.h"
 #import "KNContentAwareFrameAnimator.h"
 #import "KNContentAwareTransitionAnimator.h"
 
-@class KNAnimParameterGroup, KNMotionBlurAnimationPluginWrapper;
+@class KNAnimParameterGroup, KNMotionBlurAnimationPluginWrapper, NSString;
 
 __attribute__((visibility("hidden")))
-@interface KNContentAwareDissolveAndFlip : KNAnimationEffect <KNContentAwareTransitionAnimator, KNContentAwareFrameAnimator>
+@interface KNContentAwareDissolveAndFlip : KNAnimationEffect <KNContentAwareTransitionAnimator, KNContentAwareFrameAnimator, KNAnimationPluginArchiving>
 {
     KNAnimParameterGroup *_parameterGroup;
     KNMotionBlurAnimationPluginWrapper *_motionBlurWrapper;
 }
 
++ (void)downgradeAttributes:(id *)arg1 animationName:(id *)arg2 warning:(id *)arg3 type:(int)arg4 isToClassic:(BOOL)arg5 version:(unsigned long long)arg6;
++ (void)upgradeAttributes:(id *)arg1 animationName:(id)arg2 warning:(id *)arg3 type:(int)arg4 isFromClassic:(BOOL)arg5 version:(unsigned long long)arg6;
 + (id)thumbnailImageNameForType:(int)arg1;
 + (id)customAttributes;
 + (id)defaultAttributes;
@@ -26,7 +29,6 @@ __attribute__((visibility("hidden")))
 + (id)localizedMenuString:(int)arg1;
 + (id)supportedTypes;
 + (BOOL)requiresPerspectiveTransform;
-+ (BOOL)requiresMagicMoveTextures;
 + (BOOL)requiresBullets;
 + (BOOL)isCharacterAwareEffect;
 + (id)animationFilter;
@@ -38,6 +40,12 @@ __attribute__((visibility("hidden")))
 - (id)animationsWithContext:(id)arg1;
 - (void)dealloc;
 - (id)initWithAnimationContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

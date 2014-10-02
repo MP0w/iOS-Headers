@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 - (id)remoteViewIdentifier;
 - (void)unregister;
 - (void)dealloc;
-- (void)registerWithIdentifier:(id)arg1;
+- (void)registerWithIdentifier:(id)arg1 andController:(id)arg2;
 - (void)setRemoteViewOpaque:(BOOL)arg1;
 
 @end

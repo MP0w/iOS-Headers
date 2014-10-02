@@ -18,7 +18,6 @@
     unsigned int _currentAttachedVideoCount;
     unsigned int _currentAttachedAudioCount;
     unsigned int _currentAttachedImageCount;
-    NSMutableArray *_temporaryAttachmentURLs;
     NSArray *_attachments;
 }
 
@@ -37,8 +36,7 @@
 + (BOOL)canSendSubject;
 + (BOOL)_canSendText;
 + (void)_setupAccountMonitor;
-@property(readonly, nonatomic) NSArray *attachments; // @synthesize attachments=_attachments;
-@property(copy, nonatomic) NSMutableArray *temporaryAttachmentURLs; // @synthesize temporaryAttachmentURLs=_temporaryAttachmentURLs;
+@property(readonly, copy, nonatomic) NSArray *attachments; // @synthesize attachments=_attachments;
 @property(nonatomic) unsigned int currentAttachedImageCount; // @synthesize currentAttachedImageCount=_currentAttachedImageCount;
 @property(nonatomic) unsigned int currentAttachedAudioCount; // @synthesize currentAttachedAudioCount=_currentAttachedAudioCount;
 @property(nonatomic) unsigned int currentAttachedVideoCount; // @synthesize currentAttachedVideoCount=_currentAttachedVideoCount;

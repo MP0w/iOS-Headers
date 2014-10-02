@@ -10,6 +10,6 @@
 
 @protocol SBApplicationRestrictionDataSource <NSObject>
 - (NSArray *)allApplications;
-- (SBApplication *)applicationWithDisplayIdentifier:(NSString *)arg1;
+- (SBApplication *)applicationWithBundleIdentifier:(NSString *)arg1;
 @end
 

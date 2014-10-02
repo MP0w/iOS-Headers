@@ -8,7 +8,7 @@
 
 #import "ALAssetsLibraryAsset.h"
 
-@class ALAssetsLibrary, PLManagedAsset, PLPhotoLibrary;
+@class ALAssetsLibrary, NSString, PLManagedAsset, PLPhotoLibrary;
 
 __attribute__((visibility("hidden")))
 @interface ALAssetPrivate : NSObject <ALAssetsLibraryAsset>
@@ -28,6 +28,12 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) ALAssetsLibrary *library;
 - (void)dealloc;
 - (id)initWithManagedAsset:(id)arg1 library:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

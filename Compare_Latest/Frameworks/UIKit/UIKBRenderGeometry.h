@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
 @interface UIKBRenderGeometry : NSObject <NSCopying>
 {
     BOOL _detachedVariants;
+    BOOL _tallPopup;
     int _roundRectCorners;
     float _roundRectRadius;
     int _popupBias;
@@ -31,6 +32,7 @@ __attribute__((visibility("hidden")))
 + (id)geometryWithShape:(id)arg1;
 @property(retain, nonatomic) NSValue *splitRightRect; // @synthesize splitRightRect=_splitRightRect;
 @property(retain, nonatomic) NSValue *splitLeftRect; // @synthesize splitLeftRect=_splitLeftRect;
+@property(nonatomic) BOOL tallPopup; // @synthesize tallPopup=_tallPopup;
 @property(nonatomic) BOOL detachedVariants; // @synthesize detachedVariants=_detachedVariants;
 @property(nonatomic) int flickDirection; // @synthesize flickDirection=_flickDirection;
 @property(nonatomic) int popupBias; // @synthesize popupBias=_popupBias;

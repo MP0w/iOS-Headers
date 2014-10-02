@@ -6,12 +6,11 @@
 
 #import "SBUIMainScreenAnimationController.h"
 
-@class SBAlert, SBDisableAppStatusBarAlphaChangesAssertion, SBWindow, UIView;
+@class SBAlert, SBDisableAppStatusBarAlphaChangesAssertion, UIView;
 
 @interface SBUIAnimationLockScreenToAppZoomIn : SBUIMainScreenAnimationController
 {
     SBAlert *_fromAlert;
-    SBWindow *_transitionWindow;
     UIView *_viewToAnimate;
     UIView *_contextHostView;
     UIView *_fakeStatusBarViewContainer;
@@ -39,7 +38,7 @@
 - (void)_startAnimation;
 - (void)_prepareAnimation;
 - (id)_animationProgressDependency;
-- (_Bool)_animationShouldStart;
+- (_Bool)_waitsForApplicationActivationIfNecessary;
 - (void)_setHidden:(_Bool)arg1;
 - (_Bool)_shouldDismissBanner;
 - (void)dealloc;

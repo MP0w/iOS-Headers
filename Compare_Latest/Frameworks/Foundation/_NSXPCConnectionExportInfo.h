@@ -13,11 +13,15 @@ __attribute__((visibility("hidden")))
 {
     id _exportedObject;
     NSXPCInterface *_exportedInterface;
+    long long _exportCount;
 }
 
+@property long long exportCount; // @synthesize exportCount=_exportCount;
 @property(retain) NSXPCInterface *exportedInterface; // @synthesize exportedInterface=_exportedInterface;
 @property(retain) id exportedObject; // @synthesize exportedObject=_exportedObject;
+- (id)description;
 - (void)dealloc;
+- (id)init;
 
 @end
 

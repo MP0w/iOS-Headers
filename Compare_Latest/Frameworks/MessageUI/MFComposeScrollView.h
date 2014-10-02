@@ -6,23 +6,21 @@
 
 #import "UIScrollView.h"
 
-@class NSMutableSet, UIGestureRecognizer, UIView;
+@class NSMutableSet, NSSet, UIGestureRecognizer;
 
 @interface MFComposeScrollView : UIScrollView
 {
     UIGestureRecognizer *_singleTapGestureRecognizer;
     NSMutableSet *_disabledSubviews;
-    UIView *_tappedView;
     struct CGPoint _tapLocation;
     int _scrollBlocked;
-    struct _NSRange _selectedRange;
-    BOOL _catchesSingleTap;
     BOOL _shouldScrollToFirstResponder;
+    BOOL _subviewsDisabled;
 }
 
+@property(nonatomic) BOOL subviewsDisabled; // @synthesize subviewsDisabled=_subviewsDisabled;
+@property(readonly, nonatomic) NSSet *disabledSubviews; // @synthesize disabledSubviews=_disabledSubviews;
 @property(nonatomic) BOOL shouldScrollToFirstResponder; // @synthesize shouldScrollToFirstResponder=_shouldScrollToFirstResponder;
-@property(nonatomic) struct CGPoint tapLocation; // @synthesize tapLocation=_tapLocation;
-@property(retain, nonatomic) UIView *tappedView; // @synthesize tappedView=_tappedView;
 - (BOOL)_scrollsToMakeFirstResponderVisible;
 - (void)setContentOffset:(struct CGPoint)arg1 animated:(BOOL)arg2;
 - (void)endBlockingScroll;
@@ -31,9 +29,6 @@
 - (void)didAddSubview:(id)arg1;
 - (void)enableSubview:(id)arg1;
 - (void)disableSubview:(id)arg1;
-- (void)performDelayedTap:(BOOL)arg1;
-- (void)singleTap:(id)arg1;
-@property(nonatomic) BOOL catchesSingleTap;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

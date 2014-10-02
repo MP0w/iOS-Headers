@@ -9,13 +9,14 @@
 #import "OADEffectsParent.h"
 #import "OADProperties3DParent.h"
 
-@class NSArray, OADFill, OADScene3D, OADShape3D, OADStroke;
+@class NSArray, NSString, OADFill, OADScene3D, OADShape3D, OADStroke;
 
 __attribute__((visibility("hidden")))
 @interface OADGraphicProperties : OADDrawableProperties <OADEffectsParent, OADProperties3DParent>
 {
     OADFill *mFill;
     NSArray *mEffects;
+    NSArray *mExts;
     OADScene3D *mScene3D;
     OADShape3D *mShape3D;
     OADStroke *mStroke;
@@ -24,7 +25,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (void)removeUnnecessaryOverrides;
 - (BOOL)hasIsBehindText;
 - (void)setIsBehindText:(BOOL)arg1;
@@ -38,7 +39,10 @@ __attribute__((visibility("hidden")))
 - (BOOL)hasScene3D;
 - (void)setScene3D:(id)arg1;
 - (id)scene3D;
+- (BOOL)hasExts;
 - (BOOL)hasEffects;
+- (void)setExts:(id)arg1;
+- (id)exts;
 - (void)setEffects:(id)arg1;
 - (id)effects;
 - (BOOL)hasFill;
@@ -47,6 +51,11 @@ __attribute__((visibility("hidden")))
 - (void)setParent:(id)arg1;
 - (void)dealloc;
 - (id)initWithDefaults;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

@@ -21,6 +21,7 @@
     NSString *_applicationID;
     NSString *_contentType;
     NSData *_payload;
+    unsigned int _networkServiceType;
     SLService *_service;
 }
 
@@ -29,6 +30,8 @@
 @property(readonly, nonatomic) NSDictionary *parameters; // @synthesize parameters=_parameters;
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_url;
 - (void).cxx_destruct;
+- (unsigned int)networkServiceType;
+- (void)setNetworkServiceType:(unsigned int)arg1;
 - (void)setPayload:(id)arg1;
 - (void)setContentType:(id)arg1;
 - (void)performJSONRequestWithHandler:(CDUnknownBlockType)arg1;

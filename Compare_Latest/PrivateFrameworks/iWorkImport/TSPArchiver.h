@@ -6,7 +6,7 @@
 
 #import <iWorkImport/TSPArchiverBase.h>
 
-@class NSArray, NSHashTable, NSObject<OS_dispatch_data>, NSObject<OS_dispatch_group>;
+@class NSArray, NSHashTable, NSObject<OS_dispatch_data>, NSObject<OS_dispatch_group>, NSUUID;
 
 __attribute__((visibility("hidden")))
 @interface TSPArchiver : TSPArchiverBase
@@ -24,8 +24,10 @@ __attribute__((visibility("hidden")))
     NSHashTable *_aggregatedCommandToModelReferences;
     NSHashTable *_aggregatedLazyReferences;
     NSHashTable *_aggregatedDataReferences;
+    NSUUID *_objectUUID;
 }
 
+@property(readonly, nonatomic) NSHashTable *alternates; // @synthesize alternates=_alternates;
 @property(readonly, nonatomic) NSHashTable *aggregatedDataReferences; // @synthesize aggregatedDataReferences=_aggregatedDataReferences;
 @property(readonly, nonatomic) NSHashTable *aggregatedLazyReferences; // @synthesize aggregatedLazyReferences=_aggregatedLazyReferences;
 @property(readonly, nonatomic) NSHashTable *aggregatedCommandToModelReferences; // @synthesize aggregatedCommandToModelReferences=_aggregatedCommandToModelReferences;
@@ -36,6 +38,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSObject<OS_dispatch_data> *serializedData; // @synthesize serializedData=_serializedData;
 @property(readonly, nonatomic) NSObject<OS_dispatch_group> *serializeGroup; // @synthesize serializeGroup=_serializeGroup;
 @property(readonly, nonatomic) NSObject<OS_dispatch_group> *archiveGroup; // @synthesize archiveGroup=_archiveGroup;
+@property(readonly, nonatomic) NSUUID *objectUUID; // @synthesize objectUUID=_objectUUID;
 - (void).cxx_destruct;
 - (void)cleanup;
 - (void)serialize;

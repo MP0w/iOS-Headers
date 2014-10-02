@@ -13,7 +13,11 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (id)newSequentialTimeNodeGroupForAnimationInfoWithClass:(Class)arg1;
 + (id)newSequentialTimeNodeGroupForAnimationInfo;
++ (id)newSequentialTimeNodeGroupForAnimationInfoWithClass:(Class)arg1 target:(id)arg2;
++ (unsigned int)buildPartsFromTarget:(id)arg1;
++ (id)timeNodeUnion:(id)arg1 initWithClass:(Class)arg2;
 @property(retain, nonatomic) NSString *groupId;
 @property(nonatomic) double direction;
 @property(nonatomic) double delay;
@@ -21,10 +25,11 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) int triggerType;
 @property(nonatomic) int presetId;
 @property(nonatomic) int presetClass;
+- (void)setLevel2ParallelAttribute:(CDUnknownBlockType)arg1;
 @property(retain, nonatomic) PDAnimationTarget *target;
-- (id)level3SetBehavior;
-- (id)level2ParallelTimeNodeGroup;
-- (id)level1ParallelTimeNodeGroup;
+- (id)level3BehaviorAtNodeIndex:(unsigned int)arg1 level2NodeIndex:(unsigned int)arg2 level1NodeIndex:(unsigned int)arg3;
+- (id)level2ParallelTimeNodeGroupAtNodeIndex:(unsigned int)arg1 level1NodeIndex:(unsigned int)arg2;
+- (id)level1ParallelTimeNodeGroupAtNodeIndex:(unsigned int)arg1;
 
 @end
 

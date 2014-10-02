@@ -6,9 +6,11 @@
 
 #import <UIKit/UIView.h>
 
-@class CALayer, NSArray, NSMutableDictionary, UIImage, UIKBRenderConfig, _UIInputViewContent;
+#import "UISplittableInputView.h"
 
-@interface UIInputView : UIView
+@class CALayer, NSArray, NSMutableDictionary, NSString, UIImage, UIKBRenderConfig, _UIInputViewContent;
+
+@interface UIInputView : UIView <UISplittableInputView>
 {
     int _style;
     UIKBRenderConfig *_renderConfig;
@@ -57,7 +59,9 @@
 - (void)updateMergedSubviewConstraints;
 - (void)layoutSplitSubviewsWithLeftContentSize:(struct CGSize)arg1 rightContentSize:(struct CGSize)arg2;
 - (void)layoutMergedSubviews;
+- (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
+- (void)_updateWithSize:(struct CGSize)arg1;
 - (void)_endSplitTransitionIfNeeded:(BOOL)arg1;
 - (void)_beginSplitTransitionIfNeeded:(float)arg1 gapWidth:(float)arg2;
 - (BOOL)_isTransitioning;
@@ -71,14 +75,21 @@
 - (void)setInputViewStyle:(int)arg1;
 - (id)_inheritedRenderConfig;
 - (void)_setRenderConfig:(id)arg1;
+- (void)_setDisableSplitSupport:(BOOL)arg1;
+- (BOOL)_disableSplitSupport;
+- (void)_setSuppressBackgroundStyling:(BOOL)arg1;
+- (BOOL)_suppressBackgroundStyling;
 - (void)_updateBackgroundColor;
 - (id)tintColor;
-- (id)_initWithFrame:(struct CGRect)arg1 inputViewStyle:(int)arg2 useSplitViews:(BOOL)arg3;
 - (id)initWithFrame:(struct CGRect)arg1 inputViewStyle:(int)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)dealloc;
-@property(nonatomic) BOOL _suppressBackgroundStyling;
-@property(nonatomic) BOOL _disableSplitSupport;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

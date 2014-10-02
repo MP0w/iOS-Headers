@@ -21,6 +21,9 @@
 + (struct CGSize)artworkSize;
 @property(nonatomic) __weak id <RUTrackActionsDelegate> trackActionsDelegate; // @synthesize trackActionsDelegate=_trackActionsDelegate;
 - (void).cxx_destruct;
+- (void)_statusBarHeightChanged:(id)arg1;
+- (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
+- (void)dismissAnimated:(BOOL)arg1 withSelectedAction:(int)arg2 atIndex:(int)arg3;
 - (id)trackActioningObject:(id)arg1 localizedTitleForAction:(int)arg2;
 - (void)trackActioningObjectDidChangeContentSize:(id)arg1;
 - (void)trackActioningObject:(id)arg1 didSelectAction:(int)arg2 atIndex:(int)arg3;
@@ -36,7 +39,14 @@
 - (void)setPresentingViewController:(id)arg1;
 - (void)setModalItem:(id)arg1;
 - (void)layoutSubviews;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

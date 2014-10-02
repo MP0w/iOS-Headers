@@ -23,7 +23,6 @@
     NSString *_previousSyncToken;
     NSString *_nextSyncToken;
     NSMutableArray *_actions;
-    void *_context;
     unsigned int _multiGetBatchSize;
     NSMutableArray *_unsubmittedTasks;
     unsigned int _maxIndependentTasks;
@@ -41,21 +40,20 @@
     BOOL _actionsOnly;
 }
 
-@property BOOL actionsOnly; // @synthesize actionsOnly=_actionsOnly;
-@property(retain) NSString *bulkChangeCheckCTag; // @synthesize bulkChangeCheckCTag=_bulkChangeCheckCTag;
-@property(retain) NSDictionary *bulkRequests; // @synthesize bulkRequests=_bulkRequests;
-@property(readonly) NSArray *localItemURLOrder; // @synthesize localItemURLOrder=_localItemURLOrder;
-@property(readonly) void *context; // @synthesize context=_context;
-@property BOOL useSyncCollection; // @synthesize useSyncCollection=_useSyncCollection;
-@property(retain) NSString *previousSyncToken; // @synthesize previousSyncToken=_previousSyncToken;
-@property BOOL ensureUpdatedCTag; // @synthesize ensureUpdatedCTag=_ensureUpdatedCTag;
-@property(retain) NSString *nextCTag; // @synthesize nextCTag=_nextCTag;
-@property(retain) NSString *previousCTag; // @synthesize previousCTag=_previousCTag;
-@property(readonly) NSURL *folderURL; // @synthesize folderURL=_folderURL;
-@property BOOL useMultiGet; // @synthesize useMultiGet=_useMultiGet;
-@property unsigned int maxIndependentTasks; // @synthesize maxIndependentTasks=_maxIndependentTasks;
-@property unsigned int multiGetBatchSize; // @synthesize multiGetBatchSize=_multiGetBatchSize;
-@property(retain) NSURL *addMemberURL; // @synthesize addMemberURL=_addMemberURL;
+@property(nonatomic) BOOL actionsOnly; // @synthesize actionsOnly=_actionsOnly;
+@property(retain, nonatomic) NSString *bulkChangeCheckCTag; // @synthesize bulkChangeCheckCTag=_bulkChangeCheckCTag;
+@property(retain, nonatomic) NSDictionary *bulkRequests; // @synthesize bulkRequests=_bulkRequests;
+@property(readonly, nonatomic) NSArray *localItemURLOrder; // @synthesize localItemURLOrder=_localItemURLOrder;
+@property(nonatomic) BOOL useSyncCollection; // @synthesize useSyncCollection=_useSyncCollection;
+@property(retain, nonatomic) NSString *previousSyncToken; // @synthesize previousSyncToken=_previousSyncToken;
+@property(nonatomic) BOOL ensureUpdatedCTag; // @synthesize ensureUpdatedCTag=_ensureUpdatedCTag;
+@property(retain, nonatomic) NSString *nextCTag; // @synthesize nextCTag=_nextCTag;
+@property(retain, nonatomic) NSString *previousCTag; // @synthesize previousCTag=_previousCTag;
+@property(readonly, nonatomic) NSURL *folderURL; // @synthesize folderURL=_folderURL;
+@property(nonatomic) BOOL useMultiGet; // @synthesize useMultiGet=_useMultiGet;
+@property(nonatomic) unsigned int maxIndependentTasks; // @synthesize maxIndependentTasks=_maxIndependentTasks;
+@property(nonatomic) unsigned int multiGetBatchSize; // @synthesize multiGetBatchSize=_multiGetBatchSize;
+@property(retain, nonatomic) NSURL *addMemberURL; // @synthesize addMemberURL=_addMemberURL;
 - (void)_getTask:(id)arg1 finishedWithParsedContents:(id)arg2 deletedItems:(id)arg3 error:(id)arg4;
 - (void)getTask:(id)arg1 data:(id)arg2 error:(id)arg3;
 - (void)propFindTask:(id)arg1 parsedResponses:(id)arg2 error:(id)arg3;
@@ -96,12 +94,15 @@
 - (id)dataContentType;
 - (id)copyMultiGetTaskWithURLs:(id)arg1;
 - (id)copyGetTaskWithURL:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
-- (id)initWithFolderURL:(id)arg1 previousCTag:(id)arg2 previousSyncToken:(id)arg3 actions:(id)arg4 syncItemOrder:(BOOL)arg5 context:(void *)arg6 accountInfoProvider:(id)arg7 taskManager:(id)arg8;
+- (id)initWithFolderURL:(id)arg1 previousCTag:(id)arg2 previousSyncToken:(id)arg3 actions:(id)arg4 syncItemOrder:(BOOL)arg5 context:(id)arg6 accountInfoProvider:(id)arg7 taskManager:(id)arg8;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) id <CoreDAVLocalDBInfoProvider> delegate; // @dynamic delegate;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

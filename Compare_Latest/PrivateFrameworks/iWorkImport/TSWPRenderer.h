@@ -30,7 +30,7 @@ __attribute__((visibility("hidden")))
 - (void)p_drawHiddenDeletionsAdornments:(const struct TSWPAdornments *)arg1 lineFragment:(const struct TSWPLineFragment *)arg2 state:(const struct TSWPDrawingState *)arg3;
 - (void)p_drawInvisiblesAdornments:(const struct TSWPAdornments *)arg1 lineFragment:(const struct TSWPLineFragment *)arg2 state:(const struct TSWPDrawingState *)arg3;
 - (void)p_drawAttachmentGlyphAtPosition:(CDStruct_f48a8b00)arg1 fragment:(const struct TSWPLineFragment *)arg2;
-- (void)p_drawTextInRunsForLine:(struct __CTLine *)arg1 fragment:(const struct TSWPLineFragment *)arg2 state:(const struct TSWPDrawingState *)arg3 tateChuYoko:(BOOL)arg4 baseRange:(struct _NSRange)arg5;
+- (void)p_drawTextInRunsForLine:(struct __CTLine *)arg1 fragment:(const struct TSWPLineFragment *)arg2 state:(const struct TSWPDrawingState *)arg3 tateChuYoko:(BOOL)arg4 baseRange:(struct _NSRange)arg5 isFirstLineRef:(BOOL)arg6;
 - (void)p_calculateMarkAdornments:(vector_5a1d2cc3 *)arg1 drawingState:(const struct TSWPDrawingState *)arg2 lineFragment:(const struct TSWPLineFragment *)arg3;
 - (void)p_strokeWavyLineFromPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2 width:(float)arg3;
 - (void)p_strokeLineFromPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2 width:(float)arg3;

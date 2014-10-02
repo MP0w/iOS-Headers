@@ -6,12 +6,15 @@
 
 #import "NSObject.h"
 
+@class NSArray;
+
 __attribute__((visibility("hidden")))
 @interface WDAAnchor : NSObject
 {
     struct CGRect mBounds;
     int mTextWrappingMode;
     int mTextWrappingModeType;
+    NSArray *mTextWrapPoints;
     double mWrapDistanceLeft;
     double mWrapDistanceTop;
     double mWrapDistanceRight;
@@ -20,40 +23,27 @@ __attribute__((visibility("hidden")))
     int mRelativeHorizontalPosition;
     int mVerticalPosition;
     int mRelativeVerticalPosition;
-    BOOL mIsBehindText;
     BOOL mAllowOverlap;
-    BOOL mMoveWithText;
-    long mZIndexTotal;
     long mZIndex;
 }
 
++ (id)stringForTextWrappingModeType:(int)arg1;
+@property(nonatomic) long zIndex; // @synthesize zIndex=mZIndex;
 @property(nonatomic) BOOL allowOverlap; // @synthesize allowOverlap=mAllowOverlap;
+@property(nonatomic) int relativeVerticalPosition; // @synthesize relativeVerticalPosition=mRelativeVerticalPosition;
+@property(nonatomic) int verticalPosition; // @synthesize verticalPosition=mVerticalPosition;
+@property(nonatomic) int relativeHorizontalPosition; // @synthesize relativeHorizontalPosition=mRelativeHorizontalPosition;
+@property(nonatomic) int horizontalPosition; // @synthesize horizontalPosition=mHorizontalPosition;
+@property(nonatomic) double wrapDistanceBottom; // @synthesize wrapDistanceBottom=mWrapDistanceBottom;
+@property(nonatomic) double wrapDistanceTop; // @synthesize wrapDistanceTop=mWrapDistanceTop;
+@property(nonatomic) double wrapDistanceRight; // @synthesize wrapDistanceRight=mWrapDistanceRight;
+@property(nonatomic) double wrapDistanceLeft; // @synthesize wrapDistanceLeft=mWrapDistanceLeft;
+@property(retain, nonatomic) NSArray *textWrapPoints; // @synthesize textWrapPoints=mTextWrapPoints;
 @property(nonatomic) int textWrappingModeType; // @synthesize textWrappingModeType=mTextWrappingModeType;
 @property(nonatomic) int textWrappingMode; // @synthesize textWrappingMode=mTextWrappingMode;
 @property(nonatomic) struct CGRect bounds; // @synthesize bounds=mBounds;
 - (id).cxx_construct;
-- (void)setZIndexTotal:(long)arg1;
-- (long)zIndexTotal;
-- (void)setZIndex:(long)arg1;
-- (long)zIndex;
-- (void)setRelativeVerticalPosition:(int)arg1;
-- (int)relativeVerticalPosition;
-- (void)setRelativeHorizontalPosition:(int)arg1;
-- (int)relativeHorizontalPosition;
-- (void)setBehindText:(BOOL)arg1;
-- (BOOL)isBehindText;
-- (void)setVerticalPosition:(int)arg1;
-- (int)verticalPosition;
-- (void)setHorizontalPosition:(int)arg1;
-- (int)horizontalPosition;
-- (void)setWrapDistanceBottom:(double)arg1;
-- (double)wrapDistanceBottom;
-- (void)setWrapDistanceRight:(double)arg1;
-- (double)wrapDistanceRight;
-- (void)setWrapDistanceTop:(double)arg1;
-- (double)wrapDistanceTop;
-- (void)setWrapDistanceLeft:(double)arg1;
-- (double)wrapDistanceLeft;
+- (void)dealloc;
 - (id)init;
 
 @end

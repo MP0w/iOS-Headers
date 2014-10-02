@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UIApplication.h"
+#import "FBSystemApp.h"
 
 #import "MCProfileConnectionObserver.h"
 #import "SBPowerDownControllerDelegate.h"
 #import "UIApplicationDelegate.h"
 
-@class BBDataProviderConnection, NSDate, NSHashTable, NSMutableArray, NSMutableSet, NSNumberFormatter, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSSet, NSTimer, SBApplication, SBCardItemsController, SBUIController, UIWindow;
+@class BBDataProviderConnection, NSDate, NSHashTable, NSMutableArray, NSMutableSet, NSNumberFormatter, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSSet, NSString, NSTimer, SBApplication, SBCardItemsController, SBPowerDownController, SBUIController, UIWindow;
 
-@interface SpringBoard : UIApplication <SBPowerDownControllerDelegate, MCProfileConnectionObserver, UIApplicationDelegate>
+@interface SpringBoard : FBSystemApp <SBPowerDownControllerDelegate, MCProfileConnectionObserver, UIApplicationDelegate>
 {
     SBUIController *_uiController;
     NSTimer *_menuButtonTimer;
@@ -29,6 +29,7 @@
     unsigned int _poweringDown:1;
     unsigned int _headsetDownDelayedActionPerformed:1;
     unsigned int _isSeekingInMedia:1;
+    unsigned int _ignoringCurrentLockButtonPress:1;
     long long _statusBarOrientationOverride;
     int _mediaSeekDirection;
     unsigned int _springBoardRequestsAccelerometerEvents;
@@ -45,12 +46,13 @@
     _Bool _keybagRefetchTransactionIsActive;
     _Bool _menuButtonDown;
     NSSet *_restrictionDisabledApplications;
-    SBApplication *_nowPlayingApp;
     SBApplication *_nowRecordingApp;
     SBApplication *_menuButtonInterceptApp;
     _Bool _menuButtonInterceptAppEnabledForever;
     NSMutableArray *_disableNowPlayingHUDAssertionBundleIds;
     NSMutableArray *_appsRegisteredForVolumeEvents;
+    NSMutableArray *_appsRegisteredForLockButtonEvents;
+    SBApplication *_lastLockButtonEventRecipient;
     NSNumberFormatter *_decimalFormatter;
     NSNumberFormatter *_percentFormatter;
     NSTimer *_midnightTimer;
@@ -71,18 +73,29 @@
     double _menuButtonHoldAbsoluteStartTime;
     unsigned long long _menuButtonDownEventTimeStamp;
     NSMutableArray *_menuButtonUpBlocks;
+    NSMutableArray *_menuButtonUpHandledBlocks;
     _Bool _didPlayLockSound;
+    _Bool _volumeButtonsHavePrecedence;
     NSHashTable *_disableActiveOrientationChangeAssertions;
+    _Bool _hasFinishedLaunching;
     _Bool _typingActive;
+    int _nowPlayingProcessPID;
+    NSMutableArray *_nowLocatingApps;
+    SBPowerDownController *_powerDownController;
+    NSTimer *_daylightSavingsTimer;
 }
 
-+ (void)migrateSystemLocalNotifications;
-+ (_Bool)rendersLocally;
-+ (_Bool)registerAsSystemApp;
++ (_Bool)shouldFixMainThreadPriority;
+@property(retain, nonatomic) NSTimer *daylightSavingsTimer; // @synthesize daylightSavingsTimer=_daylightSavingsTimer;
+@property(retain, nonatomic) SBPowerDownController *powerDownController; // @synthesize powerDownController=_powerDownController;
+@property(nonatomic) int nowPlayingProcessPID; // @synthesize nowPlayingProcessPID=_nowPlayingProcessPID;
 @property(nonatomic, getter=isTypingActive) _Bool typingActive; // @synthesize typingActive=_typingActive;
+@property(retain, nonatomic) NSMutableArray *nowLocatingApps; // @synthesize nowLocatingApps=_nowLocatingApps;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *bulletinBoardQueue; // @synthesize bulletinBoardQueue=_bulletinBoardQueue;
 @property(readonly, nonatomic) BBDataProviderConnection *bulletinBoardConnection; // @synthesize bulletinBoardConnection=_bulletinBoardConnection;
+- (void)performAfterMenuButtonUpIsHandledUsingBlock:(CDUnknownBlockType)arg1;
 - (void)performWhenMenuButtonIsUpUsingBlock:(CDUnknownBlockType)arg1;
+- (_Bool)hasDisableActiveInterfaceOrientationChangeAssertions;
 - (void)removeDisableActiveInterfaceOrientationChangeAssertion:(id)arg1;
 - (void)addDisableActiveInterfaceOrientationChangeAssertion:(id)arg1;
 - (void)_sendBanditsVolumeDecreased;
@@ -90,8 +103,8 @@
 - (void)removeVolumePressBandit:(id)arg1;
 - (void)addVolumePressBandit:(id)arg1;
 - (_Bool)_hasVolumeBandits;
-- (_Bool)shouldHostWidgetsRemotely;
 - (void)noteKeybagRefetchTransactionIsActive:(_Bool)arg1;
+- (_Bool)isKeybagRefetchTransactionActive;
 - (_Bool)underMemoryPressure;
 - (void)_setStatusBarShowsProgress:(_Bool)arg1;
 - (void)_accessibilityDeactivationAnimationWillBegin;
@@ -107,19 +120,22 @@
 - (id)_accessibilityFrontMostApplication;
 - (id)formattedPercentStringForNumber:(id)arg1;
 - (id)formattedDecimalStringForNumber:(id)arg1;
-- (_Bool)isCameraApp;
+- (void)_deactivateReachability;
+- (void)_setReachabilitySupported:(_Bool)arg1;
 - (void)setSuspensionAnimationDelay:(double)arg1;
-- (void)setIdleTimerDisabled:(_Bool)arg1;
-- (void)setNowPlayingInfo:(id)arg1 forApplication:(id)arg2;
+- (void)setNowPlayingInfo:(id)arg1 forProcessWithPID:(int)arg2;
 - (_Bool)isNowPlayingAppPlaying;
-- (id)nowPlayingApp;
+@property(readonly, retain, nonatomic) SBApplication *leastRecentlyForegroundLocatingApp;
+- (void)nowLocatingAppDidEnterForeground:(id)arg1;
+- (void)removeNowLocatingApp:(id)arg1;
+- (void)addNowLocatingApp:(id)arg1;
 - (id)nowRecordingApp;
 - (_Bool)isMusicPlayerInNowPlayingView;
 - (void)_nowPlayingAppDidChangeNotification:(id)arg1;
+- (_Bool)hasFinishedLaunching;
 - (void)tearDown;
 - (void)_tearDownNow;
 - (_Bool)launchApplicationWithIdentifier:(id)arg1 suspended:(_Bool)arg2;
-- (void)_launchMusicPlayerSuspendedAndStartMusic;
 - (void)launchMusicPlayerSuspended;
 - (long long)alertInterfaceOrientation;
 - (_Bool)isLocked;
@@ -129,11 +145,9 @@
 - (void)willDisplayMiniAlert;
 - (void)didDismissMiniAlert;
 - (void)didDismissActionSheet;
-- (void)applicationDidOrderOutContext:(id)arg1 screen:(id)arg2;
-- (void)applicationWillOrderInContext:(id)arg1 windowLevel:(float)arg2 screen:(id)arg3;
 - (void)frontDisplayDidChange:(id)arg1;
 - (void)_setAmbiguousControlCenterActivationMargin:(double)arg1;
-- (void)updateOrientationAndAccelerometerSettings;
+- (void)updateOrientationDetectionSettings;
 - (void)updateProximitySettings;
 - (void)setExpectsFaceContact:(_Bool)arg1;
 - (void)setExpectsFaceContact:(_Bool)arg1 inLandscape:(_Bool)arg2;
@@ -145,6 +159,9 @@
 - (double)windowRotationDuration;
 - (_Bool)_alertWindowShouldRotate;
 - (id)displayIDForURLScheme:(id)arg1 isPublic:(_Bool)arg2;
+- (_Bool)homeScreenSupportsRotation;
+- (_Bool)homeScreenRotationStyleWantsUIKitRotation;
+- (long long)homeScreenRotationStyle;
 - (void)_removeDefaultInterfaceOrientatationOverride;
 - (void)_overrideDefaultInterfaceOrientationWithOrientation:(long long)arg1;
 - (long long)statusBarOrientation;
@@ -192,44 +209,41 @@
 - (void)noteBacklightFadeFinished;
 - (void)noteBacklightLevelChanged;
 - (void)noteBacklightControllerUndimming:(id)arg1;
+- (void)_adjustSignificantTimersAfterSleep;
+- (void)_adjustDaylightSavingsTimerAfterSleep;
+- (void)_daylightSavingsTimeChanged;
+- (void)setUpDaylightSavingsTimer;
 - (void)_adjustMidnightTimerAfterSleep;
+- (void)_postSpringBoardSignificantTimeChangedNotificationForReason:(id)arg1;
 - (void)_midnightPassed;
 - (void)setupMidnightTimer;
 - (_Bool)_handlePhysicalButtonEvent:(id)arg1;
 - (void)volumeChanged:(struct __GSEvent *)arg1;
 - (_Bool)_volumeChanged:(struct __IOHIDEvent *)arg1;
+- (id)appsRegisteredForLockButtonEvents;
+- (void)setAppRegisteredForLockButtonEvents:(id)arg1 isActive:(_Bool)arg2;
 - (id)appsRegisteredForVolumeEvents;
 - (void)setAppRegisteredForVolumeEvents:(id)arg1 isActive:(_Bool)arg2;
 - (void)setWantsVolumeButtonEvents:(_Bool)arg1;
 - (_Bool)menuButtonInterceptAppEnabledForever;
 - (id)menuButtonInterceptApp;
 - (void)setMenuButtonInterceptApp:(id)arg1 forever:(_Bool)arg2;
-- (_Bool)openURL:(id)arg1;
-- (_Bool)canOpenURL:(id)arg1;
-- (void)_openURLCore:(id)arg1 display:(id)arg2 animating:(_Bool)arg3 sender:(id)arg4 activationContext:(id)arg5 activationHandler:(CDUnknownBlockType)arg6;
-- (void)_applicationOpenURL:(id)arg1 withApplication:(id)arg2 sender:(id)arg3 publicURLsOnly:(_Bool)arg4 animating:(_Bool)arg5 activationContext:(id)arg6 activationHandler:(CDUnknownBlockType)arg7;
-- (void)applicationOpenURL:(id)arg1 withApplication:(id)arg2 sender:(id)arg3 publicURLsOnly:(_Bool)arg4 animating:(_Bool)arg5 needsPermission:(_Bool)arg6 activationContext:(id)arg7 activationHandler:(CDUnknownBlockType)arg8;
-- (void)applicationOpenURL:(id)arg1 publicURLsOnly:(_Bool)arg2;
+- (void)_relockUIIfNecessaryAfterTelephonyURLFailed;
+- (void)_openURLCore:(id)arg1 display:(id)arg2 animating:(_Bool)arg3 sender:(id)arg4 activationSettings:(id)arg5 withResult:(CDUnknownBlockType)arg6;
+- (void)_applicationOpenURL:(id)arg1 withApplication:(id)arg2 sender:(id)arg3 publicURLsOnly:(_Bool)arg4 animating:(_Bool)arg5 activationSettings:(id)arg6 withResult:(CDUnknownBlockType)arg7;
+- (void)applicationOpenURL:(id)arg1 withApplication:(id)arg2 sender:(id)arg3 publicURLsOnly:(_Bool)arg4 animating:(_Bool)arg5 needsPermission:(_Bool)arg6 activationSettings:(id)arg7 withResult:(CDUnknownBlockType)arg8;
+- (void)handleDocumentsAndDataURL:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)applicationOpenURL:(id)arg1;
-- (_Bool)applicationCanOpenURL:(id)arg1 publicURLsOnly:(_Bool)arg2;
 - (_Bool)_URLIsHandledBySpringBoard:(id)arg1;
-- (void)_applicationOpenURL:(id)arg1 event:(struct __GSEvent *)arg2;
-- (void)handleOpenURL:(id)arg1 fromApplication:(id)arg2;
 - (_Bool)_requestPermissionToOpenURL:(id)arg1 withApplication:(id)arg2 sender:(id)arg3;
 - (void)showAlertForUnhandledURL:(id)arg1 error:(int)arg2;
+- (long long)currentHomescreenStatusBarStyleWithoutConsideringAlerts;
 - (long long)currentHomescreenStatusBarStyle;
 - (void)showSpringBoardStatusBar;
 - (void)hideSpringBoardStatusBar;
 - (_Bool)isSpringBoardStatusBarHidden;
 - (long long)statusBar:(id)arg1 styleForRequestedStyle:(long long)arg2 overrides:(int)arg3;
 - (_Bool)handleDoubleHeightStatusBarTap:(long long)arg1;
-- (void)applicationSuspendedSettingsUpdated:(struct __GSEvent *)arg1;
-- (void)applicationSuspended:(struct __GSEvent *)arg1;
-- (void)applicationSuspend:(struct __GSEvent *)arg1;
-- (void)anotherApplicationFinishedLaunching:(struct __GSEvent *)arg1;
-- (void)applicationExited:(struct __GSEvent *)arg1;
-- (void)quitTopApplication:(struct __GSEvent *)arg1;
-- (void)accessoryKeyStateChanged:(struct __GSEvent *)arg1;
 - (void)_updateRingerState:(int)arg1 withVisuals:(_Bool)arg2 updatePreferenceRegister:(_Bool)arg3;
 - (void)ringerChanged:(int)arg1;
 - (void)_ringerChanged:(struct __IOHIDEvent *)arg1;
@@ -237,10 +251,9 @@
 - (void)pinPolicyChanged;
 - (void)localeChanged;
 - (void)_localeChanged;
-- (void)_widgetHostingDefaultsDidChange;
 - (void)debuggingAndDemoPrefsWereChanged;
 - (void)loadDebuggingAndDemoPrefs;
-- (_Bool)isDisplayIdentifierRestrictionDisabled:(id)arg1;
+- (_Bool)isBundleIdentifierRestrictionDisabled:(id)arg1;
 - (void)headsetAvailabilityChanged:(struct __GSEvent *)arg1;
 - (void)headsetButtonUp:(struct __GSEvent *)arg1;
 - (void)_headsetButtonUp:(struct __IOHIDEvent *)arg1;
@@ -250,17 +263,17 @@
 - (void)_imagesMounted;
 - (void)_iapExtendedModeReset;
 - (void)_iapServerConnectionDiedNotification:(id)arg1;
-- (id)simpleRemoteDestinationApp;
 - (void)_performDelayedHeadsetClickTimeout;
 - (void)lockButtonUp:(struct __GSEvent *)arg1;
-- (void)_lockButtonUpFromSource:(int)arg1;
+- (void)_lockButtonUp:(struct __IOHIDEvent *)arg1 fromSource:(int)arg2;
 - (void)_clearPreheatedLockAudio;
 - (void)_relaunchSpringBoardNow;
 - (void)relaunchSpringBoard;
 - (_Bool)relaunchingForSetupLanguageChange;
 - (void)powerDownCanceled:(id)arg1;
-- (void)_powerDownCancel:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)dismissPowerDownAlertWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)powerDownRequested:(id)arg1;
+- (_Bool)isPowerDownAlertFrontmost;
 - (_Bool)isPoweringDown;
 - (void)powerDown;
 - (void)reboot;
@@ -269,7 +282,7 @@
 - (void)extendButtonTimersForWake;
 - (void)lockButtonWasHeld;
 - (void)lockButtonDown:(struct __GSEvent *)arg1;
-- (void)_lockButtonDownFromSource:(int)arg1;
+- (void)_lockButtonDown:(struct __IOHIDEvent *)arg1 fromSource:(int)arg2;
 - (void)_handleMenuButtonEvent;
 - (void)mediaKeyUp:(struct __GSEvent *)arg1;
 - (void)mediaKeyDown:(struct __GSEvent *)arg1;
@@ -306,9 +319,10 @@
 - (void)_testPhoneAlerts;
 - (void)_lockdownActivationChanged:(id)arg1;
 - (void)userDefaultsDidChange:(id)arg1;
+- (void)_migrateSpringBoardPreferencesToFrontBoardPreferencesIfNecessary;
 - (void)_reloadDemoAndDebuggingDefaultsAndCapabilities;
 - (void)_effectiveSettingsDidChange;
-- (void)showEDGEActivationFailureAlert:(id)arg1 reason:(id)arg2 forMMS:(_Bool)arg3;
+- (void)showCellDataActivationFailureAlert:(id)arg1 reason:(id)arg2 forMMS:(_Bool)arg3;
 - (void)wipeDeviceNow;
 - (void)_rotateView:(id)arg1 toOrientation:(long long)arg2;
 - (void)requestDeviceUnlock;
@@ -323,6 +337,13 @@
 - (void)_mediaServerConnectionDied:(id)arg1;
 - (void)_registerForAVSystemControllerNotifications;
 - (void)_unregisterForAVSystemControllerNotifications;
+- (void)_updateVolumeAndPowerButtonPrioritiesForNotification:(id)arg1;
+- (void)_updateVolumeAndPowerButtonPriorities;
+- (void)_initializeVolumeAndPowerButtonPriorities;
+- (void)_applyVolumeAndPowerButtonPriorities:(_Bool)arg1;
+- (_Bool)_computeVolumeButtonsHavePrecedence;
+- (_Bool)_shouldHandleVolumeAndPowerButtonPriorities;
+- (void)_updateHomeScreenPresenceNotification:(id)arg1;
 - (void)applicationDidFinishLaunching:(id)arg1;
 - (void)_performDeferredLaunchWork;
 - (void)_startBulletinBoardServer;
@@ -331,6 +352,9 @@
 - (void)handleKeyHIDEvent:(struct __IOHIDEvent *)arg1;
 - (_Bool)_shouldSwallowGSEvent:(struct __GSEvent *)arg1;
 - (_Bool)_shouldSwallowHIDEvent:(struct __IOHIDEvent *)arg1;
+- (_Bool)application:(id)arg1 handleOpenURL:(id)arg2;
+- (_Bool)application:(id)arg1 canOpenURL:(id)arg2;
+- (_Bool)applicationIsAliveForSystemWatchdog:(id)arg1;
 - (void)handleSignal:(int)arg1;
 - (id)init;
 - (void)setNextAssistantRecognitionStrings:(id)arg1;
@@ -338,15 +362,17 @@
 - (void)failedTest:(id)arg1 withResults:(id)arg2;
 - (void)finishedTest:(id)arg1 extraResults:(id)arg2 waitForNotification:(id)arg3 withTeardownBlock:(CDUnknownBlockType)arg4;
 - (void)startedTest:(id)arg1;
+- (void)_handleApplicationExit:(id)arg1;
 - (_Bool)_shouldPendAlertsForTest:(id)arg1;
 - (void)_runControlCenterBringupTest;
 - (void)_runControlCenterDismissTest;
+- (void)_runNotificationCenterWidgetLaunchTest:(id)arg1;
 - (void)_runScrollNotificationCenterTest:(id)arg1;
 - (void)_runNotificationCenterBringupTest;
 - (void)_runNotificationCenterDismissTest;
-- (void)_runAppSliderBringupTest;
-- (void)_runAppSliderDismissTest;
-- (void)_runScrollAppSliderTest:(id)arg1;
+- (void)_runAppSwitcherBringupTest;
+- (void)_runAppSwitcherDismissTest;
+- (void)_runScrollAppSwitcherTest:(id)arg1;
 - (void)_runDisplayAlertTest:(id)arg1;
 - (void)_runScrollIconListTest;
 - (void)runRotationTest:(int)arg1;
@@ -355,7 +381,6 @@
 - (void)startLaunchTestNamed:(id)arg1 options:(id)arg2;
 - (void)_cleanUpLaunchTestState;
 - (void)_retryLaunchTestWithOptions:(id)arg1;
-- (void)_cameraPreviewStarted;
 - (void)_workspaceTransactionCompleted:(id)arg1;
 - (void)_unscatterWillBegin:(id)arg1;
 - (void)_runUnlockTest;
@@ -363,6 +388,10 @@
 - (void)_alertSheetStackChanged;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 @property(retain, nonatomic) UIWindow *window;
 
 @end

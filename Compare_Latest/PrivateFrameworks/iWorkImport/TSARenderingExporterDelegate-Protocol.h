@@ -16,6 +16,7 @@
 - (void)setup;
 
 @optional
+- (void)setMaxPixels:(float)arg1;
 - (int)renderingQuality;
 @end
 

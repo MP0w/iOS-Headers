@@ -7,11 +7,12 @@
 #import "NSObject.h"
 
 #import "TSDAnnotationHosting.h"
+#import "TSDCommentStorageDelegate.h"
 
 @class NSDate, NSString, TSDCommentStorage, TSKAnnotationAuthor, TSTTableInfo;
 
 __attribute__((visibility("hidden")))
-@interface TSTCommentHosting : NSObject <TSDAnnotationHosting>
+@interface TSTCommentHosting : NSObject <TSDAnnotationHosting, TSDCommentStorageDelegate>
 {
     TSDCommentStorage *mStorage;
     BOOL _forRollover;
@@ -20,26 +21,32 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, nonatomic, getter=isForRollover) BOOL forRollover; // @synthesize forRollover=_forRollover;
-@property(copy, nonatomic) TSDCommentStorage *storage; // @synthesize storage=mStorage;
 @property(readonly, nonatomic) CDStruct_0441cfb5 cellID; // @synthesize cellID=mCellID;
 @property(readonly, nonatomic) TSTTableInfo *tableInfo; // @synthesize tableInfo=mTableInfo;
-- (id)description;
+@property(readonly, copy) NSString *description;
+- (void)commentStorageTextDidChange:(id)arg1;
 - (void)commitText:(id)arg1;
 - (id)commandForDeletingComment;
 @property(readonly, nonatomic) int annotationDisplayStringType;
 @property(readonly, nonatomic) int annotationType;
 @property(readonly, nonatomic) NSDate *date;
-@property(retain, nonatomic) TSKAnnotationAuthor *author;
-@property(nonatomic) id <TSKModel> model;
+- (void)setAuthor:(id)arg1;
+@property(readonly, nonatomic) TSKAnnotationAuthor *author;
+@property(nonatomic) id <TSKModel> hostingModel;
 - (Class)editorClass;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(copy, nonatomic) TSDCommentStorage *storage;
 - (void)dealloc;
 - (id)initWithStorage:(id)arg1 forTableInfo:(id)arg2 cellID:(CDStruct_0441cfb5)arg3;
 
 // Remaining properties
-@property(readonly, nonatomic) NSString *changeTrackingString;
+@property(readonly, nonatomic) NSString *changeTrackingContentFormatString;
+@property(readonly, nonatomic) NSString *changeTrackingContentString;
+@property(readonly, nonatomic) NSString *changeTrackingTitleString;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

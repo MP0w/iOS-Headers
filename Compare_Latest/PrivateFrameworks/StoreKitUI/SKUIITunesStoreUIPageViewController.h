@@ -6,21 +6,24 @@
 
 #import "SUStorePageViewController.h"
 
-@class SKProductPageViewController, SUBarButtonItem;
+@class NSString, SKProductPageViewController, SUBarButtonItem;
 
 @interface SKUIITunesStoreUIPageViewController : SUStorePageViewController
 {
     SUBarButtonItem *_cancelButtonItem;
+    NSString *_cancelButtonTitle;
     SKProductPageViewController *_productPageViewController;
     BOOL _showsCancelButton;
 }
 
 @property(nonatomic) BOOL showsCancelButton; // @synthesize showsCancelButton=_showsCancelButton;
 @property(nonatomic) __weak SKProductPageViewController *productPageViewController; // @synthesize productPageViewController=_productPageViewController;
+@property(copy, nonatomic) NSString *cancelButtonTitle; // @synthesize cancelButtonTitle=_cancelButtonTitle;
 - (void).cxx_destruct;
 - (void)_storeSheetCancelButtonAction:(id)arg1;
 - (id)_cancelButtonItem;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)_addCancelButtonToNavigationItem:(id)arg1;
+- (void)viewWillLayoutSubviews;
 - (void)resetNavigationItem:(id)arg1;
 - (BOOL)presentDialogForError:(id)arg1 pendUntilVisible:(BOOL)arg2;
 - (void)handleFailureWithError:(id)arg1;

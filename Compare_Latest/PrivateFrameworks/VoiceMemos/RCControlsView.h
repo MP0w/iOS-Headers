@@ -6,50 +6,64 @@
 
 #import "UIView.h"
 
-@class RCRecorderStateButton, UIAlertView, UIButton, UIColor;
+@class NSLayoutConstraint, RCAVState, RCLayoutMetrics, RCRecorderStateButton, UIAlertController, UIButton, UIColor;
 
 @interface RCControlsView : UIView
 {
-    RCRecorderStateButton *_recordingStateButton;
-    UIButton *_playPauseButton;
-    UIButton *_doneButton;
-    UIAlertView *_noMicAlertView;
+    BOOL _showsBottomSeparatorLine;
+    BOOL _canEnableCaptureButton;
+    BOOL _canEnablePreviewButton;
+    BOOL _canEnableDoneButton;
     BOOL _canRecord;
     id <RCControlsViewDelegate> _delegate;
-    int _recordingState;
-    int _playbackState;
+    int _controlsConfiguration;
+    RCAVState *_AVState;
+    RCLayoutMetrics *_layoutMetrics;
+    float _topPadding;
+    NSLayoutConstraint *_topPaddingCn;
+    UIButton *_leftPlayStateButton;
+    UIButton *_doneButton;
+    RCRecorderStateButton *_recordingStateButton;
+    UIAlertController *_noMicAlertViewController;
     UIColor *_bottomSeparatorLineColor;
-    int _configuration;
 }
 
-@property(nonatomic) int configuration; // @synthesize configuration=_configuration;
-@property(retain, nonatomic) UIColor *bottomSeparatorLineColor; // @synthesize bottomSeparatorLineColor=_bottomSeparatorLineColor;
-@property(nonatomic) int playbackState; // @synthesize playbackState=_playbackState;
-@property(nonatomic) int recordingState; // @synthesize recordingState=_recordingState;
 @property(nonatomic) BOOL canRecord; // @synthesize canRecord=_canRecord;
+@property(readonly, nonatomic) UIColor *bottomSeparatorLineColor; // @synthesize bottomSeparatorLineColor=_bottomSeparatorLineColor;
+@property(readonly, nonatomic) UIAlertController *noMicAlertViewController; // @synthesize noMicAlertViewController=_noMicAlertViewController;
+@property(readonly, nonatomic) RCRecorderStateButton *recordingStateButton; // @synthesize recordingStateButton=_recordingStateButton;
+@property(readonly, nonatomic) UIButton *doneButton; // @synthesize doneButton=_doneButton;
+@property(readonly, nonatomic) UIButton *leftPlayStateButton; // @synthesize leftPlayStateButton=_leftPlayStateButton;
+@property(readonly, nonatomic) NSLayoutConstraint *topPaddingCn; // @synthesize topPaddingCn=_topPaddingCn;
+@property(nonatomic) BOOL canEnableDoneButton; // @synthesize canEnableDoneButton=_canEnableDoneButton;
+@property(nonatomic) BOOL canEnablePreviewButton; // @synthesize canEnablePreviewButton=_canEnablePreviewButton;
+@property(nonatomic) BOOL canEnableCaptureButton; // @synthesize canEnableCaptureButton=_canEnableCaptureButton;
+@property(nonatomic) BOOL showsBottomSeparatorLine; // @synthesize showsBottomSeparatorLine=_showsBottomSeparatorLine;
+@property(nonatomic) float topPadding; // @synthesize topPadding=_topPadding;
+@property(retain, nonatomic) RCLayoutMetrics *layoutMetrics; // @synthesize layoutMetrics=_layoutMetrics;
+@property(copy, nonatomic) RCAVState *AVState; // @synthesize AVState=_AVState;
+@property(nonatomic) int controlsConfiguration; // @synthesize controlsConfiguration=_controlsConfiguration;
 @property(nonatomic) __weak id <RCControlsViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_inputAvailabilityDidChangeNotification:(id)arg1;
 - (void)_doneButtonPressed:(id)arg1;
-- (void)_playPauseButtonPressed:(id)arg1;
+- (void)_playStateButtonPressed:(id)arg1;
 - (void)_recordingStateButtonPressed:(id)arg1;
-- (id)_assetImageForButtonPlaybackState:(int)arg1;
+- (id)_leftPlayStateImageForAVPreviewState:(int)arg1;
 - (void)_updateButtonsAnimated:(BOOL)arg1;
-- (BOOL)_canEnableDoneButton;
-- (BOOL)_canShowDoneButton;
-- (BOOL)_canRecord;
-- (BOOL)_canShowRecordButton;
-- (BOOL)_canPlayPause;
-- (BOOL)_canShowPlayPauseButton;
+- (BOOL)_isRecordingOrPausedRecording;
+- (BOOL)_isCaptureButtonEnabled;
+- (BOOL)_isPreviewButtonEnabled;
+- (int)_AVPreviewState;
+- (int)_AVCaptureState;
 - (void)performFailedToStartRecordingActions;
 - (void)performRecordButtonPress;
 - (id)_recordButton;
-- (void)setConfiguration:(int)arg1 animate:(BOOL)arg2;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)setControlsConfiguration:(int)arg1 animate:(BOOL)arg2;
 - (void)drawRect:(struct CGRect)arg1;
+- (struct CGSize)intrinsicContentSize;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)layoutSubviews;
-- (void)_layoutSubviews;
+- (void)updateConstraints;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

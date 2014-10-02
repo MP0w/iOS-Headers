@@ -7,13 +7,13 @@
 #import "NSObject.h"
 
 #import "UIActionSheetDelegate.h"
+#import "WBUCreditCardCaptureViewControllerDelegate.h"
 
-@class DOMHTMLInputElement, NSArray, NSDictionary, NSMutableDictionary, WebFrame;
+@class NSArray, NSDictionary, NSMutableDictionary, NSString, UIView<WBUFormAutoFillWebView>, WBUFormDataController;
 
-@interface WBUFormAutoCompleteState : NSObject <UIActionSheetDelegate>
+@interface WBUFormAutoCompleteState : NSObject <UIActionSheetDelegate, WBUCreditCardCaptureViewControllerDelegate>
 {
-    DOMHTMLInputElement *_textField;
-    WebFrame *_webFrame;
+    CDUnknownBlockType _creditCardCaptureCompletionHandler;
     NSDictionary *_formMetadata;
     NSDictionary *_textFieldMetadata;
     unsigned int _formType;
@@ -23,33 +23,52 @@
     NSArray *_potentialCredentialMatches;
     BOOL _canAutoComplete;
     NSMutableDictionary *_matchesByCompletion;
+    WBUFormDataController *_dataController;
 }
 
 + (BOOL)_shouldSaveCredentialsInProtectionSpace:(id)arg1;
-@property(readonly, nonatomic) WebFrame *webFrame; // @synthesize webFrame=_webFrame;
+@property(nonatomic) __weak WBUFormDataController *dataController; // @synthesize dataController=_dataController;
+- (void).cxx_destruct;
+- (void)creditCardCaptureViewController:(id)arg1 didCaptureCreditCard:(id)arg2;
+- (void)creditCardCaptureViewControllerDidCancel:(id)arg1;
 - (void)_offerToAutoFillFromPotentialCredentialMatches;
 - (void)_generateAndSuggestPassword;
+- (void)autoFillGeneratedPassword:(id)arg1 inForm:(double)arg2;
 - (int)_passwordGenerationAssistanceAction;
 - (BOOL)_passwordGenerationAssistanceAutoFillButtonEnabled;
 - (BOOL)_shouldUsePasswordGenerationAssistanceForTextField;
 - (void)_autoFillCreditCardData;
+- (void)_captureCreditCardDataWithCameraAndFill;
+@property(readonly, nonatomic) id <WBUFormAutoFillFrameHandle> frame;
+@property(readonly, nonatomic) UIView<WBUFormAutoFillWebView> *webView;
 - (void)_autoFillFormWithCreditCardData:(id)arg1;
 - (BOOL)_canAutoFillCreditCardData;
 - (BOOL)_textFieldLooksLikeCreditCardFormField;
 - (id)_matchesForPartialString:(id)arg1;
 - (void)_ensureFormMetadata;
+- (void)getTextFieldMetadata:(id *)arg1 formMetadata:(id *)arg2;
 - (void)acceptedAutoFillWord:(id)arg1;
 - (id)suggestionsForString:(id)arg1;
 - (BOOL)hasCurrentSuggestions;
+@property(readonly, nonatomic) NSString *textFieldValue;
 - (void)autoFill;
-- (void)_showDisallowedActionAlert;
+- (void)_autoFillValues:(id)arg1;
+- (void)autoFillValues:(id)arg1 andFocusField:(id)arg2;
+- (void)fetchFormMetadataWithCompletion:(CDUnknownBlockType)arg1;
 - (int)_action;
 - (id)titleOfAutoFillButton;
 - (void)_updateAutoFillButton;
+- (void)setAutoFillButtonTitle:(id)arg1;
 - (void)_gatherFormValuesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (void)invalidate;
-- (id)initWithTextField:(id)arg1 webFrame:(id)arg2;
+- (id)initWithFormDataController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

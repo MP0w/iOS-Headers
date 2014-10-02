@@ -8,7 +8,7 @@
 
 #import "SBKSyncTransactionProcessing.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, SBKSyncBagContext, SBKSyncResponseData, SBKTransactionController;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, SBKSyncResponseData, SBKTransactionController;
 
 __attribute__((visibility("hidden")))
 @interface SBKSyncRequestHandler : SBKRequestHandler <SBKSyncTransactionProcessing>
@@ -20,13 +20,11 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_responseDeletedKeys;
     NSMutableArray *_responseConflictedKeys;
     NSMutableDictionary *_responseDataByKey;
-    SBKSyncBagContext *_bagContext;
     SBKTransactionController *_transactionController;
 }
 
 + (int)conflictDetectionType;
 @property(readonly) SBKTransactionController *transactionController; // @synthesize transactionController=_transactionController;
-@property(readonly) SBKSyncBagContext *bagContext; // @synthesize bagContext=_bagContext;
 @property(readonly) SBKSyncResponseData *responseData; // @synthesize responseData=_responseData;
 - (void).cxx_destruct;
 - (id)transaction:(id)arg1 keyValuePairForUpdatedKey:(id)arg2;
@@ -43,6 +41,12 @@ __attribute__((visibility("hidden")))
 @property(readonly) NSArray *responseUpdatedKeys; // @synthesize responseUpdatedKeys=_responseUpdatedKeys;
 @property(copy) NSString *responseDomainVersion;
 - (id)initWithBagContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

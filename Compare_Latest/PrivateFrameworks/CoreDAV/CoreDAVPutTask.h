@@ -13,7 +13,7 @@
     NSString *_nextETag;
 }
 
-@property(retain) NSString *nextETag; // @synthesize nextETag=_nextETag;
+@property(retain, nonatomic) NSString *nextETag; // @synthesize nextETag=_nextETag;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)httpMethod;
 - (id)description;

@@ -8,7 +8,7 @@
 
 #import "AXGroupable.h"
 
-@class NSHashTable;
+@class NSHashTable, NSString;
 
 @interface AXElementGroup : NSArray <AXGroupable>
 {
@@ -18,10 +18,13 @@
     int _groupTraits;
     NSHashTable *_groupObservers;
     AXElementGroup *_parentGroup;
+    NSString *_label;
 }
 
 + (id)groupWithGenerator:(id)arg1;
++ (id)groupWithElements:(id)arg1 label:(id)arg2;
 + (id)groupWithElements:(id)arg1;
+@property(readonly, nonatomic) NSString *label; // @synthesize label=_label;
 @property(nonatomic) AXElementGroup *parentGroup; // @synthesize parentGroup=_parentGroup;
 @property(retain, nonatomic) NSHashTable *groupObservers; // @synthesize groupObservers=_groupObservers;
 @property(nonatomic, getter=isRootGroup) BOOL rootGroup; // @synthesize rootGroup=_rootGroup;
@@ -31,8 +34,8 @@
 - (id)debugFullDescription;
 - (id)_debugBriefDescription;
 - (id)_debugDescriptionForTraits;
-- (id)description;
-- (id)debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, copy) NSString *debugDescription;
 - (id)descriptionWithLocale:(id)arg1;
 - (void)_notifyGroupObserversDidTransferStateToGroup:(id)arg1;
 - (void)_notifyGroupObserversWillTransferStateToGroup:(id)arg1;
@@ -40,6 +43,8 @@
 - (void)unregisterGroupObserver:(id)arg1;
 - (void)registerGroupObserver:(id)arg1;
 @property(readonly, nonatomic) unsigned int numberOfElements;
+@property(readonly, nonatomic) BOOL allowsVisualGroupingOfChildren;
+@property(readonly, nonatomic) BOOL shouldBeUngrouped;
 @property(readonly, nonatomic) BOOL allowsChangingExistingGroupingOfContents;
 @property(readonly, nonatomic) BOOL canBeReplacedByChildren;
 @property(readonly, nonatomic) BOOL canBeGroupedWithOtherGroupables;
@@ -75,9 +80,13 @@
 - (id)groupByAppendingGroupable:(id)arg1;
 - (id)groupByPrependingGroupable:(id)arg1;
 - (void)dealloc;
-- (void)_commonInitWithElements:(id)arg1 generator:(id)arg2;
+- (void)_commonInitWithElements:(id)arg1 label:(id)arg2 generator:(id)arg3;
 - (id)initWithGenerator:(id)arg1;
-- (id)initWithElements:(id)arg1;
+- (id)initWithElements:(id)arg1 label:(id)arg2;
+
+// Remaining properties
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

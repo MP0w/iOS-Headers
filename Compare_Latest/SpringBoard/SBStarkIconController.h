@@ -13,7 +13,7 @@
 #import "SBIconViewMapDelegate.h"
 #import "SBLeafIconDataSource.h"
 
-@class AVExternalDevice, NSIndexPath, NSSet, SBIcon, SBIconModel, SBIconViewMap, SBStarkFakeIconOperationController, SBStarkFolderController, SBStarkIconLayoutOverrideStrategy, _UILegibilitySettings;
+@class AVExternalDevice, NSIndexPath, NSSet, NSString, SBIcon, SBIconModel, SBIconViewMap, SBStarkFakeIconOperationController, SBStarkFolderController, SBStarkIconLayoutOverrideStrategy, _UILegibilitySettings;
 
 @interface SBStarkIconController : UIViewController <SBIconModelDelegate, SBApplicationRestrictionObserver, SBFolderControllerDelegate, SBIconViewMapDelegate, SBIconViewDelegate, SBLeafIconDataSource>
 {
@@ -38,6 +38,7 @@
 
 @property(retain, nonatomic) SBStarkIconLayoutOverrideStrategy *iconLayoutOverrideStrategy; // @synthesize iconLayoutOverrideStrategy=_iconLayoutOverrideStrategy;
 @property(retain, nonatomic) SBStarkFakeIconOperationController *fakeIconOperationController; // @synthesize fakeIconOperationController=_fakeIconOperationController;
+- (_Bool)iconIsBeta:(id)arg1;
 - (_Bool)iconIsRecentlyUpdated:(id)arg1;
 - (_Bool)icon:(id)arg1 launchFromLocation:(int)arg2;
 - (_Bool)iconAllowsLaunch:(id)arg1;
@@ -50,6 +51,7 @@
 - (double)iconProgressPercent:(id)arg1;
 - (long long)iconProgressState:(id)arg1;
 - (_Bool)iconAppearsInNewsstand:(id)arg1;
+- (_Bool)iconCanTightenLabel:(id)arg1;
 - (_Bool)iconCanEllipsizeLabel:(id)arg1;
 - (id)icon:(id)arg1 defaultImageWithFormat:(int)arg2;
 - (id)icon:(id)arg1 imageWithFormat:(int)arg2;
@@ -77,7 +79,7 @@
 - (Class)controllerClassForFolder:(id)arg1;
 - (Class)_controllerClassForFolderClass:(Class)arg1;
 - (void)applicationRestrictionController:(id)arg1 didUpdateVisibleTags:(id)arg2 hiddenTags:(id)arg3;
-- (id)applicationIconForDisplayID:(id)arg1;
+- (id)applicationIconForBundleIdentifier:(id)arg1;
 - (id)iconForLeafID:(id)arg1;
 - (id)currentFolderController;
 - (void)didDeleteIconState:(id)arg1;
@@ -114,6 +116,12 @@
 - (void)dealloc;
 - (id)initWithInteractionAffordances:(unsigned long long)arg1 externalDevice:(id)arg2;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

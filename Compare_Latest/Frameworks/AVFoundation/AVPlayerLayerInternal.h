@@ -6,22 +6,22 @@
 
 #import "NSObject.h"
 
-@class AVPlayer, AVPlayerItem, AVSubtitleLayer, CALayer, NSObject<OS_dispatch_queue>, NSString;
+@class AVPlayer, AVPlayerItem, CALayer, FigSubtitleCALayer, NSDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface AVPlayerLayerInternal : NSObject
 {
     AVPlayer *_player;
     CALayer *maskLayer;
-    CALayer *contentLayer;
+    CALayer *videoLayer;
+    CALayer *closedCaptionLayer;
     NSString *videoGravity;
     NSString *subtitleGravity;
-    AVSubtitleLayer *subtitleLayer;
+    FigSubtitleCALayer *subtitleLayer;
     struct CGRect latestPlayerLayerBoundsAtRendering;
     struct CGRect latestSubtitleLayoutAtRendering;
     BOOL shouldObservePlayer;
     BOOL isObservingPlayer;
     BOOL hasPlayerToObserve;
-    BOOL isOverscanSubtitleSupportEnabled;
     NSObject<OS_dispatch_queue> *serialQueue;
     BOOL isPresentationLayer;
     BOOL isReadyForDisplay;
@@ -29,6 +29,8 @@
     AVPlayerItem *itemMarkedReadyForDisplay;
     struct CGSize presentationSize;
     struct CGSize latestPresentationSizeAtRendering;
+    BOOL isInPIPMode;
+    NSDictionary *pixelBufferAttributes;
 }
 
 @end

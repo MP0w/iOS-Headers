@@ -29,12 +29,13 @@
 @property(readonly, nonatomic) int connectionType; // @synthesize connectionType=_connectionType;
 @property(retain, nonatomic) id <NSObject> context; // @synthesize context=_context;
 @property(readonly, nonatomic, getter=isAvailable) BOOL available; // @synthesize available=_available;
-@property(readonly, nonatomic) NSURL *baseURL; // @synthesize baseURL=_baseURL;
-@property(readonly, nonatomic) NSString *homeSharingGroupID; // @synthesize homeSharingGroupID=_homeSharingGroupID;
+@property(readonly, retain, nonatomic) NSURL *baseURL; // @synthesize baseURL=_baseURL;
+@property(readonly, copy, nonatomic) NSString *homeSharingGroupID; // @synthesize homeSharingGroupID=_homeSharingGroupID;
 @property(readonly, nonatomic) BOOL requiresPassword; // @synthesize requiresPassword=_requiresPassword;
 @property(readonly, nonatomic) unsigned int version; // @synthesize version=_version;
-@property(readonly, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
-@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, copy, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
+@property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
+- (void).cxx_destruct;
 - (void)_sendUpdateRequest;
 - (void)_onQueue_ensureConnection;
 @property(readonly, nonatomic) NSString *deviceGUID;
@@ -43,10 +44,10 @@
 @property(readonly, nonatomic) unsigned int databaseID;
 - (void)disconnect;
 - (id)urlForRequest:(id)arg1;
+- (id)signedRequestFromURLRequest:(id)arg1;
 - (id)securityInfoForURL:(id)arg1;
 - (void)sendRequest:(id)arg1 withResponseHandler:(CDUnknownBlockType)arg2;
 - (void)connectWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)dealloc;
 - (id)initWithName:(id)arg1 uniqueIdentifier:(id)arg2 version:(unsigned int)arg3 baseURL:(id)arg4 homeSharingGroupID:(id)arg5 connectionType:(int)arg6;
 
 @end

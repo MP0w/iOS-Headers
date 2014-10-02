@@ -14,6 +14,7 @@
 - (id)MCSHA256DigestWithPasscodeSalt;
 - (id)MCOldStyleSafeFilenameHashWithExtension:(id)arg1;
 - (id)MCOldStyleSafeFilenameHash;
+- (id)MCHashedFilenameWithPrefix:(id)arg1 extension:(id)arg2;
 - (id)MCHashedFilenameWithExtension:(id)arg1;
 @end
 

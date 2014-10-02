@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 - (void *)mutableBytes;
 - (const void *)bytes;
 - (unsigned int)length;
+- (BOOL)_compact;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)finalize;
 - (unsigned int)retainCount;

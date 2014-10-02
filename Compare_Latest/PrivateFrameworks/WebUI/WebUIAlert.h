@@ -24,6 +24,7 @@
 }
 
 @property(copy, nonatomic) CDUnknownBlockType actionHandler; // @synthesize actionHandler=_actionHandler;
+- (void).cxx_destruct;
 - (id)selectedTableItem;
 - (void)setSelectedTableItemIndex:(int)arg1;
 - (void)setTableItems:(id)arg1 withTitles:(id)arg2;
@@ -40,7 +41,6 @@
 - (id)bodyText;
 - (id)title;
 - (int)type;
-- (void)dealloc;
 - (id)initWithType:(int)arg1 title:(id)arg2 defaultAction:(int)arg3 otherAction:(int)arg4;
 - (id)initWithType:(int)arg1 title:(id)arg2 bodyText:(id)arg3 defaultAction:(int)arg4 otherAction:(int)arg5;
 - (id)initWithType:(int)arg1 title:(id)arg2 defaultAction:(int)arg3 otherAction:(int)arg4 tableAction:(int)arg5;

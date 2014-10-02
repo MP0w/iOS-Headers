@@ -12,10 +12,10 @@
 {
     NSObject<OS_dispatch_queue> *_loggingQueue;
     int _verbosity;
+    int _logMaxVerbosity;
 }
 
 + (id)logger;
-@property(nonatomic) int verbosity; // @synthesize verbosity=_verbosity;
 - (void)waitForLoggingToComplete;
 - (BOOL)isVerbosityLogEverything;
 - (BOOL)isVerbosityLogWarningsAndErrors;
@@ -30,6 +30,7 @@
 - (void)logExtra:(id)arg1;
 - (void)logMessage:(id)arg1 whenVerbosity:(int)arg2;
 - (void)dealloc;
+@property(nonatomic) int verbosity;
 - (id)init;
 
 @end

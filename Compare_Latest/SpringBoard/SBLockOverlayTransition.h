@@ -15,7 +15,7 @@
     SBLockScreenViewController *_lockScreenVC;
 }
 
-- (id)_requestForContext:(id)arg1;
++ (id)underlayRequesterNameForContext:(id)arg1;
 - (void)_hideLockContent;
 - (void)performTransitionAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)dealloc;

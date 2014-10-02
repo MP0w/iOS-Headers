@@ -19,6 +19,7 @@ typedef struct {
         int _field5;
         int _field6;
         int _field7;
+        int _field8;
     } _field1;
     struct {
         int _field1;
@@ -27,5 +28,5 @@ typedef struct {
         int _field4;
         int _field5;
     } _field2;
-} CDStruct_8a47c5f7;
+} CDStruct_3990e8ec;
 

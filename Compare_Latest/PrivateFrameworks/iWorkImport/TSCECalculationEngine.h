@@ -6,7 +6,7 @@
 
 #import <iWorkImport/TSPObject.h>
 
-@class NSConditionLock, NSDate, NSMutableArray, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString, TSCENamedReferenceManager, TSKAccessController, TSKChangeGroup, TSKChangeNotifier;
+@class NSDate, NSMutableArray, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString, TSCENamedReferenceManager, TSKAccessController, TSKChangeGroup, TSKChangeNotifier;
 
 __attribute__((visibility("hidden")))
 @interface TSCECalculationEngine : TSPObject
@@ -18,26 +18,30 @@ __attribute__((visibility("hidden")))
     NSString *mPreviousLocaleIdentifier;
     NSDate *mCurrentDate;
     int mRecalculationThreadState;
-    struct _opaque_pthread_t *mRecalculationThread;
-    BOOL mShouldCancelRecalculationThread;
+    struct _opaque_pthread_mutex_t mRecalculationThreadStateMutex;
+    BOOL mShouldCancelRecalculationTask;
     unsigned int mCalculationPauseCount;
+    NSObject<OS_dispatch_group> *mRecalcLoopGroup;
+    BOOL mBlockingUntilRecalcIsComplete;
     NSObject<OS_dispatch_group> *mRecalcDispatchGroup;
     int mRecalcDispatchGroupSize;
+    NSObject<OS_dispatch_queue> *mRecalcHighPriorityQueue;
+    NSObject<OS_dispatch_queue> *mReaclcLowPriorityQueue;
     NSObject<OS_dispatch_semaphore> *mModifiedOwnersSem;
     struct __CFSet *mModifiedOwnersInThisRecalcCycle;
     BOOL mShouldRefillRecalcQueue;
     struct __CFDictionary *mReferenceResolvers;
     struct __CFDictionary *mLegacyGlobalIDStringToOwnerIDDictionary;
-    struct hash_set<TSCECellReference, TSCECellReferenceHash, TSCECellReferenceEqual, std::__1::allocator<TSCECellReference>> mPendingDirtyCells;
-    unsigned int mBatchingDirtyCellMarkingLevel;
+    unsigned int mBatchingGroupCellDirtyingLevel;
+    BOOL mDirtyRandomVolatileFunctionsAtEndOfDirtyBatching;
     NSMutableArray *mCalculationStateObservers;
     unsigned int mSuppressWillModifyCallsLevel;
-    NSConditionLock *mRecalculationInProgressConditionLock;
     unsigned int mNumberOfFormulas;
     TSCENamedReferenceManager *mNamedReferenceManager;
     TSKChangeGroup *mPendingChangesForAsyncNotification;
     NSObject<OS_dispatch_queue> *mWriteMutualExclusionQueue;
     BOOL mDirtyAllFormulasInDocumentDidLoad;
+    struct __CFUUID *_transposingTableID;
 }
 
 + (void)setTableReferenceInterfaceObject:(struct TSCETableReferenceInterface *)arg1;
@@ -64,8 +68,8 @@ __attribute__((visibility("hidden")))
 + (id)supportedFunctions;
 + (id)functionNameForLocalizedString:(id)arg1;
 + (id)functionLocalizationDictionary;
+@property struct __CFUUID *transposingTableID; // @synthesize transposingTableID=_transposingTableID;
 - (id).cxx_construct;
-- (void).cxx_destruct;
 - (hash_set_da7a7966)cellCoordinatesNeedingExcelImportForTable:(struct __CFUUID *)arg1;
 - (unsigned int)delayedArchivingPriority;
 - (id)packageLocator;
@@ -82,9 +86,9 @@ __attribute__((visibility("hidden")))
 - (unsigned int)numberOfCellsWithFormulas;
 - (void)removeCalculationStateObserver:(id)arg1;
 - (void)addCalculationStateObserver:(id)arg1;
-- (CDStruct_5744d895)parseStringAsReference:(id)arg1 contextResolver:(id)arg2 contextSheetName:(id)arg3 gettingSpecifiedSheetName:(id *)arg4 gettingSpecifiedTableName:(id *)arg5 gettingRest:(id *)arg6 gettingReferencesMatchingInputAsPrefix:(id *)arg7 gettingStickyBits:(char *)arg8 filterColons:(BOOL)arg9 referenceIsComplete:(BOOL)arg10;
-- (CDStruct_5744d895)parseStringAsReference:(id)arg1 tableName:(id)arg2 rest:(id)arg3 contextResolver:(id)arg4 contextSheetName:(id)arg5 gettingReferencesMatchingInputAsPrefix:(id *)arg6 gettingStickyBits:(char *)arg7 filterColons:(BOOL)arg8 referenceIsComplete:(BOOL)arg9;
-- (CDStruct_5744d895)parseStringAsReferenceComponentIntersection:(id)arg1 inResolver:(id)arg2 inTableNamed:(id)arg3 preferredGeometricResolver:(id)arg4 defaultResolver:(id)arg5 outStickyBits:(char *)arg6 gettingReferencesMatchingInputAsPrefix:(id *)arg7 requireFullMatches:(BOOL)arg8 filterColons:(BOOL)arg9;
+- (CDStruct_5744d895)parseStringAsReference:(id)arg1 contextResolver:(id)arg2 contextSheetName:(id)arg3 gettingSpecifiedSheetName:(id *)arg4 gettingSpecifiedTableName:(id *)arg5 gettingRest:(id *)arg6 gettingReferencesMatchingInputAsPrefix:(id *)arg7 gettingStickyBits:(char *)arg8 filterColons:(BOOL)arg9 referenceIsComplete:(BOOL)arg10 outNamesUsed:(char *)arg11;
+- (CDStruct_5744d895)parseStringAsReference:(id)arg1 tableName:(id)arg2 rest:(id)arg3 contextResolver:(id)arg4 contextSheetName:(id)arg5 gettingReferencesMatchingInputAsPrefix:(id *)arg6 gettingStickyBits:(char *)arg7 filterColons:(BOOL)arg8 referenceIsComplete:(BOOL)arg9 outNamesUsed:(char *)arg10;
+- (CDStruct_5744d895)parseStringAsReferenceComponentIntersection:(id)arg1 inResolver:(id)arg2 inTableNamed:(id)arg3 preferredGeometricResolver:(id)arg4 defaultResolver:(id)arg5 outStickyBits:(char *)arg6 gettingReferencesMatchingInputAsPrefix:(id *)arg7 requireFullMatches:(BOOL)arg8 filterColons:(BOOL)arg9 outNamesUsed:(char *)arg10;
 - (CDStruct_0441cfb5)parseStringAsGeometricReferenceComponent:(id)arg1 inResolver:(id)arg2 outStickyBits:(char *)arg3 gettingReferencesMatchingInputAsPrefix:(id *)arg4;
 - (hash_set_f2ddfd1c)precedentsOfCell:(CDStruct_78b871e1)arg1;
 - (id)escapedStringForRangeReference:(CDStruct_5744d895)arg1 contextSheetName:(id)arg2 stickyBits:(unsigned char)arg3 isRangeWithFunction:(BOOL)arg4 forceEscaping:(BOOL)arg5;
@@ -98,17 +102,18 @@ __attribute__((visibility("hidden")))
 - (CDStruct_0441cfb5)cellHandleForCellCoord:(CDStruct_0441cfb5)arg1 inTable:(struct __CFUUID *)arg2;
 - (struct)rangeCoordForCellHandleRange:(struct)arg1 inTable:(struct __CFUUID *)arg2;
 - (CDStruct_0441cfb5)cellCoordForCellHandle:(CDStruct_0441cfb5)arg1 inTable:(struct __CFUUID *)arg2;
-- (void)evaluateNextFormula;
-- (void)endBatchingDirtyCellMarking;
-- (void)beginBatchingDirtyCellMarking;
+- (void)endBatchingGroupCellDirtying;
+- (void)beginBatchingGroupCellDirtying;
 - (void)executeBlockWhileCalculationEngineIsNotWriting:(CDUnknownBlockType)arg1;
+- (void)startRecalcTaskIfNecessary;
 - (BOOL)recalculationIsPaused;
 - (void)resumeRecalculation;
 - (void)pauseRecalculation;
 - (void)endSuppressingWillModifyCalls;
 - (void)beginSuppressingWillModifyCalls;
+- (void)p_blockUntilRecalcTaskExitedWithTimeout:(double)arg1;
 - (void)blockUntilRecalcIsCompleteWithTimeout:(double)arg1;
-- (void)blockUntilRecalcIsCompleteOnNewThreadUntilDate:(id)arg1;
+- (void)p_blockUntilRecalcIsCompleteOnNewThreadWithTimeout:(id)arg1;
 - (BOOL)isCellReferenceDirty:(CDStruct_78b871e1 *)arg1;
 - (BOOL)cellContainsAFormula:(CDStruct_78b871e1 *)arg1;
 - (void)ownerIsDirty:(struct __CFUUID *)arg1;
@@ -119,21 +124,25 @@ __attribute__((visibility("hidden")))
 - (void)randomVolatileFunctionsAreDirty;
 - (void)timeVolatileFunctionsAreDirty;
 - (void)detectAndRepairConsistencyViolations;
+- (void)markOnlyDependentsDirty:(const CDStruct_78b871e1 *)arg1;
 - (void)indirectCallsAreDirty;
 - (void)allFunctionsAreDirty;
 - (void)rangeReferenceIsDirty:(CDStruct_5744d895 *)arg1;
 - (void)updateDirtyPrecedentCountsForRemovedIndex:(int)arg1 inTable:(struct __CFUUID *)arg2 forColumns:(BOOL)arg3;
+- (void)headerStateOfTableChanged:(struct __CFUUID *)arg1;
 - (void)headerStateOfTableChanged:(struct __CFUUID *)arg1 changeIsForColumns:(BOOL)arg2;
 - (void)cellReferenceIsDirty:(const CDStruct_78b871e1 *)arg1;
 - (id)rewriteFormulasWithSpec:(id)arg1;
+- (BOOL)clearCellIsDirtyAfterRecalc:(CDStruct_78b871e1)arg1;
 - (BOOL)referenceWasGuaranteedCleanAtRecalcCycleStart:(CDStruct_39788696)arg1;
 - (BOOL)cellIsInACycle:(CDStruct_78b871e1 *)arg1;
 - (BOOL)allCellsAreClean;
-- (int)dirtyCellCount;
-- (int)dirtyCellCountInOwner:(struct __CFUUID *)arg1;
+- (unsigned int)dirtyCellCount;
+- (unsigned int)dirtyCellCountInOwner:(struct __CFUUID *)arg1;
 - (void)removeFormulasFromRange:(CDStruct_5744d895)arg1;
 - (void)removeAllFormulasFromOwner:(struct __CFUUID *)arg1;
 - (void)removeFormula:(CDStruct_a91f2c80)arg1 inOwner:(struct __CFUUID *)arg2;
+- (void)replaceFormula:(CDStruct_a91f2c80)arg1 inOwner:(struct __CFUUID *)arg2 precedentIterator:(CDUnknownFunctionPointerType)arg3 userData:(void *)arg4 hasRandomVolatileFunctions:(char *)arg5 clearCycle:(BOOL)arg6;
 - (void)replaceFormula:(CDStruct_a91f2c80)arg1 inOwner:(struct __CFUUID *)arg2 precedentIterator:(CDUnknownFunctionPointerType)arg3 userData:(void *)arg4 hasRandomVolatileFunctions:(char *)arg5;
 - (void)addFormula:(CDStruct_a91f2c80)arg1 inOwner:(struct __CFUUID *)arg2 precedentIterator:(CDUnknownFunctionPointerType)arg3 userData:(void *)arg4 hasRandomVolatileFunctions:(char *)arg5;
 - (void)setOwnerIDForLegacyGlobalID:(id)arg1 ownerID:(struct __CFUUID *)arg2;
@@ -150,11 +159,10 @@ __attribute__((visibility("hidden")))
 - (int)xlImportDateMode;
 - (id)currentDate;
 - (void)updateCurrentDate;
-- (void)stopRecalculationThread;
-- (void)startRecalculationThread;
-- (BOOL)shouldCancelRecalculationThread;
+- (void)p_startRecalculationTask;
 - (void)recalculateWithTimeout:(double)arg1;
 - (void)recalcHoldingWriteLock;
+- (void)notifyObserversOfRecalcProgress;
 - (BOOL)recalcHoldingReadLock;
 - (void)p_recalcOneCellHoldingReadLock:(CDStruct_78b871e1)arg1 formulaOwner:(id)arg2 hasExistingCalculatedPrecedents:(BOOL)arg3 isInACycle:(BOOL)arg4;
 - (void)p_enqueueTaskForCell:(CDStruct_78b871e1)arg1;
@@ -174,6 +182,7 @@ __attribute__((visibility("hidden")))
 - (void)p_addApplicationNotification;
 - (id)retain;
 - (id)init;
+- (void)initializeDispatchObjects;
 - (id)allOwnerIDs;
 
 @end

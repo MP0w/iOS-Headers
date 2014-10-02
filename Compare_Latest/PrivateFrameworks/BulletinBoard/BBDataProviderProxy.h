@@ -6,27 +6,23 @@
 
 #import "NSObject.h"
 
-#import "BBXPCConnectionDelegate.h"
-#import "XPCProxyTarget.h"
+#import "BBRemoteDataProviderClientProxy.h"
 
-@class BBDataProviderIdentity, BBXPCIncomingConnection, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
+@class BBDataProviderIdentity, NSObject<OS_dispatch_queue>, NSString;
 
-@interface BBDataProviderProxy : NSObject <XPCProxyTarget, BBXPCConnectionDelegate>
+@interface BBDataProviderProxy : NSObject <BBRemoteDataProviderClientProxy>
 {
-    NSString *_sectionID;
     id <BBRemoteDataProvider> _dataProvider;
-    NSObject<OS_dispatch_queue> *_queue;
-    NSObject<OS_dispatch_queue> *_clientQueue;
-    BOOL _dataProviderDidLoad;
+    NSObject<OS_dispatch_queue> *_clientCalloutQueue;
     BBDataProviderIdentity *_identity;
-    BBXPCIncomingConnection *_connection;
-    NSMutableArray *_pendingRequests;
+    BOOL _dataProviderDidLoad;
+    NSObject<OS_dispatch_queue> *_proxyQueue;
+    id <BBRemoteDataProviderServerProxy> _serverProxy;
+    BOOL _connected;
+    NSObject<OS_dispatch_queue> *_queue;
 }
 
-@property(retain, nonatomic) BBDataProviderIdentity *identity; // @synthesize identity=_identity;
-@property(retain, nonatomic) id <BBRemoteDataProvider> dataProvider; // @synthesize dataProvider=_dataProvider;
-@property(copy, nonatomic) NSString *sectionID; // @synthesize sectionID=_sectionID;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
+@property(retain) BBDataProviderIdentity *identity; // @synthesize identity=_identity;
 - (void)deliverBulletinActionResponse:(id)arg1;
 - (void)deliverMessageWithName:(id)arg1 userInfo:(id)arg2;
 - (void)noteSectionInfoDidChange:(id)arg1;
@@ -36,9 +32,9 @@
 - (void)clearedInfoAndBulletinsForClearingAllBulletinsWithLimit:(id)arg1 lastClearedInfo:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)bulletinsWithRequestParameters:(id)arg1 lastCleared:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)dataProviderDidLoad;
-- (void)sectionIdentityWithCompletion:(CDUnknownBlockType)arg1;
-- (void)ping:(CDUnknownBlockType)arg1;
 - (void)updateSectionInfoWithHandler:(CDUnknownBlockType)arg1;
+- (void)updateSectionInfoWithHandler:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)updateSectionInfoInCategory:(int)arg1 withHandler:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)updateClearedInfoWithHandler:(CDUnknownBlockType)arg1;
 - (void)reloadDefaultSectionInfo;
 - (void)reloadSectionParameters;
@@ -50,17 +46,16 @@
 - (void)invalidateBulletins;
 - (void)_makeClientRequest:(CDUnknownBlockType)arg1;
 - (void)_makeServerRequest:(CDUnknownBlockType)arg1;
-- (void)_queue_makeServerRequest:(CDUnknownBlockType)arg1;
-- (void)_processPendingRequests;
-- (id)_serverProxy;
-- (void)connection:(id)arg1 connectionStateDidChange:(BOOL)arg2;
-- (void)_updateIdentity:(CDUnknownBlockType)arg1;
-- (void)setConnection:(id)arg1;
-- (void)invalidate;
-- (void)resume;
-- (id)description;
+- (void)setServerProxy:(id)arg1;
+- (void)updateIdentity:(CDUnknownBlockType)arg1;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
-- (id)initWithDataProvider:(id)arg1 identity:(id)arg2 queue:(id)arg3 dataProviderQueue:(id)arg4;
+- (id)initWithDataProvider:(id)arg1 clientReplyQueue:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -7,6 +7,6 @@
 #import "NSData.h"
 
 @interface NSData (MessageUI)
-- (id)mf_createAttachmentWithFilename:(id)arg1 UTIType:(id)arg2;
+- (id)mf_attachmentWithFilename:(id)arg1 UTIType:(id)arg2 fromManager:(id)arg3 contextID:(id)arg4;
 @end
 

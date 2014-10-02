@@ -6,51 +6,54 @@
 
 #import "NSObject.h"
 
-@class TSPUnknownContent;
+@class NSUUID, TSPUnknownContent;
 
 __attribute__((visibility("hidden")))
 @interface TSPUnarchiver : NSObject
 {
-    vector_029d225a _references;
-    vector_8ef431c5 _repeatedReferences;
-    vector_667badbd _finalizeHandlers;
     unsigned int _messageType;
     auto_ptr_4370f086 _message;
     long long _objectIdentifier;
-    auto_ptr_2bf936f6 _strongReferences;
-    unsigned long long _version;
+    auto_ptr_c01b630f _strongReferences;
+    unsigned long long _messageVersion;
     TSPUnknownContent *_unknownContent;
     id <TSPObjectDelegate> _objectDelegate;
     id <TSPLazyReferenceDelegate> _lazyReferenceDelegate;
     id <TSPUnarchiverDelegate> _delegate;
+    vector_029d225a _references;
+    vector_8ef431c5 _repeatedReferences;
+    vector_667badbd _finalizeHandlers;
 }
 
-@property(readonly, nonatomic) id <TSPUnarchiverDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) id <TSPObjectDelegate> objectDelegate; // @synthesize objectDelegate=_objectDelegate;
+@property(readonly, nonatomic) __weak id <TSPUnarchiverDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) __weak id <TSPObjectDelegate> objectDelegate; // @synthesize objectDelegate=_objectDelegate;
 @property(readonly, nonatomic) TSPUnknownContent *unknownContent; // @synthesize unknownContent=_unknownContent;
 @property(readonly, nonatomic) long long objectIdentifier; // @synthesize objectIdentifier=_objectIdentifier;
-@property(readonly, nonatomic) unsigned long long version; // @synthesize version=_version;
+@property(readonly, nonatomic) unsigned long long messageVersion; // @synthesize messageVersion=_messageVersion;
 @property(readonly, nonatomic) unsigned int messageType; // @synthesize messageType=_messageType;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL canValidateReferences;
 - (vector_667badbd *)finalizeHandlers;
 - (vector_8ef431c5 *)repeatedReferences;
 - (vector_029d225a *)references;
-- (RepeatedField_80b81656 *)strongReferences;
-- (id)initWithMessageType:(unsigned int)arg1 message:(auto_ptr_4370f086)arg2 identifier:(long long)arg3 strongReferences:(auto_ptr_2bf936f6)arg4 fieldInfos:(auto_ptr_40e77785)arg5 version:(unsigned long long)arg6 unknownMessages:(id)arg7 ignoreVersionChecking:(BOOL)arg8 objectDelegate:(id)arg9 lazyReferenceDelegate:(id)arg10 delegate:(id)arg11 error:(id *)arg12;
+- (hash_map_18963f5d *)strongReferences;
+@property(readonly, nonatomic) NSUUID *objectUUID;
+- (id)initWithMessageType:(unsigned int)arg1 message:(auto_ptr_4370f086)arg2 identifier:(long long)arg3 strongReferences:(auto_ptr_c01b630f)arg4 fieldInfos:(auto_ptr_40e77785)arg5 messageVersion:(unsigned long long)arg6 unknownMessages:(id)arg7 ignoreVersionChecking:(BOOL)arg8 objectDelegate:(id)arg9 lazyReferenceDelegate:(id)arg10 delegate:(id)arg11 error:(id *)arg12;
 - (void)addFinalizeHandler:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) BOOL documentHasCurrentFileFormatVersion;
+@property(readonly, nonatomic) unsigned long long fileFormatVersion;
 - (id)readDataReferenceMessage:(const struct DataReference *)arg1;
-- (void)readRepeatedLazyReferenceMessage:(const RepeatedPtrField_a0d2dbe7 *)arg1 isWeak:(BOOL)arg2 allowUnknownObject:(BOOL)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)readRepeatedLazyReferenceMessage:(const RepeatedPtrField_a0d2dbe7 *)arg1 isWeak:(BOOL)arg2 shouldValidate:(BOOL)arg3 allowUnknownObject:(BOOL)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)readRepeatedWeakLazyReferenceMessage:(const RepeatedPtrField_a0d2dbe7 *)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)readRepeatedLazyReferenceMessage:(const RepeatedPtrField_a0d2dbe7 *)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)readLazyReferenceMessage:(const struct Reference *)arg1 isWeak:(BOOL)arg2 allowUnknownObject:(BOOL)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)readLazyReferenceMessage:(const struct Reference *)arg1 isWeak:(BOOL)arg2 shouldValidate:(BOOL)arg3 allowUnknownObject:(BOOL)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)readWeakLazyReferenceMessage:(const struct Reference *)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)readLazyReferenceMessage:(const struct Reference *)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)readRepeatedReferenceMessage:(const RepeatedPtrField_a0d2dbe7 *)arg1 isWeak:(BOOL)arg2 allowUnknownObject:(BOOL)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)readRepeatedWeakReferenceMessage:(const RepeatedPtrField_a0d2dbe7 *)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)readRepeatedReferenceMessage:(const RepeatedPtrField_a0d2dbe7 *)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)readReferenceMessage:(const struct Reference *)arg1 isWeak:(BOOL)arg2 allowUnknownObject:(BOOL)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)readReferenceMessage:(const struct Reference *)arg1 isWeak:(BOOL)arg2 shouldValidate:(BOOL)arg3 allowUnknownObject:(BOOL)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)readWeakReferenceMessage:(const struct Reference *)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)readReferenceMessage:(const struct Reference *)arg1 completion:(CDUnknownBlockType)arg2;
 - (const struct Message *)message;

@@ -6,6 +6,8 @@
 
 #import <iWorkImport/TSCHBaseStyle.h>
 
+@class TSSPropertyMap;
+
 __attribute__((visibility("hidden")))
 @interface TSCHChartSeriesNonStyle : TSCHBaseStyle
 {
@@ -18,12 +20,16 @@ __attribute__((visibility("hidden")))
 + (int)defaultIntValueForProperty:(int)arg1;
 + (id)imageFillProperties;
 + (id)properties;
+- (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
+- (int)mixingTypeWithObject:(id)arg1;
+- (void)updateAfterPasteForDocumentRoot:(id)arg1 pasteboardCustomFormatList:(id)arg2;
 - (id)initFromPreUFFArchiveWithUnarchiver:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
 - (id)initFromUnarchiver:(id)arg1;
 - (void)p_upgradeSeparateVisibilityProperties:(id)arg1;
 - (void)p_upgradeMixedChartProperties:(id)arg1;
 - (id)initWithContext:(id)arg1 name:(id)arg2 overridePropertyMap:(id)arg3 isVariation:(BOOL)arg4;
+@property(copy, nonatomic) TSSPropertyMap *overrideMapForSameAsSource; // @dynamic overrideMapForSameAsSource;
 
 @end
 

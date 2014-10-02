@@ -8,6 +8,8 @@
 
 #import "TPNumberPadButtonProtocol.h"
 
+@class NSString;
+
 @interface SBEmptyButtonView : UIView <TPNumberPadButtonProtocol>
 {
     unsigned int _char;
@@ -16,6 +18,12 @@
 @property unsigned int character; // @synthesize character=_char;
 - (struct CGSize)intrinsicContentSize;
 - (id)initForCharacter:(unsigned int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

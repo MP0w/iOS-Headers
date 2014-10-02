@@ -42,9 +42,10 @@
 - (void)fadeOutWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_startFadeAnimationsForFadeIn:(_Bool)arg1;
 - (void)_cleanupAnimationWhenInterruptingFadeIn:(_Bool)arg1;
+- (void)_uiLockStateChanged:(id)arg1;
 - (void)_assistantVisibilityChanged;
+- (void)_invertColorsChanged;
 - (void)_mediaControlsDidShow;
-- (void)_blankScreenStateChanged;
 - (void)_startFadeInIfNecessary;
 - (void)prepareToFadeInWithTimeAlpha:(double)arg1 dateAlpha:(double)arg2 statusBarAlpha:(double)arg3 lockScreenView:(id)arg4 existingDateView:(id)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)_setRelevantLockScreenViewsHidden:(_Bool)arg1;

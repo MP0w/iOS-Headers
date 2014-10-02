@@ -4,11 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSMutableParagraphStyle, UIFont;
+@class NSFont, NSMutableParagraphStyle;
 
-#pragma mark Function Pointers and Blocks
-
-typedef void (*CDUnknownFunctionPointerType)(void); // return type and parameters are unknown
+#pragma mark Blocks
 
 typedef void (^CDUnknownBlockType)(void); // return type and parameters are unknown
 
@@ -53,7 +51,7 @@ struct _NSAttributeDictionaryElement {
 struct _NSAttributeInfo {
     unsigned int toUniCharEncoding;
     unsigned int codePageEncoding;
-    UIFont *font;
+    NSFont *font;
     float fontSize;
     float kern;
     NSMutableParagraphStyle *paraStyle;
@@ -70,11 +68,6 @@ struct _NSAttributeInfo {
     unsigned int paraStyleNeedsCopying:1;
     unsigned int hasWritingDirectionAttribute:1;
     unsigned int :15;
-};
-
-struct _NSDrawingParameters {
-    id _field1;
-    id _field2;
 };
 
 struct _NSGlyphNode;
@@ -151,39 +144,7 @@ struct _NSStoredContainerUsage {
     struct _NSRange _field5;
 };
 
-struct _xmlNode {
-    void *_field1;
-    int _field2;
-    char *_field3;
-    struct _xmlNode *_field4;
-    struct _xmlNode *_field5;
-    struct _xmlNode *_field6;
-    struct _xmlNode *_field7;
-    struct _xmlNode *_field8;
-    struct _xmlDoc *_field9;
-    struct _xmlNs *_field10;
-    char *_field11;
-    struct _xmlAttr *_field12;
-    struct _xmlNs *_field13;
-    void *_field14;
-    unsigned short _field15;
-    unsigned short _field16;
-};
-
-struct _xmlNs;
-
 #pragma mark Typedef'd Structures
-
-typedef struct {
-    unsigned int _hasNonNominalGlyph:1;
-    unsigned int _hasPositionalStake:1;
-    unsigned int _hasBidiRun:1;
-    unsigned int _isEllipsisStorage:1;
-    unsigned int _hasNonNominalStringIndexes:1;
-    unsigned int _isUnordered:1;
-    unsigned int _hasTotalAbsorbedCount:1;
-    unsigned int _reserved:25;
-} CDStruct_9f69489a;
 
 typedef struct {
     unsigned int _forceColorWrite:1;
@@ -207,8 +168,18 @@ typedef struct {
     float _field7;
     float _field8;
     struct CGRect _field9;
-    CDStruct_9f69489a _field10;
-} CDStruct_0de91d73;
+    struct {
+        unsigned int :1;
+        unsigned int :1;
+        unsigned int :1;
+        unsigned int :1;
+        unsigned int :1;
+        unsigned int :1;
+        unsigned int :1;
+        unsigned int :1;
+        unsigned int :24;
+    } _field10;
+} CDStruct_211ccd69;
 
 typedef struct {
     struct *_field1;

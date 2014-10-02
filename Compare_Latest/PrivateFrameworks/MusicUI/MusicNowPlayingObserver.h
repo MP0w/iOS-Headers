@@ -4,17 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MPNowPlayingObserver.h"
+#import "RUNowPlayingObserver.h"
 
-@interface MusicNowPlayingObserver : MPNowPlayingObserver
+@interface MusicNowPlayingObserver : RUNowPlayingObserver
 {
 }
 
 + (id)sharedObserver;
-- (void)_currentStationDidChangeNotfication:(id)arg1;
-- (void)_createNowPlayingInfoForItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)dealloc;
-- (id)init;
 
 @end
 

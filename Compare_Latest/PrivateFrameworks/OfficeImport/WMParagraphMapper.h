@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (void)mapPlaceholderAt:(id)arg1 rect:(struct CGRect)arg2 withState:(id)arg3;
-- (id)runAtIndex:(int)arg1;
+- (id)runAtIndex:(unsigned int)arg1;
 - (void)mapFieldMarkerAt:(id)arg1 marker:(id)arg2 withState:(id)arg3;
 - (void)mapRunAt:(id)arg1 run:(id)arg2 withState:(id)arg3;
 - (void)mapParagraphBodyWithState:(id)arg1;

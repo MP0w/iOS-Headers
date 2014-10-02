@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     NSMutableSet *_visibleAnnotations;
     NSMutableSet *_pendingAnnotations;
     NSMutableSet *_disallowAnimationAnnotations;
+    NSMutableSet *_invalidCoordinateAnnotations;
     id <MKAnnotation> _selectedAnnotation;
     id <MKAnnotation> _draggedAnnotation;
     NSMapTable *_annotationsToRepresentations;
@@ -26,10 +27,6 @@ __attribute__((visibility("hidden")))
     NSMapTable *_reusableAnnotationRepresentations;
     NSMutableSet *_managedAnnotations;
     NSMutableSet *_managedAnnotationsObservingCoordinate;
-    NSMutableSet *_addingAnnotationRepresentations;
-    id <MKAnnotationRepresentation> _annotationRepresentationToShowCallout;
-    BOOL _animateDelayedShowCallout;
-    struct CGRect _rectToAvoidForDelayedShowCallout;
     BOOL _isChangingCoordinate;
 }
 
@@ -49,8 +46,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)annotationIsInternal:(id)arg1;
 - (id)newDefaultAnnotationRepresentationForAnnotation:(id)arg1 reuseIdentifier:(id)arg2;
 - (id)representationForAnnotation:(id)arg1;
-@property(readonly, nonatomic) id <MKAnnotationRepresentation> selectedAnnotationRepresentation;
-- (void)finishAddingAnnotationRepresentations:(id)arg1;
+@property(readonly, nonatomic) __weak id <MKAnnotationRepresentation> selectedAnnotationRepresentation;
 - (void)deselectAnnotation:(id)arg1 animated:(BOOL)arg2;
 - (void)selectAnnotation:(id)arg1 animated:(BOOL)arg2 avoid:(struct CGRect)arg3;
 - (void)selectAnnotation:(id)arg1 animated:(BOOL)arg2;

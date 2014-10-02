@@ -57,7 +57,6 @@
 - (unsigned long long)_removeBulletin:(id)arg1;
 - (unsigned long long)addBulletin:(id)arg1;
 - (id)_sortDateForBulletin:(id)arg1;
-- (unsigned long long)indexOfBulletinWithLocalNotification:(id)arg1;
 - (unsigned long long)indexOfBulletinID:(id)arg1;
 - (unsigned long long)_indexForNewBulletin:(id)arg1;
 - (long long)compareSection:(id)arg1 forOrder:(long long)arg2;

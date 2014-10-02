@@ -8,22 +8,22 @@
 
 #import "SBDisplayProtocol.h"
 
-@class NSHashTable, NSMapTable, NSMutableDictionary, SBActivationContext, SBAlertManager, SBAlertView, UIScreen;
+@class NSHashTable, NSMutableDictionary, NSString, SBActivationSettings, SBAlertManager, SBAlertView, SBDeactivationSettings, SBStateSettings, UIScreen;
 
 @interface SBAlert : UIViewController <SBDisplayProtocol>
 {
     id <SBAlertDelegate> _alertDelegate;
     SBAlertView *_display;
     NSMutableDictionary *_dictionary;
-    SBActivationContext *_activationContext;
     _Bool _isWallpaperTunnelActive;
     _Bool _backgroundStyleIsSet;
     long long _backgroundStyle;
+    _Bool _isForcingBackgroundStyleUpdate;
     _Bool _suppressesBanners;
-    NSMapTable *_displayValues;
-    NSHashTable *_displayFlags;
-    _Bool _orientationChangedEventsEnabled;
-    float _accelerometerSampleInterval;
+    SBActivationSettings *_activationSettings;
+    SBDeactivationSettings *_deactivationSettings;
+    SBStateSettings *_stateSettings;
+    int _orientationChangedEventsEnabled;
     _Bool _requestedDismissal;
     UIScreen *_targetScreen;
     NSHashTable *_observers;
@@ -34,7 +34,6 @@
 + (void)registerForAlerts;
 @property(retain, nonatomic) SBAlertManager *alertManager; // @synthesize alertManager=_alertManager;
 @property(nonatomic, getter=_requestedDismissal, setter=_setRequestedDismissal:) _Bool requestedDismissal; // @synthesize requestedDismissal=_requestedDismissal;
-@property(copy, nonatomic) SBActivationContext *activationContext; // @synthesize activationContext=_activationContext;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (_Bool)_isLockAlert;
@@ -46,8 +45,8 @@
 - (void)setAlertDelegate:(id)arg1;
 - (id)alertDelegate;
 - (_Bool)_shouldDismissSwitcherOnActivation;
-- (_Bool)suppressesControlCenter;
-- (_Bool)suppressesNotificationCenter;
+@property(readonly, nonatomic) _Bool suppressesControlCenter;
+@property(readonly, nonatomic) _Bool suppressesNotificationCenter;
 @property(nonatomic) _Bool suppressesBanners;
 - (void)handleAutoLock;
 - (_Bool)handleHeadsetButtonPressed:(_Bool)arg1;
@@ -62,11 +61,9 @@
 - (_Bool)handleMenuButtonTap;
 - (void)animateDeactivation;
 - (_Bool)currentlyAnimatingDeactivation;
-- (void)willBeginDeactivationForTransitionToApp:(id)arg1 animated:(_Bool)arg2;
+- (void)willBeginDeactivationForTransitionToApps:(id)arg1 animated:(_Bool)arg2;
 - (void)didFinishAnimatingOut;
 - (void)didFinishAnimatingIn;
-- (void)didAnimateLockKeypadOut;
-- (void)didAnimateLockKeypadIn;
 - (id)legibilitySettings;
 - (id)effectiveStatusBarStyleRequest;
 - (long long)effectiveStatusBarStyle;
@@ -74,20 +71,21 @@
 - (long long)starkStatusBarStyle;
 - (long long)statusBarStyle;
 - (double)autoLockTime;
-- (_Bool)managesOwnStatusBarAtActivation;
 - (double)autoDimTime;
+- (_Bool)managesOwnStatusBarAtActivation;
 - (_Bool)allowsEventOnlySuspension;
 - (_Bool)expectsFaceContactInLandscape;
 - (_Bool)expectsFaceContact;
 - (void)setExpectsFaceContact:(_Bool)arg1 inLandscape:(_Bool)arg2;
 - (void)setExpectsFaceContact:(_Bool)arg1;
-- (double)accelerometerSampleInterval;
-- (void)setAccelerometerSampleInterval:(double)arg1;
 - (_Bool)orientationChangedEventsEnabled;
 - (void)setOrientationChangedEventsEnabled:(_Bool)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
+- (id)_basicDescription;
 - (void)deactivate;
+@property(readonly, nonatomic) _Bool wantsSupportedInterfaceOrientationsIgnoredDuringDeactivation;
 - (long long)interfaceOrientationForActivation;
+@property(readonly, nonatomic) UIViewController *viewControllerForSupportedInterfaceOrientations;
 - (void)activate;
 - (int)statusBarStyleOverridesToCancel;
 - (void)displayDidDisappear;
@@ -99,27 +97,36 @@
 - (id)objectForKey:(id)arg1;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 - (id)alertDisplayViewWithSize:(struct CGSize)arg1;
-- (id)deactivationValue:(unsigned int)arg1;
-- (_Bool)deactivationFlag:(unsigned int)arg1;
-- (void)setDeactivationSetting:(unsigned int)arg1 value:(id)arg2;
-- (void)setDeactivationSetting:(unsigned int)arg1 flag:(_Bool)arg2;
-- (void)clearDeactivationSettings;
-- (id)activationValue:(unsigned int)arg1;
-- (_Bool)activationFlag:(unsigned int)arg1;
-- (void)setActivationSetting:(unsigned int)arg1 value:(id)arg2;
-- (void)setActivationSetting:(unsigned int)arg1 flag:(_Bool)arg2;
-- (void)clearActivationSettings;
 - (void)removeBackgroundStyleWithAnimationFactory:(id)arg1;
+- (void)setBackgroundStyle:(long long)arg1 withAnimationFactory:(id)arg2 force:(_Bool)arg3;
 - (void)setBackgroundStyle:(long long)arg1 withAnimationFactory:(id)arg2;
 - (long long)customBackgroundStyle;
+- (_Bool)wantsCustomBackgroundStyleForAllWallpaperVariants;
 - (_Bool)wantsCustomBackgroundStyle;
 - (_Bool)isWallpaperTunnelActive;
 - (void)setWallpaperTunnelActive:(_Bool)arg1;
-- (_Bool)displayFlag:(unsigned int)arg1;
-- (id)displayValue:(unsigned int)arg1;
-- (void)setDisplaySetting:(unsigned int)arg1 value:(id)arg2;
-- (void)setDisplaySetting:(unsigned int)arg1 flag:(_Bool)arg2;
-- (void)clearDisplaySettings;
+- (void)applyStateSettings:(id)arg1;
+- (id)objectForStateSetting:(unsigned int)arg1;
+- (void)setObject:(id)arg1 forStateSetting:(unsigned int)arg2;
+- (_Bool)boolForStateSetting:(unsigned int)arg1;
+- (long long)flagForStateSetting:(unsigned int)arg1;
+- (void)setFlag:(long long)arg1 forStateSetting:(unsigned int)arg2;
+- (void)clearStateSettings;
+- (void)applyDeactivationSettings:(id)arg1;
+- (id)objectForDeactivationSetting:(unsigned int)arg1;
+- (void)setObject:(id)arg1 forDeactivationSetting:(unsigned int)arg2;
+- (_Bool)boolForDeactivationSetting:(unsigned int)arg1;
+- (long long)flagForDeactivationSetting:(unsigned int)arg1;
+- (void)setFlag:(long long)arg1 forDeactivationSetting:(unsigned int)arg2;
+- (void)clearDeactivationSettings;
+- (void)applyActivationSettings:(id)arg1;
+- (id)objectForActivationSetting:(unsigned int)arg1;
+- (void)setObject:(id)arg1 forActivationSetting:(unsigned int)arg2;
+- (_Bool)boolForActivationSetting:(unsigned int)arg1;
+- (long long)flagForActivationSetting:(unsigned int)arg1;
+- (void)setFlag:(long long)arg1 forActivationSetting:(unsigned int)arg2;
+- (void)clearActivationSettings;
+- (id)copyDisplaySettings;
 - (void)dismissAlert;
 - (void)clearDisplay;
 - (id)display;
@@ -138,8 +145,15 @@
 - (void)dealloc;
 - (id)init;
 - (_Bool)isRemote;
+- (_Bool)matchesInCallUIService;
+- (_Bool)matchesAnyInCallService;
 - (_Bool)matchesRemoteAlertService:(id)arg1 options:(id)arg2;
 - (id)effectiveViewController;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

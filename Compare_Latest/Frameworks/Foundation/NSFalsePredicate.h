@@ -27,6 +27,7 @@
 - (oneway void)release;
 - (unsigned int)retainCount;
 - (id)retain;
+- (void)_validateForMetadataQueryScopes:(id)arg1;
 
 @end
 

@@ -4,25 +4,29 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSData, NSString, NSURL, NSValue;
+@class NSData, NSDictionary, NSSet, NSString, NSURL, NSValue;
 
 @protocol ADSAdSpace_RPC
-- (void)_remote_cancelScheduledAd;
+- (void)_priv_loadAd:(NSDictionary *)arg1;
+- (void)_priv_adSpaceDidDisappear;
+- (void)_priv_adSpaceDidAppear;
 - (void)_remote_playbackFailedForURL:(NSString *)arg1;
 - (void)_remote_playbackFinishedForContentHash:(NSData *)arg1;
 - (void)_remote_playbackResumed;
 - (void)_remote_playbackPaused;
-- (void)_remote_playbackStarted;
-- (void)_remote_scheduleAd;
-- (void)_remote_reportPreRollImpression;
+- (void)_remote_playbackStartedForImpressionSource:(int)arg1;
+- (void)_remote_reportPreRollDidStop;
+- (void)_remote_reportPreRollDidStart;
+- (void)_remote_interstitialCreativeWasDismissed;
 - (void)_remote_interstitialRemovedFromSuperview;
-- (void)_remote_presentInterstitialStoryboard;
 - (void)_remote_bannerCancelAction;
 - (void)_remote_bannerRefuseAction;
-- (void)_remote_bannerBeginActionFromFrame:(NSValue *)arg1 tapLocation:(NSValue *)arg2;
+- (void)_remote_bannerBeginActionFromFrame:(NSValue *)arg1 tapLocation:(NSValue *)arg2 completionHandler:(void (^)(BOOL))arg3;
 - (void)_remote_setShouldNotCycle:(BOOL)arg1;
+- (void)_remote_setAdSpaceType:(int)arg1;
 - (void)_remote_setFrame:(NSValue *)arg1;
 - (void)_remote_setVisibility:(int)arg1;
+- (void)_remote_setContext:(NSSet *)arg1;
 - (void)_remote_setAuthenticationUserName:(NSString *)arg1;
 - (void)_remote_setSection:(NSString *)arg1;
 - (void)_priv_cycleImpressionImmediately;

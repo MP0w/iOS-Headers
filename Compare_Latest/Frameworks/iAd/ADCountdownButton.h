@@ -37,6 +37,7 @@
 - (void)setEnabled:(BOOL)arg1;
 - (void)setCountdownProgress:(double)arg1;
 - (double)countdownProgress;
+- (struct CGSize)intrinsicContentSize;
 - (id)init;
 - (void)dealloc;
 

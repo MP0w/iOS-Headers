@@ -77,11 +77,11 @@
 - (id)decimalNumberByAdding:(id)arg1 withBehavior:(id)arg2;
 - (id)decimalNumberByAdding:(id)arg1;
 - (void)getValue:(void *)arg1;
-- (double)doubleValue;
-- (const char *)objCType;
+@property(readonly) double doubleValue;
+@property(readonly) const char *objCType;
 - (BOOL)isEqual:(id)arg1;
 - (int)compare:(id)arg1;
-- (CDStruct_5fe7aead)decimalValue;
+@property(readonly) CDStruct_5fe7aead decimalValue;
 - (id)descriptionWithLocale:(id)arg1;
 - (id)description;
 - (id)initWithCoder:(id)arg1;

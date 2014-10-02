@@ -54,6 +54,10 @@
 - (BOOL)haveAccount;
 - (id)accountName;
 - (id)accountDSID;
+@property(readonly) int storeSheetTypeAskToBuy;
+@property(readonly) int storeSheetTypeDefault;
+@property(readonly) NSString *askToBuyPrompt;
+@property(readonly) int storeSheetType;
 - (void)setNavigationBar:(id)arg1;
 - (void)setReferringUserAgent:(id)arg1;
 - (void)setOrientation:(id)arg1;
@@ -85,6 +89,7 @@
 - (id)machineGUID;
 - (void)log:(id)arg1;
 - (void)handleDialogPropertyListString:(id)arg1;
+- (void)dispatchXEvent:(id)arg1;
 - (void)dispatchGlobalEventWithName:(id)arg1 payload:(id)arg2;
 - (id)parentViewController;
 - (id)DOMElementWithElement:(id)arg1;
@@ -147,6 +152,7 @@
 - (id)accountForDSID:(id)arg1;
 - (void)initAuthentication;
 - (void)deallocAuthentication;
+- (id)makeFamilySetupViewController;
 - (id)getDownloadQueueWithQueueType:(id)arg1;
 - (void)gotoStoreURL:(id)arg1 ofType:(id)arg2 withAuthentication:(BOOL)arg3 forceAuthentication:(BOOL)arg4;
 - (void)gotoStoreURL:(id)arg1;
@@ -183,6 +189,7 @@
 - (void)deallocMediaLibrary;
 - (void)addPurchaseWithInfo:(id)arg1;
 - (void)addExternalDownloads:(id)arg1;
+- (void)approveInPerson:(id)arg1;
 - (void)addPurchaseWithInfo:(id)arg1 options:(id)arg2;
 - (void)addExternalDownloadsFromManifestURL:(id)arg1;
 - (void)addExternalDownloads:(id)arg1 options:(id)arg2;

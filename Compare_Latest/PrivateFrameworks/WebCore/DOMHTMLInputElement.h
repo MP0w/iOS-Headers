@@ -26,8 +26,8 @@
 - (id)autocapitalize;
 - (void)setAutocorrect:(BOOL)arg1;
 - (BOOL)autocorrect;
-@property(readonly) NSURL *absoluteImageURL;
-@property(readonly) NSString *altDisplayString;
+@property(readonly, copy) NSURL *absoluteImageURL;
+@property(readonly, copy) NSString *altDisplayString;
 @property(copy) NSString *accessKey;
 - (void)setIncremental:(BOOL)arg1;
 - (BOOL)incremental;
@@ -95,8 +95,6 @@
 @property(copy) NSString *accept;
 - (void)_setAutofilled:(BOOL)arg1;
 - (BOOL)_isAutofilled;
-- (struct _NSRange)_selectedRange;
-- (void)_replaceCharactersInRange:(struct _NSRange)arg1 withString:(id)arg2 selectingFromIndex:(int)arg3;
 - (BOOL)_isTextField;
 - (BOOL)_isEdited;
 - (int)_autocapitalizeType;

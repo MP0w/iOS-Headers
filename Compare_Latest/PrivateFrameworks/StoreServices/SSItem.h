@@ -64,7 +64,7 @@
 - (id)bundleIdentifier;
 - (id)artistIdentifier;
 - (id)initWithItemDictionary:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)priceDisplay;
 - (id)playableMedia;
 - (id)buyParameters;
@@ -94,6 +94,11 @@
 @property(readonly, nonatomic) NSString *artistName;
 @property(readonly, nonatomic) NSArray *allItemOffers;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

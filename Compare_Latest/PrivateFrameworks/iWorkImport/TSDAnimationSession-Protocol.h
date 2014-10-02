@@ -7,6 +7,8 @@
 #import "NSObject.h"
 
 @protocol TSDAnimationSession <NSObject>
+@property(nonatomic) BOOL shouldUseSourceImage;
+@property(nonatomic) BOOL shouldDrawTexturesAsynchronously;
 - (float)showScale;
 - (BOOL)isOffscreenPlayback;
 @end

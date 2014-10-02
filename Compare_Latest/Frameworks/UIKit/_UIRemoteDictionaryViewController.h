@@ -20,7 +20,6 @@ __attribute__((visibility("hidden")))
 - (void)_handleDeleteButton:(id)arg1;
 - (void)_handleDownloadButton:(id)arg1;
 - (id)_downloadOptionsDictionary;
-- (id)_normalizedLanguageStringForLanguageCode:(id)arg1;
 - (id)_downloadButton;
 - (id)_downloadImageWithTintColor:(id)arg1;
 - (id)_cloudBackgroundImage;

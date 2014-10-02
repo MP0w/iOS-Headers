@@ -7,6 +7,8 @@
 #import "NSURL.h"
 
 @interface NSURL (SLTwitterURLAdditions)
++ (id)SLTwitterDirectMessageURL;
++ (id)SLTwitterRetweetURLForTweetID:(id)arg1;
 + (id)SLTwitterAccountGenerateURL;
 + (id)SLTwitterUsersLookupURL;
 + (id)SLTwitterAccountSettingsURL;

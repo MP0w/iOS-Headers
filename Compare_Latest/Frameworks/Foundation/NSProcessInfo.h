@@ -20,14 +20,14 @@
 + (id)processInfo;
 - (void)performActivityWithOptions:(unsigned long long)arg1 reason:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (void)performActivityWithOptions:(unsigned long long)arg1 reason:(id)arg2 block:(CDUnknownBlockType)arg3;
+- (void)_reactivateActivity:(id)arg1;
 - (void)endActivity:(id)arg1;
 - (id)beginActivityWithOptions:(unsigned long long)arg1 reason:(id)arg2;
 - (void)endSystemBehaviorSuspension:(id)arg1;
 - (id)beginSuspensionOfSystemBehaviors:(unsigned long long)arg1 reason:(id)arg2;
 - (void)_enableAutomaticTerminationOnly:(id)arg1;
 - (void)_disableAutomaticTerminationOnly:(id)arg1;
-- (BOOL)automaticTerminationSupportEnabled;
-- (void)setAutomaticTerminationSupportEnabled:(BOOL)arg1;
+@property BOOL automaticTerminationSupportEnabled;
 - (void)enableAutomaticTermination:(id)arg1;
 - (void)disableAutomaticTermination:(id)arg1;
 - (int)_suddenTerminationDisablingCount;
@@ -35,27 +35,27 @@
 - (void)_exitIfSuddenTerminationEnabledWithStatus:(int)arg1;
 - (void)enableSuddenTermination;
 - (void)disableSuddenTermination;
-- (double)systemUptime;
+@property(readonly) double systemUptime;
 - (BOOL)isTranslated;
-- (unsigned long long)physicalMemory;
-- (unsigned int)activeProcessorCount;
-- (unsigned int)processorCount;
-- (id)operatingSystemVersionString;
+@property(readonly) unsigned long long physicalMemory;
+@property(readonly) unsigned int activeProcessorCount;
+@property(readonly) unsigned int processorCount;
+- (BOOL)isOperatingSystemAtLeastVersion:(CDStruct_77932685)arg1;
+@property(readonly) CDStruct_77932685 operatingSystemVersion;
+@property(readonly, copy) NSString *operatingSystemVersionString;
 - (id)operatingSystemName;
 - (unsigned int)operatingSystem;
 - (id)userHomeDirectory;
 - (id)userFullName;
 - (id)userName;
-- (id)globallyUniqueString;
-- (int)processIdentifier;
-- (void)setProcessName:(id)arg1;
-- (id)processName;
-- (id)hostName;
+@property(readonly, copy) NSString *globallyUniqueString;
+@property(readonly) int processIdentifier;
+@property(copy) NSString *processName;
+@property(readonly, copy) NSString *hostName;
 - (void)setArguments:(id)arg1;
-- (id)arguments;
-- (id)environment;
+@property(readonly, copy) NSArray *arguments;
+@property(readonly, copy) NSDictionary *environment;
 - (void)dealloc;
-- (id)init;
 
 @end
 

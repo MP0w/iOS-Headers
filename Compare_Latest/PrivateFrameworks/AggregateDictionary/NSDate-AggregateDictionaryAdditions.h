@@ -9,5 +9,6 @@
 @interface NSDate (AggregateDictionaryAdditions)
 + (id)dateForDaysSince1970:(int)arg1;
 + (int)daysSince1970;
+- (int)daysSince1970;
 @end
 

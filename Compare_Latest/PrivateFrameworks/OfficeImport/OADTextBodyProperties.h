@@ -66,6 +66,7 @@ __attribute__((visibility("hidden")))
 - (void)setIsAnchorCenter:(BOOL)arg1;
 - (BOOL)isAnchorCenter;
 - (BOOL)hasIsAnchorCenter;
+- (BOOL)isWarped;
 - (void)setTextWarp:(id)arg1;
 - (id)textWarp;
 - (BOOL)hasTextWarp;

@@ -13,6 +13,7 @@
     BOOL _settingUpActivationState;
     BOOL _isInternalInstall;
     BOOL _isCarrierInstall;
+    BOOL _isNonUIInstall;
     BOOL _isVendorInstall;
     BOOL _hasShownMismatchedSIM;
     BOOL _hasShownWaitingAlertThisSession;
@@ -23,6 +24,7 @@
 @property(nonatomic) BOOL _hasShownWaitingAlertThisSession; // @synthesize _hasShownWaitingAlertThisSession;
 @property(nonatomic) BOOL _hasShownMismatchedSIM; // @synthesize _hasShownMismatchedSIM;
 @property(nonatomic) BOOL _isVendorInstall; // @synthesize _isVendorInstall;
+@property(nonatomic) BOOL _isNonUIInstall; // @synthesize _isNonUIInstall;
 @property(nonatomic) BOOL _isCarrierInstall; // @synthesize _isCarrierInstall;
 @property(nonatomic) BOOL _isInternalInstall; // @synthesize _isInternalInstall;
 @property(nonatomic) BOOL _settingUpActivationState; // @synthesize _settingUpActivationState;
@@ -34,6 +36,7 @@
 - (int)lockdownState;
 @property(readonly, nonatomic) BOOL isInternalInstall;
 @property(readonly, nonatomic) BOOL isVendorInstall;
+@property(readonly, nonatomic) BOOL isNonUIInstall;
 - (void)_calculateInstallType;
 - (void)_setupActivationState;
 @property(nonatomic, setter=_setState:) unsigned int _state; // @synthesize _state;

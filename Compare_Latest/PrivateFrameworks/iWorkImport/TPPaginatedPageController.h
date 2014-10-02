@@ -8,7 +8,7 @@
 
 #import "TSKChangeSourceObserver.h"
 
-@class TPTextWrapController;
+@class NSString, TPTextWrapController;
 
 __attribute__((visibility("hidden")))
 @interface TPPaginatedPageController : TPPageController <TSKChangeSourceObserver>
@@ -21,9 +21,11 @@ __attribute__((visibility("hidden")))
 - (void)p_performWithCachedPageLayouts:(CDUnknownBlockType)arg1;
 - (void)p_rebuildCachedLayoutChildrenFromStartPage:(unsigned int)arg1 toEndPage:(unsigned int)arg2 setNeedsLayout:(BOOL)arg3;
 - (void)syncProcessChanges:(id)arg1 forChangeSource:(id)arg2;
-- (void)processHeaderFooterPropertyChanged:(id)arg1 changeSource:(id)arg2;
+- (void)processHeaderFooterPropertyChanged;
+- (void)processSectionChanged:(id)arg1;
 - (id)textWrapper;
 - (struct CGSize)canvasSizeToFitAllPages;
+- (unsigned int)calculatePageIndexFromCanvasPoint:(struct CGPoint)arg1;
 - (unsigned int)pageIndexFromCanvasPoint:(struct CGPoint)arg1;
 - (struct CGRect)pageRectForPageIndex:(unsigned int)arg1;
 - (struct CGPoint)pageOriginForPageIndex:(unsigned int)arg1;
@@ -34,6 +36,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (void)teardown;
 - (id)initWithDocumentRoot:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

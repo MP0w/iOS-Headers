@@ -6,6 +6,8 @@
 
 #import "NSObject.h"
 
+@class NSArray, NSDictionary, NSString;
+
 @interface NSTask : NSObject
 {
 }
@@ -15,30 +17,24 @@
 + (id)currentTaskDictionary;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 - (id)init;
-- (id)standardError;
-- (id)standardOutput;
-- (id)standardInput;
-- (void)setStandardError:(id)arg1;
-- (void)setStandardOutput:(id)arg1;
-- (void)setStandardInput:(id)arg1;
-- (id)currentDirectoryPath;
-- (id)arguments;
-- (id)environment;
-- (id)launchPath;
-- (int)processIdentifier;
+@property int qualityOfService;
+@property(retain) id standardError;
+@property(retain) id standardOutput;
+@property(retain) id standardInput;
+@property(copy) NSString *currentDirectoryPath;
+@property(copy) NSArray *arguments;
+@property(copy) NSDictionary *environment;
+@property(copy) NSString *launchPath;
+@property(readonly) int processIdentifier;
 - (int)suspendCount;
 - (BOOL)resume;
 - (BOOL)suspend;
 - (void)terminate;
 - (void)interrupt;
-- (void)setLaunchPath:(id)arg1;
-- (void)setEnvironment:(id)arg1;
-- (void)setCurrentDirectoryPath:(id)arg1;
-- (void)setArguments:(id)arg1;
 - (void)launch;
-- (BOOL)isRunning;
-- (int)terminationReason;
-- (int)terminationStatus;
+@property(readonly, getter=isRunning) BOOL running;
+@property(readonly) int terminationReason;
+@property(readonly) int terminationStatus;
 @property(copy) CDUnknownBlockType terminationHandler;
 
 @end

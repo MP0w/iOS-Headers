@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UITableViewCell.h"
+#import <EventKitUI/EKUIConstrainedFontsTableViewCell.h>
 
 @class TwoPartTextLabel, UIColor;
 
-@interface PreferencesTwoPartValueCell : UITableViewCell
+@interface PreferencesTwoPartValueCell : EKUIConstrainedFontsTableViewCell
 {
     TwoPartTextLabel *_twoPartLabel;
     unsigned int _notifiedShort;
@@ -22,9 +22,9 @@
 - (void)layoutSubviews;
 - (void)_layoutSubviewsCore;
 - (void)layoutText:(id)arg1 andValue:(id)arg2;
-@property(readonly, nonatomic) UIColor *valueColor;
+@property(readonly, retain, nonatomic) UIColor *valueColor;
 - (id)description;
-@property(readonly, nonatomic) TwoPartTextLabel *twoPartTextLabel;
+@property(readonly, retain, nonatomic) TwoPartTextLabel *twoPartTextLabel;
 
 @end
 

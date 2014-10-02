@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CADisplayLink, CALayer, NSArray, NSMutableArray, NSMutableDictionary, NSMutableSet, PKExtendedPhysicsWorld, UIView;
+@class CADisplayLink, CALayer, NSArray, NSMutableArray, NSMutableDictionary, NSMutableSet, PKExtendedPhysicsWorld, UIDynamicAnimatorTicker, UIView;
 
 @interface UIDynamicAnimator : NSObject
 {
@@ -45,6 +45,7 @@
     id <UIDynamicAnimatorDelegate> _delegate;
     BOOL _disableDisplayLink;
     float _speed;
+    UIDynamicAnimatorTicker *_ticker;
 }
 
 + (id)_allDynamicAnimators;
@@ -53,6 +54,7 @@
 + (void)_unregisterAnimator:(id)arg1;
 + (void)_registerAnimator:(id)arg1;
 + (void)initialize;
+@property(retain, nonatomic) UIDynamicAnimatorTicker *ticker; // @synthesize ticker=_ticker;
 - (id)_referenceSystem;
 - (unsigned int)_referenceSystemType;
 - (struct CGRect)_referenceSystemBounds;
@@ -102,7 +104,7 @@
 - (void)_setAnimatorIntegralization:(unsigned int)arg1;
 - (void)_unregisterCollisionGroup;
 - (int)_registerCollisionGroup;
-@property(readonly, nonatomic) NSArray *behaviors;
+@property(readonly, copy, nonatomic) NSArray *behaviors;
 - (double)elapsedTime;
 - (void)removeAllBehaviors;
 - (void)_traverseBehaviorHierarchy:(CDUnknownBlockType)arg1;

@@ -12,10 +12,11 @@
 #import "SKUISwooshViewControllerDelegate.h"
 #import "UIScrollViewDelegate.h"
 
-@class NSArray, NSMutableArray, NSOperationQueue, SKUIClientContext, SKUIColorScheme, SKUIMetricsController, SKUIProductPageHeaderViewController, SKUIResourceLoader, SSVPlatformRequestOperation, UIScrollView;
+@class NSArray, NSMutableArray, NSOperationQueue, NSString, SKUIClientContext, SKUIColorScheme, SKUIMetricsController, SKUIProductPageHeaderViewController, SKUIResourceLoader, SSVPlatformRequestOperation, UIScrollView;
 
 @interface SKUISwooshArrayViewController : UIViewController <SKUIMetricsViewController, SKUIResourceLoaderDelegate, SKUISwooshViewControllerDelegate, UIScrollViewDelegate, SKUIProductPageChildViewController>
 {
+    BOOL _askPermission;
     SKUIResourceLoader *_artworkLoader;
     SKUIClientContext *_clientContext;
     SKUIColorScheme *_colorScheme;
@@ -37,6 +38,7 @@
 @property(nonatomic) __weak id <SKUIProductPageChildViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) SKUIColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
+@property(nonatomic) BOOL askPermission; // @synthesize askPermission=_askPermission;
 - (void).cxx_destruct;
 - (id)_scrollView;
 - (void)_reloadChildViewControllers;
@@ -60,6 +62,12 @@
 - (void)loadMissingItemData;
 - (void)dealloc;
 - (id)initWithSwooshComponents:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

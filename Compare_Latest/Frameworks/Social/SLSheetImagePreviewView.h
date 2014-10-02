@@ -6,38 +6,30 @@
 
 #import "UIView.h"
 
-#import "SLSheetPreviewView.h"
+@class NSArray, NSMutableDictionary, UIImage, UIImageView;
 
-@class NSArray, NSMutableDictionary, UIActivityIndicatorView, UIImage, UIImageView;
-
-@interface SLSheetImagePreviewView : UIView <SLSheetPreviewView>
+@interface SLSheetImagePreviewView : UIView
 {
     UIImage *_image;
-    BOOL _isTranscoding;
-    BOOL _sheetPresentationAnimationDidFinish;
-    UIActivityIndicatorView *_activityView;
     NSMutableDictionary *_intrinsicSizes;
-    BOOL _needsLayout;
+    int _verticalSizeClass;
     UIImageView *_imageView;
     NSArray *_principalAttachments;
-    int _currentBarMetrics;
 }
 
-+ (id)blankWebpageImage;
-@property(nonatomic) int currentBarMetrics; // @synthesize currentBarMetrics=_currentBarMetrics;
++ (id)fallbackPreviewImage;
 @property(retain, nonatomic) NSArray *principalAttachments; // @synthesize principalAttachments=_principalAttachments;
 @property(retain, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
 - (void).cxx_destruct;
-- (void)sheetPresentationAnimationDidFinish;
-@property(nonatomic) BOOL isTranscoding;
-- (void)_setUpActivityViewIfNecessary;
 - (struct CGSize)intrinsicContentSize;
-- (BOOL)previewDependsOnAttachment:(id)arg1;
+- (BOOL)generatePreviewImageFromAttachments;
+- (void)ensurePlaceholderPreviewImage;
 - (void)setPreviewImage:(id)arg1 forAttachment:(id)arg2;
 @property(retain, nonatomic) UIImage *image;
-- (void)barMetricsDidChange;
-- (struct CGSize)sizeForBarMetrics:(int)arg1;
-- (void)setSize:(struct CGSize)arg1 forBarMetrics:(int)arg2;
+- (void)verticalSizeClassDidChange;
+@property(nonatomic) int verticalSizeClass;
+- (struct CGSize)sizeForVerticalSizeClass:(int)arg1;
+- (void)setSize:(struct CGSize)arg1 forVerticalSizeClass:(int)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

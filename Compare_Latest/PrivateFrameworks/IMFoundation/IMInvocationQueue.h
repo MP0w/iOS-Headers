@@ -20,9 +20,9 @@
 }
 
 @property(readonly, nonatomic) BOOL holdQueue; // @synthesize holdQueue=_holdQueue;
-@property(readonly, nonatomic) NSProtocolChecker *protocolChecker; // @synthesize protocolChecker=_protocolChecker;
-@property(readonly, nonatomic) NSMutableArray *options; // @synthesize options=_options;
-@property(readonly, nonatomic) NSMutableArray *queue; // @synthesize queue=_queue;
+@property(readonly, retain, nonatomic) NSProtocolChecker *protocolChecker; // @synthesize protocolChecker=_protocolChecker;
+@property(readonly, retain, nonatomic) NSMutableArray *options; // @synthesize options=_options;
+@property(readonly, retain, nonatomic) NSMutableArray *queue; // @synthesize queue=_queue;
 @property(nonatomic) double dequeueRate; // @synthesize dequeueRate=_dequeueRate;
 @property id target; // @synthesize target=_target;
 @property id delegate; // @synthesize delegate=_delegate;

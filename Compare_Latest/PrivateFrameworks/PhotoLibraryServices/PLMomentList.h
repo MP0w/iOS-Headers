@@ -7,13 +7,13 @@
 #import <PhotoLibraryServices/PLManagedObject.h>
 
 #import "PLAssetContainerList.h"
+#import "PLMomentListData.h"
 
-@class NSArray, NSData, NSDate, NSOrderedSet, NSString, PLRevGeoCompoundNameInfo;
+@class NSArray, NSData, NSDate, NSObject<NSCopying>, NSOrderedSet, NSString, PLMomentNameInfo;
 
-@interface PLMomentList : PLManagedObject <PLAssetContainerList>
+@interface PLMomentList : PLManagedObject <PLAssetContainerList, PLMomentListData>
 {
-    PLRevGeoCompoundNameInfo *_cachedPrimaryNameInfo;
-    PLRevGeoCompoundNameInfo *_cachedSecondaryNameInfo;
+    PLMomentNameInfo *_cachedNameInfo;
     BOOL _loadedNameInfo;
 }
 
@@ -28,6 +28,17 @@
 + (id)allMomentListsInLibrary:(id)arg1 forLevel:(short)arg2 returnsObjectsAsFaults:(BOOL)arg3;
 + (id)entityInManagedObjectContext:(id)arg1;
 + (id)entityName;
+@property(retain, nonatomic) NSArray *userTitles;
+- (id)momentListDebugDescription;
+- (void)addMoment:(id)arg1 forMegaMomentAtIndex:(unsigned int)arg2;
+- (void)removeMoments:(id)arg1 forMomentListLevel:(short)arg2;
+- (void)addMoments:(id)arg1 forMomentListLevel:(short)arg2;
+- (void)removeMoment:(id)arg1 forMomentListLevel:(short)arg2;
+- (void)addMoment:(id)arg1 forMomentListLevel:(short)arg2;
+- (void)addMomentToFront:(id)arg1;
+- (void)removeMoments:(id)arg1;
+- (void)addMoments:(id)arg1;
+@property(readonly, retain, nonatomic) NSObject<NSCopying> *uniqueObjectID;
 - (void)removeMomentsForYear:(id)arg1;
 - (void)addMomentsForYear:(id)arg1;
 - (void)removeMomentsForYearObject:(id)arg1;
@@ -52,8 +63,9 @@
 - (id)pl_debugDescription;
 - (id)diagnosticInformation;
 - (BOOL)supportsDiagnosticInformation;
-@property(readonly, nonatomic) NSArray *localizedLocationNames;
-@property(readonly, nonatomic) NSString *localizedTitle;
+- (void)invalidateNameInfo;
+@property(readonly, retain, nonatomic) NSArray *localizedLocationNames;
+@property(readonly, retain, nonatomic) NSString *localizedTitle;
 - (void)_updateCachedNameInfoIfNeeded;
 @property(retain, nonatomic) NSOrderedSet *moments;
 - (id)_typeDescription;
@@ -72,9 +84,12 @@
 - (void)awakeFromInsert;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(retain, nonatomic) NSDate *endDate; // @dynamic endDate;
 @property(nonatomic) short generationType; // @dynamic generationType;
 @property(nonatomic) short granularityLevel; // @dynamic granularityLevel;
+@property(readonly) unsigned int hash;
 @property(retain, nonatomic) NSOrderedSet *momentsForMegaMoment; // @dynamic momentsForMegaMoment;
 @property(retain, nonatomic) NSOrderedSet *momentsForYear; // @dynamic momentsForYear;
 @property(retain, nonatomic) NSDate *representativeDate; // @dynamic representativeDate;
@@ -82,7 +97,11 @@
 @property(nonatomic) BOOL reverseLocationDataIsValid; // @dynamic reverseLocationDataIsValid;
 @property(nonatomic) int sortIndex; // @dynamic sortIndex;
 @property(retain, nonatomic) NSDate *startDate; // @dynamic startDate;
+@property(readonly) Class superclass;
 @property(retain, nonatomic) NSString *title; // @dynamic title;
+@property(retain, nonatomic) NSString *title2; // @dynamic title2;
+@property(retain, nonatomic) NSString *title3; // @dynamic title3;
+@property(retain, nonatomic) NSString *uuid; // @dynamic uuid;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import <StoreKitUI/SKUIPageComponent.h>
 
-@class NSString;
+@class NSString, SKUIDividerViewElement;
 
 @interface SKUIDividerPageComponent : SKUIPageComponent
 {
@@ -16,8 +16,12 @@
 @property(readonly, nonatomic) NSString *dividerTitle; // @synthesize dividerTitle=_title;
 - (void).cxx_destruct;
 - (int)componentType;
+- (id)initWithViewElement:(id)arg1;
 - (id)initWithDividerTitle:(id)arg1;
 - (id)initWithCustomPageContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) SKUIDividerViewElement *viewElement; // @dynamic viewElement;
 
 @end
 

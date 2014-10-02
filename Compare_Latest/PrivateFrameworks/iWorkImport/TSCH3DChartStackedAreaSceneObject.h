@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (float)depthLimitFactorForSeriesCount:(int)arg1 maxLimitingSeries:(int)arg2;
-+ (float)chartSeriesDepthOffsetFactor;
++ (BOOL)supportsChartSeriesDepthOffset;
 + (float)chartSeriesDepth;
 + (float)chartSeriesPolygonOffset;
 + (id)chartSeriesType;

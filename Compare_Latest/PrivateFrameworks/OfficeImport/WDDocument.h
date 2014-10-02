@@ -45,7 +45,6 @@ __attribute__((visibility("hidden")))
     unsigned int mKinsokuStrict:1;
     unsigned int mAutoHyphenate:1;
     unsigned int mEvenAndOddHeaders:1;
-    unsigned int mGraphicsInHeaderFooter:1;
     unsigned int mBookFold:1;
     unsigned int mShowMarkup:1;
     unsigned int mShowComments:1;
@@ -54,19 +53,20 @@ __attribute__((visibility("hidden")))
     unsigned int mShowInsertionsAndDeletions:1;
     unsigned int mShowFormatting:1;
     unsigned int mShowOutline:1;
+    unsigned int mNoTabForHangingIndents:1;
     NSMutableArray *mDocumentImages;
     NSMutableArray *mChangeTrackingEditDates;
     NSMutableArray *mChangeTrackingEditAuthors;
     NSDate *mCreationDate;
     NSDate *mModificationDate;
     NSMutableArray *mImageBullets;
-    int mZIndexTotalForMainText;
-    int mZIndexTotalForHeaderFooterText;
     OADBackground *mDocumentBackground;
     OADTheme *mTheme;
     NSMutableSet *mObjPointers;
 }
 
++ (id)impliedColorMap;
+- (id)description;
 - (BOOL)isFromBinary;
 - (id)newAnnotationBlockIterator;
 - (id)annotationBlockIterator;
@@ -86,10 +86,6 @@ __attribute__((visibility("hidden")))
 - (id)mainBlocksIterator;
 - (id)newSectionIterator;
 - (id)sectionIterator;
-- (void)setZIndexTotalForHeaderFooterText:(int)arg1;
-- (int)zIndexTotalForHeaderFooterText;
-- (void)setZIndexTotalForMainText:(int)arg1;
-- (int)zIndexTotalForMainText;
 - (void)removeEmptySections;
 - (id)theme;
 - (id)documentBackground;
@@ -102,6 +98,8 @@ __attribute__((visibility("hidden")))
 - (id)changeTrackingEditAuthors;
 - (id)changeTrackingEditDates;
 - (void)addChangeTrackingEditAtDate:(id)arg1 authorIndex:(int)arg2;
+- (void)setNoTabForHangingIndents:(BOOL)arg1;
+- (BOOL)noTabForHangingIndents;
 - (void)setShowOutline:(BOOL)arg1;
 - (BOOL)showOutline;
 - (void)setShowFormatting:(BOOL)arg1;
@@ -137,15 +135,12 @@ __attribute__((visibility("hidden")))
 - (id)oleFilename;
 - (void)setGutterPosition:(int)arg1;
 - (int)gutterPosition;
-- (id)addList:(id)arg1;
-- (id)listAt:(unsigned int)arg1;
-- (unsigned int)listCount;
+- (id)listWithListId:(long)arg1;
 - (id)listTable;
-- (id)addListDefinition;
-- (id)listDefinitionWithId:(long)arg1;
-- (id)listDefinitionAt:(int)arg1;
-- (unsigned int)listDefinitionCount;
+- (id)listDefinitionWithListId:(long)arg1;
+- (id)listDefinitionWithListDefinitionId:(long)arg1;
 - (id)listDefinitionTable;
+- (id)citationTable;
 - (void)addCitation:(id)arg1 forID:(id)arg2;
 - (id)citationFor:(id)arg1;
 - (unsigned int)citationCount;
@@ -181,8 +176,6 @@ __attribute__((visibility("hidden")))
 - (id)kinsokuAltBreakBefore;
 - (void)setDefaultTabWidth:(unsigned short)arg1;
 - (unsigned short)defaultTabWidth;
-- (void)setGraphicsInHeaderFooter:(BOOL)arg1;
-- (BOOL)graphicsInHeaderFooter;
 - (void)setBorderSurroundFooter:(BOOL)arg1;
 - (BOOL)borderSurroundFooter;
 - (void)setBorderSurroundHeader:(BOOL)arg1;

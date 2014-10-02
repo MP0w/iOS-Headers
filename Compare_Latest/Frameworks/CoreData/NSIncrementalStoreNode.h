@@ -21,8 +21,8 @@
 - (unsigned int)_versionNumber;
 - (id)_snapshot_;
 - (const id *)knownKeyValuesPointer;
-- (unsigned long long)version;
-- (id)objectID;
+@property(readonly, nonatomic) unsigned long long version;
+@property(readonly, nonatomic) NSManagedObjectID *objectID;
 - (void)updateFromSQLRow:(id)arg1;
 - (void)updateWithValues:(id)arg1 version:(unsigned long long)arg2;
 - (id)description;

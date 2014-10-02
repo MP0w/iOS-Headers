@@ -38,6 +38,7 @@
 @property(nonatomic) long long businessID; // @synthesize businessID=_businessID;
 @property(nonatomic) CDStruct_612aec5b sessionGUID; // @synthesize sessionGUID=_sessionGUID;
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

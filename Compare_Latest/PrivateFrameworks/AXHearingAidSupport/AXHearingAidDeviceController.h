@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+#import "AXHADeviceControllerProtocol.h"
 #import "CBCentralManagerDelegate.h"
 
-@class AXTimer, CBCentralManager, NSLock, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>;
+@class AXHATimer, CBCentralManager, NSLock, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
-@interface AXHearingAidDeviceController : NSObject <CBCentralManagerDelegate>
+@interface AXHearingAidDeviceController : NSObject <CBCentralManagerDelegate, AXHADeviceControllerProtocol>
 {
     CBCentralManager *_bluetoothManager;
     NSLock *_centralRequestsLock;
@@ -19,9 +20,9 @@
     NSMutableArray *_availableSearchBlocks;
     NSMutableArray *_connectedSearchBlocks;
     NSMutableArray *_updateDeviceBlocks;
-    AXTimer *_deviceUpdatesTimer;
+    AXHATimer *_deviceUpdatesTimer;
     NSMutableDictionary *_deviceUpdatesDescription;
-    AXTimer *_advertisingTimeoutTimer;
+    AXHATimer *_advertisingTimeoutTimer;
     NSMutableDictionary *_advertisingTimestamps;
     NSMutableArray *_availablePeripherals;
     NSMutableArray *_loadedDevices;
@@ -39,7 +40,11 @@
 @property(retain, nonatomic) NSMutableArray *connectedDevices; // @synthesize connectedDevices=_connectedDevices;
 @property(retain) NSMutableArray *loadedDevices; // @synthesize loadedDevices=_loadedDevices;
 @property(retain, nonatomic) NSMutableArray *availablePeripherals; // @synthesize availablePeripherals=_availablePeripherals;
+- (void)writeValue:(id)arg1 forProperty:(int)arg2 forDeviceID:(id)arg3;
+- (void)updateProperty:(int)arg1 forDeviceID:(id)arg2;
 - (void)pairedHearingAidsDidChange;
+- (void)unpairPeripheral:(id)arg1;
+- (BOOL)peripheralIsPaired:(id)arg1;
 - (void)centralManager:(id)arg1 didDisconnectPeripheral:(id)arg2 error:(id)arg3;
 - (void)centralManager:(id)arg1 didFailToConnectPeripheral:(id)arg2 error:(id)arg3;
 - (void)centralManager:(id)arg1 didConnectPeripheral:(id)arg2;
@@ -48,8 +53,9 @@
 - (void)centralManager:(id)arg1 didRetrievePeripherals:(id)arg2;
 - (void)centralManagerDidUpdateState:(id)arg1;
 - (void)sendRequestToCentralManager:(CDUnknownBlockType)arg1;
+- (void)forgetDevice:(id)arg1;
 - (void)deviceDidFinishLoading:(id)arg1;
-- (void)device:(id)arg1 didSubsumeSlave:(id)arg2;
+- (void)mergeDevice:(id)arg1 withDevice:(id)arg2;
 - (void)device:(id)arg1 didUpdateProperty:(int)arg2;
 - (void)clearConnectedDevices;
 - (void)removeConnectedDevice:(id)arg1;
@@ -61,12 +67,15 @@
 - (void)removeLoadedDevice:(id)arg1;
 - (void)addLoadedDevice:(id)arg1;
 - (void)loadedDevicesDidChange;
+- (id)hearingAidForDeviceID:(id)arg1;
 - (id)hearingAidForPeripheral:(id)arg1;
 - (id)hearingAidsForUUID:(id)arg1;
+- (BOOL)isConnected;
 - (BOOL)isScanning;
 - (void)stopPropertyUpdates;
 - (void)stopSearching;
 - (BOOL)isBluetoothAvailable;
+- (void)cancelPendingConnections;
 - (void)disconnectFromPeripheral:(id)arg1;
 - (void)connectToPeripheral:(id)arg1;
 - (void)resetConnectionToPeripheral:(id)arg1;
@@ -77,6 +86,12 @@
 - (id)init;
 - (void)registerForPropertyUpdates:(CDUnknownBlockType)arg1;
 - (void)searchForAvailableDevicesWithCompletion:(CDUnknownBlockType)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)readFromNode:(struct _xmlNode *)arg1 toSpecification:(id)arg2;
++ (void)readFromNode:(struct _xmlNode *)arg1 toSpecification:(id)arg2 state:(id)arg3;
 + (id)elementTypeMap;
 + (id)axisTypeMap;
 

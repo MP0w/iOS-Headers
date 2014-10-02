@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     OADDrawable<OADDrawableContainer> *mParent;
 }
 
++ (unsigned long)generateOADDrawableId:(id)arg1;
 - (id)createOrientedBoundsWithBounds:(struct CGRect)arg1;
 - (void)removeUnnecessaryOverrides;
 - (void)setParentTextListStyle:(id)arg1;
@@ -28,7 +29,6 @@ __attribute__((visibility("hidden")))
 - (void)setClientData:(id)arg1;
 - (void)setDrawableProperties:(id)arg1;
 - (id)drawableProperties;
-- (void)identify;
 - (void)setId:(unsigned long)arg1;
 - (unsigned long)id;
 - (void)setHidden:(BOOL)arg1;

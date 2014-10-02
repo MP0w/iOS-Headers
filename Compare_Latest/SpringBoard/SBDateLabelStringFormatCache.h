@@ -8,7 +8,7 @@
 
 #import "SBFLockScreenDateFormatter.h"
 
-@class NSDate, NSDateFormatter, NSNumberFormatter;
+@class NSDate, NSDateFormatter, NSNumberFormatter, NSString;
 
 @interface SBDateLabelStringFormatCache : NSObject <SBFLockScreenDateFormatter>
 {
@@ -24,6 +24,8 @@
     NSDateFormatter *_relativeDateFormatter;
     NSDateFormatter *_dayOfWeekMonthDayFormatter;
     NSDateFormatter *_timeNoAMPMFormatter;
+    NSDateFormatter *_longYMDHMSZFormatter;
+    NSDateFormatter *_longYMDHMSNoSpaceFormatter;
     NSNumberFormatter *_decimalFormatter;
     NSNumberFormatter *_timerNumberFormatter;
     NSDateFormatter *_abbreviatedTimerFormatter;
@@ -39,6 +41,8 @@
 - (id)formatTimerDuration:(double)arg1;
 - (id)formatDateAsRelativeDateStyle:(id)arg1;
 - (_Bool)_shouldShowHoursForTimerDuration:(double)arg1;
+- (id)formatDateAsLongYMDHMSNoSpacesWithDate:(id)arg1;
+- (id)formatDateAsLongYMDHMSZWithDate:(id)arg1;
 - (id)formatDateAsTimeNoAMPM:(id)arg1;
 - (id)formatDateAsDayOfWeekMonthDayStyle:(id)arg1;
 - (id)formatDateAsRelativeDateAndTimeStyle:(id)arg1;
@@ -52,8 +56,15 @@
 - (id)formatNumberAsDecimal:(id)arg1;
 - (void)resetFormatters:(id)arg1;
 - (void)resetFormattersIfNecessary;
+- (void)_resetFormatters;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -66,6 +66,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)supportsLineTypeNone;
 - (BOOL)supportsSymbolFillForSymbolType:(int)arg1;
 - (id)p_supportedSymbolsIfSymbolsSupported;
+- (BOOL)supportsShadowOffset;
 - (id)supportedSymbols;
 - (BOOL)supportsSymbolTypeEditing;
 - (BOOL)supportsSymbolDrawing;
@@ -81,7 +82,7 @@ __attribute__((visibility("hidden")))
 - (id)genericToSpecificPropertyMap;
 - (unsigned int)filterChartLabelPosition:(unsigned int)arg1 forSeries:(id)arg2;
 - (unsigned int)filterChartLabelPosition:(unsigned int)arg1;
-- (unsigned int)adjustLabelPosition:(unsigned int)arg1 forValue:(double)arg2;
+- (unsigned int)adjustLabelPosition:(unsigned int)arg1 forAxisValue:(double)arg2 intercept:(double)arg3;
 - (id)userInterfaceNameForLabelPosition:(id)arg1;
 - (id)legalChartLabelPositions;
 - (BOOL)isVertical;

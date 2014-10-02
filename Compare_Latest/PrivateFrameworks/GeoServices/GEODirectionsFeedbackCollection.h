@@ -32,6 +32,7 @@
 @property(nonatomic) double startTimeStamp; // @synthesize startTimeStamp=_startTimeStamp;
 @property(retain, nonatomic) GEOLocation *finalLocation; // @synthesize finalLocation=_finalLocation;
 @property(retain, nonatomic) NSMutableArray *directionsFeedbacks; // @synthesize directionsFeedbacks=_directionsFeedbacks;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

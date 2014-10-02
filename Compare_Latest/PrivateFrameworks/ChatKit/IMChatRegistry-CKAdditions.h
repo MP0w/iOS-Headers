@@ -7,7 +7,7 @@
 #import "IMChatRegistry.h"
 
 @interface IMChatRegistry (CKAdditions)
-- (id)_ck_chatForEntities:(id)arg1 createIfNecessary:(BOOL)arg2;
 - (id)_ck_chatForHandles:(id)arg1 createIfNecessary:(BOOL)arg2;
+- (id)_ck_chatForHandles:(id)arg1 displayName:(id)arg2 joinedChatsOnly:(BOOL)arg3 createIfNecessary:(BOOL)arg4;
 @end
 

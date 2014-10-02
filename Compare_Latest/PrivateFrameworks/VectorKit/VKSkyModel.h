@@ -7,33 +7,48 @@
 #import <VectorKit/VKModelObject.h>
 
 #import "VKMapLayer.h"
-#import "VKStylesheetObserver.h"
+#import "VKStyleManagerObserver.h"
 
-@class VGLRenderState, VKMapModel, VKStylesheet;
+@class NSString, VKMapModel, VKStyleManager;
 
 __attribute__((visibility("hidden")))
-@interface VKSkyModel : VKModelObject <VKMapLayer, VKStylesheetObserver>
+@interface VKSkyModel : VKModelObject <VKMapLayer, VKStyleManagerObserver>
 {
     VKMapModel *_mapModel;
     float _skyStartOffset;
-    VGLRenderState *_renderState;
-    struct _VGLColor _fillColor;
-    struct _VGLColor _horizonColor;
+    Matrix_5173352a _fillColor;
+    Matrix_5173352a _horizonColor;
+    struct shared_ptr<ggl::Sky::SkyUniformData> _uniformData;
+    struct shared_ptr<ggl::Sky::Shader::Setup> _shaderSetup;
+    struct shared_ptr<ggl::Sky::SkyMesh> _mesh;
+    struct shared_ptr<ggl::IndexDataTyped<unsigned short>> _indexData;
+    struct shared_ptr<ggl::RenderState> _gglRenderState;
+    struct RenderItem *_renderItem;
+    BOOL _needsNewStyle;
 }
 
 + (BOOL)reloadOnStylesheetChange;
-@property(readonly, nonatomic) struct _VGLColor horizonColor; // @synthesize horizonColor=_horizonColor;
-@property(readonly, nonatomic) struct _VGLColor fillColor; // @synthesize fillColor=_fillColor;
 @property(nonatomic) VKMapModel *mapModel; // @synthesize mapModel=_mapModel;
 - (id).cxx_construct;
-- (void)drawScene:(id)arg1 withContext:(id)arg2;
-- (void)layoutScene:(id)arg1 withContext:(id)arg2;
+- (void).cxx_destruct;
+- (void)gglLayoutScene:(id)arg1 withContext:(id)arg2 renderQueue:(struct RenderQueue *)arg3;
 - (void)dealloc;
 - (id)init;
+- (void)updateStyle;
 - (void)stylesheetDidChange;
-@property(readonly, nonatomic) VKStylesheet *stylesheet;
-- (unsigned int)supportedRenderPasses;
-- (unsigned int)mapLayerPosition;
+@property(readonly, nonatomic) VKStyleManager *styleManager;
+- (unsigned long long)mapLayerPosition;
+- (void)setHorizonColor:(Matrix_5173352a)arg1;
+- (Matrix_5173352a)horizonColor;
+- (void)setFillColor:(Matrix_5173352a)arg1;
+- (Matrix_5173352a)fillColor;
+- (BOOL)shouldLayoutWithoutStyleManager;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

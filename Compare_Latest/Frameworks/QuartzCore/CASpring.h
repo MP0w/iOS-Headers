@@ -45,7 +45,7 @@
 - (id)valueForKey:(id)arg1;
 - (struct Object *)CA_copyRenderValue;
 - (void)dealloc;
-@property id delegate;
+@property __weak id delegate;
 @property(retain) CAValueFunction *function;
 @property float restLength;
 @property float damping;

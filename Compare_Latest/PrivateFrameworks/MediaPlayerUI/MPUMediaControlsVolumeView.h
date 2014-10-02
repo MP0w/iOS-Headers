@@ -8,7 +8,7 @@
 
 #import "MPVolumeControllerDelegate.h"
 
-@class MPVolumeController, NSTimer, UISlider;
+@class MPVolumeController, NSString, NSTimer, UISlider;
 
 @interface MPUMediaControlsVolumeView : UIView <MPVolumeControllerDelegate>
 {
@@ -51,6 +51,12 @@
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithStyle:(int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

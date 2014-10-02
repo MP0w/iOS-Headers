@@ -36,6 +36,7 @@
 - (_Bool)_canUseMemoryPool;
 - (id)_focusHighlightColor;
 - (struct CGSize)_maxSize;
+- (_Bool)_canTightenLabel;
 - (_Bool)_canEllipsizeLabel;
 - (id)buildParameters;
 - (void)dealloc;

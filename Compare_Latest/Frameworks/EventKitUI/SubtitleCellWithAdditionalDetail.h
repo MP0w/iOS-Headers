@@ -4,18 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UITableViewCell.h"
+#import <EventKitUI/EKUIConstrainedFontsTableViewCell.h>
 
 @class UILabel;
 
-@interface SubtitleCellWithAdditionalDetail : UITableViewCell
+@interface SubtitleCellWithAdditionalDetail : EKUIConstrainedFontsTableViewCell
 {
     UILabel *_additionalDetailLabel;
 }
 
 - (void).cxx_destruct;
 - (void)layoutSubviews;
-@property(readonly, nonatomic) UILabel *additionalDetailLabel;
+@property(readonly, retain, nonatomic) UILabel *additionalDetailLabel;
 
 @end
 

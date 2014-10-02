@@ -15,10 +15,8 @@
     BOOL _hideLoadingView;
     SULoadingView *_loadingView;
     SUGradientView *_gradientView;
-    BOOL _shouldShowLoadingView;
 }
 
-@property(nonatomic) BOOL shouldShowLoadingView; // @synthesize shouldShowLoadingView=_shouldShowLoadingView;
 @property(copy, nonatomic) SUGradient *defaultBackgroundGradient; // @synthesize defaultBackgroundGradient=_defaultBackgroundGradient;
 @property(copy, nonatomic) SUGradient *backgroundGradient; // @synthesize backgroundGradient=_backgroundGradient;
 - (void)_reloadLoadingView;
@@ -32,6 +30,7 @@
 - (void)loadView;
 - (id)copyDefaultScriptProperties;
 - (id)copyArchivableContext;
+@property(nonatomic) BOOL shouldShowLoadingView;
 @property(readonly, nonatomic) SULoadingView *loadingView;
 - (void)dealloc;
 - (id)init;

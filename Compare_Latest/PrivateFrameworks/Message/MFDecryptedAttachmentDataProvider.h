@@ -8,7 +8,7 @@
 
 #import "MFAttachmentDataProvider.h"
 
-@class MFMailMessage;
+@class MFMailMessage, NSString;
 
 @interface MFDecryptedAttachmentDataProvider : NSObject <MFAttachmentDataProvider>
 {
@@ -17,8 +17,15 @@
 
 - (id)messageForAttachment:(id)arg1;
 - (BOOL)fetchDataForAttachment:(id)arg1 withDataConsumer:(id)arg2 error:(id *)arg3;
+- (id)fetchLocalDataForAttachment:(id)arg1;
 - (void)dealloc;
 - (id)initWithDecryptedMessage:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

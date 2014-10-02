@@ -26,6 +26,7 @@
 }
 
 + (id)labelNodeWithFontNamed:(id)arg1;
++ (id)labelNodeWithText:(id)arg1;
 + (id)_labelNodeWithFontTexture:(id)arg1 fontDataString:(id)arg2;
 + (id)_labelNodeWithFontNamed:(id)arg1;
 - (id).cxx_construct;
@@ -38,7 +39,7 @@
 - (void)createBitmapSpritesForText;
 - (struct CGRect)frame;
 - (id)nodeAtPoint:(struct CGPoint)arg1 recursive:(BOOL)arg2;
-- (id)nodeAtPoint:(struct CGPoint)arg1;
+- (id)nodesAtPoint:(struct CGPoint)arg1;
 - (id)childrenInRect:(struct CGRect)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)copy;
@@ -52,9 +53,12 @@
 @property(nonatomic) int verticalAlignmentMode;
 - (id)initWithFontNamed:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)_initialize;
 - (id)init;
+- (id)_getTextSprites;
 
 @end
 

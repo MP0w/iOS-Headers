@@ -18,8 +18,8 @@
     id <CalDAVCalendar> _calendar;
 }
 
-@property BOOL getScheduleChanges; // @synthesize getScheduleChanges=_getScheduleChanges;
-@property BOOL getScheduleTags; // @synthesize getScheduleTags=_getScheduleTags;
+@property(nonatomic) BOOL getScheduleChanges; // @synthesize getScheduleChanges=_getScheduleChanges;
+@property(nonatomic) BOOL getScheduleTags; // @synthesize getScheduleTags=_getScheduleTags;
 - (void)containerSyncTask:(id)arg1 completedWithNewCTag:(id)arg2 newSyncToken:(id)arg3 addedOrModified:(id)arg4 removed:(id)arg5 error:(id)arg6;
 - (void)containerSyncTask:(id)arg1 retrievedAddedOrModifiedActions:(id)arg2 removed:(id)arg3;
 - (BOOL)syncDeleteTask:(id)arg1 error:(id)arg2;

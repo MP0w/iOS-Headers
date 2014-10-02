@@ -8,12 +8,13 @@
 
 #import "SKUIItemCollectionDelegate.h"
 
-@class NSMutableIndexSet, NSOperationQueue, NSString, SKUIClientContext, SKUIIconDataConsumer, SKUIItemArtworkContext, SKUIItemCollectionController, SKUIItemList, SKUIResourceLoader, SKUIUber, SSVLoadURLOperation;
+@class NSMutableIndexSet, NSOperationQueue, NSString, SKUIClientContext, SKUIItemArtworkContext, SKUIItemCollectionController, SKUIItemList, SKUIResourceLoader, SKUIStyledImageDataConsumer, SKUIUber, SSVLoadURLOperation;
 
 @interface SKUIItemListTableViewController : UITableViewController <SKUIItemCollectionDelegate>
 {
     SKUIClientContext *_clientContext;
     id <SKUIItemListTableDelegate> _delegate;
+    BOOL _delegateWantsCanRemove;
     BOOL _delegateWantsDidRemove;
     BOOL _delegateWantsWillDisplay;
     BOOL _didLoadMore;
@@ -52,12 +53,13 @@
 - (id)_itemCollectionController;
 - (void)_finishLoadMoreOperationWithItems:(id)arg1 error:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
+- (id)tableView:(id)arg1 titleForDeleteConfirmationButtonForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didEndDisplayingCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)tableView:(id)arg1 didDeselectRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 commitEditingStyle:(int)arg2 forRowAtIndexPath:(id)arg3;
 - (void)itemTableView:(id)arg1 didRemoveCell:(id)arg2;
 - (void)itemTableView:(id)arg1 didConfirmItemOfferForTableViewCell:(id)arg2;
-- (void)tableView:(id)arg1 commitEditingStyle:(int)arg2 forRowAtIndexPath:(id)arg3;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (BOOL)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
@@ -75,7 +77,7 @@
 - (void)unhideIcons;
 - (void)setItemCellClass:(Class)arg1;
 - (void)setItemArtworkContext:(id)arg1;
-@property(retain, nonatomic) SKUIIconDataConsumer *iconDataConsumer;
+@property(retain, nonatomic) SKUIStyledImageDataConsumer *iconDataConsumer;
 @property(retain, nonatomic) SKUIResourceLoader *artworkLoader;
 - (id)popIconImageViewForItemAtIndex:(int)arg1;
 - (void)loadNextPageOfArtworkWithReason:(int)arg1;
@@ -84,6 +86,12 @@
 - (void)addItems:(id)arg1;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

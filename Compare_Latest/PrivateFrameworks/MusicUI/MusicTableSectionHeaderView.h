@@ -6,20 +6,29 @@
 
 #import "UITableViewHeaderFooterView.h"
 
-@class UILabel;
+@class MPUEmphasizedText, NSDictionary, UILabel;
 
 @interface MusicTableSectionHeaderView : UITableViewHeaderFooterView
 {
-    float _backgroundTransitionWeighting;
+    BOOL _needsTitleLabelUpdate;
+    NSDictionary *_titleEmphasizedTextAttributes;
+    NSDictionary *_titleRegularTextAttributes;
     UILabel *_titleLabel;
+    float _backgroundTransitionWeighting;
+    MPUEmphasizedText *_titleEmphasizedText;
 }
 
-+ (float)defaultHeight;
-@property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
+@property(copy, nonatomic) MPUEmphasizedText *titleEmphasizedText; // @synthesize titleEmphasizedText=_titleEmphasizedText;
 @property(nonatomic) float backgroundTransitionWeighting; // @synthesize backgroundTransitionWeighting=_backgroundTransitionWeighting;
 - (void).cxx_destruct;
+- (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
+- (id)titleRegularTextAttributes;
+- (id)titleEmphasizedTextAttributes;
+- (void)contentSizeCategoryDidChange;
 - (void)setTableViewStyle:(int)arg1;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
+- (void)dealloc;
 - (id)initWithReuseIdentifier:(id)arg1;
 
 @end

@@ -31,14 +31,14 @@ __attribute__((visibility("hidden")))
 - (void)removeAllTextRuns;
 - (id)textRunAtIndex:(unsigned int)arg1;
 - (unsigned int)textRunCount;
+- (unsigned int)characterCount;
 - (BOOL)isEmpty;
-- (void)setProperties:(id)arg1;
 - (id)properties;
 - (void)dealloc;
 - (id)init;
+- (id)plainText;
 - (id)findFirstTextRunOfClass:(Class)arg1;
 - (id)addSlideNumberField;
-- (id)plainText;
 
 @end
 

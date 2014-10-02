@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MPChangePlaybackRateCommand, MPFeedbackCommand, MPRatingCommand, MPRemoteCommand, MPSkipIntervalCommand, NSArray;
+@class MPChangePlaybackRateCommand, MPChangeRepeatModeCommand, MPChangeShuffleModeCommand, MPFeedbackCommand, MPPurchaseCommand, MPRatingCommand, MPRemoteCommand, MPSkipIntervalCommand, NSArray;
 
 @interface MPRemoteCommandCenter : NSObject
 {
@@ -14,10 +14,19 @@
     void *_mediaRemoteCommandHandler;
     BOOL _scheduledSupportedCommandsChangedNotification;
     BOOL _canBeNowPlayingApplication;
+    MPRemoteCommand *_changePlaybackPositionCommand;
+    MPChangeRepeatModeCommand *_changeRepeatModeCommand;
+    MPChangeShuffleModeCommand *_changeShuffleModeCommand;
     MPRemoteCommand *_specialSeekForwardCommand;
     MPRemoteCommand *_specialSeekBackwardCommand;
+    MPPurchaseCommand *_buyTrackCommand;
+    MPPurchaseCommand *_buyAlbumCommand;
+    MPPurchaseCommand *_preOrderAlbumCommand;
+    MPPurchaseCommand *_cancelDownloadCommand;
     MPRemoteCommand *_advanceShuffleModeCommand;
     MPRemoteCommand *_advanceRepeatModeCommand;
+    MPRemoteCommand *_createRadioStationCommand;
+    MPRemoteCommand *_setPlaybackQueueCommand;
     MPRemoteCommand *_pauseCommand;
     MPRemoteCommand *_playCommand;
     MPRemoteCommand *_stopCommand;
@@ -62,11 +71,22 @@
 - (void)_setupCommandConfigurationObservers;
 - (void)_teardownMediaRemoteCommandHandler;
 - (void)_setupMediaRemoteCommandHandler;
+- (id)setPlaybackQueueCommand;
+- (id)createRadioStationCommand;
 - (id)advanceRepeatModeCommand;
 - (id)advanceShuffleModeCommand;
+- (id)cancelDownloadCommand;
+- (id)preOrderAlbumCommand;
+- (id)buyAlbumCommand;
+- (id)buyTrackCommand;
 - (id)specialSeekBackwardCommand;
 - (id)specialSeekForwardCommand;
+- (id)changeShuffleModeCommand;
+- (id)changeRepeatModeCommand;
+- (id)changePlaybackPositionCommand;
+- (void)_pushMediaRemoteCommand:(unsigned int)arg1 withOptions:(struct __CFDictionary *)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)_pushMediaRemoteCommand:(unsigned int)arg1 withOptions:(struct __CFDictionary *)arg2;
+- (struct __CFArray *)_copySupportedCommands;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (id)init;

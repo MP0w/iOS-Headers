@@ -28,9 +28,9 @@
 
 @property(retain, nonatomic) NSArray *potentialContextPaths; // @synthesize potentialContextPaths=_potentialContextPaths;
 @property(retain, nonatomic) NSString *wellKnownPath; // @synthesize wellKnownPath=_wellKnownPath;
-@property(retain) id <CoreDAVAccountInfoProvider> discoveredAccountInfo; // @synthesize discoveredAccountInfo=_discoveredAccountInfo;
-@property BOOL shouldBailEarly; // @synthesize shouldBailEarly=_shouldBailEarly;
-@property BOOL didReceiveAuthenticationError; // @synthesize didReceiveAuthenticationError=_didReceiveAuthenticationError;
+@property(retain, nonatomic) id <CoreDAVAccountInfoProvider> discoveredAccountInfo; // @synthesize discoveredAccountInfo=_discoveredAccountInfo;
+@property(nonatomic) BOOL shouldBailEarly; // @synthesize shouldBailEarly=_shouldBailEarly;
+@property(nonatomic) BOOL didReceiveAuthenticationError; // @synthesize didReceiveAuthenticationError=_didReceiveAuthenticationError;
 - (void)getDiscoveryStatus:(id)arg1 priorFailed:(id *)arg2 subsequentFailed:(id *)arg3 priorIncomplete:(id *)arg4 subsequentIncomplete:(id *)arg5 priorSuccess:(id *)arg6 subsequentSuccess:(id *)arg7;
 - (void)addToDiscoveryArray:(id *)arg1 discovery:(id)arg2;
 - (id)cleanedStringsFromResponseHeaders:(id)arg1 forHeader:(id)arg2;
@@ -61,7 +61,11 @@
 - (id)initWithAccountInfoProvider:(id)arg1 taskManager:(id)arg2 httpPorts:(id)arg3 httpsPorts:(id)arg4 httpServiceString:(id)arg5 httpsServiceString:(id)arg6 wellKnownPath:(id)arg7 potentialContextPaths:(id)arg8 requiredComplianceClass:(id)arg9;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) id <CoreDAVDiscoveryTaskGroupDelegate> delegate; // @dynamic delegate;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

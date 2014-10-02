@@ -15,6 +15,8 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *mCitations;
 }
 
+- (id)description;
+- (id)citationIDs;
 - (void)addCitation:(id)arg1 forID:(id)arg2;
 - (id)citationFor:(id)arg1;
 - (unsigned int)count;

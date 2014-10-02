@@ -12,7 +12,7 @@
 #import "PKServiceAddPassesViewControllerProtocol.h"
 #import "UIScrollViewDelegate.h"
 
-@class NSArray, NSMutableArray, NSMutableData, NSURLConnection, PKGroupsController, PKPassGroupStackView, UINavigationBar, UIProgressView;
+@class NSArray, NSMutableArray, NSMutableData, NSString, NSURLConnection, PKGroupsController, PKPassGroupStackView, UINavigationBar, UIProgressView;
 
 @interface PKServiceAddPassesViewController : UIViewController <PKPassGroupStackViewDelegate, PKPassGroupStackViewDatasource, PKGroupsControllerDelegate, UIScrollViewDelegate, PKServiceAddPassesViewControllerProtocol>
 {
@@ -21,6 +21,8 @@
     NSMutableData *_downloadPassData;
     BOOL _allowsPassIngestion;
     BOOL _alreadyAdding;
+    int _groupLoadState;
+    CDUnknownBlockType _loadedGroupsCallback;
     BOOL _haveStartedCardAnimation;
     BOOL _viewAppeared;
     NSMutableArray *_localPasses;
@@ -49,23 +51,26 @@
 - (void)groupsController:(id)arg1 didMoveGroup:(id)arg2 fromIndex:(unsigned int)arg3 toIndex:(unsigned int)arg4;
 - (void)groupsController:(id)arg1 didRemoveGroup:(id)arg2 atIndex:(unsigned int)arg3;
 - (void)groupsController:(id)arg1 didInsertGroup:(id)arg2 atIndex:(unsigned int)arg3;
-- (void)groupStackView:(id)arg1 didAnimateToState:(int)arg2;
-- (int)suppressedContent;
+- (void)groupStackView:(id)arg1 didTransitionToState:(int)arg2 animated:(BOOL)arg3;
+- (unsigned int)suppressedContent;
 - (BOOL)passesGrowWhenFlipped;
 - (void)groupStackViewDidEndReordering:(id)arg1;
 - (void)groupStackViewDidBeginReordering:(id)arg1;
 - (void)groupStackView:(id)arg1 deleteConfirmedForPass:(id)arg2;
+- (unsigned int)indexOfSeparationGroup;
 - (unsigned int)indexOfGroup:(id)arg1;
-- (float)groupHeightAtIndex:(unsigned int)arg1;
 - (unsigned int)numberOfGroups;
 - (id)groupAtIndex:(unsigned int)arg1;
 - (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (BOOL)shouldAutorotate;
 - (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillLayoutSubviews;
 - (void)loadView;
 - (void)loadGroups;
 - (void)cancelCard:(id)arg1;
+- (void)_acceptCard:(id)arg1;
 - (void)acceptCard:(id)arg1;
+- (void)setDisplayPropertiesWithScreenSize:(struct CGSize)arg1 scale:(float)arg2;
 - (void)ingestPasses:(id)arg1;
 - (void)ingestCardAtURL:(id)arg1;
 - (void)connectionDidFinishLoading:(id)arg1;
@@ -86,6 +91,12 @@
 - (void)tearDown;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)viewDidDisappear:(BOOL)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

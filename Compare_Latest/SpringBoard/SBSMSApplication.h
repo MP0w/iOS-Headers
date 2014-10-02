@@ -10,7 +10,7 @@
 {
 }
 
-- (id)activationValue:(unsigned int)arg1;
+- (id)objectForActivationSetting:(unsigned int)arg1;
 
 @end
 

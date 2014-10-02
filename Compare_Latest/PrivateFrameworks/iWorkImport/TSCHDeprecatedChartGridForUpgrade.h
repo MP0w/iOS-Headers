@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
     TSCHChartGrid *mGrid;
 }
 
-@property(readonly, nonatomic) TSCHChartGrid *grid; // @synthesize grid=mGrid;
+@property(readonly, retain, nonatomic) TSCHChartGrid *grid; // @synthesize grid=mGrid;
 - (void)dealloc;
 - (id)initFromUnarchiver:(id)arg1;
 

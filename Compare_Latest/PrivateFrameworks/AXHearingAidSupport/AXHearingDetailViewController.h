@@ -6,11 +6,11 @@
 
 #import "PSListController.h"
 
-@class AXRemoteHearingAidDevice, NSString;
+@class AXRemoteHearingAidDevice;
 
 @interface AXHearingDetailViewController : PSListController
 {
-    NSString *_liveListenerUUID;
+    BOOL _isLiveListening;
     AXRemoteHearingAidDevice *_device;
 }
 
@@ -28,6 +28,7 @@
 - (id)disconnectedSpecifiers;
 - (id)deviceSpecifiers;
 - (void)viewDidDisappear:(BOOL)arg1;
+- (id)init;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>;
+@class NSObject<OS_dispatch_queue>, NSURL;
 
 @interface RCExtAudioFilePipe : NSObject
 {
@@ -15,8 +15,12 @@
     struct OpaqueExtAudioFile *_audioFileRef;
     struct AudioStreamBasicDescription _outputFormatDescriptionStruct;
     struct AudioStreamBasicDescription _sourceFormatDescriptionStruct;
+    NSURL *_sourceURL;
+    unsigned long long _sourceFileSize;
 }
 
+@property(readonly, nonatomic) unsigned long long sourceFileSize; // @synthesize sourceFileSize=_sourceFileSize;
+@property(readonly, nonatomic) NSURL *sourceURL; // @synthesize sourceURL=_sourceURL;
 - (void).cxx_destruct;
 - (void)_accessExtAudioFileWithBlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) struct AudioStreamBasicDescription *outputFormatDescription;

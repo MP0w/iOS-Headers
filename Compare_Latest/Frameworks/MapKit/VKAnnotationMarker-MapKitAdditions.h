@@ -17,6 +17,10 @@
 @property(retain, nonatomic) UIView *leftCalloutAccessoryView;
 
 // Remaining properties
-@property(readonly, nonatomic) NSString *subtitle;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly, copy, nonatomic) NSString *subtitle;
+@property(readonly) Class superclass;
 @end
 

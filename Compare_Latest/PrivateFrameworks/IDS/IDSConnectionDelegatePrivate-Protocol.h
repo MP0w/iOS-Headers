@@ -6,12 +6,14 @@
 
 #import "IDSConnectionDelegate.h"
 
-@class IDSConnection, NSDictionary, NSError, NSString;
+@class IDSAccount, IDSConnection, NSArray, NSData, NSDictionary, NSError, NSNumber, NSString;
 
 @protocol IDSConnectionDelegatePrivate <IDSConnectionDelegate>
 
 @optional
+- (void)connection:(IDSConnection *)arg1 account:(IDSAccount *)arg2 sessionInviteReceived:(NSString *)arg3 fromID:(NSString *)arg4 transportType:(NSNumber *)arg5 options:(NSDictionary *)arg6 context:(NSData *)arg7;
 - (void)connection:(IDSConnection *)arg1 incomingTopLevelMessage:(NSDictionary *)arg2 fromID:(NSString *)arg3 messageContext:(id)arg4;
-- (void)connection:(IDSConnection *)arg1 messageIdentifier:(NSString *)arg2 updatedWithResponseCode:(int)arg3 error:(NSError *)arg4 lastCall:(BOOL)arg5;
+- (void)connection:(IDSConnection *)arg1 identifier:(NSString *)arg2 alternateCallbackID:(NSString *)arg3 willSendToDestinations:(NSArray *)arg4 skippedDestinations:(NSArray *)arg5 registrationPropertyToDestinations:(NSDictionary *)arg6;
+- (void)connection:(IDSConnection *)arg1 messageIdentifier:(NSString *)arg2 alternateCallbackID:(NSString *)arg3 updatedWithResponseCode:(int)arg4 error:(NSError *)arg5 lastCall:(BOOL)arg6;
 @end
 

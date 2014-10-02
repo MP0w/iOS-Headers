@@ -16,6 +16,8 @@
     float _innerBorderWidth;
     NSString *_silhouetteImageName;
     int _monogrammerStyle;
+    UIColor *_tintColor;
+    float _scale;
     BOOL _textKnockout;
     float _diameter;
     UIColor *_backgroundColor;
@@ -47,6 +49,8 @@
 - (BOOL)hasImageOrInitialsForPerson:(void *)arg1;
 - (id)silhouetteImageName;
 - (float)innerBorderWidth;
+- (void)monogramsForStark;
+- (void)monogramsWithTint:(id)arg1;
 - (void)monogramsAsFlatImages;
 - (void)dealloc;
 - (id)initWithStyle:(int)arg1 diameter:(float)arg2;

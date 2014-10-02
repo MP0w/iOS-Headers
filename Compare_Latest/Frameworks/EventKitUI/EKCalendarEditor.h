@@ -8,7 +8,7 @@
 
 #import "EKCalendarEditItemDelegate.h"
 
-@class EKCalendar, EKCalendarShareesEditItem, EKEventStore, EKSource, NSArray, UITableView;
+@class EKCalendar, EKCalendarShareesEditItem, EKEventStore, EKSource, NSArray, NSString, UITableView;
 
 @interface EKCalendarEditor : UIViewController <EKCalendarEditItemDelegate>
 {
@@ -30,7 +30,6 @@
 @property(retain, nonatomic) EKCalendar *calendar; // @synthesize calendar=_calendar;
 @property(retain, nonatomic) EKEventStore *eventStore; // @synthesize eventStore=_eventStore;
 - (void).cxx_destruct;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
@@ -63,6 +62,12 @@
 - (void)dealloc;
 - (id)initWithSource:(id)arg1 eventStore:(id)arg2 entityType:(unsigned int)arg3;
 - (id)initWithCalendar:(id)arg1 eventStore:(id)arg2 entityType:(unsigned int)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

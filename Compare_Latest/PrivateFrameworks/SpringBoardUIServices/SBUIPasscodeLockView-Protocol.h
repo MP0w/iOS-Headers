@@ -20,7 +20,11 @@
 @property(readonly, nonatomic) int style;
 @property(nonatomic) id <SBUIPasscodeLockViewDelegate> delegate;
 - (void)setAllowsStatusTextUpdatingOnResignFirstResponder:(BOOL)arg1;
+- (void)updateStatusText:(NSString *)arg1 subtitle:(NSString *)arg2 animated:(BOOL)arg3;
+- (void)autofillForSuccessfulMesaAttemptWithCompletion:(void (^)(void))arg1;
+- (void)resetForFailedMesaAttemptWithStatusText:(NSString *)arg1 andSubtitle:(NSString *)arg2;
 - (void)reset;
+- (void)resetForScreenOff;
 - (void)resetForFailedPasscode;
 @end
 

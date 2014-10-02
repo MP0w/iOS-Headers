@@ -17,7 +17,7 @@
 - (void)uncachePassphraseWithInfo:(NSDictionary *)arg1 reply:(void (^)(NSError *))arg2;
 - (void)cachePassphraseWithInfo:(NSDictionary *)arg1 reply:(void (^)(NSError *))arg2;
 - (void)disableWithInfo:(NSDictionary *)arg1 reply:(void (^)(NSError *))arg2;
-- (void)recoverWithInfo:(NSDictionary *)arg1 reply:(void (^)(NSError *))arg2;
+- (void)recoverWithInfo:(NSDictionary *)arg1 reply:(void (^)(NSDictionary *, NSError *))arg2;
 - (void)enableWithInfo:(NSDictionary *)arg1 reply:(void (^)(NSError *))arg2;
 - (void)getAccountInfoWithInfo:(NSDictionary *)arg1 reply:(void (^)(NSDictionary *, NSError *))arg2;
 @end

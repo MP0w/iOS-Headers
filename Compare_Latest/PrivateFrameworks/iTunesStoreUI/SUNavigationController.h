@@ -8,7 +8,7 @@
 
 #import "SUScriptNativeObject.h"
 
-@class SUClientInterface, SUSection;
+@class NSString, SUClientInterface, SUSection;
 
 @interface SUNavigationController : UINavigationController <SUScriptNativeObject>
 {
@@ -40,7 +40,7 @@
 - (id)moreListImage;
 - (void)loadView;
 - (int)ITunesStoreUIBarStyle;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)copyScriptViewController;
 - (id)copyArchivableContext;
 - (void)addChildViewController:(id)arg1;
@@ -49,6 +49,11 @@
 - (id)initWithSection:(id)arg1;
 - (id)initWithRootViewController:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

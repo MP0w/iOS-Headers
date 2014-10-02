@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
     float mWidth;
 }
 
+- (id)description;
 - (void)setWidth:(float)arg1;
 - (float)width;
 

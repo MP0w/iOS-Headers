@@ -21,14 +21,12 @@
     } _flags;
     NSMutableArray *_layoutManagers;
     id _sideData;
-    unsigned int _editedMask;
     int _changeInLength;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
 @property(nonatomic) int changeInLength; // @synthesize changeInLength=_changeInLength;
 @property(nonatomic) struct _NSRange editedRange; // @synthesize editedRange=_editedRange;
-@property(nonatomic) unsigned int editedMask; // @synthesize editedMask=_editedMask;
 - (BOOL)_usesSimpleTextEffects;
 - (void)_setUsesSimpleTextEffects:(BOOL)arg1;
 - (id)cuiStyleEffects;
@@ -45,6 +43,7 @@
 - (struct _NSRange)_rangeByEstimatingAttributeFixingForRange:(struct _NSRange)arg1;
 - (void)processEditing;
 - (void)edited:(unsigned int)arg1 range:(struct _NSRange)arg2 changeInLength:(int)arg3;
+@property(nonatomic) unsigned int editedMask; // @dynamic editedMask;
 - (BOOL)_isEditing;
 - (void)coordinateEditing:(CDUnknownBlockType)arg1;
 - (void)endEditing;

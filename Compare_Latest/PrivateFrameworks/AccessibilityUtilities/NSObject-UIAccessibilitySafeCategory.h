@@ -10,6 +10,15 @@
 - (void)handleFailoversForClassNamed:(id)arg1;
 - (id)safeValueForKeyPath:(id)arg1;
 - (id)safeValueForKey:(id)arg1;
+- (float)safeCGFloatForKey:(id)arg1;
+- (struct _NSRange)safeRangeForKey:(id)arg1;
+- (double)safeTimeIntervalForKey:(id)arg1;
+- (double)safeDoubleForKey:(id)arg1;
+- (float)safeFloatForKey:(id)arg1;
+- (unsigned int)safeUnsignedIntegerForKey:(id)arg1;
+- (int)safeIntegerForKey:(id)arg1;
+- (unsigned int)safeUnsignedIntForKey:(id)arg1;
+- (int)safeIntForKey:(id)arg1;
 - (BOOL)safeBoolForKey:(id)arg1;
 - (void *)safeIvarForKey:(id)arg1;
 @end

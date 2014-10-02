@@ -6,24 +6,31 @@
 
 #import "NSObject.h"
 
-@class CLLocation, NSDate, NSManagedObjectID, PLMomentCluster;
+@class CLLocation, NSDate, NSNumber, NSObject<NSCopying>, NSString, PLMomentCluster;
 
 @interface PLMomentNode : NSObject
 {
     BOOL _marked;
     BOOL _visited;
-    NSManagedObjectID *__objectID;
+    NSObject<NSCopying> *__objectID;
     CLLocation *__location;
     NSDate *__creationDate;
     PLMomentCluster *__cluster;
+    unsigned int __userTagType;
+    NSString *__userTag;
+    NSNumber *_cacheInsertionIndex;
 }
 
+@property(retain, nonatomic) NSNumber *cacheInsertionIndex; // @synthesize cacheInsertionIndex=_cacheInsertionIndex;
 @property(nonatomic, getter=isVisited) BOOL visited; // @synthesize visited=_visited;
 @property(nonatomic, getter=isMarked) BOOL marked; // @synthesize marked=_marked;
+@property(readonly, nonatomic) NSString *userTag; // @synthesize userTag=__userTag;
+@property(readonly, nonatomic) unsigned int userTagType; // @synthesize userTagType=__userTagType;
 @property(nonatomic) PLMomentCluster *cluster; // @synthesize cluster=__cluster;
-@property(readonly, nonatomic) NSDate *creationDate; // @synthesize creationDate=__creationDate;
+@property(readonly, retain, nonatomic) NSDate *creationDate; // @synthesize creationDate=__creationDate;
 @property(readonly, nonatomic) CLLocation *location; // @synthesize location=__location;
-@property(readonly, nonatomic) NSManagedObjectID *objectID; // @synthesize objectID=__objectID;
+@property(readonly, retain, nonatomic) NSObject<NSCopying> *objectID; // @synthesize objectID=__objectID;
+- (BOOL)isTagged;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate;
 - (id)description;
 - (void)dealloc;

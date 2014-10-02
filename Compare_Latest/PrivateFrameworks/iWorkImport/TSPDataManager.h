@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSURL, TSPObjectContext, TSUPathSet;
+@class NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, TSPObjectContext, TSUPathSet, TSUTemporaryDirectory;
 
 __attribute__((visibility("hidden")))
 @interface TSPDataManager : NSObject
@@ -17,17 +17,17 @@ __attribute__((visibility("hidden")))
     struct hash_map<const long long, TSPData *__weak, TSP::ObjectIdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, TSPData *__weak>>> _identifierToDataMap;
     struct hash_map<const std::__1::array<unsigned char, 20>, TSPData *__weak, TSP::DataDigestHash, TSP::DataDigestEqualTo, std::__1::allocator<std::__1::pair<const std::__1::array<unsigned char, 20>, TSPData *__weak>>> _digestToDataMap;
     NSObject<OS_dispatch_queue> *_temporaryDirectoryQueue;
-    NSURL *_lastDocumentURL;
-    NSURL *_temporaryDirectoryURL;
-    TSUPathSet *_temporaryPathSet;
+    TSUTemporaryDirectory *_temporaryDirectory;
+    TSUPathSet *_temporaryDirectoryPathSet;
     BOOL _hasExternalReferences;
+    NSObject<OS_dispatch_queue> *_externalReferenceRemovalQueue;
     NSObject<OS_dispatch_group> *_externalReferenceRemovalGroup;
 }
 
 + (id)stringForDigest:(const array_019f9a10 *)arg1;
 + (BOOL)requestDocumentResourcesUsingDataProvider:(id)arg1 packageMetadata:(id)arg2;
 + (void)readWithChannel:(id)arg1 handler:(CDUnknownBlockType)arg2;
-@property(readonly, nonatomic) TSPObjectContext *context; // @synthesize context=_context;
+@property(readonly, nonatomic) __weak TSPObjectContext *context; // @synthesize context=_context;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)removeFileAtPath:(id)arg1;
@@ -42,9 +42,7 @@ __attribute__((visibility("hidden")))
 - (void)removeExternalReferenceForData:(id)arg1 storage:(id)arg2;
 - (void)waitForRemoveExternalReferencesToComplete;
 - (void)removeExternalReferences;
-- (id)dataFromExternalReferenceURL:(id)arg1;
-- (void)removeTemporaryDirectory;
-- (void)setDocumentURL:(id)arg1;
+- (id)dataFromExternalReferenceURL:(id)arg1 useFileCoordination:(BOOL)arg2;
 - (id)dataWithTemporaryPath:(id)arg1 digest:(const array_019f9a10 *)arg2 filename:(id)arg3;
 - (id)temporaryPathForFilename:(id)arg1;
 - (BOOL)linkTemporaryPath:(id)arg1 fromURL:(id)arg2;
@@ -53,10 +51,10 @@ __attribute__((visibility("hidden")))
 - (id)dataForIdentifier:(long long)arg1;
 - (id)dataOrNilForIdentifier:(long long)arg1;
 - (void)enumerateDatasUsingBlock:(CDUnknownBlockType)arg1;
-- (void)addDataFromPackage:(id)arg1 documentResourceDataProvider:(id)arg2 info:(const struct DataInfo *)arg3 areExternalReferencesAllowed:(BOOL)arg4;
+- (void)addDataFromPackage:(id)arg1 packageURL:(id)arg2 documentResourceDataProvider:(id)arg3 info:(const struct DataInfo *)arg4 areExternalReferencesAllowed:(BOOL)arg5;
 - (void)didSaveWithSaveOperationState:(id)arg1;
 - (BOOL)prepareSaveWithOldPackage:(id)arg1 saveOperationState:(id)arg2;
-- (void)loadFromPackage:(id)arg1 documentResourceDataProvider:(id)arg2 packageMetadata:(id)arg3 areExternalReferencesAllowed:(BOOL)arg4;
+- (void)loadFromPackage:(id)arg1 packageURL:(id)arg2 documentResourceDataProvider:(id)arg3 packageMetadata:(id)arg4 areExternalReferencesAllowed:(BOOL)arg5;
 - (id)copyData:(id)arg1;
 - (id)documentResourceDataWithStorage:(id)arg1 digestString:(id)arg2 filename:(id)arg3;
 - (id)dataFromNSData:(id)arg1 filename:(id)arg2;
@@ -69,11 +67,10 @@ __attribute__((visibility("hidden")))
 - (void)dataFromAssetsLibraryURL:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)dataFromAssetsLibraryURL:(id)arg1;
 - (void)coordinateReadingNewFileURL:(id)arg1 byAccessor:(CDUnknownBlockType)arg2;
-- (id)dataFromFileURL:(id)arg1;
-- (id)dataFromURL:(id)arg1;
-- (void)dealloc;
+- (id)dataFromFileURL:(id)arg1 useFileCoordination:(BOOL)arg2;
+- (id)dataFromURL:(id)arg1 useFileCoordination:(BOOL)arg2;
+- (void)didCloseDocument;
 - (id)initWithContext:(id)arg1;
-- (id)createTemporaryDirectoryForPackageURL:(id)arg1;
 
 @end
 

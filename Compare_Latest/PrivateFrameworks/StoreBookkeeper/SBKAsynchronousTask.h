@@ -11,6 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface SBKAsynchronousTask : NSObject
 {
+    NSString *_debugDescription;
     NSObject<OS_dispatch_queue> *_handlerQueue;
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_source> *_timeoutTimer;
@@ -21,14 +22,12 @@ __attribute__((visibility("hidden")))
     NSError *_error;
     CDUnknownBlockType _expirationHandler;
     CDUnknownBlockType _finishedHandler;
-    NSString *_debugDescription;
     SBKTaskAssertion *_taskAssertion;
     NSMutableArray *_completions;
 }
 
 @property(retain) NSMutableArray *completions; // @synthesize completions=_completions;
 @property(retain) SBKTaskAssertion *taskAssertion; // @synthesize taskAssertion=_taskAssertion;
-@property(copy) NSString *debugDescription; // @synthesize debugDescription=_debugDescription;
 - (void).cxx_destruct;
 - (void)invokeTaskCompletionBlocksWithBlock:(CDUnknownBlockType)arg1;
 - (void)addTaskCompletionBlock:(CDUnknownBlockType)arg1;
@@ -46,6 +45,7 @@ __attribute__((visibility("hidden")))
 - (id)description;
 - (void)_invalidateTimer;
 - (void)dealloc;
+- (id)debugDescription;
 - (id)initWithHandlerQueue:(id)arg1 timeout:(double)arg2 debugDescription:(id)arg3;
 
 @end

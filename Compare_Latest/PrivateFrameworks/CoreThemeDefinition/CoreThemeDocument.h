@@ -21,7 +21,9 @@
     NSString *_targetPlatform;
     BOOL m_didMigrate;
     int _updateVersionMetadataState;
+    int _capabilities;
     id <TDAssetManagementDelegate> _assetManagementDelegate;
+    id <TDCustomAssetProvider> _customAssetProvider;
 }
 
 + (id)defaultThemeBitSourceURLForDocumentURL:(id)arg1;
@@ -42,8 +44,13 @@
 + (id)createConfiguredDocumentAtURL:(id)arg1 error:(id *)arg2;
 + (void)_addThemeDocument:(id)arg1;
 + (id)_sharedDocumentList;
++ (void)initialize;
+@property(nonatomic) id <TDCustomAssetProvider> customAssetProvider; // @synthesize customAssetProvider=_customAssetProvider;
 @property(nonatomic) id <TDAssetManagementDelegate> assetManagementDelegate; // @synthesize assetManagementDelegate=_assetManagementDelegate;
 @property(copy) NSString *pathToRepresentedDocument; // @synthesize pathToRepresentedDocument;
+@property(nonatomic) int documentCapabilities; // @synthesize documentCapabilities=_capabilities;
+- (void)_delete:(id)arg1 withRendition:(id)arg2;
+- (void)_removeRedundantPDFBasedRenditionsForAssets:(id)arg1;
 - (void)addThemeBitSourceAtPath:(id)arg1;
 - (void)addThemeBitSourceAtPath:(id)arg1 createProductions:(BOOL)arg2;
 @property(readonly, nonatomic) NSURL *themeBitSourceURL;
@@ -62,7 +69,7 @@
 - (id)namedArtworkProductions;
 - (id)schemaPartDefinitionWithElementID:(int)arg1 partID:(int)arg2;
 - (id)schemaDefinitionWithElementID:(int)arg1;
-- (BOOL)customizeSchemaPartDefinition:(id)arg1 usingArtworkFormat:(id)arg2 shouldReplaceExisting:(BOOL)arg3 error:(id *)arg4;
+- (BOOL)customizeSchemaPartDefinition:(id)arg1 usingArtworkFormat:(id)arg2 nameElement:(id)arg3 shouldReplaceExisting:(BOOL)arg4 error:(id *)arg5;
 - (BOOL)customizeSchemaEffectDefinition:(id)arg1 shouldReplaceExisting:(BOOL)arg2 error:(id *)arg3;
 - (BOOL)customizeSchemaElementDefinition:(id)arg1 usingArtworkFormat:(id)arg2 shouldReplaceExisting:(BOOL)arg3 error:(id *)arg4;
 - (void)removeCustomizationForSchemaDefinition:(id)arg1 shouldDeleteAssetFiles:(BOOL)arg2;
@@ -108,12 +115,19 @@
 - (id)createAssetWithName:(id)arg1 inCategory:(id)arg2 forThemeBitSource:(id)arg3;
 - (id)createElementProductionWithAsset:(id)arg1;
 - (id)_genericPartDefinition;
+- (void)importCustomAssetsWithImportInfos:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (BOOL)createCustomArtworkProductionsForCustomAssets:(id)arg1 withImportInfos:(id)arg2 error:(id *)arg3;
+- (id)_addAssetsFromCustomAssetInfos:(id)arg1 bitSource:(id)arg2 error:(id *)arg3;
 - (void)deleteNamedAssets:(id)arg1 shouldDeleteAssetFiles:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)importNamedAssetsWithImportInfos:(id)arg1 referenceFiles:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)importNamedAssetsWithImportInfos:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)importNamedAssetsFromFileURLs:(id)arg1 referenceFiles:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)createNamedArtworkProductionsForAssets:(id)arg1 customInfos:(id)arg2 error:(id *)arg3;
+- (id)slicesComputedForImageSize:(struct CGSize)arg1 usingSliceInsets:(CDStruct_fd71c141)arg2 resizableSliceSize:(struct CGSize)arg3 withRenditionType:(int)arg4;
 - (id)namedArtworkProductionWithName:(id)arg1;
+- (id)elementProductionsWithName:(id)arg1;
+- (id)namedElementsForElementDefinition:(id)arg1;
+- (id)namedElementWithName:(id)arg1;
 - (id)_createNamedElementWithIdentifier:(int)arg1;
 - (id)_createNamedElementWithNextAvailableIdentifier;
 - (id)_namedImagePartDefinition;
@@ -125,10 +139,10 @@
 - (id)createEffectStyleProductionForPartDefinition:(id)arg1 withNameIdentifier:(id)arg2;
 - (id)createEffectStyleProductionForPartDefinition:(id)arg1;
 - (void)_normalizeRenditionKeySpec:(id)arg1 forSchemaRendition:(id)arg2;
+- (id)createProductionWithRenditionGroup:(id)arg1 forPartDefinition:(id)arg2 artworkFormat:(id)arg3 nameElement:(id)arg4 shouldReplaceExisting:(BOOL)arg5 error:(id *)arg6;
 - (id)createProductionWithRenditionGroup:(id)arg1 forPartDefinition:(id)arg2 artworkFormat:(id)arg3 shouldReplaceExisting:(BOOL)arg4 error:(id *)arg5;
+- (BOOL)allowMultipleInstancesOfElementID:(int)arg1;
 - (BOOL)createPSDReferenceArtworkForRenditionGroup:(id)arg1 atDestination:(id)arg2 error:(id *)arg3;
-- (BOOL)shouldGeneratePSDAssetFromArtFile:(id)arg1;
-- (id)handCraftedAssetURLForFileName:(id)arg1;
 - (id)_themeBitSourceForReferencedFilesAtURLs:(id)arg1 createIfNecessary:(BOOL)arg2;
 - (id)_themeBitSource:(id *)arg1;
 - (id)createReferencePNGForSchemaRendition:(id)arg1 withPartDefinition:(id)arg2 atLocation:(id)arg3 error:(id *)arg4;
@@ -161,10 +175,14 @@
 - (id)effectTypeWithIdentifier:(unsigned int)arg1;
 - (id)schemaCategoryWithIdentifier:(int)arg1;
 - (id)lookWithIdentifier:(int)arg1;
+- (id)templateRenderingModeWithIdentifier:(int)arg1;
+- (id)sizeClassWithIdentifier:(int)arg1;
 - (id)idiomWithIdentifier:(int)arg1;
 - (id)drawingLayerWithIdentifier:(int)arg1;
+- (id)previousValueWithIdentifier:(int)arg1;
 - (id)valueWithIdentifier:(int)arg1;
 - (id)presentationStateWithIdentifier:(int)arg1;
+- (id)previousStateWithIdentifier:(int)arg1;
 - (id)stateWithIdentifier:(int)arg1;
 - (id)directionWithIdentifier:(int)arg1;
 - (id)sizeWithIdentifier:(int)arg1;
@@ -177,9 +195,6 @@
 - (id)mocOrganizer;
 - (id)managedObjectModel;
 - (id)updateToEmbeddedSchemaVersion2AndReturnAlertString:(id *)arg1;
-- (id)updateToSchemaVersion4AndReturnAlertString:(id *)arg1;
-- (id)updateToSchemaVersion3AndReturnAlertString:(id *)arg1;
-- (id)migrateFromWindowFormat14ToWindowFormat15:(id *)arg1;
 - (void)checkVersionsAndUpdateIfNecessary;
 - (void)dealloc;
 - (id)initWithContentsOfURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;
@@ -189,6 +204,7 @@
 - (void)_getFilename:(id *)arg1 scaleFactor:(unsigned int *)arg2 category:(id *)arg3 bitSource:(id *)arg4 forFileURL:(id)arg5;
 - (id)_predicateForRenditionKeySpec:(id)arg1;
 - (void)changedObjectsNotification:(id)arg1;
+- (void)updateRenditionSpec:(id)arg1;
 
 @end
 

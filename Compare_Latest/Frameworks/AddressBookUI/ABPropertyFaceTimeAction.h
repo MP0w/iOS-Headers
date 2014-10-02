@@ -6,13 +6,20 @@
 
 #import <AddressBookUI/ABPropertyAction.h>
 
+@class ABPropertyBestFaceTimeQuery;
+
 @interface ABPropertyFaceTimeAction : ABPropertyAction
 {
     int _type;
+    ABPropertyBestFaceTimeQuery *_bestFaceTimeQuery;
 }
 
+@property(retain, nonatomic) ABPropertyBestFaceTimeQuery *bestFaceTimeQuery; // @synthesize bestFaceTimeQuery=_bestFaceTimeQuery;
 @property(nonatomic) int type; // @synthesize type=_type;
+- (void)_queryFaceTimeStatus;
 - (void)performActionForItem:(id)arg1 sender:(id)arg2;
+- (void)dealloc;
+- (id)initWithContact:(id)arg1 propertyItems:(id)arg2;
 
 @end
 

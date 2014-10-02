@@ -6,7 +6,9 @@
 
 #import <UIKit/UIView.h>
 
-@interface UIPopoverBackgroundView : UIView
+#import "UIPopoverBackgroundViewMethods.h"
+
+@interface UIPopoverBackgroundView : UIView <UIPopoverBackgroundViewMethods>
 {
 }
 

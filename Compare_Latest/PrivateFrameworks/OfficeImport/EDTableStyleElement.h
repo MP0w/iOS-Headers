@@ -9,7 +9,7 @@
 #import "EDKeyedObject.h"
 #import "NSCopying.h"
 
-@class EDCollection, EDDifferentialStyle;
+@class EDCollection, EDDifferentialStyle, NSString;
 
 __attribute__((visibility("hidden")))
 @interface EDTableStyleElement : NSObject <EDKeyedObject, NSCopying>
@@ -32,6 +32,12 @@ __attribute__((visibility("hidden")))
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithResources:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

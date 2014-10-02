@@ -11,7 +11,7 @@
 @interface WAKWindow : WAKResponder
 {
     CALayer *_hostLayer;
-    struct TileCache *_tileCache;
+    struct LegacyTileCache *_tileCache;
     struct CGRect _frozenVisibleRect;
     CALayer *_rootLayer;
     struct CGSize _screenSize;
@@ -47,7 +47,7 @@
 - (void)displayRect:(struct CGRect)arg1;
 @property(nonatomic) struct CGImage *contentReplacementImage;
 - (BOOL)hasPendingDraw;
-- (struct TileCache *)tileCache;
+- (struct LegacyTileCache *)tileCache;
 - (BOOL)keepsZoomedOutTiles;
 - (void)setKeepsZoomedOutTiles:(BOOL)arg1;
 - (float)currentTileScale;

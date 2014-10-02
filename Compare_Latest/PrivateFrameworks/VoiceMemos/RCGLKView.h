@@ -11,6 +11,7 @@
     BOOL _isCreatingSnapshot;
 }
 
++ (Class)layerClass;
 @property(readonly, nonatomic) BOOL isCreatingSnapshot; // @synthesize isCreatingSnapshot=_isCreatingSnapshot;
 - (void)didMoveToWindow;
 @property(readonly, nonatomic) BOOL isRenderingContextValid;

@@ -8,28 +8,30 @@
 
 #import "PLManagedObjectContextPTPNotificationDelegate.h"
 
-@class NSArray, NSFileManager, NSMutableArray, NSObject<PhotoLibraryPTPDelegate>, NSString, PLManagedObjectContext, PLPhotoLibrary;
+@class NSArray, NSFileManager, NSObject<OS_dispatch_queue>, NSObject<PhotoLibraryPTPDelegate>, NSSet, NSString, PLManagedObjectContext, PLPhotoLibrary;
 
 @interface PLPTPdAssetManager : NSObject <PLManagedObjectContextPTPNotificationDelegate>
 {
     NSObject<PhotoLibraryPTPDelegate> *_delegate;
     NSArray *_albumObjectIDs;
     NSString *_firstDCIMFolderServiced;
-    NSMutableArray *_inflightAssets;
+    NSSet *_availableAssetIDs;
     PLPhotoLibrary *_photoLibrary;
+    int _libraryStatus;
+    NSObject<OS_dispatch_queue> *availableAssetsQueue;
     NSFileManager *fileManager;
 }
 
 @property(retain, nonatomic) NSFileManager *fileManager; // @synthesize fileManager;
-- (void)managedObjectContext:(id)arg1 libraryChangedWithInsertedAssets:(id)arg2 deletedAssets:(id)arg3 changedAssets:(id)arg4;
+- (void)managedObjectContext:(id)arg1 libraryChangedWithInsertedAssetIDs:(id)arg2 deletedAssetIDs:(id)arg3 changedAssetIDs:(id)arg4;
 - (void)deleteAsset:(struct NSObject *)arg1;
 - (id)infoForAsset:(struct NSObject *)arg1;
 - (id)assetsInAssociation:(struct NSObject *)arg1;
 - (id)associationsInAlbum:(struct NSObject *)arg1;
 - (id)infoForAlbum:(struct NSObject *)arg1;
 - (id)albumHandles;
-@property(readonly, nonatomic) PLPhotoLibrary *photoLibrary;
-- (void)photoLibraryAvailabilityChangedNotification;
+@property(readonly, retain, nonatomic) PLPhotoLibrary *photoLibrary;
+- (void)handlePhotoLibraryAvailableNotification;
 - (void)dealloc;
 - (id)init;
 - (BOOL)libraryIsAvailable;
@@ -42,12 +44,19 @@
 - (id)ptpThumbnailForPhotoWithKey:(struct NSObject *)arg1;
 - (id)ptpInformationForFilesInDirectory:(id)arg1;
 - (id)_ptpInformationForAllAssets;
+- (id)_fetchObjectIDsForAssetsExposedToPTPFromObjectIDs:(id)arg1;
 - (id)_allAssetObjectIDs;
 - (BOOL)_isPTPAlbum:(id)arg1;
-@property(readonly, nonatomic) NSArray *albumObjectIDs;
-@property(readonly) PLManagedObjectContext *managedObjectContext;
+@property(readonly, retain, nonatomic) NSArray *albumObjectIDs;
+@property(readonly, retain) PLManagedObjectContext *managedObjectContext;
 - (void)_performBlockAndWait:(CDUnknownBlockType)arg1;
 - (void)_performTransactionAndWait:(CDUnknownBlockType)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

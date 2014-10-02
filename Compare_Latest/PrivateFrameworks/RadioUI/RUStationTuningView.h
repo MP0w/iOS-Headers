@@ -6,10 +6,11 @@
 
 #import "UIView.h"
 
-@class RUStationTuningSlider, RadioStation, UIImageView, UILabel;
+@class RUStationTuningSlider, RadioStation, UIImageView, UILabel, UITapGestureRecognizer;
 
 @interface RUStationTuningView : UIView
 {
+    UITapGestureRecognizer *_tapGestureRecognizer;
     RUStationTuningSlider *_tuningSlider;
     float _tuningSliderMaskDrawnWidth;
     UIImageView *_tuningSliderMaskView;
@@ -19,11 +20,15 @@
     RadioStation *_station;
 }
 
++ (id)_tuningTypeLabelFont;
++ (float)defaultHeightForTraitCollection:(id)arg1;
 @property(retain, nonatomic) RadioStation *station; // @synthesize station=_station;
 - (void).cxx_destruct;
-- (id)maskImageForSliderTrack;
+- (id)_maskImageForSliderTrack;
+- (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)_tapRecognizedAction:(id)arg1;
 - (void)layoutSubviews;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

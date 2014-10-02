@@ -14,7 +14,6 @@
 }
 
 + (id)providerName;
-+ (unsigned short)provider;
 @property(copy, nonatomic) CDUnknownBlockType errorHandler; // @synthesize errorHandler=_errorHandler;
 @property(copy, nonatomic) CDUnknownBlockType batchSuccessHandler; // @synthesize batchSuccessHandler=_batchSuccessHandler;
 @property(copy, nonatomic) CDUnknownBlockType successHandler; // @synthesize successHandler=_successHandler;

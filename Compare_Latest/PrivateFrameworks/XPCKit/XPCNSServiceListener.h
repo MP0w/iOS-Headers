@@ -20,10 +20,16 @@
 - (void).cxx_destruct;
 - (void)XPCServiceListener:(id)arg1 didReceiveNewConnection:(id)arg2;
 - (BOOL)XPCServiceListener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
-@property(readonly, nonatomic) NSString *serviceName;
+@property(readonly, retain, nonatomic) NSString *serviceName;
 - (void)shutDownCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)start;
 - (id)initWithServiceName:(id)arg1 queue:(id)arg2 delegate:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

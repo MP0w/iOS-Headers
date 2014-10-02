@@ -27,7 +27,7 @@
 @property(readonly) unsigned short eventPhase;
 @property(readonly) id <DOMEventTarget> currentTarget;
 @property(readonly) id <DOMEventTarget> target;
-@property(readonly) NSString *type;
+@property(readonly, copy) NSString *type;
 - (void)finalize;
 - (void)dealloc;
 

@@ -9,6 +9,7 @@
 @interface NSData (ManagedConfiguration)
 + (id)MCDataWithCFData:(struct __CFData *)arg1;
 + (id)MCDataWithHexString:(id)arg1;
+- (id)MCSHA1Hash;
 - (id)MCInitWithBase64String:(id)arg1;
 - (id)MCBase64String;
 - (id)MCHexString;

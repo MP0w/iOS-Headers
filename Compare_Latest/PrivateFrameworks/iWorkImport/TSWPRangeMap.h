@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 - (unsigned int)unmappedCharIndex:(unsigned int)arg1;
 - (unsigned int)mappedCharIndex:(unsigned int)arg1;
 - (id)initWithSubRange:(struct _NSRange)arg1 unmappedIndexes:(const vector_a9c0768e *)arg2 affinity:(int)arg3;
+- (id)initWithSubRange:(struct _NSRange)arg1 unmappedIndexes:(const vector_a9c0768e *)arg2 isBackwardAffinities:(const vector_b86883bc *)arg3;
 - (id)initWithSubRange:(struct _NSRange)arg1 unmappedPairIndexes:(const vector_a9c0768e *)arg2;
 
 @end

@@ -9,10 +9,11 @@
 @interface EKCalendarInviteReplyNotification : EKCalendarNotification
 {
     int _status;
+    unsigned int _allowedEntityTypes;
 }
 
+@property(nonatomic) unsigned int allowedEntityTypes; // @synthesize allowedEntityTypes=_allowedEntityTypes;
 @property(nonatomic) int status; // @synthesize status=_status;
-- (BOOL)needsAlert;
 - (id)inviteReplyNotificationFromEventStore:(id)arg1;
 - (id)initWithType:(int)arg1;
 

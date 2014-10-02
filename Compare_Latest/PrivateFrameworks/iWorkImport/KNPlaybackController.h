@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
     BOOL mPlaysAutomaticEvents;
     BOOL mAutomaticallyPlaysMovies;
     BOOL mRenderingSuspended;
+    BOOL mNeedsRenderAfterResumingRendering;
     BOOL mIsCurrentEventNonAutomatic;
     BOOL mIsPaused;
     BOOL mIsHyperlinkInProgress;
@@ -61,6 +62,7 @@ __attribute__((visibility("hidden")))
 - (void)p_movieEnded:(id)arg1;
 - (void)p_movieStarted:(id)arg1;
 - (void)p_eventEnded:(id)arg1;
+- (void)p_eventImmediatelyEnded:(id)arg1;
 - (void)p_eventAnimationBecameActive:(id)arg1;
 - (void)p_eventStarted:(id)arg1;
 - (id)p_currentBuildChunks;
@@ -68,9 +70,10 @@ __attribute__((visibility("hidden")))
 - (id)p_hyperlinkURLForTarget:(id)arg1 rep:(id)arg2 info:(id)arg3;
 - (BOOL)processHyperlinkForTarget:(id)arg1 rep:(id)arg2 info:(id)arg3;
 - (id)p_topLevelRepsForHitTesting;
+- (BOOL)isHyperlinkAtUnscaledPoint:(struct CGPoint)arg1 hitObject:(id *)arg2 hitRep:(id *)arg3 hitInfo:(id *)arg4;
 - (BOOL)isHyperlinkAtPoint:(struct CGPoint)arg1 hitObject:(id *)arg2 hitRep:(id *)arg3 hitInfo:(id *)arg4;
 @property(nonatomic) BOOL shouldAnimateTransitionOnLastSlide;
-@property(readonly, nonatomic) NSArray *currentlyVisibleInfos;
+@property(readonly, retain, nonatomic) NSArray *currentlyVisibleInfos;
 @property(nonatomic) BOOL shouldAnimateNullTransitions;
 - (id)movieRendererAtPoint:(struct CGPoint)arg1;
 - (void)applyMovieControl:(int)arg1;
@@ -89,6 +92,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=isNonMovieAnimationActive) BOOL nonMovieAnimationActive;
 @property(readonly, nonatomic, getter=isNonMovieAnimationAnimating) BOOL nonMovieAnimationAnimating;
 @property(readonly, nonatomic, getter=isAnimating) BOOL animating;
+- (void)restartShow;
 - (void)resumeRendering;
 - (void)suspendRendering;
 - (void)playAutomaticEvents;
@@ -108,9 +112,11 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned int nextEventIndex;
 @property(readonly, nonatomic) unsigned int visibleEventIndex;
 @property(readonly, nonatomic) unsigned int eventCount;
+@property(readonly, nonatomic) KNSlideNode *lastSlideNode;
 - (id)nextSlideNodeAfterSlideNode:(id)arg1;
 @property(readonly, nonatomic) KNSlideNode *nextSlideNode;
 @property(readonly, nonatomic) KNSlideNode *currentSlideNode;
+@property(readonly, nonatomic) KNSlideNode *firstSlideNode;
 @property(readonly, nonatomic, getter=isAtBeginning) BOOL atBeginning;
 - (void)resizeShowToFitBaseLayer;
 - (void)tearDownShow;

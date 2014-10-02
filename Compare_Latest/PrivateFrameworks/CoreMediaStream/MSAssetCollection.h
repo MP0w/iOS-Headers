@@ -36,7 +36,7 @@
 - (BOOL)isEqual:(id)arg1;
 - (id)description;
 @property(retain, nonatomic) NSArray *derivedAssets;
-@property(readonly, nonatomic) NSData *masterAssetHash;
+@property(readonly, nonatomic) __weak NSData *masterAssetHash;
 - (id)initWithMasterAsset:(id)arg1 fileName:(id)arg2 derivedAssets:(id)arg3;
 
 @end

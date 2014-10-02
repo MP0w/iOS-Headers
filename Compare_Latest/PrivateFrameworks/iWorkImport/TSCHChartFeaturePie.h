@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (unsigned int)maxCellsToCheckForGridValueType;
 - (BOOL)supportsCategoryLabelsInChartRangeEditor;
 - (BOOL)supportsMoreThanOneLiveCategory;
 - (id)initialSceneWithChartInfo:(id)arg1 layoutSettings:(CDStruct_1f804ca1)arg2;

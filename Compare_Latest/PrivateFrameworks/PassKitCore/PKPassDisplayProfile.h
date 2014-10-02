@@ -4,17 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <PassKitCore/PKDisplayProfile.h>
 
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
 @class NSData, PKColor;
 
-@interface PKPassDisplayProfile : NSObject <NSSecureCoding, NSCopying>
+@interface PKPassDisplayProfile : PKDisplayProfile <NSSecureCoding, NSCopying>
 {
     BOOL _tallCode;
-    unsigned int _passStyle;
+    int _passStyle;
     PKColor *_backgroundColor;
     PKColor *_foregroundColor;
     PKColor *_labelColor;
@@ -24,11 +24,12 @@
     NSData *_thumbnailHash;
     NSData *_backgroundHash;
     NSData *_stripHash;
-    int _layoutMode;
+    NSData *_paymentAssetsHash;
 }
 
 + (BOOL)supportsSecureCoding;
 @property(nonatomic) BOOL tallCode; // @synthesize tallCode=_tallCode;
+@property(retain, nonatomic) NSData *paymentAssetsHash; // @synthesize paymentAssetsHash=_paymentAssetsHash;
 @property(retain, nonatomic) NSData *stripHash; // @synthesize stripHash=_stripHash;
 @property(retain, nonatomic) NSData *backgroundHash; // @synthesize backgroundHash=_backgroundHash;
 @property(retain, nonatomic) NSData *thumbnailHash; // @synthesize thumbnailHash=_thumbnailHash;
@@ -38,15 +39,16 @@
 @property(retain, nonatomic) PKColor *labelColor; // @synthesize labelColor=_labelColor;
 @property(retain, nonatomic) PKColor *foregroundColor; // @synthesize foregroundColor=_foregroundColor;
 @property(retain, nonatomic) PKColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
-@property(nonatomic) unsigned int passStyle; // @synthesize passStyle=_passStyle;
+@property(nonatomic) int passStyle; // @synthesize passStyle=_passStyle;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-@property(readonly, nonatomic) int layoutMode; // @synthesize layoutMode=_layoutMode;
-- (BOOL)showsStripImage;
-- (BOOL)showsBackgroundImage;
+- (int)type;
+@property(readonly, nonatomic) int layoutMode;
+@property(readonly, nonatomic) BOOL showsStripImage;
+@property(readonly, nonatomic) BOOL showsBackgroundImage;
 - (void)dealloc;
-- (id)initWithPassDictionary:(id)arg1 passURL:(id)arg2;
+- (id)initWithDictionary:(id)arg1 bundle:(id)arg2;
 
 @end
 

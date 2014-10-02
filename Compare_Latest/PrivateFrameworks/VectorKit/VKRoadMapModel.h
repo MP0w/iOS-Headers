@@ -6,32 +6,34 @@
 
 #import <VectorKit/VKVectorMapModel.h>
 
-#import "VKStylesheetObserver.h"
+#import "VKStyleManagerObserver.h"
 
-@class VKRoadPainter, VKStylesheet;
+@class NSString, VKStyleManager;
 
 __attribute__((visibility("hidden")))
-@interface VKRoadMapModel : VKVectorMapModel <VKStylesheetObserver>
+@interface VKRoadMapModel : VKVectorMapModel <VKStyleManagerObserver>
 {
-    VKRoadPainter *_roadPainter;
-    BOOL _drawRoads;
-    float _styleZAdjust;
-    unsigned int _mapLayerPosition;
-    unsigned int _supportedRenderPasses;
+    struct unique_ptr<vk::RoadManager, std::__1::default_delete<vk::RoadManager>> _roadManager;
+    struct unique_ptr<vk::PatternedManager, std::__1::default_delete<vk::PatternedManager>> _patternedRibbonManager;
+    unsigned long long _mapLayerPosition;
 }
 
-@property(nonatomic) unsigned int supportedRenderPasses; // @synthesize supportedRenderPasses=_supportedRenderPasses;
-@property(nonatomic) unsigned int mapLayerPosition; // @synthesize mapLayerPosition=_mapLayerPosition;
-@property(nonatomic) BOOL drawRoads; // @synthesize drawRoads=_drawRoads;
+@property(nonatomic) unsigned long long mapLayerPosition; // @synthesize mapLayerPosition=_mapLayerPosition;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (void)didReceiveMemoryWarning;
 - (void)stylesheetDidChange;
 - (void)dealloc;
 - (id)init;
-- (void)drawDebugScene:(id)arg1 WithContext:(id)arg2;
-- (void)drawScene:(id)arg1 withContext:(id)arg2;
-- (void)layoutScene:(id)arg1 withContext:(id)arg2;
+- (unsigned char)commandBufferId;
+- (void)gglLayoutScene:(id)arg1 withContext:(id)arg2 renderQueue:(struct RenderQueue *)arg3;
 
 // Remaining properties
-@property(readonly, nonatomic) VKStylesheet *stylesheet;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly, nonatomic) VKStyleManager *styleManager;
+@property(readonly) Class superclass;
 
 @end
 

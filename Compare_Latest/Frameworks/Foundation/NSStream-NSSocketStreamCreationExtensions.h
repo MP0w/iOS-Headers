@@ -8,5 +8,6 @@
 
 @interface NSStream (NSSocketStreamCreationExtensions)
 + (void)getStreamsToHost:(id)arg1 port:(int)arg2 inputStream:(id *)arg3 outputStream:(id *)arg4;
++ (void)getStreamsToHostWithName:(id)arg1 port:(int)arg2 inputStream:(id *)arg3 outputStream:(id *)arg4;
 @end
 

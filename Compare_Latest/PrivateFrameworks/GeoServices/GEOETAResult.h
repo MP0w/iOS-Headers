@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class GEOPlaceSearchResponse;
+@class GEOPlaceSearchResponse, NSMutableArray;
 
 @interface GEOETAResult : PBCodable <NSCopying>
 {
@@ -16,6 +16,7 @@
     unsigned int _historicTravelTime;
     unsigned int _liveTravelTime;
     GEOPlaceSearchResponse *_placeSearchResponse;
+    NSMutableArray *_sortedETAs;
     int _status;
     struct {
         unsigned int distance:1;
@@ -25,10 +26,13 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSMutableArray *sortedETAs; // @synthesize sortedETAs=_sortedETAs;
 @property(nonatomic) unsigned int distance; // @synthesize distance=_distance;
 @property(retain, nonatomic) GEOPlaceSearchResponse *placeSearchResponse; // @synthesize placeSearchResponse=_placeSearchResponse;
 @property(nonatomic) unsigned int historicTravelTime; // @synthesize historicTravelTime=_historicTravelTime;
 @property(nonatomic) unsigned int liveTravelTime; // @synthesize liveTravelTime=_liveTravelTime;
+@property(nonatomic) int status; // @synthesize status=_status;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -37,12 +41,15 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)sortedETAAtIndex:(unsigned int)arg1;
+- (unsigned int)sortedETAsCount;
+- (void)addSortedETA:(id)arg1;
+- (void)clearSortedETAs;
 @property(nonatomic) BOOL hasDistance;
 @property(readonly, nonatomic) BOOL hasPlaceSearchResponse;
 @property(nonatomic) BOOL hasHistoricTravelTime;
 @property(nonatomic) BOOL hasLiveTravelTime;
 @property(nonatomic) BOOL hasStatus;
-@property(nonatomic) int status; // @synthesize status=_status;
 - (void)dealloc;
 
 @end

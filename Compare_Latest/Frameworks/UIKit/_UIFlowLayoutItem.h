@@ -14,11 +14,15 @@ __attribute__((visibility("hidden")))
     _UIFlowLayoutSection *_section;
     _UIFlowLayoutRow *_rowObject;
     struct CGRect _itemFrame;
+    struct {
+        unsigned int positionEstimated:1;
+    } _itemFlags;
 }
 
 @property(nonatomic) struct CGRect itemFrame; // @synthesize itemFrame=_itemFrame;
 @property(nonatomic) _UIFlowLayoutRow *rowObject; // @synthesize rowObject=_rowObject;
 @property(nonatomic) _UIFlowLayoutSection *section; // @synthesize section=_section;
+@property(nonatomic, getter=isPositionEstimated) BOOL positionEstimated;
 - (id)copy;
 
 @end

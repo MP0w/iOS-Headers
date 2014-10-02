@@ -6,26 +6,30 @@
 
 #import "NSObject.h"
 
-@class MCPeerID, NSMutableDictionary;
+@class MCPeerID, NSData, NSMutableDictionary;
 
 @interface MCSessionPeerState : NSObject
 {
+    BOOL _connectPeerCalled;
     MCPeerID *_peerID;
     int _state;
     NSMutableDictionary *_outgoingStreamRequests;
     NSMutableDictionary *_incomingStreams;
     NSMutableDictionary *_outgoingStreams;
+    NSData *_nearbyConnectionData;
     int _certificateDecision;
     unsigned int _newStreamOpenRequestID;
     unsigned int _newStreamID;
 }
 
 @property(nonatomic) int certificateDecision; // @synthesize certificateDecision=_certificateDecision;
+@property(nonatomic) BOOL connectPeerCalled; // @synthesize connectPeerCalled=_connectPeerCalled;
+@property(copy, nonatomic) NSData *nearbyConnectionData; // @synthesize nearbyConnectionData=_nearbyConnectionData;
 @property(retain, nonatomic) NSMutableDictionary *outgoingStreams; // @synthesize outgoingStreams=_outgoingStreams;
 @property(retain, nonatomic) NSMutableDictionary *incomingStreams; // @synthesize incomingStreams=_incomingStreams;
 @property(retain, nonatomic) NSMutableDictionary *outgoingStreamRequests; // @synthesize outgoingStreamRequests=_outgoingStreamRequests;
 @property(nonatomic) int state; // @synthesize state=_state;
-@property(readonly, nonatomic) MCPeerID *peerID; // @synthesize peerID=_peerID;
+@property(readonly, copy, nonatomic) MCPeerID *peerID; // @synthesize peerID=_peerID;
 @property(readonly, nonatomic) unsigned int newStreamOpenRequestID; // @synthesize newStreamOpenRequestID=_newStreamOpenRequestID;
 @property(readonly, nonatomic) unsigned int newStreamID; // @synthesize newStreamID=_newStreamID;
 - (void)dealloc;

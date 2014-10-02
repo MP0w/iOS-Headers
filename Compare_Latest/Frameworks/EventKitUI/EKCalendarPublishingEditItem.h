@@ -8,7 +8,7 @@
 
 #import "CalendarPublishingActivityDelegate.h"
 
-@class UIActivityIndicatorView, UILabel, UIView;
+@class NSString, UIActivityIndicatorView, UILabel, UIView;
 
 @interface EKCalendarPublishingEditItem : EKCalendarEditItem <CalendarPublishingActivityDelegate>
 {
@@ -38,6 +38,12 @@
 - (void)layoutForWidth:(float)arg1;
 - (void)_applyStyleToUILabel:(id)arg1;
 - (void)reset;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

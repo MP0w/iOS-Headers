@@ -8,7 +8,7 @@
 
 #import "TSDGradientStopContainer.h"
 
-@class NSArray, TSUColor;
+@class NSArray, NSString, TSUColor;
 
 __attribute__((visibility("hidden")))
 @interface TSDMutableTransformGradient : TSDTransformGradient <TSDGradientStopContainer>
@@ -28,8 +28,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned int gradientType; // @dynamic gradientType;
 - (void)evenlyDistributeStops;
 - (void)reverseStopOrder;
-- (void)insertStopAtFraction:(float)arg1 withColor:(id)arg2;
-- (void)insertStopAtFraction:(float)arg1;
+- (id)insertStopAtFraction:(float)arg1 withColor:(id)arg2;
+- (id)insertStopAtFraction:(float)arg1;
 - (id)removeStopAtIndex:(unsigned int)arg1;
 - (void)removeStop:(id)arg1;
 - (void)insertGradientStop:(id)arg1;
@@ -37,10 +37,14 @@ __attribute__((visibility("hidden")))
 
 // Remaining properties
 @property(nonatomic) struct CGSize baseNaturalSize; // @dynamic baseNaturalSize;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(nonatomic) struct CGPoint endPoint; // @dynamic endPoint;
+@property(readonly) unsigned int hash;
 @property(nonatomic) BOOL isAdvancedGradient; // @dynamic isAdvancedGradient;
 @property(nonatomic) float opacity; // @dynamic opacity;
 @property(nonatomic) struct CGPoint startPoint; // @dynamic startPoint;
+@property(readonly) Class superclass;
 
 @end
 

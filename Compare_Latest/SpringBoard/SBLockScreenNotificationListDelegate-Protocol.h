@@ -9,6 +9,7 @@
 @class SBAwayBulletinListItem, UIScrollView;
 
 @protocol SBLockScreenNotificationListDelegate <NSObject>
+- (void)authenticateForNotificationActionWithCompletion:(void (^)(_Bool))arg1;
 - (void)addCoordinatedPresentingController:(id <SBCoordinatedPresenting>)arg1;
 - (void)removeCoordinatedPresentingController:(id <SBCoordinatedPresenting>)arg1;
 - (void)dismissFullscreenBulletinAlertWithItem:(SBAwayBulletinListItem *)arg1;

@@ -8,7 +8,7 @@
 
 #import "HandView.h"
 
-@class NSArray;
+@class NSArray, NSString;
 
 @interface BitmapHandView : UIView <HandView>
 {
@@ -21,6 +21,12 @@
 - (void)dealloc;
 - (id)initWithImage:(id)arg1 rotationalCenter:(struct CGPoint)arg2;
 - (id)initWithBundle:(id)arg1 resourcePath:(id)arg2 partInfoList:(id)arg3 rotationalCenter:(struct CGPoint)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,18 +6,20 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSError, NSObject<OS_dispatch_queue>, NSString, _UIAsyncInvocation, _UIRemoteViewControllerConnectionInfo;
+@class NSArray, NSError, NSObject<OS_dispatch_queue>, NSString, NSUUID, _UIAsyncInvocation, _UIRemoteViewControllerConnectionInfo, _UIRemoteViewService;
 
 __attribute__((visibility("hidden")))
 @interface _UIRemoteViewControllerConnectionRequest : NSObject
 {
-    BOOL _useXPCObjects;
+    _UIRemoteViewService *_service;
     CDUnknownBlockType _handler;
     NSString *_viewServiceBundleIdentifier;
     NSString *_viewControllerClassName;
+    NSUUID *_contextToken;
     NSArray *_serializedAppearanceCustomizations;
     BOOL _legacyAppearance;
     id _exportedHostingObject;
+    Class _remoteViewControllerClass;
     id <_UIViewServiceDeputyXPCInterface> _serviceViewControllerDeputyInterface;
     _UIAsyncInvocation *_cancelInvocationForCurrentOperation;
     _UIRemoteViewControllerConnectionInfo *_connectionInfo;
@@ -27,7 +29,9 @@ __attribute__((visibility("hidden")))
     _UIAsyncInvocation *_requestCancellationInvocation;
 }
 
-+ (id)requestViewController:(id)arg1 fromServiceWithBundleIdentifier:(id)arg2 serializedAppearanceCustomizations:(id)arg3 legacyAppearance:(BOOL)arg4 useXPCObjects:(BOOL)arg5 exportedHostingObject:(id)arg6 serviceViewControllerDeputyInterface:(id)arg7 connectionHandler:(CDUnknownBlockType)arg8;
++ (id)requestViewControllerWithService:(id)arg1 serializedAppearanceCustomizations:(id)arg2 legacyAppearance:(BOOL)arg3 exportedHostingObject:(id)arg4 remoteViewControllerClass:(Class)arg5 serviceViewControllerDeputyInterface:(id)arg6 connectionHandler:(CDUnknownBlockType)arg7;
++ (id)requestViewController:(id)arg1 fromServiceWithBundleIdentifier:(id)arg2 serializedAppearanceCustomizations:(id)arg3 legacyAppearance:(BOOL)arg4 exportedHostingObject:(id)arg5 serviceViewControllerDeputyInterface:(id)arg6 connectionHandler:(CDUnknownBlockType)arg7;
++ (id)__requestRemoteViewController:(id)arg1 service:(id)arg2 fromServiceWithBundleIdentifier:(id)arg3 serializedAppearanceCustomizations:(id)arg4 legacyAppearance:(BOOL)arg5 exportedHostingObject:(id)arg6 serviceViewControllerDeputyInterface:(id)arg7 connectionHandler:(CDUnknownBlockType)arg8;
 - (id)_cancelWithError:(id)arg1;
 - (void)_didFinishEstablishingConnection;
 - (void)_connectToViewControllerControlMessageDeputy;
@@ -36,8 +40,9 @@ __attribute__((visibility("hidden")))
 - (void)_connectToTextEffectsOperator;
 - (void)_sendServiceViewControllerRequest;
 - (void)_connectToViewControllerOperator;
+- (void)_connectToPlugInKitService;
 - (void)_connectToViewService;
-- (void)_connectToDeputyWithInterface:(id)arg1 orType:(id)arg2 fromExportedHostingObject:(id)arg3 successHandler:(CDUnknownBlockType)arg4;
+- (void)_connectToDeputyWithInterface:(id)arg1 fromExportedHostingObject:(id)arg2 successHandler:(CDUnknownBlockType)arg3;
 - (void)_cancelUnconditionallyThen:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 

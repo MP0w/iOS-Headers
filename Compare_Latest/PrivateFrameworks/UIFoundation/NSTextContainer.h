@@ -23,7 +23,8 @@
         unsigned int heightTracksTextView:1;
         unsigned int observingFrameChanges:1;
         unsigned int lineBreakMode:4;
-        unsigned int _reserved:9;
+        unsigned int oldAPI:1;
+        unsigned int _reserved:8;
     } _tcFlags;
     NSArray *_exclusionPaths;
     struct CGPath *_cachedBoundingPath;

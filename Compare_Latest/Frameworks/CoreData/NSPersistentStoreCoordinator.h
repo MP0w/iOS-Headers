@@ -8,19 +8,19 @@
 
 #import "NSLocking.h"
 
-@class NSArray, NSManagedObjectModel, NSMutableArray;
+@class NSArray, NSManagedObjectModel, NSString;
 
 @interface NSPersistentStoreCoordinator : NSObject <NSLocking>
 {
+    id _queueOwner;
+    void *_dispatchQueue;
     struct _persistentStoreCoordinatorFlags {
         unsigned int _isRegistered:1;
         unsigned int _reservedFlags:31;
     } _flags;
     long _miniLock;
-    NSMutableArray *_extendedStoreURLs;
-    id _externalRecordsHelper;
+    id *_additionalPrivateIvars;
     NSManagedObjectModel *_managedObjectModel;
-    id _coreLock;
     NSArray *_persistentStores;
 }
 
@@ -39,9 +39,12 @@
 + (void)_registerDefaultStoreClassesAndTypes;
 + (Class)_storeClassForStoreType:(id)arg1;
 + (id)_storeTypeForStore:(id)arg1;
++ (void)_endPowerAssertionWithAssert:(unsigned int)arg1 andApp:(id)arg2;
++ (id)_beginPowerAssertionWithAssert:(unsigned int *)arg1;
 + (BOOL)setMetadata:(id)arg1 forPersistentStoreOfType:(id)arg2 URL:(id)arg3 options:(id)arg4 error:(id *)arg5;
 + (id)metadataForPersistentStoreOfType:(id)arg1 URL:(id)arg2 options:(id)arg3 error:(id *)arg4;
 - (id)executeRequest:(id)arg1 withContext:(id)arg2 error:(id *)arg3;
+- (id)_processStoreResults:(id)arg1 forRequest:(id)arg2;
 - (id)managedObjectIDForURIRepresentation:(id)arg1 error:(id *)arg2;
 - (id)managedObjectIDForURIRepresentation:(id)arg1;
 - (id)migratePersistentStore:(id)arg1 toURL:(id)arg2 options:(id)arg3 withType:(id)arg4 error:(id *)arg5;
@@ -52,16 +55,20 @@
 - (id)addPersistentStoreWithType:(id)arg1 configuration:(id)arg2 URL:(id)arg3 options:(id)arg4 error:(id *)arg5;
 - (BOOL)_checkForSkewedEntityHashes:(id)arg1 metadata:(id)arg2;
 - (id)_retainedPersistentStores;
-- (id)persistentStores;
+@property(readonly) NSArray *persistentStores;
 - (BOOL)tryLock;
 - (void)unlock;
 - (void)lock;
-- (id)managedObjectModel;
+@property(readonly) NSManagedObjectModel *managedObjectModel;
 - (id)initWithManagedObjectModel:(id)arg1;
+- (id)init;
 - (void)dealloc;
 - (void)finalize;
 - (id)metadataForPersistentStore:(id)arg1;
 - (void)setMetadata:(id)arg1 forPersistentStore:(id)arg2;
+@property(copy) NSString *name;
+- (void)performBlockAndWait:(CDUnknownBlockType)arg1;
+- (void)performBlock:(CDUnknownBlockType)arg1;
 - (BOOL)_isRegisteredWithUbiquity;
 - (void)_setIsRegisteredWithUbiquity:(BOOL)arg1;
 - (BOOL)_checkForPostLionWriter:(id)arg1;
@@ -97,6 +104,7 @@
 - (id)managedObjectIDFromUTF8String:(const char *)arg1 length:(unsigned int)arg2 error:(id *)arg3;
 - (id)managedObjectIDFromUTF8String:(const char *)arg1 length:(unsigned int)arg2;
 - (BOOL)_removePersistentStore:(id)arg1;
+- (BOOL)_deleteAllRowsNoRelationshipIntegrityForStore:(id)arg1 andEntityWithAllSubentities:(id)arg2 error:(id *)arg3;
 
 @end
 

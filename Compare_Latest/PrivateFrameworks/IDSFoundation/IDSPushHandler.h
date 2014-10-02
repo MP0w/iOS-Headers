@@ -13,6 +13,7 @@
 }
 
 + (id)sharedInstance;
+- (void)configureAsMacNotificationCenterObserver:(id)arg1;
 - (void)setCommands:(id)arg1 forListener:(id)arg2;
 - (void)setTopics:(id)arg1 forListener:(id)arg2;
 - (void)removeListener:(id)arg1;
@@ -20,7 +21,6 @@
 - (void)_recalculateTopicsCacheOnIvarQueue;
 - (void)_updateTopicsOnIvarQueue;
 @property(readonly, nonatomic) BOOL isConnected;
-- (void)requestKeepAlive;
 @property(readonly, nonatomic) NSData *pushToken;
 - (void)dealloc;
 - (id)init;

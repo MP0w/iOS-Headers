@@ -6,25 +6,25 @@
 
 #import <BulletinBoard/BBDataProvider.h>
 
-#import "BBXPCConnectionDelegate.h"
-#import "XPCProxyTarget.h"
+#import "BBRemoteDataProviderServerProxy.h"
 
-@class BBXPCOutgoingConnection, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
+@class NSObject<OS_dispatch_queue>, NSString;
 
-@interface BBRemoteDataProvider : BBDataProvider <XPCProxyTarget, BBXPCConnectionDelegate>
+@interface BBRemoteDataProvider : BBDataProvider <BBRemoteDataProviderServerProxy>
 {
     NSString *_sectionID;
-    NSString *_appBundleID;
-    BBXPCOutgoingConnection *_connection;
+    NSObject<OS_dispatch_queue> *_replyQueue;
     NSObject<OS_dispatch_queue> *_queue;
-    NSMutableArray *_pendingRequests;
+    NSObject<OS_dispatch_queue> *_proxyQueue;
+    id <BBRemoteDataProviderClientProxy> _clientProxy;
+    BOOL _connected;
+    BOOL _serverIsReady;
+    NSObject<OS_dispatch_queue> *_serverControlQueue;
     id <BBRemoteDataProviderDelegate> _delegate;
-    BOOL _operational;
 }
 
-+ (id)_sharedSystemService;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)setSectionInfo:(id)arg1;
+- (void)setSectionInfo:(id)arg1 inCategory:(int)arg2;
 - (void)getSectionInfoWithCompletion:(CDUnknownBlockType)arg1;
 - (void)setClearedInfo:(id)arg1;
 - (void)getClearedInfoWithCompletion:(CDUnknownBlockType)arg1;
@@ -36,7 +36,6 @@
 - (void)modifyBulletin:(id)arg1;
 - (void)addBulletin:(id)arg1 forDestinations:(unsigned int)arg2;
 - (void)invalidateBulletins;
-- (void)ping:(CDUnknownBlockType)arg1;
 - (void)deliverMessageWithName:(id)arg1 userInfo:(id)arg2;
 - (BOOL)migrateSectionInfo:(id)arg1 oldSectionInfo:(id)arg2;
 - (BOOL)canPerformMigration;
@@ -50,19 +49,23 @@
 - (void)clearedInfoAndBulletinsForClearingAllBulletinsWithLimit:(id)arg1 lastClearedInfo:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)bulletinsWithRequestParameters:(id)arg1 lastCleared:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)dataProviderDidLoad;
+- (BOOL)checkResponds:(BOOL)arg1 forSelector:(SEL)arg2;
 - (void)_logDoesNotRespond:(SEL)arg1;
-- (void)_sendRequest:(CDUnknownBlockType)arg1;
-- (void)_prependAndSendRequest:(CDUnknownBlockType)arg1;
-- (void)_processPendingRequests;
-- (void)connection:(id)arg1 connectionStateDidChange:(BOOL)arg2;
+- (void)_sendClientRequest:(CDUnknownBlockType)arg1;
 - (void)startWatchdog;
-- (void)resume;
-- (void)_invalidate;
-- (void)invalidate;
+- (void)setClientProxy:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)sectionIdentifier;
-- (id)description;
+- (void)calloutToServer:(CDUnknownBlockType)arg1;
+- (void)setServerIsReady:(BOOL)arg1;
+@property(readonly, copy) NSString *debugDescription;
+- (id)debugDescriptionWithChildren:(unsigned int)arg1;
 - (void)dealloc;
-- (id)initWithSectionID:(id)arg1 serviceName:(id)arg2 appBundleID:(id)arg3 delegate:(id)arg4 onQueue:(id)arg5;
+- (id)initWithSectionID:(id)arg1 delegate:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

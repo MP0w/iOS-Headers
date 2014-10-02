@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     unsigned int mNextId;
 }
 
+- (void)writeRelationshipsToFilename:(id)arg1 stream:(id)arg2;
 - (id)idForKey:(id)arg1;
 - (id)addRelationshipForKey:(id)arg1 type:(id)arg2 target:(id)arg3 external:(BOOL)arg4;
 - (id)addRelationshipForKey:(id)arg1 type:(id)arg2 target:(id)arg3;

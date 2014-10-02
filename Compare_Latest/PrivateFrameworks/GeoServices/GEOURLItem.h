@@ -8,10 +8,11 @@
 
 #import "NSCopying.h"
 
-@class GEOPlace;
+@class GEOMapItemStorage, GEOPlace;
 
 @interface GEOURLItem : PBCodable <NSCopying>
 {
+    GEOMapItemStorage *_mapItemStorage;
     GEOPlace *_place;
     BOOL _currentLocation;
     struct {
@@ -19,8 +20,10 @@
     } _has;
 }
 
+@property(retain, nonatomic) GEOMapItemStorage *mapItemStorage; // @synthesize mapItemStorage=_mapItemStorage;
 @property(nonatomic) BOOL currentLocation; // @synthesize currentLocation=_currentLocation;
 @property(retain, nonatomic) GEOPlace *place; // @synthesize place=_place;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -29,9 +32,12 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) BOOL hasMapItemStorage;
 @property(nonatomic) BOOL hasCurrentLocation;
 @property(readonly, nonatomic) BOOL hasPlace;
 - (void)dealloc;
+- (void)setMapItem:(id)arg1;
+- (id)mapItem;
 
 @end
 

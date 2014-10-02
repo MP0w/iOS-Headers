@@ -9,6 +9,8 @@
 #import "NSCoding.h"
 #import "NSCopying.h"
 
+@class NSDictionary, NSString;
+
 @interface NSNotification : NSObject <NSCopying, NSCoding>
 {
 }
@@ -25,9 +27,9 @@
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (id)description;
-- (id)userInfo;
-- (id)object;
-- (id)name;
+@property(readonly, copy) NSDictionary *userInfo;
+@property(readonly, retain) id object;
+@property(readonly, copy) NSString *name;
 - (id)replacementObjectForPortCoder:(id)arg1;
 
 @end

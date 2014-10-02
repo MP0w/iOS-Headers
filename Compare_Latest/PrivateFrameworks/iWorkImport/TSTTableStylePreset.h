@@ -15,7 +15,7 @@
 __attribute__((visibility("hidden")))
 @interface TSTTableStylePreset : TSPObject <TSSPreset, TSSStyleClient, TSKModel>
 {
-    unsigned int mIndex;
+    unsigned int mPresetID;
     TSTTableStyleNetwork *mStyleNetwork;
 }
 
@@ -29,14 +29,19 @@ __attribute__((visibility("hidden")))
 - (id)swatchImage;
 @property(readonly, nonatomic) NSString *presetKind;
 - (BOOL)isThemeEquivalent:(id)arg1;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1;
-- (id)initWithStyleNetwork:(id)arg1 index:(unsigned int)arg2;
+- (id)initWithStyleNetwork:(id)arg1 presetID:(unsigned int)arg2;
 - (id)p_documentRoot;
 @property(copy, nonatomic) TSTTableStyleNetwork *styleNetwork;
-@property(nonatomic) unsigned int index;
+@property(nonatomic) unsigned int presetID;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

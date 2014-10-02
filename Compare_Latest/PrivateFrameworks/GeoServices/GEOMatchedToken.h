@@ -22,6 +22,7 @@
 
 @property(nonatomic) int geoType; // @synthesize geoType=_geoType;
 @property(retain, nonatomic) NSString *matchedToken; // @synthesize matchedToken=_matchedToken;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -10,7 +10,7 @@
 #import "TSKHighlightArrayControllerProtocol.h"
 #import "TSWPTextEditingHostRep.h"
 
-@class NSArray, NSObject<TSDContainerInfo>, NSObject<TSKSearchReference>, TSKHighlightArrayController, TSWPShapeRep;
+@class NSArray, NSObject<TSDContainerInfo>, NSObject<TSKSearchReference>, NSString, TSKHighlightArrayController, TSWPShapeRep;
 
 __attribute__((visibility("hidden")))
 @interface TSWPTextHostRep : TSDRep <TSDContainerRep, TSWPTextEditingHostRep, TSKHighlightArrayControllerProtocol>
@@ -56,6 +56,12 @@ __attribute__((visibility("hidden")))
 - (void)willBeRemoved;
 - (void)dealloc;
 - (id)initWithLayout:(id)arg1 canvas:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

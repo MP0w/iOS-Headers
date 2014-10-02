@@ -6,17 +6,19 @@
 
 #import "NSURL.h"
 
+@class NSArray, NSString;
+
 @interface NSURL (NSURLPathUtilities)
 + (id)fileURLWithPathComponents:(id)arg1;
-- (id)URLByResolvingSymlinksInPath;
-- (id)URLByStandardizingPath;
-- (id)URLByDeletingPathExtension;
+@property(readonly, copy) NSURL *URLByResolvingSymlinksInPath;
+@property(readonly, copy) NSURL *URLByStandardizingPath;
+@property(readonly, copy) NSURL *URLByDeletingPathExtension;
 - (id)URLByAppendingPathExtension:(id)arg1;
-- (id)URLByDeletingLastPathComponent;
+@property(readonly, copy) NSURL *URLByDeletingLastPathComponent;
 - (id)URLByAppendingPathComponent:(id)arg1;
 - (id)URLByAppendingPathComponent:(id)arg1 isDirectory:(BOOL)arg2;
-- (id)pathExtension;
-- (id)lastPathComponent;
-- (id)pathComponents;
+@property(readonly, copy) NSString *pathExtension;
+@property(readonly, copy) NSString *lastPathComponent;
+@property(readonly, copy) NSArray *pathComponents;
 @end
 

@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 + (int)blipTypeForExtension:(id)arg1;
 + (id)blipRefWithIndex:(long)arg1 name:(id)arg2 blip:(id)arg3;
 + (id)blipRefWithIndex:(long)arg1 name:(id)arg2 blip:(id)arg3 effects:(id)arg4;
+- (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (id)effects;

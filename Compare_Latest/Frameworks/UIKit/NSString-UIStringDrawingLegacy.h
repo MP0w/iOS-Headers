@@ -7,7 +7,6 @@
 #import "NSString.h"
 
 @interface NSString (UIStringDrawingLegacy)
-- (id)_legacy_securedStringIncludingLastCharacter:(BOOL)arg1;
 - (struct CGSize)_legacy_drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withFont:(id)arg3 minFontSize:(float)arg4 actualFontSize:(float *)arg5 lineBreakMode:(int)arg6 baselineAdjustment:(int)arg7;
 - (struct CGSize)_legacy_drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withFont:(id)arg3 minFontSize:(float)arg4 actualFontSize:(float *)arg5 lineBreakMode:(int)arg6 baselineAdjustment:(int)arg7 includeEmoji:(BOOL)arg8;
 - (struct CGSize)_legacy_drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withFont:(id)arg3 fontSize:(float)arg4 lineBreakMode:(int)arg5 baselineAdjustment:(int)arg6;
@@ -22,7 +21,6 @@
 - (struct CGSize)_legacy_sizeWithFont:(id)arg1 constrainedToSize:(struct CGSize)arg2 lineBreakMode:(int)arg3 lineSpacing:(int)arg4;
 - (struct CGSize)_legacy_sizeWithFont:(id)arg1 constrainedToSize:(struct CGSize)arg2 lineBreakMode:(int)arg3;
 - (struct CGSize)_legacy_sizeWithFont:(id)arg1 constrainedToSize:(struct CGSize)arg2;
-- (id)_legacy_stringWithFont:(id)arg1 forWidth:(float)arg2 lineBreakMode:(int)arg3;
 - (struct CGSize)_legacy_drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withFont:(id)arg3 lineBreakMode:(int)arg4 letterSpacing:(float)arg5 includeEmoji:(BOOL)arg6;
 - (struct CGSize)_legacy_drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withFont:(id)arg3 lineBreakMode:(int)arg4 letterSpacing:(float)arg5;
 - (struct CGSize)_legacy_drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withFont:(id)arg3 lineBreakMode:(int)arg4;

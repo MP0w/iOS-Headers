@@ -27,7 +27,7 @@ __attribute__((visibility("hidden")))
 + (void)addRecolorSpec:(const struct PptRecolorSpec *)arg1 toDictionary:(id)arg2;
 + (BOOL)readRecolorInfoFromClientDataHolder:(id)arg1 toClientData:(id)arg2;
 + (void)readHyperlinkFromShapeContainerHolder:(id)arg1 toDrawable:(id)arg2 state:(id)arg3;
-+ (void)readClientAnchorFromContainer:(id)arg1 toDrawable:(id)arg2;
++ (void)readClientAnchorFromContainer:(id)arg1 toDrawable:(id)arg2 state:(id)arg3;
 
 @end
 

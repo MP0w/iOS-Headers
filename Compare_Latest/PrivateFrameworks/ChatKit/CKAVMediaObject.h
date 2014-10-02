@@ -12,6 +12,7 @@
     double _duration;
 }
 
++ (id)durationCache;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 - (id)description;
 

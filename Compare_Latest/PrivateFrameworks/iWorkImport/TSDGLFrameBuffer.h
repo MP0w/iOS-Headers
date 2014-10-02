@@ -6,17 +6,21 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary, NSString;
+@class NSArray, NSDictionary, NSMutableArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface TSDGLFrameBuffer : NSObject
 {
     NSArray *_textureConfigs;
     NSDictionary *_namesToTextureDict;
-    unsigned int *_textures[16];
-    unsigned int _textureCount[16];
-    unsigned int _currentTextureIndex[16];
-    unsigned int _desiredTextureIndex[16];
+    NSMutableArray *_currentTextureLookupInfoByAttachment;
+    NSMutableArray *_desiredTextureLookupInfoByAttachment;
+    NSArray *_textureConfigsByAttachment;
+    NSArray *_textureLookupInfosByAttachment;
+    int _currentBindingOption;
+    unsigned int _currentDrawBuffers[1];
+    int _currentDrawBufferCount;
+    unsigned int _currentReadBuffer;
     unsigned int _framebuffer;
     BOOL _isUsingNonDefaultAttachments;
     BOOL _isBound;
@@ -25,7 +29,9 @@ __attribute__((visibility("hidden")))
     struct CGSize _size;
 }
 
++ (void)setCurrentGLFramebuffer:(int)arg1 withBindingOption:(int)arg2;
 + (void)setCurrentGLFramebuffer:(int)arg1;
++ (int)currentGLFramebufferWithBindingOption:(int)arg1;
 + (int)currentGLFramebuffer;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) BOOL shouldDeleteTexturesOnTeardown; // @synthesize shouldDeleteTexturesOnTeardown=_shouldDeleteTexturesOnTeardown;
@@ -34,15 +40,23 @@ __attribute__((visibility("hidden")))
 - (unsigned int)currentGLTexture;
 - (unsigned int)currentGLTextureAtAttachment:(unsigned int)arg1;
 - (void)teardown;
+- (struct CGSize)sizeOfGLTextureNamed:(id)arg1;
 - (unsigned int)GLTextureNamed:(id)arg1;
 - (unsigned int)GLTextureAtIndex:(unsigned int)arg1;
 - (unsigned int)GLTextureAtIndex:(unsigned int)arg1 attachment:(unsigned int)arg2;
-- (void)setCurrentTextureToNext;
+- (void)setCurrentTexturesToNext;
 - (void)setCurrentTextureToNextAtAttachment:(unsigned int)arg1;
+- (void)setCurrentTextureNamed:(id)arg1 atAttachment:(unsigned int)arg2;
 - (void)setCurrentTextureNamed:(id)arg1;
 - (void)setCurrentTextureIndex:(unsigned int)arg1;
 - (void)setCurrentTextureIndex:(unsigned int)arg1 atAttachment:(unsigned int)arg2;
+- (int)currentTextureIndexAtAttachment:(unsigned int)arg1;
+- (void)unbindFramebufferAndBindGLFramebuffer:(int)arg1 withBindingOption:(int)arg2;
 - (void)unbindFramebufferAndBindGLFramebuffer:(int)arg1;
+- (void)bindFramebufferWithBindingOption:(int)arg1;
+- (void)p_setFramebufferTextureAtAttachmentIndex:(int)arg1 bindingOption:(int)arg2;
+- (void)p_setDrawBuffersAndReadBuffer;
+- (BOOL)p_isCurrentDrawBuffersEqualToDrawbuffers:(unsigned int *)arg1 count:(int)arg2;
 - (void)bindFramebuffer;
 - (void)setupFramebufferIfNecessary;
 - (id)description;

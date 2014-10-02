@@ -26,11 +26,11 @@ __attribute__((visibility("hidden")))
 - (BOOL)readDocumentVersion:(struct _xmlTextReader *)arg1 isTooNew:(char *)arg2;
 - (BOOL)readDocumentVersion:(struct _xmlTextReader *)arg1;
 - (void)loadAppBundleResourceToColorMap;
-- (void)initializeAppBundleResourcesUrl;
-- (struct __CFURL *)appBundleResourcesUrl;
+- (void)initializeAppBundleResourcesUrl:(struct __CFURL *)arg1;
+- (struct __CFURL *)appBundleResourcesUrl:(struct __CFURL *)arg1;
 - (id)colorForMissingAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2;
-- (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2;
-- (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2 fileExists:(char *)arg3;
+- (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2 fileUrl:(struct __CFURL *)arg3;
+- (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2 fileExists:(char *)arg3 fileUrl:(struct __CFURL *)arg4;
 - (BOOL)includeStyleWithIdentifier:(const char *)arg1 parentIdentifier:(const char *)arg2 uid:(const char *)arg3;
 - (void)forgetAboutObject:(id)arg1 withXmlUid:(const char *)arg2;
 - (id)objectWithXmlUid:(const char *)arg1;

@@ -18,7 +18,7 @@
 - (void)setAutoDownloadedVoiceAssets:(id)arg1;
 - (void)startDownloadingVoiceAsset:(id)arg1 progress:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)getVoiceAssetsLocalOnly:(BOOL)arg1 reply:(CDUnknownBlockType)arg2;
-- (id)resourcePathForLanguage:(id)arg1 gender:(int)arg2 footprint:(int)arg3;
+- (id)resourcePathForLanguage:(id)arg1 gender:(int)arg2 footprint:(int)arg3 name:(id)arg4;
 - (id)_voiceAssetQueryForName:(id)arg1 language:(id)arg2 gender:(int)arg3 footprint:(int)arg4 version:(id)arg5 localOnly:(BOOL)arg6;
 
 @end

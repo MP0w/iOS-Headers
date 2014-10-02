@@ -8,7 +8,7 @@
 
 #import "KNAnimationPlugin.h"
 
-@class KNAnimationContext;
+@class KNAnimationContext, NSString;
 
 __attribute__((visibility("hidden")))
 @interface KNAnimationEffect : NSObject <KNAnimationPlugin>
@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     KNAnimationContext *mAnimationContext;
 }
 
++ (id)updateDirectionAttributeValue:(int)arg1 andCustomTextDirectionValue:(unsigned int)arg2 turnOffBounce:(BOOL)arg3 turnOffMotionBlur:(BOOL)arg4 forAttributes:(id)arg5;
 + (id)thumbnailImageNameForType:(int)arg1;
 + (id)defaultAttributes;
 + (void)fillLocalizedDirectionMenu:(id)arg1 forType:(int)arg2;
@@ -26,6 +27,12 @@ __attribute__((visibility("hidden")))
 + (int)animationCategory;
 + (id)animationName;
 - (id)initWithAnimationContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

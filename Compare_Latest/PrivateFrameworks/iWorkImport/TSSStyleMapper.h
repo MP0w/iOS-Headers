@@ -8,7 +8,7 @@
 
 #import "TSKStyleMapper.h"
 
-@class NSMutableArray, TSKAddedToDocumentContext, TSSStylesheet, TSURetainedPointerKeyDictionary;
+@class NSMutableArray, NSMutableSet, NSSet, NSString, TSKAddedToDocumentContext, TSSStylesheet, TSURetainedPointerKeyDictionary;
 
 __attribute__((visibility("hidden")))
 @interface TSSStyleMapper : NSObject <TSKStyleMapper>
@@ -18,24 +18,39 @@ __attribute__((visibility("hidden")))
     TSKAddedToDocumentContext *_dolcContext;
     TSURetainedPointerKeyDictionary *_styleMap;
     NSMutableArray *_mappingContext;
+    NSMutableSet *_createdStyles;
     BOOL _forceMatchStyle;
     BOOL _varyInThemeStylesheet;
+    BOOL _clientsMustRemap;
 }
 
+@property(nonatomic) BOOL clientsMustRemap; // @synthesize clientsMustRemap=_clientsMustRemap;
+@property(readonly, nonatomic) NSSet *createdStyles; // @synthesize createdStyles=_createdStyles;
 @property(nonatomic) BOOL forceMatchStyle; // @synthesize forceMatchStyle=_forceMatchStyle;
 - (void)varyInThemeStylesheetIf:(BOOL)arg1 forDurationOfBlock:(CDUnknownBlockType)arg2;
 - (void)varyInThemeStylesheetForDurationOfBlock:(CDUnknownBlockType)arg1;
 - (id)mappedStyleForStyle:(id)arg1 inThemeStylesheet:(BOOL)arg2;
 - (id)mappedStyleForStyle:(id)arg1;
 - (id)_mappedStyleForStyle:(id)arg1 depth:(unsigned int)arg2;
-- (id)pTargetParentForStyle:(id)arg1 withParentIdentifier:(id)arg2;
-- (id)createStyleForStyle:(id)arg1 withPropertyMap:(id)arg2;
-- (id)pCascadedFindExistingRootlessStyle:(id)arg1 propertyMap:(id)arg2;
+- (BOOL)shouldMapParentOfStyle:(id)arg1;
+- (id)targetParentForStyle:(id)arg1;
+- (id)targetParentByNameMatchForStyle:(id)arg1;
+- (id)targetParentByContentTagMatchForStyle:(id)arg1;
+- (id)targetParentByIdentifierPackageDescriptorFallbackMatchForStyle:(id)arg1;
+- (id)targetParentByIdentifierExactMatchForStyle:(id)arg1;
+- (id)createRootStyleForStyle:(id)arg1 withPropertyMap:(id)arg2;
+- (id)stylesheetForNewRootStyleFromStyle:(id)arg1;
 - (void)popMappingContext:(id)arg1;
 - (void)pushMappingContext:(id)arg1;
 @property(readonly, nonatomic) TSSStylesheet *targetStylesheet;
 - (id)initWithTargetStylesheet:(id)arg1 newStyleDOLCContext:(id)arg2;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

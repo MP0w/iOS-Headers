@@ -13,7 +13,9 @@ __attribute__((visibility("hidden")))
 {
     TSTLayoutSpaceBundle *mBundle;
     int mLayoutSpaceType;
-    CDStruct_4d60f806 mInvalidFlags;
+    BOOL mInvalidTableOffset;
+    unsigned char mInvalidColumnIndex;
+    unsigned short mInvalidRowIndex;
     struct {
         CDStruct_e5a208c7 topLeft;
         CDStruct_e5a208c7 bottomRight;
@@ -56,9 +58,14 @@ __attribute__((visibility("hidden")))
 - (id).cxx_construct;
 - (int)validateCoordinateCache:(id)arg1;
 - (void)validateCachedFrames;
+- (void)drawStrokesInGridRange:(CDStruct_3178b2de)arg1 clearStrokes:(BOOL)arg2 context:(struct CGContext *)arg3;
+- (void)p_drawStrokeForGridRow:(unsigned int)arg1 strokeRect:(CDStruct_3178b2de)arg2 clearStroke:(BOOL)arg3 shadowType:(int)arg4 context:(struct CGContext *)arg5;
+- (void)p_drawStrokeForGridColumn:(unsigned int)arg1 strokeRect:(CDStruct_3178b2de)arg2 clearStroke:(BOOL)arg3 shadowType:(int)arg4 context:(struct CGContext *)arg5;
 - (int)validateTableOffset:(id)arg1;
 - (int)validate:(id)arg1;
 - (void)invalidateTableOffset;
+- (void)invalidateCoordinatesAfterRow:(unsigned short)arg1;
+- (void)invalidateCoordinatesAfterColumn:(unsigned char)arg1;
 - (void)invalidateCoordinates;
 - (void)unlock;
 - (void)lockForWrite;

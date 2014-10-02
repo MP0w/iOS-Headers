@@ -29,6 +29,7 @@
 - (id)activeLockerAccount;
 - (id)activeAccount;
 - (id)accountWithUniqueIdentifier:(id)arg1 reloadIfNecessary:(BOOL)arg2;
+- (id)accountWithUniqueIdentifier:(id)arg1 scope:(int)arg2;
 - (id)accountWithUniqueIdentifier:(id)arg1;
 - (id)addAccount:(id)arg1;
 @property(copy) NSArray *accounts; // @dynamic accounts;

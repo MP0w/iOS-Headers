@@ -6,14 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary, NSString;
+@class FigCaptureSourceFormat, NSArray;
 
 @interface AVCaptureDeviceFormatInternal : NSObject
 {
-    NSString *mediaType;
-    NSDictionary *formatDictionary;
-    NSDictionary *deviceProperties;
-    struct opaqueCMFormatDescription *formatDescription;
+    FigCaptureSourceFormat *sourceFormat;
     NSArray *videoSupportedFrameRateRanges;
     CDStruct_1b6d18a9 defaultActiveMinFrameDuration;
     CDStruct_1b6d18a9 defaultActiveMaxFrameDuration;

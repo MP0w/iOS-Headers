@@ -11,25 +11,31 @@
 __attribute__((visibility("hidden")))
 @interface TSUZipFileArchive : TSUZipArchive
 {
+    int _fdDups;
     NSObject<OS_dispatch_queue> *_accessQueue;
     unsigned long long _archiveLength;
-    id <TSUReadChannel> _archiveReadChannel;
+    int _fd;
     NSURL *_temporaryDirectoryURL;
 }
 
-+ (void)readArchiveFromURL:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
++ (id)zipArchiveFromURL:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
++ (void)readArchiveFromURL:(id)arg1 options:(unsigned int)arg2 queue:(id)arg3 completion:(CDUnknownBlockType)arg4;
++ (BOOL)isZipArchiveAtFD:(int)arg1;
++ (BOOL)isZipArchiveAtURL:(id)arg1;
 - (void).cxx_destruct;
 - (id)debugDescription;
-- (id)readChannel;
+- (BOOL)isValid;
+- (id)newArchiveReadChannelWithCleanupHandler:(CDUnknownBlockType)arg1;
+- (id)newArchiveReadChannel;
 - (unsigned long long)archiveLength;
-- (BOOL)copyToTemporaryLocationRelativeToURL:(id)arg1;
-- (BOOL)reopenWithTemporaryURL:(id)arg1;
+- (BOOL)copyToTemporaryLocationRelativeToURL:(id)arg1 error:(id *)arg2;
+- (BOOL)reopenWithTemporaryURL:(id)arg1 error:(id *)arg2;
 - (void)removeTemporaryDirectory;
 - (void)createTemporaryDirectoryRelativeToURL:(id)arg1;
 - (void)dealloc;
-- (id)initWithWriter:(id)arg1 atURL:(id)arg2;
-- (BOOL)openWithURL:(id)arg1;
-- (id)initWithURL:(id)arg1;
+- (id)initWithWriter:(id)arg1 forReadingFromURL:(id)arg2 options:(unsigned int)arg3 error:(id *)arg4;
+- (BOOL)openWithURL:(id)arg1 error:(id *)arg2;
+- (id)initForReadingFromURL:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
 
 @end
 

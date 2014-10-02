@@ -9,13 +9,11 @@
 #import "NSCoding.h"
 #import "NSCopying.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSString, SKPhysicsBody, SKScene;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSString, SKPhysicsBody, SKReachConstraints, SKScene;
 
 @interface SKNode : UIResponder <NSCopying, NSCoding>
 {
     BOOL _spritesNeedsRemove;
-    NSMutableArray *_actionsToRemove;
-    NSMutableArray *_spritesToRemove;
     void *csprite;
     SKNode *_parent;
     NSMutableArray *_children;
@@ -27,10 +25,16 @@
     NSMutableArray *_deleteList;
     NSString *_name;
     NSMutableDictionary *_userData;
+    NSArray *_constraints;
+    unsigned int _version;
+    SKReachConstraints *_reachConstraints;
 }
 
++ (id)nodeWithFileNamed:(id)arg1;
 + (id)node;
++ (unsigned int)hashDataWithBuffer:(char *)arg1 ofSize:(unsigned long)arg2;
 @property(retain, nonatomic) NSMutableDictionary *userData; // @synthesize userData=_userData;
+@property(copy, nonatomic) SKReachConstraints *reachConstraints; // @synthesize reachConstraints=_reachConstraints;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 - (void)dealloc;
@@ -45,7 +49,7 @@
 - (id)nodeAtPoint:(struct CGPoint)arg1 recursive:(BOOL)arg2;
 - (BOOL)containsPoint:(struct CGPoint)arg1 withRadius:(float)arg2;
 - (BOOL)containsPoint:(struct CGPoint)arg1;
-@property(getter=isUserInteractionEnabled) BOOL userInteractionEnabled;
+@property(nonatomic, getter=isUserInteractionEnabled) BOOL userInteractionEnabled;
 @property(nonatomic, getter=isPaused) BOOL paused;
 @property(nonatomic, getter=isHidden) BOOL hidden;
 - (void)setScale:(float)arg1;
@@ -57,6 +61,7 @@
 @property(nonatomic) float zPosition;
 - (struct CGRect)calculateAccumulatedFrame;
 @property(nonatomic) struct CGPoint position;
+- (id)physicsField;
 @property(retain, nonatomic) SKPhysicsBody *physicsBody;
 - (id)description;
 - (BOOL)needsUpdate;
@@ -72,12 +77,15 @@
 - (void)runAction:(id)arg1;
 @property(readonly, nonatomic) NSArray *children;
 - (BOOL)hasChildren;
+- (void)_processSearchTokens:(vector_408ca79d)arg1 visited:(set_06f0222a *)arg2 usingBlock:(CDUnknownBlockType)arg3 stopPointer:(char *)arg4;
 - (void)_enumerateChildNodesWithName:(id)arg1 usingBlock:(CDUnknownBlockType)arg2 stopPointer:(char *)arg3;
+- (id)objectForKeyedSubscript:(id)arg1;
 - (void)enumerateChildNodesWithName:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)childNodeWithName:(id)arg1;
 - (void)addChild:(id)arg1 withKey:(id)arg2;
 - (void)_flippedChangedFrom:(BOOL)arg1 to:(BOOL)arg2;
 - (void)_scaleFactorChangedFrom:(float)arg1 to:(float)arg2;
+@property(copy, nonatomic) NSArray *constraints;
 - (void)_performCleanup;
 - (void)removeAllChildren;
 - (void)removeChildrenInArray:(id)arg1;
@@ -87,16 +95,20 @@
 - (void)insertChild:(id)arg1 atIndex:(int)arg2;
 - (void)addChild:(id)arg1;
 - (BOOL)inParentHierarchy:(id)arg1;
+@property(readonly, nonatomic) struct CGPath *outline;
 @property(readonly, nonatomic) SKNode *parent;
 @property(readonly, nonatomic) SKScene *scene;
-- (void)updatePhysicsPositionAndScaleFromSprite;
 - (void)_update:(double)arg1;
+- (void)removeFromParent;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)copy;
-- (void)removeFromParent;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+@property(readonly, nonatomic) shared_ptr_11a7378b _aether;
+- (void)setPhysicsField:(id)arg1;
 - (id)allIntersectionsWithNode:(id)arg1 useAlphaTest:(BOOL)arg2;
 - (BOOL)intersectsNode:(id)arg1 useAlphaTest:(BOOL)arg2;
 @property(readonly, nonatomic) struct CGSize _size;
@@ -105,7 +117,8 @@
 @property(nonatomic) BOOL _showBounds;
 @property(retain, nonatomic) NSMutableDictionary *_info;
 - (id)childrenInRect:(struct CGRect)arg1;
-- (id)_parent;
+- (void)updatePhysicsPositionAndScaleFromSprite;
+- (void)_getWorldTransform:(float *)arg1 positionY:(float *)arg2 rotation:(float *)arg3 xScale:(float *)arg4 yScale:(float *)arg5;
 - (void)setParent:(id)arg1;
 - (void)removeAction:(id)arg1;
 - (struct SKCSprite *)csprite;

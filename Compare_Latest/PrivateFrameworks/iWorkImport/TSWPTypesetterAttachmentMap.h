@@ -11,13 +11,15 @@
 __attribute__((visibility("hidden")))
 @interface TSWPTypesetterAttachmentMap : NSObject
 {
+    BOOL _layoutNeedsRevalidation;
     TSWPAttachment *_attachment;
     TSDLayout *_layout;
     struct __CTLine *_lineRef;
 }
 
-+ (id)mapWithAttachment:(id)arg1 layout:(id)arg2 pageNumber:(unsigned int)arg3 pageCount:(unsigned int)arg4 footnoteMarkProvider:(id)arg5 styleProvider:(id)arg6 colorOverride:(id)arg7;
++ (id)mapWithAttachment:(id)arg1 layout:(id)arg2 pageNumber:(unsigned int)arg3 pageCount:(unsigned int)arg4 footnoteMarkProvider:(id)arg5 styleProvider:(id)arg6 colorOverride:(id)arg7 textScalePercent:(unsigned int)arg8;
 @property(readonly, nonatomic) struct __CTLine *lineRef; // @synthesize lineRef=_lineRef;
+@property(nonatomic) BOOL layoutNeedsRevalidation; // @synthesize layoutNeedsRevalidation=_layoutNeedsRevalidation;
 @property(retain, nonatomic) TSDLayout *layout; // @synthesize layout=_layout;
 @property(nonatomic) TSWPAttachment *attachment; // @synthesize attachment=_attachment;
 - (id)copyWithZone:(struct _NSZone *)arg1;

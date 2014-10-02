@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)_webkit_languagePreferencesDidChange;
++ (void)languagePreferencesDidChange:(id)arg1;
 
 @end
 

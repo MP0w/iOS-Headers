@@ -6,90 +6,125 @@
 
 #import "NSObject.h"
 
-#import "BKSWorkspaceDelegate.h"
+#import "BSTransactionObserver.h"
+#import "BSWatchdogDelegate.h"
+#import "FBApplicationProcessObserver.h"
+#import "FBProcessManagerObserver.h"
+#import "FBSceneManagerObserver.h"
+#import "FBSystemServiceDelegate.h"
 #import "SBAlertManagerDelegate.h"
 #import "SBAlertManagerObserver.h"
+#import "SBReachabilityObserver.h"
 #import "SBStarkScreenControllerObserver.h"
 #import "SBStarkScreenManagerDelegate.h"
-#import "SBWorkspaceTransactionGroupDelegate.h"
 
-@class BKSWorkspace, NSMutableArray, NSObject<OS_dispatch_source>, NSTimer, SBAlertManager, SBScreenTimeTrackingController, SBWorkspaceEventQueueLockAssertion, SBWorkspaceTransaction;
+@class BSWatchdog, FBScene, FBSceneManager, FBWorkspaceEventQueueLock, NSMutableArray, NSMutableDictionary, NSMutableSet, NSSet, NSString, NSTimer, SBAlertManager, SBScreenTimeTrackingController, SBWindow, SBWorkspaceTransaction;
 
-@interface SBWorkspace : NSObject <BKSWorkspaceDelegate, SBAlertManagerDelegate, SBAlertManagerObserver, SBWorkspaceTransactionGroupDelegate, SBStarkScreenManagerDelegate, SBStarkScreenControllerObserver>
+@interface SBWorkspace : NSObject <BSTransactionObserver, SBAlertManagerDelegate, SBAlertManagerObserver, SBStarkScreenManagerDelegate, SBStarkScreenControllerObserver, SBReachabilityObserver, FBSystemServiceDelegate, FBProcessManagerObserver, FBApplicationProcessObserver, BSWatchdogDelegate, FBSceneManagerObserver>
 {
-    BKSWorkspace *_bksWorkspace;
+    FBSceneManager *_sceneManager;
     SBAlertManager *_alertManager;
     _Bool _alertManagerIsDeactivatingAlert;
+    _Bool _alertManagerIsActivatingLockAlert;
     SBScreenTimeTrackingController *_screenTimeTrackingController;
     SBWorkspaceTransaction *_currentTransaction;
-    SBWorkspaceEventQueueLockAssertion *_eventQueueLock;
-    NSObject<OS_dispatch_source> *_transactionWatchdog;
+    FBWorkspaceEventQueueLock *_eventQueueLock;
     NSTimer *_relaunchTimer;
     NSMutableArray *_applicationsToRelaunch;
+    SBWindow *_reachabilityWindow;
+    FBScene *_sceneForReachabilityApp;
+    SBWindow *_reachabilityEffectWindow;
+    BSWatchdog *_transactionWatchdog;
+    NSMutableDictionary *_extensionHandlersByType;
+    NSMutableSet *_foregroundAppPidsWhenDisplaySecureModeWasEnabled;
 }
 
++ (id)debugDescription;
+@property(readonly, nonatomic) NSSet *foregroundAppPidsWhenDisplaySecureModeWasEnabled; // @synthesize foregroundAppPidsWhenDisplaySecureModeWasEnabled=_foregroundAppPidsWhenDisplaySecureModeWasEnabled;
+@property(readonly, nonatomic) _Bool alertManagerIsActivatingLockAlert; // @synthesize alertManagerIsActivatingLockAlert=_alertManagerIsActivatingLockAlert;
 @property(readonly, nonatomic) SBAlertManager *alertManager; // @synthesize alertManager=_alertManager;
-@property(readonly, nonatomic) BKSWorkspace *bksWorkspace; // @synthesize bksWorkspace=_bksWorkspace;
+@property(readonly, nonatomic) FBSceneManager *sceneManager; // @synthesize sceneManager=_sceneManager;
 @property(retain, nonatomic) SBWorkspaceTransaction *currentTransaction; // @synthesize currentTransaction=_currentTransaction;
+- (id)_handlerForExtensionPoint:(id)arg1;
+- (void)_unregisterHandler:(id)arg1 forExtensionPoint:(id)arg2;
+- (void)_registerHandler:(id)arg1 forExtensionPoint:(id)arg2;
+- (void)_exitReachabilityModeWithCompletion:(CDUnknownBlockType)arg1;
+- (void)handleReachabilityModeDeactivated;
+- (void)handleRevealNotificationCenterGesture:(id)arg1;
+- (void)handleCancelReachabilityRecognizer:(id)arg1;
+- (void)handleReachabilityModeActivated;
+- (void)_disableReachabilityImmediately:(_Bool)arg1;
 - (void)starkScreenController:(id)arg1 didChangeStateFromState:(long long)arg2;
 - (void)starkScreenManagerDidChangeActiveController:(id)arg1;
 - (void)starkScreenManagerWillChangeActiveController:(id)arg1;
-- (void)transactionGroup:(id)arg1 childTransactionDidFinish:(id)arg2 success:(_Bool)arg3;
-- (void)transactionDidFinish:(id)arg1 success:(_Bool)arg2;
+- (void)transactionDidComplete:(id)arg1;
+- (void)watchdogFired:(id)arg1;
+- (void)watchdogStarted:(id)arg1;
 - (void)alertManager:(id)arg1 didRemoveAlert:(id)arg2 fromWindow:(id)arg3;
 - (void)alertManager:(id)arg1 didTearDownAlertWindow:(id)arg2;
 - (void)alertManager:(id)arg1 willTearDownAlertWindow:(id)arg2;
 - (void)alertManager:(id)arg1 topAlert:(id)arg2 requestsWallpaperStyleChangeWithAnimationFactory:(id)arg3;
-- (void)alertManagerDidChangeTopAlert:(id)arg1;
+- (void)alertManager:(id)arg1 didChangeTopAlertFrom:(id)arg2 toAlert:(id)arg3;
 - (void)alertManager:(id)arg1 didDeactivateAlert:(id)arg2 top:(_Bool)arg3;
 - (void)alertManager:(id)arg1 willDeactivateAlert:(id)arg2 top:(_Bool)arg3;
 - (void)alertManager:(id)arg1 didActivateAlert:(id)arg2 overAlerts:(id)arg3;
 - (void)alertManager:(id)arg1 willActivateAlert:(id)arg2 overAlerts:(id)arg3;
-- (id)alertManager:(id)arg1 newAlertWindowForLockAlerts:(_Bool)arg2;
+- (id)alertManager:(id)arg1 newAlertWindowForScene:(id)arg2;
 - (_Bool)alertManager:(id)arg1 shouldDeactivateDismissedAlert:(id)arg2;
+- (double)sceneLevelForAlerts;
+- (struct CGRect)sceneFrameForAlerts:(id)arg1;
+- (void)systemServicePrepareForShutdown:(id)arg1 andReboot:(_Bool)arg2;
+- (void)systemServicePrepareForExit:(id)arg1 andRelaunch:(_Bool)arg2;
 - (void)_updateStatusBarTimeItemEnabled;
-- (void)workspace:(id)arg1 applicationDebugStateChanged:(id)arg2 newState:(_Bool)arg3;
-- (void)workspace:(id)arg1 handleStatusBarReturnActionFromApplication:(id)arg2 statusBarStyle:(id)arg3;
-- (void)workspace:(id)arg1 applicationFinishedBackgroundContentFetching:(id)arg2 withInfo:(id)arg3;
-- (void)workspace:(id)arg1 applicationSuspensionSettingsUpdated:(id)arg2 withSettings:(id)arg3;
-- (void)workspace:(id)arg1 applicationSuspended:(id)arg2 withSettings:(id)arg3;
-- (void)workspace:(id)arg1 applicationExited:(id)arg2 withInfo:(id)arg3;
-- (void)workspace:(id)arg1 applicationDidFailToLaunch:(id)arg2;
-- (void)workspace:(id)arg1 applicationActivated:(id)arg2;
-- (void)workspace:(id)arg1 applicationDidFinishLaunching:(id)arg2 withInfo:(id)arg3;
-- (void)workspace:(id)arg1 applicationDidStartLaunching:(id)arg2;
-- (void)_workspace:(id)arg1 handleOpenURLRequest:(id)arg2 application:(id)arg3 withOptions:(id)arg4 origin:(id)arg5 withResult:(CDUnknownBlockType)arg6;
-- (void)workspace:(id)arg1 handleOpenURLRequest:(id)arg2 application:(id)arg3 withOptions:(id)arg4 origin:(id)arg5 withResult:(CDUnknownBlockType)arg6;
-- (void)_workspace:(id)arg1 handleOpenApplicationRequest:(id)arg2 withOptions:(id)arg3 origin:(id)arg4 withResult:(CDUnknownBlockType)arg5;
-- (void)workspace:(id)arg1 handleOpenApplicationRequest:(id)arg2 withOptions:(id)arg3 origin:(id)arg4 withResult:(CDUnknownBlockType)arg5;
-- (int)workspace:(id)arg1 canOpenApplication:(id)arg2;
-- (void)workspaceDidResume:(id)arg1;
-- (void)workspaceWillResume:(id)arg1;
-- (void)workspaceDidSuspend:(id)arg1;
-- (void)workspaceWillSuspend:(id)arg1;
-- (void)workspace:(id)arg1 applicationDidBecomeReceiver:(id)arg2 fromApplication:(id)arg3;
-- (id)workspace:(id)arg1 applicationWillBecomeReceiver:(id)arg2 fromApplication:(id)arg3;
+- (void)systemService:(id)arg1 handleActions:(id)arg2 origin:(id)arg3 withResult:(CDUnknownBlockType)arg4;
+- (void)_promptUnlockWithHandler:(CDUnknownBlockType)arg1;
+- (void)_handleOpenURLRequest:(id)arg1 application:(id)arg2 options:(id)arg3 activationSettings:(id)arg4 origin:(id)arg5 withResult:(CDUnknownBlockType)arg6;
+- (void)systemService:(id)arg1 handleOpenURLRequest:(id)arg2 application:(id)arg3 options:(id)arg4 origin:(id)arg5 withResult:(CDUnknownBlockType)arg6;
+- (void)_handleOpenApplicationRequest:(id)arg1 options:(id)arg2 origin:(id)arg3 withResult:(CDUnknownBlockType)arg4;
+- (void)systemService:(id)arg1 handleOpenApplicationRequest:(id)arg2 options:(id)arg3 origin:(id)arg4 withResult:(CDUnknownBlockType)arg5;
+- (void)systemService:(id)arg1 canActivateApplication:(id)arg2 withResult:(CDUnknownBlockType)arg3;
+- (void)applicationProcessDebuggingStateDidChange:(id)arg1;
+- (void)applicationProcessDidExit:(id)arg1 withContext:(id)arg2;
+- (void)applicationProcessDidLaunch:(id)arg1;
+- (void)applicationProcessWillLaunch:(id)arg1;
+- (void)processDidExit:(id)arg1;
+- (void)process:(id)arg1 stateDidChangeFromState:(id)arg2 toState:(id)arg3;
+- (void)processManager:(id)arg1 didRemoveProcess:(id)arg2;
+- (void)processManager:(id)arg1 didAddProcess:(id)arg2;
+- (void)sceneManager:(id)arg1 didDestroyScene:(id)arg2;
+- (void)sceneManager:(id)arg1 willDestroyScene:(id)arg2;
+- (void)sceneManager:(id)arg1 didCommitUpdateForScene:(id)arg2 transactionID:(unsigned long long)arg3;
+- (void)sceneManager:(id)arg1 willCommitUpdateForScene:(id)arg2 transactionID:(unsigned long long)arg3;
+- (void)sceneManager:(id)arg1 willUpdateScene:(id)arg2 withSettings:(id)arg3 transitionContext:(id)arg4;
+- (void)sceneManager:(id)arg1 didCreateScene:(id)arg2 withClient:(id)arg3;
 - (void)updateInterruptedByCallSettingsFrom:(id)arg1 to:(id)arg2;
-- (_Bool)_applicationExited:(id)arg1 withInfo:(id)arg2;
+- (_Bool)_applicationProcessExited:(id)arg1 withContext:(id)arg2;
 - (_Bool)_handleSetupExited:(id)arg1;
+- (void)_deviceWillDisableDisplaySecureMode:(id)arg1;
+- (void)_deviceWillEnableDisplaySecureMode:(id)arg1;
 - (void)_invalidateRelaunchTimer;
 - (void)_memoryPressureRelieved:(id)arg1;
 - (void)_memoryPressureWarn:(id)arg1;
 - (void)_launchNextPendedAutoLaunchApp;
 - (void)_scheduleRelaunchTimerIfNecessary;
 - (void)_handleBuddyLaunchFinished;
-- (id)_applicationForBundleIdentifier:(id)arg1 frontmost:(_Bool)arg2;
+- (id)_applicationForBundleIdentifier:(id)arg1;
 - (void)_noteCurrentTransactionFailed:(const char *)arg1;
-- (id)_selectTransactionForAppActivationToApp:(id)arg1 activationHandler:(CDUnknownBlockType)arg2 canDeactivateAlerts:(_Bool)arg3;
-- (id)_selectTransactionForAppActivationToApp:(id)arg1 activationHandler:(CDUnknownBlockType)arg2;
+- (id)_selectTransactionForAppActivationToApp:(id)arg1 canDeactivateAlerts:(_Bool)arg2 withResult:(CDUnknownBlockType)arg3;
+- (id)_selectTransactionForAppActivationToApp:(id)arg1 withResult:(CDUnknownBlockType)arg2;
 - (id)_selectTransactionForAppExited:(id)arg1;
 - (id)_selectTransactionForAppRelaunch:(id)arg1;
-- (id)_selectTransactionForAppActivationUnderMainScreenLock:(id)arg1;
-- (id)_selectTransactionForReturningToTheLockScreenFromApp:(id)arg1 forceToBuddy:(_Bool)arg2 withActivationHandler:(CDUnknownBlockType)arg3;
-- (id)_selectTransactionForReturningToTheLockScreenWithActivationHandler:(CDUnknownBlockType)arg1;
-- (id)debugDescription;
+- (id)_selectTransactionForAppActivationUnderMainScreenLock:(id)arg1 forRelaunch:(_Bool)arg2 withResult:(CDUnknownBlockType)arg3;
+- (id)_selectTransactionForReturningToTheLockScreenFromApp:(id)arg1 forceToBuddy:(_Bool)arg2 withResult:(CDUnknownBlockType)arg3;
+- (id)_selectTransactionForReturningToTheLockScreenWithResult:(CDUnknownBlockType)arg1;
+@property(readonly, copy) NSString *debugDescription;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

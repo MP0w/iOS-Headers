@@ -16,6 +16,7 @@
 
 @property(nonatomic) SBLockScreenView *lockScreenView; // @synthesize lockScreenView=_lockScreenView;
 @property(nonatomic) id <SBUIPasscodeLockView> passcodeView; // @synthesize passcodeView=_passcodeView;
+- (void)setUserInteractionEnabled:(_Bool)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (_Bool)touchesShouldCancelInContentView:(id)arg1;
 

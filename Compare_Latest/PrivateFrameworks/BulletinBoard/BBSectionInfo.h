@@ -33,6 +33,8 @@
     NSArray *_dataProviderIDs;
     BOOL _suppressFromSettings;
     BOOL _displaysCriticalBulletins;
+    BOOL _allowsNotifications;
+    BOOL _showsOnExternalDevices;
     BOOL _hideWeeApp;
     BOOL _showsMessagePreview;
     int _subsectionPriority;
@@ -42,6 +44,7 @@
 + (BOOL)supportsSecureCoding;
 + (id)defaultSectionInfoForType:(int)arg1;
 + (BOOL)defaultStateForSetting:(unsigned int)arg1 inSectionType:(int)arg2;
++ (id)defaultSectionInfoForSection:(id)arg1;
 @property(nonatomic) BOOL showsMessagePreview; // @synthesize showsMessagePreview=_showsMessagePreview;
 @property(nonatomic) unsigned int version; // @synthesize version=_version;
 @property(copy, nonatomic) NSArray *dataProviderIDs; // @synthesize dataProviderIDs=_dataProviderIDs;
@@ -58,7 +61,7 @@
 @property(nonatomic) unsigned int alertType; // @synthesize alertType=_alertType;
 @property(nonatomic) unsigned int pushSettings; // @synthesize pushSettings=_pushSettings;
 @property(nonatomic) unsigned int notificationCenterLimit; // @synthesize notificationCenterLimit=_notificationCenterLimit;
-@property(nonatomic) BOOL showsOnBluetoothDevices; // @synthesize showsOnBluetoothDevices=_showsOnBluetoothDevices;
+@property(nonatomic) BOOL showsOnExternalDevices; // @synthesize showsOnExternalDevices=_showsOnExternalDevices;
 @property(nonatomic) BOOL showsInLockScreen; // @synthesize showsInLockScreen=_showsInLockScreen;
 @property(nonatomic) BOOL showsInNotificationCenter; // @synthesize showsInNotificationCenter=_showsInNotificationCenter;
 @property(nonatomic) BOOL suppressFromSettings; // @synthesize suppressFromSettings=_suppressFromSettings;
@@ -66,10 +69,11 @@
 @property(nonatomic) int sectionType; // @synthesize sectionType=_sectionType;
 @property(copy, nonatomic) NSString *subsectionID; // @synthesize subsectionID=_subsectionID;
 @property(copy, nonatomic) NSString *sectionID; // @synthesize sectionID=_sectionID;
+@property(nonatomic) BOOL allowsNotifications;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-@property(readonly, nonatomic) NSData *iconData;
+@property(readonly, copy, nonatomic) NSData *iconData;
 @property(nonatomic) unsigned int bulletinCount;
 @property(nonatomic) BOOL enabled;
 - (void)_dissociateDataProviderSectionInfo:(id)arg1;
@@ -78,12 +82,12 @@
 - (void)_replaceSubsection:(id)arg1;
 - (void)_addSubsection:(id)arg1;
 - (id)description;
-- (id)_pushSettingsDescription;
 - (void)_configureWithDefaultsForSectionType:(int)arg1;
 - (void)dealloc;
 - (id)init;
 - (id)effectiveSectionInfoWithFactoryInfo:(id)arg1;
 - (id)effectiveSectionInfo;
+- (void)updateWithDefaultSectionInfo:(id)arg1;
 
 @end
 

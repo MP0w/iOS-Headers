@@ -8,6 +8,8 @@
 
 #import "TSDPrototypeChange.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TSDReplaceDeletePrototypeChange : NSObject <TSDPrototypeChange>
 {
@@ -17,20 +19,25 @@ __attribute__((visibility("hidden")))
     id mPrototype;
 }
 
-@property(readonly) id prototype; // @synthesize prototype=mPrototype;
-@property(readonly) id replacement; // @synthesize replacement=mReplacement;
+@property(readonly, retain) id prototype; // @synthesize prototype=mPrototype;
+@property(readonly, retain) id replacement; // @synthesize replacement=mReplacement;
 @property(readonly) BOOL prototypeIsBeingDeleted; // @synthesize prototypeIsBeingDeleted=mPrototypeIsBeingDeleted;
 @property(readonly) BOOL prototypeIsBeingReplaced; // @synthesize prototypeIsBeingReplaced=mPrototypeIsBeingReplaced;
 - (BOOL)propertiesAreChanging:(id)arg1;
 - (BOOL)propertyIsChanging:(int)arg1;
-@property(readonly) id <TSSPropertySource> propertiesAfterChange;
-@property(readonly) id <TSSPropertySource> propertiesBeforeChange;
+@property(readonly, retain) id <TSSPropertySource> propertiesAfterChange;
+@property(readonly, retain) id <TSSPropertySource> propertiesBeforeChange;
 - (id)changedPropertySet;
 @property(readonly) BOOL prototypeIsBeingModified;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initDeletePrototypeChangeForPrototype:(id)arg1 replacement:(id)arg2;
 - (id)initReplacePrototypeChangeForPrototype:(id)arg1 toReplacement:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

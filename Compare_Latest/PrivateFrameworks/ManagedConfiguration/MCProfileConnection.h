@@ -6,25 +6,29 @@
 
 #import "NSObject.h"
 
-@class CPDistributedMessagingCenter, NSData, NSDictionary, NSMutableArray, NSObject<OS_dispatch_queue>, NSTimer;
+#import "MCProfileConnectionXPCProtocol.h"
 
-@interface MCProfileConnection : NSObject
+@class NSData, NSDictionary, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
+
+@interface MCProfileConnection : NSObject <MCProfileConnectionXPCProtocol>
 {
-    CPDistributedMessagingCenter *_messageCenter;
     struct __CFBag *_observers;
-    CPDistributedMessagingCenter *_interactionServer;
     id <MCInteractionDelegate> _interactionDelegate;
-    id _interactionLockDelayedContext;
     NSDictionary *_preflightResponse;
     NSData *_originalProfileData;
-    BOOL _needToRestoreOriginalProfileData;
-    int _userInputTimeoutType;
-    NSTimer *_userInputTimer;
     NSObject<OS_dispatch_queue> *_notificationSyncQueue;
+    NSObject<OS_dispatch_queue> *_xpcConnectionSyncQueue;
+    NSObject<OS_dispatch_queue> *_publicXPCConnectionSyncQueue;
     NSMutableArray *_notificationTokens;
+    CDUnknownBlockType userInputReplyBlock;
+    CDUnknownBlockType passcodeReplyBlock;
+    CDUnknownBlockType showWarningsReplyBlock;
+    NSXPCConnection *_publicXPCConnection;
+    NSXPCConnection *_xpcConnection;
 }
 
 + (id)sharedConnection;
++ (id)profileInstallationErrorWithUnderlyingError:(id)arg1;
 - (void).cxx_destruct;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
@@ -41,6 +45,12 @@
 - (void)checkIn;
 - (void)dealloc;
 - (id)_init;
+- (void)_queueCreateAndResumePublicXPCConnection;
+- (void)_createAndResumePublicXPCConnection;
+- (void)_queueCreateAndResumeXPCConnection;
+- (void)_createAndResumeXPCConnection;
+@property(readonly, nonatomic) NSXPCConnection *publicXPCConnection; // @synthesize publicXPCConnection=_publicXPCConnection;
+@property(readonly, nonatomic) NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
 - (int)effectiveRestrictedBoolValueForSetting:(id)arg1;
 - (id)objectForFeature:(id)arg1;
 - (id)valueForFeature:(id)arg1;
@@ -60,28 +70,15 @@
 - (BOOL)isChaperoned;
 - (void)respondToCurrentPasscodeRequestContinue:(BOOL)arg1 passcode:(id)arg2;
 - (void)respondToWarningsContinueInstallation:(BOOL)arg1;
-- (void)_doMCICShowUserWarnings:(id)arg1 params:(id)arg2;
-- (void)_doMCICRequestUserInput:(id)arg1 params:(id)arg2;
 - (void)__checkForProfiledCrash;
-- (void)_doMCICDidFinish:(id)arg1 params:(id)arg2;
-- (void)__doMCICDidFinish:(id)arg1;
-- (void)_doMCICDidBeginInstallingNextProfileData:(id)arg1 params:(id)arg2;
-- (void)_doMCICDidRequestCurrentPasscode:(id)arg1 params:(id)arg2;
-- (void)_doMCICDidUpdateStatus:(id)arg1 params:(id)arg2;
 - (void)submitUserInputResponses:(id)arg1;
 - (void)cancelUserInputResponses;
-- (void)_doMCICPreflightResponse:(id)arg1 params:(id)arg2;
-- (void)_userInputTimerFired;
-- (void)_cancelUserInputTimeout;
-- (void)_setTimeoutWaitingForUserInputType:(int)arg1;
 - (void)preflightUserInputResponses:(id)arg1 forPayloadIndex:(unsigned int)arg2;
 - (void)setInteractionDelegate:(id)arg1;
 - (void)updateProfileWithIdentifier:(id)arg1 interactionDelegate:(id)arg2;
 - (void)installProfileData:(id)arg1 options:(id)arg2 interactionDelegate:(id)arg3;
 - (void)installProfileData:(id)arg1 interactionDelegate:(id)arg2;
-- (void)_registerSelectorsForInteractionServer:(id)arg1;
 - (void)_detectProfiledCrashes;
-- (void)_tearDownInteractionServer;
 - (BOOL)removeProvisioningProfileWithUUID:(id)arg1 outError:(id *)arg2;
 - (BOOL)installProvisioningProfileData:(id)arg1 managingProfileIdentifier:(id)arg2 outError:(id *)arg3;
 - (BOOL)showProfileErrorUIWithProfileIdentifier:(id)arg1 outError:(id *)arg2;
@@ -97,15 +94,18 @@
 - (void)removeProfileWithIdentifier:(id)arg1;
 - (id)installProfileData:(id)arg1 options:(id)arg2 outError:(id *)arg3;
 - (id)installProfileData:(id)arg1 outError:(id *)arg2;
-- (void)removeProfilesFromInstallationQueue;
+- (id)queueFileDataForAcceptance:(id)arg1 originalFileName:(id)arg2 forBundleID:(id)arg3 outError:(id *)arg4;
 - (id)queueFileDataForAcceptance:(id)arg1 originalFileName:(id)arg2 outError:(id *)arg3;
-- (id)_queueDataForAcceptance:(id)arg1 originalFileName:(id)arg2 transitionToUI:(BOOL)arg3 outError:(id *)arg4;
+- (id)_queueDataForAcceptance:(id)arg1 originalFileName:(id)arg2 originatingBundleID:(id)arg3 transitionToUI:(BOOL)arg4 outError:(id *)arg5;
 - (id)popProvisioningProfileDataFromHeadOfInstallationQueue;
 - (id)popProfileDataFromHeadOfInstallationQueue;
+- (void)isProfileInstalledWithIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)installedProfileWithIdentifier:(id)arg1;
+- (id)installedConfigurationProfileInfoWithOutMDMProfileInfo:(id *)arg1;
 - (id)installedProfilesWithFilterFlags:(int)arg1;
 - (id)installedProfileIdentifiersWithFilterFlags:(int)arg1;
 - (id)installedProfileIdentifiers;
+- (id)installedMDMProfileIdentifier;
 - (id)effectiveWhitelistedAppsAndOptions;
 - (void)removeOrphanedClientRestrictions;
 - (void)setUserInfo:(id)arg1 forClientUUID:(id)arg2;
@@ -125,6 +125,11 @@
 - (BOOL)isIntersectionSettingLockedDownByRestrictions:(id)arg1;
 - (BOOL)isValueSettingLockedDownByRestrictions:(id)arg1;
 - (BOOL)isBoolSettingLockedDownByRestrictions:(id)arg1;
+- (BOOL)areSettingsLockedDownByRestrictions:(id)arg1;
+- (id)_settingsLockedDownByRestrictions:(id)arg1;
+- (id)localizedRestrictionSourceDescriptionForFeatures:(id)arg1;
+- (BOOL)_areProfilesRestrictingSettings:(id)arg1 outMDMName:(id *)arg2 outExchangeName:(id *)arg3 outExchangeCount:(int *)arg4 outProfileName:(id *)arg5 outProfileCount:(int *)arg6;
+- (BOOL)isSettingLockedDownByRestrictions:(id)arg1;
 - (id)effectiveValuesForUnionSetting:(id)arg1;
 - (id)effectiveValuesForIntersectionSetting:(id)arg1;
 - (id)effectiveValueForSetting:(id)arg1;
@@ -188,6 +193,23 @@
 - (id)activationLockBypassHash;
 - (void)deleteActivationLockBypassKey;
 - (id)activationLockBypassKey;
+- (BOOL)isSpotlightInternetResultsAllowed;
+- (id)appsRestrictedFromCloudSync;
+- (BOOL)isCloudSyncAllowed:(id)arg1;
+- (BOOL)isInAppPaymentAllowed;
+- (BOOL)isFingerprintForContactlessPaymentAllowed;
+- (BOOL)isContactlessPaymentAllowed;
+- (BOOL)isUninstalledAppNearMeSuggestionsAllowed;
+- (BOOL)isInstalledAppNearMeSuggestionsAllowed;
+- (BOOL)isPodcastsAllowed;
+- (BOOL)hasAppAnalyticsAllowedBeenSet;
+- (BOOL)isAppAnalyticsAllowed;
+- (BOOL)hasDiagnosticSubmissionAllowedBeenSet;
+- (BOOL)isDiagnosticSubmissionAllowed;
+- (BOOL)isEnterpriseBookMetadataSyncAllowed;
+- (BOOL)isEnterpriseBookBackupAllowed;
+- (BOOL)isActivityContinuationAllowed;
+- (BOOL)isGeotagSharingAllowed;
 - (BOOL)isAirPlayIncomingRequestsPairingPasswordRequired;
 - (BOOL)isAirPlayOutgoingRequestsPairingPasswordRequired;
 - (BOOL)isFingerprintUnlockAllowed;
@@ -200,9 +222,11 @@
 - (BOOL)isLockScreenNotificationsViewAllowed;
 - (BOOL)isAirDropAllowed;
 - (BOOL)isAppRatingLimitInEffect;
+- (BOOL)isAppRemovalAllowed;
 - (BOOL)isAppInstallationAllowed;
 - (BOOL)isLockScreenWiFiModificationAllowed;
 - (BOOL)isAdTrackingLimited;
+- (BOOL)isWebContentFilteringInEffect;
 - (BOOL)isWebTextDefineAllowed;
 - (BOOL)isAutomaticAppUpdatesModificationAllowed;
 - (void)setAutomaticAppUpdatesAllowed:(BOOL)arg1;
@@ -211,16 +235,28 @@
 - (BOOL)isVehicleUIAllowed;
 - (BOOL)isCloudKeychainSyncAllowed;
 - (void)migratePostDataMigrator;
-- (void)migrateWithContext:(int)arg1 passcodeWasSetInBackup:(BOOL)arg2;
 - (void)processProfilesPostMigrate;
 - (void)processProfilesPostRestore;
+- (id)managedMedia;
+- (id)managedAppIDs;
+- (void)migrateWithContext:(int)arg1 passcodeWasSetInBackup:(BOOL)arg2;
+- (void)setManagedEmailDomains:(id)arg1;
+- (id)managedEmailDomains;
 - (id)managedAppIDsWithFlags:(int)arg1;
 - (id)doNotDocumentSyncAppIDs;
 - (id)doNotBackupAppIDs;
 - (id)managedSystemConfigurationServiceIDs;
 - (void)shutDown;
 - (id)managedWiFiNetworkNames;
+- (id)_localizedRestricitionSourceDescriptionFromMDMName:(id)arg1 exchangeName:(id)arg2 exchangeCount:(int)arg3 profileName:(id)arg4 profileCount:(int)arg5;
 - (id)activationLockBypassKeyCreateNewIfNeeded:(BOOL)arg1;
+- (void)doMCICDidFinishPreflightWithError:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)doMCICDidRequestShowUserWarnings:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)doMCICDidRequestUserInput:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)doMCICDidFinishInstallationWithIdentifier:(id)arg1 error:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)doMCICDidBeginInstallingNextProfileData:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)doMCICDidRequestCurrentPasscodeWithCompletion:(CDUnknownBlockType)arg1;
+- (void)doMCICDidUpdateStatus:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)rereadManagedAppAttributes;
 - (void)storeCertificateData:(id)arg1 forHostIdentifier:(id)arg2;
 - (void)removeExpiredProfiles;
@@ -229,8 +265,7 @@
 - (void)notifyDeviceUnlocked;
 - (void)checkCarrierProfileForceInstallation:(BOOL)arg1;
 - (void)checkCarrierProfile;
-- (id)publicMessageCenter;
-- (id)messageCenter;
+- (void)checkInIfNeeded;
 - (void)unstashWebContentFilterAutoPermittedURLStrings;
 - (void)stashWebContentFilterAutoPermittedURLStrings;
 - (void)unstashWebContentFilterUserBlacklistedURLStrings;
@@ -274,6 +309,7 @@
 - (BOOL)shouldShowCloudConfigurationUI;
 - (BOOL)shouldSkipSetupPanes;
 - (BOOL)activationRecordIndicatesCloudConfigurationIsAvailable;
+- (void)storeCloudConfigurationDetails:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)storeCloudConfigurationDetails:(id)arg1;
 - (void)cloudConfigurationUIDidCompleteWasApplied:(BOOL)arg1;
 - (BOOL)wasTeslaCloudConfigurationApplied;
@@ -282,13 +318,26 @@
 - (void)retrieveAndStoreCloudConfigurationDetailsCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)retrieveCloudConfigurationDetailsCompletionBlock:(CDUnknownBlockType)arg1;
 - (id)cloudConfigurationDetails;
+- (void)allowedKeyboardBundleIDsAfterApplyingFilterToBundleIDs:(id)arg1 hostAppBundleID:(id)arg2 accountIsManaged:(BOOL)arg3 completion:(CDUnknownBlockType)arg4;
+- (id)filteredOpenInAccounts:(id)arg1 originatingAppBundleID:(id)arg2 sourceAccountManagement:(int)arg3;
+- (BOOL)shouldApplyFilterForBundleID:(id)arg1 sourceAccountManagement:(int)arg2 outAllowManagedAccounts:(char *)arg3 outAllowUnmanagedAccounts:(char *)arg4;
 - (id)filteredMailSheetAccountsForBundleID:(id)arg1 sourceAccountManagement:(int)arg2;
+- (BOOL)mayShowLocalAccountsForBundleID:(id)arg1 sourceAccountManagement:(int)arg2;
 - (BOOL)isAppManaged:(id)arg1;
+- (id)allowedAppBundleIDsForBidirectionalDataMovementAfterApplyingFilterToBundleIDs:(id)arg1 localAppBundleID:(id)arg2 localAccountIsManaged:(BOOL)arg3;
+- (id)allowedImportFromAppBundleIDsAfterApplyingFilterToBundleIDs:(id)arg1 importingAppBundleID:(id)arg2 importingAccountIsManaged:(BOOL)arg3;
 - (id)allowedOpenInAppBundleIDsAfterApplyingFilterToAppBundleIDs:(id)arg1 originatingAppBundleID:(id)arg2 originatingAccountIsManaged:(BOOL)arg3;
 - (BOOL)mayShareToMessagesOriginatingAccountIsManaged:(BOOL)arg1;
+- (BOOL)isURLManaged:(id)arg1;
 - (BOOL)mayOpenFromManagedToUnmanaged;
 - (BOOL)mayOpenFromUnmanagedToManaged;
 - (BOOL)isOpenInRestrictionInEffect;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

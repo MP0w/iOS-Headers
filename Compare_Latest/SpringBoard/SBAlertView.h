@@ -20,7 +20,6 @@
 - (void)didRotateFromInterfaceOrientation:(long long)arg1;
 - (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
-- (_Bool)isSupportedInterfaceOrientation:(long long)arg1;
 - (void)layoutForInterfaceOrientation:(long long)arg1;
 - (_Bool)isAnimatingOut;
 - (_Bool)shouldAnimateIn;

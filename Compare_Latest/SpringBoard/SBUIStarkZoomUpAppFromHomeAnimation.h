@@ -8,7 +8,7 @@
 
 #import "SBIconAnimatorDelegate.h"
 
-@class SBAlert, SBIconAnimator, UIView;
+@class NSString, SBAlert, SBIconAnimator, UIView;
 
 @interface SBUIStarkZoomUpAppFromHomeAnimation : SBUIStarkScreenAnimationController <SBIconAnimatorDelegate>
 {
@@ -25,7 +25,6 @@
 - (void)_cleanupHosting;
 - (void)_animateZoomWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_prepareZoom;
-- (double)_animationDuration;
 - (double)_animationDelay;
 - (void)_noteDependencyDidInvalidate;
 - (id)_viewToAnimate;
@@ -33,9 +32,15 @@
 - (void)_startAnimation;
 - (void)_prepareAnimation;
 - (id)_animationProgressDependency;
-- (_Bool)_animationShouldStart;
+- (_Bool)_waitsForApplicationActivationIfNecessary;
 - (void)dealloc;
 - (id)initWithActivatingApp:(id)arg1 alertImpersonator:(id)arg2 starkScreenController:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

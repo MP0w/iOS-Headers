@@ -23,6 +23,7 @@
 
 @property(nonatomic) unsigned int identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) int style; // @synthesize style=_style;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

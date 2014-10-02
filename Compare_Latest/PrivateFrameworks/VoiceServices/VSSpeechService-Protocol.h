@@ -9,6 +9,8 @@
 @class NSArray, NSString, VSGenericUpdateEndpoint, VSSpeechRequest, VSVoiceAsset;
 
 @protocol VSSpeechService <NSObject>
+- (oneway void)getLogToFile:(void (^)(BOOL))arg1;
+- (oneway void)setLogToFile:(BOOL)arg1;
 - (oneway void)getVoiceInfoForLanguageCode:(NSString *)arg1 footprint:(int)arg2 gender:(int)arg3 custom:(BOOL)arg4 reply:(void (^)(VSVoiceAsset *))arg5;
 - (oneway void)getAutoDownloadedVoiceAssets:(void (^)(NSArray *))arg1;
 - (oneway void)setAutoDownloadedVoiceAssets:(NSArray *)arg1;

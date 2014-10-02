@@ -12,12 +12,11 @@
 
 + (id)UTITypes;
 - (void)saveAnimatedPreview:(id)arg1 toURL:(id)arg2 forOrientation:(BOOL)arg3;
-- (id)generateThumbnails;
+- (id)generateThumbnailsForWidth:(float)arg1 orientation:(BOOL)arg2;
 - (id)savedAnimatedPreviewFromURL:(id)arg1 forOrientation:(BOOL)arg2;
-- (id)generateAnimatedPreviewFromThumbnails:(id)arg1 forOrientation:(BOOL)arg2;
+- (id)generateAnimatedPreviewFromThumbnails:(id)arg1 width:(float)arg2 orientation:(BOOL)arg3;
 - (id)notificationCenter;
-- (BOOL)previewDispatchCache:(id)arg1 shouldReplaceCachedPreview:(id)arg2 withPreview:(id)arg3;
-- (id)previewForOrientation:(BOOL)arg1;
+- (id)previewForWidth:(float)arg1 orientation:(BOOL)arg2;
 
 @end
 

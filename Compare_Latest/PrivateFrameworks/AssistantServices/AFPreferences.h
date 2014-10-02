@@ -22,6 +22,7 @@
 - (void).cxx_destruct;
 - (BOOL)fileLoggingIsEnabled;
 - (void)setFileLoggingIsEnabled:(BOOL)arg1;
+- (void)_setLoggingDefaultValue:(id)arg1 forKey:(id)arg2;
 - (id)languagesMissingBirthCertificates;
 - (void)setBirthCertificateData:(id)arg1 forLanguageCode:(id)arg2;
 - (id)birthCertificateDataForLanguageCode:(id)arg1;
@@ -39,6 +40,8 @@
 - (BOOL)shouldShowReadyForLanguageCode:(id)arg1;
 - (void)setDisableAssistantWhilePasscodeLocked:(BOOL)arg1;
 - (BOOL)disableAssistantWhilePasscodeLocked;
+- (void)setStreamingDictationEnabled:(BOOL)arg1;
+- (BOOL)streamingDictationEnabled;
 - (void)setManualEndpointingThreshold:(id)arg1;
 - (id)manualEndpointingThreshold;
 - (void)setIgnoreServerManualEndpointingThreshold:(BOOL)arg1;

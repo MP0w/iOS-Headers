@@ -8,6 +8,7 @@
 
 @protocol SPDaemonQueryDelegate
 - (void)searchDaemonQueryCompleted:(SPDaemonQueryToken *)arg1;
+- (void)searchDaemonQueryReset:(SPDaemonQueryToken *)arg1;
 - (void)searchDaemonQuery:(SPDaemonQueryToken *)arg1 encounteredError:(NSError *)arg2;
 - (void)searchDaemonQuery:(SPDaemonQueryToken *)arg1 addedResults:(SPSearchResultDeserializer *)arg2;
 @end

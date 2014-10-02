@@ -9,6 +9,8 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
+@class NSArray, NSPredicate, NSString;
+
 @interface NSExpression : NSObject <NSSecureCoding, NSCopying>
 {
     struct _expressionFlags {
@@ -42,22 +44,22 @@
 - (id)_expressionWithSubstitutionVariables:(id)arg1;
 - (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
 - (BOOL)_shouldUseParensWithDescription;
-- (CDUnknownBlockType)expressionBlock;
+@property(readonly, copy) CDUnknownBlockType expressionBlock;
 - (id)falseExpression;
 - (id)trueExpression;
 - (id)subexpression;
-- (id)collection;
-- (id)predicate;
-- (id)rightExpression;
-- (id)leftExpression;
-- (id)arguments;
+@property(readonly, retain) id collection;
+@property(readonly, copy) NSPredicate *predicate;
+@property(readonly, copy) NSExpression *rightExpression;
+@property(readonly, copy) NSExpression *leftExpression;
+@property(readonly, copy) NSArray *arguments;
 - (SEL)selector;
-- (id)operand;
-- (id)function;
-- (id)variable;
-- (id)constantValue;
-- (id)keyPath;
-- (unsigned int)expressionType;
+@property(readonly, copy) NSExpression *operand;
+@property(readonly, copy) NSString *function;
+@property(readonly, copy) NSString *variable;
+@property(readonly, retain) id constantValue;
+@property(readonly, copy) NSString *keyPath;
+@property(readonly) unsigned int expressionType;
 - (id)predicateFormat;
 - (id)description;
 - (id)expressionValueWithObject:(id)arg1 context:(id)arg2;

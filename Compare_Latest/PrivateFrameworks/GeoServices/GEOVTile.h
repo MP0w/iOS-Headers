@@ -6,10 +6,12 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying.h"
+
 @class GEOVConnectivity, NSData, NSMutableArray;
 
 __attribute__((visibility("hidden")))
-@interface GEOVTile : PBCodable
+@interface GEOVTile : PBCodable <NSCopying>
 {
     NSMutableArray *_coastlines;
     GEOVConnectivity *_connectivity;
@@ -43,6 +45,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableArray *lines; // @synthesize lines=_lines;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;

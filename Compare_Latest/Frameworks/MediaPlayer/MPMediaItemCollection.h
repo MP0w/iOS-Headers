@@ -11,6 +11,7 @@
 @interface MPMediaItemCollection : MPMediaEntity
 {
     unsigned int _containedMediaTypes;
+    BOOL _initializedContainedMediaTypes;
     NSArray *_items;
     unsigned int _itemsCount;
     MPMediaQuery *_itemsQuery;
@@ -23,6 +24,8 @@
 + (BOOL)supportsSecureCoding;
 + (id)collectionWithItems:(id)arg1;
 - (void).cxx_destruct;
+- (id)multiverseIdentifier;
+@property(readonly, nonatomic) int groupingType;
 @property(readonly, nonatomic) unsigned int mediaTypes;
 @property(readonly, nonatomic) unsigned int count;
 @property(readonly, nonatomic) MPMediaItem *representativeItem;
@@ -30,14 +33,13 @@
 - (id)itemsQuery;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)_init;
+- (id)init;
+- (id)initWithMultiverseIdentifier:(id)arg1;
 - (id)initWithItemsQuery:(id)arg1;
 - (id)initWithItems:(id)arg1;
-- (id)init;
-- (id)SAMPMediaEntityRepresentation;
-- (id)SAMPCollectionRepresentationWithItems;
-- (id)SAMPCollectionRepresentation;
-- (int)groupingType;
+- (id)__artistArtworkCatalog;
+- (id)__albumArtistArtworkCatalog;
+- (id)artworkCatalog;
 - (BOOL)MPSD_hasDownloadingItem;
 - (BOOL)MPSD_hasDownloadableItem;
 

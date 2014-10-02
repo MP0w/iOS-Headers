@@ -15,6 +15,7 @@
 
 + (id)composition;
 - (void)_notifyAllTracksThatSegmentsDidChange;
+- (void)_notifyAllTracksThatSegmentsWillChange;
 - (id)mutableTrackCompatibleWithTrack:(id)arg1;
 - (void)removeTrack:(id)arg1;
 - (id)addMutableTrackWithMediaType:(id)arg1 preferredTrackID:(int)arg2;

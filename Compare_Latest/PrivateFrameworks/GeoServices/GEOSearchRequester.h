@@ -12,17 +12,15 @@
 {
     NSMapTable *_pendingSearches;
     NSLock *_pendingSearchesLock;
-    NSMapTable *_providers;
 }
 
 + (id)sharedSearchRequester;
-- (void)registerProvider:(Class)arg1;
 - (void)cancelSearch:(id)arg1;
-- (void)search:(id)arg1 timeout:(int)arg2 useBackgroundConnection:(BOOL)arg3 finished:(CDUnknownBlockType)arg4 spellingSuggestion:(CDUnknownBlockType)arg5 refinement:(CDUnknownBlockType)arg6 networkActivity:(CDUnknownBlockType)arg7 error:(CDUnknownBlockType)arg8 isCompletions:(BOOL)arg9;
-- (void)search:(id)arg1 timeout:(int)arg2 useBackgroundConnection:(BOOL)arg3 finished:(CDUnknownBlockType)arg4 spellingSuggestion:(CDUnknownBlockType)arg5 refinement:(CDUnknownBlockType)arg6 networkActivity:(CDUnknownBlockType)arg7 error:(CDUnknownBlockType)arg8;
-- (void)completions:(id)arg1 timeout:(int)arg2 useBackgroundConnection:(BOOL)arg3 finished:(CDUnknownBlockType)arg4 spellingSuggestion:(CDUnknownBlockType)arg5 refinement:(CDUnknownBlockType)arg6 networkActivity:(CDUnknownBlockType)arg7 error:(CDUnknownBlockType)arg8;
-- (void)search:(id)arg1 useBackgroundConnection:(BOOL)arg2 finished:(CDUnknownBlockType)arg3 spellingSuggestion:(CDUnknownBlockType)arg4 refinement:(CDUnknownBlockType)arg5 networkActivity:(CDUnknownBlockType)arg6 error:(CDUnknownBlockType)arg7;
-- (void)search:(id)arg1 finished:(CDUnknownBlockType)arg2 spellingSuggestion:(CDUnknownBlockType)arg3 refinement:(CDUnknownBlockType)arg4 networkActivity:(CDUnknownBlockType)arg5 error:(CDUnknownBlockType)arg6;
+- (void)search:(id)arg1 timeout:(int)arg2 useBackgroundConnection:(BOOL)arg3 finished:(CDUnknownBlockType)arg4 refinement:(CDUnknownBlockType)arg5 networkActivity:(CDUnknownBlockType)arg6 error:(CDUnknownBlockType)arg7 isCompletions:(BOOL)arg8;
+- (void)search:(id)arg1 timeout:(int)arg2 useBackgroundConnection:(BOOL)arg3 finished:(CDUnknownBlockType)arg4 refinement:(CDUnknownBlockType)arg5 networkActivity:(CDUnknownBlockType)arg6 error:(CDUnknownBlockType)arg7;
+- (void)completions:(id)arg1 timeout:(int)arg2 useBackgroundConnection:(BOOL)arg3 finished:(CDUnknownBlockType)arg4 refinement:(CDUnknownBlockType)arg5 networkActivity:(CDUnknownBlockType)arg6 error:(CDUnknownBlockType)arg7;
+- (void)search:(id)arg1 useBackgroundConnection:(BOOL)arg2 finished:(CDUnknownBlockType)arg3 refinement:(CDUnknownBlockType)arg4 networkActivity:(CDUnknownBlockType)arg5 error:(CDUnknownBlockType)arg6;
+- (void)search:(id)arg1 finished:(CDUnknownBlockType)arg2 refinement:(CDUnknownBlockType)arg3 networkActivity:(CDUnknownBlockType)arg4 error:(CDUnknownBlockType)arg5;
 - (void)dealloc;
 - (id)init;
 

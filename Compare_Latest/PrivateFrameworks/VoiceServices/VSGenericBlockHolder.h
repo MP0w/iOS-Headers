@@ -8,6 +8,8 @@
 
 #import "VSGenericUpdate.h"
 
+@class NSString;
+
 @interface VSGenericBlockHolder : NSObject <VSGenericUpdate>
 {
     CDUnknownBlockType _block;
@@ -16,6 +18,12 @@
 - (void).cxx_destruct;
 - (void)invokeUpdateWithObject:(id)arg1;
 - (id)initWithBlock:(CDUnknownBlockType)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

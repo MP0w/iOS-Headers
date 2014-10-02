@@ -16,7 +16,8 @@
     long chapterIndex;
     NSString *chapterType;
     NSLocale *locale;
-    id value;
+    NSString *chapterDataType;
+    id <NSObject><NSCopying> value;
     CDStruct_1b6d18a9 time;
     CDStruct_1b6d18a9 duration;
     int valueStatus;

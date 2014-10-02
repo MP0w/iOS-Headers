@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSError, VKLabelMarker, VKMapModel, VKOverlayPainter;
+@class NSError, VKLabelMarker, VKMapModel, VKOverlayPainter;
 
 @protocol VKMapModelDelegate <NSObject>
+- (void)mapModelDidUpdateMinMaxZoomLevel:(VKMapModel *)arg1;
 - (void)mapModel:(VKMapModel *)arg1 willTransitionFrom:(int)arg2 to:(int)arg3 duration:(double)arg4;
 - (void)mapModel:(VKMapModel *)arg1 selectedLabelMarkerWillDisappear:(VKLabelMarker *)arg2;
 - (double)mapModelZoomScale:(VKMapModel *)arg1;
@@ -21,12 +22,10 @@
 - (void)mapModelWillBecomFullyDrawn:(VKMapModel *)arg1;
 - (void)mapModelDidBecomePartiallyDrawn:(VKMapModel *)arg1;
 - (VKOverlayPainter *)mapModel:(VKMapModel *)arg1 painterForOverlay:(id <VKOverlay>)arg2;
-- (void)mapModel:(VKMapModel *)arg1 didFinishAddingAnnotationMarkers:(NSArray *)arg2;
-- (void)mapModel:(VKMapModel *)arg1 didAnimateInAnnotationMarkers:(NSArray *)arg2;
-- (void)mapModel:(VKMapModel *)arg1 willAnimateInAnnotationMarkers:(NSArray *)arg2;
 - (void)mapModel:(VKMapModel *)arg1 needsPanByOffset:(struct CGPoint)arg2 relativeToScreenPoint:(struct CGPoint)arg3 animated:(BOOL)arg4 duration:(double)arg5 completionHandler:(void (^)(void))arg6;
 
 @optional
+- (void)mapModel:(VKMapModel *)arg1 didUpdateContainsOverlay:(BOOL)arg2;
 - (void)mapModel:(VKMapModel *)arg1 didUpdateNavigationPuckSize:(float)arg2;
 @end
 

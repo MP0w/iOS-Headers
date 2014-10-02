@@ -8,7 +8,7 @@
 
 #import "CoreDAVSubmittable.h"
 
-@class NSError, NSMutableSet;
+@class NSError, NSMutableSet, NSString;
 
 @interface CoreDAVTaskGroup : NSObject <CoreDAVSubmittable>
 {
@@ -23,12 +23,14 @@
     CDUnknownBlockType _progressBlock;
     CDUnknownBlockType _completionBlock;
     NSError *_error;
+    id _context;
 }
 
-@property double timeoutInterval; // @synthesize timeoutInterval=_timeoutInterval;
+@property(retain, nonatomic) id context; // @synthesize context=_context;
+@property(nonatomic) double timeoutInterval; // @synthesize timeoutInterval=_timeoutInterval;
 @property(nonatomic) id <CoreDAVTaskManager> taskManager; // @synthesize taskManager=_taskManager;
 @property(copy, nonatomic) CDUnknownBlockType progressBlock; // @synthesize progressBlock=_progressBlock;
-@property(readonly) NSMutableSet *outstandingTasks; // @synthesize outstandingTasks=_outstandingTasks;
+@property(readonly, nonatomic) NSMutableSet *outstandingTasks; // @synthesize outstandingTasks=_outstandingTasks;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic) id <CoreDAVTaskGroupDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
@@ -36,6 +38,7 @@
 - (void)submitWithTaskManager:(id)arg1;
 - (void)finishEarlyWithError:(id)arg1;
 - (void)finishCoreDAVTaskGroupWithError:(id)arg1;
+- (void)finishCoreDAVTaskGroupWithError:(id)arg1 delegateCallbackBlock:(CDUnknownBlockType)arg2;
 - (void)cancelTaskGroup;
 - (void)bailWithError:(id)arg1;
 - (void)_tearDownAllTasks;
@@ -44,6 +47,12 @@
 - (void)startTaskGroup;
 - (void)dealloc;
 - (id)initWithAccountInfoProvider:(id)arg1 taskManager:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -5,13 +5,13 @@
 //
 
 #import "SBBulletinActionHandler.h"
-#import "SBWidgetViewControllerHostDelegate.h"
+#import "SBWidgetViewControllerDelegate.h"
 
 @class SBNotificationCenterViewController;
 
-@protocol SBNotificationCenterViewControllerDelegate <SBWidgetViewControllerHostDelegate, SBBulletinActionHandler>
+@protocol SBNotificationCenterViewControllerDelegate <SBWidgetViewControllerDelegate, SBBulletinActionHandler>
 
 @optional
-- (id <SBWidgetViewControllerHostDelegate>)widgetViewControllerHostDelegate:(SBNotificationCenterViewController *)arg1;
+- (id <SBWidgetViewControllerDelegate>)widgetViewControllerHostDelegate:(SBNotificationCenterViewController *)arg1;
 @end
 

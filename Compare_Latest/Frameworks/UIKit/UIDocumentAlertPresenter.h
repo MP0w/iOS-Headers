@@ -8,7 +8,7 @@
 
 #import "UIAlertViewDelegate.h"
 
-@class NSError, UIAlertView;
+@class NSError, NSString, UIAlertView;
 
 __attribute__((visibility("hidden")))
 @interface UIDocumentAlertPresenter : NSObject <UIAlertViewDelegate>
@@ -24,6 +24,12 @@ __attribute__((visibility("hidden")))
 - (void)_forceFinishNow;
 - (void)dealloc;
 - (id)initWithError:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

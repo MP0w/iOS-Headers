@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)chdAxisFromXmlAxisElement:(struct _xmlNode *)arg1 state:(id)arg2;
++ (id)stringFromLabelAlignment:(int)arg1;
 + (int)chdLabelAlignFromXmlLabelAlignElement:(struct _xmlNode *)arg1;
 
 @end

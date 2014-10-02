@@ -6,37 +6,42 @@
 
 #import "NSObject.h"
 
-@interface PLAssetContainerDataSource : NSObject
+#import "PHAssetCollectionDataSource.h"
+
+@class NSMutableDictionary, NSString, PHFetchResult;
+
+@interface PLAssetContainerDataSource : NSObject <PHAssetCollectionDataSource>
 {
-    id <PLAssetContainerList> _assetContainerList;
+    PHFetchResult *_assetCollectionsFetchResult;
+    NSMutableDictionary *_assetsFetchResultByAssetCollection;
     unsigned int _allAssetsCount;
     unsigned int *_containerCounts;
     BOOL _cachedValuesNeedUpdate;
+    unsigned int _lastAssetCollectionIndex;
 }
 
-+ (id)assetInAssetContainer:(id)arg1 atIndex:(unsigned int)arg2;
-@property(readonly, nonatomic) id <PLAssetContainerList> assetContainerList; // @synthesize assetContainerList=_assetContainerList;
-- (void)assetContainerListDidChange:(id)arg1;
-- (void)assetContainerDidChange:(id)arg1 updateIndexPaths:(id)arg2 preferNextAssetOnDeleteForKeys:(id)arg3;
-- (id)fetchAllAssets;
-- (void)shuffleAssets:(BOOL)arg1 startingAsset:(id)arg2;
+@property(readonly, nonatomic) PHFetchResult *assetCollectionsFetchResult; // @synthesize assetCollectionsFetchResult=_assetCollectionsFetchResult;
+@property(readonly, copy) NSString *description;
+- (void)viewControllerPhotoLibraryDidChange:(id)arg1;
+- (id)pl_fetchAllAssets;
+- (id)assetInAssetContainer:(id)arg1 atIndex:(unsigned int)arg2;
 - (unsigned int)assetCountForContainerAtIndex:(unsigned int)arg1;
 - (unsigned int)assetCountForContainer:(id)arg1;
 - (id)decrementAssetIndexPath:(id)arg1 insideCurrentAssetContainer:(BOOL)arg2 andWrap:(BOOL)arg3;
 - (id)incrementAssetIndexPath:(id)arg1 insideCurrentAssetContainer:(BOOL)arg2 andWrap:(BOOL)arg3;
 - (unsigned int)_indexOfPreviousNonEmptyAssetContainerBeforeContainerIndex:(unsigned int)arg1 wrap:(BOOL)arg2;
 - (unsigned int)_indexOfNextNonEmptyAssetContainerAfterContainerIndex:(unsigned int)arg1 wrap:(BOOL)arg2;
+- (id)findNearestIndexPath:(id)arg1 preferNext:(BOOL)arg2;
 - (BOOL)hasAssetAtIndexPath:(id)arg1;
+- (id)lastAssetIndexPath;
 - (id)firstAssetIndexPath;
 - (unsigned int)indexOfContainer:(id)arg1;
 - (id)assetContainerAtIndex:(unsigned int)arg1;
 - (id)indexPathOfAsset:(id)arg1;
 - (id)assetAtIndexPath:(id)arg1;
-- (id)assetContainerWithUUID:(id)arg1;
-- (id)assetContainerWithObjectID:(id)arg1;
+- (id)assetsInAssetCollection:(id)arg1;
+- (id)assetsInAssetCollectionAtIndex:(unsigned int)arg1;
 - (id)assetWithObjectID:(id)arg1;
-- (id)assetWithUUID:(id)arg1;
-- (unsigned int)containerAssetCountForAssetIndex:(unsigned int)arg1;
 - (unsigned int)indexOffsetForAssetContainerAtAssetIndex:(unsigned int)arg1;
 - (unsigned int)globalIndexOfAsset:(id)arg1;
 - (id)assetAtGlobalIndex:(unsigned int)arg1;
@@ -50,7 +55,12 @@
 - (void)_updateCachedCount:(unsigned int)arg1 forContainerAtContainerIndex:(unsigned int)arg2;
 - (void)_updateCachedValues;
 - (void)dealloc;
-- (id)initWithAssetContainerList:(id)arg1;
+- (id)initWithAssetCollectionsFetchResult:(id)arg1 collectionsAssetsFetchResults:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

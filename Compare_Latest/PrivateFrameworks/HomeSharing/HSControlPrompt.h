@@ -30,8 +30,8 @@
 @property(nonatomic) unsigned int promptID; // @synthesize promptID=_promptID;
 @property(nonatomic) unsigned int messageType; // @synthesize messageType=_messageType;
 @property(nonatomic) unsigned int keyboardType; // @synthesize keyboardType=_keyboardType;
+- (void).cxx_destruct;
 - (id)description;
-- (void)dealloc;
 
 @end
 

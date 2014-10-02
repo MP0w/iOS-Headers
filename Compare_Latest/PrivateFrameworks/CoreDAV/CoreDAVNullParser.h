@@ -8,7 +8,7 @@
 
 #import "CoreDAVResponseBodyParser.h"
 
-@class NSError;
+@class NSError, NSString;
 
 @interface CoreDAVNullParser : NSObject <CoreDAVResponseBodyParser>
 {
@@ -19,6 +19,12 @@
 - (BOOL)processData:(id)arg1 forTask:(id)arg2;
 @property(readonly) NSError *parserError;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

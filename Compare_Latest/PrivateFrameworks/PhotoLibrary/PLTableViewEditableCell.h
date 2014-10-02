@@ -9,7 +9,7 @@
 #import "UITextFieldDelegate.h"
 #import "UITextViewDelegate.h"
 
-@class PLTextView, UILabel, UITextField;
+@class NSString, PLTextView, UILabel, UITextField;
 
 @interface PLTableViewEditableCell : UITableViewCell <UITextViewDelegate, UITextFieldDelegate>
 {
@@ -45,6 +45,12 @@
 - (id)initWithFrame:(struct CGRect)arg1 cellStyle:(int)arg2;
 - (id)initHDSDCell;
 - (id)initWithFrame:(struct CGRect)arg1 multiLine:(BOOL)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

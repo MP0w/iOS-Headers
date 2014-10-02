@@ -14,6 +14,7 @@
 }
 
 @property(copy, nonatomic) NSArray *databases; // @synthesize databases;
+- (void).cxx_destruct;
 - (void)dealloc;
 
 @end

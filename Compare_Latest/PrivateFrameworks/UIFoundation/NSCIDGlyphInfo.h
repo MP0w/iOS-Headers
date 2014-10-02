@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 + (void)initialize;
 + (id)glyphInfoWithCharacterIdentifier:(unsigned int)arg1 collection:(unsigned int)arg2 baseString:(id)arg3;
 - (id)description;
+- (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (unsigned int)characterCollection;
 - (unsigned int)characterIdentifier;

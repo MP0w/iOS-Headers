@@ -18,11 +18,9 @@ __attribute__((visibility("hidden")))
 
 + (id)documentDirectoryPath;
 + (id)sharedDelegate;
-+ (BOOL)isUnitTesting;
 + (void)setDelegate:(id)arg1;
 + (id)platform_sharedDelegate;
 @property(retain, nonatomic) id <TSKCompatibilityDelegate> compatibilityDelegate; // @synthesize compatibilityDelegate=_compatibilityDelegate;
-- (id)toolbarButtonForModalDoneWithTarget:(id)arg1 action:(SEL)arg2;
 @property(readonly, getter=isInBackground) BOOL inBackground;
 @property(readonly, getter=isActivating) BOOL activating;
 - (BOOL)shouldGenerateGuidesForOffscreenLayouts;
@@ -33,6 +31,7 @@ __attribute__((visibility("hidden")))
 - (id)invalidURLSchemes;
 - (id)appChartPropertyOverrides;
 - (id)previewImageForType:(id)arg1;
+- (BOOL)shouldValidateMasterLayoutWhileInsertingRows;
 - (BOOL)supportsScrollingInPhoneCommentUI;
 - (BOOL)supportsRTL;
 - (BOOL)shouldRenderCurvedShadow;

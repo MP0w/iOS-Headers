@@ -13,9 +13,9 @@
 }
 
 @property(readonly, nonatomic, getter=isSkipable) BOOL skipable;
-@property(readonly, nonatomic) NSURL *keyServerURL;
-@property(readonly, nonatomic) NSURL *contentURL;
-@property(readonly, nonatomic) NSURL *certificateURL;
+@property(readonly, retain, nonatomic) NSURL *keyServerURL;
+@property(readonly, retain, nonatomic) NSURL *contentURL;
+@property(readonly, retain, nonatomic) NSURL *certificateURL;
 
 @end
 

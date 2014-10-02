@@ -6,12 +6,15 @@
 
 #import "NSObject.h"
 
+#import "NSCopying.h"
+
 @class NSArray, NSData, NSMutableDictionary, NSNumber;
 
-@interface SSVGratisRequestBody : NSObject
+@interface SSVGratisRequestBody : NSObject <NSCopying>
 {
     NSNumber *_accountID;
     NSMutableDictionary *_additionalParameters;
+    BOOL _backgroundRequest;
     NSArray *_bundleIdentifiers;
     NSArray *_itemIdentifiers;
     int _style;
@@ -20,8 +23,11 @@
 @property(readonly, nonatomic) int requestStyle; // @synthesize requestStyle=_style;
 @property(copy, nonatomic) NSArray *itemIdentifiers; // @synthesize itemIdentifiers=_itemIdentifiers;
 @property(copy, nonatomic) NSArray *bundleIdentifiers; // @synthesize bundleIdentifiers=_bundleIdentifiers;
+@property(nonatomic, getter=isBackgroundRequest) BOOL backgroundRequest; // @synthesize backgroundRequest=_backgroundRequest;
 @property(copy, nonatomic) NSNumber *accountIdentifier; // @synthesize accountIdentifier=_accountID;
 - (void).cxx_destruct;
+- (id)description;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)setValue:(id)arg1 forBodyParameter:(id)arg2;
 @property(readonly, nonatomic) NSData *propertyListBodyData;
 @property(readonly, nonatomic) NSData *JSONBodyData;

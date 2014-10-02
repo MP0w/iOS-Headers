@@ -8,7 +8,7 @@
 
 #import "SAServerBoundCommand.h"
 
-@class NSNumber, NSString, SALocalSearchAceNavigationEta, SALocalSearchRoute;
+@class NSString, SALocalSearchAceNavigationEta, SALocalSearchRoute;
 
 @interface SALocalSearchGetNavigationStatusCompleted : SABaseCommand <SAServerBoundCommand>
 {
@@ -19,14 +19,16 @@
 @property(retain, nonatomic) SALocalSearchRoute *route;
 @property(retain, nonatomic) SALocalSearchAceNavigationEta *overallEta;
 @property(retain, nonatomic) SALocalSearchAceNavigationEta *nextManeuverEta;
-@property(retain, nonatomic) NSNumber *navigating;
-@property(retain, nonatomic) NSNumber *etaInMinutes;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 
 // Remaining properties
 @property(copy, nonatomic) NSString *aceId; // @dynamic aceId;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(copy, nonatomic) NSString *refId; // @dynamic refId;
+@property(readonly) Class superclass;
 
 @end
 

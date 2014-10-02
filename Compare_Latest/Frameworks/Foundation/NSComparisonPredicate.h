@@ -22,7 +22,7 @@
 + (id)predicateWithPredicateOperator:(id)arg1 leftKeyPath:(id)arg2 rightValue:(id)arg3;
 + (id)predicateWithLeftExpression:(id)arg1 rightExpression:(id)arg2 customSelector:(SEL)arg3;
 + (id)predicateWithLeftExpression:(id)arg1 rightExpression:(id)arg2 modifier:(unsigned int)arg3 type:(unsigned int)arg4 options:(unsigned int)arg5;
-- (unsigned int)options;
+@property(readonly) unsigned int options;
 - (id)predicateWithSubstitutionVariables:(id)arg1;
 - (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
 - (void)_acceptExpressions:(id)arg1 flags:(unsigned int)arg2;
@@ -32,11 +32,11 @@
 - (BOOL)isEqual:(id)arg1;
 - (void)setPredicateOperator:(id)arg1;
 - (id)predicateOperator;
-- (SEL)customSelector;
-- (id)rightExpression;
-- (id)leftExpression;
-- (unsigned int)comparisonPredicateModifier;
-- (unsigned int)predicateOperatorType;
+@property(readonly) SEL customSelector;
+@property(readonly, retain) NSExpression *rightExpression;
+@property(readonly, retain) NSExpression *leftExpression;
+@property(readonly) unsigned int comparisonPredicateModifier;
+@property(readonly) unsigned int predicateOperatorType;
 - (id)predicateFormat;
 - (void)dealloc;
 - (id)initWithPredicateOperator:(id)arg1 leftExpression:(id)arg2 rightExpression:(id)arg3;

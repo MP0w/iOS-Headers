@@ -22,7 +22,7 @@
 - (void)_setEditable:(BOOL)arg1 animated:(BOOL)arg2;
 - (BOOL)editable;
 - (void)editDoneTapped;
-- (void)pushController:(id)arg1;
+- (void)showController:(id)arg1 animate:(BOOL)arg2;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)setEditButtonEnabled:(BOOL)arg1;
 - (void)setEditingButtonHidden:(BOOL)arg1 animated:(BOOL)arg2;

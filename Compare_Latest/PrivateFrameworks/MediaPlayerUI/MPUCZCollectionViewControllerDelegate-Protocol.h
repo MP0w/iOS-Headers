@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class MPMediaEntity, MPMediaItemImageRequest, MPUCZCollectionViewController, NSIndexPath, UICollectionViewCell;
+@class MPUCZCollectionViewController, NSIndexPath, UICollectionViewCell;
 
 @protocol MPUCZCollectionViewControllerDelegate <NSObject>
+- (struct CGSize)maximumImageSize;
 - (float)imageAspectRatio;
-- (MPMediaItemImageRequest *)imageRequestForEntity:(MPMediaEntity *)arg1;
 
 @optional
 - (void)collectionViewController:(MPUCZCollectionViewController *)arg1 didSelectCell:(UICollectionViewCell *)arg2 atIndexPath:(NSIndexPath *)arg3;

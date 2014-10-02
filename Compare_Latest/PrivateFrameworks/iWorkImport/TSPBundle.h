@@ -4,45 +4,28 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
-
-#import "TSPPackage.h"
-
-@class NSHashTable, SFUCryptoKey, TSUZipFileArchive;
+#import <iWorkImport/TSPPackage.h>
 
 __attribute__((visibility("hidden")))
-@interface TSPBundle : NSObject <TSPPackage>
+@interface TSPBundle : TSPPackage
 {
-    TSUZipFileArchive *_objectArchive;
-    SFUCryptoKey *_decryptionKey;
-    id <TSPFileCoordinatorDelegate> _fileCoordinatorDelegate;
-    NSHashTable *_packageDatas;
-    unsigned char _packageIdentifier;
-    BOOL _isClosed;
 }
 
++ (unsigned int)zipArchiveOptions;
++ (id)zipArchiveURLFromPackageURL:(id)arg1;
 + (BOOL)isBundleFormatURL:(id)arg1;
 + (id)componentFileURLForPackageURL:(id)arg1 packageLocator:(id)arg2;
 + (id)objectArchiveURLForPackageURL:(id)arg1;
-+ (id)objectArchiveEntryPathForPackageLocator:(id)arg1;
-@property(readonly, nonatomic) id <TSPFileCoordinatorDelegate> fileCoordinatorDelegate; // @synthesize fileCoordinatorDelegate=_fileCoordinatorDelegate;
-@property(readonly, nonatomic) BOOL isClosed; // @synthesize isClosed=_isClosed;
-@property(readonly, nonatomic) SFUCryptoKey *decryptionKey; // @synthesize decryptionKey=_decryptionKey;
-@property(readonly, nonatomic) unsigned char packageIdentifier; // @synthesize packageIdentifier=_packageIdentifier;
-- (void).cxx_destruct;
 - (void)prepareForDocumentReplacementWithSuccess:(BOOL)arg1 forSafeSave:(BOOL)arg2 originalURL:(id)arg3;
-- (void)didCloseDocument;
-- (void)setObjectArchive:(id)arg1 decryptionKey:(id)arg2;
+- (id)newDocumentPropertiesWithURL:(id)arg1 zipProvider:(CDUnknownBlockType)arg2 error:(id *)arg3;
+- (BOOL)hasDataAtRelativePath:(id)arg1;
+- (id)newRawDataReadChannelAtRelativePath:(id)arg1;
+- (id)dataAtRelativePath:(id)arg1 allowDecryption:(BOOL)arg2 error:(id *)arg3;
+- (id)newDataStorageAtRelativePath:(id)arg1;
 - (void)copyComponent:(id)arg1 toPackageURL:(id)arg2 packageLocator:(id)arg3 zipFileWriter:(id)arg4 encryptionKey:(id)arg5 completion:(CDUnknownBlockType)arg6;
-- (void)enumerateDatasUsingBlock:(CDUnknownBlockType)arg1;
-- (BOOL)containsData:(id)arg1;
-- (void)didReferenceData:(id)arg1;
-- (id)newDataStorageForFilename:(id)arg1 decryptionKey:(id)arg2;
-- (id)newDataStorageForFilename:(id)arg1;
-- (id)newReadChannelForComponent:(id)arg1;
-- (id)init;
-- (id)initWithPackageIdentifier:(unsigned char)arg1 fileCoordinatorDelegate:(id)arg2;
-- (id)initWithURL:(id)arg1 packageIdentifier:(unsigned char)arg2 decryptionKey:(id)arg3 fileCoordinatorDelegate:(id)arg4;
+- (id)newRawReadChannelForComponent:(id)arg1;
+- (unsigned long long)encodedLengthForComponentLocator:(id)arg1 isStoredOutsideObjectArchive:(BOOL)arg2;
+- (int)packageType;
 
 @end
 

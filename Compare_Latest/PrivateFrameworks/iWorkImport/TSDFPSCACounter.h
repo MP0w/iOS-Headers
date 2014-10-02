@@ -13,12 +13,16 @@ __attribute__((visibility("hidden")))
 {
     unsigned int mCAFrameCount;
     NSTimer *mTimer;
+    unsigned int mMaxFrameDelta;
+    BOOL _shouldRunTimer;
 }
 
+@property(nonatomic) BOOL shouldRunTimer; // @synthesize shouldRunTimer=_shouldRunTimer;
 - (void)stopLoggingFPS;
 - (void)startLoggingFPS;
 - (void)p_updateFrameCount;
 - (void)reset;
+- (id)init;
 
 @end
 

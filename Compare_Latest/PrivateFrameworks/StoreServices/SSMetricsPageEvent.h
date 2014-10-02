@@ -21,6 +21,8 @@
 @property(nonatomic) double responseEndTime;
 @property(nonatomic) double requestStartTime;
 @property(nonatomic) double requestEndTime;
+@property(retain, nonatomic) NSString *referringURL;
+@property(retain, nonatomic) NSString *referringAppName;
 @property(nonatomic) double pageRenderTime;
 - (void)setPageHistoryDescriptionWithIdentifiers:(id)arg1;
 @property(retain, nonatomic) NSString *pageHistoryDescription;

@@ -8,7 +8,7 @@
 
 #import "SFUInputStream.h"
 
-@class NSObject<OS_dispatch_data>, NSObject<OS_dispatch_queue>;
+@class NSObject<OS_dispatch_data>, NSObject<OS_dispatch_queue>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface TSUReadChannelInputStreamAdapter : NSObject <SFUInputStream>
@@ -33,6 +33,12 @@ __attribute__((visibility("hidden")))
 - (id)_initWithReadChannel:(id)arg1 streamReadChannel:(id)arg2;
 - (id)initWithStreamReadChannel:(id)arg1;
 - (id)initWithReadChannel:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

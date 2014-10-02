@@ -9,7 +9,7 @@
 #import "LSApplicationWorkspaceObserverProtocol.h"
 #import "NSSecureCoding.h"
 
-@class NSUUID;
+@class NSString, NSUUID;
 
 @interface LSApplicationWorkspaceObserver : NSObject <LSApplicationWorkspaceObserverProtocol, NSSecureCoding>
 {
@@ -25,6 +25,10 @@
 - (void)applicationInstallsDidPause:(id)arg1;
 - (void)applicationInstallsArePrioritized:(id)arg1 arePaused:(id)arg2;
 - (void)applicationsDidUninstall:(id)arg1;
+- (void)applicationsDidFailToUninstall:(id)arg1;
+- (void)applicationsDidFailToInstall:(id)arg1;
+- (void)applicationsWillUninstall:(id)arg1;
+- (void)applicationsWillInstall:(id)arg1;
 - (void)applicationsDidInstall:(id)arg1;
 - (void)applicationInstallsDidUpdateIcon:(id)arg1;
 - (void)applicationInstallsDidChange:(id)arg1;
@@ -33,6 +37,12 @@
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 - (void)encodeWithCoder:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

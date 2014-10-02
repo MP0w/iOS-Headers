@@ -12,17 +12,17 @@
 {
     EKEvent *_event;
     NSString *_eventId;
-    BOOL _showsTimeZone;
     EKEventStore *_store;
     id <EKEventEditViewDelegate> _editViewDelegate;
     int _transitionForModalViewPresentation;
     EKEventEditor *_editor;
+    EKEventEditViewController *_strongSelf;
 }
 
 + (void)setDefaultDatesForEvent:(id)arg1;
+@property(retain, nonatomic) EKEventEditViewController *strongSelf; // @synthesize strongSelf=_strongSelf;
 @property(retain, nonatomic) EKEventEditor *editor; // @synthesize editor=_editor;
 @property(nonatomic) int transitionForModalViewPresentation; // @synthesize transitionForModalViewPresentation=_transitionForModalViewPresentation;
-@property(nonatomic) BOOL showsTimeZone; // @synthesize showsTimeZone=_showsTimeZone;
 @property(nonatomic) __weak id <EKEventEditViewDelegate> editViewDelegate; // @synthesize editViewDelegate=_editViewDelegate;
 @property(retain, nonatomic) EKEventStore *eventStore; // @synthesize eventStore=_store;
 - (void).cxx_destruct;
@@ -44,11 +44,9 @@
 - (BOOL)saveWithSpan:(int)arg1 animated:(BOOL)arg2;
 - (void)refreshStartAndEndDates;
 @property(retain, nonatomic) EKEvent *event;
-- (void)presentViewController:(id)arg1 withTransition:(int)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)dealloc;
 - (BOOL)shouldAutorotate;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (id)initWithEvent:(id)arg1 store:(id)arg2;
 
 @end
 

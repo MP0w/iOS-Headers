@@ -14,7 +14,7 @@
 }
 
 + (id)copyParseRules;
-@property(retain) NSMutableSet *propStats; // @synthesize propStats=_propStats;
+@property(retain, nonatomic) NSMutableSet *propStats; // @synthesize propStats=_propStats;
 - (BOOL)hasPropertyError;
 - (void)addPropStat:(id)arg1;
 - (id)description;

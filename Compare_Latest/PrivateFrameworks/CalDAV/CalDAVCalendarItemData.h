@@ -18,10 +18,10 @@
     CalDAVUpdateOwnerItem *_updatedBy;
 }
 
-@property(retain) CalDAVUpdateOwnerItem *updatedBy; // @synthesize updatedBy=_updatedBy;
-@property(retain) CalDAVUpdateOwnerItem *createdBy; // @synthesize createdBy=_createdBy;
-@property(retain) NSString *scheduleTag; // @synthesize scheduleTag=_scheduleTag;
-@property(retain) CalDAVCalendarServerScheduleChangesItem *scheduleChanges; // @synthesize scheduleChanges=_scheduleChanges;
+@property(retain, nonatomic) CalDAVUpdateOwnerItem *updatedBy; // @synthesize updatedBy=_updatedBy;
+@property(retain, nonatomic) CalDAVUpdateOwnerItem *createdBy; // @synthesize createdBy=_createdBy;
+@property(retain, nonatomic) NSString *scheduleTag; // @synthesize scheduleTag=_scheduleTag;
+@property(retain, nonatomic) CalDAVCalendarServerScheduleChangesItem *scheduleChanges; // @synthesize scheduleChanges=_scheduleChanges;
 - (void)dealloc;
 
 @end

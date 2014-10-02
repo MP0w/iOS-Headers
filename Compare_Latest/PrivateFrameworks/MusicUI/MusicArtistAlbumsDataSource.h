@@ -22,7 +22,6 @@
 - (void)overlayCompletionForSectionAtIndex:(unsigned int)arg1;
 - (struct _NSRange)rangeOfSectionAtIndex:(unsigned int)arg1;
 - (BOOL)shouldShowCompletions;
-- (BOOL)shouldAutomaticallyLoadCompletions;
 - (unsigned int)numberOfSections;
 - (id)sectionEntities;
 - (id)entities;

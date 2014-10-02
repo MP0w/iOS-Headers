@@ -17,6 +17,7 @@
     NSString *_subtitle;
     int _type;
     int _routeRelevance;
+    int _significance;
     BOOL _isNotForDisplay;
     BOOL _isOnSelectedRoute;
     struct PolylineCoordinate _routeOffset;
@@ -29,10 +30,13 @@
     NSDate *_endDate;
     NSDate *_lastUpdatedDate;
     float _minZoom;
+    float _maxZoom;
     unsigned long long _uniqueID;
     NSString *_uniqueString;
 }
 
+@property(readonly, nonatomic) int significance; // @synthesize significance=_significance;
+@property(readonly, nonatomic) float maxZoom; // @synthesize maxZoom=_maxZoom;
 @property(readonly, nonatomic) float minZoom; // @synthesize minZoom=_minZoom;
 @property(readonly, nonatomic) struct VKPoint worldPoint; // @synthesize worldPoint=_worldPoint;
 @property(readonly, nonatomic) NSDate *lastUpdatedDate; // @synthesize lastUpdatedDate=_lastUpdatedDate;
@@ -47,17 +51,16 @@
 @property(nonatomic) int routeRelevance; // @synthesize routeRelevance=_routeRelevance;
 @property(readonly, nonatomic) BOOL isNotForDisplay; // @synthesize isNotForDisplay=_isNotForDisplay;
 @property(readonly, nonatomic) int type; // @synthesize type=_type;
-@property(readonly, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
-@property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
+@property(readonly, copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
+@property(readonly, copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, nonatomic) NSString *uniqueString; // @synthesize uniqueString=_uniqueString;
 @property(readonly, nonatomic) unsigned long long uniqueID; // @synthesize uniqueID=_uniqueID;
 - (id).cxx_construct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithRouteIncident:(id)arg1 routeRelevance:(int)arg2;
-- (id)initWithIncident:(id)arg1 vertices:(CDStruct_1ef3fb1f *)arg2 tileRect:(CDStruct_d2b197d1)arg3 tileSize:(double)arg4;
+- (id)initWithIncident:(id)arg1 vertices:(CDStruct_1ef3fb1f *)arg2 tileRect:(CDStruct_aca18c62)arg3 tileSize:(double)arg4;
 - (id)initWithIncidentData:(const struct Incident *)arg1 worldPoint:(struct VKPoint *)arg2;
-- (id)initWithIncidentData:(const struct Incident *)arg1 worldPoint:(struct VKPoint *)arg2 minZoom:(float)arg3;
 - (BOOL)hasSameIdentifier:(id)arg1;
 
 @end

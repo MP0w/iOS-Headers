@@ -20,6 +20,8 @@
 - (void)setLineHeight:(double)arg1;
 - (vector_55d7bafa)strokeIndicesSortedByMinXCoordinate;
 - (id)sortedDrawing;
+- (Matrix_273a43f8)orientationRepresentationForSampling:(unsigned int)arg1 convolutionWidth:(unsigned int)arg2;
+- (Matrix_273a43f8)bitmapRepresentationForSize:(struct CGSize)arg1 drawingAlgorithm:(int)arg2;
 - (Matrix_273a43f8)bitmapRepresentationForSize:(struct CGSize)arg1;
 - (id)xyRepresentation;
 - (struct _NSRange)matchingStrokePrefixRangeForDrawing:(id)arg1;

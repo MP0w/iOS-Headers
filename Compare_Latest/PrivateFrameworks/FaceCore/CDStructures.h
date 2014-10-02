@@ -50,9 +50,9 @@ struct face {
     float _field6;
     int _field7;
     int _field8;
-    struct vector<double, std::allocator<double>> _field9;
+    struct vector<double, std::__1::allocator<double>> _field9;
     int _field10;
-    vector_c0d87358 _field11;
+    vector_88fc712c _field11;
     int _field12;
     _Bool _field13;
     _Bool _field14;
@@ -62,6 +62,7 @@ struct face {
     float _field18;
     _Bool _field19;
     float _field20;
+    struct naturalSmileData *_field21;
 };
 
 struct image {
@@ -70,20 +71,22 @@ struct image {
     int _field3;
 };
 
-struct vector<double, std::allocator<double>> {
-    struct _Vector_impl {
+struct naturalSmileData;
+
+struct vector<double, std::__1::allocator<double>> {
+    double *_field1;
+    double *_field2;
+    struct __compressed_pair<double *, std::__1::allocator<double>> {
         double *_field1;
-        double *_field2;
-        double *_field3;
-    } _field1;
+    } _field3;
 };
 
-struct vector<vision::lib::coord, std::allocator<vision::lib::coord>> {
-    struct _Vector_impl {
+struct vector<vision::lib::coord, std::__1::allocator<vision::lib::coord>> {
+    struct coord *_field1;
+    struct coord *_field2;
+    struct __compressed_pair<vision::lib::coord *, std::__1::allocator<vision::lib::coord>> {
         struct coord *_field1;
-        struct coord *_field2;
-        struct coord *_field3;
-    } _field1;
+    } _field3;
 };
 
 #pragma mark Typedef'd Structures
@@ -94,11 +97,11 @@ typedef struct {
 } CDStruct_53bda269;
 
 // Template types
-typedef struct vector<vision::lib::coord, std::allocator<vision::lib::coord>> {
-    struct _Vector_impl {
+typedef struct vector<vision::lib::coord, std::__1::allocator<vision::lib::coord>> {
+    struct coord *_field1;
+    struct coord *_field2;
+    struct __compressed_pair<vision::lib::coord *, std::__1::allocator<vision::lib::coord>> {
         struct coord *_field1;
-        struct coord *_field2;
-        struct coord *_field3;
-    } _field1;
-} vector_c0d87358;
+    } _field3;
+} vector_88fc712c;
 

@@ -8,6 +8,8 @@
 
 #import "TSDHint.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TSDDefaultHint : NSObject <TSDHint>
 {
@@ -23,7 +25,14 @@ __attribute__((visibility("hidden")))
 - (void)offsetByDelta:(int)arg1;
 - (BOOL)overlapsWithSelection:(id)arg1;
 - (BOOL)isLastPartitionHorizontally:(BOOL)arg1;
+- (id)copyForArchiving;
 - (id)initWithBounds:(struct CGRect)arg1 edges:(unsigned int)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

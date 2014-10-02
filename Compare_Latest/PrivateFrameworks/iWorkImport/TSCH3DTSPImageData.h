@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 - (id)p_decodeCachedData:(id)arg1 imageSize:(tvec4_f99fd489 *)arg2;
 - (id)p_encodeImageSize:(tvec4_f99fd489 *)arg1 andMipmapData:(id)arg2;
 - (struct CGImage *)newCGImage;
+- (BOOL)hasCompleteData;
 - (void)clearParent;
 - (void)setParent:(id)arg1;
 - (void)dealloc;

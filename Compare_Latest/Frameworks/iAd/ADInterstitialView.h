@@ -6,24 +6,27 @@
 
 #import "UIView.h"
 
-@class ADInterstitialAd, ADRemoteView, ADTapGestureRecognizer;
+@class ADInterstitialAd, ADTapGestureRecognizer, _UIRemoteView;
 
 @interface ADInterstitialView : UIView
 {
     ADInterstitialAd *_interstitialAd;
     BOOL _dimmed;
     ADTapGestureRecognizer *_tapGestureRecognizer;
-    ADRemoteView *_remoteView;
+    _UIRemoteView *_remoteView;
     UIView *_dimmerView;
     ADTapGestureRecognizer *_gestureRecognizer;
+    struct CGRect _dismissButtonRect;
 }
 
 @property(nonatomic) BOOL dimmed; // @synthesize dimmed=_dimmed;
 @property(retain, nonatomic) ADTapGestureRecognizer *gestureRecognizer; // @synthesize gestureRecognizer=_gestureRecognizer;
 @property(retain, nonatomic) UIView *dimmerView; // @synthesize dimmerView=_dimmerView;
-@property(retain, nonatomic) ADRemoteView *remoteView; // @synthesize remoteView=_remoteView;
+@property(retain, nonatomic) _UIRemoteView *remoteView; // @synthesize remoteView=_remoteView;
+@property(nonatomic) struct CGRect dismissButtonRect; // @synthesize dismissButtonRect=_dismissButtonRect;
 @property(readonly, nonatomic) ADTapGestureRecognizer *tapGestureRecognizer; // @synthesize tapGestureRecognizer=_tapGestureRecognizer;
 - (void)_gestureHandler:(id)arg1;
+- (struct CGSize)intrinsicContentSize;
 - (void)didMoveToWindow;
 - (void)removeFromSuperview;
 - (void)setCenter:(struct CGPoint)arg1;
@@ -32,7 +35,7 @@
 - (void)setTransform:(struct CGAffineTransform)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
-- (void)setRemoteWindowContextId:(unsigned int)arg1;
+- (void)setHostedWindowHostingHandle:(id)arg1;
 - (id)interstitialAd;
 - (id)initForInterstitialAd:(id)arg1;
 - (void)dealloc;

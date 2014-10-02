@@ -18,9 +18,9 @@
     NSString *_title;
 }
 
-@property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
-@property(readonly, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
-@property(readonly, nonatomic) NSString *seedDescription; // @synthesize seedDescription=_seedDescription;
+@property(readonly, copy, nonatomic) NSString *title; // @synthesize title=_title;
+@property(readonly, copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
+@property(readonly, copy, nonatomic) NSString *seedDescription; // @synthesize seedDescription=_seedDescription;
 - (void).cxx_destruct;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

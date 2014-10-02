@@ -18,8 +18,9 @@
 + (id)blocksAfterDate:(id)arg1 untilDate:(id)arg2 forTimeZone:(id)arg3;
 - (void)dealloc;
 - (id)systemTimeZoneForDate:(id)arg1;
-@property(retain) NSString *tzid;
+@property(retain, nonatomic) NSString *tzid;
 - (id)initWithSystemTimeZone:(id)arg1 fromDate:(id)arg2 options:(int)arg3;
+- (id)_previousDSTTransitionForDate:(id)arg1 timezone:(id)arg2;
 - (id)initWithTimeZone:(id)arg1 fromDate:(id)arg2 options:(int)arg3;
 - (id)initWithSystemTimeZone:(id)arg1;
 - (id)getNSTimeZone:(id)arg1;

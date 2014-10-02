@@ -6,16 +6,27 @@
 
 #import "NSObject.h"
 
+#import "MPPProtobufferCoding.h"
 #import "NSSecureCoding.h"
 
-@interface MPMediaPredicate : NSObject <NSSecureCoding>
+@class NSString;
+
+@interface MPMediaPredicate : NSObject <MPPProtobufferCoding, NSSecureCoding>
 {
 }
 
 + (BOOL)supportsSecureCoding;
 - (BOOL)evaluateEntity:(id)arg1;
+- (id)protobufferEncodableObject;
+- (id)initWithProtobufferDecodableObject:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

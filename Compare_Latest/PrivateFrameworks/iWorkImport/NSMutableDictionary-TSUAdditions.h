@@ -7,9 +7,6 @@
 #import "NSMutableDictionary.h"
 
 @interface NSMutableDictionary (TSUAdditions)
-+ (id)dictionaryByInvertingDictionary:(id)arg1;
-+ (id)dictionaryByInvertingDictionaryIfPossible:(id)arg1;
-- (id)objectForKey:(id)arg1 withDefaultOfClass:(Class)arg2;
-- (id)objectForKey:(id)arg1 withDefaultUsingBlock:(CDUnknownBlockType)arg2;
+- (void)tsu_setNonNilValueForKey:(id)arg1 fromDictionary:(id)arg2;
 @end
 

@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
-#import "SUClientInterfaceDelegate.h"
+#import "SUClientInterfaceDelegatePrivate.h"
 
-@class NSArray, NSBundle, NSDictionary, NSMapTable, NSMutableArray, NSString, SKUILocalizedStringDictionary, SKUIStoreDialogController, SSURLBag, SSVPlatformContext, SUClientInterface;
+@class IKAppContext, NSArray, NSBundle, NSDictionary, NSMapTable, NSMutableArray, NSString, SKUIApplicationController, SKUILocalizedStringDictionary, SKUIStoreDialogController, SKUIURL, SKUIURLBag, SSURLBag, SSVPlatformContext, SUClientInterface;
 
-@interface SKUIClientContext : NSObject <SUClientInterfaceDelegate>
+@interface SKUIClientContext : NSObject <SUClientInterfaceDelegatePrivate>
 {
     NSString *_additionalPurchaseParameters;
+    SKUIApplicationController *_applicationController;
     NSBundle *_bundle;
     SUClientInterface *_clientInterface;
     NSDictionary *_configurationDictionary;
@@ -23,9 +24,11 @@
     NSMutableArray *_navigationHistory;
     NSString *_navigationHistoryPersistenceKey;
     NSString *_purchaseAffiliateIdentifier;
+    SKUIURL *_purchaseReferrerURL;
     int _purchaseURLBagType;
+    IKAppContext *_scriptAppContext;
     NSString *_storeFrontIdentifier;
-    SSURLBag *_urlBag;
+    SKUIURLBag *_urlBag;
     int _userInterfaceIdiomOverride;
 }
 
@@ -34,20 +37,31 @@
 + (id)defaultContext;
 @property(nonatomic) int userInterfaceIdiomOverride; // @synthesize userInterfaceIdiomOverride=_userInterfaceIdiomOverride;
 @property(readonly, nonatomic) NSString *storeFrontIdentifier; // @synthesize storeFrontIdentifier=_storeFrontIdentifier;
+@property(retain, nonatomic, getter=_scriptAppContext, setter=_setScriptAppContext:) IKAppContext *_scriptAppContext; // @synthesize _scriptAppContext;
+@property(copy, nonatomic) SKUIURL *purchaseReferrerURL; // @synthesize purchaseReferrerURL=_purchaseReferrerURL;
 @property(copy, nonatomic) NSString *navigationHistoryPersistenceKey; // @synthesize navigationHistoryPersistenceKey=_navigationHistoryPersistenceKey;
 @property(copy, nonatomic) NSString *metricsConfigurationIdentifier; // @synthesize metricsConfigurationIdentifier=_metricsConfigurationIdentifier;
 @property(readonly, nonatomic) SUClientInterface *clientInterface; // @synthesize clientInterface=_clientInterface;
+@property(nonatomic, getter=_applicationController, setter=_setApplicationController:) __weak SKUIApplicationController *_applicationController; // @synthesize _applicationController;
 - (void).cxx_destruct;
-- (id)description;
+@property(readonly, copy) NSString *description;
+- (void)_setValue:(id)arg1 forConfigurationKey:(id)arg2;
 - (id)_navigationHistory;
 - (void)_setPurchaseURLBagType:(int)arg1;
 - (void)_setPurchaseAffiliateIdentifier:(id)arg1;
 - (void)_setAdditionalPurchaseParameters:(id)arg1;
-- (void)_customizePurchase:(id)arg1;
+- (void)sendOnXEventWithDictionary:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void)sendOnPageResponseWithDocument:(id)arg1 data:(id)arg2 URLResponse:(id)arg3 performanceMetrics:(id)arg4;
 @property(readonly, nonatomic) SSVPlatformContext *platformContext;
+- (void)loadValueForConfigurationKey:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void)customizePurchase:(id)arg1;
+- (id)scriptInterfaceForClientInterface:(id)arg1;
 - (void)clientInterface:(id)arg1 presentDialog:(id)arg2;
+- (void)clientInterface:(id)arg1 dispatchXEvent:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (void)clientInterface:(id)arg1 dispatchOnPageResponseWithData:(id)arg2 response:(id)arg3;
 - (id)valueForConfigurationKey:(id)arg1;
 @property(readonly, nonatomic) SSURLBag *URLBag;
+- (id)tabBarItemsForStyle:(int)arg1;
 - (void)setMetricsPageContext:(id)arg1 forViewController:(id)arg2;
 - (void)pushNavigationHistoryPageIdentifier:(id)arg1;
 @property(readonly, nonatomic) NSArray *navigationHistory;
@@ -58,6 +72,11 @@
 - (void)getDefaultMetricsControllerWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)initWithConfigurationDictionary:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

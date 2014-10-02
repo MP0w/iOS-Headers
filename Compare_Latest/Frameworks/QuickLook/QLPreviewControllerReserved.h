@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MPVolumeView, NSMutableDictionary, NSNumberFormatter, NSString, NSTimer, QLArchiveViewer, QLPreviewItemsSource, UIBarButtonItem, UIDocumentInteractionController, UILabel, UINavigationController, UIView, UIViewController<QLPreviewContentControllerProtocol>, _UIAsyncInvocation;
+@class MPVolumeView, NSMutableDictionary, NSNumberFormatter, NSString, NSURL, QLArchiveViewer, QLPreviewItemsSource, UIBarButtonItem, UIDocumentInteractionController, UILabel, UINavigationController, UIView, UIViewController<QLPreviewContentControllerProtocol>, _UIAsyncInvocation;
 
 __attribute__((visibility("hidden")))
 @interface QLPreviewControllerReserved : NSObject
@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
     QLPreviewItemsSource *itemsSource;
     UIViewController<QLPreviewContentControllerProtocol> *previewContentController;
     _UIAsyncInvocation *cancelViewServiceRequest;
-    NSTimer *timeoutTimer;
+    BOOL isDelayingPresentation;
     CDUnknownBlockType readyBlock;
     int previousToolbarStyle;
     BOOL previousToolbarWasTranslucent;
@@ -51,6 +51,8 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *pdfPreviewDataCache;
     NSMutableDictionary *avStateForPreviewItems;
     BOOL sourceIsManaged;
+    NSURL *lastPreviewedRealItemURL;
+    NSURL *lastPreviewedCurrentItemURL;
 }
 
 - (void)dealloc;

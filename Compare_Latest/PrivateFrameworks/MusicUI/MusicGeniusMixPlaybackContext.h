@@ -8,21 +8,23 @@
 
 #import "MusicGeniusMixQueueFeederDataSource.h"
 
-@class MPGeniusMix, MPMediaItem, NSMutableArray;
+@class MPMediaItem, MPMediaPlaylist, NSMutableArray, NSString;
 
 @interface MusicGeniusMixPlaybackContext : MusicQueryPlaybackContext <MusicGeniusMixQueueFeederDataSource>
 {
-    NSMutableArray *_playlistQueries;
-    MPMediaItem *_requiredInitialMediaItem;
-    MPGeniusMix *_mix;
+    NSMutableArray *_indexedSubQueries;
     BOOL _finite;
+    MPMediaPlaylist *_mixPlaylist;
+    MPMediaItem *_requiredInitialMediaItem;
 }
 
 + (Class)queueFeederClass;
 @property(retain, nonatomic) MPMediaItem *requiredInitialMediaItem; // @synthesize requiredInitialMediaItem=_requiredInitialMediaItem;
-@property(readonly, nonatomic) MPGeniusMix *mix; // @synthesize mix=_mix;
+@property(readonly, nonatomic) MPMediaPlaylist *mixPlaylist; // @synthesize mixPlaylist=_mixPlaylist;
 - (void).cxx_destruct;
-- (id)_generateNewPlaylistQuery:(id *)arg1 index:(unsigned int)arg2;
+- (void)_enumerateItemsBySubQueryUsingBlock:(CDUnknownBlockType)arg1;
+- (id)_generateNewItemsQuery:(id *)arg1 index:(unsigned int)arg2;
+- (unsigned int)_indexOfSubQueryWithSubQueryIndex:(unsigned int)arg1 searchOptions:(unsigned int)arg2;
 - (id)_queryForMediaItemAtIndex:(unsigned int)arg1;
 - (unsigned int)geniusMixQueueFeeder:(id)arg1 indexOfMediaItem:(id)arg2;
 - (id)geniusMixQueueFeeder:(id)arg1 queryForMediaItemAtIndex:(unsigned int)arg2;
@@ -30,7 +32,13 @@
 - (unsigned int)geniusMixQueueFeederMediaItemCount:(id)arg1;
 - (id)query;
 - (void)dealloc;
-- (id)initWithGeniusMix:(id)arg1 requiredInitialMediaItem:(id)arg2 error:(id *)arg3;
+- (id)initWithGeniusMixPlaylist:(id)arg1 requiredInitialMediaItem:(id)arg2 error:(id *)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

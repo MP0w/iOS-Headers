@@ -7,6 +7,7 @@
 #import "NSArray.h"
 
 @interface NSArray (PreferencesAdditions)
+- (unsigned int)indexOfSpecifierWithID:(id)arg1;
 - (id)specifierForID:(id)arg1;
 @end
 

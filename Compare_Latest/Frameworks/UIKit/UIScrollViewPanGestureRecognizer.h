@@ -36,7 +36,7 @@ __attribute__((visibility("hidden")))
 - (struct CGPoint)velocityInView:(id)arg1;
 - (struct CGPoint)translationInView:(id)arg1;
 - (void)_centroidMovedTo:(struct CGPoint)arg1 atTime:(double)arg2;
-- (struct CGPoint)_adjustScreenLocation:(struct CGPoint)arg1;
+- (struct CGPoint)_adjustSceneReferenceLocation:(struct CGPoint)arg1;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (BOOL)_shouldTransferTrackingFromParentScrollViewForCurrentOffset;
 - (BOOL)_shouldContinueToWaitToTransferTrackingFromParentScrollView;

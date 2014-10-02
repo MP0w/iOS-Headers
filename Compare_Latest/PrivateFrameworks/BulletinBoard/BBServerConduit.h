@@ -6,22 +6,30 @@
 
 #import "NSObject.h"
 
-#import "XPCProxyTarget.h"
+#import "BBServerConduitClientInterface.h"
 
-@class BBServerConnection;
+@class NSString, NSXPCConnection;
 
-@interface BBServerConduit : NSObject <XPCProxyTarget>
+@interface BBServerConduit : NSObject <BBServerConduitClientInterface>
 {
-    BBServerConnection *_connection;
+    NSXPCConnection *_connection;
 }
 
 + (id)sharedConduit;
++ (id)clientInterface;
++ (id)serverInterface;
 - (void)weeAppWithBundleID:(id)arg1 getHiddenFromUser:(CDUnknownBlockType)arg2;
 - (void)weeAppWithBundleID:(id)arg1 setHiddenFromUser:(BOOL)arg2;
 - (void)sendMessageToDataProviderSectionID:(id)arg1 name:(id)arg2 userInfo:(id)arg3;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)invalidate;
+- (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

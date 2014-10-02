@@ -6,15 +6,15 @@
 
 #import "NSObject.h"
 
-@class GEOPlaceResult, RTLOIDisplayInfo, RTPredictedLocationOfInterest;
+@class RTLOIDisplayInfo, RTPredictedLocationOfInterest;
 
 __attribute__((visibility("hidden")))
 @interface RTPLOIETA : NSObject
 {
     RTPredictedLocationOfInterest *_ploi;
-    GEOPlaceResult *_origin;
-    unsigned int _liveETASeconds;
-    unsigned int _historicalETASeconds;
+    id <GEOMapItem> _origin;
+    unsigned int _responseETASeconds;
+    unsigned int _baselineETASeconds;
     RTLOIDisplayInfo *_displayInfo;
 }
 
@@ -29,7 +29,7 @@ __attribute__((visibility("hidden")))
 - (id)_urlName;
 - (id)_preferredName;
 - (id)description;
-- (id)initWithPLOI:(id)arg1 origin:(id)arg2 liveETASeconds:(unsigned int)arg3 historicalETASeconds:(unsigned int)arg4;
+- (id)initWithPLOI:(id)arg1 origin:(id)arg2 responseETASeconds:(unsigned int)arg3 baselineETASeconds:(unsigned int)arg4;
 
 @end
 

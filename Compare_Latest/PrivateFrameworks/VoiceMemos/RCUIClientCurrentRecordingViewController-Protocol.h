@@ -6,7 +6,10 @@
 
 #import "NSObject.h"
 
+@class RCAVState;
+
 @protocol RCUIClientCurrentRecordingViewController <NSObject>
+- (void)currentRecordingAVStateDidChange:(RCAVState *)arg1;
 - (void)currentRecordingDidEnd;
 @end
 

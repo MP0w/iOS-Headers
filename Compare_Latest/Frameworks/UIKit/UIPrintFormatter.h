@@ -16,12 +16,14 @@
     float _maximumContentHeight;
     float _maximumContentWidth;
     struct UIEdgeInsets _contentInsets;
+    struct UIEdgeInsets _perPageContentInsets;
     int _startPage;
     int _pageCount;
     BOOL _needsRecalc;
 }
 
 @property(nonatomic) int startPage; // @synthesize startPage=_startPage;
+@property(nonatomic) struct UIEdgeInsets perPageContentInsets; // @synthesize perPageContentInsets=_perPageContentInsets;
 @property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
 @property(nonatomic) float maximumContentWidth; // @synthesize maximumContentWidth=_maximumContentWidth;
 @property(nonatomic) float maximumContentHeight; // @synthesize maximumContentHeight=_maximumContentHeight;

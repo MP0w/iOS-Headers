@@ -50,6 +50,7 @@
 - (id)_newLabel;
 - (struct CGSize)_imageSize;
 - (struct UIEdgeInsets)_imageEdgeInsets;
+- (void)_enumerateMetadataViewsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)_itemOfferConfirmAction:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setBackgroundColor:(id)arg1;

@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
 + (id)gradientStopWithColor:(id)arg1 fraction:(float)arg2;
 @property(readonly, nonatomic) float inflection; // @synthesize inflection=mInflection;
 @property(readonly, nonatomic) float fraction; // @synthesize fraction=mFraction;
-@property(readonly, nonatomic) TSUColor *color; // @synthesize color=mColor;
+@property(readonly, copy, nonatomic) TSUColor *color; // @synthesize color=mColor;
 - (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
 - (int)mixingTypeWithObject:(id)arg1;
 - (id)gradientStopWithInflection:(float)arg1;

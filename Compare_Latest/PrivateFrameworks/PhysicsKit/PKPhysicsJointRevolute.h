@@ -14,6 +14,7 @@
 }
 
 + (id)jointWithBodyA:(id)arg1 bodyB:(id)arg2 anchor:(struct CGPoint)arg3;
+@property(readonly) struct CGPoint anchor; // @synthesize anchor=_anchor;
 - (id).cxx_construct;
 - (void)create;
 - (struct b2JointDef *)_jointDef;

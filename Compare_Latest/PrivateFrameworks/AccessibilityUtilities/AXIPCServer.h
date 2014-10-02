@@ -21,10 +21,12 @@
     NSMutableDictionary *_entitlements;
     unsigned int _assignedServerPort;
     BOOL _running;
+    BOOL _perPidService;
     NSString *_serviceName;
     NSMutableDictionary *_handlers;
 }
 
+@property(nonatomic) BOOL perPidService; // @synthesize perPidService=_perPidService;
 @property(readonly, nonatomic) unsigned int machPort; // @synthesize machPort=_serverPort;
 @property(retain, nonatomic) NSMutableDictionary *handlers; // @synthesize handlers=_handlers;
 @property(retain, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
@@ -51,7 +53,7 @@
 - (id)description;
 - (void)dealloc;
 - (id)initWithPort:(unsigned int)arg1 serviceRunLoopSource:(struct __CFRunLoopSource *)arg2;
-- (id)initWithServiceName:(id)arg1;
+- (id)initWithServiceName:(id)arg1 perPidService:(BOOL)arg2;
 
 @end
 

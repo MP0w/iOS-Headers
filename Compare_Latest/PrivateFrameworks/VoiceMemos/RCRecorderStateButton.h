@@ -13,14 +13,18 @@
     UIColor *_outerColor;
     CALayer *_innerLayer;
     UIColor *_innerColor;
-    int _recordingState;
+    BOOL _realEnabledState;
+    BOOL _isForceDisabled;
+    int _AVCaptureState;
 }
 
-@property(nonatomic) int recordingState; // @synthesize recordingState=_recordingState;
+@property(nonatomic) BOOL isForceDisabled; // @synthesize isForceDisabled=_isForceDisabled;
+@property(nonatomic) int AVCaptureState; // @synthesize AVCaptureState=_AVCaptureState;
 - (void).cxx_destruct;
 - (void)_drawOuterCircle;
 - (float)_currentStateInnerDrawingAlpha;
 - (float)_currentStateTopLevelDrawingAlpha;
+- (struct CGSize)intrinsicContentSize;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (void)drawRect:(struct CGRect)arg1;

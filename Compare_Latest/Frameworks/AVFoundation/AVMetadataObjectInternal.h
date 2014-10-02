@@ -10,20 +10,20 @@
 
 @interface AVMetadataObjectInternal : NSObject
 {
-    NSString *type;
-    AVCaptureInput *input;
-    AVMetadataObject *originalMetadataObject;
-    struct CGRect bounds;
-    CDStruct_1b6d18a9 time;
-    CDStruct_1b6d18a9 duration;
+    CDStruct_1b6d18a9 _time;
+    CDStruct_1b6d18a9 _duration;
+    struct CGRect _bounds;
+    NSString *_type;
+    AVCaptureInput *_input;
+    AVMetadataObject *_originalMetadataObject;
 }
 
-@property(retain) AVMetadataObject *originalMetadataObject; // @synthesize originalMetadataObject;
-@property(retain) AVCaptureInput *input; // @synthesize input;
-@property(retain) NSString *type; // @synthesize type;
-@property struct CGRect bounds; // @synthesize bounds;
-@property CDStruct_1b6d18a9 duration; // @synthesize duration;
-@property CDStruct_1b6d18a9 time; // @synthesize time;
+@property(retain) AVMetadataObject *originalMetadataObject; // @synthesize originalMetadataObject=_originalMetadataObject;
+@property(retain) AVCaptureInput *input; // @synthesize input=_input;
+@property(retain) NSString *type; // @synthesize type=_type;
+@property struct CGRect bounds; // @synthesize bounds=_bounds;
+@property CDStruct_1b6d18a9 duration; // @synthesize duration=_duration;
+@property CDStruct_1b6d18a9 time; // @synthesize time=_time;
 - (void)dealloc;
 - (id)init;
 

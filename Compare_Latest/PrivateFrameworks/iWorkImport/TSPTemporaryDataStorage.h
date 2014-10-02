@@ -6,24 +6,30 @@
 
 #import <iWorkImport/TSPFileDataStorage.h>
 
-@class NSURL;
+@class NSURL, SFUCryptoKey;
 
 __attribute__((visibility("hidden")))
 @interface TSPTemporaryDataStorage : TSPFileDataStorage
 {
     NSURL *_URL;
-    BOOL _gilligan_isRemote;
+    SFUCryptoKey *_decryptionKey;
     BOOL _isMissingData;
+    BOOL _gilligan_isRemote;
+    BOOL _isMissingOriginalData;
 }
 
-@property(nonatomic) BOOL isMissingData; // @synthesize isMissingData=_isMissingData;
+@property(nonatomic) BOOL isMissingOriginalData; // @synthesize isMissingOriginalData=_isMissingOriginalData;
 - (void)setGilligan_isRemote:(BOOL)arg1;
 - (BOOL)gilligan_isRemote;
+@property(nonatomic) BOOL isMissingData; // @synthesize isMissingData=_isMissingData;
 - (void).cxx_destruct;
-- (BOOL)writeToBundleWriter:(id)arg1 preferredFilename:(id)arg2 filename:(id *)arg3 didCopyDataToBundle:(char *)arg4;
+- (BOOL)writeData:(id)arg1 toPackageWriter:(id)arg2 preferredFilename:(id)arg3 filename:(id *)arg4 didCopyDataToPackage:(char *)arg5 isMissingData:(char *)arg6;
+- (void)performIOChannelReadWithAccessor:(CDUnknownBlockType)arg1;
 - (void)performReadWithAccessor:(CDUnknownBlockType)arg1;
+- (id)decryptionKey;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1;
+- (id)initWithURL:(id)arg1 decryptionKey:(id)arg2;
 
 @end
 

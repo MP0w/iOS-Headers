@@ -8,23 +8,32 @@
 
 #import "VKMapLayer.h"
 
-@class NSMutableArray, VGLRenderState;
+@class NSMutableArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface VKRasterOverlayMapModel : VKMapTileModel <VKMapLayer>
 {
-    VGLRenderState *_renderState;
     NSMutableArray *_sortedTiles;
     unsigned int _level;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _gglRenderState;
+    struct unique_ptr<ggl::Mesh, std::__1::default_delete<ggl::Mesh>> _unitMesh;
+    struct unique_ptr<ggl::ClearItem, std::__1::default_delete<ggl::ClearItem>> _clearItem;
 }
 
-- (void)drawScene:(id)arg1 withContext:(id)arg2;
-- (void)layoutScene:(id)arg1 withContext:(id)arg2;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (void)gglLayoutScene:(id)arg1 withContext:(id)arg2 renderQueue:(struct RenderQueue *)arg3;
 - (void)reset;
 - (void)dealloc;
 - (id)initWithLevel:(unsigned int)arg1;
-- (unsigned int)supportedRenderPasses;
-- (unsigned int)mapLayerPosition;
+- (BOOL)shouldLayoutWithoutStyleManager;
+- (unsigned long long)mapLayerPosition;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

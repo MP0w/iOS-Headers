@@ -23,11 +23,17 @@
 + (id)responseWithData:(id)arg1;
 @property(retain, nonatomic) NSMutableArray *photoSets; // @synthesize photoSets=_photoSets;
 @property(nonatomic) int stage; // @synthesize stage=_stage;
+- (void).cxx_destruct;
 - (void)parser:(id)arg1 didEndElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4;
 - (void)parser:(id)arg1 foundCharacters:(id)arg2;
 - (void)parser:(id)arg1 didStartElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4 attributes:(id)arg5;
-- (void)dealloc;
 - (id)initWithData:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

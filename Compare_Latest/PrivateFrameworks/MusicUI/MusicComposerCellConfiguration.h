@@ -17,8 +17,6 @@
 + (id)mediaEntityPropertiesToFetch;
 + (id)persistentIDProperty;
 + (id)itemPersistentIDProperty;
-+ (id)artworkCacheIDProperty;
-+ (id)artistArtworkCacheIDProperty;
 
 @end
 

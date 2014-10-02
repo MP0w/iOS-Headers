@@ -8,7 +8,7 @@
 
 @interface NSMutableAttributedString (DataDetectorsSupport)
 - (void)dd_makeLinksForResultsInAttributesOfType:(unsigned int)arg1 context:(id)arg2;
-- (void)dd_urlifyResult:(id)arg1 withBlock:(CDUnknownBlockType)arg2 referenceDate:(id)arg3;
+- (void)dd_urlifyResult:(id)arg1 withBlock:(CDUnknownBlockType)arg2 referenceDate:(id)arg3 context:(id)arg4;
 - (void)dd_resetResults;
 @end
 

@@ -7,6 +7,13 @@
 #import "IMMessage.h"
 
 @interface IMMessage (CKAdditions)
+- (id)__ck_undowngradedMessage;
+- (id)__ck_downgradedMessage;
+- (id)__ck_attachmentText:(BOOL)arg1;
+- (id)__ck_previewText;
+- (BOOL)__ck_isSMS;
+- (BOOL)__ck_isiMessage;
+- (id)__ck_service;
 - (BOOL)__ck_isEqualToMessageUsingGUID:(id)arg1;
 @end
 

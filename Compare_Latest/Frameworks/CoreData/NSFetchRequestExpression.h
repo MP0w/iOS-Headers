@@ -32,9 +32,9 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (BOOL)isCountOnlyRequest;
-- (id)contextExpression;
-- (id)requestExpression;
+@property(readonly, getter=isCountOnlyRequest) BOOL countOnlyRequest;
+@property(readonly) NSExpression *contextExpression;
+@property(readonly) NSExpression *requestExpression;
 - (void)dealloc;
 - (id)initForFetch:(id)arg1 context:(id)arg2 countOnly:(BOOL)arg3;
 

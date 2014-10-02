@@ -6,13 +6,13 @@
 
 #import <OfficeImport/MFPImage.h>
 
-@class NSData, TSUImage;
+@class NSData, OITSUImage;
 
 __attribute__((visibility("hidden")))
 @interface MFPBitmapImage : MFPImage
 {
     NSData *mBitmapData;
-    TSUImage *mPhoneBitmapImage;
+    OITSUImage *mPhoneBitmapImage;
     struct CGSize mPixelSize;
     struct CGSize mPointSize;
 }

@@ -6,16 +6,16 @@
 
 #import "UIViewController.h"
 
-#import "SLSheetActionChangeObserving.h"
+#import "SLComposeSheetConfigurationItemObserving.h"
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class NSArray, SLComposeServiceViewController, SLSheetTitleView, UIImage, UINavigationItem, UITableView, UITableViewController, UIView;
+@class NSArray, NSString, SLComposeServiceViewController, SLSheetTitleView, UIImage, UINavigationItem, UITableView, UITableViewController, UIView;
 
 __attribute__((visibility("hidden")))
-@interface SLSheetRootViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, SLSheetActionChangeObserving>
+@interface SLSheetRootViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, SLComposeSheetConfigurationItemObserving>
 {
-    NSArray *_sheetActions;
+    NSArray *_configurationItems;
     UITableViewController *_tableViewController;
     SLSheetTitleView *_titleView;
     UINavigationItem *_navItem;
@@ -32,16 +32,14 @@ __attribute__((visibility("hidden")))
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (void)_updateCell:(id)arg1 withSheetAction:(id)arg2;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (void)_updateCell:(id)arg1 withConfigurationItem:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
-- (void)_updateCellForSheetAction:(id)arg1;
-- (id)sheetActions;
-- (void)setSheetActions:(id)arg1;
-- (void)sheetActionDidChange:(id)arg1;
-- (void)observeSheetActions:(id)arg1;
-- (void)resetSheetActions;
+- (void)_updateCellForConfigurationItem:(id)arg1;
+@property(copy, nonatomic) NSArray *configurationItems;
+- (void)configurationItemDidChange:(id)arg1;
+- (void)observeConfigurationItems:(id)arg1;
+- (void)resetConfigurationItems;
 - (void)dismissAutoCompletionViewControllerWithContentViewChangeBlock:(CDUnknownBlockType)arg1;
 - (void)presentAutoCompletionViewController:(id)arg1 apparentContentHeight:(float)arg2 contentViewChangeBlock:(CDUnknownBlockType)arg3;
 - (void)updateContentViewSize:(struct CGSize)arg1;
@@ -54,6 +52,12 @@ __attribute__((visibility("hidden")))
 - (void)viewDidLoad;
 - (void)loadView;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

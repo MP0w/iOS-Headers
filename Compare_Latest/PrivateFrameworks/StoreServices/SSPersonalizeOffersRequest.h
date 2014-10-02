@@ -8,7 +8,7 @@
 
 #import "SSXPCCoding.h"
 
-@class NSArray;
+@class NSArray, NSString;
 
 @interface SSPersonalizeOffersRequest : SSRequest <SSXPCCoding>
 {
@@ -25,7 +25,11 @@
 - (id)initWithItems:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) id <SSPersonalizeOffersDelegate> delegate; // @dynamic delegate;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

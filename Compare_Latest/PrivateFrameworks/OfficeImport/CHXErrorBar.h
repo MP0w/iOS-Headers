@@ -12,6 +12,8 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)chdErrorBarFromXmlErrorBarElement:(struct _xmlNode *)arg1 state:(id)arg2;
++ (id)chxErrorBarValueTypeFromEnum:(int)arg1;
++ (id)chxErrorBarTypeFromEnum:(int)arg1;
 + (int)chdErrorBarDirectionFromXmlElement:(struct _xmlNode *)arg1;
 + (int)chdErrorBarValueTypeFromXmlElement:(struct _xmlNode *)arg1;
 + (int)chdErrorBarTypeFromXmlElement:(struct _xmlNode *)arg1;

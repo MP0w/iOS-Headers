@@ -8,7 +8,7 @@
 
 #import "TPPageControllerLayoutObserver.h"
 
-@class TPPageController;
+@class NSString, TPPageController;
 
 __attribute__((visibility("hidden")))
 @interface TPPageLayoutNotifier : NSObject <TPPageControllerLayoutObserver>
@@ -20,6 +20,12 @@ __attribute__((visibility("hidden")))
 - (void)teardown;
 - (void)dealloc;
 - (id)initWithPageController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

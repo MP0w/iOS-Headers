@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 
 - (struct _NSRange)_getClosestTokenRangeForPosition:(id)arg1 granularity:(int)arg2 downstream:(BOOL)arg3;
 - (int)_indexForTextPosition:(id)arg1;
+- (id)_positionFromPosition:(id)arg1 offset:(unsigned int)arg2 affinity:(int)arg3;
 - (BOOL)_isDownstreamForDirection:(int)arg1 atPosition:(id)arg2;
 - (int)_writingDirectionAtPosition:(id)arg1;
 - (void)invalidateTokenizer;

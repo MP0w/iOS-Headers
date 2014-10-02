@@ -8,7 +8,7 @@
 
 #import "ISOperationDelegate.h"
 
-@class NSLock, NSMutableArray;
+@class NSLock, NSMutableArray, NSString;
 
 @interface SUScriptOperationDelegate : NSObject <ISOperationDelegate>
 {
@@ -22,6 +22,12 @@
 - (void)enqueueOperation:(id)arg1;
 - (void)cancelAllOperations;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

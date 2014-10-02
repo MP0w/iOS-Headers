@@ -13,27 +13,35 @@
 __attribute__((visibility("hidden")))
 @interface TSWPChangeDetails : NSObject <TSDAnnotationHosting>
 {
-    NSString *mChangeString;
-    id <TSKModel> model;
+    NSString *mChangeTrackingContentString;
+    NSString *mChangeTrackingTitleString;
     TSWPChange *_change;
 }
 
 @property(retain, nonatomic) TSWPChange *change; // @synthesize change=_change;
-@property(nonatomic) id <TSKModel> model; // @synthesize model;
+@property(readonly, copy) NSString *description;
+- (void)p_updateChangeStrings;
 - (void)commitText:(id)arg1;
 @property(readonly, nonatomic) int annotationDisplayStringType;
 @property(readonly, nonatomic) int annotationType;
-@property(readonly, nonatomic) NSString *changeTrackingString;
+@property(readonly, nonatomic) NSString *changeTrackingContentFormatString;
+@property(readonly, nonatomic) NSString *changeTrackingTitleString;
+@property(readonly, nonatomic) NSString *changeTrackingContentString;
 @property(readonly, nonatomic) NSDate *date;
-@property(retain, nonatomic) TSKAnnotationAuthor *author;
+- (void)setAuthor:(id)arg1;
+@property(readonly, nonatomic) TSKAnnotationAuthor *author;
+@property(nonatomic) id <TSKModel> hostingModel;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqualToChangeDetails:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
-- (id)initWithChange:(id)arg1 changeString:(id)arg2;
+- (id)initWithChange:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(copy, nonatomic) TSDCommentStorage *storage;
+@property(readonly) Class superclass;
 
 @end
 

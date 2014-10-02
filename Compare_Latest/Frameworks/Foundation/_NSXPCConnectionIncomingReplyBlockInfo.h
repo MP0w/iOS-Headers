@@ -6,12 +6,16 @@
 
 #import "NSObject.h"
 
+@class NSProgress;
+
 __attribute__((visibility("hidden")))
 @interface _NSXPCConnectionIncomingReplyBlockInfo : NSObject
 {
     CDUnknownBlockType _cleanupBlock;
+    NSProgress *_progress;
 }
 
+@property(retain) NSProgress *progress; // @synthesize progress=_progress;
 @property(copy) CDUnknownBlockType cleanupBlock; // @synthesize cleanupBlock=_cleanupBlock;
 - (void)dealloc;
 

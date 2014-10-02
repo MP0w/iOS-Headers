@@ -10,7 +10,7 @@
 #import "UITableViewDelegate.h"
 #import "UITextFieldDelegate.h"
 
-@class UIButton, UILabel, UITableView, UITextField, UIViewController, _UIModalItem, _UIModalItemsPresentingViewController;
+@class NSString, UIButton, UILabel, UITableView, UITextField, UIViewController, _UIModalItem, _UIModalItemsPresentingViewController;
 
 @interface _UIModalItemContentView : UIView <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 {
@@ -69,6 +69,12 @@
 - (void)setModalItem:(id)arg1 skipLayout:(BOOL)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

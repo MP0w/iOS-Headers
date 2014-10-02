@@ -15,13 +15,13 @@
     int _maxSize;
 }
 
-- (void)dealloc;
+@property(nonatomic) int maxSize; // @synthesize maxSize=_maxSize;
+@property(nonatomic) int bodyFormat; // @synthesize bodyFormat=_bodyFormat;
+@property(copy, nonatomic) NSString *longID; // @synthesize longID=_longID;
+- (void).cxx_destruct;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
-- (int)maxSize;
-- (int)bodyFormat;
-- (id)longID;
 - (id)initRequestForBodyFormat:(int)arg1 withLongID:(id)arg2 withBodySizeLimit:(int)arg3;
 
 @end

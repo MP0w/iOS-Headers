@@ -10,13 +10,11 @@
 {
     _Bool _allowNestedFolders;
     _Bool _pinchToClose;
-    _Bool _blurFolderBackground;
     _Bool _oneColumnAtATime;
 }
 
 + (id)settingsControllerModule;
 @property(nonatomic) _Bool oneColumnAtATime; // @synthesize oneColumnAtATime=_oneColumnAtATime;
-@property(nonatomic) _Bool blurFolderBackground; // @synthesize blurFolderBackground=_blurFolderBackground;
 @property(nonatomic) _Bool pinchToClose; // @synthesize pinchToClose=_pinchToClose;
 @property(nonatomic) _Bool allowNestedFolders; // @synthesize allowNestedFolders=_allowNestedFolders;
 - (void)setDefaultValues;

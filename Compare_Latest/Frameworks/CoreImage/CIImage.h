@@ -36,18 +36,26 @@
 - (struct CGRect)regionOfInterestForImage:(id)arg1 inRect:(struct CGRect)arg2;
 - (void *)_internalRepresentation;
 - (id)_initWithInternalRepresentation:(void *)arg1;
+- (id)TIFFRepresentation;
+- (void)printTree;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)imageByApplyingFilter:(id)arg1 withInputParameters:(id)arg2;
 - (id)filteredImage:(id)arg1 keysAndValues:(id)arg2;
 - (id)properties;
 - (id)description;
 - (void)dealloc;
 - (struct CGRect)extent;
+- (id)_imageByMatchingColorSpaceWorkingSpace:(struct CGColorSpace *)arg1;
+- (id)_imageByMatchingColorSpaceToWorkingSpace:(struct CGColorSpace *)arg1;
+- (id)_imageByMatchingWorkingSpaceToColorSpace:(struct CGColorSpace *)arg1;
 - (id)_imageByApplyingBlur:(double)arg1;
 - (id)_imageByApplyingGamma:(double)arg1;
 - (id)_imageByUnpremultiplying;
 - (id)_imageByPremultiplying;
+- (id)imageByCompositingOverImage:(id)arg1;
+- (id)imageByClampingToExtent;
 - (id)imageByCroppingToRect:(struct CGRect)arg1;
 - (id)imageByApplyingTransform:(struct CGAffineTransform)arg1;
 - (id)initWithContentsOfFile:(id)arg1 options:(id)arg2;
@@ -71,6 +79,11 @@
 - (id)initWithCGImage:(struct CGImage *)arg1 options:(id)arg2;
 - (id)_initNaiveWithCGImage:(struct CGImage *)arg1 options:(id)arg2;
 - (id)initWithCGImage:(struct CGImage *)arg1;
+- (id)_initWithIOSurface:(struct __IOSurface *)arg1 options:(id)arg2;
+- (id)smartColorAdjustmentsForValue:(double)arg1 andStatistics:(id)arg2;
+- (id)smartToneAdjustmentsForValue:(double)arg1 andStatistics:(id)arg2;
+- (id)smartColorStatistics;
+- (id)smartToneStatistics;
 - (id)autoRedEyeFilterWithFeatures:(id)arg1 options:(id)arg2;
 - (id)autoRedEyeFilterWithFeatures:(id)arg1 imageProperties:(id)arg2 options:(id)arg3;
 - (id)_autoRedEyeFilterWithFeatures:(id)arg1 imageProperties:(id)arg2 context:(id)arg3 options:(id)arg4;
@@ -79,6 +92,12 @@
 - (id)autoAdjustmentFilters;
 - (id)autoAdjustmentFiltersWithImageProperties:(id)arg1 options:(id)arg2;
 - (id)_scaleImageToMaxDimension:(unsigned int)arg1;
+- (id)smartBlackAndWhiteAdjustmentsForValue:(double)arg1 andStatistics:(id)arg2;
+- (id)smartBlackAndWhiteStatistics;
+- (void)getAutocropRect:(id)arg1 rotateXfrm:(struct CGAffineTransform)arg2 inputImageRect:(struct CGRect)arg3 clipRect:(struct CGRect *)arg4;
+- (id)autoRotateFilterFFT:(id)arg1 image:(struct CGImage *)arg2 inputRect:(struct CGRect)arg3;
+- (id)getAutoRotateFilter:(id)arg1 ciImage:(id)arg2 rgbRows:(id)arg3 inputRect:(struct CGRect)arg4 rotateCropRect:(struct CGRect *)arg5;
+- (struct CGPoint)calcIntersection:(struct CGPoint)arg1 slope1:(struct CGPoint)arg2 pt2:(struct CGPoint)arg3 slope2:(struct CGPoint)arg4;
 
 @end
 

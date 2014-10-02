@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class PDRootTimeNode, TSUNoCopyDictionary;
+@class OITSUNoCopyDictionary, PDRootTimeNode;
 
 __attribute__((visibility("hidden")))
 @interface PDAnimation : NSObject
 {
     PDRootTimeNode *mRootTimeNode;
-    TSUNoCopyDictionary *mBuildMap;
+    OITSUNoCopyDictionary *mBuildMap;
 }
 
 + (void)initialize;

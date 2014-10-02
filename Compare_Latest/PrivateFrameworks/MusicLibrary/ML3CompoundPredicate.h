@@ -30,7 +30,7 @@
 - (id)initWithPredicates:(id)arg1;
 
 // Remaining properties
-@property(readonly, nonatomic) NSString *compoundOperatorJoiner; // @dynamic compoundOperatorJoiner;
+@property(readonly, copy, nonatomic) NSString *compoundOperatorJoiner; // @dynamic compoundOperatorJoiner;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "NSStreamDelegate.h"
 
-@class NSError, NSInputStream, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSOutputStream;
+@class NSError, NSInputStream, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSOutputStream, NSString;
 
 @interface MFStream : NSObject <NSStreamDelegate>
 {
@@ -33,13 +33,13 @@
 + (void)setNetworkThread:(id)arg1;
 + (id)networkThread;
 @property(readonly, nonatomic) NSError *streamError; // @synthesize streamError=_error;
-- (void)enableExcessiveKeepaliveDetection:(BOOL)arg1;
 - (void)enableThroughputMonitoring:(BOOL)arg1;
 - (void)stream:(id)arg1 handleEvent:(unsigned int)arg2;
 - (void)_readBytesFromStream;
 - (void)close;
 - (int)write:(const char *)arg1 maxLength:(unsigned int)arg2;
 - (int)read:(char *)arg1 maxLength:(unsigned int)arg2;
+- (void)_closeAndReleaseStream:(id)arg1 logMessage:(id)arg2;
 - (void)openToHostName:(id)arg1 port:(int)arg2;
 - (BOOL)setProperty:(id)arg1 forKey:(id)arg2;
 - (id)propertyForKey:(id)arg1;
@@ -48,6 +48,12 @@
 - (void)dealloc;
 - (id)initCallBack:(CDUnknownBlockType)arg1 onDispatchQueue:(id)arg2;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

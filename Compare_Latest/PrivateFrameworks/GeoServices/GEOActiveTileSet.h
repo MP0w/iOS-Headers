@@ -24,10 +24,12 @@
     int _style;
     NSMutableArray *_supportedLanguages;
     unsigned int _timeToLiveSeconds;
+    int _updateBehavior;
     unsigned int _version;
     BOOL _multiTileURLUsesStatusCodes;
     struct {
         unsigned int timeToLiveSeconds:1;
+        unsigned int updateBehavior:1;
         unsigned int multiTileURLUsesStatusCodes:1;
     } _has;
 }
@@ -43,6 +45,7 @@
 @property(nonatomic) int style; // @synthesize style=_style;
 @property(retain, nonatomic) NSString *multiTileURL; // @synthesize multiTileURL=_multiTileURL;
 @property(retain, nonatomic) NSString *baseURL; // @synthesize baseURL=_baseURL;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -51,6 +54,8 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) BOOL hasUpdateBehavior;
+@property(nonatomic) int updateBehavior; // @synthesize updateBehavior=_updateBehavior;
 @property(nonatomic) BOOL hasMultiTileURLUsesStatusCodes;
 - (id)supportedLanguageAtIndex:(unsigned int)arg1;
 - (unsigned int)supportedLanguagesCount;
@@ -72,12 +77,13 @@
 @property(readonly, nonatomic) BOOL hasBaseURL;
 - (void)dealloc;
 - (void)_resetBestLanguage;
-- (id)bestLanguage;
-- (id)dataForGenericTileType:(int)arg1;
+- (BOOL)isEquivalentTileSet:(id)arg1;
+- (id)_bestLanguageWithOverrideLocale:(id)arg1;
+- (id)dataForGenericTileType:(int)arg1 tileGroupIdentifier:(unsigned int)arg2;
 - (BOOL)isAvailableForTileKey:(const struct _GEOTileKey *)arg1;
-- (unsigned int)largestZoomLevelLEQ:(unsigned int)arg1 inRect:(CDStruct_90e2a262)arg2;
-- (unsigned int)maximumZoomLevelInRect:(CDStruct_90e2a262)arg1;
-- (unsigned int)minimumZoomLevelInRect:(CDStruct_90e2a262)arg1;
+- (unsigned int)largestZoomLevelLEQ:(unsigned int)arg1 inRect:(CDStruct_02837cd9)arg2;
+- (unsigned int)maximumZoomLevelInRect:(CDStruct_02837cd9)arg1;
+- (unsigned int)minimumZoomLevelInRect:(CDStruct_02837cd9)arg1;
 
 @end
 

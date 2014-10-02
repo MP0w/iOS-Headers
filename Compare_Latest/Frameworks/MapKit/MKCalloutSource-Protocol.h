@@ -15,9 +15,9 @@
 - (NSString *)title;
 
 @optional
-@property(readonly, nonatomic) UIView *detailCalloutAccessoryView;
-@property(readonly, nonatomic) UIView *rightCalloutAccessoryView;
-@property(readonly, nonatomic) UIView *leftCalloutAccessoryView;
-@property(readonly, nonatomic) NSString *subtitle;
+@property(readonly, retain, nonatomic) UIView *detailCalloutAccessoryView;
+@property(readonly, retain, nonatomic) UIView *rightCalloutAccessoryView;
+@property(readonly, retain, nonatomic) UIView *leftCalloutAccessoryView;
+@property(readonly, copy, nonatomic) NSString *subtitle;
 @end
 

@@ -8,11 +8,12 @@
 
 #import "SBFProceduralWallpaperDelegate.h"
 
-@class NSTimer, UIImage;
+@class NSDictionary, NSString, NSTimer, UIImage;
 
 @interface SBFProceduralWallpaperView : SBFWallpaperView <SBFProceduralWallpaperDelegate>
 {
     id <SBFProceduralWallpaper> _proceduralWallpaper;
+    NSDictionary *_options;
     NSTimer *_colorSampleTimer;
     UIImage *_blur;
     int _thermalNotificationToken;
@@ -21,7 +22,11 @@
 
 + (BOOL)_allowsRasterization;
 + (BOOL)_allowsParallax;
+- (id)options;
+- (void)prepareToAppear;
+- (void)prepareToDisappear;
 - (void)_updateAnimating;
+- (BOOL)_isVisible;
 - (void)_sample;
 - (BOOL)_shouldSampleContinuously;
 - (void)_updateSampleTimer;
@@ -34,13 +39,19 @@
 - (id)_computeAverageColor;
 - (void)_handleVariantChange;
 - (void)_handleVisibilityChange;
-- (BOOL)isDisplayingWallpaper:(id)arg1;
+- (BOOL)isDisplayingWallpaper:(id)arg1 forVariant:(int)arg2 options:(id)arg3;
 - (void)layoutSubviews;
 - (void)setWallpaperAnimationEnabled:(BOOL)arg1;
 - (void)setContinuousColorSamplingEnabled:(BOOL)arg1;
 - (void)invalidate;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 proceduralWallpaper:(id)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 proceduralWallpaper:(id)arg2 options:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

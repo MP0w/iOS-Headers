@@ -8,6 +8,8 @@
 
 #import "TSCH3DGLBindable.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TSCH3DGLESRTT : NSObject <TSCH3DGLBindable>
 {
@@ -25,6 +27,12 @@ __attribute__((visibility("hidden")))
 - (void)destroyResourcesInContext:(id)arg1;
 - (void)dealloc;
 - (id)initWithGLTexture:(unsigned int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

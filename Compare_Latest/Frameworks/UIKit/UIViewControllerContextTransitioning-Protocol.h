@@ -11,6 +11,8 @@
 @protocol UIViewControllerContextTransitioning <NSObject>
 - (struct CGRect)finalFrameForViewController:(UIViewController *)arg1;
 - (struct CGRect)initialFrameForViewController:(UIViewController *)arg1;
+- (struct CGAffineTransform)targetTransform;
+- (UIView *)viewForKey:(NSString *)arg1;
 - (UIViewController *)viewControllerForKey:(NSString *)arg1;
 - (void)completeTransition:(BOOL)arg1;
 - (void)cancelInteractiveTransition;

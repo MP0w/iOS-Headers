@@ -19,14 +19,14 @@
 }
 
 + (id)copyParseRules;
-@property(retain) CoreDAVItemWithNoChildren *unauthenticated; // @synthesize unauthenticated=_unauthenticated;
-@property(retain) CoreDAVItemWithNoChildren *collection; // @synthesize collection=_collection;
-@property(retain) CoreDAVItemWithNoChildren *principal; // @synthesize principal=_principal;
-@property(retain) CoreDAVItemWithNoChildren *shared; // @synthesize shared=_shared;
-@property(retain) CoreDAVItemWithNoChildren *searchAddressBook; // @synthesize searchAddressBook=_searchAddressBook;
-@property(retain) CoreDAVItemWithNoChildren *addressBook; // @synthesize addressBook=_addressBook;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *unauthenticated; // @synthesize unauthenticated=_unauthenticated;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *collection; // @synthesize collection=_collection;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *principal; // @synthesize principal=_principal;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *shared; // @synthesize shared=_shared;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *searchAddressBook; // @synthesize searchAddressBook=_searchAddressBook;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *addressBook; // @synthesize addressBook=_addressBook;
 - (BOOL)isTypeWithNameSpace:(id)arg1 andName:(id)arg2;
-@property(readonly) NSSet *stringSet;
+@property(readonly, nonatomic) NSSet *stringSet;
 - (void)write:(id)arg1;
 - (id)description;
 - (void)dealloc;

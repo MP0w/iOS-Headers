@@ -8,6 +8,8 @@
 
 #import "GQDrawablesGenerator.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface GQHPagesFloatingDrawable : NSObject <GQDrawablesGenerator>
 {
@@ -17,6 +19,12 @@ __attribute__((visibility("hidden")))
 + (Class)beginTable:(id)arg1;
 + (int)handleDrawable:(id)arg1 state:(id)arg2;
 + (int)beginDrawables:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

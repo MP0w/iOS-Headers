@@ -16,7 +16,10 @@ __attribute__((visibility("hidden")))
     NSURL *_url;
     BOOL _requireWiFi;
     NSMutableData *_data;
+    NSString *_cachedEtag;
+    NSData *_cachedData;
     NSURLConnection *_conn;
+    NSString *_responseEtag;
     struct _GEOTileKey _key;
     BOOL _finished;
     NSString *_editionHeader;
@@ -32,8 +35,12 @@ __attribute__((visibility("hidden")))
     int _attempts;
     double _startTime;
     double _timeout;
+    int _eTagType;
 }
 
+@property(retain, nonatomic) NSString *responseEtag; // @synthesize responseEtag=_responseEtag;
+@property(retain, nonatomic) NSData *cachedData; // @synthesize cachedData=_cachedData;
+@property(retain, nonatomic) NSString *cachedEtag; // @synthesize cachedEtag=_cachedEtag;
 @property(nonatomic) double timeout; // @synthesize timeout=_timeout;
 @property(nonatomic) BOOL requireWiFi; // @synthesize requireWiFi=_requireWiFi;
 @property(nonatomic) GEOSimpleTileRequester *delegate; // @synthesize delegate=_delegate;
@@ -50,6 +57,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableData *data; // @synthesize data=_data;
 @property struct _GEOTileKey key; // @synthesize key=_key;
 @property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
+@property(nonatomic) int eTagType; // @synthesize eTagType=_eTagType;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
@@ -57,8 +65,13 @@ __attribute__((visibility("hidden")))
 - (double)elapsed;
 - (void)cancel;
 - (void)start;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

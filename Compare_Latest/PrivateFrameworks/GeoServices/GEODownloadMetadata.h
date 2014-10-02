@@ -14,10 +14,13 @@
 {
     double _timestamp;
     NSString *_etag;
+    NSString *_url;
 }
 
+@property(retain, nonatomic) NSString *url; // @synthesize url=_url;
 @property(retain, nonatomic) NSString *etag; // @synthesize etag=_etag;
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -26,6 +29,7 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) BOOL hasUrl;
 @property(readonly, nonatomic) BOOL hasEtag;
 - (void)dealloc;
 

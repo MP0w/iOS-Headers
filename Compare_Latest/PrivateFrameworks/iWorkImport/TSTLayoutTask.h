@@ -6,18 +6,25 @@
 
 #import "NSObject.h"
 
+#import "NSCopying.h"
+
 @class NSMutableArray, TSTMasterLayout;
 
 __attribute__((visibility("hidden")))
-@interface TSTLayoutTask : NSObject
+@interface TSTLayoutTask : NSObject <NSCopying>
 {
     TSTMasterLayout *mMasterLayout;
     NSMutableArray *mCellStatesToLayout;
 }
 
-@property(retain, nonatomic) NSMutableArray *cellStatesToLayout; // @synthesize cellStatesToLayout=mCellStatesToLayout;
-- (void)flushToGlobalCaches;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)writeToMasterLayoutCaches;
+- (void)enumerateCellStatesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)clear;
+- (void)addCellState:(id)arg1;
+@property(readonly, nonatomic) unsigned int numberOfCellStates;
 - (void)dealloc;
+- (id)initWithLayoutTask:(id)arg1;
 - (id)initWithMasterLayout:(id)arg1;
 
 @end

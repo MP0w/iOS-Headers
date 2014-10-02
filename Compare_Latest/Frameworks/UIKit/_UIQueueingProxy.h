@@ -6,12 +6,10 @@
 
 #import <UIKit/_UITargetedProxy.h>
 
-#import "XPCProxyTarget.h"
-
 @class NSMutableArray;
 
 __attribute__((visibility("hidden")))
-@interface _UIQueueingProxy : _UITargetedProxy <XPCProxyTarget>
+@interface _UIQueueingProxy : _UITargetedProxy
 {
     int _lock;
     unsigned int _suspensionCount;
@@ -29,7 +27,6 @@ __attribute__((visibility("hidden")))
 - (void)suspend;
 - (void)forwardInvocation:(id)arg1;
 - (void)dealloc;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 
 @end
 

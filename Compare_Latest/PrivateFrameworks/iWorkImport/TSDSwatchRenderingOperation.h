@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 @property(copy) NSString *identifier; // @synthesize identifier=mIdentifier;
 @property unsigned int insertPopoverPageNumber; // @synthesize insertPopoverPageNumber=mInsertPopoverPageNumber;
 @property unsigned int insertPopoverPageType; // @synthesize insertPopoverPageType=mInsertPopoverPageType;
+@property(readonly) TSKDocumentRoot *documentRoot; // @synthesize documentRoot=mDocumentRoot;
 @property(readonly) struct CGRect swatchFrame; // @synthesize swatchFrame=mSwatchFrame;
 @property(readonly) float imageScale; // @synthesize imageScale=mImageScale;
 @property(readonly) struct CGSize imageSize; // @synthesize imageSize=mImageSize;

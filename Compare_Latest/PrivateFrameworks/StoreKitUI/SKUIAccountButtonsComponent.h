@@ -6,7 +6,7 @@
 
 #import <StoreKitUI/SKUIPageComponent.h>
 
-@class SKUILink;
+@class SKUIAccountButtonsViewElement, SKUILink;
 
 @interface SKUIAccountButtonsComponent : SKUIPageComponent
 {
@@ -18,8 +18,12 @@
 @property(retain, nonatomic) SKUILink *ECommerceLink; // @synthesize ECommerceLink=_ecommerceLink;
 - (void).cxx_destruct;
 - (int)componentType;
+- (id)initWithViewElement:(id)arg1;
 - (id)initWithFeaturedContentContext:(id)arg1 kind:(int)arg2;
 - (id)initWithCustomPageContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) SKUIAccountButtonsViewElement *viewElement; // @dynamic viewElement;
 
 @end
 

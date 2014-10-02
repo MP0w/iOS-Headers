@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
 - (CDStruct_5f1f7aa9)pbRangeForTgtRange:(CDStruct_5f1f7aa9)arg1;
 - (CDStruct_0441cfb5)p_tgtCellIDForPbCellID:(CDStruct_0441cfb5)arg1 givenColumnMaps:(const multiset_a7356bac *)arg2 rowMaps:(const multiset_a7356bac *)arg3;
 - (CDStruct_5f1f7aa9)p_tgtRangeForPbRange:(CDStruct_5f1f7aa9)arg1 givenColumnMaps:(const multiset_a7356bac *)arg2 rowMaps:(const multiset_a7356bac *)arg3;
-- (unsigned short)p_indexForPbToTgtMaps:(const multiset_a7356bac *)arg1 andMap:(struct TSTColumnOrRowMap *)arg2;
+- (struct _NSRange)p_tgtRangeFromPbRange:(const struct TSTColumnOrRowMap *)arg1 andMap:(const multiset_a7356bac *)arg2;
 - (unsigned short)p_indexForTgtToPbMaps:(set_bf5de620 *)arg1 andMap:(struct TSTColumnOrRowMap *)arg2;
 - (id)initWithPbTable:(id)arg1 pbRange:(CDStruct_5f1f7aa9)arg2 tgtTable:(id)arg3 tgtRange:(CDStruct_5f1f7aa9)arg4 flag:(int)arg5;
 - (id)initWithPbRange:(CDStruct_5f1f7aa9)arg1 tgtRange:(CDStruct_5f1f7aa9)arg2;

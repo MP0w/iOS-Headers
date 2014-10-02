@@ -4,45 +4,56 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <VectorKit/VGLImageCanvas.h>
+#import <VectorKit/GGLImageCanvas.h>
 
 #import "VKAnimationRunner.h"
 #import "VKWorldDelegate.h"
 
-@class VKCamera, VKDispatch, VKLayoutContext, VKScene, VKTimer, VKWorld;
+@class NSString, VKCamera, VKDispatch, VKLayoutContext, VKTimer, VKWorld;
 
 __attribute__((visibility("hidden")))
-@interface VKImageCanvas : VGLImageCanvas <VKWorldDelegate, VKAnimationRunner>
+@interface VKImageCanvas : GGLImageCanvas <VKWorldDelegate, VKAnimationRunner>
 {
     VKWorld *_world;
     VKCamera *_camera;
-    VKScene *_scene;
     VKLayoutContext *_layoutContext;
     VKDispatch *_dispatch;
     VKTimer *_layoutTimer;
     BOOL _shouldDrawWhileLoading;
     double _frameTimestamp;
     BOOL _needsLayout;
-    BOOL _needsDisplay;
+    struct MapCamera _mapCamera;
+    struct unique_ptr<md::RenderQueue, std::__1::default_delete<md::RenderQueue>> _renderQueue;
+    struct unique_ptr<ggl::RenderQueue, std::__1::default_delete<ggl::RenderQueue>> _renderQueueResolve;
+    struct RenderTree *_mapScene;
 }
 
-+ (Class)contextClass;
 @property(readonly, nonatomic) VKDispatch *dispatch; // @synthesize dispatch=_dispatch;
 @property(readonly, nonatomic) VKCamera *camera; // @synthesize camera=_camera;
 @property(readonly, nonatomic) VKWorld *world; // @synthesize world=_world;
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)animationDidResume:(id)arg1;
 - (void)animationDidStop:(id)arg1;
 - (void)runAnimation:(id)arg1;
 - (void)worldDisplayDidChange:(id)arg1;
 - (void)worldLayoutDidChange:(id)arg1;
-- (void)renderScene:(CDUnknownBlockType)arg1;
+- (void)renderSceneWithRenderer:(struct Renderer *)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)cancelLoad;
 - (void)loadScene;
 - (void)_spinScene:(id)arg1;
+- (void)_spinSceneWillRender:(BOOL)arg1;
+- (void)_updateViewTransform;
 - (void)setSize:(struct CGSize)arg1;
 - (void)dealloc;
-- (id)initWithSize:(struct CGSize)arg1 scale:(float)arg2 context:(id)arg3 homeQueue:(id)arg4;
-- (id)initWithSize:(struct CGSize)arg1 scale:(float)arg2 context:(id)arg3;
+- (id)initWithSize:(struct CGSize)arg1 scale:(float)arg2 useMultisampling:(BOOL)arg3 device:(const shared_ptr_807ec9ac *)arg4 homeQueue:(id)arg5;
+- (id)initWithSize:(struct CGSize)arg1 scale:(float)arg2 useMultisampling:(BOOL)arg3 device:(const shared_ptr_807ec9ac *)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

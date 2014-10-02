@@ -25,8 +25,14 @@
     _Bool _stopLoadingResults;
     struct _opaque_pthread_mutex_t _dataSourceDeallocLock;
     _Bool _implementsCancellationCallback;
+    BOOL _searchParticipants;
+    BOOL _searchLocations;
+    BOOL _searchAttendees;
 }
 
+@property BOOL searchAttendees; // @synthesize searchAttendees=_searchAttendees;
+@property BOOL searchLocations; // @synthesize searchLocations=_searchLocations;
+@property BOOL searchParticipants; // @synthesize searchParticipants=_searchParticipants;
 - (void)_deleteSearchContext:(struct CalEventOccurrenceSearchContext *)arg1;
 - (struct CalEventOccurrenceSearchContext *)_createSearchContext;
 - (void)_getApplicationSearchResults:(struct CalEventOccurrenceSearchContext *)arg1;

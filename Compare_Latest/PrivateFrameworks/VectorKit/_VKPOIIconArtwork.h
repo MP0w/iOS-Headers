@@ -10,16 +10,15 @@ __attribute__((visibility("hidden")))
 @interface _VKPOIIconArtwork : VKIconArtwork
 {
     struct CGImage *_glyphImage;
-    CDStruct_d3c687f7 _style;
-    float _contentScale;
+    CDStruct_5977520b _style;
 }
 
 - (id).cxx_construct;
 - (void)_cleanUpAfterDrawing;
-- (id)_newIcon;
+- (id)_newImage;
 - (struct CGSize)size;
 - (void)dealloc;
-- (id)initWithGlyph:(struct CGImage *)arg1 style:(CDStruct_d3c687f7 *)arg2 contentScale:(float)arg3;
+- (id)initWithGlyph:(struct CGImage *)arg1 style:(CDStruct_5977520b *)arg2 contentScale:(float)arg3;
 
 @end
 

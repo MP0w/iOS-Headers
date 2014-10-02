@@ -7,31 +7,37 @@
 #import "UIView.h"
 
 #import "MPDetailScrubControllerDelegate.h"
+#import "MPUContentSizeCategoryChanging.h"
 
-@class MPDetailScrubController, NSString, UILabel, UISlider<MPDetailedScrubbing><_MPUSliderScrubForwarding>;
+@class MPDetailScrubController, MPUNowPlayingIndicatorView, NSString, UILabel, UISlider<MPDetailedScrubbing><_MPUSliderScrubForwarding>;
 
-@interface MPUChronologicalProgressView : UIView <MPDetailScrubControllerDelegate>
+@interface MPUChronologicalProgressView : UIView <MPDetailScrubControllerDelegate, MPUContentSizeCategoryChanging>
 {
     MPDetailScrubController *_scrubController;
     UISlider<MPDetailedScrubbing><_MPUSliderScrubForwarding> *_slider;
     UILabel *_currentTimeLabel;
     UILabel *_remainingTimeLabel;
+    MPUNowPlayingIndicatorView *_indicatorView;
     NSString *_lastCurrentTimeString;
     NSString *_lastRemainingTimeString;
     double _lastDisplayedDuration;
     BOOL _alwaysLive;
     BOOL _showTimeLabels;
     BOOL _scrubbingEnabled;
+    BOOL _showIsPlaying;
     id <MPUChronologicalProgressViewDelegate> _delegate;
     int _style;
+    int _substyle;
     double _totalDuration;
     double _currentTime;
 }
 
+@property(nonatomic) BOOL showIsPlaying; // @synthesize showIsPlaying=_showIsPlaying;
 @property(nonatomic) BOOL scrubbingEnabled; // @synthesize scrubbingEnabled=_scrubbingEnabled;
 @property(nonatomic) BOOL showTimeLabels; // @synthesize showTimeLabels=_showTimeLabels;
 @property(nonatomic) double currentTime; // @synthesize currentTime=_currentTime;
 @property(nonatomic) double totalDuration; // @synthesize totalDuration=_totalDuration;
+@property(nonatomic) int substyle; // @synthesize substyle=_substyle;
 @property(readonly, nonatomic) int style; // @synthesize style=_style;
 @property(nonatomic) __weak id <MPUChronologicalProgressViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic, getter=isAlwaysLive) BOOL alwaysLive; // @synthesize alwaysLive=_alwaysLive;
@@ -39,12 +45,13 @@
 - (id)_stringForTime:(double)arg1 isTimeRemaining:(BOOL)arg2;
 - (void)_updateTimeLabels;
 - (float)_sliderNormalizedValueForTime:(double)arg1;
+- (id)_createIndicatorViewWithStyle:(int)arg1;
 - (id)_createTimeLabelWithStyle:(int)arg1;
 - (id)_trackImage;
 - (id)_thumbImage;
 - (id)_timeLabelFont;
-- (id)_styledImageName:(id)arg1;
 - (void)_internalSetCurrentTime:(double)arg1;
+- (void)updateTextForContentSizeCategory:(id)arg1;
 - (void)detailScrubController:(id)arg1 didChangeValue:(float)arg2;
 - (void)detailScrubControllerDidEndScrubbing:(id)arg1;
 - (void)detailScrubControllerDidBeginScrubbing:(id)arg1;
@@ -53,6 +60,12 @@
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithStyle:(int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -48,6 +48,7 @@
 @property(readonly) UIView *accessoryView;
 @property(readonly) int airPlayMode;
 - (BOOL)canCopyToPasteboard;
+- (BOOL)adaptativeHeight;
 - (BOOL)acceptControllerTouch:(id)arg1 fromGestureRecognizer:(id)arg2;
 - (void)requiresDisplayBundle:(id)arg1 withHints:(id)arg2;
 - (void)didFailLoadingWithError:(id)arg1;

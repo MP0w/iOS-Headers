@@ -8,8 +8,6 @@
 
 @interface MFHeaderLabelView : UILabel
 {
-    unsigned int _highlighted:1;
-    unsigned int _drawsLetterPress:1;
 }
 
 + (id)_defaultColor;

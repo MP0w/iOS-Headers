@@ -8,6 +8,7 @@
 
 @class NSString;
 
+__attribute__((visibility("hidden")))
 @interface CUIPSDLayoutMetricsChannel : NSObject
 {
     struct CGRect _edgeInsets;
@@ -19,6 +20,7 @@
 - (id).cxx_construct;
 - (void)setEdgeInsets:(struct CGRect)arg1;
 - (id)initWithEdgeInsets:(struct CGRect)arg1;
+- (void)sanitizeEdgeInsets;
 
 @end
 

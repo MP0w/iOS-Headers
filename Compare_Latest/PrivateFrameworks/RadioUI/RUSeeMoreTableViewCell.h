@@ -4,17 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UITableViewCell.h"
+#import <RadioUI/RUTableViewCell.h>
 
 @class SKUICircleProgressIndicator, UILabel;
 
-@interface RUSeeMoreTableViewCell : UITableViewCell
+@interface RUSeeMoreTableViewCell : RUTableViewCell
 {
     SKUICircleProgressIndicator *_activityIndicator;
     UILabel *_detailLabel;
     int _seeMoreState;
 }
 
++ (id)_detailLabelFontForSeeMoreState:(int)arg1;
++ (float)defaultHeightForTraitCollection:(id)arg1;
 @property(nonatomic) int seeMoreState; // @synthesize seeMoreState=_seeMoreState;
 - (void).cxx_destruct;
 - (void)_updateForChangedState;

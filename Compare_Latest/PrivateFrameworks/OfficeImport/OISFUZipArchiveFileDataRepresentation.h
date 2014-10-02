@@ -8,12 +8,12 @@
 
 #import "SFUZipArchiveDataRepresentation.h"
 
-@class SFUFileDataRepresentation;
+@class NSString, OISFUFileDataRepresentation;
 
 __attribute__((visibility("hidden")))
 @interface OISFUZipArchiveFileDataRepresentation : OISFUDataRepresentation <SFUZipArchiveDataRepresentation>
 {
-    SFUFileDataRepresentation *mFileRepresentation;
+    OISFUFileDataRepresentation *mFileRepresentation;
     int mFd;
 }
 
@@ -27,6 +27,12 @@ __attribute__((visibility("hidden")))
 - (BOOL)isReadable;
 - (void)dealloc;
 - (id)initWithPath:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,11 +8,16 @@
 
 @interface NSString (TIExtras)
 + (id)stringWithUnichar:(unsigned long)arg1;
++ (struct USet *)_nonFullwidthLettersAndNumbersSet;
++ (struct USet *)_fullwidthLettersAndNumbersSet;
 + (struct USet *)_bopomofoToneSet;
 + (struct USet *)_bopomofoSet;
 + (struct USet *)_ideographSet;
++ (struct USet *)_nonJapaneseLetterSet;
 + (struct USet *)_japaneseLetterSet;
++ (struct USet *)_hiraganaSet;
 + (struct USet *)_nonHiraganaKatakanaOrBopomofoSet;
++ (struct USet *)_nonKatakanaOrKanjiSet;
 + (struct USet *)_nonHiraganaOrKatakanaSet;
 + (struct USet *)_nonIdeographicCharacterSet;
 + (struct USet *)_characterSetWithPattern:(id)arg1;
@@ -49,19 +54,24 @@
 - (id)_stringByConvertingFromFullWidthToHalfWidth;
 - (id)_stringByConvertingFromHalfWidthToFullWidth;
 - (BOOL)_shouldBePaddedWithSpaces;
+- (BOOL)_containsFullwidthLettersAndNumbers;
 - (BOOL)_containsFullwidthLettersAndNumbersOnly;
 - (BOOL)_containsCJKSymbolsAndPunctuation;
 - (BOOL)_containsCJKScriptsOnly;
+- (BOOL)_containsCJScriptsOnly;
 - (BOOL)_containsBopomofoToneOnly;
 - (BOOL)_containsBopomofoOnly;
 - (BOOL)_containsEmoji;
 - (BOOL)_containsHiraganaKatakanaOrBopomofo;
+- (BOOL)_containsKatakanaOrKanji;
 - (BOOL)_containsHiraganaOrKatakana;
+- (BOOL)_containsHiraganaOnly;
+- (BOOL)_containsJapaneseOnly;
+- (BOOL)_containsJapanese;
 - (BOOL)_containsIdeographicCharacters;
 - (unsigned int)_graphemeCount;
 - (id)_lastGrapheme;
 - (id)_firstGrapheme;
-- (BOOL)_isJapanesePhrase;
 - (BOOL)_isOnlyIdeographs;
 - (BOOL)_isIdeographicGlyphs;
 - (BOOL)_containsCJScripts;
@@ -78,12 +88,15 @@
 - (BOOL)_isLeftAssociative;
 - (BOOL)_isModifierSymbol;
 - (BOOL)_endsSentence;
+- (unsigned int)_UTF8SizeOfRange:(struct _NSRange)arg1;
+- (struct _NSRange)_rangeOfString:(id)arg1 fromLocation:(unsigned int)arg2;
 - (struct _NSRange)_rangeOfBackwardDeletionClusterAtIndex:(unsigned int)arg1;
 - (id)_stringByReplacingCharacter:(unsigned long)arg1 withCharacter:(unsigned long)arg2;
 - (id)_stringByReplacingCharactersInSet:(struct __CFCharacterSet *)arg1 withCharacter:(unsigned long)arg2;
 - (id)_stringByTrimmingLastCharacter;
 - (id)_stringByTrimmingCharactersInCFCharacterSet:(struct __CFCharacterSet *)arg1;
 - (BOOL)_contentsExclusivelyInCharacterSet:(struct USet *)arg1;
+- (void)_enumerateLongCharactersInRange:(struct _NSRange)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (unsigned long)_firstLongCharacter;
 - (unsigned short)_firstChar;
 @end

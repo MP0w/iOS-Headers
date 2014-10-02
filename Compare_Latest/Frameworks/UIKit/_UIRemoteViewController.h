@@ -7,16 +7,16 @@
 #import <UIKit/UIViewController.h>
 
 #import "UIActionSheetDelegate.h"
-#import "XPCProxyTarget.h"
 #import "_UIRemoteViewController_TextEffectsOperatorInterface.h"
 #import "_UIRemoteViewController_ViewControllerOperatorInterface.h"
 
-@class NSArray, NSError, NSMutableArray, NSString, UIActionSheet, UIDimmingView, UIView, _UIAsyncInvocation, _UIRemoteView, _UISizeTrackingView, _UITextEffectsRemoteView, _UITextServiceSession, _UIViewServiceInterface;
+@class BKSTouchDeliveryPolicyAssertion, NSArray, NSError, NSMutableArray, NSString, UIActionSheet, UIDimmingView, UIView, _UIAsyncInvocation, _UIRemoteView, _UIRemoteViewService, _UISizeTrackingView, _UITextEffectsRemoteView, _UITextServiceSession, _UIViewServiceInterface;
 
-@interface _UIRemoteViewController : UIViewController <XPCProxyTarget, _UIRemoteViewController_ViewControllerOperatorInterface, _UIRemoteViewController_TextEffectsOperatorInterface, UIActionSheetDelegate>
+@interface _UIRemoteViewController : UIViewController <_UIRemoteViewController_ViewControllerOperatorInterface, _UIRemoteViewController_TextEffectsOperatorInterface, UIActionSheetDelegate>
 {
     NSString *_serviceBundleIdentifier;
     _UIViewServiceInterface *_serviceInterface;
+    _UIRemoteViewService *_remoteViewService;
     id _serviceViewControllerProxy;
     id _serviceViewControllerControlMessageProxy;
     NSArray *_serviceViewControllerSupportedInterfaceOrientations;
@@ -33,6 +33,7 @@
     _UIRemoteView *_serviceViewControllerRemoteView;
     _UITextEffectsRemoteView *_fullScreenTextEffectsRemoteView;
     _UITextEffectsRemoteView *_textEffectsAboveStatusBarRemoteView;
+    _UITextEffectsRemoteView *_remoteKeyboardRemoteView;
     UIView *_fullScreenTextEffectsSnapshotView;
     BOOL _snapshotTextEffectsAfterRotation;
     unsigned int _serviceScreenDisplayID;
@@ -50,21 +51,38 @@
     BOOL _isFocusDeferred;
     NSString *_deferredDisplayUUID;
     unsigned int _deferredContextID;
+    NSArray *_allowedNotifications;
+    BOOL _serviceViewShouldShareTouchesWithHost;
+    BKSTouchDeliveryPolicyAssertion *_touchDeliveryPolicyAssertion;
 }
 
++ (BOOL)__shouldAllowHostProcessToTakeFocus;
++ (BOOL)__shouldHostRemoteTextEffectsWindow;
++ (id)_requestViewController:(id)arg1 traitCollection:(id)arg2 fromServiceWithBundleIdentifier:(id)arg3 service:(id)arg4 connectionHandler:(CDUnknownBlockType)arg5;
++ (id)requestViewControllerWithService:(id)arg1 traitCollection:(id)arg2 connectionHandler:(CDUnknownBlockType)arg3;
++ (id)requestViewControllerWithService:(id)arg1 connectionHandler:(CDUnknownBlockType)arg2;
++ (id)requestViewController:(id)arg1 traitCollection:(id)arg2 fromServiceWithBundleIdentifier:(id)arg3 connectionHandler:(CDUnknownBlockType)arg4;
 + (id)requestViewController:(id)arg1 fromServiceWithBundleIdentifier:(id)arg2 connectionHandler:(CDUnknownBlockType)arg3;
-+ (BOOL)_shouldUseXPCObjects;
 + (id)exportedInterface;
 + (id)serviceViewControllerInterface;
 + (BOOL)shouldPropagateAppearanceCustomizations;
+@property(nonatomic) BOOL serviceViewShouldShareTouchesWithHost; // @synthesize serviceViewShouldShareTouchesWithHost=_serviceViewShouldShareTouchesWithHost;
+@property(retain, nonatomic, setter=_setTouchDeliveryPolicyAssertion:) BKSTouchDeliveryPolicyAssertion *_touchDeliveryPolicyAssertion; // @synthesize _touchDeliveryPolicyAssertion;
+- (id)_cancelTouchesForCurrentEventInHostedContent;
+- (void)_prepareTouchDeliveryPolicy;
 - (void)restoreStateForSession:(id)arg1 anchor:(id)arg2;
 - (void)saveStateForSession:(id)arg1 anchor:(id)arg2;
 - (void)__dismissTextServiceSessionAnimated:(BOOL)arg1;
 - (void)__showServiceForText:(id)arg1 type:(int)arg2 fromRectValue:(id)arg3 replyHandler:(CDUnknownBlockType)arg4;
+- (void)_initializeAccessibilityPortInformation;
 - (void)_updateTintColor;
 - (void)_appearanceInvocationsDidChange:(id)arg1;
 - (id)_appearanceSource;
 - (void)__viewServiceDidUpdateTintColor:(id)arg1 duration:(double)arg2;
+- (void)viewDidInvalidateIntrinsicContentSize;
+- (struct CGSize)intrinsicContentSizeForServiceSize:(struct CGSize)arg1;
+- (void)__viewServiceInstrinsicContentSizeDidChange:(struct CGSize)arg1 fenceSendRight:(id)arg2;
+- (void)__viewServicePreferredContentSizeDidChange:(struct CGSize)arg1 fenceSendRight:(id)arg2;
 - (BOOL)_customizesForPresentationInPopover;
 - (void)__viewServicePopoverDidSetUseToolbarShine:(BOOL)arg1;
 - (void)__viewServicePopoverDidChangeContentSize:(struct CGSize)arg1 animated:(BOOL)arg2 fenceSendRight:(id)arg3 withReplyHandler:(CDUnknownBlockType)arg4;
@@ -82,9 +100,12 @@
 - (void)_didRotateFromInterfaceOrientation:(int)arg1 forwardToChildControllers:(BOOL)arg2 skipSelf:(BOOL)arg3;
 - (void)_willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2 forwardToChildControllers:(BOOL)arg3 skipSelf:(BOOL)arg4;
 - (void)_willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2 forwardToChildControllers:(BOOL)arg3 skipSelf:(BOOL)arg4;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (BOOL)_ignoreAppSupportedOrientations;
 - (unsigned int)supportedInterfaceOrientations;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (void)didMoveToParentViewController:(id)arg1;
+- (void)viewDidMoveToWindow:(id)arg1 shouldAppearOrDisappear:(BOOL)arg2;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
@@ -107,6 +128,7 @@
 - (void)_terminateUnconditionallyThen:(CDUnknownBlockType)arg1;
 - (id)disconnect;
 - (id)_terminateWithError:(id)arg1;
+- (void)_setContentOverlayInsets:(struct UIEdgeInsets)arg1;
 - (void)_updateTouchGrabbingView;
 - (void)_applicationWillDeactivate:(id)arg1;
 - (void)_applicationDidBecomeActive:(id)arg1;
@@ -119,6 +141,13 @@
 - (void)_applicationWillEnterForeground:(id)arg1;
 - (void)_statusBarHeightDidChange:(id)arg1;
 - (void)_statusBarOrientationDidChange:(id)arg1;
+- (int)__getPreferredInterfaceOrientation;
+- (BOOL)__shouldRemoteViewControllerFenceOperations;
+- (id)_addAutoAllowedNotifications:(id)arg1;
+- (id)allowedNotifications;
+- (void)setAllowedNotifications:(id)arg1;
+- (BOOL)inheritsSecurity;
+- (void)setInheritsSecurity:(BOOL)arg1;
 @property(readonly, nonatomic) CDStruct_4c969caf serviceAuditToken;
 @property(readonly, nonatomic) int serviceProcessIdentifier;
 @property(readonly, nonatomic) NSString *serviceBundleIdentifier;
@@ -132,11 +161,15 @@
 - (oneway void)release;
 - (id)retain;
 - (int)__automatic_invalidation_logic;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (id)serviceViewControllerProxyWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)serviceViewControllerProxy;
-- (void)viewServiceSupportedInterfaceOrientationsDidChange;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

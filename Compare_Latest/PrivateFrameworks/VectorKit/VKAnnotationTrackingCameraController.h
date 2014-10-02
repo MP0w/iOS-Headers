@@ -23,7 +23,6 @@ __attribute__((visibility("hidden")))
     double _pendingHeadingChangeDuration;
     float _headingAnimationCompletedAngle;
     struct VKEdgeInsets _edgeInsets;
-    int _annotationMarkersAnimatingInCount;
     int _zoomStyle;
     struct {
         unsigned int hasPendingChange:1;
@@ -52,11 +51,7 @@ __attribute__((visibility("hidden")))
 - (void)startTrackingAnnotation:(id)arg1 trackHeading:(BOOL)arg2 animated:(BOOL)arg3;
 - (void)_rotateToHeadingAnimated:(BOOL)arg1 duration:(double)arg2;
 - (void)_goToAnnotationAnimated:(BOOL)arg1 duration:(double)arg2 isInitial:(BOOL)arg3;
-- (double)_zoomLevelForCameraPosition:(struct VKPoint)arg1;
-- (double)_minTrackingCameraDistance;
 - (void)updateFramerate;
-- (void)didAnimateInAnnotationMarkers:(id)arg1;
-- (void)willAnimateInAnnotationMarkers:(id)arg1;
 @property(readonly, nonatomic, getter=isTrackingHeading) BOOL trackingHeading;
 - (void)dealloc;
 

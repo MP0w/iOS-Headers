@@ -8,7 +8,7 @@
 
 #import "SBIconModelStore.h"
 
-@class NSURL;
+@class NSString, NSURL;
 
 @interface SBIconModelPropertyListFileStore : NSObject <SBIconModelStore>
 {
@@ -28,6 +28,12 @@
 - (_Bool)saveDesiredIconState:(id)arg1 error:(id *)arg2;
 - (_Bool)saveCurrentIconState:(id)arg1 error:(id *)arg2;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -29,6 +29,7 @@
 - (void)addToScalar:(id)arg1 value:(long long)arg2;
 - (void)setScalar:(id)arg1 value:(long long)arg2;
 - (void)clearScalar:(id)arg1;
+- (void)dealloc;
 - (id)initWithDomain:(int)arg1;
 
 @end

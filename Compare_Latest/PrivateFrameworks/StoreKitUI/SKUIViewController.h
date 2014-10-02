@@ -8,12 +8,13 @@
 
 #import "SKUINetworkErrorDelegate.h"
 #import "SKUIProductPageOverlayDelegate.h"
+#import "SKUITabBarItemRootViewController.h"
 #import "SKUIWishlistDelegate.h"
 #import "UIPopoverControllerDelegate.h"
 
-@class NSOperationQueue, SKUIClientContext, SKUIIPadSearchController, SKUINetworkErrorViewController, SKUIPopoverObserver, SKUIProductPageOverlayController, SKUIWishlistViewController, UIBarButtonItem;
+@class NSOperationQueue, NSString, SKUIClientContext, SKUIIPadSearchController, SKUINetworkErrorViewController, SKUIPopoverObserver, SKUIProductPageOverlayController, SKUIWishlistViewController, UIBarButtonItem;
 
-@interface SKUIViewController : UIViewController <SKUINetworkErrorDelegate, SKUIProductPageOverlayDelegate, SKUIWishlistDelegate, UIPopoverControllerDelegate>
+@interface SKUIViewController : UIViewController <SKUINetworkErrorDelegate, SKUIProductPageOverlayDelegate, SKUIWishlistDelegate, UIPopoverControllerDelegate, SKUITabBarItemRootViewController>
 {
     SKUIClientContext *_clientContext;
     SKUINetworkErrorViewController *_networkErrorViewController;
@@ -33,6 +34,7 @@
 - (void)_reloadForOrientation:(int)arg1;
 - (void)_showDialogWithError:(id)arg1;
 - (void)_wishlistAction:(id)arg1;
+- (void)skui_viewWillAppear:(BOOL)arg1;
 - (void)_setWishlistButtonHidden:(BOOL)arg1;
 - (void)wishlist:(id)arg1 didSelectItem:(id)arg2 atIndexPath:(id)arg3;
 - (void)productPageOverlayDidDismiss:(id)arg1;
@@ -40,11 +42,20 @@
 - (void)networkErrorViewControllerInvalidated:(id)arg1;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)viewWillAppear:(BOOL)arg1;
+- (unsigned int)supportedInterfaceOrientations;
+- (BOOL)showingError;
 - (void)showError:(id)arg1;
 - (void)showDefaultNavigationItems;
 - (void)reloadData;
 @property(readonly, nonatomic) SKUIIPadSearchController *IPadSearchController;
 - (void)dealloc;
+- (id)initWithTabBarItem:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

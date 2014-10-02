@@ -10,7 +10,7 @@
 #import "NSCopying.h"
 #import "SSXPCCoding.h"
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>;
+@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface SSNetworkConstraints : NSObject <NSCoding, SSXPCCoding, NSCopying>
 {
@@ -33,7 +33,7 @@
 - (id)_copySizeLimits;
 - (void)setSizeLimitsWithStoreConstraintDictionary:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (long long)sizeLimitForNetworkType:(int)arg1;
 - (void)setSizeLimit:(long long)arg1 forNetworkType:(int)arg2;
 - (void)setAllNetworkTypesDisabled;
@@ -42,6 +42,11 @@
 - (void)disableCellularNetworkTypes;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

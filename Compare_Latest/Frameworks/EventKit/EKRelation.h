@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL ownsRelatedObject;
 @property(readonly, nonatomic) BOOL toMany;
 - (void)dealloc;
+- (id)description;
 - (id)initWithEntityName:(id)arg1 toMany:(BOOL)arg2 inversePropertyName:(id)arg3 ownsRelated:(BOOL)arg4;
 
 @end

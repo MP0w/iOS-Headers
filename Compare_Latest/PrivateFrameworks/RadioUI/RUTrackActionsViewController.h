@@ -33,11 +33,15 @@
 @property(readonly, nonatomic) struct CGSize contentSize;
 @property(readonly, nonatomic) int cancelIndex;
 - (int)actionForButtonIndex:(int)arg1;
-- (void)_didResignContentViewControllerOfPopover:(id)arg1;
-- (void)_willBecomeContentViewControllerOfPopover:(id)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

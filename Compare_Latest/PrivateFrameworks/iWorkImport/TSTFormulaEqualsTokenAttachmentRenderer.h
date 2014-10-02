@@ -8,12 +8,20 @@
 
 #import "TSWPGraphicalAttachmentRenderer.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TSTFormulaEqualsTokenAttachmentRenderer : NSObject <TSWPGraphicalAttachmentRenderer>
 {
 }
 
 - (void)drawAttachment:(id)arg1 inContext:(struct CGContext *)arg2 selection:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

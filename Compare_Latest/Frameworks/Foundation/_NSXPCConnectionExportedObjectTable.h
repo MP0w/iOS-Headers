@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     BOOL _valid;
 }
 
+- (id)description;
 - (void)invalidate;
 - (void)releaseExportedObject:(unsigned long long)arg1;
 - (unsigned long long)proxyNumberForExportedObject:(id)arg1 interface:(id)arg2;

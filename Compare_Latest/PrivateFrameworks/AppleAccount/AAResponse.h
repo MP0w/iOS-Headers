@@ -6,15 +6,21 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSError, NSHTTPURLResponse, NSString;
+@class NSData, NSDictionary, NSError, NSHTTPURLResponse, NSNumber, NSString;
 
 @interface AAResponse : NSObject
 {
     NSDictionary *_responseDictionary;
     NSHTTPURLResponse *_httpResponse;
     NSError *_error;
+    int _statusCode;
+    NSData *_data;
+    NSNumber *_maxAge;
 }
 
+@property(readonly, nonatomic) NSNumber *maxAge; // @synthesize maxAge=_maxAge;
+@property(readonly, nonatomic) NSData *data; // @synthesize data=_data;
+@property(readonly, nonatomic) int statusCode; // @synthesize statusCode=_statusCode;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(readonly, nonatomic) NSDictionary *responseDictionary; // @synthesize responseDictionary=_responseDictionary;
 - (void).cxx_destruct;

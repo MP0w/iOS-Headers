@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     int mType;
 }
 
+- (BOOL)isEqual:(id)arg1;
 - (void)setType:(int)arg1;
 - (int)type;
 - (void)setBuildLevel:(int)arg1;

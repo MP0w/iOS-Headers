@@ -32,6 +32,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
+- (void)_setupSetWithCapacity:(unsigned int)arg1;
 - (id)initWithCapacity:(unsigned int)arg1;
 - (id)init;
 

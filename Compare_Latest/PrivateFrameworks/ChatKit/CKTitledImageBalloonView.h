@@ -23,7 +23,8 @@
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)dealloc;
-- (void)configureForMessagePart:(id)arg1;
+- (void)configureForMediaObject:(id)arg1 previewWidth:(float)arg2 orientation:(BOOL)arg3;
+- (void)configureForLocatingChatItem:(id)arg1;
 
 @end
 

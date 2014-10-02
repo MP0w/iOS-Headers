@@ -57,6 +57,12 @@
 @property(readonly, nonatomic) NSURL *externalURI;
 @property(copy, nonatomic) NSString *externalModificationTag;
 @property(copy, nonatomic) NSString *externalID;
+@property(nonatomic) BOOL isIgnoringSharedCalendarNotifications;
+@property(readonly, nonatomic) BOOL allowsIgnoringSharedEventChangeNotifications;
+@property(nonatomic) BOOL isIgnoringEventAlerts;
+@property(readonly, nonatomic) BOOL isMarkedImmutableSharees;
+@property(readonly, nonatomic) BOOL isMarkedUndeletable;
+@property(readonly, nonatomic) BOOL isFamilyCalendar;
 @property(readonly, nonatomic) BOOL isHolidaySubscribedCalendar;
 @property(readonly, nonatomic) BOOL isFacebookBirthdayCalendar;
 @property(readonly, nonatomic) BOOL schedulingProhibited;

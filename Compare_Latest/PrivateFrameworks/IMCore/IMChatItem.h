@@ -6,28 +6,24 @@
 
 #import "NSObject.h"
 
-@class IMMessage, NSDate, NSString;
+#import "NSCopying.h"
 
-@interface IMChatItem : NSObject
+@class IMItem;
+
+@interface IMChatItem : NSObject <NSCopying>
 {
-    NSDate *_date;
-    id _datum1;
-    id _datum2;
-    id _datum3;
-    BOOL _isFromArchive;
-    NSString *_guid;
+    IMItem *_item;
 }
 
-@property(readonly, nonatomic) NSDate *date; // @synthesize date=_date;
-@property(retain, nonatomic) NSString *guid; // @synthesize guid=_guid;
-- (int)_reverseCompareToChatItem:(id)arg1;
-- (int)_compareToChatItem:(id)arg1;
-@property(readonly, nonatomic) BOOL isFromArchive;
-- (void)_setIsFromArchive:(BOOL)arg1;
-@property(readonly, nonatomic) IMMessage *message;
-@property(readonly, nonatomic) NSString *stringValue;
+- (void)_setTimeAdded:(id)arg1;
+- (id)_timeAdded;
+- (id)_timeStale;
+- (id)_item;
+- (id)_initWithItem:(id)arg1;
+@property(readonly, nonatomic) BOOL canDelete;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)description;
 - (void)dealloc;
-- (id)_initWithGUID:(id)arg1 date:(id)arg2 datum1:(id)arg3 datum2:(id)arg4 datum3:(id)arg5;
 
 @end
 

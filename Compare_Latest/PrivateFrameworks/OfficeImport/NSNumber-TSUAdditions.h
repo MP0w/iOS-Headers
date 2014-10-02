@@ -8,7 +8,7 @@
 
 @interface NSNumber (TSUAdditions)
 + (id)numberWithCGFloat:(float)arg1;
-+ (id)numberWithFloatZero;
+- (BOOL)isFloatingPointType;
 - (float)CGFloatValue;
 @end
 

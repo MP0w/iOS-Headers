@@ -6,7 +6,7 @@
 
 #import "NSMutableSet.h"
 
-@class NSManagedObject;
+@class NSManagedObject, NSPropertyDescription;
 
 __attribute__((visibility("hidden")))
 @interface _NSFaultingMutableSet : NSMutableSet
@@ -55,12 +55,13 @@ __attribute__((visibility("hidden")))
 - (id)description;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)relationship;
-- (id)source;
+@property(readonly, nonatomic) NSPropertyDescription *relationship;
+@property(readonly, nonatomic) NSManagedObject *source;
 - (void)turnIntoFault;
 - (BOOL)_shouldProcessKVOChange;
+- (void)willReadWithContents:(id)arg1;
 - (void)willRead;
-- (BOOL)isFault;
+@property(readonly, nonatomic, getter=isFault) BOOL fault;
 - (void)dealloc;
 - (BOOL)_isDeallocating;
 - (BOOL)_tryRetain;

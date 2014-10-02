@@ -9,6 +9,6 @@
 @class NKAssetDownload;
 
 @interface NSURLConnection (NKAssetDownloadAdditions)
-@property(readonly, nonatomic) NKAssetDownload *newsstandAssetDownload;
+@property(readonly) __weak NKAssetDownload *newsstandAssetDownload;
 @end
 

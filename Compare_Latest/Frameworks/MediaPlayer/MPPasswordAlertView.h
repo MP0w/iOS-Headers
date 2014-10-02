@@ -8,7 +8,7 @@
 
 #import "UIAlertViewDelegate.h"
 
-@class UITextField;
+@class NSString, UITextField;
 
 @interface MPPasswordAlertView : UIAlertView <UIAlertViewDelegate>
 {
@@ -22,6 +22,12 @@
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (id)initWithTitle:(id)arg1 message:(id)arg2 delegate:(id)arg3 cancelButtonTitle:(id)arg4 otherButtonTitles:(id)arg5;
 - (id)initWithStyle:(int)arg1 routeName:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class NSDate, NSString, TSDCommentStorage, TSTCellStyle, TSTConditionalStyleSet, TSTRichTextPayload, TSUFormatReferenceObject, TSWPParagraphStyle, TSWPStorage;
+@class NSDate, NSString, TSDCommentStorage, TSTCellStyle, TSTConditionalStyleSet, TSTImportWarningSet, TSTRichTextPayload, TSUFormatObject, TSWPParagraphStyle, TSWPStorage;
 
 __attribute__((visibility("hidden")))
 @interface TSTCell : NSObject <NSCopying>
@@ -40,26 +40,28 @@ __attribute__((visibility("hidden")))
         TSTRichTextPayload *mRichTextPayload;
         unsigned int mCommentStorageID;
         TSDCommentStorage *mCommentStorage;
+        unsigned int mImportWarningSetID;
+        TSTImportWarningSet *mImportWarningSet;
         struct {
             unsigned int mExplicitFormatFlags:16;
             unsigned int mCurrentCellFormatID;
-            CDStruct_95e644ef mCurrentCellFormat;
+            CDStruct_bfed0e84 mCurrentCellFormat;
             unsigned int mNumberFormatID;
-            TSUFormatReferenceObject *mNumberFormatRef;
+            TSUFormatObject *mNumberFormatRef;
             unsigned int mCurrencyFormatID;
-            TSUFormatReferenceObject *mCurrencyFormatRef;
+            TSUFormatObject *mCurrencyFormatRef;
             unsigned int mDurationFormatID;
-            TSUFormatReferenceObject *mDurationFormatRef;
+            TSUFormatObject *mDurationFormatRef;
             unsigned int mDateFormatID;
-            TSUFormatReferenceObject *mDateFormatRef;
+            TSUFormatObject *mDateFormatRef;
             unsigned int mControlFormatID;
-            TSUFormatReferenceObject *mControlFormatRef;
+            TSUFormatObject *mControlFormatRef;
             unsigned int mCustomFormatID;
-            TSUFormatReferenceObject *mCustomFormatRef;
+            TSUFormatObject *mCustomFormatRef;
             unsigned int mBaseFormatID;
-            TSUFormatReferenceObject *mBaseFormatRef;
+            TSUFormatObject *mBaseFormatRef;
             unsigned int mMultipleChoiceListFormatID;
-            TSUFormatReferenceObject *mMultipleChoiceListFormatRef;
+            TSUFormatObject *mMultipleChoiceListFormatRef;
         } mCellFormats;
         unsigned char mStrokePresetNumber;
     } mPrivate;
@@ -67,6 +69,9 @@ __attribute__((visibility("hidden")))
 
 + (id)cell;
 - (id).cxx_construct;
+- (void)applyFormulaResult:(const struct TSCEValue *)arg1 context:(id)arg2 hasWarnings:(BOOL)arg3 outWriteDidBeginOrEndWithTextCell:(char *)arg4;
+- (void)applyFormulaResult:(const struct TSCEValue *)arg1;
+- (id)applyCellDiff:(id)arg1;
 - (id)description;
 - (BOOL)isCellContentsEqualToCell:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

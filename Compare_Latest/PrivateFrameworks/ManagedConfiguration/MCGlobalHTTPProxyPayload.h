@@ -34,7 +34,9 @@
 @property(retain, nonatomic) NSString *proxyServer; // @synthesize proxyServer=_proxyServer;
 @property(nonatomic) int proxyType; // @synthesize proxyType=_proxyType;
 - (void).cxx_destruct;
+- (id)installationWarnings;
 - (id)description;
+- (id)payloadDescriptionKeyValueSections;
 - (id)subtitle2Description;
 - (id)subtitle2Label;
 - (id)subtitle1Description;

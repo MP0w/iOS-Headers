@@ -8,7 +8,7 @@
 
 #import "UITextFieldDelegate.h"
 
-@class UITableViewCell;
+@class NSString, UITableViewCell;
 
 __attribute__((visibility("hidden")))
 @interface EKEventURLInlineEditItem : EKEventEditItem <UITextFieldDelegate>
@@ -22,10 +22,15 @@ __attribute__((visibility("hidden")))
 - (void)textFieldDidBeginEditing:(id)arg1;
 - (BOOL)saveAndDismissWithForce:(BOOL)arg1;
 - (BOOL)isInline;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1;
 - (void)reset;
-- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2 forWidth:(float)arg3;
 - (BOOL)canBeConfiguredForCalendarConstraints:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

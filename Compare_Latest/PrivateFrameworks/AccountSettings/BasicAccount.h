@@ -8,7 +8,7 @@
 
 #import "AccountFullAccountProtocol.h"
 
-@class NSDictionary, NSMutableDictionary;
+@class NSDictionary, NSMutableDictionary, NSString;
 
 @interface BasicAccount : NSObject <AccountFullAccountProtocol>
 {
@@ -83,6 +83,12 @@
 - (void)setDisplayName:(id)arg1;
 - (void)_forcedSetEnabled:(BOOL)arg1 forDataclass:(id)arg2;
 - (void)_forcedSetAccountProperty:(id)arg1 forKey:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

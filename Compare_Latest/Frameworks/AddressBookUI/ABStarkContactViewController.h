@@ -10,11 +10,10 @@
 {
 }
 
-- (float)heightForHeaderInTableView:(id)arg1;
 - (id)viewForHeaderInTableView:(id)arg1;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (BOOL)tableView:(id)arg1 canPerformAction:(SEL)arg2 forRowAtIndexPath:(id)arg3 withSender:(id)arg4;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (void)viewWillLayoutSubviews;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewDidLoad;

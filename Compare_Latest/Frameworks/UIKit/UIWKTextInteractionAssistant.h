@@ -6,13 +6,29 @@
 
 #import <UIKit/UITextInteractionAssistant.h>
 
+@class NSString, UILongPressGestureRecognizer, UITapGestureRecognizer, UITextChecker, _UITextServiceSession;
+
 @interface UIWKTextInteractionAssistant : UITextInteractionAssistant
 {
+    int _selectionOperation;
+    _UITextServiceSession *_definitionSession;
+    _UITextServiceSession *_learnSession;
+    UITextChecker *_textChecker;
+    unsigned int _options;
+    struct CGRect _caretBeforeTap;
+    NSString *_wordBeforeTap;
+    UITapGestureRecognizer *_singleTapGesture;
+    UILongPressGestureRecognizer *_loupeGesture;
 }
 
+@property(readonly, retain, nonatomic) UILongPressGestureRecognizer *loupeGesture; // @synthesize loupeGesture=_loupeGesture;
+@property(readonly, retain, nonatomic) UITapGestureRecognizer *singleTapGesture; // @synthesize singleTapGesture=_singleTapGesture;
+- (void)showTextServiceFor:(id)arg1 fromRect:(struct CGRect)arg2;
+- (void)showDictionaryFor:(id)arg1 fromRect:(struct CGRect)arg2;
+- (void)hideTextStyleOptions;
+- (void)showTextStyleOptions;
 - (void)selectAll:(id)arg1;
 - (void)selectWord;
-- (BOOL)tapOnLinkWithGesture:(id)arg1;
 - (void)twoFingerRangedSelectGesture:(id)arg1;
 - (void)twoFingerSingleTap:(id)arg1;
 - (void)oneFingerTripleTap:(id)arg1;
@@ -22,20 +38,34 @@
 - (void)updateWithMagnifierTerminalPoint:(BOOL)arg1;
 - (void)updateSelectionWithPoint:(struct CGPoint)arg1;
 - (void)oneFingerDoubleTap:(id)arg1;
-- (void)oneFingerTapSelectsAll:(id)arg1;
-- (void)oneFingerTapInUneditable:(id)arg1;
-- (void)doubleTapInUneditable:(id)arg1;
 - (void)tapAndAHalf:(id)arg1;
+- (void)selectWithTapGestureAt:(struct CGPoint)arg1 withGesture:(int)arg2 withState:(int)arg3;
 - (void)loupeGesture:(id)arg1;
 - (void)oneFingerTap:(id)arg1;
+- (void)selectionChangedWithTouchAt:(struct CGPoint)arg1 withSelectionTouch:(int)arg2 withFlags:(int)arg3;
 - (void)selectionChangedWithTouchAt:(struct CGPoint)arg1 withSelectionTouch:(int)arg2;
+- (void)selectionChangedWithGestureAt:(struct CGPoint)arg1 withGesture:(int)arg2 withState:(int)arg3 withFlags:(int)arg4;
+- (id)_asText;
 - (void)selectionChangedWithGestureAt:(struct CGPoint)arg1 withGesture:(int)arg2 withState:(int)arg3;
+- (void)selectionChanged;
+- (BOOL)requiresImmediateUpdate;
+- (void)selectTextForReplacement:(id)arg1 withOptions:(unsigned int)arg2;
+- (void)showReplacementsForText:(id)arg1 withOptions:(unsigned int)arg2;
+- (void)scheduleReplacementsForText:(id)arg1 withOptions:(unsigned int)arg2;
+- (BOOL)shouldTryReplacementsForText:(id)arg1 withOptions:(unsigned int)arg2;
+- (void)scheduleReplacementsForText:(id)arg1;
+- (void)scheduleReplacementsWithOptions:(unsigned int)arg1;
+- (void)scheduleChineseTransliterationForText:(id)arg1;
 - (void)scrollSelectionToVisible;
 - (BOOL)containerIsBrowserView;
 - (BOOL)containerAllowsSelectionTintOnly;
 - (BOOL)containerAllowsSelection;
 - (BOOL)containerIsPlainStyleAtom;
 - (BOOL)containerIsAtom;
+- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
+- (BOOL)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (void)dealloc;
+- (id)initWithView:(id)arg1;
 
 @end
 

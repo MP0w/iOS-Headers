@@ -6,6 +6,7 @@
 
 #import <Preferences/PSViewController.h>
 
+#import "PSSpecifierObserver.h"
 #import "PSViewControllerOffsetProtocol.h"
 #import "UIActionSheetDelegate.h"
 #import "UIAlertViewDelegate.h"
@@ -13,9 +14,9 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSString, UIActionSheet, UIAlertView, UIKeyboard, UIPopoverController, UITableView, UIView;
+@class NSArray, NSDictionary, NSIndexPath, NSMutableArray, NSMutableDictionary, NSString, UIActionSheet, UIAlertView, UIKeyboard, UIPopoverController, UITableView, UIView;
 
-@interface PSListController : PSViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIAlertViewDelegate, UIPopoverControllerDelegate, PSViewControllerOffsetProtocol>
+@interface PSListController : PSViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIAlertViewDelegate, UIPopoverControllerDelegate, PSSpecifierObserver, PSViewControllerOffsetProtocol>
 {
     NSMutableArray *_prequeuedReusablePSTableCells;
     NSMutableDictionary *_cells;
@@ -44,14 +45,32 @@
     float _verticalContentOffset;
     NSString *_offsetItemName;
     struct CGPoint _contentOffsetWithKeyboard;
+    NSString *_highlightItemName;
+    BOOL _isVisible;
+    id <PSSpecifierDataSource> _dataSource;
+    BOOL _requestingSpecifiersFromDataSource;
+    NSIndexPath *_savedSelectedIndexPath;
     BOOL _edgeToEdgeCells;
+    NSDictionary *_pendingURLResourceDictionary;
+    NSString *_specifierIDPendingPush;
 }
 
 + (BOOL)displaysButtonBar;
+@property(copy, nonatomic) NSString *specifierIDPendingPush; // @synthesize specifierIDPendingPush=_specifierIDPendingPush;
+@property(retain, nonatomic) NSDictionary *pendingURLResourceDictionary; // @synthesize pendingURLResourceDictionary=_pendingURLResourceDictionary;
 @property(nonatomic) BOOL edgeToEdgeCells; // @synthesize edgeToEdgeCells=_edgeToEdgeCells;
 @property(nonatomic) BOOL forceSynchronousIconLoadForCreatedCells; // @synthesize forceSynchronousIconLoadForCreatedCells=_forceSynchronousIconLoadForCreatedCells;
+- (void)invalidateSpecifiersForDataSource:(id)arg1;
+- (void)performSpecifierUpdates:(id)arg1;
+- (void)dataSource:(id)arg1 performUpdates:(id)arg2;
+@property(readonly, nonatomic) int observerType;
+- (id)specifierDataSource;
+- (void)_moveSpecifierAtIndex:(unsigned int)arg1 toIndex:(unsigned int)arg2 animated:(BOOL)arg3;
 - (void)_setNotShowingSetupController;
 - (BOOL)shouldReloadSpecifiersOnResume;
+- (void)_performHighlightForSpecifierWithID:(id)arg1 tryAgainIfFailed:(BOOL)arg2;
+- (void)_performHighlightForSpecifierWithID:(id)arg1;
+- (void)highlightSpecifierWithID:(id)arg1;
 - (void)setDesiredVerticalContentOffsetItemNamed:(id)arg1;
 - (void)setDesiredVerticalContentOffset:(float)arg1;
 - (float)verticalContentOffset;
@@ -63,12 +82,16 @@
 - (float)_getKeyboardIntersectionHeight;
 - (void)reloadIconForSpecifierForBundle:(id)arg1;
 - (void)handleURL:(id)arg1;
-- (void)pushController:(id)arg1;
+- (BOOL)shouldDeferPushForSpecifierID:(id)arg1;
+- (BOOL)handlePendingURL;
+- (BOOL)prepareHandlingURLForSpecifierID:(id)arg1 resourceDictionary:(id)arg2 animatePush:(char *)arg3;
+- (void)showController:(id)arg1;
 - (void)dismissPopoverAnimated:(BOOL)arg1;
 - (void)dismissPopover;
 - (void)popoverController:(id)arg1 animationCompleted:(int)arg2;
 - (BOOL)popoverControllerShouldDismissPopover:(id)arg1;
-- (void)pushController:(id)arg1 animate:(BOOL)arg2;
+- (void)showController:(id)arg1 animate:(BOOL)arg2;
+- (id)specifiersForIDs:(id)arg1;
 - (id)specifierForID:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)controllerForSpecifier:(id)arg1;
@@ -82,6 +105,7 @@
 - (void)confirmationViewAcceptedForSpecifier:(id)arg1;
 - (void)dismissConfirmationViewForSpecifier:(id)arg1 animated:(BOOL)arg2;
 - (void)showConfirmationViewForSpecifier:(id)arg1;
+- (void)showConfirmationViewForSpecifier:(id)arg1 useAlert:(BOOL)arg2;
 - (void)showConfirmationViewForSpecifier:(id)arg1 useAlert:(BOOL)arg2 swapAlertButtons:(BOOL)arg3;
 - (BOOL)performConfirmationCancelActionForSpecifier:(id)arg1;
 - (BOOL)performConfirmationActionForSpecifier:(id)arg1;
@@ -92,6 +116,7 @@
 - (void)returnPressedAtEnd;
 - (void)popupViewWillDisappear;
 - (void)formSheetViewWillDisappear;
+- (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)prepareSpecifiersMetadata;
@@ -114,7 +139,9 @@
 - (id)tableView:(id)arg1 titleForFooterInSection:(int)arg2;
 - (id)tableView:(id)arg1 detailTextForHeaderInSection:(int)arg2;
 - (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
+- (float)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (BOOL)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didEndDisplayingCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)createPrequeuedPSTableCells:(unsigned int)arg1;
@@ -134,8 +161,12 @@
 - (void)viewDidUnload;
 - (void)viewDidLayoutSubviews;
 - (void)loadView;
+- (void)traitCollectionDidChange:(id)arg1;
+- (BOOL)_isRegularWidth;
 - (Class)tableViewClass;
 - (id)initForContentSize:(struct CGSize)arg1;
+- (void)contentSizeChangedNotificationPosted:(id)arg1;
+- (void)contentSizeDidChange:(id)arg1;
 - (id)init;
 - (void)dealloc;
 - (void)_unloadBundleControllers;
@@ -206,16 +237,22 @@
 - (void)_removeIdentifierForSpecifier:(id)arg1;
 - (void)_addIdentifierForSpecifier:(id)arg1;
 - (id)specifiers;
+- (id)loadSpecifiersFromPlistName:(id)arg1 target:(id)arg2 bundle:(id)arg3;
 - (id)loadSpecifiersFromPlistName:(id)arg1 target:(id)arg2;
 - (id)specifier;
 - (id)bundle;
 - (id)table;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)setCachesCells:(BOOL)arg1;
 - (void)setReusesCells:(BOOL)arg1;
 - (void)clearCache;
 - (id)popupStylePopoverController;
 - (void)showPINSheet:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

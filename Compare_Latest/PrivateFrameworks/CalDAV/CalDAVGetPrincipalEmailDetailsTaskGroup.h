@@ -16,16 +16,22 @@
     NSURL *_principalURL;
 }
 
-@property(retain) NSURL *principalURL; // @synthesize principalURL=_principalURL;
-@property(retain) CalDAVPrincipalEmailDetailsResult *principalResult; // @synthesize principalResult=_principalResult;
-@property(readonly) NSString *displayName;
-@property(readonly) NSSet *addresses;
+@property(retain, nonatomic) NSURL *principalURL; // @synthesize principalURL=_principalURL;
+@property(retain, nonatomic) CalDAVPrincipalEmailDetailsResult *principalResult; // @synthesize principalResult=_principalResult;
+@property(readonly, retain, nonatomic) NSString *displayName;
+@property(readonly, retain, nonatomic) NSSet *addresses;
 - (void)task:(id)arg1 didFinishWithError:(id)arg2;
 - (void)_processPropFind:(id)arg1;
 - (void)_finishWithError:(id)arg1;
 - (void)startTaskGroup;
 - (id)initWithAccountInfoProvider:(id)arg1 principalURL:(id)arg2 taskManager:(id)arg3;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

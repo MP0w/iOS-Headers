@@ -6,7 +6,7 @@
 
 #import "NSInputStream.h"
 
-@class EAAccessory, EASession, NSCondition, NSMutableData, NSRecursiveLock, NSThread;
+@class EAAccessory, EASession, NSCondition, NSMutableData, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSRecursiveLock;
 
 @interface EAInputStream : NSInputStream
 {
@@ -18,7 +18,9 @@
     NSCondition *_inputFromAccCondition;
     NSRecursiveLock *_statusLock;
     NSRecursiveLock *_runloopLock;
-    NSThread *_inputFromAccThread;
+    NSObject<OS_dispatch_queue> *_inputFromAccQueue;
+    NSObject<OS_dispatch_source> *_sockListenSource;
+    char *_inputFromAccBuffer;
     BOOL _isOpenCompletedEventSent;
     BOOL _hasNewBytesAvailable;
     BOOL _isAtEndEventSent;
@@ -27,7 +29,6 @@
     struct __CFRunLoopSource *_runLoopSource;
 }
 
-- (void)_readInputFromAccThread;
 - (void)_scheduleCallback;
 - (void)_streamEventTrigger;
 - (void)_performAtEndOfStreamValidation;

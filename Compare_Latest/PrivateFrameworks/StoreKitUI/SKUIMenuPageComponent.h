@@ -6,7 +6,7 @@
 
 #import <StoreKitUI/SKUIPageComponent.h>
 
-@class NSArray, NSMutableArray, NSString;
+@class NSArray, NSMutableArray, NSString, SKUISegmentedControlViewElement;
 
 @interface SKUIMenuPageComponent : SKUIPageComponent
 {
@@ -36,8 +36,12 @@
 @property(readonly, nonatomic) int numberOfItems;
 - (id)childComponentsForIndex:(int)arg1;
 @property(readonly, nonatomic) NSArray *allTitles;
+- (id)initWithViewElement:(id)arg1;
 - (id)initWithRoomSortData:(id)arg1;
 - (id)initWithCustomPageContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) SKUISegmentedControlViewElement *viewElement; // @dynamic viewElement;
 
 @end
 

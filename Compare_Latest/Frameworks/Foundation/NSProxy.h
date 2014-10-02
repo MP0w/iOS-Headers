@@ -6,6 +6,8 @@
 
 #import "NSObject.h"
 
+@class NSString;
+
 @interface NSProxy <NSObject>
 {
     Class isa;
@@ -66,11 +68,11 @@
 - (id)performSelector:(SEL)arg1 withObject:(id)arg2 withObject:(id)arg3;
 - (id)performSelector:(SEL)arg1 withObject:(id)arg2;
 - (id)performSelector:(SEL)arg1;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)_copyDescription;
-- (id)debugDescription;
-- (id)description;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 - (BOOL)_allowsDirectEncoding;
 - (struct _NSZone *)zone;
 - (void)finalize;
@@ -88,7 +90,7 @@
 - (void)forwardInvocation:(id)arg1;
 - (id)forwardingTargetForSelector:(SEL)arg1;
 - (id)self;
-- (Class)superclass;
+@property(readonly) Class superclass;
 - (Class)class;
 - (BOOL)_conformsToProtocolNamed:(const char *)arg1;
 - (struct objc_method_description *)methodDescriptionForSelector:(SEL)arg1;

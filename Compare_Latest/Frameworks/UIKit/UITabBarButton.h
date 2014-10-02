@@ -6,13 +6,14 @@
 
 #import <UIKit/UIControl.h>
 
-@class NSMutableDictionary, NSValue, UIColor, UIImage, UITabBarButtonLabel, UITabBarSelectionIndicatorView, UIView, _UIBadgeView;
+@class NSMutableDictionary, NSValue, UIColor, UIImage, UITabBarButtonLabel, UITabBarSelectionIndicatorView, UIView, UIVisualEffectView, _UIBadgeView;
 
 __attribute__((visibility("hidden")))
 @interface UITabBarButton : UIControl
 {
     struct CGRect _hitRect;
     UIView *_info;
+    UIVisualEffectView *_vibrancyEffectView;
     UITabBarButtonLabel *_label;
     _UIBadgeView *_badge;
     UITabBarSelectionIndicatorView *_selectedIndicator;

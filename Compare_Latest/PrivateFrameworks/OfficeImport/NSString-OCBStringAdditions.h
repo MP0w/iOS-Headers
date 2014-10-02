@@ -9,7 +9,6 @@
 @interface NSString (OCBStringAdditions)
 + (id)stringWithOcText:(const struct OcText *)arg1;
 + (id)stringWithCsString:(const struct CsString *)arg1;
-- (int)languageTypeAtIndex:(unsigned int)arg1 effectiveRange:(struct _NSRange *)arg2;
 - (void)copyToOcText:(struct OcText *)arg1 encoding:(int)arg2;
 - (void)copyToOcText:(struct OcText *)arg1;
 - (void)copyToCsString:(struct CsString *)arg1;

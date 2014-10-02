@@ -14,6 +14,7 @@
 {
 }
 
++ (id)options;
 + (BOOL)supportsSecureCoding;
 - (id)formattedText;
 - (id)dictionaryRepresentation;

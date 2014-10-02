@@ -8,12 +8,12 @@
 
 #import "UIGestureRecognizerDelegate.h"
 
-@class UILongPressGestureRecognizer, UITapAndAHalfRecognizer, UIWebDocumentView, UIWebSelection, UIWebSelectionView;
+@class NSString, UILongPressGestureRecognizer, UITapAndAHalfRecognizer, UIView, UIWebSelection, UIWebSelectionView;
 
 __attribute__((visibility("hidden")))
 @interface UIWebSelectionAssistant : NSObject <UIGestureRecognizerDelegate>
 {
-    UIWebDocumentView *_webView;
+    UIView *_view;
     UIWebSelectionView *_selectionView;
     UILongPressGestureRecognizer *_longPressGestureRecognizer;
     UITapAndAHalfRecognizer *_tapAndAHalfGestureRecognizer;
@@ -45,7 +45,13 @@ __attribute__((visibility("hidden")))
 - (BOOL)isSelectionGestureRecognizer:(id)arg1;
 - (void)setGestureRecognizers;
 - (void)dealloc;
-- (id)initWithWebView:(id)arg1;
+- (id)initWithView:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -12,7 +12,7 @@
 {
     struct __CFRunLoopTimer *_timer;
     id _key;
-    BOOL _isCancelled;
+    BOOL _isCanceled;
     BOOL _isPending;
     id _object;
     NSLock *_lock;
@@ -27,6 +27,7 @@
 - (id)threadKey;
 - (BOOL)isPending;
 - (BOOL)isCancelled;
+- (BOOL)isCanceled;
 - (void)cancel;
 - (void)dispatchAfterDelay:(double)arg1 withObject:(id)arg2;
 - (void)dispatchAfterDelay:(double)arg1;

@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) unsigned int attributionBadgeIndex; // @synthesize attributionBadgeIndex=_attributionBadgeIndex;
 @property(nonatomic) unsigned int identifier; // @synthesize identifier=_identifier;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -8,7 +8,7 @@
 
 #import "GQDNameMappable.h"
 
-@class GQDSStyle, GQDTTableModel;
+@class GQDSStyle, GQDTTableModel, NSString;
 
 __attribute__((visibility("hidden")))
 @interface GQDTTable : GQDGraphic <GQDNameMappable>
@@ -27,6 +27,12 @@ __attribute__((visibility("hidden")))
 - (void)setModel:(id)arg1;
 - (id)model;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

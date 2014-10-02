@@ -28,7 +28,7 @@
 + (id)defaultValueForKey:(id)arg1;
 + (id)behavior;
 @property(copy) NSDictionary *style;
-@property id delegate;
+@property __weak id delegate;
 @property(getter=isEnabled) BOOL enabled;
 @property(copy) NSString *name;
 - (id)CAMLTypeForKey:(id)arg1;

@@ -68,9 +68,9 @@
 + (int)defaultStyleForRequestedStyle:(int)arg1 styleOverrides:(int)arg2;
 + (int)defaultStatusBarStyleWithTint:(BOOL)arg1;
 + (float)heightForStyle:(int)arg1 orientation:(int)arg2;
-+ (struct CGRect)_frameForStyleAttributes:(id)arg1 orientation:(int)arg2;
-+ (struct CGRect)_frameForStyleAttributes:(id)arg1 orientation:(int)arg2 inWindowOfSize:(struct CGSize)arg3;
-+ (struct CGRect)_frameForStyle:(int)arg1 orientation:(int)arg2 inWindowOfSize:(struct CGSize)arg3;
++ (struct CGRect)_frameInSceneReferenceSpaceForStyleAttributes:(id)arg1 orientation:(int)arg2;
++ (struct CGRect)_frameInSceneReferenceSpaceForStyleAttributes:(id)arg1 orientation:(int)arg2 inSceneWithReferenceSize:(struct CGSize)arg3;
++ (struct CGRect)_frameInSceneReferenceSpaceForStyle:(int)arg1 orientation:(int)arg2 inSceneWithReferenceSize:(struct CGSize)arg3;
 @property(nonatomic) int legibilityStyle; // @synthesize legibilityStyle=_legibilityStyle;
 @property(retain, nonatomic) UIColor *foregroundColor; // @synthesize foregroundColor=_foregroundColor;
 @property(nonatomic) BOOL homeItemsDisabled; // @synthesize homeItemsDisabled=_homeItemsDisabled;
@@ -160,11 +160,14 @@
 - (BOOL)isTranslucent;
 - (BOOL)isDoubleHeight;
 - (int)currentStyle;
+- (int)_requestedStyle;
 - (float)_standardHeight;
 - (float)heightForOrientation:(int)arg1;
 - (struct CGRect)frameForOrientation:(int)arg1;
 - (float)currentHeight;
 - (struct CGRect)currentFrame;
+- (float)defaultDoubleHeight;
+- (float)defaultHeight;
 - (void)setLocalDataOverrides:(CDStruct_408a6cfc *)arg1;
 - (void)setShowsOnlyCenterItems:(BOOL)arg1;
 - (void)setBackgroundAlpha:(float)arg1;
@@ -180,6 +183,12 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 showForegroundView:(BOOL)arg2;
 - (id)initWithFrame:(struct CGRect)arg1 showForegroundView:(BOOL)arg2 inProcessStateProvider:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

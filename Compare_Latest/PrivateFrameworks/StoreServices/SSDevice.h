@@ -12,6 +12,8 @@
 
 @interface SSDevice : NSObject <SSRequestDelegate>
 {
+    NSString *_appleTVProductVersion;
+    id _cloudMediaLibraryIdentifier;
     int _deviceType;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     SSKeyValueStore *_keyValueStore;
@@ -35,6 +37,7 @@
 + (id)currentDevice;
 - (id)_userAgentClientNameForInfoPlist:(id)arg1;
 - (id)_userAgentClientNameForBundleID:(id)arg1;
+- (id)_userAgentClientNameForAppleTVBundleID:(id)arg1;
 - (void)_updateBatteryLevelFromService:(unsigned int)arg1;
 - (void)_updateAutomaticDownloadKinds:(id)arg1 withValue:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (BOOL)_setStoreFrontIdentifier:(id)arg1 isTransient:(BOOL)arg2;
@@ -60,7 +63,9 @@
 - (id)_copyProductType;
 - (id)_copyKeyValueStoreValueForDomain:(id)arg1 key:(id)arg2;
 - (void)_cacheKeyValueStoreValues;
+- (id)_appleTVProductVersion;
 - (void)setStoreFrontIdentifier:(id)arg1 accountIdentifier:(id)arg2 isTransient:(BOOL)arg3;
+- (void)setStoreFrontIdentifier:(id)arg1 account:(id)arg2 isTransient:(BOOL)arg3;
 - (void)resetStoreFrontForSignOut;
 - (id)userAgentWithBundleIdentifier:(id)arg1 version:(id)arg2;
 - (void)unionAutomaticDownloadKinds:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
@@ -72,6 +77,7 @@
 - (void)setStoreFrontIdentifier:(id)arg1 isTransient:(BOOL)arg2;
 @property(copy) NSString *softwareLibraryIdentifier;
 @property(copy) NSString *mediaLibraryIdentifier;
+@property(copy) NSString *cloudMediaLibraryIdentifier;
 - (void)setAutomaticDownloadKinds:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)reloadStoreFrontIdentifier;
 @property(readonly) NSString *productVersion;
@@ -97,6 +103,12 @@
 @property(readonly) NSSet *automaticDownloadKinds;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

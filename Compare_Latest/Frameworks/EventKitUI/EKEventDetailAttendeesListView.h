@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
 - (void)_drawColumnOfStrings:(id)arg1 inRange:(struct _NSRange)arg2 startingAtPoint:(struct CGPoint)arg3 givenWidth:(float)arg4;
 - (void)drawInvitees:(id)arg1 withStatus:(id)arg2 startingAtPoint:(struct CGPoint)arg3 givenWidth:(float)arg4;
 - (void)drawRect:(struct CGRect)arg1;
+- (float)_offsetFromOffsetToBaseline:(float)arg1 withFont:(id)arg2;
 - (float)_heightForGroupOfAttendeeNames:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 

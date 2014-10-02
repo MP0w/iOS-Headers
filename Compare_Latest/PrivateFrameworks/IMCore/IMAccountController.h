@@ -90,6 +90,8 @@
 - (void)autoLogin;
 - (id)_bestOperationalAccountForSendingForService:(id)arg1;
 - (id)__iCloudSystemAccountForService:(id)arg1;
+- (id)_bestAccountForAddresses:(id)arg1;
+- (id)_operationalPhoneAccountForService:(id)arg1;
 
 @end
 

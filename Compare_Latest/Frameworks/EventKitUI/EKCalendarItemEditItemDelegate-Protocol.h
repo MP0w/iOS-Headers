@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class EKCalendarItemEditItem, NSArray, NSDate, NSIndexPath, NSString, UIView, UIViewController;
+@class EKCalendarItemEditItem, NSDate, NSIndexPath, NSIndexSet, NSString, UIView, UIViewController;
 
 @protocol EKCalendarItemEditItemDelegate <NSObject>
 - (NSString *)defaultAlertTitleForEditItem:(EKCalendarItemEditItem *)arg1;
@@ -17,14 +17,16 @@
 - (void)editItemRequiresPopoverSizeUpdate:(EKCalendarItemEditItem *)arg1;
 - (void)editItemRequiresHeightChange:(EKCalendarItemEditItem *)arg1;
 - (void)editItem:(EKCalendarItemEditItem *)arg1 didEndDatePickingAnimated:(BOOL)arg2;
-- (void)editItem:(EKCalendarItemEditItem *)arg1 willBeginDatePickingWithDate:(NSDate *)arg2 action:(SEL)arg3 animated:(BOOL)arg4 forSubitem:(unsigned int)arg5 inSubsection:(unsigned int)arg6;
-- (void)editItem:(EKCalendarItemEditItem *)arg1 wantsIndexPathsScrolledToVisible:(NSArray *)arg2;
+- (void)editItem:(EKCalendarItemEditItem *)arg1 willBeginDatePickingWithDate:(NSDate *)arg2 action:(SEL)arg3 animated:(BOOL)arg4 forSubitem:(unsigned int)arg5;
+- (void)editItem:(EKCalendarItemEditItem *)arg1 wantsRowsScrolledToVisible:(NSIndexSet *)arg2;
+- (int)rowNumberForEditItem:(EKCalendarItemEditItem *)arg1;
 - (void)editItem:(EKCalendarItemEditItem *)arg1 wantsRowReload:(NSIndexPath *)arg2;
-- (void)editItem:(EKCalendarItemEditItem *)arg1 performActionsOnCellAtSubitem:(unsigned int)arg2 inSubsection:(unsigned int)arg3 actions:(void (^)(UITableViewCell *))arg4;
-- (void)editItem:(EKCalendarItemEditItem *)arg1 wantsRowInsertions:(NSArray *)arg2 rowDeletions:(NSArray *)arg3 rowReloads:(NSArray *)arg4;
-- (void)editItem:(EKCalendarItemEditItem *)arg1 wantsRowInsertions:(NSArray *)arg2 rowDeletions:(NSArray *)arg3;
+- (void)editItem:(EKCalendarItemEditItem *)arg1 performActionsOnCellAtSubitem:(unsigned int)arg2 actions:(void (^)(UITableViewCell *))arg3;
+- (void)editItem:(EKCalendarItemEditItem *)arg1 wantsRowInsertions:(NSIndexSet *)arg2 rowDeletions:(NSIndexSet *)arg3 rowReloads:(NSIndexSet *)arg4;
+- (void)editItem:(EKCalendarItemEditItem *)arg1 wantsRowInsertions:(NSIndexSet *)arg2 rowDeletions:(NSIndexSet *)arg3;
 - (void)editItem:(EKCalendarItemEditItem *)arg1 wantsDoneButtonDisabled:(BOOL)arg2;
 - (void)editItem:(EKCalendarItemEditItem *)arg1 wantsKeyboardPinned:(BOOL)arg2;
+- (void)editItemWantsInjectableViewControllerToBeShown:(EKCalendarItemEditItem *)arg1;
 - (void)editItemTextChanged:(EKCalendarItemEditItem *)arg1;
 - (void)editItemDidEndEditing:(EKCalendarItemEditItem *)arg1;
 - (void)editItem:(EKCalendarItemEditItem *)arg1 didCommitFromDetailViewController:(BOOL)arg2;

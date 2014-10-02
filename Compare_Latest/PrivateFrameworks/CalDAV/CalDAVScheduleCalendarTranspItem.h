@@ -13,9 +13,9 @@
     CoreDAVItemWithNoChildren *_transparent;
 }
 
-@property(retain) CoreDAVItemWithNoChildren *transparent; // @synthesize transparent=_transparent;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *transparent; // @synthesize transparent=_transparent;
 - (id)copyParseRules;
-@property(readonly) BOOL isScheduleTransparent;
+@property(readonly, nonatomic) BOOL isScheduleTransparent;
 - (void)dealloc;
 - (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
 

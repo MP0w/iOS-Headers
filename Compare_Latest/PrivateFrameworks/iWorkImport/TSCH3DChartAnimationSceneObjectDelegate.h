@@ -8,7 +8,7 @@
 
 #import "TSCH3DChartAllSceneObjectDelegate.h"
 
-@class NSArray, NSMutableDictionary, TSCH3DAnimationTimeSlice, TSCH3DAnimationTiming;
+@class NSArray, NSMutableDictionary, NSString, TSCH3DAnimationTimeSlice, TSCH3DAnimationTiming;
 
 __attribute__((visibility("hidden")))
 @interface TSCH3DChartAnimationSceneObjectDelegate : NSObject <TSCH3DChartAllSceneObjectDelegate>
@@ -49,6 +49,12 @@ __attribute__((visibility("hidden")))
 - (void)p_updateElementTimingForIndex:(const tvec2_3b141483 *)arg1;
 - (void)dealloc;
 - (id)initWithTiming:(id)arg1 timeSlice:(id)arg2 animationClips:(id)arg3 context:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -17,8 +17,8 @@
     NSString *_uti;
     NSString *_cacheKey;
     struct CGRect _bounds;
-    UIImage *_image;
     NSFileWrapper *_fileWrapper;
+    UIImage *_image;
     UITextAttachmentView *_wrapperView;
 }
 
@@ -26,6 +26,7 @@
 + (void)initialize;
 @property(retain, nonatomic) NSString *fileType; // @synthesize fileType=_uti;
 @property(retain, nonatomic) NSData *contents; // @synthesize contents=_data;
+@property(readonly, copy) NSString *description;
 - (struct CGRect)attachmentBoundsForTextContainer:(id)arg1 proposedLineFragment:(struct CGRect)arg2 glyphPosition:(struct CGPoint)arg3 characterIndex:(unsigned int)arg4;
 - (id)imageForBounds:(struct CGRect)arg1 textContainer:(id)arg2 characterIndex:(unsigned int)arg3;
 @property(nonatomic) struct CGRect bounds;
@@ -42,6 +43,11 @@
 - (id)initWithData:(id)arg1 ofType:(id)arg2;
 - (id)_image;
 - (id)_cacheKey;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

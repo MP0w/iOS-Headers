@@ -15,7 +15,6 @@ __attribute__((visibility("hidden")))
     struct __CFArray *mXlChartDataSeriesCollection;
     int mXlSeriesCount;
     int mXlCurrentSeriesIndex;
-    id <CHAutoStyling> mAutoStyling;
     _Bool mHasPrimaryMixedArea;
     _Bool mHasPrimaryMixedColumn;
     _Bool mHasPrimaryMixedLine;
@@ -37,7 +36,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)hasPrimaryMixedColumn;
 - (void)setHasPrimaryMixedArea:(_Bool)arg1;
 - (_Bool)hasPrimaryMixedArea;
-- (id)autoStyling;
 - (void)deleteXlChartDataSeriesCollection;
 - (void)readAndCacheXlChartDataSeries;
 - (int)xlSeriesCount;

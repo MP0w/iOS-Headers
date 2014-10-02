@@ -10,6 +10,8 @@
 #import "NSCopying.h"
 #import "NSMutableCopying.h"
 
+@class NSData;
+
 @interface NSCharacterSet : NSObject <NSCopying, NSMutableCopying, NSCoding>
 {
 }
@@ -44,7 +46,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
-- (id)bitmapRepresentation;
+@property(readonly, copy) NSData *bitmapRepresentation;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)hasMemberInPlane:(unsigned char)arg1;
 - (BOOL)isSupersetOfSet:(id)arg1;
@@ -54,7 +56,7 @@
 - (BOOL)isMutable;
 - (unsigned int)count;
 - (BOOL)isEmpty;
-- (id)invertedSet;
+@property(readonly, copy) NSCharacterSet *invertedSet;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned int)hash;
 - (id)init;

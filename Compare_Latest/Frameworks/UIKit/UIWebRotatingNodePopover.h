@@ -8,7 +8,7 @@
 
 #import "UIPopoverControllerDelegate.h"
 
-@class DOMNode, UIPopoverController;
+@class DOMNode, NSString, UIPopoverController;
 
 __attribute__((visibility("hidden")))
 @interface UIWebRotatingNodePopover : NSObject <UIPopoverControllerDelegate>
@@ -32,6 +32,12 @@ __attribute__((visibility("hidden")))
 - (unsigned int)popoverArrowDirections;
 - (void)dealloc;
 - (id)initWithDOMNode:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

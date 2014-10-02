@@ -6,25 +6,25 @@
 
 #import "NSObject.h"
 
-@class NSData;
-
 @interface VKRasterMapTile : NSObject
 {
-    NSData *_bitmapData;
+    shared_ptr_edb96180 _bitmapData;
     struct VKTileKey _superTileKey;
     struct VKTileKey _finalTileKey;
     float _scale;
     struct CGImage *_image;
 }
 
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (struct CGImage *)_image;
 - (id)imageDataInFormat:(unsigned int)arg1;
 - (BOOL)writeImageToFile:(id)arg1 format:(unsigned int)arg2 error:(id *)arg3;
 - (id)tileForKey:(const struct VKRasterTileKey *)arg1;
 - (void)foreachTileOfSize:(unsigned int)arg1 perform:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)dealloc;
-- (id)initWithBitmapData:(id)arg1 tileKey:(const struct VKTileKey *)arg2 scale:(float)arg3;
-- (id)initWithBitmapData:(id)arg1 superKey:(const struct VKTileKey *)arg2 finalKey:(const struct VKTileKey *)arg3 scale:(float)arg4;
+- (id)initWithBitmapData:(shared_ptr_edb96180)arg1 tileKey:(const struct VKTileKey *)arg2 scale:(float)arg3;
+- (id)initWithBitmapData:(shared_ptr_edb96180)arg1 superKey:(const struct VKTileKey *)arg2 finalKey:(const struct VKTileKey *)arg3 scale:(float)arg4;
 @property(readonly, nonatomic) struct VKRasterTileKey tileKey;
 
 @end

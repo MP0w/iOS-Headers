@@ -8,7 +8,7 @@
 
 #import "CNFRegFirstRunExperience.h"
 
-@class IMAccount, NSTimer, UIBarButtonItem;
+@class IMAccount, NSString, NSTimer, UIBarButtonItem;
 
 @interface CNFRegFirstRunController : CNFRegListController <CNFRegFirstRunExperience>
 {
@@ -82,6 +82,12 @@
 - (id)initWithParentController:(id)arg1 account:(id)arg2;
 - (id)initWithRegController:(id)arg1 account:(id)arg2;
 - (id)initWithRegController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

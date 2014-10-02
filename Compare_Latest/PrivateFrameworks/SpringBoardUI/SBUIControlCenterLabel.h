@@ -8,14 +8,14 @@
 
 #import "SBUIControlCenterControl.h"
 
+@class NSString;
+
 @interface SBUIControlCenterLabel : UILabel <SBUIControlCenterControl>
 {
 }
 
 - (void)controlConfigurationDidChangeForState:(int)arg1;
 - (void)controlAppearanceDidChangeForState:(int)arg1;
-- (void)drawTextInRect:(struct CGRect)arg1;
-- (struct CGRect)textRectForBounds:(struct CGRect)arg1 limitedToNumberOfLines:(int)arg2;
 - (void)setAttributedText:(id)arg1;
 - (void)setText:(id)arg1;
 - (void)_updateAttributedText;
@@ -24,10 +24,15 @@
 - (void)setEnabled:(BOOL)arg1;
 - (void)setHighlighted:(BOOL)arg1;
 - (int)_currentState;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,39 +6,29 @@
 
 #import "SBApplication.h"
 
-@class UIWebClip;
+@class SBBookmarkIcon;
 
 @interface SBWebApplication : SBApplication
 {
-    UIWebClip *_webClip;
-    _Bool _isLastWebApplication;
+    SBBookmarkIcon *_bookmarkIcon;
 }
 
-+ (id)displayIdentifierForWebClipIdentifier:(id)arg1;
-+ (id)displayIdentifierForWebClip:(id)arg1;
-@property(retain) UIWebClip *webClip; // @synthesize webClip=_webClip;
-- (_Bool)iconCanEllipsizeLabel:(id)arg1;
-- (_Bool)iconAllowsUninstall:(id)arg1;
-- (id)icon:(id)arg1 imageWithFormat:(int)arg2;
-- (_Bool)windowContextHostManager:(id)arg1 shouldEnableContextHostingForRequester:(id)arg2 priority:(int)arg3;
-- (id)windowContextHostManager:(id)arg1 overrideRequester:(id)arg2;
-- (void)_removeContextHostManager:(id)arg1;
-- (void)_removeContextHostManagerWithoutLooping:(id)arg1;
-- (void)_addContextHostManager:(id)arg1;
-- (void)_addContextHostManagerWithoutLooping:(id)arg1;
-- (void)willActivateOtherWebApplication:(id)arg1;
-- (void)_setActivationState:(int)arg1;
-- (void)didExitWithInfo:(id)arg1 type:(int)arg2;
-- (void)setRunning:(_Bool)arg1;
-- (void)setProcessInfo:(id)arg1;
-- (id)_defaultImageInfoForScreen:(id)arg1 launchingOrientation:(long long)arg2;
-- (_Bool)isSnapshotPresentForLaunchingInterfaceOrientation:(long long)arg1;
-- (id)_customStartupImageForScreen:(id)arg1 launchingOrientation:(long long)arg2;
++ (id)_dataContainerURL;
++ (id)_webClipIdentifierFromWebAppIdentifier:(id)arg1;
++ (id)_webAppIdentifierFromWebClipIdentifier:(id)arg1;
++ (id)_snapshotDirectory;
+- (id)_customStartupImageForLaunchingOrientation:(long long)arg1;
+- (id)_defaultImageInfoForSceneID:(id)arg1 size:(struct CGSize)arg2 scale:(double)arg3 launchingOrientation:(long long)arg4;
+- (_Bool)_isSnapshotPresentForLaunchingInterfaceOrientation:(long long)arg1;
+- (id)_snapshotSceneContainerNameForSceneID:(id)arg1;
+- (id)_snapshotContainerName;
 - (_Bool)isWebApplication;
-- (id)activationSettings;
-- (id)_urlForLaunch;
+- (id)objectForDeactivationSetting:(unsigned int)arg1;
+- (id)objectForActivationSetting:(unsigned int)arg1;
+- (id)sandboxPath;
+- (Class)iconClass;
+@property(retain, nonatomic) SBBookmarkIcon *bookmarkIcon;
 - (void)dealloc;
-- (id)initWithBundleIdentifier:(id)arg1 webClip:(id)arg2 path:(id)arg3 bundle:(id)arg4 infoDictionary:(id)arg5 isSystemApplication:(_Bool)arg6 signerIdentity:(id)arg7 provisioningProfileValidated:(_Bool)arg8 entitlements:(id)arg9;
 
 @end
 

@@ -24,7 +24,7 @@
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
 - (void)_setTimeoutInterval:(id)arg1;
-@property(readonly, nonatomic) SSLookupProperties *_lookupProperties;
+@property(readonly, copy, nonatomic) SSLookupProperties *_lookupProperties;
 - (void)startWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (BOOL)start;
 - (id)valueForRequestParameter:(id)arg1;
@@ -36,6 +36,12 @@
 - (void)dealloc;
 - (id)initWithLocation:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

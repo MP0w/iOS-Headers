@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (BOOL)isKeyValueProxyLeafType;
++ (id)fontForStyles:(id *)arg1 count:(unsigned int)arg2;
 + (id)fontWithName:(id)arg1 compatibilityName:(id)arg2;
 + (id)fontWithName:(id)arg1;
 @property(copy, nonatomic) NSString *compatibilityName; // @synthesize compatibilityName=_compatibilityName;

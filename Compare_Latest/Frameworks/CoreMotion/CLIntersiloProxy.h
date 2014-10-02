@@ -15,7 +15,7 @@
     CLIntersiloProxy *_peer;
     CLIntersiloProxy *_asymStrongPeer;
     CLIntersiloInterfaceSelectorInfo *_last;
-    id _delegate;
+    id <CLIntersiloProxyDelegateProtocol> _delegate;
     CLSilo *_delegateSilo;
     CLIntersiloInterface *_delegateInterface;
     CLIntersiloInterface *_proxiedInterface;
@@ -23,10 +23,10 @@
 
 + (id)proxyForRecipientObject:(id)arg1 inSilo:(id)arg2 withInboundInterface:(id)arg3 andOutboundInterface:(id)arg4;
 + (id)getSilo;
-@property(readonly, nonatomic) CLIntersiloInterface *proxiedInterface; // @synthesize proxiedInterface=_proxiedInterface;
-@property(readonly, nonatomic) CLIntersiloInterface *delegateInterface; // @synthesize delegateInterface=_delegateInterface;
-@property(readonly, nonatomic) CLSilo *delegateSilo; // @synthesize delegateSilo=_delegateSilo;
-@property(readonly, nonatomic) id delegate; // @synthesize delegate=_delegate;
+@property(readonly, copy, nonatomic) CLIntersiloInterface *proxiedInterface; // @synthesize proxiedInterface=_proxiedInterface;
+@property(readonly, copy, nonatomic) CLIntersiloInterface *delegateInterface; // @synthesize delegateInterface=_delegateInterface;
+@property(readonly, nonatomic) __weak CLSilo *delegateSilo; // @synthesize delegateSilo=_delegateSilo;
+@property(readonly, nonatomic) __weak id <CLIntersiloProxyDelegateProtocol> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)registerDelegate:(id)arg1 inSilo:(id)arg2;
 - (void)forwardInvocation:(id)arg1;
@@ -35,6 +35,9 @@
 - (id)initWithDelegateInterface:(id)arg1 proxiedInterface:(id)arg2 delegateObject:(id)arg3 delegateSilo:(id)arg4 andUninitializedPeer:(id)arg5;
 - (id)initWithDelegateInterface:(id)arg1 proxiedInterface:(id)arg2 andUninitializedPeer:(id)arg3;
 - (void)heartAttack;
+
+// Remaining properties
+@property(nonatomic) BOOL valid;
 
 @end
 

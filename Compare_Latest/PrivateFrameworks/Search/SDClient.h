@@ -30,6 +30,7 @@
 - (void)saveUpdateForApplication:(id)arg1 category:(id)arg2 recordIDs:(id)arg3;
 - (void)openRecordUpdateTransactionForApplication:(id)arg1 category:(id)arg2;
 - (void)cancelQueryWithExternalID:(unsigned int)arg1;
+- (id)getImageDataForImageIdentifier:(id)arg1 domain:(unsigned int)arg2 size:(struct CGSize)arg3;
 - (id)getImageDataForResultIdentifier:(unsigned long long)arg1 domain:(unsigned int)arg2 size:(struct CGSize)arg3;
 - (void)addAndStartQuery:(id)arg1;
 - (void)removeActiveQuery:(id)arg1;

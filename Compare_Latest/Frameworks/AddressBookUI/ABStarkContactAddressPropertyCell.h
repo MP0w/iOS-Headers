@@ -10,10 +10,12 @@
 {
 }
 
-- (id)contentViewConstraints;
+- (id)variableConstraints;
+- (float)bottomBaselineConstant;
+- (float)topBaselineConstant;
 - (void)updateTransportButtons;
 - (void)transportButtonClicked:(id)arg1;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)standardTransportIcon;
 
 @end
 

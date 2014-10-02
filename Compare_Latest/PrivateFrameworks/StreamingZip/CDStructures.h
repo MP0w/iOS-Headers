@@ -89,6 +89,10 @@ typedef struct {
 } CDStruct_6238c8e0;
 
 typedef struct {
+    unsigned long long _field1;
+} CDStruct_69d7cc99;
+
+typedef struct {
     unsigned short _field1;
 } CDStruct_f6a177db;
 
@@ -105,6 +109,22 @@ typedef struct {
         struct CC_SHA512state_st sha512;
     } context;
 } CDStruct_3b890e00;
+
+typedef struct {
+    unsigned char _field1[4];
+    union {
+        struct {
+            CDStruct_6238c8e0 _field1;
+            CDStruct_69d7cc99 _field2;
+            CDStruct_69d7cc99 _field3;
+        } _field1;
+        struct {
+            CDStruct_6238c8e0 _field1;
+            CDStruct_6238c8e0 _field2;
+            CDStruct_6238c8e0 _field3;
+        } _field2;
+    } _field2;
+} CDStruct_1e765437;
 
 typedef struct {
     unsigned char _field1[4];

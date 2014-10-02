@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class IMAVChat, IMHandle, NSArray, NSDictionary, NSMutableArray, NSString, NSTimer;
+@class IMAVChat, IMHandle, NSArray, NSData, NSDictionary, NSMutableArray, NSString, NSTimer;
 
 @interface IMAVChatParticipant : NSObject
 {
@@ -34,6 +34,9 @@
     NSTimer *_connectTimeoutTimer;
     unsigned int _screenOrientation;
     NSMutableArray *_participantsCallInfo;
+    float _volumeMeter;
+    NSData *_inFrequencyLevel;
+    NSData *_outFrequencyLevel;
     struct CGSize _remotePortraitOrientation;
     struct CGSize _remoteLandscapeOrientation;
     struct CGSize _remotePIPPortraitOrientation;
@@ -42,6 +45,9 @@
     struct CGRect _remoteLandscapeContentRect;
 }
 
+@property(retain, nonatomic) NSData *outFrequencyLevel; // @synthesize outFrequencyLevel=_outFrequencyLevel;
+@property(retain, nonatomic) NSData *inFrequencyLevel; // @synthesize inFrequencyLevel=_inFrequencyLevel;
+@property(nonatomic) float volumeMeter; // @synthesize volumeMeter=_volumeMeter;
 @property(nonatomic) BOOL hasReinitiateCapability; // @synthesize hasReinitiateCapability=_hasReinitiateCapability;
 @property(retain, nonatomic) NSMutableArray *_participantsCallInfo; // @synthesize _participantsCallInfo;
 @property(nonatomic, setter=_setScreenOrientation:) unsigned int _screenOrientation; // @synthesize _screenOrientation;
@@ -61,8 +67,8 @@
 @property(readonly, nonatomic) BOOL isInitiator; // @synthesize isInitiator=_isInitiator;
 - (void)setAVChat:(id)arg1;
 @property(nonatomic) IMAVChat *avChat; // @synthesize avChat=_avChat;
-@property(readonly, nonatomic) IMHandle *invitedBy; // @synthesize invitedBy=_inviter;
-@property(readonly, nonatomic) IMHandle *imHandle; // @synthesize imHandle=_imHandle;
+@property(readonly, retain, nonatomic) IMHandle *invitedBy; // @synthesize invitedBy=_inviter;
+@property(readonly, retain, nonatomic) IMHandle *imHandle; // @synthesize imHandle=_imHandle;
 @property(setter=_setCameraOrientation:) unsigned int cameraOrientation; // @synthesize cameraOrientation=_cameraOrientation;
 @property(setter=_setCameraType:) unsigned int cameraType; // @synthesize cameraType=_cameraType;
 @property(retain, setter=setVCPartyID:) NSString *vcPartyID; // @synthesize vcPartyID=_vcPartyID;
@@ -83,7 +89,7 @@
 - (void)_processPropertyUpdate:(id)arg1;
 - (void)_setState:(unsigned int)arg1 withReason:(unsigned int)arg2 andError:(int)arg3;
 - (void)setStateToEndedWithReason:(unsigned int)arg1 andError:(int)arg2;
-- (void)receivedNoPacketsForCallID:(int)arg1 time:(double)arg2;
+- (void)reinitializeCallForCallID:(unsigned long)arg1;
 - (void)_hangupCallLaterIfReinitiateFails:(id)arg1;
 - (void)_cleanupOrphanedCallInfos;
 - (void)_noteInviteDelivered:(BOOL)arg1;
@@ -97,7 +103,7 @@
 - (id)_callInfoWithState:(int)arg1;
 - (void)requestIconIfNecessary;
 @property(readonly, nonatomic) BOOL isLocalParticipant;
-@property(readonly, nonatomic) NSString *name;
+@property(readonly, retain, nonatomic) NSString *name;
 - (void)dealloc;
 - (id)description;
 - (void)disconnectFromAVChat;

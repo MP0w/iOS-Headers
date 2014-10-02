@@ -13,33 +13,28 @@
 @interface GEOPlaceSearchResponse : PBCodable <NSCopying>
 {
     double _turnaroundTime;
-    int _localSearchProviderID;
     GEOMapRegion *_mapRegion;
+    NSMutableArray *_namedFeatures;
     NSMutableArray *_placeResults;
-    NSMutableArray *_searchs;
     int _status;
     int _statusCodeInfo;
     NSMutableArray *_suggestionEntryLists;
     NSData *_suggestionMetadata;
-    BOOL _abTestResponse;
     struct {
         unsigned int turnaroundTime:1;
-        unsigned int localSearchProviderID:1;
         unsigned int statusCodeInfo:1;
-        unsigned int abTestResponse:1;
     } _has;
 }
 
 @property(nonatomic) double turnaroundTime; // @synthesize turnaroundTime=_turnaroundTime;
 @property(nonatomic) int statusCodeInfo; // @synthesize statusCodeInfo=_statusCodeInfo;
+@property(retain, nonatomic) NSMutableArray *namedFeatures; // @synthesize namedFeatures=_namedFeatures;
 @property(retain, nonatomic) NSData *suggestionMetadata; // @synthesize suggestionMetadata=_suggestionMetadata;
 @property(retain, nonatomic) NSMutableArray *suggestionEntryLists; // @synthesize suggestionEntryLists=_suggestionEntryLists;
-@property(nonatomic) BOOL abTestResponse; // @synthesize abTestResponse=_abTestResponse;
-@property(nonatomic) int localSearchProviderID; // @synthesize localSearchProviderID=_localSearchProviderID;
-@property(retain, nonatomic) NSMutableArray *searchs; // @synthesize searchs=_searchs;
 @property(retain, nonatomic) GEOMapRegion *mapRegion; // @synthesize mapRegion=_mapRegion;
 @property(retain, nonatomic) NSMutableArray *placeResults; // @synthesize placeResults=_placeResults;
 @property(nonatomic) int status; // @synthesize status=_status;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -50,23 +45,22 @@
 - (id)description;
 @property(nonatomic) BOOL hasTurnaroundTime;
 @property(nonatomic) BOOL hasStatusCodeInfo;
+- (id)namedFeaturesAtIndex:(unsigned int)arg1;
+- (unsigned int)namedFeaturesCount;
+- (void)addNamedFeatures:(id)arg1;
+- (void)clearNamedFeatures;
 @property(readonly, nonatomic) BOOL hasSuggestionMetadata;
 - (id)suggestionEntryListsAtIndex:(unsigned int)arg1;
 - (unsigned int)suggestionEntryListsCount;
 - (void)addSuggestionEntryLists:(id)arg1;
 - (void)clearSuggestionEntryLists;
-@property(nonatomic) BOOL hasAbTestResponse;
-@property(nonatomic) BOOL hasLocalSearchProviderID;
-- (id)searchAtIndex:(unsigned int)arg1;
-- (unsigned int)searchsCount;
-- (void)addSearch:(id)arg1;
-- (void)clearSearchs;
 @property(readonly, nonatomic) BOOL hasMapRegion;
 - (id)placeResultAtIndex:(unsigned int)arg1;
 - (unsigned int)placeResultsCount;
 - (void)addPlaceResult:(id)arg1;
 - (void)clearPlaceResults;
 - (void)dealloc;
+- (void)_geoMapItemsWithTraits:(id)arg1 handler:(CDUnknownBlockType)arg2;
 
 @end
 

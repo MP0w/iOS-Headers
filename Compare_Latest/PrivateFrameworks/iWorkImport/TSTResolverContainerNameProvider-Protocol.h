@@ -16,5 +16,8 @@
 - (id <TSCEResolverContainer>)resolverContainerForName:(NSString *)arg1 caseSensitive:(BOOL)arg2;
 - (NSString *)nameForResolverContainer:(id <TSCEResolverContainer>)arg1;
 - (NSString *)resolverContainerNameForResolver:(id <TSCEReferenceResolving>)arg1;
+
+@optional
+- (BOOL)isPendingTableNameUniquification;
 @end
 

@@ -31,6 +31,9 @@ __attribute__((visibility("hidden")))
     TSKCommandHistory *_historyOverride;
     NSMutableArray *_historyOverrides;
     TSKCommandSelectionBehaviorHistory *_selectionBehaviorHistoryOverride;
+    unsigned int _localEditingCount;
+    unsigned int _localEditingMinUndoCount;
+    BOOL _localEditingCanRedo;
     BOOL _processingChanges;
     unsigned int _enableUndoRedoCount;
 }
@@ -47,6 +50,8 @@ __attribute__((visibility("hidden")))
 - (void)p_postAsyncPhaseChanges:(id)arg1;
 - (void)p_postSyncPhaseChanges:(id)arg1;
 - (void)p_postChanges:(id)arg1 forSyncPhase:(BOOL)arg2;
+- (void)endLocalEditing;
+- (void)beginLocalEditing;
 - (void)endFieldEditing;
 - (BOOL)isInsideModalEditingSession;
 - (void)beginFieldEditing;

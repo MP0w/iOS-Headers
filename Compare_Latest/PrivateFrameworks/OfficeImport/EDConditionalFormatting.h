@@ -13,14 +13,15 @@ __attribute__((visibility("hidden")))
 {
     NSMutableArray *mRules;
     EDReferenceCollection *mRanges;
+    _Bool mApplyToDate;
 }
 
 + (id)conditionalFormatting;
+- (_Bool)isApplyToDate;
 - (void)addRange:(id)arg1;
 - (id)rangeAtIndex:(unsigned int)arg1;
 - (unsigned int)rangeCount;
-- (void)sortRulesByPriority;
-- (void)insertRule:(id)arg1 atIndex:(unsigned int)arg2;
+- (id)rules;
 - (void)addRule:(id)arg1;
 - (id)ruleAtIndex:(unsigned int)arg1;
 - (unsigned int)ruleCount;

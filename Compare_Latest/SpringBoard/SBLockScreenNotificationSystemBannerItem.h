@@ -11,7 +11,7 @@
 }
 
 - (id)_systemListItem;
-- (id)unlockActionContext;
+- (id)lockScreenActionContext;
 - (id)iconImage;
 - (id)message;
 - (id)title;

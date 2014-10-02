@@ -13,17 +13,22 @@
     NSRecursiveLock *_chatsLock;
     NSMutableDictionary *_chats;
     BOOL _isLoading;
+    BOOL _doneLoadingAfterMerge;
 }
 
 + (id)sharedInstance;
+- (void)systemDidLeaveFirstDataProtectionLock;
 - (BOOL)updateProperties:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3;
 - (BOOL)saveChats;
 - (BOOL)_saveChats;
 - (BOOL)loadChatsWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (void)_forceReloadChats:(BOOL)arg1;
 - (id)_chatInfoForSaving;
 - (id)_chatInfo;
 - (void)removeMessage:(id)arg1 fromChat:(id)arg2;
 - (void)addMessage:(id)arg1 toChat:(id)arg2;
+- (void)removeItem:(id)arg1 fromChat:(id)arg2;
+- (void)addItem:(id)arg1 toChat:(id)arg2;
 - (void)removeChat:(id)arg1;
 - (void)addChat:(id)arg1;
 - (void)updateStateForChat:(id)arg1 forcePost:(BOOL)arg2;
@@ -34,13 +39,14 @@
 - (void)updateLastMessageForChat:(id)arg1 hintMessage:(id)arg2;
 - (id)allExistingChatsWithIdentifier:(id)arg1 style:(unsigned char)arg2;
 - (id)existingChatForRoom:(id)arg1 account:(id)arg2;
+- (id)existingChatForIDs:(id)arg1 account:(id)arg2 displayName:(id)arg3 groupID:(id)arg4 style:(unsigned char)arg5;
 - (id)existingChatForIDs:(id)arg1 account:(id)arg2 style:(unsigned char)arg3;
 - (id)existingChatsForIDs:(id)arg1 onService:(id)arg2 style:(unsigned char)arg3;
 - (id)existingChatForID:(id)arg1 account:(id)arg2;
 - (id)existingChatWithIdentifier:(id)arg1 account:(id)arg2;
 - (id)existingChatWithGUID:(id)arg1;
 - (id)chatForRoom:(id)arg1 account:(id)arg2 chatIdentifier:(id)arg3 guid:(id)arg4;
-- (id)chatForHandles:(id)arg1 account:(id)arg2 chatIdentifier:(id)arg3 style:(unsigned char)arg4 guid:(id)arg5;
+- (id)chatForHandles:(id)arg1 account:(id)arg2 chatIdentifier:(id)arg3 style:(unsigned char)arg4 groupID:(id)arg5 displayName:(id)arg6 guid:(id)arg7;
 - (id)chatForHandle:(id)arg1 account:(id)arg2 chatIdentifier:(id)arg3 guid:(id)arg4;
 @property(readonly, nonatomic) NSArray *chats;
 - (void)dealloc;

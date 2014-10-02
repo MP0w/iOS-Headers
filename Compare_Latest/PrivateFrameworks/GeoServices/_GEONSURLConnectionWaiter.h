@@ -8,7 +8,7 @@
 
 #import "NSURLConnectionDelegate.h"
 
-@class NSMutableData, NSURLConnection, NSURLResponse;
+@class NSMutableData, NSString, NSURLConnection, NSURLResponse;
 
 __attribute__((visibility("hidden")))
 @interface _GEONSURLConnectionWaiter : NSObject <NSURLConnectionDelegate>
@@ -26,6 +26,12 @@ __attribute__((visibility("hidden")))
 - (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

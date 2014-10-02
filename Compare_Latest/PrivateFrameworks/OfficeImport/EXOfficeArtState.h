@@ -6,12 +6,12 @@
 
 #import <OfficeImport/OAXDrawingState.h>
 
-@class EXState;
+@class EXReadState;
 
 __attribute__((visibility("hidden")))
 @interface EXOfficeArtState : OAXDrawingState
 {
-    EXState *mExcelState;
+    EXReadState *mExcelState;
 }
 
 - (id)excelState;

@@ -8,7 +8,7 @@
 
 #import "UIStatusBarTinting.h"
 
-@class NSMutableArray, UIColor, UIImageView;
+@class NSMutableArray, NSString, UIColor, UIImageView;
 
 @interface UISnapshotView : UIView <UIStatusBarTinting>
 {
@@ -53,6 +53,12 @@
 @property(nonatomic, getter=isEdgeAntialiasingEnabled) BOOL edgeAntialiasingEnabled;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

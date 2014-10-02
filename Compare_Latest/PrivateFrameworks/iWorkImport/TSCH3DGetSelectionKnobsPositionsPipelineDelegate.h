@@ -11,7 +11,7 @@
 #import "TSCH3DSceneDelegate.h"
 #import "TSCHUnretainedParent.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary, TSCH3DChartRep, TSCH3DGeometry, TSCH3DScene;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSString, TSCH3DChartRep, TSCH3DGeometry, TSCH3DScene;
 
 __attribute__((visibility("hidden")))
 @interface TSCH3DGetSelectionKnobsPositionsPipelineDelegate : NSObject <TSCHUnretainedParent, TSCH3DSceneDelegate, TSCH3DChartAllSceneObjectDelegate, TSCH3DChartElementSceneObjectGeometryDelegate>
@@ -61,6 +61,12 @@ __attribute__((visibility("hidden")))
 - (void)clearParent;
 - (void)dealloc;
 - (id)initWithRep:(id)arg1 selection:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

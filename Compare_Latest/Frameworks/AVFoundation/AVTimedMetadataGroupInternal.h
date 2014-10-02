@@ -12,6 +12,7 @@
 {
     NSArray *items;
     CDStruct_e83c9415 timeRange;
+    struct opaqueCMSampleBuffer *backingSBuf;
 }
 
 @end

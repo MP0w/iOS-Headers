@@ -9,44 +9,54 @@
 #import "VKMapLayer.h"
 #import "VKMercatorTerrainHeightProvider.h"
 
-@class VGLRenderState, VKAnimation, VKBuildingDrawStyle, VKMercatorTerrainHeightCache, VKSkyModel;
+@class NSString, VK3DObjectSubMapModel, VKAnimation, VKMercatorTerrainHeightCache, VKSkyModel;
 
 __attribute__((visibility("hidden")))
 @interface VKBuildingFootprintMapModel : VKVectorMapModel <VKMercatorTerrainHeightProvider, VKMapLayer>
 {
-    struct _VGLColor _topColor;
-    struct _VGLColor _facadeColor;
-    struct _VGLColor _landmarkColor;
-    struct _VGLColor _flatColor;
-    struct _VGLColor _pointyFacadeColor;
-    struct _VGLColor _pointyTopColor;
     float _brightness;
     int _vectorType;
     int _buildingMode;
     VKAnimation *_styleChangeAnimation;
     VKAnimation *_fadeBuildingAnimation;
-    float _buildingOccluderAlpha;
     BOOL _fadeTiles;
     VKSkyModel *_skyModel;
-    struct _VGLColor _footprintStrokeColor;
-    float _footprintStrokeWidth;
-    struct _VGLColor _3DStrokeColor;
-    float _3DStrokeWidth;
-    double _nearDistance;
-    double _farDistance;
-    struct unordered_map<VKVectorTile *, OccluderGroupList, std::__1::hash<VKVectorTile *>, std::__1::equal_to<VKVectorTile *>, vk_allocator<std::__1::pair<VKVectorTile *const, OccluderGroupList>>> _currentOccluders;
-    struct unordered_map<VKVectorTile *, OccluderGroupList, std::__1::hash<VKVectorTile *>, std::__1::equal_to<VKVectorTile *>, vk_allocator<std::__1::pair<VKVectorTile *const, OccluderGroupList>>> _previousOccluders;
-    VGLRenderState *_renderState;
+    struct unordered_map<VKVectorTile *, OccluderGroupList, std::__1::hash<VKVectorTile *>, std::__1::equal_to<VKVectorTile *>, std::__1::allocator<std::__1::pair<VKVectorTile *const, OccluderGroupList>>> _currentOccluders;
+    struct unordered_map<VKVectorTile *, OccluderGroupList, std::__1::hash<VKVectorTile *>, std::__1::equal_to<VKVectorTile *>, std::__1::allocator<std::__1::pair<VKVectorTile *const, OccluderGroupList>>> _previousOccluders;
+    struct RenderItemBatcher _batcher;
     float _minLayeringHeight;
     float _maxLayeringHeight;
     _Bool _shouldDraw3DBuildingsInVectorBuildingsRenderPass;
     _Bool _shouldDraw3DBuildingsIn3DBuildingsRenderPass;
     BOOL _initializedStyles;
-    VKBuildingDrawStyle *_globalBuildingDrawStyle;
-    VKBuildingDrawStyle *_globalPointyBuildingDrawStyle;
+    id <VKBuildingFootprintMapModelDelegate> _delegate;
+    int _stencilRef;
+    VK3DObjectSubMapModel *_landmarksModel;
+    struct unique_ptr<ggl::FragmentedPool<ggl::BuildingFlatStroke::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingFlatStroke::Shader::Setup>>> _strokeShaderSetupPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::BuildingFlat::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingFlat::Shader::Setup>>> _fillShaderSetupPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::BuildingTop::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingTop::Shader::Setup>>> _topShaderSetupPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::PrefilteredLine::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::PrefilteredLine::Shader::Setup>>> _stroke3DShaderSetupPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::Building::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::Building::Shader::Setup>>> _buildingShaderSetupPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::BuildingPointyRoof::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingPointyRoof::Shader::Setup>>> _pointyRoofShaderSetupPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::BuildingShadow::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingShadow::Shader::Setup>>> _shadowShaderSetupPool;
+    struct shared_ptr<ggl::RenderState> _strokeRenderState;
+    struct shared_ptr<ggl::RenderState> _fillRenderState;
+    struct shared_ptr<ggl::RenderState> _fillRenderStateWithBlending;
+    struct shared_ptr<ggl::RenderState> _threeDRenderStateWithoutBlending;
+    struct shared_ptr<ggl::RenderState> _threeDRenderStateWithBlending;
+    struct shared_ptr<ggl::RenderState> _threeDStrokeRenderState;
+    struct shared_ptr<ggl::RenderState> _shadowsRenderState;
+    struct unique_ptr<ggl::FragmentedPool<ggl::RenderItem>, std::__1::default_delete<ggl::FragmentedPool<ggl::RenderItem>>> _stroke3DRenderItemPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::RenderItem>, std::__1::default_delete<ggl::FragmentedPool<ggl::RenderItem>>> _buildingRenderItemPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::RenderItem>, std::__1::default_delete<ggl::FragmentedPool<ggl::RenderItem>>> _shadowRenderItemPool;
+    BOOL _supportsStrokes;
+    BOOL _supports3DStrokes;
+    BOOL _supportsBuildingShadows;
     VKMercatorTerrainHeightCache *_heightCache;
 }
 
+@property(retain, nonatomic) VK3DObjectSubMapModel *landmarksModel; // @synthesize landmarksModel=_landmarksModel;
+@property(nonatomic) id <VKBuildingFootprintMapModelDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) VKSkyModel *skyModel; // @synthesize skyModel=_skyModel;
 @property(nonatomic) int buildingMode; // @synthesize buildingMode=_buildingMode;
 @property(readonly, nonatomic) VKMercatorTerrainHeightCache *heightCache; // @synthesize heightCache=_heightCache;
@@ -55,18 +65,21 @@ __attribute__((visibility("hidden")))
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)setBuildingMode:(int)arg1 animated:(BOOL)arg2;
-- (void)drawDebugScene:(id)arg1 withContext:(id)arg2;
-- (void)drawScene:(id)arg1 withContext:(id)arg2 pass:(unsigned int)arg3;
-- (void)draw3DBuildingStrokesInScene:(id)arg1 withContext:(id)arg2;
-- (void)drawFootprintsInScene:(id)arg1 withContext:(id)arg2;
-- (void)draw3DBuildingShadowsInScene:(id)arg1 withContext:(id)arg2;
-- (void)draw3DBuildingsInScene:(id)arg1 withContext:(id)arg2 passes:(unsigned int)arg3;
-- (void)draw2DBuildingsInScene:(id)arg1 withContext:(id)arg2;
-- (void)layoutScene:(id)arg1 withContext:(id)arg2;
+- (void)generateRenderItemsForBuildingShadowsInScene:(id)arg1 withContext:(id)arg2 commandBuffer:(struct CommandBuffer *)arg3;
+- (void)generate3DBuildingRenderItemsForScene:(id)arg1 withContext:(id)arg2 commandBuffer:(struct CommandBuffer *)arg3;
+- (void)generate3DBuildingRenderItemsIfNecessaryForScene:(id)arg1 withContext:(id)arg2 commandBuffer:(struct CommandBuffer *)arg3;
+- (void)generate2DBuildingRenderItemsForScene:(id)arg1 withContext:(id)arg2 commandBuffer:(struct CommandBuffer *)arg3;
+- (void)generate2DBuildingRenderItemsIfNecessaryForScene:(id)arg1 withContext:(id)arg2 commandBuffer:(struct CommandBuffer *)arg3;
+- (void)_updateBuildingModeForContext:(id)arg1;
+- (void)gglLayoutScene:(id)arg1 withContext:(id)arg2 renderQueue:(struct RenderQueue *)arg3;
+- (void)resetPools;
+- (void)flushPools;
+- (void)didReceiveMemoryWarning;
 - (void)reset;
 - (BOOL)wantsCategorizedSourceTiles;
 - (double)heightAtPoint:(struct VKPoint)arg1;
 - (void)removePersistingExitingTiles:(id)arg1;
+- (void)animateTiles:(id)arg1 fromAlpha:(float)arg2 toAlpha:(float)arg3 fromScale:(float)arg4 toScale:(float)arg5;
 - (void)willStopDrawingTiles:(id)arg1;
 - (void)willStartDrawingTiles:(id)arg1;
 - (double)maxTileHeightAtPoint:(struct VKPoint)arg1;
@@ -76,9 +89,14 @@ __attribute__((visibility("hidden")))
 - (void)setActive:(BOOL)arg1;
 - (void)dealloc;
 - (id)init;
-- (unsigned int)supportedRenderPasses;
-- (unsigned int)mapLayerPosition;
+- (unsigned long long)mapLayerPosition;
 - (void)_clearOccluders;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

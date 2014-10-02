@@ -8,7 +8,7 @@
 
 #import "XPCClientConnectionDelegate.h"
 
-@class XPCClientConnection;
+@class NSString, XPCClientConnection;
 
 @interface XPCNSClientConnection : NSObject <XPCClientConnectionDelegate>
 {
@@ -23,6 +23,12 @@
 - (void)sendMessageReliably:(id)arg1 data:(id)arg2 maxRetryCount:(int)arg3 withHandler:(CDUnknownBlockType)arg4;
 - (void)sendMessage:(id)arg1 data:(id)arg2 withHandler:(CDUnknownBlockType)arg3;
 - (id)initWithServiceName:(id)arg1 delegate:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

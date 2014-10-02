@@ -8,15 +8,24 @@
 
 #import "_UIViewServiceDeputyXPCInterface.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface _UIViewControllerControlMessageDeputyXPCInterface : NSObject <_UIViewServiceDeputyXPCInterface>
 {
 }
 
+- (id)connectionInvocation;
 - (SEL)connectionSelector;
 - (id)connectionProtocol;
 - (id)hostObjectInterface;
 - (id)exportedInterface;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

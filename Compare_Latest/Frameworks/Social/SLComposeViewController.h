@@ -6,32 +6,47 @@
 
 #import "UIViewController.h"
 
-#import "SLSheetViewHostProtocol.h"
+#import "SLRemoteComposeViewControllerDelegateProtocol.h"
 
-@class NSLayoutConstraint, NSMutableDictionary, NSString, SLRemoteComposeViewController, SLService, UIView;
+@class NSArray, NSExtension, NSLayoutConstraint, NSString, UIView;
 
-@interface SLComposeViewController : UIViewController <SLSheetViewHostProtocol>
+@interface SLComposeViewController : UIViewController <SLRemoteComposeViewControllerDelegateProtocol>
 {
+    NSExtension *_extension;
+    NSString *_initialText;
+    NSArray *_itemProviders;
+    NSArray *_extensionItems;
     NSLayoutConstraint *_keyboardTopConstraint;
     UIView *_keyboardTrackingView;
     int _savedStatusBarStyle;
-    NSMutableDictionary *_delayedActions;
     BOOL _wasPresented;
     CDUnknownBlockType _completionHandler;
     BOOL _didFailLoadingRemoteViewController;
-    SLService *_service;
+    BOOL _didCompleteSheet;
+    int _maximumImageCount;
+    int _maximumURLCount;
+    int _maximumVideoCount;
     int _numVideosAdded;
     int _numImagesAdded;
     int _numURLsAdded;
     NSString *_serviceType;
-    SLRemoteComposeViewController *_remoteViewController;
+    UIViewController *_remoteViewController;
 }
 
-+ (BOOL)canShareItems:(id)arg1 forServiceType:(id)arg2;
++ (id)composeViewControllerForExtensionIdentifier:(id)arg1;
 + (id)composeViewControllerForServiceType:(id)arg1;
-+ (BOOL)configurationSupportsShareSheetOfType:(id)arg1;
++ (id)composeViewControllerForExtension:(id)arg1;
++ (BOOL)isAvailableForExtensionIdentifier:(id)arg1;
 + (BOOL)isAvailableForServiceType:(id)arg1;
-@property(retain) SLRemoteComposeViewController *remoteViewController; // @synthesize remoteViewController=_remoteViewController;
++ (BOOL)isAvailableForExtension:(id)arg1;
++ (BOOL)_isAvailableForService:(id)arg1;
++ (id)_shareExtensionWithIdentifier:(id)arg1;
++ (id)extensionIdentifierForActivityType:(id)arg1;
++ (BOOL)_isServiceType:(id)arg1;
++ (id)_serviceTypeForExtensionIdentifier:(id)arg1;
++ (id)_extensionIdentifierForServiceType:(id)arg1;
++ (id)_serviceTypeToExtensionIdentifierMap;
+@property(retain) UIViewController *remoteViewController; // @synthesize remoteViewController=_remoteViewController;
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(readonly, nonatomic) NSString *serviceType; // @synthesize serviceType=_serviceType;
 - (void).cxx_destruct;
@@ -43,43 +58,39 @@
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (BOOL)_useCustomDimmingView;
+- (void)remoteViewController:(id)arg1 didTerminateWithError:(id)arg2;
 - (void)remoteController:(id)arg1 didLoadWithError:(id)arg2;
 - (void)_handleRemoteViewFailure;
 - (void)remoteViewControllerLoadDidTimeout;
 - (void)didLoadSheetViewController;
-- (void)loadServiceViewControllerWithClassName:(id)arg1 fromServiceBundleWithIdentifier:(id)arg2;
-- (void)shouldShowNetworkActivityIndicator:(id)arg1;
-- (void)sheetDidSendWithSucess:(id)arg1 error:(id)arg2;
-- (void)sheetFailedWithError:(id)arg1;
 - (void)userDidPost;
 - (void)userDidCancel;
 - (void)completeWithResult:(int)arg1;
-- (id)_delayedActions;
-- (void)_performActionsForEvent:(id)arg1;
 - (void)setLongitude:(double)arg1 latitude:(double)arg2 name:(id)arg3;
-- (void)_addDelayedAction:(CDUnknownBlockType)arg1 forEvent:(id)arg2;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (BOOL)addURL:(id)arg1 withPreviewImage:(id)arg2;
 - (CDUnknownBlockType)addDownSampledImageDataByProxyWithPreviewImage:(id)arg1;
 - (BOOL)addAttachment:(id)arg1;
+- (BOOL)addExtensionItem:(id)arg1;
+- (BOOL)addItemProvider:(id)arg1;
 - (BOOL)removeAllURLs;
+- (BOOL)_addURL:(id)arg1 type:(int)arg2 preview:(id)arg3;
+- (BOOL)addURL:(id)arg1 withPreviewImage:(id)arg2;
 - (BOOL)addURL:(id)arg1;
+- (BOOL)_addVideoData:(id)arg1 preview:(id)arg2;
+- (BOOL)_addVideoAsset:(id)arg1 preview:(id)arg2;
 - (BOOL)removeAllImages;
+- (BOOL)_addImageJPEGData:(id)arg1 preview:(id)arg2;
 - (BOOL)addImage:(id)arg1;
+- (BOOL)_addImageAsset:(id)arg1 preview:(id)arg2;
 - (BOOL)addImageAsset:(id)arg1;
 - (id)_urlForUntypedAsset:(id)arg1;
 - (BOOL)supportsVideoAsset:(id)arg1;
 - (BOOL)supportsImageAsset:(id)arg1;
-- (void)_resetAttachmentCountForType:(int)arg1;
-- (void)_incrementAttachmentCountForType:(int)arg1;
-- (BOOL)_canAddAttachment:(id)arg1;
-- (int)_countForAttachmentType:(int)arg1;
-- (int)_limitForAttachmentType:(int)arg1;
 - (BOOL)setInitialText:(id)arg1;
 - (BOOL)canAddContent;
 - (void)dealloc;
-- (id)initWithServiceViewControllerClassName:(id)arg1 hostingBundleIdentifer:(id)arg2;
+- (id)initWithExtensionIdentifier:(id)arg1;
 - (id)initWithServiceType:(id)arg1;
+- (id)initWithExtension:(id)arg1 requestedServiceType:(id)arg2;
 
 @end
 

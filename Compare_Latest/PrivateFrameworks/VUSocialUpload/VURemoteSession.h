@@ -17,7 +17,7 @@
 + (void)decrementPowerAssertion;
 + (void)incrementPowerAssertion;
 @property(retain, nonatomic) ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

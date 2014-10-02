@@ -8,7 +8,7 @@
 
 #import "UIAlertViewDelegate.h"
 
-@class SKStarRatingAlertView;
+@class NSString, SKStarRatingAlertView;
 
 @interface SKStarRatingAlertViewDelegate : NSObject <UIAlertViewDelegate>
 {
@@ -21,6 +21,12 @@
 - (void)alertView:(id)arg1 willDismissWithButtonIndex:(int)arg2;
 - (void)showAlertView:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -30,7 +30,7 @@
 @property double recordInterspeechWaitTime;
 @property double recordStartWaitTime;
 @property int recordEndpointMode;
-@property id <Endpointer> endpointerDelegate;
+@property(retain) id <Endpointer> endpointerDelegate;
 - (BOOL)setRecordBufferDuration:(double)arg1;
 - (double)getRecordBufferDuration;
 @property(readonly) NSDictionary *recordSettings;
@@ -45,6 +45,8 @@
 - (BOOL)setAlertSoundFromURL:(id)arg1 forType:(int)arg2;
 - (BOOL)prepareRecordWithSettings:(id)arg1 error:(id *)arg2;
 - (BOOL)setCurrentContext:(id)arg1 error:(id *)arg2;
+- (BOOL)willAcceptContext:(id)arg1;
+- (void)releaseAudioSession:(unsigned int)arg1;
 - (void)releaseAudioSession;
 - (void)dealloc;
 - (void)finalize;
@@ -73,10 +75,12 @@
 - (void)removeSessionNotifications;
 - (void)setSessionNotifications;
 - (struct ControllerImpl *)impl;
+@property(getter=isSynchronousCallbackEnabled) BOOL synchronousCallbackEnabled;
 @property(getter=isStopOnBargeInEnabled) BOOL stopOnBargeInEnabled;
 @property(getter=isBargeInDetectEnabled) BOOL bargeInDetectEnabled;
+@property(readonly) NSDictionary *voiceTriggerInfo;
 @property(readonly) unsigned long long lastRecordStartTime;
-@property(readonly) NSString *recordRoute;
+@property(readonly, copy) NSString *recordRoute;
 
 @end
 

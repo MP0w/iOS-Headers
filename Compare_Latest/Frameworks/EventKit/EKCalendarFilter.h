@@ -51,7 +51,8 @@ __attribute__((visibility("hidden")))
 - (void)_databaseChanged;
 - (void)dealloc;
 - (id)initWithDatabase:(struct CalDatabase *)arg1 entityType:(int)arg2 calendarUIDs:(id)arg3;
-- (id)initWithDatabase:(struct CalDatabase *)arg1 filteringCalendars:(id)arg2;
+- (id)initWithDatabase:(struct CalDatabase *)arg1 entityType:(int)arg2 filteringCalendarsWithUIDs:(id)arg3;
+- (id)initWithDatabase:(struct CalDatabase *)arg1 entityType:(int)arg2 filteringCalendars:(id)arg3;
 - (id)initWithDatabase:(struct CalDatabase *)arg1 entityType:(int)arg2 showingCalendarsWithUIDs:(id)arg3;
 - (id)initWithDatabase:(struct CalDatabase *)arg1 showingCalendarsWithUIDs:(id)arg2;
 - (id)initWithDatabase:(struct CalDatabase *)arg1 showingCalendars:(id)arg2;

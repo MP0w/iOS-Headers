@@ -6,8 +6,11 @@
 
 #import <SpringBoardFoundation/SBFAnimationCurveSettings.h>
 
+@class BSAnimationSettings;
+
 @interface SBFAnimationSettings : SBFAnimationCurveSettings
 {
+    BSAnimationSettings *_exportedSettings;
     int _animationType;
     float _mass;
     float _stiffness;
@@ -29,7 +32,10 @@
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 @property(nonatomic) double delay; // @synthesize delay=_delay;
 @property(nonatomic) int animationType; // @synthesize animationType=_animationType;
+- (id)BSAnimationSettings;
+- (void)_invalidate;
 - (void)setDefaultValues;
+- (void)dealloc;
 
 @end
 

@@ -21,6 +21,15 @@
 + (BOOL)isValidPSDResourceAtPath:(id)arg1 withLayerCount:(unsigned int *)arg2 validateLayers:(BOOL)arg3;
 + (BOOL)isValidPSDResourceAtPath:(id)arg1 withLayerCount:(unsigned int *)arg2;
 + (BOOL)isValidPSDResourceAtPath:(id)arg1;
+- (id)_layerEffectsAtAbsoluteIndex:(unsigned int)arg1;
+- (id)_bevelEmbossFromLayerEffectsInfo:(struct CPSDObjectEffectsLayerInfo *)arg1;
+- (id)_gradientOverlayFromLayerEffectsAtAbsoluteIndex:(unsigned int)arg1;
+- (id)_colorOverlayFromLayerEffectsInfo:(struct CPSDObjectEffectsLayerInfo *)arg1;
+- (id)_outerGlowFromLayerEffectsInfo:(struct CPSDObjectEffectsLayerInfo *)arg1;
+- (id)_innerGlowFromLayerEffectsInfo:(struct CPSDObjectEffectsLayerInfo *)arg1;
+- (id)_innerShadowFromLayerEffectsInfo:(struct CPSDObjectEffectsLayerInfo *)arg1;
+- (id)_dropShadowFromLayerEffectsInfo:(struct CPSDObjectEffectsLayerInfo *)arg1;
+- (id)colorFromDocumentColor:(double *)arg1;
 - (id)_gradientAtAbsoluteIndex:(unsigned int)arg1;
 - (int)cgBlendModeForPSDLayerOrLayerEffectBlendMode:(unsigned int)arg1;
 - (id)_fillSampleAtAbsoluteIndex:(unsigned int)arg1;
@@ -30,6 +39,7 @@
 - (id)_imageAtAbsoluteIndex:(unsigned int)arg1 isZeroSizeImage:(char *)arg2;
 - (struct CGImage *)_copyCGImageAtAbsoluteIndex:(unsigned int)arg1;
 - (int)_blendModeAtAbsluteIndex:(unsigned int)arg1;
+- (float)_fillOpacityAtAbsoluteIndex:(unsigned int)arg1;
 - (float)_opacityAtAbsoluteIndex:(unsigned int)arg1;
 - (BOOL)_visibilityAtAbsoluteIndex:(unsigned int)arg1;
 - (struct CGRect)_boundsAtAbsoluteIndex:(unsigned int)arg1;
@@ -56,6 +66,8 @@
 - (BOOL)visibilityAtLayer:(unsigned int)arg1;
 - (CDStruct_29e12816)metricsInMask:(id)arg1 forRect:(struct CGRect)arg2;
 - (CDStruct_29e12816)metricsInAlphaChannel:(int)arg1 forRect:(struct CGRect)arg2;
+- (int)_layerIndexFromLayerNames:(id)arg1 indexRangeBegin:(int)arg2 indexRangeEnd:(int)arg3 isTopLevel:(BOOL)arg4;
+- (int)absoluteLayerIndexFromLayerNames:(id)arg1;
 - (struct CGRect)boundsForSlice:(unsigned int)arg1;
 - (struct CGRect)boundsAtLayer:(unsigned int)arg1;
 - (id)maskFromCompositeAlphaChannel:(int)arg1;
@@ -65,6 +77,7 @@
 - (id)patternFromSlice:(unsigned int)arg1 atLayer:(unsigned int)arg2 isZeroSizeImage:(char *)arg3;
 - (id)patternFromSlice:(unsigned int)arg1 atLayer:(unsigned int)arg2;
 - (id)imageFromSlice:(unsigned int)arg1 atLayer:(unsigned int)arg2 isEmptyImage:(char *)arg3;
+- (id)imageFromSlice:(unsigned int)arg1 atAbsoluteLayer:(unsigned int)arg2;
 - (id)imageFromSlice:(unsigned int)arg1 atLayer:(unsigned int)arg2;
 - (id)imageAtLayer:(unsigned int)arg1 isZeroSizeImage:(char *)arg2;
 - (id)imageAtLayer:(unsigned int)arg1;

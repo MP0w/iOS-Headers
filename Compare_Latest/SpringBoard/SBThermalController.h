@@ -9,7 +9,7 @@
 #import "SBThermalWarningAlertItemDelegate.h"
 #import "SBThermalWarningSuppressionAssertionDelegate.h"
 
-@class NSDictionary, NSMutableSet;
+@class NSDictionary, NSMutableSet, NSString;
 
 @interface SBThermalController : NSObject <SBThermalWarningSuppressionAssertionDelegate, SBThermalWarningAlertItemDelegate>
 {
@@ -17,6 +17,7 @@
     double _samplingStartTime;
     NSDictionary *_samplingStartCPUTimesByApp;
     int _sunlightStateToken;
+    int _coldTempToken;
     int _warningAssertionToken;
     int _warningResponseToken;
     NSMutableSet *_warningSuppressionAssertions;
@@ -36,6 +37,12 @@
 - (void)startListeningForThermalEvents;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

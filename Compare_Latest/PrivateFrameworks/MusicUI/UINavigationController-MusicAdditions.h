@@ -8,7 +8,5 @@
 
 @interface UINavigationController (MusicAdditions)
 - (void)music_pushNowPlayingViewControllerAnimated:(BOOL)arg1;
-- (void)music_popToViewController:(id)arg1 animated:(BOOL)arg2;
-- (void)music_popToViewControllerBeforeViewController:(id)arg1 animated:(BOOL)arg2;
 @end
 

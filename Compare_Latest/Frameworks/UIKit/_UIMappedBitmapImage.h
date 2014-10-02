@@ -17,7 +17,9 @@ __attribute__((visibility("hidden")))
 + (BOOL)supportsSecureCoding;
 + (void)initialize;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
-- (id)_initWithOtherImage:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)_configureImage:(id)arg1;
 - (void)_preheatBitmapData;
 - (void)dealloc;
 

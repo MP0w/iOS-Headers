@@ -6,21 +6,33 @@
 
 #import "SBControlCenterSectionView.h"
 
-@class NSMutableArray;
+@class NSMutableArray, UIScrollView;
 
 @interface SBCCButtonLayoutView : SBControlCenterSectionView
 {
     NSMutableArray *_buttons;
+    UIScrollView *_scrollView;
+    _Bool _useFlexiblePadding;
     double _interButtonPadding;
+    unsigned long long _buttonStretchThreshold;
+    long long _maxButtons;
     struct UIEdgeInsets _contentEdgeInsets;
 }
 
+@property(nonatomic) _Bool useFlexiblePadding; // @synthesize useFlexiblePadding=_useFlexiblePadding;
+@property(nonatomic) long long maxButtons; // @synthesize maxButtons=_maxButtons;
+@property(nonatomic) unsigned long long buttonStretchThreshold; // @synthesize buttonStretchThreshold=_buttonStretchThreshold;
 @property(nonatomic) struct UIEdgeInsets contentEdgeInsets; // @synthesize contentEdgeInsets=_contentEdgeInsets;
 @property(nonatomic) double interButtonPadding; // @synthesize interButtonPadding=_interButtonPadding;
 - (void)layoutSubviews;
-- (id)buttons;
+- (void)_setButtons:(id)arg1;
+- (void)_didRemoveButton:(id)arg1;
+- (void)_didAddButton:(id)arg1;
+- (void)resortButtons;
+- (void)_resortButtons;
 - (void)removeButton:(id)arg1;
 - (void)addButton:(id)arg1;
+- (id)buttons;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

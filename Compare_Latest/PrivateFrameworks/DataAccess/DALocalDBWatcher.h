@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NoteContext;
+@class NSMapTable, NoteContext;
 
 @interface DALocalDBWatcher : NSObject
 {
@@ -15,16 +15,17 @@
     void *_abWatcher;
     struct CalDatabase *_calWatcher;
     NoteContext *_noteWatcher;
-    struct __CFDictionary *_concernedABPartyToBlockMap;
-    struct __CFDictionary *_concernedCalPartyToBlockMap;
-    struct __CFDictionary *_concernedNotePartyToBlockMap;
+    NSMapTable *_concernedABPartyToBlockMap;
+    NSMapTable *_concernedCalPartyToBlockMap;
+    NSMapTable *_concernedNotePartyToBlockMap;
     BOOL _watchingBookmarks;
-    struct __CFDictionary *_concernedBookmarkPartyToBlockMap;
+    NSMapTable *_concernedBookmarkPartyToBlockMap;
 }
 
 + (id)sharedDBWatcher;
-@property int lastSavedCalSequenceNumber; // @synthesize lastSavedCalSequenceNumber=_lastSavedCalSequenceNumber;
-@property int lastSavedABSequenceNumber; // @synthesize lastSavedABSequenceNumber=_lastSavedABSequenceNumber;
+@property(nonatomic) int lastSavedCalSequenceNumber; // @synthesize lastSavedCalSequenceNumber=_lastSavedCalSequenceNumber;
+@property(nonatomic) int lastSavedABSequenceNumber; // @synthesize lastSavedABSequenceNumber=_lastSavedABSequenceNumber;
+- (void).cxx_destruct;
 - (void)noteCalDBDirChanged;
 - (void)noteABDBDirChanged;
 - (void)removeConcernedNoteParty:(id)arg1;

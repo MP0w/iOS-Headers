@@ -7,13 +7,14 @@
 #import <iTunesStoreUI/SUViewController.h>
 
 #import "ISURLOperationDelegate.h"
+#import "SKUITabBarItemRootViewController.h"
 #import "SUMenuViewControllerDelegate.h"
 #import "SUPreviewOverlayContainer.h"
 #import "UIPopoverControllerDelegate.h"
 
-@class ISURLRequestPerformance, NSDictionary, NSString, SSAuthenticationContext, SSMutableURLRequestProperties, SSURLRequestProperties, SUNavigationMenuViewController, SUPageSectionGroup, SUSearchFieldController, SUSegmentedControl, SUStorePageProtocol, UIPopoverController, _UIBackdropView;
+@class ISURLRequestPerformance, NSString, SSAuthenticationContext, SSMutableURLRequestProperties, SSURLRequestProperties, SUNavigationMenuViewController, SUPageSectionGroup, SUSearchFieldController, SUSegmentedControl, SUStorePageProtocol, UIPopoverController, _UIBackdropView;
 
-@interface SUStorePageViewController : SUViewController <SUMenuViewControllerDelegate, SUPreviewOverlayContainer, UIPopoverControllerDelegate, ISURLOperationDelegate>
+@interface SUStorePageViewController : SUViewController <SKUITabBarItemRootViewController, SUMenuViewControllerDelegate, SUPreviewOverlayContainer, UIPopoverControllerDelegate, ISURLOperationDelegate>
 {
     SUViewController *_activeChildViewController;
     struct __CFSet *_allowedInterfaceOrientations;
@@ -42,8 +43,8 @@
     BOOL _lastLoadDidFail;
     CDUnknownBlockType _loadBlock;
     ISURLRequestPerformance *_performanceMetrics;
-    NSDictionary *_showcaseDictionary;
     BOOL _useWebViewFastPath;
+    BOOL _shouldAdjustContentOffsets;
 }
 
 @property(nonatomic) BOOL canMoveToOverlay; // @synthesize canMoveToOverlay=_canMoveToOverlay;
@@ -57,6 +58,8 @@
 @property(nonatomic, getter=isExternalRequest) BOOL externalRequest; // @synthesize externalRequest=_externalRequest;
 @property(nonatomic) id <SUStorePageViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) SSAuthenticationContext *authenticationContext; // @synthesize authenticationContext=_authContext;
+- (void)setShouldAdjustContentOffsets:(BOOL)arg1;
+- (BOOL)shouldAdjustContentOffsets;
 @property(readonly, nonatomic) SUViewController *activeChildViewController; // @synthesize activeChildViewController=_activeChildViewController;
 - (void)_reloadContentInsets;
 - (void)_verifyStorePageProtocol:(id)arg1;
@@ -100,7 +103,6 @@
 - (void)_applyPropertiesToViewController:(id)arg1;
 - (id)_activePageSection;
 - (id)_activeChildViewController;
-- (void)_showNativeShowcaseWithDictionary:(id)arg1;
 - (BOOL)_shouldDisplaySegmentedControlInNavigationBar:(id)arg1;
 - (void)_setSegmentedControl:(id)arg1;
 - (void)_setHeaderView:(id)arg1;
@@ -122,6 +124,8 @@
 - (void)menuViewControllerDidCancel:(id)arg1;
 - (void)menuViewController:(id)arg1 didTapButton:(id)arg2;
 - (void)menuViewController:(id)arg1 didSelectItemAtIndex:(int)arg2;
+- (void)showExternalURL:(id)arg1;
+- (void)setClientContext:(id)arg1;
 - (void)operation:(id)arg1 finishedWithOutput:(id)arg2;
 - (void)operation:(id)arg1 failedWithError:(id)arg2;
 - (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
@@ -129,6 +133,7 @@
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillLayoutSubviews;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (BOOL)viewIsReady;
@@ -187,7 +192,14 @@
 - (BOOL)decidePolicyForWebNavigationAction:(id)arg1 request:(id)arg2 decisionListener:(id)arg3;
 @property(readonly, nonatomic) BOOL canBeResolved;
 - (void)dealloc;
+- (id)initWithTabBarItem:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

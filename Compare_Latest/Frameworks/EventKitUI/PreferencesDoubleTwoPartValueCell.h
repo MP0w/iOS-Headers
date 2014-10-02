@@ -18,8 +18,8 @@
 - (void)layoutText:(id)arg1 andValue:(id)arg2;
 - (void)checkValueWidths;
 - (void)_layoutSubviewsCore;
-@property(readonly, nonatomic) TwoPartTextLabel *twoPartTextLabel2;
-@property(readonly, nonatomic) UILabel *textLabel2;
+@property(readonly, retain, nonatomic) TwoPartTextLabel *twoPartTextLabel2;
+@property(readonly, retain, nonatomic) UILabel *textLabel2;
 
 @end
 

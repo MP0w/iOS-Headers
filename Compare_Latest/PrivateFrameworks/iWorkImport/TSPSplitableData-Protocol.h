@@ -5,6 +5,6 @@
 //
 
 @protocol TSPSplitableData
-- (void)splitDataWithMaxSize:(unsigned long)arg1 subdataHandlerBlock:(void (^)(NSData *, unsigned int, char *))arg2;
+- (void)tsp_splitDataWithMaxSize:(unsigned long)arg1 subdataHandlerBlock:(void (^)(NSData *, unsigned int, char *))arg2;
 @end
 

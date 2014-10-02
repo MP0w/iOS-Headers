@@ -11,8 +11,10 @@
 }
 
 + (id)predicateForNotHidden;
++ (id)predicateForNotFirstParty;
 + (id)predicateForAccountIdentifier:(id)arg1;
 + (id)supportsPlatformPredicate:(BOOL)arg1;
++ (id)disambiguatedSQLForProperty:(id)arg1;
 + (id)databaseTable;
 
 @end

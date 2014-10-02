@@ -16,6 +16,9 @@
 - (void)courierConnection:(APSCourierConnection *)arg1 connectionManager:(PCConnectionManager *)arg2 handleEvent:(int)arg3 onInterface:(int)arg4;
 
 @optional
+- (void)courierConnection:(APSCourierConnection *)arg1 failedToFindKeepAliveProxyOnInterface:(int)arg2;
+- (void)courierConnection:(APSCourierConnection *)arg1 failedToObtainKeepAliveProxyOnInterface:(int)arg2;
+- (void)courierConnection:(APSCourierConnection *)arg1 failedToForceKeepAliveProxyOnInterface:(int)arg2;
 - (void)courierConnection:(APSCourierConnection *)arg1 connectionEstablishTimerFiredOnInterface:(int)arg2;
 - (void)courierConnection:(APSCourierConnection *)arg1 keepAliveResponseTimerFiredOnInterface:(int)arg2;
 - (void)courierConnectionHasConnected:(APSCourierConnection *)arg1 onInterface:(int)arg2;

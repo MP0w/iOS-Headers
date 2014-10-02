@@ -40,6 +40,7 @@
 - (void)iconList:(id)arg1 didAddIcon:(id)arg2;
 - (void)list:(id)arg1 didRemoveContainedNodeIdentifiers:(id)arg2;
 - (void)list:(id)arg1 didAddContainedNodeIdentifiers:(id)arg2;
+@property(readonly, copy) NSString *description;
 - (id)nodeDescriptionWithPrefix:(id)arg1;
 - (void)removeNodeObserver:(id)arg1;
 - (void)addNodeObserver:(id)arg1;
@@ -105,6 +106,11 @@
 - (Class)listModelClass;
 - (_Bool)isRootFolder;
 - (_Bool)isNewsstandFolder;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

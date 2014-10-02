@@ -9,7 +9,9 @@
 @class NSString, UIView, UIViewController;
 
 @protocol UIViewControllerTransitionCoordinatorContext <NSObject>
+- (struct CGAffineTransform)targetTransform;
 - (UIView *)containerView;
+- (UIView *)viewForKey:(NSString *)arg1;
 - (UIViewController *)viewControllerForKey:(NSString *)arg1;
 - (int)completionCurve;
 - (float)completionVelocity;

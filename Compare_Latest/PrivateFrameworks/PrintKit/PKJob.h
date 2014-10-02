@@ -11,6 +11,7 @@
 @interface PKJob : NSObject
 {
     int number;
+    int remoteJobId;
     int mediaProgress;
     int mediaSheets;
     int mediaSheetsCompleted;
@@ -39,6 +40,7 @@
 @property(nonatomic) int mediaSheetsCompleted; // @synthesize mediaSheetsCompleted;
 @property(nonatomic) int mediaSheets; // @synthesize mediaSheets;
 @property(nonatomic) int mediaProgress; // @synthesize mediaProgress;
+@property(nonatomic) int remoteJobId; // @synthesize remoteJobId;
 @property(nonatomic) int number; // @synthesize number;
 - (int)update;
 - (int)cancel;

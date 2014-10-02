@@ -9,17 +9,18 @@
 #import "SBControlCenterViewControllerDelegate.h"
 #import "SBCoordinatedPresenting.h"
 
-@class NSHashTable, NSMutableSet, NSSet, SBApplication, SBChevronView, SBControlCenterRootView, SBControlCenterViewController, SBControlCenterWindow, UIDynamicAnimator, UIImageView, UIView, _UIBackdropView, _UIDynamicValueAnimation;
+@class FBUIApplicationResignActiveAssertion, NSHashTable, NSMutableSet, NSSet, NSString, SBChevronView, SBControlCenterRootView, SBControlCenterViewController, SBWindow, UIDynamicAnimator, UIImageView, UIView, _UIBackdropView, _UIDynamicValueAnimation;
 
 @interface SBControlCenterController : UIViewController <SBControlCenterViewControllerDelegate, SBCoordinatedPresenting>
 {
-    SBControlCenterWindow *_window;
+    SBWindow *_window;
     SBControlCenterRootView *_rootView;
     SBControlCenterViewController *_viewController;
     UIImageView *_coveredContentSnapshot;
     UIView *_fullScreenGrabberContainer;
     _UIBackdropView *_fullScreenGrabberBackdrop;
     SBChevronView *_fullScreenChevron;
+    FBUIApplicationResignActiveAssertion *_resignActiveAssertion;
     NSMutableSet *_preventDismissalOnLockReasons;
     _Bool _uiLocked;
     NSHashTable *_observers;
@@ -35,7 +36,6 @@
     _Bool _presented;
     _Bool _transitioning;
     _Bool _fullyRevealed;
-    SBApplication *_coveredApplication;
     double _backgroundBrightness;
 }
 
@@ -47,7 +47,6 @@
 @property(nonatomic, getter=isFullyRevealed) _Bool fullyRevealed; // @synthesize fullyRevealed=_fullyRevealed;
 @property(nonatomic, getter=isTransitioning) _Bool transitioning; // @synthesize transitioning=_transitioning;
 @property(nonatomic, getter=isPresented) _Bool presented; // @synthesize presented=_presented;
-@property(retain, nonatomic) SBApplication *coveredApplication; // @synthesize coveredApplication=_coveredApplication;
 @property(nonatomic) _Bool inGrabberOnlyMode; // @synthesize inGrabberOnlyMode=_inGrabberOnlyMode;
 @property(nonatomic, getter=isUILocked) _Bool UILocked; // @synthesize UILocked=_uiLocked;
 - (void)controlCenterViewController:(id)arg1 backdropViewDidUpdate:(id)arg2;
@@ -71,6 +70,7 @@
 - (void)cancelTransition;
 - (void)abortAnimatedTransition;
 - (void)endTransitionWithVelocity:(struct CGPoint)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)endTransitionWithVelocity:(struct CGPoint)arg1 wasCancelled:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (double)_verticalPercentageMovedOnScreenForY:(double)arg1 stopY:(double)arg2;
 - (void)_cleanupAnimator;
 - (id)_newDynamicAnimationForShow:(_Bool)arg1 currentValue:(double)arg2 velocity:(double)arg3 unitSize:(double)arg4;
@@ -118,8 +118,12 @@
 
 // Remaining properties
 @property(readonly, nonatomic) NSSet *conflictingGestures;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) NSSet *gestures;
+@property(readonly) unsigned long long hash;
 @property(nonatomic) id <SBPresentingDelegate> presentingDelegate;
+@property(readonly) Class superclass;
 @property(readonly, nonatomic) NSSet *tapExcludedViews;
 
 @end

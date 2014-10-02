@@ -12,28 +12,26 @@ __attribute__((visibility("hidden")))
 @interface VKTile : NSObject
 {
     struct VKTileKey _key;
-    struct {
-        double x0;
-        double x1;
-        double y0;
-        double y1;
-        double z0;
-        double z1;
-    } _box;
     CDStruct_aa5aacbc _matrix;
-    CDStruct_aa5aacbc *_inverseMatrix;
+    CDStruct_aa5aacbc _inverseMatrix;
     VKTilePool *_pool;
     double _birthdate;
-    CDStruct_aca18c62 bounds;
     struct VKCameraState _cameraState;
     CDUnion_f5b85e25 _shaderMatrix;
+    CDStruct_aca18c62 bounds;
+    Matrix_08d701e4 _gmMatrix;
+    Matrix_08d701e4 _gmInverseMatrix;
+    Matrix_99e705ad _gmShaderMatrix;
+    shared_ptr_1fee3c91 _viewUniformData;
 }
 
 @property(readonly, nonatomic) double birthdate; // @synthesize birthdate=_birthdate;
 @property(readonly, nonatomic) CDUnion_f5b85e25 shaderMatrix; // @synthesize shaderMatrix=_shaderMatrix;
 @property(readonly, nonatomic) struct VKTileKey key; // @synthesize key=_key;
 - (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)updateViewDependentStateWithContext:(id)arg1;
+- (void)updateViewDependentStateIfNecessaryWithContext:(id)arg1;
 - (unsigned int)geometryCount;
 @property(readonly, nonatomic) double tileWidth;
 @property(readonly, nonatomic) const CDStruct_aa5aacbc *inverseMatrix;
@@ -44,6 +42,10 @@ __attribute__((visibility("hidden")))
 - (void)setKey:(const struct VKTileKey *)arg1;
 - (id)description;
 - (const struct VKTileKey *)keyPointer;
+- (const Matrix_99e705ad *)gmShaderMatrix;
+- (const Matrix_08d701e4 *)gmInverseMatrix;
+- (const Matrix_08d701e4 *)gmMatrix;
+@property(readonly) shared_ptr_1fee3c91 viewUniformData;
 
 @end
 

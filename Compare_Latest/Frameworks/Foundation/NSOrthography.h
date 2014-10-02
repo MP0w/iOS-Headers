@@ -24,8 +24,8 @@
 - (id)dominantLanguageForScript:(id)arg1;
 - (id)languagesForScript:(id)arg1;
 - (unsigned int)orthographyFlags;
-@property(readonly) NSDictionary *languageMap;
-@property(readonly) NSString *dominantScript;
+@property(readonly, copy) NSDictionary *languageMap;
+@property(readonly, copy) NSString *dominantScript;
 - (id)replacementObjectForPortCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

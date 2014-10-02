@@ -7,5 +7,6 @@
 @protocol DDRemoteActionPresenter
 - (void)viewControllerReadyAndIsModal:(BOOL)arg1;
 - (void)actionDidFinish;
+- (void)getIsBeingPresentedInPopover:(void (^)(BOOL))arg1;
 @end
 

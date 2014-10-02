@@ -24,10 +24,14 @@
     NSArray *_searchAccounts;
     int _contactSearchAccountChangedToken;
     BOOL _registeredForAddressBookChanges;
+    BOOL _includeUpcomingEventMembers;
     NSString *_recentsBundleIdentifier;
     NSString *_sendingAddress;
+    unsigned int _implicitGroupCreationThreshold;
 }
 
+@property(nonatomic) BOOL includeUpcomingEventMembers; // @synthesize includeUpcomingEventMembers=_includeUpcomingEventMembers;
+@property(nonatomic) unsigned int implicitGroupCreationThreshold; // @synthesize implicitGroupCreationThreshold=_implicitGroupCreationThreshold;
 @property(copy, nonatomic) NSString *sendingAddress; // @synthesize sendingAddress=_sendingAddress;
 @property(retain) NSArray *searchAccountIDs; // @synthesize searchAccountIDs=_explicitSearchAccountIDs;
 @property(copy, nonatomic) NSString *recentsBundleIdentifier; // @synthesize recentsBundleIdentifier=_recentsBundleIdentifier;
@@ -41,7 +45,7 @@
 - (void)_handleSearchQueryFinished:(id)arg1 context:(id)arg2;
 - (void)_handleCorecipientSearchResults:(id)arg1 operation:(id)arg2 taskID:(id)arg3;
 - (void)_handleSearchQueriesByAccountID:(id)arg1 operation:(id)arg2 taskID:(id)arg3;
-- (void)_handleLocalSearchResults:(id)arg1 type:(int)arg2 operation:(id)arg3 taskID:(id)arg4;
+- (void)_handleLocalSearchResults:(id)arg1 type:(unsigned int)arg2 operation:(id)arg3 taskID:(id)arg4;
 - (void)_handleRecentsSearchFrequentResults:(id)arg1 infrequentResults:(id)arg2 operation:(id)arg3 taskID:(id)arg4;
 - (void)_registerForAddressBookChanges;
 - (void)_handleAddressBookChangeNotification;

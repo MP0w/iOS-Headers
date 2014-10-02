@@ -10,7 +10,7 @@
 {
 }
 
-- (void)_commit;
+- (void)_begin;
 - (id)_setupAnimationForApp:(id)arg1;
 
 @end

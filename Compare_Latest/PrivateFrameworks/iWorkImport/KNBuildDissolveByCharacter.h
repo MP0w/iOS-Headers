@@ -6,8 +6,13 @@
 
 #import <iWorkImport/KNBuildDissolve.h>
 
+#import "KNAnimationPluginArchiving.h"
+#import "KNAnimationPluginObsoleteNames.h"
+
+@class NSString;
+
 __attribute__((visibility("hidden")))
-@interface KNBuildDissolveByCharacter : KNBuildDissolve
+@interface KNBuildDissolveByCharacter : KNBuildDissolve <KNAnimationPluginArchiving, KNAnimationPluginObsoleteNames>
 {
 }
 
@@ -15,8 +20,15 @@ __attribute__((visibility("hidden")))
 + (void)upgradeAttributes:(id *)arg1 animationName:(id)arg2 warning:(id *)arg3 type:(int)arg4 isFromClassic:(BOOL)arg5 version:(unsigned long long)arg6;
 + (id)customAttributes;
 + (id)defaultAttributes;
++ (id)obsoleteAnimationNames;
 + (id)animationFilter;
 + (id)animationName;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

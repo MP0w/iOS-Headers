@@ -30,17 +30,17 @@ struct CallbackData {
     id _field2;
     id _field3;
     struct OpaqueJSValue *_field4;
-    id _field5;
+    struct OpaqueJSValue *_field5;
     unsigned int _field6;
     struct OpaqueJSValue **_field7;
     id _field8;
 };
 
-struct HashMap<WTF::RefPtr<WTF::StringImpl>, WTF::OwnPtr<StaticFunctionEntry>, WTF::StringHash, WTF::HashTraits<WTF::RefPtr<WTF::StringImpl>>, WTF::HashTraits<WTF::OwnPtr<StaticFunctionEntry>>>;
+struct HashMap<id, JSC::Weak<JSC::JSObject>, WTF::PtrHash<id>, WTF::HashTraits<id>, WTF::HashTraits<JSC::Weak<JSC::JSObject>>> {
+    struct HashTable<id, WTF::KeyValuePair<id, JSC::Weak<JSC::JSObject>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<id, JSC::Weak<JSC::JSObject>>>, WTF::PtrHash<id>, WTF::HashMap<id, JSC::Weak<JSC::JSObject>, WTF::PtrHash<id>, WTF::HashTraits<id>, WTF::HashTraits<JSC::Weak<JSC::JSObject>>>::KeyValuePairTraits, WTF::HashTraits<id>> m_impl;
+};
 
-struct HashMap<WTF::RefPtr<WTF::StringImpl>, WTF::OwnPtr<StaticValueEntry>, WTF::StringHash, WTF::HashTraits<WTF::RefPtr<WTF::StringImpl>>, WTF::HashTraits<WTF::OwnPtr<StaticValueEntry>>>;
-
-struct HashTable<id, WTF::KeyValuePair<id, JSC::Weak<JSC::JSObject>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<id, JSC::Weak<JSC::JSObject>>>, WTF::PtrHash<id>, WTF::HashMapValueTraits<WTF::HashTraits<id>, WTF::HashTraits<JSC::Weak<JSC::JSObject>>>, WTF::HashTraits<id>> {
+struct HashTable<id, WTF::KeyValuePair<id, JSC::Weak<JSC::JSObject>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<id, JSC::Weak<JSC::JSObject>>>, WTF::PtrHash<id>, WTF::HashMap<id, JSC::Weak<JSC::JSObject>, WTF::PtrHash<id>, WTF::HashTraits<id>, WTF::HashTraits<JSC::Weak<JSC::JSObject>>>::KeyValuePairTraits, WTF::HashTraits<id>> {
     struct KeyValuePair<id, JSC::Weak<JSC::JSObject>> *m_table;
     int m_tableSize;
     int m_tableSizeMask;
@@ -48,51 +48,19 @@ struct HashTable<id, WTF::KeyValuePair<id, JSC::Weak<JSC::JSObject>>, WTF::KeyVa
     int m_deletedCount;
 };
 
+struct JSLock;
+
 struct JSValue {
     union EncodedValueDescriptor u;
 };
 
 struct KeyValuePair<id, JSC::Weak<JSC::JSObject>>;
 
-struct OpaqueJSClass {
-    int _field1;
-    struct OpaqueJSClass *_field2;
-    struct OpaqueJSClass *_field3;
-    CDUnknownFunctionPointerType _field4;
-    CDUnknownFunctionPointerType _field5;
-    CDUnknownFunctionPointerType _field6;
-    CDUnknownFunctionPointerType _field7;
-    CDUnknownFunctionPointerType _field8;
-    CDUnknownFunctionPointerType _field9;
-    CDUnknownFunctionPointerType _field10;
-    CDUnknownFunctionPointerType _field11;
-    CDUnknownFunctionPointerType _field12;
-    CDUnknownFunctionPointerType _field13;
-    CDUnknownFunctionPointerType _field14;
-    struct String _field15;
-    struct OwnPtr<WTF::HashMap<WTF::RefPtr<WTF::StringImpl>, WTF::OwnPtr<StaticValueEntry>, WTF::StringHash, WTF::HashTraits<WTF::RefPtr<WTF::StringImpl>>, WTF::HashTraits<WTF::OwnPtr<StaticValueEntry>>>> _field16;
-    struct OwnPtr<WTF::HashMap<WTF::RefPtr<WTF::StringImpl>, WTF::OwnPtr<StaticFunctionEntry>, WTF::StringHash, WTF::HashTraits<WTF::RefPtr<WTF::StringImpl>>, WTF::HashTraits<WTF::OwnPtr<StaticFunctionEntry>>>> _field17;
-};
-
 struct OpaqueJSValue;
 
-struct OwnPtr<WTF::HashMap<WTF::RefPtr<WTF::StringImpl>, WTF::OwnPtr<StaticFunctionEntry>, WTF::StringHash, WTF::HashTraits<WTF::RefPtr<WTF::StringImpl>>, WTF::HashTraits<WTF::OwnPtr<StaticFunctionEntry>>>> {
-    struct HashMap<WTF::RefPtr<WTF::StringImpl>, WTF::OwnPtr<StaticFunctionEntry>, WTF::StringHash, WTF::HashTraits<WTF::RefPtr<WTF::StringImpl>>, WTF::HashTraits<WTF::OwnPtr<StaticFunctionEntry>>> *_field1;
+struct RefPtr<JSC::JSLock> {
+    struct JSLock *m_ptr;
 };
-
-struct OwnPtr<WTF::HashMap<WTF::RefPtr<WTF::StringImpl>, WTF::OwnPtr<StaticValueEntry>, WTF::StringHash, WTF::HashTraits<WTF::RefPtr<WTF::StringImpl>>, WTF::HashTraits<WTF::OwnPtr<StaticValueEntry>>>> {
-    struct HashMap<WTF::RefPtr<WTF::StringImpl>, WTF::OwnPtr<StaticValueEntry>, WTF::StringHash, WTF::HashTraits<WTF::RefPtr<WTF::StringImpl>>, WTF::HashTraits<WTF::OwnPtr<StaticValueEntry>>> *_field1;
-};
-
-struct RefPtr<WTF::StringImpl> {
-    struct StringImpl *_field1;
-};
-
-struct String {
-    struct RefPtr<WTF::StringImpl> _field1;
-};
-
-struct StringImpl;
 
 struct Strong<JSC::JSObject> {
     struct JSValue *m_slot;
@@ -111,7 +79,7 @@ struct Weak<JSC::JSString> {
 };
 
 struct WeakGCMap<id, JSC::JSObject, WTF::PtrHash<id>, WTF::HashTraits<id>> {
-    struct HashTable<id, WTF::KeyValuePair<id, JSC::Weak<JSC::JSObject>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<id, JSC::Weak<JSC::JSObject>>>, WTF::PtrHash<id>, WTF::HashMapValueTraits<WTF::HashTraits<id>, WTF::HashTraits<JSC::Weak<JSC::JSObject>>>, WTF::HashTraits<id>> m_impl;
+    struct HashMap<id, JSC::Weak<JSC::JSObject>, WTF::PtrHash<id>, WTF::HashTraits<id>, WTF::HashTraits<JSC::Weak<JSC::JSObject>>> m_map;
     int m_gcThreshold;
 };
 

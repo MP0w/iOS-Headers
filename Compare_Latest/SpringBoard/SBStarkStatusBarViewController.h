@@ -8,7 +8,7 @@
 
 #import "UIStatusBarStyleDelegate.h"
 
-@class NSMutableSet, UIStatusBar, UIView;
+@class NSMutableSet, NSString, UIStatusBar, UIView;
 
 @interface SBStarkStatusBarViewController : UIViewController <UIStatusBarStyleDelegate>
 {
@@ -39,6 +39,12 @@
 @property(nonatomic) long long layoutJustification;
 @property(nonatomic) id <UIStatusBarStyleDelegate> statusBarStyleDelegate;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

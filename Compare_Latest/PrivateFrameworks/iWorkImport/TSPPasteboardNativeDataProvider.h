@@ -8,7 +8,7 @@
 
 #import "TSPPasteboardWriting.h"
 
-@class NSMutableDictionary, TSPPasteboard;
+@class NSMutableDictionary, NSString, TSPPasteboard;
 
 __attribute__((visibility("hidden")))
 @interface TSPPasteboardNativeDataProvider : NSObject <TSPPasteboardWriting>
@@ -23,6 +23,12 @@ __attribute__((visibility("hidden")))
 - (id)writableTypesForPasteboard:(id)arg1;
 - (void)loadNativeData;
 - (id)initWithPasteboard:(id)arg1 nativeData:(id)arg2 tspData:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

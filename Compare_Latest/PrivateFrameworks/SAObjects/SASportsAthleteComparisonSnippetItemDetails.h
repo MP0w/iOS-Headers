@@ -8,7 +8,7 @@
 
 #import "SAAceSerializable.h"
 
-@class SASportsMetadata, SAUIAppPunchOut;
+@class NSString, SASportsMetadata, SAUIAppPunchOut;
 
 @interface SASportsAthleteComparisonSnippetItemDetails : AceObject <SAAceSerializable>
 {
@@ -21,6 +21,12 @@
 @property(retain, nonatomic) SAUIAppPunchOut *leagueAppPunchOut;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,17 +6,20 @@
 
 #import <CoreFoundation/NSCalendar.h>
 
-@class NSObject<OS_dispatch_semaphore>;
+@class _NSRefcountedPthreadMutex;
 
 __attribute__((visibility("hidden")))
 @interface _NSCopyOnWriteCalendarWrapper : NSCalendar
 {
     NSCalendar *cal;
-    NSObject<OS_dispatch_semaphore> *lock;
+    _NSRefcountedPthreadMutex *_lock;
     BOOL needsToCopy;
 }
 
 + (id)currentCalendar;
+- (void)enumerateDatesStartingAfterDate:(id)arg1 matchingComponents:(id)arg2 options:(unsigned int)arg3 usingBlock:(CDUnknownBlockType)arg4;
+- (BOOL)isDateInWeekend:(id)arg1;
+- (BOOL)nextWeekendStartDate:(out id *)arg1 interval:(out double *)arg2 options:(unsigned int)arg3 afterDate:(id)arg4;
 - (unsigned int)hash;
 - (id)components:(unsigned int)arg1 fromDate:(id)arg2 toDate:(id)arg3 options:(unsigned int)arg4;
 - (id)dateByAddingComponents:(id)arg1 toDate:(id)arg2 options:(unsigned int)arg3;
@@ -38,7 +41,7 @@ __attribute__((visibility("hidden")))
 - (id)calendarIdentifier;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)_initWithCalendar:(id)arg1;
-- (id)_initWithWrapper:(id)arg1;
+- (id)init;
 - (void)finalize;
 - (void)dealloc;
 - (void)_copyWrappedCalendar;

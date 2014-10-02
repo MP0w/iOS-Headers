@@ -31,7 +31,11 @@
 @property(copy, nonatomic) NSString *aceId; // @dynamic aceId;
 @property(copy, nonatomic) NSString *appId; // @dynamic appId;
 @property(copy, nonatomic) NSArray *callbacks; // @dynamic callbacks;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(copy, nonatomic) NSString *refId; // @dynamic refId;
+@property(readonly) Class superclass;
 
 @end
 

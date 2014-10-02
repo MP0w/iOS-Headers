@@ -16,8 +16,9 @@
 }
 
 @property(readonly, nonatomic) NSArray *photoSets; // @synthesize photoSets=_photoSets;
-@property(nonatomic) id <FlickrPhotoSetTableDelegate> tableDelegate; // @synthesize tableDelegate=_tableDelegate;
-@property(nonatomic) id <FlickrComposeOptionViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <FlickrPhotoSetTableDelegate> tableDelegate; // @synthesize tableDelegate=_tableDelegate;
+@property(nonatomic) __weak id <FlickrComposeOptionViewDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)refreshPhotoSets;
 
 @end

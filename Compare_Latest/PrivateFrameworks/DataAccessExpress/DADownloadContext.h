@@ -17,9 +17,14 @@
     CDUnknownBlockType _completionBlock;
 }
 
+@property(readonly, copy, nonatomic) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
+@property(readonly, copy, nonatomic) CDUnknownBlockType progressBlock; // @synthesize progressBlock=_progressBlock;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
+@property(readonly, nonatomic) NSString *accountID; // @synthesize accountID=_accountID;
+@property(readonly, nonatomic) NSString *attachmentUUID; // @synthesize attachmentUUID=_attachmentUUID;
+- (void).cxx_destruct;
 - (void)finishedWithError:(id)arg1;
 - (void)updateProgressDownloadedByteCount:(long long)arg1 totalByteCount:(long long)arg2;
-- (void)dealloc;
 - (id)initWithAttachmentUUID:(id)arg1 accountID:(id)arg2 queue:(id)arg3 downloadProgressBlock:(CDUnknownBlockType)arg4 completionBlock:(CDUnknownBlockType)arg5;
 
 @end

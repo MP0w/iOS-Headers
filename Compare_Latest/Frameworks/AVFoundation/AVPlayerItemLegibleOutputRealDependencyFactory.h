@@ -8,12 +8,19 @@
 
 #import "AVPlayerItemLegibleOutputDependencyFactory.h"
 
+@class NSString;
+
 @interface AVPlayerItemLegibleOutputRealDependencyFactory : NSObject <AVPlayerItemLegibleOutputDependencyFactory>
 {
 }
 
-- (id)legibleOutputDataSourceForPlayerItem:(id)arg1 legibleOutput:(id)arg2;
 - (id)playerItemOutputHostForPlayerItem:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

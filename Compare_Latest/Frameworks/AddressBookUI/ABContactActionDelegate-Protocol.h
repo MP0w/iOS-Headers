@@ -6,13 +6,15 @@
 
 #import "NSObject.h"
 
-@class ABContactAction, UIActionSheet, UIViewController;
+@class ABContactAction, ABContactViewController, UIViewController;
 
 @protocol ABContactActionDelegate <NSObject>
 - (void)actionWasCanceled:(ABContactAction *)arg1;
 - (void)actionDidFinish:(ABContactAction *)arg1;
-- (void)action:(ABContactAction *)arg1 presentActionSheet:(UIActionSheet *)arg2 sender:(id)arg3;
+- (void)actionDidUpdate:(ABContactAction *)arg1;
 - (void)action:(ABContactAction *)arg1 pushViewController:(UIViewController *)arg2 sender:(id)arg3;
+- (void)action:(ABContactAction *)arg1 dismissViewController:(UIViewController *)arg2 sender:(id)arg3;
 - (void)action:(ABContactAction *)arg1 presentViewController:(UIViewController *)arg2 sender:(id)arg3;
+- (void)action:(ABContactAction *)arg1 prepareChildContactViewController:(ABContactViewController *)arg2 sender:(id)arg3;
 @end
 

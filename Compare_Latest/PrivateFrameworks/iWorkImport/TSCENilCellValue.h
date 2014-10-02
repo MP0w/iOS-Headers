@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (BOOL)isEqualToCellValue:(id)arg1;
-- (CDStruct_95e644ef)formatStruct;
+- (CDStruct_bfed0e84)formatStruct;
 - (id)displayString;
 - (id)init;
 

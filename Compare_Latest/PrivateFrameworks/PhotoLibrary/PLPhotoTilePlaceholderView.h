@@ -6,9 +6,11 @@
 
 #import "UIView.h"
 
-@class UIActivityIndicatorView, UILabel;
+#import "PLTilePlaceholderView.h"
 
-@interface PLPhotoTilePlaceholderView : UIView
+@class NSString, UIActivityIndicatorView, UILabel;
+
+@interface PLPhotoTilePlaceholderView : UIView <PLTilePlaceholderView>
 {
     UIActivityIndicatorView *_loadingIndicatorView;
     UILabel *_loadingLabel;
@@ -18,10 +20,21 @@
 }
 
 - (void)layoutSubviews;
+- (void)setImageRect:(struct CGRect)arg1;
+- (void)setToolbarVisible:(BOOL)arg1;
+- (void)showLoadingIndicator;
+- (void)showErrorIndicator;
 - (void)showLoadingIndicatorWhenReady;
+- (void)updateCloudDownloadProgress:(float)arg1;
 - (void)fadeOutSoonIfNeededAndRemoveFromSuperview:(BOOL)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

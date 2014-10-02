@@ -8,6 +8,8 @@
 
 #import "NSStreamDelegate.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface _CFStreamDelegate : NSObject <NSStreamDelegate>
 {
@@ -24,6 +26,12 @@ __attribute__((visibility("hidden")))
 - (void)stream:(id)arg1 handleEvent:(unsigned int)arg2;
 - (void)dealloc;
 - (id)initWithStreamEvents:(unsigned long)arg1 callback:(void *)arg2 context:(CDStruct_304912e7 *)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

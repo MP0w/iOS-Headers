@@ -21,6 +21,7 @@
 
 + (void)initialize;
 @property(readonly, nonatomic) NSString *normalizedString; // @synthesize normalizedString=_string;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (id)initWithString:(id)arg1;
 

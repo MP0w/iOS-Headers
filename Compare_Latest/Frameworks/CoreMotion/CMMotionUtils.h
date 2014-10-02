@@ -10,6 +10,8 @@
 {
 }
 
++ (void)tccServiceMotionAccess;
++ (id)sendMessageWithReplySync:(struct CLConnectionMessage *)arg1;
 + (id)logDirectory;
 
 @end

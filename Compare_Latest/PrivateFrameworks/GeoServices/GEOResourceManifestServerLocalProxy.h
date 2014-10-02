@@ -9,7 +9,7 @@
 #import "GEOResourceManifestServerProxy.h"
 #import "NSURLConnectionDelegate.h"
 
-@class GEOActiveTileGroup, GEOResourceLoader, GEOResourceManifestDownload, NSError, NSLock, NSMutableArray, NSMutableData, NSMutableDictionary, NSString, NSTimer, NSURLConnection;
+@class GEOActiveTileGroup, GEOResourceLoader, GEOResourceManifestConfiguration, GEOResourceManifestDownload, NSError, NSLock, NSMutableArray, NSMutableData, NSMutableDictionary, NSString, NSTimer, NSURLConnection;
 
 __attribute__((visibility("hidden")))
 @interface GEOResourceManifestServerLocalProxy : NSObject <NSURLConnectionDelegate, GEOResourceManifestServerProxy>
@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     NSURLConnection *_connection;
     NSMutableData *_responseData;
     NSString *_responseETag;
+    GEOResourceManifestConfiguration *_configuration;
     BOOL _isObservingManifestReachability;
     NSTimer *_manifestUpdateTimer;
     BOOL _isObservingTileGroupReachability;
@@ -27,7 +28,6 @@ __attribute__((visibility("hidden")))
     GEOResourceLoader *_resourceLoader;
     NSMutableDictionary *_resourceRetainCounts;
     BOOL _started;
-    BOOL _hiDPI;
     unsigned int _manifestRetryCount;
     unsigned int _tileGroupRetryCount;
     NSString *_authToken;
@@ -52,9 +52,10 @@ __attribute__((visibility("hidden")))
 - (void)_scheduleUpdateTimerWithTimeInterval:(double)arg1;
 - (void)getResourceManifestWithHandler:(CDUnknownBlockType)arg1;
 - (void)forceUpdate:(CDUnknownBlockType)arg1;
+- (void)updateIfNecessary:(CDUnknownBlockType)arg1;
 - (void)_updateManifest;
 - (void)_updateManifest:(CDUnknownBlockType)arg1;
-- (BOOL)_updateManifestIfNecessary;
+- (BOOL)_updateManifestIfNecessary:(CDUnknownBlockType)arg1;
 - (id)_manifestURL;
 - (void)_reachabilityChanged:(id)arg1;
 - (void)_registerReachabilityObserver:(unsigned int)arg1;
@@ -73,13 +74,20 @@ __attribute__((visibility("hidden")))
 - (id)_idealTileGroupToUse;
 - (BOOL)_changeActiveTileGroup:(id)arg1 flushTileCache:(BOOL)arg2;
 - (void)_loadFromDisk;
-- (oneway void)startServer:(id)arg1;
+- (void)_startServer;
+- (id)configuration;
 - (id)authToken;
 - (void)closeConnection;
 - (void)openConnection;
 - (void)dealloc;
-- (id)initWithDelegate:(id)arg1;
+- (id)initWithDelegate:(id)arg1 configuration:(id)arg2;
 - (id)serverQueue;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

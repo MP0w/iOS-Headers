@@ -28,15 +28,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithFromTheme:(id)arg1 toTheme:(id)arg2;
 - (void)dealloc;
 - (id)mapChartPreset:(id)arg1;
-- (id)tsdMapImageStylePropertyMap:(id)arg1;
-- (id)tsdMapShapeStylePropertyMap:(id)arg1;
-- (id)tsdMapShadow:(id)arg1;
-- (id)tsdMapStroke:(id)arg1;
-- (id)tsdMapImageFill:(id)arg1;
-- (id)tsdMapGradient:(id)arg1;
-- (id)tsdMapColorFill:(id)arg1;
 - (BOOL)p_hasCachedMappingsForPresetsOfKind:(id)arg1;
-- (id)tswpMapParagraphStylePropertyMap:(id)arg1;
 - (id)mapMaster:(id)arg1;
 
 @end

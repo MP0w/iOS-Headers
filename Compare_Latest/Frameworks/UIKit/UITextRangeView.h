@@ -91,6 +91,7 @@ __attribute__((visibility("hidden")))
 - (void)updateBaseIsStartWithDocumentPoint:(struct CGPoint)arg1;
 - (void)updateSelectionWithDocumentPoint:(struct CGPoint)arg1;
 @property(retain, nonatomic) NSArray *rects; // @synthesize rects=m_rects;
+- (void)updateEdges;
 @property(readonly, nonatomic) UIResponder<UITextInput> *container;
 @property(readonly, nonatomic) UITextSelectionView *selectionView;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;

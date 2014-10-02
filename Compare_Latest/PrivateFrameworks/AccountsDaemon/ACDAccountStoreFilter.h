@@ -8,7 +8,7 @@
 
 #import "ACDAccountStoreProtocol.h"
 
-@class ACDAccountStore;
+@class ACDAccountStore, NSString;
 
 @interface ACDAccountStoreFilter : NSObject <ACDAccountStoreProtocol>
 {
@@ -18,6 +18,8 @@
 + (id)_whiteList;
 @property(retain, nonatomic) ACDAccountStore *backingAccountStore; // @synthesize backingAccountStore=_backingAccountStore;
 - (void).cxx_destruct;
+- (void)notifyRemoteDevicesOfModifiedAccount:(id)arg1 withChangeType:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)notifyRemoteDevicesOfModifiedAccount:(id)arg1 withChangeType:(id)arg2;
 - (void)accountsWithAccountTypeIdentifiers:(id)arg1 preloadedProperties:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)visibleTopLevelAccountsWithAccountTypeIdentifiers:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)openAuthenticationURL:(id)arg1 forAccount:(id)arg2 shouldConfirm:(BOOL)arg3 completion:(CDUnknownBlockType)arg4;
@@ -54,7 +56,7 @@
 - (void)dataclassesWithHandler:(CDUnknownBlockType)arg1;
 - (void)provisionedDataclassesForAccountWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)enabledDataclassesForAccountWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
-- (void)credentialForAccountWithIdentifier:(id)arg1 bundleID:(id)arg2 handler:(CDUnknownBlockType)arg3;
+- (void)credentialForAccount:(id)arg1 serviceID:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)credentialForAccountWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)accountTypeWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)displayAccountTypeForAccountWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
@@ -69,7 +71,7 @@
 - (void)accountWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)accountTypesWithHandler:(CDUnknownBlockType)arg1;
 - (void)accountsWithHandler:(CDUnknownBlockType)arg1;
-- (void)setNotificationsEnabledNum:(BOOL)arg1;
+- (void)setNotificationsEnabled:(BOOL)arg1;
 - (void)setClientBundleID:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (BOOL)_clientHasPermissionToAddAccount:(id)arg1;
 - (BOOL)_isClientPermittedToRemoveAccount:(id)arg1;
@@ -79,6 +81,12 @@
 - (BOOL)_isClientPermittedToAccessAccountTypeWithIdentifier:(id)arg1;
 - (BOOL)_accessGrantedForBundleID:(id)arg1 onAccountTypeID:(id)arg2;
 - (BOOL)_accessGrantedForClient:(id)arg1 onAccountTypeID:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

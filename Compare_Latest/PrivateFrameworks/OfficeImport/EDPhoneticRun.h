@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 - (void)setCharBaseIndex:(unsigned int)arg1;
 - (unsigned int)charBaseIndex;
 - (void)setCharIndex:(unsigned int)arg1;
+- (void)adjustIndex:(unsigned int)arg1;
 - (unsigned int)charIndex;
 - (id)init;
 

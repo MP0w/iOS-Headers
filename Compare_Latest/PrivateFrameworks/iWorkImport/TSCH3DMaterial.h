@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)material;
+- (BOOL)hasCompleteData;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

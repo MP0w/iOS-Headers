@@ -13,15 +13,21 @@
     AVMutableMetadataItemInternal *_mutablePriv;
 }
 
++ (id)keyPathsForValuesAffectingIdentifier;
 + (id)metadataItem;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(copy) NSDictionary *extraAttributes;
+@property(copy) NSString *dataType;
 @property(copy) id <NSObject><NSCopying> value;
 @property CDStruct_1b6d18a9 duration;
 @property CDStruct_1b6d18a9 time;
+@property(copy) NSString *extendedLanguageTag;
 @property(copy) NSLocale *locale;
-@property(copy) NSString *keySpace;
-@property(copy) id <NSObject><NSCopying> key;
+@property(copy) NSString *identifier;
+- (void)setKeySpace:(id)arg1;
+- (void)setKey:(id)arg1;
+- (id)keySpace;
+- (id)key;
 
 @end
 

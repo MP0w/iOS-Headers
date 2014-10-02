@@ -15,7 +15,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
-- (BOOL)writeToBundleWriter:(id)arg1 preferredFilename:(id)arg2 filename:(id *)arg3 didCopyDataToBundle:(char *)arg4;
+- (BOOL)writeData:(id)arg1 toPackageWriter:(id)arg2 preferredFilename:(id)arg3 filename:(id *)arg4 didCopyDataToPackage:(char *)arg5 isMissingData:(char *)arg6;
 - (BOOL)readOnly;
 - (void)performReadWithAccessor:(CDUnknownBlockType)arg1;
 - (id)initWithURL:(id)arg1;

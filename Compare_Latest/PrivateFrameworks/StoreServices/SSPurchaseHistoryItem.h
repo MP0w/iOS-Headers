@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "SSXPCCoding.h"
 
-@class NSMutableDictionary;
+@class NSMutableDictionary, NSString;
 
 @interface SSPurchaseHistoryItem : NSObject <SSXPCCoding, NSCopying>
 {
@@ -17,14 +17,18 @@
 }
 
 - (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (id)description;
+@property(readonly) unsigned int hash;
+@property(readonly, copy) NSString *description;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)valueForProperty:(id)arg1;
 - (void)setValue:(id)arg1 forProperty:(id)arg2;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

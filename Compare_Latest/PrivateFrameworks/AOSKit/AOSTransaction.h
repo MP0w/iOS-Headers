@@ -8,7 +8,7 @@
 
 #import "NSCoding.h"
 
-@class NSConditionLock;
+@class NSConditionLock, NSObject<OS_dispatch_queue>;
 
 @interface AOSTransaction : NSObject <NSCoding>
 {
@@ -18,7 +18,7 @@
     struct __CFError *error;
     CDUnknownFunctionPointerType callbackFunction;
     CDUnknownBlockType callbackBlock;
-    struct dispatch_queue_s *callbackQueue;
+    NSObject<OS_dispatch_queue> *callbackQueue;
     void *context;
     NSConditionLock *waitLock;
     CDUnknownFunctionPointerType contextRetain;

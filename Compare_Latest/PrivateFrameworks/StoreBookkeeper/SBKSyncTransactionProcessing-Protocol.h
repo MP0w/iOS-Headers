@@ -9,7 +9,7 @@
 @class NSArray, NSData, NSNumber, NSString, SBKSyncResponseData, SBKSyncTransaction;
 
 @protocol SBKSyncTransactionProcessing <NSObject>
-- (id <SBKSyncKeyValuePair>)transaction:(SBKSyncTransaction *)arg1 keyValuePairForUpdatedKey:(NSString *)arg2;
+- (id <SBKKeyValuePayloadPair>)transaction:(SBKSyncTransaction *)arg1 keyValuePairForUpdatedKey:(NSString *)arg2;
 - (void)transaction:(SBKSyncTransaction *)arg1 processDeletedKey:(NSString *)arg2 isDirty:(char *)arg3;
 - (void)transaction:(SBKSyncTransaction *)arg1 processUpdatedKey:(NSString *)arg2 data:(NSData *)arg3 conflict:(BOOL)arg4 isDirty:(char *)arg5;
 - (void)transaction:(SBKSyncTransaction *)arg1 didProcessResponseData:(SBKSyncResponseData *)arg2;

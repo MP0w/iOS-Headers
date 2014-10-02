@@ -8,7 +8,7 @@
 
 #import "TSPStreamingDistributableUnarchiver.h"
 
-@class TSPDatabase, TSPDistributableFileManager;
+@class NSString, TSPDatabase, TSPDistributableFileManager;
 
 __attribute__((visibility("hidden")))
 @interface TSPDistributableReader : NSObject <TSPStreamingDistributableUnarchiver>
@@ -29,6 +29,12 @@ __attribute__((visibility("hidden")))
 - (BOOL)readFromDistributableArchiveStream:(id)arg1 estimatedDataLength:(long long)arg2 supplementalDataBundle:(id)arg3 error:(id *)arg4;
 - (void)cancel;
 - (id)initWithDestinationPath:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

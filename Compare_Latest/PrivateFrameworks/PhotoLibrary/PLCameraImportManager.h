@@ -8,7 +8,7 @@
 
 #import "ICDeviceBrowserDelegate.h"
 
-@class ICDeviceBrowser, NSMutableArray;
+@class ICDeviceBrowser, NSMutableArray, NSString;
 
 @interface PLCameraImportManager : NSObject <ICDeviceBrowserDelegate>
 {
@@ -36,6 +36,12 @@
 - (id)importerForDevice:(id)arg1 withDelegate:(id)arg2;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -20,22 +20,17 @@ __attribute__((visibility("hidden")))
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (id)description;
 - (void)_increaseRowCapacity:(unsigned int)arg1;
 - (void)_increaseColCapacity:(unsigned int)arg1;
 - (id)validateChangeDescriptors:(id)arg1 tableModel:(id)arg2;
 - (void)logInternalState;
 - (BOOL)verifyDims:(struct CGSize)arg1 forCellID:(CDStruct_0441cfb5)arg2;
-- (void)setNumsRows:(unsigned short)arg1 andNumCols:(unsigned char)arg2;
-- (void)resetFitHeightForCellID:(CDStruct_0441cfb5)arg1;
-- (void)resetRowHeightForCell:(CDStruct_0441cfb5)arg1;
+- (void)resetFittingHeightsFromCollection:(id)arg1;
 - (void)resetWidthsHeightsForRange:(CDStruct_5f1f7aa9)arg1;
 - (void)resetAllCol;
 - (void)resetAllRow;
 - (void)resetColWidthsStartingWith:(unsigned char)arg1 andEndingWith:(unsigned char)arg2;
 - (void)resetRowHeightsStartingWith:(unsigned short)arg1 andEndingWith:(unsigned short)arg2;
-- (unsigned int)resetAllInvalidColsInRow:(unsigned short)arg1;
-- (id)getListOfInvalidColsInRow:(unsigned short)arg1;
 - (float)getModelWidthForColumn:(unsigned char)arg1;
 - (float)getModelHeightForRow:(unsigned short)arg1;
 - (float)getFitWidthForCol:(unsigned char)arg1;
@@ -47,11 +42,10 @@ __attribute__((visibility("hidden")))
 - (BOOL)deleteRowsStartingWith:(unsigned short)arg1 andEndingWith:(unsigned short)arg2;
 - (BOOL)deleteColsStartingWith:(unsigned char)arg1 andEndingWith:(unsigned char)arg2;
 - (BOOL)resetModelCacheRange:(CDStruct_5f1f7aa9)arg1;
-- (unsigned long)numModelRowHeights;
-- (unsigned long)numModelColumnWidths;
 - (BOOL)resetModelCache;
 - (BOOL)setModelHeight:(float)arg1 forRow:(unsigned short)arg2;
 - (BOOL)setModelWidth:(float)arg1 forColumn:(unsigned char)arg2;
+- (void)setFittingHeightsFromCollection:(id)arg1;
 - (BOOL)setFitHeight:(float)arg1 forCellID:(CDStruct_0441cfb5)arg2;
 - (BOOL)setFitWidth:(float)arg1 forCellID:(CDStruct_0441cfb5)arg2;
 - (BOOL)setFitDims:(struct CGSize)arg1 forCellID:(CDStruct_0441cfb5)arg2;

@@ -22,9 +22,9 @@
 + (Class)layerClass;
 + (id)_synthesizedAttributedString:(id)arg1 withWordWrapping:(BOOL)arg2;
 @property(copy, nonatomic) PLCloudSharedComment *comment; // @synthesize comment=_comment;
-@property(readonly, nonatomic) UIView *styledSeparatorView; // @synthesize styledSeparatorView=_styledSeparatorView;
-@property(readonly, nonatomic) UILabel *commentBylineLabel; // @synthesize commentBylineLabel=_commentBylineLabel;
-@property(readonly, nonatomic) UILabel *commentContentLabel; // @synthesize commentContentLabel=_commentContentLabel;
+@property(readonly, retain, nonatomic) UIView *styledSeparatorView; // @synthesize styledSeparatorView=_styledSeparatorView;
+@property(readonly, retain, nonatomic) UILabel *commentBylineLabel; // @synthesize commentBylineLabel=_commentBylineLabel;
+@property(readonly, retain, nonatomic) UILabel *commentContentLabel; // @synthesize commentContentLabel=_commentContentLabel;
 - (void)layoutSubviews;
 - (void)_updateContent;
 - (void)delete:(id)arg1;

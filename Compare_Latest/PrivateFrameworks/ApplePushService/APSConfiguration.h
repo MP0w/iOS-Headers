@@ -53,7 +53,7 @@
 @property(readonly, nonatomic) int status;
 @property(readonly, nonatomic) unsigned int serverCount;
 @property(readonly, nonatomic) NSString *hostname;
-- (void)_finishLoadWithResponse:(id)arg1 data:(id)arg2;
+- (void)_finishLoadWithResponse:(id)arg1 urlHost:(id)arg2 data:(id)arg3;
 - (void)_failWithError:(id)arg1;
 - (void)_callCompletionBlocksWithError:(id)arg1;
 - (void)addCompletionBlock:(CDUnknownBlockType)arg1;

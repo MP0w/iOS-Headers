@@ -35,6 +35,8 @@ __attribute__((visibility("hidden")))
 }
 
 + (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
+- (void)setQueryItems:(id)arg1;
+- (id)queryItems;
 - (void)setPercentEncodedFragment:(id)arg1;
 - (id)percentEncodedFragment;
 - (void)setPercentEncodedQuery:(id)arg1;
@@ -63,6 +65,7 @@ __attribute__((visibility("hidden")))
 - (id)user;
 - (void)setScheme:(id)arg1;
 - (id)scheme;
+- (id)string;
 - (id)URLRelativeToURL:(id)arg1;
 - (id)URL;
 - (id)initWithString:(id)arg1;

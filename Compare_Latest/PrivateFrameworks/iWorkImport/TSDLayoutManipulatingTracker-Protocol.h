@@ -15,6 +15,9 @@
 
 @optional
 - (TSDCommandSelectionBehavior *)selectionBehaviorForReps:(NSSet *)arg1;
+- (BOOL)suppressesSpacingGuides;
+- (BOOL)suppressesCenterGuides;
+- (NSSet *)repsForGuidesWhenManipulatingReps:(NSSet *)arg1;
 - (void)didEndDynamicOperationForReps:(NSSet *)arg1;
 - (void)didChangeCurrentlyTransformingReps;
 - (void)willBeginDynamicOperationForReps:(NSSet *)arg1;

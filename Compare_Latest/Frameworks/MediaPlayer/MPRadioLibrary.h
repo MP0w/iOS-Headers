@@ -13,8 +13,8 @@
 }
 
 + (id)defaultRadioLibrary;
-- (void)_radioModelDidChange:(id)arg1;
 - (id)_radioModel;
+- (void)_radioModelDidChangeNotification:(id)arg1;
 - (void)addStationBasedOnTrackIDs:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)stationWithIdentifier:(long long)arg1;
 @property(readonly, nonatomic) NSArray *stations;

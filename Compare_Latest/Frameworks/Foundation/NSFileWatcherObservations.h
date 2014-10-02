@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void)notifyObserver:(CDUnknownBlockType)arg1;
+- (id)description;
 - (void)addAnnouncedMoveToPath:(id)arg1;
 - (void)addDetectedMoveToPath:(id)arg1;
 - (void)addDeletion;

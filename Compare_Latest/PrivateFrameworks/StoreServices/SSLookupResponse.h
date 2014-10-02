@@ -8,7 +8,7 @@
 
 #import "SSXPCCoding.h"
 
-@class NSArray, NSDate, NSDictionary, NSMutableArray, SSMetricsConfiguration, SSMetricsPageEvent;
+@class NSArray, NSDate, NSDictionary, NSMutableArray, NSString, SSMetricsConfiguration, SSMetricsPageEvent;
 
 @interface SSLookupResponse : NSObject <SSXPCCoding>
 {
@@ -33,6 +33,12 @@
 - (void)dealloc;
 - (id)initWithResponseDictionary:(id)arg1;
 - (id)initWithLocationResponseDictionary:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,26 +6,35 @@
 
 #import <EventKitUI/EKEventEditItem.h>
 
+#import "EKCalendarItemInlineEditItem.h"
 #import "UITextViewDelegate.h"
 
-@class CalendarNotesCell;
+@class CalendarNotesCell, NSString;
 
 __attribute__((visibility("hidden")))
-@interface EKEventNotesInlineEditItem : EKEventEditItem <UITextViewDelegate>
+@interface EKEventNotesInlineEditItem : EKEventEditItem <UITextViewDelegate, EKCalendarItemInlineEditItem>
 {
     CalendarNotesCell *_cell;
+    NSString *_lastTextChange;
 }
 
 - (void).cxx_destruct;
 - (BOOL)textViewShouldReturn:(id)arg1;
-- (BOOL)textView:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
+- (void)textViewDidChange:(id)arg1;
 - (void)textViewDidEndEditing:(id)arg1;
 - (void)textViewDidBeginEditing:(id)arg1;
+- (BOOL)isSaveable;
 - (BOOL)saveAndDismissWithForce:(BOOL)arg1;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1;
 - (BOOL)isInline;
 - (void)reset;
-- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2 forWidth:(float)arg3;
+- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

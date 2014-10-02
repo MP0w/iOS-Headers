@@ -16,13 +16,13 @@
 
 @property(copy, nonatomic) NSString *profileURLComponent; // @synthesize profileURLComponent=_profileURLComponent;
 @property(copy, nonatomic) NSString *originatorProfileImageURLString; // @synthesize originatorProfileImageURLString=_originatorProfileImageURLString;
+- (void).cxx_destruct;
 - (id)originatorProfileURL;
 - (id)sourceRecordURL;
 - (id)biggerOriginatorProfileImageURL;
 - (id)originatorProfileImageURL;
 - (id)_profileImageURLWithImageSizeString:(id)arg1;
 - (id)socialSource;
-- (void)dealloc;
 - (id)initWithDictionary:(id)arg1 socialSourceAccountIdentifier:(id)arg2;
 
 @end

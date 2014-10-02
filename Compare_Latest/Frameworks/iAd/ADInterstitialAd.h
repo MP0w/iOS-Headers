@@ -8,7 +8,7 @@
 
 #import "ADAdRecipient.h"
 
-@class ADAdSpace, ADInterstitialView, UIView, UIViewController;
+@class ADAdSpace, ADInterstitialAdPresentationViewController, ADInterstitialView, NSSet, NSString, UIView, UIViewController;
 
 @interface ADInterstitialAd : NSObject <ADAdRecipient>
 {
@@ -23,8 +23,10 @@
     ADInterstitialView *_interstitialView;
     ADAdSpace *_adSpace;
     int _creativeType;
+    ADInterstitialAdPresentationViewController *_presentationViewController;
 }
 
+@property(retain, nonatomic) ADInterstitialAdPresentationViewController *presentationViewController; // @synthesize presentationViewController=_presentationViewController;
 @property(nonatomic) int creativeType; // @synthesize creativeType=_creativeType;
 @property(nonatomic) BOOL hasLoadedFirstAd; // @synthesize hasLoadedFirstAd=_hasLoadedFirstAd;
 @property(nonatomic) BOOL canLoadMoreThanOnce; // @synthesize canLoadMoreThanOnce=_canLoadMoreThanOnce;
@@ -33,15 +35,20 @@
 @property(nonatomic, getter=isActionInProgress) BOOL actionInProgress; // @synthesize actionInProgress=_actionInProgress;
 @property(readonly, nonatomic, getter=isLoaded) BOOL loaded; // @synthesize loaded=_loaded;
 @property(readonly, nonatomic) int options; // @synthesize options=_options;
+- (void)resumeBannerMedia;
+- (void)pauseBannerMedia;
 - (void)storyboardViewControllerDidPresent;
 - (void)serverStoryboardDidTransitionOut;
 - (void)serverBannerViewDidFailToReceiveAdWithError:(id)arg1;
 - (void)serverBannerViewDidLoad;
 - (BOOL)_considerClosingAdSpace;
 - (void)serverBannerViewWillLoad;
-- (void)setRemoteWindowContextId:(unsigned int)arg1;
+- (void)setHostedWindowHostingHandle:(id)arg1;
 @property(readonly, nonatomic) int internalAdType;
 - (void)handleTapOnInterstitialViewAtLocation:(struct CGPoint)arg1;
+- (void)_dismissModalInterstitial;
+- (int)clickAction;
+@property(copy, nonatomic) NSSet *context;
 - (void)setAuthenticationUserName:(id)arg1;
 - (void)setSection:(id)arg1;
 - (void)setServerURL:(id)arg1;
@@ -49,7 +56,7 @@
 - (id)identifier;
 @property(nonatomic) __weak id <ADInterstitialAdDelegate> internalDelegate;
 @property(nonatomic) __weak id <ADInterstitialAdDelegate> delegate;
-- (void)presentAsStoryboardFromViewController:(id)arg1;
+- (void)_presentFromViewController:(id)arg1;
 - (void)presentFromViewController:(id)arg1;
 - (BOOL)presentInView:(id)arg1;
 - (void)cancelAction;
@@ -60,6 +67,12 @@
 - (id)initWithCreativeType:(int)arg1 options:(int)arg2;
 - (id)init;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

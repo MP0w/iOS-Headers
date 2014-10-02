@@ -15,7 +15,7 @@
 
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;
-- (id)_transactionIdentifier;
+@property(readonly, nonatomic) NSString *_transactionIdentifier;
 - (void)_setTransactionState:(int)arg1;
 - (void)_setTransactionReceipt:(id)arg1;
 - (void)_setTransactionIdentifier:(id)arg1;
@@ -25,7 +25,7 @@
 - (void)_setError:(id)arg1;
 - (void)_setDownloads:(id)arg1;
 - (BOOL)mergeWithTransaction:(id)arg1;
-- (id)matchingIdentifier;
+@property(readonly, nonatomic) NSString *matchingIdentifier;
 - (BOOL)canMergeWithTransaction:(id)arg1;
 @property(readonly, nonatomic) int transactionState;
 @property(readonly, nonatomic) NSData *transactionReceipt;

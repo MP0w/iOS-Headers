@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class TSDBezierPath;
+@class OITSDBezierPath;
 
 __attribute__((visibility("hidden")))
 @interface MFPPath : NSObject
 {
-    TSDBezierPath *mPath;
+    OITSDBezierPath *mPath;
 }
 
 - (id)path;

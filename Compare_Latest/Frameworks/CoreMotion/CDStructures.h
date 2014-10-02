@@ -29,7 +29,7 @@ struct CLConnectionClient {
 };
 
 struct CLConnectionMessage {
-    struct __CFDictionary *_field1;
+    id _field1;
     struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field2;
     id _field3;
     id _field4;
@@ -65,15 +65,6 @@ struct Dispatcher {
     id _field2;
 };
 
-struct Sample {
-    double timestamp;
-    struct {
-        int type;
-    } orientation;
-};
-
-struct __CFDictionary;
-
 struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
     struct __tree_node_base<void *> *__left_;
 };
@@ -102,41 +93,65 @@ struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>
     } _field1;
 };
 
+struct deque<float, std::__1::allocator<float>> {
+    struct __split_buffer<float *, std::__1::allocator<float *>> {
+        float **__first_;
+        float **__begin_;
+        float **__end_;
+        struct __compressed_pair<float **, std::__1::allocator<float *>> {
+            float **__first_;
+        } __end_cap_;
+    } __map_;
+    unsigned int __start_;
+    struct __compressed_pair<unsigned long, std::__1::allocator<float>> {
+        unsigned long __first_;
+    } __size_;
+};
+
 struct map<SEL *, CLIntersiloInterfaceSelectorInfo *, std::__1::less<SEL *>, std::__1::allocator<std::__1::pair<SEL *const, CLIntersiloInterfaceSelectorInfo *>>> {
-    struct __tree<std::__1::pair<SEL *, CLIntersiloInterfaceSelectorInfo *>, std::__1::__map_value_compare<SEL *, CLIntersiloInterfaceSelectorInfo *, std::__1::less<SEL *>, true>, std::__1::allocator<std::__1::pair<SEL *, CLIntersiloInterfaceSelectorInfo *>>> {
-        struct __tree_node<std::__1::pair<SEL *, CLIntersiloInterfaceSelectorInfo *>, void *> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<SEL *, CLIntersiloInterfaceSelectorInfo *>, void *>>> {
+    struct __tree<std::__1::__value_type<SEL *, CLIntersiloInterfaceSelectorInfo *>, std::__1::__map_value_compare<SEL *, std::__1::__value_type<SEL *, CLIntersiloInterfaceSelectorInfo *>, std::__1::less<SEL *>, true>, std::__1::allocator<std::__1::__value_type<SEL *, CLIntersiloInterfaceSelectorInfo *>>> {
+        struct __tree_node<std::__1::__value_type<SEL *, CLIntersiloInterfaceSelectorInfo *>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<SEL *, CLIntersiloInterfaceSelectorInfo *>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<SEL *, CLIntersiloInterfaceSelectorInfo *, std::__1::less<SEL *>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<SEL *, std::__1::__value_type<SEL *, CLIntersiloInterfaceSelectorInfo *>, std::__1::less<SEL *>, true>> {
             unsigned long __first_;
         } __pair3_;
     } __tree_;
 };
 
 struct map<std::__1::basic_string<char>, void (^)(CLConnectionMessage *), std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, void (^)(CLConnectionMessage *)>>> {
-    struct __tree<std::__1::pair<std::__1::basic_string<char>, void (^)(CLConnectionMessage *)>, std::__1::__map_value_compare<std::__1::basic_string<char>, void (^)(CLConnectionMessage *), std::__1::less<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::pair<std::__1::basic_string<char>, void (^)(CLConnectionMessage *)>>> {
-        struct __tree_node<std::__1::pair<std::__1::basic_string<char>, void (^)(CLConnectionMessage *)>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<std::__1::basic_string<char>, void (^)(CLConnectionMessage *)>, void *>>> {
+    struct __tree<std::__1::__value_type<std::__1::basic_string<char>, void (^)(CLConnectionMessage *)>, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, void (^)(CLConnectionMessage *)>, std::__1::less<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::basic_string<char>, void (^)(CLConnectionMessage *)>>> {
+        struct __tree_node<std::__1::__value_type<std::__1::basic_string<char>, void (^)(CLConnectionMessage *)>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::basic_string<char>, void (^)(CLConnectionMessage *)>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, void (^)(CLConnectionMessage *), std::__1::less<std::__1::basic_string<char>>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, void (^)(CLConnectionMessage *)>, std::__1::less<std::__1::basic_string<char>>, true>> {
             unsigned long _field1;
         } _field3;
     } _field1;
 };
 
 struct map<unsigned long, int, std::__1::less<unsigned long>, std::__1::allocator<std::__1::pair<const unsigned long, int>>> {
-    struct __tree<std::__1::pair<unsigned long, int>, std::__1::__map_value_compare<unsigned long, int, std::__1::less<unsigned long>, true>, std::__1::allocator<std::__1::pair<unsigned long, int>>> {
-        struct __tree_node<std::__1::pair<unsigned long, int>, void *> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned long, int>, void *>>> {
+    struct __tree<std::__1::__value_type<unsigned long, int>, std::__1::__map_value_compare<unsigned long, std::__1::__value_type<unsigned long, int>, std::__1::less<unsigned long>, true>, std::__1::allocator<std::__1::__value_type<unsigned long, int>>> {
+        struct __tree_node<std::__1::__value_type<unsigned long, int>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned long, int>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned long, int, std::__1::less<unsigned long>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned long, std::__1::__value_type<unsigned long, int>, std::__1::less<unsigned long>, true>> {
             unsigned long __first_;
         } __pair3_;
     } __tree_;
 };
+
+#if 0
+// Names with conflicting types:
+typedef struct {
+    double timestamp;
+    int orientation;
+} Sample_edc72402;
+
+#endif
 
 #pragma mark Typedef'd Structures
 
@@ -166,10 +181,20 @@ typedef struct {
 } CDStruct_31142d93;
 
 typedef struct {
+    double _field1;
+    double _field2;
+} CDStruct_c3b9c2ee;
+
+typedef struct {
     float x;
     float y;
     float z;
 } CDStruct_03942939;
+
+typedef struct {
+    float pressure;
+    float temperature;
+} CDStruct_ebf20f05;
 
 typedef struct {
     CDStruct_bf7dff04 _field1;

@@ -11,30 +11,28 @@
 __attribute__((visibility("hidden")))
 @interface VKTrafficTile : VKVectorTile
 {
+    struct unique_ptr<vk::TrafficLayer, std::__1::default_delete<vk::TrafficLayer>> _trafficLayer;
     struct _GEOTileKey _dataKey;
     NSData *_data;
     VKTileKeyMap *_dynamicTiles;
+    struct unordered_map<vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>, std::__1::hash<vk::TrafficBatchKey>, std::__1::equal_to<vk::TrafficBatchKey>, std::__1::allocator<std::__1::pair<const vk::TrafficBatchKey, std::__1::vector<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>, std::__1::allocator<std::__1::unique_ptr<vk::TrafficRibbon, std::__1::default_delete<vk::TrafficRibbon>>>>>>> *_trafficCollection;
     NSMutableArray *_incidents;
     struct TrafficSkeletonTile _trafficData;
-    struct vector<VKRibbonMultiPolylineSegment, vk_allocator<VKRibbonMultiPolylineSegment>> _ribbonSegments;
-    vector_012c76ef _tileBoundaryDesignators;
 }
 
-@property(nonatomic) vector_012c76ef *tileBoundaryDesignators; // @synthesize tileBoundaryDesignators=_tileBoundaryDesignators;
 @property(readonly, nonatomic) VKTileKeyMap *dynamicTiles; // @synthesize dynamicTiles=_dynamicTiles;
 @property(readonly, nonatomic) NSArray *incidents; // @synthesize incidents=_incidents;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)buildTrafficMeshWithRoadData:(id)arg1;
-- (void)buildConnectionDesignators;
-- (void)buildIncidentsForDynamic:(id)arg1 withRoadData:(id)arg2 styleSession:(id)arg3;
-- (void)buildTrafficMeshWithRoadData:(id)arg1 dynamicTile:(id)arg2 ribbonMaker:(struct VKRibbonMakerData *)arg3 trafficAccum:(struct TrafficAccum *)arg4 styleSession:(id)arg5;
+- (void)buildTrafficMeshWithRoadData:(id)arg1 withDevice:(struct Device *)arg2;
+- (void)buildIncidentsForDynamic:(id)arg1 withRoadData:(id)arg2 styleSession:(struct StyleResolutionSession *)arg3;
+- (void)buildTrafficMeshWithRoadData:(id)arg1 dynamicTile:(id)arg2 trafficAccum:(struct TrafficAccum *)arg3 styleSession:(struct StyleResolutionSession *)arg4;
 - (void)enumerateTrafficRoadPiecesForTile:(id)arg1 usingFunction:(const function_ccedc87b *)arg2;
-- (BOOL)_buildStartOffset:(float *)arg1 endOffset:(float *)arg2 forLine:(CDStruct_c272c4e8 *)arg3 forSkeleton:(const struct Record *)arg4 forRange:(struct _NSRange)arg5 forFlow:(const struct Flow *)arg6 forPoints:(Vec2Imp_1782d7e3 *)arg7;
-- (void)buildSkeletonMeshForDebug:(id)arg1;
+- (BOOL)_buildStartOffset:(float *)arg1 endOffset:(float *)arg2 forLine:(CDStruct_153464bf *)arg3 forSkeleton:(const struct Record *)arg4 forRange:(struct _NSRange)arg5 forFlow:(const struct Flow *)arg6 forPoints:(Matrix_8746f91e *)arg7;
 - (void)buildSkeletonMap;
 - (void)dealloc;
-- (id)initWithKey:(const struct VKTileKey *)arg1 downloadKey:(const struct _GEOTileKey *)arg2 data:(id)arg3;
+- (id)initWithKey:(const struct VKTileKey *)arg1 downloadKey:(const struct _GEOTileKey *)arg2 data:(id)arg3 styleManager:(id)arg4 sharedResources:(id)arg5 contentScale:(float)arg6 device:(struct Device *)arg7;
+@property(readonly, nonatomic) struct TrafficLayer *trafficLayer;
 @property(nonatomic) const struct _GEOTileKey *dataKey;
 
 @end

@@ -10,24 +10,19 @@
 
 @interface CKStarkConversationListCell : UITableViewCell
 {
-    BOOL _hasUnreadMessages;
-    NSDate *_date;
-    NSString *_recipientNames;
     UIImage *_monogramImage;
     UIImageView *_unreadImageView;
     UILabel *_recipientsLabel;
     UIDateLabel *_dateLabel;
-    UIImage *_unreadImage;
 }
 
-@property(retain, nonatomic) UIImage *unreadImage; // @synthesize unreadImage=_unreadImage;
 @property(retain, nonatomic) UIDateLabel *dateLabel; // @synthesize dateLabel=_dateLabel;
 @property(retain, nonatomic) UILabel *recipientsLabel; // @synthesize recipientsLabel=_recipientsLabel;
 @property(retain, nonatomic) UIImageView *unreadImageView; // @synthesize unreadImageView=_unreadImageView;
 @property(nonatomic) UIImage *monogramImage; // @synthesize monogramImage=_monogramImage;
-@property(retain, nonatomic) NSString *recipientNames; // @synthesize recipientNames=_recipientNames;
-@property(retain, nonatomic) NSDate *date; // @synthesize date=_date;
-@property(nonatomic) BOOL hasUnreadMessages; // @synthesize hasUnreadMessages=_hasUnreadMessages;
+@property(retain, nonatomic) NSString *recipientNames; // @dynamic recipientNames;
+@property(retain, nonatomic) NSDate *date; // @dynamic date;
+@property(nonatomic) BOOL hasUnreadMessages; // @dynamic hasUnreadMessages;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;

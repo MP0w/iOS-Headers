@@ -40,6 +40,7 @@ __attribute__((visibility("hidden")))
 - (void)insertFormulaText:(id)arg1 includeWhitespace:(BOOL)arg2;
 - (id)string;
 - (int)tokenType;
+- (BOOL)isDescendantOfChild:(id)arg1;
 - (BOOL)isMissingRequiredArgument;
 - (BOOL)isEmptyFunctionNode;
 - (void)resurrectModeTokens;

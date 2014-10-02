@@ -16,7 +16,7 @@
 - (id)initWithResourceRequest:(id)arg1;
 
 // Remaining properties
-@property(readonly) SKUIItemResourceRequest *resourceRequest; // @dynamic resourceRequest;
+@property(readonly, copy) SKUIItemResourceRequest *resourceRequest; // @dynamic resourceRequest;
 
 @end
 

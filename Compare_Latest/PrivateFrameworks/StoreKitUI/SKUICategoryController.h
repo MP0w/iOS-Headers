@@ -9,7 +9,7 @@
 #import "SKUICategoryTableViewControllerDelegate.h"
 #import "UIPopoverControllerDelegate.h"
 
-@class NSArray, NSOperationQueue, NSURL, SKUICategory, SKUICategoryArtworkLoader, SKUICategoryTableViewController, SKUIClientContext, SKUISegmentedControl, SSVLoadURLOperation, UIBarButtonItem, UIPopoverController, UISegmentedControl, UIViewController;
+@class NSArray, NSOperationQueue, NSString, NSURL, SKUICategory, SKUICategoryArtworkLoader, SKUICategoryTableViewController, SKUIClientContext, SKUISegmentedControl, SSVLoadURLOperation, UIBarButtonItem, UIPopoverController, UISegmentedControl, UIViewController;
 
 @interface SKUICategoryController : NSObject <SKUICategoryTableViewControllerDelegate, UIPopoverControllerDelegate>
 {
@@ -40,7 +40,6 @@
 - (void).cxx_destruct;
 - (id)_tableViewControllerWithCategory:(id)arg1;
 - (void)_setResponse:(id)arg1 error:(id)arg2;
-- (void)_setCachedResponse:(id)arg1 error:(id)arg2;
 - (id)_rootMetricsLocations;
 - (void)_reloadSelectedSegment;
 - (void)_recordClickEventWithCategory:(id)arg1 index:(int)arg2;
@@ -50,7 +49,7 @@
 - (id)_artworkLoader;
 - (id)metricsPageContextForCategoryTableView:(id)arg1;
 - (void)categoryTableView:(id)arg1 didSelectCategory:(id)arg2;
-- (BOOL)popoverControllerShouldDismissPopover:(id)arg1;
+- (void)popoverControllerDidDismissPopover:(id)arg1;
 - (void)segmentedControlAction:(id)arg1;
 - (void)buttonAction:(id)arg1;
 @property(readonly, nonatomic) UISegmentedControl *segmentedControl;
@@ -60,6 +59,12 @@
 @property(readonly, nonatomic) UIBarButtonItem *categoryButton;
 - (void)dealloc;
 - (id)initWithContentsController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

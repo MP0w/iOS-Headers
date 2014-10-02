@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSSet;
+@class NSDictionary, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet;
 
 @interface SSMetricsConfiguration : NSObject
 {
@@ -14,7 +14,9 @@
     SSMetricsConfiguration *_childConfiguration;
     NSDictionary *_config;
     BOOL _disabled;
+    BOOL _disableEventDecoration;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
+    NSMutableSet *_cookieFieldsUnion;
     NSMutableDictionary *_eventFieldsUnion;
     NSDictionary *_fields;
     int _internalSettingsToken;
@@ -25,9 +27,11 @@
 + (id)_reportingFrequencyOverride;
 + (void)setReportingFrequencyOverride:(id)arg1;
 + (void)getReportingFrequencyOverrideWithCompletionBlock:(CDUnknownBlockType)arg1;
+@property(nonatomic) BOOL disableEventDecoration; // @synthesize disableEventDecoration=_disableEventDecoration;
 @property(retain, nonatomic) SSMetricsConfiguration *childConfiguration; // @synthesize childConfiguration=_childConfiguration;
 - (void)_setReportingFrequencyOverride:(id)arg1;
 - (BOOL)_configBooleanForKey:(id)arg1 defaultValue:(BOOL)arg2;
+- (BOOL)_decorateITMLEvents;
 - (id)valueForConfigurationKey:(id)arg1;
 - (id)tokenStringWithElements:(id)arg1;
 - (id)reportingURLString;
@@ -39,6 +43,7 @@
 @property(readonly, nonatomic) NSDictionary *fieldsMap;
 - (id)compoundStringWithElements:(id)arg1;
 - (id)eventFields;
+- (id)cookieFields;
 - (id)blacklistedEventFields;
 - (void)dealloc;
 - (id)initWithStorePlatformData:(id)arg1;

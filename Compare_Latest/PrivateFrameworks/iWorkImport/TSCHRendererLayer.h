@@ -15,7 +15,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void)drawInContext:(struct CGContext *)arg1;
-- (struct CGRect)p_layerFrameFromUnscaledFrame:(struct CGRect)arg1;
+- (struct CGRect)p_layerFrameFromNaturalSpaceFrame:(struct CGRect)arg1;
 - (struct CGRect)p_calculateLayerFrame;
 - (void)updateFrameFromLayout;
 - (id)renderer;

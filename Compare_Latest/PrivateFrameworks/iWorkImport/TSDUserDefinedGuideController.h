@@ -9,7 +9,7 @@
 #import "TSDDecorator.h"
 #import "TSKChangeSourceObserver.h"
 
-@class NSArray, TSDInteractiveCanvasController;
+@class NSArray, NSString, TSDInteractiveCanvasController;
 
 __attribute__((visibility("hidden")))
 @interface TSDUserDefinedGuideController : NSObject <TSDDecorator, TSKChangeSourceObserver>
@@ -20,26 +20,34 @@ __attribute__((visibility("hidden")))
     NSArray *_currentGuides;
 }
 
-@property(readonly, nonatomic) NSArray *currentGuides; // @synthesize currentGuides=_currentGuides;
 @property(readonly, nonatomic) TSDInteractiveCanvasController *interactiveCanvasController; // @synthesize interactiveCanvasController=_icc;
 - (id)decoratorOverlayLayers;
-- (void)deleteGuide:(id)arg1;
-- (void)changeOrientationOfGuide:(id)arg1 toType:(int)arg2 withGuideAtPoint:(struct CGPoint)arg3;
-- (void)replaceGuide:(id)arg1 withGuideAtPoint:(struct CGPoint)arg2;
-- (id)guideStorage;
+- (void)deleteGuide:(id)arg1 atUnscaledPoint:(struct CGPoint)arg2;
+- (void)changeOrientationOfGuide:(id)arg1 toType:(int)arg2 atUnscaledPoint:(struct CGPoint)arg3;
+- (void)replaceGuide:(id)arg1 fromStorage:(id)arg2 atUnscaledPoint:(struct CGPoint)arg3;
+- (float)positionForGuideType:(int)arg1 atPoint:(struct CGPoint)arg2 inStorage:(id)arg3;
+- (id)guideStorageAtPoint:(struct CGPoint)arg1;
 - (void)updateCurrentGuides;
+@property(readonly, nonatomic) NSArray *currentGuides; // @synthesize currentGuides=_currentGuides;
 - (BOOL)shouldShowUserDefinedGuides;
 - (void)hideGuides;
 - (void)showGuides;
 - (void)endEditingGuides;
 - (void)beginEditingGuides;
 - (id)guideClosestToPoint:(struct CGPoint)arg1 distance:(float *)arg2 requiresSpecifiedType:(BOOL)arg3 desiredType:(int)arg4;
+- (id)currentGuidesForHitTestingAtPoint:(struct CGPoint)arg1;
 - (void)p_hideUserDefinedGuides;
 - (void)p_showUserDefinedGuides;
 - (void)asyncProcessChanges:(id)arg1 forChangeSource:(id)arg2;
 - (void)dealloc;
 - (void)teardown;
 - (id)initWithInteractiveCanvasController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

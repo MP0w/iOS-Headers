@@ -8,14 +8,12 @@
 
 @interface CHRecognitionResult : NSObject
 {
+    double _score;
 }
 
+@property double score; // @synthesize score=_score;
+- (id)initWithScore:(double)arg1;
 - (id)description;
-@property(readonly) double score;
-- (id)wordID;
-- (id)wordRanges;
-- (BOOL)rare;
-- (id)string;
 
 @end
 

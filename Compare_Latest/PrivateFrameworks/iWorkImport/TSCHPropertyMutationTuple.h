@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithStyleOwner:(id)arg1 mutationMap:(id)arg2;
 - (id)initWithStyleOwner:(id)arg1 mutations:(id)arg2;
-- (CDStruct_f1d50d6b)styleOwnerRef;
+- (id)styleOwnerRef;
 - (id)indirectTuple;
 
 @end

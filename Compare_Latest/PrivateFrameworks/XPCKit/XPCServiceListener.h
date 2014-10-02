@@ -23,7 +23,7 @@
 @property(retain, nonatomic) NSObject<OS_xpc_object> *listener; // @synthesize listener=_listener;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(readonly, nonatomic) id <XPCServiceListenerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
+@property(readonly, retain, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
 - (void).cxx_destruct;
 - (void)serviceConnectionDidDisconnect:(id)arg1;
 - (void)workQueueHandleIncomingConnection:(id)arg1;

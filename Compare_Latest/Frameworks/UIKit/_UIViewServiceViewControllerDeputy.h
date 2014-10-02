@@ -8,6 +8,8 @@
 
 #import "_UIViewServiceDeputy.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface _UIViewServiceViewControllerDeputy : _UITargetedProxy <_UIViewServiceDeputy>
 {
@@ -17,6 +19,12 @@ __attribute__((visibility("hidden")))
 + (id)XPCInterface;
 - (id)invalidate;
 - (void)__prepareForDisconnectionWithCompletionHandler:(CDUnknownBlockType)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

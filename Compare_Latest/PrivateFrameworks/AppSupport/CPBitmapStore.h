@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSCache, NSString;
+@class NSCache, NSObject<OS_dispatch_queue>, NSString;
 
 @interface CPBitmapStore : NSObject
 {
@@ -15,10 +15,11 @@
     NSCache *_cache;
     int _version;
     NSString *_versionPath;
+    NSObject<OS_dispatch_queue> *_serialQueueRemoveImagesBackground;
+    NSObject<OS_dispatch_queue> *_serialQueueRemoveImagesDefault;
     BOOL _lockOnRead;
 }
 
-+ (id)CPBitmapStoreWithPath:(id)arg1 version:(int)arg2 useDirectHashing:(BOOL)arg3;
 @property(nonatomic) BOOL lockOnRead; // @synthesize lockOnRead=_lockOnRead;
 - (int)setVersion:(int)arg1;
 @property(readonly, nonatomic) int version;

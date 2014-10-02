@@ -14,6 +14,8 @@
 }
 
 + (BOOL)supportsSecureCoding;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)keyBehaviorsForState:(id)arg1;
 - (id)initWithCoder:(id)arg1;

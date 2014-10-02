@@ -14,8 +14,6 @@ __attribute__((visibility("hidden")))
     TSDGLFrameBuffer *mAlphaFrameBuffer;
     TSDGLDataBuffer *mAlphaDataBuffer;
     TSDGLShader *mAlphaShader;
-    TSDGLFrameBuffer *mCurvedFrameBuffer;
-    TSDGLDataBuffer *mCurvedDataBuffer;
     TSDGLShader *mCurvedShader;
     TSDGLFrameBuffer *mCurveInterpolationFrameBuffer;
     TSDGLDataBuffer *mCurveInterpolationDataBuffer;
@@ -29,13 +27,14 @@ __attribute__((visibility("hidden")))
 - (void)releaseShaders;
 - (void)p_deleteFramebuffersWithCurrentGLFramebuffer:(int)arg1;
 - (void)p_unbindFramebuffersWithCurrentGLFramebuffer:(int)arg1;
+- (struct CGImage *)newCurvedAlphaCGImageForImage:(struct CGImage *)arg1 size:(struct CGSize)arg2;
 - (struct CGImage *)newCGImageWithTexture:(id)arg1 size:(struct CGSize)arg2 shader:(id)arg3 framebuffer:(id)arg4 databuffer:(id)arg5;
 - (void)p_bindCurvedInterpolationShaderForShadow:(id)arg1 framebufferSize:(struct CGSize)arg2;
 - (void)p_bindCurvedShaderForShadow:(id)arg1 framebufferSize:(struct CGSize)arg2;
 - (void)p_bindAlphaShaderForShadow:(id)arg1 framebufferSize:(struct CGSize)arg2;
-- (void)p_newBlurredImageFromImage:(struct CGImage *)arg1 blurRadius:(float)arg2 blurredImage:(struct CGImage **)arg3 framebufferSize:(struct CGSize)arg4;
-- (void)p_newBlurredImageFromImage:(struct CGImage *)arg1 blurRadius:(float)arg2 halfBlurredImage:(struct CGImage **)arg3 blurredImage:(struct CGImage **)arg4 framebufferSize:(struct CGSize)arg5;
-- (void)p_newTintedImage:(struct CGImage **)arg1 fromImage:(struct CGImage *)arg2 withColor:(CDStruct_f2e236b6)arg3 framebufferSize:(struct CGSize)arg4;
+- (id)p_blurredCIImage:(id)arg1 blurRadius:(float)arg2;
+- (void)p_newBlurredImageFromCIImage:(id)arg1 blurRadius:(float)arg2 halfBlurredImage:(struct CGImage **)arg3 blurredImage:(struct CGImage **)arg4 framebufferSize:(struct CGSize)arg5;
+- (id)p_newTintedCIImageFromImage:(id)arg1 withColor:(CDStruct_818bb265)arg2 framebufferSize:(struct CGSize)arg3;
 - (BOOL)p_shrinkImageIfNecessary:(struct CGImage *)arg1 originalSize:(struct CGSize)arg2 newImage:(struct CGImage **)arg3 newSize:(struct CGSize *)arg4;
 - (void)p_setupCIContextForFramebufferSize:(struct CGSize)arg1;
 - (void)drawShadow:(id)arg1 forImage:(struct CGImage *)arg2 inContext:(struct CGContext *)arg3 forSize:(struct CGSize)arg4;

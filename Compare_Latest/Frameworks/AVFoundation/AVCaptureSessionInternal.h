@@ -6,45 +6,38 @@
 
 #import "NSObject.h"
 
-@class AVCaptureFigAudioDevice, AVCaptureFigVideoDevice, AVCaptureVideoPreviewLayer, AVRunLoopCondition, AVWeakReference, NSError, NSMutableArray, NSMutableDictionary, NSString;
+@class AVCaptureDevice, AVCaptureSessionConfiguration, AVRunLoopCondition, AVWeakReference, FigCaptureSessionConfiguration, NSError, NSHashTable, NSMutableArray, NSString;
 
 @interface AVCaptureSessionInternal : NSObject
 {
     AVWeakReference *weakReference;
     NSString *sessionPreset;
-    BOOL adjustingDeviceActiveFormat;
-    int sessionPresetChangeSeed;
-    int resolvedSessionPresetChangeSeed;
-    int videoDeviceChangeSeed;
-    int resolvedVideoDeviceChangeSeed;
+    AVCaptureDevice *adjustingDeviceActiveFormat;
     int beginConfigRefCount;
-    NSMutableDictionary *captureOptions;
-    NSMutableDictionary *figRecorderOptions;
-    AVCaptureFigAudioDevice *audioDevice;
-    AVCaptureFigVideoDevice *videoDevice;
-    struct OpaqueCMBaseObject *recorder;
+    FigCaptureSessionConfiguration *sessionConfig;
+    struct OpaqueFigCaptureSession *figCaptureSession;
+    BOOL figCaptureSessionRunning;
     NSMutableArray *inputs;
     NSMutableArray *outputs;
+    NSHashTable *videoPreviewLayers;
     NSMutableArray *connections;
-    NSMutableArray *liveConnections;
-    AVCaptureVideoPreviewLayer *videoPreviewLayer;
+    NSMutableArray *committedAVCaptureSessionConfigurations;
+    AVCaptureSessionConfiguration *liveAVCaptureSessionConfiguration;
     NSError *stopError;
     BOOL running;
     BOOL interrupted;
-    BOOL recording;
     BOOL usesApplicationAudioSession;
     BOOL automaticallyConfiguresApplicationAudioSession;
     AVRunLoopCondition *runLoopCondition;
-    BOOL waitingForRecorderDidStartPreviewing;
-    BOOL waitingForRecorderDidStartRecording;
-    BOOL waitingForRecorderDidStopSource;
-    BOOL waitingForRecorderDidStopPreviewing;
-    BOOL waitingForRecorderDidStopRecording;
+    BOOL waitingForFigCaptureSessionToStart;
+    BOOL waitingForFigCaptureSessionToStop;
+    BOOL waitingForFigCaptureSessionConfigurationToBecomeLive;
+    BOOL waitingForFigCaptureSessionToStopDueToEmptyConfig;
     struct OpaqueCMClock *masterClock;
+    BOOL notifiesOnMainThread;
+    BOOL adjustingVideoDeviceHDREnabled;
+    BOOL sessionPresetChanging;
 }
-
-- (void)dealloc;
-- (id)init;
 
 @end
 

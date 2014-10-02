@@ -13,7 +13,7 @@
 }
 
 - (void)setCaptureDateFromExifDictionary:(id)arg1;
-@property(readonly, nonatomic) NSURL *fileURL;
+@property(readonly, retain, nonatomic) NSURL *fileURL;
 
 @end
 

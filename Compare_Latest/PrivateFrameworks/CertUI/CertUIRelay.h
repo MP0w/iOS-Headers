@@ -16,7 +16,7 @@
     NSTimer *_killTimer;
 }
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)init;
 - (void)_trustInfoMessageReceived:(id)arg1 userInfo:(id)arg2;
 - (id)_uniqueDigest;

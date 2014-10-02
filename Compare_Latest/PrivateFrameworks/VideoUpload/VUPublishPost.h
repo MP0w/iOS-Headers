@@ -13,6 +13,7 @@
 }
 
 @property(nonatomic) BOOL allowsCellularAccessForUploads; // @synthesize allowsCellularAccessForUploads=_allowsCellularAccessForUploads;
+- (void).cxx_destruct;
 - (void)startUpload;
 - (id)initWithDelegate:(id)arg1;
 

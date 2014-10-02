@@ -13,6 +13,7 @@
     NSDictionary *_messageInfo;
     CPDistributedMessagingDelayedReplyContext *_replyContext;
     CDUnknownBlockType _completion;
+    NSDictionary *_handlerDict;
 }
 
 + (id)_actualCenter;

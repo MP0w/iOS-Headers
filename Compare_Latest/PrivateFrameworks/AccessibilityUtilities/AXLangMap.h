@@ -27,6 +27,7 @@
 @property(nonatomic, getter=isAmbiguous) BOOL ambiguous; // @synthesize ambiguous=_ambiguous;
 @property(nonatomic, getter=isWestern) BOOL western; // @synthesize western=_western;
 @property(retain, nonatomic) NSArray *dialects; // @synthesize dialects=_dialects;
+@property(readonly, nonatomic) NSArray *alternativeVoiceIdentifiers;
 - (id)dialectWithLocaleIdentifier:(id)arg1;
 @property(readonly, nonatomic) AXDialectMap *defaultDialect;
 @property(readonly, nonatomic) AXDialectMap *userLocaleDialect; // @synthesize userLocaleDialect;

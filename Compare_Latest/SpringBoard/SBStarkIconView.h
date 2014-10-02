@@ -16,7 +16,7 @@
 + (struct CGRect)_rectForLayoutMetric:(int)arg1;
 + (struct CGSize)defaultIconSize;
 + (struct UIEdgeInsets)iconImagePaddingInsets;
-+ (_Bool)canShowUpdatedMark;
++ (_Bool)canShowLabelAccessoryView;
 + (int)_defaultIconFormat;
 @property(readonly, nonatomic) _Bool focused; // @synthesize focused=_focused;
 - (struct CGRect)_frameForLabel;

@@ -12,7 +12,7 @@
 }
 
 @property(nonatomic) Class storePageClass; // @synthesize storePageClass=_storePageClass;
-- (id)_roomComponentsForDictionary:(id)arg1 items:(id)arg2;
+- (id)_roomComponentsForDictionary:(id)arg1 items:(id)arg2 gridType:(int)arg3;
 - (id)_newPageComponentContextWithDictionary:(id)arg1;
 - (id)_newFeaturedContentComponentForKind:(int)arg1 context:(id)arg2;
 - (id)_newCustomPageComponentForBlockType:(id)arg1 context:(id)arg2;

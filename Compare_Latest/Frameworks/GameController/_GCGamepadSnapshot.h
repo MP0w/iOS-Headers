@@ -8,18 +8,27 @@
 
 #import "_GCSnapshot.h"
 
-@class NSData;
+@class GCMotion, NSData, NSString;
 
 __attribute__((visibility("hidden")))
 @interface _GCGamepadSnapshot : _GCGamepad <_GCSnapshot>
 {
     NSData *_snapshotData;
+    GCMotion *_motion;
 }
 
 - (void).cxx_destruct;
+- (void)set_motion:(id)arg1;
+- (id)motion;
 - (id)initWithController:(id)arg1 snapshotData:(id)arg2;
 - (id)initWithSnapshotData:(id)arg1;
 @property(copy) NSData *snapshotData; // @synthesize snapshotData=_snapshotData;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

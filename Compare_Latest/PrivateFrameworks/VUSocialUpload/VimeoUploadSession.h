@@ -12,6 +12,7 @@
 }
 
 + (id)sharedSession;
+- (void).cxx_destruct;
 - (BOOL)uploadPost:(id)arg1 error:(id *)arg2;
 - (id)init;
 

@@ -13,9 +13,9 @@
     id _internal;
 }
 
-- (_Bool)doingBiasEstimation;
-- (_Bool)doingYawCorrection;
-- (int)magneticFieldCalibrationLevel;
+@property(readonly, nonatomic) _Bool doingBiasEstimation;
+@property(readonly, nonatomic) _Bool doingYawCorrection;
+@property(readonly, nonatomic) int magneticFieldCalibrationLevel;
 @property(readonly, nonatomic) CDStruct_27fd20ed magneticField;
 @property(readonly, nonatomic) CDStruct_31142d93 userAcceleration;
 @property(readonly, nonatomic) CDStruct_31142d93 gravity;

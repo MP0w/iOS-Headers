@@ -25,7 +25,9 @@
 + (BOOL)supportsSecureCoding;
 + (id)passesImageNamed:(id)arg1;
 + (id)hashOfImageNamed:(id)arg1 inBundle:(id)arg2;
++ (id)imageNamed:(id)arg1 inBundle:(id)arg2 screenScale:(float)arg3 suffix:(id)arg4;
 + (id)imageNamed:(id)arg1 inBundle:(id)arg2;
++ (id)URLForImageNamed:(id)arg1 inBundle:(id)arg2 scale:(float *)arg3 preferredScreenScale:(float)arg4 suffix:(id)arg5;
 + (id)URLForImageNamed:(id)arg1 inBundle:(id)arg2 scale:(float *)arg3;
 @property(readonly, nonatomic) float scale; // @synthesize scale=_scale;
 - (BOOL)_isTiledWhenStretchedToSize:(struct CGSize)arg1;
@@ -46,11 +48,13 @@
 @property(readonly, nonatomic) NSData *imageData; // @synthesize imageData=_imageData;
 @property(readonly, nonatomic) int orientation; // @synthesize orientation=_orientation;
 @property(readonly, nonatomic) struct CGImage *imageRef; // @synthesize imageRef=_imageRef;
+- (struct CGSize)downscaleSizeMatchingScale:(float)arg1;
 @property(readonly, nonatomic) struct CGSize size;
 - (void)dealloc;
 - (id)initWithCGImage:(struct CGImage *)arg1 scale:(float)arg2 orientation:(int)arg3;
 - (id)initWithData:(id)arg1 scale:(float)arg2;
 - (id)init;
+- (id)imageHash;
 
 @end
 

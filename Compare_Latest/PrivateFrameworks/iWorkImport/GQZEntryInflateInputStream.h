@@ -8,6 +8,8 @@
 
 #import "GQZEntryInputStream.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface GQZEntryInflateInputStream : NSObject <GQZEntryInputStream>
 {
@@ -26,6 +28,12 @@ __attribute__((visibility("hidden")))
 - (void)readToOwnBuffer:(const char **)arg1 size:(unsigned int *)arg2;
 - (void)dealloc;
 - (id)initWithOffset:(long long)arg1 end:(long long)arg2 uncompressedSize:(unsigned long long)arg3 crc:(unsigned long)arg4 input:(id)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

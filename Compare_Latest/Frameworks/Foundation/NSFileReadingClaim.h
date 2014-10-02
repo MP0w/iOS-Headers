@@ -19,10 +19,12 @@ __attribute__((visibility("hidden")))
     int _linkResolutionCount;
 }
 
+- (BOOL)shouldBeRevokedPriorToInvokingAccessor;
 - (BOOL)blocksClaim:(id)arg1;
 - (void)itemAtLocation:(id)arg1 wasReplacedByItemAtLocation:(id)arg2;
 - (void)devalueSelf;
 - (void)invokeClaimer;
+- (void)resolveURLThenMaybeContinueInvokingClaimer:(CDUnknownBlockType)arg1;
 - (void)granted;
 - (BOOL)isBlockedByWritingItemAtLocation:(id)arg1 options:(unsigned int)arg2;
 - (BOOL)isBlockedByReadingItemAtLocation:(id)arg1 options:(unsigned int)arg2;

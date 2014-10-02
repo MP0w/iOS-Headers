@@ -6,15 +6,14 @@
 
 #import "SBStarkWorkspaceTransaction.h"
 
-#import "SBUIAnimationControllerDelegate.h"
+#import "SBUIAnimationControllerObserver.h"
 
-@class BKSApplicationActivationAssertion, SBAlert, SBApplication, SBUIAnimationController;
+@class NSString, SBAlert, SBApplication, SBUIAnimationController;
 
-@interface SBStarkAppToAlertWorkspaceTransaction : SBStarkWorkspaceTransaction <SBUIAnimationControllerDelegate>
+@interface SBStarkAppToAlertWorkspaceTransaction : SBStarkWorkspaceTransaction <SBUIAnimationControllerObserver>
 {
     SBAlert *_activatingAlert;
     SBApplication *_topApplication;
-    BKSApplicationActivationAssertion *_topApplicationActivationAssertion;
     SBUIAnimationController *_animation;
     _Bool _animatedAppDeactivation;
     _Bool _fromStarkLauncher;
@@ -23,13 +22,16 @@
 @property(readonly, nonatomic) SBAlert *alert; // @synthesize alert=_activatingAlert;
 - (void)animationControllerDidFinishAnimation:(id)arg1;
 - (void)animationController:(id)arg1 willBeginAnimation:(_Bool)arg2;
-- (void)_transactionComplete;
-- (_Bool)selfStarkAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
-- (_Bool)selfStarkAlertWillActivate:(id)arg1 overAlerts:(id)arg2;
-- (void)_commit;
-- (id)debugDescription;
+- (void)_didComplete;
+- (void)_begin;
+@property(readonly, copy) NSString *debugDescription;
 - (void)dealloc;
-- (id)initWithWorkspace:(id)arg1 mainScreenAlertManager:(id)arg2 starkScreenController:(id)arg3 alert:(id)arg4 overTopApplication:(id)arg5;
+- (id)initWithMainScreenAlertManager:(id)arg1 starkScreenController:(id)arg2 alert:(id)arg3 overTopApplication:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

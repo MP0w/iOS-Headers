@@ -6,6 +6,8 @@
 
 #import "NSObject.h"
 
+@class NSArray, NSString;
+
 @interface NSMetadataQueryResultGroup : NSObject
 {
     id _private[9];
@@ -13,13 +15,13 @@
     void *_reserved;
 }
 
-- (id)results;
+@property(readonly, copy) NSArray *results;
 - (void)_zapResultArray;
 - (id)resultAtIndex:(unsigned int)arg1;
-- (unsigned int)resultCount;
-- (id)subgroups;
-- (id)value;
-- (id)attribute;
+@property(readonly) unsigned int resultCount;
+@property(readonly, copy) NSArray *subgroups;
+@property(readonly, retain) id value;
+@property(readonly, copy) NSString *attribute;
 - (void)_addResult:(unsigned int)arg1;
 - (void)dealloc;
 - (id)_init:(id)arg1 attributes:(id)arg2 index:(unsigned int)arg3 value:(id)arg4;

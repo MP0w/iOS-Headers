@@ -6,10 +6,8 @@
 
 #import <iWorkImport/KNBuildDrop.h>
 
-#import "KNAnimationPluginArchiving.h"
-
 __attribute__((visibility("hidden")))
-@interface KNBuildDropByCharacter : KNBuildDrop <KNAnimationPluginArchiving>
+@interface KNBuildDropByCharacter : KNBuildDrop
 {
 }
 

@@ -14,7 +14,7 @@
 }
 
 + (id)connectionWithHost:(id)arg1;
-@property(readonly, nonatomic) MIDINetworkHost *host;
+@property(readonly, retain, nonatomic) MIDINetworkHost *host;
 - (void)dealloc;
 - (id)init;
 

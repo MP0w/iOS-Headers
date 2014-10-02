@@ -9,7 +9,7 @@
 #import "UIGestureRecognizerDelegatePrivate.h"
 #import "UIScrollViewDelegate.h"
 
-@class SKUIClientContext, SKUISlideshowImageScrollView, UIImage, UIView;
+@class NSString, SKUIClientContext, SKUISlideshowImageScrollView, UIImage, UIView;
 
 @interface SKUISlideshowItemViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegatePrivate>
 {
@@ -39,6 +39,12 @@
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

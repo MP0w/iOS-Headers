@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 - (void)addMaterial:(id)arg1;
 - (id)materialEnumerator;
 - (unsigned int)materialCount;
+- (BOOL)hasCompleteData;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (void)registerAlbum:(struct NSObject *)arg1 assetGroupPrivate:(id)arg2;
 - (void)photoLibraryDidChange:(id)arg1;
-@property(readonly, nonatomic) PLPhotoLibrary *photoLibrary; // @synthesize photoLibrary=_photoLibrary;
+@property(readonly, retain, nonatomic) PLPhotoLibrary *photoLibrary; // @synthesize photoLibrary=_photoLibrary;
 - (id)initWithAssetsLibrary:(id)arg1;
 
 @end

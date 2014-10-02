@@ -6,18 +6,21 @@
 
 #import <TelephonyUtilities/TUCallModel.h>
 
-@class NSRecursiveLock;
+@class NSDictionary, NSObject<OS_dispatch_semaphore>;
 
 @interface TUTelephonyCallModel : TUCallModel
 {
-    struct __CFDictionary *_callManagementState;
-    NSRecursiveLock *_lock;
+    NSDictionary *_callManagementState;
+    NSObject<OS_dispatch_semaphore> *_callManagementStateSemaphore;
 }
 
 + (id)sharedInstance;
-- (id)description;
+@property(retain, nonatomic) NSObject<OS_dispatch_semaphore> *callManagementStateSemaphore; // @synthesize callManagementStateSemaphore=_callManagementStateSemaphore;
+@property(retain, nonatomic) NSDictionary *callManagementState; // @synthesize callManagementState=_callManagementState;
 - (void)_invalidateCachedState;
 - (void)_invalidateNetworkCanTakeCallsPrivateCache;
+@property(readonly, nonatomic, getter=isWiFiCallingCurrentlyAvailable) BOOL wiFiCallingCurrentlyAvailable;
+- (BOOL)isSendToVoicemailAllowed;
 - (BOOL)isHoldAndAnswerAllowed;
 - (BOOL)isEndAndAnswerAllowed;
 - (BOOL)isHardPauseAvailable;
@@ -32,7 +35,6 @@
 - (BOOL)isSwappable;
 - (BOOL)_booleanValueForKey:(struct __CFString *)arg1;
 - (BOOL)_valueExistsForKey:(struct __CFString *)arg1;
-- (struct __CFDictionary *)_callManagementDictionary;
 - (void)dealloc;
 - (id)init;
 

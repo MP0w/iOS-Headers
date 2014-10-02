@@ -12,12 +12,12 @@
 {
 }
 
-@property int tzoffsetto;
-@property int tzoffsetfrom;
-@property NSArray *tzname;
-@property(retain) NSArray *rrule;
-@property(retain) NSArray *rdate;
-@property(retain) ICSDate *dtstart;
+@property(nonatomic) int tzoffsetto;
+@property(nonatomic) int tzoffsetfrom;
+@property(nonatomic) NSArray *tzname;
+@property(retain, nonatomic) NSArray *rrule;
+@property(retain, nonatomic) NSArray *rdate;
+@property(retain, nonatomic) ICSDate *dtstart;
 - (BOOL)validate:(id *)arg1;
 - (int)compare:(id)arg1;
 - (void)addRecurrenceDate:(id)arg1;

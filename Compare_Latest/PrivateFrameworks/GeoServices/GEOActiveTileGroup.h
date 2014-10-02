@@ -8,16 +8,19 @@
 
 #import "NSCopying.h"
 
-@class NSMutableArray, NSString;
+@class GEOVersionManifest, NSMutableArray, NSString;
 
 @interface GEOActiveTileGroup : PBCodable <NSCopying>
 {
     NSString *_addressCorrectionInitURL;
     NSString *_addressCorrectionUpdateURL;
+    NSMutableArray *_announcementsSupportedLanguages;
+    NSString *_announcementsURL;
     NSMutableArray *_attributions;
     NSString *_autocompleteURL;
     NSString *_batchReverseGeocoderURL;
     NSString *_directionsURL;
+    NSString *_dispatcherURL;
     NSString *_etaURL;
     NSString *_forwardGeocoderURL;
     unsigned int _identifier;
@@ -26,6 +29,7 @@
     NSString *_polyLocationShiftURL;
     NSString *_problemCategoriesURL;
     NSString *_problemNotificationAvailabilityURL;
+    NSString *_problemOptInURL;
     NSString *_problemStatusURL;
     NSString *_problemSubmissionURL;
     NSMutableArray *_regionalResourceRegions;
@@ -42,8 +46,14 @@
     NSMutableArray *_tileSets;
     NSString *_uniqueIdentifier;
     NSString *_usageURL;
+    GEOVersionManifest *_versionManifest;
 }
 
+@property(retain, nonatomic) GEOVersionManifest *versionManifest; // @synthesize versionManifest=_versionManifest;
+@property(retain, nonatomic) NSString *problemOptInURL; // @synthesize problemOptInURL=_problemOptInURL;
+@property(retain, nonatomic) NSString *dispatcherURL; // @synthesize dispatcherURL=_dispatcherURL;
+@property(retain, nonatomic) NSMutableArray *announcementsSupportedLanguages; // @synthesize announcementsSupportedLanguages=_announcementsSupportedLanguages;
+@property(retain, nonatomic) NSString *announcementsURL; // @synthesize announcementsURL=_announcementsURL;
 @property(retain, nonatomic) NSString *problemNotificationAvailabilityURL; // @synthesize problemNotificationAvailabilityURL=_problemNotificationAvailabilityURL;
 @property(retain, nonatomic) NSString *usageURL; // @synthesize usageURL=_usageURL;
 @property(retain, nonatomic) NSString *problemCategoriesURL; // @synthesize problemCategoriesURL=_problemCategoriesURL;
@@ -74,6 +84,7 @@
 @property(retain, nonatomic) NSMutableArray *resources; // @synthesize resources=_resources;
 @property(retain, nonatomic) NSMutableArray *tileSets; // @synthesize tileSets=_tileSets;
 @property(nonatomic) unsigned int identifier; // @synthesize identifier=_identifier;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -82,6 +93,14 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) BOOL hasVersionManifest;
+@property(readonly, nonatomic) BOOL hasProblemOptInURL;
+@property(readonly, nonatomic) BOOL hasDispatcherURL;
+- (id)announcementsSupportedLanguagesAtIndex:(unsigned int)arg1;
+- (unsigned int)announcementsSupportedLanguagesCount;
+- (void)addAnnouncementsSupportedLanguages:(id)arg1;
+- (void)clearAnnouncementsSupportedLanguages;
+@property(readonly, nonatomic) BOOL hasAnnouncementsURL;
 @property(readonly, nonatomic) BOOL hasProblemNotificationAvailabilityURL;
 @property(readonly, nonatomic) BOOL hasUsageURL;
 @property(readonly, nonatomic) BOOL hasProblemCategoriesURL;
@@ -127,13 +146,14 @@
 - (void)addTileSet:(id)arg1;
 - (void)clearTileSets;
 - (void)dealloc;
-- (id)regionalResourceRegionsForMapRect:(CDStruct_90e2a262)arg1;
-- (id)flatRegionalResourceTilesForMapRect:(CDStruct_90e2a262)arg1;
+- (id)regionalResourceRegionsForMapRect:(CDStruct_02837cd9)arg1;
+- (id)flatRegionalResourceTilesForMapRect:(CDStruct_02837cd9)arg1;
 - (unsigned int)largestRegionalResourceZoomLevelContainingTileKey:(const struct _GEOTileKey *)arg1;
 - (id)regionalResourceKeysForTileKey:(const struct _GEOTileKey *)arg1;
 - (BOOL)hasRegionalResourcesForTileKey:(const struct _GEOTileKey *)arg1;
 - (void)_resetBestLanguages;
 - (BOOL)supportsTileStyle:(int)arg1 size:(int)arg2 scale:(int)arg3;
+- (id)languageForTileKey:(const struct _GEOTileKey *)arg1 overrideLocale:(id)arg2;
 - (id)languageForTileKey:(const struct _GEOTileKey *)arg1;
 - (BOOL)isAvailableForTileKey:(const struct _GEOTileKey *)arg1;
 - (double)timeToLiveForTileKey:(const struct _GEOTileKey *)arg1;

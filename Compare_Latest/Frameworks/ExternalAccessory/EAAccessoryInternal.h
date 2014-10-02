@@ -26,13 +26,9 @@
     BOOL _notPresentInIAPAccessoriesArray;
     NSMutableArray *_sessionsList;
     NSArray *_eqNames;
-    int _iPodOutOptionsMask;
     int _locationSentenceTypesMask;
     NSDictionary *_vehicleInfoSupportedTypes;
     NSDictionary *_vehicleInfoInitialData;
-    struct __CFAccessory *_cfAccessory;
-    CDUnknownFunctionPointerType _cfAccessoryPortPropertyCallback;
-    void *_cfAccessoryPortPropertyContext;
     NSDictionary *_protocols;
     id <EAAccessoryDelegate> _delegate;
     NSString *_bonjourName;
@@ -47,12 +43,8 @@
 @property(copy, nonatomic) NSString *bonjourName; // @synthesize bonjourName=_bonjourName;
 @property(nonatomic) id <EAAccessoryDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSDictionary *protocols; // @synthesize protocols=_protocols;
-@property(nonatomic) void *cfAccessoryPortPropertyContext; // @synthesize cfAccessoryPortPropertyContext=_cfAccessoryPortPropertyContext;
-@property(nonatomic) CDUnknownFunctionPointerType cfAccessoryPortPropertyCallback; // @synthesize cfAccessoryPortPropertyCallback=_cfAccessoryPortPropertyCallback;
-@property(nonatomic) struct __CFAccessory *cfAccessory; // @synthesize cfAccessory=_cfAccessory;
 @property(retain, nonatomic) NSDictionary *vehicleInfoInitialData; // @synthesize vehicleInfoInitialData=_vehicleInfoInitialData;
 @property(retain, nonatomic) NSDictionary *vehicleInfoSupportedTypes; // @synthesize vehicleInfoSupportedTypes=_vehicleInfoSupportedTypes;
-@property(nonatomic) int iPodOutOptionsMask; // @synthesize iPodOutOptionsMask=_iPodOutOptionsMask;
 @property(nonatomic) unsigned int eqIndex; // @synthesize eqIndex=_eqIndex;
 @property(retain, nonatomic) NSArray *eqNames; // @synthesize eqNames=_eqNames;
 @property(nonatomic) BOOL notPresentInIAPAccessoriesArray; // @synthesize notPresentInIAPAccessoriesArray=_notPresentInIAPAccessoriesArray;

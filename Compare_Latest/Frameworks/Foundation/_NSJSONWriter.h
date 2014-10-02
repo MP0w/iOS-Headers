@@ -8,6 +8,7 @@
 
 @class NSOutputStream;
 
+__attribute__((visibility("hidden")))
 @interface _NSJSONWriter : NSObject
 {
     NSOutputStream *outputStream;

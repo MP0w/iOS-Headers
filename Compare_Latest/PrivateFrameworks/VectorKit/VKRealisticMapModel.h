@@ -8,40 +8,96 @@
 
 #import "VKMapLayer.h"
 
-@class VGLRenderState, VKSkyModel;
+@class NSString, VKSkyModel;
 
 __attribute__((visibility("hidden")))
 @interface VKRealisticMapModel : VKVectorMapModel <VKMapLayer>
 {
-    VGLRenderState *_renderState;
     double _fade;
     float _sceneAlpha;
-    id <VKRoutePreloadSession> _routePreloadSession;
+    id <GEORoutePreloadSession> _routePreloadSession;
     BOOL _disableRealisticRoads;
     BOOL _disableRealisticLand;
     VKSkyModel *_skyModel;
+    struct unique_ptr<ggl::ClearItem, std::__1::default_delete<ggl::ClearItem>> _clearItem;
+    struct shared_ptr<ggl::AnimatableTexture::VariantUniformData> _variantData;
+    struct unique_ptr<ggl::FragmentedPool<ggl::PolygonSolidFill::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonSolidFill::Shader::Setup>>> _roadStencilShaderSetupPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::RealisticTexture::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticTexture::Shader::Setup>>> _texturedShaderSetupPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::RealisticAnimatableTexture::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticAnimatableTexture::Shader::Setup>>> _animatableTexturedShaderSetupPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::RealisticRoad::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticRoad::Shader::Setup>>> _roadShaderSetupPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::RealisticAnimatableRoad::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticAnimatableRoad::Shader::Setup>>> _animatableRoadShaderSetupPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::RealisticCasingShadow::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticCasingShadow::Shader::Setup>>> _casingShadowShaderSetupPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::RealisticCasingFacade::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticCasingFacade::Shader::Setup>>> _casingFacadeShaderSetupPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::RealisticCasingTop::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticCasingTop::Shader::Setup>>> _casingSidewalkShadowShaderSetupPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::RealisticCasingTop::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticCasingTop::Shader::Setup>>> _casingTopShaderSetupPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::RealisticRoadShadow::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::RealisticRoadShadow::Shader::Setup>>> _roadShadowShaderSetupPool;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _roadStencilRenderState;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _landRenderStateWithoutBlending;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _landRenderStateWithBlending;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _coastlineRenderState;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _waterRenderStateWithoutBlending;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _waterRenderStateWithBlending;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _roadRenderStateWithoutBlending;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _roadRenderStateWithBlending;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _casingShadowRenderState;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _casingFacadeRenderStateWithoutBlending;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _casingFacadeRenderStateWithBlending;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _casingSidewalkShadowRenderState;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _casingTopRenderStateWithoutBlending;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _casingTopRenderStateWithBlending;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _roadShadowRenderState;
+    struct unique_ptr<ggl::FragmentedPool<ggl::RenderItem>, std::__1::default_delete<ggl::FragmentedPool<ggl::RenderItem>>> _roadStencilRenderItemPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::RenderItem>, std::__1::default_delete<ggl::FragmentedPool<ggl::RenderItem>>> _texturedRenderItemPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::RenderItem>, std::__1::default_delete<ggl::FragmentedPool<ggl::RenderItem>>> _roadRenderItemPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::RenderItem>, std::__1::default_delete<ggl::FragmentedPool<ggl::RenderItem>>> _casingShadowRenderItemPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::RenderItem>, std::__1::default_delete<ggl::FragmentedPool<ggl::RenderItem>>> _casingFacadeRenderItemPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::RenderItem>, std::__1::default_delete<ggl::FragmentedPool<ggl::RenderItem>>> _casingTopRenderItemPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::RenderItem>, std::__1::default_delete<ggl::FragmentedPool<ggl::RenderItem>>> _roadShadowRenderItemPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::PolygonSolidFill::Shader::Setup>, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonSolidFill::Shader::Setup>>> _debugShaderSetupPool;
+    struct unique_ptr<ggl::FragmentedPool<ggl::RenderItem>, std::__1::default_delete<ggl::FragmentedPool<ggl::RenderItem>>> _debugRenderItemPool;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _debugRenderState;
+    _Bool _needDebugReset;
+    struct RenderItemBatcher _batcher;
 }
 
 @property(nonatomic) float sceneAlpha; // @synthesize sceneAlpha=_sceneAlpha;
 @property(nonatomic) BOOL disableRealisticRoads; // @synthesize disableRealisticRoads=_disableRealisticRoads;
 @property(nonatomic) BOOL disableRealisticLand; // @synthesize disableRealisticLand=_disableRealisticLand;
 @property(retain, nonatomic) VKSkyModel *skyModel; // @synthesize skyModel=_skyModel;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (void)stylesheetDoneChanging;
 - (void)stylesheetDidChange;
-- (void)stylesheetWillChange;
-- (void)drawDebugScene:(id)arg1 withContext:(id)arg2;
-- (void)drawScene:(id)arg1 withContext:(id)arg2;
-- (void)layoutScene:(id)arg1 withContext:(id)arg2;
+- (void)stylesheetTransitionDidProgress;
+- (void)stylesheetWillTransition:(unsigned int)arg1;
+- (void)setupRealisticUniformBuffer:(struct RealisticUniformData *)arg1 forTile:(id)arg2;
+- (void)appendRoadCommandsToBuffer:(struct CommandBuffer *)arg1 inContext:(id)arg2 skyParameters:(const CDStruct_ac74ac41 *)arg3;
+- (void)appendWaterCommandsToBuffer:(struct CommandBuffer *)arg1 inContext:(id)arg2 skyParameters:(const CDStruct_ac74ac41 *)arg3;
+- (void)appendLandCommandsToBuffer:(struct CommandBuffer *)arg1 inContext:(id)arg2 skyParameters:(const CDStruct_ac74ac41 *)arg3;
+- (void)appendStencilCommandsToBuffer:(struct CommandBuffer *)arg1 inContext:(id)arg2;
+- (void)resetPools;
+- (void)flushPools;
+- (void)reset;
+- (void)didReceiveMemoryWarning;
+- (void)resetDebugPools:(id)arg1;
+- (void)appendDebugPreloadMissesToBuffer:(struct CommandBuffer *)arg1 inContext:(id)arg2 forScene:(id)arg3;
+- (void)appendDebugPreloadStatusToBuffer:(struct CommandBuffer *)arg1 inContext:(id)arg2 forScene:(id)arg3;
+- (void)gglLayoutScene:(id)arg1 withContext:(id)arg2 renderQueue:(struct RenderQueue *)arg3;
 - (double)_calculateZoomLevelWithContext:(id)arg1;
 - (BOOL)wantsCategorizedSourceTiles;
 - (void)willStartDrawingTiles:(id)arg1;
-- (void)preloadNavigationSceneAnimationResourcesForDisplayStyle:(int)arg1 context:(id)arg2;
-- (void)preloadRenderingResourcesWithContext:(id)arg1;
+- (void)gatherRenderingPreloadItems:(vector_b35310ee *)arg1;
 - (void)dealloc;
 - (id)init;
-@property(retain, nonatomic) id <VKRoutePreloadSession> routePreloadSession;
+@property(retain, nonatomic) id <GEORoutePreloadSession> routePreloadSession;
 - (BOOL)minimumZoomLevelBoundsCamera;
-- (unsigned int)supportedRenderPasses;
-- (unsigned int)mapLayerPosition;
+- (unsigned long long)mapLayerPosition;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

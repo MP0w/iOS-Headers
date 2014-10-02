@@ -6,14 +6,16 @@
 
 #import "UIViewController.h"
 
-@class SBBulletinRootView, SBBulletinWindowController;
+@class SBBulletinRootView, SBBulletinWindowController, _SBBulletinRootViewControllerTransitionContext;
 
 @interface SBBulletinRootViewController : UIViewController
 {
     SBBulletinRootView *_rootView;
     SBBulletinWindowController *_windowController;
+    _SBBulletinRootViewControllerTransitionContext *_activeTransitionContext;
 }
 
+- (void)_getRotationContentSettings:(CDStruct_ebaa735e *)arg1;
 - (void)didRotateFromInterfaceOrientation:(long long)arg1;
 - (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
@@ -21,8 +23,8 @@
 - (_Bool)shouldAutomaticallyForwardRotationMethods;
 - (_Bool)shouldAutomaticallyForwardAppearanceMethods;
 - (_Bool)wantsFullScreenLayout;
-- (void)dismissViewController:(id)arg1 onView:(id)arg2;
-- (void)presentViewController:(id)arg1 onView:(id)arg2;
+- (void)bulletinWindowControllerDismissViewControllerAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)bulletinWindowControllerPresentViewController:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)dealloc;
 - (void)loadView;
 - (id)initWithBulletinWindowController:(id)arg1;

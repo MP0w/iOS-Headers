@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 + (id)trendLineEquationType;
 + (id)trendLineType;
 + (id)errorBarType;
++ (id)legendTrendLineNameType;
 + (id)legendSeriesNameType;
 + (id)legendType;
 + (id)seriesValueLabelType;

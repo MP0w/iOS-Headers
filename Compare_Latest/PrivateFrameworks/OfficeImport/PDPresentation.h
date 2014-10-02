@@ -6,7 +6,7 @@
 
 #import <OfficeImport/OCDDocument.h>
 
-@class NSMutableArray, NSMutableDictionary;
+@class NSMutableArray;
 
 __attribute__((visibility("hidden")))
 @interface PDPresentation : OCDDocument
@@ -21,14 +21,15 @@ __attribute__((visibility("hidden")))
     BOOL mIsCommentsVisible;
     BOOL mIsLooping;
     BOOL mIsKiosk;
-    NSMutableDictionary *mCommentAuthors;
+    NSMutableArray *mCommentAuthors;
 }
 
 - (id).cxx_construct;
 - (void)ensureDefaultLayoutsForMasters;
 - (void)flushUnusedMastersAndLayouts;
-- (void)setCommentAuthor:(id)arg1 forId:(unsigned int)arg2;
-- (id)commentAuthorForId:(unsigned int)arg1;
+- (void)addCommentAuthor:(id)arg1;
+- (id)commentAuthorAtIndex:(unsigned int)arg1;
+- (unsigned int)commentAuthorCount;
 - (void)setIsKiosk:(BOOL)arg1;
 - (BOOL)isKiosk;
 - (void)setIsLooping:(BOOL)arg1;

@@ -8,7 +8,7 @@
 
 #import "EKCalendarChooserDelegate.h"
 
-@class EKCalendar, EKCalendarChooser, EKEventStore;
+@class EKCalendar, EKCalendarChooser, EKEventStore, NSString;
 
 __attribute__((visibility("hidden")))
 @interface EKCalendarEditItemViewController : EKEditItemViewController <EKCalendarChooserDelegate>
@@ -29,6 +29,12 @@ __attribute__((visibility("hidden")))
 - (id)initWithFrame:(struct CGRect)arg1 store:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1 store:(id)arg2 styleProvider:(id)arg3;
 - (id)initWithFrame:(struct CGRect)arg1 store:(id)arg2 styleProvider:(id)arg3 entityType:(unsigned int)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

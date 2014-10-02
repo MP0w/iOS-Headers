@@ -9,18 +9,18 @@
 #import "ABPeoplePickerNavigationControllerDelegate.h"
 #import "ABPersonViewControllerDelegate.h"
 #import "ABUnknownPersonViewControllerDelegate.h"
-#import "MFComposeRecipientViewDelegate.h"
+#import "MFComposeRecipientTextViewDelegate.h"
 #import "MFContactsSearchConsumer.h"
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class MFComposeRecipientView, MFContactsSearchManager, MFContactsSearchResultsModel, MFSearchShadowView, NSArray, NSNumber, NSString, UIKeyboard, UIScrollView, UITableView;
+@class EKEvent, MFComposeRecipientTextView, MFContactsSearchManager, MFContactsSearchResultsModel, MFSearchShadowView, NSArray, NSDate, NSMutableDictionary, NSNumber, NSOperationQueue, NSString, UIKeyboard, UIScrollView, UITableView;
 
 __attribute__((visibility("hidden")))
-@interface EKEventAttendeePicker : UIViewController <UITableViewDataSource, UITableViewDelegate, MFContactsSearchConsumer, MFComposeRecipientViewDelegate, ABPeoplePickerNavigationControllerDelegate, ABPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
+@interface EKEventAttendeePicker : UIViewController <UITableViewDataSource, UITableViewDelegate, MFContactsSearchConsumer, MFComposeRecipientTextViewDelegate, ABPeoplePickerNavigationControllerDelegate, ABPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
 {
     NSArray *_recipients;
-    MFComposeRecipientView *_composeRecipientView;
+    MFComposeRecipientTextView *_composeRecipientView;
     UIScrollView *_recipientScrollView;
     UITableView *_searchResultsView;
     MFSearchShadowView *_shadowView;
@@ -33,10 +33,19 @@ __attribute__((visibility("hidden")))
     NSArray *_searchResults;
     BOOL _shouldReenableAutomaticKeyboard;
     struct CGRect _initialFrame;
+    NSOperationQueue *_availabilityQueue;
+    NSMutableDictionary *_recipientAddressesToRecipients;
+    EKEvent *_event;
+    NSMutableDictionary *_atomPresentationOptionsByRecipient;
+    BOOL _suppressAvailabilityRequests;
+    NSDate *_overriddenEventStartDate;
+    NSDate *_overriddenEventEndDate;
     NSString *_searchAccountID;
     id <EKEventAttendeePickerDelegate> _emailValidationDelegate;
 }
 
++ (BOOL)_participantHasResponded:(id)arg1;
++ (id)_addressForRecipient:(id)arg1;
 @property(nonatomic) __weak id <EKEventAttendeePickerDelegate> emailValidationDelegate; // @synthesize emailValidationDelegate=_emailValidationDelegate;
 @property(copy, nonatomic) NSString *searchAccountID; // @synthesize searchAccountID=_searchAccountID;
 - (void).cxx_destruct;
@@ -48,47 +57,55 @@ __attribute__((visibility("hidden")))
 - (BOOL)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
-- (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2;
+- (void)peoplePickerNavigationController:(id)arg1 didSelectPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
+- (void)peoplePickerNavigationController:(id)arg1 didSelectPerson:(void *)arg2;
 - (void)peoplePickerNavigationControllerDidCancel:(id)arg1;
-- (unsigned int)_atomPresentationOptionsForRecipient:(id)arg1;
+- (unsigned int)presentationOptionsForRecipient:(id)arg1;
+- (BOOL)recipientViewShouldIgnoreFirstResponderChanges:(id)arg1;
 - (id)composeRecipientView:(id)arg1 composeRecipientForRecord:(void *)arg2 identifier:(int)arg3;
 - (id)composeRecipientView:(id)arg1 composeRecipientForAddress:(id)arg2;
 - (void)composeRecipientViewDidFinishPickingRecipient:(id)arg1;
 - (void)composeRecipientViewRequestAddRecipient:(id)arg1;
+@property(readonly, nonatomic) BOOL showAvailability;
 - (id)peoplePickerPrompt;
-- (void)composeRecipientView:(id)arg1 showPersonCardForAtom:(id)arg2;
 - (void)composeRecipientView:(id)arg1 textDidChange:(id)arg2;
 - (void)composeRecipientView:(id)arg1 didChangeSize:(struct CGSize)arg2;
-- (void)composeRecipientView:(id)arg1 didAddRecipient:(id)arg2;
+- (void)_adjustLayoutOfSubviews;
 - (void)composeRecipientView:(id)arg1 didFinishEnteringAddress:(id)arg2;
 - (void)composeRecipientView:(id)arg1 didRemoveRecipient:(id)arg2;
-- (void)animationDidStop:(id)arg1;
+- (void)composeRecipientView:(id)arg1 didAddRecipient:(id)arg2;
 - (void)searchWithText:(id)arg1;
 - (void)endedNetworkActivity;
 - (void)beganNetworkActivity;
 - (void)finishedTaskWithID:(id)arg1;
-- (void)finishedSearchingForType:(int)arg1;
-- (void)consumeSearchResults:(id)arg1 type:(int)arg2 taskID:(id)arg3;
+- (void)finishedSearchingForType:(unsigned int)arg1;
+- (void)consumeSearchResults:(id)arg1 type:(unsigned int)arg2 taskID:(id)arg3;
 - (id)_searchManager;
-- (float)_properHeight;
 - (float)_maxScrollerHeight;
-- (void)_showSearchField;
-- (void)_hideSearchFieldAndCancelOutstandingSearches:(BOOL)arg1;
+- (void)_showSearchResults;
+- (void)_hideSearchResultsAndCancelOutstandingSearches:(BOOL)arg1;
 - (id)_searchResultsView;
 - (id)_shadowView;
 - (void)_copyRecipientsFromComposeView;
+- (void)_setAtomPresentationOption:(unsigned int)arg1 forRecipient:(id)arg2;
+- (void)_requestAvailabilityForRecipients:(id)arg1;
+- (id)_lookUpRecipientForAddress:(id)arg1;
 - (void)_setRecipientsOnComposeView;
 @property(copy, nonatomic) NSArray *recipients;
 @property(readonly, nonatomic) NSArray *addresses;
 @property(readonly, nonatomic) NSString *remainingText;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)commitRemainingText;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 event:(id)arg2 overriddenEventStartDate:(id)arg3 overriddenEventEndDate:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

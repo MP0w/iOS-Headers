@@ -9,7 +9,7 @@
 #import "SKUIMissingItemDelegate.h"
 #import "SKUISwooshViewControllerDelegate.h"
 
-@class SKUIBrickSwooshArtworkLoader, SKUIBrickSwooshViewController, SKUIMissingItemLoader, SKUISwooshPageComponent;
+@class NSString, SKUIBrickSwooshArtworkLoader, SKUIBrickSwooshViewController, SKUIMissingItemLoader, SKUISwooshPageComponent;
 
 @interface SKUIBrickSwooshPageSection : SKUIStorePageSection <SKUIMissingItemDelegate, SKUISwooshViewControllerDelegate>
 {
@@ -39,7 +39,11 @@
 - (id)initWithPageComponent:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) SKUISwooshPageComponent *pageComponent; // @dynamic pageComponent;
+@property(readonly) Class superclass;
 
 @end
 

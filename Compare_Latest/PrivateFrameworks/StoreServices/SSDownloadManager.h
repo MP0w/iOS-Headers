@@ -30,8 +30,10 @@
 + (id)softwareDownloadKinds;
 + (void)retryAllRestoreDownloads;
 + (void)reevaluateBackgroundDownloadsForBundleIdentifiers:(id)arg1;
++ (id)ITunesDownloadKinds;
 + (id)IPodDownloadKinds;
 + (id)EBookDownloadKinds;
++ (id)allStoreDownloadKinds;
 + (id)softwareDownloadManager;
 + (id)IPodDownloadManager;
 + (id)EBookDownloadManager;

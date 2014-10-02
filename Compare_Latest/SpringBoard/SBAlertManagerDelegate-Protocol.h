@@ -6,12 +6,14 @@
 
 #import "NSObject.h"
 
-@class SBAlert, SBAlertManager, SBAlertWindow;
+@class FBSScene, SBAlert, SBAlertManager, SBAlertWindow, UIScreen;
 
 @protocol SBAlertManagerDelegate <NSObject>
+- (double)sceneLevelForAlerts;
+- (struct CGRect)sceneFrameForAlerts:(UIScreen *)arg1;
 
 @optional
-- (SBAlertWindow *)alertManager:(SBAlertManager *)arg1 newAlertWindowForLockAlerts:(_Bool)arg2;
+- (SBAlertWindow *)alertManager:(SBAlertManager *)arg1 newAlertWindowForScene:(FBSScene *)arg2;
 - (_Bool)alertManager:(SBAlertManager *)arg1 shouldDeactivateDismissedAlert:(SBAlert *)arg2;
 @end
 

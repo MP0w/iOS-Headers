@@ -6,8 +6,10 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying.h"
+
 __attribute__((visibility("hidden")))
-@interface GEOVPointOnRoad : PBCodable
+@interface GEOVPointOnRoad : PBCodable <NSCopying>
 {
     int _featureIndex;
     int _vertexIndex;
@@ -20,13 +22,13 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) int featureIndex; // @synthesize featureIndex=_featureIndex;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
 @property(nonatomic) BOOL hasVertexIndex;
-- (void)dealloc;
 
 @end
 

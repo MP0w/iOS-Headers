@@ -20,37 +20,25 @@
     NSMutableArray *_localizedCategories;
     NSString *_mapsURL;
     NSString *_name;
-    NSString *_notice;
     NSMutableArray *_openHours;
     NSString *_phoneticName;
-    NSString *_phoneticNotice;
     NSMutableArray *_photos;
     NSMutableArray *_ratings;
     NSMutableArray *_sources;
     NSMutableArray *_starRatings;
     NSString *_telephone;
-    unsigned int _totalNumberOfPhotos;
     NSString *_uRL;
-    int _version;
-    BOOL _canBeCorrectedByBusinessOwner;
     BOOL _isClosed;
-    BOOL _isUnverified;
     struct {
         unsigned int uID:1;
-        unsigned int totalNumberOfPhotos:1;
-        unsigned int version:1;
-        unsigned int canBeCorrectedByBusinessOwner:1;
         unsigned int isClosed:1;
-        unsigned int isUnverified:1;
     } _has;
 }
 
 @property(retain, nonatomic) NSMutableArray *starRatings; // @synthesize starRatings=_starRatings;
 @property(retain, nonatomic) NSMutableArray *sources; // @synthesize sources=_sources;
-@property(nonatomic) BOOL canBeCorrectedByBusinessOwner; // @synthesize canBeCorrectedByBusinessOwner=_canBeCorrectedByBusinessOwner;
 @property(retain, nonatomic) NSMutableArray *attributions; // @synthesize attributions=_attributions;
 @property(retain, nonatomic) NSMutableArray *localizedCategories; // @synthesize localizedCategories=_localizedCategories;
-@property(nonatomic) unsigned int totalNumberOfPhotos; // @synthesize totalNumberOfPhotos=_totalNumberOfPhotos;
 @property(retain, nonatomic) GEOLatLng *center; // @synthesize center=_center;
 @property(retain, nonatomic) NSMutableArray *openHours; // @synthesize openHours=_openHours;
 @property(retain, nonatomic) NSMutableArray *attributeKeyValues; // @synthesize attributeKeyValues=_attributeKeyValues;
@@ -59,15 +47,12 @@
 @property(retain, nonatomic) NSMutableArray *ratings; // @synthesize ratings=_ratings;
 @property(retain, nonatomic) NSString *mapsURL; // @synthesize mapsURL=_mapsURL;
 @property(nonatomic) BOOL isClosed; // @synthesize isClosed=_isClosed;
-@property(nonatomic) BOOL isUnverified; // @synthesize isUnverified=_isUnverified;
 @property(retain, nonatomic) NSString *uRL; // @synthesize uRL=_uRL;
 @property(retain, nonatomic) NSString *telephone; // @synthesize telephone=_telephone;
-@property(retain, nonatomic) NSString *phoneticNotice; // @synthesize phoneticNotice=_phoneticNotice;
 @property(retain, nonatomic) NSString *phoneticName; // @synthesize phoneticName=_phoneticName;
-@property(retain, nonatomic) NSString *notice; // @synthesize notice=_notice;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
-@property(nonatomic) int version; // @synthesize version=_version;
 @property(nonatomic) unsigned long long uID; // @synthesize uID=_uID;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -84,7 +69,6 @@
 - (unsigned int)sourcesCount;
 - (void)addSource:(id)arg1;
 - (void)clearSources;
-@property(nonatomic) BOOL hasCanBeCorrectedByBusinessOwner;
 - (id)attributionAtIndex:(unsigned int)arg1;
 - (unsigned int)attributionsCount;
 - (void)addAttribution:(id)arg1;
@@ -93,7 +77,6 @@
 - (unsigned int)localizedCategoriesCount;
 - (void)addLocalizedCategories:(id)arg1;
 - (void)clearLocalizedCategories;
-@property(nonatomic) BOOL hasTotalNumberOfPhotos;
 @property(readonly, nonatomic) BOOL hasCenter;
 - (id)openHoursAtIndex:(unsigned int)arg1;
 - (unsigned int)openHoursCount;
@@ -117,16 +100,38 @@
 - (void)clearRatings;
 @property(readonly, nonatomic) BOOL hasMapsURL;
 @property(nonatomic) BOOL hasIsClosed;
-@property(nonatomic) BOOL hasIsUnverified;
 @property(readonly, nonatomic) BOOL hasURL;
 @property(readonly, nonatomic) BOOL hasTelephone;
-@property(readonly, nonatomic) BOOL hasPhoneticNotice;
 @property(readonly, nonatomic) BOOL hasPhoneticName;
-@property(readonly, nonatomic) BOOL hasNotice;
 @property(readonly, nonatomic) BOOL hasName;
-@property(nonatomic) BOOL hasVersion;
 @property(nonatomic) BOOL hasUID;
 - (void)dealloc;
+- (id)initWithPlaceDataEntity:(id)arg1 rating:(id)arg2 hours:(id)arg3 reviews:(id)arg4 photos:(id)arg5;
+- (id)_currentOperatingHoursForTimeZone:(id)arg1;
+@property(readonly, nonatomic, getter=_hasOperatingHours) BOOL hasOperatingHours;
+@property(readonly, nonatomic, getter=_takesReservations) BOOL takesReservations;
+@property(readonly, nonatomic, getter=_hasTakesReservationsAmenity) BOOL hasTakesReservationsAmenity;
+@property(readonly, nonatomic, getter=_goodForKids) BOOL goodForKids;
+@property(readonly, nonatomic, getter=_hasGoodForKidsAmenity) BOOL hasGoodForKidsAmenity;
+@property(readonly, nonatomic, getter=_hasDelivery) BOOL hasDelivery;
+@property(readonly, nonatomic, getter=_hasDeliveryAmenity) BOOL hasDeliveryAmenity;
+@property(readonly, nonatomic, getter=_hasAnyAmenities) BOOL hasAnyAmenities;
+- (BOOL)_booleanValueForAmenity:(id)arg1;
+- (id)_stringForAmenity:(id)arg1;
+- (BOOL)_hasAmenitiesContainingKeys:(id)arg1;
+- (BOOL)_hasLocalizedCategoryNamesForType:(unsigned int)arg1;
+- (id)_localizedCategoryNamesForType:(unsigned int)arg1;
+- (id)_allCategoriesForType:(unsigned int)arg1;
+@property(readonly, nonatomic, getter=_priceRange) unsigned int priceRange;
+@property(readonly, nonatomic, getter=_hasPriceRange) BOOL hasPriceRange;
+@property(readonly, nonatomic, getter=_normalizedUserRatingScore) float normalizedUserRatingScore;
+@property(readonly, nonatomic, getter=_sampleSizeForUserRatingScore) unsigned int sampleSizeForUserRatingScore;
+@property(readonly, nonatomic, getter=_hasUserRatingScore) BOOL hasUserRatingScore;
+@property(readonly, nonatomic, getter=_muid) unsigned long long muid;
+@property(readonly, nonatomic, getter=_hasMUID) BOOL hasMUID;
+@property(readonly, nonatomic, getter=_isYelp) BOOL yelp;
+- (id)_attributionMapForResponse:(id)arg1;
+- (id)initWithBusinessURL:(id)arg1 phoneNumber:(id)arg2 muid:(unsigned long long)arg3 attributionID:(id)arg4 sampleSizeForUserRatingScore:(unsigned int)arg5 normalizedUserRatingScore:(float)arg6;
 
 @end
 

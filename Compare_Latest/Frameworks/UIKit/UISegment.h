@@ -32,7 +32,6 @@ __attribute__((visibility("hidden")))
         unsigned int isMomentary:1;
         unsigned int wasSelected:1;
         unsigned int needsBackgroundAndContentViewUpdate:1;
-        unsigned int contentTextPaddingEnabled:1;
     } _segmentFlags;
     NSArray *_infoConstraints;
     float _requestedScaleFactor;

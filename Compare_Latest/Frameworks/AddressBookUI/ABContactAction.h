@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CNContact, NSString;
+@class CNContact, NSString, UIColor;
 
 @interface ABContactAction : NSObject
 {
@@ -16,14 +16,18 @@
     NSString *_title;
     id _target;
     SEL _selector;
+    UIColor *_color;
+    int _transportType;
 }
 
 + (id)contactActionWithTitle:(id)arg1 target:(id)arg2 selector:(SEL)arg3 destructive:(BOOL)arg4;
 + (id)contactActionWithTitle:(id)arg1 target:(id)arg2 selector:(SEL)arg3;
+@property(nonatomic) int transportType; // @synthesize transportType=_transportType;
+@property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
 @property(nonatomic, getter=isDestructive) BOOL destructive; // @synthesize destructive=_destructive;
 @property(readonly, nonatomic) SEL selector; // @synthesize selector=_selector;
-@property(readonly, nonatomic) id target; // @synthesize target=_target;
-@property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
+@property(readonly, retain, nonatomic) id target; // @synthesize target=_target;
+@property(readonly, copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) CNContact *contact; // @synthesize contact=_contact;
 @property(nonatomic) id <ABContactActionDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)description;

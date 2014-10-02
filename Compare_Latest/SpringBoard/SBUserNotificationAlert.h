@@ -6,7 +6,7 @@
 
 #import "SBAlertItem.h"
 
-@class BKSProcessAssertion, NSDictionary, NSObject<OS_dispatch_source>, NSString, NSTimer, SBUISound;
+@class BKSProcessAssertion, NSDictionary, NSObject<OS_dispatch_source>, NSString, NSTimer, SBUISound, UIViewController, _SBRemoteAlertContentHostViewController;
 
 @interface SBUserNotificationAlert : SBAlertItem
 {
@@ -49,6 +49,9 @@
     long long _alternateButtonIndex;
     long long _otherButtonIndex;
     NSString *_defaultResponseLaunchBundleID;
+    NSString *_remoteViewControllerClassName;
+    NSString *_remoteServiceBundleIdentifier;
+    _SBRemoteAlertContentHostViewController *_contentViewControllerForAlertController;
     unsigned int _cancel:1;
     unsigned int _isActivated:1;
     unsigned int _aboveLock:1;
@@ -61,13 +64,18 @@
     unsigned int _oneButtonPerLine:1;
     unsigned int _groupsTextFields:1;
     unsigned int _usesUndoStyle:1;
+    unsigned int _dismissesOverlaysOnLockScreen:1;
     unsigned int _configuredLocked:1;
     unsigned int _configuredNeedsPasscode:1;
     unsigned int _defaultResponseAppLaunchWaitingForPasscode:1;
     SBUISound *_sound;
     BKSProcessAssertion *_processAssertion;
+    unsigned int _dismissesAutomatically:1;
 }
 
+@property(retain) UIViewController *contentViewControllerForAlertController; // @synthesize contentViewControllerForAlertController=_contentViewControllerForAlertController;
+@property(retain) NSString *remoteServiceBundleIdentifier; // @synthesize remoteServiceBundleIdentifier=_remoteServiceBundleIdentifier;
+@property(retain) NSString *remoteViewControllerClassName; // @synthesize remoteViewControllerClassName=_remoteViewControllerClassName;
 @property(retain) NSString *defaultResponseLaunchBundleID; // @synthesize defaultResponseLaunchBundleID=_defaultResponseLaunchBundleID;
 @property(retain) NSString *otherButtonTitle; // @synthesize otherButtonTitle=_otherButtonTitle;
 @property(retain) NSString *alternateButtonTitle; // @synthesize alternateButtonTitle=_alternateButtonTitle;
@@ -96,6 +104,8 @@
 - (void)noteVolumeOrLockPressed;
 - (_Bool)reappearsAfterUnlock;
 - (_Bool)reappearsAfterLock;
+- (_Bool)_dismissesOverlaysOnLockScreen;
+- (_Bool)dismissesAutomatically;
 - (_Bool)forcesModalAlertAppearance;
 - (_Bool)behavesSuperModally;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;

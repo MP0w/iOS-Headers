@@ -31,7 +31,7 @@
 - (id)button0;
 @property(readonly) GCControllerDirectionPad *dpad;
 @property(copy) CDUnknownBlockType valueChangedHandler;
-@property(readonly) GCController *controller;
+@property(readonly) __weak GCController *controller;
 - (id)initWithController:(id)arg1;
 
 @end

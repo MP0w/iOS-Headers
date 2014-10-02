@@ -6,12 +6,13 @@
 
 #import "SBUIMainScreenAnimationController.h"
 
-@class SBAppStatusBarTransitionInfo, UIView;
+@class FBWindowContextHostManager, SBAppStatusBarTransitionInfo, UIView;
 
 @interface SBUIAnimationZoomUpApp : SBUIMainScreenAnimationController
 {
     UIView *_contextHostView;
     _Bool _zoomHostView;
+    FBWindowContextHostManager *_activatingContextHostManager;
     SBAppStatusBarTransitionInfo *_appStatusBarTransitionInfo;
     long long _animationTransition;
     _Bool _finishedZooming;
@@ -36,7 +37,7 @@
 - (void)_startAnimation;
 - (void)_prepareAnimation;
 - (id)_animationProgressDependency;
-- (_Bool)_animationShouldStart;
+- (_Bool)_waitsForApplicationActivationIfNecessary;
 - (void)cleanupZoom;
 - (void)animateZoomWithCompletion:(CDUnknownBlockType)arg1;
 - (void)prepareZoom;

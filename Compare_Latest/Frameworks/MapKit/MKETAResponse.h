@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MKMapItem;
+@class MKMapItem, NSArray;
 
 @interface MKETAResponse : NSObject
 {
@@ -14,14 +14,16 @@
     MKMapItem *_destination;
     double _expectedTravelTime;
     double _distance;
+    NSArray *_sortedETAs;
 }
 
+@property(readonly, nonatomic, getter=_sortedETAs) NSArray *sortedETAs; // @synthesize sortedETAs=_sortedETAs;
 @property(readonly, nonatomic, getter=_distance) double distance; // @synthesize distance=_distance;
 @property(readonly, nonatomic) double expectedTravelTime; // @synthesize expectedTravelTime=_expectedTravelTime;
 @property(readonly, nonatomic) MKMapItem *destination; // @synthesize destination=_destination;
 @property(readonly, nonatomic) MKMapItem *source; // @synthesize source=_source;
 - (void).cxx_destruct;
-- (id)initWithSource:(id)arg1 destination:(id)arg2 expectedTravelTime:(double)arg3 distance:(double)arg4;
+- (id)initWithSource:(id)arg1 destination:(id)arg2 expectedTravelTime:(double)arg3 distance:(double)arg4 sortedETAs:(id)arg5;
 
 @end
 

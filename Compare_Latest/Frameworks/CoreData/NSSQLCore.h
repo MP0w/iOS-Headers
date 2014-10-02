@@ -20,12 +20,12 @@ __attribute__((visibility("hidden")))
     NSManagedObjectContext *_currentContext;
     NSSQLEntity *_lastEntity;
     NSSQLRowCache *_rowCache;
-    NSMutableDictionary *_uniqueTable;
-    NSMutableArray *_toManyCache;
-    struct __CFSet *_deleteTable;
-    NSSet *_lockedObjects;
-    struct __CFDictionary *_dbOperationsByGlobalID;
+    NSSet *_newInserts;
+    struct __CFDictionary *_changeCache;
+    struct __CFDictionary *_insertCache;
+    struct __CFDictionary *_toManyCache;
     NSSaveChangesRequest *_currentSaveRequest;
+    NSMutableSet *_rowsInCurrentSave;
     int _lazyFaultDebugLevel;
     NSMutableDictionary *_batchFaultBuffer;
     NSMutableDictionary *_batchToManyFaultBuffer;
@@ -41,7 +41,6 @@ __attribute__((visibility("hidden")))
     int _transactionInMemorySequence;
     int _moreOtherReserved;
     struct _sqlCoreFlags {
-        unsigned int preparingForSave:1;
         unsigned int beganTransaction:1;
         unsigned int ignoreEntityCaching:1;
         unsigned int storeMetadataClean:1;
@@ -49,7 +48,7 @@ __attribute__((visibility("hidden")))
         unsigned int useSyntaxColoredLogging:1;
         unsigned int checkedExternalReferences:1;
         unsigned int fileProtectionType:3;
-        unsigned int _RESERVED:22;
+        unsigned int _RESERVED:23;
     } _sqlCoreFlags;
 }
 
@@ -68,8 +67,8 @@ __attribute__((visibility("hidden")))
 + (void)setColoredLoggingDefault:(BOOL)arg1;
 + (void)setDebugDefault:(int)arg1;
 - (void)accommodatePresentedItemDeletionWithCompletionHandler:(CDUnknownBlockType)arg1;
-@property(readonly) NSOperationQueue *presentedItemOperationQueue;
-@property(readonly) NSURL *presentedItemURL;
+@property(readonly, retain) NSOperationQueue *presentedItemOperationQueue;
+@property(readonly, copy) NSURL *presentedItemURL;
 - (id)_storeInfoForEntityDescription:(id)arg1;
 - (id)_newObjectIDForEntity:(id)arg1 referenceData64:(unsigned long long)arg2;
 - (id)_newReservedKeysForEntities:(id)arg1 counts:(id)arg2;
@@ -102,6 +101,10 @@ __attribute__((visibility("hidden")))
 - (id)_dissectCorrelationTableCreationSQL:(id)arg1;
 - (void)_repairDatabaseCorrelationTables:(id)arg1 brokenHashModel:(id)arg2 storeVersionNumber:(id)arg3 recurse:(BOOL)arg4;
 - (id)executeRequest:(id)arg1 withContext:(id)arg2 error:(id *)arg3;
+- (id)performBatchUpdate:(id)arg1 inContext:(id)arg2 error:(id *)arg3;
+- (void)commitBatchUpdateOnConnection:(id)arg1;
+- (void)rollbackBatchUpdateOnConnection:(id)arg1;
+- (void)beginBatchUpdateOnConnection:(id)arg1;
 - (id)refreshObjects:(id)arg1;
 - (id)saveChanges:(id)arg1;
 - (id)_ubiquityDictionaryForAttribute:(id)arg1 onObject:(id)arg2;
@@ -121,40 +124,23 @@ __attribute__((visibility("hidden")))
 - (void)commitChanges:(id)arg1;
 - (void)rollbackChanges;
 - (void)performChanges;
-- (void)_performChangesWithAdapterOps:(id)arg1;
+- (void)writeChanges;
 - (id)_performExhaustiveConflictDetectionForObjects:(id)arg1 withChannel:(id)arg2;
 - (id)_newConflictRecordForObject:(id)arg1 originalRow:(id)arg2 newRow:(id)arg3;
 - (id)_newObjectGraphStyleForSQLRow:(id)arg1 withObject:(id)arg2;
 - (BOOL)_performFastConflictDetectionForObjects:(id)arg1 withChannel:(id)arg2;
 - (struct __CFArray *)_rowsForConflictDetection:(id)arg1 withChannel:(id)arg2;
-- (void)recordChangesInContext:(id)arg1;
+- (struct __CFArray *)_deleteAllRowsNoRelationshipIntegrityForEntityWithAllSubentities:(id)arg1;
 - (id)_entityForObject:(id)arg1;
 - (void)prepareForSave:(id)arg1;
+- (BOOL)_prepareForExecuteRequest:(id)arg1 withContext:(id)arg2 error:(id *)arg3;
 - (void)generatePrimaryKeysForEntity:(id)arg1;
-- (BOOL)handlesFetchRequest:(id)arg1;
-- (BOOL)ownsObject:(id)arg1;
-- (BOOL)ownsGlobalID:(id)arg1;
-- (id)orderAdapterOperations;
-- (id)entityNameOrderingArrayForEntities:(id)arg1;
 - (void)insertEntity:(id)arg1 intoOrderingArray:(id)arg2 withDependencies:(id)arg3 processingSet:(id)arg4;
-- (void)createAdapterOperationsForDatabaseOperation:(id)arg1;
-- (void)_addManyToManysToDatabaseOp:(id)arg1;
-- (void)_addDeletesToDatabaseOp:(id)arg1 forManyToMany:(id)arg2;
-- (void)_addInsertsToDatabaseOp:(id)arg1 forManyToMany:(id)arg2;
-- (void)_addUpdatesToDatabaseOp:(id)arg1 forManyToMany:(id)arg2;
-- (id)_predicateForSelectingObjectForOperation:(id)arg1;
-- (void)recordValuesForInsertedObject:(id)arg1;
-- (void)recordUpdateForObject:(id)arg1;
-- (void)recordToManyUpdatesForObject:(id)arg1 withOperation:(id)arg2;
+- (void)recordToManyChangesForObject:(id)arg1 inRow:(id)arg2 usingTimestamp:(double)arg3 inserted:(BOOL)arg4;
+- (id)correlationTableUpdateTrackerForRelationship:(id)arg1;
 - (id)_newRowCacheRowForToManyUpdatesForRelationship:(id)arg1 rowCacheOriginal:(id)arg2 originalSnapshot:(id)arg3 value:(id)arg4 added:(id)arg5 deleted:(id)arg6 sourceRowPK:(long long)arg7 properties:(id)arg8 sourceObject:(id)arg9 newIndexes:(unsigned int **)arg10 reorderedIndexes:(char **)arg11;
-- (void)recordToManyInsertsForObject:(id)arg1 withOperation:(id)arg2;
-- (id)databaseOperationForObject:(id)arg1;
-- (id)permanentObjectIDForObjectInTransaction:(id)arg1;
-- (id)databaseOperationForGlobalID:(id)arg1;
-- (void)recordDatabaseOperation:(id)arg1;
-- (void)recordDeleteForObject:(id)arg1;
-- (void)_populateRowForOp:(id)arg1 withObject:(id)arg2;
-- (void)recordPrimaryKey:(long long)arg1 forInsertedObject:(id)arg2 withSQLEntity:(id)arg3;
+- (void)_prepareForDeletionOfExternalDataReferencesForObject:(id)arg1;
+- (void)_populateRow:(id)arg1 fromObject:(id)arg2 timestamp:(double)arg3 inserted:(BOOL)arg4;
 - (unsigned int)_knownOrderKeyForObject:(id)arg1 from:(id)arg2 orderedManyToMany:(id)arg3;
 - (unsigned int)_knownOrderKeyForObject:(id)arg1 from:(id)arg2 inverseToMany:(id)arg3;
 - (unsigned int)_orderKeyForObject:(id)arg1 fromSourceObjectID:(id)arg2 inverseRelationship:(id)arg3 inOrderedSet:(id)arg4;
@@ -163,36 +149,28 @@ __attribute__((visibility("hidden")))
 - (unsigned int)_knownEntityKeyForObjectID:(id)arg1;
 - (long long)_knownPrimaryKeyForObject:(id)arg1;
 - (long long)_knownPrimaryKeyForObjectID:(id)arg1;
-- (id)_addDatabaseContextStateToException:(id)arg1;
-- (id)_databaseContextState;
 - (void)_cleanUpAfterSave;
-- (void)_assertValidStateWithSelector:(SEL)arg1;
-- (void)invalidateObjectsWithGlobalIDs:(id)arg1;
 - (id)countForFetchRequest:(id)arg1 inContext:(id)arg2;
 - (id)_newRowsForFetchPlan:(id)arg1 selectedBy:(SEL)arg2 withArgument:(id)arg3;
 - (id)_processRawRows:(CDStruct_576b85d7 *)arg1 forFetchPlan:(id)arg2 selectedBy:(SEL)arg3 withArgument:(id)arg4;
 - (id)_prepareResultsFromResultSet:(CDStruct_576b85d7 *)arg1 usingFetchPlan:(id)arg2 withMatchingRows:(id *)arg3;
 - (id)_prepareDictionaryResultsFromResultSet:(CDStruct_576b85d7 *)arg1 usingFetchPlan:(id)arg2;
-- (void)forgetSnapshotsForGlobalIDs:(id)arg1;
 - (id)availableChannel;
 - (id)_obtainOpenChannel;
 - (id)_availableChannel;
 - (id)_availableChannelFromRegisteredChannels;
 - (id)createChannel;
-- (id)missingObjectGlobalIDs;
 - (id)rowForObjectID:(id)arg1;
 - (id)rowForObjectID:(id)arg1 after:(double)arg2;
-- (id)localSnapshotForGlobalID:(id)arg1;
-- (void)forgetSnapshotForGlobalID:(id)arg1;
-- (void)recordToMany:(id)arg1 forSourceObjectID:(id)arg2 relationshipName:(id)arg3 orderKeys:(id)arg4;
-- (void)recordSnapshot:(id)arg1 forObjectID:(id)arg2;
+- (id)findOrCreateChangeSnapshotForGlobalID:(id)arg1;
+- (void)recordChangeSnapshot:(id)arg1 forObjectID:(id)arg2;
+- (void)forgetChangeSnapshotForObjectID:(id)arg1;
+- (id)changeSnapshotForObjectID:(id)arg1;
 - (void)rollbackTransaction;
 - (void)rollbackTransaction_core;
 - (void)commitTransaction;
 - (void)commitTransaction_NotificationFree;
 - (void)commitTransaction_core;
-- (void)_commitTransaction:(id)arg1;
-- (void)_cleanUpAfterTransaction;
 - (void)beginTransaction;
 - (void)beginTransaction_NotificationFree;
 - (void)beginTransaction_core;
@@ -218,6 +196,7 @@ __attribute__((visibility("hidden")))
 - (id)model;
 - (id)adapter;
 - (struct _NSScalarObjectID *)newForeignKeyID:(long long)arg1 entity:(id)arg2;
+- (id)_newObjectIDForEntityDescription:(id)arg1 pk:(long long)arg2;
 - (struct _NSScalarObjectID *)newObjectIDForEntity:(id)arg1 pk:(long long)arg2;
 - (Class)objectIDFactoryForSQLEntity:(id)arg1;
 - (id)objectIDFactoryForEntity:(id)arg1;
@@ -234,7 +213,11 @@ __attribute__((visibility("hidden")))
 - (id)entityForFetchRequest:(id)arg1;
 
 // Remaining properties
-@property(readonly) NSURL *primaryPresentedItemURL;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly, copy) NSURL *primaryPresentedItemURL;
+@property(readonly) Class superclass;
 
 @end
 

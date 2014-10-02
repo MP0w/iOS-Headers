@@ -19,8 +19,8 @@
     NSString *_str;
 }
 
-@property(readonly, nonatomic) NSString *str; // @synthesize str=_str;
-@property(readonly, nonatomic) NSMethodSignature *sig; // @synthesize sig=_sig;
+@property(readonly, retain, nonatomic) NSString *str; // @synthesize str=_str;
+@property(readonly, retain, nonatomic) NSMethodSignature *sig; // @synthesize sig=_sig;
 @property(readonly, nonatomic) int returnValueSize; // @synthesize returnValueSize=_returnValueSize;
 @property(readonly, nonatomic) int returnAddressIndex; // @synthesize returnAddressIndex=_returnAddressIndex;
 @property(readonly, nonatomic) int replyBlockIndex; // @synthesize replyBlockIndex=_replyBlockIndex;

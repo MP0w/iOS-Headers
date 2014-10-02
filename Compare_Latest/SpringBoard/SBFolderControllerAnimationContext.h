@@ -16,9 +16,9 @@
 }
 
 + (id)contextWithScreen:(id)arg1 animationWindow:(id)arg2 fallbackIconContainer:(id)arg3;
-@property(readonly, nonatomic) UIView *fallbackIconContainer; // @synthesize fallbackIconContainer=_fallbackIconContainer;
-@property(readonly, nonatomic) SBWindow *animationWindow; // @synthesize animationWindow=_animationWindow;
-@property(readonly, nonatomic) UIScreen *screen; // @synthesize screen=_screen;
+@property(readonly, retain, nonatomic) UIView *fallbackIconContainer; // @synthesize fallbackIconContainer=_fallbackIconContainer;
+@property(readonly, retain, nonatomic) SBWindow *animationWindow; // @synthesize animationWindow=_animationWindow;
+@property(readonly, retain, nonatomic) UIScreen *screen; // @synthesize screen=_screen;
 - (void)dealloc;
 - (id)initWithScreen:(id)arg1 animationWindow:(id)arg2 fallbackIconContainer:(id)arg3;
 

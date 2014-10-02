@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(nonatomic) BOOL representsSageAdjustments;
 @property(nonatomic) BOOL enhance;
 @property(nonatomic) float gamma;
 @property(nonatomic) float topLevel;

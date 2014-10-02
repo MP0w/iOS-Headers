@@ -8,7 +8,7 @@
 
 #import "EKEditItemViewControllerDelegate.h"
 
-@class EKCalendarItem, EKEventStore, UIResponder, UIViewController<EKEditItemViewControllerProtocol>;
+@class EKCalendarItem, EKEventStore, NSString, UIResponder, UIViewController<EKEditItemViewControllerProtocol>;
 
 __attribute__((visibility("hidden")))
 @interface EKCalendarItemEditItem : NSObject <EKEditItemViewControllerDelegate>
@@ -36,27 +36,34 @@ __attribute__((visibility("hidden")))
 - (void)endInlineEditing;
 - (void)notifyRequiresHeightChange;
 - (void)notifyTextChanged;
-- (void)notifySubitemDidCommit:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
+- (void)notifySubitemDidCommit:(unsigned int)arg1;
 - (void)notifyDidEndEditing;
 - (void)notifyDidStartEditing;
-- (BOOL)usesDetailViewControllerForSubitem:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
+- (BOOL)usesDetailViewControllerForSubitem:(unsigned int)arg1;
 - (void)editor:(id)arg1 didStartEditingItem:(id)arg2;
 - (void)editorDidScroll:(id)arg1;
-- (BOOL)editor:(id)arg1 shouldClearSelectionFromSubitem:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
-- (void)editor:(id)arg1 didDeselectSubitem:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
-- (void)editor:(id)arg1 didSelectSubitem:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
-- (BOOL)editor:(id)arg1 canSelectSubitem:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
+- (BOOL)editor:(id)arg1 shouldClearSelectionFromSubitem:(unsigned int)arg2;
+- (void)editor:(id)arg1 didDeselectSubitem:(unsigned int)arg2;
+- (void)_showViewController:(id)arg1 editor:(id)arg2 animated:(BOOL)arg3;
+- (void)editor:(id)arg1 didSelectSubitem:(unsigned int)arg2;
+- (void)editor:(id)arg1 requestsInjectableViewControllerToBeShownForSubitem:(unsigned int)arg2;
+- (BOOL)editor:(id)arg1 canSelectSubitem:(unsigned int)arg2;
 - (id)titleForHeader;
+- (id)footerTitle;
 - (id)footerView;
 - (float)footerHeightForWidth:(float)arg1;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
-- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
-- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2 forWidth:(float)arg3;
-- (unsigned int)numberOfSubitemsInSubsection:(unsigned int)arg1;
-- (unsigned int)numberOfSubsections;
+- (id)injectableViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1;
+- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(unsigned int)arg2;
+- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
+- (unsigned int)numberOfSubitems;
 - (BOOL)shouldAppearWithVisibility:(int)arg1;
 - (void)applicationDidResume;
+- (BOOL)forceRefreshLocationItemOnCommit;
+- (BOOL)forceRefreshInviteesItemOnCommit;
+- (BOOL)forceRefreshStartAndEndDatesOnCommit;
+- (BOOL)forceTableReloadOnCommit;
 - (BOOL)requiresReconfigurationOnCommit;
 - (BOOL)canBeConfiguredForCalendarConstraints:(id)arg1;
 - (BOOL)configureForCalendarConstraints:(id)arg1;
@@ -64,6 +71,12 @@ __attribute__((visibility("hidden")))
 - (void)refreshFromCalendarItemAndStore;
 - (id)calendarItem;
 - (void)setCalendarItem:(id)arg1 store:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

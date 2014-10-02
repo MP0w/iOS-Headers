@@ -8,7 +8,7 @@
 
 #import "UIActionSheetDelegate.h"
 
-@class UIActionSheet;
+@class NSString, UIActionSheet;
 
 @interface CNFRegActionSheetManager : NSObject <UIActionSheetDelegate>
 {
@@ -30,6 +30,12 @@
 - (void)showActionSheet:(id)arg1 withPresenter:(CDUnknownBlockType)arg2 withHandler:(CDUnknownBlockType)arg3;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,6 +8,8 @@
 
 #import "KNAnimationPluginArchiving.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface KNBuildAudioStart : KNBuildMovieStart <KNAnimationPluginArchiving>
 {
@@ -20,6 +22,12 @@ __attribute__((visibility("hidden")))
 + (id)animationFilter;
 + (id)animationName;
 + (int)animationCategory;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

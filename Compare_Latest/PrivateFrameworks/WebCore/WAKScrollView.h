@@ -23,8 +23,8 @@
 - (BOOL)inProgrammaticScroll;
 - (id)description;
 - (void)setActualScrollPosition:(struct CGPoint)arg1;
-- (struct CGRect)documentVisibleExtent;
-- (struct CGRect)actualDocumentVisibleRect;
+- (struct CGRect)exposedContentRect;
+- (struct CGRect)unobscuredContentRect;
 - (void)scrollWheel:(id)arg1;
 - (void)scrollPoint:(struct CGPoint)arg1;
 - (struct CGPoint)scrollOrigin;

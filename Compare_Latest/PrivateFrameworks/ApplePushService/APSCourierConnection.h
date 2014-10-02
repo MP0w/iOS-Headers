@@ -9,12 +9,12 @@
 #import "APSTCPStreamDelegate.h"
 #import "PCConnectionManagerDelegate.h"
 
-@class APSTCPStream, NSMutableDictionary, NSString, NSTimer, PCConnectionManager;
+@class NSMutableDictionary, NSString, NSTimer, PCConnectionManager;
 
 @interface APSCourierConnection : NSObject <APSTCPStreamDelegate, PCConnectionManagerDelegate>
 {
     NSString *_domain;
-    APSTCPStream *_streams[2];
+    id <APSTCPStream> _streams[2];
     PCConnectionManager *_connectionManagers[2];
     NSMutableDictionary *_contexts[2];
     NSTimer *_keepAliveTimers[2];
@@ -26,6 +26,9 @@
     int _lastAttemptedInterface;
 }
 
+- (void)tcpStreamDidFailToFindKeepAliveProxyInterface:(id)arg1;
+- (void)tcpStreamDidFailToObtainKeepAliveProxy:(id)arg1;
+- (void)tcpStreamDidFailToForceKeepAliveProxyInterface:(id)arg1;
 - (void)tcpStreamHasConnected:(id)arg1;
 - (void)tcpStream:(id)arg1 hasDeterminedServerHostname:(id)arg2;
 - (void)tcpStream:(id)arg1 receivedServerBag:(id)arg2;
@@ -33,15 +36,20 @@
 - (void)tcpStreamEndEncountered:(id)arg1;
 - (unsigned int)tcpStream:(id)arg1 dataReceived:(id)arg2;
 - (void)connectionManager:(id)arg1 handleEvent:(int)arg2;
+- (void)holdPowerAssertionUntilStreamQuiesces;
+@property(readonly, nonatomic) BOOL didPushCauseWake;
 @property(nonatomic) BOOL isDualChannelAllowed;
 - (void)_handleDualModeChange;
 - (unsigned int)countOfGrowthActionsOnInterface:(int)arg1;
 - (BOOL)shouldClientScheduleReconnectDueToFailureOnInterface:(int)arg1;
 - (double)currentKeepAliveIntervalOnInterface:(int)arg1;
 @property(readonly, nonatomic) double minimumKeepAliveInterval;
-@property(readonly, nonatomic) NSString *ifname;
+@property(readonly, copy, nonatomic) NSString *ifname;
+- (BOOL)isKeepAliveProxyConfiguredOnInterface:(int)arg1;
+- (BOOL)isKeepAliveProxySupportedOnSocketOnInterface:(int)arg1;
 - (BOOL)hasOpenConnectionOnInterface:(int)arg1;
 @property(readonly, nonatomic) BOOL hasOpenConnection;
+@property(readonly, nonatomic) unsigned int countOpenConnections;
 @property(readonly, nonatomic) unsigned int countConnectedInterfaces;
 - (BOOL)isConnectedOnInterface:(int)arg1;
 @property(readonly, nonatomic) BOOL isConnected;
@@ -52,14 +60,14 @@
 @property(readonly, nonatomic) int connectingInterface;
 @property(readonly, nonatomic) int preferredInterface;
 @property(readonly, nonatomic) int nextConnectionAttemptInterface;
-@property(readonly, nonatomic) NSString *tcpInfoDescription;
+@property(readonly, retain, nonatomic) NSString *tcpInfoDescription;
 - (id)_currentStream;
 @property(nonatomic) id <APSCourierConnectionDelegate> delegate;
 - (id)objectForKey:(id)arg1 onInterface:(int)arg2;
 - (void)setObject:(id)arg1 forKey:(id)arg2 onInterface:(int)arg3;
 - (void)_keepAliveResponseTimerFired:(id)arg1;
 - (void)clearKeepAliveResponseTimerOnInterface:(int)arg1;
-- (void)startKeepAliveResponseTimerOnInterface:(int)arg1;
+- (void)startKeepAliveResponseTimerOnInterface:(int)arg1 shortInterval:(BOOL)arg2;
 - (BOOL)hasKeepAliveResponseTimerOnInterface:(int)arg1;
 - (void)_connectionEstablishTimerFired:(id)arg1;
 - (void)clearConnectionEstablishTimerOnInterface:(int)arg1;
@@ -78,11 +86,17 @@
 - (void)closeStreamForInterface:(int)arg1;
 - (void)writeDataInBackground:(id)arg1;
 - (void)writeDataInBackground:(id)arg1 onInterface:(int)arg2;
-- (void)connectToEnvironment:(id)arg1 onInterface:(int)arg2 withIdentity:(struct __SecIdentity *)arg3 useAlternatePort:(BOOL)arg4;
+- (void)connectToEnvironment:(id)arg1 onInterface:(int)arg2 withIdentity:(struct __SecIdentity *)arg3 useAlternatePort:(BOOL)arg4 forceKeepAliveProxy:(BOOL)arg5;
 - (int)_interfaceForConnectionManager:(id)arg1;
 - (int)_interfaceForStream:(id)arg1;
 - (void)dealloc;
 - (id)initWithEnvironment:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

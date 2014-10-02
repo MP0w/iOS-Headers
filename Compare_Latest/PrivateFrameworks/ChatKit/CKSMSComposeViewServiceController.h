@@ -9,7 +9,7 @@
 #import "CKSMSComposeViewServiceProtocol.h"
 #import "CKTranscriptComposeDelegate.h"
 
-@class CKModalTranscriptController;
+@class CKModalTranscriptController, NSString;
 
 @interface CKSMSComposeViewServiceController : UINavigationController <CKTranscriptComposeDelegate, CKSMSComposeViewServiceProtocol>
 {
@@ -23,14 +23,14 @@
 
 + (id)_remoteViewControllerInterface;
 + (id)_exportedInterface;
++ (BOOL)_isSecureForRemoteViewService;
 @property(retain, nonatomic) CKModalTranscriptController *modalTranscriptController; // @synthesize modalTranscriptController=_modalTranscriptController;
 - (void)_willAppearInRemoteViewController;
 - (BOOL)supportsMessageInspection;
 - (BOOL)supportsAttachments;
 @property(nonatomic) BOOL canEditRecipients; // @dynamic canEditRecipients;
 - (void)transcriptController:(id)arg1 didSelectNewConversation:(id)arg2;
-- (void)showNewMessageCompositionForMessageParts:(id)arg1;
-- (void)showForwardedMessageParts:(id)arg1;
+- (void)showNewMessageCompositionForComposition:(id)arg1;
 - (void)transcriptController:(id)arg1 didSendMessageInConversation:(id)arg2;
 - (void)transcriptController:(id)arg1 willSendComposition:(id)arg2 inConversation:(id)arg3;
 - (void)didCancelComposition:(id)arg1;
@@ -39,22 +39,26 @@
 - (void)disableCameraAttachments;
 - (void)setPendingAddresses:(id)arg1;
 - (void)setText:(id)arg1 subject:(id)arg2 addresses:(id)arg3;
-- (void)setText:(id)arg1 addresses:(id)arg2;
 - (void)forceMMS;
 - (void)_forceMMSIfNecessary;
 - (void)setUICustomizationData:(id)arg1;
 - (void)forceCancelComposition;
 - (void)insertAttachmentWithURL:(id)arg1 andDescription:(id)arg2;
 - (void)insertFileURL:(id)arg1 filename:(id)arg2 transcoderUserInfo:(id)arg3;
-- (void)insertTextPart:(id)arg1;
 - (void)insertData:(id)arg1 MIMEType:(id)arg2 exportedFilename:(id)arg3;
 - (void)insertFilename:(id)arg1 MIMEType:(id)arg2 exportedFilename:(id)arg3 options:(id)arg4;
-- (void)insertFilename:(id)arg1 MIMEType:(id)arg2 exportedFilename:(id)arg3;
+- (void)didRotateFromInterfaceOrientation:(int)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)dealloc;
 - (id)init;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) id delegate;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

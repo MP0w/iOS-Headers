@@ -10,6 +10,8 @@
 {
 }
 
++ (void)setShouldLogToFile:(BOOL)arg1;
++ (BOOL)shouldLogToFile;
 + (BOOL)willLog;
 + (void)resetPreferredLogLevel;
 + (void)setPreferredLogLevel:(int)arg1;

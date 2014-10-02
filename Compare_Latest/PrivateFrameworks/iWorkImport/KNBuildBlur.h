@@ -9,7 +9,7 @@
 #import "KNAnimationPluginArchiving.h"
 #import "KNFrameBuildAnimator.h"
 
-@class KNAnimParameterGroup, NSMapTable, TSDGLShader;
+@class KNAnimParameterGroup, NSMapTable, NSString, TSDGLShader;
 
 __attribute__((visibility("hidden")))
 @interface KNBuildBlur : KNAnimationEffect <KNFrameBuildAnimator, KNAnimationPluginArchiving>
@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
     struct CGRect _animationRect;
 }
 
++ (void)addBlurTexturesToMapTable:(id)arg1 andDataBuffersToMapTable:(id)arg2 withTextures:(id)arg3 blurSteps:(unsigned int)arg4 maxBlurRadius:(float)arg5 stepsToDecreaseRadius:(float)arg6 capabilities:(id)arg7;
 + (void)downgradeAttributes:(id *)arg1 animationName:(id *)arg2 warning:(id *)arg3 type:(int)arg4 isToClassic:(BOOL)arg5 version:(unsigned long long)arg6;
 + (void)upgradeAttributes:(id *)arg1 animationName:(id)arg2 warning:(id *)arg3 type:(int)arg4 isFromClassic:(BOOL)arg5 version:(unsigned long long)arg6;
 + (id)thumbnailImageNameForType:(int)arg1;
@@ -45,6 +46,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (void)teardown;
 - (id)initWithAnimationContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

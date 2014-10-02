@@ -43,6 +43,10 @@ struct CGSize {
     float height;
 };
 
+struct NSNumber {
+    Class _field1;
+};
+
 struct PowerMeter {
     _Bool mInstantaneousMode;
     double mSampleRate;
@@ -68,6 +72,11 @@ struct UIEdgeInsets {
     float right;
 };
 
+struct UIOffset {
+    float _field1;
+    float _field2;
+};
+
 struct _NSRange {
     unsigned int _field1;
     unsigned int _field2;
@@ -87,6 +96,29 @@ typedef struct {
     double beginTime;
     double endTime;
 } CDStruct_73a5d3ca;
+
+typedef struct {
+    float scale;
+    float vDeltaWaveformToTimeBaseline;
+    float vDeltaTimeBaselineToTitleBaseline;
+    float vDeltaTitleBaselineToDateBaseline;
+    float vDeltaDateBaselineToControlsTop;
+    float vDeltaControlsBottomToBottom;
+    float vDeltaControlsTopToNavigationBottom;
+    char hIsWaveformFlushToEdges;
+    float hDeltaAdditionalInsetFromWaveformEdge;
+    float hDeltaControlButtonsSpacing;
+    float hDeltaTrimProgressInset;
+    float hDeltaAcousticAnnotationLabelToWaveformRight;
+    float hTrimModeInset;
+    float hDetailNavigationBarInset;
+    float hPresentedRecordMemoHeight;
+    float vDeltaLockNotificationListTop;
+    float vDeltaLockNotificationListTopToRecordingTextBaseline;
+    float vDeltaLockAbsoluteTopToWaveformTop;
+    float vDeltaLockNotificationListBottom;
+    float vDeltaLockNotificationListBottomToRecordingTimeBaseline;
+} CDStruct_37c9852c;
 
 // Template types
 typedef struct vector<float, std::__1::allocator<float>> {

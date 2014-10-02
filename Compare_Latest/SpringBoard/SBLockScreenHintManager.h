@@ -11,7 +11,7 @@
 #import "SBUIBiometricEventObserver.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class NSDate, NSMapTable, NSMutableSet, SBLockScreenHintLongPressGestureRecognizer, SBLockScreenHintPanGestureRecognizer, SBLockScreenHintTapGestureRecognizer, SBLockScreenView;
+@class NSDate, NSMapTable, NSMutableSet, NSString, SBLockScreenHintLongPressGestureRecognizer, SBLockScreenHintPanGestureRecognizer, SBLockScreenHintTapGestureRecognizer, SBLockScreenView;
 
 @interface SBLockScreenHintManager : NSObject <UIGestureRecognizerDelegate, SBPresentingDelegate, SBControlCenterObserver, SBUIBiometricEventObserver>
 {
@@ -50,8 +50,6 @@
 @property(nonatomic, getter=isGestureHandlingEnabled) _Bool gestureHandlingEnabled; // @synthesize gestureHandlingEnabled=_gestureHandlingEnabled;
 @property(retain, nonatomic) SBLockScreenView *lockScreenView; // @synthesize lockScreenView=_lockScreenView;
 - (void)biometricEventMonitor:(id)arg1 handleBiometricEvent:(unsigned long long)arg2;
-- (void)cameraDidHide:(id)arg1;
-- (void)cameraDidShow:(id)arg1;
 - (void)controlCenterDidFinishTransition;
 - (void)controlCenterWillBeginTransition;
 - (void)controlCenterDidDismiss;
@@ -71,7 +69,7 @@
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)_handlePan:(id)arg1;
 - (void)_updateGrabberStateForControllerIfNecessary:(id)arg1;
-- (void)_endControllerPresentationForPan;
+- (void)_endControllerPresentationForPanInState:(long long)arg1;
 - (void)_updateControllerPresentationForPan;
 - (void)_beginControllerPresentationForPan;
 - (void)_tapPeriodElapsed;
@@ -103,14 +101,14 @@
 - (id)_coordinatedPresentingControllerWithIdentifier:(long long)arg1;
 - (id)_lockScreenNotificationListView;
 - (id)_lockScreenNotificationListController;
+- (id)_lockScreenBottomLeftController;
 - (id)_lockScreenCameraController;
 - (id)_lockScreenViewController;
 - (struct CGRect)_bottomGrabberZone;
+- (struct CGRect)_bottomLeftGrabberZone;
 - (struct CGRect)_cameraGrabberZone;
 - (struct CGRect)_topGrabberZone;
 - (id)_viewForGestures;
-- (id)_topPresentedViewControllerFromViewController:(id)arg1;
-- (_Bool)_isCameraVisible;
 - (void)_setLocalGesture:(id)arg1 enabled:(_Bool)arg2;
 - (_Bool)_doesController:(id)arg1 manageGestureLikeGesture:(id)arg2;
 - (id)_controller:(id)arg1 managedGestureLikeGesture:(id)arg2;
@@ -121,6 +119,12 @@
 - (void)_installLocalGestures;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

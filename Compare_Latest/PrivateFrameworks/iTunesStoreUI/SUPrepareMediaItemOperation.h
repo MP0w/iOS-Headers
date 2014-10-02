@@ -13,7 +13,7 @@
     SUMediaPlayerItem *_mediaItem;
 }
 
-@property(readonly, nonatomic) SUMediaPlayerItem *mediaPlayerItem; // @synthesize mediaPlayerItem=_mediaItem;
+@property(readonly, copy, nonatomic) SUMediaPlayerItem *mediaPlayerItem; // @synthesize mediaPlayerItem=_mediaItem;
 - (BOOL)_runHEADRequest:(id *)arg1;
 - (void)run;
 - (void)dealloc;

@@ -7,19 +7,23 @@
 #import "_UIViewServiceDeputy_UIViewServiceInterface.h"
 #import "_UIViewServiceUIBehaviorInterface.h"
 
-@class NSArray, NSString, NSValue, UIColor, XPCMachSendRight;
+@class NSArray, NSString, NSUUID, UIColor, _UIViewServiceXPCMachSendRight;
 
 @protocol _UIViewServiceViewControllerOperator_RemoteViewControllerInterface <_UIViewServiceDeputy_UIViewServiceInterface, _UIViewServiceUIBehaviorInterface>
 - (void)__restoreStateForSession:(NSString *)arg1 restorationAnchor:(NSString *)arg2;
 - (void)__saveStateForSession:(NSString *)arg1 restorationAnchor:(NSString *)arg2 completionHandler:(void (^)(BOOL, NSError *))arg3;
+- (void)__exchangeAccessibilityPortInformation:(_UIViewServiceXPCMachSendRight *)arg1 replyHandler:(void (^)(_UIViewServiceXPCMachSendRight *, NSError *))arg2;
 - (void)__dimmingViewWasTapped;
 - (void)__textServiceDidDismiss;
 - (void)__setHostTintColor:(UIColor *)arg1 tintAdjustmentMode:(int)arg2;
 - (void)__hostDidUpdateAppearanceWithSerializedRepresentations:(NSArray *)arg1 originalSource:(id)arg2 legacyAppearance:(BOOL)arg3;
-- (void)__scrollToTopFromTouchAtViewLocation:(NSValue *)arg1 resultHandler:(void (^)(id, NSError *))arg2;
+- (void)__scrollToTopFromTouchAtViewLocation:(struct CGPoint)arg1 resultHandler:(void (^)(BOOL, NSError *))arg2;
 - (void)__hostedActionSheetDidDismissWithClickedButtonIndex:(int)arg1;
 - (void)__hostedActionSheetClickedButtonAtIndex:(int)arg1;
 - (void)__hostedActionSheetDidPresent;
+- (void)__hostDidSetPresentationControllerClassName:(NSString *)arg1;
+- (void)__hostDidSetContentOverlayInsets:(struct UIEdgeInsets)arg1;
+- (void)__hostDisablesAutomaticKeyboardBehavior:(BOOL)arg1;
 - (void)__hostDidPromoteFirstResponder;
 - (void)__hostDidRotateFromInterfaceOrientation:(int)arg1 skipSelf:(BOOL)arg2;
 - (void)__hostWillAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2 skipSelf:(BOOL)arg3;
@@ -28,14 +32,15 @@
 - (void)__hostDidChangeStatusBarOrientationToInterfaceOrientation:(int)arg1;
 - (void)__hostDidEnterBackground;
 - (void)__hostWillEnterForeground;
-- (void)__setContentSize:(NSValue *)arg1;
+- (void)__setContentSize:(struct CGSize)arg1;
 - (void)__setServiceInPopover:(BOOL)arg1;
 - (void)__hostViewDidMoveToScreenWithIntegerDisplayID:(unsigned int)arg1 newHostingHandleReplyHandler:(void (^)(_UIHostedWindowHostingHandle *))arg2;
 - (void)__hostViewDidDisappear:(BOOL)arg1;
 - (void)__hostViewWillDisappear:(BOOL)arg1;
 - (void)__hostViewDidAppear:(BOOL)arg1;
-- (void)__hostViewWillAppear:(BOOL)arg1 inInterfaceOrientation:(int)arg2 statusBarHeight:(float)arg3 completionHandler:(void (^)(id, NSError *))arg4;
+- (void)__hostViewWillAppear:(BOOL)arg1 inInterfaceOrientation:(int)arg2 statusBarHeight:(float)arg3 completionHandler:(void (^)(struct CGSize))arg4;
 - (void)__hostReadyToReceiveMessagesFromServiceViewController;
-- (void)__createViewController:(NSString *)arg1 withAppearanceSerializedRepresentations:(NSArray *)arg2 legacyAppearance:(BOOL)arg3 hostAccessibilityServerPort:(XPCMachSendRight *)arg4 canShowTextServices:(BOOL)arg5 replyHandler:(void (^)(id, NSError *))arg6;
+- (void)__createViewController:(NSString *)arg1 withContextToken:(NSUUID *)arg2 fbsDisplays:(NSArray *)arg3 appearanceSerializedRepresentations:(NSArray *)arg4 legacyAppearance:(BOOL)arg5 hostAccessibilityServerPort:(_UIViewServiceXPCMachSendRight *)arg6 canShowTextServices:(BOOL)arg7 replyHandler:(void (^)(_UIHostedWindowHostingHandle *, NSArray *, int, BOOL, _UIViewServiceXPCMachSendRight *, NSError *))arg8;
+- (void)__createViewController:(NSString *)arg1 withAppearanceSerializedRepresentations:(NSArray *)arg2 legacyAppearance:(BOOL)arg3 hostAccessibilityServerPort:(_UIViewServiceXPCMachSendRight *)arg4 canShowTextServices:(BOOL)arg5 replyHandler:(void (^)(_UIHostedWindowHostingHandle *, NSArray *, int, BOOL, _UIViewServiceXPCMachSendRight *, NSError *))arg6;
 @end
 

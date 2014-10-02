@@ -8,7 +8,7 @@
 
 #import "VKMapModelDelegate.h"
 
-@class VKImageCanvas, VKMapCameraController, VKMapModel;
+@class NSLocale, NSString, VKImageCanvas, VKMapCameraController, VKMapModel;
 
 @interface VKMapSnapshotCreator : NSObject <VKMapModelDelegate>
 {
@@ -18,30 +18,34 @@
     BOOL _didBecomeFullyDrawn;
     BOOL _hasFailedTiles;
     CDUnknownBlockType _completion;
+    struct GLRenderer *_gglRenderer;
     VKMapCameraController *_cameraController;
+    unsigned int _tileGroupID;
+    NSLocale *_locale;
 }
 
 + (BOOL)supportsSharingThumbnails;
 + (BOOL)supportsHighResolutionSnapshots;
++ (shared_ptr_77723e34)device;
 - (double)mapModelZoomScale:(id)arg1;
 - (BOOL)mapModelInNav:(id)arg1;
 - (BOOL)mapModelInNavAtDefaultZoom:(id)arg1;
 - (void)mapModelDidBecomeFullyDrawn:(id)arg1 hasFailedTiles:(BOOL)arg2;
 - (void)mapModelWillBecomFullyDrawn:(id)arg1;
 - (void)mapModelDidBecomePartiallyDrawn:(id)arg1;
+- (void)mapModelDidUpdateMinMaxZoomLevel:(id)arg1;
 - (id)mapModel:(id)arg1 painterForOverlay:(id)arg2;
 - (void)mapModel:(id)arg1 selectedLabelMarkerWillDisappear:(id)arg2;
 - (void)mapModel:(id)arg1 willTransitionFrom:(int)arg2 to:(int)arg3 duration:(double)arg4;
 - (void)mapModelDidFailLoadingTiles:(id)arg1 withError:(id)arg2;
 - (void)mapModelDidFinishLoadingTiles:(id)arg1;
 - (void)mapModelDidStartLoadingTiles:(id)arg1;
-- (void)mapModel:(id)arg1 didFinishAddingAnnotationMarkers:(id)arg2;
-- (void)mapModel:(id)arg1 didAnimateInAnnotationMarkers:(id)arg2;
-- (void)mapModel:(id)arg1 willAnimateInAnnotationMarkers:(id)arg2;
 - (void)mapModel:(id)arg1 annotationMarker:(id)arg2 didChangeDragState:(int)arg3 fromOldState:(int)arg4;
 - (void)mapModel:(id)arg1 needsPanByOffset:(struct CGPoint)arg2 relativeToScreenPoint:(struct CGPoint)arg3 animated:(BOOL)arg4 duration:(double)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (id)mapModel:(id)arg1 markerForAnnotation:(id)arg2;
+- (void)cancelFlushingTileDecodes:(BOOL)arg1;
 - (void)cancel;
+- (void)renderRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)renderSnapshot:(CDUnknownBlockType)arg1;
 - (void)setCenterCoordinate:(CDStruct_c3b9c2ee)arg1 altitude:(double)arg2 yaw:(double)arg3 pitch:(double)arg4;
 - (void)lookAtX:(unsigned int)arg1 y:(unsigned int)arg2 z:(unsigned int)arg3;
@@ -54,7 +58,14 @@
 @property(nonatomic) int mapType;
 @property(readonly) struct CGSize size;
 - (void)dealloc;
+- (id)initWithSize:(struct CGSize)arg1 scale:(float)arg2 homeQueue:(id)arg3 softwareRendering:(BOOL)arg4 tileGroupIdentifier:(unsigned int)arg5 locale:(id)arg6;
 - (id)initWithSize:(struct CGSize)arg1 scale:(float)arg2 homeQueue:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

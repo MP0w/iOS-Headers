@@ -6,23 +6,26 @@
 
 #import "NSObject.h"
 
-@class NSDate, NSMutableSet, NSString, NSTimer;
+@class NSDate, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, NSTimer;
 
 __attribute__((visibility("hidden")))
 @interface LSObserverTimer : NSObject
 {
+    NSObject<OS_dispatch_queue> *_queue;
     NSString *_name;
     NSTimer *_timer;
     NSDate *_lastFiredDate;
     NSMutableSet *_applications;
-    SEL _observerSelector;
+    NSMutableSet *_plugins;
+    SEL _appObserverSelector;
     double _minInterval;
     double _latency;
 }
 
-@property SEL observerSelector; // @synthesize observerSelector=_observerSelector;
+@property SEL appObserverSelector; // @synthesize appObserverSelector=_appObserverSelector;
 @property(readonly, nonatomic) double latency; // @synthesize latency=_latency;
 @property(readonly, nonatomic) double minInterval; // @synthesize minInterval=_minInterval;
+@property(retain, nonatomic) NSMutableSet *plugins; // @synthesize plugins=_plugins;
 @property(retain, nonatomic) NSMutableSet *applications; // @synthesize applications=_applications;
 @property(retain, nonatomic) NSDate *lastFiredDate; // @synthesize lastFiredDate=_lastFiredDate;
 @property(retain, nonatomic) NSTimer *timer; // @synthesize timer=_timer;
@@ -30,11 +33,12 @@ __attribute__((visibility("hidden")))
 - (id)description;
 - (void)sendMessage:(id)arg1;
 - (void)notifyObservers:(id)arg1 withApplication:(id)arg2;
-- (void)clearApplications;
+- (void)clear;
 - (void)removeApplication:(id)arg1;
 - (void)addApplication:(id)arg1;
+- (void)stopTimer;
 - (void)dealloc;
-- (id)initWithSelector:(SEL)arg1;
+- (id)initWithAppSelector:(SEL)arg1 queue:(id)arg2;
 
 @end
 

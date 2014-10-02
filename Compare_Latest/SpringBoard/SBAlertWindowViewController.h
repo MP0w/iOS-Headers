@@ -31,6 +31,7 @@
 - (id)stackedViewForAlert:(id)arg1;
 - (id)stackedAlertsIncludingActiveAlert:(_Bool)arg1;
 - (long long)stackedAlertCount;
+- (void)addView:(id)arg1 toBeObscuredByAlert:(id)arg2;
 - (void)removeAlertController:(id)arg1;
 - (void)addAlertController:(id)arg1;
 - (void)loadView;

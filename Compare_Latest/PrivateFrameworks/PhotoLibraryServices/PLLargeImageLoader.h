@@ -8,14 +8,23 @@
 
 #import "PLPreheatItemSource.h"
 
+@class NSString;
+
 @interface PLLargeImageLoader : NSObject <PLPreheatItemSource>
 {
     int _format;
 }
 
 @property(nonatomic) int format; // @synthesize format=_format;
-- (id)preheatItemForAsset:(id)arg1 options:(unsigned int)arg2;
+- (id)originalPreheatItemForAsset:(id)arg1 optimalSourcePixelSize:(struct CGSize)arg2 options:(unsigned int)arg3;
+- (id)preheatItemForAsset:(id)arg1 format:(int)arg2 optimalSourcePixelSize:(struct CGSize)arg3 options:(unsigned int)arg4;
 - (id)initWithFormat:(int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

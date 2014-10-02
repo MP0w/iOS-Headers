@@ -6,25 +6,32 @@
 
 #import "UITableViewController.h"
 
-#import "ABContactActionDelegate.h"
+#import "ABContactAddLinkedCardActionDelegate.h"
 #import "ABContactGroupPickerDelegate.h"
+#import "ABContactHeaderViewDelegate.h"
+#import "ABContactViewControllerDelegate.h"
 #import "ABContactViewDataSource.h"
 #import "ABContactViewDelegate.h"
 #import "ABPresenterDelegate.h"
+#import "ABPropertyActionDelegate.h"
 #import "ABPropertyCellDelegate.h"
-#import "IDSIDQueryControllerDelegate.h"
+#import "UIAdaptivePresentationControllerDelegate.h"
 #import "UIPopoverControllerDelegate.h"
 #import "UIViewControllerRestoration.h"
 
-@class ABCardFaceTimeGroup, ABCardGroup, ABCardLinkedCardsGroup, ABContactAction, ABContactAddFavoriteAction, ABContactAddLinkedCardAction, ABContactAddNewFieldAction, ABContactAddToExistingContactAction, ABContactCreateNewContactAction, ABContactHeaderView, ABContactToggleBlockCallerAction, ABContactView, ABPropertyAction, ABPropertyFaceTimeAction, ABPropertyLinkedCardsAction, ABSiriContactContextProvider, ABWeakReference, CNContact, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, UIView;
+@class ABCardFaceTimeGroup, ABCardGroup, ABCardLinkedCardsGroup, ABContactAction, ABContactAddFavoriteAction, ABContactAddLinkedCardAction, ABContactAddNewFieldAction, ABContactAddToExistingContactAction, ABContactCreateNewContactAction, ABContactHeaderDisplayView, ABContactHeaderEditView, ABContactHeaderView, ABContactToggleBlockCallerAction, ABContactView, ABMedicalIDAction, ABPropertyAction, ABPropertyFaceTimeAction, ABPropertyIDSRequest, ABPropertyLinkedCardsAction, ABSiriContactContextProvider, CNContact, HKHealthStore, NSArray, NSDictionary, NSMapTable, NSMutableArray, NSMutableDictionary, NSString, UIView;
 
-@interface ABContactViewController : UITableViewController <ABContactActionDelegate, ABPropertyCellDelegate, ABContactGroupPickerDelegate, ABPresenterDelegate, IDSIDQueryControllerDelegate, UIPopoverControllerDelegate, ABContactViewDataSource, ABContactViewDelegate, UIViewControllerRestoration>
+@interface ABContactViewController : UITableViewController <ABPropertyActionDelegate, ABPropertyCellDelegate, ABContactGroupPickerDelegate, ABPresenterDelegate, UIPopoverControllerDelegate, ABContactAddLinkedCardActionDelegate, ABContactHeaderViewDelegate, ABContactViewControllerDelegate, UIAdaptivePresentationControllerDelegate, ABContactViewDataSource, ABContactViewDelegate, UIViewControllerRestoration>
 {
     NSArray *_displayedProperties;
     BOOL _needsReload;
+    BOOL _disablingRotation;
+    int _animating;
     BOOL _isMailVIP;
     BOOL _allowsEditing;
+    BOOL _alwaysEditing;
     BOOL _allowsActions;
+    BOOL _allowsPropertyActions;
     BOOL _allowsCardActions;
     BOOL _allowsConferencing;
     BOOL _allowsSharing;
@@ -49,20 +56,18 @@
     id <ABPresenterDelegate> _presentingDelegate;
     ABContactView *_displayContactView;
     ABContactView *_editingContactView;
-    ABContactHeaderView *_displayHeaderView;
-    ABContactHeaderView *_editingHeaderView;
+    ABContactHeaderDisplayView *_displayHeaderView;
+    ABContactHeaderEditView *_editingHeaderView;
     NSMutableArray *_mutableContacts;
     NSDictionary *_propertyGroups;
-    NSArray *_displayGroups;
-    NSArray *_editingGroups;
+    NSMutableArray *_displayGroups;
+    NSMutableArray *_editingGroups;
     NSArray *_nameEditingGroups;
     NSMutableDictionary *_groupsAfterGroup;
-    float _cachedSingleLineCellHeight;
-    NSMutableDictionary *_cachedCellsHeights;
-    NSMutableDictionary *_cachedCellsHeightsEditing;
-    NSMutableDictionary *_cachedLabelWidth;
+    NSMapTable *_cachedLabelWidths;
     ABCardGroup *_cardPrimaryPropertyActionsGroup;
     ABCardGroup *_cardActionsGroup;
+    ABCardGroup *_cardMedicalIDGroup;
     ABCardGroup *_cardBlockContactGroup;
     ABCardFaceTimeGroup *_cardFaceTimeGroup;
     ABCardLinkedCardsGroup *_cardLinkedCardsGroup;
@@ -77,24 +82,30 @@
     ABContactAddNewFieldAction *_addNewFieldAction;
     ABContactCreateNewContactAction *_createNewContactAction;
     ABContactAddToExistingContactAction *_addToExistingContactAction;
+    ABMedicalIDAction *_medicalIDAction;
     ABCardGroup *_cardEditingActionsGroup;
     ABCardGroup *_cardEditingDeleteContactGroup;
     ABContactAction *_deleteContactAction;
     ABSiriContactContextProvider *_siriContextProvider;
-    CDUnknownBlockType _idQueryResultHandler;
     NSMutableArray *_linkedContactsEdits;
-    ABWeakReference *_presentedActionSheet;
+    ABPropertyIDSRequest *_iMessageIDSRequest;
+    ABPropertyIDSRequest *_faceTimeIDSRequest;
+    NSDictionary *_userActivityUserInfo;
+    HKHealthStore *_healthStore;
 }
 
 + (id)viewControllerWithRestorationIdentifierPath:(id)arg1 coder:(id)arg2;
-+ (void)preCacheContent;
-@property(retain, nonatomic) ABWeakReference *presentedActionSheet; // @synthesize presentedActionSheet=_presentedActionSheet;
++ (id)boolStateRestorationProperties;
+@property(retain, nonatomic) HKHealthStore *healthStore; // @synthesize healthStore=_healthStore;
+@property(retain, nonatomic) NSDictionary *userActivityUserInfo; // @synthesize userActivityUserInfo=_userActivityUserInfo;
+@property(retain, nonatomic) ABPropertyIDSRequest *faceTimeIDSRequest; // @synthesize faceTimeIDSRequest=_faceTimeIDSRequest;
+@property(retain, nonatomic) ABPropertyIDSRequest *iMessageIDSRequest; // @synthesize iMessageIDSRequest=_iMessageIDSRequest;
 @property(retain, nonatomic) NSMutableArray *linkedContactsEdits; // @synthesize linkedContactsEdits=_linkedContactsEdits;
-@property(copy, nonatomic) CDUnknownBlockType idQueryResultHandler; // @synthesize idQueryResultHandler=_idQueryResultHandler;
 @property(retain, nonatomic) ABSiriContactContextProvider *siriContextProvider; // @synthesize siriContextProvider=_siriContextProvider;
 @property(retain, nonatomic) ABContactAction *deleteContactAction; // @synthesize deleteContactAction=_deleteContactAction;
 @property(retain, nonatomic) ABCardGroup *cardEditingDeleteContactGroup; // @synthesize cardEditingDeleteContactGroup=_cardEditingDeleteContactGroup;
 @property(retain, nonatomic) ABCardGroup *cardEditingActionsGroup; // @synthesize cardEditingActionsGroup=_cardEditingActionsGroup;
+@property(retain, nonatomic) ABMedicalIDAction *medicalIDAction; // @synthesize medicalIDAction=_medicalIDAction;
 @property(retain, nonatomic) ABContactAddToExistingContactAction *addToExistingContactAction; // @synthesize addToExistingContactAction=_addToExistingContactAction;
 @property(retain, nonatomic) ABContactCreateNewContactAction *createNewContactAction; // @synthesize createNewContactAction=_createNewContactAction;
 @property(retain, nonatomic) ABContactAddNewFieldAction *addNewFieldAction; // @synthesize addNewFieldAction=_addNewFieldAction;
@@ -107,22 +118,20 @@
 @property(retain, nonatomic) ABPropertyFaceTimeAction *faceTimeAction; // @synthesize faceTimeAction=_faceTimeAction;
 @property(retain, nonatomic) ABPropertyAction *sendMessageAction; // @synthesize sendMessageAction=_sendMessageAction;
 @property(retain, nonatomic) ABCardLinkedCardsGroup *cardLinkedCardsGroup; // @synthesize cardLinkedCardsGroup=_cardLinkedCardsGroup;
-@property(readonly, nonatomic) ABCardFaceTimeGroup *cardFaceTimeGroup; // @synthesize cardFaceTimeGroup=_cardFaceTimeGroup;
+@property(retain, nonatomic) ABCardFaceTimeGroup *cardFaceTimeGroup; // @synthesize cardFaceTimeGroup=_cardFaceTimeGroup;
 @property(retain, nonatomic) ABCardGroup *cardBlockContactGroup; // @synthesize cardBlockContactGroup=_cardBlockContactGroup;
+@property(retain, nonatomic) ABCardGroup *cardMedicalIDGroup; // @synthesize cardMedicalIDGroup=_cardMedicalIDGroup;
 @property(retain, nonatomic) ABCardGroup *cardActionsGroup; // @synthesize cardActionsGroup=_cardActionsGroup;
 @property(retain, nonatomic) ABCardGroup *cardPrimaryPropertyActionsGroup; // @synthesize cardPrimaryPropertyActionsGroup=_cardPrimaryPropertyActionsGroup;
-@property(retain, nonatomic) NSMutableDictionary *cachedLabelWidth; // @synthesize cachedLabelWidth=_cachedLabelWidth;
-@property(retain, nonatomic) NSMutableDictionary *cachedCellsHeightsEditing; // @synthesize cachedCellsHeightsEditing=_cachedCellsHeightsEditing;
-@property(retain, nonatomic) NSMutableDictionary *cachedCellsHeights; // @synthesize cachedCellsHeights=_cachedCellsHeights;
-@property(nonatomic) float cachedSingleLineCellHeight; // @synthesize cachedSingleLineCellHeight=_cachedSingleLineCellHeight;
+@property(retain, nonatomic) NSMapTable *cachedLabelWidths; // @synthesize cachedLabelWidths=_cachedLabelWidths;
 @property(retain, nonatomic) NSMutableDictionary *groupsAfterGroup; // @synthesize groupsAfterGroup=_groupsAfterGroup;
 @property(retain, nonatomic) NSArray *nameEditingGroups; // @synthesize nameEditingGroups=_nameEditingGroups;
-@property(retain, nonatomic) NSArray *editingGroups; // @synthesize editingGroups=_editingGroups;
-@property(retain, nonatomic) NSArray *displayGroups; // @synthesize displayGroups=_displayGroups;
+@property(retain, nonatomic) NSMutableArray *editingGroups; // @synthesize editingGroups=_editingGroups;
+@property(retain, nonatomic) NSMutableArray *displayGroups; // @synthesize displayGroups=_displayGroups;
 @property(retain, nonatomic) NSDictionary *propertyGroups; // @synthesize propertyGroups=_propertyGroups;
 @property(retain, nonatomic) NSMutableArray *mutableContacts; // @synthesize mutableContacts=_mutableContacts;
-@property(retain, nonatomic) ABContactHeaderView *editingHeaderView; // @synthesize editingHeaderView=_editingHeaderView;
-@property(retain, nonatomic) ABContactHeaderView *displayHeaderView; // @synthesize displayHeaderView=_displayHeaderView;
+@property(retain, nonatomic) ABContactHeaderEditView *editingHeaderView; // @synthesize editingHeaderView=_editingHeaderView;
+@property(retain, nonatomic) ABContactHeaderDisplayView *displayHeaderView; // @synthesize displayHeaderView=_displayHeaderView;
 @property(retain, nonatomic) ABContactView *editingContactView; // @synthesize editingContactView=_editingContactView;
 @property(retain, nonatomic) ABContactView *displayContactView; // @synthesize displayContactView=_displayContactView;
 @property(nonatomic) id <ABPresenterDelegate> presentingDelegate; // @synthesize presentingDelegate=_presentingDelegate;
@@ -146,34 +155,42 @@
 @property(nonatomic) BOOL allowsSharing; // @synthesize allowsSharing=_allowsSharing;
 @property(nonatomic) BOOL allowsConferencing; // @synthesize allowsConferencing=_allowsConferencing;
 @property(nonatomic) BOOL allowsCardActions; // @synthesize allowsCardActions=_allowsCardActions;
+@property(nonatomic) BOOL allowsPropertyActions; // @synthesize allowsPropertyActions=_allowsPropertyActions;
 @property(nonatomic) BOOL allowsActions; // @synthesize allowsActions=_allowsActions;
+@property(nonatomic) BOOL alwaysEditing; // @synthesize alwaysEditing=_alwaysEditing;
 @property(nonatomic) BOOL allowsEditing; // @synthesize allowsEditing=_allowsEditing;
 @property(copy, nonatomic) NSArray *displayedProperties; // @synthesize displayedProperties=_displayedProperties;
 @property(readonly, nonatomic) CNContact *contact; // @synthesize contact=_contact;
+- (void)updateUserActivityState:(id)arg1;
+- (void)_updateUserActivity;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
 - (void)encodeRestorableStateWithCoder:(id)arg1;
-- (void)addedGroupWithName:(id)arg1;
+- (void)_addedGroupWithName:(id)arg1;
 - (BOOL)_indexPathIsActionItem:(id)arg1;
 - (id)_itemAtIndexPath:(id)arg1;
 - (id)_cardGroupAtIndex:(int)arg1;
 - (id)_currentGroups;
 - (void)saveLinkedContactChanges;
 - (void)_saveChangesForGroups:(id)arg1;
+- (void)_validateGroup:(id)arg1;
 - (void)_linkEditableContactForEditedReadOnlyContact;
+- (BOOL)_modelIsEmpty;
 - (BOOL)_modelHasChanges;
 - (id)_loadNameEditingGroups;
 - (id)_loadEditingGroups;
 - (id)_loadDisplayGroups;
 - (id)_addGroupsInArray:(id)arg1 afterGroup:(id)arg2;
 - (void)_reloadLinkedCardsGroup;
+- (void)_reloadMedicalIDGroup;
+- (void)_addFaceTimeGroupAnimated:(BOOL)arg1;
 - (void)_reloadFaceTimeGroup;
-- (void)_reloadPropertyGroups;
+- (void)_reloadPropertyGroupsPreservingChanges:(BOOL)arg1;
 - (id)_loadPropertyGroups;
 - (id)_loadMutableLinkedContactsForUnifiedContact:(id)arg1;
-- (void)_updateEmailTransportButtons;
-- (void)_updatePhoneTransportButtons;
-- (void)idStatusUpdatedForDestinations:(id)arg1 service:(id)arg2;
-- (void)_updateIMessageTransportButtons;
+- (void)_updateEmailTransportButtonsForItems:(id)arg1;
+- (void)_updatePhoneTransportButtonsForItems:(id)arg1;
+- (void)_updateIMessageTransportButtonsForItems:(id)arg1;
+- (void)_updateAvailableTransportsForItems:(id)arg1;
 - (void)_updateAvailableTransports;
 - (id)_allDisplayPropertyItemsFromGroups:(id)arg1;
 - (id)_addToExistingContactAction;
@@ -193,40 +210,52 @@
 - (void)_setupCardActions;
 - (void)setupActions;
 - (void)blockListDidChange:(id)arg1;
+- (void)updateContactsViewWithBlock:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (float)desiredHeightForWidth:(float)arg1;
 - (void)removeLinkedContact:(id)arg1;
 - (void)addLinkedContact:(id)arg1;
 - (void)addToExistingContact:(id)arg1;
 - (void)createNewContact:(id)arg1;
 - (void)updateWithNewContact:(id)arg1;
+- (void)_updateItemsInGroup:(id)arg1;
 - (void)removeEditingItem:(id)arg1 atIndexPath:(id)arg2;
 - (void)addEditingItemAtIndexPath:(id)arg1;
 - (int)_numberOfItemsInCustomGroup:(id)arg1;
-- (float)_cellHeightForPropertyItem:(id)arg1 atIndexPath:(id)arg2;
-- (void)_cacheHeight:(id)arg1 forIndexPath:(id)arg2;
-- (id)_cachedCellHeight:(id)arg1;
-- (void)_cacheLabelWidths;
-- (void)_setLabelWidth:(float)arg1 forGroup:(id)arg2;
+- (void)_updateLabelWidthForCell:(id)arg1 atIndexPath:(id)arg2;
+- (void)_updateLabelWidths;
+- (void)_updateLabelWidthsForItem:(id)arg1;
+- (void)_updateLabelWidthsForGroup:(id)arg1;
 - (id)_cellForIndexPath:(id)arg1;
 - (void)_scrollContactView:(id)arg1 toVisibleGroupInContactView:(id)arg2;
+- (BOOL)needsReload;
 - (void)reloadDataIfNeeded;
 - (void)setNeedsReloadLazy;
 - (void)setNeedsReload;
+- (void)contactViewController:(id)arg1 didDeleteContact:(id)arg2;
+- (void)headerHeightDidChange;
+- (void)headerPhotoDidUpdate;
+- (BOOL)shouldAllowSelectingContact:(id)arg1;
 - (void)contactGroupPickerDidFinish:(id)arg1 withGroup:(id)arg2;
 - (void)contactGroupPickerDidCancel:(id)arg1;
 - (id)alreadyPickedGroups;
+- (id)defaultValueForPropertyCell:(id)arg1;
+- (id)_dateForProperty:(id)arg1;
 - (void)propertyCellDidChangeLayout:(id)arg1;
 - (void)propertyCell:(id)arg1 performActionForItem:(id)arg2 withTransportType:(int)arg3;
 - (void)propertyCell:(id)arg1 didUpdateItem:(id)arg2 withNewValue:(id)arg3;
 - (void)propertyCell:(id)arg1 didUpdateItem:(id)arg2 withNewLabel:(id)arg3;
 - (void)actionWasCanceled:(id)arg1;
 - (void)actionDidFinish:(id)arg1;
-- (void)action:(id)arg1 presentActionSheet:(id)arg2 sender:(id)arg3;
+- (void)actionDidUpdate:(id)arg1;
 - (void)action:(id)arg1 pushViewController:(id)arg2 sender:(id)arg3;
+- (void)action:(id)arg1 dismissViewController:(id)arg2 sender:(id)arg3;
 - (void)action:(id)arg1 presentViewController:(id)arg2 sender:(id)arg3;
+- (id)action:(id)arg1 cellForPropertyItem:(id)arg2 sender:(id)arg3;
+- (void)action:(id)arg1 prepareChildContactViewController:(id)arg2 sender:(id)arg3;
 @property(readonly) BOOL isPresentingModalViewController;
 - (void)sender:(id)arg1 dismissViewController:(id)arg2;
-- (void)sender:(id)arg1 presentActionSheet:(id)arg2;
+- (int)_modalPresentationStyleForViewController:(id)arg1;
+- (int)adaptivePresentationStyleForPresentationController:(id)arg1;
 - (void)sender:(id)arg1 presentViewController:(id)arg2;
 - (void)tableView:(id)arg1 accessoryButtonTappedForRowWithIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 titleForDeleteConfirmationButtonForRowAtIndexPath:(id)arg2;
@@ -235,13 +264,15 @@
 - (BOOL)tableView:(id)arg1 canPerformAction:(SEL)arg2 forRowAtIndexPath:(id)arg3 withSender:(id)arg4;
 - (BOOL)tableView:(id)arg1 shouldShowMenuForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
-- (id)tableView:(id)arg1 viewForFooterInSection:(int)arg2;
-- (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
+- (void)tableView:(id)arg1 willDisplayFooterView:(id)arg2 forSection:(int)arg3;
+- (void)tableView:(id)arg1 willDisplayHeaderView:(id)arg2 forSection:(int)arg3;
+- (BOOL)tableView:(id)arg1 shouldDrawTopSeparatorForSection:(int)arg2;
+- (id)tableView:(id)arg1 titleForFooterInSection:(int)arg2;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
 - (float)tableView:(id)arg1 heightForFooterInSection:(int)arg2;
 - (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (float)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
 - (id)viewForHeaderInTableView:(id)arg1;
 - (float)heightForHeaderInTableView:(id)arg1;
@@ -259,13 +290,17 @@
 - (void)loadView;
 - (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)toggleEditing:(id)arg1;
+- (void)saveModelChangesToContact;
 - (void)saveChanges;
 - (void)editCancel:(id)arg1;
 - (CDStruct_89ddc8e1)transitionToEditing:(BOOL)arg1;
 - (CDStruct_89ddc8e1)editingTransition;
+- (void)updateDoneButton;
 - (void)updateEditNavigationItemsAnimated:(BOOL)arg1;
+- (id)navigationItemController;
 - (id)contentScrollView;
 - (id)tableView;
+- (id)indexPathOfDisplayedPropertyItem:(id)arg1;
 - (void)reloadCardGroup:(id)arg1;
 - (void)removeActionWithTarget:(id)arg1 selector:(SEL)arg2 inGroup:(id)arg3;
 - (void)addActionWithTitle:(id)arg1 target:(id)arg2 selector:(SEL)arg3 inGroup:(id)arg4;
@@ -274,7 +309,9 @@
 - (int)indexOfGroup:(id)arg1;
 - (id)cardGroupForProperty:(id)arg1;
 - (void)setMergeContact:(id)arg1;
-- (void)reloadData;
+- (void)reloadDataPreservingChanges:(BOOL)arg1;
+- (void)prepareCell:(id)arg1;
+- (void)localeDidChange:(id)arg1;
 - (void)contentSizeCategoryDidChange:(id)arg1;
 - (id)cardActions;
 @property(nonatomic) BOOL isMailVIP; // @synthesize isMailVIP=_isMailVIP;
@@ -283,6 +320,12 @@
 - (void)dealloc;
 - (id)initWithContact:(id)arg1;
 - (void)applyStyleProvider:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

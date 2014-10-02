@@ -38,7 +38,7 @@
 @property(nonatomic) float frequency;
 @property(nonatomic) float damping;
 @property(nonatomic) float length;
-@property(readonly, nonatomic) NSArray *items;
+@property(readonly, copy, nonatomic) NSArray *items;
 - (int)type;
 - (void)dealloc;
 - (id)initWithItem:(id)arg1 point:(struct CGPoint)arg2 attachedToItem:(id)arg3 point:(struct CGPoint)arg4;

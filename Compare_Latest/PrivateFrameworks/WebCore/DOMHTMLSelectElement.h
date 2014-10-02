@@ -28,7 +28,7 @@
 - (id)selectedOptions;
 @property(readonly) int length;
 @property(readonly) DOMHTMLOptionsCollection *options;
-@property(readonly) NSString *type;
+@property(readonly, copy) NSString *type;
 @property int size;
 - (void)setRequired:(BOOL)arg1;
 - (BOOL)required;

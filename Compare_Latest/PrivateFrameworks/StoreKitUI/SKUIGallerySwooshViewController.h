@@ -10,7 +10,7 @@
 #import "UICollectionViewDataSource.h"
 #import "UICollectionViewDelegateFlowLayout.h"
 
-@class SKUISwooshPageComponent, SKUISwooshView, UICollectionView;
+@class NSString, SKUISwooshPageComponent, SKUISwooshView, UICollectionView;
 
 @interface SKUIGallerySwooshViewController : SKUISwooshViewController <SKUIEmbeddedMediaViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
@@ -38,6 +38,12 @@
 - (void)performActionForItemAtIndex:(int)arg1 animated:(BOOL)arg2;
 - (id)artworkForItemAtIndex:(int)arg1;
 - (id)initWithGallerySwoosh:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

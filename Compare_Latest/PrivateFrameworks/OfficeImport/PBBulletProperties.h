@@ -11,7 +11,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)writeBulletProperties:(id)arg1 toBulletStyle:(struct PptParaProperty9 *)arg2 state:(id)arg3;
 + (id)readBulletProperties:(struct PptParaProperty9 *)arg1 state:(id)arg2;
 + (int)writeBulletNumberScheme:(int)arg1;
 + (int)readBulletNumberSchemeFromExtended:(unsigned int)arg1;

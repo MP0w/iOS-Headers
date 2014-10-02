@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
 @class NSData, NSDictionary, NSString, UIImage;
 
-@interface SBSCardItem : NSObject <NSCopying, NSCoding>
+@interface SBSCardItem : NSObject <NSCopying, NSSecureCoding>
 {
     BOOL _requiresPasscode;
     NSString *_identifier;
@@ -24,6 +24,7 @@
     UIImage *_thumbnail;
 }
 
++ (BOOL)supportsSecureCoding;
 @property(copy, nonatomic) UIImage *thumbnail; // @synthesize thumbnail=_thumbnail;
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(copy, nonatomic) NSData *attachmentData; // @synthesize attachmentData=_attachmentData;

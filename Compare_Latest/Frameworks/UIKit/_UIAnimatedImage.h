@@ -16,10 +16,14 @@ __attribute__((visibility("hidden")))
 }
 
 + (BOOL)supportsSecureCoding;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)_imageWithStylePresets:(id)arg1 withTintColor:(id)arg2;
 - (id)_imageScaledToProportion:(float)arg1 interpolationQuality:(int)arg2;
 - (id)_doubleBezeledImageWithExteriorShadowRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4 interiorShadowRed:(float)arg5 green:(float)arg6 blue:(float)arg7 alpha:(float)arg8 fillRed:(float)arg9 green:(float)arg10 blue:(float)arg11 alpha:(float)arg12;
 - (id)_bezeledImageWithShadowRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4 fillRed:(float)arg5 green:(float)arg6 blue:(float)arg7 alpha:(float)arg8 drawShadow:(BOOL)arg9;
+- (struct UIEdgeInsets)alignmentRectInsets;
+- (void)_setAlignmentRectInsets:(struct UIEdgeInsets)arg1;
 - (id)resizableImageWithCapInsets:(struct UIEdgeInsets)arg1 resizingMode:(int)arg2;
 - (id)resizableImageWithCapInsets:(struct UIEdgeInsets)arg1;
 - (void)_setAlwaysStretches:(BOOL)arg1;

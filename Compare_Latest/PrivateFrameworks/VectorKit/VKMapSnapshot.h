@@ -8,7 +8,6 @@
 
 @class VKCamera;
 
-__attribute__((visibility("hidden")))
 @interface VKMapSnapshot : NSObject
 {
     struct CGImage *_image;
@@ -20,6 +19,8 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) float scale; // @synthesize scale=_scale;
 @property(readonly, nonatomic) struct CGImage *image; // @synthesize image=_image;
+- (id)imageDataInFormat:(unsigned int)arg1;
+- (BOOL)writeImageToFile:(id)arg1 format:(unsigned int)arg2 error:(id *)arg3;
 - (CDStruct_c3b9c2ee)coordinateForPoint:(struct CGPoint)arg1;
 - (struct CGPoint)pointForCoordinate:(CDStruct_c3b9c2ee)arg1;
 - (id)description;

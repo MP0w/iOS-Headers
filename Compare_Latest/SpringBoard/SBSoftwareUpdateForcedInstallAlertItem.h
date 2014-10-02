@@ -25,6 +25,7 @@
 - (_Bool)shouldShowInLockScreen;
 - (id)shortLockLabel;
 - (id)lockLabel;
+- (_Bool)allowLockScreenDismissal;
 - (_Bool)allowMenuButtonDismissal;
 - (_Bool)undimsScreen;
 - (void)_timerFired;

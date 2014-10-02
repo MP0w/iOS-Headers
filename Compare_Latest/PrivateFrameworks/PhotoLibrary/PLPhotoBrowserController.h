@@ -7,11 +7,8 @@
 #import "UIViewController.h"
 
 #import "AirPlayRemoteSlideshowDelegate.h"
+#import "PHPhotoLibraryChangeObserver.h"
 #import "PLAirPlaySessionDataSource.h"
-#import "PLAssetChangeObserver.h"
-#import "PLAssetContainerListChangeObserver.h"
-#import "PLAssetContainerObserver.h"
-#import "PLDeletePhotosActionControllerDelegate.h"
 #import "PLDismissableViewController.h"
 #import "PLPhotoScrubberDataSource.h"
 #import "PLPhotoScrubberSpeedDelegate.h"
@@ -25,9 +22,9 @@
 #import "UIPopoverControllerDelegate.h"
 #import "UIScrollViewDelegate.h"
 
-@class NSArray, NSDictionary, NSIndexPath, NSManagedObjectID, NSMutableArray, NSMutableDictionary, NSMutableSet, NSNumberFormatter, NSString, NSTimer, PLAirPlayBackgroundView, PLAirPlaySession, PLAssetContainerDataSource, PLDeletePhotosActionController, PLEditPhotoController, PLLibraryImageDataProvider, PLManagedAsset, PLPhotoScrubber, PLPhotoTileViewController, PLPictureFramePlugin, PLProgressHUD, PLProgressView, PLVideoRemaker, PLVideoView, UIActionSheet, UIAlertView, UIImage, UILongPressGestureRecognizer, UINavigationBar, UINavigationController, UIPageController, UIScrollView, UITransitionView, UIView, UIWindow;
+@class NSArray, NSDictionary, NSIndexPath, NSManagedObjectID, NSMutableArray, NSMutableDictionary, NSNumberFormatter, NSString, NSTimer, PHAsset, PHAssetCollection, PHCachingImageManager, PHFetchResult, PLAirPlayBackgroundView, PLAirPlaySession, PLAssetContainerDataSource, PLDeletePhotosActionController, PLEditPhotoController, PLPhotoScrubber, PLPhotoTileViewController, PLPictureFramePlugin, PLProgressHUD, PLProgressView, PLVideoRemaker, PLVideoView, UIActionSheet, UIAlertView, UIImage, UILongPressGestureRecognizer, UINavigationBar, UIPageController, UIScrollView, UITransitionView, UIView, UIWindow;
 
-@interface PLPhotoBrowserController : UIViewController <PLAirPlaySessionDataSource, PLDeletePhotosActionControllerDelegate, PLPhotoScrubberSpeedDelegate, UIPageControllerDelegate, PLPhotoTileViewControllerDelegate, PLVideoViewDelegate, UIScrollViewDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, UIActionSheetDelegate, PLPhotoScrubberDataSource, UIPopoverControllerDelegate, PLSlideshowPluginDelegate, AirPlayRemoteSlideshowDelegate, PLDismissableViewController, PLAssetContainerObserver, PLAssetContainerListChangeObserver, PLAssetChangeObserver>
+@interface PLPhotoBrowserController : UIViewController <PLAirPlaySessionDataSource, PLPhotoScrubberSpeedDelegate, UIPageControllerDelegate, PLPhotoTileViewControllerDelegate, PLVideoViewDelegate, UIScrollViewDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, UIActionSheetDelegate, PLPhotoScrubberDataSource, UIPopoverControllerDelegate, PLSlideshowPluginDelegate, AirPlayRemoteSlideshowDelegate, PLDismissableViewController, PHPhotoLibraryChangeObserver>
 {
     id <PLPhotoBrowserControllerDelegate> __delegate;
     NSMutableDictionary *_tileCache;
@@ -56,24 +53,16 @@
     NSTimer *_slideshowTimer;
     SEL _photoAction;
     id _photoActionInvoker;
-    PLManagedAsset *_pendingPhoto;
+    PHAsset *_pendingPhoto;
     UIWindow *_tvOutWindow;
     UIPageController *_tvOutPageController;
     UIScrollView *_tvOutScroller;
     NSMutableDictionary *_tvOutTileCache;
     UITransitionView *_tvOutTransitionView;
-    struct CGRect _animationFrame;
-    UIView *_animationView;
-    UIViewController *_composeSheetViewController;
-    unsigned int _didDisplayComposeSheet:1;
-    unsigned int _didSlideImageDown:1;
-    unsigned int _isAnimatingSendToEmail:1;
-    id _attachmentIdentifier;
     PLProgressView *_progressView;
     int _remakerMode;
     PLVideoRemaker *_remaker;
-    PLManagedAsset *_currentVideo;
-    UINavigationController *_mmsController;
+    PHAsset *_currentVideo;
     double _maximumTrimLength;
     UILongPressGestureRecognizer *_recognizer;
     SEL _actionAfterForcedRotation;
@@ -91,6 +80,7 @@
     unsigned int _scrolling:1;
     unsigned int _canShowCopyCallout:1;
     unsigned int _viewIsDisappearing:1;
+    unsigned int _viewDidAppear:1;
     unsigned int _didRotate:1;
     unsigned int _navigationBarDisabled;
     unsigned int _bottomBarDisabled;
@@ -112,11 +102,12 @@
     unsigned int _didShowHDRPrompt:1;
     unsigned int _imagesAreShuffled:1;
     unsigned int _isEditingComment:1;
+    int _showErrorAlert;
     BOOL _ignoringInteractionEventsForVideoViewRemaking;
     NSIndexPath *_scrubbedImageIndexPath;
     int _scrubberAssetContainerIndex;
-    PLLibraryImageDataProvider *_imageDataProvider;
-    NSMutableSet *_imageRequests;
+    PHCachingImageManager *_cachingImageManager;
+    NSMutableDictionary *_imageRequestsByIdentifier;
     UIImage *_loadedImage;
     PLPhotoScrubber *_photoScrubber;
     PLPhotoTileViewController *_deletedTile;
@@ -148,6 +139,7 @@
     NSMutableArray *_pendingAssetChangeNotifications;
     NSManagedObjectID *_currentAssetObjectID;
     NSString *_currentAssetPublicGlobalUUID;
+    int _publicGlobalUUIDRequestCount;
     NSString *_currentAssetContainerUUID;
     id _activityTarget;
     SEL _activityAction;
@@ -157,15 +149,24 @@
     BOOL _deletesDuplicatesWhenNecessary;
     BOOL _shouldPlayVideoWhenViewAppears;
     BOOL _showsAirTunesOption;
+    BOOL __enableInteractionEventsAfterUpdatingTileIndex;
     PLAssetContainerDataSource *_assetContainerDataSource;
     PLPhotoTileViewController *_mostRecentlyActiveTile;
     int _photoThumbnailFormat;
+    PLAssetContainerDataSource *__originalAssetContainerDataSource;
+    PHAsset *__pendingAssetForTileUpdate;
+    struct CGRect _menuControllerSourceRect;
 }
 
++ (id)_imageRequestCacheQueue;
 + (void)setPageControllerScrollViewClass:(Class)arg1;
+@property(nonatomic, setter=_setEnableInteractionEventsAfterUpdatingTileIndex:) BOOL _enableInteractionEventsAfterUpdatingTileIndex; // @synthesize _enableInteractionEventsAfterUpdatingTileIndex=__enableInteractionEventsAfterUpdatingTileIndex;
+@property(retain, nonatomic, setter=_setPendingAssetForTileUpdate:) PHAsset *_pendingAssetForTileUpdate; // @synthesize _pendingAssetForTileUpdate=__pendingAssetForTileUpdate;
+@property(retain, nonatomic, setter=_setOriginalAssetContainerDataSource:) PLAssetContainerDataSource *_originalAssetContainerDataSource; // @synthesize _originalAssetContainerDataSource=__originalAssetContainerDataSource;
 @property(nonatomic) int photoThumbnailFormat; // @synthesize photoThumbnailFormat=_photoThumbnailFormat;
 @property(retain, nonatomic) PLPhotoTileViewController *mostRecentlyActiveTile; // @synthesize mostRecentlyActiveTile=_mostRecentlyActiveTile;
 @property(readonly, nonatomic) PLAssetContainerDataSource *assetContainerDataSource; // @synthesize assetContainerDataSource=_assetContainerDataSource;
+@property(nonatomic) struct CGRect menuControllerSourceRect; // @synthesize menuControllerSourceRect=_menuControllerSourceRect;
 @property(readonly, nonatomic) BOOL showsAirTunesOption; // @synthesize showsAirTunesOption=_showsAirTunesOption;
 @property(nonatomic) BOOL shouldPlayVideoWhenViewAppears; // @synthesize shouldPlayVideoWhenViewAppears=_shouldPlayVideoWhenViewAppears;
 @property(nonatomic) BOOL deletesDuplicatesWhenNecessary; // @synthesize deletesDuplicatesWhenNecessary=_deletesDuplicatesWhenNecessary;
@@ -177,14 +178,12 @@
 @property(retain, nonatomic, setter=_setPriorIndexPath:) NSIndexPath *_priorIndexPath; // @synthesize _priorIndexPath;
 @property(nonatomic) BOOL shouldShowOverlaysWhenViewDisappears; // @synthesize shouldShowOverlaysWhenViewDisappears;
 @property(nonatomic) BOOL shouldShowOverlaysWhenViewAppears; // @synthesize shouldShowOverlaysWhenViewAppears;
-- (BOOL)_didSetDataForCurrentItem;
 - (BOOL)_isScrolling;
-@property(readonly, nonatomic) BOOL canEditPhoto;
 - (BOOL)isEditing;
 - (BOOL)currentItemIsPlaying;
 - (BOOL)shouldShowPlayButton;
 - (BOOL)shouldShowActionMenu;
-- (BOOL)_currentItemIsVideo;
+- (BOOL)_currentItemHasAudio;
 - (BOOL)_canUploadHDVideo;
 @property(readonly, nonatomic) id <PLRootLibraryNavigationController> rootNavigationController;
 @property(readonly, nonatomic) UIView *pageControllerView;
@@ -259,7 +258,11 @@
 - (void)_removeProgressView;
 - (id)photoScrollerTitle;
 - (id)photoCountFormatter;
-- (void)_commonDidEndRemaking:(id)arg1 pathToTrimmedFile:(id)arg2 didSucceed:(BOOL)arg3;
+- (void)_timeoutPendingAsset;
+- (void)_cancelTimeoutForPendingAsset;
+- (void)_scheduleTimeoutForPendingAsset;
+- (void)_updateTileIndexForPendingAssetIfNeededAndAvailable;
+- (void)_commonDidEndRemaking:(id)arg1 pathToTrimmedFile:(id)arg2 didSucceed:(BOOL)arg3 shouldReenableInteractionEvents:(BOOL)arg4;
 - (void)videoViewDidEndRemaking:(id)arg1 didSucceed:(BOOL)arg2;
 - (void)_commonRemakingProgressDidChange:(float)arg1;
 - (void)videoView:(id)arg1 remakingProgressDidChange:(float)arg2;
@@ -275,40 +278,14 @@
 - (void)setVideoEditingMode:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)setVideoEditingMode:(BOOL)arg1;
 @property(readonly, nonatomic) BOOL canEditVideo;
-- (void)_dismissModalViewControllerAnimated:(BOOL)arg1;
-- (void)smsComposeControllerSendStarted:(id)arg1;
-- (void)smsComposeControllerCancelled:(id)arg1;
-- (void)smsComposeControllerDataInserted:(id)arg1;
-- (void)sendViaMMSClicked;
-- (void)_showMMSComposeSheet;
-- (void)_enterVideoEditingMode;
-- (void)_showVideoTooLongAlert;
-- (void)_transcodeVideoUsingMode:(int)arg1;
 - (void)_cancelRemaking;
-- (double)_durationForCurrentVideo;
-- (void)mailComposeController:(id)arg1 didFinishWithResult:(int)arg2 error:(id)arg3;
-- (void)_commonDidFinishEmailAnimation:(BOOL)arg1;
-- (void)_composeSheetDidDisplay;
-- (void)_finishedSlidingImageDown:(id)arg1 finished:(id)arg2 context:(void *)arg3;
-- (void)slideImageOverMessage;
-- (void)_displayComposeSheet;
-- (void)_finishedSlidingImageUp:(id)arg1 finished:(id)arg2 context:(void *)arg3;
-- (void)_animateSendToEmail;
-- (void)_reallySendViaEmail:(id)arg1;
-- (void)_performSendViaEmail;
-- (void)sendViaEmailClicked;
-- (void)prepareToSendViaEmail;
-- (void)_setComposeSheetViewController:(id)arg1;
-- (id)_mailComposeViewControllerWithPhoto:(id)arg1 attachmentIdentifier:(id *)arg2;
-- (struct CGRect)_animationDestinationRectForImageSize:(struct CGSize)arg1;
 - (void)didEndEditingPhoto;
-- (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (void)displayNextPhoto:(id)arg1;
 - (void)displayPreviousPhoto:(id)arg1;
 - (BOOL)prepareToDisplayActivitySheet;
 - (void)_performPostAlbumStreamTasksWithNewlyCreatedAlbum:(struct NSObject *)arg1;
-- (void)copy:(id)arg1;
 - (void)deleteImageClicked:(id)arg1;
+- (BOOL)_isTrashBin;
 - (void)endEditingPhoto;
 - (void)beginEditingPhoto;
 - (void)_dismissEditControllerWithOldStatusBarStyle:(int)arg1;
@@ -317,7 +294,6 @@
 - (void)pauseCurrentMedia:(id)arg1;
 - (void)playCurrentMedia:(id)arg1;
 - (BOOL)prepareForDismissingForced:(BOOL)arg1;
-- (void)photoTileViewControllerDidSetHDRTypeForPhoto:(id)arg1;
 - (BOOL)isPhotoTileParentPageControllerAnimating:(id)arg1;
 - (BOOL)photoTileViewControllerAllowsEditing:(id)arg1;
 - (void)photoTileViewControllerDidEndGesture:(id)arg1;
@@ -333,6 +309,7 @@
 @property(nonatomic) BOOL delayImageLoading;
 @property(nonatomic) BOOL canDelayImageLoading;
 - (void)_didLoadImage:(id)arg1 forObjectID:(id)arg2;
+- (void)_handleImageResultForPhoto:(id)arg1 inTile:(id)arg2 objectID:(id)arg3 result:(id)arg4 info:(id)arg5;
 - (void)_loadImageForTile:(id)arg1 format:(int)arg2;
 - (BOOL)photoTileViewControllerIsDisplayingLandscape:(id)arg1;
 - (void)imageViewDidSwitchToFullSizeImage:(id)arg1;
@@ -368,7 +345,6 @@
 - (void)_didDeleteCurrentAsset;
 - (void)_finishRemoveAsset:(id)arg1 atIndexPath:(id)arg2;
 - (void)removeCurrentPhoto:(id)arg1;
-- (int)allowedDeleteOperationForAsset:(id)arg1;
 - (void)showPreviousImageWithTransition:(int)arg1 insideCurrentAssetContainer:(BOOL)arg2;
 - (void)showNextImageWithTransition:(int)arg1 insideCurrentAssetContainer:(BOOL)arg2;
 - (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
@@ -379,6 +355,8 @@
 - (BOOL)canShowNextImage;
 @property(retain, nonatomic) NSIndexPath *currentIndexPath;
 - (void)setCurrentIndexPath:(id)arg1 updateAfterAnimation:(BOOL)arg2;
+- (void)_fetchPublicGlobalUUIDForCurrentAsset:(id)arg1;
+- (void)_setCurrentIndexPath:(id)arg1 refreshAssetTrackingDetails:(BOOL)arg2;
 - (void)_setCurrentIndexPath:(id)arg1;
 @property(nonatomic) unsigned int currentTileIndex;
 - (void)setCurrentTileIndex:(unsigned int)arg1 updateAfterAnimation:(BOOL)arg2;
@@ -386,9 +364,9 @@
 - (id)_playbackVideoView;
 - (id)_currentTVOutVideoView;
 @property(readonly, nonatomic) PLVideoView *currentVideoView;
-@property(readonly, nonatomic) PLManagedAsset *currentAssetForZoomTransition;
-@property(nonatomic) PLManagedAsset *currentAsset;
-- (id)_albumAssetsForSlideShow:(id)arg1 startingAtIndex:(unsigned int)arg2;
+@property(readonly, nonatomic) PHAsset *currentAssetForZoomTransition;
+@property(nonatomic) PHAsset *currentAsset;
+- (id)_pl_albumAssetsForSlideShow:(id)arg1 startingAtIndex:(unsigned int)arg2;
 - (void)_displayLastImageForSlideshowPlugin:(id)arg1;
 - (void)_loadSlideshowPlugin;
 - (void)slideshowPluginDidDisplayFinalImage:(id)arg1;
@@ -415,7 +393,7 @@
 - (BOOL)_playSlideshow;
 - (BOOL)_startingSlideshow;
 - (BOOL)setNextSlideshowState:(int)arg1;
-- (void)_endSlideshow;
+- (void)endSlideshow;
 - (void)togglePlayPause:(id)arg1;
 @property(readonly, nonatomic) BOOL isPlayingSlideshow;
 - (BOOL)_slideshowNotRunning;
@@ -423,6 +401,7 @@
 - (void)_slideshowWillBegin;
 - (id)_suppresionContexts;
 - (BOOL)_appAllowsSupressionOfAlerts;
+- (void)cleanupAfterDismissal;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillDisappear;
@@ -440,6 +419,8 @@
 @property(retain, nonatomic) PLPhotoScrubber *photoScrubber;
 - (void)_setupPhotoScrubber:(BOOL)arg1;
 - (void)_discardPhotoScrubber;
+- (id)photoTileViewControllerCustomCenterOverlay:(id)arg1;
+- (BOOL)photoTileViewControllerCanShowCenterOverlay:(id)arg1;
 - (void)photoTileViewController:(id)arg1 commentsControllerWillBeginScrolling:(id)arg2;
 - (void)photoTileViewController:(id)arg1 didExitEditModeInCommentsController:(id)arg2;
 - (void)photoTileViewController:(id)arg1 willEnterEditModeInCommentsController:(id)arg2;
@@ -450,6 +431,7 @@
 - (BOOL)showingCommentsTable;
 - (void)hideCommentsTable;
 - (void)showCommentsTable;
+- (void)removeAdjacentCommentsTables;
 - (void)pageControllerDidEndPaging:(id)arg1;
 - (void)_updateCurrentIndexForPageController:(id)arg1;
 - (void)pageControllerWillBeginPaging:(id)arg1;
@@ -459,30 +441,25 @@
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)didLoadFullScreenImage:(id)arg1 forPhotoAtIndex:(unsigned int)arg2;
 @property(readonly, nonatomic) UIView *commentsView;
 @property(readonly, nonatomic) UIScrollView *mainScroller;
-@property(readonly, nonatomic) PLLibraryImageDataProvider *imageDataProvider;
-@property(readonly, nonatomic) int albumFilter;
-- (void)setAssetContainerList:(id)arg1 currentImageIndexPath:(id)arg2;
+@property(readonly, nonatomic) PHCachingImageManager *cachingImageManager;
+- (void)setAssetCollections:(id)arg1 dataSource:(id)arg2 currentImageIndexPath:(id)arg3;
 @property(readonly, nonatomic) unsigned int allAssetsCount;
-@property(readonly, nonatomic) id <PLAssetContainerList> assetContainerList;
-@property(readonly, nonatomic) id <PLAssetContainer> currentAssetContainerForZoomTransition;
-@property(readonly, nonatomic) id <PLAssetContainer> currentAssetContainer;
+@property(readonly, nonatomic) PHFetchResult *assetCollectionsFetchResult;
+@property(readonly, nonatomic) PHAssetCollection *currentAssetContainerForZoomTransition;
+@property(readonly, nonatomic) PHAssetCollection *currentAssetContainer;
 - (void)setMainScrollerEnabled:(BOOL)arg1;
-- (void)loadCurrentConfiguration:(id)arg1;
 - (void)storeCurrentConfiguration:(id)arg1;
 - (void)_simpleRemoteActionDidOccur:(id)arg1;
-- (void)_didFinishPostingNotifications:(id)arg1;
-- (void)_processAssetsDidChange:(id)arg1;
-- (void)assetsDidChange:(id)arg1;
-- (void)_processAssetContainerDidChange:(id)arg1 withCurrentContainer:(id)arg2;
+- (void)_updateTileAndImageCachesForChange:(id)arg1;
+- (BOOL)_isPhotoTileViewControllerStaleAtIndex:(unsigned int)arg1;
+- (void)_updatePageControllerWithCurrentPath:(id)arg1 priorPreviousTileAsset:(id)arg2 priorNextTileAsset:(id)arg3;
+- (id)_findIndexPathForAssetWithObjectID:(id)arg1 globalUUID:(id)arg2 priorIndexPath:(id)arg3 assetCollection:(id)arg4;
 - (void)_cancelEditControllerIfEditedPhotoDeleted;
-- (void)assetContainerDidChange:(id)arg1;
-- (void)_updateCachedIndexesForAssetContainerDidChange:(id)arg1;
-- (void)_processAssetContainerListDidChangeNotification:(id)arg1;
-- (void)assetContainerListDidChange:(id)arg1;
-- (id)_updateIndexPath:(id)arg1 insertedSections:(id)arg2 deletedSections:(id)arg3;
+- (id)_updateIndexPath:(id)arg1 withChange:(id)arg2 deleteAction:(int)arg3;
+- (void)_updateIndexPathsWithChange:(id)arg1;
+- (void)photoLibraryDidChange:(id)arg1;
 - (void)_applicationDidBecomeActive:(id)arg1;
 - (void)applicationWillEnterForeground:(id)arg1;
 - (void)applicationResumed:(id)arg1;
@@ -510,11 +487,13 @@
 - (void)_configureVideoViewInTile:(id)arg1;
 - (void)_dereferenceTile:(id)arg1;
 - (id)_tileForAsset:(id)arg1 shouldCreate:(BOOL)arg2 tileCache:(id)arg3;
-- (id)_fullScreenPreviewImageForPhoto:(id)arg1;
+- (void)_updateFullScreenPreviewImageForPhoto:(id)arg1 inTile:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_cancelImageRequestsForPhoto:(id)arg1;
+- (void)_requestImageForPhoto:(id)arg1 imageFormat:(int)arg2 inTile:(id)arg3 resultHandler:(CDUnknownBlockType)arg4;
 - (id)_lowResolutionPreviewImageForPhoto:(id)arg1;
 - (BOOL)_mainScrollerIsVisible;
 - (void)_clearFullScreenView;
-- (void)_updateFilteredImagesAndShuffle:(BOOL)arg1;
+- (void)_shuffleAssets:(BOOL)arg1;
 - (void)setUsesPhotoBrowserStyleStatusBar:(BOOL)arg1 animated:(BOOL)arg2;
 - (id)newToolbar;
 - (id)newNavigationBar;
@@ -523,7 +502,13 @@
 - (Class)_pageControllerScrollViewClass;
 @property(nonatomic) id <PLPhotoBrowserControllerDelegate> delegate;
 - (void)dealloc;
-- (id)initWithImageDataProvider:(id)arg1;
+- (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

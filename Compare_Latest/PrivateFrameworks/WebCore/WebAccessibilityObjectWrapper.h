@@ -35,6 +35,8 @@ __attribute__((visibility("hidden")))
 - (id)accessibilityMathRadicandObject;
 - (id)accessibilityMathRootIndexObject;
 - (id)accessibilityInvalidStatus;
+- (BOOL)accessibilityIsExpanded;
+- (BOOL)accessibilitySupportsARIAExpanded;
 - (BOOL)accessibilityARIALiveRegionIsAtomic;
 - (id)accessibilityARIARelevantStatus;
 - (id)accessibilityARIALiveRegionStatus;
@@ -50,6 +52,8 @@ __attribute__((visibility("hidden")))
 - (id)selectedTextMarker;
 - (id)selectionRangeString;
 - (id)elementsForRange:(struct _NSRange)arg1;
+- (void)_accessibilitySetSelectedTextRange:(struct _NSRange)arg1;
+- (struct _NSRange)_accessibilitySelectedTextRange;
 - (id)attributedStringForRange:(struct _NSRange)arg1;
 - (id)stringForRange:(struct _NSRange)arg1;
 - (id)_stringForRange:(struct _NSRange)arg1 attributed:(BOOL)arg2;
@@ -63,7 +67,7 @@ __attribute__((visibility("hidden")))
 - (struct _NSRange)_convertToNSRange:(struct Range *)arg1;
 - (id)arrayOfTextForTextMarkers:(id)arg1 attributed:(BOOL)arg2;
 - (id)stringForTextMarkers:(id)arg1;
-- (BOOL)_addAccessibilityObject:(AccessibilityObject_241984a0 *)arg1 toTextMarkerArray:(id)arg2;
+- (BOOL)_addAccessibilityObject:(struct AccessibilityObject *)arg1 toTextMarkerArray:(id)arg2;
 - (void)accessibilityDecrement;
 - (void)accessibilityIncrement;
 - (void)accessibilityMoveSelectionToMarker:(id)arg1;
@@ -71,9 +75,15 @@ __attribute__((visibility("hidden")))
 - (void)accessibilityIncreaseSelection:(int)arg1;
 - (void)accessibilityModifySelection:(int)arg1 increase:(BOOL)arg2;
 - (void)accessibilityElementDidBecomeFocused;
+- (struct CGRect)_accessibilityScrollVisibleRect;
+- (struct CGSize)_accessibilityScrollSize;
+- (struct CGPoint)_accessibilityScrollPosition;
+- (void)postScrollStatusChangeNotification;
+- (void)postValueChangedNotification;
 - (void)postInvalidStatusChangedNotification;
 - (void)postChildrenChangedNotification;
 - (void)postLoadCompleteNotification;
+- (void)postLiveRegionCreatedNotification;
 - (void)postLiveRegionChangeNotification;
 - (void)postLayoutChangeNotification;
 - (void)postSelectedTextChangeNotification;
@@ -96,6 +106,9 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)accessibilityElementRect;
 - (struct CGRect)convertRectToScreenSpace:(struct IntRect *)arg1;
 - (struct CGPoint)convertPointToScreenSpace:(struct FloatPoint *)arg1;
+- (BOOL)accessibilityScroll:(int)arg1;
+- (BOOL)_accessibilityScrollToVisible;
+- (struct CGPoint)_accessibilityConvertPointToViewSpace:(struct CGPoint)arg1;
 - (id)accessibilityURL;
 - (id)accessibilityHint;
 - (BOOL)accessibilityIsComboBox;
@@ -127,6 +140,8 @@ __attribute__((visibility("hidden")))
 - (int)indexOfAccessibilityElement:(id)arg1;
 - (id)accessibilityElementAtIndex:(int)arg1;
 - (int)accessibilityElementCount;
+- (void)disableAttributeCaching;
+- (void)enableAttributeCaching;
 - (id)accessibilityHitTest:(struct CGPoint)arg1;
 - (struct WebAccessibilityObjectWrapper *)accessibilityPostProcessHitTest:(struct CGPoint)arg1;
 - (BOOL)accessibilityCanFuzzyHitTest;
@@ -155,7 +170,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)_prepareAccessibilityCall;
 - (void)dealloc;
 - (void)detach;
-- (id)initWithAccessibilityObject:(AccessibilityObject_241984a0 *)arg1;
+- (id)initWithAccessibilityObject:(struct AccessibilityObject *)arg1;
 
 @end
 

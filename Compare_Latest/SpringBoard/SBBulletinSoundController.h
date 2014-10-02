@@ -9,7 +9,7 @@
 #import "BBObserverDelegate.h"
 #import "SBBulletinBusyClient.h"
 
-@class BBObserver, NSMutableArray, NSMutableDictionary, NSMutableSet;
+@class BBObserver, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString;
 
 @interface SBBulletinSoundController : NSObject <BBObserverDelegate, SBBulletinBusyClient>
 {
@@ -17,6 +17,7 @@
     NSMutableArray *_blockQueue;
     NSMutableDictionary *_playingSounds;
     NSMutableSet *_internalBulletinsWePlayedSoundsFor;
+    NSMutableSet *_bulletinsRequiringExplicitKill;
     _Bool _deviceIsLocked;
     _Bool _quietModeEnabled;
     unsigned long long _quietModeState;
@@ -31,7 +32,7 @@
 - (void)observer:(id)arg1 noteAlertBehaviorOverrideStateChanged:(unsigned long long)arg2;
 - (void)observer:(id)arg1 noteAlertBehaviorOverridesChanged:(unsigned long long)arg2;
 - (void)observer:(id)arg1 removeBulletin:(id)arg2;
-- (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned long long)arg3;
+- (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned long long)arg3 playLightsAndSirens:(_Bool)arg4 withReply:(CDUnknownBlockType)arg5;
 - (void)_enqueueBlock:(CDUnknownBlockType)arg1 forBulletin:(id)arg2;
 - (_Bool)_shouldHonorPlaySoundRequestForBulletin:(id)arg1;
 - (void)_hardwareButtonPressed:(id)arg1;
@@ -44,6 +45,12 @@
 - (_Bool)playSoundForBulletin:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

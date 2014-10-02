@@ -4,46 +4,28 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <iWorkImport/TSPPackageWriter.h>
 
-#import "TSPPackageWriter.h"
-
-@class NSError, NSObject<OS_dispatch_queue>, NSURL, SFUCryptoKey, TSPBundle, TSUPathSet, TSUZipFileWriter;
+@class NSObject<OS_dispatch_queue>, TSPDirectoryPackageDataWriter;
 
 __attribute__((visibility("hidden")))
-@interface TSPBundleWriter : NSObject <TSPPackageWriter>
+@interface TSPBundleWriter : TSPPackageWriter
 {
-    NSURL *_URL;
-    SFUCryptoKey *_encryptionKey;
-    id <TSPPackage> _originalDocumentPackage;
-    id <TSPPackage> _originalSupportPackage;
-    TSUZipFileWriter *_objectArchiveWriter;
-    id <TSPComponentWriteChannel> _componentWriteChannel;
-    NSObject<OS_dispatch_queue> *_errorQueue;
-    NSError *_error;
-    TSPBundle *_writtenBundle;
-    BOOL _isClosed;
-    TSUPathSet *_dataPathSet;
-    BOOL _obscureAssetFilenames;
-    NSURL *_documentTargetURL;
-    NSURL *_relativeURLForExternalData;
+    NSObject<OS_dispatch_queue> *_componentFileIOQueue;
+    TSPDirectoryPackageDataWriter *_dataWriter;
 }
 
-@property(nonatomic) BOOL obscureAssetFilenames; // @synthesize obscureAssetFilenames=_obscureAssetFilenames;
-@property(readonly, nonatomic) NSURL *relativeURLForExternalData; // @synthesize relativeURLForExternalData=_relativeURLForExternalData;
-@property(readonly, nonatomic) NSURL *documentTargetURL; // @synthesize documentTargetURL=_documentTargetURL;
++ (BOOL)createDirectoryAtURL:(id)arg1 withIntermediateDirectories:(BOOL)arg2;
 - (void).cxx_destruct;
-- (BOOL)writeData:(id)arg1 toPath:(id)arg2 error:(id *)arg3;
-- (id)writtenPackage;
-- (void)closeWithQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (BOOL)addData:(id)arg1 infoMessage:(struct DataInfo *)arg2 saveOperationState:(id)arg3;
-- (void)copyComponent:(id)arg1 locator:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (id)newComponentWriteChannelWithPackageLocator:(id)arg1 storeOutsideObjectArchive:(BOOL)arg2;
-- (id)linkOrCopyDataFromURL:(id)arg1 decryptionKey:(id)arg2 preferredFilename:(id)arg3;
-- (id)dataFilenameForPreferredFilename:(id)arg1;
-- (void)dealloc;
-- (BOOL)createDirectoryAtURL:(id)arg1 withIntermediateDirectories:(BOOL)arg2;
-- (id)initWithURL:(id)arg1 documentTargetURL:(id)arg2 relativeURLForExternalData:(id)arg3 packageIdentifier:(unsigned char)arg4 encryptionKey:(id)arg5 originalDocumentPackage:(id)arg6 originalSuppportPackage:(id)arg7 fileCoordinatorDelegate:(id)arg8 error:(id *)arg9;
+- (id)newRawDataWriteChannelForRelativePath:(id)arg1 originalSize:(unsigned long long)arg2 originalCRC:(unsigned int)arg3;
+- (id)newPackageWithPackageIdentifier:(unsigned char)arg1 documentProperties:(id)arg2 fileFormatVersion:(unsigned long long)arg3 decryptionKey:(id)arg4 fileCoordinatorDelegate:(id)arg5;
+- (struct CGDataConsumer *)newCGDataConsumerAtRelativePath:(id)arg1;
+- (BOOL)writeData:(id)arg1 toRelativePath:(id)arg2 allowEncryption:(BOOL)arg3 error:(id *)arg4;
+- (id)linkOrCopyData:(id)arg1 fromURL:(id)arg2 decryptionKey:(id)arg3 preferredFilename:(id)arg4 error:(id *)arg5;
+- (id)targetDataURLForPath:(id)arg1;
+- (id)newRawComponentWriteChannelWithPackageLocator:(id)arg1 storeOutsideObjectArchive:(BOOL)arg2;
+- (unsigned long long)encodedLengthForComponentLocator:(id)arg1 isStoredOutsideObjectArchive:(BOOL)arg2;
+- (id)initWithURL:(id)arg1 documentTargetURL:(id)arg2 relativeURLForExternalData:(id)arg3 packageIdentifier:(unsigned char)arg4 documentProperties:(id)arg5 fileFormatVersion:(unsigned long long)arg6 updateType:(int)arg7 encryptionKey:(id)arg8 originalDocumentPackage:(id)arg9 originalSuppportPackage:(id)arg10 fileCoordinatorDelegate:(id)arg11 progress:(id)arg12 error:(id *)arg13;
 
 @end
 

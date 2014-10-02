@@ -9,11 +9,12 @@
 #import "NSCopying.h"
 #import "TSCHNotifyOnModify.h"
 #import "TSCHUnretainedParent.h"
+#import "TSDMixing.h"
 
 @class NSArray, NSMutableArray, NSMutableDictionary, TSCHChartGrid, TSCHChartInfo;
 
 __attribute__((visibility("hidden")))
-@interface TSCHChartModel : NSObject <TSCHNotifyOnModify, TSCHUnretainedParent, NSCopying>
+@interface TSCHChartModel : NSObject <TSCHNotifyOnModify, TSCHUnretainedParent, TSDMixing, NSCopying>
 {
     TSCHChartInfo *mInfo;
     TSCHChartGrid *mGrid;
@@ -33,30 +34,39 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) int scatterFormat; // @synthesize scatterFormat=mScatterFormat;
 @property(retain, nonatomic) TSCHChartGrid *grid; // @synthesize grid=mGrid;
 @property(nonatomic) TSCHChartInfo *chartInfo; // @synthesize chartInfo=mInfo;
+- (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
+- (int)mixingTypeWithObject:(id)arg1;
+- (BOOL)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
 - (unsigned int)gridIndexForSeriesDimension:(id)arg1;
 - (id)seriesDimensionForGridIndex:(unsigned int)arg1;
 - (void)p_setBimapEntryForSeriesDimension:(id)arg1 andGridIndex:(unsigned int)arg2;
 - (void)loadDefaultData;
-- (void)p_loadDefaultData;
+- (void)loadDefaultDataWithGridRowIds:(id)arg1 gridColumnIds:(id)arg2;
+- (void)p_loadDefaultDataWithGridRowIds:(id)arg1 gridColumnIds:(id)arg2;
 - (void)setNameForMultiDataSetCategory:(unsigned int)arg1 toName:(id)arg2;
 - (void)setNameForCategory:(unsigned int)arg1 toName:(id)arg2;
 - (id)nameForMultiDataSetCategory:(unsigned int)arg1;
 - (id)nameForCategory:(unsigned int)arg1;
 - (unsigned int)multiDataSetCategoryIndexForCategory:(unsigned int)arg1;
 - (unsigned int)categoryForMultiDataSetCategoryIndex:(unsigned int)arg1;
+- (id)dataSetNameForMultiDataModel;
+- (unsigned int)p_multiDataSetCategoryIndexForCategory:(unsigned int)arg1;
 - (id)nameForSeries:(unsigned int)arg1;
 @property(readonly, nonatomic) unsigned int numberOfValues;
 @property(readonly, nonatomic) unsigned int numberOfMultiDataSets;
+@property(readonly, nonatomic) unsigned int numberOfChunkableMultiDataSets;
 @property(readonly, nonatomic) unsigned int numberOfMultiDataSetCategories;
 - (unsigned int)numberOfGridValues;
 - (id)seriesAtIndex:(unsigned int)arg1;
 @property(readonly, nonatomic) unsigned int numberOfSeriesForCalculatingBarWidth;
 @property(readonly, nonatomic) unsigned int numberOfSeries;
-@property(readonly, nonatomic) NSArray *seriesList;
+- (id)noSyncSeriesList;
+@property(readonly, retain, nonatomic) NSArray *seriesList;
 - (id)axisForID:(id)arg1;
-@property(readonly, nonatomic) NSArray *categoryAxisList;
-@property(readonly, nonatomic) NSArray *valueAxisList;
-@property(readonly, nonatomic) NSArray *axisList;
+@property(readonly, retain, nonatomic) NSArray *categoryAxisList;
+@property(readonly, retain, nonatomic) NSArray *valueAxisList;
+- (id)noSyncAxisList;
+@property(readonly, retain, nonatomic) NSArray *axisList;
 - (void)validateIfNeeded;
 - (void)invalidateModel;
 - (id)cachedObjectForKey:(id)arg1;
@@ -69,13 +79,14 @@ __attribute__((visibility("hidden")))
 - (void)p_synchronizeAxisList;
 - (void)p_synchronizeAxis:(id)arg1 class:(Class)arg2 axisID:(id)arg3 axisIndex:(unsigned int)arg4 styleIndex:(unsigned int)arg5 usedAxes:(id)arg6 unusedAxes:(id)arg7;
 - (id)p_axisForID:(id)arg1;
+- (unsigned int)defaultOrdinalForAxisType:(int)arg1 seriesIndex:(unsigned int)arg2;
 - (void)updateTransientModelFromInfoModel;
 @property(nonatomic) unsigned int multiDataSetIndex;
 - (unsigned int)p_lastMultiDataSetIndex;
 - (void)enumerateMultiDataModelsUsingBlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) BOOL isMultiData;
 - (void)willModify;
-@property(readonly, nonatomic) id syncRoot;
+@property(readonly, retain, nonatomic) id syncRoot;
 - (void)clearParent;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
@@ -89,8 +100,6 @@ __attribute__((visibility("hidden")))
 - (id)legendModelCache;
 - (void)clearTextEditingSelectionPath;
 - (void)setTextEditingSelectionPath:(id)arg1 string:(id)arg2;
-- (id)noSyncSeriesList;
-- (id)noSyncAxisList;
 - (void)saveToUnityArchive:(struct ChartArchive *)arg1 forPasteboard:(BOOL)arg2;
 - (void)loadFromUnityArchive:(const struct ChartArchive *)arg1 unarchiver:(id)arg2 contextForUpgradeOnly:(id)arg3;
 

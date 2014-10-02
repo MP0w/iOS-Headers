@@ -22,8 +22,12 @@
     unsigned int _replyPort;
     BOOL _portPassing;
     BOOL _delayedReply;
+    BOOL _requireLookupByPID;
+    int _targetPID;
 }
 
++ (id)_centerNamed:(id)arg1 requireLookupByPID:(BOOL)arg2;
++ (id)pidRestrictedCenterNamed:(id)arg1;
 + (id)centerNamed:(id)arg1;
 - (id)_requiredEntitlement;
 - (BOOL)_isTaskEntitled:(CDStruct_6ad76789 *)arg1;
@@ -49,11 +53,13 @@
 - (void)_setSendPort:(unsigned int)arg1;
 - (unsigned int)_sendPort;
 - (void)_setupInvalidationSource;
+- (void)setTargetPID:(int)arg1;
 - (id)name;
 - (void)dealloc;
 - (id)_initClientWithPort:(unsigned int)arg1;
 - (id)_initAnonymousServer;
 - (id)_initWithServerName:(id)arg1;
+- (id)_initWithServerName:(id)arg1 requireLookupByPID:(BOOL)arg2;
 
 @end
 

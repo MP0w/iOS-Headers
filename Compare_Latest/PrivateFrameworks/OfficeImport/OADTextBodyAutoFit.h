@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
     int mType;
 }
 
+- (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (int)type;

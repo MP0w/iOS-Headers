@@ -11,12 +11,14 @@
 __attribute__((visibility("hidden")))
 @interface TSCHChartUIState : NSObject <NSCopying>
 {
+    BOOL _useFullKeyboard;
     unsigned int _lastRowSelectedInCDE;
     unsigned int _lastRowCountInCDE;
     unsigned int _lastColSelectedInCDE;
     unsigned int _lastColCountInCDE;
 }
 
+@property(readonly, nonatomic) BOOL useFullKeyboard; // @synthesize useFullKeyboard=_useFullKeyboard;
 @property(readonly, nonatomic) unsigned int lastColCountInCDE; // @synthesize lastColCountInCDE=_lastColCountInCDE;
 @property(readonly, nonatomic) unsigned int lastColSelectedInCDE; // @synthesize lastColSelectedInCDE=_lastColSelectedInCDE;
 @property(readonly, nonatomic) unsigned int lastRowCountInCDE; // @synthesize lastRowCountInCDE=_lastRowCountInCDE;
@@ -27,8 +29,7 @@ __attribute__((visibility("hidden")))
 - (id)description;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
-- (id)initWithRowRange:(struct _NSRange)arg1 colRange:(struct _NSRange)arg2;
-- (id)initWithLastRow:(unsigned int)arg1 lastCol:(unsigned int)arg2;
+- (id)initWithRowRange:(struct _NSRange)arg1 colRange:(struct _NSRange)arg2 useFullKeyboard:(BOOL)arg3;
 - (id)init;
 
 @end

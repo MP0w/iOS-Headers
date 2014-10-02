@@ -15,11 +15,12 @@ __attribute__((visibility("hidden")))
     UILabel *_titleView;
     UILabel *_valueView;
     UILabel *_value2View;
+    int _twoValueCellStyle;
 }
 
 - (void).cxx_destruct;
 - (void)layoutForWidth:(float)arg1 position:(int)arg2;
-- (int)style;
+- (int)twoValueCellStyle;
 - (id)value2View;
 - (id)valueView;
 - (id)titleView;

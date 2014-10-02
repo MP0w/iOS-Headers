@@ -84,7 +84,8 @@ __attribute__((visibility("hidden")))
 - (id)encodePeerID:(id)arg1;
 - (void)calculateConferenceID;
 - (id)initWithGKSession:(id)arg1 publicWrapper:(id)arg2 sessionName:(id)arg3;
-- (void)interfaceStateDidChangeWithWifiUp:(BOOL)arg1 withCellUp:(BOOL)arg2;
+- (void)networkStateDidChange;
+- (void)interfaceStateDidChangeWithWifiUp:(BOOL)arg1 cellUp:(BOOL)arg2;
 - (void)session:(id)arg1 didReceiveOOBAudioPacket:(id)arg2 fromPeerID:(id)arg3;
 - (void)session:(id)arg1 peer:(id)arg2 didChangeState:(int)arg3;
 - (void)session:(id)arg1 didReceiveAudioPacket:(id)arg2 fromPeerID:(id)arg3;
@@ -107,6 +108,12 @@ __attribute__((visibility("hidden")))
 - (void)lossRate:(float)arg1 forParticipantID:(id)arg2;
 - (int)goodChannels;
 - (int)calculateChannelQualities;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

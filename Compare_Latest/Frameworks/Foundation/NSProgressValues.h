@@ -8,18 +8,14 @@
 
 #import "NSSecureCoding.h"
 
-@class NSMutableDictionary, NSString;
+@class NSMutableDictionary, NSString, _NSProgressFraction;
 
 __attribute__((visibility("hidden")))
 @interface NSProgressValues : NSObject <NSSecureCoding>
 {
     NSMutableDictionary *_userInfo;
-    long long _totalUnitCount;
-    long long _completedUnitCount;
-    long long _childCompletedUnitCount;
-    double _fractionCompleted;
-    double _selfFractionCompleted;
-    double _childFractionCompleted;
+    _NSProgressFraction *_selfFraction;
+    _NSProgressFraction *_childFraction;
     NSString *_localizedDescription;
     NSString *_localizedAdditionalDescription;
     BOOL _isCancellable;
@@ -28,17 +24,27 @@ __attribute__((visibility("hidden")))
     BOOL _isPaused;
     NSString *_kind;
     BOOL _isPrioritizable;
-    BOOL _isFinished;
 }
 
 + (id)decodableClasses;
 + (BOOL)supportsSecureCoding;
++ (id)_derivedKeys;
+- (id)overallFraction;
+- (void)setTotalUnitCount:(long long)arg1;
+- (long long)totalUnitCount;
+- (void)setCompletedUnitCount:(long long)arg1;
+- (long long)completedUnitCount;
+- (void)setFractionCompleted:(double)arg1;
+- (double)fractionCompleted;
+- (void)setFinished:(BOOL)arg1;
+- (BOOL)isFinished;
 - (void)setIndeterminate:(BOOL)arg1;
 - (BOOL)isIndeterminate;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)description;
+- (id)_indentedDescription:(unsigned int)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 

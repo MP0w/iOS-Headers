@@ -14,6 +14,7 @@
     NSObject<OS_dispatch_queue> *_queue;
 }
 
+- (void).cxx_destruct;
 - (void)sendCFHTTPMessage:(struct __CFHTTPMessage *)arg1 isConcurrent:(BOOL)arg2 timeoutInterval:(double)arg3 withResponseHandler:(CDUnknownBlockType)arg4;
 - (void)dealloc;
 - (id)init;

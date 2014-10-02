@@ -8,26 +8,41 @@
 
 #import "GEOResourceManifestServerProxyDelegate.h"
 
+@class NSMapTable, NSMutableSet, NSString;
+
 @interface GEOResourceManifestServer : GEOServer <GEOResourceManifestServerProxyDelegate>
 {
     BOOL _isUpdatingResourceManifest;
     BOOL _isLoadingResources;
+    NSMapTable *_peerToConfiguration;
+    NSMutableSet *_alreadyRegisteredConfigurations;
 }
 
 + (id)identifier;
-- (oneway void)serverProxyDidChangeActiveTileGroup:(id)arg1 finishedCallback:(CDUnknownBlockType)arg2;
-- (oneway void)serverProxyDidStopLoadingResources;
-- (oneway void)serverProxyWillStartLoadingResources;
-- (oneway void)serverProxyDidStopUpdatingResourceManifest;
-- (oneway void)serverProxyWillStartUpdatingResourceManifest;
+- (oneway void)serverProxy:(id)arg1 didChangeActiveTileGroup:(id)arg2 finishedCallback:(CDUnknownBlockType)arg3;
+- (oneway void)serverProxyDidStopLoadingResources:(id)arg1;
+- (oneway void)serverProxyWillStartLoadingResources:(id)arg1;
+- (oneway void)serverProxyDidStopUpdatingResourceManifest:(id)arg1;
+- (oneway void)serverProxyWillStartUpdatingResourceManifest:(id)arg1;
+- (void)_forEachPeerMatchingConfiguration:(id)arg1 perform:(CDUnknownBlockType)arg2;
 - (void)getResourceManifestWithMessage:(id)arg1;
 - (void)setRequestTokenWithMessage:(id)arg1;
 - (void)resetActiveTileGroupWithMessage:(id)arg1;
 - (void)forceUpdateWithMessage:(id)arg1;
 - (void)setActiveTileGroupIdentifierWithMessage:(id)arg1;
-- (void)startServerHiDPIWithMessage:(id)arg1;
+- (void)setConfigurationWithMessage:(id)arg1;
+- (id)_configurationForPeer:(id)arg1;
+- (id)_manifestManagerForPeer:(id)arg1;
+- (void)peerDidDisconnect:(id)arg1;
 - (void)peerDidConnect:(id)arg1;
+- (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

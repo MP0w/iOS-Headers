@@ -9,6 +9,8 @@
 #import "EDImmutableObject.h"
 #import "NSCopying.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface EDAlignmentInfo : NSObject <NSCopying, EDImmutableObject>
 {
@@ -40,11 +42,16 @@ __attribute__((visibility("hidden")))
 - (void)setHorizontalAlignment:(int)arg1;
 - (int)horizontalAlignment;
 - (_Bool)isHorizontalAlignOverridden;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isEqualToAlignmentInfo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

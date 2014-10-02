@@ -9,7 +9,7 @@
 __attribute__((visibility("hidden")))
 @interface VKIntObjectMap : NSObject
 {
-    struct unordered_map<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>, std::__1::hash<int>, std::__1::equal_to<int>, std::__1::allocator<std::__1::pair<const int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc>>>> _map;
+    struct unordered_map<int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::hash<int>, std::__1::equal_to<int>, std::__1::allocator<std::__1::pair<const int, geo::_retain_ptr<id, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>> _map;
 }
 
 - (id).cxx_construct;

@@ -28,6 +28,7 @@
 - (id)_ftsTermStringForString:(id)arg1;
 - (id)stringForComparison:(id)arg1;
 - (id)queryWhereString;
+- (BOOL)_allowsLaxCheckingForFTS;
 - (BOOL)_supportsFTSSearch;
 - (BOOL)_shouldConsultIndexForKey:(id)arg1;
 - (id)queryJoinsInCompound:(BOOL)arg1;

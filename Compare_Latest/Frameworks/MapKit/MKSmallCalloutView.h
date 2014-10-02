@@ -8,7 +8,7 @@
 
 #import "CalloutViewControllerProtocol.h"
 
-@class MKCalloutBackgroundView, NSString, UILabel, UIView<_MKCalloutAccessoryView>, _MKSmallCalloutPassthroughButton;
+@class MKCalloutBackgroundView, NSMutableArray, NSString, UILabel, UIView<_MKCalloutAccessoryView>, _MKSmallCalloutPassthroughButton;
 
 __attribute__((visibility("hidden")))
 @interface MKSmallCalloutView : UIView <CalloutViewControllerProtocol>
@@ -17,6 +17,8 @@ __attribute__((visibility("hidden")))
     UILabel *_subtitleLabel;
     UIView<_MKCalloutAccessoryView> *_leftView;
     UIView<_MKCalloutAccessoryView> *_rightView;
+    UIView<_MKCalloutAccessoryView> *_externalLeftView;
+    UIView<_MKCalloutAccessoryView> *_externalRightView;
     UIView<_MKCalloutAccessoryView> *_detailView;
     struct CGSize _preferredContentSize;
     float _maxWidth;
@@ -24,10 +26,17 @@ __attribute__((visibility("hidden")))
     _MKSmallCalloutPassthroughButton *_maskedContainerView;
     UIView *_unmaskedContainerView;
     MKCalloutBackgroundView *_calloutBackgroundView;
-    int _mapDisplayStyle;
+    unsigned int _mapDisplayStyle;
+    UIView *_leftSpacerView;
+    UIView *_rightSpacerView;
+    NSMutableArray *_lastConstraints;
+    BOOL _initialDetailViewPositioning;
+    BOOL _initialLeftViewPositioning;
+    BOOL _initialRightViewPositioning;
 }
 
-@property(nonatomic) int mapDisplayStyle; // @synthesize mapDisplayStyle=_mapDisplayStyle;
+@property(nonatomic) float maximumWidth; // @synthesize maximumWidth=_maxWidth;
+@property(nonatomic) unsigned int mapDisplayStyle; // @synthesize mapDisplayStyle=_mapDisplayStyle;
 @property(retain, nonatomic) MKCalloutBackgroundView *calloutBackgroundView; // @synthesize calloutBackgroundView=_calloutBackgroundView;
 @property(readonly, nonatomic) struct CGSize _preferredContentSize; // @synthesize _preferredContentSize;
 - (void).cxx_destruct;
@@ -42,20 +51,21 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *calloutSubtitle;
 - (void)setCalloutSubtitle:(id)arg1 animated:(BOOL)arg2;
 @property(copy, nonatomic) NSString *calloutTitle;
+- (void)updateConstraints;
 - (void)_updatePreferredContentSize;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (float)_widthWithoutTruncation;
-- (float)maxCenterTextWidth;
-- (void)layoutSubviews;
-- (float)_rightTextMargin;
-- (float)_leftTextMargin;
-- (void)_preLayoutCenterSubviews;
-- (struct CGRect)_centerRect;
 - (void)beginMapsTransitionMovingSideways;
 - (void)reset;
 - (void)dealloc;
 - (id)_subtitleLabel;
+- (void)_contentSizeCategoryDidChange:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

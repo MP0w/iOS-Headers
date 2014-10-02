@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class ACAccountStore, NSArray, NSLock, NSObject<OS_dispatch_group>, NSString, NoteContext;
+@class ACAccountStore, NSArray, NSLock, NSObject<OS_dispatch_group>, NoteContext;
 
 @interface AccountUtilities : NSObject
 {
@@ -14,13 +14,11 @@
     NoteContext *_noteContext;
     ACAccountStore *_accountStore;
     NSObject<OS_dispatch_group> *_backgroundDispatchGroup;
-    NSString *_contextTestFilePrefix;
     NSLock *_updateAccountInfosLock;
 }
 
 + (id)sharedAccountUtilities;
 @property(retain) NSLock *updateAccountInfosLock; // @synthesize updateAccountInfosLock=_updateAccountInfosLock;
-@property(retain, nonatomic) NSString *contextTestFilePrefix; // @synthesize contextTestFilePrefix=_contextTestFilePrefix;
 @property(retain, nonatomic) NSObject<OS_dispatch_group> *backgroundDispatchGroup; // @synthesize backgroundDispatchGroup=_backgroundDispatchGroup;
 @property(retain, nonatomic) ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
 - (void).cxx_destruct;
@@ -31,7 +29,7 @@
 - (id)accountIDsEnabledForNotes;
 - (id)accountsEnabledForNotes;
 - (id)freshContext;
-- (void)startup;
+- (void)startKeepingAccountInfosUpToDate;
 - (void)dealloc;
 - (id)init;
 - (void)_accountStoreDidChange:(id)arg1;

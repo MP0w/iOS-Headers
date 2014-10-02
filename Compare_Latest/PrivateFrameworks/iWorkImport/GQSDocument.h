@@ -8,7 +8,7 @@
 
 #import "GQWrapPointGenerator.h"
 
-@class GQDRoot, GQDSStylesheet, GQPProcessor, GQSTable, SFUZipArchive;
+@class GQDRoot, GQDSStylesheet, GQPProcessor, GQSTable, NSString, SFUZipArchive;
 
 __attribute__((visibility("hidden")))
 @interface GQSDocument : NSObject <GQWrapPointGenerator>
@@ -36,6 +36,7 @@ __attribute__((visibility("hidden")))
     GQDSStylesheet *mStylesheet;
     BOOL mIsReadingStorageAttachments;
     struct __CFString *mFilename;
+    struct __CFURL *mDocumentUrl;
     BOOL _doCalculateThumbnailSize;
 }
 
@@ -83,9 +84,15 @@ __attribute__((visibility("hidden")))
 - (id)root;
 - (id)processor;
 - (void)dealloc;
-- (id)initWithRoot:(id)arg1 processor:(id)arg2 archive:(id)arg3 outputBundle:(id)arg4 filename:(struct __CFString *)arg5;
+- (id)initWithRoot:(id)arg1 processor:(id)arg2 archive:(id)arg3 outputBundle:(id)arg4 fileURL:(struct __CFURL *)arg5;
 - (id)initWithRoot:(id)arg1 processor:(id)arg2 bundleUrl:(struct __CFURL *)arg3 archive:(id)arg4 outputBundle:(id)arg5;
-- (id)initWithRoot:(id)arg1 processor:(id)arg2 outputBundle:(id)arg3 filename:(struct __CFString *)arg4;
+- (id)initWithRoot:(id)arg1 processor:(id)arg2 outputBundle:(id)arg3 fileURL:(struct __CFURL *)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

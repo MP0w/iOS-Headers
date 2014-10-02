@@ -17,7 +17,6 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
-- (struct CGSize)intrinsicContentSize;
 - (void)_applyConstraints;
 - (void)setVideoDuration:(double)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

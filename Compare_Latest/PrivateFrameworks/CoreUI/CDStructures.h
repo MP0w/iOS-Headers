@@ -25,6 +25,8 @@ struct CGSize {
     float height;
 };
 
+struct CPSDActionKeyedItem;
+
 struct CPSDAdditionalLayerInfo {
     CDUnknownFunctionPointerType *_field1;
     struct CPSDFile *_field2;
@@ -174,6 +176,30 @@ struct CPSDLayerRecord {
     struct CPSDAdditionalLayerInfo _field19;
 };
 
+struct CPSDObjectEffectsLayerInfo {
+    CDUnknownFunctionPointerType *_field1;
+    struct CPSDFile *_field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    char *_field5;
+    unsigned int _field6;
+    unsigned int _field7;
+    struct CPSDAdditionalLayerInfoItem *_field8;
+    struct CPSDString _field9;
+    char *_field10;
+    unsigned int _field11;
+    unsigned int _field12;
+    unsigned int _field13;
+    struct vector<CPSDActionKeyedItem, std::__1::allocator<CPSDActionKeyedItem>> _field14;
+    unsigned int _field15;
+    unsigned int _field16;
+};
+
+struct CPSDString {
+    unsigned int _field1;
+    unsigned short *_field2;
+};
+
 struct FontValue {
     char _field1[128];
     float _field2;
@@ -228,7 +254,14 @@ struct _colordef {
 
 struct _csibitmap {
     unsigned int _field1;
-    unsigned int _field2;
+    union {
+        unsigned int _field1;
+        struct _csibitmapflags {
+            unsigned int :1;
+            unsigned int :1;
+            unsigned int :30;
+        } _field2;
+    } _field2;
     unsigned int _field3;
     unsigned int _field4;
     unsigned char _field5[0];
@@ -308,10 +341,10 @@ struct _rgbquad {
 };
 
 struct _slice {
-    unsigned int _field1;
-    unsigned int _field2;
-    unsigned int _field3;
-    unsigned int _field4;
+    unsigned int x;
+    unsigned int y;
+    unsigned int width;
+    unsigned int height;
 };
 
 struct _themelook {
@@ -323,6 +356,14 @@ struct crmFlags {
     unsigned int scalesVertically:1;
     unsigned int scalesHorizontally:1;
     unsigned int reserved:14;
+};
+
+struct vector<CPSDActionKeyedItem, std::__1::allocator<CPSDActionKeyedItem>> {
+    struct CPSDActionKeyedItem *_field1;
+    struct CPSDActionKeyedItem *_field2;
+    struct __compressed_pair<CPSDActionKeyedItem *, std::__1::allocator<CPSDActionKeyedItem>> {
+        struct CPSDActionKeyedItem *_field1;
+    } _field3;
 };
 
 struct vector<CPSDChannelBlendingInfo, std::__1::allocator<CPSDChannelBlendingInfo>> {

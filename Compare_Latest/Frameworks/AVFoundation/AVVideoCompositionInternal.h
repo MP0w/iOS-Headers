@@ -10,6 +10,7 @@
 
 @interface AVVideoCompositionInternal : NSObject
 {
+    unsigned int changeSeed;
     NSString *builtInCompositorName;
     Class customCompositorClass;
     CDStruct_1b6d18a9 frameDuration;

@@ -13,8 +13,7 @@
     CoreDAVAction *_backingAction;
 }
 
-@property(retain) CoreDAVAction *backingAction; // @synthesize backingAction=_backingAction;
-@property(retain) CoreDAVAction *action;
+@property(retain, nonatomic) CoreDAVAction *backingAction; // @synthesize backingAction=_backingAction;
 - (void)dealloc;
 - (id)description;
 

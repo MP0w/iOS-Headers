@@ -8,14 +8,14 @@
 
 #import "SBIconIndexNode.h"
 
-@class NSHashTable, UIImage;
+@class NSHashTable, NSString, UIImage;
 
 @interface SBIcon : NSObject <SBIconIndexNode>
 {
     NSHashTable *_observers;
     id _badgeNumberOrString;
     unsigned int _uninstalled:1;
-    UIImage *_cachedIconImages[14];
+    UIImage *_cachedIconImages[13];
 }
 
 + (id)memoryMappedIconImageOfSize:(struct CGSize)arg1 scale:(double)arg2 withDrawing:(CDUnknownBlockType)arg3;
@@ -43,6 +43,7 @@
 - (long long)progressState;
 - (void)launchFromLocation:(int)arg1;
 - (id)automationID;
+- (_Bool)isBeta;
 - (_Bool)isRecentlyUpdated;
 - (void)setBadge:(id)arg1;
 - (void)noteBadgeDidChange;
@@ -64,6 +65,7 @@
 - (id)tags;
 - (_Bool)matchesEntity:(id)arg1;
 - (long long)localizedCompareDisplayNames:(id)arg1;
+- (_Bool)canTightenLabel;
 - (_Bool)canEllipsizeLabel;
 - (id)displayName;
 - (void)localeChanged;
@@ -82,19 +84,17 @@
 - (_Bool)hasObserver:(id)arg1;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)application;
 - (_Bool)isApplicationIcon;
 - (_Bool)isBookmarkIcon;
 - (id)appPlaceholder;
 - (_Bool)isDownloadingIcon;
 - (_Bool)isUserInstalledApplicationIcon;
-- (_Bool)isWebApplicationIcon;
 - (_Bool)hasFolderIconView;
 - (id)folder;
 - (_Bool)isFolderIcon;
 - (id)applicationBundleID;
-- (id)webClip;
 - (id)leafIdentifier;
 - (_Bool)isLeafIcon;
 - (Class)iconImageViewClassForLocation:(int)arg1;
@@ -107,6 +107,11 @@
 - (_Bool)isEmptyPlaceholder;
 - (_Bool)isGrabbedIconPlaceholder;
 - (_Bool)isPlaceholder;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -19,6 +19,7 @@
 - (id)urlForKey:(id)arg1;
 - (id)_thumbnailImage;
 - (id)_image;
+- (void)awakeFromInsert;
 - (BOOL)isIncludedInMoments;
 - (id)newFullScreenImage:(const struct __CFDictionary **)arg1;
 - (id)wallpaperFullScreenImage;

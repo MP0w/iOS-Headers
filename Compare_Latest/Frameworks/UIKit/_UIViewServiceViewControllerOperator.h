@@ -6,32 +6,34 @@
 
 #import <UIKit/UIViewController.h>
 
-#import "XPCProxyTarget.h"
 #import "_UIHostedTextServiceSessionDelegate.h"
 #import "_UIViewServiceDeputy.h"
 #import "_UIViewServiceDeputyRotationSource.h"
 #import "_UIViewServiceDummyPopoverControllerDelegate.h"
 #import "_UIViewServiceViewControllerOperator_RemoteViewControllerInterface.h"
 
-@class NSMutableArray, UIActionSheet, UIPopoverController, _UIAsyncInvocation, _UIHostedTextServiceSession, _UIHostedWindow, _UIViewServiceDummyPopoverController;
+@class NSArray, NSMutableArray, NSString, UIActionSheet, UIPopoverController, _UIAsyncInvocation, _UIHostedTextServiceSession, _UIHostedWindow, _UIViewServiceDummyPopoverController;
 
 __attribute__((visibility("hidden")))
-@interface _UIViewServiceViewControllerOperator : UIViewController <XPCProxyTarget, _UIViewServiceViewControllerOperator_RemoteViewControllerInterface, _UIHostedTextServiceSessionDelegate, _UIViewServiceDummyPopoverControllerDelegate, _UIViewServiceDeputy, _UIViewServiceDeputyRotationSource>
+@interface _UIViewServiceViewControllerOperator : UIViewController <_UIViewServiceViewControllerOperator_RemoteViewControllerInterface, _UIHostedTextServiceSessionDelegate, _UIViewServiceDummyPopoverControllerDelegate, _UIViewServiceDeputy, _UIViewServiceDeputyRotationSource>
 {
     int _hostPID;
+    NSString *_hostBundleID;
     CDStruct_4c969caf _hostAuditToken;
     id _remoteViewControllerProxyToOperator;
     id _remoteViewControllerProxyToViewController;
+    NSArray *_plugInScenes;
     UIViewController *_localViewController;
+    NSString *_presentationControllerClassName;
     _UIHostedWindow *_hostedWindow;
     BOOL _isResigningFirstResponderFromHostNotification;
+    BOOL _disableAutomaticKeyboardBehavior;
     UIActionSheet *_hostedActionSheet;
     BOOL _serviceInPopover;
     int _hostStatusBarOrientation;
     float _hostStatusBarHeight;
     NSMutableArray *_deputyRotationDelegates;
     unsigned int _hostAccessibilityServerPort;
-    id <_UIViewServiceDeputyDelegate> _deputyDelegate;
     _UIHostedTextServiceSession *_textServiceSession;
     _UIAsyncInvocation *_prepareForDisconnectionInvocation;
     _UIAsyncInvocation *_invalidationInvocation;
@@ -41,25 +43,32 @@ __attribute__((visibility("hidden")))
     _UIViewServiceDummyPopoverController *_dummyPopoverController;
     unsigned int _supportedOrientations;
     BOOL _canShowTextServices;
+    struct UIEdgeInsets _localViewControllerRequestedInsets;
     id <_UIViewServiceViewControllerOperatorDelegate> _delegate;
 }
 
 + (id)XPCInterface;
-+ (id)operatorWithRemoteViewControllerProxy:(id)arg1 hostPID:(int)arg2 hostAuditToken:(CDStruct_4c969caf)arg3;
++ (id)operatorWithRemoteViewControllerProxy:(id)arg1 hostPID:(int)arg2 hostBundleID:(id)arg3 hostAuditToken:(CDStruct_4c969caf)arg4;
 @property(nonatomic) id <_UIViewServiceViewControllerOperatorDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)__restoreStateForSession:(id)arg1 restorationAnchor:(id)arg2;
 - (void)__saveStateForSession:(id)arg1 restorationAnchor:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (BOOL)_validateSessionIdentifier:(id)arg1 restorationAnchor:(id)arg2 functionName:(const char *)arg3;
 - (id)_sessionForStateRestoration:(id)arg1;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)__textServiceDidDismiss;
 - (void)dismissHostedTextServiceSession:(id)arg1 animated:(BOOL)arg2;
 - (id)_showServiceForText:(id)arg1 type:(int)arg2 fromRect:(struct CGRect)arg3 inView:(id)arg4;
 - (BOOL)_canShowTextServices;
 - (id)_inputViewsKey;
 - (void)setNeedsStatusBarAppearanceUpdate;
+- (id)_presentationControllerClassName;
+- (void)__hostDidSetPresentationControllerClassName:(id)arg1;
+- (struct UIEdgeInsets)_edgeInsetsForChildViewController:(id)arg1 insetsAreAbsolute:(char *)arg2;
+- (void)__hostDidSetContentOverlayInsets:(struct UIEdgeInsets)arg1;
+- (void)__hostDisablesAutomaticKeyboardBehavior:(BOOL)arg1;
 - (void)__hostDidPromoteFirstResponder;
-- (void)__setContentSize:(id)arg1;
+- (void)__setContentSize:(struct CGSize)arg1;
+- (void)__exchangeAccessibilityPortInformation:(id)arg1 replyHandler:(CDUnknownBlockType)arg2;
+- (void)__createViewController:(id)arg1 withContextToken:(id)arg2 fbsDisplays:(id)arg3 appearanceSerializedRepresentations:(id)arg4 legacyAppearance:(BOOL)arg5 hostAccessibilityServerPort:(id)arg6 canShowTextServices:(BOOL)arg7 replyHandler:(CDUnknownBlockType)arg8;
 - (void)__createViewController:(id)arg1 withAppearanceSerializedRepresentations:(id)arg2 legacyAppearance:(BOOL)arg3 hostAccessibilityServerPort:(id)arg4 canShowTextServices:(BOOL)arg5 replyHandler:(CDUnknownBlockType)arg6;
 - (id)_supportedInterfaceOrientationsForViewController:(id)arg1;
 - (void)__hostDidRotateFromInterfaceOrientation:(int)arg1 skipSelf:(BOOL)arg2;
@@ -77,10 +86,11 @@ __attribute__((visibility("hidden")))
 - (void)__hostViewDidAppear:(BOOL)arg1;
 - (void)__hostViewWillAppear:(BOOL)arg1 inInterfaceOrientation:(int)arg2 statusBarHeight:(float)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)__hostReadyToReceiveMessagesFromServiceViewController;
-- (void)setDeputyDelegate:(id)arg1;
 - (id)invalidate;
 - (void)dummyPopoverController:(id)arg1 popoverViewDidSetUseToolbarShine:(BOOL)arg2;
 - (void)dummyPopoverController:(id)arg1 didChangeContentSize:(struct CGSize)arg2 animated:(BOOL)arg3;
+- (void)systemLayoutFittingSizeDidChangeForChildViewController:(id)arg1;
+- (void)preferredContentSizeDidChangeForChildContentContainer:(id)arg1;
 - (struct CGSize)preferredContentSize;
 - (struct CGSize)contentSizeForViewInPopover;
 - (struct CGRect)_frameForContainerViewInSheetForBounds:(struct CGRect)arg1;
@@ -109,13 +119,14 @@ __attribute__((visibility("hidden")))
 - (void)_windowDidUpdateCurrentTintView:(id)arg1;
 - (void)_windowDidUnregisterScrollToTopView;
 - (void)_windowDidRegisterScrollToTopView;
-- (void)__scrollToTopFromTouchAtViewLocation:(id)arg1 resultHandler:(CDUnknownBlockType)arg2;
+- (void)__scrollToTopFromTouchAtViewLocation:(struct CGPoint)arg1 resultHandler:(CDUnknownBlockType)arg2;
 - (void)_updateSupportedInterfaceOrientationsIfNecessary;
 - (void)addDeputyRotationDelegate:(id)arg1;
 - (unsigned int)supportedInterfaceOrientations;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (BOOL)shouldAutomaticallyForwardRotationMethods;
 - (BOOL)shouldAutomaticallyForwardAppearanceMethods;
+- (BOOL)_disableAutomaticKeyboardBehavior;
 - (BOOL)_isHostedRootViewController;
 - (void)viewDidLoad;
 - (void)loadView;
@@ -130,6 +141,12 @@ __attribute__((visibility("hidden")))
 - (oneway void)release;
 - (id)retain;
 - (int)__automatic_invalidation_logic;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

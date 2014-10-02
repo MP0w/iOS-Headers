@@ -8,7 +8,7 @@
 
 #import "KNFrameBuildAnimator.h"
 
-@class KNShimmerEffect;
+@class KNShimmerEffect, NSString;
 
 __attribute__((visibility("hidden")))
 @interface KNBuildShimmer : KNAnimationEffect <KNFrameBuildAnimator>
@@ -34,6 +34,12 @@ __attribute__((visibility("hidden")))
 - (void)animationWillBeginWithContext:(id)arg1;
 - (struct CGRect)frameOfEffectWithFrame:(struct CGRect)arg1 context:(id)arg2;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "TSTLayoutDynamicResizeInfoProtocol.h"
 
-@class TSTCellRegion;
+@class NSString, TSTCellRegion;
 
 __attribute__((visibility("hidden")))
 @interface TSTLayoutDynamicResizeInfo : NSObject <TSTLayoutDynamicResizeInfoProtocol>
@@ -37,6 +37,7 @@ __attribute__((visibility("hidden")))
 - (id)rowHeights;
 - (void)enumerateRowHeightsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateColumnWidthsUsingBlock:(CDUnknownBlockType)arg1;
+- (struct CGSize)capturedTableSize;
 - (void)captureNewMinimumRowHeights:(id)arg1;
 - (float)applyColumnTotalWidth:(float)arg1;
 - (float)applyRowTotalHeight:(float)arg1;
@@ -58,6 +59,12 @@ __attribute__((visibility("hidden")))
 - (id)initWithMasterLayout:(id)arg1 rowRegion:(id)arg2;
 - (id)initWithMasterLayout:(id)arg1 columnRegion:(id)arg2;
 - (id)initWithMasterLayout:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

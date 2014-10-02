@@ -6,15 +6,19 @@
 
 #import "NSObject.h"
 
-@class AVAsset, AVWeakReference;
+@class AVAsset, AVWeakReference, NSDictionary, NSString;
 
 @interface AVPlayerItemTrackInternal : NSObject
 {
     AVWeakReference *weakReferenceToPlayerItem;
     struct OpaqueFigPlaybackItem *figPlaybackItem;
-    int trackID;
-    struct __CFNumber *mediaTypeRef;
+    BOOL figPlaybackItemIsReadyForInspection;
     AVAsset *asset;
+    int trackID;
+    NSString *videoFieldMode;
+    NSDictionary *loudnessInfo;
+    BOOL enabled;
+    BOOL enabledWasSet;
 }
 
 @end

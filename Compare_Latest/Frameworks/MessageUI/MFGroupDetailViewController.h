@@ -6,11 +6,9 @@
 
 #import "UITableViewController.h"
 
-#import "UIActionSheetDelegate.h"
-
 @class MFRecentComposeRecipientGroup;
 
-@interface MFGroupDetailViewController : UITableViewController <UIActionSheetDelegate>
+@interface MFGroupDetailViewController : UITableViewController
 {
     id <MFGroupDetailViewControllerDelegate> _delegate;
     MFRecentComposeRecipientGroup *_group;
@@ -23,7 +21,6 @@
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)_removeButtonTapped:(id)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (id)initWithStyle:(int)arg1;

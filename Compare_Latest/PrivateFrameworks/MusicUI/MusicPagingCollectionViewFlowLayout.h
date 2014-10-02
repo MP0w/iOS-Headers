@@ -18,6 +18,7 @@
 @property(nonatomic) float distanceFromCenterForMinimumAlpha; // @synthesize distanceFromCenterForMinimumAlpha=_distanceFromCenterForMinimumAlpha;
 - (int)indexOfItemClosestToPoint:(struct CGPoint)arg1;
 - (struct CGPoint)targetContentOffsetForProposedContentOffset:(struct CGPoint)arg1 withScrollingVelocity:(struct CGPoint)arg2;
+- (struct CGPoint)targetContentOffsetForProposedContentOffset:(struct CGPoint)arg1;
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(struct CGRect)arg1;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
 - (struct CGSize)collectionViewContentSize;

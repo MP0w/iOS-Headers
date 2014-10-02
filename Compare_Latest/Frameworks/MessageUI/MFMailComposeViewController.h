@@ -23,6 +23,7 @@
 - (void)setAutorotationDelegate:(id)arg1;
 - (void)autosaveWithHandler:(CDUnknownBlockType)arg1;
 - (void)recoverAutosavedMessageWithIdentifier:(id)arg1;
+- (void)setCaretPosition:(unsigned int)arg1;
 - (void)addSetupAnimationBlock:(CDUnknownBlockType)arg1;
 - (void)finalizeCompositionValues;
 - (void)setSourceAccountManagement:(int)arg1;

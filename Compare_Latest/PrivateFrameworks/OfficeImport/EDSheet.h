@@ -6,7 +6,7 @@
 
 #import <OfficeImport/OCDDelayedNode.h>
 
-@class EDColorReference, EDHeaderFooter, EDPageSetup, EDProcessors, EDString, EDWarnings, EDWorkbook, ESDContainer, NSMutableArray, TSUPointerKeyDictionary;
+@class EDColorReference, EDHeaderFooter, EDPageSetup, EDProcessors, EDString, EDWarnings, EDWorkbook, ESDContainer, NSMutableArray, OITSUPointerKeyDictionary;
 
 __attribute__((visibility("hidden")))
 @interface EDSheet : OCDDelayedNode
@@ -21,8 +21,8 @@ __attribute__((visibility("hidden")))
     EDHeaderFooter *mHeaderFooter;
     EDPageSetup *mPageSetup;
     NSMutableArray *mDrawables;
-    TSUPointerKeyDictionary *mTextBoxMap;
-    TSUPointerKeyDictionary *mCommentMap;
+    OITSUPointerKeyDictionary *mTextBoxMap;
+    OITSUPointerKeyDictionary *mCommentMap;
     EDProcessors *mProcessors;
     EDWarnings *mWarnings;
     ESDContainer *mEscherDrawing;
@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
 - (id)processors;
 - (void)setEDComment:(id)arg1 forShape:(id)arg2;
 - (id)edCommentForShape:(id)arg1;
+- (unsigned int)commentCount;
 - (void)setEDTextBox:(id)arg1 forShape:(id)arg2;
 - (id)edTextBoxForShape:(id)arg1;
 - (id)drawables;

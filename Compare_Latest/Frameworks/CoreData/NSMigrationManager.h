@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSError, NSManagedObjectContext, NSManagedObjectModel, NSMappingModel, NSMigrationContext;
+@class NSDictionary, NSEntityMapping, NSError, NSManagedObjectContext, NSManagedObjectModel, NSMappingModel, NSMigrationContext;
 
 @interface NSMigrationManager : NSObject
 {
@@ -34,25 +34,23 @@
 + (BOOL)_performSanityCheckForMapping:(id)arg1 fromSourceModel:(id)arg2 toDestinationModel:(id)arg3;
 + (void)setMigrationDebugLevel:(int)arg1;
 + (int)migrationDebugLevel;
-- (BOOL)usesStoreSpecificMigrationManager;
-- (void)setUsesStoreSpecificMigrationManager:(BOOL)arg1;
+@property BOOL usesStoreSpecificMigrationManager;
 - (void)cancelMigrationWithError:(id)arg1;
-- (void)setUserInfo:(id)arg1;
-- (id)userInfo;
-- (float)migrationProgress;
+@property(retain, nonatomic) NSDictionary *userInfo;
+@property(readonly) float migrationProgress;
 - (id)currentPropertyMapping;
-- (id)currentEntityMapping;
+@property(readonly) NSEntityMapping *currentEntityMapping;
 - (id)sourceInstancesForEntityMappingNamed:(id)arg1 destinationInstances:(id)arg2;
 - (id)destinationInstancesForSourceRelationshipNamed:(id)arg1 sourceInstances:(id)arg2;
 - (id)destinationInstancesForEntityMappingNamed:(id)arg1 sourceInstances:(id)arg2;
 - (void)associateSourceInstance:(id)arg1 withDestinationInstance:(id)arg2 forEntityMapping:(id)arg3;
 - (id)destinationEntityForEntityMapping:(id)arg1;
 - (id)sourceEntityForEntityMapping:(id)arg1;
-- (id)destinationContext;
-- (id)sourceContext;
-- (id)destinationModel;
-- (id)sourceModel;
-- (id)mappingModel;
+@property(readonly) NSManagedObjectContext *destinationContext;
+@property(readonly) NSManagedObjectContext *sourceContext;
+@property(readonly) NSManagedObjectModel *destinationModel;
+@property(readonly) NSManagedObjectModel *sourceModel;
+@property(readonly) NSMappingModel *mappingModel;
 - (void)reset;
 - (BOOL)migrateStoreFromURL:(id)arg1 type:(id)arg2 options:(id)arg3 withMappingModel:(id)arg4 toDestinationURL:(id)arg5 destinationType:(id)arg6 destinationOptions:(id)arg7 error:(id *)arg8;
 - (void)dealloc;

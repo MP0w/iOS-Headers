@@ -35,8 +35,15 @@
 @property(nonatomic) int numberOfRatingLevels; // @synthesize numberOfRatingLevels=_numLevels;
 - (void).cxx_destruct;
 - (void)setPadding:(float)arg1;
+- (void)didMoveToWindow;
 - (void)layoutSubviews;
+- (void)_layoutStarViewsCreatingIfNeeded:(BOOL)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (struct CGSize)intrinsicContentSize;
+- (void)_setStarStyle:(int)arg1;
+- (void)commonInit;
+- (id)initWithStyle:(int)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

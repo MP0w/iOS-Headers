@@ -6,13 +6,14 @@
 
 #import "UIView.h"
 
-@class NSString, SKUIClientContext, UIColor, UIImageView, UILabel;
+@class NSString, SKUIBadgeLabel, SKUIClientContext, UIColor, UIImageView, UILabel;
 
 @interface SKUILockupMetadataView : UIView
 {
     UILabel *_artistNameLabel;
     UILabel *_categoryLabel;
     SKUIClientContext *_clientContext;
+    SKUIBadgeLabel *_editorialBadgeLabel;
     UILabel *_itemCountLabel;
     UILabel *_itemOfferLabel;
     int _numberOfUserRatings;
@@ -29,6 +30,7 @@
 + (float)maximumHeightWithVisibleFields:(unsigned int)arg1;
 @property(nonatomic) unsigned int visibleFields; // @synthesize visibleFields=_visibleFields;
 @property(nonatomic) float userRating; // @synthesize userRating=_userRating;
+@property(readonly, nonatomic) UIColor *primaryTextColor; // @synthesize primaryTextColor=_textColor;
 @property(nonatomic) int numberOfUserRatings; // @synthesize numberOfUserRatings=_numberOfUserRatings;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
@@ -44,6 +46,7 @@
 @property(copy, nonatomic) NSString *itemCountString;
 - (void)setColoringWithColorScheme:(id)arg1;
 @property(copy, nonatomic) NSString *categoryString;
+@property(copy, nonatomic) NSString *editorialBadgeString;
 @property(copy, nonatomic) NSString *artistName;
 - (id)initWithFrame:(struct CGRect)arg1;
 

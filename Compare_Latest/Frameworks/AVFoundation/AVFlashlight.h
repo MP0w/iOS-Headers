@@ -15,19 +15,18 @@
 
 + (BOOL)hasFlashlight;
 + (void)initialize;
-- (void)handleNotification:(id)arg1 payload:(id)arg2;
++ (id)alloc;
+- (void)_handleNotification:(id)arg1 payload:(id)arg2;
 @property(readonly, nonatomic) float flashlightLevel;
 - (BOOL)setFlashlightLevel:(float)arg1 withError:(id *)arg2;
 - (void)turnPowerOff;
 - (BOOL)turnPowerOnWithError:(id *)arg1;
 @property(readonly, nonatomic, getter=isOverheated) BOOL overheated;
 @property(readonly, nonatomic, getter=isAvailable) BOOL available;
-- (void)_refreshIsAvailable;
 - (void)dealloc;
 - (id)init;
-- (void)teardownFigRecorder;
-- (BOOL)ensureFigRecorderWithError:(id *)arg1;
-- (BOOL)bringupFigRecorderWithError:(id *)arg1;
+- (void)_teardownFlashlight;
+- (void)_setupFlashlight;
 
 @end
 

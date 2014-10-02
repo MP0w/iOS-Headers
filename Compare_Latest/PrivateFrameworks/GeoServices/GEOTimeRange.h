@@ -23,6 +23,7 @@
 @property(nonatomic) BOOL allDay; // @synthesize allDay=_allDay;
 @property(nonatomic) unsigned int to; // @synthesize to=_to;
 @property(nonatomic) unsigned int from; // @synthesize from=_from;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -34,6 +35,8 @@
 @property(nonatomic) BOOL hasAllDay;
 @property(nonatomic) BOOL hasTo;
 @property(nonatomic) BOOL hasFrom;
+- (id)initWithPlaceDataTimeRange:(CDStruct_4f384c9d *)arg1;
+- (BOOL)isAdjacentToTimeRange:(id)arg1;
 
 @end
 

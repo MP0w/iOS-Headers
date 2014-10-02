@@ -28,10 +28,12 @@ __attribute__((visibility("hidden")))
 - (id)runs;
 - (void)setPhoneticInfo:(id)arg1;
 - (id)phoneticInfo;
+- (void)appendString:(id)arg1;
+- (void)prependString:(id)arg1;
 - (void)setString:(id)arg1;
 - (id)string;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isEqualToEDString:(id)arg1;
 - (BOOL)isEqualToString:(id)arg1;
@@ -42,6 +44,11 @@ __attribute__((visibility("hidden")))
 - (_Bool)isEmpty;
 - (id)firstRunFont;
 - (_Bool)areThereRuns;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

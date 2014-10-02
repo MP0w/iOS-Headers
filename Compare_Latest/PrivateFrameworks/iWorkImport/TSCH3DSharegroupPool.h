@@ -9,7 +9,7 @@
 #import "TSCH3DSharegroupDelayCheckerParent.h"
 #import "TSUFlushable.h"
 
-@class NSCondition, NSMutableArray, TSCH3DSharegroupDelayChecker;
+@class NSCondition, NSMutableArray, NSString, TSCH3DSharegroupDelayChecker;
 
 __attribute__((visibility("hidden")))
 @interface TSCH3DSharegroupPool : NSObject <TSCH3DSharegroupDelayCheckerParent, TSUFlushable>
@@ -49,6 +49,12 @@ __attribute__((visibility("hidden")))
 - (oneway void)release;
 - (unsigned int)retainCount;
 - (id)retain;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

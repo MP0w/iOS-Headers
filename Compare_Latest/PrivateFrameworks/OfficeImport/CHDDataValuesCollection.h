@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)containsStringValue;
 - (void)finishReading;
 - (id)dataValueWithIndex:(unsigned int)arg1;
+- (id)contentFormatAtIndex:(unsigned int)arg1 resources:(id)arg2;
 - (id)dataValueAtIndex:(unsigned int)arg1;
 - (struct CHDDataPoint *)dataPointWithIndex:(unsigned int)arg1;
 - (struct CHDDataPoint *)dataPointAtIndex:(unsigned int)arg1;

@@ -6,13 +6,15 @@
 
 #import "NSObject.h"
 
-@class NSDate, NSObject<OS_dispatch_queue>, NSTimer, SBKAsynchronousTask, SBKPlaybackPositionSyncRequestHandler;
+@class NSDate, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, NSTimer, SBKAsynchronousTask, SBKRequestHandler;
 
 @interface SBKUniversalPlaybackPositionStore : NSObject
 {
     NSObject<OS_dispatch_queue> *_queue;
     BOOL _isActive;
     BOOL _hasLocalChangesToSync;
+    NSMutableArray *_pendingTaskBlocks;
+    NSString *_domain;
     unsigned int _automaticSynchronizeOptions;
     double _initialAutosyncInterval;
     double _pollingLimitFromBag;
@@ -21,10 +23,10 @@
     id _accountsObserver;
     id _prefsObserver;
     id <SBKUniversalPlaybackPositionDataSource> _dataSource;
-    SBKAsynchronousTask *_synchronizeTask;
+    SBKAsynchronousTask *_currentTask;
     SBKAsynchronousTask *_lookupDomainVersionTask;
     SBKAsynchronousTask *_bagLookupTask;
-    SBKPlaybackPositionSyncRequestHandler *_syncHandler;
+    SBKRequestHandler *_currentTaskRequestHandler;
     NSDate *_dateToFireNextTimer;
     NSTimer *_timer;
 }
@@ -32,11 +34,11 @@
 + (id)keyValueStoreItemIdentifierForItem:(id)arg1;
 @property(retain) NSTimer *timer; // @synthesize timer=_timer;
 @property(retain) NSDate *dateToFireNextTimer; // @synthesize dateToFireNextTimer=_dateToFireNextTimer;
-@property(retain) SBKPlaybackPositionSyncRequestHandler *syncHandler; // @synthesize syncHandler=_syncHandler;
+@property(retain) SBKRequestHandler *currentTaskRequestHandler; // @synthesize currentTaskRequestHandler=_currentTaskRequestHandler;
 @property(retain) SBKAsynchronousTask *bagLookupTask; // @synthesize bagLookupTask=_bagLookupTask;
 @property(retain) SBKAsynchronousTask *lookupDomainVersionTask; // @synthesize lookupDomainVersionTask=_lookupDomainVersionTask;
-@property(retain) SBKAsynchronousTask *synchronizeTask; // @synthesize synchronizeTask=_synchronizeTask;
-@property(readonly) id <SBKUniversalPlaybackPositionDataSource> dataSource; // @synthesize dataSource=_dataSource;
+@property(retain) SBKAsynchronousTask *currentTask; // @synthesize currentTask=_currentTask;
+@property(readonly) __weak id <SBKUniversalPlaybackPositionDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
 - (void)_onQueueStartNewTimerWithTimeIntervalSinceNow:(double)arg1;
 - (void)_onQueueStartNewTimer;
@@ -52,13 +54,19 @@
 - (void)_onQueueLoadBagContextWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_updateSettingsFromLoadedBagContext:(id)arg1;
 - (id)_accountForSyncing;
+- (void)_onQueuePullMetadataItemWithItemIdentifier:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void)_onQueuePushMetadataItem:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)_onQueueSynchronizeImmediatelyWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)_onQueueRunTaskWithName:(id)arg1 taskCompletionHandler:(CDUnknownBlockType)arg2 runTaskBlock:(CDUnknownBlockType)arg3;
+- (void)_onQueueRunNextPendingTaskBlock;
 - (void)_onQueueLoadRemoteDomainVersionWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)_onQueueSynchronizeWithAutosynchronizeMask:(unsigned int)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
-- (void)loadSyncBagContextWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (void)loadBagContextWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)loadRemoteDomainVersionWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)checkForAvailabilityWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)synchronizeImmediatelyWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (void)pullMetadataItemWithItemIdentifier:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void)pushMetadataItem:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)synchronizeImmediatelyWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (BOOL)automaticallySynchronizeOnBecomeActive;
 - (BOOL)_automaticallySynchronizeOnBecomeActive;
@@ -74,10 +82,8 @@
 - (void)_onQueueUpdateTimerForActiveChanges;
 - (void)dealloc;
 - (id)initWithInitialUpdateDelay:(double)arg1;
-- (id)initWithInitialUpdateDelay:(double)arg1 isActive:(BOOL)arg2;
-- (id)initWithInitialUpdateDelay:(double)arg1 allowAutorefresh:(BOOL)arg2 isActive:(BOOL)arg3;
 - (id)init;
-- (id)initWithDataSource:(id)arg1 automaticSynchronizeOptions:(unsigned int)arg2 isActive:(BOOL)arg3;
+- (id)initWithDomain:(id)arg1 dataSource:(id)arg2 automaticSynchronizeOptions:(unsigned int)arg3 isActive:(BOOL)arg4;
 - (void)deprecated_setDataSource:(id)arg1;
 
 @end

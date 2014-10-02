@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)allowsEditing;
 - (int)styleAttributeArrayKind;
 - (int)attributeArrayKind;
-- (int)elementKind;
+- (int)smartFieldKind;
 - (id)copyWithContext:(id)arg1;
 - (id)initWithContext:(id)arg1;
 - (void)dealloc;

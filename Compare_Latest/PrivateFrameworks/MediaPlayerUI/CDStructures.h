@@ -41,13 +41,21 @@ struct UIEdgeInsets {
     float right;
 };
 
-struct UIOffset {
-    float horizontal;
-    float vertical;
+struct _MPUReportingTimeRange {
+    double location;
+    double duration;
 };
 
 struct _NSRange {
     unsigned int _field1;
     unsigned int _field2;
 };
+
+#pragma mark Typedef'd Structures
+
+typedef struct {
+    int numberOfAvailableSkips;
+    int skipFrequency;
+    double skipInterval;
+} CDStruct_e0453228;
 

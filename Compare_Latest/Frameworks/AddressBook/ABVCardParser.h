@@ -35,6 +35,7 @@
     NSMutableArray *_socialProfiles;
     NSMutableArray *_relatedNames;
     NSMutableArray *_urls;
+    NSMutableDictionary *_activityAlerts;
     NSMutableString *_notes;
     NSMutableString *_otherNotes;
     NSMutableDictionary *_extensions;
@@ -71,8 +72,10 @@
 - (void)parseABPhoto;
 - (BOOL)parsePhoto:(id)arg1;
 - (BOOL)parseABDATE;
+- (BOOL)parseAlternateBirthday;
 - (BOOL)parseBDAY;
 - (id)dateFromISO8601String:(id)arg1;
+- (BOOL)parseActivityAlerts;
 - (BOOL)addIMValueTo:(id)arg1;
 - (BOOL)parseIMPP;
 - (id)parseInstantMessengerProfile:(id)arg1;
@@ -110,6 +113,8 @@
 - (void)noteLackOfValueForImageData;
 - (void)noteLackOfValueForProperty:(unsigned int)arg1;
 - (BOOL)parseVERSION;
+- (void)addActivityAlertMultiValues;
+- (BOOL)_setPersonSounds:(void *)arg1 identifier:(int)arg2 fromActivity:(id)arg3 alert:(id)arg4 otherValue:(id)arg5;
 - (void)addInstantMessageMultiValues;
 - (int)_addIMPPProfiles:(id)arg1 multiValue:(void *)arg2 uniquenessCheckingMultiValue:(void *)arg3;
 - (int)_addIMHandles:(id)arg1 toService:(struct __CFString *)arg2 multiValue:(void *)arg3 uniquenessCheckingMultiValue:(void *)arg4;

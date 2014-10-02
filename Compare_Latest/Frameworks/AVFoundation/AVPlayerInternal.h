@@ -6,23 +6,30 @@
 
 #import "NSObject.h"
 
-@class AVAudioSessionMediaPlayerOnly, AVPixelBufferAttributeMediator, AVPlayerItem, AVPropertyStorage, AVWeakReference, NSArray, NSDictionary, NSError, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
+@class AVAudioSessionMediaPlayerOnly, AVPixelBufferAttributeMediator, AVPlayerItem, AVPropertyStorage, AVWeakKeyValueObserverProxy, AVWeakReference, NSArray, NSDictionary, NSError, NSHashTable, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
 
 @interface AVPlayerInternal : NSObject
 {
     AVWeakReference *weakReference;
+    AVWeakKeyValueObserverProxy *KVOProxy;
+    AVPixelBufferAttributeMediator *pixelBufferAttributeMediator;
+    NSObject<OS_dispatch_queue> *figConfigurationQueue;
+    NSObject<OS_dispatch_queue> *ivarAccessQueue;
+    AVPlayerItem *currentItem;
     struct OpaqueFigPlayer *figPlayer;
     struct OpaqueCMClock *figMasterClock;
     AVPropertyStorage *propertyStorage;
-    AVPixelBufferAttributeMediator *pixelBufferAttributeMediator;
     NSMutableDictionary *pendingFigPlayerProperties;
     NSArray *expectedAssetTypes;
-    AVPlayerItem *currentItem;
     AVPlayerItem *lastItem;
     struct OpaqueFigPlaybackItem *figPlaybackItemToIdentifyNextCurrentItem;
     NSMutableSet *items;
     NSObject<OS_dispatch_queue> *layersQ;
-    NSMutableSet *caLayers;
+    struct __CFDictionary *videoLayers;
+    NSMutableSet *subtitleLayers;
+    NSMutableSet *closedCaptionLayers;
+    struct CGSize cachedDisplaySize;
+    NSHashTable *avPlayerLayers;
     NSString *externalPlaybackVideoGravity;
     int status;
     NSError *error;
@@ -31,6 +38,7 @@
     BOOL needsToCreateFigPlayer;
     BOOL logPerformanceData;
     NSDictionary *cachedFigMediaSelectionCriteriaProperty;
+    struct OpaqueCMTimebase *proxyTimebase;
     BOOL reevaluateBackgroundPlayback;
     BOOL hostApplicationInForeground;
     BOOL hadAssociatedOnscreenPlayerLayerWhenSuspended;
@@ -41,10 +49,9 @@
     int nextPrerollIDToGenerate;
     int pendingPrerollID;
     CDUnknownBlockType prerollCompletionHandler;
-    NSObject<OS_dispatch_queue> *subtitleQueue;
-    NSDictionary *currentSubtitlesPayload;
     BOOL autoSwitchStreamVariants;
     BOOL preparesItemsForPlaybackAsynchronously;
+    BOOL allowsOutOfBandTextTrackRendering;
 }
 
 @end

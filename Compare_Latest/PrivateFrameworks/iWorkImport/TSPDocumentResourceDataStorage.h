@@ -19,8 +19,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSPDocumentResourceManager *manager; // @synthesize manager=_manager;
 - (void).cxx_destruct;
 - (void)archiveInfoMessage:(struct DataInfo *)arg1 archiver:(id)arg2;
-- (void)performReadWithAccessor:(CDUnknownBlockType)arg1;
 - (id)filenameForPreferredFilename:(id)arg1;
+- (BOOL)isMissingData;
+- (BOOL)isReadable;
 - (id)documentResourceLocator;
 - (id)storageForDataCopyFromOtherContext;
 - (id)initWithManager:(id)arg1 documentResourceInfo:(id)arg2;

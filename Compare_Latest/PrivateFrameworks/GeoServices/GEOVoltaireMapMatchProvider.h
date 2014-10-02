@@ -8,7 +8,7 @@
 
 #import "PBRequesterDelegate.h"
 
-@class GEORequester;
+@class GEORequester, NSString;
 
 @interface GEOVoltaireMapMatchProvider : NSObject <PBRequesterDelegate>
 {
@@ -18,7 +18,6 @@
     BOOL _cancelled;
 }
 
-+ (void)setUsePersistentConnection:(BOOL)arg1;
 + (id)providerURL;
 @property(retain, nonatomic) GEORequester *requester; // @synthesize requester=_requester;
 - (void)requesterDidFinish:(id)arg1;
@@ -27,6 +26,12 @@
 - (void)cancelRequest;
 - (void)startRequest:(id)arg1 finished:(CDUnknownBlockType)arg2 error:(CDUnknownBlockType)arg3;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

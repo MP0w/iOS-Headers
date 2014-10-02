@@ -6,11 +6,10 @@
 
 #import "SBControlCenterSectionView.h"
 
-@class SBCCButtonLikeSectionView, SBControlCenterSeparatorView;
+@class SBCCButtonLikeSectionView;
 
 @interface SBCCButtonLikeSectionSplitView : SBControlCenterSectionView
 {
-    SBControlCenterSeparatorView *_separatorView;
     double _separatorWidth;
     _Bool _leftHidden;
     _Bool _rightHidden;
@@ -21,11 +20,11 @@
 @property(nonatomic) SBCCButtonLikeSectionView *rightSection; // @synthesize rightSection=_rightSection;
 @property(nonatomic) SBCCButtonLikeSectionView *leftSection; // @synthesize leftSection=_leftSection;
 - (void)layoutSubviews;
-- (struct CGRect)_separatorFrame;
 - (struct CGRect)_frameForSectionSlot:(int)arg1;
+- (struct UIEdgeInsets)_landscapeInsetsForSection;
 - (id)_viewForSectionSlot:(int)arg1;
+- (void)_updateButtonsCorners;
 - (void)_updateLabelParameters;
-- (void)_updateSeparatorVisibility;
 - (void)setRightSectionHidden:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setLeftSectionHidden:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_relayoutAnimated:(_Bool)arg1;

@@ -34,7 +34,6 @@
 @property(nonatomic) BOOL usesOpportunisticSockets; // @synthesize usesOpportunisticSockets=_usesOpportunisticSockets;
 @property(nonatomic) BOOL allowsTrustPrompt; // @synthesize allowsTrustPrompt=_allowsTrustPrompt;
 @property(nonatomic) int timeout; // @synthesize timeout=_numTimeoutSecs;
-- (void)enableExcessiveKeepaliveDetection:(BOOL)arg1;
 - (void)enableThroughputMonitoring:(BOOL)arg1;
 @property(readonly, nonatomic) BOOL isCellularConnection;
 @property(readonly, nonatomic) NSData *sourceIPAddress;

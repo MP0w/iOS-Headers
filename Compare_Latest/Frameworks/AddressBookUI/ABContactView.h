@@ -4,15 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <AddressBookUI/ABCachingTableView.h>
+#import "UITableView.h"
 
 @class ABContactHeaderView, CNContact, NSDictionary, UIColor, UIView;
 
-@interface ABContactView : ABCachingTableView
+@interface ABContactView : UITableView
 {
+    BOOL _cellsLayoutCachingEnabled;
     UIView *_customHeaderView;
     CNContact *_contact;
     UIColor *_backgroundColor;
+    UIColor *_sectionBackgroundColor;
     UIColor *_selectedCellBackgroundColor;
     NSDictionary *_labelTextAttributes;
     NSDictionary *_valueTextAttributes;
@@ -26,33 +28,37 @@
 + (id)defaultCardProperties;
 + (id)allCardProperties;
 + (id)requiredNameProperties;
++ (id)namePropertiesForContact:(id)arg1;
 + (id)nameProperties;
++ (Class)classForCellIdentifier:(id)arg1;
 + (id)cellIdentifierForClass:(Class)arg1;
++ (id)cellIdentifierForEditingProperty:(id)arg1;
 + (id)cellIdentifierForProperty:(id)arg1;
-+ (id)headerFooterIdentifierForGroupHeaderFooter;
 + (id)cellIdentifierForLinkedCardsPlaceholderGroup;
++ (id)cellIdentifierForLinkedCardsEditingGroup;
 + (id)cellIdentifierForLinkedCardsGroup;
 + (id)cellIdentifierForFaceTimeGroup;
-+ (id)cellIdentifierForGroupSpacer;
 + (id)cellIdentifierForPropertyPlaceholder;
 + (id)cellIdentifierForSplitActions;
 + (id)cellIdentifierForActions;
-+ (void)preCacheEditCells;
-+ (void)preCacheDisplayCells;
-+ (void)preCacheContent;
 @property(nonatomic) struct UIEdgeInsets contentMargins; // @synthesize contentMargins=_contentMargins;
 @property(copy, nonatomic) NSDictionary *actionTextAttributes; // @synthesize actionTextAttributes=_actionTextAttributes;
 @property(copy, nonatomic) NSDictionary *valueTextAttributes; // @synthesize valueTextAttributes=_valueTextAttributes;
 @property(copy, nonatomic) NSDictionary *labelTextAttributes; // @synthesize labelTextAttributes=_labelTextAttributes;
 @property(retain, nonatomic) UIColor *selectedCellBackgroundColor; // @synthesize selectedCellBackgroundColor=_selectedCellBackgroundColor;
+@property(retain, nonatomic) UIColor *sectionBackgroundColor; // @synthesize sectionBackgroundColor=_sectionBackgroundColor;
 @property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
+@property(nonatomic, getter=isCellsLayoutCachingEnabled) BOOL cellsLayoutCachingEnabled; // @synthesize cellsLayoutCachingEnabled=_cellsLayoutCachingEnabled;
 @property(retain, nonatomic) CNContact *contact; // @synthesize contact=_contact;
 @property(retain, nonatomic) UIView *customHeaderView; // @synthesize customHeaderView=_customHeaderView;
 - (void)applyCellAppearance:(id)arg1;
 - (void)updateFontSizes;
+- (void)updateVisibleCells;
+- (void)updateFontColors;
+- (void)layoutMarginsDidChange;
 - (void)tintColorDidChange;
 - (void)setAttributesFromContactView:(id)arg1;
-- (void)registerPropertyCellClass:(Class)arg1;
+- (void)registerContactCellClass:(Class)arg1;
 - (void)setTableHeaderView:(id)arg1;
 @property(readonly, nonatomic) ABContactHeaderView *defaultHeaderView;
 - (void)dealloc;

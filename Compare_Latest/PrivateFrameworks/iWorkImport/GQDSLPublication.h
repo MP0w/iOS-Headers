@@ -27,8 +27,8 @@ __attribute__((visibility("hidden")))
 - (BOOL)hasFooters;
 - (BOOL)hasHeaders;
 - (BOOL)showOutliner;
-- (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2;
-- (void)initializeAppBundleResourcesUrl;
+- (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2 fileUrl:(struct __CFURL *)arg3;
+- (void)initializeAppBundleResourcesUrl:(struct __CFURL *)arg1;
 - (BOOL)hasBody;
 - (void)setStylesheet:(id)arg1;
 - (id)stylesheet;

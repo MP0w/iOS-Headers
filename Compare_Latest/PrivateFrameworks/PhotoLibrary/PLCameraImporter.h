@@ -30,9 +30,11 @@
     PLImportFileManager *_importFileManager;
     BOOL _stopAfterNextItemImport;
     BOOL _importItemInProgress;
+    BOOL _isAppleDevice;
     NSString *importSessionIdentifier;
 }
 
+@property(nonatomic) BOOL isAppleDevice; // @synthesize isAppleDevice=_isAppleDevice;
 @property(retain, nonatomic) ICCameraDevice *camera; // @synthesize camera=_camera;
 @property(retain, nonatomic) NSMutableArray *items; // @synthesize items=_items;
 @property(retain, nonatomic) NSMutableDictionary *itemsMapping; // @synthesize itemsMapping=_itemsMapping;
@@ -91,6 +93,12 @@
 - (void)didConnectToCamera:(id)arg1 error:(id)arg2;
 - (void)dealloc;
 - (id)initWithDevice:(id)arg1 delegate:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

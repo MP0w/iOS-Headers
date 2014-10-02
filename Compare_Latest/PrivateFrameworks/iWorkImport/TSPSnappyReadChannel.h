@@ -8,6 +8,8 @@
 
 #import "TSUStreamReadChannel.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TSPSnappyReadChannel : NSObject <TSUStreamReadChannel>
 {
@@ -20,7 +22,14 @@ __attribute__((visibility("hidden")))
 - (BOOL)processData:(id *)arg1 isDone:(BOOL)arg2 queue:(id)arg3 handler:(CDUnknownBlockType)arg4;
 - (void)close;
 - (void)readWithQueue:(id)arg1 handler:(CDUnknownBlockType)arg2;
+- (void)dealloc;
 - (id)initWithReadChannel:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -17,6 +17,7 @@
 }
 
 @property(retain, nonatomic) NSMutableArray *timeRanges; // @synthesize timeRanges=_timeRanges;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -36,6 +37,7 @@
 @property(readonly, nonatomic) int *days;
 @property(readonly, nonatomic) unsigned int daysCount;
 - (void)dealloc;
+- (id)initWithPlaceDataHours:(id)arg1;
 
 @end
 

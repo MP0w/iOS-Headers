@@ -23,8 +23,8 @@
 @property(copy, nonatomic) NSString *nameSuffix; // @synthesize nameSuffix=_nameSuffix;
 @property(copy, nonatomic) NSArray *sortedNames; // @synthesize sortedNames=_sortedNames;
 @property(copy, nonatomic) NSString *namePrefix; // @synthesize namePrefix=_namePrefix;
-@property(readonly, nonatomic) NSString *localizedTitleForNameInfo;
-@property(readonly, nonatomic) NSArray *localizedSortedNames;
+@property(readonly, copy, nonatomic) NSString *localizedTitleForNameInfo;
+@property(readonly, copy, nonatomic) NSArray *localizedSortedNames;
 - (id)description;
 - (id)dictionaryForInfo;
 - (id)initWithDictionary:(id)arg1;

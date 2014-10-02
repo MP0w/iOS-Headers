@@ -6,15 +6,14 @@
 
 #import "SBToAppWorkspaceTransaction.h"
 
-#import "SBUIAnimationControllerGroupDelegate.h"
+#import "SBUIAnimationControllerGroupObserver.h"
 
-@class BKSApplicationActivationAssertion, SBApplication, SBUIAnimationController;
+@class NSString, SBApplication, SBUIAnimationController;
 
-@interface SBAppToAppWorkspaceTransaction : SBToAppWorkspaceTransaction <SBUIAnimationControllerGroupDelegate>
+@interface SBAppToAppWorkspaceTransaction : SBToAppWorkspaceTransaction <SBUIAnimationControllerGroupObserver>
 {
     SBApplication *_fromApp;
     SBUIAnimationController *_animationController;
-    BKSApplicationActivationAssertion *_suspendingAppAssertion;
     _Bool _animatedActivation;
     _Bool _animatedDeactivation;
     _Bool _deactivatingAppFromAppToAppGesture;
@@ -23,32 +22,35 @@
 
 @property(retain, nonatomic) SBApplication *fromApp; // @synthesize fromApp=_fromApp;
 - (void)animationControllerDidFinishAnimation:(id)arg1;
+- (void)animationControllerDidRevealApplication:(id)arg1;
 - (void)animationController:(id)arg1 willBeginAnimation:(_Bool)arg2;
 - (id)_setupAnimationFrom:(id)arg1 to:(id)arg2;
-- (void)_transactionComplete;
-- (void)_interruptWithReason:(int)arg1;
+- (void)_didComplete;
+- (void)_didInterruptWithReason:(id)arg1;
 - (_Bool)_canBeInterrupted;
 - (void)_endAnimation;
-- (_Bool)selfAlertDidDeactivate:(id)arg1;
-- (_Bool)selfApplicationExited:(id)arg1;
-- (_Bool)selfApplicationLaunchDidFail:(id)arg1;
-- (_Bool)selfApplicationActivated:(id)arg1;
-- (_Bool)selfApplicationDidFinishLaunching:(id)arg1 withInfo:(id)arg2;
-- (_Bool)selfApplicationDidBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
-- (void)_handleAppDidNotChange;
-- (_Bool)selfApplicationWillBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
+- (void)_handleApplicationUpdateScenesTransactionFailed:(id)arg1;
+- (void)_handleApplicationDidNotChange:(id)arg1;
 - (void)_kickOffActivation;
-- (void)_commit;
+- (void)_begin;
+- (void)_beginAnimation;
 - (void)_setupAnimation;
-- (int)_setupMilestonesFrom:(id)arg1 to:(id)arg2;
+- (void)_synchronizeWithSceneUpdates;
+- (id)_setupMilestonesFrom:(id)arg1 to:(id)arg2;
 - (_Bool)shouldDismissSwitcher;
 - (_Bool)shouldAnimateOrientationChangeOnCompletion;
 - (_Bool)shouldPerformToAppStateCleanupOnCompletion;
+- (_Bool)shouldRestoreSpringBoardContentOnCleanup;
 - (_Bool)shouldToggleSpringBoardStatusBarOnCleanup;
-- (id)debugDescription;
+@property(readonly, copy) NSString *debugDescription;
 - (void)dealloc;
-- (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 exitedApp:(id)arg3;
-- (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 from:(id)arg3 to:(id)arg4 activationHandler:(CDUnknownBlockType)arg5;
+- (id)initWithAlertManager:(id)arg1 exitedApp:(id)arg2;
+- (id)initWithAlertManager:(id)arg1 from:(id)arg2 to:(id)arg3 withResult:(CDUnknownBlockType)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

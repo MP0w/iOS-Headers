@@ -10,7 +10,7 @@
 #import "ABMultiCellContentViewUpdateDelegate.h"
 #import "ABPersonTableHeaderViewDelegate.h"
 
-@class ABPersonPickersDelegate, ABPersonTableViewDataSource, ABStyleProvider, UIDatePicker;
+@class ABPersonPickersDelegate, ABPersonTableViewDataSource, ABStyleProvider, NSString, UIDatePicker;
 
 @interface ABPersonTableViewMultiCellDelegate : NSObject <ABMultiCellContentViewUpdateDelegate, ABPersonTableHeaderViewDelegate, ABDatePickerViewControllerDismissDelegate>
 {
@@ -51,6 +51,12 @@
 - (void)multiCellContentView:(id)arg1 touchesEndedForView:(id)arg2;
 - (void)multiCellContentView:(id)arg1 touchesBeganForView:(id)arg2;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -17,6 +17,7 @@
 + (id)URLWithBagContext:(id)arg1;
 + (id)sharedCache;
 - (id)_URLBagForContext:(id)arg1 withOptions:(int)arg2;
+- (id)_storeFrontIdentifierForResponse:(id)arg1;
 - (BOOL)_shouldFallbackForContext:(id)arg1 options:(int)arg2;
 - (id)_newRequestWithURLBagContext:(id)arg1;
 - (id)_fallbackContextWithContext:(id)arg1;

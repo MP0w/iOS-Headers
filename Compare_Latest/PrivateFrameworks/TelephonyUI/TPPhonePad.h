@@ -8,6 +8,8 @@
 
 #import "TPDialerKeypadProtocol.h"
 
+@class NSString;
+
 @interface TPPhonePad : UIControl <TPDialerKeypadProtocol>
 {
     int _downKey;
@@ -72,6 +74,12 @@
 - (void)performTapActionEndForHighlightedKey;
 - (void)performTapActionDownForHighlightedKey;
 - (id)scriptingInfoWithChildren;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

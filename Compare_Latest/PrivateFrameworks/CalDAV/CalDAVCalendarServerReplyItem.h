@@ -13,7 +13,7 @@
     CoreDAVLeafItem *_attendee;
 }
 
-@property(retain) CoreDAVLeafItem *attendee; // @synthesize attendee=_attendee;
+@property(retain, nonatomic) CoreDAVLeafItem *attendee; // @synthesize attendee=_attendee;
 - (id)copyParseRules;
 - (void)dealloc;
 

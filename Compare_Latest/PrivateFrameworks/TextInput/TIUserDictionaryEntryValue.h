@@ -24,10 +24,15 @@
 @property(copy, nonatomic) NSString *shortcut; // @synthesize shortcut=_shortcut;
 @property(copy, nonatomic) NSString *phrase; // @synthesize phrase=_phrase;
 - (BOOL)matchesEntry:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

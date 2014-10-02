@@ -20,7 +20,7 @@
 
 + (BOOL)supportsSecureCoding;
 @property(copy, nonatomic) NSArray *sectionIndexTitles; // @synthesize sectionIndexTitles=_sectionIndexTitles;
-@property(readonly, nonatomic) NSArray *sections; // @synthesize sections=_sections;
+@property(readonly, copy, nonatomic) NSArray *sections; // @synthesize sections=_sections;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned int count;
 - (unsigned int)indexOfSectionForSectionIndexTitleAtIndex:(unsigned int)arg1;

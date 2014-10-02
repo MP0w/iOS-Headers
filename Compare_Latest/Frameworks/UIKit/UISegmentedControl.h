@@ -9,7 +9,7 @@
 #import "NSCoding.h"
 #import "_UIBasicAnimationFactory.h"
 
-@class NSMutableArray, UIColor, UIView;
+@class NSMutableArray, NSString, UIColor, UIView;
 
 @interface UISegmentedControl : UIControl <_UIBasicAnimationFactory, NSCoding>
 {
@@ -34,7 +34,6 @@
         unsigned int useProportionalWidthSegments:1;
         unsigned int translucentBackground:1;
         unsigned int appearanceNeedsUpdate:1;
-        unsigned int contentTextPaddingEnabled:1;
     } _segmentedControlFlags;
     BOOL __hasTranslucentOptionsBackground;
 }
@@ -131,7 +130,6 @@
 - (void)setTransparentBackground:(BOOL)arg1;
 - (int)barStyle;
 - (void)setBarStyle:(int)arg1;
-- (void)_setContentTextPaddingEnabled:(BOOL)arg1;
 - (void)_setAutosizeText:(BOOL)arg1;
 @property(nonatomic, getter=isMomentary) BOOL momentary;
 - (void)setSegmentControlStyle:(int)arg1;
@@ -182,6 +180,12 @@
 - (void)setDelegate:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 withStyle:(int)arg2 withItems:(id)arg3;
 - (id)scriptingInfoWithChildren;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

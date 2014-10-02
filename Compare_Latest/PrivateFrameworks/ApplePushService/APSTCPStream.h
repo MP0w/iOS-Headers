@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+#import "APSTCPStream.h"
 #import "NSStreamDelegate.h"
 
 @class APSEnvironment, NSInputStream, NSMutableData, NSOutputStream, NSString;
 
-@interface APSTCPStream : NSObject <NSStreamDelegate>
+@interface APSTCPStream : NSObject <APSTCPStream, NSStreamDelegate>
 {
     APSEnvironment *_environment;
     struct __SecIdentity *_clientIdentity;
@@ -26,8 +27,10 @@
     NSMutableData *_sendData;
     NSString *_serverHostname;
     NSString *_serverIPAddress;
+    BOOL _keepAliveProxyConfigured;
 }
 
++ (BOOL)isKeepAliveProxySupportedOnSomeInterface;
 + (unsigned int)cachedServerCountForDomain:(id)arg1;
 + (void)setCachedServerCount:(unsigned int)arg1 forDomain:(id)arg2 ttl:(unsigned int)arg3;
 @property(nonatomic) BOOL useAlternatePort; // @synthesize useAlternatePort=_useAlternatePort;
@@ -35,6 +38,8 @@
 @property(readonly, nonatomic) NSString *serverIPAddress; // @synthesize serverIPAddress=_serverIPAddress;
 @property(readonly, nonatomic) NSString *serverHostname; // @synthesize serverHostname=_serverHostname;
 @property(nonatomic) id <APSTCPStreamDelegate> delegate; // @synthesize delegate=_delegate;
+- (BOOL)isKeepAliveProxyConfigured;
+- (BOOL)isKeepAliveProxySupportedOnSocketInterface;
 - (id)tcpInfoDescription;
 - (void)_hasSpaceAvailable;
 - (void)_hasBytesAvailable;
@@ -52,10 +57,16 @@
 - (void)_openWithTXTLookup;
 - (void)open;
 - (id)_domain;
-@property(readonly, nonatomic) NSString *ifname;
+@property(readonly, copy, nonatomic) NSString *ifname;
 @property(nonatomic) BOOL isConnected;
 - (void)dealloc;
 - (id)initWithEnvironment:(id)arg1 clientIdentity:(struct __SecIdentity *)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

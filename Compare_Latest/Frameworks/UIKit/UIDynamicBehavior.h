@@ -24,7 +24,7 @@
 - (id)description;
 - (id)_itemsDescription;
 - (void)_changedParameterForBody:(id)arg1;
-@property(readonly, nonatomic) NSArray *childBehaviors;
+@property(readonly, copy, nonatomic) NSArray *childBehaviors;
 - (void)removeChildBehavior:(id)arg1;
 - (void)addChildBehavior:(id)arg1;
 - (BOOL)allowsAnimatorToStop;

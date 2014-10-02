@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)showAvailability;
 - (id)peoplePickerPrompt;
 
 @end

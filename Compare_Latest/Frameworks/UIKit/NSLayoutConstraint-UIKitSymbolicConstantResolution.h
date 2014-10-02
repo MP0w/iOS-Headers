@@ -7,6 +7,7 @@
 #import "NSLayoutConstraint.h"
 
 @interface NSLayoutConstraint (UIKitSymbolicConstantResolution)
++ (BOOL)_UIWantsMarginAttributeSupport;
 - (BOOL)defaultResolvedValue:(float *)arg1 forSymbolicConstant:(id)arg2 error:(id *)arg3;
 @end
 

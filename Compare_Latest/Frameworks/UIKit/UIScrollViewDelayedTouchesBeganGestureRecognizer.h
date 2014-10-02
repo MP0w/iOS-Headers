@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 @interface UIScrollViewDelayedTouchesBeganGestureRecognizer : UIGestureRecognizer
 {
     UIDelayedAction *_touchDelay;
-    struct CGPoint _startScreenLocation;
+    struct CGPoint _startSceneReferenceLocation;
 }
 
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;

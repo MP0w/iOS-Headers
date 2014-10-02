@@ -14,7 +14,7 @@
 }
 
 + (id)sharedManager;
-@property(readonly, nonatomic) PLPhotoLibrary *_library; // @synthesize _library=__library;
+@property(readonly, retain, nonatomic) PLPhotoLibrary *_library; // @synthesize _library=__library;
 - (BOOL)_tryMergingComment:(id)arg1 withEntry:(id)arg2;
 - (void)_mergeEntriesAroundDate:(id)arg1;
 - (void)_splitEntriesAtDate:(id)arg1;

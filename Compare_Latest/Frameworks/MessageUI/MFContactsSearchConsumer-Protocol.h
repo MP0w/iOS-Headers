@@ -12,7 +12,7 @@
 - (void)endedNetworkActivity;
 - (void)beganNetworkActivity;
 - (void)finishedTaskWithID:(NSNumber *)arg1;
-- (void)finishedSearchingForType:(int)arg1;
-- (void)consumeSearchResults:(NSArray *)arg1 type:(int)arg2 taskID:(NSNumber *)arg3;
+- (void)finishedSearchingForType:(unsigned int)arg1;
+- (void)consumeSearchResults:(NSArray *)arg1 type:(unsigned int)arg2 taskID:(NSNumber *)arg3;
 @end
 

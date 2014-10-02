@@ -21,6 +21,7 @@
     float _baselineOffset;
     float _scaledBaselineOffset;
     float _scaledLineHeight;
+    float _firstBaselineOffset;
     id _layout;
     struct {
         unsigned int _wantsNumberOfLineFragments:1;
@@ -32,11 +33,10 @@
         unsigned int _cachesLayout:1;
         unsigned int _usesSimpleTextEffects:1;
     } _sdcFlags;
-    BOOL _wantsNumberOfLineFragments;
 }
 
-@property(nonatomic) BOOL wantsNumberOfLineFragments; // @synthesize wantsNumberOfLineFragments=_wantsNumberOfLineFragments;
 @property(retain, nonatomic) id layout; // @synthesize layout=_layout;
+@property(nonatomic) float firstBaselineOffset; // @synthesize firstBaselineOffset=_firstBaselineOffset;
 @property(nonatomic) float scaledLineHeight; // @synthesize scaledLineHeight=_scaledLineHeight;
 @property(nonatomic) float scaledBaselineOffset; // @synthesize scaledBaselineOffset=_scaledBaselineOffset;
 @property(nonatomic) float baselineOffset; // @synthesize baselineOffset=_baselineOffset;
@@ -54,6 +54,7 @@
 @property(nonatomic) BOOL wantsScaledBaselineOffset;
 @property(nonatomic) BOOL wantsBaselineOffset;
 @property(nonatomic) BOOL wrapsForTruncationMode;
+@property(nonatomic) BOOL wantsNumberOfLineFragments;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (void)dealloc;

@@ -45,7 +45,7 @@
 @property(nonatomic) id <IMAVControllerDelegate> delegate;
 - (void)removeDelegate:(id)arg1;
 - (void)addDelegate:(id)arg1 queue:(id)arg2;
-@property(readonly, nonatomic) NSArray *delegates;
+@property(readonly, retain, nonatomic) NSArray *delegates;
 - (void)cancelVCRequestWithBuddy:(id)arg1 vcProps:(id)arg2 forAccount:(id)arg3 conferenceID:(id)arg4;
 - (void)declineVCRequestWithBuddy:(id)arg1 response:(unsigned int)arg2 vcProps:(id)arg3 forAccount:(id)arg4 conferenceID:(id)arg5;
 - (id)vcResponseInfoWithSessionID:(unsigned int)arg1;

@@ -6,11 +6,12 @@
 
 #import "UIView.h"
 
+#import "CUIKSingleDayTimelineLayoutScreenUtils.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class EKCalendarDate, EKDayGridView, EKEvent, NSCalendar, NSMutableArray, NSTimeZone, UIColor;
+@class EKCalendarDate, EKDayGridView, EKDayViewContentGeometryDelegate, EKEvent, NSCalendar, NSMutableArray, NSString, NSTimeZone, UIColor;
 
-@interface EKDayViewContent : UIView <UIGestureRecognizerDelegate>
+@interface EKDayViewContent : UIView <CUIKSingleDayTimelineLayoutScreenUtils, UIGestureRecognizerDelegate>
 {
     EKDayGridView *_grid;
     UIView *_saturdayDarkeningView;
@@ -19,6 +20,8 @@
     char *_dayWasLaidOut;
     BOOL _loadingOccurrences;
     BOOL _putSelectionOnTop;
+    BOOL _hasCustomOccurrenceMargin;
+    BOOL _hasCustomOccurrencePadding;
     EKEvent *_selectedEvent;
     NSMutableArray *_dayStarts;
     NSMutableArray *_itemsByDay;
@@ -26,28 +29,37 @@
     struct CGRect _latestVisibleRect;
     float *_visiblePinnedStackHeightAbove;
     float *_visiblePinnedStackHeightBelow;
+    EKDayViewContentGeometryDelegate *_geometryDelegate;
     BOOL _allowsOccurrenceSelection;
     BOOL _eventsFillGrid;
     BOOL _usesSmallText;
     BOOL _darkensWeekends;
+    BOOL _reduceLayoutProcessingForAnimation;
     EKCalendarDate *_startDate;
     EKCalendarDate *_endDate;
     NSCalendar *_calendar;
     id <EKDayViewContentDelegate> _delegate;
     float _fixedDayWidth;
     UIColor *_occurrenceTitleColor;
+    UIColor *_occurrenceTimeColor;
     UIColor *_occurrenceLocationColor;
     UIColor *_occurrenceTextBackgroundColor;
     int _occurrenceBackgroundStyle;
     EKEvent *_dimmedOccurrence;
+    struct UIEdgeInsets _occurrenceMargin;
+    struct UIEdgeInsets _occurrencePadding;
 }
 
 @property(retain, nonatomic) EKEvent *dimmedOccurrence; // @synthesize dimmedOccurrence=_dimmedOccurrence;
+@property(nonatomic) struct UIEdgeInsets occurrencePadding; // @synthesize occurrencePadding=_occurrencePadding;
+@property(nonatomic) struct UIEdgeInsets occurrenceMargin; // @synthesize occurrenceMargin=_occurrenceMargin;
 @property(nonatomic) int occurrenceBackgroundStyle; // @synthesize occurrenceBackgroundStyle=_occurrenceBackgroundStyle;
 @property(retain, nonatomic) UIColor *occurrenceTextBackgroundColor; // @synthesize occurrenceTextBackgroundColor=_occurrenceTextBackgroundColor;
 @property(retain, nonatomic) UIColor *occurrenceLocationColor; // @synthesize occurrenceLocationColor=_occurrenceLocationColor;
+@property(retain, nonatomic) UIColor *occurrenceTimeColor; // @synthesize occurrenceTimeColor=_occurrenceTimeColor;
 @property(retain, nonatomic) UIColor *occurrenceTitleColor; // @synthesize occurrenceTitleColor=_occurrenceTitleColor;
 @property(nonatomic) float fixedDayWidth; // @synthesize fixedDayWidth=_fixedDayWidth;
+@property(nonatomic) BOOL reduceLayoutProcessingForAnimation; // @synthesize reduceLayoutProcessingForAnimation=_reduceLayoutProcessingForAnimation;
 @property(nonatomic) BOOL darkensWeekends; // @synthesize darkensWeekends=_darkensWeekends;
 @property(nonatomic) BOOL usesSmallText; // @synthesize usesSmallText=_usesSmallText;
 @property(nonatomic) BOOL eventsFillGrid; // @synthesize eventsFillGrid=_eventsFillGrid;
@@ -57,11 +69,15 @@
 @property(readonly, nonatomic) EKCalendarDate *endDate; // @synthesize endDate=_endDate;
 @property(copy, nonatomic) EKCalendarDate *startDate; // @synthesize startDate=_startDate;
 - (void).cxx_destruct;
+- (float)RoundToScreenScale:(float)arg1;
+- (float)RoundToScreenScaleForFloat:(float)arg1;
+- (struct CGRect)RoundRectToScreenScaleForRect:(struct CGRect)arg1;
 - (void)_tapRecognized:(id)arg1;
 - (BOOL)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (BOOL)_getBottomPinRegion:(float *)arg1 dayIndex:(unsigned int *)arg2 forPoint:(struct CGPoint)arg3;
 - (BOOL)eventsIntersectRect:(struct CGRect)arg1;
 - (void)_adjustViewsForPinning;
+- (BOOL)_doOffscreenOccurrences;
 - (void)setOccurrences:(id)arg1;
 - (void)_configureOccurrenceViewMarginAndPadding:(id)arg1;
 - (void)configureOccurrenceViewForGestureController:(id)arg1;
@@ -96,6 +112,12 @@
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 orientation:(int)arg2;
 - (id)initWithFrame:(struct CGRect)arg1 orientation:(int)arg2 backgroundColor:(id)arg3 opaque:(BOOL)arg4 numberOfDaysToDisplay:(unsigned int)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

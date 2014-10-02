@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 @interface TSPFinalizeHandlerQueue : NSObject
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
-    struct list<TSP::FinalizeHandlerItem *, std::__1::allocator<TSP::FinalizeHandlerItem *>> _order;
+    struct vector<TSP::FinalizeHandlerItem *, std::__1::allocator<TSP::FinalizeHandlerItem *>> _order;
     struct hash_map<const long long, TSP::FinalizeHandlerItem, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, TSP::FinalizeHandlerItem>>> _map;
 }
 
@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)runFinalizeHandlers;
 - (void)runFinalizeHandlerForItem:(struct FinalizeHandlerItem *)arg1;
 - (void)visitItemForCycleDetection:(struct FinalizeHandlerItem *)arg1;
-- (void)addFinalizeHandlers:(vector_667badbd *)arg1 strongReferencesOrNull:(RepeatedField_80b81656 *)arg2 forIdentifier:(long long)arg3;
+- (void)addFinalizeHandlers:(vector_667badbd *)arg1 strongReferencesOrNull:(hash_map_18963f5d *)arg2 forIdentifier:(long long)arg3;
 - (void)reset;
 - (id)init;
 

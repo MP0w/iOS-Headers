@@ -10,7 +10,7 @@
 #import "TSKDocumentObject.h"
 #import "TSPCopying.h"
 
-@class TSWPStorage;
+@class NSString, TSWPStorage;
 
 __attribute__((visibility("hidden")))
 @interface TSWPAttachment : TSPObject <TSKDocumentObject, TSDOwningAttachment, TSPCopying>
@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (void)willBeRemovedFromDocumentRoot:(id)arg1;
 - (void)wasAddedToDocumentRoot:(id)arg1 context:(id)arg2;
 - (void)willBeAddedToDocumentRoot:(id)arg1 context:(id)arg2;
+- (void)infoChanged;
 @property(readonly, nonatomic) unsigned long long enabledKnobMask;
 @property(readonly, nonatomic) BOOL specifiesEnabledKnobMask;
 @property(readonly, nonatomic) BOOL isSearchable;
@@ -42,6 +43,12 @@ __attribute__((visibility("hidden")))
 - (id)copyWithContext:(id)arg1;
 - (id)initWithContext:(id)arg1;
 - (BOOL)changesWithPageNumber;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

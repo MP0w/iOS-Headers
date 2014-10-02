@@ -6,27 +6,35 @@
 
 #import "NSObject.h"
 
-@class HSCloudClient, NSObject<HSCloudAvailability>;
+@class HSCloudClient, NSObject<HSCloudAvailability>, NSObject<OS_dispatch_queue>;
 
 @interface MPCloudController : NSObject
 {
-    HSCloudClient *_cloudClient;
     NSObject<HSCloudAvailability> *_cloudAvailabilityController;
     BOOL _isUpdateInProgress;
     int _preferencesChangedNotifyToken;
     BOOL _preferencesChangedNotifyTokenIsValid;
+    NSObject<OS_dispatch_queue> *_queue;
     BOOL _isInitialImport;
     BOOL _isCloudEnabled;
+    BOOL _jaliscoGeniusEnabled;
+    HSCloudClient *_cloudClient;
 }
 
 + (void)migrateCellularDataPreferencesIfNeeded;
 + (BOOL)isMediaApplication;
 + (id)sharedCloudController;
+@property(readonly, nonatomic, getter=isJaliscoGeniusEnabled) BOOL jaliscoGeniusEnabled; // @synthesize jaliscoGeniusEnabled=_jaliscoGeniusEnabled;
+@property(readonly, nonatomic) HSCloudClient *cloudClient; // @synthesize cloudClient=_cloudClient;
 @property(readonly, nonatomic) BOOL isCloudEnabled; // @synthesize isCloudEnabled=_isCloudEnabled;
 - (void).cxx_destruct;
 - (void)_initializeUpdateInProgressState;
 - (void)updatePlaylistWithSagaID:(unsigned long long)arg1 itemSagaIDs:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)setItemProperties:(id)arg1 forSagaID:(unsigned long long)arg2;
+- (void)acceptJaliscGeniusTermsAndConditionsVersion:(long long)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)loadJaliscoGeniusTermsAndConditionsWithCompletionHandler:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) BOOL enablingJaliscoGeniusRequiresTerms;
+- (void)uploadItemProperties;
 - (void)setItemProperties:(id)arg1 forPurchaseHistoryID:(unsigned long long)arg2;
 - (void)resignActive;
 - (void)removePlaylistWithSagaID:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -38,6 +46,7 @@
 - (void)incrementItemProperty:(id)arg1 forSagaID:(unsigned long long)arg2;
 @property(readonly, nonatomic) BOOL hasCloudLockerAccount;
 @property(readonly, nonatomic) BOOL hasPurchaseHistoryAccount;
+- (void)becomeActiveAndWaitUntilDone:(BOOL)arg1;
 - (void)becomeActive;
 - (void)addGeniusPlaylistWithName:(id)arg1 seedItemSagaIDs:(id)arg2 itemSagaIDs:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)addPlaylistWithName:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

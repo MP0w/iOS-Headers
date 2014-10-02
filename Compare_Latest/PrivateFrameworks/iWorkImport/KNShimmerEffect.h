@@ -8,7 +8,7 @@
 
 #import "KNAnimationOpenGLEffect.h"
 
-@class KNAnimationContext, KNShimmerObjectSystem, KNShimmerParticleSystem, TSDGLDataBuffer, TSDGLShader, TSDGLTextureInfo, TSDTexturedRectangle;
+@class KNAnimationContext, KNShimmerObjectSystem, KNShimmerParticleSystem, NSString, TSDGLDataBuffer, TSDGLShader, TSDGLTextureInfo, TSDTexturedRectangle;
 
 __attribute__((visibility("hidden")))
 @interface KNShimmerEffect : NSObject <KNAnimationOpenGLEffect>
@@ -31,13 +31,19 @@ __attribute__((visibility("hidden")))
     TSDGLDataBuffer *mObjectDataBuffer;
 }
 
-- (void)teardownEffectWithTextures:(id)arg1;
+- (void)teardown;
 - (void)renderEffectAtPercent:(double)arg1;
 - (id)initWithAnimationContext:(id)arg1 texture:(id)arg2 destinationRect:(struct CGRect)arg3 translate:(struct CATransform3D)arg4 duration:(float)arg5 direction:(unsigned int)arg6 buildType:(int)arg7;
 - (id)particleSystemForTR:(id)arg1 slideRect:(struct CGRect)arg2 duration:(float)arg3;
 - (id)objectSystemForTR:(id)arg1 slideRect:(struct CGRect)arg2 duration:(float)arg3;
 - (unsigned int)p_numberOfParticlesForTR:(id)arg1 slideRect:(struct CGRect)arg2 duration:(float)arg3;
 - (void)setupEffectIfNecessary;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

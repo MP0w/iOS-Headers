@@ -8,7 +8,7 @@
 
 #import "PSController.h"
 
-@class PSRootController, PSSpecifier, UIViewController<PSController>;
+@class NSString, PSRootController, PSSpecifier, UIViewController<PSController>;
 
 @interface PSViewController : UIViewController <PSController>
 {
@@ -24,6 +24,9 @@
 - (void)popupViewDidDisappear;
 - (void)popupViewWillDisappear;
 - (void)handleURL:(id)arg1;
+- (void)showController:(id)arg1 animate:(BOOL)arg2;
+- (void)showController:(id)arg1;
+- (void)pushController:(id)arg1 animate:(BOOL)arg2;
 - (void)pushController:(id)arg1;
 - (void)didWake;
 - (void)didUnlock;
@@ -41,6 +44,12 @@
 - (void)setRootController:(id)arg1;
 - (id)parentController;
 - (void)setParentController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, TSUCache;
+@class TSUCache;
 
 __attribute__((visibility("hidden")))
 @interface TSCHText : NSObject
@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
     TSUCache *mTSWPTextCache;
     TSUCache *mTSWPColumnCache;
     TSUCache *mNumberWidthCache;
-    NSMutableDictionary *mDigitWidthFonts;
+    TSUCache *mDigitWidthFonts;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 - (struct CGSize)measureText:(id)arg1 paragraphStyle:(id)arg2 outErasableFrame:(struct CGRect *)arg3;
 - (struct CGSize)measureText:(id)arg1 paragraphStyle:(id)arg2;
 - (struct CGSize)measureText:(id)arg1 paragraphStyle:(id)arg2 wrapWidth:(float)arg3;
+- (struct CGSize)measureText:(id)arg1 paragraphStyle:(id)arg2 wrapWidth:(float)arg3 outErasableFrame:(struct CGRect *)arg4 checkNumberTemplates:(BOOL)arg5;
 - (struct CGSize)measureText:(id)arg1 paragraphStyle:(id)arg2 wrapWidth:(float)arg3 outErasableFrame:(struct CGRect *)arg4;
 - (struct CGSize)measureAttributedString:(struct __CFAttributedString *)arg1 paragraphStyle:(id)arg2 outErasableFrame:(struct CGRect *)arg3;
 - (id)p_wpStorageForAttributedString:(struct __CFAttributedString *)arg1 paragraphStyle:(id)arg2;

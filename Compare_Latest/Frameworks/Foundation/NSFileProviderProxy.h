@@ -9,10 +9,15 @@
 __attribute__((visibility("hidden")))
 @interface NSFileProviderProxy : NSFileReactorProxy
 {
+    BOOL _wantsWriteNotifications;
 }
 
-- (void)observePresentationChangeOfKind:(id)arg1 withPresenterID:(id)arg2 url:(id)arg3 newURL:(id)arg4;
-- (CDUnknownBlockType)provideItemAtURL:(id)arg1 forAccessClaimWithID:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+@property BOOL wantsWriteNotifications; // @synthesize wantsWriteNotifications=_wantsWriteNotifications;
+- (void)observeEndOfWriteAtLocation:(id)arg1 forAccessClaim:(id)arg2;
+- (void)observePresentationChangeOfKind:(id)arg1 withPresenter:(id)arg2 url:(id)arg3 newURL:(id)arg4;
+- (void)provideLogicalURLForURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)providePhysicalURLForURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (CDUnknownBlockType)provideItemAtURL:(id)arg1 forAccessClaim:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)forwardUsingMessageSender:(CDUnknownBlockType)arg1;
 - (void)setItemLocation:(id)arg1;
 

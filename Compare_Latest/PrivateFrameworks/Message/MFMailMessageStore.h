@@ -101,6 +101,7 @@
 - (int)fetchMessagesWithMessageIDs:(id)arg1 andSetFlags:(unsigned long long)arg2;
 - (BOOL)canFetchMessageIDs;
 - (id)remoteIDsFromUniqueRemoteIDs:(id)arg1;
+- (id)remoteIDsMatchingSearchText:(id)arg1 limit:(unsigned int)arg2 error:(id *)arg3;
 - (id)remoteIDsMatchingCriterion:(id)arg1 limit:(unsigned int)arg2 error:(id *)arg3;
 - (int)fetchMessagesMatchingCriterion:(id)arg1 limit:(unsigned int)arg2;
 - (BOOL)canFetchSearchResults;

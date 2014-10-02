@@ -23,5 +23,11 @@ __attribute__((visibility("hidden")))
 - (id)initWithPasteboard:(id)arg1 pasteboardType:(id)arg2;
 - (id)init;
 
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
+
 @end
 

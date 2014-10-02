@@ -6,13 +6,14 @@
 
 #import "SBBaseSoftwareUpdateAlertItem.h"
 
-@class UIView;
+@class SBSoftwareUpdateVerifyingUpdateAlertViewController;
 
 @interface SBSoftwareUpdateVerifyingUpdateAlertItem : SBBaseSoftwareUpdateAlertItem
 {
-    UIView *_activityAccessoryView;
+    SBSoftwareUpdateVerifyingUpdateAlertViewController *_activityViewController;
 }
 
+- (_Bool)dismissesAutomatically;
 - (_Bool)dismissOnLock;
 - (_Bool)allowMenuButtonDismissal;
 - (_Bool)shouldShowInLockScreen;

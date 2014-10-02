@@ -8,7 +8,7 @@
 
 #import "OISFUBufferedInputStream.h"
 
-@class NSData;
+@class NSData, NSString;
 
 __attribute__((visibility("hidden")))
 @interface OISFUMemoryInputStream : NSObject <OISFUBufferedInputStream>
@@ -32,6 +32,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithData:(id)arg1 offset:(unsigned long)arg2 length:(unsigned long)arg3;
 - (id)initWithData:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

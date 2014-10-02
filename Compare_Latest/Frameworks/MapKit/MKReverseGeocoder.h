@@ -19,7 +19,6 @@
 - (void)_notifyResult:(id)arg1;
 - (void)_notifyNoResults;
 - (void)_notifyError:(id)arg1;
-- (id)_placemarkFromResponse:(id)arg1;
 @property(readonly, nonatomic, getter=isQuerying) BOOL querying;
 @property(readonly, nonatomic) MKPlacemark *placemark;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate;

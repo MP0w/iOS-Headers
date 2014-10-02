@@ -8,6 +8,8 @@
 
 #import "TSKEncryptedDocumentExporter.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface KNPdfSlideExporter : KNSlideExporter <TSKEncryptedDocumentExporter>
 {
@@ -17,6 +19,12 @@ __attribute__((visibility("hidden")))
 - (void)setPrintPassphrase:(id)arg1 hint:(id)arg2;
 - (void)setPassphrase:(id)arg1 hint:(id)arg2;
 - (id)p_renderingExporterDelegate;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

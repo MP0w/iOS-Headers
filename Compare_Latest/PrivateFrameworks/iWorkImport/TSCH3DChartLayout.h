@@ -18,10 +18,8 @@ __attribute__((visibility("hidden")))
 + (id)p_allScaleProperties;
 + (id)p_propertiesThatResetSeriesStorage;
 + (id)p_propertiesThatResetSceneProperties;
-+ (BOOL)layoutFrameEnclosesInfoGeometry;
 + (void)upgradeSceneDepthSettingsForChartInfo:(id)arg1 hasConstantDepth:(BOOL)arg2 willModifyBlock:(CDUnknownBlockType)arg3;
 - (void)setSeriesIndexedPieWedgeExplosions:(id)arg1;
-- (id)mutationTuplesToApplyDuringResize;
 - (void)modelInvalidated:(id)arg1;
 - (void)processChanges:(id)arg1;
 - (void)p_resetSeriesStorage;
@@ -32,7 +30,9 @@ __attribute__((visibility("hidden")))
 - (id)containingViewportVector;
 @property(readonly, nonatomic) BOOL hasProjectedBounds;
 @property(readonly, nonatomic) TSCH3DChartSceneAreaLayoutItem *areaItem;
-- (void)p_ensureValidForCircumscribingSizeLayout;
+- (void)layoutForResizingSize:(struct CGSize)arg1;
+- (struct CGRect)boundsForResize;
+- (void)p_ensureValidForInwardLayout;
 - (void)setLayoutSettings:(CDStruct_1f804ca1)arg1;
 - (BOOL)p_shouldClearSceneForLayoutSettings:(CDStruct_1f804ca1)arg1;
 - (void)dealloc;

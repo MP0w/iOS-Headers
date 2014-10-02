@@ -42,12 +42,19 @@
 - (void)addObserver:(id)arg1 forMessage:(id)arg2 dispatchQueue:(id)arg3 block:(CDUnknownBlockType)arg4;
 - (void)_setupXPCConnectionIfNeeded;
 - (BOOL)_appIsWhitelisted;
+- (void)_setupWatchdog;
 - (id)init;
 - (id)autorelease;
 - (oneway void)release;
 - (unsigned int)retainCount;
 - (id)retain;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,23 +6,25 @@
 
 #import "SBUIAnimationController.h"
 
-#import "SBUIAnimationControllerDelegate.h"
+#import "SBUIAnimationControllerObserver.h"
 
-@class NSArray, NSMutableArray;
+@class NSArray, NSMutableArray, NSString;
 
-@interface SBUIAnimationControllerGroup : SBUIAnimationController <SBUIAnimationControllerDelegate>
+@interface SBUIAnimationControllerGroup : SBUIAnimationController <SBUIAnimationControllerObserver>
 {
     NSMutableArray *_animations;
     _Bool _finished;
 }
 
 @property(readonly, nonatomic) NSArray *animations; // @synthesize animations=_animations;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)animationControllerDidFinishAnimation:(id)arg1;
 - (void)animationController:(id)arg1 willBeginAnimation:(_Bool)arg2;
 - (void)_forEachAnimation:(CDUnknownBlockType)arg1;
 - (void)_startAnimation;
 - (_Bool)_willAnimate;
+- (void)removeObserver:(id)arg1;
+- (void)addObserver:(id)arg1;
 - (_Bool)waitingToStart;
 - (void)endAnimation;
 - (void)beginAnimation;
@@ -32,7 +34,9 @@
 - (id)init;
 
 // Remaining properties
-@property(nonatomic) id <SBUIAnimationControllerGroupDelegate> delegate;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

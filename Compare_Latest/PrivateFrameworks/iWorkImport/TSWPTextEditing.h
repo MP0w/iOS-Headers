@@ -13,13 +13,15 @@ __attribute__((visibility("hidden")))
 {
     TSWPParagraphStyle *_paragraphStyle;
     TSWPShapeStyle *_shapeStyle;
-    TSWPStorage *_storage;
-    BOOL _isEditing;
     TSDInteractiveCanvasController *_icc;
     TSDLayout<TSWPTextEditingHostLayout> *_hostLayout;
+    BOOL _isEditing;
+    TSWPStorage *_storage;
+    TSWPEditingController *_editor;
 }
 
 @property(readonly, nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
+@property(readonly, nonatomic) TSWPEditingController *editor; // @synthesize editor=_editor;
 @property(retain, nonatomic) TSWPStorage *storage; // @synthesize storage=_storage;
 - (void)p_editingDidEndNotification:(id)arg1;
 - (void)p_handleEndEditing;
@@ -31,7 +33,6 @@ __attribute__((visibility("hidden")))
 - (void)beginEditingInRect:(struct CGRect)arg1 interactiveCanvasController:(id)arg2 layout:(id)arg3 delegate:(id)arg4;
 - (void)beginEditingWithViewController:(id)arg1 layout:(id)arg2 geometry:(id)arg3 delegate:(id)arg4;
 @property(readonly, nonatomic) TSPObjectContext *objectContext;
-@property(readonly, nonatomic) TSWPEditingController *editor;
 - (void)dealloc;
 - (id)initWithShapeStyle:(id)arg1 defaultStorage:(id)arg2;
 - (id)initWithParagraphStyle:(id)arg1 shapeStyle:(id)arg2 defaultText:(id)arg3;

@@ -8,7 +8,7 @@
 
 #import "SKUIItemListTableDelegate.h"
 
-@class NSArray, NSMutableDictionary, NSOperationQueue, SKUIClientContext, SKUIResourceLoader, SKUISegmentedTableHeaderView, UISegmentedControl;
+@class NSArray, NSMutableDictionary, NSOperationQueue, NSString, SKUIClientContext, SKUIResourceLoader, SKUISegmentedTableHeaderView, UISegmentedControl;
 
 @interface SKUIIPhoneChartsViewController : UIViewController <SKUIItemListTableDelegate>
 {
@@ -50,6 +50,12 @@
 - (void)enumerateVisibleItemsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

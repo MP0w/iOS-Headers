@@ -36,7 +36,7 @@ __attribute__((visibility("hidden")))
 - (void)enumerateExpressionNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)addTSTCanvasReferencesToSet:(id)arg1 inRangeContext:(int)arg2 withColorHelper:(id)arg3 preferringNodesFromStorage:(id)arg4 allVisitedNodes:(id)arg5;
 - (BOOL)hasMenu;
-@property(readonly, nonatomic) TSDMultiPaneController *popover;
+@property(readonly, retain, nonatomic) TSDMultiPaneController *popover;
 - (id)exportString;
 - (void)buildASTNodeArray:(struct TSCEASTNodeArray *)arg1 hostCell:(CDStruct_0441cfb5)arg2;
 - (id)detokenizedText;

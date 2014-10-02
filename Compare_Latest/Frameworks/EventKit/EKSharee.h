@@ -29,13 +29,17 @@
 - (id)_persistentSharee;
 @property(readonly, nonatomic) EKCalendar *owner;
 - (id)lazyLoadRelationForKey:(id)arg1;
-- (id)description;
-- (unsigned int)hash;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 - (id)initWithEmailAddress:(id)arg1 name:(id)arg2;
 - (id)initWithName:(id)arg1 emailAddress:(id)arg2 externalID:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "OADDrawableContainer.h"
 
-@class NSMutableArray;
+@class NSMutableArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface OADGroup : OADDrawable <OADDrawableContainer>
@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (id).cxx_construct;
+@property(readonly, copy) NSString *description;
 - (void)removeUnnecessaryOverrides;
 - (void)setParentTextListStyle:(id)arg1;
 - (void)replaceChild:(id)arg1 with:(id)arg2;
@@ -31,6 +32,11 @@ __attribute__((visibility("hidden")))
 - (id)groupProperties;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

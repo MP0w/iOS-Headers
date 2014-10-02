@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (BOOL)_popoversDisabled;
+- (BOOL)_shimPopoverPresentationController;
 
 @end
 

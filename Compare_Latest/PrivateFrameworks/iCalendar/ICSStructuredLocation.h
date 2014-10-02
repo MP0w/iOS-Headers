@@ -12,14 +12,17 @@
 {
 }
 
-@property(retain) NSString *routing;
-@property(retain) NSString *address;
-@property(retain) NSString *displayName;
-@property(retain) NSString *abURLString;
-@property double radius;
-@property(retain) NSString *loctype;
-@property(retain) NSString *title;
-@property(retain) NSString *fmtype;
+- (BOOL)shouldObscureValue;
+- (id)parametersToObscure;
+- (id)propertiesToObscure;
+@property(retain, nonatomic) NSString *routing;
+@property(retain, nonatomic) NSString *address;
+@property(retain, nonatomic) NSString *displayName;
+@property(retain, nonatomic) NSString *abURLString;
+@property(nonatomic) double radius;
+@property(retain, nonatomic) NSString *loctype;
+@property(retain, nonatomic) NSString *title;
+@property(retain, nonatomic) NSString *fmtype;
 - (void)_ICSStringWithOptions:(unsigned int)arg1 appendingToString:(id)arg2;
 
 @end

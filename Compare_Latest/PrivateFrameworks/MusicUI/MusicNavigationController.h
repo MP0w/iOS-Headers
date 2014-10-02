@@ -11,7 +11,10 @@
 }
 
 - (BOOL)music_shouldPresentModallyInMoreList;
-- (int)positionForBar:(id)arg1;
+- (void)traitCollectionDidChange:(id)arg1;
+
+// Remaining properties
+@property(nonatomic) __weak id <MusicNavigationControllerDelegate> delegate;
 
 @end
 

@@ -18,11 +18,11 @@ __attribute__((visibility("hidden")))
 + (id)sharedClient;
 - (void).cxx_destruct;
 - (BOOL)isValidatingDatabaseForPath:(id)arg1;
-- (BOOL)_validateDatabaseForPath:(id)arg1 usingLibrary:(id)arg2 withTimeout:(double)arg3;
+- (BOOL)_validateDatabaseForPath:(id)arg1 usingLibrary:(id)arg2;
 - (id)_validatableDatabaseForPath:(id)arg1;
-- (BOOL)validateDatabaseForConnection:(id)arg1 withTimeout:(double)arg2;
-- (BOOL)validateDatabaseForLibrary:(id)arg1 withTimeout:(double)arg2;
-- (BOOL)validateDatabaseAtPath:(id)arg1 withTimeout:(double)arg2;
+- (BOOL)validateDatabaseForConnection:(id)arg1;
+- (BOOL)validateDatabaseForLibrary:(id)arg1;
+- (BOOL)validateDatabaseAtPath:(id)arg1;
 - (id)init;
 
 @end

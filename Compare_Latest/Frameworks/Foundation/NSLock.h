@@ -8,14 +8,15 @@
 
 #import "NSLocking.h"
 
+@class NSString;
+
 @interface NSLock : NSObject <NSLocking>
 {
     void *_priv;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
-- (id)name;
-- (void)setName:(id)arg1;
+@property(copy) NSString *name;
 - (id)description;
 - (void)unlock;
 - (BOOL)tryLock;

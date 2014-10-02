@@ -35,6 +35,7 @@
 - (void)setDisplayRouteType:(int)arg1;
 @property(readonly, nonatomic) int displayRouteType;
 @property(readonly, nonatomic) BOOL displayIsPicked;
+@property(readonly, nonatomic) int passwordType;
 - (void)setWirelessDisplayRoute:(id)arg1;
 @property(readonly, nonatomic) MPAVRoute *wirelessDisplayRoute;
 - (void)setPicked:(BOOL)arg1;

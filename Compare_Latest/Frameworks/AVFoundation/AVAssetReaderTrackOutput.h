@@ -18,7 +18,12 @@
 - (id)_figAssetReaderExtractionOptions;
 - (BOOL)_trimsSampleDurations;
 - (id)_asset;
+- (struct opaqueCMSampleBuffer *)_copyNextSampleBufferForMetadataAdaptor;
+- (struct opaqueCMSampleBuffer *)copyNextSampleBuffer;
 - (id)mediaType;
+@property(nonatomic) BOOL appliesPreferredTrackTransform;
+@property(readonly, nonatomic, getter=_isAttachedToMetadataAdaptor) BOOL attachedToMetadataAdaptor;
+- (void)_attachToMetadataAdaptor:(id)arg1;
 @property(copy, nonatomic) NSString *audioTimePitchAlgorithm;
 @property(readonly, nonatomic) NSDictionary *outputSettings;
 @property(readonly, nonatomic) AVAssetTrack *track;

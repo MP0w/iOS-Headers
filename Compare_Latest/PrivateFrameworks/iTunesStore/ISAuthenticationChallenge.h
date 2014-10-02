@@ -19,9 +19,9 @@
 @property(readonly) BOOL userNameIsEmail;
 @property(readonly) BOOL userNameIsEditable;
 - (void)useCredential:(id)arg1;
-@property(readonly) NSString *user;
+@property(readonly, retain) NSString *user;
 @property(readonly) id <NSURLAuthenticationChallengeSender> sender;
-@property(readonly) NSString *password;
+@property(readonly, retain) NSString *password;
 @property(readonly) BOOL hasPassword;
 @property(readonly) int failureCount;
 - (void)cancelAuthentication;

@@ -8,7 +8,7 @@
 
 #import "SBTestRecipe.h"
 
-@class SBPasscodeEntryAlertViewController;
+@class NSString, SBPasscodeEntryAlertViewController;
 
 @interface SBPasscodeAlertRecipe : NSObject <SBTestRecipe>
 {
@@ -19,6 +19,12 @@
 - (void)handleVolumeDecrease;
 - (void)handleVolumeIncrease;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

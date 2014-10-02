@@ -15,11 +15,15 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)classFallbacksForKeyedArchiver;
-- (void)dealloc;
+- (void)updateConstraintsIfNeeded;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 @property(retain, nonatomic) CALayer *mask;
 - (id)_cell;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)_tableViewCellContentViewCommonSetup;
 
 @end
 

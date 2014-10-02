@@ -6,17 +6,19 @@
 
 #import "NSObject.h"
 
-@class NSMutableString, WDCharacterProperties, WDOfficeArt, WDParagraphProperties;
+@class NSMutableString, WDCharacterProperties, WDDocument, WDOfficeArt, WDParagraphProperties;
 
 __attribute__((visibility("hidden")))
 @interface WDListLevel : NSObject
 {
+    WDDocument *mDocument;
     WDParagraphProperties *mParagraphProperties;
     WDCharacterProperties *mCharacterProperties;
     WDOfficeArt *mImage;
     long mStartNumber;
     int mNumberFormat;
     BOOL mRestartNumbering;
+    long mRestartLevel;
     BOOL mLegal;
     int mSuffix;
     NSMutableString *mText;
@@ -26,6 +28,7 @@ __attribute__((visibility("hidden")))
     int mJustification;
 }
 
+- (id)description;
 - (id)characterProperties;
 - (id)paragraphProperties;
 - (BOOL)justificationOverridden;
@@ -46,6 +49,9 @@ __attribute__((visibility("hidden")))
 - (BOOL)legalOverridden;
 - (void)setLegal:(BOOL)arg1;
 - (BOOL)legal;
+- (BOOL)restartLevelOverridden;
+- (void)setRestartLevel:(long)arg1;
+- (long)restartLevel;
 - (BOOL)restartNumberingOverridden;
 - (void)setRestartNumbering:(BOOL)arg1;
 - (BOOL)restartNumbering;

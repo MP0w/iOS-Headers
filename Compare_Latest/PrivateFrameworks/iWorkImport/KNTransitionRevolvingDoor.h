@@ -10,7 +10,7 @@
 #import "KNFrameAnimator.h"
 #import "KNTransitionAnimator.h"
 
-@class CALayer, KNAnimParameterGroup, KNMotionBlurAnimationPluginWrapper;
+@class CALayer, KNAnimParameterGroup, KNMotionBlurAnimationPluginWrapper, NSString;
 
 __attribute__((visibility("hidden")))
 @interface KNTransitionRevolvingDoor : KNAnimationEffect <KNTransitionAnimator, KNFrameAnimator, KNAnimationPluginArchiving>
@@ -38,6 +38,12 @@ __attribute__((visibility("hidden")))
 - (id)animationsWithContext:(id)arg1;
 - (void)dealloc;
 - (id)initWithAnimationContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

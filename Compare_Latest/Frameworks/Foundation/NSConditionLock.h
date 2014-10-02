@@ -8,14 +8,15 @@
 
 #import "NSLocking.h"
 
+@class NSString;
+
 @interface NSConditionLock : NSObject <NSLocking>
 {
     void *_priv;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
-- (id)name;
-- (void)setName:(id)arg1;
+@property(copy) NSString *name;
 - (id)description;
 - (void)unlockWithCondition:(int)arg1;
 - (void)unlock;
@@ -25,7 +26,7 @@
 - (void)lockWhenCondition:(int)arg1;
 - (BOOL)lockBeforeDate:(id)arg1;
 - (void)lock;
-- (int)condition;
+@property(readonly) int condition;
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithCondition:(int)arg1;

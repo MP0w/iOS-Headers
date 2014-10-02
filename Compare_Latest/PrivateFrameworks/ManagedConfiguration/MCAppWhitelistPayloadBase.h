@@ -21,6 +21,7 @@
 @property(nonatomic) BOOL allowAccessWithoutPasscode; // @synthesize allowAccessWithoutPasscode=_allowAccessWithoutPasscode;
 @property(retain, nonatomic) NSArray *whitelistedAppsAndOptions; // @synthesize whitelistedAppsAndOptions=_whitelistedAppsAndOptions;
 - (void).cxx_destruct;
+- (id)payloadDescriptionKeyValueSections;
 - (id)description;
 - (id)stubDictionary;
 - (id)restrictions;

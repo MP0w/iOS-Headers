@@ -8,7 +8,7 @@
 
 #import "AVPlayerItemLegibleOutputPushDelegate.h"
 
-@class AVPlayerItemLegibleOutput, MPAVItem, MPAlternateTextTrack, NSArray, NSDictionary, NSMutableDictionary;
+@class AVPlayerItemLegibleOutput, MPAVItem, MPAlternateTextTrack, NSArray, NSDictionary, NSMutableDictionary, NSString;
 
 @interface MPAlternateTracks : NSObject <AVPlayerItemLegibleOutputPushDelegate>
 {
@@ -21,7 +21,6 @@
     NSArray *_outOfBandTextTracks;
 }
 
-+ (id)accessibleSubtitleCharacteristics;
 + (id)subtitleLanguages;
 @property(nonatomic) BOOL disableAlternateTextTrackRendering; // @synthesize disableAlternateTextTrackRendering=_disableAlternateTextTrackRendering;
 @property(retain, nonatomic) NSArray *outOfBandTextTracks; // @synthesize outOfBandTextTracks=_outOfBandTextTracks;
@@ -44,6 +43,12 @@
 - (void)commitTrackChanges;
 - (void)beginTrackChanges;
 - (id)initWithItem:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

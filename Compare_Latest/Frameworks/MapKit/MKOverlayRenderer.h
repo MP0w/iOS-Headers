@@ -16,12 +16,11 @@
 }
 
 @property(readonly, nonatomic) id <MKOverlay> overlay; // @synthesize overlay=_overlay;
-- (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)drawMapRect:(CDStruct_90e2a262)arg1 zoomScale:(float)arg2 inContext:(struct CGContext *)arg3;
 - (BOOL)canDrawMapRect:(CDStruct_90e2a262)arg1 zoomScale:(float)arg2;
-- (void)overlay:(id)arg1 drawKey:(const CDStruct_32a7f38a *)arg2 inContext:(struct CGContext *)arg3;
-- (BOOL)overlay:(id)arg1 canDrawKey:(const CDStruct_32a7f38a *)arg2;
+- (void)overlay:(id)arg1 drawKey:(const CDStruct_0e9d808f *)arg2 inContext:(struct CGContext *)arg3;
+- (BOOL)overlay:(id)arg1 canDrawKey:(const CDStruct_0e9d808f *)arg2;
 - (void)set_renderer:(id)arg1;
 - (id)_renderer;
 - (CDStruct_90e2a262)_boundingMapRect;
@@ -40,6 +39,7 @@
 - (void)setContentScaleFactor:(float)arg1;
 @property float alpha; // @synthesize alpha=_alpha;
 - (id)initWithOverlay:(id)arg1;
+- (id)init;
 - (void)dealloc;
 
 @end

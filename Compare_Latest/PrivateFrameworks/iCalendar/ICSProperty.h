@@ -21,11 +21,15 @@
 - (id)description;
 - (id)stringValue;
 - (id)parameters;
+- (BOOL)alwaysHasParametersToSerialize;
 - (void)setValue:(id)arg1 type:(unsigned int)arg2;
 - (id)initWithValue:(id)arg1 type:(unsigned int)arg2;
 - (id)allParameters;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (BOOL)shouldObscureValue;
+- (id)parametersToObscure;
+- (id)propertiesToObscure;
 - (id)propertiesThatIfPresentExcludeThisComponentFromChecksummingForVersion:(int)arg1;
 - (id)parametersToIncludeForChecksumVersion:(int)arg1;
 - (id)propertiesToIncludeForChecksumVersion:(int)arg1;

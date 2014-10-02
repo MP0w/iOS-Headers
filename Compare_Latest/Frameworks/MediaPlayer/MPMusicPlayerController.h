@@ -19,6 +19,7 @@
 + (void)setRunLoopForNotifications:(id)arg1;
 + (void)initialize;
 + (id)iPodMusicPlayer;
++ (id)systemMusicPlayer;
 + (id)applicationMusicPlayer;
 - (void).cxx_destruct;
 - (void)_stopMigServer;
@@ -53,7 +54,6 @@
 - (BOOL)allowsBackgroundVideo;
 - (void)setUseCachedPlaybackState:(BOOL)arg1;
 - (void)pauseWithFadeoutDuration:(double)arg1;
-- (id)nowPlayingRadioTrack;
 - (id)nowPlayingItemAtIndex:(unsigned int)arg1;
 - (BOOL)setQueueWithSeedItems:(id)arg1;
 - (BOOL)isGeniusAvailableForSeedItems:(id)arg1;

@@ -8,7 +8,7 @@
 
 #import "PLImageLoadingQueueDelegate.h"
 
-@class PLCachedImage, PLCroppedImageView, PLImageCache, PLImageLoadingQueue, PLImageSource, PLManagedAsset;
+@class NSString, PLCachedImage, PLCroppedImageView, PLImageCache, PLImageLoadingQueue, PLImageSource, PLManagedAsset;
 
 @interface PLPictureFramePlugin : PLSlideshowPlugin <PLImageLoadingQueueDelegate>
 {
@@ -48,6 +48,12 @@
 - (void)setAlbumAssets:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

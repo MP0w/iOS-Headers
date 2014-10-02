@@ -9,7 +9,7 @@
 #import "UIKeyboardInput.h"
 #import "UITextInputPrivate.h"
 
-@class NSDictionary, UIColor, UIImage, UITextInputTraits, UITextInteractionAssistant, UITextPosition, UITextRange;
+@class NSDictionary, NSString, UIColor, UIImage, UITextInputTraits, UITextInteractionAssistant, UITextPosition, UITextRange;
 
 @interface UIDefaultKeyboardInput : UIView <UIKeyboardInput, UITextInputPrivate>
 {
@@ -99,19 +99,25 @@
 @property(nonatomic) BOOL acceptsFloatingKeyboard;
 @property(nonatomic) BOOL acceptsSplitKeyboard;
 @property(nonatomic) int autocapitalizationType; // @dynamic autocapitalizationType;
+@property(copy, nonatomic) NSString *autocorrectionContext;
 @property(nonatomic) int autocorrectionType; // @dynamic autocorrectionType;
 @property(nonatomic) BOOL contentsIsSingleValue; // @dynamic contentsIsSingleValue;
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) BOOL deferBecomingResponder;
+@property(readonly, copy) NSString *description;
+@property(nonatomic) BOOL disablePrediction;
 @property(nonatomic) BOOL displaySecureTextUsingPlainText;
 @property(nonatomic) int emptyContentReturnKeyType;
 @property(nonatomic) BOOL enablesReturnKeyAutomatically; // @dynamic enablesReturnKeyAutomatically;
 @property(nonatomic) BOOL enablesReturnKeyOnNonWhiteSpaceContent;
+@property(readonly) unsigned int hash;
 @property(retain, nonatomic) UIColor *insertionPointColor; // @dynamic insertionPointColor;
 @property(nonatomic) unsigned int insertionPointWidth; // @dynamic insertionPointWidth;
 @property(nonatomic) BOOL isSingleLineDocument;
 @property(nonatomic) int keyboardAppearance; // @dynamic keyboardAppearance;
 @property(nonatomic) int keyboardType; // @dynamic keyboardType;
 @property(nonatomic) BOOL learnsCorrections;
+@property(copy, nonatomic) NSString *responseContext;
 @property(nonatomic) BOOL returnKeyGoesToNextResponder;
 @property(nonatomic) int returnKeyType; // @dynamic returnKeyType;
 @property(nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry; // @dynamic secureTextEntry;
@@ -122,6 +128,7 @@
 @property(retain, nonatomic) UIColor *selectionHighlightColor;
 @property(nonatomic) int shortcutConversionType; // @dynamic shortcutConversionType;
 @property(nonatomic) int spellCheckingType; // @dynamic spellCheckingType;
+@property(readonly) Class superclass;
 @property(nonatomic) BOOL suppressReturnKeyStyling;
 @property(readonly, nonatomic) UIView *textInputView;
 @property(nonatomic) int textLoupeVisibility; // @dynamic textLoupeVisibility;

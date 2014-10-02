@@ -12,12 +12,14 @@
 
 @interface IMAVLocalPreviewClient : NSObject <IMSystemMonitorListener>
 {
+    BOOL _supportsPreview;
     BOOL _wantsPreview;
     BOOL _wantsPausedPreview;
     BOOL _wantsUnpausedPreview;
 }
 
 + (id)sharedInstance;
+@property(nonatomic) BOOL supportsPreview; // @synthesize supportsPreview=_supportsPreview;
 - (void)didReceiveCommError;
 - (void)didReceiveErrorFromCamera:(unsigned int)arg1 error:(id)arg2;
 - (void)didChangeLocalScreenAttributes:(id)arg1;

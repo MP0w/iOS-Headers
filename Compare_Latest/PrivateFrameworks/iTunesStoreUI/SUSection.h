@@ -55,6 +55,7 @@
 @property(readonly, nonatomic) SUGradient *backgroundGradient;
 - (id)description;
 - (void)dealloc;
+- (id)initWithClientInterface:(id)arg1 sectionType:(int)arg2 defaultPNGStyle:(int)arg3;
 - (id)initWithClientInterface:(id)arg1;
 
 @end

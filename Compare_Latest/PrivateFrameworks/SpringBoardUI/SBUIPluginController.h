@@ -19,6 +19,8 @@
 - (BOOL)handledMenuButtonTap;
 - (BOOL)handledMenuButtonUpEvent;
 - (BOOL)handledMenuButtonDownEvent;
+- (void)handleViewFullyRevealed;
+- (void)viewPartiallyRevealedWithPercentRevealed:(float)arg1;
 - (id)viewControllerForActivationContext:(id)arg1;
 - (BOOL)handledButtonTapFromSource:(int)arg1;
 - (BOOL)handledButtonUpEventFromSource:(int)arg1;

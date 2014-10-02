@@ -6,12 +6,15 @@
 
 #import "SUClientInterfaceDelegate.h"
 
-@class SUClientInterface, UIViewController;
+@class NSData, NSDictionary, NSHTTPURLResponse, SUClientInterface, UIAlertView, UIViewController;
 
 @protocol SUClientInterfaceDelegatePrivate <SUClientInterfaceDelegate>
 
 @optional
+- (UIAlertView *)newAlertViewForClientInterface:(SUClientInterface *)arg1;
 - (void)clientInterface:(SUClientInterface *)arg1 willPresentViewController:(UIViewController *)arg2;
 - (void)clientInterface:(SUClientInterface *)arg1 willDismissViewController:(UIViewController *)arg2;
+- (void)clientInterface:(SUClientInterface *)arg1 dispatchXEvent:(NSDictionary *)arg2 completionBlock:(void (^)(BOOL))arg3;
+- (void)clientInterface:(SUClientInterface *)arg1 dispatchOnPageResponseWithData:(NSData *)arg2 response:(NSHTTPURLResponse *)arg3;
 @end
 

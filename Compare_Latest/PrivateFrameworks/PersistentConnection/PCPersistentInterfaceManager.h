@@ -8,19 +8,18 @@
 
 #import "PCInterfaceMonitorDelegate.h"
 
-@class NSRecursiveLock, NSString, NSTimer, PCSimpleTimer;
+@class NSMapTable, NSRecursiveLock, NSString, NSTimer, PCSimpleTimer;
 
 @interface PCPersistentInterfaceManager : NSObject <PCInterfaceMonitorDelegate>
 {
     NSRecursiveLock *_lock;
-    struct __CFDictionary *_delegatesAndRunLoops;
+    NSMapTable *_delegatesAndQueues;
     struct __CFSet *_WiFiAutoAssociationDelegates;
     PCSimpleTimer *_WiFiAutoAssociationDisableTimer;
     struct __CFSet *_wakeOnWiFiDelegates;
     PCSimpleTimer *_wakeOnWiFiDisableTimer;
     void *_ctServerConnection;
     void *_interfaceAssertion;
-    void *_wifiManager;
     long _WWANContextIdentifier;
     NSString *_WWANInterfaceName;
     BOOL _isWWANInterfaceUp;
@@ -45,8 +44,6 @@
 - (void)bindCFStreamToWWANInterface:(struct __CFReadStream *)arg1;
 - (void)bindCFStream:(struct __CFReadStream *)arg1 toWWANInterface:(BOOL)arg2;
 - (BOOL)_allowBindingToWWAN;
-- (id)dhcpHalfLeaseExpirationDate;
-- (id)dhcpT1RenewalDate;
 - (void)_adjustWakeOnWiFiLocked;
 - (void)_adjustWakeOnWiFi;
 - (BOOL)_wantsWakeOnWiFiEnabled;
@@ -54,12 +51,10 @@
 - (void)_adjustWiFiAutoAssociationLocked;
 - (void)_adjustWiFiAutoAssociation;
 - (void)enableWiFiAutoAssociation:(BOOL)arg1 forDelegate:(id)arg2;
-- (void)_populateWakeOnWiFiCapabilityLocked;
-- (void)_populateWakeOnWiFiCapability;
-- (void)_createWiFiManager;
 - (void)_updateWWANInterfaceAssertionsLocked;
 - (void)_updateWWANInterfaceAssertions;
 - (BOOL)_wantsWWANInterfaceAssertion;
+- (void)cutWiFiManagerDeviceAttached:(id)arg1;
 @property(readonly) BOOL areAllNetworkInterfacesDisabled;
 @property(readonly) BOOL isWakeOnWiFiSupported;
 - (BOOL)_isWiFiUsable;
@@ -76,11 +71,10 @@
 @property(readonly) NSString *WWANInterfaceName;
 @property(readonly) BOOL isWWANInterfaceUp;
 @property(readonly) BOOL isWWANBetterThanWiFi;
-- (void)_performCalloutsForSelectorValue:(id)arg1;
 - (void)_scheduleCalloutsForSelector:(SEL)arg1;
 - (BOOL)_wifiIsPoorLinkQuality;
 - (BOOL)_wwanIsPoorLinkQuality;
-@property(readonly, nonatomic) NSString *currentLinkQualityString;
+@property(readonly, retain, nonatomic) NSString *currentLinkQualityString;
 - (void)_updateCTIsWWANInHomeCountry:(BOOL)arg1 isWWANInterfaceDataActive:(BOOL)arg2;
 - (void)_updateWWANInterfaceUpState;
 - (void)_updateWWANInterfaceUpStateLocked;
@@ -89,13 +83,19 @@
 - (void)handleMachMessage:(void *)arg1;
 - (void)interfaceReachabilityChanged:(id)arg1;
 - (void)interfaceLinkQualityChanged:(id)arg1 previousLinkQuality:(int)arg2;
-- (void)_ctConnectionWasInvalidated;
-- (void)_mainThreadDelayedInvalidation;
+- (void)_ctConnectionAttempt;
+- (void)_mainThreadCTConnectionAttempt;
 - (void)_createCTConnection;
 - (void)removeDelegate:(id)arg1;
-- (void)addDelegate:(id)arg1 callbackRunLoop:(id)arg2;
+- (void)addDelegate:(id)arg1 queue:(id)arg2;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

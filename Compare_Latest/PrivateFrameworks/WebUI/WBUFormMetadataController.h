@@ -14,11 +14,10 @@
 }
 
 + (id)sharedFormMetadataController;
-- (BOOL)formClassificationShouldIgnoreAutocompleteAttribute;
+- (void).cxx_destruct;
 - (void)clearScriptWorld;
 @property(readonly, nonatomic) WebScriptWorld *scriptWorld; // @synthesize scriptWorld=_scriptWorld;
 - (id)formAutoFillNodeForJSWrapper:(struct OpaqueJSValue *)arg1 inContext:(struct OpaqueJSContext *)arg2;
-- (void)dealloc;
 
 @end
 

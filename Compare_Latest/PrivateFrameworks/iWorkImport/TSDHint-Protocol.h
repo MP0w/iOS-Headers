@@ -10,6 +10,7 @@
 
 @protocol TSDHint <NSObject>
 + (Class)archivedHintClass;
+- (id <TSDHint>)copyForArchiving;
 - (id <TSDHint>)lastChildHint;
 - (id <TSDHint>)firstChildHint;
 - (void)offsetByDelta:(int)arg1;

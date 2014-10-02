@@ -54,6 +54,7 @@
 - (void)setCapabilitiesManager:(id)arg1;
 - (void)refreshVibrations;
 - (id)_vibrationManager;
+- (id)_toneManager;
 - (void)setAllowsVibrations:(BOOL)arg1;
 - (BOOL)allowsVibrations;
 - (BOOL)shouldShowAlertsWhenEditing:(BOOL)arg1;

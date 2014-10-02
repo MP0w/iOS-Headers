@@ -9,7 +9,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class NSArray, SKUIClientContext, SKUIColorScheme, SKUILayoutCache, SKUIProductPageHeaderViewController, SKUIProductPageTableView, UIColor, UITableView;
+@class NSArray, NSString, SKUIClientContext, SKUIColorScheme, SKUILayoutCache, SKUIProductPageHeaderViewController, SKUIProductPageTableView, UIColor, UITableView;
 
 @interface SKUIProductPageTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
@@ -55,6 +55,12 @@
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithReleaseNotes:(id)arg1 clientContext:(id)arg2;
 - (id)initWithInAppPurchases:(id)arg1 clientContext:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

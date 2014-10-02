@@ -20,8 +20,8 @@
 + (id)requestBagKey;
 + (id)fallbackRequestPath;
 + (id)cacheKeyForGenreWithNodeID:(unsigned long long)arg1;
-@property(readonly, nonatomic) SSMetricsPageEvent *metricsPageEvent; // @synthesize metricsPageEvent=_metricsPageEvent;
-@property(readonly, nonatomic) SSMetricsConfiguration *metricsConfiguration; // @synthesize metricsConfiguration=_metricsConfiguration;
+@property(readonly, copy, nonatomic) SSMetricsPageEvent *metricsPageEvent; // @synthesize metricsPageEvent=_metricsPageEvent;
+@property(readonly, retain, nonatomic) SSMetricsConfiguration *metricsConfiguration; // @synthesize metricsConfiguration=_metricsConfiguration;
 - (void).cxx_destruct;
 - (id)_genreTreeByApplyingResponse:(id)arg1;
 - (void)startWithCompletionHandler:(CDUnknownBlockType)arg1;

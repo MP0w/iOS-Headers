@@ -11,7 +11,7 @@
 }
 
 - (id)_queryForNowPlayingComparisonAtIndex:(unsigned int)arg1;
-- (void)_defaultsDidChangeNotification;
+- (void)_defaultsDidChangeNotification:(id)arg1;
 - (BOOL)_updateQueryPredicatesAndOrdering;
 - (BOOL)queryIsNowPlayingAtIndex:(unsigned int)arg1;
 - (id)playbackContextForIndex:(unsigned int)arg1;

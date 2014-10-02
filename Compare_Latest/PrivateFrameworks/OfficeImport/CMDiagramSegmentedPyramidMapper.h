@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
 - (unsigned int)layerCount;
 - (void)mapChildrenAt:(id)arg1 withState:(id)arg2;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
-- (int)pointCount;
+- (unsigned int)pointCount;
 
 @end
 

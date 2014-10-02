@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
 - (void)setAllValuesToZero;
 - (unsigned short)numberOfVisibleIndicesToMarkIndexFrom:(unsigned int)arg1;
 - (void)setMarkIndex:(unsigned int)arg1;
+- (unsigned int)findNthNextVisibleIndex:(unsigned int)arg1 fromIndex:(unsigned int)arg2;
 - (unsigned int)findNthPreviousVisibleIndex:(unsigned int)arg1 fromIndex:(unsigned int)arg2;
 - (unsigned int)findNextVisibleIndex:(unsigned int)arg1;
 - (unsigned int)findPreviousVisibleIndex:(unsigned int)arg1;

@@ -13,7 +13,7 @@
     CoreDAVItemWithNoChildren *_accessLevel;
 }
 
-@property(retain) CoreDAVItemWithNoChildren *accessLevel; // @synthesize accessLevel=_accessLevel;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *accessLevel; // @synthesize accessLevel=_accessLevel;
 - (id)copyParseRules;
 - (id)description;
 - (void)dealloc;

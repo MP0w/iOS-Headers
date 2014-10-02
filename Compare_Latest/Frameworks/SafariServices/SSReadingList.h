@@ -8,7 +8,7 @@
 
 #import "WebBookmarksXPCConnectionDelegate.h"
 
-@class NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, WebBookmarksXPCConnection;
+@class NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, NSString, WebBookmarksXPCConnection;
 
 @interface SSReadingList : NSObject <WebBookmarksXPCConnectionDelegate>
 {
@@ -20,6 +20,7 @@
 
 + (id)defaultReadingList;
 + (BOOL)supportsURL:(id)arg1;
+- (void).cxx_destruct;
 - (BOOL)addReadingListItemWithURL:(id)arg1 title:(id)arg2 previewText:(id)arg3 error:(id *)arg4;
 - (void)dealloc;
 - (id)_init;
@@ -27,6 +28,12 @@
 - (void)_sendBatchedReadingListItems;
 - (void)_addReadingListItemWithURL:(id)arg1 title:(id)arg2 previewText:(id)arg3;
 - (void)connection:(id)arg1 didCloseWithError:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

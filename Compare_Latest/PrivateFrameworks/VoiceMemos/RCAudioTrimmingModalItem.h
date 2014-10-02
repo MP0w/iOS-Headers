@@ -6,17 +6,18 @@
 
 #import "NSObject.h"
 
-@class AVAssetExportSession, AVItem, NSString, RCActionSheetController, RCAudioTrimmingModalItemViewController, RCSavedRecording, UIButton;
+@class AVAssetExportSession, NSOperationQueue, NSString, RCActionSheetController, RCAudioTrimmingModalItemViewController, RCSavedRecording, RCTrimTimeRangeOperation;
 
 @interface RCAudioTrimmingModalItem : NSObject
 {
-    UIButton *_playButton;
     AVAssetExportSession *_exportSession;
-    AVItem *_recordingItem;
     NSString *_sourcePath;
     NSString *_destinationPath;
     BOOL _playing;
     BOOL _isBeingDismissed;
+    BOOL _cancelTrimRequested;
+    RCTrimTimeRangeOperation *_trimOperation;
+    NSOperationQueue *_trimOperationQueue;
     RCActionSheetController *_presentedActionSheetController;
     RCAudioTrimmingModalItemViewController *_trimmingViewController;
     BOOL _deletesDestinationPathWhenDone;
@@ -29,8 +30,8 @@
 @property(readonly, nonatomic) RCSavedRecording *recording; // @synthesize recording=_recording;
 @property(nonatomic) double maximumTrimmedDuration; // @synthesize maximumTrimmedDuration=_maximumTrimmedDuration;
 @property(nonatomic) BOOL deletesDestinationPathWhenDone; // @synthesize deletesDestinationPathWhenDone=_deletesDestinationPathWhenDone;
-@property(readonly, nonatomic) NSString *destinationPath; // @synthesize destinationPath=_destinationPath;
-@property(readonly, nonatomic) NSString *sourcePath; // @synthesize sourcePath=_sourcePath;
+@property(readonly, copy, nonatomic) NSString *destinationPath; // @synthesize destinationPath=_destinationPath;
+@property(readonly, copy, nonatomic) NSString *sourcePath; // @synthesize sourcePath=_sourcePath;
 @property(nonatomic) __weak id <RCAudioTrimmingModalItemDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_applicationWillResignActive:(id)arg1;

@@ -8,11 +8,12 @@
 
 #import "SSXPCCoding.h"
 
-@class NSNumber;
+@class NSNumber, NSString;
 
 @interface SSKeybagRequest : SSRequest <SSXPCCoding>
 {
     NSNumber *_accountID;
+    id _contentIdentifier;
     int _options;
 }
 
@@ -21,9 +22,16 @@
 - (id)copyXPCEncoding;
 - (void)startWithCompletionBlock:(CDUnknownBlockType)arg1;
 @property int keybagOptions; // @synthesize keybagOptions=_options;
+@property(copy) id contentIdentifier; // @synthesize contentIdentifier=_contentIdentifier;
 - (id)accountIdentifier;
 - (void)dealloc;
 - (id)initWithAccountIdentifier:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

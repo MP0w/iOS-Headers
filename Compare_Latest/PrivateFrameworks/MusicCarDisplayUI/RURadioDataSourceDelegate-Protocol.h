@@ -12,6 +12,5 @@
 
 @optional
 - (void)radioDataSourceDidInvalidate:(RURadioDataSource *)arg1;
-- (void)radioDataSourceDidDeauthenticate:(RURadioDataSource *)arg1;
 @end
 

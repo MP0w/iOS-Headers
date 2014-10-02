@@ -9,21 +9,27 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class NSString;
+@class NSIndexPath, NSString;
 
 @interface CalendarEventAlarmTable : UITableView <UITableViewDelegate, UITableViewDataSource>
 {
     int _alarmIdentifier;
     NSString *_customString;
-    int _selectedItem;
     BOOL _immediateAlarmCreation;
+    NSIndexPath *_selectedItem;
     BOOL _useAllDayAlarms;
     BOOL _shouldAllowAlarmsTriggeringAfterStartDate;
     BOOL _customSelected;
+    BOOL _shouldShowLeaveNowOption;
+    BOOL _leaveNowAlarmSelected;
+    BOOL _eventHasTravelTime;
     id <CalendarEventAlarmTableDelegate> _alarmTableDelegate;
     id <EKStyleProvider> _styleProvider;
 }
 
+@property(nonatomic) BOOL eventHasTravelTime; // @synthesize eventHasTravelTime=_eventHasTravelTime;
+@property(nonatomic) BOOL leaveNowAlarmSelected; // @synthesize leaveNowAlarmSelected=_leaveNowAlarmSelected;
+@property(nonatomic) BOOL shouldShowLeaveNowOption; // @synthesize shouldShowLeaveNowOption=_shouldShowLeaveNowOption;
 @property(nonatomic) BOOL customSelected; // @synthesize customSelected=_customSelected;
 @property(nonatomic) BOOL shouldAllowAlarmsTriggeringAfterStartDate; // @synthesize shouldAllowAlarmsTriggeringAfterStartDate=_shouldAllowAlarmsTriggeringAfterStartDate;
 @property(nonatomic) BOOL useAllDayAlarms; // @synthesize useAllDayAlarms=_useAllDayAlarms;
@@ -34,15 +40,23 @@
 - (unsigned int)countOfPresets;
 - (int)intervalForPresetIdentifier:(int)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 titleForFooterInSection:(int)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (int)numberOfSectionsInTableView:(id)arg1;
 - (void)setCustomString:(id)arg1;
 - (int)presetIdentifier;
 - (void)setPresetIdentifier:(int)arg1;
-- (void)_selectRow:(int)arg1;
+- (void)_selectIndexPath:(id)arg1;
 - (int)_presetIdentifierForRow:(int)arg1;
-- (int)rowForPresetIdentifier:(int)arg1;
+- (id)_indexPathForPresetIdentifier:(int)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

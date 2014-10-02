@@ -8,7 +8,7 @@
 
 #import "TSKSearchReference.h"
 
-@class NSArray, TSCHChartDrawableInfo, TSCHSearchSelection;
+@class NSArray, NSString, TSCHChartDrawableInfo, TSCHSearchSelection;
 
 __attribute__((visibility("hidden")))
 @interface TSCHSearchReference : NSObject <TSKSearchReference>
@@ -38,6 +38,12 @@ __attribute__((visibility("hidden")))
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithSelection:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -7,13 +7,12 @@
 #import "IMChat.h"
 
 @interface IMChat (CKAdditions)
-- (BOOL)__ck_hasValidAccountForService:(id)arg1;
-- (BOOL)__ck_accountIsOperational:(id)arg1 forService:(id)arg2;
-- (void)__ck_setAndIncrementDowngradeMarkersForManual:(BOOL)arg1;
-- (BOOL)__ck_hasDowngradeMarkers;
-- (void)__ck_clearDowngradeMarkers;
-- (void)__ck_setPreviousAccount:(id)arg1 forService:(id)arg2;
-- (id)__ck_previousAccountForService:(id)arg1;
-- (id)__ck_placeholderDate;
+- (void)__ck_setMuteUntilDate:(id)arg1;
+- (id)__ck_muteUntilDate;
+- (BOOL)__ck_isMuted;
+- (void)__ck_saveWatermark;
+- (void)__ck_updateWatermarkToMessageID:(long long)arg1 date:(id)arg2;
+- (id)__ck_watermarkDate;
+- (long long)__ck_watermarkMessageID;
 @end
 

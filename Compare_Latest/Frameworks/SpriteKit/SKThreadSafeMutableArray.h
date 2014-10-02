@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
-@property(readonly) NSArray *arrayRepresentation;
+@property(readonly) __weak NSArray *arrayRepresentation;
 - (id)description;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)removeObjectsInArray:(id)arg1;

@@ -15,16 +15,18 @@
     double _priority;
     UIWindow *_window;
     NSString *_bundleID;
+    int _pid;
 }
 
-@property(readonly, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
+@property(readonly, nonatomic) int pid; // @synthesize pid=_pid;
+@property(readonly, copy, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
 @property(readonly, nonatomic) UIWindow *window; // @synthesize window=_window;
 @property(readonly, nonatomic) double priority; // @synthesize priority=_priority;
 @property(readonly, nonatomic) long long type; // @synthesize type=_type;
-@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (id)description;
 - (void)dealloc;
-- (id)initWithName:(id)arg1 type:(long long)arg2 priority:(double)arg3 window:(id)arg4 application:(id)arg5;
+- (id)initWithName:(id)arg1 type:(long long)arg2 priority:(double)arg3 window:(id)arg4 application:(id)arg5 pid:(int)arg6;
 
 @end
 

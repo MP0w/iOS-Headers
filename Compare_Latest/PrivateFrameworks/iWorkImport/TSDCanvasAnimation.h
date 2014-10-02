@@ -40,7 +40,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) SEL willStartSelector; // @synthesize willStartSelector=_willStartSelector;
 @property(nonatomic) id delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) void *context; // @synthesize context=_context;
-@property(readonly, nonatomic) NSString *animationID; // @synthesize animationID=_animationID;
+@property(readonly, retain, nonatomic) NSString *animationID; // @synthesize animationID=_animationID;
 - (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
 - (void)animationDidStart:(id)arg1;
 - (void)setAnimation:(id)arg1 forLayer:(id)arg2 forKey:(id)arg3;

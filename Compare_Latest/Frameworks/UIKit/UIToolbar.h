@@ -39,6 +39,8 @@
     UIView *_shadowView;
     BOOL _isAdaptiveToolbarDisabled;
     BOOL _wantsLetterpressContent;
+    BOOL _centerTextButtons;
+    BOOL _collapsed;
     int _barPosition;
     NSString *_backdropViewLayerGroupName;
 }
@@ -50,7 +52,9 @@
 + (Class)defaultTextButtonClass;
 + (Class)defaultButtonClass;
 + (float)_buttonGap;
+@property(nonatomic, getter=isCollapsed) BOOL collapsed; // @synthesize collapsed=_collapsed;
 @property(retain, nonatomic, getter=_backdropViewLayerGroupName, setter=_setBackdropViewLayerGroupName:) NSString *backdropViewLayerGroupName; // @synthesize backdropViewLayerGroupName=_backdropViewLayerGroupName;
+@property(nonatomic) BOOL centerTextButtons; // @synthesize centerTextButtons=_centerTextButtons;
 @property(readonly, nonatomic) int barPosition; // @synthesize barPosition=_barPosition;
 @property(nonatomic, setter=_setWantsLetterpressContent:) BOOL _wantsLetterpressContent; // @synthesize _wantsLetterpressContent;
 @property(nonatomic, getter=_isAdaptiveToolbarDisabled, setter=_setAdaptiveToolbarDisabled:) BOOL _adaptiveToolbarDisabled; // @synthesize _adaptiveToolbarDisabled=_isAdaptiveToolbarDisabled;
@@ -77,8 +81,6 @@
 - (void)setTranslatesAutoresizingMaskIntoConstraints:(BOOL)arg1;
 - (struct CGSize)defaultSizeForOrientation:(int)arg1;
 - (void)setItems:(id)arg1 animated:(BOOL)arg2;
-- (void)_finishSetItems:(id)arg1 finished:(id)arg2 context:(id)arg3;
-- (void)_didFinishHidingRetainedOldItems:(id)arg1;
 - (void)_sendAction:(id)arg1 withEvent:(id)arg2;
 - (void)backdropView:(id)arg1 didChangeToGraphicsQuality:(int)arg2;
 - (id)backdropView:(id)arg1 willChangeToGraphicsQuality:(int)arg2;
@@ -172,6 +174,12 @@
 - (float)_autolayoutSpacingAtEdge:(int)arg1 nextToNeighbor:(id)arg2;
 - (float)_autolayoutSpacingAtEdge:(int)arg1 inContainer:(id)arg2;
 - (BOOL)_hasCustomAutolayoutNeighborSpacing;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -10,7 +10,7 @@
 #import "KNChunkableBuildAnimator.h"
 #import "KNFrameBuildAnimator.h"
 
-@class KNMotionBlurAnimationPluginWrapper;
+@class KNMotionBlurAnimationPluginWrapper, NSString;
 
 __attribute__((visibility("hidden")))
 @interface KNBuildSquish : KNAnimationEffect <KNChunkableBuildAnimator, KNFrameBuildAnimator, KNAnimationPluginArchiving>
@@ -36,6 +36,12 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)frameOfEffectWithFrame:(struct CGRect)arg1 context:(id)arg2;
 - (id)animationsWithContext:(id)arg1;
 - (id)p_bouncePointArrayForDuration:(double)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

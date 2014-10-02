@@ -17,8 +17,16 @@ __attribute__((visibility("hidden")))
             float _field1;
             float _field2;
         } _field1;
-        CDStruct_03942939 _field2;
-        CDStruct_03942939 _field3;
+        struct {
+            float _field1;
+            float _field2;
+            float _field3;
+        } _field2;
+        struct {
+            float _field1;
+            float _field2;
+            float _field3;
+        } _field3;
         struct {
             float _field1;
             float _field2;
@@ -39,8 +47,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) float speedMax; // @synthesize speedMax=_speedMax;
 @property(nonatomic) float speedMaxLimiter; // @synthesize speedMaxLimiter=_speedMaxLimiter;
 - (CDStruct_b2fbf00d)lifeSpanAtIndexPoint:(struct CGPoint)arg1;
-- (CDStruct_03942939)speedAtIndexPoint:(struct CGPoint)arg1;
-- (CDStruct_03942939)rotationAtIndexPoint:(struct CGPoint)arg1;
+- (CDStruct_869f9c67)speedAtIndexPoint:(struct CGPoint)arg1;
+- (CDStruct_869f9c67)rotationAtIndexPoint:(struct CGPoint)arg1;
 - (CDStruct_b2fbf00d)centerAtIndexPoint:(struct CGPoint)arg1;
 - (CDStruct_b2fbf00d)vertexPositionAtVertexIndex:(unsigned int)arg1 particleIndexPoint:(struct CGPoint)arg2;
 - (void)dealloc;

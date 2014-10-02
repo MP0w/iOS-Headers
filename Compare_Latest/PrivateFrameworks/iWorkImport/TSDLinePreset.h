@@ -17,9 +17,9 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)lineWithStroke:(id)arg1 headLineEnd:(id)arg2 tailLineEnd:(id)arg3;
-@property(readonly, nonatomic) TSDStroke *stroke; // @synthesize stroke=mStroke;
-@property(readonly, nonatomic) TSDLineEnd *tailLineEnd; // @synthesize tailLineEnd=mTailLineEnd;
-@property(readonly, nonatomic) TSDLineEnd *headLineEnd; // @synthesize headLineEnd=mHeadLineEnd;
+@property(readonly, copy, nonatomic) TSDStroke *stroke; // @synthesize stroke=mStroke;
+@property(readonly, copy, nonatomic) TSDLineEnd *tailLineEnd; // @synthesize tailLineEnd=mTailLineEnd;
+@property(readonly, copy, nonatomic) TSDLineEnd *headLineEnd; // @synthesize headLineEnd=mHeadLineEnd;
 - (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithStroke:(id)arg1 headLineEnd:(id)arg2 tailLineEnd:(id)arg3;

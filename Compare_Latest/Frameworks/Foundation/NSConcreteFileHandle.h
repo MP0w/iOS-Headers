@@ -6,7 +6,7 @@
 
 #import <Foundation/NSFileHandle.h>
 
-@class NSObject<OS_dispatch_data>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>;
+@class NSObject<OS_dispatch_data>, NSObject<OS_dispatch_io>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>;
 
 __attribute__((visibility("hidden")))
 @interface NSConcreteFileHandle : NSFileHandle
@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_source> *_dsrc;
     NSObject<OS_dispatch_data> *_resultData;
     NSObject<OS_dispatch_queue> *_fhQueue;
+    NSObject<OS_dispatch_io> *_readChannel;
     CDUnknownBlockType _readabilityHandler;
     CDUnknownBlockType _writeabilityHandler;
     NSObject<OS_dispatch_source> *_readMonitoringSource;

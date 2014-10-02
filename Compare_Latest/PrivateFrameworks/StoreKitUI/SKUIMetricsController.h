@@ -10,12 +10,12 @@
 
 @interface SKUIMetricsController : NSObject
 {
-    NSNumber *_accountID;
     SKUIMetricsImpressionSession *_activeImpressionsSession;
     NSString *_applicationIdentifier;
     SSMetricsController *_controller;
     BOOL _flushesImmediately;
     SSMetricsConfiguration *_globalConfiguration;
+    NSString *_hostApplicationIdentifier;
     BOOL _impressionsEnabled;
     NSObject<OS_dispatch_source> *_impressionsTimer;
     BOOL _loggingEnabled;
@@ -34,9 +34,9 @@
 @property(copy, nonatomic) NSString *pageURL; // @synthesize pageURL=_pageURL;
 @property(copy, nonatomic) NSString *pageContext; // @synthesize pageContext=_pageContext;
 @property(retain, nonatomic) SSMetricsConfiguration *pageConfiguration; // @synthesize pageConfiguration=_pageConfiguration;
+@property(copy, nonatomic) NSString *hostApplicationIdentifier; // @synthesize hostApplicationIdentifier=_hostApplicationIdentifier;
 @property(readonly, nonatomic) SSMetricsConfiguration *globalConfiguration; // @synthesize globalConfiguration=_globalConfiguration;
 @property(copy, nonatomic) NSString *applicationIdentifier; // @synthesize applicationIdentifier=_applicationIdentifier;
-@property(copy, nonatomic) NSNumber *accountIdentifier; // @synthesize accountIdentifier=_accountID;
 - (void).cxx_destruct;
 - (void)_recordActiveImpressions;
 - (void)_insertEvent:(id)arg1;
@@ -46,6 +46,7 @@
 - (void)recordBuyConfirmedEventsForItems:(id)arg1 purchaseResponses:(id)arg2;
 - (void)pingURLs:(id)arg1 withClientContext:(id)arg2;
 - (void)pingURLs:(id)arg1;
+- (id)performActionForItem:(id)arg1 offer:(id)arg2 clientContext:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (id)performActionForItem:(id)arg1 offer:(id)arg2 clientContext:(id)arg3;
 - (id)performActionForItem:(id)arg1 clientContext:(id)arg2;
 - (id)performActionForItem:(id)arg1;
@@ -59,6 +60,7 @@
 - (id)clickEventWithItem:(id)arg1 locationPosition:(int)arg2;
 - (BOOL)canRecordEventWithType:(id)arg1;
 @property(readonly, nonatomic) SKUIMetricsImpressionSession *activeImpressionsSession;
+@property(readonly, nonatomic) NSNumber *accountIdentifier;
 - (void)dealloc;
 - (id)initWithGlobalConfiguration:(id)arg1;
 

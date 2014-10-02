@@ -9,7 +9,7 @@
 #import "SKUIArtworkRequestDelegate.h"
 #import "SKUIMissingItemDelegate.h"
 
-@class NSArray, NSMapTable, SKUIIconDataConsumer, SKUIMissingItemLoader, SKUIProductPageTableHeaderView, SKUIProductPageTableSeparatorView, SKUIResourceLoader, UIImage;
+@class NSArray, NSMapTable, NSString, SKUIMissingItemLoader, SKUIProductPageTableHeaderView, SKUIProductPageTableSeparatorView, SKUIResourceLoader, SKUIStyledImageDataConsumer, UIImage;
 
 @interface SKUIProductPageTableLockupsSection : SKUIProductPageTableSection <SKUIArtworkRequestDelegate, SKUIMissingItemDelegate>
 {
@@ -19,7 +19,7 @@
     NSArray *_lockups;
     SKUIMissingItemLoader *_missingItemLoader;
     UIImage *_placeholderImage;
-    SKUIIconDataConsumer *_productImageDataConsumer;
+    SKUIStyledImageDataConsumer *_productImageDataConsumer;
     SKUIResourceLoader *_resourceLoader;
 }
 
@@ -37,6 +37,12 @@
 - (id)footerViewForTableView:(id)arg1;
 - (void)dealloc;
 - (id)initWithLockups:(id)arg1 title:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

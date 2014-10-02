@@ -8,6 +8,8 @@
 
 #import "GQUOutputBundle.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface GQUIglooOutputBundle : NSObject <GQUOutputBundle>
 {
@@ -28,6 +30,12 @@ __attribute__((visibility("hidden")))
 - (void)setUriPrefix:(struct __CFString *)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

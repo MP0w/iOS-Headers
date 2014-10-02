@@ -6,17 +6,13 @@
 
 #import "NSObject.h"
 
-@class BKSSystemServiceClient;
+@class FBSSystemService;
 
 @interface BKSSystemService : NSObject
 {
-    BKSSystemServiceClient *_client;
+    FBSSystemService *_fbsSystemService;
 }
 
-@property(retain, nonatomic) BKSSystemServiceClient *client; // @synthesize client=_client;
-- (void)fireCompletion:(CDUnknownBlockType)arg1 error:(id)arg2;
-- (id)clientCallbackQueue;
-- (id)_badArgumentError;
 - (void)cleanupClientPort:(unsigned int)arg1;
 - (unsigned int)createClientPort;
 - (void)openURL:(id)arg1 application:(id)arg2 options:(id)arg3 clientPort:(unsigned int)arg4 withResult:(CDUnknownBlockType)arg5;

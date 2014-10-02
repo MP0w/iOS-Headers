@@ -16,22 +16,24 @@
     id <NSObject> _representedObject;
     struct b2BodyDef _bodyDef;
     struct b2Body *_body;
-    struct b2PKField *_field;
+    struct PKCField *_field;
     int _dynamicType;
     vector_4360c5cc _shapes;
     PKPhysicsWorld *_world;
     NSMutableArray *_joints;
     BOOL _inUse;
     int _shapeType;
-    struct CGPath *_path;
+    shared_ptr_2aaf3a07 _pathPtr;
+    shared_ptr_639e7c03 _quadTree;
     struct CGPoint _p0;
     struct CGPoint _p1;
     struct CGSize _size;
     float _radius;
     float _edgeRadius;
     struct CGImage *_mask;
-    float _canonicalXScale;
-    float _canonicalYScale;
+    shared_ptr_2aaf3a07 _outline;
+    BOOL _isPinned;
+    BOOL _allowsRotation;
     CDUnknownBlockType _postStepBlock;
 }
 
@@ -46,6 +48,9 @@
 + (id)bodyWithCircleOfRadius:(float)arg1 center:(struct CGPoint)arg2;
 + (id)bodyWithCircleOfRadius:(float)arg1;
 + (id)bodyWithBodies:(id)arg1;
++ (id)initWithMarchingCubes:(struct PKCGrid *)arg1 pixelFrame:(struct CGRect)arg2;
++ (id)initWithQuadTree:(id)arg1;
++ (id)bodyWithOutline:(shared_ptr_2aaf3a07)arg1 offset:(struct CGPoint)arg2;
 @property(copy, nonatomic) CDUnknownBlockType postStepBlock; // @synthesize postStepBlock=_postStepBlock;
 - (id).cxx_construct;
 - (void).cxx_destruct;
@@ -60,7 +65,6 @@
 @property(nonatomic) float restitution;
 @property(nonatomic) float radius;
 - (void)reapplyScale:(float)arg1 yScale:(float)arg2;
-- (void)setCanonicalScale:(float)arg1 yScale:(float)arg2;
 @property(readonly, nonatomic) float area;
 @property(nonatomic) float density;
 @property(nonatomic) float mass;
@@ -71,6 +75,7 @@
 @property(nonatomic) struct CGVector velocity;
 @property(nonatomic) unsigned int contactTestBitMask;
 @property(nonatomic) unsigned int collisionBitMask;
+@property(nonatomic) unsigned int fieldBitMask;
 @property(nonatomic) unsigned int categoryBitMask;
 @property(nonatomic) BOOL affectedByGravity;
 @property(nonatomic) BOOL usesPreciseCollisionDetection;
@@ -90,6 +95,7 @@
 - (BOOL)_allowSleep;
 - (void)set_allowSleep:(BOOL)arg1;
 @property(nonatomic) struct CGPoint position;
+@property(nonatomic) BOOL pinned;
 @property(nonatomic) __weak id <NSObject> representedObject;
 - (id)initWithEdgeLoopFromPath:(struct CGPath *)arg1;
 - (id)initWithEdgeChainFromPath:(struct CGPath *)arg1;
@@ -105,20 +111,19 @@
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (void)clearBox2DData;
+@property(nonatomic) shared_ptr_2aaf3a07 outline;
 @property(nonatomic) struct b2Body *_body;
 @property(nonatomic) struct b2BodyDef _bodyDef;
 - (void)set_inUse:(BOOL)arg1;
 - (BOOL)_inUse;
 - (void)set_joints:(id)arg1;
 - (id)_joints;
+- (shared_ptr_639e7c03)_quadTree;
 - (id)_world;
 - (void)set_world:(id)arg1;
 - (void)setActive:(BOOL)arg1;
 - (BOOL)active;
-- (BOOL)isSensor;
-- (void)setIsSensor:(BOOL)arg1;
-@property(nonatomic) struct b2FixtureDef _fixtureDef;
-@property(nonatomic) struct b2Fixture *_fixture;
 @property(readonly, nonatomic) vector_4360c5cc *_shapes;
 
 @end

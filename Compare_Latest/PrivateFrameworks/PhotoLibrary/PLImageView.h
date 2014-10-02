@@ -6,7 +6,7 @@
 
 #import "UIImageView.h"
 
-@class NSString, PLPhotoTilePlaceholderView, PLVideoView, UILabel, UIView;
+@class NSString, PLPhotoTilePlaceholderView, PLTiledLayer, PLVideoView, UILabel, UIView;
 
 @interface PLImageView : UIImageView
 {
@@ -27,6 +27,8 @@
     double _lastShadowAlphaTime;
     float _transitionProgress;
     BOOL _edgeAntialiasingEnabled;
+    PLTiledLayer *_fullSizeImageTiledLayer;
+    int _fullSizeImageOrientation;
     BOOL _showsPlaceholder;
     float _accessoryViewsAlpha;
     float _placeholderScale;
@@ -63,6 +65,9 @@
 @property(nonatomic, getter=isShadowEnabled) BOOL shadowEnabled;
 - (void)_setShadowEnabled:(BOOL)arg1 force:(BOOL)arg2;
 - (void)setImage:(id)arg1;
+- (struct CGAffineTransform)_transformForFullSizeImageTiledLayer;
+- (void)updateFullSizeImageVisibleArea;
+- (void)setFullSizeImageJPEGData:(id)arg1 size:(struct CGSize)arg2 orientation:(int)arg3;
 - (void)_updateShadowPath;
 - (void)layoutSubviews;
 - (struct CGRect)_bottomRightAccessoryViewFrame;

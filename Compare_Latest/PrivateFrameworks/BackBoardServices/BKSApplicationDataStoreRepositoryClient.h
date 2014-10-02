@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <BackBoardServices/BKSBaseXPCClient.h>
+#import "BSBaseXPCClient.h"
 
 @class NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
-@interface BKSApplicationDataStoreRepositoryClient : BKSBaseXPCClient
+@interface BKSApplicationDataStoreRepositoryClient : BSBaseXPCClient
 {
     NSMutableDictionary *_prefetchedKeyCounts;
     NSMutableDictionary *_prefetchedKeyValues;
@@ -32,9 +32,9 @@
 - (void)queue_connectionWasCreated;
 - (void)removeAllObjectsForApplication:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)removeObjectForKey:(id)arg1 forApplication:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
-- (void)setObject:(id)arg1 forKey:(id)arg2 forApplication:(id)arg3 withCompletion:(CDUnknownBlockType)arg4;
-- (void)objectForKey:(id)arg1 forApplication:(id)arg2 withResult:(CDUnknownBlockType)arg3 checkPrefetch:(BOOL)arg4;
-- (void)objectForKey:(id)arg1 forApplication:(id)arg2 withResult:(CDUnknownBlockType)arg3;
+- (void)setObject:(id)arg1 forKey:(id)arg2 forApplication:(id)arg3 useBSXPCCoding:(BOOL)arg4 withCompletion:(CDUnknownBlockType)arg5;
+- (void)objectForKey:(id)arg1 forApplication:(id)arg2 withResult:(CDUnknownBlockType)arg3 checkPrefetch:(BOOL)arg4 useBSXPCCoding:(BOOL)arg5;
+- (void)objectForKey:(id)arg1 forApplication:(id)arg2 useBSXPCCoding:(BOOL)arg3 withResult:(CDUnknownBlockType)arg4;
 - (void)availableDataStores:(CDUnknownBlockType)arg1;
 - (void)synchronizeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_sendPrefetchedKeys:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;

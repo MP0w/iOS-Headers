@@ -8,7 +8,7 @@
 
 #import "TSDAnimationSession.h"
 
-@class KNAnimatedSlideView, KNAnimationContext, KNShow, KNSlideNode, NSMutableArray, TSULRUCache;
+@class KNAnimatedSlideView, KNAnimationContext, KNShow, KNSlideNode, NSMutableArray, NSString, TSULRUCache;
 
 __attribute__((visibility("hidden")))
 @interface KNPlaybackSession : NSObject <TSDAnimationSession>
@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
     KNShow *mShow;
     KNAnimationContext *mAnimationContext;
     int mPlayMode;
+    NSObject *mCurrentRenderingTicket;
     BOOL mSkipSlides;
     BOOL mShouldAnimateTransitionOnLastSlide;
     BOOL mShouldAnimateNullTransitions;
@@ -34,10 +35,16 @@ __attribute__((visibility("hidden")))
     BOOL mShouldAutomaticallyPlayMovies;
     BOOL mShouldShowVideoReflectionsAndMasks;
     BOOL mShouldForceTextureGeneration;
+    BOOL mShouldDrawTexturesAsynchronously;
     BOOL mShouldAlwaysSetCurrentGLContextWhenDrawing;
+    BOOL mShouldUseSourceImage;
+    BOOL _isExitingShow;
 }
 
+@property(nonatomic) BOOL isExitingShow; // @synthesize isExitingShow=_isExitingShow;
+@property(nonatomic) BOOL shouldUseSourceImage; // @synthesize shouldUseSourceImage=mShouldUseSourceImage;
 @property(nonatomic) BOOL shouldAlwaysSetCurrentGLContextWhenDrawing; // @synthesize shouldAlwaysSetCurrentGLContextWhenDrawing=mShouldAlwaysSetCurrentGLContextWhenDrawing;
+@property(nonatomic) BOOL shouldDrawTexturesAsynchronously; // @synthesize shouldDrawTexturesAsynchronously=mShouldDrawTexturesAsynchronously;
 @property(nonatomic) BOOL shouldForceTextureGeneration; // @synthesize shouldForceTextureGeneration=mShouldForceTextureGeneration;
 @property(nonatomic) BOOL shouldShowVideoReflectionsAndMasks; // @synthesize shouldShowVideoReflectionsAndMasks=mShouldShowVideoReflectionsAndMasks;
 @property(nonatomic) BOOL shouldAutomaticallyPlayMovies; // @synthesize shouldAutomaticallyPlayMovies=mShouldAutomaticallyPlayMovies;
@@ -58,10 +65,11 @@ __attribute__((visibility("hidden")))
 - (void)cancelEndShowHandler;
 - (void)p_executeEndShowHandler;
 - (void)executeEndShowHandlerAfterDelay:(double)arg1;
+- (void)renderConcurrentlyOutgoingSlideTexture:(id)arg1 andIncomingSlideTexture:(id)arg2;
 - (void)renderTextureSetContentsIfNeeded:(id)arg1;
 - (void)renderTextureContentsIfNeeded:(id)arg1;
-- (id)renderedTextureSetForRep:(id)arg1 context:(id)arg2;
-- (id)renderedTextureSetForRep:(id)arg1;
+- (id)textureSetForRep:(id)arg1 context:(id)arg2 shouldRender:(BOOL)arg3;
+- (id)textureSetForRep:(id)arg1 shouldRender:(BOOL)arg2;
 - (void)invalidateSlideNumberLayoutsOnCanvas:(id)arg1;
 - (id)repForInfo:(id)arg1 onCanvas:(id)arg2;
 - (id)newCanvas;
@@ -69,9 +77,8 @@ __attribute__((visibility("hidden")))
 - (BOOL)isOffscreenPlayback;
 @property(readonly, nonatomic) BOOL isPreview;
 - (unsigned int)slideNumberForSlideNode:(id)arg1;
-- (id)newTextureForSlideNode:(id)arg1 atEventIndex:(unsigned int)arg2;
-- (id)newTextureForCurrentEvent;
-- (id)preloadTexturesForSlideNode:(id)arg1 atSlideIndex:(unsigned int)arg2;
+- (id)newInitialTextureForIncomingSlide;
+- (id)newFinalTextureForOutgoingSlide;
 - (id)newTransitionTo:(id)arg1;
 - (void)invalidateAnimatedSlideViewCache;
 - (id)animatedSlideViewFor:(id)arg1 setupTransition:(BOOL)arg2;
@@ -96,6 +103,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithShow:(id)arg1 viewScale:(float)arg2 baseLayer:(id)arg3 isBaseLayerVisible:(BOOL)arg4 canvasDelegate:(id)arg5 endShowHandler:(CDUnknownBlockType)arg6;
 @property(readonly, nonatomic) BOOL shouldShowInstructionalText;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

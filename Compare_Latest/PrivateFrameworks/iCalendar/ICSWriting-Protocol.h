@@ -7,6 +7,9 @@
 @class NSMutableString, NSSet, NSString;
 
 @protocol ICSWriting
+- (BOOL)shouldObscureValue;
+- (NSSet *)parametersToObscure;
+- (NSSet *)propertiesToObscure;
 - (NSSet *)propertiesThatIfPresentExcludeThisComponentFromChecksummingForVersion:(int)arg1;
 - (NSSet *)parametersToIncludeForChecksumVersion:(int)arg1;
 - (NSSet *)propertiesToIncludeForChecksumVersion:(int)arg1;

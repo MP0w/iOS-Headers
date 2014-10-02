@@ -13,7 +13,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void)reportWarningsWithAssociatedObject:(id)arg1;
-- (void)addWarning:(struct CPTaggedMessageStructure *)arg1;
+- (void)addWarning:(struct TCTaggedMessageStructure *)arg1;
 - (void)dealloc;
 - (id)init;
 

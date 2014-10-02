@@ -8,6 +8,8 @@
 
 #import "GQDNameMappable.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface GQDWPExternalTextWrap : NSObject <GQDNameMappable>
 {
@@ -31,6 +33,12 @@ __attribute__((visibility("hidden")))
 - (BOOL)inlineWrapEnabled;
 - (BOOL)floatingWrapEnabled;
 - (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

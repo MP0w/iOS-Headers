@@ -6,36 +6,48 @@
 
 #import "NSObject.h"
 
-#import "BBRemoteDataProviderRegistration.h"
-#import "BBXPCConnectionDelegate.h"
-#import "XPCProxyTarget.h"
+#import "BBDataProviderConnectionServerProxy.h"
+#import "BBDataProviderStore.h"
+#import "BBRemoteDataProviderDelegate.h"
 
-@class BBXPCIncomingConnection, NSMutableSet, NSString;
+@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
-@interface BBRemoteDataProviderConnection : NSObject <BBXPCConnectionDelegate, XPCProxyTarget, BBRemoteDataProviderRegistration>
+@interface BBRemoteDataProviderConnection : NSObject <BBRemoteDataProviderDelegate, BBDataProviderConnectionServerProxy, BBDataProviderStore>
 {
-    BBXPCIncomingConnection *_connection;
     NSString *_serviceName;
-    NSString *_appBundleID;
-    BOOL _registered;
+    NSString *_bundleID;
     BOOL _connected;
-    NSMutableSet *_pendingProviders;
-    id <BBRemoteDataProviderConnectionDelegate> _delegate;
+    id <BBRemoteDataProviderStoreDelegate> _delegate;
+    NSObject<OS_dispatch_queue> *_queue;
+    NSMutableDictionary *_dataProvidersBySectionID;
+    NSMutableDictionary *_dataProvidersByUniversalSectionID;
+    BOOL _clientReady;
 }
 
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
-- (void)_noteConnectionStateChanged;
-- (void)connection:(id)arg1 connectionStateDidChange:(BOOL)arg2;
+@property(readonly, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
+@property(readonly, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
+- (void)performBlockOnDataProviders:(CDUnknownBlockType)arg1;
+- (void)removeDataProvider:(id)arg1;
+- (id)dataProviderForUniversalSectionID:(id)arg1;
+- (id)dataProviderForSectionID:(id)arg1;
+- (void)loadAllDataProviders;
+- (void)clientIsReady:(CDUnknownBlockType)arg1;
+- (void)addParentSectionFactory:(id)arg1;
 - (void)removeDataProviderWithSectionID:(id)arg1;
-- (void)addDataProviderWithSectionID:(id)arg1;
-- (void)registerServiceName:(id)arg1 appBundleID:(id)arg2;
-- (void)ping:(CDUnknownBlockType)arg1;
-- (id)appBundleID;
-- (id)serviceName;
-- (void)resume;
-- (void)invalidate;
+- (void)remoteDataProviderNeedsToWakeClient:(id)arg1;
+- (void)addDataProviderWithSectionID:(id)arg1 clientProxy:(id)arg2 identity:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_queue_removeDataProvider:(id)arg1;
+- (void)setConnected:(BOOL)arg1 completion:(CDUnknownBlockType)arg2;
+@property(readonly, nonatomic) BOOL isConnected;
+@property(readonly, copy) NSString *debugDescription;
+- (id)debugDescriptionWithChildren:(unsigned int)arg1;
 - (void)dealloc;
-- (id)initWithConnection:(id)arg1 onQueue:(id)arg2 delegate:(id)arg3;
+- (id)initWithServiceName:(id)arg1 bundleID:(id)arg2 delegate:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

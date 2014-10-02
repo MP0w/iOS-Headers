@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <QuickLook/QLRemotePrintPageHelper.h>
+#import <QuickLook/QLWebViewPrintPageHelper.h>
 
 @class NSMutableArray, UIWebBrowserView, UIWebPaginationInfo;
 
-@interface QLSpreadsheetPrintPageRenderer : QLRemotePrintPageHelper
+@interface QLSpreadsheetPrintPageRenderer : QLWebViewPrintPageHelper
 {
     UIWebBrowserView *_printView;
     UIWebPaginationInfo *_paginationInfo;
@@ -22,7 +22,7 @@
 
 - (void)webView:(id)arg1 didFailLoadWithError:(id)arg2 forFrame:(id)arg3;
 - (void)webView:(id)arg1 didFinishLoadForFrame:(id)arg2;
-- (id)pdfDataForPageAtIndex:(int)arg1 withSize:(struct CGSize)arg2 printingDone:(char *)arg3;
+- (id)pdfDataForPageAtIndex:(int)arg1 printingDone:(char *)arg2;
 - (void)prepareForDrawingPages:(struct _NSRange)arg1;
 - (BOOL)_loadNextURL;
 - (int)numberOfPages;

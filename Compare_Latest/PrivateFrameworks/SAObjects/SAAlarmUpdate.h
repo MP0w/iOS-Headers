@@ -16,6 +16,7 @@
 + (id)update;
 - (BOOL)requiresResponse;
 @property(copy, nonatomic) NSArray *removedFrequency;
+@property(copy, nonatomic) NSArray *modifications;
 @property(copy, nonatomic) NSNumber *minute;
 @property(copy, nonatomic) NSString *label;
 @property(copy, nonatomic) NSNumber *hour;

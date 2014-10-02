@@ -16,7 +16,7 @@
 - (void)alertManager:(SBAlertManager *)arg1 willTearDownAlertWindow:(SBAlertWindow *)arg2;
 - (void)alertManager:(SBAlertManager *)arg1 didCreateAlertWindow:(SBAlertWindow *)arg2;
 - (void)alertManager:(SBAlertManager *)arg1 topAlert:(SBAlert *)arg2 requestsWallpaperStyleChangeWithAnimationFactory:(SBFAnimationFactory *)arg3;
-- (void)alertManagerDidChangeTopAlert:(SBAlertManager *)arg1;
+- (void)alertManager:(SBAlertManager *)arg1 didChangeTopAlertFrom:(SBAlert *)arg2 toAlert:(SBAlert *)arg3;
 - (void)alertManager:(SBAlertManager *)arg1 didDeactivateAlert:(SBAlert *)arg2 top:(_Bool)arg3;
 - (void)alertManager:(SBAlertManager *)arg1 willDeactivateAlert:(SBAlert *)arg2 top:(_Bool)arg3;
 - (void)alertManager:(SBAlertManager *)arg1 didActivateAlert:(SBAlert *)arg2 overAlerts:(NSArray *)arg3;

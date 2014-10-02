@@ -17,23 +17,28 @@
     PKPassFaceView *_visibleFace;
     PKPassFaceView *_otherFace;
     PKPassColorProfile *_colorProfile;
+    int _priorContentMode;
+    float _flipOvershoot;
+    float _flipLayoutOvershoot;
     id <WLCardViewDelegate> _delegate;
+    CDUnknownBlockType _delayedContentModeCanceller;
     BOOL _backFaceIsTall;
+    BOOL _isFrontmostPassView;
     PKPass *_pass;
     int _contentMode;
-    int _suppressedContent;
+    unsigned int _suppressedContent;
 }
 
-@property(nonatomic) int suppressedContent; // @synthesize suppressedContent=_suppressedContent;
+@property(nonatomic) BOOL isFrontmostPassView; // @synthesize isFrontmostPassView=_isFrontmostPassView;
 @property(nonatomic) BOOL backFaceIsTall; // @synthesize backFaceIsTall=_backFaceIsTall;
+@property(nonatomic) unsigned int suppressedContent; // @synthesize suppressedContent=_suppressedContent;
 @property(nonatomic) int contentMode; // @synthesize contentMode=_contentMode;
 @property(nonatomic) id <WLCardViewDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) PKPass *pass; // @synthesize pass=_pass;
+@property(readonly, retain, nonatomic) PKPass *pass; // @synthesize pass=_pass;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
 - (void)_flipPass:(BOOL)arg1 fromLeft:(BOOL)arg2 notify:(BOOL)arg3;
 - (void)applicationDidEnterBackground:(id)arg1;
 - (void)unregisterForEnterBackgroundNotification;
@@ -41,9 +46,9 @@
 - (void)_updateBackFaceSuppressedContent;
 - (void)_updateFrontFaceSuppressedContent;
 - (BOOL)_visibleFaceShouldClipForCurrentViewMode:(float *)arg1;
-- (int)_regionsForCurrentModes;
+- (unsigned int)_regionsForCurrentModes;
 - (int)_frontFaceBackgroundModeForContentMode;
-- (void)_applyContentMode;
+- (void)_applyContentMode:(BOOL)arg1;
 - (void)passFaceShareButtonPressed:(id)arg1;
 - (void)passFaceFlipButtonPressed:(id)arg1;
 - (BOOL)passFaceDeleteButtonEnabled;
@@ -53,21 +58,32 @@
 - (void)updateValidityDisplay;
 - (void)presentDiff:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)layoutSubviews;
-- (void)setContentMode:(int)arg1 withDuration:(double)arg2;
+- (void)setContentMode:(int)arg1 animated:(BOOL)arg2 withDelay:(double)arg3;
+- (void)setContentMode:(int)arg1 animated:(BOOL)arg2;
 - (void)setDimmer:(float)arg1 animated:(BOOL)arg2;
 @property(readonly, nonatomic) BOOL frontFaceBodyContentCreated;
 @property(readonly, nonatomic) BOOL showingFront;
 @property(readonly, nonatomic) NSString *uniqueID;
 - (id)item;
 - (void)prepareForFlip;
+- (BOOL)canFlip;
+- (id)snapshotViewOfVisibleFaceAfterScreenUpdates:(BOOL)arg1;
 - (id)snapshotOfFrontFace;
 - (struct CGRect)frameOfVisibleFace;
-- (struct CGSize)sizeOfFrontFace;
 - (struct CGSize)sizeOfBackFace;
+- (struct CGSize)sizeOfFrontFace;
+- (struct CGSize)sizeOfFront;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)dealloc;
+- (void)aidUpdated:(id)arg1;
 - (id)initWithPass:(id)arg1 content:(int)arg2;
 - (id)initWithPass:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

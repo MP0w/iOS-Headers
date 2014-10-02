@@ -31,7 +31,7 @@
 - (void)sendImageTo:(id)arg1 callback:(SEL)arg2 userData:(id)arg3;
 - (void)sendImage;
 - (void)renderImage;
-@property(readonly) UIImage *image; // @dynamic image;
+@property(readonly, retain) UIImage *image; // @dynamic image;
 - (void)releaseOperation;
 @property UIPDFPageRenderOperation *operation; // @dynamic operation;
 - (void)setTarget:(id)arg1 callback:(SEL)arg2 userData:(id)arg3;

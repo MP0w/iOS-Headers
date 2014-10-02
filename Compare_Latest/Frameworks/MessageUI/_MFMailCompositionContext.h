@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MFGenericAttachmentStore, MFMailMessage, MFMessageViewingContext, NSArray, NSString;
+@class MFMailMessage, MFMessageViewingContext, NSArray, NSString;
 
 @interface _MFMailCompositionContext : NSObject
 {
@@ -16,9 +16,9 @@
     NSArray *_ccRecipients;
     NSArray *_bccRecipients;
     NSString *_messageBody;
-    MFGenericAttachmentStore *_attachments;
     int _composeType;
     id _autosaveIdentifier;
+    NSString *_contextID;
     MFMailMessage *_originalMessage;
     id _originalContent;
     MFMessageViewingContext *_loadingContext;
@@ -28,13 +28,16 @@
     BOOL _showContentImmediately;
     BOOL _usingDefaultAccount;
     BOOL _prefersFirstLineSelection;
+    unsigned int _caretPosition;
     NSString *_originatingBundleID;
     int _sourceAccountManagement;
 }
 
 @property(nonatomic) int sourceAccountManagement; // @synthesize sourceAccountManagement=_sourceAccountManagement;
 @property(copy, nonatomic) NSString *originatingBundleID; // @synthesize originatingBundleID=_originatingBundleID;
+@property(nonatomic) unsigned int caretPosition; // @synthesize caretPosition=_caretPosition;
 @property(nonatomic) BOOL prefersFirstLineSelection; // @synthesize prefersFirstLineSelection=_prefersFirstLineSelection;
+@property(readonly, nonatomic) NSString *contextID; // @synthesize contextID=_contextID;
 @property(readonly, nonatomic) MFMailMessage *originalMessage; // @synthesize originalMessage=_originalMessage;
 @property(readonly, nonatomic) id autosaveIdentifier; // @synthesize autosaveIdentifier=_autosaveIdentifier;
 @property(readonly, nonatomic) int composeType; // @synthesize composeType=_composeType;
@@ -44,13 +47,16 @@
 @property(nonatomic) BOOL showKeyboardImmediately; // @synthesize showKeyboardImmediately=_showKeyboardImmediately;
 @property(nonatomic) BOOL includeAttachments; // @synthesize includeAttachments=_includeAttachments;
 @property(nonatomic) BOOL loadRest; // @synthesize loadRest=_loadRest;
-@property(readonly, nonatomic) MFGenericAttachmentStore *attachments; // @synthesize attachments=_attachments;
 @property(copy, nonatomic) NSArray *bccRecipients; // @synthesize bccRecipients=_bccRecipients;
 @property(copy, nonatomic) NSArray *ccRecipients; // @synthesize ccRecipients=_ccRecipients;
 @property(copy, nonatomic) NSArray *toRecipients; // @synthesize toRecipients=_toRecipients;
 @property(copy, nonatomic) NSString *subject; // @synthesize subject=_subject;
 @property(copy, nonatomic) NSString *sendingAddress; // @synthesize sendingAddress=_sendingAddress;
 @property(nonatomic) BOOL usingDefaultAccount; // @synthesize usingDefaultAccount=_usingDefaultAccount;
+- (id)attachments;
+- (void)removeAttachment:(id)arg1;
+- (void)recordUndoAttachmentsForURLs:(id)arg1;
+- (void)recordPasteboardAttachmentsForURLs:(id)arg1;
 - (id)addAttachmentData:(id)arg1 mimeType:(id)arg2 fileName:(id)arg3;
 - (void)setMessageBody:(id)arg1 isHTML:(BOOL)arg2;
 - (id)messageBody;
@@ -63,6 +69,7 @@
 - (id)initReplyToMessage:(id)arg1;
 - (id)initRecoveredAutosavedMessageWithIdentifier:(id)arg1;
 - (id)initWithURL:(id)arg1 composeType:(int)arg2 originalMessage:(id)arg3;
+- (id)initWithComposeType:(int)arg1 RFC822Data:(id)arg2;
 - (id)initWithComposeType:(int)arg1 originalMessage:(id)arg2;
 - (id)initWithComposeType:(int)arg1;
 - (id)initWithURL:(id)arg1;

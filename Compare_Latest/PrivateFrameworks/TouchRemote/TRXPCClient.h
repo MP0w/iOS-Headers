@@ -8,7 +8,7 @@
 
 #import "NSXPCConnectionDelegate.h"
 
-@class NSObject<OS_dispatch_queue>, NSXPCConnection;
+@class NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
 
 @interface TRXPCClient : NSObject <NSXPCConnectionDelegate>
 {
@@ -24,6 +24,12 @@
 - (void)dealloc;
 - (id)_init;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

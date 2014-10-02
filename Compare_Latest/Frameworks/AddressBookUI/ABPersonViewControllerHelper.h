@@ -193,7 +193,6 @@
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)loadViewWithPerson:(id)arg1 allowDeletion:(BOOL)arg2 allowActions:(BOOL)arg3;
 - (void)loadUnknownViewWithPerson:(id)arg1 allowActions:(BOOL)arg2;
 - (void)addUnknownPersonActionsIfNeeded;
@@ -202,7 +201,6 @@
 - (id)prepareViewWithPerson:(id)arg1;
 - (void)updateContentSwitchingTabs;
 - (void)didDismissModalViewController;
-- (void)viewDidUnload;
 - (void)viewDidLoad;
 - (void)notifyScrollViewDidLoad;
 - (void)updateEditButton;
@@ -245,6 +243,12 @@
 - (id)personContainerView;
 - (void)dealloc;
 - (id)initWithViewController:(id)arg1 style:(int)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,19 +6,20 @@
 
 #import "NSObject.h"
 
-@class AVAsset, NSData, NSDictionary, NSString, NSURL, TSPBundleWriter, TSPData;
+@class AVAsset, NSData, NSDictionary, NSString, NSURL, SFUCryptoKey, TSPData, TSPPackage, TSPPackageWriter;
 
 @protocol TSPDataStorage <NSObject>
 @property(readonly, nonatomic) BOOL readOnly;
 @property(readonly, nonatomic) unsigned long long encodedLength;
+@property(readonly, nonatomic) BOOL isMissingData;
+@property(readonly, nonatomic) BOOL isReadable;
 @property(readonly, nonatomic) unsigned char packageIdentifier;
 @property(readonly, nonatomic) NSString *packageLocator;
 @property(readonly, nonatomic) NSString *documentResourceLocator;
-- (void)performReadWithAccessor:(void (^)(NSURL *))arg1;
 - (void)performIOChannelReadWithAccessor:(void (^)(id <TSUReadChannel>))arg1;
-- (BOOL)isInPackage:(id <TSPPackage>)arg1;
+- (BOOL)isInPackage:(TSPPackage *)arg1;
 - (NSString *)filenameForPreferredFilename:(NSString *)arg1;
-- (BOOL)writeToBundleWriter:(TSPBundleWriter *)arg1 preferredFilename:(NSString *)arg2 filename:(id *)arg3 didCopyDataToBundle:(char *)arg4;
+- (BOOL)writeData:(TSPData *)arg1 toPackageWriter:(TSPPackageWriter *)arg2 preferredFilename:(NSString *)arg3 filename:(id *)arg4 didCopyDataToPackage:(char *)arg5 isMissingData:(char *)arg6;
 - (void)archiveInfoMessage:(struct DataInfo *)arg1 archiver:(id <TSPDataArchiver>)arg2;
 - (AVAsset *)AVAssetWithOptions:(NSDictionary *)arg1 usingResourceLoaderWithContentTypeUTI:(NSString *)arg2;
 - (AVAsset *)AVAssetWithOptions:(NSDictionary *)arg1 contentTypeUTI:(NSString *)arg2;
@@ -28,10 +29,15 @@
 - (NSData *)bookmarkDataWithOptions:(unsigned int)arg1;
 
 @optional
+@property(readonly, nonatomic) unsigned int CRC;
+@property(readonly, nonatomic) SFUCryptoKey *decryptionKey;
 @property(nonatomic) BOOL gilligan_isRemote;
 @property(readonly, nonatomic) BOOL needsDownload;
+- (BOOL)bookmarkDataNeedsWriteWithOptions:(unsigned int)arg1;
 - (void)addDownloadObserver:(id)arg1 forData:(TSPData *)arg2 completionHandler:(void (^)(id, TSPData *, int))arg3;
-- (BOOL)copyToTemporaryURL:(NSURL *)arg1;
+- (void)setIsMissingData:(BOOL)arg1;
+- (BOOL)copyToTemporaryURL:(NSURL *)arg1 encryptionKey:(SFUCryptoKey *)arg2;
 - (id)storageForDataCopyFromOtherContext;
+- (void)didInitializeFromDocumentURL:(NSURL *)arg1;
 @end
 

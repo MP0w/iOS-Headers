@@ -11,6 +11,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (BOOL)overlayLabelsForSeriesIndex:(unsigned int)arg1;
+- (id)interpolations;
 - (void)updateAppearanceForElementLayer:(id)arg1 seriesIndex:(unsigned int)arg2;
 - (id)createMultiDataElementShapeLayerForSeriesIndex:(unsigned int)arg1;
 

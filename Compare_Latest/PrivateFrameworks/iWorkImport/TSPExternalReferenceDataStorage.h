@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
-@property(readonly, nonatomic, getter=isReadable) BOOL readable;
+- (BOOL)isReadable;
 - (void)performReadWithAccessor:(CDUnknownBlockType)arg1;
 - (id)bookmarkDataForArchiver:(id)arg1;
 - (void)archiveInfoMessage:(struct DataInfo *)arg1 archiver:(id)arg2;

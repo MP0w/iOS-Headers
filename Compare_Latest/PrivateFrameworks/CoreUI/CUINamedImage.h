@@ -16,19 +16,35 @@
 }
 
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
+- (id)baseKey;
 - (id)description;
+@property(readonly, nonatomic) int exifOrientation;
+@property(readonly, nonatomic) BOOL isStructured;
+@property(readonly, nonatomic) int templateRenderingMode;
+@property(readonly, nonatomic) BOOL isTemplate;
+@property(readonly, nonatomic) BOOL isVectorBased;
 @property(readonly, nonatomic) BOOL hasSliceInformation;
 @property(readonly, nonatomic) int resizingMode;
 @property(readonly, nonatomic) int blendMode;
 @property(readonly, nonatomic) float opacity;
+@property(readonly, nonatomic) CDStruct_fd71c141 alignmentEdgeInsets;
+@property(readonly, nonatomic) struct CGRect alignmentRect;
 @property(readonly, nonatomic) CDStruct_fd71c141 edgeInsets;
-- (float)positionOfSliceBoundary:(int)arg1;
+- (float)positionOfSliceBoundary:(unsigned int)arg1;
+@property(readonly, nonatomic) int imageType;
+- (int)graphicsClass;
+- (int)memoryClass;
+- (int)sizeClassVertical;
+- (int)sizeClassHorizontal;
+- (unsigned int)subtype;
+- (int)idiom;
 @property(readonly, nonatomic) float scale;
 @property(readonly, nonatomic) struct CGSize size;
 @property(readonly, nonatomic) struct CGImage *image;
 - (id)_rendition;
 - (id)_renditionForSpecificKey:(id)arg1;
 - (id)_themeStore;
+- (id)renditionKey;
 - (void)dealloc;
 - (id)initWithName:(id)arg1 usingRenditionKey:(id)arg2 fromTheme:(unsigned int)arg3;
 

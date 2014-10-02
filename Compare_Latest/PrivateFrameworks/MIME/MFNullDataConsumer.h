@@ -8,13 +8,20 @@
 
 #import "MFDataConsumer.h"
 
+@class NSString;
+
 @interface MFNullDataConsumer : NSObject <MFDataConsumer>
 {
 }
 
 - (void)done;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (int)appendData:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,32 +6,37 @@
 
 #import "NSObject.h"
 
-#import "UIActionSheetDelegate.h"
-#import "_UIRotatingActionSheetDelegate.h"
+#import "_UIRotatingAlertControllerDelegate.h"
 
-@class NSArray, NSDictionary, NSString, UITextView, _UIRotatingActionSheet;
+@class NSArray, NSDictionary, NSString, UITextView, UIWindow, _UIRotatingAlertController;
 
 __attribute__((visibility("hidden")))
-@interface _UITextViewInteractableItem : NSObject <_UIRotatingActionSheetDelegate, UIActionSheetDelegate>
+@interface _UITextViewInteractableItem : NSObject <_UIRotatingAlertControllerDelegate>
 {
-    _UIRotatingActionSheet *_linkInteractionSheet;
+    _UIRotatingAlertController *_linkInteractionAlertController;
+    BOOL _interactionIsFinished;
     UITextView *_textView;
     NSArray *_actions;
     NSDictionary *_defaultAction;
+    UIWindow *_windowForActionSheetPresentation;
     struct _NSRange _range;
 }
 
+@property(retain, nonatomic) UIWindow *windowForActionSheetPresentation; // @synthesize windowForActionSheetPresentation=_windowForActionSheetPresentation;
+@property(nonatomic) BOOL interactionIsFinished; // @synthesize interactionIsFinished=_interactionIsFinished;
 @property(readonly, nonatomic) NSDictionary *defaultAction; // @synthesize defaultAction=_defaultAction;
 @property(readonly, nonatomic) NSArray *actions; // @synthesize actions=_actions;
 @property(nonatomic) UITextView *textView; // @synthesize textView=_textView;
 @property(nonatomic) struct _NSRange range; // @synthesize range=_range;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)_cleanupWindowForActionSheetPresentation;
+- (void)_cleanupSheet;
 - (void)_handleActionAndFinish:(id)arg1;
 - (struct CGRect)presentationRectInHostViewForSheet:(id)arg1;
 - (struct CGRect)initialPresentationRectInHostViewForSheet:(id)arg1;
 - (id)hostViewForSheet:(id)arg1;
 - (void)_showActionSheet;
 @property(readonly, nonatomic) NSString *localizedTitle;
+- (BOOL)allowHighlight;
 - (BOOL)allowInteraction;
 - (void)handleLongPress;
 - (void)handleTap;

@@ -10,7 +10,6 @@
 
 @interface EKPersistentExceptionDate : EKPersistentObject
 {
-    NSDate *_date;
 }
 
 + (id)relations;
@@ -19,7 +18,7 @@
 @property(retain, nonatomic) EKPersistentCalendarItem *owner;
 - (int)entityType;
 - (unsigned int)hash;
-@property(readonly, nonatomic) NSDate *date; // @synthesize date=_date;
+@property(readonly, nonatomic) NSDate *date; // @dynamic date;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithExceptionDate:(id)arg1;
 

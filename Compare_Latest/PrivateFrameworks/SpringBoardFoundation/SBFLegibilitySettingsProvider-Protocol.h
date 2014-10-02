@@ -9,7 +9,7 @@
 @class _UILegibilitySettings;
 
 @protocol SBFLegibilitySettingsProvider <NSObject>
-@property(readonly, nonatomic) _UILegibilitySettings *legibilitySettings;
+@property(readonly, retain, nonatomic) _UILegibilitySettings *legibilitySettings;
 @property(nonatomic) id <SBFLegibilitySettingsProviderDelegate> delegate;
 @end
 

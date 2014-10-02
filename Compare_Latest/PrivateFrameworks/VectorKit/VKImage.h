@@ -6,26 +6,27 @@
 
 #import "NSObject.h"
 
-@class NSData, NSString, VGLUncompressedTexture;
+@class NSData, NSString, VKResourceManager;
 
 @interface VKImage : NSObject
 {
-    VGLUncompressedTexture *_texture;
     struct CGImage *_imageRef;
     NSData *_data;
     NSString *_name;
     struct CGSize _size;
     float _scale;
     BOOL _usedAsTextureAndImage;
+    struct Texture2D *_gglTexture;
+    VKResourceManager *_resourceManager;
 }
 
 - (id).cxx_construct;
 - (float)scale;
 - (struct CGSize)size;
 - (struct CGImage *)image;
-- (id)texture;
+- (struct Texture2D *)gglTexture;
 - (void)dealloc;
-- (id)initWithName:(id)arg1 scale:(float)arg2;
+- (id)initWithName:(id)arg1 scale:(float)arg2 resourceManager:(id)arg3;
 - (id)initWithData:(id)arg1 scale:(float)arg2;
 - (id)initWithData:(id)arg1 scale:(float)arg2 usedAsTextureAndImage:(BOOL)arg3;
 - (id)initWithCGImage:(struct CGImage *)arg1 scale:(float)arg2;

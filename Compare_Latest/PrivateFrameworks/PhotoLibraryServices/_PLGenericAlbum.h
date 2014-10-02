@@ -6,7 +6,7 @@
 
 #import <PhotoLibraryServices/PLManagedObject.h>
 
-@class NSDictionary, NSMutableSet, NSNumber, NSString, PLManagedAsset;
+@class NSDictionary, NSMutableSet, NSNumber, NSString, PLManagedAsset, PLManagedFolder;
 
 @interface _PLGenericAlbum : PLManagedObject
 {
@@ -19,8 +19,16 @@
 
 // Remaining properties
 @property(retain, nonatomic) NSMutableSet *albumLists; // @dynamic albumLists;
+@property(nonatomic) long long albumToFolderOrderKey; // @dynamic albumToFolderOrderKey;
+@property(nonatomic) int cachedCount; // @dynamic cachedCount;
+@property(nonatomic) int cachedPhotosCount; // @dynamic cachedPhotosCount;
+@property(nonatomic) int cachedVideosCount; // @dynamic cachedVideosCount;
+@property(retain, nonatomic) PLManagedAsset *customKeyAsset; // @dynamic customKeyAsset;
+@property(nonatomic) BOOL customSortAscending; // @dynamic customSortAscending;
+@property(nonatomic) int customSortKey; // @dynamic customSortKey;
 @property(retain, nonatomic) PLManagedAsset *keyAsset; // @dynamic keyAsset;
 @property(retain, nonatomic) NSNumber *kind; // @dynamic kind;
+@property(retain, nonatomic) PLManagedFolder *parentFolder; // @dynamic parentFolder;
 @property(nonatomic) int pendingItemsCount; // @dynamic pendingItemsCount;
 @property(nonatomic) int pendingItemsType; // @dynamic pendingItemsType;
 @property(retain, nonatomic) PLManagedAsset *secondaryKeyAsset; // @dynamic secondaryKeyAsset;

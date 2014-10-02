@@ -8,33 +8,42 @@
 
 @class NSData, NSString;
 
+__attribute__((visibility("hidden")))
 @interface CUIThemeRendition : NSObject
 {
-    struct _renditionkeytoken stackKey[16];
-    struct _renditionkeytoken *key;
-    int type;
-    unsigned int subtype;
-    unsigned int scale;
+    struct _renditionkeytoken _stackKey[16];
+    struct _renditionkeytoken *_key;
+    int _type;
+    unsigned int _subtype;
+    unsigned int _scale;
     struct {
         unsigned int isHeaderFlaggedFPO:1;
         unsigned int isExcludedFromContrastFilter:1;
-        unsigned int reserved:30;
-    } renditionFlags;
-    int artworkStatus;
-    unsigned int colorSpaceID;
-    NSString *name;
-    NSData *srcData;
-    int validLookGradation;
-    float opacity;
-    int blendMode;
+        unsigned int isVectorBased:1;
+        unsigned int isOpaque:1;
+        unsigned int reserved:28;
+    } _renditionFlags;
+    int _templateRenderingMode;
+    int _artworkStatus;
+    unsigned int _colorSpaceID;
+    NSString *_name;
+    NSData *_srcData;
+    int _validLookGradation;
+    float _opacity;
+    int _blendMode;
+    NSString *_utiType;
+    int _exifOrientation;
 }
 
 + (id)displayNameForRenditionType:(int)arg1;
 + (id)filteredCSIDataFromBaseCSIData:(id)arg1;
-+ (Class)renditionClassForRenditionType:(int)arg1;
-@property(nonatomic) int blendMode; // @synthesize blendMode;
-@property(nonatomic) float opacity; // @synthesize opacity;
++ (Class)renditionClassForRenditionType:(int)arg1 andPixelFormat:(unsigned int)arg2;
+@property(nonatomic) int exifOrientation; // @synthesize exifOrientation=_exifOrientation;
+@property(nonatomic) int blendMode; // @synthesize blendMode=_blendMode;
+@property(nonatomic) float opacity; // @synthesize opacity=_opacity;
 - (unsigned short)valueForTokenIdentifier:(unsigned short)arg1;
+- (id)data;
+- (struct CGPDFDocument *)pdfDocument;
 - (id)effectPreset;
 - (unsigned int)subtype;
 - (unsigned int)gradientStyle;
@@ -52,7 +61,11 @@
 - (BOOL)isValidForLookGradation:(int)arg1;
 - (unsigned int)colorSpaceID;
 - (int)artworkStatus;
+- (int)templateRenderingMode;
+- (BOOL)isOpaque;
+- (BOOL)isVectorBased;
 - (BOOL)isHeaderFlaggedFPO;
+- (id)utiType;
 - (id)name;
 - (int)type;
 - (const struct _renditionkeytoken *)key;
@@ -62,6 +75,7 @@
 - (id)initWithCSIData:(id)arg1 forKey:(const struct _renditionkeytoken *)arg2;
 - (void)_initializeRenditionKey:(const struct _renditionkeytoken *)arg1;
 - (id)_initWithCSIHeader:(const struct _csiheader *)arg1;
+- (void)_initalizeMetadataFromCSIData:(const struct _csiheader *)arg1;
 - (void)_initializeCompositingOptionsFromCSIData:(const struct _csiheader *)arg1;
 - (void)_initializeTypeIdentifiersWithLayout:(unsigned short)arg1;
 

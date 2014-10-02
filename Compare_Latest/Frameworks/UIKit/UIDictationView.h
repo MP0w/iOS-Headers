@@ -8,7 +8,7 @@
 
 #import "_UISiriWaveyViewDelegate.h"
 
-@class UIButton, UIDictationMeterView, UIKeyboardDicationBackground, _UISiriWaveyView;
+@class NSString, UIButton, UIDictationMeterView, UIKeyboardDicationBackground, _UISiriWaveyView;
 
 __attribute__((visibility("hidden")))
 @interface UIDictationView : UIView <_UISiriWaveyViewDelegate>
@@ -53,6 +53,12 @@ __attribute__((visibility("hidden")))
 - (id)endpointButtonImageWithRect:(struct CGRect)arg1 pressed:(BOOL)arg2;
 - (void)highlightEndpointButton;
 - (void)applicationWillResignActive;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,40 +6,42 @@
 
 #import "NSObject.h"
 
-#import "VKRouteMapMatchingDataSource.h"
+#import "GEORouteMapMatchingDataSource.h"
 
-@class NSSet, VKAttributedRoute;
+@class NSSet, NSString, VKPolylineOverlay, VKPolylineOverlayRenderRegion;
 
 __attribute__((visibility("hidden")))
-@interface VKRouteLine : NSObject <VKRouteMapMatchingDataSource>
+@interface VKRouteLine : NSObject <GEORouteMapMatchingDataSource>
 {
     BOOL _curve;
     BOOL _matchToRoads;
     BOOL _hasNewRoadMatches;
     CDStruct_aca18c62 _bounds;
     CDStruct_aa5aacbc _inverseMatrix;
-    VKAttributedRoute *_overlay;
+    VKPolylineOverlay *_overlay;
     double _boundsUnitsPerMeter;
     double _metersPerPoint;
     double _boundsInWorldUnit;
     double _simplificationEpsilonPoints;
     double _viewUnitsPerPoint;
-    struct vector<vk::RouteLineSection, vk_allocator<vk::RouteLineSection>> _sections;
-    struct RouteLineSection *_userLocationSection;
+    struct vector<geo::fast_shared_ptr<vk::RouteLineSection>, std::__1::allocator<geo::fast_shared_ptr<vk::RouteLineSection>>> _sections;
+    fast_shared_ptr_502c59d0 _userLocationSection;
     struct PolylineCoordinate _userLocationIndex;
-    Vec2Imp_1782d7e3 _userLocation;
+    Matrix_8746f91e _userLocation;
     double _lastUserLocationMatchTimestamp;
     double _lastTrafficTimeStamp;
     NSSet *_retainedTiles;
+    VKPolylineOverlayRenderRegion *_renderRegion;
 }
 
 @property(nonatomic) double simplificationEpsilonPoints; // @synthesize simplificationEpsilonPoints=_simplificationEpsilonPoints;
 @property BOOL hasNewRoadMatches; // @synthesize hasNewRoadMatches=_hasNewRoadMatches;
-@property(nonatomic) VKAttributedRoute *overlay; // @synthesize overlay=_overlay;
-@property(readonly, nonatomic) CDStruct_d2b197d1 bounds; // @synthesize bounds=_bounds;
+@property(nonatomic) VKPolylineOverlay *overlay; // @synthesize overlay=_overlay;
+@property(readonly, nonatomic) CDStruct_aca18c62 bounds; // @synthesize bounds=_bounds;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)drawDebugMarkersWithContext:(id)arg1;
+@property(readonly, nonatomic) struct PolylineCoordinate *userLocationIndex;
+@property(readonly, nonatomic) fast_shared_ptr_502c59d0 userLocationSection;
 - (void)_updateBounds:(id)arg1;
 - (void)forEachMapMatchingSection:(CDUnknownBlockType)arg1;
 - (void)forEachSection:(CDUnknownBlockType)arg1;
@@ -49,9 +51,15 @@ __attribute__((visibility("hidden")))
 - (BOOL)isTrafficUpToDate;
 - (void)createMeshIfNecessary:(int)arg1;
 - (void)generateArrowsForManeuverDisplayMode:(int)arg1 routeLineWidth:(float)arg2;
-- (BOOL)buildRouteLineForPainter:(id)arg1 keysInView:(id)arg2 tiles:(id)arg3 containerModel:(id)arg4 viewUnitsPerPoint:(double)arg5 force:(BOOL)arg6 curve:(BOOL)arg7;
+- (BOOL)buildRouteLineForPainter:(id)arg1 keysInView:(id)arg2 tiles:(id)arg3 containerModel:(id)arg4 viewUnitsPerPoint:(double)arg5 force:(BOOL)arg6 curve:(BOOL)arg7 selected:(BOOL)arg8;
 - (void)_updateTilesCovered:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

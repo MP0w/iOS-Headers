@@ -9,7 +9,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class MPAVItem, MPAlternateTrack, UITableView;
+@class MPAVItem, MPAlternateTrack, NSString, UITableView;
 
 @interface MPAudioAndSubtitlesController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
@@ -27,6 +27,7 @@
 @property(nonatomic) __weak id <MPAudioAndSubtitlesControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)_trackAtIndexPath:(id)arg1;
+- (void)_applyChanges;
 - (void)_doneButtonTapped:(id)arg1;
 - (void)tableView:(id)arg1 willDisplayHeaderView:(id)arg2 forSection:(int)arg3;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
@@ -38,6 +39,12 @@
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithAVItem:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

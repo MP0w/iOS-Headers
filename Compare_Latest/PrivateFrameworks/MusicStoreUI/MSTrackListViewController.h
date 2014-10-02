@@ -8,7 +8,7 @@
 
 #import "MSTrackListHeaderDelegate.h"
 
-@class MSTrackListHeaderView;
+@class MSTrackListHeaderView, NSString;
 
 @interface MSTrackListViewController : MSStructuredPageViewController <MSTrackListHeaderDelegate>
 {
@@ -32,6 +32,12 @@
 - (id)newTermsAndConditionsFooter;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

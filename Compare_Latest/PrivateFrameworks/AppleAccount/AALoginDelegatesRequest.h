@@ -6,20 +6,19 @@
 
 #import <AppleAccount/AARequest.h>
 
-@class NSDictionary, NSString;
+@class ACAccount, NSDictionary;
 
 @interface AALoginDelegatesRequest : AARequest
 {
-    NSDictionary *_accountParameters;
-    NSString *_username;
-    NSString *_password;
+    NSDictionary *_loginParameters;
+    ACAccount *_account;
 }
 
 + (Class)responseClass;
 - (void).cxx_destruct;
 - (id)urlRequest;
 - (id)urlString;
-- (id)initWithUsername:(id)arg1 password:(id)arg2 parameters:(id)arg3;
+- (id)initWithAccount:(id)arg1 parameters:(id)arg2;
 
 @end
 

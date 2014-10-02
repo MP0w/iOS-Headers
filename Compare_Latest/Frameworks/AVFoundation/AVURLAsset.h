@@ -10,7 +10,7 @@
 
 @interface AVURLAsset : AVAsset
 {
-    AVURLAssetInternal *_asset;
+    AVURLAssetInternal *_URLAsset;
 }
 
 + (id)URLAssetWithURL:(id)arg1 options:(id)arg2;
@@ -25,13 +25,16 @@
 + (id)_figFileMIMETypes;
 + (id)_figStreamingMIMETypes;
 + (id)_avfValidationPlist;
+- (unsigned int)referenceRestrictions;
 - (id)lyrics;
 - (void)cancelLoading;
-@property(readonly, nonatomic) NSURL *URL;
+@property(readonly, copy, nonatomic) NSURL *URL;
 - (id)_absoluteURL;
 - (void)_tracksDidChange;
 - (id)tracks;
 - (id)_tracks;
+- (Class)_classForTrackInspectors;
+- (struct OpaqueFigPlaybackItem *)_playbackItem;
 - (struct OpaqueFigFormatReader *)_formatReader;
 - (id)_assetInspector;
 - (void)_setAssetInspectorLoader:(id)arg1;
@@ -43,12 +46,8 @@
 - (void)_addFigAssetNotifications;
 - (id)_errorForFigNotificationPayload:(struct __CFDictionary *)arg1 key:(struct __CFString *)arg2;
 - (id)initWithURL:(id)arg1 options:(id)arg2;
+- (id)_handleURLAssetInitializationOptionsReturningFigAssetCreationOptions:(id)arg1 selector:(SEL)arg2;
 - (id)init;
-- (id)chapterMetadataGroupsBestMatchingPreferredLanguages:(id)arg1;
-- (id)chapterMetadataGroupsWithTitleLocale:(id)arg1 containingItemsWithCommonKeys:(id)arg2;
-- (unsigned int)_addChapterMetadataItem:(id)arg1 timeRange:(CDStruct_e83c9415)arg2 toChapters:(id)arg3 fromIndex:(unsigned int)arg4;
-- (id)availableChapterLocales;
-- (id)_chapterGroupInfo;
 - (BOOL)_shouldOptimizeAccessForLinearMoviePlayback;
 - (id)SHA1Digest;
 - (unsigned long long)downloadToken;

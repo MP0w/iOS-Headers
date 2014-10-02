@@ -6,19 +6,18 @@
 
 #import "NSObject.h"
 
-@class AVWeakReference, AVWeakReferencingDelegateStorage, NSArray, NSString;
+@class AVWeakReference, AVWeakReferencingDelegateStorage, NSArray, NSObject<OS_dispatch_queue>, NSString;
 
 @interface AVPlayerItemLegibleOutputInternal : NSObject
 {
     id <AVPlayerItemLegibleOutputDependencyFactory> dependencyFactory;
-    id <AVLegibleOutputDataSource> dataSource;
+    NSArray *nativeRepresentationSubtypes;
+    AVWeakReferencingDelegateStorage *delegateStorage;
+    NSObject<OS_dispatch_queue> *ivarAccessQueue;
     AVWeakReference *weakReferenceToHost;
     BOOL suppressesPlayerRendering;
-    NSString *figLegibleOutputsDictionaryKey;
-    NSArray *nativeRepresentationSubtypes;
     double advanceInterval;
     NSString *textStylingResolution;
-    AVWeakReferencingDelegateStorage *delegateStorage;
 }
 
 @end

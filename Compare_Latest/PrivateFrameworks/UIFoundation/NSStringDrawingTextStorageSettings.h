@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)threadSpecificStringDrawingTextStorageSettings:(BOOL)arg1;
+- (id)init;
 
 @end
 

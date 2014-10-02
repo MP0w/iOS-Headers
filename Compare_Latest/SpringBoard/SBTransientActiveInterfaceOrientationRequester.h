@@ -15,7 +15,7 @@
 }
 
 @property(readonly, nonatomic) long long orientation; // @synthesize orientation=_orientation;
-@property(readonly, nonatomic) NSString *reason; // @synthesize reason=_reason;
+@property(readonly, copy, nonatomic) NSString *reason; // @synthesize reason=_reason;
 - (void)dealloc;
 - (id)initWithOrientation:(long long)arg1 andReason:(id)arg2;
 

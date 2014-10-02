@@ -6,33 +6,32 @@
 
 #import "UITableViewCell.h"
 
-@class ABCardGroupItem, UIColor, UIView;
+@class ABCardGroupItem, NSArray;
 
 @interface ABContactCell : UITableViewCell
 {
-    BOOL _showSeparator;
+    BOOL _addedConstantsConstraints;
+    NSArray *_variableConstraints;
     BOOL _hasBeenDisplayed;
-    UIView *_separatorView;
     ABCardGroupItem *_cardGroupItem;
     float _leftContentMargin;
     float _rightContentMargin;
-    UIColor *_contactSeparatorColor;
 }
 
 @property(nonatomic) BOOL hasBeenDisplayed; // @synthesize hasBeenDisplayed=_hasBeenDisplayed;
-@property(retain, nonatomic) UIColor *contactSeparatorColor; // @synthesize contactSeparatorColor=_contactSeparatorColor;
 @property(nonatomic) float rightContentMargin; // @synthesize rightContentMargin=_rightContentMargin;
 @property(nonatomic) float leftContentMargin; // @synthesize leftContentMargin=_leftContentMargin;
 @property(retain, nonatomic) ABCardGroupItem *cardGroupItem; // @synthesize cardGroupItem=_cardGroupItem;
-@property(nonatomic) BOOL showSeparator; // @synthesize showSeparator=_showSeparator;
-@property(readonly, nonatomic) UIView *separatorView; // @synthesize separatorView=_separatorView;
-- (void)layoutSubviews;
-- (void)setNeedsLayout;
+- (float)minCellHeight;
+- (void)updateConstraints;
+- (id)variableConstraints;
+- (id)constantConstraints;
+@property(nonatomic) BOOL showSeparator;
 - (void)performAccessoryAction;
 - (BOOL)shouldPerformAccessoryAction;
 - (void)performDefaultAction;
 - (BOOL)shouldPerformDefaultAction;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)prepareForReuse;
 - (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 

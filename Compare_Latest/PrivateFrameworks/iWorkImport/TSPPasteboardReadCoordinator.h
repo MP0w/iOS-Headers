@@ -8,7 +8,7 @@
 
 #import "TSPReadCoordinator.h"
 
-@class NSObject<OS_dispatch_queue>, TSPFinalizeHandlerQueue, TSPObjectContext, TSPPasteboard;
+@class NSMapTable, NSObject<OS_dispatch_queue>, NSString, TSPFinalizeHandlerQueue, TSPObjectContext, TSPPasteboard;
 
 __attribute__((visibility("hidden")))
 @interface TSPPasteboardReadCoordinator : TSPReadCoordinatorBase <TSPReadCoordinator>
@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     unsigned long long _version;
     BOOL _isCrossAppPaste;
     BOOL _isCrossDocumentPaste;
+    NSMapTable *_objects;
     NSObject<OS_dispatch_queue> *_dataQueue;
     struct hash_map<long long, TSP::DataInfo, TSP::DataIdentifierHash, std::__1::equal_to<long long>, std::__1::allocator<std::__1::pair<const long long, TSP::DataInfo>>> _dataInfoMap;
 }
@@ -40,6 +41,8 @@ __attribute__((visibility("hidden")))
 - (id)unarchivedObjectForIdentifier:(long long)arg1 isReadFinished:(BOOL)arg2;
 - (id)context;
 @property(readonly, nonatomic) BOOL isReadingFromDocument;
+- (id)baseObjectUUID;
+- (unsigned long long)fileFormatVersion;
 - (void)processMetadata:(id)arg1;
 - (void)readComponent:(id)arg1 completionQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)readRootObjectWithCompletionQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -47,6 +50,12 @@ __attribute__((visibility("hidden")))
 - (BOOL)endReading;
 - (id)initWithPasteboard:(id)arg1 targetContext:(id)arg2 finalizeHandlerQueue:(id)arg3;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

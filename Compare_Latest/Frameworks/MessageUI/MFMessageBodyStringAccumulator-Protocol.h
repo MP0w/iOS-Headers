@@ -15,6 +15,7 @@
 - (void)appendCharacters:(const unsigned short *)arg1 length:(unsigned int)arg2;
 - (void)appendRange:(struct _NSRange)arg1 ofString:(NSString *)arg2;
 - (void)appendString:(NSString *)arg1;
+- (void)appendNewline;
 - (BOOL)isFull;
 @end
 

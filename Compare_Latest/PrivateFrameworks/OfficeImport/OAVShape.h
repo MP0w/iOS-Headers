@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)readFromShape:(struct _xmlNode *)arg1 inNamespace:(id)arg2 state:(id)arg3;
++ (void)readBoundsAndGeometryOfPolylineFromManager:(id)arg1 toShape:(id)arg2 state:(id)arg3;
 + (id)managerWithShape:(struct _xmlNode *)arg1 state:(id)arg2;
 + (unsigned short)typeWithShape:(struct _xmlNode *)arg1 state:(id)arg2;
 

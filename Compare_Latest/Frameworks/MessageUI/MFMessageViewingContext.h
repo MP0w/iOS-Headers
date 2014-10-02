@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MFActivityMonitor, MFAttachmentManager, MFError, MFLock, MFMailMessage, MFMessageBody, MFMimePart, NSArray, NSObject<MFMessageViewingContextDelegate>;
+@class MFActivityMonitor, MFAttachmentManager, MFError, MFLock, MFMailMessage, MFMessageBody, MFMimePart, NSArray, NSConditionLock, NSError, NSObject<MFMessageViewingContextDelegate>, NSObject<OS_dispatch_queue>, SGSuggestionsService;
 
 @interface MFMessageViewingContext : NSObject
 {
@@ -23,24 +23,34 @@
     unsigned int _contentOffset;
     unsigned int _loadIncrement;
     unsigned int _loadedFullData:1;
-    unsigned int _loadBestAlternative:1;
     unsigned int _hasNoContent:1;
     unsigned int _failedToLoad:1;
     unsigned int _isOutgoingMessage:1;
     unsigned int _isDraftMessage:1;
     unsigned int _isEditableMessage:1;
     unsigned int _showMailboxName:1;
+    unsigned int _shouldAnalyzeMessage:1;
+    NSObject<OS_dispatch_queue> *_suggestionsQueue;
+    SGSuggestionsService *_suggestionsService;
+    NSConditionLock *_suggestionsLock;
+    NSArray *_suggestions;
+    int _loadAlternative;
+    NSError *_messageAnalysisError;
 }
 
 + (BOOL)isAttachmentTooLarge:(id)arg1;
 + (unsigned int)nextOffsetForOffset:(unsigned int)arg1 totalLength:(unsigned int)arg2 requestedAmount:(unsigned int)arg3;
-@property(readonly, nonatomic) MFAttachmentManager *attachmentManager; // @synthesize attachmentManager=_attachmentManager;
-@property(nonatomic) NSObject<MFMessageViewingContextDelegate> *delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) unsigned int contentOffset; // @synthesize contentOffset=_contentOffset;
-@property(readonly, nonatomic) MFMimePart *loadedPart; // @synthesize loadedPart=_loadedPart;
-@property(readonly, nonatomic) MFActivityMonitor *loadTask; // @synthesize loadTask=_loadTask;
-@property(readonly, nonatomic) MFMessageBody *messageBody; // @synthesize messageBody=_body;
-@property(readonly, nonatomic) MFMailMessage *message; // @synthesize message=_message;
+@property(nonatomic) id <MFMessageViewingContextDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) unsigned int contentOffset; // @synthesize contentOffset=_contentOffset;
+- (void)_setMessageAnalysisError:(id)arg1;
+@property(retain, nonatomic) NSError *messageAnalysisError; // @synthesize messageAnalysisError=_messageAnalysisError;
+@property(retain, nonatomic) MFMimePart *loadedPart; // @synthesize loadedPart=_loadedPart;
+@property(readonly, retain, nonatomic) MFActivityMonitor *loadTask; // @synthesize loadTask=_loadTask;
+@property(readonly, retain, nonatomic) MFAttachmentManager *attachmentManager; // @synthesize attachmentManager=_attachmentManager;
+@property(readonly, retain, nonatomic) MFMailMessage *message; // @synthesize message=_message;
+@property(retain, nonatomic) MFMessageBody *messageBody; // @synthesize messageBody=_body;
+- (void)analyzeMessageContent:(id)arg1;
+- (void)_notifyMessageAnalysisComplete;
 - (void)_notifyAttachmentComplete:(id)arg1 data:(id)arg2;
 - (void)_notifyCompletelyComplete;
 - (void)_notifyFullMessageLoadFailed;
@@ -60,9 +70,13 @@
 @property(readonly, nonatomic) BOOL hasLoaded;
 - (id)fileWrappersForImageAttachments;
 - (id)attachments;
-@property(readonly, nonatomic) MFError *secureMimeError; // @synthesize secureMimeError=_secureMIMEError;
+- (BOOL)hasAnalyzedMessageWithTimeout:(id)arg1;
+@property(readonly, nonatomic) BOOL hasAnalyzedMessage;
+- (void)_setSuggestions:(id)arg1;
+@property(copy, nonatomic) NSArray *suggestions;
+@property(retain, nonatomic) MFError *secureMimeError; // @synthesize secureMimeError=_secureMIMEError;
 - (void)_setSecureMIMEError:(id)arg1;
-@property(readonly, nonatomic) NSArray *signers; // @synthesize signers=_signers;
+@property(copy, nonatomic) NSArray *signers; // @synthesize signers=_signers;
 - (void)_setSigners:(id)arg1;
 - (id)uniqueID;
 - (void)_setMessageBody:(id)arg1;
@@ -70,10 +84,11 @@
 @property(readonly, nonatomic) BOOL isMessageEncrypted;
 @property(readonly, nonatomic) BOOL isMessageSigned;
 @property(readonly, nonatomic) BOOL hasNoContent;
-@property(readonly, nonatomic) id content;
+@property(retain, nonatomic) id content;
 - (void)_setContent:(id)arg1;
 - (void)dealloc;
 - (id)initWithMessage:(id)arg1 attachmentManager:(id)arg2;
+@property(nonatomic) BOOL shouldAnalyzeMessage;
 @property(nonatomic) BOOL showMailboxName;
 @property(nonatomic) BOOL isEditableMessage;
 @property(nonatomic) BOOL isDraftMessage;

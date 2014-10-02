@@ -6,20 +6,23 @@
 
 #import "NSObject.h"
 
-@class GEOSearchRequest, MKLocalSearchRequest;
+@class MKLocalSearchRequest;
 
 @interface MKLocalSearch : NSObject
 {
     MKLocalSearchRequest *_request;
-    GEOSearchRequest *_geoRequest;
+    id <MKMapServiceTicket> _ticket;
 }
 
 - (void).cxx_destruct;
-- (void)_handleResponse:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)_handleMapItems:(id)arg1 boundingRegion:(id)arg2 error:(id)arg3 withCompletionHandler:(CDUnknownBlockType)arg4 queue:(id)arg5;
 @property(readonly, nonatomic, getter=isSearching) BOOL searching;
 - (void)cancel;
 - (void)startWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)_startWithCompletionHandler:(CDUnknownBlockType)arg1 queue:(id)arg2;
 - (id)initWithRequest:(id)arg1;
+- (id)init;
+- (void)_phoneOnlyStartWithCompletionHandler:(CDUnknownBlockType)arg1 queue:(id)arg2;
 
 @end
 

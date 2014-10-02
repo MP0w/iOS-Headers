@@ -11,7 +11,7 @@
 - (void)framesForAttachmentsWithIdentifiers:(NSArray *)arg1 withReply:(void (^)(NSDictionary *))arg2;
 - (void)setContentVisible:(BOOL)arg1;
 - (void)commitCompositionValuesWithReply:(void (^)(void))arg1;
-- (void)addAttachmentData:(NSData *)arg1 mimeType:(NSString *)arg2 fileName:(NSString *)arg3 identifier:(NSString *)arg4;
+- (void)addAttachmentWithData:(NSData *)arg1 mimeType:(NSString *)arg2 fileName:(NSString *)arg3;
 - (void)setUICustomizationData:(NSData *)arg1;
 - (void)setCompositionValues:(NSDictionary *)arg1;
 @end

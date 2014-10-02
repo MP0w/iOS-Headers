@@ -35,8 +35,8 @@
 - (id)_library;
 - (id)addAssetWithRequest:(id)arg1;
 @property(readonly) int status;
-@property(readonly) NSURL *contentURL;
-@property(readonly) NSArray *downloadingAssets;
+@property(readonly, copy) NSURL *contentURL;
+@property(readonly, copy) NSArray *downloadingAssets;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;

@@ -8,17 +8,17 @@
 
 #import "MFContactsSearchConsumer.h"
 
-@class MFContactsSearchManager, MFContactsSearchResultsModel, NSNumber;
+@class MFContactsSearchManager, MFContactsSearchResultsModel, NSNumber, NSString;
 
 @interface MFMailComposeContactsSearchController : NSObject <MFContactsSearchConsumer>
 {
-    id <MFMailComposeContactsSearchControllerDelegate> _delegate;
     MFContactsSearchManager *_manager;
     MFContactsSearchResultsModel *_model;
-    NSNumber *_taskID;
     NSNumber *_corecipientSearchTaskID;
     BOOL _foundAnySearchResults;
     unsigned int _waitingOnSearchResultsCount;
+    id <MFMailComposeContactsSearchControllerDelegate> _delegate;
+    NSNumber *_taskID;
 }
 
 @property(retain, nonatomic) NSNumber *taskID; // @synthesize taskID=_taskID;
@@ -27,8 +27,8 @@
 - (void)beganNetworkActivity;
 - (void)_finishSearch;
 - (void)finishedTaskWithID:(id)arg1;
-- (void)finishedSearchingForType:(int)arg1;
-- (void)consumeSearchResults:(id)arg1 type:(int)arg2 taskID:(id)arg3;
+- (void)finishedSearchingForType:(unsigned int)arg1;
+- (void)consumeSearchResults:(id)arg1 type:(unsigned int)arg2 taskID:(id)arg3;
 - (void)findCorecipientsWithRecipients:(id)arg1;
 - (void)_cancelSearchAndNotify:(BOOL)arg1;
 - (void)cancelSearch;
@@ -36,6 +36,12 @@
 - (void)searchWithString:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

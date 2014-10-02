@@ -23,5 +23,10 @@
 @property(readonly, nonatomic) BOOL tonePickerUsesOpaqueBackground;
 - (UIView *)newAccessoryDisclosureIndicatorViewForTonePickerCell;
 - (UIView *)newBackgroundViewForSelectedTonePickerCell:(BOOL)arg1;
+
+@optional
+@property(readonly, nonatomic) BOOL tonePickerHeaderTextShouldBeUppercase;
+@property(readonly, nonatomic) int tonePickerCustomTableSeparatorBackdropOverlayBlendMode;
+@property(readonly, nonatomic) UIColor *tonePickerCustomTableSeparatorColor;
 @end
 

@@ -25,6 +25,7 @@
 }
 
 - (void).cxx_destruct;
+- (id)_URLBagContext;
 - (void)_makeLookupRequestWithPersonalizationStyle:(int)arg1;
 - (void)_makeLocalMescalRequest;
 - (void)_makeLocalJSSignRequest;

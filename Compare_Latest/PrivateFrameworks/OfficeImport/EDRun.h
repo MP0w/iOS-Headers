@@ -8,7 +8,7 @@
 
 #import "EDKeyedObject.h"
 
-@class EDResources;
+@class EDResources, NSString;
 
 __attribute__((visibility("hidden")))
 @interface EDRun : NSObject <EDKeyedObject>
@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 + (id)runWithCharIndex:(unsigned int)arg1 fontIndex:(unsigned int)arg2 resources:(id)arg3;
 - (id)font;
 - (void)setCharIndex:(unsigned int)arg1;
+- (void)adjustIndex:(unsigned int)arg1;
 - (unsigned int)charIndex;
 - (int)key;
 - (BOOL)isEqual:(id)arg1;
@@ -33,6 +34,12 @@ __attribute__((visibility("hidden")))
 - (unsigned int)fontIndex;
 - (id)initWithCharIndex:(unsigned int)arg1 fontIndex:(unsigned int)arg2 resources:(id)arg3;
 - (void)setFont:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

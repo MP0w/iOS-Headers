@@ -9,7 +9,7 @@
 #import "SBFLegibilitySettingsProvider.h"
 #import "SBWallpaperObserver.h"
 
-@class _UILegibilitySettings;
+@class NSString, _UILegibilitySettings;
 
 @interface SBWallpaperLegibilitySettingsProvider : NSObject <SBWallpaperObserver, SBFLegibilitySettingsProvider>
 {
@@ -20,9 +20,15 @@
 @property(nonatomic) id <SBFLegibilitySettingsProviderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)wallpaperLegibilitySettingsDidChange:(id)arg1 forVariant:(long long)arg2;
 - (void)wallpaperDidChangeForVariant:(long long)arg1;
-@property(readonly, nonatomic) _UILegibilitySettings *legibilitySettings;
+@property(readonly, retain, nonatomic) _UILegibilitySettings *legibilitySettings;
 - (void)dealloc;
 - (id)initWithVariant:(long long)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

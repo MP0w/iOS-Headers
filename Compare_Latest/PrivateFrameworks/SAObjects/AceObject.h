@@ -36,13 +36,14 @@
 @property(readonly, nonatomic) NSData *plistData; // @synthesize plistData=_plistData;
 @property(copy, nonatomic) NSString *refId; // @synthesize refId=_refId;
 @property(copy, nonatomic) NSString *aceId; // @synthesize aceId=_aceId;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)_appendDescriptionOfObject:(id)arg1 toString:(id)arg2 atDepth:(int)arg3 withPrefixes:(id)arg4;
-- (id)description;
-- (void)forceEagerDeserialization;
+@property(readonly, copy) NSString *description;
+- (id)_serializedData;
+- (id)forceEagerDeserialization;
 - (BOOL)hasArrayForPropertyForKey:(id)arg1;
 - (id)topLevelPropertyForKey:(id)arg1;
 - (id)propertyForKey:(id)arg1;
@@ -62,6 +63,10 @@
 - (id)init;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

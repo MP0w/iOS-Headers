@@ -11,7 +11,7 @@
     BOOL _fetchPrincipalSearchProperties;
 }
 
-@property BOOL fetchPrincipalSearchProperties; // @synthesize fetchPrincipalSearchProperties=_fetchPrincipalSearchProperties;
+@property(nonatomic) BOOL fetchPrincipalSearchProperties; // @synthesize fetchPrincipalSearchProperties=_fetchPrincipalSearchProperties;
 - (void)getAccountPropertiesTask:(id)arg1 completedWithError:(id)arg2;
 - (void)refreshProperties;
 

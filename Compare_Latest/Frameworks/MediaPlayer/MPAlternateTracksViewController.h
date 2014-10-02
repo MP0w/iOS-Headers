@@ -9,7 +9,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class UINavigationBar, UIProgressIndicator, UITableView, UITextLabel, UIView;
+@class NSString, UINavigationBar, UIProgressIndicator, UITableView, UITextLabel, UIView;
 
 @interface MPAlternateTracksViewController : MPAbstractAlternateTracksViewController <UITableViewDataSource, UITableViewDelegate>
 {
@@ -40,6 +40,12 @@
 - (void)willChangeToInterfaceOrientation:(int)arg1;
 - (void)didChangeToInterfaceOrientation:(int)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -16,22 +16,35 @@ __attribute__((visibility("hidden")))
     TNDocumentRoot *mDocumentRoot;
     TNPageCoordinateDictionary *mPageLayoutCache;
     TSUPointerKeyDictionary *mHintCacheDictionary;
+    TSUPointerKeyDictionary *mSheetPageCountCache;
     TNSheet *mSheet;
     CDStruct_0441cfb5 mMaxPageCoordinate;
     BOOL mMaxPageCoordinateValid;
     NSMutableDictionary *mCachedAutoFitContentScaleDictionary;
-    NSString *mPageNumberFontName;
-    struct __CTFont *mPageNumberFont;
-    struct __CTFont *mPageNumberFontForDevice;
-    float mLastContentScaleForPageNumberFont;
+    TNPageCoordinateDictionary *mHeaderLayerCache;
+    TNPageCoordinateDictionary *mFooterLayerCache;
+    int mCachedPageCountDuringDynamicContentScaleChange;
+    int mPriorPageCount;
+    int mSubsequentPageCount;
+    BOOL mPageCountsValid;
+    BOOL mComputingPageCounts;
+    BOOL mInDynamicContentScaleChange;
     NSObject<TNPageControllerDelegate> *mDelegate;
     TNPrintProperties *_printProperties;
+    float mUserViewScale;
+    float _headerTextHeight;
+    float _footerTextHeight;
 }
 
 + (float)autoFitContentScaleForSheet:(id)arg1;
 + (float)p_contentScaleAutoFitForSheet:(id)arg1;
 + (id)p_cachedAutoFitContentScaleDictionary;
++ (float)printViewDefaultUserViewScale;
+@property(nonatomic) float footerTextHeight; // @synthesize footerTextHeight=_footerTextHeight;
+@property(nonatomic) float headerTextHeight; // @synthesize headerTextHeight=_headerTextHeight;
 @property(nonatomic) TNSheet *sheet; // @synthesize sheet=mSheet;
+@property(readonly, nonatomic) BOOL inDynamicContentScaleChange; // @synthesize inDynamicContentScaleChange=mInDynamicContentScaleChange;
+@property(nonatomic) float userViewScale; // @synthesize userViewScale=mUserViewScale;
 @property(nonatomic) NSObject<TNPageControllerDelegate> *delegate; // @synthesize delegate=mDelegate;
 @property(nonatomic) TNDocumentRoot *documentRoot; // @synthesize documentRoot=mDocumentRoot;
 - (id).cxx_construct;
@@ -48,14 +61,22 @@ __attribute__((visibility("hidden")))
 - (void)p_updateVisiblePageRange:(struct)arg1 forLayoutController:(id)arg2;
 - (void)p_enumerateOverPageRange:(struct)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)registerPageLayout:(id)arg1 atPageCoordinate:(CDStruct_0441cfb5)arg2;
-- (void)asyncProcessChanges:(id)arg1 forChangeSource:(id)arg2;
+- (BOOL)p_headersOrFootersContainPageNumberRelatedAttachments;
+- (void)p_didEndDynamicContentScaleChange:(id)arg1;
+- (void)p_willBeginDynamicContentScaleChange:(id)arg1;
+- (void)i_setLayer:(id)arg1 forHeaderType:(int)arg2 fragment:(int)arg3 atPageCoordinate:(CDStruct_0441cfb5)arg4;
+- (id)i_layerForHeaderType:(int)arg1 fragment:(int)arg2 atPageCoordinate:(CDStruct_0441cfb5)arg3;
+- (void)syncProcessChanges:(id)arg1 forChangeSource:(id)arg2;
 - (void)invalidatePageLayout;
 - (void)invalidateCachedAutoFitContentScaleForSheet:(id)arg1;
-- (void)p_invalidateHintCache;
+- (void)i_invalidateHintCache;
 - (void)invalidateDrawableLayouts;
+- (void)invalidatePageLayoutGeometries;
+- (void)p_invalidatePageCounts;
 - (void)p_clearHintCache;
-- (void)p_invalidatePageLayoutCache;
+- (void)i_invalidatePageLayoutCache;
 - (void)removeLayoutsFromPages;
+- (void)willExitPrintView;
 - (struct)pageRangeForPageIndex:(unsigned int)arg1;
 - (CDStruct_0441cfb5)pageCoordinateForPageIndex:(unsigned int)arg1;
 - (id)p_pageLayoutAtCoordinate:(CDStruct_0441cfb5)arg1;
@@ -66,9 +87,8 @@ __attribute__((visibility("hidden")))
 - (CDStruct_0441cfb5)p_pageCoordinateForPageLayoutAtDevicePoint:(struct CGPoint)arg1;
 - (CDStruct_0441cfb5)pageCoordinateForPageLayoutAtUnscaledPoint:(struct CGPoint)arg1;
 - (void)layoutInPageRange:(struct)arg1 forLayoutController:(id)arg2;
+- (void)p_measureHeadersAndFooters;
 - (struct CGRect)firstPartitionFrameForInfo:(id)arg1 outStartPageCoordinate:(out CDStruct_0441cfb5 *)arg2;
-- (struct __CTFont *)pageNumberFontForDeviceSpace:(BOOL)arg1;
-@property(readonly) NSString *pageNumberFontName;
 - (unsigned int)pageNumberForPageCoordinate:(CDStruct_0441cfb5)arg1;
 - (BOOL)isPagePlaceholderAtPageCoordinate:(CDStruct_0441cfb5)arg1;
 @property(readonly) unsigned int numPages;
@@ -77,16 +97,30 @@ __attribute__((visibility("hidden")))
 - (CDStruct_0441cfb5)pageCoordinateForMaxVisiblePage;
 - (struct)pageRangeForContentWithUpperBound:(CDStruct_0441cfb5)arg1;
 - (struct)pageRangeForContent;
+- (void)updatePrintMargins;
 - (void)updateContentScale;
 - (void)updateViewScale;
+- (void)updateUserViewScale;
+- (void)canvasViewScaleDidChange:(float)arg1;
+- (int)p_priorPageCount;
 @property(readonly) struct CGSize pageSizeWithGutter;
 @property(readonly) struct CGRect contentFrame;
 @property(readonly) struct CGSize pageSize;
+- (void)p_computePriorPageCountForCurrentSheet;
+- (void)p_computeSubsequentPageCountForCurrentSheet;
+- (int)p_pageCountForSheet:(id)arg1;
+- (int)p_updateCachedPageCountForCurrentSheet;
 @property(readonly, getter=isPortrait) BOOL portrait;
 @property(readonly) float contentScale;
 @property(readonly) TNPrintProperties *printProperties; // @synthesize printProperties=_printProperties;
 - (void)dealloc;
 - (id)initWithDocumentRoot:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

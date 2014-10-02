@@ -12,45 +12,14 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
-struct CGPoint {
-    float _field1;
-    float _field2;
-};
-
-struct CGRect {
-    struct CGPoint _field1;
-    struct CGSize _field2;
-};
-
 struct CGSize {
     float _field1;
     float _field2;
 };
 
-struct ML3DatabaseImportDataSource;
+struct ML3ImportItem;
 
 struct ML3VirtualTableDataSource;
-
-struct MLArtworkFormatSpec {
-    unsigned int _field1;
-    unsigned int _field2;
-    unsigned int _field3;
-    unsigned int _field4;
-    int _field5;
-    int _field6;
-    char _field7;
-};
-
-struct MLArtworkInstanceInfo {
-    struct MLArtworkFormatSpec _field1;
-    struct CGRect _field2;
-};
-
-struct MLRowDataSource;
-
-struct NSNumber {
-    Class _field1;
-};
 
 struct _NSRange {
     unsigned int location;
@@ -59,30 +28,26 @@ struct _NSRange {
 
 struct __hash_node<long long, void *>;
 
-struct __hash_node<std::__1::pair<long long, ML3CollectionPIDSet>, void *>;
-
-struct __hash_node<std::__1::pair<long long, ML3NameOrder>, void *>;
-
-struct __hash_node<std::__1::pair<long long, NSString *>, void *>;
+struct __hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>;
 
 struct __shared_weak_count;
 
 struct map<unsigned long, unsigned int, std::__1::less<unsigned long>, std::__1::allocator<std::__1::pair<const unsigned long, unsigned int>>> {
-    struct __tree<std::__1::pair<unsigned long, unsigned int>, std::__1::__map_value_compare<unsigned long, unsigned int, std::__1::less<unsigned long>, true>, std::__1::allocator<std::__1::pair<unsigned long, unsigned int>>> {
-        struct __tree_node<std::__1::pair<unsigned long, unsigned int>, void *> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned long, unsigned int>, void *>>> {
+    struct __tree<std::__1::__value_type<unsigned long, unsigned int>, std::__1::__map_value_compare<unsigned long, std::__1::__value_type<unsigned long, unsigned int>, std::__1::less<unsigned long>, true>, std::__1::allocator<std::__1::__value_type<unsigned long, unsigned int>>> {
+        struct __tree_node<std::__1::__value_type<unsigned long, unsigned int>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned long, unsigned int>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
                 struct __tree_node_base<void *> *__left_;
             } __first_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned long, unsigned int, std::__1::less<unsigned long>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned long, std::__1::__value_type<unsigned long, unsigned int>, std::__1::less<unsigned long>, true>> {
             unsigned long __first_;
         } __pair3_;
     } __tree_;
 };
 
-struct shared_ptr<ML3DatabaseImportDataSource> {
-    struct ML3DatabaseImportDataSource *_field1;
+struct shared_ptr<ML3ImportItem> {
+    struct ML3ImportItem *_field1;
     struct __shared_weak_count *_field2;
 };
 
@@ -128,85 +93,29 @@ struct unique_ptr<std::__1::__hash_node<long long, void *>*[], std::__1::__bucke
     } __ptr_;
 };
 
-struct unique_ptr<std::__1::__hash_node<std::__1::pair<long long, ML3CollectionPIDSet>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, ML3CollectionPIDSet>, void *>*>>> {
-    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<long long, ML3CollectionPIDSet>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, ML3CollectionPIDSet>, void *>*>>> {
-        struct __hash_node<std::__1::pair<long long, ML3CollectionPIDSet>, void *> **__first_;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, ML3CollectionPIDSet>, void *>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, ML3CollectionPIDSet>, void *>*>> {
+struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>*>>> {
+        struct __hash_node<std::__1::__hash_value_type<long long, NSString *>, void *> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>*>> {
                 unsigned long __first_;
             } __data_;
         } __second_;
     } __ptr_;
-};
-
-struct unique_ptr<std::__1::__hash_node<std::__1::pair<long long, ML3NameOrder>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, ML3NameOrder>, void *>*>>> {
-    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<long long, ML3NameOrder>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, ML3NameOrder>, void *>*>>> {
-        struct __hash_node<std::__1::pair<long long, ML3NameOrder>, void *> **_field1;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, ML3NameOrder>, void *>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, ML3NameOrder>, void *>*>> {
-                unsigned long _field1;
-            } _field1;
-        } _field2;
-    } _field1;
-};
-
-struct unique_ptr<std::__1::__hash_node<std::__1::pair<long long, NSString *>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, NSString *>, void *>*>>> {
-    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<long long, NSString *>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, NSString *>, void *>*>>> {
-        struct __hash_node<std::__1::pair<long long, NSString *>, void *> **__first_;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, NSString *>, void *>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, NSString *>, void *>*>> {
-                unsigned long __first_;
-            } __data_;
-        } __second_;
-    } __ptr_;
-};
-
-struct unordered_map<long long, ML3CollectionPIDSet, std::__1::hash<long long>, std::__1::equal_to<long long>, std::__1::allocator<std::__1::pair<const long long, ML3CollectionPIDSet>>> {
-    struct __hash_table<std::__1::pair<long long, ML3CollectionPIDSet>, std::__1::__unordered_map_hasher<long long, ML3CollectionPIDSet, std::__1::hash<long long>, true>, std::__1::__unordered_map_equal<long long, ML3CollectionPIDSet, std::__1::equal_to<long long>, true>, std::__1::allocator<std::__1::pair<long long, ML3CollectionPIDSet>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<long long, ML3CollectionPIDSet>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, ML3CollectionPIDSet>, void *>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<long long, ML3CollectionPIDSet>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, ML3CollectionPIDSet>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<long long, ML3CollectionPIDSet>, void *>*> {
-                struct __hash_node<std::__1::pair<long long, ML3CollectionPIDSet>, void *> *__next_;
-            } __first_;
-        } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<long long, ML3CollectionPIDSet, std::__1::hash<long long>, true>> {
-            unsigned long __first_;
-        } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<long long, ML3CollectionPIDSet, std::__1::equal_to<long long>, true>> {
-            float __first_;
-        } __p3_;
-    } __table_;
-};
-
-struct unordered_map<long long, ML3NameOrder, std::__1::hash<long long>, std::__1::equal_to<long long>, std::__1::allocator<std::__1::pair<const long long, ML3NameOrder>>> {
-    struct __hash_table<std::__1::pair<long long, ML3NameOrder>, std::__1::__unordered_map_hasher<long long, ML3NameOrder, std::__1::hash<long long>, true>, std::__1::__unordered_map_equal<long long, ML3NameOrder, std::__1::equal_to<long long>, true>, std::__1::allocator<std::__1::pair<long long, ML3NameOrder>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<long long, ML3NameOrder>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, ML3NameOrder>, void *>*>>> _field1;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<long long, ML3NameOrder>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, ML3NameOrder>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<long long, ML3NameOrder>, void *>*> {
-                struct __hash_node<std::__1::pair<long long, ML3NameOrder>, void *> *_field1;
-            } _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<long long, ML3NameOrder, std::__1::hash<long long>, true>> {
-            unsigned long _field1;
-        } _field3;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<long long, ML3NameOrder, std::__1::equal_to<long long>, true>> {
-            float _field1;
-        } _field4;
-    } _field1;
 };
 
 struct unordered_map<long long, NSString *, std::__1::hash<long long>, std::__1::equal_to<long long>, std::__1::allocator<std::__1::pair<const long long, NSString *>>> {
-    struct __hash_table<std::__1::pair<long long, NSString *>, std::__1::__unordered_map_hasher<long long, NSString *, std::__1::hash<long long>, true>, std::__1::__unordered_map_equal<long long, NSString *, std::__1::equal_to<long long>, true>, std::__1::allocator<std::__1::pair<long long, NSString *>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<long long, NSString *>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, NSString *>, void *>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<long long, NSString *>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, NSString *>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<long long, NSString *>, void *>*> {
-                struct __hash_node<std::__1::pair<long long, NSString *>, void *> *__next_;
+    struct __hash_table<std::__1::__hash_value_type<long long, NSString *>, std::__1::__unordered_map_hasher<long long, std::__1::__hash_value_type<long long, NSString *>, std::__1::hash<long long>, true>, std::__1::__unordered_map_equal<long long, std::__1::__hash_value_type<long long, NSString *>, std::__1::equal_to<long long>, true>, std::__1::allocator<std::__1::__hash_value_type<long long, NSString *>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<long long, NSString *>, void *> *__next_;
             } __first_;
         } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<long long, NSString *, std::__1::hash<long long>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<long long, std::__1::__hash_value_type<long long, NSString *>, std::__1::hash<long long>, true>> {
             unsigned long __first_;
         } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<long long, NSString *, std::__1::equal_to<long long>, true>> {
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<long long, std::__1::__hash_value_type<long long, NSString *>, std::__1::equal_to<long long>, true>> {
             float __first_;
         } __p3_;
     } __table_;
@@ -229,14 +138,6 @@ struct unordered_set<long long, std::__1::hash<long long>, std::__1::equal_to<lo
     } __table_;
 };
 
-struct vector<MLRowDataSource *, std::__1::allocator<MLRowDataSource *>> {
-    struct MLRowDataSource **__begin_;
-    struct MLRowDataSource **__end_;
-    struct __compressed_pair<MLRowDataSource **, std::__1::allocator<MLRowDataSource *>> {
-        struct MLRowDataSource **__first_;
-    } __end_cap_;
-};
-
 struct vector<long long, std::__1::allocator<long long>> {
     long long *__begin_;
     long long *__end_;
@@ -256,67 +157,24 @@ struct vector<unsigned char, std::__1::allocator<unsigned char>> {
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    unsigned int _field1;
-    char *_field2;
-    unsigned int _field3;
-    unsigned int _field4;
-    unsigned int _field5;
-    unsigned int _field6;
-    int _field7;
-    char _field8;
-    char _field9;
-    char _field10;
-    char _field11;
-    char _field12;
-} CDStruct_7da50bd2;
-
-typedef struct {
-    char _field1;
-    unsigned int _field2;
-} CDStruct_de0da7c7;
-
-typedef struct {
     long long _field1;
     int _field2;
 } CDStruct_87dc826d;
 
+// Ambiguous groups
 typedef struct {
-    long long _field1;
-    long long _field2;
-    long long _field3;
-    long long _field4;
-    long long _field5;
-    long long _field6;
-    long long _field7;
-} CDStruct_bd6d074e;
+    unsigned int storeId:1;
+} CDStruct_9ea45725;
 
-// Template types
-typedef struct shared_ptr<ML3DatabaseImportDataSource> {
-    struct ML3DatabaseImportDataSource *_field1;
+typedef struct shared_ptr<ML3ImportItem> {
+    struct ML3ImportItem *_field1;
     struct __shared_weak_count *_field2;
-} shared_ptr_77107615;
+} shared_ptr_de333b55;
 
 typedef struct shared_ptr<ML3VirtualTableDataSource> {
     struct ML3VirtualTableDataSource *__ptr_;
     struct __shared_weak_count *__cntrl_;
 } shared_ptr_c3e79333;
-
-typedef struct unordered_map<long long, ML3NameOrder, std::__1::hash<long long>, std::__1::equal_to<long long>, std::__1::allocator<std::__1::pair<const long long, ML3NameOrder>>> {
-    struct __hash_table<std::__1::pair<long long, ML3NameOrder>, std::__1::__unordered_map_hasher<long long, ML3NameOrder, std::__1::hash<long long>, true>, std::__1::__unordered_map_equal<long long, ML3NameOrder, std::__1::equal_to<long long>, true>, std::__1::allocator<std::__1::pair<long long, ML3NameOrder>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<long long, ML3NameOrder>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, ML3NameOrder>, void *>*>>> _field1;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<long long, ML3NameOrder>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, ML3NameOrder>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<long long, ML3NameOrder>, void *>*> {
-                struct __hash_node<std::__1::pair<long long, ML3NameOrder>, void *> *_field1;
-            } _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<long long, ML3NameOrder, std::__1::hash<long long>, true>> {
-            unsigned long _field1;
-        } _field3;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<long long, ML3NameOrder, std::__1::equal_to<long long>, true>> {
-            float _field1;
-        } _field4;
-    } _field1;
-} unordered_map_856d47d1;
 
 typedef struct unordered_set<long long, std::__1::hash<long long>, std::__1::equal_to<long long>, std::__1::allocator<long long>> {
     struct __hash_table<long long, std::__1::hash<long long>, std::__1::equal_to<long long>, std::__1::allocator<long long>> {

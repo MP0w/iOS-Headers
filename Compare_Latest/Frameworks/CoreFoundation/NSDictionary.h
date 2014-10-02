@@ -74,7 +74,7 @@
 - (unsigned long)_cfTypeID;
 - (id)keyEnumerator;
 - (id)objectForKey:(id)arg1;
-- (unsigned int)count;
+@property(readonly) unsigned int count;
 
 @end
 

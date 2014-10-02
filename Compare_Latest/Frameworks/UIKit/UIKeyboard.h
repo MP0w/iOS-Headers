@@ -19,6 +19,7 @@
     BOOL m_respondingToImplGeometryChange;
     int m_orientation;
     int m_idiom;
+    BOOL m_hasExplicitOrientation;
 }
 
 + (BOOL)splitKeyboardEnabled;
@@ -39,7 +40,7 @@
 + (void)_clearActiveKeyboard;
 + (id)activeKeyboard;
 @property(nonatomic) int keyboardIdiom; // @synthesize keyboardIdiom=m_idiom;
-- (void)resizeForKeyplaneSize:(struct CGSize)arg1;
+- (void)_resizeForKeyplaneSize:(struct CGSize)arg1 splitWidthsChanged:(BOOL)arg2;
 @property(nonatomic) BOOL showsCandidatesInline;
 - (BOOL)canDismiss;
 - (void)implBoundsHeightChangeDone:(float)arg1 suppressNotification:(BOOL)arg2;
@@ -52,10 +53,13 @@
 - (void)_setPasscodeOutlineAlpha:(float)arg1;
 - (void)_setRenderConfig:(id)arg1;
 - (id)targetWindow;
+- (void)responseContextDidChange;
 - (void)setCorrectionLearningAllowed:(BOOL)arg1;
 - (struct UIPeripheralAnimationGeometry)geometryForMinimize:(BOOL)arg1;
 - (void)syncMinimizedStateToHardwareKeyboardAttachedState;
 - (BOOL)shouldSaveMinimizationState;
+- (void)setShowPredictionBar:(BOOL)arg1;
+- (BOOL)showPredictionBar;
 - (void)setDisableInteraction:(BOOL)arg1;
 - (BOOL)disableInteraction;
 - (void)setCursorLocation:(int)arg1;
@@ -74,8 +78,6 @@
 - (int)textEffectsVisibilityLevel;
 - (void)displayLayer:(id)arg1;
 - (void)setNeedsDisplay;
-- (void)removeFromSuperview;
-- (void)movedFromSuperview:(id)arg1;
 - (void)_deactivateForBackgrounding;
 - (void)deactivate;
 - (BOOL)isActive;
@@ -98,16 +100,21 @@
 - (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (BOOL)pointInside:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)setOrientation:(int)arg1;
 - (int)interfaceOrientation;
 - (void)updateLayout;
 - (void)setFrame:(struct CGRect)arg1;
+- (void)setBounds:(struct CGRect)arg1;
+- (struct CGSize)intrinsicContentSize;
 - (void)didMoveToWindow;
 - (void)willMoveToWindow:(id)arg1;
 - (void)clearActivePerScreenIfNeeded;
 - (BOOL)isActivePerScreen;
 - (void)dealloc;
+- (id)initLazily;
 - (id)initWithDefaultSize;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (id)_initWithFrame:(struct CGRect)arg1 lazily:(BOOL)arg2;
 - (void)autoAdjustOrientationForSize:(struct CGSize)arg1;
 - (void)autoAdjustOrientation;
 - (void)manualKeyboardWasOrderedOut;

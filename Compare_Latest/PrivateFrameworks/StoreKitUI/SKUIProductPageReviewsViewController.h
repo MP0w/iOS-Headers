@@ -13,7 +13,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class NSMutableIndexSet, NSOperationQueue, SKComposeReviewViewController, SKUIClientContext, SKUIFacebookLikeStatus, SKUIIPadCustomerReviewsHeaderView, SKUILayoutCache, SKUIProductPage, SKUIProductPageHeaderViewController, SKUIProductPageTableView, SKUIReviewList, SKUIReviewsFacebookViewController, SKUIReviewsHistogramViewController, SKUIStarRatingQueue, SSVLoadURLOperation, UIScrollView;
+@class NSMutableIndexSet, NSOperationQueue, NSString, SKComposeReviewViewController, SKUIClientContext, SKUIFacebookLikeStatus, SKUIIPadCustomerReviewsHeaderView, SKUILayoutCache, SKUIProductPage, SKUIProductPageHeaderViewController, SKUIProductPageTableView, SKUIReviewList, SKUIReviewsFacebookViewController, SKUIReviewsHistogramViewController, SKUIStarRatingQueue, SSVLoadURLOperation, UIScrollView;
 
 @interface SKUIProductPageReviewsViewController : UIViewController <SKUILayoutCacheDelegate, SKComposeReviewDelegate, SKUIReviewsFacebookViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, SKUIProductPageChildViewController>
 {
@@ -36,12 +36,14 @@
     BOOL _showAllVersions;
     SKUIStarRatingQueue *_starRatingQueue;
     SKUIProductPageTableView *_tableView;
+    BOOL _askPermission;
 }
 
 @property(readonly, nonatomic) SKUIProductPage *productPage; // @synthesize productPage=_productPage;
 @property(retain, nonatomic) SKUIProductPageHeaderViewController *headerViewController; // @synthesize headerViewController=_headerViewController;
 @property(nonatomic) __weak id <SKUIProductPageChildViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
+@property(nonatomic) BOOL askPermission; // @synthesize askPermission=_askPermission;
 - (void).cxx_destruct;
 - (id)_urlStringWithPageNumber:(int)arg1;
 - (id)_textLayoutRequestWithText:(id)arg1;
@@ -55,6 +57,7 @@
 - (void)_loadNextPageIfNecessaryForOffset:(struct CGPoint)arg1;
 - (id)_loadMoreCellForTableView:(id)arg1 indexPath:(id)arg2;
 - (id)_histogramViewController;
+- (float)_defaultPageWidth;
 - (id)_bottomBorderColorForScheme:(id)arg1;
 - (void)_addReviewsFromResponse:(id)arg1 error:(id)arg2;
 - (void)_addHeaderView;
@@ -86,6 +89,12 @@
 @property(readonly, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
 - (void)dealloc;
 - (id)initWithProductPage:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

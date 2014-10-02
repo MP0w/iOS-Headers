@@ -110,7 +110,7 @@
 - (void)addSublayer:(id)arg1;
 - (void)insertSublayer:(id)arg1 atIndex:(unsigned int)arg2;
 - (void)removeFromSuperlayer;
-@property id delegate;
+@property __weak id delegate;
 @property(retain) CALayer *mask;
 @property(readonly) CALayer *superlayer;
 @property(copy) NSArray *sublayers;

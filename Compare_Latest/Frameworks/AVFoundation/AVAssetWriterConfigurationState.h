@@ -14,6 +14,7 @@
     AVMediaFileType *_mediaFileType;
     CDStruct_1b6d18a9 _movieFragmentInterval;
     BOOL _shouldOptimizeForNetworkUse;
+    NSURL *_directoryForTemporaryFiles;
     NSArray *_metadataItems;
     int _movieTimeScale;
     struct CGAffineTransform _preferredTransform;
@@ -30,6 +31,7 @@
 @property(nonatomic) struct CGAffineTransform preferredTransform; // @synthesize preferredTransform=_preferredTransform;
 @property(nonatomic) int movieTimeScale; // @synthesize movieTimeScale=_movieTimeScale;
 @property(copy, nonatomic) NSArray *metadataItems; // @synthesize metadataItems=_metadataItems;
+@property(copy, nonatomic) NSURL *directoryForTemporaryFiles; // @synthesize directoryForTemporaryFiles=_directoryForTemporaryFiles;
 @property(nonatomic) BOOL shouldOptimizeForNetworkUse; // @synthesize shouldOptimizeForNetworkUse=_shouldOptimizeForNetworkUse;
 @property(nonatomic) CDStruct_1b6d18a9 movieFragmentInterval; // @synthesize movieFragmentInterval=_movieFragmentInterval;
 @property(copy, nonatomic) AVMediaFileType *mediaFileType; // @synthesize mediaFileType=_mediaFileType;

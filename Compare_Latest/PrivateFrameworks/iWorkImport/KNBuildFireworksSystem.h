@@ -34,9 +34,9 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) float lifeSpanMinDuration; // @synthesize lifeSpanMinDuration=_lifeSpanMinDuration;
 - (CDStruct_b2fbf00d)lifeSpanAtIndexPoint:(struct CGPoint)arg1;
 - (float)scaleAtIndexPoint:(struct CGPoint)arg1;
-- (CDStruct_03942939)speedAtIndexPoint:(struct CGPoint)arg1;
+- (CDStruct_869f9c67)speedAtIndexPoint:(struct CGPoint)arg1;
 - (float)speedMax;
-- (CDStruct_f2e236b6)colorAtIndexPoint:(struct CGPoint)arg1;
+- (CDStruct_818bb265)colorAtIndexPoint:(struct CGPoint)arg1;
 - (struct CGPoint)startingPointAtIndexPoint:(struct CGPoint)arg1;
 - (void)setupWithTexture:(id)arg1 particleTextureSize:(struct CGSize)arg2 reverseDrawOrder:(BOOL)arg3;
 

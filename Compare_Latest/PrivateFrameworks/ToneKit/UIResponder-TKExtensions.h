@@ -7,6 +7,6 @@
 #import "UIResponder.h"
 
 @interface UIResponder (TKExtensions)
-- (id)tl_firstViewControllerInResponderChain;
+- (id)tk_firstViewControllerInResponderChain;
 @end
 

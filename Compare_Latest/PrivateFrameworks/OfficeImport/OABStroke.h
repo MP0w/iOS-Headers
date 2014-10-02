@@ -11,7 +11,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)writeStroke:(id)arg1 toStroke:(struct EshStroke *)arg2 state:(id)arg3;
 + (id)readLineEndWithType:(int)arg1 width:(int)arg2 length:(int)arg3;
 + (id)readStrokeFromShapeBaseManager:(id)arg1 colorPalette:(id)arg2;
 + (void)writePresetDashStyleForCustomDash:(id)arg1 toStroke:(struct EshStroke *)arg2 state:(id)arg3;

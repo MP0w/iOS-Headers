@@ -8,12 +8,14 @@
 
 #import "NSCopying.h"
 
-@class GEOPlaceSearchRequest, GEOPlaceSearchResponse, NSString;
+@class GEOPDPlaceRequest, GEOPDPlaceResponse, GEOPlaceSearchRequest, GEOPlaceSearchResponse, NSString;
 
 @interface GEORPCorrectedSearch : PBCodable <NSCopying>
 {
     unsigned int _correctedSearchResultIndex;
     unsigned int _originalSearchResultIndex;
+    GEOPDPlaceRequest *_placeRequest;
+    GEOPDPlaceResponse *_placeResponse;
     GEOPlaceSearchRequest *_placeSearchRequest;
     GEOPlaceSearchResponse *_placeSearchResponse;
     NSString *_preferredSearchDisplayLocation;
@@ -23,11 +25,14 @@
     } _has;
 }
 
+@property(retain, nonatomic) GEOPDPlaceResponse *placeResponse; // @synthesize placeResponse=_placeResponse;
+@property(retain, nonatomic) GEOPDPlaceRequest *placeRequest; // @synthesize placeRequest=_placeRequest;
 @property(retain, nonatomic) NSString *preferredSearchDisplayLocation; // @synthesize preferredSearchDisplayLocation=_preferredSearchDisplayLocation;
 @property(nonatomic) unsigned int correctedSearchResultIndex; // @synthesize correctedSearchResultIndex=_correctedSearchResultIndex;
 @property(nonatomic) unsigned int originalSearchResultIndex; // @synthesize originalSearchResultIndex=_originalSearchResultIndex;
 @property(retain, nonatomic) GEOPlaceSearchResponse *placeSearchResponse; // @synthesize placeSearchResponse=_placeSearchResponse;
 @property(retain, nonatomic) GEOPlaceSearchRequest *placeSearchRequest; // @synthesize placeSearchRequest=_placeSearchRequest;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -36,12 +41,15 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) BOOL hasPlaceResponse;
+@property(readonly, nonatomic) BOOL hasPlaceRequest;
 @property(readonly, nonatomic) BOOL hasPreferredSearchDisplayLocation;
 @property(nonatomic) BOOL hasCorrectedSearchResultIndex;
 @property(nonatomic) BOOL hasOriginalSearchResultIndex;
 @property(readonly, nonatomic) BOOL hasPlaceSearchResponse;
 @property(readonly, nonatomic) BOOL hasPlaceSearchRequest;
 - (void)dealloc;
+- (BOOL)containsReportableData;
 
 @end
 

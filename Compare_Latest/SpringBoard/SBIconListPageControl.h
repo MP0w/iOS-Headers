@@ -13,9 +13,11 @@
     id <SBIconListPageControlDelegate> _delegate;
     _Bool _hasSetLegibility;
     SBIconPageIndicatorImageSetResult *_pageIndicatorImageSets;
+    _Bool _legibilityEnabled;
     SBIconPageIndicatorImageSetCache *_imageSetCache;
 }
 
+@property(nonatomic) _Bool legibilityEnabled; // @synthesize legibilityEnabled=_legibilityEnabled;
 @property(retain, nonatomic) SBIconPageIndicatorImageSetCache *imageSetCache; // @synthesize imageSetCache=_imageSetCache;
 @property(nonatomic) id <SBIconListPageControlDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)_transitionIndicator:(id)arg1 toEnabled:(_Bool)arg2 index:(long long)arg3;

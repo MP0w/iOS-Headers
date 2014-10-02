@@ -8,7 +8,7 @@
 
 #import "TSDContainerInfo.h"
 
-@class NSObject<TSDContainerInfo>, TPPageHint, TPPageInfo, TSDInfoGeometry, TSPObject<TSDOwningAttachment>, TSWPStorage;
+@class NSObject<TSDContainerInfo>, NSString, TPPageHint, TPPageInfo, TSDInfoGeometry, TSPObject<TSDOwningAttachment>, TSWPStorage;
 
 __attribute__((visibility("hidden")))
 @interface TPBodyInfo : NSObject <TSDContainerInfo>
@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=isFloatingAboveText) BOOL floatingAboveText;
 @property(readonly, nonatomic) TSPObject<TSDOwningAttachment> *owningAttachmentNoRecurse;
 @property(nonatomic) TSPObject<TSDOwningAttachment> *owningAttachment;
+- (void)clearBackPointerToParentInfoIfNeeded:(id)arg1;
 @property(copy, nonatomic) TSDInfoGeometry *geometry;
 - (void)inflateBodyLayout:(id)arg1;
 @property(readonly, nonatomic) BOOL layoutVertically;
@@ -40,7 +41,11 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(nonatomic) BOOL matchesObjectPlaceholderGeometry;
+@property(readonly) Class superclass;
 
 @end
 

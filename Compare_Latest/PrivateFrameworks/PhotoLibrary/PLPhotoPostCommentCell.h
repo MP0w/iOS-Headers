@@ -16,9 +16,9 @@
 }
 
 + (float)heightForWidth:(float)arg1;
-@property(readonly, nonatomic) UIView *styledSeparatorView; // @synthesize styledSeparatorView=_styledSeparatorView;
-@property(readonly, nonatomic) UIButton *addCommentButton; // @synthesize addCommentButton=_addCommentButton;
-@property(readonly, nonatomic) UILabel *contentLabel; // @synthesize contentLabel=_contentLabel;
+@property(readonly, retain, nonatomic) UIView *styledSeparatorView; // @synthesize styledSeparatorView=_styledSeparatorView;
+@property(readonly, retain, nonatomic) UIButton *addCommentButton; // @synthesize addCommentButton=_addCommentButton;
+@property(readonly, retain, nonatomic) UILabel *contentLabel; // @synthesize contentLabel=_contentLabel;
 - (void)layoutSubviews;
 - (void)setupContent;
 - (void)dealloc;

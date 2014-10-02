@@ -27,8 +27,10 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *previewVariant; // @synthesize previewVariant=_previewVariant;
 @property(readonly, nonatomic) NSString *documentVariant; // @synthesize documentVariant=_documentVariant;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+- (id)initHeadlessWithName:(id)arg1 variant:(unsigned int)arg2 locale:(struct __CFLocale *)arg3;
 - (id)initHeadlessWithName:(id)arg1 variant:(unsigned int)arg2;
 - (id)initHeadlessWithName:(id)arg1;
+- (id)description;
 @property(readonly, nonatomic) NSURL *bundledDocumentContainerURL;
 @property(readonly, nonatomic) NSURL *documentContainerURL;
 @property(readonly, nonatomic) NSURL *downloadedDocumentContainerURL;

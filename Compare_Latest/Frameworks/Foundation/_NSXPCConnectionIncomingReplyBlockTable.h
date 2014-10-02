@@ -14,7 +14,8 @@ __attribute__((visibility("hidden")))
     unsigned long _sequence;
 }
 
-- (unsigned long)sequenceForIncomingReplyBlockWithCleanupBlock:(CDUnknownBlockType)arg1;
+- (id)progressForSequence:(unsigned long)arg1;
+- (unsigned long)sequenceForIncomingReplyBlockWithProgress:(id)arg1 cleanupBlock:(CDUnknownBlockType)arg2;
 - (BOOL)removeIncomingReplyBlockForSequence:(unsigned long)arg1;
 - (void)cleanupIncomingReplyBlocks;
 - (void)finalize;

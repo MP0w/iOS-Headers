@@ -8,7 +8,7 @@
 
 #import "NSCoding.h"
 
-@class NSMutableDictionary, NSMutableIndexSet, UICollectionView, UICollectionViewLayoutInvalidationContext, UIDynamicAnimator;
+@class NSArray, NSIndexSet, NSMutableDictionary, NSMutableIndexSet, UICollectionView, UICollectionViewLayoutInvalidationContext, UIDynamicAnimator, _UICollectionViewCompositionLayout;
 
 @interface UICollectionViewLayout : NSObject <NSCoding>
 {
@@ -27,48 +27,41 @@
     NSMutableDictionary *_decorationViewExternalObjectsTables;
     UICollectionViewLayout *_transitioningFromLayout;
     UICollectionViewLayout *_transitioningToLayout;
-    BOOL _inTransitionFromTransitionLayout;
-    BOOL _inTransitionToTransitionLayout;
     UIDynamicAnimator *_animator;
     UICollectionViewLayoutInvalidationContext *_invalidationContext;
+    struct CGRect _frame;
+    NSIndexSet *_sections;
+    NSIndexSet *_items;
+    NSArray *_elementKinds;
+    struct _UICollectionViewCompositionLayout *_compositionLayout;
+    UICollectionViewLayout *_siblingLayout;
+    struct CGPoint _layoutOffset;
+    unsigned int _layoutOffsetEdges;
+    struct {
+        unsigned int inTransitionFromTransitionLayout:1;
+        unsigned int inTransitionToTransitionLayout:1;
+        unsigned int prepared:1;
+    } _layoutFlags;
+    int _sublayoutType;
 }
 
 + (Class)invalidationContextClass;
 + (Class)layoutAttributesClass;
-@property(readonly, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
-- (struct CGPoint)updatesContentOffsetForProposedContentOffset:(struct CGPoint)arg1;
-- (struct CGPoint)transitionContentOffsetForProposedContentOffset:(struct CGPoint)arg1 keyItemIndexPath:(id)arg2;
-- (void)_didFinishLayoutTransitionAnimations:(BOOL)arg1;
-- (void)finalizeLayoutTransition;
-- (void)prepareForTransitionFromLayout:(id)arg1;
-- (void)prepareForTransitionToLayout:(id)arg1;
-- (void)_finalizeLayoutTransition;
-- (void)_prepareForTransitionFromLayout:(id)arg1;
-- (void)_prepareForTransitionToLayout:(id)arg1;
-- (void)registerNib:(id)arg1 forDecorationViewOfKind:(id)arg2;
-- (void)registerClass:(Class)arg1 forDecorationViewOfKind:(id)arg2;
-- (id)snapshottedLayoutAttributeForItemAtIndexPath:(id)arg1;
-- (void)finalizeCollectionViewUpdates;
-- (void)prepareForCollectionViewUpdates:(id)arg1;
-- (struct CGRect)bounds;
-- (struct CGSize)collectionViewContentSize;
-- (CDUnknownBlockType)_animationForReusableView:(id)arg1 toLayoutAttributes:(id)arg2;
-- (CDUnknownBlockType)_animationForReusableView:(id)arg1 toLayoutAttributes:(id)arg2 type:(unsigned int)arg3;
-- (struct CGPoint)targetContentOffsetForProposedContentOffset:(struct CGPoint)arg1;
-- (struct CGPoint)targetContentOffsetForProposedContentOffset:(struct CGPoint)arg1 withScrollingVelocity:(struct CGPoint)arg2;
-- (id)invalidationContextForBoundsChange:(struct CGRect)arg1;
-- (BOOL)shouldInvalidateLayoutForBoundsChange:(struct CGRect)arg1;
-- (void)invalidateLayoutWithContext:(id)arg1;
-- (void)invalidateLayout;
-- (void)prepareLayout;
-- (id)layoutAttributesForDecorationViewOfKind:(id)arg1 atIndexPath:(id)arg2;
-- (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2;
-- (id)layoutAttributesForItemAtIndexPath:(id)arg1;
-- (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (id)init;
+@property(nonatomic, getter=_sublayoutType, setter=_setSublayoutType:) int sublayoutType; // @synthesize sublayoutType=_sublayoutType;
+@property(nonatomic, getter=_isPrepared, setter=_setPrepared:) BOOL prepared;
+- (struct CGRect)convertRect:(struct CGRect)arg1 fromLayout:(id)arg2;
+- (struct CGRect)convertRect:(struct CGRect)arg1 toLayout:(id)arg2;
+- (struct CGPoint)_offsetInTopParentLayout:(struct _UICollectionViewCompositionLayout **)arg1;
+@property(nonatomic, getter=_layoutOffsetEdges, setter=_setLayoutOffsetEdges:) unsigned int layoutOffsetEdges;
+@property(nonatomic, getter=_layoutOffset, setter=_setLayoutOffset:) struct CGPoint layoutOffset;
+@property(nonatomic, getter=_siblingLayout, setter=_setSiblingLayout:) UICollectionViewLayout *siblingLayout;
+@property(nonatomic, getter=_compositionLayout, setter=_setCompositionLayout:) _UICollectionViewCompositionLayout *compositionLayout;
+@property(copy, nonatomic, getter=_elementKinds, setter=_setElementKinds:) NSArray *elementKinds;
+@property(copy, nonatomic, getter=_items, setter=_setItems:) NSIndexSet *items;
+@property(copy, nonatomic, getter=_sections, setter=_setSections:) NSIndexSet *sections;
+- (struct CGRect)_dynamicReferenceBounds;
+- (struct CGRect)_bounds;
+@property(nonatomic, getter=_frame, setter=_setFrame:) struct CGRect frame;
 - (void)_invalidateLayoutUsingContext:(id)arg1;
 - (BOOL)_supportsAdvancedTransitionAnimations;
 - (void)_setExternalObjectTable:(id)arg1 forNibLoadingOfDecorationViewOfKind:(id)arg2;
@@ -94,7 +87,42 @@
 - (void)finalizeAnimatedBoundsChange;
 - (void)prepareForAnimatedBoundsChange:(struct CGRect)arg1;
 - (void)_setCollectionViewBoundsSize:(struct CGSize)arg1;
+@property(readonly, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
 - (void)_setCollectionView:(id)arg1;
+- (struct CGPoint)updatesContentOffsetForProposedContentOffset:(struct CGPoint)arg1;
+- (struct CGPoint)transitionContentOffsetForProposedContentOffset:(struct CGPoint)arg1 keyItemIndexPath:(id)arg2;
+- (void)_didFinishLayoutTransitionAnimations:(BOOL)arg1;
+- (void)finalizeLayoutTransition;
+- (void)prepareForTransitionFromLayout:(id)arg1;
+- (void)prepareForTransitionToLayout:(id)arg1;
+- (void)_finalizeLayoutTransition;
+- (void)_prepareForTransitionFromLayout:(id)arg1;
+- (void)_prepareForTransitionToLayout:(id)arg1;
+- (void)registerNib:(id)arg1 forDecorationViewOfKind:(id)arg2;
+- (void)registerClass:(Class)arg1 forDecorationViewOfKind:(id)arg2;
+- (id)snapshottedLayoutAttributeForItemAtIndexPath:(id)arg1;
+- (void)finalizeCollectionViewUpdates;
+- (void)prepareForCollectionViewUpdates:(id)arg1;
+- (struct CGSize)collectionViewContentSize;
+- (CDUnknownBlockType)_animationForReusableView:(id)arg1 toLayoutAttributes:(id)arg2;
+- (CDUnknownBlockType)_animationForReusableView:(id)arg1 toLayoutAttributes:(id)arg2 type:(unsigned int)arg3;
+- (struct CGPoint)targetContentOffsetForProposedContentOffset:(struct CGPoint)arg1;
+- (struct CGPoint)targetContentOffsetForProposedContentOffset:(struct CGPoint)arg1 withScrollingVelocity:(struct CGPoint)arg2;
+- (id)invalidationContextForPreferredLayoutAttributes:(id)arg1 withOriginalAttributes:(id)arg2;
+- (id)invalidationContextForBoundsChange:(struct CGRect)arg1;
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(struct CGRect)arg1;
+- (void)invalidateLayoutWithContext:(id)arg1;
+- (void)invalidateLayout;
+- (void)prepareLayout;
+- (BOOL)shouldInvalidateLayoutForPreferredLayoutAttributes:(id)arg1 withOriginalAttributes:(id)arg2;
+- (id)layoutAttributesForDecorationViewOfKind:(id)arg1 atIndexPath:(id)arg2;
+- (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2;
+- (id)layoutAttributesForItemAtIndexPath:(id)arg1;
+- (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
+- (void)dealloc;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)init;
 
 @end
 

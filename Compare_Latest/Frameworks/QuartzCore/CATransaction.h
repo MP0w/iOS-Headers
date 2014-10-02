@@ -24,7 +24,6 @@
 + (void)lock;
 + (void)flush;
 + (void)commit;
-+ (BOOL)beginWithoutBlocking;
 + (void)begin;
 + (void)setInputTime:(double)arg1;
 + (double)inputTime;

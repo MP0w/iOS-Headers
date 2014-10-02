@@ -8,7 +8,7 @@
 
 #import "SSDownloadManagerObserver.h"
 
-@class MPAVItem, MPDownloadManager, MPQueuePlayer, NSArray, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>;
+@class MPAVItem, MPDownloadManager, MPQueuePlayer, NSArray, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
 
 @interface MPAVQueuePlayerFeeder : NSObject <SSDownloadManagerObserver>
 {
@@ -47,7 +47,6 @@
 - (id)acquireReusableItemsUsingBlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) NSArray *items;
 @property(readonly, nonatomic) MPAVItem *currentItem;
-- (void)_effectiveNetworkTypeDidChangeNotification:(id)arg1;
 - (void)downloadManager:(id)arg1 downloadStatesDidChange:(id)arg2;
 - (void)_removeCurrentItemAndFillQueue:(BOOL)arg1;
 - (id)_fillInQueueWithExtraSpace:(int)arg1 ignoreExistingItems:(BOOL)arg2 removeCurrentItem:(BOOL)arg3;
@@ -55,9 +54,14 @@
 - (id)_fillInQueueWithExtraSpace:(int)arg1;
 - (void)_fillInQueue;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithMPQueuePlayer:(id)arg1 itemSource:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

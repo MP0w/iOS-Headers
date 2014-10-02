@@ -8,7 +8,7 @@
 
 #import "NSURLConnectionDelegate.h"
 
-@class NSMutableData, NSOperationQueue, NSURLConnection, NSURLResponse;
+@class NSMutableData, NSOperationQueue, NSString, NSURLConnection, NSURLResponse;
 
 @interface WBSAsynchronousRequestHelper : NSObject <NSURLConnectionDelegate>
 {
@@ -17,8 +17,10 @@
     NSURLConnection *_connection;
     NSURLResponse *_response;
     NSMutableData *_data;
+    id _lifetimeExtender;
 }
 
+- (void).cxx_destruct;
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
 - (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
@@ -26,6 +28,12 @@
 - (void)sendRequest;
 - (void)dealloc;
 - (id)initWithRequest:(id)arg1 queue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

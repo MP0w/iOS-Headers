@@ -36,6 +36,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned int z; // @synthesize z=_z;
 @property(nonatomic) unsigned int y; // @synthesize y=_y;
 @property(nonatomic) unsigned int x; // @synthesize x=_x;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

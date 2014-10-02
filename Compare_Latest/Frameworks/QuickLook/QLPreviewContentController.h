@@ -103,6 +103,7 @@
 - (void)setBlockRemoteImages:(BOOL)arg1;
 @property int previewMode; // @synthesize previewMode=_previewMode;
 - (void)checkCurrentPreviewItem;
+- (void)stopLoadingCurrentPreviewItem;
 - (void)refreshCurrentPreviewItem;
 - (void)refreshCurrentPreviewItem:(BOOL)arg1;
 - (int)currentPreviewItemIndex;
@@ -125,6 +126,12 @@
 - (void)didReceiveMemoryWarning;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

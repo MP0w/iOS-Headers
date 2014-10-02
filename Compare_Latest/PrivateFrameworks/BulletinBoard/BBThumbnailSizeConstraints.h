@@ -6,9 +6,9 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
-@interface BBThumbnailSizeConstraints : NSObject <NSCoding>
+@interface BBThumbnailSizeConstraints : NSObject <NSSecureCoding>
 {
     int _constraintType;
     float _fixedWidth;
@@ -19,6 +19,7 @@
     float _thumbnailScale;
 }
 
++ (BOOL)supportsSecureCoding;
 @property(nonatomic) float thumbnailScale; // @synthesize thumbnailScale=_thumbnailScale;
 @property(nonatomic) float maxAspectRatio; // @synthesize maxAspectRatio=_maxAspectRatio;
 @property(nonatomic) float minAspectRatio; // @synthesize minAspectRatio=_minAspectRatio;
@@ -29,6 +30,7 @@
 - (BOOL)areReasonable;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)description;
 
 @end
 

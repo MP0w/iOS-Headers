@@ -8,7 +8,7 @@
 
 #import "SKStoreProductViewControllerDelegate.h"
 
-@class NSArray, NSDictionary, NSURL, PKLinkedAppUserRatingView, SKStoreProductViewController, SSSoftwareLibraryItem, UIActivityIndicatorView, UIButton, UIImageView, UILabel;
+@class NSArray, NSDictionary, NSString, NSURL, PKLinkedAppUserRatingView, SKStoreProductViewController, SSSoftwareLibraryItem, UIActivityIndicatorView, UIButton, UIImageView, UILabel;
 
 @interface PKLinkedAppView : UITableViewCell <SKStoreProductViewControllerDelegate>
 {
@@ -55,11 +55,12 @@
 - (int)_iconVariantForImage:(id)arg1 item:(id)arg2;
 - (void)_buttonPressed:(id)arg1;
 - (struct CGSize)_sizeFromImage:(id)arg1;
-- (id)_imageForSize:(struct CGSize)arg1 fromArtwork:(id)arg2;
+- (id)_imageForSize:(struct CGSize)arg1 fromArtwork:(id)arg2 requireStrictMatch:(BOOL)arg3;
 - (struct CGSize)_desiredSizeForNewsstandItem:(id)arg1;
 - (BOOL)_itemArtNeedsShine:(id)arg1;
 - (id)_newsstandArtworkForItem:(id)arg1;
 - (BOOL)_itemIsNewsstandApp:(id)arg1;
+- (id)_iconURLFromArtwork:(id)arg1 withDesiredSize:(struct CGSize)arg2 requireStrictMatch:(BOOL)arg3;
 - (id)_iconURLFromArtwork:(id)arg1 withDesiredSize:(struct CGSize)arg2;
 - (BOOL)_anyAppIsInstalled:(id)arg1;
 - (void)_cleanupViews;
@@ -72,6 +73,13 @@
 - (void)reload;
 - (void)dealloc;
 - (id)initWithStoreIDs:(id)arg1 appLaunchURL:(id)arg2;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

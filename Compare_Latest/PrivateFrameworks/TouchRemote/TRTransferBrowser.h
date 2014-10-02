@@ -10,7 +10,7 @@
 
 @interface TRTransferBrowser : NSObject
 {
-    CDStruct_a554bdc7 *_aesContext;
+    CDStruct_86971917 *_aesContext;
     struct AirPlayPairingSessionPrivate *_pairingSession;
     int _pairingState;
     NSObject<OS_dispatch_queue> *_queue;

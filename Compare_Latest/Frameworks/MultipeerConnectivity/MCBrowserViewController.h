@@ -13,7 +13,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class MCNearbyServiceBrowser, MCPeerID, MCSession, NSBundle, NSMutableArray, NSMutableDictionary, UIBarButtonItem, UINavigationBar, UITableView;
+@class MCNearbyServiceBrowser, MCPeerID, MCSession, NSBundle, NSMutableArray, NSMutableDictionary, NSString, UIBarButtonItem, UINavigationBar, UITableView;
 
 @interface MCBrowserViewController : UIViewController <MCSessionPrivateDelegate, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UINavigationBarDelegate, MCNearbyServiceBrowserDelegate>
 {
@@ -32,8 +32,10 @@
     UIBarButtonItem *_cancelButton;
     UINavigationBar *_navigationBar;
     NSBundle *_frameworkBundle;
+    unsigned int _declinedPeersCount;
 }
 
+@property(nonatomic) unsigned int declinedPeersCount; // @synthesize declinedPeersCount=_declinedPeersCount;
 @property(retain, nonatomic) NSBundle *frameworkBundle; // @synthesize frameworkBundle=_frameworkBundle;
 @property(retain, nonatomic) UINavigationBar *navigationBar; // @synthesize navigationBar=_navigationBar;
 @property(retain, nonatomic) UIBarButtonItem *cancelButton; // @synthesize cancelButton=_cancelButton;
@@ -48,7 +50,6 @@
 @property(nonatomic) unsigned int minimumNumberOfPeers; // @synthesize minimumNumberOfPeers=_minimumNumberOfPeers;
 @property(retain, nonatomic) MCSession *session; // @synthesize session=_session;
 @property(retain, nonatomic) MCNearbyServiceBrowser *browser; // @synthesize browser=_browser;
-@property(nonatomic) id <MCBrowserViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (int)positionForBar:(id)arg1;
 - (void)session:(id)arg1 didFinishReceivingResourceWithName:(id)arg2 fromPeer:(id)arg3 atURL:(id)arg4 withError:(id)arg5 propagate:(char *)arg6;
 - (void)session:(id)arg1 didStartReceivingResourceWithName:(id)arg2 fromPeer:(id)arg3 withProgress:(id)arg4 propagate:(char *)arg5;
@@ -65,21 +66,31 @@
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
+- (id)nearbySectionTitle;
+@property(readonly, nonatomic) BOOL minimumNumberOfPeersReached;
+@property(readonly, nonatomic) BOOL maximumNumberOfPeersReached;
 - (void)verifyPeerIsAccountedFor:(id)arg1;
 - (id)detailStringForPeerState:(int)arg1;
 - (void)cancelTapped:(id)arg1;
 - (void)peer:(id)arg1 changedStateTo:(int)arg2;
+- (void)peerJoinedSession;
 - (void)doneTapped:(id)arg1;
 - (void)didReceiveMemoryWarning;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidLoad;
-- (id)description;
+@property(nonatomic) __weak id <MCBrowserViewControllerDelegate> delegate;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)init;
 - (id)initWithServiceType:(id)arg1 session:(id)arg2;
 - (id)initWithBrowser:(id)arg1 session:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

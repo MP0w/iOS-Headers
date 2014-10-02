@@ -15,8 +15,8 @@
 
 + (id)notificationWithSimulatedReloadRequestForContainerList:(id)arg1;
 + (id)notificationWithContainerList:(id)arg1 snapshot:(id)arg2 changedContainers:(id)arg3;
-@property(readonly, nonatomic) NSObject<PLAlbumContainer> *albumList;
-@property(readonly, nonatomic) id <PLAssetContainerList> assetContainerList;
+@property(readonly, retain, nonatomic) NSObject<PLAlbumContainer> *albumList;
+@property(readonly, retain, nonatomic) id <PLAssetContainerList> assetContainerList;
 - (id)description;
 - (id)userInfo;
 - (id)name;

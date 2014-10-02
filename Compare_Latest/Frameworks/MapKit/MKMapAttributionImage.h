@@ -6,13 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSDictionary;
 
 __attribute__((visibility("hidden")))
 @interface MKMapAttributionImage : NSObject
 {
-    NSString *_hidpiImageName;
-    NSString *_lodpiImageName;
+    NSDictionary *_imageNameForScale;
 }
 
 - (void).cxx_destruct;

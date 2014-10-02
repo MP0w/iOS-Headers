@@ -13,14 +13,16 @@
     struct CGRect _textRect;
     UIImage *_icon;
     SBItemInfoLayoutCache *_layoutCache;
+    long long _location;
 }
 
 + (double)topBaselineToCellTopInLayoutMode:(long long)arg1;
 @property(retain, nonatomic) UIImage *icon; // @synthesize icon=_icon;
 - (void)populateReusableView:(id)arg1;
-- (double)heightForReusableViewForBulletinViewController:(id)arg1 layoutMode:(long long)arg2;
+- (double)heightForReusableViewForBulletinViewController:(id)arg1 layoutMode:(long long)arg2 bulletinLocation:(long long)arg3;
 - (id)_representedBulletin;
 - (void)invalidateCachedLayoutData;
+@property(readonly, nonatomic) double lastSnippetPadding;
 - (Class)reusableViewClass;
 - (id)identifier;
 - (void)dealloc;

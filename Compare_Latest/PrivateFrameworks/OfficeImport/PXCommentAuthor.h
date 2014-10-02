@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)readCommentAuthors:(id)arg1 presentation:(id)arg2;
++ (void)readCommentAuthors:(id)arg1 presentation:(id)arg2 state:(id)arg3;
 
 @end
 

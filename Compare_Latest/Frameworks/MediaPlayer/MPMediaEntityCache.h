@@ -26,8 +26,8 @@
 - (void)_performWithSharedAccess:(CDUnknownBlockType)arg1;
 - (void)_performWithExclusiveAccess:(CDUnknownBlockType)arg1;
 - (void)_clearSomeGlobalEntityTemporaryReferences;
-- (map_cf0943a7 *)_entityMapForDataProviderEntityClass:(Class)arg1;
-- (id)_entityWithIdentifier:(long long)arg1 mediaEntityType:(int)arg2 collectionGroupingType:(int)arg3 loadEntityBlock:(CDUnknownBlockType)arg4;
+- (map_e4ccdae0 *)_entityMapForDataProviderEntityClass:(Class)arg1;
+- (id)_entityWithIdentifier:(long long)arg1 mediaEntityType:(unsigned int)arg2 collectionGroupingType:(int)arg3 loadEntityBlock:(CDUnknownBlockType)arg4;
 - (void)removeEntityWithIdentifier:(long long)arg1 dataProviderEntityClass:(Class)arg2;
 - (void)updatePropertyValuesInEntityWithIdentifier:(long long)arg1 dataProviderEntityClass:(Class)arg2 deleted:(BOOL)arg3;
 - (id)collectionWithIdentifier:(long long)arg1 grouping:(int)arg2 loadEntityBlock:(CDUnknownBlockType)arg3;

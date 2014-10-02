@@ -9,6 +9,8 @@
 #import "NSCopying.h"
 #import "TSDTextSelection.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TSWPSelection : TSKSelection <NSCopying, TSDTextSelection>
 {
@@ -25,6 +27,7 @@ __attribute__((visibility("hidden")))
     struct TSWPRangeVector _visualRanges;
 }
 
++ (BOOL)p_checkEndOfLineFlagForRange:(struct _NSRange *)arg1 leadingEdge:(char *)arg2 type:(int *)arg3 endOfLine:(BOOL)arg4 storage:(id)arg5;
 + (id)selectionWithRange:(struct _NSRange)arg1 type:(int)arg2 leadingEdge:(BOOL)arg3 storage:(id)arg4;
 + (id)selectionWithRange:(struct _NSRange)arg1;
 + (Class)archivedSelectionClass;
@@ -58,6 +61,7 @@ __attribute__((visibility("hidden")))
 - (unsigned int)start;
 - (id)copyWithVisualRanges:(const struct TSWPRangeVector *)arg1 startChar:(unsigned int)arg2 endChar:(unsigned int)arg3 rightToLeft:(BOOL)arg4 sameLine:(BOOL)arg5;
 - (id)copyWithNewVisualRanges:(const struct TSWPRangeVector *)arg1;
+- (id)constrainToRange:(struct _NSRange)arg1;
 - (id)copyWithNewRange:(struct _NSRange)arg1;
 - (id)copyWithNewType:(int)arg1;
 - (id)copyWithNewVisualTypeRange:(struct _NSRange)arg1 head:(unsigned int)arg2 tail:(unsigned int)arg3;
@@ -80,6 +84,12 @@ __attribute__((visibility("hidden")))
 - (id)initWithType:(int)arg1 range:(struct _NSRange)arg2 styleInsertionBehavior:(int)arg3 caretAffinity:(int)arg4 smartFieldRange:(struct _NSRange)arg5 leadingEdge:(BOOL)arg6 leadingCharIndex:(unsigned int)arg7;
 @property(readonly, nonatomic) struct _NSRange range;
 - (unsigned int)insertionChar;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

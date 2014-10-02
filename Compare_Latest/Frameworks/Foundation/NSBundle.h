@@ -6,6 +6,8 @@
 
 #import "NSObject.h"
 
+@class NSArray, NSDictionary, NSString, NSURL;
+
 @interface NSBundle : NSObject
 {
     unsigned int _flags;
@@ -35,52 +37,50 @@
 + (id)URLForResource:(id)arg1 withExtension:(id)arg2 subdirectory:(id)arg3 inBundleWithURL:(id)arg4;
 + (id)pathForResource:(id)arg1 ofType:(id)arg2 inDirectory:(id)arg3;
 + (id)findBundleResourceURLsCallingMethod:(SEL)arg1 baseURL:(id)arg2 passingTest:(CDUnknownBlockType)arg3;
-+ (id)findBundleResourceURLs:(id)arg1 callingMethod:(SEL)arg2 bundleURL:(id)arg3 languages:(id)arg4 name:(id)arg5 types:(id)arg6 limit:(unsigned int)arg7;
 + (id)findBundleResources:(id)arg1 callingMethod:(SEL)arg2 directory:(id)arg3 languages:(id)arg4 name:(id)arg5 types:(id)arg6 limit:(unsigned int)arg7;
-- (id)executableArchitectures;
+@property(readonly, copy) NSArray *executableArchitectures;
 - (BOOL)preflightAndReturnError:(id *)arg1;
-- (id)localizationsToSearch;
-- (id)developmentLocalization;
-- (id)preferredLocalizations;
-- (id)localizations;
+@property(readonly, copy) NSString *developmentLocalization;
+@property(readonly, copy) NSArray *preferredLocalizations;
+@property(readonly, copy) NSArray *localizations;
 - (id)pathsForResourcesOfType:(id)arg1 inDirectory:(id)arg2 forLanguage:(id)arg3;
 - (id)pathForResource:(id)arg1 ofType:(id)arg2 inDirectory:(id)arg3 forLanguage:(id)arg4;
 - (id)_pathsForResourcesOfType:(id)arg1 inDirectory:(id)arg2 forRegion:(id)arg3;
 - (id)_pathForResource:(id)arg1 ofType:(id)arg2 inDirectory:(id)arg3 forRegion:(id)arg4;
 - (id)_regionsArray;
 - (id)description;
+- (void)__static;
 - (id)objectForInfoDictionaryKey:(id)arg1;
-- (id)localizedInfoDictionary;
-- (id)infoDictionary;
-- (Class)principalClass;
+@property(readonly, copy) NSDictionary *localizedInfoDictionary;
+@property(readonly, copy) NSDictionary *infoDictionary;
+@property(readonly) Class principalClass;
 - (Class)classNamed:(id)arg1;
 - (void)invalidateResourceCache;
 - (id)bundleLanguages;
 - (unsigned int)versionNumber;
-- (id)bundleIdentifier;
-- (id)builtInPlugInsURL;
-- (id)builtInPlugInsPath;
-- (id)sharedSupportURL;
-- (id)sharedSupportPath;
-- (id)sharedFrameworksURL;
-- (id)sharedFrameworksPath;
-- (id)privateFrameworksURL;
-- (id)privateFrameworksPath;
+@property(readonly, copy) NSString *bundleIdentifier;
+@property(readonly, copy) NSURL *builtInPlugInsURL;
+@property(readonly, copy) NSString *builtInPlugInsPath;
+@property(readonly, copy) NSURL *sharedSupportURL;
+@property(readonly, copy) NSString *sharedSupportPath;
+@property(readonly, copy) NSURL *sharedFrameworksURL;
+@property(readonly, copy) NSString *sharedFrameworksPath;
+@property(readonly, copy) NSURL *privateFrameworksURL;
+@property(readonly, copy) NSString *privateFrameworksPath;
 - (id)URLForAuxiliaryExecutable:(id)arg1;
 - (id)pathForAuxiliaryExecutable:(id)arg1;
-- (id)appStoreReceiptURL;
-- (id)executableURL;
-- (id)executablePath;
-- (id)resourceURL;
-- (id)resourcePath;
-- (id)bundleURL;
-- (id)bundlePath;
+@property(readonly, copy) NSURL *appStoreReceiptURL;
+@property(readonly, copy) NSURL *executableURL;
+@property(readonly, copy) NSString *executablePath;
+@property(readonly, copy) NSURL *resourceURL;
+@property(readonly, copy) NSString *resourcePath;
+@property(readonly, copy) NSURL *bundleURL;
+@property(readonly, copy) NSString *bundlePath;
 - (id)initWithPath:(id)arg1;
 - (id)initWithURL:(id)arg1;
 - (void)finalize;
 - (void)dealloc;
-- (oneway void)release;
-- (BOOL)isLoaded;
+@property(readonly, getter=isLoaded) BOOL loaded;
 - (BOOL)unload;
 - (BOOL)loadAndReturnError:(id *)arg1;
 - (BOOL)load;

@@ -6,54 +6,62 @@
 
 #import "NSObject.h"
 
-@class KNBuild, KNBuildChunk, KNBuildRenderer;
+@class KNBuildAttributes, NSDictionary;
 
 __attribute__((visibility("hidden")))
 @interface KNAnimatedBuild : NSObject
 {
-    KNBuildChunk *mBuildStage;
-    int mEventIndex;
-    int mStageIndex;
-    KNBuildRenderer *mRenderer;
-    double mStartTime;
-    double mEventStartTime;
-    double mDuration;
-    double mEndTime;
-    double mEventEndTime;
-    BOOL mAutomatic;
-    BOOL mAnimateAtEndOfPreviousBuild;
-    BOOL mIsVisibleAtBeginning;
-    BOOL mIsVisibleAtEnd;
+    BOOL _automatic;
+    BOOL _animateAtEndOfPreviousBuild;
+    BOOL _isMovieStartBuild;
+    BOOL _isVisibleAtBeginning;
+    BOOL _isVisibleAtEnd;
+    int _buildType;
+    int _eventIndex;
+    int _stageIndex;
+    unsigned int _direction;
+    unsigned int _deliveryOption;
+    unsigned int _deliveryStyle;
+    Class _pluginClass;
+    KNBuildAttributes *_attributes;
+    NSDictionary *_previousAttributes;
+    NSDictionary *_finalAttributes;
+    double _startTime;
+    double _eventStartTime;
+    double _duration;
+    double _endTime;
+    double _eventEndTime;
 }
 
-+ (id)createWithBuildStage:(id)arg1 eventIndex:(int)arg2 stageIndex:(int)arg3 startTime:(double)arg4 eventStartTime:(double)arg5 duration:(double)arg6 automatic:(BOOL)arg7 renderer:(id)arg8 animateAtEndOfPreviousBuild:(BOOL)arg9;
-@property(nonatomic) BOOL isVisibleAtEnd; // @synthesize isVisibleAtEnd=mIsVisibleAtEnd;
-@property(nonatomic) BOOL isVisibleAtBeginning; // @synthesize isVisibleAtBeginning=mIsVisibleAtBeginning;
-@property(nonatomic) double duration; // @synthesize duration=mDuration;
-@property(readonly, nonatomic) double startTime; // @synthesize startTime=mStartTime;
-@property(readonly, nonatomic) int stageIndex; // @synthesize stageIndex=mStageIndex;
-@property(readonly, nonatomic) KNBuildRenderer *renderer; // @synthesize renderer=mRenderer;
-@property(readonly, nonatomic) double eventStartTime; // @synthesize eventStartTime=mEventStartTime;
-@property(nonatomic) int eventIndex; // @synthesize eventIndex=mEventIndex;
-@property(readonly, nonatomic) double eventEndTime; // @synthesize eventEndTime=mEventEndTime;
-@property(readonly, nonatomic) double endTime; // @synthesize endTime=mEndTime;
-@property(readonly, nonatomic) KNBuildChunk *buildStage; // @synthesize buildStage=mBuildStage;
-@property(nonatomic) BOOL animateAtEndOfPreviousBuild; // @synthesize animateAtEndOfPreviousBuild=mAnimateAtEndOfPreviousBuild;
-@property(readonly, nonatomic) BOOL automatic; // @synthesize automatic=mAutomatic;
-- (id)applyActionEffectToAttributes:(id)arg1;
-- (void)p_setVisibility;
-- (id)description;
-@property(readonly, nonatomic) BOOL isVerticalText;
-@property(readonly, nonatomic) BOOL isMovieStartBuild;
+@property(copy, nonatomic) NSDictionary *finalAttributes; // @synthesize finalAttributes=_finalAttributes;
+@property(copy, nonatomic) NSDictionary *previousAttributes; // @synthesize previousAttributes=_previousAttributes;
+@property(nonatomic) BOOL isVisibleAtEnd; // @synthesize isVisibleAtEnd=_isVisibleAtEnd;
+@property(nonatomic) BOOL isVisibleAtBeginning; // @synthesize isVisibleAtBeginning=_isVisibleAtBeginning;
+@property(nonatomic) BOOL isMovieStartBuild; // @synthesize isMovieStartBuild=_isMovieStartBuild;
+@property(nonatomic) BOOL animateAtEndOfPreviousBuild; // @synthesize animateAtEndOfPreviousBuild=_animateAtEndOfPreviousBuild;
+@property(readonly, nonatomic) BOOL automatic; // @synthesize automatic=_automatic;
+@property(readonly, nonatomic) double eventEndTime; // @synthesize eventEndTime=_eventEndTime;
+@property(readonly, nonatomic) double endTime; // @synthesize endTime=_endTime;
+@property(nonatomic) double duration; // @synthesize duration=_duration;
+@property(readonly, nonatomic) double eventStartTime; // @synthesize eventStartTime=_eventStartTime;
+@property(readonly, nonatomic) double startTime; // @synthesize startTime=_startTime;
+@property(readonly, nonatomic) KNBuildAttributes *attributes; // @synthesize attributes=_attributes;
+@property(readonly, nonatomic) Class pluginClass; // @synthesize pluginClass=_pluginClass;
+@property(readonly, nonatomic) unsigned int deliveryStyle; // @synthesize deliveryStyle=_deliveryStyle;
+@property(readonly, nonatomic) unsigned int deliveryOption; // @synthesize deliveryOption=_deliveryOption;
+@property(readonly, nonatomic) unsigned int direction; // @synthesize direction=_direction;
+@property(readonly, nonatomic) int stageIndex; // @synthesize stageIndex=_stageIndex;
+@property(nonatomic) int eventIndex; // @synthesize eventIndex=_eventIndex;
+@property(readonly, nonatomic) int buildType; // @synthesize buildType=_buildType;
+@property(readonly, nonatomic) BOOL isMagicChartBuild;
 @property(readonly, nonatomic) BOOL isDriftBuild;
 @property(readonly, nonatomic) BOOL isEmphasisBuild;
 @property(readonly, nonatomic) BOOL isActionBuild;
 @property(readonly, nonatomic) BOOL isBuildOut;
 @property(readonly, nonatomic) BOOL isBuildIn;
-@property(readonly, nonatomic) int buildType;
-@property(readonly, nonatomic) KNBuild *buildDescription;
+- (id)description;
 - (void)dealloc;
-- (id)initWithBuildStage:(id)arg1 eventIndex:(int)arg2 stageIndex:(int)arg3 startTime:(double)arg4 eventStartTime:(double)arg5 duration:(double)arg6 automatic:(BOOL)arg7 renderer:(id)arg8 animateAtEndOfPreviousBuild:(BOOL)arg9;
+- (id)initWithBuildType:(int)arg1 attributes:(id)arg2 pluginClass:(Class)arg3 deliveryStyle:(unsigned int)arg4 eventIndex:(int)arg5 stageIndex:(int)arg6 startTime:(double)arg7 eventStartTime:(double)arg8 duration:(double)arg9 direction:(unsigned int)arg10 automatic:(BOOL)arg11 animateAtEndOfPreviousBuild:(BOOL)arg12;
 
 @end
 

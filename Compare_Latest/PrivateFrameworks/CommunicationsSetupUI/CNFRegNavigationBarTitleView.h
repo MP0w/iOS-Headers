@@ -25,6 +25,7 @@
 - (id)_currentTextColorForBarStyle:(int)arg1;
 - (BOOL)_useSilverLookForBarStyle:(int)arg1;
 - (id)_defaultFont;
+- (id)_titleTextColorForBarStyle:(int)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithNavigationItem:(id)arg1;

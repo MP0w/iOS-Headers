@@ -6,20 +6,21 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class BBBulletin;
 
-@interface BBBulletinUpdate : NSObject <NSCoding>
+@interface BBBulletinUpdate : NSObject <NSSecureCoding>
 {
     BBBulletin *_bulletin;
     unsigned int _transactionID;
     int _updateType;
 }
 
++ (BOOL)supportsSecureCoding;
 @property(readonly, nonatomic) int updateType; // @synthesize updateType=_updateType;
 @property(readonly, nonatomic) unsigned int transactionID; // @synthesize transactionID=_transactionID;
-@property(readonly, nonatomic) BBBulletin *bulletin; // @synthesize bulletin=_bulletin;
+@property(readonly, retain, nonatomic) BBBulletin *bulletin; // @synthesize bulletin=_bulletin;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;

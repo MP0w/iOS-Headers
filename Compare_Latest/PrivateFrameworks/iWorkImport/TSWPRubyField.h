@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)allowsEditing;
 - (int)styleAttributeArrayKind;
 - (int)attributeArrayKind;
-- (int)elementKind;
+- (int)smartFieldKind;
 - (id)text;
 @property(readonly, nonatomic) int baseTextScript;
 @property(readonly, nonatomic) NSString *baseText;

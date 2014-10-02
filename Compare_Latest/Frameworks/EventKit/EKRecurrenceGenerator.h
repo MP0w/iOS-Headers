@@ -16,10 +16,10 @@
     NSTimeZone *_eventTimeZone;
     unsigned int _duration;
     BOOL _allDay;
-    int _interval;
+    long _interval;
     int _frequency;
     NSDate *_endDate;
-    int _weekStart;
+    long _weekStart;
     BOOL _shouldPinMonthDays;
     NSArray *_daysOfTheWeek;
     NSArray *_daysOfTheMonth;
@@ -50,7 +50,7 @@
 - (id)_copyOccurrenceDatesBetweenStartDate:(CDStruct_b0fa4487)arg1 endDate:(CDStruct_b0fa4487)arg2 timeZone:(id)arg3 limit:(int)arg4;
 - (double)_convertAbsoluteTime:(double)arg1 fromTimeZone:(id)arg2 toTimeZone:(id)arg3;
 - (BOOL)_isSimpleYearlyRecurrence;
-- (id)_computeRecurrenceEndDate:(int)arg1;
+- (id)_computeRecurrenceEndDate:(unsigned int)arg1;
 - (void)_prepareForCalRecurrence:(void *)arg1 locked:(BOOL)arg2;
 - (void)_prepareForPersistentRecurrence:(id)arg1;
 - (void)_prepareForEKRecurrence:(id)arg1;
@@ -64,6 +64,7 @@
 - (id)copyOccurrenceDatesWithEKEvent:(id)arg1 recurrenceRule:(id)arg2 startDate:(CDStruct_b0fa4487)arg3 endDate:(CDStruct_b0fa4487)arg4 timeZone:(id)arg5 exceptionDates:(id)arg6 limit:(int)arg7;
 - (id)copyOccurrenceDatesWithEKEvent:(id)arg1 recurrenceRule:(id)arg2 startDate:(CDStruct_b0fa4487)arg3 endDate:(CDStruct_b0fa4487)arg4 timeZone:(id)arg5 limit:(int)arg6;
 - (id)copyOccurrenceDatesWithCalEvent:(void *)arg1 startDate:(CDStruct_b0fa4487)arg2 endDate:(CDStruct_b0fa4487)arg3 timeZone:(id)arg4 limit:(int)arg5 locked:(BOOL)arg6;
+- (id)_copyOccurrenceDatesWithBirthdayEvent:(void *)arg1 startDate:(CDStruct_b0fa4487)arg2 endDate:(CDStruct_b0fa4487)arg3 timeZone:(id)arg4 limit:(int)arg5 locked:(BOOL)arg6;
 - (id)copyOccurrenceDatesWithEKEvent:(id)arg1 startDate:(CDStruct_b0fa4487)arg2 endDate:(CDStruct_b0fa4487)arg3 timeZone:(id)arg4 limit:(int)arg5;
 - (void)_setupForCalEvent:(void *)arg1 locked:(BOOL)arg2;
 - (void)_setupForPersistentEvent:(id)arg1;

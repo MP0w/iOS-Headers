@@ -8,7 +8,7 @@
 
 #import "NSCoding.h"
 
-@class NSDictionary, NSString;
+@class NSData, NSDictionary, NSString, NSURL;
 
 @interface NSFileWrapper : NSObject <NSCoding>
 {
@@ -32,10 +32,10 @@
 + (id)_pathForURL:(id)arg1 reading:(BOOL)arg2 error:(id *)arg3;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)symbolicLinkDestinationURL;
-- (id)regularFileContents;
+@property(readonly, copy) NSURL *symbolicLinkDestinationURL;
+@property(readonly, copy) NSData *regularFileContents;
 - (id)keyForFileWrapper:(id)arg1;
-- (id)fileWrappers;
+@property(readonly, copy) NSDictionary *fileWrappers;
 - (void)removeFileWrapper:(id)arg1;
 - (void)_removeChild:(id)arg1 forUniqueFileName:(id)arg2;
 - (id)_uniqueFileNameOfChild:(id)arg1;
@@ -46,7 +46,7 @@
 - (void)_initDirectoryContents;
 - (void)_removeParent:(id)arg1;
 - (void)_addParent:(id)arg1;
-- (id)serializedRepresentation;
+@property(readonly, copy) NSData *serializedRepresentation;
 - (id)_newImpl;
 - (id)_initWithImpl:(id)arg1 preferredFileName:(id)arg2 uniqueFileName:(id)arg3 docInfo:(id)arg4 iconData:(id)arg5;
 - (BOOL)writeToURL:(id)arg1 options:(unsigned int)arg2 originalContentsURL:(id)arg3 error:(id *)arg4;
@@ -58,16 +58,13 @@
 - (BOOL)_readContentsFromURL:(id)arg1 path:(id)arg2 itemKind:(id)arg3 options:(unsigned int)arg4 error:(id *)arg5;
 - (BOOL)matchesContentsOfURL:(id)arg1;
 - (BOOL)_matchesItemKind:(id)arg1 modificationDate:(id)arg2;
-- (id)fileAttributes;
-- (void)setFileAttributes:(id)arg1;
-- (id)filename;
-- (void)setFilename:(id)arg1;
-- (id)preferredFilename;
-- (void)setPreferredFilename:(id)arg1;
+@property(copy) NSDictionary *fileAttributes;
+@property(copy) NSString *filename;
+@property(copy) NSString *preferredFilename;
 - (void)_observePreferredFileNameOfChild:(id)arg1;
-- (BOOL)isSymbolicLink;
-- (BOOL)isRegularFile;
-- (BOOL)isDirectory;
+@property(readonly, getter=isSymbolicLink) BOOL symbolicLink;
+@property(readonly, getter=isRegularFile) BOOL regularFile;
+@property(readonly, getter=isDirectory) BOOL directory;
 - (void)dealloc;
 - (id)initWithSerializedRepresentation:(id)arg1;
 - (id)initSymbolicLinkWithDestinationURL:(id)arg1;

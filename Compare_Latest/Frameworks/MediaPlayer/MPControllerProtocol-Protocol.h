@@ -9,7 +9,7 @@
 @class MPAVController, MPAVItem, UIView;
 
 @protocol MPControllerProtocol <NSObject>
-@property(readonly, nonatomic) UIView *view;
+@property(readonly, retain, nonatomic) UIView *view;
 @property(retain, nonatomic) MPAVController *player;
 @property(nonatomic) int orientation;
 @property(retain, nonatomic) MPAVItem *item;

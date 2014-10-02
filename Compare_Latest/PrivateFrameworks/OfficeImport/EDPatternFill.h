@@ -31,14 +31,14 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithType:(int)arg1 foreColor:(id)arg2 backColor:(id)arg3 resources:(id)arg4;
 - (id)initWithResources:(id)arg1;
+- (id)backColorReference;
+- (id)foreColorReference;
+- (id)initWithType:(int)arg1 foreColorReference:(id)arg2 backColorReference:(id)arg3 resources:(id)arg4;
 - (void)setForeColorReference:(id)arg1;
 - (void)setBackColorReference:(id)arg1;
 - (void)setBackColor:(id)arg1;
 - (void)setForeColor:(id)arg1;
 - (void)setType:(int)arg1;
-- (id)backColorReference;
-- (id)foreColorReference;
-- (id)initWithType:(int)arg1 foreColorReference:(id)arg2 backColorReference:(id)arg3 resources:(id)arg4;
 
 @end
 

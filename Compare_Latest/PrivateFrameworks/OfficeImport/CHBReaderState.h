@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 {
     EBReaderSheetState *mEBReaderSheetState;
     struct XlChartBinaryReader *mXlReader;
+    id <CHAutoStyling> mAutoStyling;
     int mAxisGroup;
     struct XlChartPlot *mXlCurrentPlot;
     int mXlCurrentPlotIndex;
@@ -29,10 +30,13 @@ __attribute__((visibility("hidden")))
 - (void)readAndCacheXlChartDataSeries;
 - (void)setAxisGroup:(int)arg1;
 - (int)axisGroup;
+- (id)autoStyling;
+- (void)setChart:(id)arg1;
 - (struct XlChartBinaryReader *)xlReader;
 - (id)resources;
 - (id)workbook;
 - (id)ebReaderSheetState;
+- (void)dealloc;
 - (id)initWithEBReaderSheetState:(id)arg1;
 
 @end

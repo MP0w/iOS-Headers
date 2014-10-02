@@ -8,7 +8,7 @@
 
 #import "UIGestureRecognizerDelegate.h"
 
-@class SBLockScreenNotificationCell;
+@class NSString, SBLockScreenNotificationCell;
 
 @interface SBLockScreenNotificationScrollView : UIScrollView <UIGestureRecognizerDelegate>
 {
@@ -17,6 +17,12 @@
 
 + (double)scrollThresholdForPasscodeScroll;
 @property(nonatomic) SBLockScreenNotificationCell *associatedCell; // @synthesize associatedCell=_associatedCell;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

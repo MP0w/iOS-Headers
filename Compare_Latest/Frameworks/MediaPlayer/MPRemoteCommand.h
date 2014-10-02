@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray;
+@class NSMutableArray, NSObject<OS_dispatch_queue>;
 
 @interface MPRemoteCommand : NSObject
 {
+    NSObject<OS_dispatch_queue> *_serialQueue;
     NSMutableArray *_targetInvocations;
     unsigned int _mediaRemoteCommandType;
     BOOL _enabled;
@@ -20,8 +21,8 @@
 - (void)_addTarget:(id)arg1 action:(SEL)arg2 retainTarget:(BOOL)arg3;
 - (id)_mediaRemoteCommandInfoOptions;
 - (id)keyPathsForValuesTriggeringCommandsChanged;
-- (struct _MRMediaRemoteCommandInfo *)commandInfoRepresentation;
-- (id)invokeCommandWithEvent:(id)arg1;
+- (struct _MRMediaRemoteCommandInfo *)createCommandInfoRepresentation;
+- (void)invokeCommandWithEvent:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (BOOL)hasTargets;
 - (unsigned int)mediaRemoteCommandType;
 - (BOOL)isSupported;

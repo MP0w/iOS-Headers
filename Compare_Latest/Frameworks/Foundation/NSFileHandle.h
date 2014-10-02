@@ -8,6 +8,8 @@
 
 #import "NSSecureCoding.h"
 
+@class NSData;
+
 @interface NSFileHandle : NSObject <NSSecureCoding>
 {
 }
@@ -38,13 +40,15 @@
 - (void)truncateFileAtOffset:(unsigned long long)arg1;
 - (void)seekToFileOffset:(unsigned long long)arg1;
 - (unsigned long long)seekToEndOfFile;
-- (unsigned long long)offsetInFile;
+@property(readonly) unsigned long long offsetInFile;
 - (void)writeData:(id)arg1;
 - (id)readDataOfLength:(unsigned int)arg1;
 - (id)readDataToEndOfFile;
-- (id)availableData;
+@property(readonly, copy) NSData *availableData;
 - (id)initWithPath:(id)arg1 flags:(int)arg2 createMode:(int)arg3 error:(id *)arg4;
 - (id)initWithURL:(id)arg1 flags:(int)arg2 createMode:(int)arg3 error:(id *)arg4;
+- (id)initWithFileDescriptor:(int)arg1;
+- (id)initWithFileDescriptor:(int)arg1 closeOnDealloc:(BOOL)arg2;
 - (id)initWithPath:(id)arg1 flags:(int)arg2 createMode:(int)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

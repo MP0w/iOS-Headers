@@ -13,7 +13,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class ACAccount, MKMapView, NSArray, NSBundle, NSObject<SLPlaceDataSource>, NSObject<SLSheetPlaceViewControllerDelegate>, SLPlace, SLSheetPlaceSearchController, UISearchBar, UISearchDisplayController, UITableView;
+@class ACAccount, MKMapView, NSArray, NSBundle, NSObject<SLPlaceDataSource>, NSObject<SLSheetPlaceViewControllerDelegate>, NSString, SLPlace, SLSheetPlaceSearchController, UISearchBar, UISearchDisplayController, UITableView;
 
 @interface SLSheetPlaceViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate, MKMapViewDelegate, SLPlaceDataSourceDelegate>
 {
@@ -71,8 +71,8 @@
 - (BOOL)searchBarShouldBeginEditing:(id)arg1;
 - (float)_mapHeightForInterfaceOrientation:(int)arg1;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)_calculatePreferredContentSize;
 - (float)_preferredViewHeight;
-- (struct CGSize)contentSizeForViewInPopover;
 - (void)cancelButtonTapped:(id)arg1;
 - (id)_placeForRow:(int)arg1;
 @property(retain) NSArray *places; // @dynamic places;
@@ -81,6 +81,12 @@
 - (void)didReceiveMemoryWarning;
 - (void)dealloc;
 - (id)initWithPlaceDataSource:(id)arg1 effectiveBundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

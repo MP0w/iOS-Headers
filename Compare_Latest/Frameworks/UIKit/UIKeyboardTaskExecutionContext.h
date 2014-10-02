@@ -13,11 +13,14 @@ __attribute__((visibility("hidden")))
 {
     UIKeyboardTaskExecutionContext *_parentExecutionContext;
     CDUnknownBlockType _continuation;
+    id _info;
     UIKeyboardTaskQueue *_executionQueue;
 }
 
 @property(readonly, nonatomic) UIKeyboardTaskQueue *executionQueue; // @synthesize executionQueue=_executionQueue;
+@property(retain, nonatomic) id info; // @synthesize info=_info;
 - (void)transferExecutionToMainThreadWithTask:(CDUnknownBlockType)arg1;
+- (void)returnExecutionToParentWithInfo:(id)arg1;
 - (void)returnExecutionToParent;
 - (id)childWithContinuation:(CDUnknownBlockType)arg1;
 - (id)initWithParentContext:(id)arg1 continuation:(CDUnknownBlockType)arg2;

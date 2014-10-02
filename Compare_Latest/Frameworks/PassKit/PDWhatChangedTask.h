@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "WDNetworkTask.h"
+#import "PDNetworkTask.h"
 
-#import "WDTaskManager.h"
+#import "PDNetworkTaskManagerProtocol.h"
 
 @class NSMutableArray, NSSet, NSString;
 
-@interface PDWhatChangedTask : WDNetworkTask <WDTaskManager>
+@interface PDWhatChangedTask : PDNetworkTask <PDNetworkTaskManagerProtocol>
 {
     NSMutableArray *_pendingTasks;
     NSMutableArray *_completedTasks;
@@ -28,14 +28,16 @@
 - (void)_commonInit;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)taskRequestedReauthentication:(id)arg1;
 - (void)task:(id)arg1 encounteredWarnings:(id)arg2;
 - (void)task:(id)arg1 encounteredError:(id)arg2;
+- (void)taskFailedForAuthentication:(id)arg1;
 - (void)taskFailed:(id)arg1;
 - (void)taskSucceeded:(id)arg1;
 - (void)taskChangedState:(id)arg1;
 - (void)task:(id)arg1 gotResult:(id)arg2;
 - (BOOL)_matchesTask:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (int)actionForActiveTask:(id)arg1;
 - (int)actionForInactiveTask:(id)arg1;
 - (BOOL)coalescesWithTaskSubclass:(Class)arg1;
@@ -43,9 +45,14 @@
 - (void)performCancel;
 - (void)performStart:(BOOL)arg1;
 - (BOOL)gotUpdates;
-@property(readonly, nonatomic) NSSet *subtasks;
+@property(readonly, retain, nonatomic) NSSet *subtasks;
 - (void)dealloc;
 - (id)_initWithPassTypeID:(id)arg1 subtasks:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

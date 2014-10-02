@@ -6,17 +6,21 @@
 
 #import "UIControl.h"
 
-#import "UIActionSheetDelegate.h"
+#import "QLPreviewControllerDataSource.h"
+#import "QLPreviewControllerDelegate.h"
 #import "UIImagePickerControllerDelegate.h"
 #import "UINavigationControllerDelegate.h"
 
-@class CNContact, NSDictionary, UIImage, UIImageView, UILabel;
+@class CNContact, NSDictionary, NSString, UIGestureRecognizer, UIImage, UIImageView, UILabel;
 
-@interface ABContactPhotoView : UIControl <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>
+@interface ABContactPhotoView : UIControl <UINavigationControllerDelegate, UIImagePickerControllerDelegate, QLPreviewControllerDelegate, QLPreviewControllerDataSource>
 {
     BOOL _editing;
+    BOOL _modified;
+    BOOL _isAnimatingBounce;
     CNContact *_contact;
     id <ABPresenterDelegate> _delegate;
+    id <ABContactPhotoViewDelegate> _photoViewDelegate;
     NSDictionary *_photoPickerInfo;
     UIImage *_currentThumbnailImage;
     UIImage *_currentImage;
@@ -24,9 +28,12 @@
     UILabel *_addPhotoLabel;
     UILabel *_editPhotoLabel;
     UIImageView *_attributionImageView;
+    UIGestureRecognizer *_tapGesture;
 }
 
 + (id)supportedPasteboardTypes;
+@property(retain, nonatomic) UIGestureRecognizer *tapGesture; // @synthesize tapGesture=_tapGesture;
+@property(nonatomic) BOOL isAnimatingBounce; // @synthesize isAnimatingBounce=_isAnimatingBounce;
 @property(retain, nonatomic) UIImageView *attributionImageView; // @synthesize attributionImageView=_attributionImageView;
 @property(retain, nonatomic) UILabel *editPhotoLabel; // @synthesize editPhotoLabel=_editPhotoLabel;
 @property(retain, nonatomic) UILabel *addPhotoLabel; // @synthesize addPhotoLabel=_addPhotoLabel;
@@ -34,23 +41,29 @@
 @property(retain, nonatomic) UIImage *currentImage; // @synthesize currentImage=_currentImage;
 @property(retain, nonatomic) UIImage *currentThumbnailImage; // @synthesize currentThumbnailImage=_currentThumbnailImage;
 @property(retain, nonatomic) NSDictionary *photoPickerInfo; // @synthesize photoPickerInfo=_photoPickerInfo;
+@property(nonatomic) id <ABContactPhotoViewDelegate> photoViewDelegate; // @synthesize photoViewDelegate=_photoViewDelegate;
 @property(nonatomic) id <ABPresenterDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) BOOL modified; // @synthesize modified=_modified;
 @property(nonatomic, getter=isEditing) BOOL editing; // @synthesize editing=_editing;
 @property(retain, nonatomic) CNContact *contact; // @synthesize contact=_contact;
+- (id)previewController:(id)arg1 previewItemAtIndex:(int)arg2;
+- (int)numberOfPreviewItemsInPreviewController:(id)arg1;
+- (void)previewControllerDidDismiss:(id)arg1;
+- (struct CGRect)previewController:(id)arg1 frameForPreviewItem:(id)arg2 inSourceView:(id *)arg3;
+- (id)previewController:(id)arg1 transitionImageForPreviewItem:(id)arg2 contentRect:(struct CGRect *)arg3;
 - (void)_bounceSmallPhoto;
-- (void)_dismissFullScreenPhoto:(id)arg1;
 - (void)_presentFullScreenPhoto:(id)arg1;
 - (void)_zoomContactPhoto;
+- (id)previewPath;
 - (id)_createImagePickerForEditingImageData:(id)arg1 withCropRect:(struct CGRect)arg2;
 - (id)_createImagePicker;
 - (void)imagePickerControllerDidCancel:(id)arg1;
 - (void)imagePickerController:(id)arg1 didFinishPickingMediaWithInfo:(id)arg2;
-- (void)actionSheet:(id)arg1 willDismissWithButtonIndex:(int)arg2;
 - (void)_presentPhotoEditingSheet;
 - (void)updateAttributionBadge;
 - (void)updatePhotoWithImage:(id)arg1;
 - (void)updatePhoto;
-- (void)reloadPhoto;
+- (void)resetPhoto;
 - (void)paste:(id)arg1;
 - (void)copy:(id)arg1;
 - (void)menuWillHide:(id)arg1;
@@ -58,16 +71,25 @@
 - (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (void)longPressGesture:(id)arg1;
 - (void)tapGesture:(id)arg1;
+- (void)disablePhotoTapGesture;
 - (void)setHighlightedFrame:(BOOL)arg1;
+- (BOOL)hasPhoto;
 - (void)saveEdits;
 - (id)currentImageDataAndCropRect:(struct CGRect *)arg1;
 - (id)currentImageData;
 - (void)tintColorDidChange;
 - (void)layoutSubviews;
 - (struct CGSize)intrinsicContentSize;
+- (void)updateFontSizes;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)dealloc;
 - (id)initWithContact:(id)arg1 frame:(struct CGRect)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

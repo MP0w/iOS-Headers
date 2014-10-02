@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "SKUICacheCoding.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary, SKUIArtwork;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSString, SKUIArtwork;
 
 @interface SKUIArtworkList : NSObject <NSCopying, SKUICacheCoding>
 {
@@ -20,17 +20,24 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSMutableDictionary *cacheRepresentation;
 - (id)initWithCacheRepresentation:(id)arg1;
+@property(readonly, copy) NSString *description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)hash;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
+@property(readonly, nonatomic, getter=_lookupArray) NSArray *_lookupArray;
 @property(readonly, nonatomic) SKUIArtwork *smallestArtwork;
 @property(readonly, nonatomic) SKUIArtwork *largestArtwork;
 - (id)bestArtworkForScaledSize:(struct CGSize)arg1;
 - (id)bestArtworkForSize:(struct CGSize)arg1;
 - (id)artworkWithWidth:(int)arg1;
 - (id)artworkURLForSize:(int)arg1;
+- (id)artworkForSize:(int)arg1;
 - (id)initWithLookupArray:(id)arg1;
 - (id)initWithArtworkListArray:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

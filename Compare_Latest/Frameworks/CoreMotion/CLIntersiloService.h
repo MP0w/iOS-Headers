@@ -12,12 +12,15 @@
 
 @interface CLIntersiloService : NSObject <CLIntersiloServiceProtocol>
 {
+    BOOL _valid;
     CLSilo *_silo;
     CLIntersiloInterface *_inboundInterface;
     CLIntersiloInterface *_outboundInterface;
 }
 
++ (void)becameFatallyBlocked:(id)arg1;
 + (id)getSilo;
+@property(nonatomic) BOOL valid; // @synthesize valid=_valid;
 @property(readonly, nonatomic) CLIntersiloInterface *outboundInterface; // @synthesize outboundInterface=_outboundInterface;
 @property(readonly, nonatomic) CLIntersiloInterface *inboundInterface; // @synthesize inboundInterface=_inboundInterface;
 @property(readonly, nonatomic) CLSilo *silo; // @synthesize silo=_silo;
@@ -27,7 +30,6 @@
 - (id)initWithInboundProtocol:(id)arg1 outboundProtocol:(id)arg2 andSilo:(id)arg3;
 - (id)initInSilo:(id)arg1;
 - (id)init;
-- (void)heartAttack;
 
 @end
 

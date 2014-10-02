@@ -15,11 +15,13 @@
     UILabel *_imageSizeLabel;
     UILabel *_placeholderImageSizeLabel;
     BOOL _imageSizeShown;
+    BOOL _accountHasUnsafeDomain;
     BOOL _accountAutoselected;
 }
 
 @property(nonatomic, getter=isAccountAutoselected) BOOL accountAutoselected; // @synthesize accountAutoselected=_accountAutoselected;
-- (struct CGColor *)labelColor;
+@property(nonatomic) BOOL accountHasUnsafeDomain; // @synthesize accountHasUnsafeDomain=_accountHasUnsafeDomain;
+- (id)labelColor;
 - (void)refreshPreferredContentSize;
 - (void)layoutSubviews;
 - (void)setShowsImageSize:(BOOL)arg1;

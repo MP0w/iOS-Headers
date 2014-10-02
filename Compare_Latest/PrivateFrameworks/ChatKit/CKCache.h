@@ -8,7 +8,7 @@
 
 #import "CKCache.h"
 
-@class NSMutableDictionary;
+@class NSMutableDictionary, NSString;
 
 @interface CKCache : NSObject <CKCache>
 {
@@ -21,6 +21,12 @@
 - (id)objectForKey:(id)arg1;
 - (id)init;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

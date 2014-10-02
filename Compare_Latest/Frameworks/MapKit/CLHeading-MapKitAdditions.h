@@ -9,7 +9,7 @@
 @class NSString;
 
 @interface CLHeading (MapKitAdditions)
-@property(readonly, nonatomic) NSString *compactDescription;
+@property(readonly, retain, nonatomic) NSString *compactDescription;
 @property(readonly, nonatomic) BOOL hasGeomagneticVector;
 @property(readonly, nonatomic) double heading;
 - (id)initWithHeading:(double)arg1 accuracy:(double)arg2;

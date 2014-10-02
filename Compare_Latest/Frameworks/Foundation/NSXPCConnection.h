@@ -20,7 +20,7 @@
     CDUnknownBlockType _interruptionHandler;
     CDUnknownBlockType _invalidationHandler;
     id _exportInfo;
-    id _replyInfo;
+    id _replyTable;
     id _importInfo;
     id <NSObject> _otherInfo;
     id _reserved1;
@@ -34,8 +34,16 @@
 
 + (void)endTransaction;
 + (void)beginTransaction;
++ (id)_currentBoost;
 + (id)currentConnection;
 @property(retain) NSXPCInterface *remoteObjectInterface; // @synthesize remoteObjectInterface=_remoteObjectInterface;
+- (void)_decodeProgressMessageWithData:(id)arg1;
+- (void)_pauseProgress:(unsigned long long)arg1;
+- (void)_cancelProgress:(unsigned long long)arg1;
+- (void)_updateProgress:(unsigned long long)arg1 completed:(long long)arg2 total:(long long)arg3;
+- (id)_xpcConnection;
+- (void)_killConnection:(int)arg1;
+- (void)_setTargetUserIdentifier:(unsigned int)arg1;
 - (void)_setUUID:(id)arg1;
 @property(readonly) unsigned int effectiveGroupIdentifier;
 @property(readonly) unsigned int effectiveUserIdentifier;
@@ -46,14 +54,15 @@
 - (id)remoteObjectProxyWithTimeout:(double)arg1 errorHandler:(CDUnknownBlockType)arg2;
 - (id)remoteObjectProxyWithUserInfo:(id)arg1 errorHandler:(CDUnknownBlockType)arg2;
 - (id)remoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
-- (id)remoteObjectProxy;
+@property(readonly, retain) id remoteObjectProxy;
 @property(retain) NSXPCInterface *exportedInterface;
 @property(retain) id exportedObject;
 - (void)_addClassToDecodeCache:(Class)arg1;
 - (BOOL)_decodeCacheContainsClass:(Class)arg1;
 - (void)_addClassToEncodeCache:(Class)arg1;
 - (BOOL)_encodeCacheContainsClass:(Class)arg1;
-- (id)debugDescription;
+- (id)description;
+- (id)_errorDescription;
 - (id)_queue;
 - (void)_setQueue:(id)arg1;
 - (id)replacementObjectForEncoder:(id)arg1 object:(id)arg2;
@@ -65,8 +74,8 @@
 - (CDStruct_6ad76789)auditToken;
 - (void)setOptions:(unsigned int)arg1;
 - (id)_exportTable;
-@property(readonly) NSXPCListenerEndpoint *endpoint;
-@property(readonly) NSString *serviceName;
+@property(readonly, retain) NSXPCListenerEndpoint *endpoint;
+@property(readonly, copy) NSString *serviceName;
 @property(copy) CDUnknownBlockType invalidationHandler;
 @property(copy) CDUnknownBlockType interruptionHandler;
 - (void)_sendInvocation:(id)arg1 proxyNumber:(unsigned long long)arg2 remoteInterface:(id)arg3 withErrorHandler:(CDUnknownBlockType)arg4 timeout:(double)arg5 userInfo:(id)arg6;
@@ -75,7 +84,6 @@
 - (void)_sendInvocation:(id)arg1 proxyNumber:(unsigned long long)arg2 remoteInterface:(id)arg3;
 - (void)_sendDesistForProxyNumber:(unsigned long long)arg1;
 - (void)addBarrierBlock:(CDUnknownBlockType)arg1;
-- (void)_invalidate:(BOOL)arg1;
 - (void)invalidate;
 - (void)stop;
 - (void)start;
@@ -92,7 +100,7 @@
 - (id)_initWithPeerConnection:(id)arg1 name:(id)arg2 options:(unsigned int)arg3;
 - (id)init;
 - (void)_decodeAndInvokeMessageWithData:(id)arg1;
-- (void)_decodeAndInvokeReplyBlockWithData:(id)arg1;
+- (void)_decodeAndInvokeReplyBlockWithData:(id)arg1 replyInfo:(id)arg2;
 
 @end
 

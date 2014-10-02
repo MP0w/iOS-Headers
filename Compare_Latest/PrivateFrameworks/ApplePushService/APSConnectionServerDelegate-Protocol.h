@@ -10,8 +10,8 @@
 
 @protocol APSConnectionServerDelegate <NSObject>
 - (void)connection:(APSConnectionServer *)arg1 handleAckIncomingMessageWithGuid:(NSString *)arg2;
-- (void)connection:(APSConnectionServer *)arg1 didInvalidatePublicTokenForTopic:(NSString *)arg2 identifier:(NSString *)arg3;
-- (void)connection:(APSConnectionServer *)arg1 didRequestPublicTokenForTopic:(NSString *)arg2 identifier:(NSString *)arg3;
+- (void)connection:(APSConnectionServer *)arg1 didRequestPerAppTokenForTopic:(NSString *)arg2 identifier:(NSString *)arg3;
+- (void)connection:(APSConnectionServer *)arg1 didInvalidatePerAppTokenForTopic:(NSString *)arg2 identifier:(NSString *)arg3;
 - (void)connection:(APSConnectionServer *)arg1 didReceiveFakeMessageToSend:(APSOutgoingMessage *)arg2;
 - (void)connection:(APSConnectionServer *)arg1 didReceiveCancellationForOutgoingMessageWithID:(unsigned int)arg2;
 - (void)connection:(APSConnectionServer *)arg1 didReceiveOutgoingMessageToSend:(APSOutgoingMessage *)arg2;

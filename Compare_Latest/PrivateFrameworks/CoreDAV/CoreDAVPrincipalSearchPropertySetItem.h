@@ -14,7 +14,7 @@
 }
 
 + (id)copyParseRules;
-@property(retain) NSMutableSet *principalSearchProperties; // @synthesize principalSearchProperties=_principalSearchProperties;
+@property(retain, nonatomic) NSMutableSet *principalSearchProperties; // @synthesize principalSearchProperties=_principalSearchProperties;
 - (void)addPrincipalSearchProperty:(id)arg1;
 - (id)description;
 - (void)dealloc;

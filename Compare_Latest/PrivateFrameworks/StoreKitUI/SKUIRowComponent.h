@@ -6,7 +6,7 @@
 
 #import <StoreKitUI/SKUIPageComponent.h>
 
-@class NSArray, UIColor;
+@class NSArray, SKUIRowViewElement, UIColor;
 
 @interface SKUIRowComponent : SKUIPageComponent
 {
@@ -15,8 +15,10 @@
     NSArray *_columnWidths;
     int _missingItemCount;
     int _numberOfColumns;
+    BOOL _shouldAutoFlow;
 }
 
+@property(readonly, nonatomic) BOOL shouldAutoFlow; // @synthesize shouldAutoFlow=_shouldAutoFlow;
 @property(readonly, nonatomic) int numberOfColumns; // @synthesize numberOfColumns=_numberOfColumns;
 @property(readonly, nonatomic) NSArray *columnWidths; // @synthesize columnWidths=_columnWidths;
 @property(readonly, nonatomic) NSArray *childComponents; // @synthesize childComponents=_childComponents;
@@ -30,7 +32,11 @@
 - (BOOL)isMissingItemData;
 - (void)enumerateMissingItemIdentifiersFromIndex:(int)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (int)componentType;
+- (id)initWithViewElement:(id)arg1;
 - (id)initWithCustomPageContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) SKUIRowViewElement *viewElement; // @dynamic viewElement;
 
 @end
 

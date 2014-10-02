@@ -17,6 +17,7 @@
     NSDate *_cachedImageDate;
     CUIImage *_edgeMetricsMask;
     CUIImage *_textMetricsMask;
+    CUIImage *_baselineMetricsMask;
     BOOL _didCheckForMetricsMasks;
 }
 
@@ -32,6 +33,7 @@
 - (BOOL)generateRenditionsWithEntityName:(id)arg1 document:(id)arg2 errorDescription:(id *)arg3;
 - (void)appendToLog:(id)arg1;
 - (id)log;
+- (id)baselineMetricsMaskWithDocument:(id)arg1;
 - (id)textMetricsMaskWithDocument:(id)arg1;
 - (id)edgeMetricsMaskWithDocument:(id)arg1;
 - (void)_loadMetricsMasksWithDocument:(id)arg1;

@@ -6,6 +6,8 @@
 
 #import "NSObject.h"
 
+@class NSArray, NSDictionary, NSOperationQueue, NSPredicate;
+
 @interface NSMetadataQuery : NSObject
 {
     unsigned int _flags;
@@ -16,25 +18,31 @@
 
 + (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
++ (void)didEndPossibleFileOperation:(id)arg1;
++ (id)willBeginPossibleCreationOfItemAtURL:(id)arg1;
++ (id)willBeginPossibleDeletionOfItemAtURL:(id)arg1;
++ (id)willBeginPossibleMoveOfItemAtURL:(id)arg1 toURL:(id)arg2;
++ (Class)_stitchingClass;
 - (id)valueOfAttribute:(id)arg1 forResultAtIndex:(unsigned int)arg2;
-- (id)groupedResults;
-- (id)valueLists;
+@property(readonly, copy) NSArray *groupedResults;
+@property(readonly, copy) NSDictionary *valueLists;
 - (unsigned int)indexOfResult:(id)arg1;
-- (id)results;
+@property(readonly, copy) NSArray *results;
 - (void)_zapResultArrayIfIdenticalTo:(id)arg1;
 - (void)enumerateResultsWithOptions:(unsigned int)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateResultsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)resultAtIndex:(unsigned int)arg1;
-- (unsigned int)resultCount;
+@property(readonly) unsigned int resultCount;
 - (void)_update;
 - (void)_enableAutoUpdates;
 - (void)_disableAutoUpdates;
 - (void)enableUpdates;
 - (void)disableUpdates;
-- (BOOL)isStopped;
-- (BOOL)isGathering;
-- (BOOL)isStarted;
+@property(readonly, getter=isStopped) BOOL stopped;
+@property(readonly, getter=isGathering) BOOL gathering;
+@property(readonly, getter=isStarted) BOOL started;
 - (void)stopQuery;
+- (void)_inOriginalContextInvokeBlock:(CDUnknownBlockType)arg1;
 - (BOOL)startQuery;
 - (void)_recreateQuery;
 - (void)_resetQueryState;
@@ -46,28 +54,23 @@
 - (void)_noteNote1:(id)arg1;
 - (void)_postNotificationName:(id)arg1 userInfo:(id)arg2;
 - (void)_setBatchingParams;
+- (void)_setExternalDocumentsBundleIdentifier:(id)arg1;
+- (id)_externalDocumentsBundleIdentifier;
 - (void)setSearchItemURLs:(id)arg1;
 - (id)searchItemURLs;
-- (void)setSearchItems:(id)arg1;
-- (id)searchItems;
-- (void)setOperationQueue:(id)arg1;
-- (id)operationQueue;
-- (void)setSearchScopes:(id)arg1;
-- (id)searchScopes;
-- (void)setNotificationBatchingInterval:(double)arg1;
-- (double)notificationBatchingInterval;
+@property(copy) NSArray *searchItems;
+@property(retain) NSOperationQueue *operationQueue;
+@property(copy) NSArray *searchScopes;
+@property double notificationBatchingInterval;
 - (id)_allAttributes;
 - (id)_sortingAttributes;
-- (void)setGroupingAttributes:(id)arg1;
-- (id)groupingAttributes;
-- (void)setValueListAttributes:(id)arg1;
-- (id)valueListAttributes;
-- (void)setSortDescriptors:(id)arg1;
-- (id)sortDescriptors;
-- (void)setPredicate:(id)arg1;
-- (id)predicate;
-- (void)setDelegate:(id)arg1;
-- (id)delegate;
+@property(copy) NSArray *groupingAttributes;
+@property(copy) NSArray *valueListAttributes;
+@property(copy) NSArray *sortDescriptors;
+@property(copy) NSPredicate *predicate;
+- (void)_validatePredicate:(id)arg1 withScopes:(id)arg2;
+@property id <NSMetadataQueryDelegate> delegate;
+- (void)_validateInvocationContext;
 - (void)finalize;
 - (void)dealloc;
 - (id)init;

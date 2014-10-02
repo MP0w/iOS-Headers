@@ -6,15 +6,19 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>;
+@class AVWeakReference, AVWeakReferencingDelegateStorage, NSObject<OS_dispatch_queue>;
 
 @interface AVCaptureAudioDataOutputInternal : NSObject
 {
-    id <AVCaptureAudioDataOutputSampleBufferDelegate> delegate;
-    NSObject<OS_dispatch_queue> *clientQueue;
+    AVWeakReference *weakReference;
+    AVWeakReferencingDelegateStorage *delegateStorage;
+    NSObject<OS_dispatch_queue> *bufferQueue;
+    struct OpaqueFigSimpleMutex *remoteQueueMutex;
+    void *remoteReceiverQueue;
 }
 
 - (void)dealloc;
+- (id)init;
 
 @end
 

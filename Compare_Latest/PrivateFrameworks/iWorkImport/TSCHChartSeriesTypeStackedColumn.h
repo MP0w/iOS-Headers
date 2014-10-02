@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 - (double)beginDataValueForSeries:(id)arg1 groupIndex:(unsigned int)arg2 valueAxisID:(id)arg3;
 - (double)beginValueForSeries:(unsigned int)arg1 index:(unsigned int)arg2 unitSpaceIntercept:(double)arg3 relativelyPositive:(BOOL)arg4 valueAxis:(id)arg5;
 - (id)genericToSpecificPropertyMap;
-- (unsigned int)adjustLabelPosition:(unsigned int)arg1 forValue:(double)arg2;
+- (unsigned int)adjustLabelPosition:(unsigned int)arg1 forAxisValue:(double)arg2 intercept:(double)arg3;
 - (unsigned int)filterChartLabelPosition:(unsigned int)arg1;
 - (id)userInterfaceNameForLabelPosition:(id)arg1;
 - (id)legalChartLabelPositions;

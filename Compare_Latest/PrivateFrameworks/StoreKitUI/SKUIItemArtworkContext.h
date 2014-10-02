@@ -6,16 +6,16 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, SKUIColorScheme, SKUIIconDataConsumer, SKUINewsstandImageDataConsumer, SKUIProductImageDataConsumer, UIColor;
+@class NSMutableDictionary, SKUIColorScheme, SKUIProductImageDataConsumer, SKUIStyledImageDataConsumer, UIColor;
 
 @interface SKUIItemArtworkContext : NSObject
 {
     UIColor *_backgroundColor;
     SKUIColorScheme *_colorScheme;
     SKUIProductImageDataConsumer *_generalImageConsumer;
-    SKUIIconDataConsumer *_iconConsumer;
+    SKUIStyledImageDataConsumer *_iconConsumer;
     SKUIProductImageDataConsumer *_letterboxConsumer;
-    SKUINewsstandImageDataConsumer *_newsstandConsumer;
+    SKUIStyledImageDataConsumer *_newsstandConsumer;
     NSMutableDictionary *_placeholders;
     SKUIProductImageDataConsumer *_posterConsumer;
 }
@@ -24,9 +24,9 @@
 + (id)roomContext;
 + (id)lockupContextWithSize:(int)arg1;
 @property(retain, nonatomic) SKUIProductImageDataConsumer *posterConsumer; // @synthesize posterConsumer=_posterConsumer;
-@property(retain, nonatomic) SKUINewsstandImageDataConsumer *newsstandConsumer; // @synthesize newsstandConsumer=_newsstandConsumer;
+@property(retain, nonatomic) SKUIStyledImageDataConsumer *newsstandConsumer; // @synthesize newsstandConsumer=_newsstandConsumer;
 @property(retain, nonatomic) SKUIProductImageDataConsumer *letterboxConsumer; // @synthesize letterboxConsumer=_letterboxConsumer;
-@property(retain, nonatomic) SKUIIconDataConsumer *iconConsumer; // @synthesize iconConsumer=_iconConsumer;
+@property(retain, nonatomic) SKUIStyledImageDataConsumer *iconConsumer; // @synthesize iconConsumer=_iconConsumer;
 @property(retain, nonatomic) SKUIProductImageDataConsumer *generalConsumer; // @synthesize generalConsumer=_generalImageConsumer;
 @property(retain, nonatomic) SKUIColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
 @property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;

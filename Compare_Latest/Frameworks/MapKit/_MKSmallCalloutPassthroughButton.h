@@ -6,18 +6,18 @@
 
 #import "UIControl.h"
 
-@class UIButton, UIView;
+@class UIView;
 
 __attribute__((visibility("hidden")))
 @interface _MKSmallCalloutPassthroughButton : UIControl
 {
-    UIButton *_targetButton;
+    UIControl *_targetControl;
     UIView *_highlightView;
     float _leftHighlightInset;
 }
 
 @property(nonatomic) float leftHighlightInset; // @synthesize leftHighlightInset=_leftHighlightInset;
-@property(retain, nonatomic) UIButton *targetButton; // @synthesize targetButton=_targetButton;
+@property(retain, nonatomic) UIControl *targetControl; // @synthesize targetControl=_targetControl;
 - (void).cxx_destruct;
 - (void)setHighlighted:(BOOL)arg1;
 - (void)handleTap:(id)arg1;

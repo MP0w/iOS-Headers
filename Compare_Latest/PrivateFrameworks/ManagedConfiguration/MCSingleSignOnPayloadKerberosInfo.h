@@ -12,6 +12,7 @@
 {
     NSString *_principalName;
     NSString *_realm;
+    NSString *_certificateUUID;
     NSArray *_URLPrefixMatches;
     NSArray *_appIdentifierMatches;
     NSString *_accountGUID;
@@ -22,6 +23,7 @@
 @property(retain, nonatomic) NSString *accountGUID; // @synthesize accountGUID=_accountGUID;
 @property(retain, nonatomic) NSArray *appIdentifierMatches; // @synthesize appIdentifierMatches=_appIdentifierMatches;
 @property(retain, nonatomic) NSArray *URLPrefixMatches; // @synthesize URLPrefixMatches=_URLPrefixMatches;
+@property(retain, nonatomic) NSString *certificateUUID; // @synthesize certificateUUID=_certificateUUID;
 @property(retain, nonatomic) NSString *realm; // @synthesize realm=_realm;
 @property(retain, nonatomic) NSString *principalName; // @synthesize principalName=_principalName;
 - (void).cxx_destruct;

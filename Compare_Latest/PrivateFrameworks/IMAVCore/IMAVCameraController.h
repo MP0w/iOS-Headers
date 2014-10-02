@@ -19,7 +19,7 @@
 - (void)_loadSavedCamera;
 - (void)_rebuildCameraList;
 - (id)cameraWithDeviceID:(unsigned int)arg1;
-@property(readonly, nonatomic) NSArray *cameras;
+@property(readonly, retain, nonatomic) NSArray *cameras;
 - (void)dealloc;
 - (id)init;
 

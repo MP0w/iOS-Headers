@@ -42,6 +42,7 @@
 - (BOOL)connectable;
 - (void)connectDevice:(id)arg1;
 - (void)connectDevice:(id)arg1 withServices:(unsigned int)arg2;
+- (id)localAddress;
 - (void)acceptSSP:(int)arg1 forDevice:(id)arg2;
 - (void)setPincode:(id)arg1 forDevice:(id)arg2;
 - (id)pairedDevices;

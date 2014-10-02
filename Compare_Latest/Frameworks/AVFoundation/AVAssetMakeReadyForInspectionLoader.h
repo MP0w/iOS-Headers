@@ -6,15 +6,11 @@
 
 #import <AVFoundation/AVAssetInspectorLoader.h>
 
-@class AVAssetCache, AVAssetInspector, NSMutableArray, NSURL;
+@class AVAssetInspector, NSMutableArray, NSURL;
 
 @interface AVAssetMakeReadyForInspectionLoader : AVAssetInspectorLoader
 {
     AVAssetInspector *_assetInspector;
-    AVAssetCache *_assetCache;
-    BOOL _shouldMatchDataInCacheByURLPathComponentOnly;
-    BOOL _shouldMatchDataInCacheByURLWithoutQueryComponent;
-    NSURL *_downloadDestinationURL;
     struct OpaqueFigFormatReader *_formatReader;
     struct OpaqueFigSimpleMutex *_loadingMutex;
     NSMutableArray *_keysAwaitingCompletion;
@@ -23,10 +19,6 @@
     NSURL *_URL;
 }
 
-@property(readonly, nonatomic) NSURL *downloadDestinationURL; // @synthesize downloadDestinationURL=_downloadDestinationURL;
-@property(readonly, nonatomic) BOOL shouldMatchDataInCacheByURLWithoutQueryComponent; // @synthesize shouldMatchDataInCacheByURLWithoutQueryComponent=_shouldMatchDataInCacheByURLWithoutQueryComponent;
-@property(readonly, nonatomic) BOOL shouldMatchDataInCacheByURLPathComponentOnly; // @synthesize shouldMatchDataInCacheByURLPathComponentOnly=_shouldMatchDataInCacheByURLPathComponentOnly;
-@property(readonly, nonatomic) AVAssetCache *assetCache; // @synthesize assetCache=_assetCache;
 - (id)URL;
 - (BOOL)_isStreaming;
 - (BOOL)hasProtectedContent;
@@ -34,7 +26,7 @@
 - (BOOL)isReadable;
 - (BOOL)isExportable;
 - (BOOL)isPlayable;
-- (id)chapterGroupInfo;
+- (id)figChapterGroupInfo;
 - (id)lyrics;
 - (CDStruct_1b6d18a9)duration;
 - (void)loadValuesAsynchronouslyForKeys:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

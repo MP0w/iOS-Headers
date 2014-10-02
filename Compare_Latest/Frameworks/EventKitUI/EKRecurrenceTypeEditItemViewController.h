@@ -9,29 +9,48 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class NSIndexPath, NSString, UITableView;
+@class EKCalendarItem, EKRecurrenceRule, EKUICustomRecurrenceViewController, NSDate, NSIndexPath, NSString, UITableView;
 
-__attribute__((visibility("hidden")))
 @interface EKRecurrenceTypeEditItemViewController : EKEditItemViewController <UITableViewDataSource, UITableViewDelegate>
 {
-    UITableView *_table;
-    NSString *_customString;
+    NSString *_summaryString;
     int _repeatType;
+    UITableView *_table;
     NSIndexPath *_checkedItem;
+    EKRecurrenceRule *_recurrenceRule;
+    NSDate *_suggestedStartDate;
+    id <EKRecurrenceTypeEditItemViewControllerDelegate> _delegate;
+    EKUICustomRecurrenceViewController *_customRecurrenceViewController;
+    EKCalendarItem *_calendarItem;
 }
 
+@property(retain) EKCalendarItem *calendarItem; // @synthesize calendarItem=_calendarItem;
+@property(nonatomic) int repeatType; // @synthesize repeatType=_repeatType;
+@property(retain) EKUICustomRecurrenceViewController *customRecurrenceViewController; // @synthesize customRecurrenceViewController=_customRecurrenceViewController;
+@property __weak id <EKRecurrenceTypeEditItemViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) NSDate *suggestedStartDate; // @synthesize suggestedStartDate=_suggestedStartDate;
+@property(retain, nonatomic) EKRecurrenceRule *recurrenceRule; // @synthesize recurrenceRule=_recurrenceRule;
 - (void).cxx_destruct;
+- (void)setRecurrenceRuleFromRepeatType:(int)arg1;
+- (float)tableView:(id)arg1 heightForFooterInSection:(int)arg2;
+- (id)tableView:(id)arg1 titleForFooterInSection:(int)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
-- (void)setCustomString:(id)arg1;
-@property(nonatomic) int repeatType;
+- (id)_recurrenceCellForIndexPath:(id)arg1;
 - (void)_checkItemAtIndexPath:(id)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
+- (id)initWithFrame:(struct CGRect)arg1 styleProvider:(id)arg2 calendarItem:(id)arg3;
 - (id)initWithFrame:(struct CGRect)arg1 styleProvider:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

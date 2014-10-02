@@ -21,5 +21,11 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate;
 
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
+
 @end
 

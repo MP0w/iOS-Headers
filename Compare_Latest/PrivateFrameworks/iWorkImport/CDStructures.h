@@ -32,20 +32,14 @@ struct ActiveLabelsTypeBounds {
     struct map<int, TSCH3D::CachedLabelBoundsArray, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, TSCH3D::CachedLabelBoundsArray>>> _field3;
 };
 
-struct AnchorAttachmentCommandArchive {
+struct AddCustomFormatCommandArchive {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
     struct CommandArchive *_field3;
-    struct Reference *_field4;
-    struct Reference *_field5;
-    unsigned int _field6;
-    float _field7;
-    unsigned int _field8;
-    float _field9;
-    struct UndoTransaction *_field10;
-    _Bool _field11;
-    int _field12;
-    unsigned int _field13[1];
+    struct CustomFormatArchive *_field4;
+    _Bool _field5;
+    int _field6;
+    unsigned int _field7[1];
 };
 
 struct AnimationAttributesArchive {
@@ -62,51 +56,12 @@ struct AnimationAttributesArchive {
     unsigned int _field11[1];
 };
 
-struct ApplyHighlightTextCommandArchive {
+struct AnnotationCacheArchive {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
-    struct CommandArchive *_field3;
-    struct Reference *_field4;
-    unsigned int _field5;
-    unsigned int _field6;
-    struct UndoTransaction *_field7;
-    _Bool _field8;
-    int _field9;
-    unsigned int _field10[1];
-};
-
-struct ApplyPlaceholderTextCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct CommandArchive *_field3;
-    struct Reference *_field4;
-    unsigned int _field5;
-    unsigned int _field6;
-    struct UndoTransaction *_field7;
-    int _field8;
-    unsigned int _field9[1];
-};
-
-struct ApplyRubyTextCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct CommandArchive *_field3;
-    struct Reference *_field4;
-    unsigned int _field5;
-    unsigned int _field6;
-    basic_string_9db06383 *_field7;
-    struct UndoTransaction *_field8;
-    int _field9;
-    unsigned int _field10[1];
-};
-
-struct ApplyThemeChildCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct CommandArchive *_field3;
-    struct Reference *_field4;
-    int _field5;
-    unsigned int _field6[1];
+    RepeatedPtrField_a0d2dbe7 _field3;
+    int _field4;
+    unsigned int _field5[1];
 };
 
 struct ArchiveInfo {
@@ -255,21 +210,22 @@ struct BuildAttributesArchive {
     double _field15;
     struct PathSourceArchive *_field16;
     int _field17;
-    _Bool _field18;
+    int _field18;
     _Bool _field19;
-    int _field20;
-    unsigned int _field21;
-    double _field22;
-    basic_string_9db06383 *_field23;
+    _Bool _field20;
+    _Bool _field21;
+    unsigned int _field22;
+    double _field23;
     int _field24;
     unsigned int _field25;
     basic_string_9db06383 *_field26;
-    double _field27;
+    basic_string_9db06383 *_field27;
     double _field28;
-    struct Color *_field29;
-    basic_string_9db06383 *_field30;
-    int _field31;
-    unsigned int _field32[1];
+    double _field29;
+    struct Color *_field30;
+    basic_string_9db06383 *_field31;
+    int _field32;
+    unsigned int _field33[1];
 };
 
 struct BuildChunkArchive {
@@ -364,6 +320,14 @@ struct CellMapArchive {
     _Bool _field8;
     int _field9;
     unsigned int _field10[1];
+};
+
+struct CellMapTileArchive {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    struct RepeatedPtrField<TST::CellMapTileArchive_CellMapEntry> _field3;
+    int _field4;
+    unsigned int _field5[1];
 };
 
 struct CellMergeInfoArchive;
@@ -719,6 +683,52 @@ struct ChartArchive {
     unsigned int _field27[1];
 };
 
+struct ChartAxisGenericPropertyMapArchive {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    struct FormatStructArchive *_field3;
+    struct FormatStructArchive *_field4;
+    struct FormatStructArchive *_field5;
+    int _field6;
+    int _field7;
+    struct FormatStructArchive *_field8;
+    struct FormatStructArchive *_field9;
+    int _field10;
+    int _field11;
+    int _field12;
+    int _field13;
+    _Bool _field14;
+    _Bool _field15;
+    _Bool _field16;
+    _Bool _field17;
+    float _field18;
+    basic_string_9db06383 *_field19;
+    struct ChartsNSNumberDoubleArchive *_field20;
+    struct ChartsNSNumberDoubleArchive *_field21;
+    struct StrokeArchive *_field22;
+    int _field23;
+    int _field24;
+    float _field25;
+    float _field26;
+    struct ShadowArchive *_field27;
+    struct StrokeArchive *_field28;
+    struct ShadowArchive *_field29;
+    struct StrokeArchive *_field30;
+    float _field31;
+    _Bool _field32;
+    _Bool _field33;
+    _Bool _field34;
+    _Bool _field35;
+    _Bool _field36;
+    _Bool _field37;
+    _Bool _field38;
+    int _field39;
+    int _field40;
+    int _field41;
+    int _field42;
+    unsigned int _field43[2];
+};
+
 struct ChartAxisIDArchive {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
@@ -728,14 +738,40 @@ struct ChartAxisIDArchive {
     unsigned int _field6[1];
 };
 
-struct ChartCommandArchive {
+struct ChartGenericPropertyMapArchive {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
-    struct CommandArchive *_field3;
-    struct Reference *_field4;
-    _Bool _field5;
-    int _field6;
-    unsigned int _field7[1];
+    int _field3;
+    float _field4;
+    struct Chart3DVectorArchive *_field5;
+    struct Chart3DVectorArchive *_field6;
+    struct Chart3DVectorArchive *_field7;
+    float _field8;
+    _Bool _field9;
+    _Bool _field10;
+    _Bool _field11;
+    _Bool _field12;
+    basic_string_9db06383 *_field13;
+    int _field14;
+    int _field15;
+    struct Chart3DLightingPackageArchive *_field16;
+    float _field17;
+    float _field18;
+    struct FillArchive *_field19;
+    struct StrokeArchive *_field20;
+    struct ShadowArchive *_field21;
+    struct StrokeArchive *_field22;
+    struct FillArchive *_field23;
+    float _field24;
+    _Bool _field25;
+    _Bool _field26;
+    float _field27;
+    float _field28;
+    struct Color *_field29;
+    int _field30;
+    int _field31;
+    int _field32;
+    unsigned int _field33[1];
 };
 
 struct ChartGridArchive {
@@ -834,6 +870,8 @@ struct ChartModelArchive {
 struct ChartProjectedBoundsConverter {
     struct ChartProjectedBoundsSpaces *_field1;
     float _field2;
+    _Bool _field3;
+    tvec2_84d5962d _field4;
 };
 
 struct ChartProjectedBoundsSpaces {
@@ -888,6 +926,86 @@ struct ChartSelectionPathTypeArchive {
     unsigned int _field6[1];
 };
 
+struct ChartSeriesGenericPropertyMapArchive {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    struct ChartsNSArrayOfNSNumberDoubleArchive *_field3;
+    struct ChartsNSArrayOfNSNumberDoubleArchive *_field4;
+    float _field5;
+    float _field6;
+    struct ChartsNSArrayOfNSNumberDoubleArchive *_field7;
+    struct ChartsNSArrayOfNSNumberDoubleArchive *_field8;
+    float _field9;
+    float _field10;
+    float _field11;
+    int _field12;
+    int _field13;
+    float _field14;
+    float _field15;
+    int _field16;
+    int _field17;
+    float _field18;
+    struct FormatStructArchive *_field19;
+    struct FormatStructArchive *_field20;
+    struct FormatStructArchive *_field21;
+    int _field22;
+    int _field23;
+    struct FormatStructArchive *_field24;
+    struct FormatStructArchive *_field25;
+    struct FormatStructArchive *_field26;
+    int _field27;
+    _Bool _field28;
+    _Bool _field29;
+    _Bool _field30;
+    _Bool _field31;
+    _Bool _field32;
+    _Bool _field33;
+    _Bool _field34;
+    _Bool _field35;
+    int _field36;
+    int _field37;
+    float _field38;
+    basic_string_9db06383 *_field39;
+    float _field40;
+    int _field41;
+    int _field42;
+    float _field43;
+    float _field44;
+    int _field45;
+    float _field46;
+    int _field47;
+    _Bool _field48;
+    _Bool _field49;
+    _Bool _field50;
+    _Bool _field51;
+    int _field52;
+    struct LineEndArchive *_field53;
+    struct LineEndArchive *_field54;
+    struct ShadowArchive *_field55;
+    struct StrokeArchive *_field56;
+    struct StrokeArchive *_field57;
+    struct FillArchive *_field58;
+    int _field59;
+    float _field60;
+    struct ShadowArchive *_field61;
+    struct StrokeArchive *_field62;
+    int _field63;
+    float _field64;
+    struct FillArchive *_field65;
+    struct StrokeArchive *_field66;
+    float _field67;
+    int _field68;
+    float _field69;
+    _Bool _field70;
+    _Bool _field71;
+    struct ShadowArchive *_field72;
+    int _field73;
+    int _field74;
+    struct StrokeArchive *_field75;
+    int _field76;
+    unsigned int _field77[3];
+};
+
 struct ChartUIState {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
@@ -896,8 +1014,9 @@ struct ChartUIState {
     int _field5;
     int _field6;
     int _field7;
-    int _field8;
-    unsigned int _field9[1];
+    _Bool _field8;
+    int _field9;
+    unsigned int _field10[1];
 };
 
 struct ChartsNSArrayOfNSNumberDoubleArchive {
@@ -951,8 +1070,9 @@ struct ClassicStylesheetRecordArchive {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
     struct RepeatedPtrField<TSS::StylesheetArchive_IdentifiedStyleEntry> _field3;
-    int _field4;
-    unsigned int _field5[1];
+    struct Reference *_field4;
+    int _field5;
+    unsigned int _field6[1];
 };
 
 struct ClassicThemeRecordArchive {
@@ -1016,17 +1136,6 @@ struct CommandArchive {
     unsigned int _field6[1];
 };
 
-struct CommandChartApplyTheme {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct ApplyThemeChildCommandArchive *_field3;
-    struct Reference *_field4;
-    struct Reference *_field5;
-    struct Reference *_field6;
-    int _field7;
-    unsigned int _field8[1];
-};
-
 struct CommandGroupArchive {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
@@ -1037,36 +1146,12 @@ struct CommandGroupArchive {
     unsigned int _field7[1];
 };
 
-struct CommandSelectionBehaviorArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct Reference *_field3;
-    struct Reference *_field4;
-    struct Reference *_field5;
-    int _field6;
-    int _field7;
-    unsigned int _field8[1];
-};
-
 struct CommandSelectionBehaviorHistoryArchive {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
     struct RepeatedPtrField<TSK::CommandSelectionBehaviorHistoryArchive_Entry> _field3;
     int _field4;
     unsigned int _field5[1];
-};
-
-struct CommandSetChartTypeArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct ChartCommandArchive *_field3;
-    int _field4;
-    int _field5;
-    struct Reference *_field6;
-    struct Reference *_field7;
-    struct RectArchive *_field8;
-    int _field9;
-    unsigned int _field10[1];
 };
 
 struct CommentInfoArchive {
@@ -1116,8 +1201,8 @@ struct ComponentInfo {
     int _field9;
     RepeatedPtrField_1f1a6efb _field10;
     struct RepeatedPtrField<TSP::ComponentDataReference> _field11;
-    _Bool _field12;
-    _Bool _field13;
+    struct RepeatedPtrField<TSP::ObjectUUIDMapEntry> _field12;
+    unsigned long long _field13;
     _Bool _field14;
     int _field15;
     unsigned int _field16[1];
@@ -1147,20 +1232,30 @@ struct ContainerArchive {
     unsigned int _field7[1];
 };
 
-struct CreateHyperlinkCommandArchive {
+struct CopyingFileOutputStream {
     CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct CommandArchive *_field3;
-    struct Reference *_field4;
-    unsigned int _field5;
-    unsigned int _field6;
-    basic_string_9db06383 *_field7;
-    struct UndoTransaction *_field8;
-    int _field9;
-    unsigned int _field10[1];
+    int _field2;
+    _Bool _field3;
+    _Bool _field4;
+    int _field5;
+};
+
+struct CopyingOutputStream;
+
+struct CopyingOutputStreamAdaptor {
+    CDUnknownFunctionPointerType *_field1;
+    struct CopyingOutputStream *_field2;
+    _Bool _field3;
+    _Bool _field4;
+    long long _field5;
+    struct scoped_array<unsigned char> _field6;
+    int _field7;
+    int _field8;
 };
 
 struct CurvedShadowArchive;
+
+struct CustomFormatArchive;
 
 struct DEPRECATEDChart3DFillArchive {
     CDUnknownFunctionPointerType *_field1;
@@ -1247,9 +1342,10 @@ struct DataStore {
     struct Reference *_field18;
     struct Reference *_field19;
     struct Reference *_field20;
-    unsigned int _field21;
-    int _field22;
-    unsigned int _field23[1];
+    struct Reference *_field21;
+    unsigned int _field22;
+    int _field23;
+    unsigned int _field24[1];
 };
 
 struct DatabaseDataArchive {
@@ -1349,15 +1445,7 @@ struct DispatchDataInputStream {
     char *_field7;
 };
 
-struct DrawableApplyThemeCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct ApplyThemeChildCommandArchive *_field3;
-    struct Reference *_field4;
-    struct Reference *_field5;
-    int _field6;
-    unsigned int _field7[1];
-};
+struct DocumentRevision;
 
 struct DrawableArchive {
     CDUnknownFunctionPointerType *_field1;
@@ -1384,19 +1472,6 @@ struct DrawableAttachmentArchive {
     float _field7;
     int _field8;
     unsigned int _field9[1];
-};
-
-struct DrawablesCommandGroupArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct CommandGroupArchive *_field3;
-    struct CanvasSelectionArchive *_field4;
-    struct Reference *_field5;
-    int _field6;
-    _Bool _field7;
-    struct Reference *_field8;
-    int _field9;
-    unsigned int _field10[1];
 };
 
 struct DropShadowArchive;
@@ -1470,15 +1545,6 @@ struct ExteriorTextWrapArchive {
     unsigned int _field10[1];
 };
 
-struct ExteriorTextWrapCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct CommandArchive *_field3;
-    struct RepeatedPtrField<TSD::ExteriorTextWrapCommandArchive_InfoAndWrap> _field4;
-    int _field5;
-    unsigned int _field6[1];
-};
-
 struct ExternalLabelAttribute {
     id _field1;
     tvec2_84d5962d _field2;
@@ -1488,7 +1554,7 @@ struct ExternalReferenceCompletionInfo;
 
 struct ExternalReferenceInfo {
     long long _field1;
-    struct queue<TSP::ExternalReferenceCompletionInfo, std::__1::deque<TSP::ExternalReferenceCompletionInfo, std::__1::allocator<TSP::ExternalReferenceCompletionInfo>>> _field2;
+    struct vector<TSP::ExternalReferenceCompletionInfo, std::__1::allocator<TSP::ExternalReferenceCompletionInfo>> _field2;
 };
 
 struct FieldDescriptor;
@@ -1499,9 +1565,9 @@ struct FieldInfo {
     struct FieldPath *path_;
     int type_;
     int rule_;
-    RepeatedField_80b81656 object_references_;
+    struct RepeatedField<unsigned long long> object_references_;
     int _object_references_cached_byte_size_;
-    RepeatedField_80b81656 data_references_;
+    struct RepeatedField<unsigned long long> data_references_;
     int _data_references_cached_byte_size_;
     int _cached_size_;
     unsigned int _has_bits_[1];
@@ -1527,6 +1593,12 @@ struct FieldPath {
 };
 
 struct FileDescriptor;
+
+struct FileOutputStream {
+    CDUnknownFunctionPointerType *_field1;
+    struct CopyingFileOutputStream _field2;
+    struct CopyingOutputStreamAdaptor _field3;
+};
 
 struct FillArchive {
     CDUnknownFunctionPointerType *_field1;
@@ -1562,10 +1634,10 @@ struct FilterSetArchive {
 };
 
 struct FinalizeHandlerItem {
-    struct queue<void (^)(), std::__1::deque<void (^)(), std::__1::allocator<void (^)()>>> _field1;
+    vector_667badbd _field1;
     long long _field2;
-    struct list<long long, std::__1::allocator<long long>> _field3;
-    struct list<TSP::FinalizeHandlerItem *, std::__1::allocator<TSP::FinalizeHandlerItem *>> _field4;
+    struct vector<long long, std::__1::allocator<long long>> _field3;
+    struct vector<TSP::FinalizeHandlerItem *, std::__1::allocator<TSP::FinalizeHandlerItem *>> _field4;
     struct {
         unsigned int :1;
         unsigned int :1;
@@ -1636,19 +1708,6 @@ struct FormatStructArchive {
     unsigned int _field45[2];
 };
 
-struct FormatTextCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct CommandArchive *_field3;
-    struct Reference *_field4;
-    struct UndoTransaction *_field5;
-    unsigned int _field6;
-    unsigned int _field7;
-    unsigned int _field8;
-    int _field9;
-    unsigned int _field10[1];
-};
-
 struct FormulaArchive;
 
 struct FormulaEqualsTokenAttachmentArchive {
@@ -1682,9 +1741,10 @@ struct FormulaRewriteSpecArchive {
     struct CFUUIDArchive *_field6;
     struct TableResizedInfoArchive *_field7;
     struct CellMergeInfoArchive *_field8;
-    int _field9;
+    struct TableTransposeInfoArchive *_field9;
     int _field10;
-    unsigned int _field11[1];
+    int _field11;
+    unsigned int _field12[1];
 };
 
 struct FrameArchive;
@@ -1859,8 +1919,9 @@ struct ImageAdjustmentsArchive {
     float _field13;
     float _field14;
     _Bool _field15;
-    int _field16;
-    unsigned int _field17[1];
+    _Bool _field16;
+    int _field17;
+    unsigned int _field18[1];
 };
 
 struct ImageArchive {
@@ -1876,23 +1937,48 @@ struct ImageArchive {
     struct Size *_field10;
     struct Path *_field11;
     struct ImageAdjustmentsArchive *_field12;
-    struct DataReference *_field13;
-    struct DataReference *_field14;
+    unsigned int _field13;
+    _Bool _field14;
     struct DataReference *_field15;
-    struct Reference *_field16;
-    struct Reference *_field17;
+    struct DataReference *_field16;
+    struct DataReference *_field17;
     struct Reference *_field18;
-    unsigned int _field19;
-    int _field20;
-    unsigned int _field21[1];
+    struct Reference *_field19;
+    struct Reference *_field20;
+    int _field21;
+    unsigned int _field22[1];
 };
 
 struct ImageFillArchive;
 
-struct ImageReplaceCommandArchive {
+struct ImportWarningSetArchive {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
-    struct CommandArchive *_field3;
+    struct ImportWarningSetArchive_FormulaImportWarning *_field3;
+    _Bool _field4;
+    _Bool _field5;
+    _Bool _field6;
+    _Bool _field7;
+    _Bool _field8;
+    _Bool _field9;
+    _Bool _field10;
+    _Bool _field11;
+    _Bool _field12;
+    _Bool _field13;
+    _Bool _field14;
+    _Bool _field15;
+    _Bool _field16;
+    basic_string_9db06383 *_field17;
+    int _field18;
+    unsigned int _field19[1];
+};
+
+struct ImportWarningSetArchive_FormulaImportWarning;
+
+struct ImportWarningSetByCoordinateMapArchive {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    struct RepeatedPtrField<TST::CellCoordinateImportWarningSetPairArchive> _field3;
     int _field4;
     unsigned int _field5[1];
 };
@@ -1903,22 +1989,6 @@ struct IndexSet {
     struct RepeatedPtrField<TSP::Range> _field3;
     int _field4;
     unsigned int _field5[1];
-};
-
-struct InsertAttachmentCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct CommandArchive *_field3;
-    struct Reference *_field4;
-    unsigned int _field5;
-    unsigned int _field6;
-    struct Reference *_field7;
-    struct UndoTransaction *_field8;
-    unsigned int _field9;
-    unsigned int _field10;
-    unsigned int _field11;
-    int _field12;
-    unsigned int _field13[1];
 };
 
 struct IteratorRange<const char *> {
@@ -1964,6 +2034,18 @@ struct LayoutHintArchive {
     unsigned int _field10;
     int _field11;
     unsigned int _field12[1];
+};
+
+struct LegendGenericPropertyMapArchive {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    struct FillArchive *_field3;
+    int _field4;
+    float _field5;
+    struct ShadowArchive *_field6;
+    struct StrokeArchive *_field7;
+    int _field8;
+    unsigned int _field9[1];
 };
 
 struct LegendModelArchive {
@@ -2097,15 +2179,6 @@ struct MediaStylePropertiesArchive {
     unsigned int _field8[1];
 };
 
-struct MediaStyleSetValueCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct StyledInfoSetStyleCommandArchive *_field3;
-    struct MediaStylePropertiesArchive *_field4;
-    int _field5;
-    unsigned int _field6[1];
-};
-
 struct MeshData {
     id _field1;
     id _field2;
@@ -2123,68 +2196,15 @@ struct MessageInfo {
     unsigned int type_;
     unsigned int length_;
     struct RepeatedPtrField<TSP::FieldInfo> field_infos_;
-    RepeatedField_80b81656 object_references_;
+    struct RepeatedField<unsigned long long> object_references_;
     int _object_references_cached_byte_size_;
-    RepeatedField_80b81656 data_references_;
+    struct RepeatedField<unsigned long long> data_references_;
     int _data_references_cached_byte_size_;
     int _cached_size_;
     unsigned int _has_bits_[1];
 };
 
 struct MessageOptions;
-
-struct ModifyHyperlinkCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct CommandArchive *_field3;
-    struct Reference *_field4;
-    basic_string_9db06383 *_field5;
-    basic_string_9db06383 *_field6;
-    struct UndoTransaction *_field7;
-    int _field8;
-    unsigned int _field9[1];
-};
-
-struct ModifyRubyTextCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct CommandArchive *_field3;
-    struct Reference *_field4;
-    basic_string_9db06383 *_field5;
-    basic_string_9db06383 *_field6;
-    struct UndoTransaction *_field7;
-    int _field8;
-    unsigned int _field9[1];
-};
-
-struct ModifyTOCSettingsBaseCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct CommandArchive *_field3;
-    struct Reference *_field4;
-    struct Reference *_field5;
-    int _field6;
-    unsigned int _field7[1];
-};
-
-struct ModifyTOCSettingsForTOCInfoCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct ModifyTOCSettingsBaseCommandArchive *_field3;
-    struct Reference *_field4;
-    int _field5;
-    unsigned int _field6[1];
-};
-
-struct ModifyTOCSettingsPresetForThemeCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct ModifyTOCSettingsBaseCommandArchive *_field3;
-    struct Reference *_field4;
-    unsigned int _field5;
-    int _field6;
-    unsigned int _field7[1];
-};
 
 struct MovieArchive {
     CDUnknownFunctionPointerType *_field1;
@@ -2197,22 +2217,24 @@ struct MovieArchive {
     float _field8;
     float _field9;
     unsigned int _field10;
-    float _field11;
-    _Bool _field12;
+    int _field11;
+    float _field12;
     _Bool _field13;
     _Bool _field14;
-    struct DataReference *_field15;
-    struct DataReference *_field16;
+    _Bool _field15;
+    _Bool _field16;
     unsigned int _field17;
-    unsigned int _field18;
-    struct Reference *_field19;
+    struct DataReference *_field18;
+    struct DataReference *_field19;
     struct Reference *_field20;
     struct Reference *_field21;
     struct Reference *_field22;
-    struct Size *_field23;
+    struct Reference *_field23;
     struct Size *_field24;
-    int _field25;
-    unsigned int _field26[1];
+    struct Size *_field25;
+    unsigned int _field26;
+    int _field27;
+    unsigned int _field28[1];
 };
 
 struct MovieSegmentArchive {
@@ -2259,11 +2281,12 @@ struct NumberCellValueArchive {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
     double _field3;
-    struct FormatStructArchive *_field4;
+    basic_string_9db06383 *_field4;
     int _field5;
     _Bool _field6;
-    int _field7;
-    unsigned int _field8[1];
+    struct FormatStructArchive *_field7;
+    int _field8;
+    unsigned int _field9[1];
 };
 
 struct NumberNodeArchive {
@@ -2321,7 +2344,12 @@ struct ObjectBounds {
 };
 
 struct ObjectInfo {
-    struct queue<TSP::ReferenceCompletionInfo, std::__1::deque<TSP::ReferenceCompletionInfo, std::__1::allocator<TSP::ReferenceCompletionInfo>>> _field1;
+    struct vector<TSP::ReferenceCompletionInfo, std::__1::allocator<TSP::ReferenceCompletionInfo>> _field1;
+};
+
+struct ObjectLocation {
+    long long _field1;
+    long long _field2;
 };
 
 struct ObjectStackEntry;
@@ -2383,12 +2411,17 @@ struct PackageMetadata {
     CDUnknownFunctionPointerType *_vptr$MessageLite;
     struct UnknownFieldSet _unknown_fields_;
     unsigned long long last_object_identifier_;
+    struct DocumentRevision *revision_;
     struct RepeatedPtrField<TSP::ComponentInfo> components_;
     struct RepeatedPtrField<TSP::DataInfo> datas_;
     RepeatedField_27dfe32f read_version_;
     int _read_version_cached_byte_size_;
     RepeatedField_27dfe32f write_version_;
     int _write_version_cached_byte_size_;
+    RepeatedField_27dfe32f file_format_version_;
+    int _file_format_version_cached_byte_size_;
+    unsigned long long save_token_;
+    int preferred_package_type_;
     int _cached_size_;
     unsigned int _has_bits_[1];
 };
@@ -2416,8 +2449,9 @@ struct PageHintArchive {
     struct Reference *_field9;
     struct RepeatedPtrField<TP::AnchorPosArchive> _field10;
     struct TopicNumberHintsArchive *_field11;
-    int _field12;
-    unsigned int _field13[1];
+    unsigned int _field12;
+    int _field13;
+    unsigned int _field14[1];
 };
 
 struct ParagraphStyleArchive {
@@ -2495,10 +2529,13 @@ struct PasteboardNativeStorageArchive {
     RepeatedPtrField_a0d2dbe7 _field4;
     struct RepeatedPtrField<KN::BuildChunkArchive> _field5;
     RepeatedPtrField_a0d2dbe7 _field6;
-    struct Size *_field7;
-    struct RepeatedPtrField<TSP::Range> _field8;
-    int _field9;
-    unsigned int _field10[1];
+    RepeatedPtrField_a0d2dbe7 _field7;
+    struct Size *_field8;
+    struct RepeatedPtrField<TSP::Range> _field9;
+    RepeatedPtrField_45e8210e _field10;
+    basic_string_9db06383 *_field11;
+    int _field12;
+    unsigned int _field13[1];
 };
 
 struct PathSourceArchive {
@@ -2531,9 +2568,10 @@ struct PlaceholderSmartFieldArchive {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
     struct SmartFieldArchive *_field3;
-    _Bool _field4;
-    int _field5;
-    unsigned int _field6[1];
+    basic_string_9db06383 *_field4;
+    _Bool _field5;
+    int _field6;
+    unsigned int _field7[1];
 };
 
 struct Point;
@@ -2700,37 +2738,24 @@ struct ReferenceNodeArchive {
     unsigned int _field8[1];
 };
 
+struct ReferencePrinter {
+    int _field1;
+    _Bool _field2;
+    _Bool _field3;
+    _Bool _field4;
+    _Bool _field5;
+    CDUnknownBlockType _field6;
+    CDUnknownBlockType _field7;
+    struct map<long long, TSP::DescriptionPrinterMessage, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, TSP::DescriptionPrinterMessage>>> *_field8;
+    struct set<unsigned long long, std::__1::less<unsigned long long>, std::__1::allocator<unsigned long long>> _field9;
+};
+
 struct ReflectionArchive {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
     float _field3;
     int _field4;
     unsigned int _field5[1];
-};
-
-struct RemoveHyperlinkCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct CommandArchive *_field3;
-    struct Reference *_field4;
-    unsigned int _field5;
-    unsigned int _field6;
-    struct UndoTransaction *_field7;
-    _Bool _field8;
-    int _field9;
-    unsigned int _field10[1];
-};
-
-struct RemoveRubyTextCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct CommandArchive *_field3;
-    struct Reference *_field4;
-    unsigned int _field5;
-    unsigned int _field6;
-    struct UndoTransaction *_field7;
-    int _field8;
-    unsigned int _field9[1];
 };
 
 struct RenderCycleInfo {
@@ -2874,6 +2899,13 @@ struct RepeatedPtrField<TP::TargetHintArchive> {
     int _field4;
 };
 
+struct RepeatedPtrField<TSA::ShortcutControllerArchive_ShortcutMapEntry> {
+    void **_field1;
+    int _field2;
+    int _field3;
+    int _field4;
+};
+
 struct RepeatedPtrField<TSCE::CellCoordinateArchive> {
     void **_field1;
     int _field2;
@@ -2972,7 +3004,7 @@ struct RepeatedPtrField<TSCH::SparseReferenceArrayArchive_Entry> {
     int _field4;
 };
 
-struct RepeatedPtrField<TSD::ExteriorTextWrapCommandArchive_InfoAndWrap> {
+struct RepeatedPtrField<TSD::GeometryArchive> {
     void **_field1;
     int _field2;
     int _field3;
@@ -3056,6 +3088,13 @@ struct RepeatedPtrField<TSP::MessageInfo> {
     int total_size_;
 };
 
+struct RepeatedPtrField<TSP::ObjectUUIDMapEntry> {
+    void **_field1;
+    int _field2;
+    int _field3;
+    int _field4;
+};
+
 struct RepeatedPtrField<TSP::Path_Element> {
     void **_field1;
     int _field2;
@@ -3084,6 +3123,13 @@ struct RepeatedPtrField<TSP::Size> {
     int _field4;
 };
 
+struct RepeatedPtrField<TSP::UUID> {
+    void **_field1;
+    int _field2;
+    int _field3;
+    int _field4;
+};
+
 struct RepeatedPtrField<TSS::StylesheetArchive_IdentifiedStyleEntry> {
     void **_field1;
     int _field2;
@@ -3098,7 +3144,21 @@ struct RepeatedPtrField<TSS::StylesheetArchive_StyleChildrenEntry> {
     int _field4;
 };
 
+struct RepeatedPtrField<TST::CellCoordinateImportWarningSetPairArchive> {
+    void **_field1;
+    int _field2;
+    int _field3;
+    int _field4;
+};
+
 struct RepeatedPtrField<TST::CellMapArchive_CellMapEntry> {
+    void **_field1;
+    int _field2;
+    int _field3;
+    int _field4;
+};
+
+struct RepeatedPtrField<TST::CellMapTileArchive_CellMapEntry> {
     void **_field1;
     int _field2;
     int _field3;
@@ -3134,6 +3194,13 @@ struct RepeatedPtrField<TST::PopUpMenuModel_CellValue> {
 };
 
 struct RepeatedPtrField<TST::StrokePresetDataArchive> {
+    void **_field1;
+    int _field2;
+    int _field3;
+    int _field4;
+};
+
+struct RepeatedPtrField<TST::TableSortOrderArchive_SortRuleArchive> {
     void **_field1;
     int _field2;
     int _field3;
@@ -3204,24 +3271,15 @@ struct ReplaceAllChildCommandArchive {
     unsigned int _field5[1];
 };
 
-struct ReplaceAllTextCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct ReplaceAllChildCommandArchive *_field3;
-    struct Reference *_field4;
-    struct UndoTransaction *_field5;
-    int _field6;
-    unsigned int _field7[1];
-};
-
-struct ReplaceAllUsesOfStyleCommandArchive {
+struct ReplaceCustomFormatCommandArchive {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
     struct CommandArchive *_field3;
-    struct Reference *_field4;
-    struct UndoTransaction *_field5;
-    int _field6;
-    unsigned int _field7[1];
+    struct CustomFormatArchive *_field4;
+    struct FormatStructArchive *_field5;
+    unsigned int _field6;
+    int _field7;
+    unsigned int _field8[1];
 };
 
 struct ResizeData {
@@ -3289,9 +3347,10 @@ struct SectionArchive {
     struct Reference *_field26;
     struct Reference *_field27;
     basic_string_9db06383 *_field28;
-    unsigned int _field29;
-    int _field30;
-    unsigned int _field31[1];
+    struct Reference *_field29;
+    unsigned int _field30;
+    int _field31;
+    unsigned int _field32[1];
 };
 
 struct SectionHintArchive {
@@ -3328,18 +3387,6 @@ struct ShadowArchive {
     unsigned int _field14[1];
 };
 
-struct ShapeApplyPresetCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct StyledInfoSetStyleCommandArchive *_field3;
-    struct Reference *_field4;
-    struct Color *_field5;
-    struct FillArchive *_field6;
-    struct ShadowArchive *_field7;
-    int _field8;
-    unsigned int _field9[1];
-};
-
 struct ShapeArchive {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
@@ -3371,15 +3418,6 @@ struct ShapeStyleArchive {
     unsigned int _field7[1];
 };
 
-struct ShapeStyleSetValueCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct StyledInfoSetStyleCommandArchive *_field3;
-    struct ShapeStylePropertiesArchive *_field4;
-    int _field5;
-    unsigned int _field6[1];
-};
-
 struct SheetArchive {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
@@ -3390,17 +3428,20 @@ struct SheetArchive {
     _Bool _field7;
     _Bool _field8;
     float _field9;
-    int _field10;
-    _Bool _field11;
-    struct EdgeInsetsArchive *_field12;
-    int _field13;
+    struct EdgeInsetsArchive *_field10;
+    int _field11;
+    int _field12;
+    float _field13;
     float _field14;
     struct Reference *_field15;
     struct Reference *_field16;
     struct Reference *_field17;
-    float _field18;
-    int _field19;
-    unsigned int _field20[1];
+    RepeatedPtrField_a0d2dbe7 _field18;
+    RepeatedPtrField_a0d2dbe7 _field19;
+    _Bool _field20;
+    _Bool _field21;
+    int _field22;
+    unsigned int _field23[1];
 };
 
 struct SheetUIStateArchive {
@@ -3420,6 +3461,26 @@ struct SheetUIStateArchive {
     unsigned int _field14;
     int _field15;
     unsigned int _field16[1];
+};
+
+struct ShortcutCommandArchive {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    struct CommandArchive *_field3;
+    struct Reference *_field4;
+    struct Reference *_field5;
+    basic_string_9db06383 *_field6;
+    basic_string_9db06383 *_field7;
+    int _field8;
+    unsigned int _field9[1];
+};
+
+struct ShortcutControllerArchive {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    struct RepeatedPtrField<TSA::ShortcutControllerArchive_ShortcutMapEntry> _field3;
+    int _field4;
+    unsigned int _field5[1];
 };
 
 struct ShowArchive {
@@ -3473,35 +3534,37 @@ struct SlideArchive {
     struct Reference *_field9;
     struct Reference *_field10;
     RepeatedPtrField_a0d2dbe7 _field11;
-    struct RepeatedPtrField<KN::SlideArchive_SageTagMapEntry> _field12;
-    basic_string_9db06383 *_field13;
-    struct GeometryArchive *_field14;
-    unsigned int _field15;
+    RepeatedPtrField_a0d2dbe7 _field12;
+    struct RepeatedPtrField<KN::SlideArchive_SageTagMapEntry> _field13;
+    basic_string_9db06383 *_field14;
+    struct GeometryArchive *_field15;
     unsigned int _field16;
-    struct ShapeStylePropertiesArchive *_field17;
-    struct GeometryArchive *_field18;
-    unsigned int _field19;
+    unsigned int _field17;
+    struct ShapeStylePropertiesArchive *_field18;
+    struct GeometryArchive *_field19;
     unsigned int _field20;
-    struct ShapeStylePropertiesArchive *_field21;
-    struct GeometryArchive *_field22;
-    unsigned int _field23;
+    unsigned int _field21;
+    struct ShapeStylePropertiesArchive *_field22;
+    struct GeometryArchive *_field23;
     unsigned int _field24;
-    struct ShapeStylePropertiesArchive *_field25;
-    struct Reference *_field26;
-    RepeatedPtrField_a0d2dbe7 _field27;
+    unsigned int _field25;
+    struct ShapeStylePropertiesArchive *_field26;
+    struct Reference *_field27;
     RepeatedPtrField_a0d2dbe7 _field28;
-    basic_string_9db06383 *_field29;
+    RepeatedPtrField_a0d2dbe7 _field29;
     basic_string_9db06383 *_field30;
-    struct Reference *_field31;
-    struct RepeatedPtrField<TSD::GuideArchive> _field32;
-    struct Reference *_field33;
+    basic_string_9db06383 *_field31;
+    struct Reference *_field32;
+    struct RepeatedPtrField<TSD::GuideArchive> _field33;
     struct Reference *_field34;
     struct Reference *_field35;
-    _Bool _field36;
+    struct Reference *_field36;
     _Bool _field37;
     _Bool _field38;
-    int _field39;
-    unsigned int _field40[2];
+    _Bool _field39;
+    _Bool _field40;
+    int _field41;
+    unsigned int _field42[2];
 };
 
 struct SlideCollectionSelectionArchive {
@@ -3531,14 +3594,15 @@ struct SlideNodeArchive {
     _Bool _field13;
     _Bool _field14;
     basic_string_9db06383 *_field15;
-    _Bool _field16;
-    unsigned int _field17;
-    basic_string_9db06383 *_field18;
-    struct Reference *_field19;
-    RepeatedPtrField_a0d2dbe7 _field20;
-    unsigned int _field21;
-    int _field22;
-    unsigned int _field23[1];
+    basic_string_9db06383 *_field16;
+    _Bool _field17;
+    _Bool _field18;
+    unsigned int _field19;
+    struct Reference *_field20;
+    RepeatedPtrField_a0d2dbe7 _field21;
+    unsigned int _field22;
+    int _field23;
+    unsigned int _field24[1];
 };
 
 struct SlideStyleArchive {
@@ -3591,6 +3655,14 @@ struct SnappySource {
     unsigned int _field6;
     unsigned int _field7;
     char *_field8;
+};
+
+struct SortRuleReferenceTrackerArchive {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    struct Reference *_field3;
+    int _field4;
+    unsigned int _field5[1];
 };
 
 struct SparseReferenceArrayArchive {
@@ -3711,86 +3783,6 @@ struct StyleArchive {
     unsigned int _field9[1];
 };
 
-struct StyleBaseCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct CommandArchive *_field3;
-    struct Reference *_field4;
-    struct Reference *_field5;
-    int _field6;
-    unsigned int _field7[1];
-};
-
-struct StyleCreateCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct StyleBaseCommandArchive *_field3;
-    unsigned int _field4;
-    int _field5;
-    unsigned int _field6[1];
-};
-
-struct StyleDeleteCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct StyleBaseCommandArchive *_field3;
-    unsigned int _field4;
-    int _field5;
-    unsigned int _field6[1];
-};
-
-struct StyleRenameCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct StyleBaseCommandArchive *_field3;
-    basic_string_9db06383 *_field4;
-    basic_string_9db06383 *_field5;
-    int _field6;
-    unsigned int _field7[1];
-};
-
-struct StyleReorderCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct StyleBaseCommandArchive *_field3;
-    unsigned int _field4;
-    unsigned int _field5;
-    int _field6;
-    unsigned int _field7[1];
-};
-
-struct StyleSwapUndoTupleArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct Reference *_field3;
-    int _field4;
-    unsigned int _field5;
-    struct Reference *_field6;
-    struct Reference *_field7;
-    int _field8;
-    unsigned int _field9[1];
-};
-
-struct StyleUpdateCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct StyleBaseCommandArchive *_field3;
-    struct Reference *_field4;
-    struct Reference *_field5;
-    int _field6;
-    unsigned int _field7[1];
-};
-
-struct StyledInfoSetStyleCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct CommandArchive *_field3;
-    struct Reference *_field4;
-    struct Reference *_field5;
-    int _field6;
-    unsigned int _field7[1];
-};
-
 struct StylesheetArchive {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
@@ -3828,8 +3820,11 @@ struct TOCEntryInstanceArchive {
     basic_string_9db06383 *_field5;
     struct Reference *_field6;
     unsigned int _field7;
-    int _field8;
-    unsigned int _field9[1];
+    unsigned int _field8;
+    struct Reference *_field9;
+    unsigned int _field10;
+    int _field11;
+    unsigned int _field12[1];
 };
 
 struct TOCEntryStyleArchive {
@@ -3910,11 +3905,12 @@ struct TSCEASTNodeFunction;
 
 struct TSCEASTNodeReferenceExtractionFunction {
     CDUnknownFunctionPointerType *_field1;
-    struct vector<TSCECReference, std::__1::allocator<TSCECReference>> _field2;
+    struct stack<std::__1::pair<TSCECReference, bool>, std::__1::vector<std::__1::pair<TSCECReference, bool>, std::__1::allocator<std::__1::pair<TSCECReference, bool>>>> _field2;
     struct vector<TSCECReference, std::__1::allocator<TSCECReference>> _field3;
-    struct __CFUUID *_field4;
-    id _field5;
-    CDStruct_0441cfb5 _field6;
+    _Bool _field4;
+    struct __CFUUID *_field5;
+    id _field6;
+    CDStruct_0441cfb5 _field7;
 };
 
 struct TSCEAbstractVector;
@@ -3937,15 +3933,29 @@ struct TSCEDependencyTracker {
     struct TSCEIDMap _field4;
     _Bool _field5;
     struct _opaque_pthread_mutex_t _field6;
-    struct _opaque_pthread_cond_t {
-        long _field1;
-        char _field2[24];
-    } _field7;
+    struct vector<TSCERetainedCellReference, std::__1::allocator<TSCERetainedCellReference>> _field7;
     struct vector<TSCERetainedCellReference, std::__1::allocator<TSCERetainedCellReference>> _field8;
     struct hash_set<TSCECellReference, TSCECellReferenceHash, TSCECellReferenceEqual, std::__1::allocator<TSCECellReference>> _field9;
     struct vector<TSCERetainedCellReference, std::__1::allocator<TSCERetainedCellReference>> _field10;
     struct vector<TSCERetainedCellReference, std::__1::allocator<TSCERetainedCellReference>> _field11;
     CDStruct_78b871e1 _field12;
+};
+
+struct TSCEEvaluationContext {
+    id _field1;
+    struct TSCEEvaluationStack _field2;
+    char _field3;
+    char _field4;
+    struct TSCEWarningReportingContext _field5;
+    struct __CFUUID *_field6;
+    CDStruct_0441cfb5 _field7;
+    hash_set_f2ddfd1c *_field8;
+    id _field9;
+};
+
+struct TSCEEvaluationStack {
+    vector_10088e46 _field1;
+    int _field2;
 };
 
 struct TSCEFormula {
@@ -4038,13 +4048,6 @@ struct TSCEWarningReportingContext {
     struct ObjcSharedPtr<NSMutableSet> _field3;
 };
 
-struct TSCH3DChartRotationLimit {
-    float _field1;
-    float _field2;
-    float _field3;
-    float _field4;
-};
-
 struct TSCH3DChartSceneAreaLayoutItemCacheValues {
     tvec4_ac57c72d infoChartScale;
     tvec2_3b141483 containingViewport;
@@ -4085,9 +4088,20 @@ struct TSCH3DShaderVariableScopes {
     struct array<TSCH3DShaderVariableScopeType, 2> mScopes;
 };
 
-struct TSCH3DTouchPoint {
-    struct CGPoint _field1;
-    double _field2;
+struct TSCHChartDrawableLayoutLegendResizerFrames {
+    struct CGRect _field1;
+    struct CGRect _field2;
+    struct CGRect _field3;
+};
+
+struct TSCHLegendAnchorLine {
+    struct CGPoint normal;
+    float distance;
+};
+
+struct TSCHLegendAnchorRange {
+    float _field1;
+    float _field2;
 };
 
 struct TSDBrushVertexData;
@@ -4130,16 +4144,34 @@ struct TSTDurationWrapper {
     CDStruct_b1177b60 durationFormat;
 };
 
-struct TSTStrokeRun {
-    unsigned int _field1;
-    unsigned int _field2;
-    id _field3;
-    float _field4;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :2;
-    unsigned int :2;
+struct TSTImportFormulaWarning {
+    int mType;
+    NSString *mOriginalFormula;
+    NSString *mSupplementaryText;
 };
+
+struct TSTImportWarningSetCellWarningFlags {
+    unsigned int mCondFormatAboveAvgEqualAverageImportWarning:1;
+    unsigned int mCondFormatAboveAvgStdDevImportWarning:1;
+    unsigned int mCondFormatComplexFormulaImportWarning:1;
+    unsigned int mCondFormatContainsErrorsImportWarning:1;
+    unsigned int mCondFormatExprImportWarning:1;
+    unsigned int mCondFormatNotContainsErrorsImportWarning:1;
+    unsigned int mCondFormatParametersNotAllTheSameTypeImportWarning:1;
+    unsigned int mCondFormatStopIfTrueImportWarning:1;
+    unsigned int mCondFormatUnsupportedOperatorImportWarning:1;
+    unsigned int mCondFormatUnsupportedStylingImportWarning:1;
+    unsigned int mCondFormatUnsupportedTimePeriodImportWarning:1;
+    unsigned int mUnsupportedConditionalFormatImportWarning:1;
+    unsigned int mUnsupportedDataFormatImportWarning:1;
+};
+
+struct TSTSimpleRange {
+    int origin;
+    unsigned int length;
+};
+
+struct TSTStrokeLayerRun;
 
 struct TSTTableRBTreeNode_s {
     unsigned short _field1;
@@ -4152,9 +4184,10 @@ struct TSTTableRBTreeNode_s {
 
 struct TSUCustomFormat {
     struct ObjcSharedPtr<NSString> _field1;
-    int _field2;
-    CDStruct_8acff13f _field3;
-    struct vector<TSUCustomFormatCondition, std::__1::allocator<TSUCustomFormatCondition>> _field4;
+    id _field2;
+    int _field3;
+    CDStruct_b87b2d04 _field4;
+    struct vector<TSUCustomFormatCondition, std::__1::allocator<TSUCustomFormatCondition>> _field5;
 };
 
 struct TSUFlushableObjectInfo {
@@ -4170,7 +4203,7 @@ struct TSUFormat {
     int mFormatType;
     _Bool mIsImplicitFormat;
     union {
-        CDStruct_12065962 mNumberStruct;
+        CDStruct_50447d3e mNumberStruct;
         CDStruct_7ef9dbe9 mFractionFormatStruct;
         CDStruct_c5e3a123 mBaseFormatStruct;
         CDStruct_b44fd3ce mDateFormatStruct;
@@ -4246,9 +4279,17 @@ struct TSWPAttributeEnumerator {
     struct TSWPAttributeArray *_field4;
     char _field5;
     unsigned int _field6;
+    _Bool _field7;
+    struct TSWPAttributeRecord _field8;
 };
 
-struct TSWPAttributeRecord;
+struct TSWPAttributeRecord {
+    unsigned int _field1;
+    union {
+        id _field1;
+        CDStruct_8a5ee6e3 _field2;
+    } _field2;
+};
 
 struct TSWPChangeAttributeArray {
     CDUnknownFunctionPointerType *_field1;
@@ -4320,6 +4361,7 @@ struct TSWPLineFragment {
     unsigned int _field27;
     struct vector<TSWPLFCharIndexData, std::__1::allocator<TSWPLFCharIndexData>> _field28;
     id _field29;
+    float _field30;
 };
 
 struct TSWPLineFragmentArray;
@@ -4355,7 +4397,7 @@ struct TSWPParagraphEnumerator {
     unsigned int _field4;
     unsigned int _field5;
     unsigned int _field6;
-    char _field7;
+    _Bool _field7;
 };
 
 struct TSWPParagraphTypesetter;
@@ -4363,9 +4405,7 @@ struct TSWPParagraphTypesetter;
 struct TSWPRangeVector {
     struct _NSRange *__begin_;
     struct _NSRange *__end_;
-    struct __compressed_pair<_NSRange *, std::__1::allocator<_NSRange>> {
-        struct _NSRange *__first_;
-    } __end_cap_;
+    struct __compressed_pair<_NSRange *, std::__1::allocator<_NSRange>> __end_cap_;
 };
 
 struct TSWPStorageTransaction {
@@ -4439,6 +4479,24 @@ struct TableInfoArchive {
 struct TableRBTree;
 
 struct TableResizedInfoArchive;
+
+struct TableSortOrderArchive {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    struct RepeatedPtrField<TST::TableSortOrderArchive_SortRuleArchive> _field3;
+    int _field4;
+    int _field5;
+    unsigned int _field6[1];
+};
+
+struct TableSortOrderArchive_SortRuleArchive {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    unsigned int _field3;
+    int _field4;
+    int _field5;
+    unsigned int _field6[1];
+};
 
 struct TableStrokePresetArchive {
     CDUnknownFunctionPointerType *_field1;
@@ -4534,6 +4592,8 @@ struct TableStylePropertiesArchive {
     unsigned int _field54[2];
 };
 
+struct TableTransposeInfoArchive;
+
 struct TabsArchive {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
@@ -4563,32 +4623,6 @@ struct TectonicShiftArchive {
 
 struct TexCoordTilingShaderEffectState {
     struct array<TSCH3D::TexCoordTilingShaderEffectState::Data, 3> _field1;
-};
-
-struct TextApplyThemeCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct ApplyThemeChildCommandArchive *_field3;
-    struct Reference *_field4;
-    struct UndoTransaction *_field5;
-    int _field6;
-    unsigned int _field7[1];
-};
-
-struct TextCommandArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    struct CommandArchive *_field3;
-    struct Reference *_field4;
-    struct UndoTransaction *_field5;
-    unsigned int _field6;
-    unsigned int _field7;
-    unsigned int _field8;
-    unsigned int _field9;
-    unsigned int _field10;
-    int _field11;
-    int _field12;
-    unsigned int _field13[1];
 };
 
 struct TextPresetDisplayItemArchive {
@@ -4675,6 +4709,17 @@ struct TileStorage {
     unsigned int _field5[1];
 };
 
+struct TiledCellMapArchive {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    RepeatedPtrField_a0d2dbe7 _field3;
+    _Bool _field4;
+    _Bool _field5;
+    _Bool _field6;
+    int _field7;
+    unsigned int _field8[1];
+};
+
 struct TokenAttachmentArchive {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
@@ -4721,16 +4766,17 @@ struct TransitionAttributesArchive {
     _Bool _field7;
     _Bool _field8;
     _Bool _field9;
-    int _field10;
+    _Bool _field10;
     int _field11;
-    basic_string_9db06383 *_field12;
+    int _field12;
     basic_string_9db06383 *_field13;
-    double _field14;
-    unsigned int _field15;
-    float _field16;
-    struct Color *_field17;
-    int _field18;
-    unsigned int _field19[1];
+    basic_string_9db06383 *_field14;
+    double _field15;
+    unsigned int _field16;
+    float _field17;
+    struct Color *_field18;
+    int _field19;
+    unsigned int _field20[1];
 };
 
 struct UIEdgeInsets {
@@ -4747,6 +4793,23 @@ struct UIGraphicalAttachment {
     unsigned int _field4[1];
 };
 
+struct UUID {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    unsigned long long _field3;
+    unsigned long long _field4;
+    int _field5;
+    unsigned int _field6[1];
+};
+
+struct UUIDPath {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    struct RepeatedPtrField<TSP::UUID> _field3;
+    int _field4;
+    unsigned int _field5[1];
+};
+
 struct UnarchiverReference;
 
 struct UnarchiverRepeatedReference;
@@ -4759,8 +4822,6 @@ struct UndoRedoStateCommandSelectionBehaviorArchive {
     unsigned int _field5[1];
 };
 
-struct UndoTransaction;
-
 struct UnknownFieldSet {
     struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField>> *fields_;
 };
@@ -4769,16 +4830,15 @@ struct UpdatableValue<unsigned int> {
     unsigned int value;
 };
 
-struct UpdateDateTimeFieldCommandArchive {
+struct UpdateCustomFormatCommandArchive {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
-    struct TextCommandArchive *_field3;
-    struct Reference *_field4;
-    struct Date *_field5;
-    int _field6;
+    struct CommandArchive *_field3;
+    struct CustomFormatArchive *_field4;
+    struct CustomFormatArchive *_field5;
+    unsigned int _field6;
     int _field7;
-    int _field8;
-    unsigned int _field9[1];
+    unsigned int _field8[1];
 };
 
 struct VAOLoadResult {
@@ -4829,6 +4889,7 @@ struct WrittenComponentInfo {
     id _field13;
     id _field14;
     id _field15;
+    id _field16;
 };
 
 struct WrittenObjectInfo;
@@ -4842,21 +4903,6 @@ struct _NSRange {
     unsigned int length;
 };
 
-struct _TPConstrainToPageLayoutContext {
-    id _field1;
-    id _field2;
-    id _field3;
-    struct CGPoint *_field4;
-    unsigned int *_field5;
-};
-
-struct _TPPositionAttachmentContext {
-    id _field1;
-    struct CGPoint _field2;
-    id _field3;
-    id _field4;
-};
-
 struct _TSDStrokeOutsets {
     float _field1;
     float _field2;
@@ -4867,6 +4913,11 @@ struct _TSDStrokeOutsets {
 struct _TSKThreadInfo {
     struct _opaque_pthread_t *threadId;
     unsigned int count;
+};
+
+struct _TSKThreadTicketInfo {
+    unsigned int useCount;
+    id ticket;
 };
 
 struct _TSTDefaultCellBlock {
@@ -4889,6 +4940,10 @@ struct _TSWPCharIndexAndPosition {
 struct __CFUUID;
 
 struct __CTFont;
+
+struct __compressed_pair<_NSRange *, std::__1::allocator<_NSRange>> {
+    struct _NSRange *__first_;
+};
 
 struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<TSUColumnRowCoordinate, TSUColumnRowCoordinate>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::pair<TSUColumnRowCoordinate, TSUColumnRowCoordinate>, void *>>> {
     struct __hash_node_base<std::__1::__hash_node<std::__1::pair<TSUColumnRowCoordinate, TSUColumnRowCoordinate>, void *>*> {
@@ -4913,6 +4968,10 @@ struct __hash_node<TSCECReference, void *>;
 struct __hash_node<TSCECellReference, void *>;
 
 struct __hash_node<TSUColumnRowCoordinate, void *>;
+
+struct __hash_node<std::__1::__hash_value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<TSTImportWarningSet>>, void *>;
+
+struct __hash_node<std::__1::pair<NSUUID *, TSP::ObjectLocation>, void *>;
 
 struct __hash_node<std::__1::pair<SFUtility::ObjcSharedPtr<TSTTableDataObject>, unsigned int>, void *>;
 
@@ -4954,9 +5013,7 @@ struct __hash_node<std::__1::pair<long long, TSP::ExternalReferenceInfo>, void *
 
 struct __hash_node<std::__1::pair<long long, TSP::ObjectInfo>, void *>;
 
-struct __hash_node<std::__1::pair<long long, id>, void *>;
-
-struct __hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class *>, void *>;
+struct __hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class>, void *>;
 
 struct __hash_node<std::__1::pair<unsigned int, const char *>, void *>;
 
@@ -4967,10 +5024,6 @@ struct __hash_node<std::__1::pair<unsigned long, SFUtility::ObjcSharedPtr<NSObje
 struct __hash_node<std::__1::pair<unsigned short, TSCENamedReferenceTrieNode *>, void *>;
 
 struct __hash_node<std::__1::pair<unsigned short, const __CFUUID *>, void *>;
-
-struct __list_node<TSP::FinalizeHandlerItem *, void *>;
-
-struct __list_node<long long, void *>;
 
 struct __list_node<unsigned long, void *>;
 
@@ -5024,12 +5077,6 @@ struct _opaque_pthread_mutex_t {
 struct _opaque_pthread_rwlock_t {
     long __sig;
     char __opaque[124];
-};
-
-struct _opaque_pthread_t {
-    long _field1;
-    struct __darwin_pthread_handler_rec *_field2;
-    char _field3[596];
 };
 
 struct _xmlBuf;
@@ -5145,12 +5192,12 @@ struct auto_ptr<TSP::FieldInfoTree> {
     struct FieldInfoTree *_field1;
 };
 
-struct auto_ptr<google::protobuf::Message> {
-    struct Message *__ptr_;
+struct auto_ptr<__gnu_cxx::hash_map<const long long, bool, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, bool>>>> {
+    hash_map_18963f5d *__ptr_;
 };
 
-struct auto_ptr<google::protobuf::RepeatedField<unsigned long long>> {
-    RepeatedField_80b81656 *__ptr_;
+struct auto_ptr<google::protobuf::Message> {
+    struct Message *__ptr_;
 };
 
 struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
@@ -5216,66 +5263,6 @@ struct deque<TSCH3D::Transform, std::__1::allocator<TSCH3D::Transform>> {
     } _field3;
 };
 
-struct deque<TSP::ExternalReferenceCompletionInfo, std::__1::allocator<TSP::ExternalReferenceCompletionInfo>> {
-    struct __split_buffer<TSP::ExternalReferenceCompletionInfo *, std::__1::allocator<TSP::ExternalReferenceCompletionInfo *>> {
-        struct ExternalReferenceCompletionInfo **_field1;
-        struct ExternalReferenceCompletionInfo **_field2;
-        struct ExternalReferenceCompletionInfo **_field3;
-        struct __compressed_pair<TSP::ExternalReferenceCompletionInfo **, std::__1::allocator<TSP::ExternalReferenceCompletionInfo *>> {
-            struct ExternalReferenceCompletionInfo **_field1;
-        } _field4;
-    } _field1;
-    unsigned int _field2;
-    struct __compressed_pair<unsigned long, std::__1::allocator<TSP::ExternalReferenceCompletionInfo>> {
-        unsigned long _field1;
-    } _field3;
-};
-
-struct deque<TSP::ReferenceCompletionInfo, std::__1::allocator<TSP::ReferenceCompletionInfo>> {
-    struct __split_buffer<TSP::ReferenceCompletionInfo *, std::__1::allocator<TSP::ReferenceCompletionInfo *>> {
-        struct ReferenceCompletionInfo **_field1;
-        struct ReferenceCompletionInfo **_field2;
-        struct ReferenceCompletionInfo **_field3;
-        struct __compressed_pair<TSP::ReferenceCompletionInfo **, std::__1::allocator<TSP::ReferenceCompletionInfo *>> {
-            struct ReferenceCompletionInfo **_field1;
-        } _field4;
-    } _field1;
-    unsigned int _field2;
-    struct __compressed_pair<unsigned long, std::__1::allocator<TSP::ReferenceCompletionInfo>> {
-        unsigned long _field1;
-    } _field3;
-};
-
-struct deque<TSP::RepeatedExternalReferenceCompletionInfo, std::__1::allocator<TSP::RepeatedExternalReferenceCompletionInfo>> {
-    struct __split_buffer<TSP::RepeatedExternalReferenceCompletionInfo *, std::__1::allocator<TSP::RepeatedExternalReferenceCompletionInfo *>> {
-        struct RepeatedExternalReferenceCompletionInfo **__first_;
-        struct RepeatedExternalReferenceCompletionInfo **__begin_;
-        struct RepeatedExternalReferenceCompletionInfo **__end_;
-        struct __compressed_pair<TSP::RepeatedExternalReferenceCompletionInfo **, std::__1::allocator<TSP::RepeatedExternalReferenceCompletionInfo *>> {
-            struct RepeatedExternalReferenceCompletionInfo **__first_;
-        } __end_cap_;
-    } __map_;
-    unsigned int __start_;
-    struct __compressed_pair<unsigned long, std::__1::allocator<TSP::RepeatedExternalReferenceCompletionInfo>> {
-        unsigned long __first_;
-    } __size_;
-};
-
-struct deque<TSP::UnarchiverRepeatedReference, std::__1::allocator<TSP::UnarchiverRepeatedReference>> {
-    struct __split_buffer<TSP::UnarchiverRepeatedReference *, std::__1::allocator<TSP::UnarchiverRepeatedReference *>> {
-        struct UnarchiverRepeatedReference **__first_;
-        struct UnarchiverRepeatedReference **__begin_;
-        struct UnarchiverRepeatedReference **__end_;
-        struct __compressed_pair<TSP::UnarchiverRepeatedReference **, std::__1::allocator<TSP::UnarchiverRepeatedReference *>> {
-            struct UnarchiverRepeatedReference **__first_;
-        } __end_cap_;
-    } __map_;
-    unsigned int __start_;
-    struct __compressed_pair<unsigned long, std::__1::allocator<TSP::UnarchiverRepeatedReference>> {
-        unsigned long __first_;
-    } __size_;
-};
-
 struct deque<TSP::WrittenObjectInfo, std::__1::allocator<TSP::WrittenObjectInfo>> {
     struct __split_buffer<TSP::WrittenObjectInfo *, std::__1::allocator<TSP::WrittenObjectInfo *>> {
         struct WrittenObjectInfo **__first_;
@@ -5321,19 +5308,21 @@ struct deque<std::__1::shared_ptr<StateSpec>, std::__1::allocator<std::__1::shar
     } _field3;
 };
 
-struct deque<void (^)(), std::__1::allocator<void (^)()>> {
-    struct __split_buffer<void (^__strong *)(), std::__1::allocator<void (^__strong *)()>> {
-        CDUnknownBlockType **_field1;
-        CDUnknownBlockType **_field2;
-        CDUnknownBlockType **_field3;
-        struct __compressed_pair<void (^__strong **)(), std::__1::allocator<void (^__strong *)()>> {
-            CDUnknownBlockType **_field1;
+struct hash_map<NSUUID *, TSP::ObjectLocation, TSP::NSUUIDHash, TSP::NSUUIDEqualTo, std::__1::allocator<std::__1::pair<NSUUID *const, TSP::ObjectLocation>>> {
+    struct __hash_table<std::__1::pair<NSUUID *, TSP::ObjectLocation>, __gnu_cxx::__hash_map_hasher<std::__1::pair<NSUUID *, TSP::ObjectLocation>, TSP::NSUUIDHash, true>, __gnu_cxx::__hash_map_equal<std::__1::pair<NSUUID *, TSP::ObjectLocation>, TSP::NSUUIDEqualTo, true>, std::__1::allocator<std::__1::pair<NSUUID *, TSP::ObjectLocation>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::pair<NSUUID *, TSP::ObjectLocation>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<NSUUID *, TSP::ObjectLocation>, void *>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<NSUUID *, TSP::ObjectLocation>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::pair<NSUUID *, TSP::ObjectLocation>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<NSUUID *, TSP::ObjectLocation>, void *>*> {
+                struct __hash_node<std::__1::pair<NSUUID *, TSP::ObjectLocation>, void *> *_field1;
+            } _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, __gnu_cxx::__hash_map_hasher<std::__1::pair<NSUUID *, TSP::ObjectLocation>, TSP::NSUUIDHash, true>> {
+            unsigned long _field1;
+        } _field3;
+        struct __compressed_pair<float, __gnu_cxx::__hash_map_equal<std::__1::pair<NSUUID *, TSP::ObjectLocation>, TSP::NSUUIDEqualTo, true>> {
+            float _field1;
         } _field4;
     } _field1;
-    unsigned int _field2;
-    struct __compressed_pair<unsigned long, std::__1::allocator<void (^)()>> {
-        unsigned long _field1;
-    } _field3;
 };
 
 struct hash_map<SFUtility::ObjcSharedPtr<TSTTableDataObject>, unsigned int, TSTTableDataObjectHasher, TSTTableDataObjectEqual, std::__1::allocator<std::__1::pair<const SFUtility::ObjcSharedPtr<TSTTableDataObject>, unsigned int>>> {
@@ -5685,35 +5674,18 @@ struct hash_map<long long, TSP::ObjectInfo, TSP::ObjectIdentifierHash, std::__1:
     } __table_;
 };
 
-struct hash_map<long long, id, TSPIdentifierHasher, std::__1::equal_to<long long>, std::__1::allocator<std::__1::pair<const long long, id>>> {
-    struct __hash_table<std::__1::pair<long long, id>, __gnu_cxx::__hash_map_hasher<std::__1::pair<long long, id>, TSPIdentifierHasher, true>, __gnu_cxx::__hash_map_equal<std::__1::pair<long long, id>, std::__1::equal_to<long long>, true>, std::__1::allocator<std::__1::pair<long long, id>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<long long, id>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, id>, void *>*>>> _field1;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<long long, id>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, id>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<long long, id>, void *>*> {
-                struct __hash_node<std::__1::pair<long long, id>, void *> *_field1;
-            } _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, __gnu_cxx::__hash_map_hasher<std::__1::pair<long long, id>, TSPIdentifierHasher, true>> {
-            unsigned long _field1;
-        } _field3;
-        struct __compressed_pair<float, __gnu_cxx::__hash_map_equal<std::__1::pair<long long, id>, std::__1::equal_to<long long>, true>> {
-            float _field1;
-        } _field4;
-    } _field1;
-};
-
-struct hash_map<unsigned int, __unsafe_unretained Class *, __gnu_cxx::hash<unsigned int>, std::__1::equal_to<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, __unsafe_unretained Class *>>> {
-    struct __hash_table<std::__1::pair<unsigned int, __unsafe_unretained Class *>, __gnu_cxx::__hash_map_hasher<std::__1::pair<unsigned int, __unsafe_unretained Class *>, __gnu_cxx::hash<unsigned int>, true>, __gnu_cxx::__hash_map_equal<std::__1::pair<unsigned int, __unsafe_unretained Class *>, std::__1::equal_to<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, __unsafe_unretained Class *>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class *>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class *>, void *>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class *>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class *>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class *>, void *>*> {
-                struct __hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class *>, void *> *__next_;
+struct hash_map<unsigned int, __unsafe_unretained Class, __gnu_cxx::hash<unsigned int>, std::__1::equal_to<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, __unsafe_unretained Class>>> {
+    struct __hash_table<std::__1::pair<unsigned int, __unsafe_unretained Class>, __gnu_cxx::__hash_map_hasher<std::__1::pair<unsigned int, __unsafe_unretained Class>, __gnu_cxx::hash<unsigned int>, true>, __gnu_cxx::__hash_map_equal<std::__1::pair<unsigned int, __unsafe_unretained Class>, std::__1::equal_to<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, __unsafe_unretained Class>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class>, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class>, void *>*> {
+                struct __hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class>, void *> *__next_;
             } __first_;
         } __p1_;
-        struct __compressed_pair<unsigned long, __gnu_cxx::__hash_map_hasher<std::__1::pair<unsigned int, __unsafe_unretained Class *>, __gnu_cxx::hash<unsigned int>, true>> {
+        struct __compressed_pair<unsigned long, __gnu_cxx::__hash_map_hasher<std::__1::pair<unsigned int, __unsafe_unretained Class>, __gnu_cxx::hash<unsigned int>, true>> {
             unsigned long __first_;
         } __p2_;
-        struct __compressed_pair<float, __gnu_cxx::__hash_map_equal<std::__1::pair<unsigned int, __unsafe_unretained Class *>, std::__1::equal_to<unsigned int>, true>> {
+        struct __compressed_pair<float, __gnu_cxx::__hash_map_equal<std::__1::pair<unsigned int, __unsafe_unretained Class>, std::__1::equal_to<unsigned int>, true>> {
             float __first_;
         } __p3_;
     } __table_;
@@ -5823,19 +5795,19 @@ struct hash_set<TSCECReference, TSCECReferenceHash, TSCECReferenceEqual, std::__
 
 struct hash_set<TSCECellReference, TSCECellReferenceHash, TSCECellReferenceEqual, std::__1::allocator<TSCECellReference>> {
     struct __hash_table<TSCECellReference, TSCECellReferenceHash, TSCECellReferenceEqual, std::__1::allocator<TSCECellReference>> {
-        struct unique_ptr<std::__1::__hash_node<TSCECellReference, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<TSCECellReference, void *>*>>> __bucket_list_;
+        struct unique_ptr<std::__1::__hash_node<TSCECellReference, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<TSCECellReference, void *>*>>> _field1;
         struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<TSCECellReference, void *>*>, std::__1::allocator<std::__1::__hash_node<TSCECellReference, void *>>> {
             struct __hash_node_base<std::__1::__hash_node<TSCECellReference, void *>*> {
-                struct __hash_node<TSCECellReference, void *> *__next_;
-            } __first_;
-        } __p1_;
+                struct __hash_node<TSCECellReference, void *> *_field1;
+            } _field1;
+        } _field2;
         struct __compressed_pair<unsigned long, TSCECellReferenceHash> {
-            unsigned long __first_;
-        } __p2_;
+            unsigned long _field1;
+        } _field3;
         struct __compressed_pair<float, TSCECellReferenceEqual> {
-            float __first_;
-        } __p3_;
-    } __table_;
+            float _field1;
+        } _field4;
+    } _field1;
 };
 
 struct hash_set<TSUColumnRowCoordinate, TSCECellCoordinateHash, TSCECellCoordinateEqual, std::__1::allocator<TSUColumnRowCoordinate>> {
@@ -5866,26 +5838,6 @@ struct line<glm::detail::tvec3<float>> {
     tvec3_17f03ce0 mDirection;
 };
 
-struct list<TSP::FinalizeHandlerItem *, std::__1::allocator<TSP::FinalizeHandlerItem *>> {
-    struct __list_node_base<TSP::FinalizeHandlerItem *, void *> {
-        struct __list_node<TSP::FinalizeHandlerItem *, void *> *__prev_;
-        struct __list_node<TSP::FinalizeHandlerItem *, void *> *__next_;
-    } __end_;
-    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<TSP::FinalizeHandlerItem *, void *>>> {
-        unsigned long __first_;
-    } __size_alloc_;
-};
-
-struct list<long long, std::__1::allocator<long long>> {
-    struct __list_node_base<long long, void *> {
-        struct __list_node<long long, void *> *_field1;
-        struct __list_node<long long, void *> *_field2;
-    } _field1;
-    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<long long, void *>>> {
-        unsigned long _field1;
-    } _field2;
-};
-
 struct list<unsigned long, std::__1::allocator<unsigned long>> {
     struct __list_node_base<unsigned long, void *> {
         struct __list_node<unsigned long, void *> *__prev_;
@@ -5897,168 +5849,192 @@ struct list<unsigned long, std::__1::allocator<unsigned long>> {
 };
 
 struct map<TSCH3D::SceneObjectSharedPointer, TSCH3D::ActiveLabelsTypeBounds, std::__1::less<TSCH3D::SceneObjectSharedPointer>, std::__1::allocator<std::__1::pair<const TSCH3D::SceneObjectSharedPointer, TSCH3D::ActiveLabelsTypeBounds>>> {
-    struct __tree<std::__1::pair<TSCH3D::SceneObjectSharedPointer, TSCH3D::ActiveLabelsTypeBounds>, std::__1::__map_value_compare<TSCH3D::SceneObjectSharedPointer, TSCH3D::ActiveLabelsTypeBounds, std::__1::less<TSCH3D::SceneObjectSharedPointer>, true>, std::__1::allocator<std::__1::pair<TSCH3D::SceneObjectSharedPointer, TSCH3D::ActiveLabelsTypeBounds>>> {
-        struct __tree_node<std::__1::pair<TSCH3D::SceneObjectSharedPointer, TSCH3D::ActiveLabelsTypeBounds>, void *> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<TSCH3D::SceneObjectSharedPointer, TSCH3D::ActiveLabelsTypeBounds>, void *>>> {
+    struct __tree<std::__1::__value_type<TSCH3D::SceneObjectSharedPointer, TSCH3D::ActiveLabelsTypeBounds>, std::__1::__map_value_compare<TSCH3D::SceneObjectSharedPointer, std::__1::__value_type<TSCH3D::SceneObjectSharedPointer, TSCH3D::ActiveLabelsTypeBounds>, std::__1::less<TSCH3D::SceneObjectSharedPointer>, true>, std::__1::allocator<std::__1::__value_type<TSCH3D::SceneObjectSharedPointer, TSCH3D::ActiveLabelsTypeBounds>>> {
+        struct __tree_node<std::__1::__value_type<TSCH3D::SceneObjectSharedPointer, TSCH3D::ActiveLabelsTypeBounds>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<TSCH3D::SceneObjectSharedPointer, TSCH3D::ActiveLabelsTypeBounds>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<TSCH3D::SceneObjectSharedPointer, TSCH3D::ActiveLabelsTypeBounds, std::__1::less<TSCH3D::SceneObjectSharedPointer>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<TSCH3D::SceneObjectSharedPointer, std::__1::__value_type<TSCH3D::SceneObjectSharedPointer, TSCH3D::ActiveLabelsTypeBounds>, std::__1::less<TSCH3D::SceneObjectSharedPointer>, true>> {
             unsigned long __first_;
         } __pair3_;
     } __tree_;
 };
 
 struct map<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<NSObject>, std::__1::less<TSUColumnRowCoordinate>, std::__1::allocator<std::__1::pair<const TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<NSObject>>>> {
-    struct __tree<std::__1::pair<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<NSObject>>, std::__1::__map_value_compare<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<NSObject>, std::__1::less<TSUColumnRowCoordinate>, true>, std::__1::allocator<std::__1::pair<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<NSObject>>>> {
-        struct __tree_node<std::__1::pair<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<NSObject>>, void *> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<NSObject>>, void *>>> {
+    struct __tree<std::__1::__value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<NSObject>>, std::__1::__map_value_compare<TSUColumnRowCoordinate, std::__1::__value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<NSObject>>, std::__1::less<TSUColumnRowCoordinate>, true>, std::__1::allocator<std::__1::__value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<NSObject>>>> {
+        struct __tree_node<std::__1::__value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<NSObject>>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<NSObject>>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<NSObject>, std::__1::less<TSUColumnRowCoordinate>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<TSUColumnRowCoordinate, std::__1::__value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<NSObject>>, std::__1::less<TSUColumnRowCoordinate>, true>> {
             unsigned long __first_;
         } __pair3_;
     } __tree_;
 };
 
 struct map<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry>>, std::__1::less<const TSWPListStyle *>, std::__1::allocator<std::__1::pair<const TSWPListStyle *const, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry>>>>> {
-    struct __tree<std::__1::pair<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry>>>, std::__1::__map_value_compare<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry>>, std::__1::less<const TSWPListStyle *>, true>, std::__1::allocator<std::__1::pair<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry>>>>> {
-        struct __tree_node<std::__1::pair<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry>>>, void *> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry>>>, void *>>> {
+    struct __tree<std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry>>>, std::__1::__map_value_compare<const TSWPListStyle *, std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry>>>, std::__1::less<const TSWPListStyle *>, true>, std::__1::allocator<std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry>>>>> {
+        struct __tree_node<std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry>>>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry>>>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry>>, std::__1::less<const TSWPListStyle *>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<const TSWPListStyle *, std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry>>>, std::__1::less<const TSWPListStyle *>, true>> {
             unsigned long __first_;
         } __pair3_;
     } __tree_;
 };
 
 struct map<int, TSCH3D::CachedLabelBoundsArray, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, TSCH3D::CachedLabelBoundsArray>>> {
-    struct __tree<std::__1::pair<int, TSCH3D::CachedLabelBoundsArray>, std::__1::__map_value_compare<int, TSCH3D::CachedLabelBoundsArray, std::__1::less<int>, true>, std::__1::allocator<std::__1::pair<int, TSCH3D::CachedLabelBoundsArray>>> {
-        struct __tree_node<std::__1::pair<int, TSCH3D::CachedLabelBoundsArray>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<int, TSCH3D::CachedLabelBoundsArray>, void *>>> {
+    struct __tree<std::__1::__value_type<int, TSCH3D::CachedLabelBoundsArray>, std::__1::__map_value_compare<int, std::__1::__value_type<int, TSCH3D::CachedLabelBoundsArray>, std::__1::less<int>, true>, std::__1::allocator<std::__1::__value_type<int, TSCH3D::CachedLabelBoundsArray>>> {
+        struct __tree_node<std::__1::__value_type<int, TSCH3D::CachedLabelBoundsArray>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<int, TSCH3D::CachedLabelBoundsArray>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<int, TSCH3D::CachedLabelBoundsArray, std::__1::less<int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<int, std::__1::__value_type<int, TSCH3D::CachedLabelBoundsArray>, std::__1::less<int>, true>> {
             unsigned long _field1;
         } _field3;
     } _field1;
 };
 
 struct map<int, TSPUnknownFieldTreeNode *, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, TSPUnknownFieldTreeNode *>>> {
-    struct __tree<std::__1::pair<int, TSPUnknownFieldTreeNode *>, std::__1::__map_value_compare<int, TSPUnknownFieldTreeNode *, std::__1::less<int>, true>, std::__1::allocator<std::__1::pair<int, TSPUnknownFieldTreeNode *>>> {
-        struct __tree_node<std::__1::pair<int, TSPUnknownFieldTreeNode *>, void *> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<int, TSPUnknownFieldTreeNode *>, void *>>> {
+    struct __tree<std::__1::__value_type<int, TSPUnknownFieldTreeNode *>, std::__1::__map_value_compare<int, std::__1::__value_type<int, TSPUnknownFieldTreeNode *>, std::__1::less<int>, true>, std::__1::allocator<std::__1::__value_type<int, TSPUnknownFieldTreeNode *>>> {
+        struct __tree_node<std::__1::__value_type<int, TSPUnknownFieldTreeNode *>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<int, TSPUnknownFieldTreeNode *>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<int, TSPUnknownFieldTreeNode *, std::__1::less<int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<int, std::__1::__value_type<int, TSPUnknownFieldTreeNode *>, std::__1::less<int>, true>> {
             unsigned long __first_;
         } __pair3_;
     } __tree_;
 };
 
 struct map<int, google::protobuf::internal::ExtensionSet::Extension, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, google::protobuf::internal::ExtensionSet::Extension>>> {
-    struct __tree<std::__1::pair<int, google::protobuf::internal::ExtensionSet::Extension>, std::__1::__map_value_compare<int, google::protobuf::internal::ExtensionSet::Extension, std::__1::less<int>, true>, std::__1::allocator<std::__1::pair<int, google::protobuf::internal::ExtensionSet::Extension>>> {
-        struct __tree_node<std::__1::pair<int, google::protobuf::internal::ExtensionSet::Extension>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<int, google::protobuf::internal::ExtensionSet::Extension>, void *>>> {
+    struct __tree<std::__1::__value_type<int, google::protobuf::internal::ExtensionSet::Extension>, std::__1::__map_value_compare<int, std::__1::__value_type<int, google::protobuf::internal::ExtensionSet::Extension>, std::__1::less<int>, true>, std::__1::allocator<std::__1::__value_type<int, google::protobuf::internal::ExtensionSet::Extension>>> {
+        struct __tree_node<std::__1::__value_type<int, google::protobuf::internal::ExtensionSet::Extension>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<int, google::protobuf::internal::ExtensionSet::Extension>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<int, google::protobuf::internal::ExtensionSet::Extension, std::__1::less<int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<int, std::__1::__value_type<int, google::protobuf::internal::ExtensionSet::Extension>, std::__1::less<int>, true>> {
             unsigned long _field1;
         } _field3;
     } _field1;
 };
 
 struct map<int, std::__1::shared_ptr<TSP::FieldInfoNode>, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, std::__1::shared_ptr<TSP::FieldInfoNode>>>> {
-    struct __tree<std::__1::pair<int, std::__1::shared_ptr<TSP::FieldInfoNode>>, std::__1::__map_value_compare<int, std::__1::shared_ptr<TSP::FieldInfoNode>, std::__1::less<int>, true>, std::__1::allocator<std::__1::pair<int, std::__1::shared_ptr<TSP::FieldInfoNode>>>> {
-        struct __tree_node<std::__1::pair<int, std::__1::shared_ptr<TSP::FieldInfoNode>>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<int, std::__1::shared_ptr<TSP::FieldInfoNode>>, void *>>> {
+    struct __tree<std::__1::__value_type<int, std::__1::shared_ptr<TSP::FieldInfoNode>>, std::__1::__map_value_compare<int, std::__1::__value_type<int, std::__1::shared_ptr<TSP::FieldInfoNode>>, std::__1::less<int>, true>, std::__1::allocator<std::__1::__value_type<int, std::__1::shared_ptr<TSP::FieldInfoNode>>>> {
+        struct __tree_node<std::__1::__value_type<int, std::__1::shared_ptr<TSP::FieldInfoNode>>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<int, std::__1::shared_ptr<TSP::FieldInfoNode>>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<int, std::__1::shared_ptr<TSP::FieldInfoNode>, std::__1::less<int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<int, std::__1::__value_type<int, std::__1::shared_ptr<TSP::FieldInfoNode>>, std::__1::less<int>, true>> {
             unsigned long _field1;
         } _field3;
     } _field1;
 };
 
+struct map<long long, TSP::DescriptionPrinterMessage, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, TSP::DescriptionPrinterMessage>>> {
+    struct __tree<std::__1::__value_type<long long, TSP::DescriptionPrinterMessage>, std::__1::__map_value_compare<long long, std::__1::__value_type<long long, TSP::DescriptionPrinterMessage>, std::__1::less<long long>, true>, std::__1::allocator<std::__1::__value_type<long long, TSP::DescriptionPrinterMessage>>> {
+        struct __tree_node<std::__1::__value_type<long long, TSP::DescriptionPrinterMessage>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<long long, TSP::DescriptionPrinterMessage>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<long long, std::__1::__value_type<long long, TSP::DescriptionPrinterMessage>, std::__1::less<long long>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
 struct map<long long, std::__1::pair<long long, long long>, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, std::__1::pair<long long, long long>>>> {
-    struct __tree<std::__1::pair<long long, std::__1::pair<long long, long long>>, std::__1::__map_value_compare<long long, std::__1::pair<long long, long long>, std::__1::less<long long>, true>, std::__1::allocator<std::__1::pair<long long, std::__1::pair<long long, long long>>>> {
-        struct __tree_node<std::__1::pair<long long, std::__1::pair<long long, long long>>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<long long, std::__1::pair<long long, long long>>, void *>>> {
+    struct __tree<std::__1::__value_type<long long, std::__1::pair<long long, long long>>, std::__1::__map_value_compare<long long, std::__1::__value_type<long long, std::__1::pair<long long, long long>>, std::__1::less<long long>, true>, std::__1::allocator<std::__1::__value_type<long long, std::__1::pair<long long, long long>>>> {
+        struct __tree_node<std::__1::__value_type<long long, std::__1::pair<long long, long long>>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<long long, std::__1::pair<long long, long long>>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<long long, std::__1::pair<long long, long long>, std::__1::less<long long>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<long long, std::__1::__value_type<long long, std::__1::pair<long long, long long>>, std::__1::less<long long>, true>> {
             unsigned long _field1;
         } _field3;
     } _field1;
 };
 
 struct map<unsigned int, NSMutableIndexSet *, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, NSMutableIndexSet *>>> {
-    struct __tree<std::__1::pair<unsigned int, NSMutableIndexSet *>, std::__1::__map_value_compare<unsigned int, NSMutableIndexSet *, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, NSMutableIndexSet *>>> {
-        struct __tree_node<std::__1::pair<unsigned int, NSMutableIndexSet *>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, NSMutableIndexSet *>, void *>>> {
+    struct __tree<std::__1::__value_type<unsigned int, NSMutableIndexSet *>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, NSMutableIndexSet *>, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, NSMutableIndexSet *>>> {
+        struct __tree_node<std::__1::__value_type<unsigned int, NSMutableIndexSet *>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned int, NSMutableIndexSet *>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, NSMutableIndexSet *, std::__1::less<unsigned int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, NSMutableIndexSet *>, std::__1::less<unsigned int>, true>> {
             unsigned long _field1;
         } _field3;
     } _field1;
 };
 
 struct map<unsigned int, boost::shared_ptr<TSWPParagraphTypesetter>, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, boost::shared_ptr<TSWPParagraphTypesetter>>>> {
-    struct __tree<std::__1::pair<unsigned int, boost::shared_ptr<TSWPParagraphTypesetter>>, std::__1::__map_value_compare<unsigned int, boost::shared_ptr<TSWPParagraphTypesetter>, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, boost::shared_ptr<TSWPParagraphTypesetter>>>> {
-        struct __tree_node<std::__1::pair<unsigned int, boost::shared_ptr<TSWPParagraphTypesetter>>, void *> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, boost::shared_ptr<TSWPParagraphTypesetter>>, void *>>> {
+    struct __tree<std::__1::__value_type<unsigned int, boost::shared_ptr<TSWPParagraphTypesetter>>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, boost::shared_ptr<TSWPParagraphTypesetter>>, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, boost::shared_ptr<TSWPParagraphTypesetter>>>> {
+        struct __tree_node<std::__1::__value_type<unsigned int, boost::shared_ptr<TSWPParagraphTypesetter>>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned int, boost::shared_ptr<TSWPParagraphTypesetter>>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, boost::shared_ptr<TSWPParagraphTypesetter>, std::__1::less<unsigned int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, boost::shared_ptr<TSWPParagraphTypesetter>>, std::__1::less<unsigned int>, true>> {
             unsigned long __first_;
         } __pair3_;
     } __tree_;
 };
 
 struct map<unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>>>> {
-    struct __tree<std::__1::pair<unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>>, std::__1::__map_value_compare<unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>>>> {
-        struct __tree_node<std::__1::pair<unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>>, void *> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>>, void *>>> {
+    struct __tree<std::__1::__value_type<unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>>, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>>>> {
+        struct __tree_node<std::__1::__value_type<unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>, std::__1::less<unsigned int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>>, std::__1::less<unsigned int>, true>> {
             unsigned long __first_;
         } __pair3_;
     } __tree_;
 };
 
-struct map<unsigned long, SFUtility::ObjcSharedPtr<NSObject>, std::__1::less<unsigned long>, std::__1::allocator<std::__1::pair<const unsigned long, SFUtility::ObjcSharedPtr<NSObject>>>> {
-    struct __tree<std::__1::pair<unsigned long, SFUtility::ObjcSharedPtr<NSObject>>, std::__1::__map_value_compare<unsigned long, SFUtility::ObjcSharedPtr<NSObject>, std::__1::less<unsigned long>, true>, std::__1::allocator<std::__1::pair<unsigned long, SFUtility::ObjcSharedPtr<NSObject>>>> {
-        struct __tree_node<std::__1::pair<unsigned long, SFUtility::ObjcSharedPtr<NSObject>>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned long, SFUtility::ObjcSharedPtr<NSObject>>, void *>>> {
+struct map<unsigned long long, std::__1::tuple<std::__1::shared_ptr<google::protobuf::Message>, std::__1::shared_ptr<__gnu_cxx::hash_map<const TSP::FieldPath, TSP::FieldInfo_Rule, TSP::FieldPathHash, TSP::FieldPathEqualTo, std::__1::allocator<std::__1::pair<const TSP::FieldPath, TSP::FieldInfo_Rule>>>>, std::__1::shared_ptr<__gnu_cxx::hash_map<const long long, bool, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, bool>>>>>, std::__1::less<unsigned long long>, std::__1::allocator<std::__1::pair<const unsigned long long, std::__1::tuple<std::__1::shared_ptr<google::protobuf::Message>, std::__1::shared_ptr<__gnu_cxx::hash_map<const TSP::FieldPath, TSP::FieldInfo_Rule, TSP::FieldPathHash, TSP::FieldPathEqualTo, std::__1::allocator<std::__1::pair<const TSP::FieldPath, TSP::FieldInfo_Rule>>>>, std::__1::shared_ptr<__gnu_cxx::hash_map<const long long, bool, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, bool>>>>>>>> {
+    struct __tree<std::__1::__value_type<unsigned long long, std::__1::tuple<std::__1::shared_ptr<google::protobuf::Message>, std::__1::shared_ptr<__gnu_cxx::hash_map<const TSP::FieldPath, TSP::FieldInfo_Rule, TSP::FieldPathHash, TSP::FieldPathEqualTo, std::__1::allocator<std::__1::pair<const TSP::FieldPath, TSP::FieldInfo_Rule>>>>, std::__1::shared_ptr<__gnu_cxx::hash_map<const long long, bool, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, bool>>>>>>, std::__1::__map_value_compare<unsigned long long, std::__1::__value_type<unsigned long long, std::__1::tuple<std::__1::shared_ptr<google::protobuf::Message>, std::__1::shared_ptr<__gnu_cxx::hash_map<const TSP::FieldPath, TSP::FieldInfo_Rule, TSP::FieldPathHash, TSP::FieldPathEqualTo, std::__1::allocator<std::__1::pair<const TSP::FieldPath, TSP::FieldInfo_Rule>>>>, std::__1::shared_ptr<__gnu_cxx::hash_map<const long long, bool, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, bool>>>>>>, std::__1::less<unsigned long long>, true>, std::__1::allocator<std::__1::__value_type<unsigned long long, std::__1::tuple<std::__1::shared_ptr<google::protobuf::Message>, std::__1::shared_ptr<__gnu_cxx::hash_map<const TSP::FieldPath, TSP::FieldInfo_Rule, TSP::FieldPathHash, TSP::FieldPathEqualTo, std::__1::allocator<std::__1::pair<const TSP::FieldPath, TSP::FieldInfo_Rule>>>>, std::__1::shared_ptr<__gnu_cxx::hash_map<const long long, bool, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, bool>>>>>>>> {
+        struct __tree_node<std::__1::__value_type<unsigned long long, std::__1::tuple<std::__1::shared_ptr<google::protobuf::Message>, std::__1::shared_ptr<__gnu_cxx::hash_map<const TSP::FieldPath, TSP::FieldInfo_Rule, TSP::FieldPathHash, TSP::FieldPathEqualTo, std::__1::allocator<std::__1::pair<const TSP::FieldPath, TSP::FieldInfo_Rule>>>>, std::__1::shared_ptr<__gnu_cxx::hash_map<const long long, bool, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, bool>>>>>>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned long long, std::__1::tuple<std::__1::shared_ptr<google::protobuf::Message>, std::__1::shared_ptr<__gnu_cxx::hash_map<const TSP::FieldPath, TSP::FieldInfo_Rule, TSP::FieldPathHash, TSP::FieldPathEqualTo, std::__1::allocator<std::__1::pair<const TSP::FieldPath, TSP::FieldInfo_Rule>>>>, std::__1::shared_ptr<__gnu_cxx::hash_map<const long long, bool, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, bool>>>>>>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned long, SFUtility::ObjcSharedPtr<NSObject>, std::__1::less<unsigned long>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned long long, std::__1::__value_type<unsigned long long, std::__1::tuple<std::__1::shared_ptr<google::protobuf::Message>, std::__1::shared_ptr<__gnu_cxx::hash_map<const TSP::FieldPath, TSP::FieldInfo_Rule, TSP::FieldPathHash, TSP::FieldPathEqualTo, std::__1::allocator<std::__1::pair<const TSP::FieldPath, TSP::FieldInfo_Rule>>>>, std::__1::shared_ptr<__gnu_cxx::hash_map<const long long, bool, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, bool>>>>>>, std::__1::less<unsigned long long>, true>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<unsigned long, SFUtility::ObjcSharedPtr<NSObject>, std::__1::less<unsigned long>, std::__1::allocator<std::__1::pair<const unsigned long, SFUtility::ObjcSharedPtr<NSObject>>>> {
+    struct __tree<std::__1::__value_type<unsigned long, SFUtility::ObjcSharedPtr<NSObject>>, std::__1::__map_value_compare<unsigned long, std::__1::__value_type<unsigned long, SFUtility::ObjcSharedPtr<NSObject>>, std::__1::less<unsigned long>, true>, std::__1::allocator<std::__1::__value_type<unsigned long, SFUtility::ObjcSharedPtr<NSObject>>>> {
+        struct __tree_node<std::__1::__value_type<unsigned long, SFUtility::ObjcSharedPtr<NSObject>>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned long, SFUtility::ObjcSharedPtr<NSObject>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned long, std::__1::__value_type<unsigned long, SFUtility::ObjcSharedPtr<NSObject>>, std::__1::less<unsigned long>, true>> {
             unsigned long _field1;
         } _field3;
     } _field1;
 };
 
 struct map<unsigned long, TSWPFontHeightCacheEntry, std::__1::less<unsigned long>, std::__1::allocator<std::__1::pair<const unsigned long, TSWPFontHeightCacheEntry>>> {
-    struct __tree<std::__1::pair<unsigned long, TSWPFontHeightCacheEntry>, std::__1::__map_value_compare<unsigned long, TSWPFontHeightCacheEntry, std::__1::less<unsigned long>, true>, std::__1::allocator<std::__1::pair<unsigned long, TSWPFontHeightCacheEntry>>> {
-        struct __tree_node<std::__1::pair<unsigned long, TSWPFontHeightCacheEntry>, void *> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned long, TSWPFontHeightCacheEntry>, void *>>> {
+    struct __tree<std::__1::__value_type<unsigned long, TSWPFontHeightCacheEntry>, std::__1::__map_value_compare<unsigned long, std::__1::__value_type<unsigned long, TSWPFontHeightCacheEntry>, std::__1::less<unsigned long>, true>, std::__1::allocator<std::__1::__value_type<unsigned long, TSWPFontHeightCacheEntry>>> {
+        struct __tree_node<std::__1::__value_type<unsigned long, TSWPFontHeightCacheEntry>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned long, TSWPFontHeightCacheEntry>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned long, TSWPFontHeightCacheEntry, std::__1::less<unsigned long>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned long, std::__1::__value_type<unsigned long, TSWPFontHeightCacheEntry>, std::__1::less<unsigned long>, true>> {
             unsigned long __first_;
         } __pair3_;
     } __tree_;
 };
 
 struct multimap<unsigned int, TPPageLayout *, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, TPPageLayout *>>> {
-    struct __tree<std::__1::pair<unsigned int, TPPageLayout *>, std::__1::__map_value_compare<unsigned int, TPPageLayout *, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, TPPageLayout *>>> {
-        struct __tree_node<std::__1::pair<unsigned int, TPPageLayout *>, void *> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, TPPageLayout *>, void *>>> {
+    struct __tree<std::__1::__value_type<unsigned int, TPPageLayout *>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, TPPageLayout *>, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, TPPageLayout *>>> {
+        struct __tree_node<std::__1::__value_type<unsigned int, TPPageLayout *>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned int, TPPageLayout *>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, TPPageLayout *, std::__1::less<unsigned int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, TPPageLayout *>, std::__1::less<unsigned int>, true>> {
             unsigned long __first_;
         } __pair3_;
     } __tree_;
@@ -6074,6 +6050,8 @@ struct multiset<TSTColumnOrRowMap, TSTColumnOrRowMapPbLess, std::__1::allocator<
     } _field1;
 };
 
+struct pair<TSCECReference, bool>;
+
 struct pair<TSCH3D::IteratorRange<const char *>, TSCH3D::IteratorRange<const char *>> {
     IteratorRange_617e5e79 _field1;
     IteratorRange_617e5e79 _field2;
@@ -6085,6 +6063,8 @@ struct pair<TSCH3DAxisLabelEnumerator *, TSCH3DAxisLabelEnumerator *> {
 };
 
 struct pair<TSUColumnRowCoordinate, TSCEFormula>;
+
+struct pair<TSUColumnRowCoordinate, float>;
 
 struct pair<const Action *, int>;
 
@@ -6109,28 +6089,8 @@ struct plane<glm::detail::tvec3<float>> {
     float mDistance;
 };
 
-struct queue<TSP::ExternalReferenceCompletionInfo, std::__1::deque<TSP::ExternalReferenceCompletionInfo, std::__1::allocator<TSP::ExternalReferenceCompletionInfo>>> {
-    struct deque<TSP::ExternalReferenceCompletionInfo, std::__1::allocator<TSP::ExternalReferenceCompletionInfo>> _field1;
-};
-
-struct queue<TSP::ReferenceCompletionInfo, std::__1::deque<TSP::ReferenceCompletionInfo, std::__1::allocator<TSP::ReferenceCompletionInfo>>> {
-    struct deque<TSP::ReferenceCompletionInfo, std::__1::allocator<TSP::ReferenceCompletionInfo>> _field1;
-};
-
-struct queue<TSP::RepeatedExternalReferenceCompletionInfo, std::__1::deque<TSP::RepeatedExternalReferenceCompletionInfo, std::__1::allocator<TSP::RepeatedExternalReferenceCompletionInfo>>> {
-    struct deque<TSP::RepeatedExternalReferenceCompletionInfo, std::__1::allocator<TSP::RepeatedExternalReferenceCompletionInfo>> c;
-};
-
-struct queue<TSP::UnarchiverRepeatedReference, std::__1::deque<TSP::UnarchiverRepeatedReference, std::__1::allocator<TSP::UnarchiverRepeatedReference>>> {
-    struct deque<TSP::UnarchiverRepeatedReference, std::__1::allocator<TSP::UnarchiverRepeatedReference>> c;
-};
-
 struct queue<TSP::WrittenObjectInfo, std::__1::deque<TSP::WrittenObjectInfo, std::__1::allocator<TSP::WrittenObjectInfo>>> {
     struct deque<TSP::WrittenObjectInfo, std::__1::allocator<TSP::WrittenObjectInfo>> c;
-};
-
-struct queue<void (^)(), std::__1::deque<void (^)(), std::__1::allocator<void (^)()>>> {
-    struct deque<void (^)(), std::__1::allocator<void (^)()>> _field1;
 };
 
 struct range<double> {
@@ -6141,6 +6101,10 @@ struct range<double> {
 struct range<unsigned int> {
     unsigned int _field1;
     unsigned int _field2;
+};
+
+struct scoped_array<unsigned char> {
+    char *_field1;
 };
 
 struct segment_data<double>;
@@ -6256,6 +6220,18 @@ struct set<long long, std::__1::less<long long>, std::__1::allocator<long long>>
     } _field1;
 };
 
+struct set<unsigned long long, std::__1::less<unsigned long long>, std::__1::allocator<unsigned long long>> {
+    struct __tree<unsigned long long, std::__1::less<unsigned long long>, std::__1::allocator<unsigned long long>> {
+        struct __tree_node<unsigned long long, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<unsigned long long, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::less<unsigned long long>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
+};
+
 struct set<unsigned short, std::__1::less<unsigned short>, std::__1::allocator<unsigned short>> {
     struct __tree<unsigned short, std::__1::less<unsigned short>, std::__1::allocator<unsigned short>> {
         struct __tree_node<unsigned short, void *> *_field1;
@@ -6315,6 +6291,10 @@ struct sockaddr_in {
 };
 
 struct sp_counted_base;
+
+struct stack<std::__1::pair<TSCECReference, bool>, std::__1::vector<std::__1::pair<TSCECReference, bool>, std::__1::allocator<std::__1::pair<TSCECReference, bool>>>> {
+    struct vector<std::__1::pair<TSCECReference, bool>, std::__1::allocator<std::__1::pair<TSCECReference, bool>>> _field1;
+};
 
 struct stack<std::__1::pair<const Action *, int>, std::__1::deque<std::__1::pair<const Action *, int>, std::__1::allocator<std::__1::pair<const Action *, int>>>> {
     struct deque<std::__1::pair<const Action *, int>, std::__1::allocator<std::__1::pair<const Action *, int>>> _field1;
@@ -6469,13 +6449,13 @@ struct unique_ptr<std::__1::__hash_node<TSCECReference, void *>*[], std::__1::__
 
 struct unique_ptr<std::__1::__hash_node<TSCECellReference, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<TSCECellReference, void *>*>>> {
     struct __compressed_pair<std::__1::__hash_node<TSCECellReference, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<TSCECellReference, void *>*>>> {
-        struct __hash_node<TSCECellReference, void *> **__first_;
+        struct __hash_node<TSCECellReference, void *> **_field1;
         struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<TSCECellReference, void *>*>> {
             struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<TSCECellReference, void *>*>> {
-                unsigned long __first_;
-            } __data_;
-        } __second_;
-    } __ptr_;
+                unsigned long _field1;
+            } _field1;
+        } _field2;
+    } _field1;
 };
 
 struct unique_ptr<std::__1::__hash_node<TSUColumnRowCoordinate, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<TSUColumnRowCoordinate, void *>*>>> {
@@ -6483,6 +6463,28 @@ struct unique_ptr<std::__1::__hash_node<TSUColumnRowCoordinate, void *>*[], std:
         struct __hash_node<TSUColumnRowCoordinate, void *> **_field1;
         struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<TSUColumnRowCoordinate, void *>*>> {
             struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<TSUColumnRowCoordinate, void *>*>> {
+                unsigned long _field1;
+            } _field1;
+        } _field2;
+    } _field1;
+};
+
+struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<TSTImportWarningSet>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<TSTImportWarningSet>>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::__hash_value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<TSTImportWarningSet>>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<TSTImportWarningSet>>, void *>*>>> {
+        struct __hash_node<std::__1::__hash_value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<TSTImportWarningSet>>, void *> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<TSTImportWarningSet>>, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<TSTImportWarningSet>>, void *>*>> {
+                unsigned long __first_;
+            } __data_;
+        } __second_;
+    } __ptr_;
+};
+
+struct unique_ptr<std::__1::__hash_node<std::__1::pair<NSUUID *, TSP::ObjectLocation>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<NSUUID *, TSP::ObjectLocation>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<NSUUID *, TSP::ObjectLocation>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<NSUUID *, TSP::ObjectLocation>, void *>*>>> {
+        struct __hash_node<std::__1::pair<NSUUID *, TSP::ObjectLocation>, void *> **_field1;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<NSUUID *, TSP::ObjectLocation>, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::pair<NSUUID *, TSP::ObjectLocation>, void *>*>> {
                 unsigned long _field1;
             } _field1;
         } _field2;
@@ -6709,22 +6711,11 @@ struct unique_ptr<std::__1::__hash_node<std::__1::pair<long long, TSP::ObjectInf
     } __ptr_;
 };
 
-struct unique_ptr<std::__1::__hash_node<std::__1::pair<long long, id>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, id>, void *>*>>> {
-    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<long long, id>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, id>, void *>*>>> {
-        struct __hash_node<std::__1::pair<long long, id>, void *> **_field1;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, id>, void *>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, id>, void *>*>> {
-                unsigned long _field1;
-            } _field1;
-        } _field2;
-    } _field1;
-};
-
-struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class *>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class *>, void *>*>>> {
-    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class *>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class *>, void *>*>>> {
-        struct __hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class *>, void *> **__first_;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class *>, void *>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class *>, void *>*>> {
+struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class>, void *>*>>> {
+        struct __hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class>, void *> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class>, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::pair<unsigned int, __unsafe_unretained Class>, void *>*>> {
                 unsigned long __first_;
             } __data_;
         } __second_;
@@ -6786,6 +6777,23 @@ struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned short, const __C
     } _field1;
 };
 
+struct unordered_map<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<TSTImportWarningSet>, std::__1::hash<TSUColumnRowCoordinate>, std::__1::equal_to<TSUColumnRowCoordinate>, std::__1::allocator<std::__1::pair<const TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<TSTImportWarningSet>>>> {
+    struct __hash_table<std::__1::__hash_value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<TSTImportWarningSet>>, std::__1::__unordered_map_hasher<TSUColumnRowCoordinate, std::__1::__hash_value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<TSTImportWarningSet>>, std::__1::hash<TSUColumnRowCoordinate>, true>, std::__1::__unordered_map_equal<TSUColumnRowCoordinate, std::__1::__hash_value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<TSTImportWarningSet>>, std::__1::equal_to<TSUColumnRowCoordinate>, true>, std::__1::allocator<std::__1::__hash_value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<TSTImportWarningSet>>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<TSTImportWarningSet>>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<TSTImportWarningSet>>, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<TSTImportWarningSet>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<TSTImportWarningSet>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<TSTImportWarningSet>>, void *>*> {
+                struct __hash_node<std::__1::__hash_value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<TSTImportWarningSet>>, void *> *__next_;
+            } __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<TSUColumnRowCoordinate, std::__1::__hash_value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<TSTImportWarningSet>>, std::__1::hash<TSUColumnRowCoordinate>, true>> {
+            unsigned long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<TSUColumnRowCoordinate, std::__1::__hash_value_type<TSUColumnRowCoordinate, SFUtility::ObjcSharedPtr<TSTImportWarningSet>>, std::__1::equal_to<TSUColumnRowCoordinate>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+};
+
 struct vector<(null)<anonymous>::Range, std::__1::allocator<(null)<anonymous>::Range>> {
     struct Range *__begin_;
     struct Range *__end_;
@@ -6803,11 +6811,11 @@ struct vector<CGPoint, std::__1::allocator<CGPoint>> {
 };
 
 struct vector<CGRect, std::__1::allocator<CGRect>> {
-    struct CGRect *_field1;
-    struct CGRect *_field2;
+    struct CGRect *__begin_;
+    struct CGRect *__end_;
     struct __compressed_pair<CGRect *, std::__1::allocator<CGRect>> {
-        struct CGRect *_field1;
-    } _field3;
+        struct CGRect *__first_;
+    } __end_cap_;
 };
 
 struct vector<GQUtility::ObjcSharedPtr<GQDWrapPoint>, std::__1::allocator<GQUtility::ObjcSharedPtr<GQDWrapPoint>>> {
@@ -6938,11 +6946,43 @@ struct vector<TSDBrushVertexData, std::__1::allocator<TSDBrushVertexData>> {
     } _field3;
 };
 
+struct vector<TSP::ExternalReferenceCompletionInfo, std::__1::allocator<TSP::ExternalReferenceCompletionInfo>> {
+    struct ExternalReferenceCompletionInfo *_field1;
+    struct ExternalReferenceCompletionInfo *_field2;
+    struct __compressed_pair<TSP::ExternalReferenceCompletionInfo *, std::__1::allocator<TSP::ExternalReferenceCompletionInfo>> {
+        struct ExternalReferenceCompletionInfo *_field1;
+    } _field3;
+};
+
+struct vector<TSP::FinalizeHandlerItem *, std::__1::allocator<TSP::FinalizeHandlerItem *>> {
+    struct FinalizeHandlerItem **__begin_;
+    struct FinalizeHandlerItem **__end_;
+    struct __compressed_pair<TSP::FinalizeHandlerItem **, std::__1::allocator<TSP::FinalizeHandlerItem *>> {
+        struct FinalizeHandlerItem **__first_;
+    } __end_cap_;
+};
+
 struct vector<TSP::ObjectStackEntry, std::__1::allocator<TSP::ObjectStackEntry>> {
     struct ObjectStackEntry *__begin_;
     struct ObjectStackEntry *__end_;
     struct __compressed_pair<TSP::ObjectStackEntry *, std::__1::allocator<TSP::ObjectStackEntry>> {
         struct ObjectStackEntry *__first_;
+    } __end_cap_;
+};
+
+struct vector<TSP::ReferenceCompletionInfo, std::__1::allocator<TSP::ReferenceCompletionInfo>> {
+    struct ReferenceCompletionInfo *_field1;
+    struct ReferenceCompletionInfo *_field2;
+    struct __compressed_pair<TSP::ReferenceCompletionInfo *, std::__1::allocator<TSP::ReferenceCompletionInfo>> {
+        struct ReferenceCompletionInfo *_field1;
+    } _field3;
+};
+
+struct vector<TSP::RepeatedExternalReferenceCompletionInfo, std::__1::allocator<TSP::RepeatedExternalReferenceCompletionInfo>> {
+    struct RepeatedExternalReferenceCompletionInfo *__begin_;
+    struct RepeatedExternalReferenceCompletionInfo *__end_;
+    struct __compressed_pair<TSP::RepeatedExternalReferenceCompletionInfo *, std::__1::allocator<TSP::RepeatedExternalReferenceCompletionInfo>> {
+        struct RepeatedExternalReferenceCompletionInfo *__first_;
     } __end_cap_;
 };
 
@@ -6959,6 +6999,14 @@ struct vector<TSP::UnarchiverRepeatedReference, std::__1::allocator<TSP::Unarchi
     struct UnarchiverRepeatedReference *__end_;
     struct __compressed_pair<TSP::UnarchiverRepeatedReference *, std::__1::allocator<TSP::UnarchiverRepeatedReference>> {
         struct UnarchiverRepeatedReference *__first_;
+    } __end_cap_;
+};
+
+struct vector<TSTStrokeLayerRun, std::__1::allocator<TSTStrokeLayerRun>> {
+    struct TSTStrokeLayerRun *__begin_;
+    struct TSTStrokeLayerRun *__end_;
+    struct __compressed_pair<TSTStrokeLayerRun *, std::__1::allocator<TSTStrokeLayerRun>> {
+        struct TSTStrokeLayerRun *__first_;
     } __end_cap_;
 };
 
@@ -7072,6 +7120,12 @@ struct vector<TSWPUIAttachmentData, std::__1::allocator<TSWPUIAttachmentData>> {
     struct __compressed_pair<TSWPUIAttachmentData *, std::__1::allocator<TSWPUIAttachmentData>> {
         struct TSWPUIAttachmentData *_field1;
     } _field3;
+};
+
+struct vector<_NSRange, std::__1::allocator<_NSRange>> {
+    struct _NSRange *__begin_;
+    struct _NSRange *__end_;
+    struct __compressed_pair<_NSRange *, std::__1::allocator<_NSRange>> __end_cap_;
 };
 
 struct vector<_TSWPCharIndexAndAffinity, std::__1::allocator<_TSWPCharIndexAndAffinity>> {
@@ -7196,11 +7250,35 @@ struct vector<int, std::__1::allocator<int>> {
     } __end_cap_;
 };
 
+struct vector<long long, std::__1::allocator<long long>> {
+    long long *_field1;
+    long long *_field2;
+    struct __compressed_pair<long long *, std::__1::allocator<long long>> {
+        long long *_field1;
+    } _field3;
+};
+
+struct vector<std::__1::pair<TSCECReference, bool>, std::__1::allocator<std::__1::pair<TSCECReference, bool>>> {
+    struct pair<TSCECReference, bool> *_field1;
+    struct pair<TSCECReference, bool> *_field2;
+    struct __compressed_pair<std::__1::pair<TSCECReference, bool>*, std::__1::allocator<std::__1::pair<TSCECReference, bool>>> {
+        struct pair<TSCECReference, bool> *_field1;
+    } _field3;
+};
+
 struct vector<std::__1::pair<TSUColumnRowCoordinate, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUColumnRowCoordinate, TSCEFormula>>> {
     struct pair<TSUColumnRowCoordinate, TSCEFormula> *__begin_;
     struct pair<TSUColumnRowCoordinate, TSCEFormula> *__end_;
     struct __compressed_pair<std::__1::pair<TSUColumnRowCoordinate, TSCEFormula>*, std::__1::allocator<std::__1::pair<TSUColumnRowCoordinate, TSCEFormula>>> {
         struct pair<TSUColumnRowCoordinate, TSCEFormula> *__first_;
+    } __end_cap_;
+};
+
+struct vector<std::__1::pair<TSUColumnRowCoordinate, float>, std::__1::allocator<std::__1::pair<TSUColumnRowCoordinate, float>>> {
+    struct pair<TSUColumnRowCoordinate, float> *__begin_;
+    struct pair<TSUColumnRowCoordinate, float> *__end_;
+    struct __compressed_pair<std::__1::pair<TSUColumnRowCoordinate, float>*, std::__1::allocator<std::__1::pair<TSUColumnRowCoordinate, float>>> {
+        struct pair<TSUColumnRowCoordinate, float> *__first_;
     } __end_cap_;
 };
 
@@ -7308,18 +7386,6 @@ typedef struct {
 typedef struct {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
-    struct CommandArchive *_field3;
-    struct Reference *_field4;
-    struct Reference *_field5;
-    struct Reference *_field6;
-    _Bool _field7;
-    int _field8;
-    unsigned int _field9[1];
-} StyleUpdatePropertyMapCommandArchive_fbad30e7;
-
-typedef struct {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
     struct DocumentArchive *_field3;
     struct Reference *_field4;
     struct Reference *_field5;
@@ -7338,10 +7404,12 @@ typedef struct {
     struct Reference *_field8;
     struct Reference *_field9;
     basic_string_9db06383 *_field10;
-    _Bool _field11;
-    int _field12;
-    unsigned int _field13[1];
-} DocumentArchive_79f59033;
+    struct Reference *_field11;
+    struct Reference *_field12;
+    _Bool _field13;
+    int _field14;
+    unsigned int _field15[1];
+} DocumentArchive_8daaf9ed;
 
 typedef struct {
     CDUnknownFunctionPointerType *_field1;
@@ -7427,13 +7495,16 @@ typedef struct {
     _Bool _field20;
     _Bool _field21;
     RepeatedPtrField_a0d2dbe7 _field22;
-    _Bool _field23;
+    float _field23;
     float _field24;
     struct Size *_field25;
-    float _field26;
-    int _field27;
-    unsigned int _field28[1];
-} UIStateArchive_3f5da7ba;
+    _Bool _field26;
+    _Bool _field27;
+    float _field28;
+    struct Point *_field29;
+    int _field30;
+    unsigned int _field31[1];
+} UIStateArchive_682b8dea;
 
 typedef struct {
     CDUnknownFunctionPointerType *_field1;
@@ -7457,22 +7528,16 @@ typedef struct {
 typedef struct {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
-    struct StyleUpdatePropertyMapCommandArchive *_field3;
-    int _field4;
-    unsigned int _field5[1];
-} StyleUpdatePropertyMapCommandArchive_841fe9c3;
-
-typedef struct {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
     struct ThemeArchive *_field3;
     RepeatedPtrField_a0d2dbe7 _field4;
     basic_string_9db06383 *_field5;
     RepeatedPtrField_a0d2dbe7 _field6;
     struct Reference *_field7;
-    int _field8;
-    unsigned int _field9[1];
-} ThemeArchive_d491fbae;
+    struct Reference *_field8;
+    _Bool _field9;
+    int _field10;
+    unsigned int _field11[1];
+} ThemeArchive_83b84640;
 
 typedef struct {
     CDUnknownFunctionPointerType *_field1;
@@ -7488,9 +7553,10 @@ typedef struct {
     struct UnknownFieldSet _field2;
     basic_string_9db06383 *_field3;
     struct Reference *_field4;
-    int _field5;
-    unsigned int _field6[1];
-} DocumentArchive_6740684c;
+    RepeatedPtrField_a0d2dbe7 _field5;
+    int _field6;
+    unsigned int _field7[1];
+} DocumentArchive_5b94e0f5;
 
 typedef struct {
     CDUnknownFunctionPointerType *_field1;
@@ -7564,10 +7630,13 @@ typedef struct {
     _Bool _field18;
     _Bool _field19;
     RepeatedField_27dfe32f _field20;
-    _Bool _field21;
-    int _field22;
-    unsigned int _field23[1];
-} UIStateArchive_600c7385;
+    struct Point *_field21;
+    struct Size *_field22;
+    struct Size *_field23;
+    _Bool _field24;
+    int _field25;
+    unsigned int _field26[1];
+} UIStateArchive_9f9741c4;
 
 #endif
 
@@ -7578,36 +7647,28 @@ typedef struct {
     id _field2;
     id _field3;
     id _field4;
-    id _field5;
-    double _field6;
+    double _field5;
     unsigned int :8;
+    unsigned char _field6;
     unsigned char _field7;
     unsigned char _field8;
     unsigned char _field9;
     unsigned char _field10;
     unsigned char _field11;
     unsigned char _field12;
-    unsigned char _field13;
+    unsigned short _field13;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
-} CDStruct_8acff13f;
+} CDStruct_b87b2d04;
 
 typedef struct {
     id _field1;
     id _field2;
 } CDStruct_a70f6672;
-
-typedef struct {
-    NSString *mCurrencyCode;
-    unsigned int mDecimalPlaces:8;
-    unsigned int mNegativeStyle:3;
-    unsigned int mShowThousandsSeparator:1;
-    unsigned int mUseAccountingStyle:1;
-} CDStruct_12065962;
 
 typedef struct {
     unsigned char byte0;
@@ -7691,6 +7752,14 @@ typedef struct {
 } CDStruct_ba543347;
 
 typedef struct {
+    unsigned int mCurrencyCodeIndex:16;
+    unsigned int mDecimalPlaces:8;
+    unsigned int mNegativeStyle:3;
+    unsigned int mShowThousandsSeparator:1;
+    unsigned int mUseAccountingStyle:1;
+} CDStruct_50447d3e;
+
+typedef struct {
     unsigned int mSuppressDateFormat:1;
     unsigned int mSuppressTimeFormat:1;
     NSString *mDateTimeFormat;
@@ -7729,9 +7798,15 @@ typedef struct {
 } CDStruct_1f804ca1;
 
 typedef struct {
-    char coordinates;
-    char tableOffset;
-} CDStruct_4d60f806;
+    char applicationExists;
+    char oldPluginExists;
+    char currentPluginExists;
+} CDStruct_2c3aca9f;
+
+typedef struct {
+    char _field1;
+    char _field2;
+} CDStruct_7ddbbeae;
 
 typedef struct {
     char _field1;
@@ -7782,19 +7857,6 @@ typedef struct {
 } CDStruct_0d450d55;
 
 typedef struct {
-    float x;
-    float y;
-    float z;
-    float w;
-} CDStruct_f2e236b6;
-
-typedef struct {
-    float x;
-    float y;
-    float z;
-} CDStruct_03942939;
-
-typedef struct {
     int mInitialValue;
     unsigned int mMultipleChoiceListFormatID;
     id mData;
@@ -7805,11 +7867,6 @@ typedef struct {
     unsigned int _field2;
     char _field3;
 } CDStruct_dde08762;
-
-typedef struct {
-    int _field1;
-    unsigned int _field2;
-} CDStruct_f1d50d6b;
 
 typedef struct {
     int _field1;
@@ -7827,6 +7884,13 @@ typedef struct {
     CDUnknownFunctionPointerType _field4;
     CDUnknownFunctionPointerType _field5;
 } CDStruct_41c7518b;
+
+typedef struct {
+    int x;
+    int y;
+    int width;
+    int height;
+} CDStruct_bf95b13b;
 
 typedef struct CDStruct_183601bc;
 
@@ -8029,7 +8093,7 @@ typedef struct {
 typedef struct {
     int mFormatType;
     union {
-        CDStruct_12065962 mNumberFormatStruct;
+        CDStruct_50447d3e mNumberFormatStruct;
         CDStruct_7ef9dbe9 mFractionFormatStruct;
         CDStruct_c5e3a123 mBaseFormatStruct;
         CDStruct_b44fd3ce mDateFormatStruct;
@@ -8038,7 +8102,7 @@ typedef struct {
         CDStruct_8374e35e mControlFormatStruct;
         CDStruct_4edf9c0c mMultipleChoiceListFormatStruct;
     } ;
-} CDStruct_95e644ef;
+} CDStruct_bfed0e84;
 
 typedef struct {
     int referenceType;
@@ -8073,6 +8137,32 @@ typedef struct {
     unsigned short _field1;
     unsigned short _field2;
 } CDStruct_d65e47c4;
+
+typedef struct {
+    float _field1;
+    float _field2;
+    float _field3;
+    float _field4;
+} CDStruct_818bb265;
+
+typedef struct {
+    float x;
+    float y;
+    float z;
+    float w;
+} CDStruct_f2e236b6;
+
+typedef struct {
+    float _field1;
+    float _field2;
+    float _field3;
+} CDStruct_869f9c67;
+
+typedef struct {
+    float x;
+    float y;
+    float z;
+} CDStruct_03942939;
 
 typedef struct {
     float _field1;
@@ -8148,11 +8238,12 @@ typedef struct RepeatedField<unsigned int> {
     int total_size_;
 } RepeatedField_27dfe32f;
 
-typedef struct RepeatedField<unsigned long long> {
-    unsigned long long *elements_;
-    int current_size_;
-    int total_size_;
-} RepeatedField_80b81656;
+typedef struct RepeatedPtrField<TSD::GeometryArchive> {
+    void **_field1;
+    int _field2;
+    int _field3;
+    int _field4;
+} RepeatedPtrField_45e8210e;
 
 typedef struct RepeatedPtrField<TSP::Color> {
     void **_field1;
@@ -8207,13 +8298,13 @@ typedef struct auto_ptr<TSP::FieldInfoTree> {
     struct FieldInfoTree *_field1;
 } auto_ptr_40e77785;
 
+typedef struct auto_ptr<__gnu_cxx::hash_map<const long long, bool, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, bool>>>> {
+    hash_map_18963f5d *__ptr_;
+} auto_ptr_c01b630f;
+
 typedef struct auto_ptr<google::protobuf::Message> {
     struct Message *__ptr_;
 } auto_ptr_4370f086;
-
-typedef struct auto_ptr<google::protobuf::RepeatedField<unsigned long long>> {
-    RepeatedField_80b81656 *__ptr_;
-} auto_ptr_2bf936f6;
 
 typedef struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
     struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> {
@@ -8272,6 +8363,23 @@ typedef struct hash_map<TSUColumnRowCoordinate, TSUColumnRowCoordinate, TSCECell
     } __table_;
 } hash_map_a394cb65;
 
+typedef struct hash_map<const long long, bool, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, bool>>> {
+    struct __hash_table<std::__1::pair<const long long, bool>, __gnu_cxx::__hash_map_hasher<std::__1::pair<const long long, bool>, TSP::IdentifierHash, true>, __gnu_cxx::__hash_map_equal<std::__1::pair<const long long, bool>, std::__1::equal_to<const long long>, true>, std::__1::allocator<std::__1::pair<const long long, bool>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::pair<const long long, bool>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<const long long, bool>, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<const long long, bool>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::pair<const long long, bool>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<const long long, bool>, void *>*> {
+                struct __hash_node<std::__1::pair<const long long, bool>, void *> *__next_;
+            } __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, __gnu_cxx::__hash_map_hasher<std::__1::pair<const long long, bool>, TSP::IdentifierHash, true>> {
+            unsigned long __first_;
+        } __p2_;
+        struct __compressed_pair<float, __gnu_cxx::__hash_map_equal<std::__1::pair<const long long, bool>, std::__1::equal_to<const long long>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+} hash_map_18963f5d;
+
 typedef struct hash_set<TSCECReference, TSCECReferenceHash, TSCECReferenceEqual, std::__1::allocator<TSCECReference>> {
     struct __hash_table<TSCECReference, TSCECReferenceHash, TSCECReferenceEqual, std::__1::allocator<TSCECReference>> {
         struct unique_ptr<std::__1::__hash_node<TSCECReference, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<TSCECReference, void *>*>>> _field1;
@@ -8312,16 +8420,28 @@ typedef struct line<glm::detail::tvec3<float>> {
 } line_190fbfc7;
 
 typedef struct map<unsigned int, NSMutableIndexSet *, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, NSMutableIndexSet *>>> {
-    struct __tree<std::__1::pair<unsigned int, NSMutableIndexSet *>, std::__1::__map_value_compare<unsigned int, NSMutableIndexSet *, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, NSMutableIndexSet *>>> {
-        struct __tree_node<std::__1::pair<unsigned int, NSMutableIndexSet *>, void *> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, NSMutableIndexSet *>, void *>>> {
+    struct __tree<std::__1::__value_type<unsigned int, NSMutableIndexSet *>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, NSMutableIndexSet *>, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, NSMutableIndexSet *>>> {
+        struct __tree_node<std::__1::__value_type<unsigned int, NSMutableIndexSet *>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned int, NSMutableIndexSet *>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, NSMutableIndexSet *, std::__1::less<unsigned int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, NSMutableIndexSet *>, std::__1::less<unsigned int>, true>> {
             unsigned long _field1;
         } _field3;
     } _field1;
-} map_17f18614;
+} map_4a8de6ea;
+
+typedef struct map<unsigned long long, std::__1::tuple<std::__1::shared_ptr<google::protobuf::Message>, std::__1::shared_ptr<__gnu_cxx::hash_map<const TSP::FieldPath, TSP::FieldInfo_Rule, TSP::FieldPathHash, TSP::FieldPathEqualTo, std::__1::allocator<std::__1::pair<const TSP::FieldPath, TSP::FieldInfo_Rule>>>>, std::__1::shared_ptr<__gnu_cxx::hash_map<const long long, bool, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, bool>>>>>, std::__1::less<unsigned long long>, std::__1::allocator<std::__1::pair<const unsigned long long, std::__1::tuple<std::__1::shared_ptr<google::protobuf::Message>, std::__1::shared_ptr<__gnu_cxx::hash_map<const TSP::FieldPath, TSP::FieldInfo_Rule, TSP::FieldPathHash, TSP::FieldPathEqualTo, std::__1::allocator<std::__1::pair<const TSP::FieldPath, TSP::FieldInfo_Rule>>>>, std::__1::shared_ptr<__gnu_cxx::hash_map<const long long, bool, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, bool>>>>>>>> {
+    struct __tree<std::__1::__value_type<unsigned long long, std::__1::tuple<std::__1::shared_ptr<google::protobuf::Message>, std::__1::shared_ptr<__gnu_cxx::hash_map<const TSP::FieldPath, TSP::FieldInfo_Rule, TSP::FieldPathHash, TSP::FieldPathEqualTo, std::__1::allocator<std::__1::pair<const TSP::FieldPath, TSP::FieldInfo_Rule>>>>, std::__1::shared_ptr<__gnu_cxx::hash_map<const long long, bool, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, bool>>>>>>, std::__1::__map_value_compare<unsigned long long, std::__1::__value_type<unsigned long long, std::__1::tuple<std::__1::shared_ptr<google::protobuf::Message>, std::__1::shared_ptr<__gnu_cxx::hash_map<const TSP::FieldPath, TSP::FieldInfo_Rule, TSP::FieldPathHash, TSP::FieldPathEqualTo, std::__1::allocator<std::__1::pair<const TSP::FieldPath, TSP::FieldInfo_Rule>>>>, std::__1::shared_ptr<__gnu_cxx::hash_map<const long long, bool, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, bool>>>>>>, std::__1::less<unsigned long long>, true>, std::__1::allocator<std::__1::__value_type<unsigned long long, std::__1::tuple<std::__1::shared_ptr<google::protobuf::Message>, std::__1::shared_ptr<__gnu_cxx::hash_map<const TSP::FieldPath, TSP::FieldInfo_Rule, TSP::FieldPathHash, TSP::FieldPathEqualTo, std::__1::allocator<std::__1::pair<const TSP::FieldPath, TSP::FieldInfo_Rule>>>>, std::__1::shared_ptr<__gnu_cxx::hash_map<const long long, bool, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, bool>>>>>>>> {
+        struct __tree_node<std::__1::__value_type<unsigned long long, std::__1::tuple<std::__1::shared_ptr<google::protobuf::Message>, std::__1::shared_ptr<__gnu_cxx::hash_map<const TSP::FieldPath, TSP::FieldInfo_Rule, TSP::FieldPathHash, TSP::FieldPathEqualTo, std::__1::allocator<std::__1::pair<const TSP::FieldPath, TSP::FieldInfo_Rule>>>>, std::__1::shared_ptr<__gnu_cxx::hash_map<const long long, bool, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, bool>>>>>>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned long long, std::__1::tuple<std::__1::shared_ptr<google::protobuf::Message>, std::__1::shared_ptr<__gnu_cxx::hash_map<const TSP::FieldPath, TSP::FieldInfo_Rule, TSP::FieldPathHash, TSP::FieldPathEqualTo, std::__1::allocator<std::__1::pair<const TSP::FieldPath, TSP::FieldInfo_Rule>>>>, std::__1::shared_ptr<__gnu_cxx::hash_map<const long long, bool, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, bool>>>>>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned long long, std::__1::__value_type<unsigned long long, std::__1::tuple<std::__1::shared_ptr<google::protobuf::Message>, std::__1::shared_ptr<__gnu_cxx::hash_map<const TSP::FieldPath, TSP::FieldInfo_Rule, TSP::FieldPathHash, TSP::FieldPathEqualTo, std::__1::allocator<std::__1::pair<const TSP::FieldPath, TSP::FieldInfo_Rule>>>>, std::__1::shared_ptr<__gnu_cxx::hash_map<const long long, bool, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, bool>>>>>>, std::__1::less<unsigned long long>, true>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
+} map_f4f83fa5;
 
 typedef struct multiset<TSTColumnOrRowMap, TSTColumnOrRowMapPbLess, std::__1::allocator<TSTColumnOrRowMap>> {
     struct __tree<TSTColumnOrRowMap, TSTColumnOrRowMapPbLess, std::__1::allocator<TSTColumnOrRowMap>> {
@@ -8701,6 +8821,14 @@ typedef struct vector<TSWPTargetHint, std::__1::allocator<TSWPTargetHint>> {
     } __end_cap_;
 } vector_b76bc591;
 
+typedef struct vector<bool, std::__1::allocator<bool>> {
+    unsigned long *__begin_;
+    unsigned int __size_;
+    struct __compressed_pair<unsigned long, std::__1::allocator<unsigned long>> {
+        unsigned long __first_;
+    } __cap_alloc_;
+} vector_b86883bc;
+
 typedef struct vector<boost::polygon::segment_data<double>, std::__1::allocator<boost::polygon::segment_data<double>>> {
     struct segment_data<double> *_field1;
     struct segment_data<double> *_field2;
@@ -8852,7 +8980,12 @@ typedef union {
         struct __CFUUID *mTableID;
         CDStruct_0ea164f0 mMergedRange;
     } mCellMergedInfo;
-} CDUnion_1539c118;
+    struct {
+        struct __CFUUID *mTableID;
+        struct __CFUUID *mTransposedCondStyleOwnerID;
+        unsigned short mNumberOfFooterRows;
+    } mTransposedInfo;
+} CDUnion_716c3b7a;
 
 // Ambiguous groups
 typedef union {

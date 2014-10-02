@@ -6,7 +6,7 @@
 
 #import <Radio/RadioRequest.h>
 
-@class NSData, RadioPlayEventCollection, RadioPlaybackContext, RadioStation, SSURLConnectionRequest;
+@class NSData, NSDictionary, RadioPlayEventCollection, RadioPlaybackContext, RadioStation, SSURLConnectionRequest;
 
 @interface RadioGetTracksRequest : RadioRequest
 {
@@ -16,6 +16,7 @@
     SSURLConnectionRequest *_request;
     RadioStation *_station;
     BOOL _shouldIncludeAsset;
+    NSDictionary *_additionalRequestParameters;
     NSData *_heartbeatTokenData;
     RadioPlayEventCollection *_playEventCollection;
     RadioPlaybackContext *_playbackContext;
@@ -29,6 +30,7 @@
 @property(nonatomic) BOOL includeCleanTracksOnly; // @synthesize includeCleanTracksOnly=_includeCleanTracksOnly;
 @property(copy, nonatomic) NSData *heartbeatTokenData; // @synthesize heartbeatTokenData=_heartbeatTokenData;
 @property(nonatomic) unsigned int numberOfTracks; // @synthesize numberOfTracks=_numberOfTracks;
+@property(copy, nonatomic) NSDictionary *additionalRequestParameters; // @synthesize additionalRequestParameters=_additionalRequestParameters;
 - (void).cxx_destruct;
 - (void)startWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)cancel;

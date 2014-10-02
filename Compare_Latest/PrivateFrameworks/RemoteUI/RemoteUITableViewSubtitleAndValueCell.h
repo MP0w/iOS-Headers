@@ -13,9 +13,9 @@
     UILabel *_valueLabel;
 }
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (void)setBackgroundColor:(id)arg1;
-@property(readonly, nonatomic) UILabel *valueLabel; // @synthesize valueLabel=_valueLabel;
+@property(readonly, nonatomic) UILabel *valueLabel;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end

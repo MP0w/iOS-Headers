@@ -17,11 +17,8 @@
     _RUTrackActionsHeaderView *_headerView;
     UITableView *_tableView;
     BOOL _presentedInPopover;
-    NSString *_artistText;
-    UIImage *_artworkImage;
     int _enabledActions;
     int _onActions;
-    NSString *_songText;
     id <RUTrackActionsDelegate> _trackActionsDelegate;
 }
 
@@ -31,15 +28,20 @@
 @property(nonatomic) int onActions; // @synthesize onActions=_onActions;
 @property(nonatomic) int enabledActions; // @synthesize enabledActions=_enabledActions;
 - (void).cxx_destruct;
+- (void)_updateHeaderViewHeight;
 - (id)_titleForAction:(int)arg1;
+- (void)_didChangeContentSize;
 - (struct UIOffset)_accessoryImageOffsetForAction:(int)arg1;
 - (id)_accessoryImageForAction:(int)arg1 highlighted:(BOOL)arg2;
-@property(copy, nonatomic) NSString *songText; // @synthesize songText=_songText;
-@property(retain, nonatomic) UIImage *artworkImage; // @synthesize artworkImage=_artworkImage;
-@property(copy, nonatomic) NSString *artistText; // @synthesize artistText=_artistText;
+- (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
+- (void)reloadData;
+@property(copy, nonatomic) NSString *songText;
+@property(retain, nonatomic) UIImage *artworkImage;
+@property(copy, nonatomic) NSString *artistText;
 @property(readonly, nonatomic) struct CGSize contentSize;
 @property(readonly, nonatomic) int cancelIndex;
 - (int)actionForButtonIndex:(int)arg1;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)tableViewDidFinishReload:(id)arg1;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
@@ -52,6 +54,12 @@
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

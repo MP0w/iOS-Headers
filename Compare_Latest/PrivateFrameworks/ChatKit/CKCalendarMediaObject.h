@@ -10,6 +10,7 @@
 {
 }
 
++ (id)attachmentSummary:(unsigned int)arg1;
 + (id)fallbackFilenamePrefix;
 + (id)UTITypes;
 - (id)subtitle;

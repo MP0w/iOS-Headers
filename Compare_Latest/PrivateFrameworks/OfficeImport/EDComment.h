@@ -6,20 +6,22 @@
 
 #import "NSObject.h"
 
+@class EDString;
+
 __attribute__((visibility("hidden")))
 @interface EDComment : NSObject
 {
-    _Bool mVisible;
-    int mRowIndex;
-    int mColumnIndex;
+    BOOL _visible;
+    int _rowIndex;
+    int _columnIndex;
+    EDString *_author;
 }
 
-- (void)setColumnIndex:(int)arg1;
-- (int)columnIndex;
-- (void)setRowIndex:(int)arg1;
-- (int)rowIndex;
-- (void)setVisible:(_Bool)arg1;
-- (_Bool)isVisible;
+@property(nonatomic) BOOL visible; // @synthesize visible=_visible;
+@property(retain, nonatomic) EDString *author; // @synthesize author=_author;
+@property(nonatomic) int columnIndex; // @synthesize columnIndex=_columnIndex;
+@property(nonatomic) int rowIndex; // @synthesize rowIndex=_rowIndex;
+- (void)dealloc;
 
 @end
 

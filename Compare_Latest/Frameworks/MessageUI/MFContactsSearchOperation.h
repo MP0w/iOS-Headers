@@ -26,7 +26,7 @@
 @property(readonly, nonatomic) MFContactsSearchManager *owner; // @synthesize owner=_owner;
 @property(readonly, nonatomic) void *addressBook; // @synthesize addressBook=_addressBook;
 - (void)dealloc;
-- (int)type;
+@property(readonly, nonatomic) unsigned int type;
 
 @end
 

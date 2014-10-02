@@ -4,42 +4,27 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <AddressBookUI/ABContactCell.h>
+#import <AddressBookUI/ABLabeledCell.h>
 
-@class NSDictionary, UIImageView, UILabel;
+@class UILabel;
 
-@interface ABLinkedCardsCell : ABContactCell
+@interface ABLinkedCardsCell : ABLabeledCell
 {
-    BOOL _displayConstraintsActive;
-    BOOL _editingConstraintsActive;
+    id <ABPropertyCellDelegate> _delegate;
     UILabel *_sourceLabel;
     UILabel *_nameLabel;
-    id <ABPropertyCellDelegate> _delegate;
-    NSDictionary *_sourceTextAttributes;
-    NSDictionary *_nameTextAttributes;
-    UIImageView *_chevron;
 }
 
-+ (float)cellHeightForEditing:(BOOL)arg1;
-+ (BOOL)requiresConstraintBasedLayout;
-@property(retain, nonatomic) UIImageView *chevron; // @synthesize chevron=_chevron;
-@property(nonatomic) BOOL editingConstraintsActive; // @synthesize editingConstraintsActive=_editingConstraintsActive;
-@property(nonatomic) BOOL displayConstraintsActive; // @synthesize displayConstraintsActive=_displayConstraintsActive;
-@property(copy, nonatomic) NSDictionary *nameTextAttributes; // @synthesize nameTextAttributes=_nameTextAttributes;
-@property(copy, nonatomic) NSDictionary *sourceTextAttributes; // @synthesize sourceTextAttributes=_sourceTextAttributes;
-@property(nonatomic) id <ABPropertyCellDelegate> delegate; // @synthesize delegate=_delegate;
++ (BOOL)wantsChevron;
 @property(readonly, nonatomic) UILabel *nameLabel; // @synthesize nameLabel=_nameLabel;
 @property(readonly, nonatomic) UILabel *sourceLabel; // @synthesize sourceLabel=_sourceLabel;
-- (void)setBackgroundColor:(id)arg1;
-- (id)contentViewEditingConstraints;
-- (id)contentViewConstraints;
-- (void)updateConstraints;
-- (void)setNeedsUpdateDisplayConstraints;
+@property(nonatomic) id <ABPropertyCellDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)setCardGroupItem:(id)arg1;
 - (void)performDefaultAction;
 - (BOOL)shouldPerformDefaultAction;
+- (id)valueView;
+- (id)labelView;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

@@ -120,7 +120,6 @@
 - (id)hasCapability:(id)arg1;
 - (id)checkCapabilitiesPropertyListString:(id)arg1 showFailureDialog:(BOOL)arg2;
 - (int)boolValueForRestriction:(id)arg1;
-- (id)applicationsForUTI:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

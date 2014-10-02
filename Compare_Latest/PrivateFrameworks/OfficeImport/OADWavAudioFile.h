@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) BOOL hasDuration; // @synthesize hasDuration=mHasDuration;
 @property(nonatomic) float duration; // @synthesize duration=mDuration;
+- (BOOL)isAudioOnly;
 
 @end
 

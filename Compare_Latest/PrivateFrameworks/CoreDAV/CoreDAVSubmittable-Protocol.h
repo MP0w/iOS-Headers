@@ -9,7 +9,7 @@
 @class NSError;
 
 @protocol CoreDAVSubmittable <NSObject>
-@property double timeoutInterval;
+@property(nonatomic) double timeoutInterval;
 @property(readonly, nonatomic) NSError *error;
 @property(nonatomic) id <CoreDAVAccountInfoProvider> accountInfoProvider;
 @property(nonatomic) id <CoreDAVTaskManager> taskManager;

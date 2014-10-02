@@ -11,14 +11,17 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)incrementFormulaCellCount:(unsigned int *)arg1;
-+ (void)incrementTotalCellCount:(unsigned int *)arg1;
-+ (_Bool)isValidDateTime:(double)arg1 edWorkbook:(id)arg2;
++ (double)dateTimeNumberFromNSDate:(id)arg1 edWorkbook:(id)arg2;
 + (id)dateFromXlDateTimeNumber:(double)arg1 edWorkbook:(id)arg2;
++ (_Bool)validDateInExcel:(id)arg1 edWorkbook:(id)arg2;
++ (_Bool)isValidDateTime:(double)arg1 edWorkbook:(id)arg2;
++ (id)lassoDefaultTableName;
 + (id)lassoStyleTableReferenceFromTableId:(id)arg1;
 + (id)renameFunction:(id)arg1;
 + (BOOL)isRenameFunction:(id)arg1;
++ (unsigned int)dateTimeOffsetForBuggy1900Dates:(double)arg1 edWorkbook:(id)arg2;
 + (double)timeIntervalFromXlDateTimeNumber:(double)arg1 edWorkbook:(id)arg2;
++ (id)renameMap;
 
 @end
 

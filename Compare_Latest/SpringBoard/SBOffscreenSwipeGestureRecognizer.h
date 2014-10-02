@@ -8,7 +8,7 @@
 
 #import "_UIScreenEdgePanRecognizerDelegate.h"
 
-@class _UIScreenEdgePanRecognizer, _UIScreenEdgePanRecognizerSettings;
+@class NSString, _UIScreenEdgePanRecognizer, _UIScreenEdgePanRecognizerSettings;
 
 @interface SBOffscreenSwipeGestureRecognizer : SBPanGestureRecognizer <_UIScreenEdgePanRecognizerDelegate>
 {
@@ -44,6 +44,12 @@
 - (_Bool)isHandlingLongPress;
 @property(retain, nonatomic) _UIScreenEdgePanRecognizerSettings *settings;
 - (id)initForOffscreenEdge:(unsigned long long)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

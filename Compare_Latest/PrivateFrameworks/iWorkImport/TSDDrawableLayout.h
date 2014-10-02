@@ -8,7 +8,7 @@
 
 #import "TSDWrappable.h"
 
-@class TSDBezierPath, TSDWrapPolygon;
+@class NSString, TSDBezierPath, TSDWrapPolygon;
 
 __attribute__((visibility("hidden")))
 @interface TSDDrawableLayout : TSDLayout <TSDWrappable>
@@ -41,6 +41,12 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)boundsInRoot;
 - (struct CGRect)boundsInfluencingExteriorWrap;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

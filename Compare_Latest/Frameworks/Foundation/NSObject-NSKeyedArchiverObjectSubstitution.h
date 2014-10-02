@@ -9,6 +9,6 @@
 @interface NSObject (NSKeyedArchiverObjectSubstitution)
 + (id)classFallbacksForKeyedArchiver;
 - (id)replacementObjectForKeyedArchiver:(id)arg1;
-- (Class)classForKeyedArchiver;
+@property(readonly) Class classForKeyedArchiver;
 @end
 

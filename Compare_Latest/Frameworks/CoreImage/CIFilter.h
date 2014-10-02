@@ -20,6 +20,7 @@
 + (id)serializedXMPFromFilters:(id)arg1 inputImageExtent:(struct CGRect)arg2;
 + (id)filterNamesInCategories:(id)arg1;
 + (id)filterNamesInCategory:(id)arg1;
++ (id)filterWithName:(id)arg1 withInputParameters:(id)arg2;
 + (id)filterWithName:(id)arg1 keysAndValues:(id)arg2;
 + (id)filterWithName:(id)arg1;
 + (id)_filterArrayFromProperties:(id)arg1;
@@ -46,6 +47,8 @@
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (id)apply:(id)arg1;
+- (id)apply:(id)arg1 arguments:(id)arg2 options:(id)arg3;
 - (id)_serializedXMPString;
 - (BOOL)_isIdentity;
 - (BOOL)_filterClassInCategory:(id)arg1;

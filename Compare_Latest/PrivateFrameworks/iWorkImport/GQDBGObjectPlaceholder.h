@@ -8,7 +8,7 @@
 
 #import "GQDNameMappable.h"
 
-@class GQDDrawable;
+@class GQDDrawable, NSString;
 
 __attribute__((visibility("hidden")))
 @interface GQDBGObjectPlaceholder : GQDBGPlaceholder <GQDNameMappable>
@@ -21,6 +21,12 @@ __attribute__((visibility("hidden")))
 - (id)drawable;
 - (void)dealloc;
 - (int)readAttributesFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

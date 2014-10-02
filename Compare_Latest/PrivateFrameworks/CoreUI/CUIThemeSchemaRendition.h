@@ -8,6 +8,7 @@
 
 @class CUIPSDGradient, NSDictionary;
 
+__attribute__((visibility("hidden")))
 @interface CUIThemeSchemaRendition : CUIThemeRendition
 {
     NSDictionary *cuiInfo;
@@ -18,11 +19,28 @@
     struct CGRect _elementRect;
     int _columnSlices;
     int _rowSlices;
+    CDStruct_fd71c141 _contentInsets;
     CUIPSDGradient *_gradient;
 }
 
 - (id).cxx_construct;
+- (id)scaleLocalizedString;
+- (id)lookLocalizedString;
+- (id)drawingLayerLocalizedString;
+- (id)dimension2LocalizedString;
+- (id)dimension1LocalizedString;
+- (id)presentationStateLocalizedString;
+- (id)sizeLocalizedString;
+- (id)previousValueLocalizedString;
+- (id)valueLocalizedString;
+- (id)stringForValue:(unsigned short)arg1;
+- (id)directionLocalizedString;
+- (id)previousStateLocalizedString;
+- (id)stateLocalizedString;
+- (id)stringForState:(unsigned short)arg1;
+- (id)typeLocalizedString;
 - (id)description;
+- (unsigned short)layer;
 - (unsigned short)identifier;
 - (unsigned short)keyScale;
 - (unsigned short)look;
@@ -30,9 +48,11 @@
 - (unsigned short)dimension2;
 - (unsigned short)dimension1;
 - (unsigned short)size;
+- (unsigned short)previousValue;
 - (unsigned short)value;
 - (unsigned short)direction;
 - (unsigned short)presentationState;
+- (unsigned short)previousState;
 - (unsigned short)state;
 - (struct CGPoint)renditionCoordinatesForPartFeatures:(int)arg1;
 - (int)rowSlices;
@@ -40,6 +60,8 @@
 - (id)defaultTemplateName;
 - (id)referenceImage;
 - (id)coreUIOptions;
+- (CDStruct_fd71c141)contentInsets;
+- (struct CGRect)edgeInsets:(BOOL)arg1;
 - (struct CGRect)alignmentRectangle;
 - (id)slices;
 - (float)scale;

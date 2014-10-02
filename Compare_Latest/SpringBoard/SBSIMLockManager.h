@@ -10,9 +10,8 @@
 
 @interface SBSIMLockManager : NSObject
 {
-    _Bool _isInitialUpdate;
     _Bool _isBrickedDevice;
-    int _status;
+    long long _status;
     SBSIMLockAlertItem *_currentAlert;
     SBSIMLockEntryAlert *_lockEntryAlert;
     NSString *_languageCode;
@@ -23,12 +22,11 @@
 
 + (id)sharedInstance;
 - (id)languageCode;
-- (int)status;
+- (long long)status;
 - (void)registerForAlerts;
 - (void)_postponementDidChange;
 - (void)_telephonyDidRestart;
 - (void)_activationDidChange;
-- (void)_initialUpdate;
 - (void)_externalSIMStatusChanged:(id)arg1;
 - (int)pukLockAttemptsRemaining;
 - (int)pinLockAttemptsRemaining;
@@ -37,15 +35,15 @@
 - (void)_handlePromptForUnlock;
 - (void)airplaneModeChanged;
 - (void)_tryToUpdateStatus;
-- (void)_updateToStatus:(int)arg1;
+- (void)_updateToStatus:(long long)arg1;
 - (void)attemptUnlock;
 - (void)repopAlert;
 - (void)_setupAppActivationStateDidChange:(id)arg1;
 - (_Bool)_shouldSuppressAlert;
 - (void)alertItemDismissed:(id)arg1;
 - (void)lockEntryAlertDismissed:(id)arg1;
-- (int)_statusFromCT;
-- (int)_CTToSBSIMStatus:(struct __CFString *)arg1;
+- (long long)_statusFromCT;
+- (long long)_CTToSBSIMStatus:(struct __CFString *)arg1;
 - (void)dealloc;
 - (id)init;
 

@@ -8,7 +8,7 @@
 
 #import "PBRequesterDelegate.h"
 
-@class GEORequester;
+@class GEORequester, NSString;
 
 @interface GEOVoltaireAddressCorrectionProvider : NSObject <PBRequesterDelegate>
 {
@@ -18,7 +18,6 @@
     CDUnknownBlockType _updateFinishedHandler;
 }
 
-+ (void)setUsePersistentConnection:(BOOL)arg1;
 + (id)acUpdateURL;
 + (id)acInitUrl;
 @property(retain, nonatomic) GEORequester *requester; // @synthesize requester=_requester;
@@ -29,6 +28,12 @@
 - (void)startUpdateRequest:(id)arg1 finished:(CDUnknownBlockType)arg2 error:(CDUnknownBlockType)arg3;
 - (void)startInitRequest:(id)arg1 finished:(CDUnknownBlockType)arg2 error:(CDUnknownBlockType)arg3;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

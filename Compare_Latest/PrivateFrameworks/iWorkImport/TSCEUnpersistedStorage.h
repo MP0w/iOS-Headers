@@ -11,8 +11,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (id)copyStorageUnpersistedCopyOnlyIfImmutable:(id)arg1;
 + (id)copyStorageUnpersisted:(id)arg1;
+- (id)copyPersistedWithContext:(id)arg1;
 - (void)willModify;
 
 @end

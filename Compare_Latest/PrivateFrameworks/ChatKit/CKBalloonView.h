@@ -8,7 +8,7 @@
 
 #import "UIGestureRecognizerDelegate.h"
 
-@class CKBalloonControl, CKManualUpdater, NSObject<CKBalloonViewDelegate>, UIColor, UILongPressGestureRecognizer, UITapGestureRecognizer;
+@class CKManualUpdater, NSString, UIColor, UILongPressGestureRecognizer, UITapGestureRecognizer;
 
 @interface CKBalloonView : CKBalloonImageView <UIGestureRecognizerDelegate>
 {
@@ -19,10 +19,10 @@
     BOOL _canUseOpaqueMask;
     BOOL _hasOverlay;
     BOOL _wantsSkinnyMask;
-    NSObject<CKBalloonViewDelegate> *_delegate;
+    id <CKBalloonViewDelegate> _delegate;
     UITapGestureRecognizer *_doubleTapGestureRecognizer;
     UILongPressGestureRecognizer *_longPressGestureRecognizer;
-    CKBalloonControl *_control;
+    unsigned int _balloonCorners;
     CKManualUpdater *_displayUpdater;
     CKBalloonImageView *_overlay;
     struct UIEdgeInsets _textAlignmentInsets;
@@ -30,28 +30,29 @@
 
 @property(retain, nonatomic) CKBalloonImageView *overlay; // @synthesize overlay=_overlay;
 @property(retain, nonatomic) CKManualUpdater *displayUpdater; // @synthesize displayUpdater=_displayUpdater;
+@property(nonatomic) unsigned int balloonCorners; // @synthesize balloonCorners=_balloonCorners;
 @property(nonatomic) BOOL wantsSkinnyMask; // @synthesize wantsSkinnyMask=_wantsSkinnyMask;
 @property(nonatomic) BOOL hasOverlay; // @synthesize hasOverlay=_hasOverlay;
 @property(nonatomic) BOOL canUseOpaqueMask; // @synthesize canUseOpaqueMask=_canUseOpaqueMask;
 @property(nonatomic, getter=isShowingMenu) BOOL showingMenu; // @synthesize showingMenu=_showingMenu;
-@property(retain, nonatomic) CKBalloonControl *control; // @synthesize control=_control;
-@property(readonly, nonatomic) UILongPressGestureRecognizer *longPressGestureRecognizer; // @synthesize longPressGestureRecognizer=_longPressGestureRecognizer;
-@property(readonly, nonatomic) UITapGestureRecognizer *doubleTapGestureRecognizer; // @synthesize doubleTapGestureRecognizer=_doubleTapGestureRecognizer;
+@property(retain, nonatomic) UILongPressGestureRecognizer *longPressGestureRecognizer; // @synthesize longPressGestureRecognizer=_longPressGestureRecognizer;
+@property(retain, nonatomic) UITapGestureRecognizer *doubleTapGestureRecognizer; // @synthesize doubleTapGestureRecognizer=_doubleTapGestureRecognizer;
 @property(nonatomic) struct UIEdgeInsets textAlignmentInsets; // @synthesize textAlignmentInsets=_textAlignmentInsets;
 @property(nonatomic, getter=isFilled) BOOL filled; // @synthesize filled=_filled;
 @property(nonatomic) BOOL hasTail; // @synthesize hasTail=_hasTail;
 @property(nonatomic) BOOL orientation; // @synthesize orientation=_orientation;
-@property(nonatomic) NSObject<CKBalloonViewDelegate> *delegate; // @synthesize delegate=_delegate;
-- (SEL)delegateActionForAction:(SEL)arg1;
+@property(nonatomic) id <CKBalloonViewDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)export:(id)arg1;
+- (void)copy:(id)arg1;
+- (void)sendAsTextMessage:(id)arg1;
+- (void)more:(id)arg1;
+- (void)_performAction:(SEL)arg1 sender:(id)arg2;
 - (void)willHideMenu:(id)arg1;
 - (void)willShowMenu:(id)arg1;
 - (void)showMenu;
-- (void)longPress:(id)arg1 forEvent:(id)arg2;
-- (void)doubleTap:(id)arg1 forEvent:(id)arg2;
-- (void)doDoubleTapOrLongPress;
-- (void)tap:(id)arg1 forEvent:(id)arg2;
-- (void)touchCancelForControl:(id)arg1;
-- (void)touchDown:(id)arg1 forEvent:(id)arg2;
+- (void)longPressGestureRecognized:(id)arg1;
+- (void)doubleTapGestureRecognized:(id)arg1;
+- (void)tapGestureRecognized:(id)arg1;
 - (void)setHasOverlay:(BOOL)arg1 autoDismiss:(BOOL)arg2;
 - (void)_dismissOverlay;
 @property(readonly, nonatomic) UIColor *overlayColor;
@@ -67,11 +68,15 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (BOOL)canBecomeFirstResponder;
 - (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
-- (id)methodSignatureForSelector:(SEL)arg1;
-- (void)forwardInvocation:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
+- (void)configureForMediaObject:(id)arg1 previewWidth:(float)arg2 orientation:(BOOL)arg3;
 - (void)configureForMessagePart:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

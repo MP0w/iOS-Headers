@@ -14,6 +14,7 @@
 }
 
 @property(nonatomic) CDStruct_bddcf505 shiftedPixel; // @synthesize shiftedPixel=_shiftedPixel;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

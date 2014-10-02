@@ -9,7 +9,7 @@
 #import "SBStatusBarStateAggregatorPosting.h"
 #import "UIStatusBarStateProvider.h"
 
-@class NSHashTable, SBStatusBarStateAggregator;
+@class NSHashTable, NSString, SBStatusBarStateAggregator;
 
 @interface SBStatusBarStateProvider : NSObject <SBStatusBarStateAggregatorPosting, UIStatusBarStateProvider>
 {
@@ -43,6 +43,12 @@
 - (void)addStatusBarStateObserver:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

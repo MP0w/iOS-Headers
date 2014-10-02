@@ -16,16 +16,16 @@
 }
 
 + (id)copyParseRules;
-@property(readonly) NSSet *supportedItems; // @synthesize supportedItems=_supportedItems;
-@property(retain) CoreDAVLeafItem *maxSizeItem; // @synthesize maxSizeItem=_maxSizeItem;
-@property(retain) CoreDAVLeafItem *maxResourcesItem; // @synthesize maxResourcesItem=_maxResourcesItem;
-@property(readonly) BOOL supportsDelete;
-@property(readonly) BOOL supportsUpdate;
-@property(readonly) BOOL supportsInsert;
+@property(readonly, nonatomic) NSSet *supportedItems; // @synthesize supportedItems=_supportedItems;
+@property(retain, nonatomic) CoreDAVLeafItem *maxSizeItem; // @synthesize maxSizeItem=_maxSizeItem;
+@property(retain, nonatomic) CoreDAVLeafItem *maxResourcesItem; // @synthesize maxResourcesItem=_maxResourcesItem;
+@property(readonly, nonatomic) BOOL supportsDelete;
+@property(readonly, nonatomic) BOOL supportsUpdate;
+@property(readonly, nonatomic) BOOL supportsInsert;
 - (BOOL)supportsItemWithNameSpace:(id)arg1 name:(id)arg2;
-@property(readonly) int maxSize;
-@property(readonly) int maxResources;
-@property(readonly) NSDictionary *dictRepresentation;
+@property(readonly, nonatomic) int maxSize;
+@property(readonly, nonatomic) int maxResources;
+@property(readonly, nonatomic) NSDictionary *dictRepresentation;
 - (void)addSupportedItem:(id)arg1;
 - (id)description;
 - (void)dealloc;

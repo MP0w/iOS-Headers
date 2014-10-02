@@ -9,11 +9,14 @@
 #import "TSDPathPainter.h"
 #import "TSSThemeAsset.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TSDFill : NSObject <TSDPathPainter, TSSThemeAsset>
 {
 }
 
++ (BOOL)tsch_hasAllResourcesForFill:(id)arg1;
 + (id)instanceWithArchive:(const struct FillArchive *)arg1 unarchiver:(id)arg2;
 + (void)registerSubclass:(Class)arg1;
 + (id)p_subclassRegistry;
@@ -34,8 +37,15 @@ __attribute__((visibility("hidden")))
 - (void)drawSwatchInRect:(struct CGRect)arg1 inContext:(struct CGContext *)arg2;
 - (void)paintPath:(struct CGPath *)arg1 naturalBounds:(struct CGRect)arg2 inContext:(struct CGContext *)arg3 isPDF:(BOOL)arg4;
 - (void)paintRect:(struct CGRect)arg1 inContext:(struct CGContext *)arg2;
+@property(readonly, nonatomic) BOOL tsch_hasAllResources; // @dynamic tsch_hasAllResources;
 - (void)saveToArchive:(struct FillArchive *)arg1 archiver:(id)arg2;
 - (id)initWithArchive:(const struct FillArchive *)arg1 unarchiver:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

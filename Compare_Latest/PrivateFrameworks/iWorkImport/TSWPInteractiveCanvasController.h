@@ -10,10 +10,13 @@ __attribute__((visibility("hidden")))
 @interface TSWPInteractiveCanvasController : TSDInteractiveCanvasController
 {
     BOOL _isTearingDown;
+    BOOL _layoutBordersVisible;
     BOOL _isEditingText;
 }
 
++ (struct CGColor *)layoutBorderColor;
 @property(readonly, nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
+@property(readonly, nonatomic) BOOL layoutBordersVisible; // @synthesize layoutBordersVisible=_layoutBordersVisible;
 @property(readonly, nonatomic) BOOL isTearingDown; // @synthesize isTearingDown=_isTearingDown;
 - (id)infosToHideForCanvas:(id)arg1;
 - (void)setShowsComments:(BOOL)arg1;
@@ -21,14 +24,15 @@ __attribute__((visibility("hidden")))
 - (BOOL)cellCommentsAllowedForTableInfo:(id)arg1;
 - (void)getColumnLeftPosition:(float *)arg1 columnRightPosition:(float *)arg2;
 - (void)getColumnLeftPosition:(float *)arg1 columnRightPosition:(float *)arg2 singleColumnAtSelectionPoint:(BOOL)arg3;
-- (void)showAnnotation:(id)arg1 model:(id)arg2 selection:(id)arg3 beginEditing:(BOOL)arg4 pinned:(BOOL)arg5;
+- (void)hideDisplayedAnnotation;
+- (void)showAnnotation:(id)arg1 model:(id)arg2 selection:(id)arg3 beginEditing:(BOOL)arg4 pinned:(BOOL)arg5 shouldSetSelection:(BOOL)arg6;
+- (id)storageForAnnotationModel:(id)arg1 selection:(id)arg2;
 - (BOOL)hyperlinkPopoverIsShown;
 - (void)closeHyperlinkPopover;
 - (void)showHyperlinkInfoForField:(id)arg1 inRep:(id)arg2 openInEditMode:(BOOL)arg3;
 - (id)closestRepToPoint:(struct CGPoint)arg1 forStorage:(id)arg2;
 - (id)p_repsForStorage:(id)arg1;
 - (void)p_recursivelyAddRep:(id)arg1 forStorage:(id)arg2 toSet:(id)arg3;
-- (BOOL)textRepsShouldTileAggressively;
 - (void)willEndEditingText;
 - (void)didBeginEditingText;
 @property(readonly, nonatomic) BOOL shouldRespondToTextHyperlinks;

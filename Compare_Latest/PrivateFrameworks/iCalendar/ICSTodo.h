@@ -14,11 +14,11 @@
 
 + (id)name;
 - (id)propertiesToIncludeForChecksumVersion:(int)arg1;
-@property(retain) NSArray *x_apple_activity;
-@property unsigned int x_apple_sort_order;
-@property(retain) ICSDate *due;
-@property int percentComplete;
-@property(retain) ICSDate *completed;
+@property(retain, nonatomic) NSArray *x_apple_activity;
+@property(nonatomic) unsigned int x_apple_sort_order;
+@property(retain, nonatomic) ICSDate *due;
+@property(nonatomic) int percentComplete;
+@property(retain, nonatomic) ICSDate *completed;
 - (BOOL)validate:(id *)arg1;
 - (void)fixComponent;
 

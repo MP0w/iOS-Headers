@@ -15,7 +15,7 @@
     NSMutableDictionary *_destinationEntityScheduleTags;
 }
 
-@property(readonly) BOOL isAutoScheduleSupported; // @synthesize isAutoScheduleSupported=_isAutoScheduleSupported;
+@property(readonly, nonatomic) BOOL isAutoScheduleSupported; // @synthesize isAutoScheduleSupported=_isAutoScheduleSupported;
 @property(readonly, nonatomic) NSMutableDictionary *destinationEntityScheduleTags; // @synthesize destinationEntityScheduleTags=_destinationEntityScheduleTags;
 @property(readonly, nonatomic) NSDictionary *sourceEntityScheduleTags; // @synthesize sourceEntityScheduleTags=_sourceEntityScheduleTags;
 - (void)_completedPropFindTask:(id)arg1 intermediateETag:(id)arg2 intermediateScheduleTag:(id)arg3 destinationFilename:(id)arg4;

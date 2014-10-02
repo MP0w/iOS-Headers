@@ -8,7 +8,7 @@
 
 #import "CoreDAVResponseBodyParser.h"
 
-@class CoreDAVErrorItem, CoreDAVItem, CoreDAVXMLElementGenerator, NSError, NSSet, NSURL;
+@class CoreDAVErrorItem, CoreDAVItem, CoreDAVXMLElementGenerator, NSError, NSSet, NSString, NSURL;
 
 @interface CoreDAVXMLParser : NSXMLParser <CoreDAVResponseBodyParser>
 {
@@ -19,19 +19,23 @@
 }
 
 + (BOOL)canHandleContentType:(id)arg1;
-@property(retain) NSURL *baseURL; // @synthesize baseURL=_baseURL;
-@property(retain) NSSet *parseHints; // @synthesize parseHints=_parseHints;
-@property(retain) CoreDAVXMLElementGenerator *rootErrorGenerator; // @synthesize rootErrorGenerator=_rootErrorGenerator;
-@property(retain) CoreDAVXMLElementGenerator *rootElementGenerator; // @synthesize rootElementGenerator=_rootElementGenerator;
-@property(readonly) CoreDAVErrorItem *rootError;
-@property(readonly) CoreDAVItem *rootElement;
+@property(retain, nonatomic) NSURL *baseURL; // @synthesize baseURL=_baseURL;
+@property(retain, nonatomic) NSSet *parseHints; // @synthesize parseHints=_parseHints;
+@property(retain, nonatomic) CoreDAVXMLElementGenerator *rootErrorGenerator; // @synthesize rootErrorGenerator=_rootErrorGenerator;
+@property(retain, nonatomic) CoreDAVXMLElementGenerator *rootElementGenerator; // @synthesize rootElementGenerator=_rootElementGenerator;
+@property(readonly, nonatomic) CoreDAVErrorItem *rootError;
+@property(readonly, nonatomic) CoreDAVItem *rootElement;
 - (void)dealloc;
 - (BOOL)processData:(id)arg1 forTask:(id)arg2;
 - (id)initWithRootElementNameSpace:(id)arg1 name:(id)arg2 parseClass:(Class)arg3 baseURL:(id)arg4;
 - (id)initWithData:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly) NSError *parserError; // @dynamic parserError;
+@property(readonly) Class superclass;
 
 @end
 

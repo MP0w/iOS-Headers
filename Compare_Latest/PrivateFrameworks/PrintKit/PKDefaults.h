@@ -10,7 +10,9 @@
 {
 }
 
++ (void)addLastUsedPrinter:(id)arg1 duplexMode:(id)arg2 lastUsedSize:(struct CGSize)arg3 forPhoto:(BOOL)arg4;
 + (void)addLastUsedPrinter:(id)arg1 duplexMode:(id)arg2 lastUsedSize:(struct CGSize)arg3;
++ (id)lastUsedPrintersForPhoto:(BOOL)arg1;
 + (id)lastUsedPrinters;
 + (int)printerLookupWithArray:(id)arg1 withTimeout:(double)arg2 completionHandler:(CDUnknownBlockType)arg3;
 

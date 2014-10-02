@@ -21,6 +21,7 @@
 @property(retain, nonatomic) NSString *uid; // @synthesize uid=_uid;
 @property(retain, nonatomic) NSMutableArray *photoInfos; // @synthesize photoInfos=_photoInfos;
 @property(nonatomic) int photoType; // @synthesize photoType=_photoType;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -36,6 +37,7 @@
 - (void)clearPhotoInfos;
 @property(nonatomic) BOOL hasPhotoType;
 - (void)dealloc;
+- (id)initWithPlaceDataPhoto:(id)arg1;
 
 @end
 

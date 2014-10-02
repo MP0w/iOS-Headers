@@ -11,6 +11,8 @@
     unsigned int _storageRef;
 }
 
++ (id)bestMatchUsingImages:(id)arg1 scaleFactor:(float)arg2 deviceIdiom:(int)arg3 deviceSubtype:(unsigned int)arg4 sizeClassHorizontal:(int)arg5 sizeClassVertical:(int)arg6;
++ (id)bestMatchUsingImages:(id)arg1 scaleFactor:(float)arg2 deviceIdiom:(int)arg3 deviceSubtype:(unsigned int)arg4;
 + (id)defaultUICatalogForBundle:(id)arg1;
 + (id)systemUICatalog;
 + (id)defaultUICatalog;
@@ -18,7 +20,10 @@
 - (id)debugDescription;
 - (id)imageByStylingImage:(struct CGImage *)arg1 stylePresetName:(id)arg2 styleConfiguration:(id)arg3 foregroundColor:(struct CGColor *)arg4 scale:(float)arg5;
 - (CDStruct_fd71c141)styledInsetsForStylePresetName:(id)arg1 styleConfiguration:(id)arg2 foregroundColor:(struct CGColor *)arg3 scale:(float)arg4;
+- (int)blendModeForStylePresetWithName:(id)arg1 styleConfiguration:(id)arg2;
+- (struct CGColor *)equivalentForegroundColorForStylePresetWithName:(id)arg1 styleConfiguration:(id)arg2;
 - (BOOL)hasStylePresetWithName:(id)arg1;
+- (BOOL)hasStylePresetWithName:(id)arg1 styleConfiguration:(id)arg2;
 - (BOOL)fillStyledRect:(struct CGRect)arg1 inContext:(struct CGContext *)arg2 stylePresetName:(id)arg3 styleConfiguration:(id)arg4;
 - (BOOL)fillStyledPath:(struct CGPath *)arg1 inContext:(struct CGContext *)arg2 stylePresetName:(id)arg3 styleConfiguration:(id)arg4;
 - (BOOL)strokeStyledPath:(struct CGPath *)arg1 inContext:(struct CGContext *)arg2 stylePresetName:(id)arg3 styleConfiguration:(id)arg4;
@@ -28,20 +33,25 @@
 - (id)newShapeEffectStackForStylePresetName:(id)arg1 styleConfiguration:(id)arg2 foregroundColor:(struct CGColor *)arg3;
 - (id)newTextEffectStackForStylePresetName:(id)arg1 styleConfiguration:(id)arg2 foregroundColor:(struct CGColor *)arg3;
 - (id)newShapeEffectPresetForStylePresetName:(id)arg1 styleConfiguration:(id)arg2;
-- (id)newShapeEffectPresetWithStylePresetName:(id)arg1 state:(int)arg2 presentationState:(int)arg3 value:(int)arg4 resolution:(unsigned int)arg5;
-- (id)newShapeEffectPresetWithStyleID:(unsigned int)arg1 state:(int)arg2 presentationState:(int)arg3 value:(int)arg4 resolution:(unsigned int)arg5;
+- (id)renditionKeyForShapeEffectPresetForStylePresetName:(id)arg1 styleConfiguration:(id)arg2;
+- (id)renditionKeyForShapeEffectPresetWithStylePresetName:(id)arg1 state:(int)arg2 presentationState:(int)arg3 value:(int)arg4 resolution:(unsigned int)arg5;
+- (id)renditionKeyForShapeEffectPresetWithStyleID:(unsigned int)arg1 state:(int)arg2 presentationState:(int)arg3 value:(int)arg4 resolution:(unsigned int)arg5;
+- (BOOL)canGetShapeEffectRenditionWithKey:(id)arg1;
 - (id)newShapeEffectPresetWithRenditionKey:(id)arg1;
-- (id)temporaryFallbackCatalog;
 - (int)artVariantIDOrZero;
-- (id)_resolvedRenditionKeyForName:(id)arg1 scaleFactor:(float)arg2 deviceIdiom:(int)arg3 deviceSubtype:(unsigned int)arg4;
-- (void)_toggleScaleOfRenditionKey:(id)arg1;
+- (id)_resolvedRenditionKeyForName:(id)arg1 scaleFactor:(float)arg2 deviceIdiom:(int)arg3 deviceSubtype:(unsigned int)arg4 sizeClassHorizontal:(int)arg5 sizeClassVertical:(int)arg6 memoryClass:(unsigned int)arg7 graphicsClass:(unsigned int)arg8;
 - (id)_baseKeyForName:(id)arg1;
 - (id)_themeStore;
 - (unsigned int)_themeRef;
+- (struct CGPDFDocument *)pdfDocumentWithName:(id)arg1;
+- (id)imagesWithName:(id)arg1;
+- (id)allImageNames;
+- (id)dataWithName:(id)arg1;
+- (id)dataWithName:(id)arg1 deviceIdiom:(int)arg2 deviceSubtype:(unsigned int)arg3 memoryClass:(unsigned int)arg4 graphicsClass:(unsigned int)arg5;
+- (id)imageWithName:(id)arg1 scaleFactor:(float)arg2 deviceIdiom:(int)arg3 deviceSubtype:(unsigned int)arg4 sizeClassHorizontal:(int)arg5 sizeClassVertical:(int)arg6;
 - (id)imageWithName:(id)arg1 scaleFactor:(float)arg2 deviceIdiom:(int)arg3 deviceSubtype:(unsigned int)arg4;
 - (id)imageWithName:(id)arg1 scaleFactor:(float)arg2 deviceIdiom:(int)arg3;
 - (id)imageWithName:(id)arg1 scaleFactor:(float)arg2;
-- (void)dealloc;
 - (id)initWithName:(id)arg1 fromBundle:(id)arg2 error:(id *)arg3;
 - (id)initWithName:(id)arg1 fromBundle:(id)arg2;
 

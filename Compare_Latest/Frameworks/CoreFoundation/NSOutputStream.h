@@ -10,5 +10,8 @@
 {
 }
 
+
+// Remaining properties
+@property(readonly) BOOL hasSpaceAvailable; // @dynamic hasSpaceAvailable;
 @end
 

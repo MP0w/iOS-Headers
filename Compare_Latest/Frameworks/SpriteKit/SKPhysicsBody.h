@@ -16,15 +16,18 @@
     BOOL _dynamic;
     BOOL _usesPreciseCollisionDetection;
     BOOL _allowsRotation;
+    BOOL _pinned;
     BOOL _resting;
     BOOL _affectedByGravity;
     float _friction;
+    float _charge;
     float _restitution;
     float _linearDamping;
     float _angularDamping;
     float _density;
     float _mass;
     float _area;
+    unsigned int _fieldBitMask;
     unsigned int _categoryBitMask;
     unsigned int _collisionBitMask;
     unsigned int _contactTestBitMask;
@@ -35,6 +38,8 @@
 }
 
 + (id)bodyWithBodies:(id)arg1;
++ (id)bodyWithTexture:(id)arg1 alphaThreshold:(float)arg2 size:(struct CGSize)arg3;
++ (id)bodyWithTexture:(id)arg1 size:(struct CGSize)arg2;
 + (id)bodyWithEdgeLoopFromRect:(struct CGRect)arg1;
 + (id)bodyWithEdgeLoopFromPath:(struct CGPath *)arg1;
 + (id)bodyWithEdgeChainFromPath:(struct CGPath *)arg1;
@@ -48,11 +53,12 @@
 + (id)allocWithZone:(struct _NSZone *)arg1;
 @property(nonatomic) float angularVelocity; // @synthesize angularVelocity=_angularVelocity;
 @property(nonatomic) struct CGVector velocity; // @synthesize velocity=_velocity;
-@property(readonly, nonatomic) SKNode *node; // @synthesize node=_node;
+@property(readonly, nonatomic) __weak SKNode *node; // @synthesize node=_node;
 @property(readonly, nonatomic) NSArray *joints; // @synthesize joints=_joints;
 @property(nonatomic) unsigned int contactTestBitMask; // @synthesize contactTestBitMask=_contactTestBitMask;
 @property(nonatomic) unsigned int collisionBitMask; // @synthesize collisionBitMask=_collisionBitMask;
 @property(nonatomic) unsigned int categoryBitMask; // @synthesize categoryBitMask=_categoryBitMask;
+@property(nonatomic) unsigned int fieldBitMask; // @synthesize fieldBitMask=_fieldBitMask;
 @property(nonatomic) BOOL affectedByGravity; // @synthesize affectedByGravity=_affectedByGravity;
 @property(readonly, nonatomic) float area; // @synthesize area=_area;
 @property(nonatomic) float mass; // @synthesize mass=_mass;
@@ -60,8 +66,10 @@
 @property(nonatomic) float angularDamping; // @synthesize angularDamping=_angularDamping;
 @property(nonatomic) float linearDamping; // @synthesize linearDamping=_linearDamping;
 @property(nonatomic) float restitution; // @synthesize restitution=_restitution;
+@property(nonatomic) float charge; // @synthesize charge=_charge;
 @property(nonatomic) float friction; // @synthesize friction=_friction;
 @property(nonatomic, getter=isResting) BOOL resting; // @synthesize resting=_resting;
+@property(nonatomic) BOOL pinned; // @synthesize pinned=_pinned;
 @property(nonatomic) BOOL allowsRotation; // @synthesize allowsRotation=_allowsRotation;
 @property(nonatomic) BOOL usesPreciseCollisionDetection; // @synthesize usesPreciseCollisionDetection=_usesPreciseCollisionDetection;
 @property(nonatomic, getter=isDynamic) BOOL dynamic; // @synthesize dynamic=_dynamic;

@@ -25,6 +25,8 @@
 - (id)stringByResolvingAndStandardizingPath;
 - (BOOL)_appearsToBeDSID;
 - (BOOL)_appearsToBePhoneNumber;
+- (id)_md5Hash;
+- (id)_stripPotentialTokenURIWithToken:(id *)arg1;
 - (BOOL)_appearsToBeEmail;
 - (id)_IDFromFZIDType:(int)arg1;
 - (id)_URIFromFZIDType:(int)arg1;

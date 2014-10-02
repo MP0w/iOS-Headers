@@ -8,13 +8,12 @@
 
 #import "GEOResourceManifestTileGroupObserver.h"
 
-@class GEOTileDBReader, GEOTileDBWriter, NSLock, NSMapTable, NSMutableArray, NSString;
+@class GEODBReader, GEODBWriter, NSLock, NSMapTable, NSMutableArray, NSString;
 
-__attribute__((visibility("hidden")))
 @interface GEOTileServerLocalProxy : GEOTileServerProxy <GEOResourceManifestTileGroupObserver>
 {
-    GEOTileDBWriter *_dbWriter;
-    GEOTileDBReader *_dbReader;
+    GEODBWriter *_dbWriter;
+    GEODBReader *_dbReader;
     NSString *_cacheLocation;
     NSMapTable *_providers;
     NSMutableArray *_inProgress;
@@ -26,12 +25,13 @@ __attribute__((visibility("hidden")))
 - (void)flushPendingWrites;
 - (BOOL)skipNetworkForKeysWhenPreloading:(id)arg1;
 - (void)endPreloadSession;
-- (void)beginPreloadSessionOfSize:(unsigned long long)arg1;
+- (void)beginPreloadSessionOfSize:(unsigned long long)arg1 exclusive:(BOOL)arg2;
 - (void)shrinkDiskCacheToSize:(unsigned long long)arg1;
+- (void)calculateFreeableSize;
 - (void)reportCorruptTile:(const struct _GEOTileKey *)arg1;
 - (void)tileRequesterFinished:(id)arg1;
 - (void)tileRequester:(id)arg1 receivedError:(id)arg2;
-- (void)tileRequester:(id)arg1 receivedData:(id)arg2 tileEdition:(unsigned int)arg3 tileSet:(unsigned int)arg4 forKey:(struct _GEOTileKey)arg5 userInfo:(id)arg6;
+- (void)tileRequester:(id)arg1 receivedData:(id)arg2 tileEdition:(unsigned int)arg3 tileSet:(unsigned int)arg4 etag:(id)arg5 forKey:(struct _GEOTileKey)arg6 userInfo:(id)arg7;
 - (void)loadTiles:(id)arg1 priorities:(unsigned int *)arg2 options:(unsigned int)arg3 client:(id)arg4;
 - (void)cancel:(const struct _GEOTileKey *)arg1;
 - (void)close;
@@ -40,7 +40,13 @@ __attribute__((visibility("hidden")))
 - (void)_updateExpiringTilesets;
 - (void)_registerBuiltInProviders;
 - (void)dealloc;
-- (id)initWithCacheLocation:(id)arg1;
+- (id)initWithCacheLocation:(id)arg1 manifestConfiguration:(id)arg2 locale:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

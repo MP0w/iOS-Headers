@@ -74,6 +74,8 @@ __attribute__((visibility("hidden")))
 - (id)initWithCGColor:(struct CGColor *)arg1;
 - (void)saveToMessage:(struct Color *)arg1;
 - (id)initWithMessage:(const struct Color *)arg1;
+- (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
+- (int)mixingTypeWithObject:(id)arg1;
 - (BOOL)isThemeEquivalent:(id)arg1;
 @property(readonly, nonatomic) NSString *presetKind;
 - (void)saveToArchive:(struct Color *)arg1 archiver:(id)arg2;

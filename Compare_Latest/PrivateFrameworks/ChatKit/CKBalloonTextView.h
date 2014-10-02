@@ -8,7 +8,7 @@
 
 #import "NSLayoutManagerDelegate.h"
 
-@class NSAttributedString;
+@class NSAttributedString, NSString;
 
 @interface CKBalloonTextView : UITextView <NSLayoutManagerDelegate>
 {
@@ -24,7 +24,15 @@
 @property(copy, nonatomic) NSAttributedString *attributedText; // @synthesize attributedText=_attributedText;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1 textAlignmentInsets:(struct UIEdgeInsets *)arg2 isSingleLine:(char *)arg3;
 - (id)initReadonlyAndUnselectableWithFrame:(struct CGRect)arg1 textContainer:(id)arg2;
+- (BOOL)canBecomeFirstResponder;
 - (void)didMoveToWindow;
+- (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

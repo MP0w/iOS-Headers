@@ -12,7 +12,7 @@
 
 - (float)_entryFieldBottomYDistanceFromNumberPadTopButton;
 - (id)_newEntryField;
-- (id)init;
+- (id)initWithLightStyle:(BOOL)arg1;
 
 @end
 

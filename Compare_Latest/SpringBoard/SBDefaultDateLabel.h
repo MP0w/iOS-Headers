@@ -8,7 +8,7 @@
 
 #import "SBBulletinDateLabel.h"
 
-@class NSDate, NSTimer;
+@class NSDate, NSString, NSTimer;
 
 @interface SBDefaultDateLabel : UILabel <SBBulletinDateLabel>
 {
@@ -55,6 +55,12 @@
 - (void)prepareForReuse;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

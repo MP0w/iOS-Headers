@@ -23,7 +23,7 @@
 @property(retain, nonatomic) id <NSObject> context; // @synthesize context=_context;
 @property(readonly, nonatomic) NSObject<OS_xpc_object> *client; // @synthesize client=_client;
 @property(nonatomic) __weak id <XPCServiceConnectionDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
+@property(readonly, retain, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
 - (void).cxx_destruct;
 - (void)shutDownCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)sendMessage:(id)arg1 withHandler:(CDUnknownBlockType)arg2;

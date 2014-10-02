@@ -8,7 +8,7 @@
 
 #import "SSXPCCoding.h"
 
-@class NSArray, NSError, NSMutableDictionary, SSPurchase, SSURLConnectionResponse;
+@class NSArray, NSError, NSMutableDictionary, NSString, SSPurchase, SSURLConnectionResponse;
 
 @interface SSPurchaseResponse : NSObject <SSXPCCoding>
 {
@@ -33,8 +33,15 @@
 @property(nonatomic) BOOL cancelsPurchaseBatch; // @synthesize cancelsPurchaseBatch=_cancelsPurchaseBatch;
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;
+- (id)responseMetrics;
 - (id)transactionIdentifierForItemIdentifier:(long long)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

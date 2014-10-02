@@ -8,7 +8,7 @@
 
 #import "SFUZipArchiveDataRepresentation.h"
 
-@class NSData;
+@class NSData, NSString;
 
 __attribute__((visibility("hidden")))
 @interface SFUZipArchiveMemoryDataRepresentation : SFUDataRepresentation <SFUZipArchiveDataRepresentation>
@@ -27,6 +27,12 @@ __attribute__((visibility("hidden")))
 - (id)data;
 - (void)dealloc;
 - (id)initWithData:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

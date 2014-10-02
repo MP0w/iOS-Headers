@@ -8,7 +8,7 @@
 
 #import "GQDNameMappable.h"
 
-@class GQDWPLayoutFrame;
+@class GQDWPLayoutFrame, NSString;
 
 __attribute__((visibility("hidden")))
 @interface GQDBGTitlePlaceholder : GQDBGPlaceholder <GQDNameMappable>
@@ -20,6 +20,12 @@ __attribute__((visibility("hidden")))
 - (BOOL)isBlank;
 - (id)layoutFrame;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

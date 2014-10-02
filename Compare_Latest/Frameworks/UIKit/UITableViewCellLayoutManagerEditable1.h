@@ -8,6 +8,8 @@
 
 #import "UITextFieldDelegate.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface UITableViewCellLayoutManagerEditable1 : UITableViewCellLayoutManager <UITextFieldDelegate>
 {
@@ -24,7 +26,14 @@ __attribute__((visibility("hidden")))
 - (id)editableTextFieldForCell:(id)arg1;
 - (id)detailTextLabelForCell:(id)arg1;
 - (void)layoutSubviewsOfCell:(id)arg1;
+- (id)defaultTextLabelFontForCell:(id)arg1;
 - (float)defaultTextFieldFontSizeForCell:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

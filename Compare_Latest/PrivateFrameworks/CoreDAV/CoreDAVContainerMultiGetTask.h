@@ -29,7 +29,7 @@
 @property(readonly, nonatomic) NSSet *missingURLs; // @synthesize missingURLs=_missingURLs;
 @property(readonly, nonatomic) NSSet *parsedContents; // @synthesize parsedContents=_parsedContents;
 @property(nonatomic) BOOL shouldIgnoreResponseErrors; // @synthesize shouldIgnoreResponseErrors=_shouldIgnoreResponseErrors;
-@property(retain) NSSet *additionalPropElements; // @synthesize additionalPropElements=_additionalPropElements;
+@property(retain, nonatomic) NSSet *additionalPropElements; // @synthesize additionalPropElements=_additionalPropElements;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)copyDefaultParserForContentType:(id)arg1;
 - (id)requestBody;
@@ -42,9 +42,13 @@
 // Remaining properties
 @property(nonatomic) id <CoreDAVAccountInfoProvider> accountInfoProvider;
 @property(copy, nonatomic) CDUnknownBlockType completionBlock;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) NSError *error;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 @property(nonatomic) id <CoreDAVTaskManager> taskManager;
-@property double timeoutInterval;
+@property(nonatomic) double timeoutInterval;
 
 @end
 

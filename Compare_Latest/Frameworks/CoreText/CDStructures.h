@@ -61,30 +61,31 @@ struct TBaseFont {
     struct TCFRef<const __CFData *> _field7;
     struct TCFRef<const __CFData *> _field8;
     struct TCFRef<const __CFData *> _field9;
-    struct TCFRef<const __CFURL *> _field10;
-    int _field11;
-    struct TCFRef<__CFDictionary *> _field12;
-    struct TCFRef<const __CFArray *> _field13;
-    struct TCFRef<const __CFCharacterSet *> _field14;
-    struct TCFRef<const __CFArray *> _field15;
-    struct TCFRef<const __CFCharacterSet *> _field16;
-    unsigned int _field17;
+    struct TCFRef<const __CFData *> _field10;
+    struct TCFRef<const __CFURL *> _field11;
+    int _field12;
+    struct TCFRef<__CFDictionary *> _field13;
+    struct TCFRef<const __CFArray *> _field14;
+    struct TCFRef<const __CFCharacterSet *> _field15;
+    struct TCFRef<const __CFArray *> _field16;
+    struct TCFRef<const __CFCharacterSet *> _field17;
     unsigned int _field18;
     unsigned int _field19;
-    struct TCFRef<const __CFCharacterSet *> _field20;
-    struct TCFRef<const __CFData *> _field21;
-    int _field22;
-    struct TBMPDataCache *_field23;
-    struct unordered_map<unsigned short, unsigned short, std::__1::hash<unsigned short>, std::__1::equal_to<unsigned short>, std::__1::allocator<std::__1::pair<const unsigned short, unsigned short>>> *_field24;
-    struct TTraitsValues *_field25;
-    struct UnscaledAdvancesPage *_field26;
-    struct StrikeMetrics _field27;
-    unsigned int _field28;
+    unsigned int _field20;
+    struct TCFRef<const __CFCharacterSet *> _field21;
+    struct TCFRef<const __CFData *> _field22;
+    int _field23;
+    struct TBMPDataCache *_field24;
+    struct unordered_map<unsigned short, unsigned short, std::__1::hash<unsigned short>, std::__1::equal_to<unsigned short>, std::__1::allocator<std::__1::pair<const unsigned short, unsigned short>>> *_field25;
+    struct TTraitsValues *_field26;
+    struct UnscaledAdvancesPage *_field27;
+    struct StrikeMetrics _field28;
     unsigned int _field29;
     unsigned int _field30;
-    struct TMutex _field31;
-    struct TInlineVector<TCFRef<const __CFData *>, 4> _field32;
-    struct array<TCFRef<__CFDictionary *>, 6> _field33;
+    unsigned int _field31;
+    struct TMutex _field32;
+    struct TInlineVector<TCFRef<const __CFData *>, 4> _field33;
+    struct array<TCFRef<__CFDictionary *>, 7> _field34;
 };
 
 struct TCFRef<__CFDictionary *> {
@@ -133,8 +134,8 @@ struct TTraitsValues;
 
 struct UnscaledAdvancesPage;
 
-struct array<TCFRef<__CFDictionary *>, 6> {
-    struct TCFRef<__CFDictionary *> _field1[6];
+struct array<TCFRef<__CFDictionary *>, 7> {
+    struct TCFRef<__CFDictionary *> _field1[7];
 };
 
 struct type {

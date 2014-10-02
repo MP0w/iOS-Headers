@@ -4,28 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MPTransportControls.h"
+#import "RUNowPlayingTransportControls.h"
 
-@interface MusicNowPlayingTransportControls : MPTransportControls
+@interface MusicNowPlayingTransportControls : RUNowPlayingTransportControls
 {
 }
 
-+ (int)buttonType;
 + (unsigned long long)defaultVisibleParts;
-+ (BOOL)buttonImagesUseBackgroundImage;
 - (void)_updateItemRelatedParts;
-- (void)_unregisterForAVItemNotifications;
-- (void)_registerForAVItemNotifications;
-- (void)_avItemStoreIDDidChangeNotification:(id)arg1;
-- (BOOL)usesTintColorForControls;
-- (id)tintColorForPart:(unsigned long long)arg1;
-- (void)setItem:(id)arg1;
-- (void)reloadForAdditions:(id)arg1 removals:(id)arg2 animate:(BOOL)arg3;
-- (id)newButtonForPart:(unsigned long long)arg1;
 - (id)buttonImageForPart:(unsigned long long)arg1;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
-- (void)dealloc;
 
 @end
 

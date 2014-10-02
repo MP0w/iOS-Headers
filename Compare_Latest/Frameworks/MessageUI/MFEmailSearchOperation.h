@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <MessageUI/MFContactsSearchOperation.h>
+#import <MessageUI/_MFAddressBookPropertySearchOperation.h>
 
-@interface MFEmailSearchOperation : MFContactsSearchOperation
+@interface MFEmailSearchOperation : _MFAddressBookPropertySearchOperation
 {
 }
 
-+ (id)operationWithAddressBook:(void *)arg1 owner:(id)arg2 text:(id)arg3 taskID:(id)arg4 properties:(id)arg5;
-- (void)main;
++ (int)property;
+- (struct __CFArray *)copyArrayOfUIDsMatchingText:(id)arg1 addresses:(const struct __CFArray **)arg2 identifiers:(const struct __CFArray **)arg3;
 
 @end
 

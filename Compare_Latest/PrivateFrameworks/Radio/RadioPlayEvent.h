@@ -25,11 +25,11 @@
 }
 
 @property(readonly, nonatomic) int type; // @synthesize type=_type;
-@property(readonly, nonatomic) NSDictionary *trackInfo; // @synthesize trackInfo=_trackInfo;
-@property(readonly, nonatomic) NSData *timedMetadata; // @synthesize timedMetadata=_timedMetadata;
+@property(readonly, copy, nonatomic) NSDictionary *trackInfo; // @synthesize trackInfo=_trackInfo;
+@property(readonly, copy, nonatomic) NSData *timedMetadata; // @synthesize timedMetadata=_timedMetadata;
 @property(readonly, nonatomic) long long storeID; // @synthesize storeID=_storeID;
 @property(readonly, nonatomic) double startTimeInTrack; // @synthesize startTimeInTrack=_startTimeInTrack;
-@property(readonly, nonatomic) NSString *externalIdentifier; // @synthesize externalIdentifier=_externalIdentifier;
+@property(readonly, copy, nonatomic) NSString *externalIdentifier; // @synthesize externalIdentifier=_externalIdentifier;
 @property(readonly, nonatomic) double endTimeInTrack; // @synthesize endTimeInTrack=_endTimeInTrack;
 @property(readonly, nonatomic) int endReason; // @synthesize endReason=_endReason;
 @property(readonly, nonatomic) NSDate *datePlayed; // @synthesize datePlayed=_datePlayed;

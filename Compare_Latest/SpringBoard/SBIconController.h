@@ -14,11 +14,12 @@
 #import "SBIconModelDelegate.h"
 #import "SBIconViewDelegate.h"
 #import "SBIconViewMapDelegate.h"
+#import "SBReachabilityObserver.h"
 #import "SBSearchGestureObserver.h"
 
-@class BBObserver, NSIndexPath, NSMutableArray, NSMutableSet, NSSet, NSTimer, SBFolder, SBIcon, SBIconColorSettings, SBIconContentView, SBIconModel, SBLeafIcon, SBRootFolderController, UITouch, _UILegibilitySettings;
+@class BBObserver, NSIndexPath, NSMutableArray, NSMutableSet, NSSet, NSString, NSTimer, SBFolder, SBIcon, SBIconColorSettings, SBIconContentView, SBIconModel, SBLeafIcon, SBRootFolderController, UITouch, _UILegibilitySettings;
 
-@interface SBIconController : NSObject <BBObserverDelegate, MCProfileConnectionObserver, SBApplicationRestrictionObserver, SBFolderControllerDelegate, SBSearchGestureObserver, SBIconViewDelegate, SBIconModelDelegate, SBIconViewMapDelegate, SBIconModelApplicationDataSource>
+@interface SBIconController : NSObject <BBObserverDelegate, MCProfileConnectionObserver, SBApplicationRestrictionObserver, SBFolderControllerDelegate, SBSearchGestureObserver, SBIconViewDelegate, SBIconModelDelegate, SBIconViewMapDelegate, SBIconModelApplicationDataSource, SBReachabilityObserver>
 {
     NSSet *_visibleTags;
     NSSet *_hiddenTags;
@@ -58,6 +59,7 @@
     unsigned long long _maxIconViewsInHierarchy;
     unsigned long long _maxNewsstandItemViewsInHierarchy;
     SBIconColorSettings *_iconColorSettings;
+    _Bool _reachabilityModeActive;
     _Bool _showingSearch;
     _UILegibilitySettings *_legibilitySettings;
     NSIndexPath *_indexPathToResetTo;
@@ -65,7 +67,12 @@
 
 + (id)sharedInstance;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
+- (void)handleReachabilityModeDeactivated;
+- (void)handleReachabilityModeActivated;
+- (_Bool)_shouldRespondToReachability;
+- (void)_performReachabilityTransactionForActivate:(_Bool)arg1 immediately:(_Bool)arg2;
 - (void)searchGesture:(id)arg1 changedPercentComplete:(double)arg2;
+- (void)folderControllerDidReceiveCancelReachabilityAction:(id)arg1;
 - (void)folderControllerDidEndScrolling:(id)arg1;
 - (void)folderControllerShouldBeginEditing:(id)arg1;
 - (void)folderControllerShouldClose:(id)arg1;
@@ -195,6 +202,8 @@
 - (void)scrollToIconListContainingIcon:(id)arg1 animate:(_Bool)arg2;
 - (_Bool)_shouldLockItemsInStoreDemoMode;
 - (_Bool)_iconCanBeGrabbed:(id)arg1;
+- (id)dropDestinationIconList;
+- (long long)dropDestinationIconListIndex;
 - (id)currentFolderIconList;
 - (id)dockListView;
 - (id)currentRootIconList;
@@ -206,6 +215,7 @@
 - (void)showCarrierDebuggingAlertIfNeeded;
 - (void)showInfoAlertIfNeeded:(_Bool)arg1;
 - (void)showSpotlightAlertIfNecessary;
+- (void)showDeveloperBuildExpirationAlertIfNecessary;
 - (void)_iconVisibilityChanged:(id)arg1;
 - (void)_resetRootIconLists;
 - (void)_prepareToResetRootIconLists;
@@ -235,6 +245,9 @@
 - (void)_cleanupForClosingFolderAnimated:(_Bool)arg1;
 - (void)_folderDidFinishOpenClose:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_animateFolder:(id)arg1 open:(_Bool)arg2 animated:(_Bool)arg3 withCompletion:(CDUnknownBlockType)arg4;
+- (void)_folderControllerDidReceiveCancelReachabilityAction:(id)arg1;
+- (void)_disableReachabilityImmediately:(_Bool)arg1;
+- (void)_presentNotificationCenterForReachability;
 - (void)replaceFolderIcon:(id)arg1 byContainedIcon:(id)arg2 animated:(_Bool)arg3;
 - (void)addIcons:(id)arg1 intoFolderIcon:(id)arg2 animated:(_Bool)arg3 openFolderOnFinish:(_Bool)arg4 complete:(CDUnknownBlockType)arg5;
 - (_Bool)isDroppingIcon:(id)arg1;
@@ -257,6 +270,12 @@
 - (void)_noteFolderAnimationStateDidChange;
 - (id)iconListViewAtIndex:(unsigned long long)arg1 inFolder:(id)arg2 createIfNecessary:(_Bool)arg3;
 - (void)getListView:(id *)arg1 folder:(id *)arg2 relativePath:(id *)arg3 forIndexPath:(id)arg4 createIfNecessary:(_Bool)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

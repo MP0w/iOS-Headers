@@ -12,7 +12,7 @@
 #import "SKUIMissingItemDelegate.h"
 #import "SKUIProductPageOverlayDelegate.h"
 
-@class NSMapTable, NSMutableIndexSet, NSString, SKUIClientContext, SKUIGridComponent, SKUIMissingItemLoader, SKUIProductPageOverlayController;
+@class NSMapTable, NSMutableDictionary, NSMutableIndexSet, NSString, SKUIClientContext, SKUIGridComponent, SKUIMissingItemLoader, SKUIProductPageOverlayController, SKUIVideoImageDataConsumer;
 
 @interface SKUIGridPageSection : SKUIStorePageSection <SKUIArtworkRequestDelegate, SKUIItemStateCenterObserver, SKUIEmbeddedMediaViewDelegate, SKUIMissingItemDelegate, SKUIProductPageOverlayDelegate>
 {
@@ -31,27 +31,33 @@
     int _overlaySourceItemIndex;
     int _screenScale;
     NSMapTable *_lockupArtworkContexts;
+    SKUIVideoImageDataConsumer *_videoImageDataConsumer;
+    NSMutableDictionary *_videoPlaceholderImages;
 }
 
 - (void).cxx_destruct;
-- (void)_updateVisibileEditorialWithInterfaceOrientation:(int)arg1;
+- (id)_videoThumbnailImageForVideo:(id)arg1 thumbnailSize:(struct CGSize)arg2;
+- (void)_updateVisibileEditorialWithEditorialOrientation:(int)arg1;
+- (void)_showProductPageWithItem:(id)arg1 index:(int)arg2 animated:(BOOL)arg3;
 - (void)_setPositionForClickEvent:(id)arg1 withElementIndex:(int)arg2;
 - (void)_selectItem:(id)arg1 withIndex:(int)arg2;
 - (void)_reloadItemCell:(id)arg1 withLockup:(id)arg2 index:(int)arg3;
 - (void)_reloadEditorialLockupCell:(id)arg1 withLockup:(id)arg2 index:(int)arg3;
 - (id)_popSourceViewForOverlayController:(id)arg1;
+- (int)_numberOfPortraitColumnsWithGridType:(int)arg1;
+- (int)_numberOfLandscapeColumnsWithGridType:(int)arg1;
 - (id)_newSizeToFitArtworkRequestWithArtwork:(id)arg1 mediaIndex:(int)arg2;
 - (id)_missingItemLoader;
 - (float)_mediaWidthForMediaIndex:(int)arg1 gridWidth:(float)arg2;
 - (id)_mediaCellWithMedia:(id)arg1 indexPath:(id)arg2;
 - (void)_loadMissingItemsFromIndex:(int)arg1 withReason:(int)arg2;
+- (void)_loadImageForVideo:(id)arg1 thumbnailSize:(struct CGSize)arg2 loader:(id)arg3 reason:(int)arg4;
 - (void)_loadImageForItem:(id)arg1 lockupSize:(int)arg2 loader:(id)arg3 reason:(int)arg4;
 - (id)_itemForIndex:(int)arg1;
 - (id)_itemCellWithLockups:(id)arg1 indexPath:(id)arg2;
 - (float)_heightForMediaAtIndexPath:(id)arg1;
 - (float)_heightForMedia:(id)arg1 width:(float)arg2;
-- (float)_heightForLockupAtIndexPath:(id)arg1;
-- (float)_heightForLockup:(id)arg1;
+- (float)_heightForLockupAtIndexPath:(id)arg1 gridType:(int)arg2;
 - (float)_heightForEditorialLockupAtIndexPath:(id)arg1;
 - (float)_heightForEditorialLockup:(id)arg1;
 - (float)_heightForEditorialAtIndexPath:(id)arg1;
@@ -62,6 +68,7 @@
 - (id)_editorialLayoutForLockup:(id)arg1;
 - (id)_editorialLayoutForEditorial:(id)arg1;
 - (id)_editorialCellWithEditorials:(id)arg1 indexPath:(id)arg2;
+- (struct UIEdgeInsets)_contentInsetForVideoLockupIndex:(int)arg1;
 - (struct UIEdgeInsets)_contentInsetForMediaIndex:(int)arg1;
 - (id)_cellImageForItem:(id)arg1 lockupSize:(int)arg2;
 - (id)_artworkContextForLockupSize:(int)arg1;
@@ -73,13 +80,14 @@
 - (void)itemStateCenter:(id)arg1 itemStatesChanged:(id)arg2;
 - (void)mediaView:(id)arg1 playbackStateDidChange:(int)arg2;
 - (void)artworkRequest:(id)arg1 didLoadImage:(id)arg2;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)willTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)willHideInContext:(id)arg1;
 - (void)willAppearInContext:(id)arg1;
 - (void)prefetchResourcesWithReason:(int)arg1;
 - (int)numberOfCells;
 - (id)itemOfferClickEventWithItem:(id)arg1 elementName:(id)arg2 index:(int)arg3;
 - (void)collectionViewWillApplyLayoutAttributes:(id)arg1;
+- (void)collectionViewDidTapVideoAtIndexPath:(id)arg1;
 - (void)collectionViewDidSelectItemAtIndexPath:(id)arg1;
 - (void)collectionViewDidEndDisplayingCellForItemAtIndexPath:(id)arg1;
 - (void)collectionViewDidConfirmItemOfferAtIndexPath:(id)arg1;
@@ -91,7 +99,11 @@
 - (id)initWithPageComponent:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) SKUIGridComponent *pageComponent; // @dynamic pageComponent;
+@property(readonly) Class superclass;
 
 @end
 

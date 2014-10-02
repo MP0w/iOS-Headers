@@ -19,6 +19,9 @@
 }
 
 + (BOOL)isWebContentFilterUIActiveWithRestrictionDictionary:(id)arg1;
++ (id)allowedKeyboardBundleIDsAfterApplyingFilterToBundleIDs:(id)arg1 managedAppBundleIDs:(id)arg2 hostAppIsManaged:(BOOL)arg3 mayOpenFromUnmanagedToManaged:(BOOL)arg4 mayOpenFromManagedToUnmanaged:(BOOL)arg5;
++ (id)allowedImportFromAppBundleIDsWithOriginalAppBundleIDs:(id)arg1 managedAppBundleIDs:(id)arg2 localAppBundleID:(id)arg3 localAccountIsManaged:(BOOL)arg4 mayOpenFromUnmanagedToManaged:(BOOL)arg5 mayOpenFromManagedToUnmanaged:(BOOL)arg6 isAppBundleIDExemptBlock:(CDUnknownBlockType)arg7 isAppBundleIDAccountBasedBlock:(CDUnknownBlockType)arg8;
++ (id)allowedOpenInAppBundleIDsWithOriginalAppBundleIDs:(id)arg1 managedAppBundleIDs:(id)arg2 localAppBundleID:(id)arg3 localAccountIsManaged:(BOOL)arg4 mayOpenFromUnmanagedToManaged:(BOOL)arg5 mayOpenFromManagedToUnmanaged:(BOOL)arg6 isAppBundleIDExemptBlock:(CDUnknownBlockType)arg7 isAppBundleIDAccountBasedBlock:(CDUnknownBlockType)arg8;
 + (BOOL)mayEnterPasscodeToAccessNonWhitelistedAppsWithSettingsDictionary:(id)arg1;
 + (BOOL)isPasscodeRequiredToAccessWhitelistedAppsWithSettingsDictionary:(id)arg1;
 + (BOOL)isInSingleAppModeWithSettingsDictionary:(id)arg1;
@@ -51,6 +54,8 @@
 + (id)valueForFeature:(id)arg1 withRestrictionsDictionary:(id)arg2;
 + (int)restrictedBoolForFeature:(id)arg1 withRestrictionsDictionary:(id)arg2;
 + (id)filterUserSettingsForPublicUse:(id)arg1;
++ (id)filterRestrictionDictionary:(id)arg1 toIncludeOnlyRestrictionsThatDifferFromRestrictions:(id)arg2;
++ (id)filterRestrictionDictionary:(id)arg1 acceptedKeysDict:(id)arg2;
 + (id)filterRestrictionDictionaryForPublicUse:(id)arg1;
 + (id)restrictionsWithCurrentRestrictions:(id)arg1 defaultRestrictions:(id)arg2 profileRestrictions:(id)arg3 clientRestrictions:(id)arg4 outRestrictionsChanged:(char *)arg5 outError:(id *)arg6;
 + (id)restrictionsAfterApplyingRestrictionsDictionary:(id)arg1 toRestrictionsDictionary:(id)arg2 outChangeDetected:(char *)arg3 outError:(id *)arg4;
@@ -61,20 +66,31 @@
 - (void).cxx_destruct;
 - (int)appWhitelistState;
 - (BOOL)isValueSettingLockedDownByRestrictions:(id)arg1;
+- (BOOL)_isValueSettingLockedDown:(id)arg1 effectiveSetting:(id)arg2;
 - (BOOL)isBoolSettingLockedDownByRestrictions:(id)arg1;
+- (BOOL)_isBoolSettingLockedDown:(id)arg1;
+- (BOOL)isSettingLockedDownByRestrictions:(id)arg1;
+- (id)profileIdentifiersRestrictingSettings:(id)arg1;
+- (id)_effectiveUnionValuesForSetting:(id)arg1 effectiveUserSettings:(id)arg2;
+- (id)_effectiveIntersectedValuesForSetting:(id)arg1 effectiveUserSettings:(id)arg2;
 - (id)effectiveUnionValuesForSetting:(id)arg1;
 - (id)effectiveIntersectedValuesForSetting:(id)arg1;
 - (id)effectiveValueForSetting:(id)arg1;
 - (int)effectiveRestrictedBoolForSetting:(id)arg1;
+- (id)unionValuesSettingForFeature:(id)arg1;
+- (id)intersectedValuesSettingForFeature:(id)arg1;
+- (id)valueSettingForFeature:(id)arg1;
+- (int)boolSettingForFeature:(id)arg1;
 - (id)effectiveParametersForUnionSetting:(id)arg1;
 - (id)effectiveParametersForIntersectedSetting:(id)arg1;
 - (id)effectiveParametersForValueSetting:(id)arg1;
 - (id)effectiveParametersForBoolSetting:(id)arg1;
-@property(readonly, nonatomic) NSDictionary *effectiveUserSettings;
+@property(readonly, copy, nonatomic) NSDictionary *effectiveUserSettings;
 @property(retain, nonatomic) NSMutableDictionary *memberQueueEffectiveUserSettings; // @synthesize memberQueueEffectiveUserSettings=_memberQueueEffectiveUserSettings;
 - (void)memberQueueCommitUserSettingsToDisk;
-@property(readonly, nonatomic) NSDictionary *userSettings;
+@property(readonly, copy, nonatomic) NSDictionary *userSettings;
 @property(retain, nonatomic) NSMutableDictionary *memberQueueUserSettings; // @synthesize memberQueueUserSettings=_memberQueueUserSettings;
+- (id)exchangeUUIDsRestrictingSettings:(id)arg1;
 - (id)allClientUUIDsForClientType:(id)arg1;
 - (id)userInfoForClientUUID:(id)arg1;
 - (id)memberQueueUserInfoForClientUUID:(id)arg1;
@@ -90,9 +106,9 @@
 - (int)restrictedBoolForFeature:(id)arg1;
 - (id)potentialRestrictionsAfterApplyingRestrictionsDictionary:(id)arg1 outChangeDetected:(char *)arg2 outError:(id *)arg3;
 - (id)description;
-@property(readonly, nonatomic) NSDictionary *combinedProfileRestrictions;
+@property(readonly, copy, nonatomic) NSDictionary *combinedProfileRestrictions;
 @property(readonly, nonatomic) NSMutableDictionary *memberQueueCombinedProfileRestrictions;
-@property(readonly, nonatomic) NSDictionary *profileRestrictions;
+@property(readonly, copy, nonatomic) NSDictionary *profileRestrictions;
 @property(readonly, nonatomic) NSDictionary *currentRestrictions;
 @property(retain, nonatomic) NSMutableDictionary *memberQueueRestrictions; // @synthesize memberQueueRestrictions=_memberQueueRestrictions;
 @property(readonly, nonatomic) NSDictionary *defaultSettings;

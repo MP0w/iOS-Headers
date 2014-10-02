@@ -11,6 +11,7 @@
 }
 
 - (BOOL)music_hasContent;
+- (id)view;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end

@@ -11,7 +11,7 @@
 #import "TSKSearchable.h"
 #import "TSKTransformableObject.h"
 
-@class KNAbstractSlide, KNBuild, KNSlide, NSArray, NSObject<TSDContainerInfo>, NSString, NSURL, TSDDefaultPartitioner, TSDExteriorTextWrap, TSDInfoGeometry, TSPLazyReference, TSPObject<TSDOwningAttachment>, TSSPropertySetChangeDetails;
+@class NSObject<TSDContainerInfo>, NSString, NSURL, TSDDefaultPartitioner, TSDDrawableComment, TSDExteriorTextWrap, TSDInfoGeometry, TSPLazyReference, TSPObject<TSDOwningAttachment>, TSSPropertySetChangeDetails;
 
 __attribute__((visibility("hidden")))
 @interface TSDDrawableInfo : TSPObject <TSDChangeableInfo, TSKDocumentObject, TSKTransformableObject, TSKSearchable>
@@ -26,12 +26,13 @@ __attribute__((visibility("hidden")))
     TSPObject<TSDOwningAttachment> *mOwningAttachment;
     TSDDefaultPartitioner *mDefaultPartitioner;
     NSURL *mHyperlinkURL;
-    id <TSDAnnotationHosting> mComment;
+    TSDDrawableComment *mComment;
     NSString *mAccessibilityDescription;
 }
 
 + (BOOL)canPartition;
 + (void)setShouldPartitionByDefault:(BOOL)arg1;
++ (BOOL)needsObjectUUID;
 @property(copy, nonatomic) NSString *accessibilityDescription; // @synthesize accessibilityDescription=mAccessibilityDescription;
 @property(nonatomic) BOOL aspectRatioLocked; // @synthesize aspectRatioLocked=mAspectRatioLocked;
 @property(nonatomic, getter=isLocked) BOOL locked; // @synthesize locked=mLocked;
@@ -49,6 +50,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)reverseChunkingIsSupported;
 - (id)textureDeliveryStylesLocalized:(BOOL)arg1 animationFilter:(id)arg2;
 - (unsigned int)textureDeliveryStyleFromDeliveryString:(id)arg1;
+- (id)localizedChunkNameForTextureDeliveryStyle:(unsigned int)arg1 animationFilter:(id)arg2 chunkIndex:(unsigned int)arg3;
 - (unsigned int)chunkCountForTextureDeliveryStyle:(unsigned int)arg1 byGlyphStyle:(int)arg2 animationFilter:(id)arg3;
 - (unsigned int)chunkCountForTextureDeliveryStyle:(unsigned int)arg1 animationFilter:(id)arg2;
 - (id)animationFilters;
@@ -65,6 +67,7 @@ __attribute__((visibility("hidden")))
 - (void)willChangeProperty:(int)arg1;
 - (void)beginCollectingChanges;
 - (id)searchForAnnotationsWithHitBlock:(CDUnknownBlockType)arg1;
+@property(retain, nonatomic) TSDDrawableComment *comment;
 @property(readonly, nonatomic) BOOL supportsAttachedComments;
 - (BOOL)canAnchor;
 - (id)commandToFlipWithOrientation:(int)arg1;
@@ -94,28 +97,23 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL canSizeBeChangedIncrementally;
 @property(copy, nonatomic) TSDInfoGeometry *geometry;
 @property(readonly, nonatomic) TSPObject<TSDOwningAttachment> *owningAttachmentNoRecurse;
-@property(copy, nonatomic) id <TSDAnnotationHosting> comment;
+- (void)clearBackPointerToParentInfoIfNeeded:(id)arg1;
 @property(nonatomic) NSObject<TSDContainerInfo> *parentInfo;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1 geometry:(id)arg2;
 - (void)saveToArchive:(struct DrawableArchive *)arg1 archiver:(id)arg2;
 - (void)loadFromArchive:(const struct DrawableArchive *)arg1 unarchiver:(id)arg2;
 - (void)setParentInfoDuringUnarchiving:(id)arg1 fromPasteboard:(BOOL)arg2;
+- (id)objectUUIDPath;
 - (void)setInsertionCenterPosition:(struct CGPoint)arg1;
 - (int)elementKind;
-@property(readonly, nonatomic) NSString *buildImageTitle;
-- (id)titleForBuildChunk:(id)arg1;
-@property(readonly, nonatomic) NSArray *ghostInfos;
-- (id)buildChunksForAnimationType:(int)arg1;
-@property(readonly, nonatomic) NSArray *buildChunks;
-@property(readonly, nonatomic) NSArray *builds;
-@property(readonly, nonatomic) unsigned int buildCount;
-@property(readonly, nonatomic) KNBuild *buildOut;
-@property(readonly, nonatomic) KNBuild *buildIn;
-@property(readonly, nonatomic) NSArray *actionBuilds;
-@property(readonly, nonatomic) BOOL hasActionBuilds;
-@property(readonly, nonatomic) KNAbstractSlide *abstractSlide;
-@property(readonly, nonatomic) KNSlide *slide;
+- (id)uuidPathPrefixComponentsProvider;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

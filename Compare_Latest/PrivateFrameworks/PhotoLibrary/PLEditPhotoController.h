@@ -6,16 +6,16 @@
 
 #import "UIViewController.h"
 
-#import "PLEffectSelectionViewControllerDelegate.h"
+#import "CAMEffectSelectionViewControllerDelegate.h"
 #import "PLImageAdjustmentViewDelegate.h"
 #import "UIActionSheetDelegate.h"
 #import "UIAlertViewDelegate.h"
 #import "UIPopoverControllerDelegate.h"
 #import "UIScrollViewDelegate.h"
 
-@class CIContext, CIFilter, EAGLContext, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSTimer, NSUndoManager, PLEditOverlayTextView, PLEffectSelectionViewController, PLImageAdjustmentView, PLManagedAsset, PLProgressHUD, UIActionSheet, UIAlertView, UIImage, UINavigationBar, UIPopoverController, UIScrollView, UIToolbar, UIView;
+@class CAMEffectSelectionViewController, CIContext, CIFilter, EAGLContext, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSTimer, NSUndoManager, PLEditOverlayTextView, PLImageAdjustmentView, PLManagedAsset, PLProgressHUD, UIActionSheet, UIAlertView, UIImage, UINavigationBar, UIPopoverController, UIScrollView, UIToolbar, UIView;
 
-@interface PLEditPhotoController : UIViewController <PLImageAdjustmentViewDelegate, UIScrollViewDelegate, UIActionSheetDelegate, UIAlertViewDelegate, UIPopoverControllerDelegate, PLEffectSelectionViewControllerDelegate>
+@interface PLEditPhotoController : UIViewController <PLImageAdjustmentViewDelegate, UIScrollViewDelegate, UIActionSheetDelegate, UIAlertViewDelegate, UIPopoverControllerDelegate, CAMEffectSelectionViewControllerDelegate>
 {
     UIScrollView *_scrollView;
     UIView *_zoomView;
@@ -23,7 +23,7 @@
     PLEditOverlayTextView *_messageView;
     UINavigationBar *_navigationBar;
     UIToolbar *_toolbar;
-    PLEffectSelectionViewController *_effectSelectionViewController;
+    CAMEffectSelectionViewController *_effectSelectionViewController;
     PLProgressHUD *_savingHUD;
     UIActionSheet *_actionSheet;
     UIAlertView *_alertView;
@@ -248,6 +248,12 @@
 - (void)startEditingAsset:(id)arg1 proxyImage:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

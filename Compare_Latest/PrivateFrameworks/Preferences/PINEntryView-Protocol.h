@@ -11,8 +11,8 @@
 @protocol PINEntryView <UITextFieldDelegate>
 - (void)setBlocked:(BOOL)arg1;
 - (void)hideFailedAttempts;
-- (void)showFailedAttempts:(int)arg1;
-- (void)setDelegate:(id)arg1;
+- (void)showFailedAttempts:(long)arg1;
+- (void)setDelegate:(id <PSPINEntryViewDelegate>)arg1;
 - (BOOL)becomeFirstResponder;
 - (void)hidePasscodeField:(BOOL)arg1;
 - (void)appendString:(NSString *)arg1;
@@ -23,5 +23,7 @@
 - (void)hideError;
 - (void)setPINPolicyString:(NSString *)arg1 visible:(BOOL)arg2;
 - (void)showError:(NSString *)arg1 animate:(BOOL)arg2;
+- (void)setTextFieldKeyboardAppearance:(int)arg1;
+- (void)setTextFieldKeyboardType:(int)arg1;
 @end
 

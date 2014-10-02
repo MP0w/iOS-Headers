@@ -20,8 +20,10 @@ __attribute__((visibility("hidden")))
     BOOL mRequireCopyPassword;
     BOOL mRequirePrintPassword;
     int mRenderingQuality;
+    float mMaxPixels;
 }
 
+- (void)setMaxPixels:(float)arg1;
 - (BOOL)supportsRenderingQuality;
 - (BOOL)supportsPaging;
 - (void)releaseCGContext:(struct CGContext *)arg1;

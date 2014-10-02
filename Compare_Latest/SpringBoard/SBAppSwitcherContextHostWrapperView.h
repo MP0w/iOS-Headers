@@ -8,13 +8,13 @@
 
 #import "SBAppSwitcherPageContentView.h"
 
-@class SBWallpaperEffectView, SBWindowContextHostManager, UIView<SBWindowContextAppearance>;
+@class FBWindowContextHostManager, NSString, SBWallpaperEffectView, UIView<FBWindowContextAppearance>;
 
 @interface SBAppSwitcherContextHostWrapperView : UIView <SBAppSwitcherPageContentView>
 {
-    SBWindowContextHostManager *_contextHostManager;
+    FBWindowContextHostManager *_contextHostManager;
     UIView *_containerView;
-    UIView<SBWindowContextAppearance> *_contextHostView;
+    UIView<FBWindowContextAppearance> *_contextHostView;
     UIView *_snapshotView;
     SBWallpaperEffectView *_wallpaperEffectView;
     long long _orientation;
@@ -32,6 +32,12 @@
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 application:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

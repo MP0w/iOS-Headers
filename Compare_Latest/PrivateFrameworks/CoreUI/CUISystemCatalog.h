@@ -11,10 +11,9 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (id)temporaryFallbackCatalog;
 - (BOOL)hasStylePresetWithName:(id)arg1;
-- (id)newShapeEffectPresetWithStylePresetName:(id)arg1 state:(int)arg2 presentationState:(int)arg3 value:(int)arg4 resolution:(unsigned int)arg5;
-- (id)newShapeEffectPresetWithStyleID:(unsigned int)arg1 state:(int)arg2 presentationState:(int)arg3 value:(int)arg4 resolution:(unsigned int)arg5;
+- (BOOL)hasStylePresetWithName:(id)arg1 styleConfiguration:(id)arg2;
+- (id)newShapeEffectPresetForStylePresetName:(id)arg1 styleConfiguration:(id)arg2;
 
 @end
 

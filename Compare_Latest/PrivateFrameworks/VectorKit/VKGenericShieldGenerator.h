@@ -8,21 +8,28 @@
 
 #import "GEOResourceManifestTileGroupObserver.h"
 
-@class NSCache, VKGenericShieldDrawStyle;
+@class NSCache, NSString, VKGenericShieldDrawStyle, VKResourceManager;
 
 __attribute__((visibility("hidden")))
 @interface VKGenericShieldGenerator : NSObject <GEOResourceManifestTileGroupObserver>
 {
     VKGenericShieldDrawStyle *_defaultStyle;
     NSCache *_defaultStylePacks;
+    unsigned int _tileGroupIdentifier;
+    VKResourceManager *_resourceManager;
 }
 
-+ (id)sharedGenerator;
-- (id)newArtworkWithScale:(float)arg1 style:(id)arg2 size:(int)arg3 extraScale:(float)arg4 numberOfLines:(unsigned int)arg5;
+- (id)newArtworkWithScale:(float)arg1 style:(id)arg2 size:(int)arg3 numberOfLines:(unsigned int)arg4;
 - (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
 - (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;
 - (void)dealloc;
-- (id)init;
+- (id)initWithTileGroupIdentifier:(unsigned int)arg1 resourceManager:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

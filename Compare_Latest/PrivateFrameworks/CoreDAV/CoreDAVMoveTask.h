@@ -13,7 +13,7 @@
     NSString *_previousETag;
 }
 
-@property(retain) NSString *previousETag; // @synthesize previousETag=_previousETag;
+@property(retain, nonatomic) NSString *previousETag; // @synthesize previousETag=_previousETag;
 - (void)_callBackToDelegateWithResponses:(id)arg1 error:(id)arg2;
 - (id)additionalHeaderValues;
 - (id)httpMethod;

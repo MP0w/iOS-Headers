@@ -8,6 +8,8 @@
 
 #import "TPPageGenerator.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TPTextPageGenerator : NSObject <TPPageGenerator>
 {
@@ -15,6 +17,12 @@ __attribute__((visibility("hidden")))
 
 - (void)createOrUpdatePageHintInSectionHint:(id)arg1 withState:(id)arg2;
 - (BOOL)wantsPageInSectionHint:(id)arg1 withState:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

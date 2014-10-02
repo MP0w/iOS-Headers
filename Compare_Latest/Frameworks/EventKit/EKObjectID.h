@@ -6,10 +6,10 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
-@interface EKObjectID : NSObject <NSCopying, NSCoding>
+@interface EKObjectID : NSObject <NSCopying, NSSecureCoding>
 {
     BOOL _temporary;
     int _entityType;
@@ -20,6 +20,7 @@
 + (id)temporaryObjectIDWithEntityType:(int)arg1;
 + (id)objectIDWithEntityType:(int)arg1 rowID:(int)arg2;
 + (id)objectIDWithCADObjectID:(CDStruct_f683c4ba)arg1;
++ (BOOL)supportsSecureCoding;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;

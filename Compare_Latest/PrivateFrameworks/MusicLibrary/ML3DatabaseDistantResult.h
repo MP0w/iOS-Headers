@@ -8,6 +8,7 @@
 
 @class ML3DatabaseDistantConnection, NSArray, NSString;
 
+__attribute__((visibility("hidden")))
 @interface ML3DatabaseDistantResult : ML3DatabaseResult
 {
     NSArray *_cachedRows;

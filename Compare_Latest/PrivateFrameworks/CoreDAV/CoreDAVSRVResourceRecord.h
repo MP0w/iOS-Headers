@@ -17,11 +17,11 @@
     NSString *_target;
 }
 
-@property(retain) NSString *target; // @synthesize target=_target;
-@property(retain) NSNumber *port; // @synthesize port=_port;
-@property(retain) NSNumber *weight; // @synthesize weight=_weight;
-@property(retain) NSNumber *priority; // @synthesize priority=_priority;
-@property(retain) NSString *serviceString; // @synthesize serviceString=_serviceString;
+@property(retain, nonatomic) NSString *target; // @synthesize target=_target;
+@property(retain, nonatomic) NSNumber *port; // @synthesize port=_port;
+@property(retain, nonatomic) NSNumber *weight; // @synthesize weight=_weight;
+@property(retain, nonatomic) NSNumber *priority; // @synthesize priority=_priority;
+@property(retain, nonatomic) NSString *serviceString; // @synthesize serviceString=_serviceString;
 - (id)description;
 - (void)dealloc;
 

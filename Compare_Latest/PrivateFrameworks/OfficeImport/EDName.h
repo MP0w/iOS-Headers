@@ -6,31 +6,34 @@
 
 #import "NSObject.h"
 
-@class EDFormula, EDString, TSUPointerKeyDictionary;
+@class EDFormula, EDString, NSString, OITSUPointerKeyDictionary;
 
 __attribute__((visibility("hidden")))
 @interface EDName : NSObject
 {
-    unsigned int mSheetIndex;
-    EDString *mNameString;
-    EDFormula *mFormula;
-    TSUPointerKeyDictionary *mMaxWorksheetReferences;
+    NSString *_formulaString;
+    OITSUPointerKeyDictionary *_maxWorksheetReferences;
+    EDString *_nameString;
+    EDFormula *_formula;
+    unsigned int _sheetIndex;
 }
 
-- (id)maxWorksheetReferences;
-- (void)setSheetIndex:(unsigned int)arg1;
-- (unsigned int)sheetIndex;
-- (void)setCleanedFormula:(id)arg1;
++ (id)name;
+@property(nonatomic) unsigned int sheetIndex; // @synthesize sheetIndex=_sheetIndex;
+@property(readonly, nonatomic) EDFormula *formula; // @synthesize formula=_formula;
+@property(retain, nonatomic) EDString *nameString; // @synthesize nameString=_nameString;
+@property(readonly, nonatomic) OITSUPointerKeyDictionary *maxWorksheetReferences;
 - (void)setFormula:(id)arg1 workbook:(id)arg2;
-- (id)formula;
-- (void)setNameString:(id)arg1;
-- (id)nameString;
+@property(readonly, nonatomic) NSString *internalFunctionName;
+@property(readonly, nonatomic) BOOL isInternalFunction;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isEqualToString:(id)arg1;
 - (BOOL)isEqualToEDName:(id)arg1;
 - (void)dealloc;
 - (id)init;
+- (void)setFormulaString:(id)arg1 workbook:(id)arg2;
+- (id)formulaString;
 
 @end
 

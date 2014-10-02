@@ -9,7 +9,7 @@
 #import "GQPObjectHandler.h"
 #import "GQPObjectReader.h"
 
-@class GQDSStyle, GQDSStylesheet;
+@class GQDSStyle, GQDSStylesheet, NSString;
 
 __attribute__((visibility("hidden")))
 @interface GQPStyleReader : NSObject <GQPObjectReader, GQPObjectHandler>
@@ -39,6 +39,12 @@ __attribute__((visibility("hidden")))
 - (void)doneProperty;
 - (BOOL)beginProperty:(const char *)arg1;
 - (id)createStyle;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

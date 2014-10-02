@@ -12,20 +12,22 @@
 {
     NSString *_secret;
     NSString *_title;
-    NSString *_description;
+    NSString *_photoSetDescription;
     long long _identifier;
     long long _primaryPhotoID;
     long long _farmID;
     long long _serverID;
 }
 
-@property(copy, nonatomic) NSString *description; // @synthesize description=_description;
+@property(copy, nonatomic) NSString *photoSetDescription; // @synthesize photoSetDescription=_photoSetDescription;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(copy, nonatomic) NSString *secret; // @synthesize secret=_secret;
 @property(nonatomic) long long serverID; // @synthesize serverID=_serverID;
 @property(nonatomic) long long farmID; // @synthesize farmID=_farmID;
 @property(nonatomic) long long primaryPhotoID; // @synthesize primaryPhotoID=_primaryPhotoID;
 @property(nonatomic) long long identifier; // @synthesize identifier=_identifier;
+- (void).cxx_destruct;
+- (id)description;
 
 @end
 

@@ -25,7 +25,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) CDUnknownBlockType roadHandler; // @synthesize roadHandler=_roadHandler;
 - (id).cxx_construct;
 - (void)findFeatures:(CDUnknownBlockType)arg1 pointHandler:(CDUnknownBlockType)arg2 polygonHandler:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)_pickRoadInTile:(id)arg1 tileRect:(const CDStruct_90e2a262 *)arg2 localPoint:(const Vec2Imp_1782d7e3 *)arg3;
+- (void)_pickRoadInTile:(id)arg1 tileRect:(const CDStruct_02837cd9 *)arg2 localPoint:(const Matrix_8746f91e *)arg3;
 @property(readonly, nonatomic) GEOMapAccess *map;
 - (void)cancel;
 - (void)dealloc;

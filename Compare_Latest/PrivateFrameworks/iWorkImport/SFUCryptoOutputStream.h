@@ -8,7 +8,7 @@
 
 #import "SFUOutputStream.h"
 
-@class SFUCryptor;
+@class NSString, SFUCryptor;
 
 __attribute__((visibility("hidden")))
 @interface SFUCryptoOutputStream : NSObject <SFUOutputStream>
@@ -33,6 +33,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initForEncryptionWithOutputStream:(id)arg1 key:(id)arg2 computeCrc32:(BOOL)arg3;
 - (id)initForEncryptionWithOutputStream:(id)arg1 key:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -7,10 +7,13 @@
 #import "NSString.h"
 
 @interface NSString (NSStringUtils)
++ (id)mf_stringForMimeTypeFromFileName:(id)arg1;
 + (id)mf_stringWithAttachmentCharacter;
 + (id)mf_stringRepresentationForBytes:(long long)arg1;
 + (id)mf_messageIDStringWithDomainHint:(id)arg1;
 + (id)mf_UUID;
+- (BOOL)mf_containsSubstring:(id)arg1 options:(unsigned int)arg2;
+- (BOOL)mf_caseInsensitiveIsEqualToString:(id)arg1;
 - (id)mf_stringByReplacingPercentEscapesUsingEncoding:(unsigned int)arg1;
 - (id)mf_stringByAddingPercentEscapesUsingEncoding:(unsigned int)arg1;
 - (id)mf_stringByEscapingHTMLCodes;

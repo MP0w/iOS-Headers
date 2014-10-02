@@ -9,21 +9,27 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class MPMediaItem, MPMediaLibrary;
+@class MIPMultiverseIdentifier, MPMediaItem, MPMediaLibrary;
 
 @interface MPMediaEntity : NSObject <NSCopying, NSSecureCoding>
 {
+    MIPMultiverseIdentifier *_multiverseIdentifier;
 }
 
 + (BOOL)supportsSecureCoding;
 + (BOOL)canFilterByProperty:(id)arg1;
+@property(readonly, nonatomic) MIPMultiverseIdentifier *multiverseIdentifier; // @synthesize multiverseIdentifier=_multiverseIdentifier;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) MPMediaLibrary *mediaLibrary;
+- (id)objectForKeyedSubscript:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithMultiverseIdentifier:(id)arg1;
 - (void)enumerateValuesForProperties:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (id)cachedValueForProperty:(id)arg1;
 - (id)valuesForProperties:(id)arg1;
 - (id)valueForProperty:(id)arg1;
 - (void)invalidateCachedProperties;

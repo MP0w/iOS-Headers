@@ -6,36 +6,32 @@
 
 #import <AddressBookUI/ABPropertyAction.h>
 
-#import "IDSIDQueryControllerDelegate.h"
+#import "ABPropertyBestFaceTimeQueryDelegate.h"
 
-@class NSArray;
+@class ABPropertyBestFaceTimeQuery, NSArray;
 
-@interface ABContactAddFavoriteAction : ABPropertyAction <IDSIDQueryControllerDelegate>
+@interface ABContactAddFavoriteAction : ABPropertyAction <ABPropertyBestFaceTimeQueryDelegate>
 {
     BOOL _allowPhoneFavorites;
     BOOL _allowFaceTimeFavorites;
     BOOL _allowFaceTimeAudioFavorites;
     BOOL _hasFaceTimeFavorite;
     BOOL _hasFaceTimeAudioFavorite;
-    NSArray *_faceTimeableItems;
-    CDUnknownBlockType _idQueryResultHandler;
+    ABPropertyBestFaceTimeQuery *_bestFaceTimeQuery;
     NSArray *_filteredPhoneItems;
 }
 
 @property(nonatomic) BOOL hasFaceTimeAudioFavorite; // @synthesize hasFaceTimeAudioFavorite=_hasFaceTimeAudioFavorite;
 @property(nonatomic) BOOL hasFaceTimeFavorite; // @synthesize hasFaceTimeFavorite=_hasFaceTimeFavorite;
 @property(retain, nonatomic) NSArray *filteredPhoneItems; // @synthesize filteredPhoneItems=_filteredPhoneItems;
-@property(copy, nonatomic) CDUnknownBlockType idQueryResultHandler; // @synthesize idQueryResultHandler=_idQueryResultHandler;
-@property(retain, nonatomic) NSArray *faceTimeableItems; // @synthesize faceTimeableItems=_faceTimeableItems;
+@property(retain, nonatomic) ABPropertyBestFaceTimeQuery *bestFaceTimeQuery; // @synthesize bestFaceTimeQuery=_bestFaceTimeQuery;
 @property(nonatomic) BOOL allowFaceTimeAudioFavorites; // @synthesize allowFaceTimeAudioFavorites=_allowFaceTimeAudioFavorites;
 @property(nonatomic) BOOL allowFaceTimeFavorites; // @synthesize allowFaceTimeFavorites=_allowFaceTimeFavorites;
 @property(nonatomic) BOOL allowPhoneFavorites; // @synthesize allowPhoneFavorites=_allowPhoneFavorites;
-- (id)_bestFaceTimeProperty;
 - (void)_saveFavorite:(id)arg1 withType:(int)arg2;
 - (void)_queryFaceTimeStatus;
 - (void)_filterFavoritedItems;
-- (void)idStatusUpdatedForDestinations:(id)arg1 service:(id)arg2;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)queryComplete;
 - (void)performActionWithSender:(id)arg1;
 - (BOOL)canPerformAction;
 - (void)dealloc;

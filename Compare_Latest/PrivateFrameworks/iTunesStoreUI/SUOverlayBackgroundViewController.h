@@ -9,7 +9,7 @@
 #import "SUScalingFlipViewDelegate.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class NSArray, NSMutableArray, SUOverlayViewController, SUScalingFlipView, SUTouchCaptureView, UISwipeGestureRecognizer;
+@class NSArray, NSMutableArray, NSString, SUOverlayViewController, SUScalingFlipView, SUTouchCaptureView, UISwipeGestureRecognizer;
 
 @interface SUOverlayBackgroundViewController : SUViewController <SUScalingFlipViewDelegate, UIGestureRecognizerDelegate>
 {
@@ -78,6 +78,12 @@
 - (void)dismissAnimated:(BOOL)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

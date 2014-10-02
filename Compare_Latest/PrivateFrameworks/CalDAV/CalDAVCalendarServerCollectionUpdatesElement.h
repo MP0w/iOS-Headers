@@ -11,7 +11,7 @@
     int _state;
 }
 
-@property(readonly) int state; // @synthesize state=_state;
+@property(readonly, nonatomic) int state; // @synthesize state=_state;
 - (id)copyParseRules;
 - (void)setUnpublish:(id)arg1;
 - (void)setPublish:(id)arg1;

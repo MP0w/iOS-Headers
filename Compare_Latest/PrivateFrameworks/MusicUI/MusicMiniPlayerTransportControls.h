@@ -4,28 +4,26 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MPTransportControls.h"
+#import "MPUMiniPlayerTransportControls.h"
 
-@class MusicProspectivePlaybackInformation;
+@class MPImageCacheRequest, UIImageView;
 
-@interface MusicMiniPlayerTransportControls : MPTransportControls
+@interface MusicMiniPlayerTransportControls : MPUMiniPlayerTransportControls
 {
-    MusicProspectivePlaybackInformation *_prospectivePlaybackInformation;
+    UIImageView *_artworkImageView;
+    MPImageCacheRequest *_currentImageCacheRequest;
 }
 
-+ (BOOL)buttonImagesUseBackgroundImage;
-+ (int)buttonType;
-@property(retain, nonatomic) MusicProspectivePlaybackInformation *prospectivePlaybackInformation; // @synthesize prospectivePlaybackInformation=_prospectivePlaybackInformation;
++ (unsigned long long)defaultVisibleParts;
 - (void).cxx_destruct;
+- (void)_updateItemArtwork;
+- (void)_avItemArtworkDidChangeNotification:(id)arg1;
+- (void)_updateForItemChangeWithPreviousItem:(id)arg1 animated:(BOOL)arg2;
 - (void)_prospectivePlaybackInformationDidChangeAnimated:(BOOL)arg1;
-- (void)setProspectivePlaybackInformation:(id)arg1 animated:(BOOL)arg2;
-- (BOOL)usesTintColorForControls;
-- (id)tintColorForPart:(unsigned long long)arg1;
-- (void)reloadForAdditions:(id)arg1 removals:(id)arg2 animate:(BOOL)arg3;
-- (id)newButtonForPart:(unsigned long long)arg1;
-- (id)buttonImageForPart:(unsigned long long)arg1;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)setItem:(id)arg1;
 - (void)layoutSubviews;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

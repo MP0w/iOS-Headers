@@ -16,7 +16,8 @@
     float _maxImageHeight;
 }
 
-+ (id)pngDataForAttachment:(id)arg1 dimensions:(struct CGSize *)arg2;
++ (id)pngDataForAttachment:(id)arg1;
++ (float)defaultHeight;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)dealloc;
 - (id)initWithAttachment:(id)arg1;

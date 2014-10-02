@@ -9,17 +9,19 @@
 #import "ABPeoplePickerNavigationControllerDelegate.h"
 #import "ABPersonViewControllerDelegate.h"
 
-@class ABPeoplePickerNavigationController, CNContact;
+@class ABPeoplePickerNavigationController, CNContact, NSObject<ABContactAddLinkedCardActionDelegate>, NSString;
 
 @interface ABContactAddLinkedCardAction : ABContactAction <ABPeoplePickerNavigationControllerDelegate, ABPersonViewControllerDelegate>
 {
     CNContact *_chosenContact;
+    NSObject<ABContactAddLinkedCardActionDelegate> *_linkedCardActionDelegate;
     ABPeoplePickerNavigationController *_peoplePicker;
     CNContact *_selectedContact;
 }
 
 @property(retain, nonatomic) CNContact *selectedContact; // @synthesize selectedContact=_selectedContact;
 @property(retain, nonatomic) ABPeoplePickerNavigationController *peoplePicker; // @synthesize peoplePicker=_peoplePicker;
+@property(nonatomic) NSObject<ABContactAddLinkedCardActionDelegate> *linkedCardActionDelegate; // @synthesize linkedCardActionDelegate=_linkedCardActionDelegate;
 @property(retain, nonatomic) CNContact *chosenContact; // @synthesize chosenContact=_chosenContact;
 - (BOOL)personViewController:(id)arg1 shouldPerformDefaultActionForPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
 - (BOOL)peoplePickerNavigationController:(id)arg1 shouldAllowSelectingPersonWithRecordID:(int)arg2;
@@ -29,6 +31,12 @@
 - (void)peoplePickerLinkButtonTapped;
 - (void)performActionWithSender:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

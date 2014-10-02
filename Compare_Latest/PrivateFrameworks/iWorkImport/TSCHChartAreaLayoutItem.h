@@ -19,6 +19,8 @@ __attribute__((visibility("hidden")))
     BOOL mInOutwardLayout;
 }
 
+- (void)protected_iterateHitChartElements:(struct CGPoint)arg1 withBlock:(CDUnknownBlockType)arg2;
+- (void)p_updateMinHitSizes;
 - (struct CGRect)i_currentBufferAreaUnitRect;
 - (id)renderersWithRep:(id)arg1;
 - (void)p_layoutOutward;
@@ -27,6 +29,7 @@ __attribute__((visibility("hidden")))
 - (float)p_dataSetNameLabelPadding;
 - (void)p_arrangeSizedChildren;
 - (Class)p_axisLayoutItemClassForAxisID:(id)arg1;
+- (struct CGRect)titleFrame;
 - (void)dealloc;
 
 @end

@@ -8,7 +8,7 @@
 
 #import "ABContactViewControllerDelegate.h"
 
-@class ABContactViewController, ABContactsFilter, ABPersonTableViewDataSource, ABPersonViewControllerHelper, CNContact, _UIAccessDeniedView;
+@class ABContactViewController, ABContactsFilter, ABPersonTableViewDataSource, ABPersonViewControllerHelper, CNContact, NSString, _UIAccessDeniedView;
 
 @interface ABNewPersonViewController_Modern : UIViewController <ABContactViewControllerDelegate>
 {
@@ -22,16 +22,16 @@
     ABPersonViewControllerHelper *_helper;
     ABPersonTableViewDataSource *_dataSource;
     void *_parentSource;
+    CNContact *_mergeContact;
     id <ABStyleProvider> _styleProvider;
     ABContactsFilter *_parentContactsFilter;
     id <ABPresenterDelegate> _presentingDelegate;
-    CNContact *_mergeContact;
 }
 
-@property(retain, nonatomic) CNContact *mergeContact; // @synthesize mergeContact=_mergeContact;
 @property(nonatomic) id <ABPresenterDelegate> presentingDelegate; // @synthesize presentingDelegate=_presentingDelegate;
 @property(retain, nonatomic) ABContactsFilter *parentContactsFilter; // @synthesize parentContactsFilter=_parentContactsFilter;
 @property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
+@property(retain, nonatomic) CNContact *mergeContact; // @synthesize mergeContact=_mergeContact;
 @property(nonatomic) void *parentSource; // @synthesize parentSource=_parentSource;
 @property(readonly, nonatomic) ABPersonTableViewDataSource *dataSource; // @synthesize dataSource=_dataSource;
 @property(readonly, nonatomic) ABPersonViewControllerHelper *helper; // @synthesize helper=_helper;
@@ -58,6 +58,12 @@
 - (id)initWithStyle:(int)arg1;
 - (id)init;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2 style:(int)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

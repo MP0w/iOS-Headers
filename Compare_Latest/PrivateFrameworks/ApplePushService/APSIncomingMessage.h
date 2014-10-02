@@ -6,7 +6,7 @@
 
 #import <ApplePushService/APSMessage.h>
 
-@class NSDate;
+@class NSData, NSDate;
 
 @interface APSIncomingMessage : APSMessage
 {
@@ -15,6 +15,7 @@
 @property(nonatomic) int priority;
 @property(nonatomic, getter=wasLastMessageFromStorage) BOOL lastMessageFromStorage;
 @property(nonatomic, getter=wasFromStorage) BOOL fromStorage;
+@property(copy, nonatomic) NSData *token;
 @property(copy, nonatomic) NSDate *timestamp;
 
 @end

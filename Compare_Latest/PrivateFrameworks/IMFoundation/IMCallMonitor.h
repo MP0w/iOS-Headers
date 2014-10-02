@@ -16,7 +16,7 @@
 }
 
 + (id)sharedInstance;
-@property(readonly, nonatomic) NSDate *dateLastCallEnded; // @synthesize dateLastCallEnded=_lastCallDate;
+@property(readonly, retain, nonatomic) NSDate *dateLastCallEnded; // @synthesize dateLastCallEnded=_lastCallDate;
 @property(readonly, nonatomic) BOOL isOnCall;
 - (void)dealloc;
 - (id)init;

@@ -8,7 +8,7 @@
 
 #import "WebBookmarksXPCConnectionDelegate.h"
 
-@class NSObject<OS_xpc_object>, NSTimer, WebBookmarksXPCConnection;
+@class NSObject<OS_xpc_object>, NSString, NSTimer, WebBookmarksXPCConnection;
 
 __attribute__((visibility("hidden")))
 @interface WBReadingListPrivate : NSObject <WebBookmarksXPCConnectionDelegate>
@@ -23,6 +23,12 @@ __attribute__((visibility("hidden")))
 - (void)_addReadingListItemWithURL:(id)arg1 title:(id)arg2 previewText:(id)arg3;
 - (void)connection:(id)arg1 didCloseWithError:(id)arg2;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

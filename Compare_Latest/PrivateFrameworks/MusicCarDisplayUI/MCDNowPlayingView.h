@@ -6,10 +6,13 @@
 
 #import "UIView.h"
 
-@class MCDProgressView, UIImageView, UILabel;
+@class MCDProgressView, MPUGradientView, UIImageView, UILabel;
 
 @interface MCDNowPlayingView : UIView
 {
+    UIImageView *_explicitImageView;
+    MPUGradientView *_gradientView;
+    BOOL _explicitTrack;
     UILabel *_artistLabel;
     UILabel *_titleLabel;
     UILabel *_albumLabel;
@@ -17,13 +20,16 @@
     MCDProgressView *_progressView;
 }
 
+@property(nonatomic, getter=isExplicitTrack) BOOL explicitTrack; // @synthesize explicitTrack=_explicitTrack;
 @property(readonly, nonatomic) MCDProgressView *progressView; // @synthesize progressView=_progressView;
 @property(readonly, nonatomic) UIImageView *artworkView; // @synthesize artworkView=_artworkView;
 @property(readonly, nonatomic) UILabel *albumLabel; // @synthesize albumLabel=_albumLabel;
 @property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(readonly, nonatomic) UILabel *artistLabel; // @synthesize artistLabel=_artistLabel;
 - (void).cxx_destruct;
-- (id)_addLabelWithFont:(id)arg1 baseLineFromTop:(float)arg2 inBounds:(struct CGRect)arg3;
+- (id)_addLabelWithFont:(id)arg1;
+- (void)_layoutLabel:(id)arg1 baseLineFromTop:(float)arg2 inBounds:(struct CGRect)arg3;
+- (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

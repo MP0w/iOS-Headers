@@ -12,6 +12,9 @@ __attribute__((visibility("hidden")))
 }
 
 + (void)readCharacterProperties:(struct _xmlNode *)arg1 characterProperties:(id)arg2 drawingState:(id)arg3;
++ (id)stringWithUnderlineType:(int)arg1;
++ (id)stringWithStrikeThroughType:(int)arg1;
++ (id)stringWithCapsType:(int)arg1;
 + (void)readFont:(struct _xmlNode *)arg1 characterProperties:(id)arg2;
 + (void)readFormatting:(struct _xmlNode *)arg1 characterProperties:(id)arg2 drawingState:(id)arg3;
 + (void)readUnderlineFill:(struct _xmlNode *)arg1 underline:(id)arg2 drawingState:(id)arg3;

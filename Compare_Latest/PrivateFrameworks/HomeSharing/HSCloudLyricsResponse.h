@@ -14,7 +14,7 @@
 }
 
 @property(copy, nonatomic) NSString *lyrics; // @synthesize lyrics;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

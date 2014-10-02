@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding.h"
 
-@class NSArray, NSString;
+@class NSArray, NSNumber, NSString;
 
 @interface VSVoiceAsset : NSObject <NSSecureCoding>
 {
@@ -18,9 +18,13 @@
     NSArray *_languages;
     int _gender;
     int _footprint;
+    NSNumber *_contentVersion;
+    NSString *_masteredVersion;
 }
 
 + (BOOL)supportsSecureCoding;
+@property(readonly, nonatomic) NSString *masteredVersion; // @synthesize masteredVersion=_masteredVersion;
+@property(readonly, nonatomic) NSNumber *contentVersion; // @synthesize contentVersion=_contentVersion;
 @property(nonatomic) BOOL isBuiltInVoice; // @synthesize isBuiltInVoice=_isBuiltInVoice;
 @property(readonly, nonatomic) BOOL isInstalled; // @synthesize isInstalled=_isInstalled;
 @property(readonly, nonatomic) int footprint; // @synthesize footprint=_footprint;
@@ -33,6 +37,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
+- (id)initWithName:(id)arg1 languages:(id)arg2 gender:(int)arg3 footprint:(int)arg4 contentVersion:(id)arg5 masteredVersion:(id)arg6 isInstalled:(BOOL)arg7;
 - (id)initWithName:(id)arg1 languages:(id)arg2 gender:(int)arg3 footprint:(int)arg4 isInstalled:(BOOL)arg5;
 
 @end

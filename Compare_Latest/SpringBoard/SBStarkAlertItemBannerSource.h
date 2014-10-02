@@ -8,6 +8,8 @@
 
 #import "SBAlertItemsControllerObserver.h"
 
+@class NSString;
+
 @interface SBStarkAlertItemBannerSource : SBStarkBannerSource <SBAlertItemsControllerObserver>
 {
 }
@@ -17,6 +19,12 @@
 - (void)alertItemsController:(id)arg1 willActivateAlertItem:(id)arg2;
 - (void)dealloc;
 - (id)initWithAllowedTargetIdentifier:(void *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

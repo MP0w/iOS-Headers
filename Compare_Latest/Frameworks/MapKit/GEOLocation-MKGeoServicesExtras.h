@@ -8,6 +8,7 @@
 
 @interface GEOLocation (MKGeoServicesExtras)
 + (id)locationWithCLLocation:(id)arg1 course:(double)arg2;
+- (id)initWithCLLocation:(id)arg1 useMatchInfo:(BOOL)arg2;
 - (id)initWithCLLocation:(id)arg1 course:(double)arg2;
 - (id)initWithCLLocation:(id)arg1;
 @end

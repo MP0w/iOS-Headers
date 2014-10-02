@@ -8,7 +8,7 @@
 
 #import "UITextFieldDelegate.h"
 
-@class UITableViewCell;
+@class NSString, UITableViewCell;
 
 @interface EKCalendarTitleEditItem : EKCalendarEditItem <UITextFieldDelegate>
 {
@@ -19,10 +19,17 @@
 - (void)textFieldDidEndEditing:(id)arg1;
 - (BOOL)textFieldShouldBeginEditing:(id)arg1;
 - (BOOL)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
+- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
 - (BOOL)becomeFirstResponder;
 - (BOOL)saveStateToCalendar:(id)arg1;
 - (id)cellForSubitemAtIndex:(unsigned int)arg1;
 - (void)reset;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

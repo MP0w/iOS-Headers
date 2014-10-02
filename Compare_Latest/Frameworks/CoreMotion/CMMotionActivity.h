@@ -15,6 +15,7 @@
 
 - (id).cxx_construct;
 - (id)description;
+@property(readonly, nonatomic) BOOL cycling;
 @property(readonly, nonatomic) BOOL automotive;
 @property(readonly, nonatomic) BOOL running;
 @property(readonly, nonatomic) BOOL walking;

@@ -8,7 +8,7 @@
 
 #import "SFUInputStream.h"
 
-@class OISFUCryptor;
+@class NSString, OISFUCryptor;
 
 __attribute__((visibility("hidden")))
 @interface OISFUCryptoInputStream : NSObject <SFUInputStream>
@@ -28,6 +28,12 @@ __attribute__((visibility("hidden")))
 - (long long)offset;
 - (void)dealloc;
 - (id)initForDecryptionWithInputStream:(id)arg1 key:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

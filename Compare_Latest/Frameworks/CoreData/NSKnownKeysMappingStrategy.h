@@ -18,8 +18,8 @@
 - (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (unsigned int)length;
-- (id *)keys;
+@property(readonly, nonatomic) unsigned int length;
+@property(readonly, nonatomic) id *keys;
 - (unsigned int)fastIndexForKnownKey:(id)arg1;
 - (unsigned int)indexForKey:(id)arg1;
 - (id)initForKeys:(id)arg1;

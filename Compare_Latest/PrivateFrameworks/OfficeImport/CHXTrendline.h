@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)chdTrendlineFromXmlTrendlineElement:(struct _xmlNode *)arg1 state:(id)arg2;
++ (id)stringFromTrendlineTypeEnum:(int)arg1;
 + (int)chdTrendlineTypeFromXmlTrendlineTypeElement:(struct _xmlNode *)arg1;
 
 @end

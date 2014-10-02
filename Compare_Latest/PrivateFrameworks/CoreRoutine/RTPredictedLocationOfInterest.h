@@ -8,17 +8,21 @@
 
 #import "NSSecureCoding.h"
 
-@class NSDate, RTLocationOfInterest, RTRoute;
+@class NSDate, RTLocationOfInterest, RTRoute, RTSource;
 
 @interface RTPredictedLocationOfInterest : NSObject <NSSecureCoding>
 {
     RTLocationOfInterest *_locationOfInterest;
     NSDate *_nextEntryTime;
     RTRoute *_route;
+    int _modeOfTransportation;
+    RTSource *_source;
     double _confidence;
 }
 
 + (BOOL)supportsSecureCoding;
+@property(readonly, nonatomic) RTSource *source; // @synthesize source=_source;
+@property(nonatomic) int modeOfTransportation; // @synthesize modeOfTransportation=_modeOfTransportation;
 @property(readonly, nonatomic) RTRoute *route; // @synthesize route=_route;
 @property(readonly, nonatomic) NSDate *nextEntryTime; // @synthesize nextEntryTime=_nextEntryTime;
 @property(readonly, nonatomic) double confidence; // @synthesize confidence=_confidence;
@@ -28,7 +32,7 @@
 - (void)setConfidence:(double)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithLocationOfInterest:(id)arg1 confidence:(double)arg2 nextEntryTime:(id)arg3 route:(id)arg4;
+- (id)initWithLocationOfInterest:(id)arg1 confidence:(double)arg2 nextEntryTime:(id)arg3 route:(id)arg4 modeOfTransportation:(int)arg5 source:(id)arg6;
 
 @end
 

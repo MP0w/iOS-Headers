@@ -22,9 +22,12 @@
     unsigned int _throttledBatchSize;
     id <MFLibraryContentIndexDataSource> _dataSource;
     NSObject<OS_dispatch_queue> *_dataSourceQueue;
+    NSObject<OS_dispatch_queue> *_utilityPriorityQueue;
+    NSObject<OS_dispatch_queue> *_foregroundPriorityQueue;
     _MFContentIndexWrapper *_contentIndexWrapper;
     int _invalidated;
     _MFLibraryContentIndexResultsCache *_resultsCache;
+    unsigned int _isForeground:1;
     unsigned int _refreshing:1;
     unsigned int _shouldReopen:1;
     unsigned int _processPendingChangesScheduled:1;
@@ -43,6 +46,7 @@
 - (void)_dataSourceAssignTransactionIdentifier:(unsigned int)arg1 forDocumentIdentifiers:(id)arg2;
 - (id)_copyContentIndex_indexingQueue;
 - (id)_copyContentIndex;
+- (id)_indexFullPath;
 - (id)documentIdentifiersMatchingCriterion:(id)arg1 mailboxIDs:(id)arg2;
 - (struct __CXQuery *)_createQueryFromCriterion:(id)arg1 mailboxIDs:(id)arg2 contentIndex:(struct __CXIndex *)arg3;
 - (struct __CXQueryNode *)_createQueryNodeFromMailboxIDs:(id)arg1;
@@ -58,7 +62,9 @@
 - (void)wait;
 - (void)invalidateAndWait;
 - (void)_markInvalidated;
-- (id)_indexFullPath;
+- (void)applicationWillResume;
+- (void)applicationWillSuspend;
+- (void)_updateDataSourceQueueTargetIsForeground:(BOOL)arg1;
 - (void)setTargetQueue:(id)arg1;
 - (void)dealloc;
 - (id)initWithPath:(id)arg1 indexName:(id)arg2 dataSource:(id)arg3;

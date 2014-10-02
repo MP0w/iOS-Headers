@@ -13,12 +13,12 @@
     NSDictionary *_responseDictionary;
 }
 
-@property(readonly, nonatomic) NSDictionary *responseDictionary; // @synthesize responseDictionary=_responseDictionary;
+@property(readonly, copy, nonatomic) NSDictionary *responseDictionary; // @synthesize responseDictionary=_responseDictionary;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) NSURL *URL;
-@property(readonly, nonatomic) NSArray *sinfs;
-@property(readonly, nonatomic) NSString *flavor;
-@property(readonly, nonatomic) NSString *downloadKey;
+@property(readonly, retain, nonatomic) NSURL *URL;
+@property(readonly, copy, nonatomic) NSArray *sinfs;
+@property(readonly, copy, nonatomic) NSString *flavor;
+@property(readonly, copy, nonatomic) NSString *downloadKey;
 - (id)initWithResponseDictionary:(id)arg1;
 
 @end

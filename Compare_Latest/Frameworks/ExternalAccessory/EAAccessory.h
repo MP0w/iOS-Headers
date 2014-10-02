@@ -13,8 +13,6 @@
     EAAccessoryInternal *_internal;
 }
 
-- (void)setIPodOutOptionsMask:(int)arg1;
-- (int)iPodOutOptionsMask;
 - (BOOL)supportsPointOfInterest;
 - (void)updateItemProperty:(int)arg1 withValue:(id)arg2;
 - (void)updateSystemProperty:(int)arg1 withValue:(id)arg2;
@@ -49,12 +47,6 @@
 - (id)preferredApp;
 - (BOOL)shouldBeHiddenFromUI;
 - (BOOL)supportsPublicIap;
-- (void)setCfAccessoryPortPropertyContext:(void *)arg1;
-- (void *)cfAccessoryPortPropertyContext;
-- (void)setCfAccessoryPortPropertyCallback:(CDUnknownFunctionPointerType)arg1;
-- (CDUnknownFunctionPointerType)cfAccessoryPortPropertyCallback;
-- (void)setCfAccessory:(struct __CFAccessory *)arg1;
-- (struct __CFAccessory *)cfAccessory;
 - (id)macAddress;
 - (BOOL)_internalNotPresentInIAPAccessoriesArray;
 - (unsigned int)_internalConnectionID;

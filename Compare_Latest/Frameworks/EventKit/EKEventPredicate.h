@@ -7,21 +7,25 @@
 #import <EventKit/EKPredicate.h>
 
 #import "EKDefaultPropertiesLoading.h"
+#import "NSSecureCoding.h"
 
 @class NSDate, NSString, NSTimeZone;
 
-@interface EKEventPredicate : EKPredicate <EKDefaultPropertiesLoading>
+@interface EKEventPredicate : EKPredicate <EKDefaultPropertiesLoading, NSSecureCoding>
 {
     NSDate *_startDate;
     NSDate *_endDate;
     NSString *_uuid;
     NSTimeZone *_timeZone;
+    NSString *_title;
     BOOL _shouldLoadDefaultProperties;
 }
 
++ (id)predicateWithStartDate:(id)arg1 title:(id)arg2 calendars:(id)arg3;
 + (id)predicateWithStartDate:(id)arg1 endDate:(id)arg2 timeZone:(id)arg3 eventUUID:(id)arg4 calendars:(id)arg5;
 + (id)predicateWithStartDate:(id)arg1 endDate:(id)arg2 timeZone:(id)arg3 calendars:(id)arg4 loadDefaultProperties:(BOOL)arg5;
 + (id)predicateWithStartDate:(id)arg1 endDate:(id)arg2 timeZone:(id)arg3 calendars:(id)arg4;
++ (BOOL)supportsSecureCoding;
 - (void)dealloc;
 - (BOOL)isEqual:(id)arg1;
 - (id)predicateFormat;
@@ -29,15 +33,23 @@
 - (BOOL)evaluateWithObject:(id)arg1;
 - (id)defaultPropertiesToLoad;
 @property(readonly, nonatomic) BOOL shouldLoadDefaultProperties;
+@property(readonly, nonatomic) NSString *title;
 @property(readonly, nonatomic) NSTimeZone *timeZone;
 @property(readonly, nonatomic) NSString *eventUUID;
 @property(readonly, nonatomic) NSDate *endDate;
 @property(readonly, nonatomic) NSDate *startDate;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithStartDate:(id)arg1 title:(id)arg2 calendars:(id)arg3;
 - (id)initWithStartDate:(id)arg1 endDate:(id)arg2 timeZone:(id)arg3 calendars:(id)arg4 loadDefaultProperties:(BOOL)arg5;
 - (id)initWithStartDate:(id)arg1 endDate:(id)arg2 timeZone:(id)arg3 calendars:(id)arg4;
 - (id)initWithStartDate:(id)arg1 endDate:(id)arg2 timeZone:(id)arg3 eventUUID:(id)arg4 calendars:(id)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -24,6 +24,7 @@
 - (void)setPreferredTransform:(struct CGAffineTransform)arg1;
 - (void)setMovieTimeScale:(int)arg1;
 - (void)setMetadata:(id)arg1;
+- (void)setDirectoryForTemporaryFiles:(id)arg1;
 - (void)setShouldOptimizeForNetworkUse:(BOOL)arg1;
 - (void)setMovieFragmentInterval:(CDStruct_1b6d18a9)arg1;
 - (int)status;

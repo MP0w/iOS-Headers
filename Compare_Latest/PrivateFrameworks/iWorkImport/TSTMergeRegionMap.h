@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 + (id)mergeRegionMapFromMap:(id)arg1 intersectingRange:(CDStruct_5f1f7aa9)arg2;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (BOOL)hasRangeSpanningRows;
 - (id)mergedGridIndicesForDimension:(int)arg1;
 - (BOOL)find:(CDStruct_5f1f7aa9)arg1;
 - (CDStruct_5f1f7aa9)unionedMergeRange;

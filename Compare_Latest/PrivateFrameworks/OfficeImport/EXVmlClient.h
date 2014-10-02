@@ -6,10 +6,10 @@
 
 #import "NSObject.h"
 
-#import "OAVClient.h"
+#import "OAVReadClient.h"
 
 __attribute__((visibility("hidden")))
-@interface EXVmlClient : NSObject <OAVClient>
+@interface EXVmlClient : NSObject <OAVReadClient>
 {
 }
 
@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 + (void)readClientDataFromGroup:(struct _xmlNode *)arg1 toGroup:(id)arg2 state:(id)arg3;
 + (void)readClientDataFromShape:(struct _xmlNode *)arg1 toGraphic:(id)arg2 state:(id)arg3;
 + (id)edTextBoxForVmlTextInShape:(struct _xmlNode *)arg1 to:(id)arg2 state:(id)arg3;
-+ (id)readComment:(struct _xmlNode *)arg1 to:(id)arg2;
++ (id)readComment:(struct _xmlNode *)arg1 to:(id)arg2 state:(id)arg3;
 + (void)readAnchor:(struct _xmlNode *)arg1 to:(id)arg2;
 
 @end

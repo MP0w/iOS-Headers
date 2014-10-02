@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSError, VKStylesheet, VKTileKeyList, VKTileKeyMap, VKTilePool;
+@class NSError, NSLocale, NSString, VKSharedResources, VKStyleManager, VKTileKeyList, VKTileKeyMap, VKTilePool;
 
 __attribute__((visibility("hidden")))
 @interface VKTileSource : NSObject
@@ -16,14 +16,19 @@ __attribute__((visibility("hidden")))
     VKTileKeyMap *_pendingLoads;
     VKTileKeyList *_decoding;
     VKTileKeyList *_failedTiles;
-    VKStylesheet *_stylesheet;
+    VKStyleManager *_styleManager;
     float _contentScale;
+    VKSharedResources *_sharedResources;
     int loadingTiles;
     NSError *_recentError;
+    unsigned int _tileGroupIdentifier;
+    NSLocale *_locale;
+    NSString *_tileLoaderClientIdentifier;
 }
 
 @property(nonatomic) float contentScale; // @synthesize contentScale=_contentScale;
-@property(retain, nonatomic) VKStylesheet *stylesheet; // @synthesize stylesheet=_stylesheet;
+@property(retain, nonatomic) VKSharedResources *sharedResources; // @synthesize sharedResources=_sharedResources;
+@property(retain, nonatomic) VKStyleManager *styleManager; // @synthesize styleManager=_styleManager;
 @property(nonatomic) id <VKTileSourceClient> client; // @synthesize client=_client;
 - (void)forceDownload;
 - (void)didFailToLoadTileKey:(const struct _GEOTileKey *)arg1 error:(id)arg2;
@@ -44,6 +49,8 @@ __attribute__((visibility("hidden")))
 - (BOOL)cancelFetchForKey:(const struct VKTileKey *)arg1 sourceKey:(const struct VKTileKey *)arg2;
 - (void)fetchTileForKey:(const struct VKTileKey *)arg1;
 - (void)fetchTileForKey:(const struct VKTileKey *)arg1 sourceKey:(const struct VKTileKey *)arg2;
+- (BOOL)_shouldUseDecodedTile:(id)arg1 extraInfo:(id)arg2;
+- (id)_extraInfoForPendingSourceKey:(const struct VKTileKey *)arg1;
 - (id)tileForKey:(const struct VKTileKey *)arg1;
 - (id)tileForSourceKey:(const struct VKTileKey *)arg1 renderKey:(const struct VKTileKey *)arg2;
 - (BOOL)canFetchTileForKey:(const struct VKTileKey *)arg1;
@@ -59,8 +66,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) int zEquivalenceClass;
 - (struct _GEOTileKey)downloadKeyAtX:(unsigned int)arg1 y:(unsigned int)arg2 z:(unsigned int)arg3;
 - (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
-@property(readonly, nonatomic) int maximumDownloadZoomLevel;
-@property(readonly, nonatomic) int minimumDownloadZoomLevel;
+@property(readonly, nonatomic) unsigned int maximumDownloadZoomLevel;
+@property(readonly, nonatomic) unsigned int minimumDownloadZoomLevel;
 @property(readonly, nonatomic) int tileSize;
 - (id)detailedDescription;
 - (BOOL)mayUseNetwork;
@@ -68,6 +75,9 @@ __attribute__((visibility("hidden")))
 - (void)clearCaches;
 - (void)dealloc;
 - (id)init;
+- (id)initWithTileGroupIdentifier:(unsigned int)arg1 locale:(id)arg2;
+@property(readonly, nonatomic) struct Device *device;
+- (id)tileLoader;
 
 @end
 

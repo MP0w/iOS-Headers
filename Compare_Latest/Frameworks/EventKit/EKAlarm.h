@@ -13,9 +13,9 @@
 @interface EKAlarm : EKObject <NSCopying>
 {
     EKObjectToOneRelation *_locationRelation;
-    EKCalendarItem *_owner;
 }
 
++ (double)defaultGeofencedReminderRadius;
 + (BOOL)areLocationsCurrentlyEnabled;
 + (BOOL)areLocationsAllowedWithAuthorizationStatus:(int)arg1;
 + (BOOL)areLocationsAllowed;
@@ -23,7 +23,6 @@
 + (BOOL)areLocationsAvailable;
 + (id)alarmWithRelativeOffset:(double)arg1;
 + (id)alarmWithAbsoluteDate:(id)arg1;
-@property(retain, nonatomic) EKCalendarItem *owner; // @synthesize owner=_owner;
 @property(retain, nonatomic) EKObjectToOneRelation *locationRelation; // @synthesize locationRelation=_locationRelation;
 - (BOOL)validate:(id *)arg1;
 - (id)description;
@@ -47,6 +46,7 @@
 @property(copy, nonatomic) NSDate *absoluteDate;
 @property(nonatomic) double relativeOffset;
 @property(readonly, nonatomic) NSString *UUID;
+@property(retain, nonatomic) EKCalendarItem *owner; // @dynamic owner;
 - (id)lazyLoadRelationForKey:(id)arg1;
 - (void)dealloc;
 - (id)initWithRelativeOffset:(double)arg1;

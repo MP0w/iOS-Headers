@@ -61,10 +61,8 @@
 - (void)finishEncoding;
 - (id)classNameForClass:(Class)arg1;
 - (void)setClassName:(id)arg1 forClass:(Class)arg2;
-- (unsigned int)outputFormat;
-- (void)setOutputFormat:(unsigned int)arg1;
-- (id)delegate;
-- (void)setDelegate:(id)arg1;
+@property unsigned int outputFormat;
+@property id <NSKeyedArchiverDelegate> delegate;
 - (BOOL)allowsKeyedCoding;
 - (id)description;
 - (void)finalize;

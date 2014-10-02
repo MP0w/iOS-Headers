@@ -9,7 +9,7 @@
 #import "IDSAccountControllerDelegate.h"
 #import "IDSAccountRegistrationDelegate.h"
 
-@class IDSAccountController, NSArray;
+@class IDSAccountController, NSArray, NSString;
 
 @interface IMDIDSService : IMDService <IDSAccountControllerDelegate, IDSAccountRegistrationDelegate>
 {
@@ -18,7 +18,7 @@
     BOOL _deactivatingAccount;
 }
 
-@property(readonly, nonatomic) IDSAccountController *idsAccountController; // @synthesize idsAccountController=_accountController;
+@property(readonly, retain, nonatomic) IDSAccountController *idsAccountController; // @synthesize idsAccountController=_accountController;
 - (void)refreshRegistrationForAccount:(id)arg1;
 - (void)registrationFailedForAccount:(id)arg1 needsDeletion:(id)arg2;
 - (void)account:(id)arg1 displayNameChanged:(id)arg2;
@@ -38,7 +38,7 @@
 - (void)accountRemoved:(id)arg1;
 - (void)accountAdded:(id)arg1;
 @property(readonly, nonatomic) NSArray *activeAccountsFromIdentityServices;
-@property(readonly, nonatomic) NSArray *accountsLoadedFromIdentityServices;
+@property(readonly, retain, nonatomic) NSArray *accountsLoadedFromIdentityServices;
 - (id)imdAccountLoginFromIDSAccountWithType:(int)arg1 login:(id)arg2;
 - (id)_serviceDomain;
 - (id)accountFromIDSAccountWithUniqueID:(id)arg1;
@@ -46,6 +46,12 @@
 - (void)dealloc;
 - (id)initWithBundle:(id)arg1;
 - (void)_loadIDSAccountController;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

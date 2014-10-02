@@ -11,7 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface CMDiagramShapeMapper : CMDiagramMapper
 {
-    int mChildCount;
+    unsigned int mChildCount;
     OADOrientedBounds *mDiagramShapeBounds;
     NSString *mIdentifier;
     float mDefaultFontSize;

@@ -8,7 +8,7 @@
 
 #import "CKAnimationTimerObserver.h"
 
-@class CKAnimatedImage, CKBalloonImageView, NSArray;
+@class CKAnimatedImage, CKBalloonImageView, NSArray, NSString;
 
 @interface CKImageBalloonView : CKBalloonView <CKAnimationTimerObserver>
 {
@@ -31,9 +31,15 @@
 - (void)didMoveToWindow;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
+- (void)configureForMediaObject:(id)arg1 previewWidth:(float)arg2 orientation:(BOOL)arg3;
 - (void)configureForMessagePart:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

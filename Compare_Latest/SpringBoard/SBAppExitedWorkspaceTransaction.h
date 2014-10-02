@@ -11,9 +11,9 @@
 }
 
 - (id)_setupAnimationFrom:(id)arg1 to:(id)arg2;
-- (int)_setupMilestonesFrom:(id)arg1 to:(id)arg2;
+- (id)_setupMilestonesFrom:(id)arg1 to:(id)arg2;
 - (void)_kickOffActivation;
-- (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 from:(id)arg3 to:(id)arg4 activationHandler:(CDUnknownBlockType)arg5;
+- (id)initWithAlertManager:(id)arg1 from:(id)arg2 to:(id)arg3 withResult:(CDUnknownBlockType)arg4;
 
 @end
 

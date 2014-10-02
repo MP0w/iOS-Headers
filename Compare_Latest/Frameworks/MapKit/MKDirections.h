@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class GEODirectionsRouteRequest, GEOQuickETARequest, GEOQuickETARequester, MKDirectionsRequest;
+@class GEODirectionsRouteRequest, GEOQuickETARequest, GEOQuickETARequester, MKDirectionsRequest, NSObject<OS_dispatch_group>;
 
 @interface MKDirections : NSObject
 {
@@ -15,12 +15,14 @@
     GEOQuickETARequest *_etaRequest;
     GEOQuickETARequester *_etaRequester;
     id <MKLocationManagerOperation> _locationOperation;
+    NSObject<OS_dispatch_group> *_waypointsDispatchGroup;
 }
 
 - (void).cxx_destruct;
 - (void)calculateETAWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_calculateETAWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)calculateDirectionsWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)_performWithValidCurrentLocationAndWaypointsForQuickETA:(BOOL)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)_establishCurrentLocationAndThen:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic, getter=isCalculating) BOOL calculating;
 - (void)cancel;

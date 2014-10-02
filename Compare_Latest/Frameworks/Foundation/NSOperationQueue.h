@@ -6,6 +6,8 @@
 
 #import "NSObject.h"
 
+@class NSArray, NSObject<OS_dispatch_queue>, NSString;
+
 @interface NSOperationQueue : NSObject
 {
     id _private;
@@ -16,20 +18,18 @@
 + (id)currentQueue;
 + (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
 - (id)__;
-- (void)__:(id)arg1;
 - (id)description;
 - (void)waitUntilAllOperationsAreFinished;
 - (void)cancelAllOperations;
-- (void)setName:(id)arg1;
-- (id)name;
+@property(copy) NSString *name;
+@property NSObject<OS_dispatch_queue> *underlyingQueue;
+@property int qualityOfService;
 - (void)setOvercommitsOperations:(BOOL)arg1;
 - (BOOL)overcommitsOperations;
-- (void)setSuspended:(BOOL)arg1;
-- (BOOL)isSuspended;
-- (void)setMaxConcurrentOperationCount:(int)arg1;
-- (int)maxConcurrentOperationCount;
-- (unsigned int)operationCount;
-- (id)operations;
+@property(getter=isSuspended) BOOL suspended;
+@property int maxConcurrentOperationCount;
+@property(readonly) unsigned int operationCount;
+@property(readonly, copy) NSArray *operations;
 - (void)addOperationWithBlock:(CDUnknownBlockType)arg1;
 - (void)addOperations:(id)arg1 waitUntilFinished:(BOOL)arg2;
 - (void)addOperation:(id)arg1;

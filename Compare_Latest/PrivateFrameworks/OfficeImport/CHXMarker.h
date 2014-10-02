@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)chdMarkerFromXmlMarkerElement:(struct _xmlNode *)arg1 state:(id)arg2;
++ (id)stringFromMarkerStyle:(int)arg1;
 + (int)chdMarkerStyleFromXmlMarkerStyleElement:(struct _xmlNode *)arg1;
 
 @end

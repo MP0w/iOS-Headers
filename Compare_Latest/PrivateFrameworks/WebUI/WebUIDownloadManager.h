@@ -15,7 +15,7 @@
     NSString *_downloadPath;
 }
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (void)download:(id)arg1 didFailWithError:(id)arg2;
 - (void)downloadDidFinish:(id)arg1;
 - (void)_downloadDidFail:(id)arg1;

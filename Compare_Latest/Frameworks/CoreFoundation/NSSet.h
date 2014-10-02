@@ -87,7 +87,7 @@
 - (unsigned long)_cfTypeID;
 - (id)objectEnumerator;
 - (id)member:(id)arg1;
-- (unsigned int)count;
+@property(readonly) unsigned int count;
 
 @end
 

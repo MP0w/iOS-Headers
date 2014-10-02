@@ -50,6 +50,7 @@ __attribute__((visibility("hidden")))
 - (id)initFromUnarchiver:(id)arg1;
 - (id)initWithContext:(id)arg1;
 - (void)dealloc;
+@property(readonly, nonatomic) int basicFootnoteFormat;
 @property(copy, nonatomic) NSString *bibliographyFormat;
 @property(copy, nonatomic) NSString *creationDate;
 @property(copy, nonatomic) NSString *originalTemplate;

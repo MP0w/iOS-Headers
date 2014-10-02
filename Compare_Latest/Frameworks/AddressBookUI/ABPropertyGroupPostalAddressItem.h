@@ -12,6 +12,7 @@
 {
 }
 
+- (id)bestValue:(id)arg1;
 - (BOOL)_isMinimalAddress:(id)arg1;
 - (BOOL)isEquivalentToItem:(id)arg1 whenEditing:(BOOL)arg2;
 - (id)defaultActionURL;

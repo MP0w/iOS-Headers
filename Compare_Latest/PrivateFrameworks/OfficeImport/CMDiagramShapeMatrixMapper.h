@@ -9,8 +9,8 @@
 __attribute__((visibility("hidden")))
 @interface CMDiagramShapeMatrixMapper : CMDiagramShapeMapper
 {
-    int mColumnCount;
-    int mRowCount;
+    unsigned int mColumnCount;
+    unsigned int mRowCount;
     float mRectWidth;
     float mRectHeight;
     BOOL mHasArrows;
@@ -25,7 +25,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithOddDiagram:(id)arg1 drawingContext:(id)arg2 orientedBounds:(id)arg3 identifier:(id)arg4 parent:(id)arg5;
 - (double)gapRatio;
 - (struct CGSize)gapSize;
-- (int)columnCount;
+- (unsigned int)columnCount;
 - (void)setColumnsAndRowsCount;
 
 @end

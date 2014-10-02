@@ -21,7 +21,7 @@
 @property int weekday; // @synthesize weekday=_weekday;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-@property(retain) NSNumber *number;
+@property(retain, nonatomic) NSNumber *number;
 - (id)initWithWeekday:(int)arg1 number:(id)arg2;
 - (id)initWithWeekday:(int)arg1;
 - (int)compare:(id)arg1;

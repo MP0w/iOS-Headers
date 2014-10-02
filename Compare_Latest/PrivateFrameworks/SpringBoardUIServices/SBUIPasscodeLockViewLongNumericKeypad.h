@@ -12,13 +12,12 @@
 
 - (id)_longNumericEntryField;
 - (BOOL)_showsPromptLabelOnEntryField;
-- (void)_updateStatusText:(id)arg1 subtitle:(id)arg2 animated:(BOOL)arg3;
-- (float)_statusTitleViewHeight;
+- (void)updateStatusText:(id)arg1 subtitle:(id)arg2 animated:(BOOL)arg3;
 - (float)_entryFieldBottomYDistanceFromNumberPadTopButton;
 - (void)_setHasInput:(BOOL)arg1;
 - (BOOL)_includesStatusView;
 - (id)_newEntryField;
-- (id)init;
+- (id)initWithLightStyle:(BOOL)arg1;
 
 @end
 

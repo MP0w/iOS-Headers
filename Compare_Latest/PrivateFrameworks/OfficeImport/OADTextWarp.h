@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (id)nullWarp;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 

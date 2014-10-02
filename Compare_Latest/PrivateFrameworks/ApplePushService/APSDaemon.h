@@ -7,15 +7,17 @@
 #import "NSObject.h"
 
 #import "APSCourierDelegate.h"
+#import "APSIDSProxyManagerDelegate.h"
 
-@class NSDate, NSMutableDictionary, NSObject<OS_dispatch_source>, NSObject<OS_xpc_object>, NSTimer, PCSimpleTimer;
+@class APSIDSProxyManager, NSDate, NSMutableDictionary, NSObject<OS_dispatch_source>, NSObject<OS_xpc_object>, NSString, NSTimer, PCSimpleTimer;
 
-@interface APSDaemon : NSObject <APSCourierDelegate>
+@interface APSDaemon : NSObject <APSCourierDelegate, APSIDSProxyManagerDelegate>
 {
     NSMutableDictionary *_environmentsToCouriers;
     PCSimpleTimer *_courierConnectTimer;
     void *_courierConnectTimerPowerAssertion;
     NSTimer *_inactivityTerminationTimer;
+    APSIDSProxyManager *_proxyManager;
     NSObject<OS_dispatch_source> *_sigTERMSource;
     NSObject<OS_dispatch_source> *_sigUSR1Source;
     int _isConnectedToken;
@@ -31,8 +33,11 @@
 - (double)keepAliveIntervalForEnvironment:(id)arg1;
 - (id)getConnectionServerForEnvironment:(id)arg1 connectionPortName:(id)arg2 peerConnection:(id)arg3;
 - (void)courierHasNoConnections:(id)arg1;
-- (void)shouldRunDidChange:(id)arg1;
+- (void)shouldUseInternetDidChange:(id)arg1;
 - (void)courierConnectionStatusDidChange:(id)arg1;
+@property(readonly, retain, nonatomic) APSIDSProxyManager *proxyManager;
+- (void)proxyManager:(id)arg1 incomingPresenceWithGuid:(id)arg2 token:(id)arg3 certificate:(id)arg4 nonce:(id)arg5 signature:(id)arg6 environmentName:(id)arg7;
+- (void)proxyManager:(id)arg1 canUseProxyChanged:(BOOL)arg2;
 - (void)_updateNetworkGuidance;
 - (void)invalidateDeviceIdentity;
 - (void)requestCourierConnections;
@@ -58,6 +63,12 @@
 - (id)_connectionsDebuggingState;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

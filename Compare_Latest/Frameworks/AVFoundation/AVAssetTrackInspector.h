@@ -21,12 +21,13 @@
 @property(readonly, nonatomic) BOOL hasProtectedContent;
 @property(readonly, nonatomic, getter=_trackReferences) NSDictionary *trackReferences;
 @property(readonly, nonatomic, getter=isExcludedFromAutoselectionInTrackGroup) BOOL excludedFromAutoselectionInTrackGroup;
+@property(readonly, nonatomic) int alternateGroupID;
 - (id)metadataForFormat:(id)arg1;
 @property(readonly, nonatomic) NSArray *availableMetadataFormats;
 @property(readonly, nonatomic) NSArray *commonMetadata;
 - (CDStruct_1b6d18a9)samplePresentationTimeForTrackTime:(CDStruct_1b6d18a9)arg1;
 - (id)segmentForTrackTime:(CDStruct_1b6d18a9)arg1;
-@property(readonly, nonatomic) NSArray *segments;
+@property(readonly, copy, nonatomic) NSArray *segments;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 minSampleDuration;
 @property(readonly, nonatomic) float nominalFrameRate;
 @property(readonly, nonatomic) NSDictionary *loudnessInfo;
@@ -41,6 +42,9 @@
 @property(readonly, nonatomic) NSString *languageCode;
 @property(readonly, nonatomic) float estimatedDataRate;
 @property(readonly, nonatomic) int naturalTimeScale;
+@property(readonly, nonatomic) BOOL requiresFrameReordering;
+@property(readonly, nonatomic) CDStruct_e83c9415 mediaDecodeTimeRange;
+@property(readonly, nonatomic) CDStruct_e83c9415 mediaPresentationTimeRange;
 @property(readonly, nonatomic) CDStruct_e83c9415 timeRange;
 @property(readonly, nonatomic) long long totalSampleDataLength;
 @property(readonly, nonatomic, getter=isSelfContained) BOOL selfContained;
@@ -49,6 +53,8 @@
 @property(readonly, nonatomic, getter=isPlayable) BOOL playable;
 @property(readonly, nonatomic) NSArray *formatDescriptions;
 @property(readonly, nonatomic) NSString *mediaType;
+@property(readonly, nonatomic, getter=_figAssetTrack) struct OpaqueFigAssetTrack *figAssetTrack;
+@property(readonly, nonatomic, getter=_figTrackReader) struct OpaqueFigTrackReader *figTrackReader;
 @property(readonly, nonatomic, getter=_figMediaType) unsigned long figMediaType;
 @property(readonly, nonatomic) int trackID;
 - (void)loadValuesAsynchronouslyForKeys:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

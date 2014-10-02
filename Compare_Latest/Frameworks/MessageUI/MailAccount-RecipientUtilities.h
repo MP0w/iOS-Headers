@@ -8,6 +8,7 @@
 
 @interface MailAccount (RecipientUtilities)
 + (void)mf_emptyReceivingEmailAddressesCache;
++ (id)mf_receivingEmailAddressesCache;
 - (id)mf_copyReceivingEmailAddresses;
 @end
 

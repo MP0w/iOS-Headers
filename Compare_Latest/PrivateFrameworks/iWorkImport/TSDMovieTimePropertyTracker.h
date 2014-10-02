@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 - (void)p_startPreviewingTimeChangesIfNeeded;
 - (void)cancel;
 - (id)p_commandForCommittingTimeProperty:(int)arg1;
+- (void)p_completeChangesWithImageData:(id)arg1 commandForCommittingTime:(id)arg2 error:(id)arg3;
 - (void)p_commitChanges;
 - (void)commitChangesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)p_updatePreciseTime;

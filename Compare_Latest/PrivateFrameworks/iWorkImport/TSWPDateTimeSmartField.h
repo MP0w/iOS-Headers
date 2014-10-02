@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) long dateStyle; // @synthesize dateStyle=_dateStyle;
 @property(copy, nonatomic) NSString *localeIdentifier; // @synthesize localeIdentifier=_localeID;
 @property(copy, nonatomic) NSString *format; // @synthesize format=_format;
+- (int)smartFieldKind;
 - (void)setFormat:(id)arg1 localeIdentifier:(id)arg2 dateStyle:(long)arg3 timeStyle:(long)arg4;
 - (void)resetLocale;
 - (void)updateInParentStorageWithDolcContext:(id)arg1 undoTransaction:(struct TSWPStorageTransaction *)arg2;

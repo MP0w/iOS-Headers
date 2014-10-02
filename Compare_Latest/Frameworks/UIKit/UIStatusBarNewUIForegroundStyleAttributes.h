@@ -11,13 +11,13 @@
 __attribute__((visibility("hidden")))
 @interface UIStatusBarNewUIForegroundStyleAttributes : UIStatusBarForegroundStyleAttributes
 {
-    UIColor *_backgroundColor;
     NSString *_uniqueIdentifier;
     BOOL _isTintColorBlack;
+    BOOL _hasBusyBackground;
     UIColor *_tintColor;
 }
 
-@property(readonly, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;
+@property(readonly, retain, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;
 - (struct CGPoint)positionForMoonMaskInBounds:(struct CGRect)arg1;
 - (float)sizeForMoonMaskVisible:(BOOL)arg1;
 - (float)bluetoothBatteryExtraPadding;
@@ -31,20 +31,19 @@ __attribute__((visibility("hidden")))
 - (id)expandedNameForImageName:(id)arg1;
 - (float)edgePadding;
 - (void)drawBluetoothBatteryInsidesWithSize:(struct CGSize)arg1 capacity:(float)arg2;
-- (int)bluetoothBatteryImageIdWithCapacity:(float)arg1;
+- (id)bluetoothBatteryImageNameWithCapacity:(float)arg1;
 - (struct UIEdgeInsets)edgeInsetsForBluetoothBatteryInsides;
 - (struct UIEdgeInsets)edgeInsetsForBatteryInsides;
 - (float)batteryAccessoryMargin;
 - (id)_batteryColorForCapacity:(float)arg1 lowCapacity:(float)arg2 charging:(BOOL)arg3;
-- (BOOL)_isForegroundColorSafe:(id)arg1;
 - (void)drawBatteryInsidesWithSize:(struct CGSize)arg1 capacity:(float)arg2 charging:(BOOL)arg3;
-- (int)batteryImageIdWithCapacity:(float)arg1;
+- (id)batteryImageNameWithCapacity:(float)arg1;
 - (float)_roundDimension:(float)arg1;
 - (int)activityIndicatorStyleWithSyncActivity:(BOOL)arg1;
 - (id)uniqueIdentifier;
 - (void)dealloc;
 - (id)initWithHeight:(float)arg1 legibilityStyle:(int)arg2;
-- (id)initWithHeight:(float)arg1 legibilityStyle:(int)arg2 tintColor:(id)arg3 backgroundColor:(id)arg4;
+- (id)initWithHeight:(float)arg1 legibilityStyle:(int)arg2 tintColor:(id)arg3 hasBusyBackground:(BOOL)arg4;
 
 @end
 

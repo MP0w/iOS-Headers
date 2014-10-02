@@ -10,7 +10,7 @@
 #import "PKCaptureDelegate.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class NSMutableData, NSSet, NSURLConnection, PKCaptureSession, PKReticleView, UILabel, UINavigationBar, UIProgressView;
+@class NSMutableData, NSSet, NSString, NSURLConnection, PKCaptureSession, PKReticleView, UILabel, UINavigationBar, UIProgressView;
 
 @interface PKCodeAcquisitionViewController : UIViewController <PKCaptureDelegate, NSURLConnectionDataDelegate, UIGestureRecognizerDelegate>
 {
@@ -30,6 +30,7 @@
 
 @property(nonatomic) id <PKCodeAcquisitionDelegate> delegate; // @synthesize delegate=_delegate;
 - (unsigned int)supportedInterfaceOrientations;
+- (BOOL)shouldAutorotate;
 - (void)_handleDownloadFailureWithReason:(id)arg1 errorToDisplay:(id)arg2;
 - (void)_handleDownloadFailureWithReason:(id)arg1;
 - (void)_handleDownloadedPass:(id)arg1;
@@ -54,6 +55,12 @@
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

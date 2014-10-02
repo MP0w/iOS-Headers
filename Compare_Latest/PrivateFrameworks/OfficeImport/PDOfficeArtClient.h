@@ -9,7 +9,7 @@
 #import "OADClient.h"
 #import "OADImageRecolorInfoClient.h"
 
-@class OADImageRecolorInfo, PDAnimationInfo, PDPlaceholder;
+@class NSString, OADImageRecolorInfo, PDAnimationInfo, PDPlaceholder;
 
 __attribute__((visibility("hidden")))
 @interface PDOfficeArtClient : NSObject <OADClient, OADImageRecolorInfoClient>
@@ -39,6 +39,12 @@ __attribute__((visibility("hidden")))
 - (BOOL)hasBounds;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

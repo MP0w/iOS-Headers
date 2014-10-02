@@ -11,11 +11,12 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (id)retainedProcessorForDocument:(struct __CFString *)arg1 zipArchive:(id)arg2 uti:(struct __CFString *)arg3 outputType:(int)arg4 outputPath:(struct __CFString *)arg5 previewRequest:(struct __QLPreviewRequest *)arg6 progressiveHelper:(id)arg7;
-+ (id)retainedProcessorForDocument:(struct __CFString *)arg1 zipArchive:(id)arg2 uti:(struct __CFString *)arg3 outputType:(int)arg4 outputPath:(struct __CFString *)arg5 previewRequest:(struct __QLPreviewRequest *)arg6 progressiveHelper:(id)arg7 cryptoKey:(id)arg8;
++ (id)retainedProcessorForDocument:(struct __CFURL *)arg1 zipArchive:(id)arg2 uti:(struct __CFString *)arg3 outputType:(int)arg4 outputPath:(struct __CFString *)arg5 previewRequest:(struct __QLPreviewRequest *)arg6 progressiveHelper:(id)arg7;
++ (id)retainedProcessorForDocument:(struct __CFURL *)arg1 zipArchive:(id)arg2 uti:(struct __CFString *)arg3 outputType:(int)arg4 outputPath:(struct __CFString *)arg5 previewRequest:(struct __QLPreviewRequest *)arg6 progressiveHelper:(id)arg7 cryptoKey:(id)arg8;
 + (int)applicationForDocumentUti:(struct __CFString *)arg1;
 + (struct __CFString *)createUtiForDocument:(struct __CFString *)arg1;
 + (struct __CFURL *)newEmbeddedSageUrlForTangierDocumentUrl:(struct __CFURL *)arg1 uti:(struct __CFString *)arg2 isBundle:(char *)arg3;
++ (BOOL)isTemplateUti:(struct __CFString *)arg1;
 + (BOOL)isTangierTEFDocumentUti:(struct __CFString *)arg1;
 
 @end

@@ -8,6 +8,8 @@
 
 #import "SBIconModelApplicationDataSource.h"
 
+@class NSString;
+
 @interface SBStarkIconModelApplicationDataSource : NSObject <SBIconModelApplicationDataSource>
 {
 }
@@ -19,6 +21,12 @@
 - (int)appVisibilityOverrideForBundleIdentifier:(id)arg1;
 - (_Bool)updateAppIconVisibilityOverridesShowing:(id *)arg1 hiding:(id *)arg2;
 - (id)allApplications;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

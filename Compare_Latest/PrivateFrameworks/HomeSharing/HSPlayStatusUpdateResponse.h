@@ -24,8 +24,8 @@
 @property(nonatomic) unsigned long long nowPlayingContainerItemID; // @synthesize nowPlayingContainerItemID=_nowPlayingContainerItemID;
 @property(nonatomic) unsigned long long nowPlayingContainerID; // @synthesize nowPlayingContainerID=_nowPlayingContainerID;
 @property(nonatomic) unsigned int nextRevisionID; // @synthesize nextRevisionID=_nextRevisionID;
+- (void).cxx_destruct;
 - (id)description;
-- (void)dealloc;
 
 @end
 

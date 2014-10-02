@@ -8,7 +8,7 @@
 
 #import "TPNumberPadButtonProtocol.h"
 
-@class CALayer, TPRevealingRingView, UIColor;
+@class CALayer, NSString, TPRevealingRingView, UIColor;
 
 @interface TPNumberPadButton : UIControl <TPNumberPadButtonProtocol>
 {
@@ -34,6 +34,7 @@
 + (BOOL)usesTelephonyGlyphsWhereAvailable;
 + (id)imageForCharacter:(unsigned int)arg1 highlighted:(BOOL)arg2;
 + (id)imageForCharacter:(unsigned int)arg1;
++ (float)outerCircleDiameter;
 + (struct UIEdgeInsets)paddingOutsideRing;
 + (struct CGSize)defaultSize;
 @property(retain) CALayer *highlightedGlyphLayer; // @synthesize highlightedGlyphLayer=_highlightedGlyphLayer;
@@ -52,6 +53,12 @@
 - (void)setUsesColorDodgeBlending;
 - (void)dealloc;
 - (id)initForCharacter:(unsigned int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

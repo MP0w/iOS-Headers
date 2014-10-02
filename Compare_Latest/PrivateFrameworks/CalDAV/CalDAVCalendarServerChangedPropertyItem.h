@@ -15,9 +15,9 @@
     NSString *_typeAttribute;
 }
 
-@property(retain) NSString *typeAttribute; // @synthesize typeAttribute=_typeAttribute;
-@property(retain) NSString *nameAttribute; // @synthesize nameAttribute=_nameAttribute;
-@property(retain) NSMutableSet *changedParameters; // @synthesize changedParameters=_changedParameters;
+@property(retain, nonatomic) NSString *typeAttribute; // @synthesize typeAttribute=_typeAttribute;
+@property(retain, nonatomic) NSString *nameAttribute; // @synthesize nameAttribute=_nameAttribute;
+@property(retain, nonatomic) NSMutableSet *changedParameters; // @synthesize changedParameters=_changedParameters;
 - (id)copyParseRules;
 - (void)addChangedParameter:(id)arg1;
 - (void)parserFoundAttributes:(id)arg1;

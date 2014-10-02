@@ -8,7 +8,7 @@
 
 #import "_UIScrollNotification.h"
 
-@class NSArray, NSString, UIButton, UIColor, UILabel, UINavigationItem, UIPopoverController, UIScrollView, UISearchBar, UISearchDisplayControllerContainerView, UITableView, UIView, UIViewController, _UINavigationControllerPalette, _UISearchDisplayControllerDidScrollDelegate;
+@class NSArray, NSString, UIButton, UIColor, UILabel, UINavigationItem, UIPopoverController, UIScrollView, UISearchBar, UISearchDisplayControllerContainerView, UITableView, UIView, UIViewController, _UINavigationControllerPalette, _UISearchControllerDidScrollDelegate;
 
 @interface UISearchDisplayController : NSObject <_UIScrollNotification>
 {
@@ -41,7 +41,7 @@
     UIColor *_dimmingOverlayColor;
     UIView *_tableViewBackgroundHeaderView;
     int _unactivatedBarPosition;
-    _UISearchDisplayControllerDidScrollDelegate *_didScrollDelegate;
+    _UISearchControllerDidScrollDelegate *_didScrollDelegate;
     struct {
         unsigned int visible:1;
         unsigned int animating:1;
@@ -166,6 +166,12 @@
 - (id)initWithSearchBar:(id)arg1 contentsController:(id)arg2 searchResultsTableViewStyle:(int)arg3;
 - (id)initWithSearchBar:(id)arg1 contentsController:(id)arg2;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

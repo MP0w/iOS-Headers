@@ -8,30 +8,20 @@
 
 #import "NSCopying.h"
 
-@class NSMutableArray, NSMutableSet, NSString;
+@class MFMessageStoreIntKeyCaches, MFMessageStoreObjectCaches, NSMutableSet, NSString;
 
 @interface MFMessageStore : NSObject <NSCopying>
 {
     NSMutableSet *_uniqueStrings;
-    union {
-        struct {
-            NSMutableArray *_headerDataCache;
-            NSMutableArray *_headerCache;
-            NSMutableArray *_bodyDataCache;
-            NSMutableArray *_bodyCache;
-        } objectCaches;
-        struct {
-            struct __CFDictionary *_headerDataCache;
-            struct __CFDictionary *_headerCache;
-            struct __CFDictionary *_bodyDataCache;
-            struct __CFDictionary *_bodyCache;
-        } intKeyCaches;
-    } _caches;
+    MFMessageStoreObjectCaches *objectCaches;
+    MFMessageStoreIntKeyCaches *intKeyCaches;
 }
 
 + (void)setDefaultMessageHeadersClass:(Class)arg1;
 + (Class)classForMimePart;
 + (Class)headersClass;
+@property(retain, nonatomic) MFMessageStoreIntKeyCaches *intKeyCaches; // @synthesize intKeyCaches;
+@property(retain, nonatomic) MFMessageStoreObjectCaches *objectCaches; // @synthesize objectCaches;
 - (id)additionalHeadersForForwardOfMessage:(id)arg1;
 - (id)additionalHeadersForReplyOfMessage:(id)arg1;
 - (void)setMessageClass:(Class)arg1;
@@ -41,7 +31,6 @@
 - (id)bodyDataForMessage:(id)arg1 isComplete:(char *)arg2 isPartial:(char *)arg3 downloadIfNecessary:(BOOL)arg4;
 - (id)_fetchBodyDataForMessage:(id)arg1 andHeaderDataIfReadilyAvailable:(id *)arg2 downloadIfNecessary:(BOOL)arg3 partial:(char *)arg4;
 - (void)_flushAllCaches;
-- (void)_flushAllCachesLocking:(BOOL)arg1;
 - (id)_cachedBodyDataContainerForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
 - (id)_cachedHeadersForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
 - (id)_cachedBodyForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
@@ -51,12 +40,13 @@
 - (id)defaultAlternativeForPart:(id)arg1;
 - (id)decryptedTopLevelPartForPart:(id)arg1;
 - (BOOL)dataForMimePart:(id)arg1 inRange:(struct _NSRange)arg2 withConsumer:(id)arg3 downloadIfNecessary:(BOOL)arg4;
-- (BOOL)dataForMimePart:(id)arg1 inRange:(struct _NSRange)arg2 isComplete:(char *)arg3 withConsumer:(id)arg4 downloadIfNecessary:(BOOL)arg5;
+- (BOOL)dataForMimePart:(id)arg1 inRange:(struct _NSRange)arg2 isComplete:(char *)arg3 withConsumer:(id)arg4 downloadIfNecessary:(BOOL)arg5 didDownload:(char *)arg6;
 - (id)dataForMimePart:(id)arg1 inRange:(struct _NSRange)arg2 isComplete:(char *)arg3 downloadIfNecessary:(BOOL)arg4 didDownload:(char *)arg5;
 - (id)uniquedString:(id)arg1;
-- (id)fullBodyDataForMessage:(id)arg1 andHeaderDataIfReadilyAvailable:(id *)arg2 isComplete:(char *)arg3 downloadIfNecessary:(BOOL)arg4;
+- (id)fullBodyDataForMessage:(id)arg1 andHeaderDataIfReadilyAvailable:(id *)arg2 isComplete:(char *)arg3 downloadIfNecessary:(BOOL)arg4 didDownload:(char *)arg5;
 - (id)bodyForMessage:(id)arg1 fetchIfNotAvailable:(BOOL)arg2 updateFlags:(BOOL)arg3;
 - (id)_bodyForMessage:(id)arg1 fetchIfNotAvailable:(BOOL)arg2 updateFlags:(BOOL)arg3;
+- (BOOL)bodyFetchRequiresNetworkActivity;
 @property(copy, nonatomic) NSString *storagePath;
 - (id)_setOrGetBody:(id)arg1 forMessage:(id)arg2 updateFlags:(BOOL)arg3;
 - (id)headersForMessage:(id)arg1 fetchIfNotAvailable:(BOOL)arg2;
@@ -64,6 +54,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)_flushAllMessageData;
 - (void)dealloc;
+- (id)init;
 
 @end
 

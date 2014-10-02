@@ -4,16 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <OfficeImport/OCXReadState.h>
 
-@class OAXDrawingState;
+@class CXNamespace, OAXDrawingState;
 
 __attribute__((visibility("hidden")))
-@interface ODXState : NSObject
+@interface ODXState : OCXReadState
 {
+    CXNamespace *mODXDiagramNamespace;
     OAXDrawingState *mOfficeArtState;
 }
 
+@property(retain, nonatomic) CXNamespace *ODXDiagramNamespace; // @synthesize ODXDiagramNamespace=mODXDiagramNamespace;
+- (void)setupNSForXMLFormat:(int)arg1;
 - (id)officeArtState;
 - (void)dealloc;
 - (id)initWithOfficeArtState:(id)arg1;

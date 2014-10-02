@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIColor *fullWidthSeparatorColor; // @synthesize fullWidthSeparatorColor=_fullWitdhSeparatorColor;
 @property(nonatomic) BOOL showFullWidthSeparator; // @synthesize showFullWidthSeparator=_showFullWidthSeparator;
 - (void)dealloc;
-@property(readonly, nonatomic) UIView *topSeparatorView; // @synthesize topSeparatorView=_topSeparatorView;
+@property(readonly, retain, nonatomic) UIView *topSeparatorView; // @synthesize topSeparatorView=_topSeparatorView;
 - (void)layoutSubviews;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 

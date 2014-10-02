@@ -11,7 +11,7 @@
 #import "MSSubscribeStreamsProtocolDelegate.h"
 #import "MSSubscriber.h"
 
-@class MSMediaStreamDaemon, MSObjectQueue, MSReauthorizationProtocol, MSSubscribeStreamsProtocol, NSMutableArray, NSMutableDictionary;
+@class MSMediaStreamDaemon, MSObjectQueue, MSReauthorizationProtocol, MSSubscribeStreamsProtocol, NSMutableArray, NSMutableDictionary, NSString;
 
 @interface MSSubscriber : MSCupidStateMachine <MSSubscriber, MSSubscribeStreamsProtocolDelegate, MSSubscribeStorageProtocolDelegate, MSReauthorizationProtocolDelegate>
 {
@@ -92,6 +92,12 @@
 - (id)initWithPersonID:(id)arg1 baseURL:(id)arg2;
 - (id)ownSubscribedStream;
 - (id)subscribedStreams;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

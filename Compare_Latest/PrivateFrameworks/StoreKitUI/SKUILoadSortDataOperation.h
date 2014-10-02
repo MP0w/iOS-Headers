@@ -16,7 +16,7 @@
 - (id)initWithResourceRequest:(id)arg1;
 
 // Remaining properties
-@property(readonly) SKUISortDataRequest *resourceRequest; // @dynamic resourceRequest;
+@property(readonly, copy) SKUISortDataRequest *resourceRequest; // @dynamic resourceRequest;
 
 @end
 

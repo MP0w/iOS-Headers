@@ -28,6 +28,7 @@
 @property(retain, nonatomic) NSString *originalValue; // @synthesize originalValue=_originalValue;
 @property(retain, nonatomic) NSString *fieldName; // @synthesize fieldName=_fieldName;
 @property(nonatomic) int field; // @synthesize field=_field;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -6,11 +6,15 @@
 
 #import <UIKit/UILabel.h>
 
+@class UITableViewCell;
+
 __attribute__((visibility("hidden")))
 @interface UITableViewLabel : UILabel
 {
+    UITableViewCell *_tableCell;
 }
 
+@property(nonatomic) UITableViewCell *tableCell; // @synthesize tableCell=_tableCell;
 - (void)setText:(id)arg1;
 
 @end

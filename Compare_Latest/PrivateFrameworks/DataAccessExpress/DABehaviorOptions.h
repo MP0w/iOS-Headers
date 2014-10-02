@@ -12,6 +12,7 @@
 
 + (void)removeDAManagedDefaults:(id)arg1;
 + (BOOL)addDAManagedDefaults:(id)arg1;
++ (id)DAManagedDefaultForKey:(id)arg1;
 + (BOOL)setDAManagedDefaults:(id)arg1;
 + (id)DAManagedDefaults;
 + (id)_daManagedDefaultsPath;

@@ -20,7 +20,7 @@
 - (void)main;
 @property(copy) CDUnknownBlockType outputBlock;
 @property(retain) SKUIClientContext *clientContext;
-@property(readonly) SKUIResourceRequest *resourceRequest;
+@property(readonly, copy) SKUIResourceRequest *resourceRequest;
 - (id)initWithResourceRequest:(id)arg1;
 - (id)init;
 - (id)_initSKUILoadResourceOperation;

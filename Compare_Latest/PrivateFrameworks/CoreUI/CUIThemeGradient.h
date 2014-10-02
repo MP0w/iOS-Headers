@@ -8,6 +8,7 @@
 
 #import "CUIThemeGradientDrawing.h"
 
+__attribute__((visibility("hidden")))
 @interface CUIThemeGradient : NSObject <CUIThemeGradientDrawing>
 {
     id gradientEvaluator;

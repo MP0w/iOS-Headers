@@ -19,11 +19,11 @@
     NSString *_domain;
     NSURL *_requestURL;
     SBKStoreAuthenticationController *_authenticationController;
+    SBKTransaction *_currentTransaction;
     SSAccount *_account;
     NSObject<OS_dispatch_queue> *_queue;
     NSOperationQueue *_operationQueue;
     NSMutableArray *_pendingTransactions;
-    SBKTransaction *_currentTransaction;
     SBKTaskAssertion *_backgroundTaskAssertion;
     id _networkTypeObserver;
     int _conflictResolutionAttempts;
@@ -33,16 +33,16 @@
 @property __weak id networkTypeObserver; // @synthesize networkTypeObserver=_networkTypeObserver;
 @property(retain) SBKTaskAssertion *backgroundTaskAssertion; // @synthesize backgroundTaskAssertion=_backgroundTaskAssertion;
 @property BOOL isResolvingError; // @synthesize isResolvingError=_isResolvingError;
-@property(retain) SBKTransaction *currentTransaction; // @synthesize currentTransaction=_currentTransaction;
 @property(retain) NSMutableArray *pendingTransactions; // @synthesize pendingTransactions=_pendingTransactions;
 @property(retain) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
 @property(retain) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(retain) SSAccount *account; // @synthesize account=_account;
+@property(retain, nonatomic) SBKTransaction *currentTransaction; // @synthesize currentTransaction=_currentTransaction;
 @property BOOL shouldAuthenticateIfNecessary; // @synthesize shouldAuthenticateIfNecessary=_shouldAuthenticateIfNecessary;
 @property(retain) SBKStoreAuthenticationController *authenticationController; // @synthesize authenticationController=_authenticationController;
 @property(readonly, getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
 @property(readonly) NSURL *requestURL; // @synthesize requestURL=_requestURL;
-@property(readonly) NSString *domain; // @synthesize domain=_domain;
+@property(readonly, copy) NSString *domain; // @synthesize domain=_domain;
 @property __weak id <SBKTransactionControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)operation:(id)arg1 failedWithError:(id)arg2;
@@ -64,7 +64,7 @@
 - (void)_onQueue_currentTransactionDidFinish;
 - (BOOL)_onQueue_authenticationCanProcessTransaction:(id)arg1 error:(id *)arg2;
 - (BOOL)_onQueue_clampsCanScheduleTransaction:(id)arg1 error:(id *)arg2;
-- (BOOL)_onQueue_isTransactionValid:(id)arg1 error:(id *)arg2;
+- (void)_onQueue_assertIsTransactionValid:(id)arg1 error:(id *)arg2;
 - (BOOL)_onQueue_isEnabledForTransaction:(id)arg1 error:(id *)arg2;
 - (BOOL)_onQueue_canScheduleTransaction:(id)arg1 error:(id *)arg2;
 - (void)_onQueue_addPendingTransaction:(id)arg1;
@@ -94,6 +94,12 @@
 - (void)setDomain:(id)arg1;
 - (void)dealloc;
 - (id)initWithDomain:(id)arg1 requestURL:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

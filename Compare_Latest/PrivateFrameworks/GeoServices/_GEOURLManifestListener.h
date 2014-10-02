@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 @interface _GEOURLManifestListener : NSObject
 {
     NSMutableArray *_handlers;
-    NSLock *_handlersLock;
+    NSLock *_lock;
     NSObject<OS_dispatch_source> *_timeoutTimer;
 }
 

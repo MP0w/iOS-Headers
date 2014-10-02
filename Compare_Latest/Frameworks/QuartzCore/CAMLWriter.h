@@ -23,7 +23,7 @@
 - (void)beginPropertyElement:(id)arg1;
 - (void)beginElement:(unsigned int)arg1;
 - (void)encodeObject:(id)arg1;
-@property id delegate;
+@property __weak id delegate;
 @property(retain) NSURL *baseURL;
 - (id)initWithData:(id)arg1;
 

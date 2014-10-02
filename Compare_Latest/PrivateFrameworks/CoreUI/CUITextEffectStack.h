@@ -6,6 +6,7 @@
 
 #import <CoreUI/CUIShapeEffectStack.h>
 
+__attribute__((visibility("hidden")))
 @interface CUITextEffectStack : CUIShapeEffectStack
 {
     _Bool renderHighQuality;

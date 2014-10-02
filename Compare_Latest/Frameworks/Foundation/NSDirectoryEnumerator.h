@@ -6,15 +6,17 @@
 
 #import "NSEnumerator.h"
 
+@class NSDictionary;
+
 @interface NSDirectoryEnumerator : NSEnumerator
 {
 }
 
 - (void)skipDescendants;
 - (void)skipDescendents;
-- (unsigned int)level;
-- (id)directoryAttributes;
-- (id)fileAttributes;
+@property(readonly) unsigned int level;
+@property(readonly, copy) NSDictionary *directoryAttributes;
+@property(readonly, copy) NSDictionary *fileAttributes;
 - (id)nextObject;
 
 @end

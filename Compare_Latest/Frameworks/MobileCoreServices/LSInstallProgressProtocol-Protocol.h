@@ -9,7 +9,13 @@
 @class LSApplicationProxy, LSApplicationWorkspaceObserver, NSArray, NSString, NSUUID;
 
 @protocol LSInstallProgressProtocol <NSObject>
+- (void)endObservingConnection;
+- (void)beginObservingConnection;
+- (void)sendFailedNotificationForApp:(LSApplicationProxy *)arg1 isUninstall:(BOOL)arg2;
+- (void)sendWillUninstallNotificationForApps:(LSApplicationProxy *)arg1 Plugins:(NSArray *)arg2 isUpdate:(BOOL)arg3;
+- (void)sendUninstalledNotificationForApp:(LSApplicationProxy *)arg1 reply:(void (^)(BOOL))arg2;
 - (void)sendUninstalledNotificationForApps:(NSArray *)arg1;
+- (void)sendInstalledNotificationForApp:(LSApplicationProxy *)arg1 reply:(void (^)(BOOL))arg2;
 - (void)sendInstalledNotificationForApps:(NSArray *)arg1;
 - (void)sendChangeNotificationForApp:(LSApplicationProxy *)arg1;
 - (void)sendIconUpdatedNotificationForApp:(LSApplicationProxy *)arg1;

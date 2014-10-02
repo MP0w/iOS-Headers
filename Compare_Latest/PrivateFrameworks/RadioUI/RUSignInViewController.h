@@ -9,7 +9,7 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "UITextFieldDelegate.h"
 
-@class MPUShapeView, SKUICircleProgressIndicator, UIBarButtonItem, UIButton, UILabel, UITapGestureRecognizer, UITextField;
+@class MPUShapeView, NSString, SKUICircleProgressIndicator, UIBarButtonItem, UIButton, UILabel, UITapGestureRecognizer, UITextField;
 
 @interface RUSignInViewController : UIViewController <UIGestureRecognizerDelegate, UITextFieldDelegate>
 {
@@ -57,6 +57,12 @@
 - (void)viewDidLayoutSubviews;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

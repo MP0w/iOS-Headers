@@ -30,7 +30,6 @@ __attribute__((visibility("hidden")))
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
-- (struct CGSize)contentSizeForViewInPopover;
 - (void)loadView;
 - (void)setSearchString:(id)arg1;
 - (void)updateMentions;
@@ -38,6 +37,12 @@ __attribute__((visibility("hidden")))
 - (id)mentions;
 - (void)completeWithSelectedMention:(id)arg1;
 - (id)initWithSheetDelegate:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

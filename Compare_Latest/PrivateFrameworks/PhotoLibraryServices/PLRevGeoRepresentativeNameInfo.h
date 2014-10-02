@@ -18,11 +18,9 @@
     unsigned int _matchingCount;
     NSMutableOrderedSet *_geoPlaces;
     NSMutableOrderedSet *_remainingGeoPlaces;
-    NSString *_localizedName;
 }
 
 @property(nonatomic) BOOL addCountyIfNeeded; // @synthesize addCountyIfNeeded=_addCountyIfNeeded;
-@property(copy, nonatomic) NSString *localizedName; // @synthesize localizedName=_localizedName;
 @property(readonly, nonatomic) NSMutableOrderedSet *remainingGeoPlaces; // @synthesize remainingGeoPlaces=_remainingGeoPlaces;
 @property(readonly, nonatomic) NSMutableOrderedSet *geoPlaces; // @synthesize geoPlaces=_geoPlaces;
 @property(nonatomic) BOOL allEntriesMatchHomeForOrderType; // @synthesize allEntriesMatchHomeForOrderType=_allEntriesMatchHomeForOrderType;
@@ -30,6 +28,7 @@
 @property(nonatomic) unsigned int matchingCount; // @synthesize matchingCount=_matchingCount;
 @property(nonatomic) unsigned int type; // @synthesize type=_type;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, copy, nonatomic) NSString *localizedName;
 - (id)_resourceKeysForOrderType:(unsigned int)arg1 countryCode:(id)arg2 administrativeAreaCode:(id)arg3;
 - (BOOL)_administrativeAreaCode:(id)arg1 supportedForOrderType:(unsigned int)arg2;
 - (BOOL)_currentLanguageSupportsModifiersForOrderType:(unsigned int)arg1;

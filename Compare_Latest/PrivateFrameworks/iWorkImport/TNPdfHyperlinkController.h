@@ -6,18 +6,16 @@
 
 #import <iWorkImport/TSAPdfHyperlinkController.h>
 
-@class TNPageController;
-
 __attribute__((visibility("hidden")))
 @interface TNPdfHyperlinkController : TSAPdfHyperlinkController
 {
-    TNPageController *mPageController;
     struct CGRect mCanvasRect;
 }
 
 - (id).cxx_construct;
+- (void)setCanvasRect:(struct CGRect)arg1;
 - (struct CGRect)canvasRect;
-- (id)initWithDocumentRoot:(id)arg1 usingPageController:(id)arg2;
+- (id)initWithDocumentRoot:(id)arg1;
 
 @end
 

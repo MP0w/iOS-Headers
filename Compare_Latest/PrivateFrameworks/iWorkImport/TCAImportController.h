@@ -8,15 +8,18 @@
 
 #import "TSAImportDelegate.h"
 
-@class NSError, NSString;
+@class NSError, NSString, NSUUID;
 
 __attribute__((visibility("hidden")))
 @interface TCAImportController : TSAImportController <TSAImportDelegate>
 {
     NSString *_passphrase;
     NSError *_passphraseError;
+    NSUUID *_baseUUIDForObjectUUID;
 }
 
+- (id)baseUUIDForObjectUUID;
+- (id)additionalDocumentPropertiesForWrite;
 - (void)addWarning:(id)arg1;
 - (void)willSaveImportedDocument;
 - (void)importControllerDidRunOutOfSpace:(id)arg1;
@@ -26,7 +29,13 @@ __attribute__((visibility("hidden")))
 - (void)retrievePassphraseForEncryptedDocumentWithImporter:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (BOOL)importWithPassphrase:(id)arg1;
 - (void)dealloc;
-- (id)initWithPath:(id)arg1 documentType:(id)arg2;
+- (id)initWithPath:(id)arg1 documentType:(id)arg2 baseUUIDForObjectUUID:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

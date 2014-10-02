@@ -6,14 +6,17 @@
 
 #import "NSObject.h"
 
+__attribute__((visibility("hidden")))
 @interface _CSIRenditionBlockData : NSObject
 {
+    unsigned int _dataPixelFormat;
     int _pixelFormat;
     char *_data;
     unsigned int _nrows;
     unsigned long _rowbytes;
     char _name[128];
     unsigned char _imageBlockReleaseCount;
+    unsigned int _mmappedData:1;
 }
 
 + (id)sharedCache;
@@ -28,7 +31,7 @@
 - (const char *)bytes;
 - (unsigned int)nrows;
 - (unsigned long)rowbytes;
-- (void)_setNameFromCSIHeader:(const struct _csiheader *)arg1;
+- (void)updateFromCSIHeader:(const struct _csiheader *)arg1;
 - (id)initWithPixelWidth:(unsigned int)arg1 pixelHeight:(unsigned int)arg2 pixelFormat:(int)arg3;
 
 @end

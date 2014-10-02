@@ -6,24 +6,22 @@
 
 #import "NSObject.h"
 
-@class MCSession, NSProgress, NSString;
+@class NSProgress, NSString;
 
 @interface MCResourceProgressObserver : NSObject
 {
     NSString *_name;
-    MCSession *_session;
     NSProgress *_progress;
     CDUnknownBlockType _cancelHandler;
 }
 
-@property(nonatomic) CDUnknownBlockType cancelHandler; // @synthesize cancelHandler=_cancelHandler;
+@property(copy, nonatomic) CDUnknownBlockType cancelHandler; // @synthesize cancelHandler=_cancelHandler;
 @property(retain, nonatomic) NSProgress *progress; // @synthesize progress=_progress;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
-@property(nonatomic) MCSession *session; // @synthesize session=_session;
 - (void)dealloc;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)invalidate;
-- (id)initWithName:(id)arg1 session:(id)arg2 progress:(id)arg3 cancelHandler:(CDUnknownBlockType)arg4;
+- (id)initWithName:(id)arg1 progress:(id)arg2 cancelHandler:(CDUnknownBlockType)arg3;
 
 @end
 

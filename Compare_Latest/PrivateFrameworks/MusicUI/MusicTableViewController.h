@@ -6,13 +6,17 @@
 
 #import "MPUTableViewController.h"
 
-#import "MPHSearchViewControllerDelegate.h"
+#import "MPUMiniPlayerParticipant.h"
+#import "MusicSearchViewControllerDelegate.h"
+#import "MusicTableViewDelegate.h"
 
-@class MusicSearchViewController, UISearchBar, UISearchDisplayController;
+@class MusicSearchViewController, NSMapTable, NSString, UISearchBar, UISearchDisplayController, UITraitCollection;
 
-@interface MusicTableViewController : MPUTableViewController <MPHSearchViewControllerDelegate>
+@interface MusicTableViewController : MPUTableViewController <MPUMiniPlayerParticipant, MusicSearchViewControllerDelegate, MusicTableViewDelegate>
 {
+    NSMapTable *_calculatedHeightByTableViewRelatedClass;
     BOOL _isVisible;
+    UITraitCollection *_previousTraitCollection;
     UISearchBar *_searchBar;
     UISearchDisplayController *_searchDisplayController;
     MusicSearchViewController *_searchViewController;
@@ -29,32 +33,50 @@
 - (void)_updateNavigationPrompt;
 - (id)_searchDisplayController;
 - (id)_searchBar;
-- (void)_tableViewController_defaultMediaLibraryDidChangeNotification:(id)arg1;
+- (void)_invalidateCalculatedHeights;
+- (float)_heightForCellConfigurationClass:(Class)arg1 inTableView:(id)arg2;
 - (void)_tableViewController_itemDidChangeNotification:(id)arg1;
+- (void)_tableViewController_defaultMediaLibraryDidChangeNotification:(id)arg1;
+- (void)_tableViewController_cloudControllerCanShowCloudDownloadButtonsDidChangeNotification:(id)arg1;
+- (void)_tableViewController_contentSizeCategoryDidChangeNotification:(id)arg1;
+- (void)_registerHeight:(id)arg1 forTableRelatedClass:(Class)arg2;
+- (id)_heightForTableRelatedClass:(Class)arg1;
 - (id)_createTableViewBackgroundView;
+- (void)contentSizeCategoryDidChange;
 @property(readonly, nonatomic) struct CGSize contentSize;
+- (void)musicTableView:(id)arg1 traitCollectionDidChange:(id)arg2;
 - (void)tableViewDidFinishReload:(id)arg1;
 - (void)tableView:(id)arg1 willDisplayFooterView:(id)arg2 forSection:(int)arg3;
 - (void)tableView:(id)arg1 willDisplayHeaderView:(id)arg2 forSection:(int)arg3;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
 - (int)tableView:(id)arg1 sectionForSectionIndexTitle:(id)arg2 atIndex:(int)arg3;
+- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
 - (BOOL)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
 - (id)sectionIndexTitlesForTableView:(id)arg1;
 - (void)searchViewControllerWillEndSearch:(id)arg1;
 - (void)searchViewControllerWillBeginSearch:(id)arg1;
 - (id)_createTableView;
+- (BOOL)MPU_beginPlaybackForVisibleContent;
 - (BOOL)shouldShowActionCellConfiguration:(Class)arg1;
 - (void)reloadData;
 - (void)reloadActionRowsAnimated:(BOOL)arg1;
-- (BOOL)music_beginPlaybackForVisibleContent;
+- (BOOL)music_handleUserActivityContext:(id)arg1 containerItem:(id)arg2;
 - (BOOL)music_hasContent;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidDisappear:(BOOL)arg1;
+- (id)view;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)dealloc;
 - (id)initWithDataSource:(id)arg1 cellConfigurationClass:(Class)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

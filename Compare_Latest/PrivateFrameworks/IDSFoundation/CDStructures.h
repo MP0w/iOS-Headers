@@ -8,3 +8,48 @@
 
 typedef void (^CDUnknownBlockType)(void); // return type and parameters are unknown
 
+#pragma mark Named Structures
+
+struct in6_addr {
+    union {
+        unsigned char _field1[16];
+        unsigned short _field2[8];
+        unsigned int _field3[4];
+    } _field1;
+};
+
+struct in_addr {
+    unsigned int _field1;
+};
+
+struct sockaddr {
+    unsigned char _field1;
+    unsigned char _field2;
+    char _field3[14];
+};
+
+struct sockaddr_in {
+    unsigned char _field1;
+    unsigned char _field2;
+    unsigned short _field3;
+    struct in_addr _field4;
+    char _field5[8];
+};
+
+struct sockaddr_in6 {
+    unsigned char _field1;
+    unsigned char _field2;
+    unsigned short _field3;
+    unsigned int _field4;
+    struct in6_addr _field5;
+    unsigned int _field6;
+};
+
+struct sockaddr_storage {
+    unsigned char ss_len;
+    unsigned char ss_family;
+    char __ss_pad1[6];
+    long long __ss_align;
+    char __ss_pad2[112];
+};
+

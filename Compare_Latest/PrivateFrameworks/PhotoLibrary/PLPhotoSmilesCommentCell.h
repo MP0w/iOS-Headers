@@ -23,8 +23,8 @@
 @property(nonatomic) BOOL isVideo; // @synthesize isVideo=_isVideo;
 @property(copy, nonatomic) NSOrderedSet *userLikes; // @synthesize userLikes=_userLikes;
 @property(nonatomic) BOOL showUserLikes; // @synthesize showUserLikes=_showUserLikes;
-@property(readonly, nonatomic) UIButton *smileImageButton; // @synthesize smileImageButton=_smileImageButton;
-@property(readonly, nonatomic) UILabel *smileContentLabel; // @synthesize smileContentLabel=_smileContentLabel;
+@property(readonly, retain, nonatomic) UIButton *smileImageButton; // @synthesize smileImageButton=_smileImageButton;
+@property(readonly, retain, nonatomic) UILabel *smileContentLabel; // @synthesize smileContentLabel=_smileContentLabel;
 - (void)layoutSubviews;
 - (void)_updateContent;
 - (void)prepareForReuse;

@@ -19,7 +19,7 @@
 
 + (void)CAMLParserStartElement:(id)arg1;
 @property(retain, nonatomic) CAStateElement *source; // @synthesize source=_source;
-@property(nonatomic) CALayer *target; // @synthesize target=_target;
+@property(nonatomic) __weak CALayer *target; // @synthesize target=_target;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)CAMLTypeForKey:(id)arg1;
@@ -30,7 +30,7 @@
 - (id)save;
 - (void)apply:(id)arg1;
 - (BOOL)matches:(id)arg1;
-@property(readonly, nonatomic) NSString *keyPath;
+@property(readonly, copy, nonatomic) NSString *keyPath;
 - (id)targetName;
 - (void)dealloc;
 

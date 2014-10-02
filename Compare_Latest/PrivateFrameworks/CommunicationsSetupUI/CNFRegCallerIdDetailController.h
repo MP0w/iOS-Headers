@@ -13,7 +13,7 @@
     CNFRegController *_regController;
 }
 
-@property(readonly, nonatomic) CNFRegController *regController; // @synthesize regController=_regController;
+@property(readonly, retain, nonatomic) CNFRegController *regController; // @synthesize regController=_regController;
 - (void)_setupAccountHandlers;
 - (void)reloadCallerIdValues;
 - (void)viewDidDisappear:(BOOL)arg1;

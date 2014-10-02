@@ -13,6 +13,8 @@
     BOOL hasSaveRestriction;
 }
 
+- (BOOL)containsMovieFragments;
+- (BOOL)canContainMovieFragments;
 - (BOOL)isComposable;
 - (BOOL)isReadable;
 - (BOOL)isExportable;

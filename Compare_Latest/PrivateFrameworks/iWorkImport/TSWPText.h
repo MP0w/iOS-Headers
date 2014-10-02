@@ -10,17 +10,15 @@
 #import "TSWPLayoutOwner.h"
 #import "TSWPLayoutTarget.h"
 
-@class NSMutableArray, NSObject<TSWPTextDelegate>, TSDCanvas, TSDLayout, TSPObject<TSDHint>, TSUColor, TSWPColumnStyle, TSWPListStyle, TSWPPadding, TSWPParagraphStyle, TSWPStorage;
+@class NSMutableArray, NSObject<TSWPTextDelegate>, NSString, TSDCanvas, TSDLayout, TSPObject<TSDHint>, TSUColor, TSWPColumnStyle, TSWPListStyle, TSWPPadding, TSWPParagraphStyle, TSWPStorage, TSWPTextParentInfo, TSWPTextParentLayout;
 
 __attribute__((visibility("hidden")))
 @interface TSWPText : NSObject <TSWPLayoutTarget, TSWPLayoutOwner, TSWPColumnMetrics>
 {
-    TSWPParagraphStyle *_paragraphStyle;
     TSWPListStyle *_listStyle;
     TSWPColumnStyle *_columnStyle;
     TSUColor *_textColorOverride;
     TSWPStorage *_storage;
-    NSMutableArray *_columns;
     struct CGSize _minSize;
     struct CGSize _maxSize;
     unsigned int _pageNumber;
@@ -29,23 +27,27 @@ __attribute__((visibility("hidden")))
     struct CGPoint _anchor;
     int _naturalAlignment;
     int _naturalDirection;
+    TSWPTextParentInfo *_parentInfo;
+    TSWPTextParentLayout *_parentLayout;
+    NSMutableArray *_columns;
     NSObject<TSWPTextDelegate> *_delegate;
+    TSWPParagraphStyle *_paragraphStyle;
 }
 
+@property(readonly, nonatomic) TSWPParagraphStyle *paragraphStyle; // @synthesize paragraphStyle=_paragraphStyle;
+@property(nonatomic) NSObject<TSWPTextDelegate> *delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) TSUColor *textColorOverride; // @synthesize textColorOverride=_textColorOverride;
 @property(readonly, nonatomic) int naturalDirection; // @synthesize naturalDirection=_naturalDirection;
 @property(readonly, nonatomic) int naturalAlignment; // @synthesize naturalAlignment=_naturalAlignment;
-@property(readonly, nonatomic) TSWPParagraphStyle *paragraphStyle; // @synthesize paragraphStyle=_paragraphStyle;
-@property(readonly, nonatomic) NSMutableArray *columns; // @synthesize columns=_columns;
-@property(nonatomic) NSObject<TSWPTextDelegate> *delegate; // @synthesize delegate=_delegate;
+@property(readonly, retain, nonatomic) NSMutableArray *columns; // @synthesize columns=_columns;
 - (id).cxx_construct;
+- (void)p_setParentLayoutMaximumFrameSizeForChildren;
 - (BOOL)forceWesternLineBreaking;
 - (id)textWrapper;
 - (void)layoutManager:(id)arg1 didClearDirtyRangeWithDelta:(int)arg2 afterCharIndex:(unsigned int)arg3;
 - (void)layoutManagerNeedsLayout:(id)arg1;
 - (BOOL)caresAboutStorageChanges;
 @property(readonly, nonatomic) BOOL layoutIsValid;
-- (BOOL)adjustColumnOriginForAlignment;
 - (BOOL)isLayoutOffscreen;
 @property(readonly, nonatomic) BOOL textIsVertical;
 @property(readonly, nonatomic) unsigned int pageCount;
@@ -70,20 +72,20 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSPObject<TSDHint> *nextTargetFirstChildHint;
 @property(readonly, nonatomic) id <TSWPFootnoteMarkProvider> footnoteMarkProvider;
 @property(readonly, nonatomic) id <TSWPFootnoteHeightMeasurer> footnoteHeightMeasurer;
-@property(readonly, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
+@property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
 @property(readonly, nonatomic) const struct TSWPTopicNumberHints *nextTargetTopicNumbers;
 @property(readonly, nonatomic) const struct TSWPTopicNumberHints *previousTargetTopicNumbers;
-@property(readonly, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
+@property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
 - (id)columnMetricsForCharIndex:(unsigned int)arg1 outRange:(struct _NSRange *)arg2;
 @property(readonly, nonatomic) BOOL columnsAreLeftToRight;
 @property(readonly, nonatomic) BOOL shrinkTextToFit;
 @property(readonly, nonatomic) BOOL alwaysStartsNewTarget;
-- (float)positionForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2 outWidth:(float *)arg3 outGap:(float *)arg4;
+- (float)positionForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2 target:(id)arg3 outWidth:(float *)arg4 outGap:(float *)arg5;
 - (float)gapForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2;
 - (float)widthForColumnIndex:(unsigned int)arg1 bodyWidth:(float)arg2;
 @property(readonly, nonatomic) unsigned int columnCount;
 @property(readonly, nonatomic) TSWPPadding *layoutMargins;
-@property(readonly, nonatomic) struct CGSize adjustedInsets;
+- (struct CGSize)adjustedInsetsForTarget:(id)arg1;
 - (void)drawText:(id)arg1 inContext:(struct CGContext *)arg2 minSize:(struct CGSize)arg3 maxSize:(struct CGSize)arg4 anchor:(struct CGPoint)arg5 flags:(int)arg6 viewScale:(float)arg7;
 - (void)drawColumn:(id)arg1 inContext:(struct CGContext *)arg2 isFlipped:(BOOL)arg3 viewScale:(float)arg4;
 - (void)drawColumn:(id)arg1 selection:(id)arg2 inContext:(struct CGContext *)arg3 isFlipped:(BOOL)arg4 viewScale:(float)arg5;
@@ -103,10 +105,14 @@ __attribute__((visibility("hidden")))
 // Remaining properties
 @property(retain, nonatomic) NSMutableArray *anchoredDrawablesForRelayout;
 @property(readonly, nonatomic) TSDCanvas *canvas;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) struct __CFLocale *hyphenationLocale;
 @property(readonly, nonatomic) struct CGRect maskRect;
 @property(readonly, nonatomic) TSDLayout *parentLayoutForInlineAttachments;
 @property(readonly, nonatomic) BOOL shouldHyphenate;
+@property(readonly) Class superclass;
 @property(readonly, nonatomic) float textScaleFactor;
 
 @end

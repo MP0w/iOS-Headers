@@ -12,7 +12,7 @@
 }
 
 + (id)copyParseRules;
-@property(retain) CoreDAVItem *supported; // @synthesize supported=_supported;
+@property(retain, nonatomic) CoreDAVItem *supported; // @synthesize supported=_supported;
 - (id)description;
 - (void)dealloc;
 - (id)init;

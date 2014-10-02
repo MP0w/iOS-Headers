@@ -9,7 +9,7 @@
 #import "UIPickerViewDataSource.h"
 #import "UIPickerViewDelegate.h"
 
-@class NSCalendar, NSDate, NSDateComponents, NSLocale, NSTimeZone, UIDatePicker, UIFont, UILabel, _UIDatePickerMode;
+@class NSCalendar, NSDate, NSDateComponents, NSLocale, NSString, NSTimeZone, UIDatePicker, UIFont, UILabel, _UIDatePickerChineseCalendar, _UIDatePickerMode;
 
 __attribute__((visibility("hidden")))
 @interface _UIDatePickerView : UIPickerView <UIPickerViewDelegate, UIPickerViewDataSource>
@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
     NSLocale *_compositeLocale;
     NSLocale *_userProvidedLocale;
     NSCalendar *_userProvidedCalendar;
+    _UIDatePickerChineseCalendar *_chineseWrapperCalendar;
     NSDate *_minimumDate;
     NSDate *_maximumDate;
     NSDateComponents *_lastSelectedDateComponents;
@@ -118,6 +119,12 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSLocale *locale; // @dynamic locale;
 @property(readonly, nonatomic) NSCalendar *calendar; // @dynamic calendar;
 @property(nonatomic) BOOL highlightsToday; // @dynamic highlightsToday;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

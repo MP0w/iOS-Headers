@@ -12,15 +12,28 @@
 
 @interface GEOBatchRevGeocodeResponse : PBCodable <NSCopying>
 {
+    double _timestamp;
     NSMutableArray *_batchPlaceResults;
     NSMutableArray *_clusters;
     int _statusCode;
-    CDStruct_bcb1eac0 _has;
+    unsigned int _ttl;
+    unsigned int _version;
+    NSMutableArray *_versionDomains;
+    struct {
+        unsigned int timestamp:1;
+        unsigned int statusCode:1;
+        unsigned int ttl:1;
+        unsigned int version:1;
+    } _has;
 }
 
+@property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
+@property(nonatomic) unsigned int version; // @synthesize version=_version;
+@property(retain, nonatomic) NSMutableArray *versionDomains; // @synthesize versionDomains=_versionDomains;
 @property(retain, nonatomic) NSMutableArray *batchPlaceResults; // @synthesize batchPlaceResults=_batchPlaceResults;
 @property(retain, nonatomic) NSMutableArray *clusters; // @synthesize clusters=_clusters;
 @property(nonatomic) int statusCode; // @synthesize statusCode=_statusCode;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -29,6 +42,14 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) BOOL hasTimestamp;
+@property(nonatomic) BOOL hasVersion;
+- (id)versionDomainAtIndex:(unsigned int)arg1;
+- (unsigned int)versionDomainsCount;
+- (void)addVersionDomain:(id)arg1;
+- (void)clearVersionDomains;
+@property(nonatomic) BOOL hasTtl;
+@property(nonatomic) unsigned int ttl; // @synthesize ttl=_ttl;
 - (id)batchPlaceResultAtIndex:(unsigned int)arg1;
 - (unsigned int)batchPlaceResultsCount;
 - (void)addBatchPlaceResult:(id)arg1;

@@ -8,16 +8,20 @@
 
 #import "SSXPCCoding.h"
 
-@class NSMutableDictionary;
+@class NSMutableDictionary, NSString;
 
 @interface SSSoftwareLibraryItem : NSObject <SSXPCCoding>
 {
+    BOOL _beta;
     NSMutableDictionary *_etags;
+    BOOL _placeholder;
     BOOL _profileValidated;
     NSMutableDictionary *_propertyValues;
 }
 
 @property(nonatomic, getter=isProfileValidated) BOOL profileValidated; // @synthesize profileValidated=_profileValidated;
+@property(nonatomic, getter=isPlaceholder) BOOL placeholder; // @synthesize placeholder=_placeholder;
+@property(nonatomic, getter=isBeta) BOOL beta; // @synthesize beta=_beta;
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;
 - (void)_setValue:(id)arg1 forProperty:(id)arg2;
@@ -26,6 +30,12 @@
 - (BOOL)setETag:(id)arg1 forAssetType:(id)arg2 error:(id *)arg3;
 - (id)ETagForAssetType:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

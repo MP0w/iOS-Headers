@@ -10,5 +10,9 @@
 + (BOOL)requiresPerspectiveTransform;
 + (BOOL)requiresBullets;
 + (BOOL)isCharacterAwareEffect;
+
+@optional
++ (BOOL)shouldDisableMagicMoveOnText;
++ (BOOL)supportsMorphTextures;
 @end
 

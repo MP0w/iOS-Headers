@@ -8,18 +8,19 @@
 
 #import "NSCopying.h"
 
-@class TSUColor;
+@class OITSUColor;
 
 __attribute__((visibility("hidden")))
 @interface WDShading : NSObject <NSCopying>
 {
     int mStyle;
-    TSUColor *mForegroundColor;
-    TSUColor *mBackgroundColor;
+    OITSUColor *mForegroundColor;
+    OITSUColor *mBackgroundColor;
 }
 
 + (id)autoBackgroundColor;
 + (id)autoForegroundColor;
++ (id)nullShading;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)setBackground:(id)arg1;
 - (id)background;

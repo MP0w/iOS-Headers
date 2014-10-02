@@ -36,5 +36,11 @@
 - (void)dealloc;
 - (id)initWithItem:(id)arg1 offer:(id)arg2;
 
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
+
 @end
 

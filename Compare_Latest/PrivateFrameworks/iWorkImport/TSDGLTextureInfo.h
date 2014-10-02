@@ -16,12 +16,15 @@ __attribute__((visibility("hidden")))
     unsigned int _width;
 }
 
++ (id)textureInfoWithName:(unsigned int)arg1 target:(unsigned int)arg2 width:(unsigned int)arg3 height:(unsigned int)arg4 containsMipmaps:(BOOL)arg5;
 @property(readonly, nonatomic) unsigned int width; // @synthesize width=_width;
 @property(readonly, nonatomic) unsigned int height; // @synthesize height=_height;
 @property(readonly, nonatomic) unsigned int target; // @synthesize target=_target;
 @property(readonly, nonatomic) BOOL containsMipmaps; // @synthesize containsMipmaps=_containsMipmaps;
 @property(readonly, nonatomic) unsigned int name; // @synthesize name=_name;
+- (id)description;
 - (void)teardown;
+@property(readonly, nonatomic) struct CGSize size;
 - (id)initWithName:(unsigned int)arg1 target:(unsigned int)arg2 width:(unsigned int)arg3 height:(unsigned int)arg4 containsMipmaps:(BOOL)arg5;
 
 @end

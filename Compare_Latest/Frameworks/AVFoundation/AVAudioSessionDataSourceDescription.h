@@ -14,7 +14,6 @@
 }
 
 + (id)privateCreateOrConfigureArray:(id)arg1 withRawSourceArray:(id)arg2 portID:(id)arg3;
-+ (id)privateCreateOrConfigure:(id)arg1 withRawSourceDescription:(id)arg2 portID:(id)arg3;
 - (id)privateGetOwningPortID;
 - (void)configurePolarPatterns:(id)arg1;
 - (id)initWithRawSourceDescription:(id)arg1 andOwningPortID:(id)arg2;

@@ -36,8 +36,6 @@
 @property(readonly, nonatomic) SUClientInterface *clientInterface; // @synthesize clientInterface=_clientInterface;
 - (id)_viewControllerForContext:(id)arg1;
 - (void)_transitionSafeHandlePartnerChange:(id)arg1;
-- (void)_showPhonePreviewOverlay:(id)arg1 animated:(BOOL)arg2;
-- (void)_showPadPreviewOverlay:(id)arg1 animated:(BOOL)arg2;
 - (id)_sectionForType:(int)arg1;
 - (id)_sectionForIdentifier:(id)arg1;
 - (BOOL)_saveTransientNavigationPathToDefaults;
@@ -46,14 +44,11 @@
 - (void)_restoreArchivedTransientContexts:(id)arg1;
 - (void)_restoreOverlayContexts:(id)arg1;
 - (void)_restoreArchivedContexts:(id)arg1;
-- (void)_removePreviewOverlayViewController;
 - (void)_reloadViewControllersFromSections:(id)arg1 animated:(BOOL)arg2;
 - (void)_moveView:(id)arg1 toView:(id)arg2;
 - (void)_moveTransientViewController:(id)arg1 toSectionWithIdentifier:(id)arg2 asRoot:(BOOL)arg3;
 - (void)_longPressAction:(id)arg1;
 - (BOOL)_isReloadingUnderneathTransientViewController;
-- (void)_hidePhonePreviewOverlayAnimated:(BOOL)arg1;
-- (void)_hidePadPreviewOverlayAnimated:(BOOL)arg1;
 - (void)_fixupViewControllers;
 - (void)_fixupTabBarSelection;
 - (void)_endReloadingUnderneathTransientViewController;
@@ -117,7 +112,11 @@
 - (id)init;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) id <SUTabBarControllerDelegate> delegate; // @dynamic delegate;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

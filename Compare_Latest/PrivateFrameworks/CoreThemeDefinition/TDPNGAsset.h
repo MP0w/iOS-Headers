@@ -10,10 +10,18 @@
 
 @interface TDPNGAsset : TDAsset
 {
+    int _exifOrientation;
+    unsigned int _fileScaleFactor;
 }
 
 - (BOOL)hasProduction;
 - (BOOL)hasCursorProduction;
+- (unsigned int)fileScaleFactor;
+- (void)setFileScaleFactor:(unsigned int)arg1;
+- (int)exifOrientation;
+- (id)sourceImageWithDocument:(id)arg1;
+- (struct CGSize)sourceImageSizeWithDocument:(id)arg1;
+- (void)_logError:(id)arg1;
 
 // Remaining properties
 @property(retain, nonatomic) NSSet *renditions; // @dynamic renditions;

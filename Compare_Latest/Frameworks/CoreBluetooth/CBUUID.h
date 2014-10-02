@@ -12,22 +12,20 @@
 
 @interface CBUUID : NSObject <NSCopying>
 {
-    NSData *_data;
-    struct _NSRange _range;
+    unsigned char _bytes[16];
+    BOOL _type;
 }
 
 + (id)UUIDWithNSUUID:(id)arg1;
 + (id)UUIDWithCFUUID:(struct __CFUUID *)arg1;
 + (id)UUIDWithData:(id)arg1;
 + (id)UUIDWithString:(id)arg1;
-+ (void)initialize;
 - (id)description;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 @property(readonly, nonatomic) NSString *UUIDString; // @dynamic UUIDString;
 @property(readonly, nonatomic) NSData *data; // @dynamic data;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)initWithNSUUID:(id)arg1;
 - (id)initWithCFUUID:(struct __CFUUID *)arg1;
 - (id)initWithData:(id)arg1;

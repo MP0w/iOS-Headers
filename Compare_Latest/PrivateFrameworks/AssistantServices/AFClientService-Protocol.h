@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AFSpeechRequestOptions, NSArray, NSData, NSDictionary, NSError, NSString, NSURL, SASPronunciationContext;
+@class AFMetrics, AFSpeechRequestOptions, NSArray, NSData, NSDictionary, NSError, NSString, NSURL, SASPronunciationContext;
 
 @protocol AFClientService <NSObject>
 - (oneway void)_refreshAssistantValidation;
@@ -20,12 +20,13 @@
 - (oneway void)_pingServiceForIdentifier:(NSString *)arg1 reply:(void (^)(NSDictionary *))arg2;
 - (oneway void)_listInstalledServicesWithReply:(void (^)(NSDictionary *))arg1;
 - (oneway void)recordFailureMetricsForError:(NSError *)arg1;
+- (oneway void)recordMetrics:(AFMetrics *)arg1;
 - (oneway void)markUsefulUserResultPresentationTimestamp:(double)arg1;
 - (oneway void)telephonyRequestCompleted;
 - (oneway void)prepareForPhoneCall;
-- (oneway void)setAlertContextWithBulletins:(NSArray *)arg1;
-- (oneway void)setOverriddenApplicationContext:(NSString *)arg1 includeSmsInContext:(NSURL *)arg2;
-- (oneway void)setApplicationContext;
+- (oneway void)setAlertContextDirty;
+- (oneway void)setOverriddenApplicationContext:(NSString *)arg1 withSMSContext:(NSDictionary *)arg2;
+- (oneway void)setApplicationContextForApplicationInfos:(NSArray *)arg1;
 - (oneway void)rollbackClearContext;
 - (oneway void)clearContext;
 - (oneway void)performGenericAceCommand:(NSDictionary *)arg1 interruptOutstandingRequest:(BOOL)arg2 reply:(void (^)(BOOL))arg3;
@@ -36,15 +37,16 @@
 - (oneway void)rollbackRequest;
 - (oneway void)cancelRequest;
 - (oneway void)updateSpeechOptions:(AFSpeechRequestOptions *)arg1;
+- (oneway void)startAcousticIDRequestWithOptions:(AFSpeechRequestOptions *)arg1 context:(NSString *)arg2;
 - (oneway void)startSpeechPronunciationRequestWithOptions:(AFSpeechRequestOptions *)arg1 pronunciationContext:(SASPronunciationContext *)arg2;
 - (oneway void)startSpeechRequestWithOptions:(AFSpeechRequestOptions *)arg1;
-- (oneway void)sendAssistantDirectActionRequest:(NSString *)arg1;
+- (oneway void)startContinuationRequestWithUserInfo:(NSDictionary *)arg1;
+- (oneway void)startDirectActionRequest:(NSString *)arg1;
 - (oneway void)sendAssistantRequest:(NSString *)arg1 reply:(void (^)(void))arg2;
 - (oneway void)endSession;
 - (oneway void)setVoiceOverIsActive:(BOOL)arg1;
 - (oneway void)setIsStark:(BOOL)arg1;
 - (oneway void)setLockState:(BOOL)arg1 showingLockScreen:(BOOL)arg2;
 - (oneway void)forceAudioSessionActive;
-- (oneway void)preheat;
 @end
 

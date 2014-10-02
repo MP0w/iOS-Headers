@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) BOOL shouldFileRadar; // @synthesize shouldFileRadar=_shouldFileRadar;
 @property(readonly) BOOL isError; // @synthesize isError=_isError;
 @property(readonly) BOOL isRecoverable; // @synthesize isRecoverable=_isRecoverable;
-@property(readonly) NSString *consoleDescription; // @synthesize consoleDescription=_consoleDescription;
+@property(readonly, copy) NSString *consoleDescription; // @synthesize consoleDescription=_consoleDescription;
 @property(readonly) int statusCode; // @synthesize statusCode=_statusCode;
 - (void).cxx_destruct;
 @property(readonly) BOOL isGenericError;

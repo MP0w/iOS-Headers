@@ -29,9 +29,14 @@
         unsigned int removeFromView:1;
     } _transitionViewFlags;
     float _curlUpRevealedHeight;
+    BOOL _ignoreDirectTouchEvents;
+    int _animationTimingCurve;
 }
 
 + (double)defaultDurationForTransition:(int)arg1;
+@property(nonatomic) BOOL ignoreDirectTouchEvents; // @synthesize ignoreDirectTouchEvents=_ignoreDirectTouchEvents;
+@property(nonatomic) int animationTimingCurve; // @synthesize animationTimingCurve=_animationTimingCurve;
+- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)_transitionDidStop:(id)arg1 finished:(id)arg2;
 - (void)_startTransition:(int)arg1 withDuration:(double)arg2;
 - (void)setIgnoresInteractionEvents:(BOOL)arg1;

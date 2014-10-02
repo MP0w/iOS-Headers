@@ -15,6 +15,7 @@
 }
 
 + (void)preheatWallpaperDataForVariant:(int)arg1;
++ (struct CGImage *)_newBlackWallpaperImage;
 + (id)cachedWallpaperDataForVariant:(int)arg1;
 @property(readonly, nonatomic) NSData *data; // @synthesize data=_data;
 @property(readonly, nonatomic) int variant; // @synthesize variant=_variant;

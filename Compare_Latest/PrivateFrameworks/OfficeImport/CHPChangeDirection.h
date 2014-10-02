@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void)changeChartDirection:(id)arg1 sheet:(id)arg2;
+- (void)changeBarColumnDirection:(id)arg1;
 - (void)applyProcessorToObject:(id)arg1 sheet:(id)arg2;
 - (_Bool)isObjectSupported:(id)arg1;
 - (void)cleanUpOldSeriesCollection:(id)arg1;

@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (id).cxx_construct;
+- (void)setCanvasRect:(struct CGRect)arg1;
 - (struct CGRect)canvasRect;
 - (id)initWithDocumentRoot:(id)arg1;
 

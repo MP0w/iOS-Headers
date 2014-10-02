@@ -8,7 +8,7 @@
 
 #import "ISStoreURLOperationDelegate.h"
 
-@class ISReview;
+@class ISReview, NSString;
 
 @interface ISPostReviewOperation : ISOperation <ISStoreURLOperationDelegate>
 {
@@ -22,6 +22,12 @@
 - (void)operation:(id)arg1 finishedWithOutput:(id)arg2;
 - (void)run;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,6 +8,8 @@
 
 #import "CertInfoTrustDescription.h"
 
+@class NSString;
+
 @interface CertInfoBasicTrustDescription : NSObject <CertInfoTrustDescription>
 {
     struct __SecTrust *_trust;
@@ -20,12 +22,19 @@
 - (id)certificateIssuerSummaryAtIndex:(unsigned int)arg1;
 - (id)certificateSubjectSummaryAtIndex:(unsigned int)arg1;
 - (unsigned int)certificateCount;
+- (BOOL)isRootCertificate;
 - (BOOL)isTrusted;
 - (id)summaryDescriptionItems;
 - (id)summarySubtitle;
 - (id)summaryTitle;
 - (void)dealloc;
 - (id)initWithTrust:(struct __SecTrust *)arg1 action:(int)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
-@class NSString, TSPComponent, TSPObjectContext, TSPUnknownContent;
+@class NSString, NSUUID, TSPComponent, TSPObjectContext, TSPUnknownContent, TSUUUIDPath;
 
 __attribute__((visibility("hidden")))
 @interface TSPObject : NSObject
 {
     long long _identifier;
     long long _modifyObjectToken;
+    NSUUID *_UUID;
     TSPUnknownContent *_unknownContent;
     TSPComponent *_component;
     id <TSPObjectDelegate> _delegate;
@@ -20,6 +21,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (BOOL)tsp_isTransientObjectIdentifier:(long long)arg1;
++ (BOOL)needsObjectUUID;
 + (id)newObjectForUnarchiver:(id)arg1;
 @property(nonatomic) __weak id <TSPObjectDelegate> tsp_delegate; // @synthesize tsp_delegate=_delegate;
 @property(nonatomic) __weak TSPComponent *tsp_component; // @synthesize tsp_component=_component;
@@ -29,9 +31,10 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) long long tsp_identifier; // @synthesize tsp_identifier=_identifier;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL needsArchiving;
+- (id)tsp_descriptionWithDepth:(unsigned int)arg1;
+@property(readonly, nonatomic) NSString *tsp_description;
+@property(copy, nonatomic) NSUUID *objectUUID;
 - (void)didFinishUnarchiving;
-@property(readonly, nonatomic) BOOL dirtiesDocumentPackage;
-@property(readonly, nonatomic) BOOL allowsDuplicatesOutsideOfDocumentPackage;
 - (void)saveToArchiver:(id)arg1;
 - (id)initFromUnarchiver:(id)arg1;
 @property(readonly, nonatomic) BOOL isCommandObject;
@@ -49,7 +52,15 @@ __attribute__((visibility("hidden")))
 - (id)initWithContext:(id)arg1;
 @property(readonly, nonatomic) TSPObjectContext *context;
 - (id)init;
+- (void)willBeRemovedFromDocument;
+- (void)wasAddedToDocumentDuringImport;
+- (void)wasAddedToDocumentDuringUnarchive;
+- (void)wasAddedToDocument;
+- (void)wasAddedToDocumentWithOptions:(unsigned int)arg1;
+@property(readonly, nonatomic) TSUUUIDPath *objectUUIDPath;
 - (id)documentRoot;
+- (BOOL)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
+- (id)owningDocument;
 
 @end
 

@@ -30,7 +30,7 @@
     BOOL _useScreenSpacePoint;
     float _dropFraction;
     VKAnchor *_anchor;
-    CDStruct_c71ade79 _styleTransitionState;
+    CDStruct_4f8a95cd _styleTransitionState;
     id <VKAnnotationMarkerDelegate> _delegate;
     BOOL _hidden;
     struct CGPoint _calloutOffset;
@@ -46,7 +46,7 @@
 @property(nonatomic) BOOL followsTerrain; // @synthesize followsTerrain=_followsTerrain;
 @property(nonatomic) BOOL animatingToCoordinate; // @synthesize animatingToCoordinate=_animatingToCoordinate;
 @property(nonatomic) id <VKAnnotationMarkerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) CDStruct_c71ade79 styleTransitionState; // @synthesize styleTransitionState=_styleTransitionState;
+@property(nonatomic) CDStruct_4f8a95cd styleTransitionState; // @synthesize styleTransitionState=_styleTransitionState;
 @property(nonatomic) struct CGPoint calloutOffset; // @synthesize calloutOffset=_calloutOffset;
 @property(nonatomic, getter=isDraggable) BOOL draggable; // @synthesize draggable=_draggable;
 @property(nonatomic) int dragState; // @synthesize dragState=_dragState;
@@ -59,7 +59,7 @@
 - (id).cxx_construct;
 - (BOOL)isPersistent;
 - (id)subtitle;
-@property(readonly, nonatomic) NSString *title;
+@property(readonly, copy, nonatomic) NSString *title;
 - (id)debugAnchorPointString;
 - (struct CGPoint)screenPointToScrollRelativeToWithCanvasSize:(struct CGSize)arg1 canvasScale:(float)arg2;
 - (struct CGPoint)calloutAnchorPointWithCanvasSize:(struct CGSize)arg1 canvasScale:(float)arg2 snapToPixels:(BOOL)arg3;
@@ -80,6 +80,12 @@
 - (void)dealloc;
 - (id)initWithAnnotation:(id)arg1 reuseIdentifier:(id)arg2;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

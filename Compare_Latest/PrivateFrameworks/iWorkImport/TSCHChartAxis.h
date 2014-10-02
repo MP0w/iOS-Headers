@@ -9,7 +9,7 @@
 #import "TSCHStyleOwning.h"
 #import "TSCHUnretainedParent.h"
 
-@class TSCHChartAxisID, TSCHChartModel, TSUFastReadInvalidatingCache;
+@class NSString, TSCHChartAxisID, TSCHChartModel, TSUFastReadInvalidatingCache;
 
 __attribute__((visibility("hidden")))
 @interface TSCHChartAxis : NSObject <TSCHUnretainedParent, TSCHStyleOwning>
@@ -21,9 +21,11 @@ __attribute__((visibility("hidden")))
     unsigned int mStyleIndex;
     unsigned int mNonStyleIndex;
     TSUFastReadInvalidatingCache *mAnalysisCache;
-    TSUFastReadInvalidatingCache *mAxisNumberFormatCache;
+    TSUFastReadInvalidatingCache *mInterceptCache;
+    TSCHChartAxis *mNonTransientCounterpart;
 }
 
++ (id)defaultNumberFormat;
 + (id)axisForInfo:(id)arg1;
 + (id)paragraphStyleForLabelsFontForInfo:(id)arg1;
 + (tvec2_84d5962d)sizeOfSeriesLabelsForInfo:(id)arg1;
@@ -59,17 +61,21 @@ __attribute__((visibility("hidden")))
 - (void)setNonStyle:(id)arg1 index:(unsigned int)arg2;
 - (void)setStyle:(id)arg1 index:(unsigned int)arg2;
 - (id)formattedStringForSeries:(id)arg1 index:(unsigned int)arg2 multiDataSetIndex:(unsigned int)arg3;
+- (void)updateAxisDateInterceptInAnalysis:(id)arg1;
 - (unsigned int)indexForSelectionPathLabelIndex:(unsigned int)arg1;
 - (unsigned int)selectionPathLabelIndexForMultiDataSetIndex:(unsigned int)arg1;
 - (unsigned int)selectionPathLabelIndexForIndex:(unsigned int)arg1;
 - (id)valueForFormattedString:(id)arg1;
 - (id)formattedStringForSeries:(id)arg1 index:(unsigned int)arg2;
-- (id)formattedStringForValue:(id)arg1;
+- (id)formattedStringForAxisValue:(id)arg1;
 - (BOOL)supportsFormattedStringForInvalidValue;
+- (id)inspectorStringForSeries:(id)arg1 index:(unsigned int)arg2 value:(id)arg3;
 - (id)inspectorStringForValue:(id)arg1;
-- (id)numberFormatForSeries:(id)arg1 index:(unsigned int)arg2;
-- (id)numberFormat;
-- (id)p_axisNumberFormatFromCurrentModel;
+- (id)p_dataFormatterForSeries:(id)arg1 index:(unsigned int)arg2 onlyForValidValue:(BOOL)arg3;
+- (id)dataFormatterForSeries:(id)arg1 index:(unsigned int)arg2;
+- (id)dataFormatter;
+- (id)p_axisDataFormatterFromCurrentModel;
+- (id)p_fixupNegativeStyleForDataFormatter:(id)arg1;
 - (BOOL)editableFormatForValueStrings;
 - (double *)unitSpaceCenterValuesForSeries:(id)arg1 indexes:(struct _NSRange)arg2;
 - (double)unitSpaceCenterValueForSeries:(id)arg1 index:(unsigned int)arg2;
@@ -89,12 +95,21 @@ __attribute__((visibility("hidden")))
 - (id)computeMajorGridlinesFromMinMaxInAnalysis:(id)arg1;
 - (void)adjustMinMaxForDataRangeInAnalysis:(id)arg1;
 - (void)updateMinMaxGridLocationsInAnalysis:(id)arg1;
+- (id)gridValueAxisToModelValue:(double)arg1;
+- (double)doubleAxisToModelValue:(double)arg1;
 - (double)doubleModelToAxisValue:(double)arg1 forSeries:(id)arg2;
 - (double)modelMax;
 - (double)modelMin;
 - (void)updateModelMinMaxInAnalysis:(id)arg1;
+- (int)p_axisGridValueType;
+- (BOOL)hasCustomFormatForGridValueType:(int)arg1;
+- (id)customFormatForGridValueType:(int)arg1;
+- (int)adjustedNumberFormatType;
+- (int)gridValueType;
 - (id)p_axisAnalysisFromCurrentModel;
-- (id)description;
+- (id)p_interceptAnalysisFromCurrentModel;
+- (void)updateGridValueTypeInterceptInAnalysis:(id)arg1;
+@property(readonly, copy) NSString *description;
 - (id)minorGridLocations;
 - (id)majorGridLocations;
 - (unsigned int)p_count;
@@ -102,16 +117,23 @@ __attribute__((visibility("hidden")))
 - (double)range;
 - (double)max;
 - (double)min;
+- (double)axisInterceptPosition;
 - (double)interceptForAxis:(id)arg1;
 @property(readonly, nonatomic) int currentAxisScaleSetting;
 - (void)invalidateTransientState;
 - (id)analysis;
+- (id)interceptAnalysis;
 @property(readonly) BOOL isRangeContinuous;
 @property(readonly) BOOL isCategory;
 - (void)dealloc;
 - (id)initWithAxisID:(id)arg1 model:(id)arg2;
 - (tvec2_84d5962d)sizeOfLabelsForInfo:(id)arg1 enumerator:(id)arg2 onlyHeight:(BOOL)arg3;
 - (id)g_genericToDefaultPropertyMap;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

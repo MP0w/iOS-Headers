@@ -18,12 +18,12 @@
     NSDateComponents *_todoFilterEndDate;
 }
 
-@property(retain) NSDateComponents *todoFilterEndDate; // @synthesize todoFilterEndDate=_todoFilterEndDate;
-@property(retain) NSDateComponents *todoFilterStartDate; // @synthesize todoFilterStartDate=_todoFilterStartDate;
-@property(retain) NSDateComponents *eventFilterEndDate; // @synthesize eventFilterEndDate=_eventFilterEndDate;
-@property(retain) NSDateComponents *eventFilterStartDate; // @synthesize eventFilterStartDate=_eventFilterStartDate;
-@property BOOL syncTodos; // @synthesize syncTodos=_syncTodos;
-@property BOOL syncEvents; // @synthesize syncEvents=_syncEvents;
+@property(retain, nonatomic) NSDateComponents *todoFilterEndDate; // @synthesize todoFilterEndDate=_todoFilterEndDate;
+@property(retain, nonatomic) NSDateComponents *todoFilterStartDate; // @synthesize todoFilterStartDate=_todoFilterStartDate;
+@property(retain, nonatomic) NSDateComponents *eventFilterEndDate; // @synthesize eventFilterEndDate=_eventFilterEndDate;
+@property(retain, nonatomic) NSDateComponents *eventFilterStartDate; // @synthesize eventFilterStartDate=_eventFilterStartDate;
+@property(nonatomic) BOOL syncTodos; // @synthesize syncTodos=_syncTodos;
+@property(nonatomic) BOOL syncEvents; // @synthesize syncEvents=_syncEvents;
 - (id)requestBody;
 - (void)_appendComponentFiltersToXMLData:(id)arg1;
 - (void)_appendTimeRangeFilterToXMLData:(id)arg1 startDate:(id)arg2 endDate:(id)arg3;

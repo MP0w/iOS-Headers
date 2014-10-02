@@ -8,7 +8,7 @@
 
 #import "SAAceSerializable.h"
 
-@class SADistance, SADuration;
+@class NSString, SADistance, SADuration;
 
 @interface SALocalSearchAceNavigationEta : AceObject <SAAceSerializable>
 {
@@ -20,6 +20,12 @@
 @property(retain, nonatomic) SADistance *distanceEta;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -16,8 +16,12 @@
     CKMultiDict *_pendingBlocks;
 }
 
++ (id)detailsPreviewCache;
++ (id)transcriptPreviewCache;
++ (id)mapThumbnailQueue;
 @property(retain, nonatomic) CKMultiDict *pendingBlocks; // @synthesize pendingBlocks=_pendingBlocks;
 @property(retain, nonatomic) CKDispatchCache *dispatchCache; // @synthesize dispatchCache=_dispatchCache;
+- (BOOL)shouldReplaceCachedPreview:(id)arg1 withPreview:(id)arg2;
 - (void)transferRemoved:(id)arg1;
 - (void)transferFinished:(id)arg1;
 - (void)didReceiveMemoryWarning;
@@ -27,15 +31,16 @@
 - (id)notificationCenter;
 - (id)mediaObjectManager;
 - (void)resume;
-- (void)endGeneratingForMediaObject:(id)arg1 orientation:(BOOL)arg2;
-- (void)beginGeneratingForMediaObject:(id)arg1 orientation:(BOOL)arg2;
-- (BOOL)isGeneratingForMediaObject:(id)arg1 orientation:(BOOL)arg2;
-- (void)setCachedPreview:(id)arg1 forMediaObject:(id)arg2 orientation:(BOOL)arg3;
-- (id)cachedPreviewForMediaObject:(id)arg1 orientation:(BOOL)arg2;
-- (void)enqueueGenerationBlock:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2 withPriority:(int)arg3 forMediaObject:(id)arg4 orientation:(BOOL)arg5;
-- (void)enqueueSaveBlock:(CDUnknownBlockType)arg1 forMediaObject:(id)arg2 withPriority:(int)arg3;
+- (void)endGeneratingForKey:(id)arg1;
+- (void)beginGeneratingForKey:(id)arg1;
+- (BOOL)isGeneratingPreviewForKey:(id)arg1;
+- (void)setCachedPreview:(id)arg1 key:(id)arg2;
+- (id)cachedPreviewForKey:(id)arg1;
+- (void)enqueueGenerationBlock:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2 withPriority:(int)arg3 forKey:(id)arg4;
+- (void)enqueueSaveBlock:(CDUnknownBlockType)arg1 withPriority:(int)arg2;
 - (id)init;
 - (void)dealloc;
+- (void)enqueueSaveBlock:(CDUnknownBlockType)arg1 forMediaObject:(id)arg2 withPriority:(int)arg3;
 
 @end
 

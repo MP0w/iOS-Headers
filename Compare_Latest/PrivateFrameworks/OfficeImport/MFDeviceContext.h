@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class MFBrush, MFFont, MFPalette, MFPath, MFPen, MFTransform, NSObject<MFDeviceDriver>, TSUColor;
+@class MFBrush, MFFont, MFPalette, MFPath, MFPen, MFTransform, NSObject<MFDeviceDriver>, OITSUColor;
 
 __attribute__((visibility("hidden")))
 @interface MFDeviceContext : NSObject <NSCopying>
@@ -20,11 +20,11 @@ __attribute__((visibility("hidden")))
     int m_textVerticalAlign;
     int m_textDirection;
     MFFont *m_font;
-    TSUColor *m_textColour;
+    OITSUColor *m_textColour;
     int m_textBreakExtra;
     int m_textBreakCount;
     int m_textCharExtra;
-    TSUColor *m_bkColour;
+    OITSUColor *m_bkColour;
     int m_bkMode;
     struct CGPoint m_brushOrg;
     struct CGPoint m_penPos;

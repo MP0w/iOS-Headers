@@ -10,6 +10,7 @@
 {
 }
 
++ (_Bool)_isSecure;
 - (_Bool)_ignoresHitTest;
 
 @end

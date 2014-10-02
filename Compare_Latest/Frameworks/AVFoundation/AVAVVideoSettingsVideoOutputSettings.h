@@ -28,7 +28,7 @@
 - (int)height;
 - (int)width;
 - (BOOL)canFullySpecifyOutputFormatReturningReason:(id *)arg1;
-- (BOOL)isCodecAvailableOnCurrentSystem;
+- (BOOL)encoderIsAvailableOnCurrentSystemReturningError:(id *)arg1;
 - (BOOL)willYieldCompressedSamples;
 - (void)dealloc;
 - (id)initWithTrustedAVVideoSettingsDictionary:(id)arg1;

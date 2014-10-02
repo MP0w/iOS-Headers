@@ -46,13 +46,13 @@
 - (Class)derivedChangeNotificationClass;
 - (BOOL)mappedDataSourceChanged:(id)arg1 remoteNotificationData:(id)arg2;
 - (BOOL)shouldIncludeObjectAtIndex:(unsigned int)arg1;
-@property(readonly, nonatomic) id <NSObject><NSCopying> cachedIndexMapState;
-@property(readonly, nonatomic) NSIndexSet *filteredIndexes;
-@property(readonly, nonatomic) PLIndexMapper *indexMapper;
+@property(readonly, copy, nonatomic) id <NSObject><NSCopying> cachedIndexMapState;
+@property(readonly, copy, nonatomic) NSIndexSet *filteredIndexes;
+@property(readonly, retain, nonatomic) PLIndexMapper *indexMapper;
 @property(readonly, nonatomic) unsigned int unreadAlbumsCount;
 - (void)_invalidateFilteredIndexes;
-@property(readonly, nonatomic) NSString *_prettyDescription;
-@property(readonly, nonatomic) NSString *_typeDescription;
+@property(readonly, retain, nonatomic) NSString *_prettyDescription;
+@property(readonly, retain, nonatomic) NSString *_typeDescription;
 - (id)managedObjectContext;
 - (id)identifier;
 - (void)_backingContextDidChange:(id)arg1;
@@ -61,22 +61,28 @@
 - (BOOL)isEmpty;
 @property(readonly, nonatomic) unsigned int containersCount;
 - (id)containers;
-- (id)description;
-@property(readonly, nonatomic) PLPhotoLibrary *photoLibrary;
+@property(readonly, copy) NSString *description;
+@property(readonly, retain, nonatomic) PLPhotoLibrary *photoLibrary;
 - (BOOL)hasAtLeastOneAlbum;
 @property(readonly, nonatomic) unsigned int albumsCount;
-@property(readonly, nonatomic) NSMutableOrderedSet *albums;
+@property(readonly, retain, nonatomic) NSMutableOrderedSet *albums;
 - (void)preheatAlbumsAtIndexes:(id)arg1 forProperties:(id)arg2 relationships:(id)arg3;
 - (void)preheatAlbumsForProperties:(id)arg1 relationships:(id)arg2;
 - (void)updateAlbumsOrderIfNeeded;
 - (BOOL)needsReordering;
 - (void)setNeedsReordering;
-@property(readonly, nonatomic) CDUnknownBlockType albumsSortingComparator;
+@property(readonly, copy, nonatomic) CDUnknownBlockType albumsSortingComparator;
 - (BOOL)albumHasFixedOrder:(struct NSObject *)arg1;
+@property(readonly, nonatomic) BOOL isFolder;
 @property(readonly, nonatomic) BOOL canEditAlbums;
-@property(readonly, nonatomic) int albumListType;
+@property(readonly, nonatomic) short albumListType;
 - (void)dealloc;
 - (id)initWithBackingAlbumList:(id)arg1 filter:(int)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

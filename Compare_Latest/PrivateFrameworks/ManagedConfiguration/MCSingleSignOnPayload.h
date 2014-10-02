@@ -20,6 +20,7 @@
 @property(retain, nonatomic) MCSingleSignOnPayloadKerberosInfo *kerberosInfo; // @synthesize kerberosInfo=_kerberosInfo;
 @property(retain, nonatomic) NSString *humanReadableName; // @synthesize humanReadableName=_humanReadableName;
 - (void).cxx_destruct;
+- (id)payloadDescriptionKeyValueSections;
 - (id)title;
 - (id)stubDictionary;
 - (id)description;

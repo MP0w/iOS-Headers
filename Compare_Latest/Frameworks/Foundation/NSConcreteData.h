@@ -28,7 +28,9 @@ __attribute__((visibility("hidden")))
 - (void)getBytes:(void *)arg1 range:(struct _NSRange)arg2;
 - (void)getBytes:(void *)arg1 length:(unsigned int)arg2;
 - (void)getBytes:(void *)arg1;
+- (BOOL)_isCompact;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (BOOL)_copyWillRetain;
 - (const void *)bytes;
 - (unsigned int)length;
 

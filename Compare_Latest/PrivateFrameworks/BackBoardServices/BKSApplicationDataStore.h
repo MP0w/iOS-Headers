@@ -21,6 +21,9 @@
 + (id)applicationsWithAvailableStores;
 + (void)_doWithClassClient:(CDUnknownBlockType)arg1;
 + (id)storeForApplication:(id)arg1;
+- (void)setArchivedXPCCodableObject:(id)arg1 forKey:(id)arg2;
+- (void)archivedXPCCodableObjectForKey:(id)arg1 ofType:(Class)arg2 withResult:(CDUnknownBlockType)arg3;
+- (id)archivedXPCCodableObjectForKey:(id)arg1 ofType:(Class)arg2;
 - (id)_makeSafe:(id)arg1 forType:(Class)arg2;
 - (void)removeAllObjects;
 - (void)removeObjectForKey:(id)arg1;

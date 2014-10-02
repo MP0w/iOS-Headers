@@ -20,14 +20,13 @@
 + (void)initialize;
 - (void)setValue:(id)arg1 forKey:(id)arg2;
 - (id)valueForKey:(id)arg1;
-- (void)setPropertyCache:(id)arg1;
-- (id)propertyCache;
+@property(retain, nonatomic) NSMutableDictionary *propertyCache;
 - (BOOL)isEqual:(id)arg1;
 - (id)_snapshot_;
 - (const id *)knownKeyValuesPointer;
 - (void)_setVersionNumber:(unsigned int)arg1;
 - (unsigned int)_versionNumber;
-- (id)objectID;
+@property(readonly, nonatomic) NSManagedObjectID *objectID;
 - (void)dealloc;
 - (id)initWithObjectID:(id)arg1;
 - (id)init;

@@ -8,7 +8,7 @@
 
 #import "CNFRegFirstRunExperience.h"
 
-@class CNFRegController, UIBarButtonItem, UIButton;
+@class CNFRegController, NSString, UIBarButtonItem, UIButton;
 
 @interface CNFRegSplashScreenController : PSViewController <CNFRegFirstRunExperience>
 {
@@ -32,6 +32,12 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (id)initWithRegController:(id)arg1 account:(id)arg2;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

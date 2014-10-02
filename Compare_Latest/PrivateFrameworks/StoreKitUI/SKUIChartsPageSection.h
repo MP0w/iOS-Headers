@@ -9,7 +9,7 @@
 #import "SKUIChartsViewControllerDelegate.h"
 #import "SKUIProductPageOverlayDelegate.h"
 
-@class SKUIChartsComponent, SKUIIPadChartsViewController, SKUIIPhoneChartsViewController, SKUIProductPageOverlayController;
+@class NSString, SKUIChartsComponent, SKUIIPadChartsViewController, SKUIIPhoneChartsViewController, SKUIProductPageOverlayController;
 
 @interface SKUIChartsPageSection : SKUIStorePageSection <SKUIChartsViewControllerDelegate, SKUIProductPageOverlayDelegate>
 {
@@ -29,6 +29,7 @@
 - (void)chartsViewController:(id)arg1 willDisplayItem:(id)arg2 atIndex:(int)arg3 chartIndex:(int)arg4;
 - (void)chartsViewController:(id)arg1 didSelectItem:(id)arg2 atIndex:(int)arg3 chartIndex:(int)arg4;
 - (id)chartsViewController:(id)arg1 didConfirmItemOfferForItem:(id)arg2 atIndex:(int)arg3 chartIndex:(int)arg4;
+- (void)willTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)prefetchResourcesWithReason:(int)arg1;
 - (int)numberOfCells;
 - (BOOL)fitsToHeight;
@@ -42,7 +43,11 @@
 - (id)initWithPageComponent:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) SKUIChartsComponent *pageComponent; // @dynamic pageComponent;
+@property(readonly) Class superclass;
 
 @end
 

@@ -15,9 +15,6 @@ __attribute__((visibility("hidden")))
 
 + (id)relations;
 + (id)defaultPropertiesToLoad;
-- (id)moveToCalendar:(id)arg1;
-- (void)itemDidReplicateInNewCalendar:(id)arg1;
-- (id)moveToCalendar:(id)arg1 skipItem:(id)arg2;
 - (void)deleteSelfAndDetached;
 - (void)removeDetachedItem:(id)arg1;
 - (void)addDetachedItem:(id)arg1;
@@ -72,11 +69,15 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) int sequence;
 @property(nonatomic) int priority;
 @property(nonatomic, getter=isAllDay) BOOL allDay;
+@property(copy, nonatomic) NSTimeZone *endTimeZone;
+@property(copy, nonatomic) NSTimeZone *startTimeZone;
 @property(copy, nonatomic) NSTimeZone *timeZone;
 @property(copy, nonatomic) NSDate *startDate;
 @property(copy, nonatomic) NSDate *creationDate;
 @property(copy, nonatomic) NSDate *lastModifiedDate;
+@property(copy, nonatomic) EKPersistentLocation *startLocation;
 @property(copy, nonatomic) EKPersistentLocation *location;
+@property(copy, nonatomic) NSString *calendarScale;
 @property(copy, nonatomic) NSString *title;
 @property(readonly, nonatomic) BOOL hasNotes;
 @property(copy, nonatomic) NSString *notes;

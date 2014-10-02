@@ -6,11 +6,12 @@
 
 #import "SPSearchAgent.h"
 
+#import "PRSImageSource.h"
 #import "SPDaemonQueryDelegate.h"
 
-@class CPLRUDictionary, NSDate, NSObject<OS_dispatch_semaphore>, NSOperation, NSOperationQueue, NSTimer;
+@class CPLRUDictionary, NSDate, NSObject<OS_dispatch_semaphore>, NSOperation, NSOperationQueue, NSString, NSTimer;
 
-@interface SBSearchModel : SPSearchAgent <SPDaemonQueryDelegate>
+@interface SBSearchModel : SPSearchAgent <SPDaemonQueryDelegate, PRSImageSource>
 {
     NSTimer *_clearSearchTimer;
     NSDate *_clearSearchDate;
@@ -29,19 +30,26 @@
 - (void)cancelPrefetchingAndStartNewBatch;
 - (id)cachedImageForResult:(id)arg1 inSection:(id)arg2;
 - (void)fetchImageForResult:(id)arg1 inSection:(id)arg2 withCompletionBlock:(CDUnknownBlockType)arg3;
-- (void)_cacheImage:(id)arg1 forKey:(id)arg2 withCompletionBlock:(CDUnknownBlockType)arg3;
+- (void)_cacheImage:(id)arg1 forKey:(id)arg2;
+- (_Bool)_getCachedImageForKey:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
 - (id)_imageForResult:(id)arg1 inSection:(id)arg2 withCompletionBlock:(CDUnknownBlockType)arg3;
+- (void)getImageWithIdentifier:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (id)_uniqueKeyForResult:(id)arg1 withSearchDomain:(unsigned int)arg2;
 - (id)_customImageForPath:(id)arg1;
 - (void)handleOptionsForNewSections:(id)arg1;
 - (void)invalidate;
-- (id)launchingURLForResult:(id)arg1 withDisplayIdentifier:(id)arg2 andSection:(id)arg3;
 - (void)_updateClearSearchTimerFireDate;
 - (void)startClearSearchTimer;
 - (void)_clearSearchTimerFired;
 - (void)resetClearSearchTimer;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

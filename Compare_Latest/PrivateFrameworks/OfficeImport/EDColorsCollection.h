@@ -8,6 +8,8 @@
 
 #import "OADColorPalette.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface EDColorsCollection : EDCollection <OADColorPalette>
 {
@@ -15,7 +17,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (int)oadSchemeColorIdFromThemeIndex:(int)arg1;
-+ (unsigned int)xlColorIndexFromCPSystemColorIDEnum:(int)arg1;
++ (unsigned int)xlColorIndexFromTCSystemColorIDEnum:(int)arg1;
 + (int)systemColorIdFromIndex:(unsigned int)arg1;
 + (_Bool)isSystemColorId:(unsigned int)arg1;
 - (void)addPalette:(const unsigned int *)arg1 paletteSize:(unsigned long)arg2 paletteX:(const unsigned int *)arg3 paletteXSize:(unsigned int)arg4;
@@ -27,6 +29,12 @@ __attribute__((visibility("hidden")))
 - (unsigned int)defaultColorsCount;
 - (id)initWithDefaultSetup:(_Bool)arg1;
 - (void)setupDefaults;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -11,6 +11,7 @@
 @interface MCSession : NSObject
 {
     id <MCSessionDelegate> _delegate;
+    id <MCSessionPrivateDelegate> _privateDelegate;
     MCPeerID *_myPeerID;
     NSArray *_securityIdentity;
     int _encryptionPreference;
@@ -19,7 +20,6 @@
     unsigned int _gckPID;
     NSMutableDictionary *_peerIDMap;
     NSObject<OS_dispatch_queue> *_syncQueue;
-    id <MCSessionPrivateDelegate> _privateDelegate;
     NSMutableDictionary *_peerStates;
     NSMutableDictionary *_connectionPendingPeerEvents;
     NSObject<OS_dispatch_queue> *_callbackQueue;
@@ -50,15 +50,20 @@
 - (void)syncConnectPeer:(id)arg1 withConnectionData:(id)arg2;
 - (BOOL)isEncryptionPreferenceCompatible:(int)arg1;
 - (void)nearbyConnectionDataForPeer:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)syncGetConnectionDataForPID:(unsigned int)arg1 completionHandlerCopy:(CDUnknownBlockType)arg2;
+- (void)syncGetConnectionDataForPeerState:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)initWithPeer:(id)arg1 securityIdentity:(id)arg2 encryptionPreference:(int)arg3;
 - (id)initWithPeer:(id)arg1;
 - (void)syncHandleNetworkEvent:(CDStruct_68f9d01f *)arg1 pid:(unsigned int)arg2 freeEventWhenDone:(char *)arg3;
+- (void)syncPeer:(id)arg1 changeStateTo:(int)arg2 shouldForceCallback:(BOOL)arg3;
+- (void)cancelOutgoingStream:(id)arg1 toPeer:(id)arg2;
+- (void)syncCancelOutgoingStream:(id)arg1 toPeer:(id)arg2;
+- (void)cancelIncomingStream:(id)arg1 fromPeer:(id)arg2;
+- (void)syncCancelIncomingStream:(id)arg1 fromPeer:(id)arg2;
 - (void)startConnectionWithIndirectPID:(unsigned int)arg1;
-- (void)closeStreamsForPeer:(id)arg1 state:(id)arg2;
-- (void)closeOutgoingStream:(id)arg1 forPeer:(id)arg2 state:(id)arg3 error:(id)arg4 removeObserver:(BOOL)arg5;
-- (void)closeIncomingStream:(id)arg1 forPeer:(id)arg2 state:(id)arg3 error:(id)arg4 reason:(int)arg5 removeObserver:(BOOL)arg6;
+- (void)syncCloseStreamsForPeer:(id)arg1;
+- (void)syncCloseOutgoingStream:(id)arg1 forPeer:(id)arg2 state:(id)arg3 error:(id)arg4 removeObserver:(BOOL)arg5;
+- (void)syncCloseIncomingStream:(id)arg1 forPeer:(id)arg2 state:(id)arg3 error:(id)arg4 reason:(int)arg5 removeObserver:(BOOL)arg6;
 - (void)syncSendXDataConnectionBlobPushToPID:(unsigned int)arg1 connectionBlob:(id)arg2;
 - (void)syncSendXDataPeerIDPushToPID:(unsigned int)arg1;
 - (void)syncSendXDataStreamCloseFromReceiverToPID:(unsigned int)arg1 streamID:(unsigned int)arg2 closeReason:(unsigned short)arg3;
@@ -67,8 +72,8 @@
 - (void)syncHandleXDataDataPacket:(char *)arg1 packetSize:(int)arg2 forPeer:(id)arg3 state:(id)arg4;
 - (id)stringForEncryptionPreference:(int)arg1;
 - (id)description;
-@property(nonatomic) id <MCSessionPrivateDelegate> privateDelegate; // @synthesize privateDelegate=_privateDelegate;
-@property(nonatomic) id <MCSessionDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) id <MCSessionPrivateDelegate> privateDelegate;
+@property(nonatomic) __weak id <MCSessionDelegate> delegate;
 - (void)peerDidDeclineInvitation:(id)arg1;
 
 @end

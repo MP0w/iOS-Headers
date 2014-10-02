@@ -7,19 +7,20 @@
 #import "UIViewController.h"
 
 #import "TKVibrationRecorderViewDelegate.h"
-#import "UIAlertViewDelegate.h"
 #import "UITextFieldDelegate.h"
 
-@class NSDictionary, TKVibrationRecorderView, TKVibrationRecorderViewController, TKVibratorController, TLVibrationPattern, UIAlertView, UIBarButtonItem;
+@class NSDictionary, NSString, TKVibrationRecorderView, TKVibrationRecorderViewController, TKVibratorController, TLVibrationPattern, UIAlertAction, UIAlertController, UIBarButtonItem, UITextField;
 
-@interface TKVibrationRecorderContentViewController : UIViewController <TKVibrationRecorderViewDelegate, UIAlertViewDelegate, UITextFieldDelegate>
+@interface TKVibrationRecorderContentViewController : UIViewController <TKVibrationRecorderViewDelegate, UITextFieldDelegate>
 {
     BOOL _waitingForEndOfCurrentVibrationComponent;
     id <TKVibrationRecorderViewControllerDelegate> _delegate;
     TKVibrationRecorderViewController *_parentVibrationRecorderViewController;
     UIBarButtonItem *_cancelButton;
     UIBarButtonItem *_saveButton;
-    UIAlertView *_vibrationNameAlertView;
+    UIAlertController *_vibrationNameAlertController;
+    UIAlertAction *_vibrationNameAlertSaveAction;
+    UITextField *_vibrationNameAlertTextField;
     TKVibratorController *_vibratorController;
     NSDictionary *_indefiniteVibrationPattern;
     int _mode;
@@ -37,7 +38,9 @@
 @property(nonatomic, setter=_setMode:) int _mode; // @synthesize _mode;
 @property(retain, nonatomic, setter=_setIndefiniteVibrationPattern:) NSDictionary *_indefiniteVibrationPattern; // @synthesize _indefiniteVibrationPattern;
 @property(retain, nonatomic, setter=_setVibratorController:) TKVibratorController *_vibratorController; // @synthesize _vibratorController;
-@property(retain, nonatomic, setter=_setVibrationNameAlertView:) UIAlertView *_vibrationNameAlertView; // @synthesize _vibrationNameAlertView;
+@property(retain, nonatomic, setter=_setVibrationNameAlertTextField:) UITextField *_vibrationNameAlertTextField; // @synthesize _vibrationNameAlertTextField;
+@property(retain, nonatomic, setter=_setVibrationNameAlertSaveAction:) UIAlertAction *_vibrationNameAlertSaveAction; // @synthesize _vibrationNameAlertSaveAction;
+@property(retain, nonatomic, setter=_setVibrationNameAlertController:) UIAlertController *_vibrationNameAlertController; // @synthesize _vibrationNameAlertController;
 @property(retain, nonatomic, setter=_setSaveButton:) UIBarButtonItem *_saveButton; // @synthesize _saveButton;
 @property(retain, nonatomic, setter=_setCancelButton:) UIBarButtonItem *_cancelButton; // @synthesize _cancelButton;
 @property(nonatomic) TKVibrationRecorderViewController *parentVibrationRecorderViewController; // @synthesize parentVibrationRecorderViewController=_parentVibrationRecorderViewController;
@@ -59,10 +62,13 @@
 - (void)_storeVibrationComponentOfTypePause:(BOOL)arg1;
 - (void)_stopVibrating;
 - (void)_startVibratingWithVibrationPattern:(id)arg1;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (BOOL)textFieldShouldReturn:(id)arg1;
 - (BOOL)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
-- (void)_textFieldTextDidChange:(id)arg1;
+- (void)_cleanUpVibrationNameAlertController;
+- (void)_vibrationNameTextFieldContentsDidChange:(id)arg1;
+- (void)_updateStateSaveButtonInAlert;
+- (void)_saveButtonInAlertTapped:(id)arg1;
+- (void)_cancelButtonInAlertTapped:(id)arg1;
 - (void)_saveButtonTapped:(id)arg1;
 - (void)_cancelButtonTapped:(id)arg1;
 - (unsigned int)supportedInterfaceOrientations;
@@ -72,8 +78,15 @@
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)loadView;
+- (void)applicationWillSuspend;
 - (void)dealloc;
 - (id)initWithVibratorController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

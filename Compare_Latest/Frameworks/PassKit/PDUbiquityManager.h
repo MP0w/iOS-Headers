@@ -8,7 +8,7 @@
 
 #import "NSFilePresenter.h"
 
-@class NSObject<OS_dispatch_queue>, NSOperationQueue, NSURL;
+@class NSObject<OS_dispatch_queue>, NSOperationQueue, NSString, NSURL;
 
 @interface PDUbiquityManager : NSObject <NSFilePresenter>
 {
@@ -28,8 +28,8 @@
 - (void)presentedSubitemDidChangeAtURL:(id)arg1;
 - (void)presentedItemDidMoveToURL:(id)arg1;
 - (void)presentedItemDidGainVersion:(id)arg1;
-@property(readonly) NSOperationQueue *presentedItemOperationQueue;
-@property(readonly) NSURL *presentedItemURL;
+@property(readonly, retain) NSOperationQueue *presentedItemOperationQueue;
+@property(readonly, copy) NSURL *presentedItemURL;
 - (void)_queue_copyCatalogToUbiquity:(id)arg1;
 - (void)_queue_copyCatalogToLocalStore:(id)arg1;
 - (void)_queue_handleCatalogUpdate;
@@ -38,7 +38,7 @@
 - (void)_queue_comparePassesAndTakeNewerVersion:(id)arg1;
 - (void)_queue_copyPassesFromLocalStoreToUbiquity:(id)arg1;
 - (void)_queue_copyPassesFromUbiquityToLocalStore:(id)arg1;
-- (id)_queue_cardUniqueIDs;
+- (id)_queue_passUniqueIDs;
 - (void)_queue_mergeUbiquityWithLocalStore;
 - (void)_queue_startNotYetUbiquitousWithPassbookSyncEnabled:(BOOL)arg1 destinationURL:(id)arg2;
 - (void)_queue_startAlreadyUbiquitousWithPassbookSyncEnabled:(BOOL)arg1;
@@ -55,7 +55,11 @@
 - (id)initWithDelegate:(id)arg1;
 
 // Remaining properties
-@property(readonly) NSURL *primaryPresentedItemURL;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly, copy) NSURL *primaryPresentedItemURL;
+@property(readonly) Class superclass;
 
 @end
 

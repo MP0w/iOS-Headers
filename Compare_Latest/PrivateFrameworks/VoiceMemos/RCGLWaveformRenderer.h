@@ -7,23 +7,26 @@
 #import "UIViewController.h"
 
 #import "GLKViewDelegate.h"
-#import "RCWaveformGeneratorSegmentOutputObserver.h"
+#import "RCWaveformDataSourceObserver.h"
 
-@class CADisplayLink, CALayer, EAGLContext, RCUIConfiguration;
+@class CADisplayLink, CALayer, EAGLContext, NSString, RCUIConfiguration, RCWaveformDataSource;
 
-@interface RCGLWaveformRenderer : UIViewController <GLKViewDelegate, RCWaveformGeneratorSegmentOutputObserver>
+@interface RCGLWaveformRenderer : UIViewController <GLKViewDelegate, RCWaveformDataSourceObserver>
 {
     EAGLContext *_eaglContext;
     CADisplayLink *_displayLink;
     unsigned int _vertexBuffers[2];
     CDStruct_73a5d3ca _renderedTimeRange;
     BOOL _renderedTimeRangeIsApproximatedWaveform;
+    CDStruct_73a5d3ca _highlightTimeRange;
     vector_ec52ae8c _waveformVertexData;
     unsigned int _renderedWaveformVertices;
     unsigned int _shaderProgram;
     int _projectionUniform;
     int _modelviewUniform;
     int _foregroundColorUniform;
+    int _highlightColorUniform;
+    int _highlightColorTimelineRange;
     BOOL _buffersInitialized;
     BOOL _shadersInitialized;
     BOOL _preparedForRendering;
@@ -34,25 +37,23 @@
     BOOL _contentWidthDirty;
     CALayer *_modelviewLayer;
     BOOL _isAnimatingModelview;
+    BOOL _needsVisibleRangeRendering;
     BOOL _paused;
-    id <RCWaveformDataSource> _dataSource;
+    RCWaveformDataSource *_dataSource;
     id <RCGLWaveformRendererDelegate> _rendererDelegate;
     float _spacingWidth;
     float _dataPointWidth;
-    unsigned int _renderingHint;
     RCUIConfiguration *_UIConfiguration;
     CDStruct_73a5d3ca _visibleTimeRange;
 }
 
-+ (id)waveformImageForRecording:(id)arg1 withImageSize:(struct CGSize)arg2;
-@property(copy, nonatomic) RCUIConfiguration *UIConfiguration; // @synthesize UIConfiguration=_UIConfiguration;
-@property(nonatomic) unsigned int renderingHint; // @synthesize renderingHint=_renderingHint;
 @property(nonatomic) CDStruct_73a5d3ca visibleTimeRange; // @synthesize visibleTimeRange=_visibleTimeRange;
+@property(copy, nonatomic) RCUIConfiguration *UIConfiguration; // @synthesize UIConfiguration=_UIConfiguration;
 @property(nonatomic) float dataPointWidth; // @synthesize dataPointWidth=_dataPointWidth;
 @property(nonatomic) float spacingWidth; // @synthesize spacingWidth=_spacingWidth;
 @property(nonatomic, getter=isPaused) BOOL paused; // @synthesize paused=_paused;
 @property(nonatomic) __weak id <RCGLWaveformRendererDelegate> rendererDelegate; // @synthesize rendererDelegate=_rendererDelegate;
-@property(nonatomic) __weak id <RCWaveformDataSource> dataSource; // @synthesize dataSource=_dataSource;
+@property(retain, nonatomic) RCWaveformDataSource *dataSource; // @synthesize dataSource=_dataSource;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)_didBecomeActiveNotification:(id)arg1;
@@ -60,7 +61,6 @@
 - (void)_teardownNotifications;
 - (void)_setupNotifications;
 - (unsigned int)_compileShaderOfType:(unsigned int)arg1 pathToSource:(id)arg2;
-- (void)_logCompilationErrorForShader:(unsigned int)arg1;
 - (void)_performOrDispatchToMainThread:(CDUnknownBlockType)arg1;
 - (id)_pathForShader:(id)arg1;
 - (double)_timeForPixelOffset:(float)arg1;
@@ -76,33 +76,37 @@
 - (void)_renderCenterKeylineIfNeeded;
 - (void)_renderVisibleTimeRange;
 - (void)_renderSegments:(id)arg1 isApproximatedWaveform:(BOOL)arg2;
+- (void)_updateHighlightTimeRange;
+- (CDStruct_73a5d3ca)_highlightTimeRange;
 - (void)_clearRenderingState;
 - (void)_draw:(id)arg1;
+- (void)_setVisibleRangeNeedsRendering;
 - (void)_setNeedsRendering;
+- (void)_displayLinkDidUpdate:(id)arg1;
 - (void)_stopRendering;
 - (void)_startRendering;
 - (void)_stopUpdating;
 - (void)_startUpdating;
+- (float)_nonCachedContentWidth;
+- (void)_prepareForRendering;
 - (void)_setupShaders;
 - (void)_setupBuffers;
 - (void)_setupGL;
 - (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
-- (void)waveformGeneratorDidFinishLoading:(id)arg1 error:(id)arg2;
-- (void)waveformGenerator:(id)arg1 didLoadWaveformSegment:(id)arg2;
+- (void)waveformDataSourceDidFinishLoading:(id)arg1;
+- (void)waveformDataSource:(id)arg1 didLoadWaveformSegment:(id)arg2;
 - (void)glkViewRenderingContextValidityDidChange:(id)arg1;
 - (void)glkView:(id)arg1 drawInRect:(struct CGRect)arg2;
 - (id)rasterizeVisibleTimeRangeWithImageSize:(struct CGSize)arg1;
-- (struct CGRect)visibleRect;
+@property(readonly, nonatomic) struct CGRect visibleRect;
 - (double)timeAtHorizontalOffset:(float)arg1 withVisibleTimeRange:(CDStruct_73a5d3ca)arg2;
 - (double)timeAtHorizontalOffset:(float)arg1;
 - (float)pointsPerSecondWithVisibleTimeRange:(CDStruct_73a5d3ca)arg1;
 - (float)horizontalOffsetAtTime:(double)arg1 withVisibleTimeRange:(CDStruct_73a5d3ca)arg2;
 - (float)horizontalOffsetAtTime:(double)arg1;
-- (void)reloadData;
-- (float)contentWidth;
-- (float)_nonCachedContentWidth;
-- (void)prepareForRendering;
+@property(readonly, nonatomic) float contentWidth;
 - (void)setVisibleTimeRange:(CDStruct_73a5d3ca)arg1 withAnimationDuration:(double)arg2;
+@property(nonatomic) CDStruct_73a5d3ca highlightTimeRange;
 - (void)willMoveToParentViewController:(id)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
@@ -110,6 +114,12 @@
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,6 +8,7 @@
 
 @class NSString;
 
+__attribute__((visibility("hidden")))
 @interface CUIPSDLayer : NSObject
 {
     float _opacity;

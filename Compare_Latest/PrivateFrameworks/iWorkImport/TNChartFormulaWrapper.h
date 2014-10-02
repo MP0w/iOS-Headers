@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) struct TSCEFormula *formula;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (void)clearCacheForCalculationEngine:(id)arg1;
 - (BOOL)formulaIsEqualTo:(id)arg1;
 - (void)dealloc;
 - (id)initWithCopyOfTSCEFormula:(const struct TSCEFormula *)arg1;

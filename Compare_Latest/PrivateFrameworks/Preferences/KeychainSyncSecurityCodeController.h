@@ -6,21 +6,14 @@
 
 #import <Preferences/KeychainSyncTextEntryController.h>
 
-#import "UIAlertViewDelegate.h"
+@class NSString, UIButton, UILabel;
 
-@class NSString, UIAlertView, UIButton, UILabel;
-
-@interface KeychainSyncSecurityCodeController : KeychainSyncTextEntryController <UIAlertViewDelegate>
+@interface KeychainSyncSecurityCodeController : KeychainSyncTextEntryController
 {
     NSString *_generatedCode;
     UIButton *_footerButton;
     UILabel *_footerLabel;
     float _keyboardHeight;
-    UIAlertView *_forgotSecurityCodeAlert;
-    BOOL _forgotCodeAlertHasApproveButton;
-    UIAlertView *_resetKeychainAlert;
-    UIAlertView *_weakSecurityCodeAlert;
-    UIAlertView *_iCSCMismatchAlert;
     BOOL _showsAdvancedSettings;
     int _mode;
     int _securityCodeType;
@@ -31,7 +24,6 @@
 @property(nonatomic) BOOL showsAdvancedSettings; // @synthesize showsAdvancedSettings=_showsAdvancedSettings;
 @property(nonatomic) int securityCodeType; // @synthesize securityCodeType=_securityCodeType;
 @property(nonatomic) int mode; // @synthesize mode=_mode;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)dismissAlerts;
 - (void)forgotSecurityCode;
 - (void)showAdvancedOptions;

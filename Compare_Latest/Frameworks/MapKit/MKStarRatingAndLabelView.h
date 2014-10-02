@@ -6,27 +6,30 @@
 
 #import "UIView.h"
 
-@class MKStarRatingView, NSString, UILabel;
+@class MKStarRatingView, NSArray, NSString, UILabel;
 
 @interface MKStarRatingAndLabelView : UIView
 {
     MKStarRatingView *_starRatingView;
     UILabel *_reviewsLabel;
     NSString *_sourceName;
-    int _numberOfReviews;
+    unsigned int _numberOfReviews;
     BOOL _displaysSourceOfReviews;
+    NSArray *_reviewsLabelConstraints;
 }
 
 @property(retain, nonatomic) NSString *sourceName; // @synthesize sourceName=_sourceName;
-@property(nonatomic) int numberOfReviews; // @synthesize numberOfReviews=_numberOfReviews;
+@property(nonatomic) unsigned int numberOfReviews; // @synthesize numberOfReviews=_numberOfReviews;
 @property(readonly, nonatomic) UILabel *reviewsLabel; // @synthesize reviewsLabel=_reviewsLabel;
 @property(readonly, nonatomic) MKStarRatingView *starRatingView; // @synthesize starRatingView=_starRatingView;
 - (void).cxx_destruct;
-- (void)_setStarStyle:(int)arg1;
+- (id)viewForBaselineLayout;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)layoutSubviews;
+- (struct CGSize)intrinsicContentSize;
+- (void)_updateFonts;
 - (void)setDisplaysSourceOfReviews:(BOOL)arg1;
 - (void)_mapkit_setCalloutTextColor:(id)arg1;
+- (void)dealloc;
 - (id)initWithStyle:(int)arg1;
 
 @end

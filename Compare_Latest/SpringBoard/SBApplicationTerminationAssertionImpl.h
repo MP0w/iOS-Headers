@@ -13,15 +13,22 @@
 @interface SBApplicationTerminationAssertionImpl : NSObject <SBApplicationTerminationAssertion>
 {
     NSString *_displayId;
+    id _pluginHoldToken;
     unsigned char _reason;
     SBApplicationTerminationAssertionManager *_manager;
 }
 
+@property(readonly, retain, nonatomic) id pluginHoldToken; // @synthesize pluginHoldToken=_pluginHoldToken;
 @property(readonly, nonatomic) unsigned char reason; // @synthesize reason=_reason;
-@property(readonly, nonatomic) NSString *displayId; // @synthesize displayId=_displayId;
-- (id)description;
+@property(readonly, copy, nonatomic) NSString *displayId; // @synthesize displayId=_displayId;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
-- (id)initWithDisplayId:(id)arg1 reason:(unsigned char)arg2 manager:(id)arg3;
+- (id)initWithDisplayId:(id)arg1 pluginHoldToken:(id)arg2 reason:(unsigned char)arg3 manager:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

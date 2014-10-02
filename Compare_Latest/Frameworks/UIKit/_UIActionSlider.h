@@ -14,8 +14,6 @@
 {
     UIView *_contentView;
     UIView *_trackDodgeView;
-    UIView *_trackLight1View;
-    UIView *_trackLight2View;
     UIView *_trackBackgroundView;
     _UIBackdropView *_trackBlurView;
     UIView *_trackSolidView;
@@ -29,9 +27,13 @@
     BOOL _showingTrackLabel;
     BOOL _animating;
     int _style;
+    float _trackTextBaselineFromBottom;
     id <_UIActionSliderDelegate> _delegate;
+    float _knobWidth;
     float _cachedTrackMaskWidth;
     struct CGSize _knobImageOffset;
+    struct CGSize _trackSize;
+    struct UIEdgeInsets _knobInsets;
 }
 
 @property(readonly, nonatomic, getter=_knobView) UIView *knobView; // @synthesize knobView=_knobView;
@@ -39,8 +41,12 @@
 @property(nonatomic, getter=isAnimating) BOOL animating; // @synthesize animating=_animating;
 @property(nonatomic, getter=isShowingTrackLabel) BOOL showingTrackLabel; // @synthesize showingTrackLabel=_showingTrackLabel;
 @property(nonatomic) float trackWidthProportion; // @synthesize trackWidthProportion=_trackWidthProportion;
+@property(nonatomic) struct UIEdgeInsets knobInsets; // @synthesize knobInsets=_knobInsets;
+@property(nonatomic) float knobWidth; // @synthesize knobWidth=_knobWidth;
 @property(nonatomic) float knobPosition; // @synthesize knobPosition=_knobPosition;
 @property(nonatomic) id <_UIActionSliderDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) float trackTextBaselineFromBottom; // @synthesize trackTextBaselineFromBottom=_trackTextBaselineFromBottom;
+@property(nonatomic) struct CGSize trackSize; // @synthesize trackSize=_trackSize;
 @property(nonatomic) struct CGSize knobImageOffset; // @synthesize knobImageOffset=_knobImageOffset;
 @property(nonatomic) int style; // @synthesize style=_style;
 - (void)_knobPanGesture:(id)arg1;
@@ -60,7 +66,8 @@
 - (float)_knobMinX;
 - (float)_knobHorizontalPosition;
 - (float)_knobVerticalInset;
-- (float)_knobHorizontalInset;
+- (float)_knobMaxXInset;
+- (float)_knobMinXInset;
 - (float)_knobWidth;
 - (struct CGRect)_trackFrame;
 - (id)backgroundColor;
@@ -68,6 +75,7 @@
 - (void)closeTrackAnimated:(BOOL)arg1;
 - (void)openTrackAnimated:(BOOL)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+@property(readonly, nonatomic) struct CGRect trackTextRect;
 @property(readonly, nonatomic) struct CGRect knobRect;
 @property(retain, nonatomic) UIFont *trackFont;
 @property(copy, nonatomic) NSString *trackText;
@@ -75,6 +83,12 @@
 @property(readonly, nonatomic) UIBezierPath *knobMaskPath;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 vibrantSettings:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

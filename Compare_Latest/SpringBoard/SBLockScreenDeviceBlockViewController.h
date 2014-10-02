@@ -6,15 +6,14 @@
 
 #import "SBLockOverlayViewController.h"
 
-@class NSString, NSTimer;
+@class NSString, SBFDeviceBlockTimer;
 
 @interface SBLockScreenDeviceBlockViewController : SBLockOverlayViewController
 {
-    NSTimer *_updateTimer;
+    SBFDeviceBlockTimer *_blockTimer;
 }
 
-- (void)_scheduleTimerIfNecessaryAndUpdateSubtitle;
-- (void)_clearTimer;
+@property(retain, nonatomic) SBFDeviceBlockTimer *blockTimer; // @synthesize blockTimer=_blockTimer;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;

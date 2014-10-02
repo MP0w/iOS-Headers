@@ -8,7 +8,7 @@
 
 #import "UIPopoverControllerDelegate.h"
 
-@class UIPopoverController;
+@class NSString, UIPopoverController;
 
 @interface SKUIPopoverObserver : NSObject <UIPopoverControllerDelegate>
 {
@@ -23,6 +23,12 @@
 - (void)dismissPopoverAnimated:(BOOL)arg1;
 - (void)dealloc;
 - (id)initWithPopoverController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

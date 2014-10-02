@@ -16,17 +16,23 @@ __attribute__((visibility("hidden")))
     NSArray *_alarms;
     int _lastSeenAllDayState;
     BOOL _userChangedAlarm;
+    BOOL _hasLeaveNowAlarm;
+    BOOL _canHaveLeaveNowAlarm;
 }
 
 - (void).cxx_destruct;
 - (BOOL)saveAndDismissWithForce:(BOOL)arg1;
+- (BOOL)_alarmsMatchCalendarItem;
 - (void)refreshFromCalendarItemAndStore;
+- (void)_updateAlarms;
+- (BOOL)_calendarItemHasLeaveNowAlarm;
 - (BOOL)configureForCalendarConstraints:(id)arg1;
 - (void)_updateDefaultAlarm;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1;
 - (BOOL)editItemViewControllerCommit:(id)arg1;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
-- (unsigned int)numberOfSubitemsInSubsection:(unsigned int)arg1;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2;
+- (unsigned int)numberOfSubitems;
+- (void)updateInternalTravelTimeStateForCalendarItem:(id)arg1;
 - (void)setCalendarItem:(id)arg1 store:(id)arg2;
 - (id)init;
 

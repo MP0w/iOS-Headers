@@ -14,7 +14,7 @@
     NSMutableSet *_listeners;
 }
 
-@property(readonly, nonatomic) NSMutableSet *listeners; // @synthesize listeners=_listeners;
+@property(readonly, retain, nonatomic) NSMutableSet *listeners; // @synthesize listeners=_listeners;
 @property(retain, nonatomic) FTCServiceMonitor *monitor; // @synthesize monitor=_monitor;
 - (BOOL)removeListenerID:(id)arg1;
 - (BOOL)addListenerID:(id)arg1;

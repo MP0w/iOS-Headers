@@ -6,12 +6,17 @@
 
 #import "NSObject.h"
 
-@class AVCaptureSession;
+@class AVCaptureSession, NSObject<OS_dispatch_queue>;
 
 @interface AVCaptureInputInternal : NSObject
 {
-    AVCaptureSession *_session;
+    AVCaptureSession *session;
+    NSObject<OS_dispatch_queue> *figCaptureSessionSyncQueue;
+    struct OpaqueFigCaptureSession *figCaptureSession;
 }
+
+- (void)dealloc;
+- (id)init;
 
 @end
 

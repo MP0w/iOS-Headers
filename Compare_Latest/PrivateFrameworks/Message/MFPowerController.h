@@ -11,20 +11,27 @@
 @interface MFPowerController : NSObject
 {
     NSObject<OS_dispatch_queue> *_queue;
-    int _powerToken;
+    NSObject<OS_dispatch_queue> *_powerQueue;
     int _pluggedIn;
-    struct __CFDictionary *_assertionsByIdentifier;
+    int _powerToken;
+    unsigned int _appState;
     NSCountedSet *_identifiers;
 }
 
++ (void)powerlog:(id)arg1 eventData:(id)arg2;
 + (id)sharedInstance;
 - (id)copyDiagnosticInformation;
+- (void)recordDuetEventForAccount:(id)arg1 event:(id)arg2;
+- (void)_deleteDuetAttributesForAccountWithUniqueId:(id)arg1;
+- (id)duetIdentifier;
+- (void)_initDuet;
+- (void)_applicationStateChanged:(id)arg1;
 - (void)releaseAssertionWithIdentifier:(id)arg1;
+- (void)retainAssertionWithIdentifier:(id)arg1 withAccount:(id)arg2;
 - (void)retainAssertionWithIdentifier:(id)arg1;
-- (void)_powerAssertionDidExpire:(id)arg1;
-- (void)_destroyAssertionWithIdentifier_nts:(id)arg1;
-- (void)_createAssertionWithIdentifier_nts:(id)arg1;
-- (void)log:(id)arg1 message:(id)arg2;
+- (void)_releaseAssertion_nts;
+- (void)_retainAssertion_nts;
+- (void)_setupAssertionTimer:(double)arg1;
 - (BOOL)isPluggedIn;
 - (void)_setPluggedIn:(unsigned int)arg1;
 - (void)dealloc;

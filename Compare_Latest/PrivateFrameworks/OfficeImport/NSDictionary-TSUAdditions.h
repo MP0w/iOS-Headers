@@ -7,6 +7,7 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (TSUAdditions)
++ (id)dictionaryByInvertingDictionary:(id)arg1;
 - (id)objectOfClass:(Class)arg1 forKey:(id)arg2;
 - (BOOL)boolValueForKey:(id)arg1;
 @end

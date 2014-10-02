@@ -19,9 +19,11 @@
     NSString *_validationTargetName;
     NSString *_overrideProcessName;
     NSMutableArray *_consoleErrorMessages;
+    id <AXValidationReportingServices> _validationReportingServices;
 }
 
 + (id)sharedInstance;
+@property(retain, nonatomic) id <AXValidationReportingServices> validateionReportingServices; // @synthesize validateionReportingServices=_validationReportingServices;
 @property(nonatomic, getter=isDebugBuild) BOOL debugBuild; // @synthesize debugBuild=_debugBuild;
 @property(retain, nonatomic) NSMutableArray *consoleErrorMessages; // @synthesize consoleErrorMessages=_consoleErrorMessages;
 @property(copy, nonatomic) NSString *overrideProcessName; // @synthesize overrideProcessName=_overrideProcessName;
@@ -31,6 +33,22 @@
 @property(nonatomic) BOOL shouldReportToServer; // @synthesize shouldReportToServer=_shouldReportToServer;
 @property(nonatomic) BOOL shouldCrashOnError; // @synthesize shouldCrashOnError=_shouldCrashOnError;
 @property(nonatomic) BOOL shouldLogToConsole; // @synthesize shouldLogToConsole=_shouldLogToConsole;
+- (void)sendFailedTestCase:(id)arg1 withTag:(id)arg2 overrideProcessName:(id)arg3;
+- (void)sendFailedAssertionWithErrorMessage:(id)arg1 overrideProcessName:(id)arg2;
+- (void)sendValidateExceptionForProtocol:(id)arg1 hasProperty:(id)arg2 errorMessage:(id)arg3 overrideProcessName:(id)arg4;
+- (void)sendValidateExceptionForProtocol:(id)arg1 hasMethod:(id)arg2 errorMessage:(id)arg3 overrideProcessName:(id)arg4;
+- (void)sendValidateExceptionForClass:(id)arg1 hasProperty:(id)arg2 errorMessage:(id)arg3 overrideProcessName:(id)arg4;
+- (void)sendValidateExceptionForClass:(id)arg1 hasClassMethod:(id)arg2 errorMessage:(id)arg3 overrideProcessName:(id)arg4;
+- (void)sendValidateExceptionForClass:(id)arg1 hasInstanceMethod:(id)arg2 errorMessage:(id)arg3 overrideProcessName:(id)arg4;
+- (void)sendValidateExceptionForClass:(id)arg1 hasInstanceVariable:(id)arg2 errorMessage:(id)arg3 overrideProcessName:(id)arg4;
+- (void)sendValidateExceptionForClass:(id)arg1 conformsToProtocol:(id)arg2 errorMessage:(id)arg3 overrideProcessName:(id)arg4;
+- (void)sendValidateExceptionForClass:(id)arg1 isKindOfClass:(id)arg2 errorMessage:(id)arg3 overrideProcessName:(id)arg4;
+- (void)sendValidateExceptionForClass:(id)arg1 errorMessage:(id)arg2 overrideProcessName:(id)arg3;
+- (void)sendGenericReport:(id)arg1 withTag:(id)arg2 overrideProcessName:(id)arg3;
+- (void)sendExceptionForSafeBlock:(id)arg1 overrideProcessName:(id)arg2;
+- (void)sendExceptionForSafeIVarKey:(id)arg1 onTarget:(id)arg2 overrideProcessName:(id)arg3;
+- (void)sendExceptionForSafeValueKey:(id)arg1 onTarget:(id)arg2 overrideProcessName:(id)arg3;
+- (void)sendExceptionForInstallingSafeCategory:(id)arg1 onTarget:(id)arg2 overrideProcessName:(id)arg3;
 - (BOOL)installSafeCategory:(id)arg1 canInteractWithTargetClass:(BOOL)arg2;
 - (BOOL)installSafeCategory:(id)arg1;
 - (BOOL)validateProtocol:(id)arg1 hasProperty:(id)arg2;
@@ -42,10 +60,11 @@
 - (BOOL)validateClass:(id)arg1 conformsToProtocol:(id)arg2;
 - (BOOL)validateClass:(id)arg1 hasProperty:(id)arg2;
 - (BOOL)validateClass:(id)arg1 hasClassMethod:(id)arg2;
-- (BOOL)validateClass:(id)arg1 hasInstanceMethod:(id)arg2 returnType:(char *)arg3 parameterCount:(unsigned int)arg4;
-- (BOOL)validateClass:(id)arg1 hasClassMethod:(id)arg2 returnType:(char *)arg3 parameterCount:(unsigned int)arg4;
-- (BOOL)_validateClass:(id)arg1 hasMethod:(id)arg2 methodType:(int)arg3 returnType:(id)arg4 arguments:(id)arg5;
 - (BOOL)validateClass:(id)arg1 hasInstanceMethod:(id)arg2;
+- (BOOL)validateClass:(id)arg1 hasInstanceMethod:(id)arg2 withFullSignature:(char *)arg3;
+- (BOOL)validateClass:(id)arg1 hasClassMethod:(id)arg2 withFullSignature:(char *)arg3;
+- (BOOL)_validateClass:(id)arg1 hasMethod:(id)arg2 methodType:(int)arg3 returnType:(id)arg4 arguments:(id)arg5;
+- (BOOL)_validateClass:(id)arg1 hasMethod:(id)arg2 methodType:(int)arg3;
 - (BOOL)validateClass:(id)arg1 hasInstanceVariable:(id)arg2 withType:(char *)arg3;
 - (BOOL)validateClass:(id)arg1 hasInstanceVariable:(id)arg2;
 - (BOOL)validateClass:(id)arg1 isKindOfClass:(id)arg2;

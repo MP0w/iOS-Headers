@@ -17,6 +17,7 @@
 
 + (id)copyFetchScheduledNotification;
 + (id)newNotificationAt:(double)arg1 withSound:(id)arg2;
++ (void)setSoundID:(id)arg1 forNotification:(id)arg2;
 + (BOOL)discardOldVersion;
 + (BOOL)upgrade;
 + (BOOL)isTimerNotification:(id)arg1;

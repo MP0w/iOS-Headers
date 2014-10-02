@@ -15,8 +15,9 @@
     SEL _action;
 }
 
-@property(nonatomic) SEL action; // @synthesize action=_action;
-@property(nonatomic) id target; // @synthesize target=_target;
+@property(readonly, nonatomic) SEL action; // @synthesize action=_action;
+@property(readonly, nonatomic) id target; // @synthesize target=_target;
+- (void)setTarget:(id)arg1 action:(SEL)arg2;
 @property(nonatomic, getter=isOn) BOOL on;
 - (void)layoutSubviews;
 - (void)dealloc;

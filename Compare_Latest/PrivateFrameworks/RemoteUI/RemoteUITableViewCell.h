@@ -6,25 +6,30 @@
 
 #import "UITableViewCell.h"
 
-@class UIImageView, UIView;
+@class UIButton, UIImageView, UIView;
 
 @interface RemoteUITableViewCell : UITableViewCell
 {
     UIImageView *_invalidRowView;
-    BOOL _forceFullDetailLabel;
     BOOL _leftAlignDetailLabel;
     int _remoteUIAccessoryType;
     UIView *_remoteUIAccessoryView;
+    UIButton *_detailLinkButton;
+    CDUnknownBlockType _detailLinkHandler;
+    BOOL _forceFullSizeDetailLabel;
 }
 
 @property(retain, nonatomic) UIView *remoteUIAccessoryView; // @synthesize remoteUIAccessoryView=_remoteUIAccessoryView;
 @property(nonatomic) int remoteUIAccessoryType; // @synthesize remoteUIAccessoryType=_remoteUIAccessoryType;
 @property(nonatomic) BOOL leftAlignDetailLabel; // @synthesize leftAlignDetailLabel=_leftAlignDetailLabel;
-@property(nonatomic) BOOL forceFullSizeDetailLabel; // @synthesize forceFullSizeDetailLabel=_forceFullDetailLabel;
-- (void)dealloc;
+@property(nonatomic) BOOL forceFullSizeDetailLabel; // @synthesize forceFullSizeDetailLabel=_forceFullSizeDetailLabel;
+- (void).cxx_destruct;
 - (void)setRowInvalid:(BOOL)arg1;
 - (void)layoutSubviews;
+- (void)setDetailLinkText:(id)arg1 handler:(CDUnknownBlockType)arg2;
+- (void)_detailLinkPressed;
 - (void)_accessoriesChanged;
+- (void)prepareForReuse;
 
 @end
 

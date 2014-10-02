@@ -6,29 +6,22 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>;
+@class CMStepCounterProxy;
 
 @interface CMStepCounter : NSObject
 {
-    id _internal;
-    struct CLConnectionClient *fLocationdConnection;
-    NSObject<OS_dispatch_queue> *fReplyQueue;
-    int fStepCountFromStart;
-    int fPrevStepCount;
-    BOOL fStartedUpdates;
+    CMStepCounterProxy *_stepcounterProxy;
 }
 
 + (BOOL)isStepCountingAvailable;
+@property(readonly, nonatomic) CMStepCounterProxy *stepcounterProxy; // @synthesize stepcounterProxy=_stepcounterProxy;
 @property(readonly) BOOL everRequested;
-- (void)handleQueryResponse:(struct CLConnectionMessage *)arg1 onQueue:(id)arg2 withHandler:(CDUnknownBlockType)arg3;
 @property BOOL enabled;
 - (void)deleteHistory;
 - (void)getTotalCountToQueue:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)stopStepCountingUpdates;
 - (void)startStepCountingUpdatesToQueue:(id)arg1 updateOn:(int)arg2 withHandler:(CDUnknownBlockType)arg3;
 - (void)queryStepCountStartingFrom:(id)arg1 to:(id)arg2 toQueue:(id)arg3 withHandler:(CDUnknownBlockType)arg4;
-- (void)_startStepCountingUpdatesToQueue:(id)arg1 updateOn:(int)arg2 withHandler:(CDUnknownBlockType)arg3;
-- (void)_queryStepCountStartingFromInternal:(id)arg1 to:(id)arg2 toQueue:(id)arg3 withHandler:(CDUnknownBlockType)arg4;
 - (void)dealloc;
 - (id)init;
 

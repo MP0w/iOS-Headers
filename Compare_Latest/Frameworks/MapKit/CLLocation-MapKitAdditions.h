@@ -7,12 +7,16 @@
 #import "CLLocation.h"
 
 @interface CLLocation (MapKitAdditions)
-+ (int)_mapkit_typeWithSource:(int)arg1;
 + (id)_mapkit_stringWithType:(int)arg1;
-@property(readonly, nonatomic) int _mapkit_source;
+@property(readonly, nonatomic) BOOL legacyHasMatch;
+@property(readonly, nonatomic) BOOL hasMatch;
+@property(readonly, nonatomic) double speedAccuracy;
+@property(readonly, nonatomic) double courseAccuracy;
 - (BOOL)isEqualToLocationCoordinate:(CDStruct_c3b9c2ee)arg1;
 - (id)locationDescription;
+- (id)routeMatch;
 - (BOOL)hasValidCourse;
 - (BOOL)isStale;
+- (id)initWithCoordinate:(CDStruct_c3b9c2ee)arg1 rawCoordinate:(CDStruct_c3b9c2ee)arg2 course:(double)arg3 rawCourse:(double)arg4 courseAccuracy:(double)arg5 speed:(double)arg6 speedAccuracy:(double)arg7 altitude:(double)arg8 timestamp:(double)arg9 horizontalAccuracy:(double)arg10 verticalAccuracy:(double)arg11 type:(int)arg12 matchInfo:(id)arg13;
 @end
 

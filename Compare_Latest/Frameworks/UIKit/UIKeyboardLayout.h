@@ -6,12 +6,13 @@
 
 #import <UIKit/UIView.h>
 
-@class NSMutableArray, UIKBScreenTraits, UIKeyboardTaskQueue, UITextInputTraits, UITouch;
+@class NSMutableArray, NSString, UIKBScreenTraits, UIKBTextEditingTraits, UIKeyboardTaskQueue, UITextInputTraits, UITouch;
 
 @interface UIKeyboardLayout : UIView
 {
     UITextInputTraits *_inputTraits;
     UIKBScreenTraits *_screenTraits;
+    UIKBTextEditingTraits *_textEditingTraits;
     NSMutableArray *_uncommittedTouches;
     UITouch *_activeTouch;
     UITouch *_shiftKeyTouch;
@@ -33,6 +34,7 @@
 - (id)keyplaneNamed:(id)arg1;
 - (id)keyplaneForKey:(id)arg1;
 - (id)baseKeyForString:(id)arg1;
+- (void)triggerSpaceKeyplaneSwitchIfNecessary;
 - (id)currentKeyplane;
 - (void)setPasscodeOutlineAlpha:(float)arg1;
 - (BOOL)shouldFadeToLayout;
@@ -43,8 +45,6 @@
 - (struct CGSize)dragGestureSize;
 - (float)flickDistance;
 - (float)hitBuffer;
-- (void)physicalKeyUpWithEvent:(id)arg1;
-- (void)physicalKeyDownWithEvent:(id)arg1;
 - (BOOL)canHandleEvent:(id)arg1;
 - (BOOL)canForceTouchCommit:(id)arg1;
 - (void)commitTouches:(id)arg1 executionContext:(id)arg2;
@@ -76,7 +76,7 @@
 - (void)setAction:(SEL)arg1 forKey:(id)arg2;
 - (void)setTarget:(id)arg1 forKey:(id)arg2;
 - (void)setLabel:(id)arg1 forKey:(id)arg2;
-- (void)setLayoutTag:(id)arg1;
+@property(retain, nonatomic) NSString *layoutTag;
 - (void)setRenderConfig:(id)arg1;
 - (void)updateBackgroundCorners;
 - (BOOL)canMultitap;
@@ -97,9 +97,13 @@
 - (void)updateLocalizedKeys:(BOOL)arg1;
 - (void)deactivateActiveKeys;
 - (void)clearUnusedObjects:(BOOL)arg1;
+- (unsigned int)textEditingKeyMask;
+- (void)setTextEditingTraits:(id)arg1;
 - (void)showKeyboardWithInputTraits:(id)arg1 screenTraits:(id)arg2 splitTraits:(id)arg3;
+@property(readonly, nonatomic) int idiom;
 @property(readonly, nonatomic) int orientation;
 @property(retain, nonatomic) UIKeyboardTaskQueue *taskQueue;
+- (void)willMoveToWindow:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)addWipeRecognizer;

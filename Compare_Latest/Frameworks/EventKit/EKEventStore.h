@@ -57,17 +57,20 @@
 @property(nonatomic) NSMutableDictionary *publicRegisteredObjects; // @synthesize publicRegisteredObjects=_publicRegisteredObjects;
 @property(nonatomic) NSMutableDictionary *registeredObjects; // @synthesize registeredObjects=_registeredObjects;
 - (BOOL)moveDiagnosticsLogToCrashReporterFolder;
-- (id)getCalDAVLog;
-- (id)getDataAccessLog;
 - (int)emailAddressValidationStatus:(id)arg1;
 - (void)cacheValidationStatusForEmail:(id)arg1 status:(int)arg2;
 @property(readonly, nonatomic) EKAlarm *defaultAllDayAlarm;
 @property(retain, nonatomic) NSNumber *defaultAllDayAlarmOffset; // @synthesize defaultAllDayAlarmOffset=_defaultAllDayAlarmOffset;
 @property(readonly, nonatomic) EKAlarm *defaultTimedAlarm;
 @property(retain, nonatomic) NSNumber *defaultTimedAlarmOffset; // @synthesize defaultTimedAlarmOffset=_defaultTimedAlarmOffset;
+- (void)markChangedObjectIDsConsumedUpToToken:(int)arg1;
+- (void)fetchChangedObjectIDsSinceToken:(int)arg1 resultHandler:(CDUnknownBlockType)arg2;
+- (BOOL)registerForDetailedChangeTracking:(id *)arg1;
 - (BOOL)isDataProtected;
 - (void)_protectedDataDidBecomeAvailable;
-- (void)_protectedDataWillBecomeUnavailable;
+- (id)predicateForEventCreatedFromSuggestionWithOpaqueKey:(id)arg1;
+- (id)predicateForEventsWithStartDate:(id)arg1 title:(id)arg2 source:(id)arg3;
+- (id)predicateForTravelEventsInCalendars:(id)arg1 startDate:(id)arg2 endDate:(id)arg3;
 - (id)predicateForMasterEventsInCalendars:(id)arg1;
 - (id)predicateForUpcomingEventsWithLimit:(int)arg1;
 - (id)predicateForUnalertedEvents;
@@ -79,12 +82,12 @@
 - (id)predicateForEventsWithStartDate:(id)arg1 endDate:(id)arg2 calendars:(id)arg3;
 - (void)locationBasedAlarmOccurrencesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)alarmOccurrencesBetweenStartDate:(id)arg1 endDate:(id)arg2 inCalendars:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)alarmOccurrencesBetweenStartDate:(id)arg1 endDate:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)alarmWithUUID:(id)arg1;
 - (void)cancelFetchRequest:(id)arg1;
 - (id)fetchEventsMatchingPredicate:(id)arg1 resultHandler:(CDUnknownBlockType)arg2;
 - (void)enumerateEventsMatchingPredicate:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)eventsMatchingPredicate:(id)arg1;
+- (void)_waitOnSemaphore:(id)arg1;
 - (BOOL)commit:(id *)arg1;
 - (void)reset;
 - (void)rollback;
@@ -109,8 +112,9 @@
 - (BOOL)removeInviteReplyNotification:(id)arg1 error:(id *)arg2;
 - (BOOL)markInviteReplyNotificationAlerted:(id)arg1;
 - (id)inviteReplyNotifications;
+@property(readonly, nonatomic) NSArray *reminderNotifications;
 @property(readonly, nonatomic) NSArray *inboxRepliedSectionItems;
-@property(readonly, nonatomic) NSArray *inboxNotifications;
+@property(readonly, nonatomic) NSArray *eventNotifications;
 - (BOOL)removeResourceChanges:(id)arg1 error:(id *)arg2;
 - (BOOL)removeResourceChange:(id)arg1 error:(id *)arg2;
 - (BOOL)markResourceChangeAlerted:(id)arg1 error:(id *)arg2;
@@ -119,7 +123,7 @@
 - (id)earliestExpiringNotifiableEventEndDateAfterDate:(id)arg1 timeZone:(id)arg2;
 @property(readonly, nonatomic) int notifiableEventCount;
 @property(readonly, nonatomic) int unacknowledgedEventCount;
-- (void)markNotificationsAlertedAndSave:(id)arg1;
+- (id)markNotificationsAlertedAndSave:(id)arg1;
 @property(nonatomic) BOOL showDeclinedEvents;
 - (id)scheduledTaskCacheFetchTasksOnDay:(id)arg1;
 - (id)scheduledTaskCacheFetchDaysAndTaskCounts;
@@ -168,18 +172,19 @@
 - (struct CGColor *)copyCGColorForNewCalendar;
 - (id)importICSData:(id)arg1 intoCalendar:(id)arg2 options:(unsigned int)arg3;
 - (void)importICSData:(id)arg1 intoCalendar:(id)arg2 options:(unsigned int)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)_performServerFunction:(CDUnknownBlockType)arg1 replyHandler:(CDUnknownBlockType)arg2;
 - (id)importICS:(id)arg1 intoCalendar:(id)arg2 options:(unsigned int)arg3;
-- (void)markEventAlerted:(id)arg1;
+- (BOOL)markEventAlerted:(id)arg1;
 - (BOOL)setInvitationStatus:(unsigned int)arg1 forEvents:(id)arg2 error:(id *)arg3;
 - (BOOL)setInvitationStatus:(unsigned int)arg1 forEvent:(id)arg2 error:(id *)arg3;
 - (BOOL)removeEvent:(id)arg1 span:(int)arg2 commit:(BOOL)arg3 error:(id *)arg4;
 - (BOOL)saveEvent:(id)arg1 span:(int)arg2 commit:(BOOL)arg3 error:(id *)arg4;
 - (BOOL)removeEvent:(id)arg1 span:(int)arg2 error:(id *)arg3;
 - (BOOL)saveEvent:(id)arg1 span:(int)arg2 error:(id *)arg3;
+- (id)eventWithUniqueId:(id)arg1 occurrenceDate:(id)arg2;
 - (id)eventWithUniqueId:(id)arg1;
 - (id)eventForUID:(id)arg1 occurrenceDate:(id)arg2 checkValid:(BOOL)arg3;
 - (id)eventForUID:(id)arg1 occurrenceDate:(id)arg2;
+- (id)_eventOccurrenceWithURI:(id)arg1;
 - (id)_eventWithURI:(id)arg1 checkValid:(BOOL)arg2;
 - (BOOL)_parseURI:(id)arg1 expectedScheme:(id)arg2 identifier:(id *)arg3 options:(id *)arg4;
 - (id)eventWithIdentifier:(id)arg1;
@@ -212,8 +217,8 @@
 - (void)_validateObjectIDs:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)changesSinceSequenceNumber:(int)arg1;
 - (int)sequenceNumber;
+- (void)setSourceAccountManagement:(int)arg1;
 @property(readonly) EKDaemonConnection *connection;
-@property(readonly) unsigned int serverPort;
 @property(copy, nonatomic) NSTimeZone *timeZone; // @synthesize timeZone=_timeZone;
 - (void)_accessStatusChanged;
 - (void)requestAccessToEntityType:(unsigned int)arg1 completion:(CDUnknownBlockType)arg2;
@@ -222,6 +227,12 @@
 - (oneway void)release;
 - (id)initWithOptions:(unsigned long)arg1 path:(id)arg2;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

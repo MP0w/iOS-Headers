@@ -14,7 +14,7 @@
 
 @property(retain, nonatomic) id <MusicGeniusMixQueueFeederDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
-- (BOOL)_configureWithMix:(id)arg1 playbackContext:(id)arg2 startPlayback:(BOOL)arg3;
+- (BOOL)_configureWithMixPlaylist:(id)arg1 playbackContext:(id)arg2 startPlayback:(BOOL)arg3;
 - (void)shuffleItemsWithAnchor:(unsigned int *)arg1;
 - (id)mediaItemAtIndex:(unsigned int)arg1;
 - (unsigned int)indexOfMediaItem:(id)arg1;

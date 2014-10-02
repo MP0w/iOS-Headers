@@ -8,18 +8,17 @@
 
 #import "PLComposeRecipientViewControllerDelegate.h"
 #import "PLInvitationRecordsObserver.h"
-#import "UIActionSheetDelegate.h"
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class NSArray, NSString, PLCloudSharedAlbum, PLCloudSharedAlbumInvitationRecord, PLComposeRecipientViewController, UIBarButtonItem, UISwitch, UITableView;
+@class AAUIProfilePictureStore, ACAccountStore, NSArray, NSMutableDictionary, NSOperationQueue, NSString, PLCloudSharedAlbum, PLCloudSharedAlbumInvitationRecord, PLComposeRecipientViewController, UIBarButtonItem, UISwitch, UITableView;
 
-@interface PLAlbumStreamingOptionsViewController : UIViewController <PLComposeRecipientViewControllerDelegate, PLInvitationRecordsObserver, UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface PLAlbumStreamingOptionsViewController : UIViewController <PLComposeRecipientViewControllerDelegate, PLInvitationRecordsObserver, UITableViewDataSource, UITableViewDelegate>
 {
+    NSArray *_visibleInvitationRecords;
+    NSString *_visiblePublicURL;
+    BOOL _showShareLink;
     PLCloudSharedAlbum *_album;
-    NSArray *_albumAssets;
-    NSString *_albumName;
-    int _optionsMode;
     id <PLAlbumStreamingOptionsViewControllerDelegate> _delegate;
     PLComposeRecipientViewController *_composeRecipientController;
     UIBarButtonItem *_cancelButton;
@@ -28,32 +27,34 @@
     UISwitch *_wantsPublicWebsiteSwitch;
     UISwitch *_wantsMultipleContributorsSwitch;
     UISwitch *_wantsAcceptCloudNotificationSwitch;
-    BOOL _changingValueFromControl;
     BOOL _adjustedInsetsForKeyboard;
-    BOOL _streamOwner;
     unsigned int _addSubscribersRow;
+    NSOperationQueue *_familyRequestQueue;
+    ACAccountStore *_familyAccountStore;
+    NSArray *_familyMembers;
+    AAUIProfilePictureStore *_familyMemberPictureStore;
+    NSMutableDictionary *_familyProfilePictures;
     BOOL _isPresentedModally;
-    NSArray *_visibleInvitationRecords;
-    NSString *_visiblePublicURL;
-    BOOL _showShareLink;
+    BOOL _streamOwner;
     BOOL __shouldScrollToTopOnNextViewLayout;
+    BOOL _albumIsFamilyStream;
+    NSString *_albumName;
     PLCloudSharedAlbumInvitationRecord *__selectedSubscriberInvitationRecord;
     NSString *__lastPublicURLSectionFooterTitle;
     NSString *__lastMultiContributorsSectionFooterTitle;
 }
 
+@property(nonatomic) BOOL albumIsFamilyStream; // @synthesize albumIsFamilyStream=_albumIsFamilyStream;
 @property(copy, nonatomic, setter=_setLastMultiContributorsSectionFooterTitle:) NSString *_lastMultiContributorsSectionFooterTitle; // @synthesize _lastMultiContributorsSectionFooterTitle=__lastMultiContributorsSectionFooterTitle;
 @property(copy, nonatomic, setter=_setLastPublicURLSectionFooterTitle:) NSString *_lastPublicURLSectionFooterTitle; // @synthesize _lastPublicURLSectionFooterTitle=__lastPublicURLSectionFooterTitle;
 @property(nonatomic, setter=_setShouldScrollToTopOnNextViewLayout:) BOOL _shouldScrollToTopOnNextViewLayout; // @synthesize _shouldScrollToTopOnNextViewLayout=__shouldScrollToTopOnNextViewLayout;
 @property(retain, nonatomic, setter=_setSelectedSubscriberInvitationRecord:) PLCloudSharedAlbumInvitationRecord *_selectedSubscriberInvitationRecord; // @synthesize _selectedSubscriberInvitationRecord=__selectedSubscriberInvitationRecord;
 @property(nonatomic) BOOL streamOwner; // @synthesize streamOwner=_streamOwner;
 @property(copy, nonatomic) NSString *albumName; // @synthesize albumName=_albumName;
-@property(retain, nonatomic) PLCloudSharedAlbum *album; // @synthesize album=_album;
-@property(retain, nonatomic) NSArray *albumAssets; // @synthesize albumAssets=_albumAssets;
 @property(nonatomic) BOOL isPresentedModally; // @synthesize isPresentedModally=_isPresentedModally;
+@property(retain, nonatomic) PLCloudSharedAlbum *album; // @synthesize album=_album;
 @property(nonatomic) id <PLAlbumStreamingOptionsViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)backingNavigationControllerForComposeRecipientViewController:(id)arg1;
-- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 viewForFooterInSection:(int)arg2;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
@@ -77,8 +78,8 @@
 - (BOOL)_publicURLEnabled;
 - (void)_displayActivitySheet;
 - (void)_displayDeleteConfirmation:(id)arg1;
+- (void)_displayConfirmationWithMessage:(id)arg1 destructiveTitle:(id)arg2 actionHandler:(CDUnknownBlockType)arg3;
 - (void)_deletePhotoStream;
-- (void)_createNewCloudSharedAlbum;
 - (void)_keyboardDidHide:(id)arg1;
 - (void)_keyboardWillHide:(id)arg1;
 - (void)_keyboardWillShow:(id)arg1;
@@ -105,9 +106,13 @@
 - (void)_updateWantsPublicWebsiteField;
 - (void)_updateAllControls;
 - (void)dealloc;
-- (id)initForEditOpertationForAlbum:(id)arg1;
-- (id)initForAlbumCreationOperationWithAssets:(id)arg1;
-- (id)_initWithOptionsMode:(int)arg1 withAlbum:(id)arg2 andAssets:(id)arg3;
+- (id)initWithAlbum:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

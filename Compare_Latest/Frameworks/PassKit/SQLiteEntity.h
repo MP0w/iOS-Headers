@@ -8,7 +8,7 @@
 
 #import "SQLiteEntity.h"
 
-@class SQLiteDatabase;
+@class NSString, SQLiteDatabase;
 
 @interface SQLiteEntity : NSObject <SQLiteEntity>
 {
@@ -36,6 +36,7 @@
 + (id)minValueForProperty:(id)arg1 predicate:(id)arg2 database:(id)arg3;
 + (id)maxValueForProperty:(id)arg1 predicate:(id)arg2 database:(id)arg3;
 + (id)_aggregateValueForProperty:(id)arg1 function:(id)arg2 predicate:(id)arg3 database:(id)arg4;
++ (int)countInDatabase:(id)arg1 predicate:(id)arg2;
 + (id)anyInDatabase:(id)arg1 predicate:(id)arg2;
 @property(readonly, nonatomic) long long persistentID; // @synthesize persistentID=_persistentID;
 @property(readonly, nonatomic) SQLiteDatabase *database; // @synthesize database=_database;
@@ -52,6 +53,12 @@
 - (BOOL)deleteFromDatabase;
 - (id)initWithPropertyValues:(id)arg1 inDatabase:(id)arg2;
 - (id)initWithPersistentID:(long long)arg1 inDatabase:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

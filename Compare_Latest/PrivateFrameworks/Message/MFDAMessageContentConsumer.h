@@ -8,7 +8,7 @@
 
 #import "MFDAStreamingContentConsumer.h"
 
-@class NSMutableData;
+@class DAMailMessage, NSMutableData, NSString;
 
 @interface MFDAMessageContentConsumer : NSObject <MFDAStreamingContentConsumer>
 {
@@ -21,12 +21,14 @@
     BOOL _succeeded;
     NSMutableData *_bodyData;
     double _timeOfLastActivity;
+    DAMailMessage *_message;
 }
 
 @property(readonly, nonatomic) double timeOfLastActivity; // @synthesize timeOfLastActivity=_timeOfLastActivity;
 @property(nonatomic) int requestedFormat; // @synthesize requestedFormat=_requestedFormat;
 @property(retain, nonatomic) id <MFMessageDataConsumerFactory> consumerFactory; // @synthesize consumerFactory=_consumerFactory;
-@property(readonly, nonatomic) NSMutableData *bodyData; // @synthesize bodyData=_bodyData;
+@property(readonly, retain, nonatomic) NSMutableData *bodyData; // @synthesize bodyData=_bodyData;
+@property(readonly, retain, nonatomic) DAMailMessage *message; // @synthesize message=_message;
 @property(retain, nonatomic) id <MFCollectingDataConsumer> alternatePartConsumer; // @synthesize alternatePartConsumer=_alternatePartConsumer;
 @property(retain, nonatomic) id <MFCollectingDataConsumer> dataConsumer; // @synthesize dataConsumer=_dataConsumer;
 - (void)dealloc;
@@ -37,6 +39,12 @@
 - (void)didEndStreamingForMailMessage:(id)arg1;
 - (void)consumeData:(char *)arg1 length:(int)arg2 format:(int)arg3 mailMessage:(id)arg4;
 - (BOOL)shouldBeginStreamingForMailMessage:(id)arg1 format:(int)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 - (void)readAnimationCurvesFromFile;
 - (void)dealloc;
 - (id)initWithFileName:(id)arg1;
+- (id)mediaTimingFunctionForAnimationCurve:(id)arg1 reversed:(BOOL)arg2;
 - (id)mediaTimingFunctionForAnimationCurve:(id)arg1;
 - (float)valueForAnimationCurve:(id)arg1 atPercent:(float)arg2;
 - (float)valueForConstant:(id)arg1;

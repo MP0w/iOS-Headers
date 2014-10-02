@@ -13,7 +13,7 @@
     NSString *_previousScheduleTag;
 }
 
-@property(retain) NSString *previousScheduleTag; // @synthesize previousScheduleTag=_previousScheduleTag;
+@property(retain, nonatomic) NSString *previousScheduleTag; // @synthesize previousScheduleTag=_previousScheduleTag;
 - (id)additionalHeaderValues;
 - (id)description;
 - (void)dealloc;

@@ -8,41 +8,38 @@
 
 #import "NSCoding.h"
 
-@class NSData, NSDate, NSDictionary, NSMapTable, NSString;
+@class NSData, NSDate, NSString;
 
 @interface SBRemoteNotificationClient : NSObject <NSCoding>
 {
     NSString *_bundleIdentifier;
     NSString *_environment;
-    unsigned long long _appEnabledTypes;
-    unsigned long long _settingsEnabledTypes;
-    unsigned long long _settingsPresentedTypes;
     NSData *_lastKnownDeviceToken;
     NSDate *_missingDate;
     _Bool _backgroundDeliveryDisabled;
     long long _dayOfLastNewsstandPush;
     unsigned long long _dailyCountOfNewsstandPushes;
-    _Bool _hasShownSystemwideEnableAlert;
-    NSDictionary *_lastUserInfo;
-    NSMapTable *_tokenToUserInfos;
+    _Bool _backgroundAppRefreshAllowed;
+    _Bool _wantsPush;
+    NSString *_pushDisabledReason;
 }
 
-@property(retain, nonatomic) NSDictionary *lastUserInfo; // @synthesize lastUserInfo=_lastUserInfo;
-@property(nonatomic) _Bool hasShownSystemwideEnableAlert; // @synthesize hasShownSystemwideEnableAlert=_hasShownSystemwideEnableAlert;
+@property(nonatomic, getter=doesWantPush) _Bool wantsPush; // @synthesize wantsPush=_wantsPush;
+@property(nonatomic, getter=isBackgroundAppRefreshAllowed) _Bool backgroundAppRefreshAllowed; // @synthesize backgroundAppRefreshAllowed=_backgroundAppRefreshAllowed;
+@property(retain, nonatomic) NSString *pushDisabledReason; // @synthesize pushDisabledReason=_pushDisabledReason;
 @property(nonatomic) unsigned long long dailyCountOfNewsstandPushes; // @synthesize dailyCountOfNewsstandPushes=_dailyCountOfNewsstandPushes;
 @property(nonatomic) long long dayOfLastNewsstandPush; // @synthesize dayOfLastNewsstandPush=_dayOfLastNewsstandPush;
 @property(nonatomic) _Bool backgroundDeliveryDisabled; // @synthesize backgroundDeliveryDisabled=_backgroundDeliveryDisabled;
 @property(retain, nonatomic) NSDate *missingDate; // @synthesize missingDate=_missingDate;
 @property(retain, nonatomic) NSData *lastKnownDeviceToken; // @synthesize lastKnownDeviceToken=_lastKnownDeviceToken;
-@property(nonatomic) unsigned long long settingsPresentedTypes; // @synthesize settingsPresentedTypes=_settingsPresentedTypes;
-@property(nonatomic) unsigned long long settingsEnabledTypes; // @synthesize settingsEnabledTypes=_settingsEnabledTypes;
-@property(nonatomic) unsigned long long appEnabledTypes; // @synthesize appEnabledTypes=_appEnabledTypes;
 @property(retain, nonatomic) NSString *environment; // @synthesize environment=_environment;
-@property(readonly, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
-- (id)getUserInfoForToken:(int)arg1;
-- (void)setUserInfo:(id)arg1 forToken:(int)arg2;
-@property(readonly, nonatomic) NSMapTable *tokenToUserInfos; // @synthesize tokenToUserInfos=_tokenToUserInfos;
-- (unsigned long long)effectivelyEnabledTypes;
+@property(readonly, retain, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
+@property(readonly, nonatomic, getter=isNewsstandApplication) _Bool newsstandApplication;
+- (_Bool)isNewsstandPushEnabled;
+@property(readonly, nonatomic) _Bool supportsBackgroundAppRefresh;
+- (_Bool)allowsUserNotifications;
+- (id)application;
+@property(readonly, nonatomic, getter=isPushEnabled) _Bool pushEnabled;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;

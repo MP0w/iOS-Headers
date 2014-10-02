@@ -6,11 +6,15 @@
 
 #import <UIKit/UITableView.h>
 
+@class UIMoreListController;
+
 __attribute__((visibility("hidden")))
 @interface _UIMoreListTableView : UITableView
 {
+    UIMoreListController *__listController;
 }
 
+@property(nonatomic) UIMoreListController *_listController; // @synthesize _listController=__listController;
 - (void)didMoveToWindow;
 
 @end

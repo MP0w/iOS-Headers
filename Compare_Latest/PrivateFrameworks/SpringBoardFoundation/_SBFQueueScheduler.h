@@ -8,7 +8,7 @@
 
 #import "SBFScheduler.h"
 
-@class NSObject<OS_dispatch_queue>;
+@class NSObject<OS_dispatch_queue>, NSString;
 
 @interface _SBFQueueScheduler : NSObject <SBFScheduler>
 {
@@ -20,6 +20,12 @@
 - (id)performBlock:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)initWithQueue:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

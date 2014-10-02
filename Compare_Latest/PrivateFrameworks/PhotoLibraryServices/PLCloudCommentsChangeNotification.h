@@ -15,7 +15,7 @@
 
 + (id)notificationWithAsset:(id)arg1 snapshot:(id)arg2;
 - (id)_contentRelationshipName;
-@property(readonly, nonatomic) PLManagedAsset *asset;
+@property(readonly, retain, nonatomic) PLManagedAsset *asset;
 - (id)description;
 - (id)userInfo;
 - (id)name;

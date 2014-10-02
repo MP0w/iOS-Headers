@@ -9,20 +9,17 @@
 #import "UICollectionViewDataSource.h"
 #import "UICollectionViewDelegate.h"
 
-@class MPImageCache, MPUCZCollectionView, MPUDataSource, UICollectionView;
+@class MPUCZCollectionView, MPUDataSource, NSString, UICollectionView;
 
 @interface MPUCZCollectionViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 {
     MPUCZCollectionView *_collectionView;
-    struct __CFBitVector *_preloadedImageVector;
     MPUDataSource *_dataSource;
     id <MPUCZCollectionViewControllerDelegate> _delegate;
     int _coverCountPerColumn;
-    MPImageCache *_imageCache;
     struct CGSize _itemSize;
 }
 
-@property(retain, nonatomic) MPImageCache *imageCache; // @synthesize imageCache=_imageCache;
 @property(nonatomic) int coverCountPerColumn; // @synthesize coverCountPerColumn=_coverCountPerColumn;
 @property(nonatomic) struct CGSize itemSize; // @synthesize itemSize=_itemSize;
 @property(retain, nonatomic) MPUDataSource *dataSource; // @synthesize dataSource=_dataSource;
@@ -33,6 +30,7 @@
 - (void)_dataSourceDidInvalidateNotification:(id)arg1;
 - (void)reloadData;
 - (struct CGSize)itemSizeForCoverCount:(unsigned int)arg1;
+- (void)collectionView:(id)arg1 didEndDisplayingCell:(id)arg2 forItemAtIndexPath:(id)arg3;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
@@ -47,6 +45,12 @@
 @property(readonly, nonatomic) UICollectionView *collectionView;
 - (void)dealloc;
 - (id)initWithDataSource:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

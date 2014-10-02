@@ -14,10 +14,14 @@
 {
     int _serviceType;
     NSString *_tag;
+    struct {
+        unsigned int serviceType:1;
+    } _has;
 }
 
++ (id)defaultTag;
 @property(retain, nonatomic) NSString *tag; // @synthesize tag=_tag;
-@property(nonatomic) int serviceType; // @synthesize serviceType=_serviceType;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -26,6 +30,8 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) BOOL hasServiceType;
+@property(nonatomic) int serviceType; // @synthesize serviceType=_serviceType;
 - (void)dealloc;
 
 @end

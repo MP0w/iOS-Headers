@@ -6,14 +6,13 @@
 
 #import <iWorkImport/TSADocumentRoot.h>
 
-#import "TSCHCommandLifecycleDelegate.h"
 #import "TSKModel.h"
 #import "TSTResolverContainerNameProvider.h"
 
-@class KNRecordingSyncMaintainer, KNShow, KNSlidePreviewManager, KNThumbnailManager;
+@class KNRecordingSyncMaintainer, KNShow, KNSlidePreviewManager, KNThumbnailManager, NSString;
 
 __attribute__((visibility("hidden")))
-@interface KNDocumentRoot : TSADocumentRoot <TSKModel, TSCHCommandLifecycleDelegate, TSTResolverContainerNameProvider>
+@interface KNDocumentRoot : TSADocumentRoot <TSKModel, TSTResolverContainerNameProvider>
 {
     KNShow *mShow;
     KNThumbnailManager *mThumbnailManager;
@@ -23,11 +22,14 @@ __attribute__((visibility("hidden")))
 }
 
 + (void)localizeModelObject:(id)arg1 withTemplateBundle:(id)arg2;
-+ (Class)commandControllerClass;
 - (void)p_applicationDidBecomeActive:(id)arg1;
 - (void)p_applicationWillResignActive:(id)arg1;
+- (unsigned int)writingDirectionForStorage;
+- (unsigned int)writingDirection;
 - (void)prepareForSavingAsTemplate;
 - (void)preprocessForSaveAsTheme;
+- (int)compareLocationSortingInfo:(id)arg1 toSortingInfo:(id)arg2;
+- (id)warningLocationDescriptionForAffectedObjects:(id)arg1 sortingInfo:(id *)arg2;
 - (void)setUIState:(id)arg1 forChart:(id)arg2;
 - (id)UIStateForChart:(id)arg1;
 - (id)resolversMatchingPrefix:(id)arg1;
@@ -38,9 +40,7 @@ __attribute__((visibility("hidden")))
 - (id)nameForResolverContainer:(id)arg1;
 - (id)resolverContainerNameForResolver:(id)arg1;
 - (void)changeShowSizeTo:(struct CGSize)arg1;
-- (id)resizeCommandForSlideNode:(id)arg1 fromOldSize:(struct CGSize)arg2;
-- (void)didCommitChartCommand:(id)arg1;
-- (void)willCommitChartCommand:(id)arg1;
+- (id)resizeCommandForSlideNode:(id)arg1 fromOldSize:(struct CGSize)arg2 transformedObjects:(id)arg3;
 - (BOOL)isMultiPageForQuickLook;
 - (id)createViewStateRoot;
 - (unsigned int)rootSearchTargetCountThroughIndex:(unsigned int)arg1;
@@ -58,12 +58,21 @@ __attribute__((visibility("hidden")))
 - (void)willClose;
 - (void)documentDidLoad;
 - (id)initWithContext:(id)arg1;
+- (BOOL)shouldShowComments;
 @property(retain, nonatomic) KNShow *show;
 - (unsigned int)applicationType;
 - (void)saveToArchiver:(id)arg1;
 - (id)initFromUnarchiver:(id)arg1;
 - (void)saveToArchive:(struct DocumentArchive *)arg1 archiver:(id)arg2;
 - (void)loadFromArchive:(const struct DocumentArchive *)arg1 unarchiver:(id)arg2;
+- (void)updateBuildChunksAndBuildsForChanges:(id)arg1 executingCommandsInSequenceWithBlock:(CDUnknownBlockType)arg2;
+- (id)p_buildsNeedingBuildOrChunkUpdateForChanges:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -4,22 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <PassKitCore/PKContent.h>
 
-#import "NSCoding.h"
 #import "NSSecureCoding.h"
 
-@class NSArray, NSString, NSURL, PKBarcode, PKImage;
+@class NSArray, NSString, PKImage;
 
-@interface PKPassContent : NSObject <NSCoding, NSSecureCoding>
+@interface PKPassContent : PKContent <NSSecureCoding>
 {
-    PKBarcode *_barcode;
     int _transitType;
     PKImage *_footerImage;
-    NSArray *_storeIdentifiers;
-    NSURL *_appLaunchURL;
     NSString *_logoText;
-    NSString *_localizedDescription;
     NSArray *_frontFieldBuckets;
     NSArray *_backFieldBuckets;
 }
@@ -27,18 +22,14 @@
 + (BOOL)supportsSecureCoding;
 @property(copy, nonatomic) NSArray *backFieldBuckets; // @synthesize backFieldBuckets=_backFieldBuckets;
 @property(copy, nonatomic) NSArray *frontFieldBuckets; // @synthesize frontFieldBuckets=_frontFieldBuckets;
-@property(copy, nonatomic) NSString *localizedDescription; // @synthesize localizedDescription=_localizedDescription;
 @property(copy, nonatomic) NSString *logoText; // @synthesize logoText=_logoText;
-@property(copy, nonatomic) NSURL *appLaunchURL; // @synthesize appLaunchURL=_appLaunchURL;
-@property(copy, nonatomic) NSArray *storeIdentifiers; // @synthesize storeIdentifiers=_storeIdentifiers;
 @property(retain, nonatomic) PKImage *footerImage; // @synthesize footerImage=_footerImage;
 @property(nonatomic) int transitType; // @synthesize transitType=_transitType;
-@property(retain, nonatomic) PKBarcode *barcode; // @synthesize barcode=_barcode;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)flushFormattedFieldValues;
 - (void)dealloc;
-- (id)initWithPassURL:(id)arg1;
+- (id)initWithDictionary:(id)arg1 bundle:(id)arg2;
 
 @end
 

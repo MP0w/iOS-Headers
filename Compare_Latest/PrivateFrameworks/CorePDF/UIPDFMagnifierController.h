@@ -31,10 +31,12 @@
     struct CGSize _controlPointSize;
     struct CGColor *_grabberColor;
     unsigned int _pageRotation;
+    BOOL _visible;
     UIPDFPageView *pageView;
 }
 
 @property(nonatomic) UIPDFPageView *pageView; // @synthesize pageView;
+- (BOOL)visible;
 - (void)hide;
 - (void)move;
 - (void)showMagnifier;

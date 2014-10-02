@@ -5,10 +5,11 @@
 //
 
 #import "NSObject.h"
+#import "TSDMixing.h"
 
 @class TSSPropertySet;
 
-@protocol TSCHStyleActAlike <NSObject>
+@protocol TSCHStyleActAlike <NSObject, TSDMixing>
 - (id)boxedDefaultValueForProperty:(int)arg1;
 - (float)defaultFloatValueForProperty:(int)arg1;
 - (int)defaultIntValueForProperty:(int)arg1;

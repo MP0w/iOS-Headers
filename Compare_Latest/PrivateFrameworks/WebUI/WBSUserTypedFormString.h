@@ -14,8 +14,8 @@
 }
 
 @property(readonly, nonatomic) NSString *userTypedString; // @synthesize userTypedString=_userTypedString;
+- (void).cxx_destruct;
 - (id)completion;
-- (void)dealloc;
 - (id)initWithUserTypedString:(id)arg1;
 
 @end

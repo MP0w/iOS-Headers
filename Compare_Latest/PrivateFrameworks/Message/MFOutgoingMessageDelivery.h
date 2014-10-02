@@ -23,11 +23,17 @@
     DeliveryAccount *_deliveryAccount;
     NSDictionary *_compositionSpecification;
     MFMailDelivery *_currentDeliveryObject;
+    BOOL _isUserRequested;
+    unsigned long long _conversationFlags;
+    long long _originalConversationId;
 }
 
 + (id)newWithHeaders:(id)arg1 HTML:(id)arg2 plainTextAlternative:(id)arg3 other:(id)arg4 charsets:(id)arg5;
 + (id)newWithHeaders:(id)arg1 mixedContent:(id)arg2 textPartsAreHTML:(BOOL)arg3;
 + (id)newWithMessage:(id)arg1;
+@property(nonatomic) BOOL isUserRequested; // @synthesize isUserRequested=_isUserRequested;
+@property(nonatomic) long long originalConversationId; // @synthesize originalConversationId=_originalConversationId;
+@property(nonatomic) unsigned long long conversationFlags; // @synthesize conversationFlags=_conversationFlags;
 @property(retain, nonatomic) NSDictionary *compositionSpecification; // @synthesize compositionSpecification=_compositionSpecification;
 - (void)setAccount:(id)arg1;
 - (void)setArchiveAccount:(id)arg1;

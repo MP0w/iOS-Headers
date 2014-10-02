@@ -12,6 +12,7 @@
 {
     BOOL _isVisible;
     BOOL _needsReloadWhenBecomingVisible;
+    NSArray *_visibleViewControllerIdentifiers;
     BOOL _supportsTransiency;
     BOOL _displayEmptyTabs;
     NSArray *_customizableViewControllerIdentifiers;
@@ -41,13 +42,16 @@
 - (void)_mediaLibraryDidChangeNotification:(id)arg1;
 - (void)_isRadioEnabledDidChangeNotification:(id)arg1;
 - (void)_availableMediaLibrariesDidChangeNotification:(id)arg1;
-@property(readonly, nonatomic) NSArray *visibleViewControllerIdentifiers;
-- (void)switchToPlaylistWithPID:(id)arg1;
+- (id)viewControllerForViewControllerIdentifier:(id)arg1;
 - (void)switchToShortcutIdentifier:(id)arg1;
+- (void)switchToPlaylistWithPID:(id)arg1;
+- (void)ensureTabsAreLoaded;
+@property(readonly, nonatomic) NSArray *visibleViewControllerIdentifiers;
 - (void)setOrderedViewControllerIdentifiers:(id)arg1 animated:(BOOL)arg2;
 - (void)tabBar:(id)arg1 didEndCustomizingItems:(id)arg2 changed:(BOOL)arg3;
 - (void)_setSelectedViewController:(id)arg1;
 - (id)moreNavigationController;
+- (void)setViewControllers:(id)arg1 animated:(BOOL)arg2;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)dealloc;

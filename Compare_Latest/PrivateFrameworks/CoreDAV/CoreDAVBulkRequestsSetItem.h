@@ -15,9 +15,9 @@
 }
 
 + (id)copyParseRules;
-@property(retain) CoreDAVBulkRequestsItem *simpleItem; // @synthesize simpleItem=_simpleItem;
-@property(retain) CoreDAVBulkRequestsItem *crudItem; // @synthesize crudItem=_crudItem;
-@property(readonly) NSDictionary *dictRepresentation;
+@property(retain, nonatomic) CoreDAVBulkRequestsItem *simpleItem; // @synthesize simpleItem=_simpleItem;
+@property(retain, nonatomic) CoreDAVBulkRequestsItem *crudItem; // @synthesize crudItem=_crudItem;
+@property(readonly, nonatomic) NSDictionary *dictRepresentation;
 - (id)description;
 - (void)dealloc;
 - (id)init;

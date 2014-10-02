@@ -19,6 +19,8 @@ __attribute__((visibility("hidden")))
 @property __weak _GCControllerAxisInput *axis; // @synthesize axis=_axis;
 - (void).cxx_destruct;
 - (float)value;
+- (BOOL)_setValue:(float)arg1;
+- (BOOL)_setValueFromAxisButton:(float)arg1;
 - (BOOL)setHIDValue:(struct __IOHIDValue *)arg1;
 - (BOOL)isAnalog;
 - (id)description;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVAssetWriterInputHelper, AVWeakReference, NSObject<OS_dispatch_queue>;
+@class AVAssetWriterInputHelper, AVAssetWriterInputPassDescriptionResponder, AVWeakReference, NSObject<OS_dispatch_queue>;
 
 @interface AVAssetWriterInputInternal : NSObject
 {
@@ -14,9 +14,11 @@
     AVAssetWriterInputHelper *helper;
     NSObject<OS_dispatch_queue> *helperQueue;
     BOOL attachedToPixelBufferAdaptor;
+    BOOL attachedToMetadataAdaptor;
     AVWeakReference *weakReferenceToAssetWriter;
     int numberOfAppendFailures;
     NSObject<OS_dispatch_queue> *appendFailureReadWriteQueue;
+    AVAssetWriterInputPassDescriptionResponder *passDescriptionResponder;
 }
 
 @end

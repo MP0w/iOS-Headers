@@ -8,7 +8,7 @@
 
 #import "_UISettingsKeyObserver.h"
 
-@class SBSlideToUnlockTriangleView, UIView;
+@class NSString, SBSlideToUnlockTriangleView, UIView;
 
 @interface SBSlideToUnlockFailureRecognizer : UIGestureRecognizer <_UISettingsKeyObserver>
 {
@@ -56,6 +56,12 @@
 - (double)_effectiveTopAngle;
 - (void)dealloc;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

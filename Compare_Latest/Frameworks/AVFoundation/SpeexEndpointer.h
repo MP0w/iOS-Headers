@@ -8,6 +8,8 @@
 
 #import "Endpointer.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface SpeexEndpointer : NSObject <Endpointer>
 {
@@ -26,10 +28,17 @@ __attribute__((visibility("hidden")))
 @property int endpointMode;
 - (void)reset;
 - (int)getStatus:(struct AudioQueueBuffer *)arg1;
+- (BOOL)configureWithASBD:(struct AudioStreamBasicDescription *)arg1 andFrameRate:(unsigned long)arg2;
 - (BOOL)configureWithSampleRate:(double)arg1 andFrameRate:(unsigned long)arg2;
 - (void)dealloc;
 - (id)init;
 - (int)getStatus:(float *)arg1 count:(unsigned long)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -15,7 +15,7 @@
     id _target;
 }
 
-@property(readonly, nonatomic) id target; // @synthesize target=_target;
+@property(readonly, nonatomic) __weak id target; // @synthesize target=_target;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(readonly, nonatomic) SEL action; // @synthesize action=_action;
 - (void).cxx_destruct;

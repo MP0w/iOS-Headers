@@ -9,7 +9,7 @@
 #import "TSDContainerRep.h"
 #import "TSWPStorageObserver.h"
 
-@class NSObject<TSDContainerInfo>, TSWPRep;
+@class NSObject<TSDContainerInfo>, NSString, TSWPRep;
 
 __attribute__((visibility("hidden")))
 @interface KNNoteRep : TSDRep <TSDContainerRep, TSWPStorageObserver>
@@ -38,6 +38,12 @@ __attribute__((visibility("hidden")))
 - (void)willBeRemoved;
 - (void)dealloc;
 - (id)initWithLayout:(id)arg1 canvas:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "SBLegibility.h"
 
-@class _UILegibilityView;
+@class NSString, _UILegibilityView;
 
 @interface SBLockScreenTimerDialView : UIView <SBLegibility>
 {
@@ -17,11 +17,18 @@
 }
 
 @property(nonatomic) float strength; // @synthesize strength=_strength;
+- (id)_imageNameForCurrentContentSize:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)_newDialViewForSettings:(id)arg1;
 - (void)updateForChangedSettings:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

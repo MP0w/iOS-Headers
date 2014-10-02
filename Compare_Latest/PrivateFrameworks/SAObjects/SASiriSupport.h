@@ -8,7 +8,7 @@
 
 #import "SAAceSerializable.h"
 
-@class NSArray;
+@class NSArray, NSString;
 
 @interface SASiriSupport : AceObject <SAAceSerializable>
 {
@@ -19,6 +19,12 @@
 @property(copy, nonatomic) NSArray *endpoints;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

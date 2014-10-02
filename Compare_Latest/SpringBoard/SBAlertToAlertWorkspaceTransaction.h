@@ -6,11 +6,11 @@
 
 #import "SBWorkspaceTransaction.h"
 
-#import "SBUIAnimationControllerDelegate.h"
+#import "SBUIAnimationControllerObserver.h"
 
-@class SBAlert, SBUIAnimationController;
+@class NSString, SBAlert, SBUIAnimationController;
 
-@interface SBAlertToAlertWorkspaceTransaction : SBWorkspaceTransaction <SBUIAnimationControllerDelegate>
+@interface SBAlertToAlertWorkspaceTransaction : SBWorkspaceTransaction <SBUIAnimationControllerObserver>
 {
     SBAlert *_activatingAlert;
     SBAlert *_deactivatingAlert;
@@ -23,19 +23,20 @@
 - (void)animationController:(id)arg1 willBeginAnimation:(_Bool)arg2;
 - (void)_deactivateAlertIfNecessary;
 - (void)_alertAnimationComplete:(id)arg1;
-- (void)_handleFailure;
-- (void)_transactionComplete;
+- (void)_doAlertTransition;
+- (void)_didComplete;
 - (void)_endAnimation;
-- (_Bool)selfAlertDidDeactivate:(id)arg1;
-- (_Bool)selfAlertWillDeactivate:(id)arg1;
-- (_Bool)selfAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
-- (_Bool)selfAlertWillActivate:(id)arg1 overAlerts:(id)arg2;
-- (void)_commit;
-- (id)debugDescription;
+- (void)_begin;
+@property(readonly, copy) NSString *debugDescription;
 - (void)dealloc;
-- (id)_initWithWorkspace:(id)arg1 alertManager:(id)arg2 activatingAlert:(id)arg3 deactivatingAlert:(id)arg4 activation:(_Bool)arg5;
-- (id)initDeactivationWithWorkspace:(id)arg1 alertManager:(id)arg2 from:(id)arg3 to:(id)arg4;
-- (id)initActivationWithWorkspace:(id)arg1 alertManager:(id)arg2 from:(id)arg3 to:(id)arg4;
+- (id)_initWithAlertManager:(id)arg1 activatingAlert:(id)arg2 deactivatingAlert:(id)arg3 activation:(_Bool)arg4;
+- (id)initDeactivationWithAlertManager:(id)arg1 from:(id)arg2 to:(id)arg3;
+- (id)initActivationWithAlertManager:(id)arg1 from:(id)arg2 to:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

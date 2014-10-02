@@ -9,11 +9,16 @@
 @class NSArray, NSData, NSDictionary, NSString, NSUUID;
 
 @protocol MLMediaLibraryServiceProtocol <NSObject>
+- (oneway void)setDeviceSharedLibraryPath:(NSString *)arg1 withCompletion:(void (^)(BOOL, NSError *))arg2;
+- (oneway void)getDeviceSharedLibraryPath:(void (^)(NSString *))arg1;
+- (oneway void)getLanguageResourcesWithCompletion:(void (^)(NSDictionary *, NSDictionary *, NSString *, NSError *))arg1;
+- (oneway void)unlockDatabaseWithCompletion:(void (^)(BOOL, NSError *))arg1;
+- (oneway void)lockDatabaseForReason:(NSString *)arg1 withCompletion:(void (^)(BOOL, NSError *))arg2;
 - (oneway void)pollCurrentImportStatus:(void (^)(float, NSError *))arg1;
 - (oneway void)cancelImportOperation:(unsigned int)arg1 completionHandler:(void (^)(BOOL, NSError *))arg2;
-- (oneway void)performImportFromSource:(unsigned int)arg1 intoDatabaseAtPath:(NSString *)arg2 withTrackData:(NSData *)arg3 withPlaylistData:(NSData *)arg4 options:(NSDictionary *)arg5 completionHandler:(void (^)(BOOL, NSError *))arg6;
+- (oneway void)performImportFromSource:(unsigned int)arg1 intoDatabaseAtPath:(NSString *)arg2 withTrackData:(NSData *)arg3 withPlaylistData:(NSData *)arg4 options:(NSDictionary *)arg5 completionHandler:(void (^)(BOOL, NSError *, NSData *))arg6;
 - (oneway void)setOptions:(NSDictionary *)arg1 withCompletionHandler:(void (^)(BOOL, NSError *))arg2;
-- (oneway void)executeTemplatedDatabaseOperation:(unsigned int)arg1 withAttributes:(NSDictionary *)arg2 options:(NSDictionary *)arg3 completionHandler:(void (^)(BOOL, NSError *))arg4;
+- (oneway void)performDatabaseOperation:(unsigned int)arg1 withAttributes:(NSDictionary *)arg2 options:(NSDictionary *)arg3 completionHandler:(void (^)(BOOL, NSError *))arg4;
 - (oneway void)endTransaction:(NSUUID *)arg1 shouldCommit:(BOOL)arg2 withCompletionHandler:(void (^)(BOOL, NSError *))arg3;
 - (oneway void)executeQuery:(NSString *)arg1 withParameters:(NSArray *)arg2 options:(NSDictionary *)arg3 onTransaction:(NSUUID *)arg4 withCompletionHandler:(void (^)(NSData *, NSError *))arg5;
 - (oneway void)executeUpdate:(NSString *)arg1 withParameters:(NSArray *)arg2 onTransaction:(NSUUID *)arg3 withCompletionHandler:(void (^)(BOOL, NSError *))arg4;

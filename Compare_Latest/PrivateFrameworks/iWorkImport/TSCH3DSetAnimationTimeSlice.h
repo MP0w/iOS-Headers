@@ -17,8 +17,8 @@ __attribute__((visibility("hidden")))
     TSCH3DCascadeAnimationTimeSlice *mCascadeInterpolator;
 }
 
-+ (id)timeSliceWithIndexSet:(id)arg1 elementValues:(const vector_ec52ae8c *)arg2 setInterpolation:(id)arg3 size:(tvec2_3b141483 *)arg4 cascadeSets:(BOOL)arg5;
-+ (void)addInterpolatorsToSets:(const map_17f18614 *)arg1 dictionary:(id)arg2 values:(const vector_ec52ae8c *)arg3 size:(tvec2_3b141483 *)arg4;
++ (id)timeSliceWithIndexSet:(id)arg1 interceptRelativeUnitSpaceValues:(const vector_ec52ae8c *)arg2 setInterpolation:(id)arg3 size:(tvec2_3b141483 *)arg4 cascadeSets:(BOOL)arg5;
++ (void)addInterpolatorsToSets:(const map_4a8de6ea *)arg1 dictionary:(id)arg2 values:(const vector_ec52ae8c *)arg3 size:(tvec2_3b141483 *)arg4;
 - (box_e9f23397)rangeForIndex:(const tvec2_3b141483 *)arg1;
 - (id)p_orderedTimeSliceForIndex:(tvec2_3b141483 *)arg1;
 - (void)dealloc;

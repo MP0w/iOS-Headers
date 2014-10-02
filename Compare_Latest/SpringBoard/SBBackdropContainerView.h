@@ -18,7 +18,7 @@
 - (void)_reallyInsertSubview:(id)arg1 atIndex:(long long)arg2;
 - (void)insertSubview:(id)arg1 atIndex:(long long)arg2;
 - (void)addSubview:(id)arg1;
-@property(readonly, nonatomic) UIView *contentView;
+@property(readonly, retain, nonatomic) UIView *contentView;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

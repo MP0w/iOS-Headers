@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UIView.h"
+#import "UIControl.h"
 
 @class MPMoviePlayerController, NSString, UIImage, UIImageView;
 
-@interface SKUIEmbeddedMediaView : UIView
+@interface SKUIEmbeddedMediaView : UIControl
 {
     id <SKUIEmbeddedMediaViewDelegate> _delegate;
     int _mediaType;
@@ -17,6 +17,7 @@
     UIImageView *_playerDecorationView;
     UIImageView *_thumbnailReflectionView;
     UIImageView *_thumbnailView;
+    BOOL _usingInlinePlayback;
 }
 
 @property(copy, nonatomic) NSString *mediaURLString; // @synthesize mediaURLString=_mediaURLString;
@@ -27,16 +28,20 @@
 - (void)_tearDownMoviePlayer;
 - (struct CGSize)_sizeToFitImageSize:(struct CGSize)arg1 bounds:(struct CGRect)arg2;
 - (void)_sendPlaybackStateChanged;
+- (id)_newMoviePlayerControllerWithURL:(id)arg1;
 - (void)_playbackStateChanged:(id)arg1;
 - (void)_didFinishPlayback:(id)arg1;
 - (void)_didExitFullscreen:(id)arg1;
+- (void)didMoveToWindow;
 - (void)setBackgroundColor:(id)arg1;
 - (void)layoutSubviews;
 @property(retain, nonatomic) UIImage *thumbnailImage;
 @property(nonatomic) int thumbnailContentMode;
 @property(nonatomic) BOOL showsThumbnailReflection;
 @property(readonly, nonatomic) int playbackState;
+- (void)endPlaybackAnimated:(BOOL)arg1;
 - (void)beginPlaybackAnimated:(BOOL)arg1;
+- (void)beginInlinePlaybackWithURL:(id)arg1;
 - (void)dealloc;
 
 @end

@@ -9,7 +9,7 @@
 #import "SKUIArtworkRequestDelegate.h"
 #import "SKUIMissingItemDelegate.h"
 
-@class NSMapTable, SKUIGridComponent, SKUIMissingItemLoader, UIImage;
+@class NSMapTable, NSString, SKUIGridComponent, SKUIMissingItemLoader, UIImage;
 
 @interface SKUIBrickGridPageSection : SKUIStorePageSection <SKUIArtworkRequestDelegate, SKUIMissingItemDelegate>
 {
@@ -33,7 +33,7 @@
 - (struct UIEdgeInsets)_contentInsetsForColumnIndex:(int)arg1 rowWidth:(float)arg2;
 - (void)missingItemLoader:(id)arg1 didLoadItems:(id)arg2 invalidItemIdentifiers:(id)arg3;
 - (void)artworkRequest:(id)arg1 didLoadImage:(id)arg2;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)willTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)willAppearInContext:(id)arg1;
 - (void)prefetchResourcesWithReason:(int)arg1;
 - (int)numberOfCells;
@@ -46,7 +46,11 @@
 - (id)initWithPageComponent:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) SKUIGridComponent *pageComponent; // @dynamic pageComponent;
+@property(readonly) Class superclass;
 
 @end
 

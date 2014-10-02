@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, TSUNoCopyDictionary;
+@class NSMutableArray, OITSUNoCopyDictionary;
 
 __attribute__((visibility("hidden")))
 @interface WDFontTable : NSObject
 {
-    TSUNoCopyDictionary *mFontTable;
+    OITSUNoCopyDictionary *mFontTable;
     NSMutableArray *mFontsInOrderOfInsertion;
 }
 

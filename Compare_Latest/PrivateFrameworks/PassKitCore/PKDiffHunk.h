@@ -26,6 +26,10 @@
 @property(retain, nonatomic) NSString *key; // @synthesize key=_key;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (int)compare:(id)arg1;
+- (BOOL)isEqualToDiffHunk:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
 - (void)dealloc;
 
 @end

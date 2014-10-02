@@ -26,10 +26,11 @@
 @property(readonly, nonatomic) BOOL fullScreen; // @synthesize fullScreen=_fullScreen;
 @property(readonly, nonatomic) BOOL precomposed; // @synthesize precomposed=_precomposed;
 @property(readonly, nonatomic) BOOL isRemovable; // @synthesize isRemovable=_isRemovable;
-@property(readonly, nonatomic) NSData *iconData; // @synthesize iconData=_iconData;
-@property(readonly, nonatomic) NSString *label; // @synthesize label=_label;
-@property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_URL;
+@property(readonly, retain, nonatomic) NSData *iconData; // @synthesize iconData=_iconData;
+@property(readonly, retain, nonatomic) NSString *label; // @synthesize label=_label;
+@property(readonly, retain, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 - (void).cxx_destruct;
+- (id)payloadDescriptionKeyValueSections;
 - (id)subtitle2Description;
 - (id)subtitle2Label;
 - (id)subtitle1Description;

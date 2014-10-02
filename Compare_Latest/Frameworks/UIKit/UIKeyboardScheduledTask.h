@@ -16,19 +16,21 @@ __attribute__((visibility("hidden")))
     NSTimer *_timer;
     _UIActionWhenIdle *_deferredAction;
     CDUnknownBlockType _enqueuedTask;
+    double _timeInterval;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType enqueuedTask; // @synthesize enqueuedTask=_enqueuedTask;
 @property(retain, nonatomic) _UIActionWhenIdle *deferredAction; // @synthesize deferredAction=_deferredAction;
 @property(retain, nonatomic) NSTimer *timer; // @synthesize timer=_timer;
 @property(readonly, nonatomic) UIKeyboardTaskQueue *taskQueue; // @synthesize taskQueue=_taskQueue;
+@property(readonly, nonatomic) double timeInterval; // @synthesize timeInterval=_timeInterval;
 @property(readonly, nonatomic) CDUnknownBlockType task; // @synthesize task=_task;
+- (void)resetTimer;
 - (void)invalidate;
 - (BOOL)isValid;
 - (void)handleDeferredTimerFiredEvent;
 - (void)timerFired:(id)arg1;
 @property(readonly, nonatomic) BOOL repeats;
-@property(readonly, nonatomic) double timeInterval;
 - (id)initWithTaskQueue:(id)arg1 timeInterval:(double)arg2 repeats:(BOOL)arg3 task:(CDUnknownBlockType)arg4;
 - (void)dealloc;
 

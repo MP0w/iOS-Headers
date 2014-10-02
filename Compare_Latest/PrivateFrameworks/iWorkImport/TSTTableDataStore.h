@@ -6,7 +6,7 @@
 
 #import <iWorkImport/TSPContainedObject.h>
 
-@class TSPLazyReference, TSTCustomFormatList, TSTMergeRegionMap, TSTTableHeaderStorage, TSTTileIDKeyDict;
+@class TSPLazyReference, TSTCustomFormatList, TSTMergeRegionMap, TSTTableHeaderStorage, TSTTileIDKeyDict, TSUIntToIntDictionary;
 
 __attribute__((visibility("hidden")))
 @interface TSTTableDataStore : TSPContainedObject
@@ -25,13 +25,14 @@ __attribute__((visibility("hidden")))
     TSPLazyReference *mFormatTableReference;
     TSPLazyReference *mMultipleChoiceListFormatTableReference;
     TSPLazyReference *mCommentStorageTableReference;
+    TSPLazyReference *mImportWarningSetTableReference;
     TSTCustomFormatList *mPasteboardCustomFormatList;
+    TSUIntToIntDictionary *mPasteboardCustomFormatMap;
     unsigned short mNextRowStripID;
     unsigned short mNextColumnStripID;
     TSTMergeRegionMap *mMergedCellRanges;
     unsigned long mCellCount;
     BOOL mCellCountValid;
-    BOOL mDrawableIsBeingCopied;
     unsigned long mStorageVersion;
 }
 
@@ -43,9 +44,14 @@ __attribute__((visibility("hidden")))
 - (void)setStorageParentToInfo:(id)arg1;
 - (id)initWithArchive:(const struct DataStore *)arg1 unarchiver:(id)arg2 owner:(id)arg3;
 - (void)p_updateTileStorageToCurrentVersion;
-- (void)setDrawableIsBeingCopied:(BOOL)arg1;
 - (void)dealloc;
 - (id)initWithOwner:(id)arg1;
+- (void)clearPasteboardCustomFormatList;
+- (void)copyPasteboardCustomFormatsFromDataStore:(id)arg1;
+- (id)p_pasteboardCustomFormatMap;
+- (id)p_pasteboardCustomFormatList;
+@property(readonly, nonatomic) BOOL hasPasteboardCustomFormats; // @dynamic hasPasteboardCustomFormats;
+- (unsigned int)copyPasteboardCustomFormat:(unsigned int)arg1 toDocument:(id)arg2 clearingPasteboardFormat:(BOOL)arg3;
 
 @end
 

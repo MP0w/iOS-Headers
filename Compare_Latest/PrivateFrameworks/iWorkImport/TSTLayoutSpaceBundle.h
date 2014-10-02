@@ -36,6 +36,8 @@ __attribute__((visibility("hidden")))
 - (int)validateLayoutSpaces;
 - (id)getSpaceContainingCellID:(CDStruct_0441cfb5)arg1;
 - (void)invalidateTableOffsets;
+- (void)invalidateCoordinatesAfterRow:(unsigned short)arg1;
+- (void)invalidateCoordinatesAfterColumn:(unsigned char)arg1;
 - (void)invalidateCoordinates;
 - (void)dealloc;
 - (id)initWithLayout:(id)arg1;

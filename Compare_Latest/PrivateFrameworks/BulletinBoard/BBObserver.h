@@ -6,16 +6,13 @@
 
 #import "NSObject.h"
 
-#import "BBXPCConnectionDelegate.h"
-#import "XPCProxyTarget.h"
+@class BBObserverServerProxy, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
 
-@class BBServerConnection, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>;
-
-@interface BBObserver : NSObject <BBXPCConnectionDelegate, XPCProxyTarget>
+@interface BBObserver : NSObject
 {
     NSObject<OS_dispatch_queue> *_queue;
-    BBServerConnection *_connection;
     struct {
+        unsigned int addBulletinPlayLightsAndSirens:1;
         unsigned int addBulletin:1;
         unsigned int modifyBulletin:1;
         unsigned int modifyBulletinDEPRECATED:1;
@@ -47,11 +44,17 @@
     unsigned int _numberOfBulletinFetchesUnderway;
     NSMutableSet *_sectionIDsWithUpdatesUnderway;
     NSMutableDictionary *_bulletinUpdateQueuesBySectionID;
+    BBObserverServerProxy *_serverProxy;
+    BOOL _isGateway;
     id <BBObserverDelegate> _delegate;
     unsigned int _observerFeed;
+    NSString *_gatewayName;
+    unsigned int _gatewayPriority;
 }
 
 + (void)initialize;
+@property(readonly, nonatomic) unsigned int gatewayPriority; // @synthesize gatewayPriority=_gatewayPriority;
+@property(readonly, copy, nonatomic) NSString *gatewayName; // @synthesize gatewayName=_gatewayName;
 @property(nonatomic) unsigned int observerFeed; // @synthesize observerFeed=_observerFeed;
 @property(nonatomic) id <BBObserverDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)noteServerReceivedResponseForBulletin:(id)arg1;
@@ -61,14 +64,13 @@
 - (void)updateSectionInfo:(id)arg1 inCategory:(int)arg2;
 - (void)updateSectionOrder:(id)arg1 forCategory:(int)arg2;
 - (void)updateSectionOrderRule:(id)arg1;
-- (void)updateBulletin:(id)arg1 forFeeds:(unsigned int)arg2;
+- (void)updateBulletin:(id)arg1 forFeeds:(unsigned int)arg2 withReply:(CDUnknownBlockType)arg3;
 - (void)_dequeueBulletinUpdateIfPossibleForSection:(id)arg1;
 - (void)_noteCompletedBulletinFetch;
 - (void)_performBulletinFetch:(CDUnknownBlockType)arg1;
 - (void)_noteCompletedBulletinUpdateForSection:(id)arg1;
 - (void)_performOrEnqueueBulletinUpdate:(CDUnknownBlockType)arg1 forSection:(id)arg2;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
-- (void)connection:(id)arg1 connectionStateDidChange:(BOOL)arg2;
+- (void)serverProxy:(id)arg1 connectionStateDidChange:(BOOL)arg2;
 - (void)_registerBulletin:(id)arg1 withTransactionID:(unsigned int)arg2;
 - (id)_lifeAssertionForBulletinID:(id)arg1;
 - (void)assertionExpired:(id)arg1 transactionID:(unsigned int)arg2;
@@ -89,6 +91,7 @@
 - (struct CGSize)attachmentSizeForKey:(id)arg1 forBulletinID:(id)arg2;
 - (id)attachmentImageForKey:(id)arg1 forBulletinID:(id)arg2;
 - (id)_attachmentInfoForBulletinID:(id)arg1 create:(BOOL)arg2;
+- (void)getParametersForSectionID:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (id)parametersForSectionID:(id)arg1;
 - (void)_getParametersIfNecessaryForSectionIDs:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_getParametersIfNecessaryForSectionID:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
@@ -97,7 +100,9 @@
 - (void)clearBulletins:(id)arg1 inSection:(id)arg2;
 - (void)clearSection:(id)arg1;
 - (void)sendResponse:(id)arg1;
+- (void)getBulletinsForPublisherBulletinIDs:(id)arg1 sectionID:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)getAttachmentImageForBulletin:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)getUniversalSectionIDForSectionID:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)getPrivilegedAddressBookGroupRecordIDAndNameWithCompletion:(CDUnknownBlockType)arg1;
 - (void)getPrivilegedSenderTypesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)getAlertBehaviorOverridesWithCompletion:(CDUnknownBlockType)arg1;
@@ -114,6 +119,9 @@
 - (void)invalidate;
 - (id)description;
 - (void)dealloc;
+- (id)initWithQueue:(id)arg1 asGateway:(id)arg2 priority:(unsigned int)arg3;
+- (id)initWithQueue:(id)arg1 forGateway:(id)arg2;
+- (void)_commonInit:(id)arg1;
 - (id)initWithQueue:(id)arg1;
 - (id)init;
 

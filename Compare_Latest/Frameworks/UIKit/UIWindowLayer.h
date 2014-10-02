@@ -15,6 +15,9 @@ __attribute__((visibility("hidden")))
 }
 
 - (id)actionForKey:(id)arg1;
+- (void)setTransform:(struct CATransform3D)arg1;
+- (void)setBounds:(struct CGRect)arg1;
+- (void)setFrame:(struct CGRect)arg1;
 
 @end
 

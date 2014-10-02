@@ -9,7 +9,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class NSArray, NSDictionary, UITableView;
+@class NSArray, NSDictionary, NSString, UITableView;
 
 @interface PLAirTunesServicePickerViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
@@ -32,6 +32,12 @@
 - (void)loadView;
 - (id)initWithAvailableAirplayRoutes:(id)arg1 previouslySelectedRoute:(id)arg2;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

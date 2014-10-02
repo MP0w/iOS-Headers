@@ -8,7 +8,7 @@
 
 #import "GQDNameMappable.h"
 
-@class GQDImageBinary;
+@class GQDImageBinary, NSString;
 
 __attribute__((visibility("hidden")))
 @interface GQDWebView : GQDGraphic <GQDNameMappable>
@@ -19,6 +19,12 @@ __attribute__((visibility("hidden")))
 + (const struct StateSpec *)stateForReading;
 - (id)imageBinary;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

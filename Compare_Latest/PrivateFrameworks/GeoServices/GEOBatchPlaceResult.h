@@ -19,6 +19,7 @@
 
 @property(retain, nonatomic) GEOPlaceResult *placeResult; // @synthesize placeResult=_placeResult;
 @property(nonatomic) int statusCode; // @synthesize statusCode=_statusCode;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

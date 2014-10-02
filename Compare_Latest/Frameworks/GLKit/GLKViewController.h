@@ -9,7 +9,7 @@
 #import "GLKViewDelegate.h"
 #import "NSCoding.h"
 
-@class CADisplayLink, GLKDisplayLinkMessenger, UIScreen;
+@class CADisplayLink, GLKDisplayLinkMessenger, NSString, UIScreen;
 
 @interface GLKViewController : UIViewController <NSCoding, GLKViewDelegate>
 {
@@ -89,6 +89,12 @@
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)init;
 - (void)_initCommon;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

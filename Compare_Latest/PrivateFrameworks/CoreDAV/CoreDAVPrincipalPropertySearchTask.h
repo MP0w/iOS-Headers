@@ -15,9 +15,9 @@
     NSDictionary *_extraAttributes;
 }
 
-@property BOOL applyToPrincipalCollectionSet; // @synthesize applyToPrincipalCollectionSet=_applyToPrincipalCollectionSet;
-@property(retain) NSDictionary *extraAttributes; // @synthesize extraAttributes=_extraAttributes;
-@property(retain) NSSet *searchItems; // @synthesize searchItems=_searchItems;
+@property(nonatomic) BOOL applyToPrincipalCollectionSet; // @synthesize applyToPrincipalCollectionSet=_applyToPrincipalCollectionSet;
+@property(retain, nonatomic) NSDictionary *extraAttributes; // @synthesize extraAttributes=_extraAttributes;
+@property(retain, nonatomic) NSSet *searchItems; // @synthesize searchItems=_searchItems;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)requestBody;
 - (id)httpMethod;

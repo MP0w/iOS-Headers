@@ -27,11 +27,7 @@ struct CGSize {
     float _field2;
 };
 
-struct Deque<GeolocationChallengeData, 0> {
-    unsigned int m_start;
-    unsigned int m_end;
-    struct VectorBuffer<GeolocationChallengeData, 0> m_buffer;
-};
+struct CoalescedAsynchronousWriter;
 
 struct FrameMetadata {
     CDUnknownFunctionPointerType *_field1;
@@ -39,21 +35,15 @@ struct FrameMetadata {
     struct OpaqueJSValue *_field3;
     struct OpaqueJSValue *_field4;
     struct OpaqueJSContext *_field5;
-    struct RetainPtr<id<WBSFormAutoFillFrame>> _field6;
+    id _field6;
     id _field7;
 };
 
-struct GeolocationChallengeData;
-
 struct HashMap<OpaqueFormAutoFillFrame *, WTF::OwnPtr<FrameMetadata>, WTF::PtrHash<OpaqueFormAutoFillFrame *>, WTF::HashTraits<OpaqueFormAutoFillFrame *>, WTF::HashTraits<WTF::OwnPtr<FrameMetadata>>> {
-    struct HashTable<OpaqueFormAutoFillFrame *, WTF::KeyValuePair<OpaqueFormAutoFillFrame *, WTF::OwnPtr<FrameMetadata>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<OpaqueFormAutoFillFrame *, WTF::OwnPtr<FrameMetadata>>>, WTF::PtrHash<OpaqueFormAutoFillFrame *>, WTF::HashMapValueTraits<WTF::HashTraits<OpaqueFormAutoFillFrame *>, WTF::HashTraits<WTF::OwnPtr<FrameMetadata>>>, WTF::HashTraits<OpaqueFormAutoFillFrame *>> m_impl;
+    struct HashTable<OpaqueFormAutoFillFrame *, WTF::KeyValuePair<OpaqueFormAutoFillFrame *, WTF::OwnPtr<FrameMetadata>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<OpaqueFormAutoFillFrame *, WTF::OwnPtr<FrameMetadata>>>, WTF::PtrHash<OpaqueFormAutoFillFrame *>, WTF::HashMap<OpaqueFormAutoFillFrame *, WTF::OwnPtr<FrameMetadata>, WTF::PtrHash<OpaqueFormAutoFillFrame *>, WTF::HashTraits<OpaqueFormAutoFillFrame *>, WTF::HashTraits<WTF::OwnPtr<FrameMetadata>>>::KeyValuePairTraits, WTF::HashTraits<OpaqueFormAutoFillFrame *>> m_impl;
 };
 
-struct HashMap<WTF::RetainPtr<UIAlertView>, GeolocationChallengeData, WTF::PtrHash<WTF::RetainPtr<UIAlertView>>, WTF::HashTraits<WTF::RetainPtr<UIAlertView>>, WTF::HashTraits<GeolocationChallengeData>> {
-    struct HashTable<WTF::RetainPtr<UIAlertView>, WTF::KeyValuePair<WTF::RetainPtr<UIAlertView>, GeolocationChallengeData>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WTF::RetainPtr<UIAlertView>, GeolocationChallengeData>>, WTF::PtrHash<WTF::RetainPtr<UIAlertView>>, WTF::HashMapValueTraits<WTF::HashTraits<WTF::RetainPtr<UIAlertView>>, WTF::HashTraits<GeolocationChallengeData>>, WTF::HashTraits<WTF::RetainPtr<UIAlertView>>> m_impl;
-};
-
-struct HashTable<OpaqueFormAutoFillFrame *, WTF::KeyValuePair<OpaqueFormAutoFillFrame *, WTF::OwnPtr<FrameMetadata>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<OpaqueFormAutoFillFrame *, WTF::OwnPtr<FrameMetadata>>>, WTF::PtrHash<OpaqueFormAutoFillFrame *>, WTF::HashMapValueTraits<WTF::HashTraits<OpaqueFormAutoFillFrame *>, WTF::HashTraits<WTF::OwnPtr<FrameMetadata>>>, WTF::HashTraits<OpaqueFormAutoFillFrame *>> {
+struct HashTable<OpaqueFormAutoFillFrame *, WTF::KeyValuePair<OpaqueFormAutoFillFrame *, WTF::OwnPtr<FrameMetadata>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<OpaqueFormAutoFillFrame *, WTF::OwnPtr<FrameMetadata>>>, WTF::PtrHash<OpaqueFormAutoFillFrame *>, WTF::HashMap<OpaqueFormAutoFillFrame *, WTF::OwnPtr<FrameMetadata>, WTF::PtrHash<OpaqueFormAutoFillFrame *>, WTF::HashTraits<OpaqueFormAutoFillFrame *>, WTF::HashTraits<WTF::OwnPtr<FrameMetadata>>>::KeyValuePairTraits, WTF::HashTraits<OpaqueFormAutoFillFrame *>> {
     struct KeyValuePair<OpaqueFormAutoFillFrame *, WTF::OwnPtr<FrameMetadata>> *m_table;
     int m_tableSize;
     int m_tableSizeMask;
@@ -61,17 +51,7 @@ struct HashTable<OpaqueFormAutoFillFrame *, WTF::KeyValuePair<OpaqueFormAutoFill
     int m_deletedCount;
 };
 
-struct HashTable<WTF::RetainPtr<UIAlertView>, WTF::KeyValuePair<WTF::RetainPtr<UIAlertView>, GeolocationChallengeData>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WTF::RetainPtr<UIAlertView>, GeolocationChallengeData>>, WTF::PtrHash<WTF::RetainPtr<UIAlertView>>, WTF::HashMapValueTraits<WTF::HashTraits<WTF::RetainPtr<UIAlertView>>, WTF::HashTraits<GeolocationChallengeData>>, WTF::HashTraits<WTF::RetainPtr<UIAlertView>>> {
-    struct KeyValuePair<WTF::RetainPtr<UIAlertView>, GeolocationChallengeData> *m_table;
-    int m_tableSize;
-    int m_tableSizeMask;
-    int m_keyCount;
-    int m_deletedCount;
-};
-
 struct KeyValuePair<OpaqueFormAutoFillFrame *, WTF::OwnPtr<FrameMetadata>>;
-
-struct KeyValuePair<WTF::RetainPtr<UIAlertView>, GeolocationChallengeData>;
 
 struct OpaqueJSContext;
 
@@ -81,9 +61,19 @@ struct PassRefPtr<SafariShared::BookmarkAndHistoryCompletionMatch> {
     struct BookmarkAndHistoryCompletionMatch *_field1;
 };
 
-struct RetainPtr<id<WBSFormAutoFillFrame>> {
-    id _field1;
+struct RawData {
+    _Bool _field1;
+    void *_field2;
+    int _field3;
 };
+
+struct RefPtr<SafariShared::BookmarkAndHistoryCompletionMatch> {
+    struct BookmarkAndHistoryCompletionMatch *m_ptr;
+};
+
+struct SuddenTerminationDisabler;
+
+struct URLCompletionDatabase;
 
 struct Vector<OpaqueJSValue *, 0, WTF::CrashOnOverflow> {
     struct OpaqueJSValue **_field1;
@@ -91,8 +81,14 @@ struct Vector<OpaqueJSValue *, 0, WTF::CrashOnOverflow> {
     unsigned int _field3;
 };
 
-struct VectorBuffer<GeolocationChallengeData, 0> {
-    struct GeolocationChallengeData *m_buffer;
+struct Vector<double, 0, WTF::CrashOnOverflow> {
+    double *m_buffer;
+    unsigned int m_capacity;
+    unsigned int m_size;
+};
+
+struct Vector<int, 0, WTF::CrashOnOverflow> {
+    int *m_buffer;
     unsigned int m_capacity;
     unsigned int m_size;
 };
@@ -100,6 +96,36 @@ struct VectorBuffer<GeolocationChallengeData, 0> {
 struct _NSRange {
     unsigned int _field1;
     unsigned int _field2;
+};
+
+struct duration<long long, std::__1::ratio<1, 1000000000>> {
+    long long __rep_;
+};
+
+struct duration<long long, std::__1::ratio<1, 1000>> {
+    long long __rep_;
+};
+
+struct time_point<std::__1::chrono::steady_clock, std::__1::chrono::duration<long long, std::__1::ratio<1, 1000000000>>> {
+    struct duration<long long, std::__1::ratio<1, 1000000000>> __d_;
+};
+
+struct unique_ptr<SafariShared::CoalescedAsynchronousWriter, std::__1::default_delete<SafariShared::CoalescedAsynchronousWriter>> {
+    struct __compressed_pair<SafariShared::CoalescedAsynchronousWriter *, std::__1::default_delete<SafariShared::CoalescedAsynchronousWriter>> {
+        struct CoalescedAsynchronousWriter *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<SafariShared::SuddenTerminationDisabler, std::__1::default_delete<SafariShared::SuddenTerminationDisabler>> {
+    struct __compressed_pair<SafariShared::SuddenTerminationDisabler *, std::__1::default_delete<SafariShared::SuddenTerminationDisabler>> {
+        struct SuddenTerminationDisabler *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<SafariShared::URLCompletionDatabase, std::__1::default_delete<SafariShared::URLCompletionDatabase>> {
+    struct __compressed_pair<SafariShared::URLCompletionDatabase *, std::__1::default_delete<SafariShared::URLCompletionDatabase>> {
+        struct URLCompletionDatabase *__first_;
+    } __ptr_;
 };
 
 #pragma mark Typedef'd Structures
@@ -116,4 +142,18 @@ typedef struct {
 typedef struct PassRefPtr<SafariShared::BookmarkAndHistoryCompletionMatch> {
     struct BookmarkAndHistoryCompletionMatch *_field1;
 } PassRefPtr_8dece646;
+
+typedef struct Vector<double, 0, WTF::CrashOnOverflow> {
+    double *m_buffer;
+    unsigned int m_capacity;
+    unsigned int m_size;
+} Vector_4bee0f08;
+
+typedef struct duration<long long, std::__1::ratio<1, 1000>> {
+    long long __rep_;
+} duration_6174cf92;
+
+typedef struct time_point<std::__1::chrono::steady_clock, std::__1::chrono::duration<long long, std::__1::ratio<1, 1000000000>>> {
+    struct duration<long long, std::__1::ratio<1, 1000000000>> __d_;
+} time_point_e708cccf;
 

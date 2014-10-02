@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
     BOOL mLastInterimPositionYSet;
 }
 
+@property(readonly, nonatomic) struct CGPoint lastInterimPosition; // @synthesize lastInterimPosition=mLastInterimPosition;
 @property(nonatomic) TSDAbstractLayout *parent; // @synthesize parent=mParent;
 @property(copy, nonatomic) TSDLayoutGeometry *geometry; // @synthesize geometry=mGeometry;
 - (BOOL)canRotateChildLayout:(id)arg1;
@@ -59,10 +60,13 @@ __attribute__((visibility("hidden")))
 - (BOOL)providesGuidesForChildLayouts;
 - (BOOL)isRootLayoutForInspectorGeometry;
 - (BOOL)isAxisAlignedUnflippedInRoot;
+- (struct CGRect)clippedRectInRoot:(struct CGRect)arg1;
+- (struct CGRect)clipRect;
 - (struct CGRect)rectInRoot:(struct CGRect)arg1;
 - (struct CGRect)rectInParent:(struct CGRect)arg1;
 - (struct CGRect)frameInRoot;
 - (struct CGRect)frameInParent;
+- (struct CGRect)insertionFrame;
 - (struct CGRect)frame;
 - (struct CGAffineTransform)transformInRoot;
 - (struct CGAffineTransform)transformInParent;

@@ -11,7 +11,7 @@
 #import "NSMutableCopying.h"
 #import "NSSecureCoding.h"
 
-@class AVVideoCompositionInstructionInternal, NSArray;
+@class AVVideoCompositionInstructionInternal, NSArray, NSString;
 
 @interface AVVideoCompositionInstruction : NSObject <NSSecureCoding, NSCopying, NSMutableCopying, AVVideoCompositionInstruction>
 {
@@ -20,13 +20,13 @@
 
 + (BOOL)supportsSecureCoding;
 + (void)initialize;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)_setValuesFromDictionary:(id)arg1;
 - (id)dictionaryRepresentation;
 - (void)setEnablePostProcessing:(BOOL)arg1;
 @property(readonly, nonatomic) BOOL enablePostProcessing;
 - (void)setLayerInstructions:(id)arg1;
-@property(readonly, nonatomic) NSArray *layerInstructions;
+@property(readonly, copy, nonatomic) NSArray *layerInstructions;
 @property(retain, nonatomic) struct CGColor *backgroundColor;
 - (void)setTimeRange:(CDStruct_e83c9415)arg1;
 @property(readonly, nonatomic) CDStruct_e83c9415 timeRange;
@@ -41,6 +41,11 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

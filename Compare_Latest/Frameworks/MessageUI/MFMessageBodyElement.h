@@ -8,7 +8,7 @@
 
 #import "MFMessageBodyElement_Private.h"
 
-@class MFMessageBodyParser, NSArray;
+@class MFMessageBodyParser, NSArray, NSString;
 
 @interface MFMessageBodyElement : NSObject <MFMessageBodyElement_Private>
 {
@@ -21,7 +21,7 @@
 }
 
 @property(nonatomic) MFMessageBodyParser *parser; // @synthesize parser=_parser;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (BOOL)isExternallyRetained;
 - (void)releaseExternally;
 - (id)retainExternally;
@@ -35,6 +35,11 @@
 - (void)reset;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

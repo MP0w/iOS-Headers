@@ -9,7 +9,7 @@
 #import "MPDetailSliderDelegate.h"
 #import "MPVideoOverlay.h"
 
-@class MPAVController, MPAVItem, MPDetailSlider, NSMutableDictionary, UINavigationBar;
+@class MPAVController, MPAVItem, MPDetailSlider, NSMutableDictionary, NSString, UINavigationBar;
 
 @interface MPVideoOverlay : UIView <MPVideoOverlay, MPDetailSliderDelegate>
 {
@@ -41,7 +41,7 @@
 - (void)cancelPreviousPerformTickEventsForSelector:(SEL)arg1;
 - (void)performSelector:(SEL)arg1 whenTickingPastTime:(double)arg2;
 - (BOOL)updateTimeBasedValues;
-@property(readonly, nonatomic) UINavigationBar *navigationBar;
+@property(readonly, retain, nonatomic) UINavigationBar *navigationBar;
 - (void)hideAlternateTracks;
 - (void)showAlternateTracks;
 - (void)stopTicking;
@@ -64,6 +64,12 @@
 - (void)registerForPlayerNotifications;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

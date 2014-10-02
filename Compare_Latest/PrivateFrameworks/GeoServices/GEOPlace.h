@@ -9,7 +9,7 @@
 #import "GEOURLSerializable.h"
 #import "NSCopying.h"
 
-@class GEOAddress, GEOBusiness, GEOLatLng, GEOMapRegion, GEORating, NSMutableArray, NSString;
+@class GEOAddress, GEOBusiness, GEOLatLng, GEOMapRegion, GEOStructuredAddress, GEOTimezone, NSMutableArray, NSString;
 
 @interface GEOPlace : PBCodable <GEOURLSerializable, NSCopying>
 {
@@ -30,9 +30,9 @@
     NSString *_phoneticName;
     NSString *_spokenAddress;
     NSString *_spokenName;
+    GEOStructuredAddress *_spokenStructuredAddress;
+    GEOTimezone *_timezone;
     int _type;
-    int _version;
-    int _waypointLabelType;
     BOOL _isDisputed;
     struct {
         unsigned int area:1;
@@ -41,8 +41,6 @@
         unsigned int addressGeocodeAccuracy:1;
         unsigned int localSearchProviderID:1;
         unsigned int type:1;
-        unsigned int version:1;
-        unsigned int waypointLabelType:1;
         unsigned int isDisputed:1;
     } _has;
 }
@@ -64,7 +62,10 @@
 + (id)_urlToShowURLRepresentations:(id)arg1 options:(id)arg2;
 + (id)_urlForAction:(id)arg1 rison:(id)arg2;
 + (id)_urlRepresentationForCurrentLocation;
++ (id)placeForPlaceData:(id)arg1;
 @property(nonatomic) long long geoId; // @synthesize geoId=_geoId;
+@property(retain, nonatomic) GEOTimezone *timezone; // @synthesize timezone=_timezone;
+@property(retain, nonatomic) GEOStructuredAddress *spokenStructuredAddress; // @synthesize spokenStructuredAddress=_spokenStructuredAddress;
 @property(nonatomic) double area; // @synthesize area=_area;
 @property(retain, nonatomic) NSString *spokenAddress; // @synthesize spokenAddress=_spokenAddress;
 @property(retain, nonatomic) NSString *spokenName; // @synthesize spokenName=_spokenName;
@@ -79,17 +80,19 @@
 @property(retain, nonatomic) GEOMapRegion *mapRegion; // @synthesize mapRegion=_mapRegion;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) int type; // @synthesize type=_type;
-@property(nonatomic) int version; // @synthesize version=_version;
 @property(nonatomic) long long uID; // @synthesize uID=_uID;
-- (unsigned int)hash;
+- (void)mergeFrom:(id)arg1;
+@property(readonly) unsigned int hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
-- (id)description;
+@property(readonly, copy) NSString *description;
 @property(nonatomic) BOOL hasGeoId;
+@property(readonly, nonatomic) BOOL hasTimezone;
+@property(readonly, nonatomic) BOOL hasSpokenStructuredAddress;
 @property(nonatomic) BOOL hasArea;
 @property(readonly, nonatomic) BOOL hasSpokenAddress;
 @property(readonly, nonatomic) BOOL hasSpokenName;
@@ -112,22 +115,21 @@
 @property(readonly, nonatomic) BOOL hasMapRegion;
 @property(readonly, nonatomic) BOOL hasName;
 @property(nonatomic) BOOL hasType;
-@property(nonatomic) BOOL hasVersion;
 @property(nonatomic) BOOL hasUID;
 - (void)dealloc;
+- (id)bestName;
 - (id)arrivalMapRegionForTransportType:(int)arg1;
 - (id)arrivalMapRegion;
 - (double)radialDistance;
 - (CDStruct_c3b9c2ee)coordinate;
 - (id)addressDictionary;
-@property(readonly, nonatomic) GEORating *firstRating;
 @property(readonly, nonatomic) GEOBusiness *firstBusiness;
+- (id)initWithLatitude:(double)arg1 longitude:(double)arg2;
+- (id)initWithLatitude:(double)arg1 longitude:(double)arg2 addressDictionary:(id)arg3;
 @property(retain, nonatomic) NSString *phoneticLocaleIdentifier;
 @property(readonly, nonatomic) BOOL hasPhoneticLocaleIdentifier;
 @property(retain, nonatomic) NSString *inputLanguage;
 @property(readonly, nonatomic) BOOL hasInputLanguage;
-@property(nonatomic) BOOL hasWaypointLabelType;
-@property(nonatomic) int waypointLabelType;
 - (id)_urlToPresentDirectionsFromCurrentLocationWithOptions:(id)arg1;
 - (id)_urlToPresentDirectionsToCurrentLocationWithOptions:(id)arg1;
 - (id)_urlToPresentDirectionsFromPlace:(id)arg1 options:(id)arg2;
@@ -141,6 +143,13 @@
 - (BOOL)_isEquivalentURLRepresentationTo:(id)arg1;
 - (id)urlRepresentation;
 - (id)initWithUrlRepresentation:(id)arg1;
+- (id)geoMapItem;
+- (id)initWithPlaceInfo:(id)arg1 entity:(id)arg2 address:(id)arg3 bounds:(id)arg4 roadAccessInfo:(id)arg5;
+- (id)initWithLocation:(id)arg1 addressDictionary:(id)arg2 name:(id)arg3 businessURL:(id)arg4 phoneNumber:(id)arg5 muid:(unsigned long long)arg6 attributionID:(id)arg7 sampleSizeForUserRatingScore:(unsigned int)arg8 normalizedUserRatingScore:(float)arg9;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

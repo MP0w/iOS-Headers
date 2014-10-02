@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "TextFilePane.h"
+#import "PSTextViewPane.h"
 
 #import "MFMailComposeViewControllerDelegate.h"
 
-@class MFMailComposeViewController, PSRootController, UIBarButtonItem;
+@class MFMailComposeViewController, NSString, PSRootController, UIBarButtonItem;
 
-@interface PropertyListPane : TextFilePane <MFMailComposeViewControllerDelegate>
+@interface PropertyListPane : PSTextViewPane <MFMailComposeViewControllerDelegate>
 {
     UIBarButtonItem *_emailButton;
     MFMailComposeViewController *_mailComposeController;
@@ -24,6 +24,12 @@
 - (void)mailComposeController:(id)arg1 didFinishWithResult:(int)arg2 error:(id)arg3;
 - (void)setPreferenceSpecifier:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

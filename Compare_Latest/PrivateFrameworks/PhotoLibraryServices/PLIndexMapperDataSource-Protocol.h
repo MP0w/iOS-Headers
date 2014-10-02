@@ -9,7 +9,7 @@
 @class NSIndexSet;
 
 @protocol PLIndexMapperDataSource <NSObject>
-@property(readonly, nonatomic) NSIndexSet *filteredIndexes;
+@property(readonly, copy, nonatomic) NSIndexSet *filteredIndexes;
 - (BOOL)shouldIncludeObjectAtIndex:(unsigned int)arg1;
 @end
 

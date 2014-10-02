@@ -12,14 +12,13 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class MPImageCache, NSError, NSMutableArray, NSString, RUMetricsController, RUSearchDataSource, RadioSearchStationResult, SKUICircleProgressIndicator, SSMetricsPageEvent, UILabel, UITableView, UIView;
+@class NSError, NSMutableArray, NSString, RUMetricsController, RUSearchDataSource, RadioSearchStationResult, SKUICircleProgressIndicator, SSMetricsPageEvent, UILabel, UITableView, UIView;
 
 @interface RUSearchViewController : UIViewController <RUSearchDataSourceDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     SKUICircleProgressIndicator *_activityIndicatorView;
     RadioSearchStationResult *_addingStationResult;
     RUSearchDataSource *_dataSource;
-    MPImageCache *_imageCache;
     SSMetricsPageEvent *_lastPageEvent;
     NSError *_lastSearchError;
     UILabel *_loadingLabel;
@@ -46,7 +45,10 @@
 @property(nonatomic) __weak id <RUSearchViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_updateVisibleHeadersState;
+- (void)_updateViewForHorizontalSizeClassChange;
+- (id)_statusLabelFont;
 - (void)_setShowingLoading:(BOOL)arg1;
+- (id)_sectionHeaderTitleFontWithEmphasis:(BOOL)arg1;
 - (void)_reloadForSearchTerm:(id)arg1 canUpdateDataSourceResults:(BOOL)arg2;
 - (id)_parentPageType;
 - (id)_parentPageDescription;
@@ -56,18 +58,20 @@
 - (id)_currentVisibleStationDictionaries;
 - (id)_createPageEventForCurrentState;
 - (void)_configureSectionHeader:(id)arg1 forResultCategory:(id)arg2;
-- (void)_applyHighlightRanges:(id)arg1 toAttributedString:(id)arg2 withEmphasizedTextAttributes:(id)arg3;
 - (void)_addMetricsControllerOperationBlock:(CDUnknownBlockType)arg1;
 - (void)_keyboardWillChangeFrameNotification:(id)arg1;
+- (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_clearButtonAction:(id)arg1;
 - (void)updateResultsForSearchTerm:(id)arg1;
 - (void)removeAddingIndicator;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)tableViewDidFinishReload:(id)arg1;
 - (void)tableView:(id)arg1 willDisplayHeaderView:(id)arg2 forSection:(int)arg3;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
 - (id)tableView:(id)arg1 viewForFooterInSection:(int)arg2;
+- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
 - (float)tableView:(id)arg1 heightForFooterInSection:(int)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
@@ -90,9 +94,14 @@
 - (void)searchDataSource:(id)arg1 didFinishUpdatingResult:(id)arg2 forRequest:(id)arg3 withError:(id)arg4;
 - (id)contentScrollView;
 - (void)viewDidLoad;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

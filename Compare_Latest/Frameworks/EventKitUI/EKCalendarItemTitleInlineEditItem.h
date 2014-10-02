@@ -6,34 +6,70 @@
 
 #import <EventKitUI/EKCalendarItemEditItem.h>
 
+#import "EKCalendarItemInlineEditItem.h"
+#import "EKEditItemViewControllerDelegate.h"
 #import "UITextFieldDelegate.h"
 
-@class UITableViewCell;
+@class EKParticipant, EKRequestAvailabilityOperation, EKUILocationEditItemCell, NSArray, NSString, UITableViewCell, UIView;
 
 __attribute__((visibility("hidden")))
-@interface EKCalendarItemTitleInlineEditItem : EKCalendarItemEditItem <UITextFieldDelegate>
+@interface EKCalendarItemTitleInlineEditItem : EKCalendarItemEditItem <UITextFieldDelegate, EKEditItemViewControllerDelegate, EKCalendarItemInlineEditItem>
 {
     UITableViewCell *_titleCell;
-    UITableViewCell *_locationCell;
-    unsigned int _showsLocation:1;
-    BOOL _locationModified;
+    UITableViewCell *_nonConferenceLocationCell;
+    EKUILocationEditItemCell *_conferenceLocationCell;
+    UITableViewCell *_mapCell;
+    BOOL _sourceSupportsAvailabilityRequests;
+    UIView *_clearButtonView;
+    EKRequestAvailabilityOperation *_availabilityRequest;
+    NSArray *_availabilitySpansForLocation;
+    EKParticipant *_conferenceRoom;
+    int _conferenceRoomAvailabilityType;
+    BOOL _showsLocation;
+    int _mostRecentStringLengthDelta;
 }
 
 - (void).cxx_destruct;
+- (BOOL)_showConferenceLocationCell;
+- (BOOL)textFieldShouldClear:(id)arg1;
 - (BOOL)textFieldShouldReturn:(id)arg1;
+- (void)textFieldDidChange:(id)arg1;
 - (BOOL)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (void)textFieldDidEndEditing:(id)arg1;
 - (void)textFieldDidBeginEditing:(id)arg1;
+- (BOOL)editItemViewControllerCommit:(id)arg1;
+- (BOOL)isSubitemAtIndexSaveable:(unsigned int)arg1;
+- (BOOL)forceRefreshStartAndEndDatesOnCommit;
 - (BOOL)saveAndDismissWithForce:(BOOL)arg1;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
+- (void)_clearButtonTapped;
+- (void)_updateAvailabilityInformation;
+- (id)_clearButtonView;
+- (void)_refreshConferenceRoomCell;
+- (void)_setNewStructuredLocation:(id)arg1;
+- (void)_updateLocationWithConferenceRoom:(id)arg1;
+- (void)_updateLocationWithStructuredLocation:(id)arg1;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2;
+- (BOOL)usesDetailViewControllerForSubitem:(unsigned int)arg1;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1;
+- (BOOL)isSaveable;
 - (id)_makeCell:(unsigned int)arg1;
-- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
-- (unsigned int)numberOfSubitemsInSubsection:(unsigned int)arg1;
+- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(unsigned int)arg2;
+- (void)_contentSizeCategoryChanged:(id)arg1;
+- (unsigned int)numberOfSubitems;
 - (void)reset;
 - (BOOL)isInline;
-- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2 forWidth:(float)arg3;
-- (id)init;
+- (BOOL)_showsMap;
+- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
+- (void)refreshFromCalendarItemAndStore;
+- (void)dealloc;
 - (id)initWithLocation:(BOOL)arg1;
+- (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

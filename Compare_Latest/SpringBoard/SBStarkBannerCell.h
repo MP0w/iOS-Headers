@@ -8,7 +8,7 @@
 
 #import "SBUIBannerView.h"
 
-@class SBBannerContextView, UIView;
+@class NSString, SBBannerContextView, UIView;
 
 @interface SBStarkBannerCell : SBCollectionViewCell <SBUIBannerView>
 {
@@ -16,6 +16,7 @@
     UIView *_darkeningOverlayView;
 }
 
+- (_Bool)shouldBorrowScreen;
 - (id)bannerContext;
 - (void)prepareForReuse;
 - (void)noteDidDismiss;
@@ -25,6 +26,12 @@
 - (void)setBannerContext:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

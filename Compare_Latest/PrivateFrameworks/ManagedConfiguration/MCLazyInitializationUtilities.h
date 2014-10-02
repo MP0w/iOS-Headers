@@ -10,7 +10,6 @@
 {
 }
 
-+ (BOOL)hasLibMIS;
 + (void)initCoreText;
 + (void)initImageIO;
 + (void)initAddressBook;

@@ -40,7 +40,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)isLayoutCompleteUpToDocumentPageIndex:(unsigned int)arg1;
 - (BOOL)isLayoutCompleteThroughDocumentPageIndex:(unsigned int)arg1;
 @property(readonly, nonatomic) BOOL isLayoutComplete;
-@property(readonly, nonatomic) BOOL onLastSection; // @synthesize onLastSection=_onLastSection;
+@property(readonly, nonatomic) BOOL onLastSection;
 @property(readonly, nonatomic) struct _NSRange sectionCharRange;
 @property(readonly, nonatomic) TPSection *section;
 @property(readonly, nonatomic) unsigned int lastLaidOutDocumentPageIndex;

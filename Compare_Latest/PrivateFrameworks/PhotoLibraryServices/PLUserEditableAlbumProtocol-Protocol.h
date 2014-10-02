@@ -9,7 +9,7 @@
 @class NSArray, NSDictionary, NSIndexSet, NSMutableOrderedSet, NSString;
 
 @protocol PLUserEditableAlbumProtocol <PLAlbumProtocol>
-@property(readonly, nonatomic) NSMutableOrderedSet *userEditableAssets;
+@property(readonly, retain, nonatomic) NSMutableOrderedSet *userEditableAssets;
 - (void)insertInternalUserEditableAssets:(NSArray *)arg1 atIndexes:(NSIndexSet *)arg2 trimmedVideoPathInfo:(NSDictionary *)arg3 commentText:(NSString *)arg4;
 @end
 

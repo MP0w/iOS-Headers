@@ -8,6 +8,8 @@
 
 #import "MKMapSnapshotCreatorRequester.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface MKBlockBasedSnapshotRequester : NSObject <MKMapSnapshotCreatorRequester>
 {
@@ -18,6 +20,12 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) CDUnknownBlockType handler; // @synthesize handler;
 - (void).cxx_destruct;
 - (void)mapSnapshotCreator:(id)arg1 didCreateSnapshot:(id)arg2 attributionString:(id)arg3 context:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

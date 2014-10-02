@@ -14,7 +14,6 @@
 }
 
 + (id)privateCreateOrConfigureArray:(id)arg1 withRawPortArray:(id)arg2;
-+ (id)privateCreateOrConfigure:(id)arg1 withRawPortDescription:(id)arg2;
 + (BOOL)privateMatchesInputs:(id)arg1 toRawInputs:(id)arg2;
 - (void)configureChannelsAndDataSources:(id)arg1;
 - (id)initWithRawPortDescription:(id)arg1;
@@ -32,7 +31,7 @@
 @property(readonly) NSString *portName;
 @property(readonly) NSString *portType;
 - (unsigned int)hash;
-- (BOOL)isEqualToPort:(id)arg1;
+- (BOOL)isEqualToPort:(id)arg1 compareStrict:(BOOL)arg2;
 - (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)init;

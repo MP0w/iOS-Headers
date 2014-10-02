@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NoteContext;
+@class NSString, NoteContext;
 
 @interface DALocalDBHelper : NSObject
 {
@@ -14,6 +14,7 @@
     int _abConnectionCount;
     struct CalDatabase *_calDB;
     int _calConnectionCount;
+    NSString *_clientIdentifier;
     void *_bookmarkDB;
     int _bookmarkConnectionCount;
     NoteContext *_noteDB;
@@ -26,24 +27,33 @@
 + (id)abTestABDBDir;
 + (void)abSetTestABDBDir:(id)arg1;
 + (id)sharedInstanceForAccountType:(id)arg1 creatingClass:(Class)arg2;
+@property(copy, nonatomic) CDUnknownBlockType calUnitTestCallbackBlock; // @synthesize calUnitTestCallbackBlock=_calUnitTestCallbackBlock;
+@property(nonatomic) int noteConnectionCount; // @synthesize noteConnectionCount=_noteConnectionCount;
+@property(retain, nonatomic) NoteContext *noteDB; // @synthesize noteDB=_noteDB;
+@property(nonatomic) int bookmarkConnectionCount; // @synthesize bookmarkConnectionCount=_bookmarkConnectionCount;
+@property(nonatomic) void *bookmarkDB; // @synthesize bookmarkDB=_bookmarkDB;
+@property(retain, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
+@property(nonatomic) int calConnectionCount; // @synthesize calConnectionCount=_calConnectionCount;
+@property(nonatomic) struct CalDatabase *calDB; // @synthesize calDB=_calDB;
+@property(nonatomic) int abConnectionCount; // @synthesize abConnectionCount=_abConnectionCount;
+@property(nonatomic) void *abDB; // @synthesize abDB=_abDB;
+- (void).cxx_destruct;
 - (void)calUnitTestsSetCallbackBlockForSave:(CDUnknownBlockType)arg1;
-- (int)noteConnectionCount;
 - (BOOL)noteCloseDBAndSave:(BOOL)arg1;
 - (BOOL)noteSaveDB;
 - (void)noteOpenDB;
-- (id)noteDB;
 - (void)bookmarkCloseDBAndSave:(BOOL)arg1;
 - (void)bookmarkSaveDB;
 - (BOOL)bookmarkOpenDB;
-- (void *)bookmarkDB;
-- (int)calConnectionCount;
 - (BOOL)calCloseDBAndSave:(BOOL)arg1;
 - (BOOL)calSaveDBAndFlushCaches;
 - (BOOL)calSaveDB;
-- (void)calOpenDBWithChangeLogging;
-- (void)calOpenDB;
+- (void)calClearSuperfluousChanges;
+- (id)changeTrackingID;
+- (void)calOpenDBAsGenericClient;
+- (void)calOpenDBWithClientIdentifier:(id)arg1;
+- (BOOL)_calOpenDBWithClientIdentifier:(id)arg1;
 - (void)_registerForCalendarYieldNotifications;
-- (struct CalDatabase *)calDB;
 - (id)abConstraintPlistPath;
 - (BOOL)abCloseDBAndSave:(BOOL)arg1;
 - (BOOL)abSaveDB;
@@ -51,7 +61,7 @@
 - (void)abProcessAddedRecords;
 - (void)abOpenDB;
 - (void)_registerForAddressBookYieldNotifications;
-- (void *)abDB;
+- (void *)abDBThrowOnNil:(BOOL)arg1;
 
 @end
 

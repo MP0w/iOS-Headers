@@ -11,6 +11,7 @@
 @interface SKUIPillsControl : UIControl
 {
     SKUIColorScheme *_colorScheme;
+    struct UIEdgeInsets _contentInset;
     int _maximumNumberOfVisiblePills;
     NSString *_moreListTitle;
     SKUISegmentedControl *_segmentedControl;
@@ -20,6 +21,7 @@
 @property(copy, nonatomic) NSArray *titles; // @synthesize titles=_titles;
 @property(copy, nonatomic) NSString *moreListTitle; // @synthesize moreListTitle=_moreListTitle;
 @property(nonatomic) int maximumNumberOfVisiblePills; // @synthesize maximumNumberOfVisiblePills=_maximumNumberOfVisiblePills;
+@property(nonatomic) struct UIEdgeInsets contentInset; // @synthesize contentInset=_contentInset;
 @property(copy, nonatomic) SKUIColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
 - (void).cxx_destruct;
 - (void)_segmentedControlAction:(id)arg1;

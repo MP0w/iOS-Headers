@@ -18,7 +18,6 @@ __attribute__((visibility("hidden")))
     float _verticalFieldOfView;
     struct VKPoint _puckPosition;
     CDStruct_17faa5b0 _frustum;
-    CDStruct_17faa5b0 _previousFrustum;
     double _minHeight;
     double _maxHeight;
     double _maxPitch;
@@ -39,15 +38,20 @@ __attribute__((visibility("hidden")))
     VKFootprint *_footprint;
     double _tanHalfHorizFOV;
     double _tanHalfVerticalFOV;
-    Vec3Imp_f658403c _forward;
-    Vec3Imp_f658403c _right;
-    Vec3Imp_f658403c _up;
+    Matrix_6e1d3589 _forward;
+    Matrix_6e1d3589 _right;
+    Matrix_6e1d3589 _up;
     double _fractionOfScreenAboveFarClipPlaneAtCanonicalPitch;
     double _distanceToGroundAndFarClipPlaneIntersection;
     double _screenHeightOfGroundAndFarClipPlaneIntersection;
     BOOL _allowDatelineWraparound;
     double _canonicalPitch;
     double _horizontalOffset;
+    Matrix_6e1d3589 _gmPosition;
+    Matrix_08d701e4 _gmViewMatrix;
+    Matrix_08d701e4 _gmProjectionMatrix;
+    Matrix_08d701e4 _gmViewProjectionMatrix;
+    Matrix_08d701e4 _gmWorldMatrix;
     double _maxHeightNoPitch;
 }
 
@@ -76,17 +80,21 @@ __attribute__((visibility("hidden")))
 - (struct VKPoint)groundPointFromScreenPoint:(struct CGPoint)arg1;
 - (void)updateIfNeeded;
 - (void)setNeedsUpdate;
+- (CDUnknownBlockType)annotationCoordinateTest;
+- (CDUnknownBlockType)annotationRectTest;
+- (struct VKPoint)groundPlaneIntersectionPoint;
 - (BOOL)isOuterWorldBoundsVisible;
-- (BOOL)isWorldSpaceRectVisible:(const CDStruct_d2b197d1 *)arg1;
-- (float)maximumStyleZForRect:(const CDStruct_d2b197d1 *)arg1;
+- (BOOL)isWorldSpaceRectVisible:(const CDStruct_aca18c62 *)arg1;
+- (float)maximumStyleZForRect:(const CDStruct_aca18c62 *)arg1;
 - (BOOL)hasChangedState:(struct VKCameraState *)arg1;
 @property(nonatomic) struct VKCameraState cameraState;
 @property(readonly, nonatomic) double yaw;
 @property(readonly, nonatomic) double pitch;
+- (double)displayZoomLevel;
 @property(readonly, nonatomic) struct VKPoint groundPoint;
-@property(readonly, nonatomic) Vec3Imp_f658403c forwardVector;
-@property(readonly, nonatomic) Vec3Imp_f658403c rightVector;
-@property(readonly, nonatomic) Vec3Imp_f658403c upVector;
+@property(readonly, nonatomic) Matrix_6e1d3589 forwardVector;
+@property(readonly, nonatomic) Matrix_6e1d3589 rightVector;
+@property(readonly, nonatomic) Matrix_6e1d3589 upVector;
 @property(readonly, nonatomic) VKFootprint *footprint;
 @property(readonly, nonatomic) VKViewVolume *viewVolume;
 @property(readonly, nonatomic) const CDStruct_aa5aacbc *worldMatrix;
@@ -109,6 +117,15 @@ __attribute__((visibility("hidden")))
 - (void)logCameraState;
 - (void)dealloc;
 - (id)init;
+- (Matrix_6e1d3589)gmGroundPointFromScreenPoint:(struct CGPoint)arg1 atGroundLevel:(double)arg2;
+- (Matrix_6e1d3589)gmGroundPointFromScreenPoint:(struct CGPoint)arg1;
+@property(readonly, nonatomic) Matrix_ec0d872f gmForwardVector;
+@property(readonly, nonatomic) Matrix_ec0d872f gmRightVector;
+@property(readonly, nonatomic) Matrix_ec0d872f gmUpVector;
+@property(readonly, nonatomic) const Matrix_08d701e4 *gmViewMatrix;
+@property(readonly, nonatomic) const Matrix_08d701e4 *gmProjectionMatrix;
+@property(readonly, nonatomic) const Matrix_08d701e4 *gmViewProjectionMatrix;
+@property(readonly, nonatomic) const Matrix_6e1d3589 *gmPosition;
 
 @end
 

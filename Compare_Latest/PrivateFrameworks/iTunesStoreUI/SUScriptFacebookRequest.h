@@ -30,7 +30,7 @@
 - (void)performRequestWithFunction:(id)arg1;
 - (void)addParameterWithKey:(id)arg1 value:(id)arg2;
 - (void)addMultiPartData:(id)arg1 withName:(id)arg2 type:(id)arg3;
-@property(readonly) NSURL *URL;
+@property(readonly, copy) NSURL *URL;
 @property(retain) SUScriptAppleAccount *account;
 @property(readonly) int requestMethod;
 - (id)_className;

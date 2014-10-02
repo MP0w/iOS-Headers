@@ -13,6 +13,8 @@
     id _serviceImage;
     NSMutableDictionary *_accountsToNumberOfRequestsInProgressForOlderItems;
     NSArray *_accounts;
+    NSArray *_activeAccounts;
+    Class _fallbackIconProviderClass;
     NSDictionary *_accountsToTrackedRecordsInfoMap;
     NSTimer *_minimumTimeBetweenRequestsTimer;
     unsigned int _numberOfRequestsInProgressForNewerItems;
@@ -20,18 +22,24 @@
 }
 
 + (id)itemsFromAllSocialSourcesByDate;
++ (void)refreshAllSocialSources;
 + (id)allSocialSources;
 @property(retain, nonatomic) NSXPCConnection *socialHelperConnection; // @synthesize socialHelperConnection=_socialHelperConnection;
 @property(nonatomic) unsigned int numberOfRequestsInProgressForNewerItems; // @synthesize numberOfRequestsInProgressForNewerItems=_numberOfRequestsInProgressForNewerItems;
 @property(retain, nonatomic) NSTimer *minimumTimeBetweenRequestsTimer; // @synthesize minimumTimeBetweenRequestsTimer=_minimumTimeBetweenRequestsTimer;
 @property(retain, nonatomic) NSDictionary *accountsToTrackedRecordsInfoMap; // @synthesize accountsToTrackedRecordsInfoMap=_accountsToTrackedRecordsInfoMap;
+@property(retain, nonatomic) Class fallbackIconProviderClass; // @synthesize fallbackIconProviderClass=_fallbackIconProviderClass;
+@property(readonly, copy, nonatomic) NSArray *activeAccounts; // @synthesize activeAccounts=_activeAccounts;
 @property(copy, nonatomic) NSArray *accounts; // @synthesize accounts=_accounts;
+- (void).cxx_destruct;
 - (void)repostItem:(id)arg1 fromAccountWithIdentifier:(id)arg2;
 - (id)repostResourceURLStringForItem:(id)arg1;
 @property(readonly, nonatomic) id serviceImage;
 @property(readonly, nonatomic) NSString *serviceName;
 @property(readonly, nonatomic) NSString *serviceType;
 @property(readonly, nonatomic) NSString *accountTypeIdentifier;
+- (void)setShouldHideItems:(BOOL)arg1 forAccount:(id)arg2;
+- (BOOL)shouldHideItemsFromAccount:(id)arg1;
 - (Class)itemClass;
 - (id)recordRange:(id)arg1 withOldestFromItem:(id)arg2;
 - (int)compareItem:(id)arg1 toItem:(id)arg2;
@@ -45,6 +53,7 @@
 - (void)_didAddItemsForAccountWithIdentifier:(id)arg1;
 - (void)_addItems:(id)arg1 withAge:(int)arg2 inRange:(id)arg3 rangeOfTrackedRecordsAtTimeOfRequest:(id)arg4 forAccountWithIdentifier:(id)arg5;
 - (void)_accountsChanged:(id)arg1;
+- (id)_activeAccountsFromAccountList:(id)arg1;
 - (id)_findAccounts;
 - (void)_didCompleteRequestForItemsWithAge:(int)arg1 accountIdentifier:(id)arg2;
 - (void)_didStartRequestForItemsWithAge:(int)arg1 accountIdentifier:(id)arg2;
@@ -52,6 +61,7 @@
 - (void)requestMaximumNumberOfOlderItems;
 - (void)_performRequestForMoreItemsWithAge:(int)arg1 accountIdentifier:(id)arg2 successHandler:(CDUnknownBlockType)arg3;
 - (void)requestMoreItemsWithAge:(int)arg1;
+@property(readonly, nonatomic, getter=isActive) BOOL active;
 - (void)_invalidateSocialHelperConnectionIfPossible;
 - (id)_existingSocialHelperConnection;
 - (void)_minimumTimeBetweenRequestsTimerFired:(id)arg1;

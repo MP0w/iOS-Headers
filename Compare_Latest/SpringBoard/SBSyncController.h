@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSTimer, SBPasscodeLockDisableAssertion;
+#import "FBApplicationLibraryObserver.h"
 
-@interface SBSyncController : NSObject
+@class NSString, NSTimer, SBPasscodeLockDisableAssertion;
+
+@interface SBSyncController : NSObject <FBApplicationLibraryObserver>
 {
     int _restoreState;
     int _resetState;
@@ -20,40 +22,53 @@
     int _restoreStartedNotifyToken;
     int _restoreEndedNotifyToken;
     SBPasscodeLockDisableAssertion *_disableDeviceLockAssertion;
+    _Bool _isAppSyncing;
+    _Bool _inExtendedAppSyncCoalescePeriod;
 }
 
 + (id)sharedInstance;
-- (_Bool)isInUse;
+- (void)applicationLibrary:(id)arg1 didRemoveApplications:(id)arg2;
+- (void)applicationLibrary:(id)arg1 didReplaceApplications:(id)arg2 withApplications:(id)arg3;
+- (void)applicationLibrary:(id)arg1 didAddApplications:(id)arg2;
 - (void)_appInstallationNotification;
 - (void)_setupRestoreTimer;
 - (void)_restoreTimerFired:(id)arg1;
 - (_Bool)_isBackupAgentRunning;
 - (void)_invalidateRestoreTimer;
-- (void)_resetEnded:(id)arg1;
-- (void)_resetStarted:(id)arg1;
-- (void)didEndResetting;
-- (void)beginResetting:(_Bool)arg1;
+- (void)_didEndResetting;
 - (void)_delayedBeginReset;
 - (void)_updateProgress;
 - (void)_delayedQuitApplications;
-- (int)resetState;
-- (_Bool)isResetting;
-- (void)didEndRestoring:(int)arg1;
-- (void)finishEndRestoring;
+- (void)_didEndRestoring:(int)arg1;
+- (void)_finishEndRestoring;
 - (void)_rebootNow;
-- (void)cancelRestoring;
-- (void)finishedTerminatingApplications;
-- (void)beginRestoring;
 - (void)_killApplications;
 - (void)_notifyRestoreCanProceed;
+- (void)_syncSessionDidEnd;
+- (void)_syncSessionDidBegin;
+- (void)_setRestoreState:(int)arg1;
+- (void)_resetEnded:(id)arg1;
+- (void)_resetStarted:(id)arg1;
+- (void)_wirelessSyncEnded:(id)arg1;
+- (void)_wirelessSyncBegan:(id)arg1;
+- (_Bool)isInUse;
+- (void)beginResetting:(_Bool)arg1;
+- (int)resetState;
+- (_Bool)isResetting;
+- (void)cancelRestoring;
+- (void)beginRestoring;
 - (int)restoreState;
 - (_Bool)isRestoring;
-- (void)_wirelessSyncEnded:(id)arg1;
-- (void)syncSessionDidEnd;
-- (void)_setRestoreState:(int)arg1;
+- (void)finishedTerminatingApplications;
 - (void)stopObserving;
 - (void)startObserving;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

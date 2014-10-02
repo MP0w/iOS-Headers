@@ -12,7 +12,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class ISStoreURLOperation, NSArray, SUClientInterface, SUScriptTextFieldDelegate, SUSearchDisplayController, SUSearchFieldConfiguration, UIControl, UISearchBar;
+@class ISStoreURLOperation, NSArray, NSString, SUClientInterface, SUScriptTextFieldDelegate, SUSearchDisplayController, SUSearchFieldConfiguration, UIControl, UISearchBar;
 
 @interface SUSearchFieldController : NSObject <ISStoreURLOperationDelegate, SUScriptTextFieldDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>
 {
@@ -32,6 +32,8 @@
 - (void)_tearDownDimmerView;
 - (id)_targetViewController;
 - (void)_showDimmerView;
+- (void)_sendOnXEventWithTerm:(id)arg1 URL:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (id)_searchGroupForSearchKind:(id)arg1;
 - (void)_saveSearchTermToDefaults:(id)arg1;
 - (void)_resizeSearchBarForOrientation:(int)arg1;
 - (void)_reloadSearchBar;
@@ -42,8 +44,7 @@
 - (id)_newBlankStorePageViewController;
 - (BOOL)_focusTransientViewController;
 - (void)_fetchResultsForURLRequestProperties:(id)arg1;
-- (void)_fetchResultsForURL:(id)arg1;
-- (void)_fetchResultsForTerm:(id)arg1;
+- (void)_fetchResultsForTerm:(id)arg1 URL:(id)arg2;
 - (void)_fetchCompletions;
 - (id)_defaultSearchTerm;
 - (void)_cancelCompletionsOperation;
@@ -66,6 +67,7 @@
 - (void)operation:(id)arg1 failedWithError:(id)arg2;
 - (void)willRotateToInterfaceOrientation:(int)arg1;
 @property(readonly, nonatomic) UISearchBar *searchBar;
+- (id)newRequestPropertiesWithSearchTerm:(id)arg1 kind:(id)arg2;
 - (id)newRequestPropertiesWithSearchTerm:(id)arg1;
 @property(readonly, nonatomic, getter=isActive) BOOL active;
 - (void)handleSearchURL:(id)arg1 withSourceApplication:(id)arg2 sourceURL:(id)arg3;
@@ -75,6 +77,12 @@
 - (id)initWithContentsController:(id)arg1 style:(int)arg2;
 - (id)initWithContentsController:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -14,13 +14,14 @@
     NSSet *_propertiesToFind;
 }
 
-@property(retain) CoreDAVMultiStatusItem *multiStatus; // @synthesize multiStatus=_multiStatus;
-@property(retain) NSSet *propertiesToFind; // @synthesize propertiesToFind=_propertiesToFind;
+@property(retain, nonatomic) CoreDAVMultiStatusItem *multiStatus; // @synthesize multiStatus=_multiStatus;
+@property(retain, nonatomic) NSSet *propertiesToFind; // @synthesize propertiesToFind=_propertiesToFind;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)getTotalFailureError;
 - (void)updateMultiStatusFromResponse;
 - (id)successfulValueForNameSpace:(id)arg1 elementName:(id)arg2;
 - (id)copyDefaultParserForContentType:(id)arg1;
+- (id)additionalHeaderValues;
 - (id)parseHints;
 - (id)description;
 - (void)dealloc;

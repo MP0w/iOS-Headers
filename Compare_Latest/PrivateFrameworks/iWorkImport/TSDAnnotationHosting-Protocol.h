@@ -10,7 +10,7 @@
 @class NSDate, NSString, TSDCommentStorage, TSKAnnotationAuthor, TSKCommand;
 
 @protocol TSDAnnotationHosting <NSObject, TSKAnnotation>
-@property(nonatomic) id <TSKModel> model;
+@property(nonatomic) id <TSKModel> hostingModel;
 @property(readonly, nonatomic) NSDate *date;
 @property(retain, nonatomic) TSKAnnotationAuthor *author;
 - (void)commitText:(NSString *)arg1;
@@ -18,7 +18,10 @@
 
 @optional
 @property(copy, nonatomic) TSDCommentStorage *storage;
-@property(readonly, nonatomic) NSString *changeTrackingString;
+@property(readonly, nonatomic) NSString *changeTrackingContentFormatString;
+@property(readonly, nonatomic) NSString *changeTrackingContentString;
+@property(readonly, nonatomic) NSString *changeTrackingTitleString;
+- (BOOL)wantsAnnotationPopover;
 - (TSKCommand *)commandForDeletingComment;
 @end
 

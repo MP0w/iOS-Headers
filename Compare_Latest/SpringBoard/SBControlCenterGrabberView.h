@@ -9,7 +9,7 @@
 #import "SBControlCenterObserver.h"
 #import "SBUIControlCenterControlObserver.h"
 
-@class BKSTimer, NSMutableArray, NSMutableDictionary, SBChevronView, SBControlCenterStatusUpdate, SBUIControlCenterLabel;
+@class BSTimer, NSMutableArray, NSMutableDictionary, NSString, SBChevronView, SBControlCenterStatusUpdate, SBUIControlCenterLabel;
 
 @interface SBControlCenterGrabberView : UIView <SBUIControlCenterControlObserver, SBControlCenterObserver>
 {
@@ -21,7 +21,7 @@
     NSMutableDictionary *_statusByReason;
     NSMutableArray *_statusReasonQueue;
     SBControlCenterStatusUpdate *_activeStatus;
-    BKSTimer *_statusTimer;
+    BSTimer *_statusTimer;
 }
 
 + (double)defaultHeightForOrientation:(long long)arg1;
@@ -50,6 +50,12 @@
 - (id)chevronView;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

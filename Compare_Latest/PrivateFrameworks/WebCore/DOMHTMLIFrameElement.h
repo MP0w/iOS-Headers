@@ -19,8 +19,6 @@
 - (id)srcdoc;
 @property(copy) NSString *src;
 @property(copy) NSString *scrolling;
-- (void)setSeamless:(BOOL)arg1;
-- (BOOL)seamless;
 - (void)setSandbox:(id)arg1;
 - (id)sandbox;
 @property(copy) NSString *name;

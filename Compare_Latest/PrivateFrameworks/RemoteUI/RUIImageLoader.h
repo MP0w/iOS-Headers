@@ -31,6 +31,7 @@
 }
 
 + (id)sharedImageLoader;
+- (void).cxx_destruct;
 - (void)_imageLoadFinished:(id)arg1;
 - (void)_locked_imageLoadStarted:(id)arg1;
 - (void)_postImageLoadedNotification:(id)arg1;

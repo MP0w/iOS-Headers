@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
 - (id)getRegionsByContent:(id)arg1;
 @property(readonly) int firstEmptyRegionIndex;
 @property(readonly) BOOL overset;
-@property(readonly) NSString *name;
+@property(readonly, copy) NSString *name;
 - (void)finalize;
 - (void)dealloc;
 

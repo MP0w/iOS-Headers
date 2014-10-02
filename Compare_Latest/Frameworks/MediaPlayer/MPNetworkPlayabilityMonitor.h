@@ -11,25 +11,19 @@
 @interface MPNetworkPlayabilityMonitor : NSObject
 {
     int _effectiveNetworkTypeForCloudPlayback;
-    int _effectiveNetworkTypeForRadioPlayback;
     double _lastAverageBitrate;
     int _networkType;
     NSObject<OS_dispatch_queue> *_queue;
-    double _radioMinimumBitrateForHighQuality;
-    BOOL _supportsRadio;
 }
 
 + (id)sharedNetworkPlayabilityMonitor;
 - (void).cxx_destruct;
-- (void)_updateRadioMinimumBitrateWithStoreBag:(id)arg1;
 - (void)_onQueueUpdateEffectiveNetworkTypesForPlayback;
-- (int)_onQueueEffectiveNetworkTypeForAverageBitrate:(double)arg1 playbackType:(int)arg2;
-@property(nonatomic) BOOL supportsRadio;
+- (int)_onQueueEffectiveNetworkTypeForAverageBitrate:(double)arg1;
 @property(readonly, nonatomic) int networkType;
-- (int)effectiveNetworkTypeForPlaybackType:(int)arg1;
+@property(readonly, nonatomic) double lastAverageBitrate;
 @property(readonly, nonatomic) int effectiveNetworkTypeForPlayback;
 - (void)adjustEffectiveNetworkTypeUsingPreviouslyPlayedItem:(id)arg1;
-- (void)_radioStoreBagDidLoadNotification:(id)arg1;
 - (void)_networkTypeDidChangeNotification:(id)arg1;
 - (void)dealloc;
 - (id)init;

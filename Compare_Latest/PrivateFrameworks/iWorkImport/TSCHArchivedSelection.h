@@ -8,7 +8,7 @@
 
 #import "TSKArchivedSelection.h"
 
-@class TSCHSelection, TSKSelection;
+@class NSString, TSCHSelection, TSKSelection;
 
 __attribute__((visibility("hidden")))
 @interface TSCHArchivedSelection : TSPObject <TSKArchivedSelection>
@@ -20,6 +20,12 @@ __attribute__((visibility("hidden")))
 - (void)saveToArchiver:(id)arg1;
 - (id)initFromUnarchiver:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "SBAlertManagerObserver.h"
 
-@class NSMapTable, NSMutableSet, SBAlertManager;
+@class NSMapTable, NSMutableSet, NSString, SBAlertManager;
 
 @interface SBAlertWallpaperTunnelManager : NSObject <SBAlertManagerObserver>
 {
@@ -32,6 +32,12 @@
 - (void)pushTunnelToWallpaperForAlert:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

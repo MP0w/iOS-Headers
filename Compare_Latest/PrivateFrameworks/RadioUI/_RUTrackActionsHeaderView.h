@@ -15,6 +15,9 @@
     UILabel *_songLabel;
 }
 
++ (id)_songLabelFont;
++ (id)_artistLabelFont;
++ (float)defaultHeightForTraitCollection:(id)arg1;
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSString *songText;
 @property(retain, nonatomic) UIImage *artworkImage;

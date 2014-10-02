@@ -6,15 +6,15 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, XPCProxy<CKSMSCompose>;
+@class NSMutableArray;
 
 @interface CKSMSComposeQueuingRemoteViewControllerProxy : NSObject
 {
     NSMutableArray *_queuedInvocations;
-    XPCProxy<CKSMSCompose> *_serviceViewControllerProxy;
+    id <CKSMSCompose> _serviceViewControllerProxy;
 }
 
-@property(retain, nonatomic) XPCProxy<CKSMSCompose> *serviceViewControllerProxy; // @synthesize serviceViewControllerProxy=_serviceViewControllerProxy;
+@property(retain, nonatomic) id <CKSMSCompose> serviceViewControllerProxy; // @synthesize serviceViewControllerProxy=_serviceViewControllerProxy;
 @property(retain, nonatomic) NSMutableArray *queuedInvocations; // @synthesize queuedInvocations=_queuedInvocations;
 - (void)forwardInvocation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;

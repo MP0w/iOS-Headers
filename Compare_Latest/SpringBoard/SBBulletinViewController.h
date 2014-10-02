@@ -6,9 +6,11 @@
 
 #import "UITableViewController.h"
 
-@class NSMutableArray, NSMutableDictionary;
+#import "SBMotionGestureObserver.h"
 
-@interface SBBulletinViewController : UITableViewController
+@class NSMutableArray, NSMutableDictionary, NSString, SBNotificationRowActionFactory;
+
+@interface SBBulletinViewController : UITableViewController <SBMotionGestureObserver>
 {
     id <SBBulletinViewControllerDelegate> _delegate;
     NSMutableArray *_orderedSections;
@@ -16,7 +18,6 @@
     NSMutableDictionary *_reusableViewIDsToUnregisteredCellClassNames;
     NSMutableDictionary *_reusableViewIDsToUnregisteredHeaderClassNames;
     _Bool _tableViewNeedsReload;
-    CDUnknownBlockType _owedWillAppearBlock;
     struct {
         unsigned int suppliesInsertionAnimation:1;
         unsigned int suppliesRemovalAnimation:1;
@@ -24,23 +25,34 @@
         unsigned int decidesHighlight:1;
         unsigned int interestedInSelection:1;
     } _bulletinViewControllerDelegateFlags;
+    SBNotificationRowActionFactory *_cellButtonFactory;
+    _Bool _usesTableViewSeparators;
+    _Bool _canDismissBulletins;
 }
 
-+ (id)reusableViewIdentifierForInfo:(id)arg1;
+@property(nonatomic) _Bool canDismissBulletins; // @synthesize canDismissBulletins=_canDismissBulletins;
+@property(nonatomic) _Bool usesTableViewSeparators; // @synthesize usesTableViewSeparators=_usesTableViewSeparators;
 @property(nonatomic) id <SBBulletinViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)tableView:(id)arg1 didEndDisplayingCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
+- (_Bool)_hasFirstBulletinInSectionWithRaiseAction;
+- (void)_updateMotionGestureObservation;
+- (void)didReceiveRaiseGesture;
+- (_Bool)tableView:(id)arg1 shouldDrawTopSeparatorForSection:(long long)arg2;
 - (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
+- (void)_selectAction:(id)arg1 atIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 editActionsForRowAtIndexPath:(id)arg2;
+- (_Bool)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 willBeginSwipingRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 commitEditingStyle:(long long)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (_Bool)hasContent;
 - (void)invalidateCachedLayoutData;
-- (void)invalidateSectionAndRowViewHeights;
+- (void)invalidateSectionAndRowViewHeights:(CDUnknownBlockType)arg1;
 - (id)viewForBulletin:(id)arg1 inSection:(id)arg2;
 - (id)indexPathForBulletin:(id)arg1 inSection:(id)arg2;
 - (id)sectionAtIndex:(unsigned long long)arg1;
@@ -60,30 +72,28 @@
 - (void)_performMoveOperation:(id)arg1;
 - (void)_performRemovalOperation:(id)arg1;
 - (void)_performInsertionOperation:(id)arg1;
-- (_Bool)_replaceWithBulletin:(id)arg1 bulletin:(id)arg2 inSection:(id)arg3;
-- (_Bool)_moveBulletin:(id)arg1 fromSection:(id)arg2 toIndex:(unsigned long long)arg3 inSection:(id)arg4;
-- (_Bool)_removeBulletin:(id)arg1 fromSection:(id)arg2;
-- (_Bool)_insertBulletin:(id)arg1 atIndex:(unsigned long long)arg2 inSection:(id)arg3;
-- (void)_removeChildWidgetBulletinIfPossible:(id)arg1;
-- (void)_addChildWidgetBulletinIfPossible:(id)arg1;
-- (_Bool)_replaceWithSection:(id)arg1 section:(id)arg2;
-- (_Bool)_moveSection:(id)arg1 toIndex:(unsigned long long)arg2;
-- (_Bool)_insertSection:(id)arg1 atIndex:(unsigned long long)arg2;
-- (_Bool)_removeSection:(id)arg1;
+- (_Bool)_replaceWithBulletin:(id)arg1 bulletin:(id)arg2 inSection:(id)arg3 dryRun:(_Bool)arg4;
+- (_Bool)_moveBulletin:(id)arg1 fromSection:(id)arg2 toIndex:(unsigned long long)arg3 inSection:(id)arg4 dryRun:(_Bool)arg5;
+- (_Bool)_removeBulletin:(id)arg1 fromSection:(id)arg2 dryRun:(_Bool)arg3;
+- (_Bool)_insertBulletin:(id)arg1 atIndex:(unsigned long long)arg2 inSection:(id)arg3 dryRun:(_Bool)arg4;
+- (void)removeChildBulletinIfPossible:(id)arg1;
+- (void)addChildBulletinIfPossible:(id)arg1;
+- (_Bool)_replaceWithSection:(id)arg1 section:(id)arg2 dryRun:(_Bool)arg3;
+- (_Bool)_moveSection:(id)arg1 toIndex:(unsigned long long)arg2 dryRun:(_Bool)arg3;
+- (_Bool)_insertSection:(id)arg1 atIndex:(unsigned long long)arg2 dryRun:(_Bool)arg3;
+- (_Bool)_removeSection:(id)arg1 dryRun:(_Bool)arg2;
+- (long long)_bulletinSectionLocationAtIndexPath:(id)arg1;
+- (id)_representedBulletinAtIndexPath:(id)arg1;
+- (id)_bulletinInfoAtIndexPath:(id)arg1;
+- (id)_sectionInfoAtIndexPath:(id)arg1;
 @property(nonatomic) struct CGRect tableViewFrame;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidDisappear:(_Bool)arg1;
-- (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
-- (void)viewWillAppear:(_Bool)arg1;
 - (void)_reloadOrInvalidateTableViewData;
 - (void)reloadTableViewDataIfNecessary;
 - (void)_reloadTableViewData;
 - (void)setTableViewNeedsReload;
-- (_Bool)widgetViewControllerEndAppearanceTransitionIfNecessary:(id)arg1;
-- (_Bool)widgetViewController:(id)arg1 beginAppearanceTransitionIfNecessary:(_Bool)arg2 animated:(_Bool)arg3;
-- (void)_invokeBlockWithAllVisibleWidgets:(CDUnknownBlockType)arg1;
-- (_Bool)shouldAutomaticallyForwardAppearanceMethods;
 - (id)_viewIfLoaded;
 - (void)viewDidLoad;
 - (void)_updateEnhancedContrastSettings:(id)arg1;
@@ -93,6 +103,12 @@
 - (void)_registerOrQueueReusableClass:(Class)arg1 forIdentifier:(id)arg2 registerBlock:(CDUnknownBlockType)arg3 queueBlock:(CDUnknownBlockType)arg4;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

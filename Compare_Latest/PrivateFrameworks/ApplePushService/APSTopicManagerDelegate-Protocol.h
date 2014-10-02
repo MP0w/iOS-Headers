@@ -9,6 +9,8 @@
 @class APSTopicManager;
 
 @protocol APSTopicManagerDelegate <NSObject>
+
+@optional
 - (void)topicManagerRequestToSendFilter:(APSTopicManager *)arg1;
 @end
 

@@ -9,7 +9,7 @@
 #import "MSDeleteStreamsProtocolDelegate.h"
 #import "MSDeleter.h"
 
-@class MSDeleteStreamsProtocol, MSMediaStreamDaemon, MSObjectQueue, NSMutableArray;
+@class MSDeleteStreamsProtocol, MSMediaStreamDaemon, MSObjectQueue, NSMutableArray, NSString;
 
 @interface MSDeleter : MSCupidStateMachine <MSDeleter, MSDeleteStreamsProtocolDelegate>
 {
@@ -55,6 +55,12 @@
 - (void)dealloc;
 - (void)deactivate;
 - (id)initWithPersonID:(id)arg1 baseURL:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

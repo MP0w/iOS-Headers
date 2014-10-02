@@ -15,14 +15,14 @@
     CoreDAVItemWithNoChildren *_resourceChanged;
 }
 
-@property(retain) CoreDAVItemWithNoChildren *resourceChanged; // @synthesize resourceChanged=_resourceChanged;
-@property(retain) CoreDAVItemWithNoChildren *inviteReply; // @synthesize inviteReply=_inviteReply;
-@property(retain) CoreDAVItemWithNoChildren *inviteNotification; // @synthesize inviteNotification=_inviteNotification;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *resourceChanged; // @synthesize resourceChanged=_resourceChanged;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *inviteReply; // @synthesize inviteReply=_inviteReply;
+@property(retain, nonatomic) CoreDAVItemWithNoChildren *inviteNotification; // @synthesize inviteNotification=_inviteNotification;
 - (BOOL)notificationNameIn:(id)arg1;
 - (BOOL)notificationNameMatches:(id)arg1;
-@property(readonly) BOOL isResourceChanged;
-@property(readonly) BOOL isInviteReply;
-@property(readonly) BOOL isInviteNotification;
+@property(readonly, nonatomic) BOOL isResourceChanged;
+@property(readonly, nonatomic) BOOL isInviteReply;
+@property(readonly, nonatomic) BOOL isInviteNotification;
 - (id)description;
 - (id)copyParseRules;
 - (void)dealloc;

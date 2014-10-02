@@ -14,6 +14,7 @@
     NSDictionary *_figErrorUserInfo;
 }
 
+- (Class)_classForTrackInspectors;
 - (void)loadValuesAsynchronouslyForKeys:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (int)statusOfValueForKey:(id)arg1 error:(id *)arg2;
 - (void)dealloc;

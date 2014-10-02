@@ -13,8 +13,8 @@ __attribute__((visibility("hidden")))
 }
 
 - (BOOL)editItemViewControllerCommit:(id)arg1;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1;
 - (BOOL)_shouldShowSourceForCalendar:(id)arg1;
 - (BOOL)requiresReconfigurationOnCommit;
 - (BOOL)shouldAppearWithVisibility:(int)arg1;

@@ -6,7 +6,7 @@
 
 #import <UIKit/UILocalNotification.h>
 
-@class NSCalendar, NSData, NSDate, NSString, NSTimeZone;
+@class CLRegion, NSCalendar, NSData, NSDate, NSString, NSTimeZone;
 
 __attribute__((visibility("hidden")))
 @interface UIConcreteLocalNotification : UILocalNotification
@@ -17,6 +17,8 @@ __attribute__((visibility("hidden")))
     NSCalendar *repeatCalendar;
     int totalRepeatCount;
     int remainingRepeatCount;
+    CLRegion *region;
+    BOOL regionTriggersOnce;
     NSString *alertBody;
     BOOL hasAction;
     NSString *alertAction;
@@ -34,11 +36,18 @@ __attribute__((visibility("hidden")))
     NSString *customLockSliderLabel;
     NSString *firedNotificationName;
     NSString *snoozedNotificationName;
-    BOOL isSystemAlert;
+    NSString *category;
+    BOOL isTransient;
 }
 
-- (void)setIsSystemAlert:(BOOL)arg1;
-- (BOOL)isSystemAlert;
+- (void)setRegionTriggersOnce:(BOOL)arg1;
+- (BOOL)regionTriggersOnce;
+- (void)setRegion:(id)arg1;
+- (id)region;
+- (void)setIsTransient:(BOOL)arg1;
+- (BOOL)isTransient;
+- (void)setCategory:(id)arg1;
+- (id)category;
 - (void)setSnoozedNotificationName:(id)arg1;
 - (id)snoozedNotificationName;
 - (void)setFiredNotificationName:(id)arg1;
@@ -81,6 +90,8 @@ __attribute__((visibility("hidden")))
 - (id)timeZone;
 - (void)setFireDate:(id)arg1;
 - (id)fireDate;
+- (BOOL)isTriggeredByDate;
+- (void)validate;
 - (void)clearNonSystemProperties;
 - (BOOL)isValid;
 - (id)nextFireDateAfterDate:(id)arg1 localTimeZone:(id)arg2;

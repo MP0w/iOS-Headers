@@ -17,7 +17,6 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSData *inputMessage; // @synthesize inputMessage;
 - (id)outputImage;
 - (struct CGImage *)outputCGImage;
-- (void)setDefaults;
 
 @end
 

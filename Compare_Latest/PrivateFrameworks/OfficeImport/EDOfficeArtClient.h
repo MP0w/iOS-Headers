@@ -9,7 +9,7 @@
 #import "OADClient.h"
 #import "OADTextClient.h"
 
-@class EDAnchor, EDComment, EDSheet, EDTextBox, NSMutableDictionary;
+@class EDAnchor, EDComment, EDSheet, EDTextBox, NSMutableDictionary, NSString;
 
 __attribute__((visibility("hidden")))
 @interface EDOfficeArtClient : NSObject <OADClient, OADTextClient>
@@ -43,7 +43,12 @@ __attribute__((visibility("hidden")))
 - (void)setClientState:(id)arg1;
 - (id)clientState;
 - (void)dealloc;
-- (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

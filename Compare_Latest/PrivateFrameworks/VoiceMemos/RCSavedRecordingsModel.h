@@ -12,34 +12,48 @@
 
 @interface RCSavedRecordingsModel : NSObject <NSFetchedResultsControllerDelegate>
 {
+    int _notifyToken;
     NSManagedObjectModel *_model;
     NSManagedObjectContext *_context;
-    NSFetchRequest *_fetchRequest;
+    NSFetchRequest *_savedRecordingsFetchRequest;
     NSFetchedResultsController *_fetchController;
-    int _notifyToken;
-    BOOL _assetManifestWritingDisabled;
     BOOL _valid;
-    BOOL _isSaveInProgress;
+    int _isSavingDisabledCount;
 }
 
-+ (id)_assetManifestPlistPath;
++ (id)_copyFileIntoRecordingsDirectory:(id)arg1;
++ (void)_insertRecordingWithImportableAudioURL:(id)arg1 name:(id)arg2 date:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
++ (void)_importImportableRecordingWithSourceAudioURL:(id)arg1 name:(id)arg2 date:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
++ (void)importRecordingWithSourceAudioURL:(id)arg1 name:(id)arg2 date:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
++ (void)determineImportabilityOfRecordingWithAudioURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
++ (id)creationDateFromStandardRecordingURL:(id)arg1;
 + (id)standardURLForRecordingWithCreationDate:(id)arg1;
 + (id)savedRecordingsDirectory;
 + (id)sharedModelForQueue:(id)arg1;
 + (id)sharedModel;
 + (void)initialize;
-@property(nonatomic) BOOL isSaveInProgress; // @synthesize isSaveInProgress=_isSaveInProgress;
+@property(nonatomic) int isSavingDisabledCount; // @synthesize isSavingDisabledCount=_isSavingDisabledCount;
 @property BOOL valid; // @synthesize valid=_valid;
-@property(nonatomic) BOOL assetManifestWritingDisabled; // @synthesize assetManifestWritingDisabled=_assetManifestWritingDisabled;
 - (void).cxx_destruct;
-- (id)_copyFileIntoRecordingsDirectory:(id)arg1;
 - (void)_handleInternalModelDidSaveNotification:(id)arg1;
 - (void)_handleExternalModelDidSaveNotification:(id)arg1;
 - (void)_postRecordingsModelDidChangeForNotificationName:(id)arg1;
 - (void)_scheduleAutomaticRecordingDeletions;
 - (void)_deleteRecordingsWithDurationLessThan:(double)arg1 passingTest:(CDUnknownBlockType)arg2;
-- (void)_generateAssetManifestPlist;
+- (id)_entityRevisionWithRecordingID:(long long)arg1;
+- (void)_setNextEntityRevisionID:(long long)arg1 save:(BOOL)arg2;
+- (long long)_nextEntityRevisionID;
+- (void)_setNextRecordingID:(long long)arg1 save:(BOOL)arg2;
+- (long long)_nextRecordingID;
+- (void)_migrateDatabaseIfNecessary;
+- (BOOL)deleteDatabaseProperty:(id)arg1;
+- (id)valueForDatabaseProperty:(id)arg1;
+- (BOOL)setValue:(id)arg1 forDatabaseProperty:(id)arg2;
+- (BOOL)setValue:(id)arg1 forDatabaseProperty:(id)arg2 save:(BOOL)arg3;
+- (void)performWithSavingDisabled:(CDUnknownBlockType)arg1;
+- (void)performBlockAndWait:(CDUnknownBlockType)arg1;
 - (void)save;
+- (void)_enumerateSavedRecordingsAndEntityRevisionInArrayOfManagedObjects:(id)arg1 createIfNeeded:(BOOL)arg2 block:(CDUnknownBlockType)arg3;
 - (void)saveIfNecessary;
 - (BOOL)saveManagedObjectContext:(id *)arg1;
 - (id)recordingsForSpotlightSearch:(id)arg1;
@@ -50,7 +64,13 @@
 - (id)insertRecordingWithAudioFile:(id)arg1 duration:(double)arg2 date:(id)arg3;
 - (id)nextRecordingDefaultLabelWithCustomLabelBase:(id)arg1;
 - (id)_allCustomLabels;
+- (void)_deleteOrphanedEntityRevisionsAndSave:(BOOL)arg1;
+- (void)enumerateExistingRecordingsSinceEntityRevision:(long long)arg1 withBlock:(CDUnknownBlockType)arg2;
+- (id)entityRevisionsForRecording:(id)arg1;
+@property(readonly, nonatomic) long long currentEntityRevision;
 - (void)enumerateExistingRecordingsWithBlock:(CDUnknownBlockType)arg1;
+- (id)fetchSavedRecordingIDs;
+- (id)_recordingWithRecordingID:(long long)arg1;
 - (id)recordingWithITunesPersistentID:(long long)arg1;
 - (id)recordingWithURIRepresentation:(id)arg1;
 - (id)recordingWithID:(id)arg1;
@@ -61,7 +81,7 @@
 - (void)controllerDidChangeContent:(id)arg1;
 - (void)controller:(id)arg1 didChangeObject:(id)arg2 atIndexPath:(id)arg3 forChangeType:(unsigned int)arg4 newIndexPath:(id)arg5;
 - (void)dealloc;
-- (id)_init;
+- (id)_initWithManagedObjectContext:(id)arg1;
 - (id)init;
 
 @end

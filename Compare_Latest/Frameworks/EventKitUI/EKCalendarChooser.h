@@ -12,6 +12,7 @@
 {
     BOOL _disableCalendarEditing;
     BOOL _showsDeclinedEventsSetting;
+    BOOL _showDetailAccessories;
     int _style;
     NSMutableSet *_selectedCalendars;
     id <EKCalendarChooserDelegate> _delegate;
@@ -46,6 +47,7 @@
 @property(retain, nonatomic) EKEventStore *eventStore; // @synthesize eventStore=_eventStore;
 @property(nonatomic) int lastAuthorizationStatus; // @synthesize lastAuthorizationStatus=_lastAuthorizationStatus;
 @property(nonatomic) unsigned int entityType; // @synthesize entityType=_entityType;
+@property(nonatomic) BOOL showDetailAccessories; // @synthesize showDetailAccessories=_showDetailAccessories;
 @property(nonatomic) BOOL showsDeclinedEventsSetting; // @synthesize showsDeclinedEventsSetting=_showsDeclinedEventsSetting;
 @property(nonatomic) BOOL disableCalendarEditing; // @synthesize disableCalendarEditing=_disableCalendarEditing;
 @property(nonatomic) int chooserMode; // @synthesize chooserMode=_chooserMode;
@@ -78,7 +80,6 @@
 - (BOOL)_isEllipsisCellForGroup:(id)arg1 rowIndex:(int)arg2;
 - (BOOL)_tableShouldDisplayNewCalendarCellForGroup:(id)arg1;
 - (BOOL)_tableShouldDisplayAllCellForGroup:(id)arg1;
-- (BOOL)_tableShouldDisplayAllCalendarButtons;
 - (BOOL)_tableShouldDisplayAllCalendarsSection;
 - (id)_indexPathForCalendar:(id)arg1 source:(id)arg2;
 @property(copy, nonatomic) NSSet *selectedCalendars;
@@ -117,7 +118,9 @@
 - (unsigned int)supportedInterfaceOrientations;
 @property(nonatomic) BOOL allowsEdit;
 @property(nonatomic) BOOL allowsRotation;
+- (void)setShowAll:(BOOL)arg1;
 - (struct CGSize)preferredContentSize;
+- (id)_viewModeTitle;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidLoad;
 - (void)loadView;

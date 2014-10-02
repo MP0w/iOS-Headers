@@ -8,6 +8,7 @@
 
 @class NSArray, NSMutableArray;
 
+__attribute__((visibility("hidden")))
 @interface _NSKeyedUnarchiverHelper : NSObject
 {
     NSArray *_white;

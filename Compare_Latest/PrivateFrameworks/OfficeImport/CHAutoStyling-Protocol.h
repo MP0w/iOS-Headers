@@ -6,10 +6,10 @@
 
 #import "NSObject.h"
 
-@class CHDMarker, OADColorMap, OADColorScheme, OADGraphicProperties, OADStroke;
+@class CHDMarker, OADFill, OADGraphicProperties, OADStroke;
 
 @protocol CHAutoStyling <NSObject>
-- (OADStroke *)autoAxisStroke;
+- (OADFill *)autoTextFill;
 - (OADStroke *)autoStrokeForSeriesIndex:(unsigned int)arg1;
 - (void)resolveMarker:(CHDMarker *)arg1 withSeriesGraphicProperties:(OADGraphicProperties *)arg2 forSeriesIndex:(unsigned int)arg3;
 - (void)resolveLegendGraphicProperties:(OADGraphicProperties *)arg1;
@@ -20,9 +20,13 @@
 - (void)resolveFloorGraphicProperties:(OADGraphicProperties *)arg1;
 - (void)resolveWallGraphicProperties:(OADGraphicProperties *)arg1;
 - (void)resolveChartAreaGraphicProperties:(OADGraphicProperties *)arg1;
-- (void)resolveGraphicPropertiesOfErrorBar:(OADGraphicProperties *)arg1 forSeriesIndex:(unsigned int)arg2 colorMap:(OADColorMap *)arg3 colorScheme:(OADColorScheme *)arg4;
+- (void)resolveGraphicPropertiesOfErrorBar:(OADGraphicProperties *)arg1 forSeriesIndex:(unsigned int)arg2;
 - (void)resolveGraphicPropertiesOfTrendline:(OADGraphicProperties *)arg1 forSeriesIndex:(unsigned int)arg2;
-- (void)resolveGraphicPropertiesOfSeries:(OADGraphicProperties *)arg1 forSeriesIndex:(unsigned int)arg2 isLine:(_Bool)arg3 colorMap:(OADColorMap *)arg4 colorScheme:(OADColorScheme *)arg5;
-- (void)resolveGraphicPropertiesOfSeries:(OADGraphicProperties *)arg1 forSeriesIndex:(unsigned int)arg2 colorMap:(OADColorMap *)arg3 colorScheme:(OADColorScheme *)arg4;
+- (void)resolveGraphicPropertiesOfSeries:(OADGraphicProperties *)arg1 forSeriesIndex:(unsigned int)arg2 isLine:(_Bool)arg3;
+- (void)resolveGraphicPropertiesOfSeries:(OADGraphicProperties *)arg1 forSeriesIndex:(unsigned int)arg2;
+
+@optional
+- (void)setAutoChartStrokeIsHollow:(BOOL)arg1;
+- (void)setAutoChartFillIsHollow:(BOOL)arg1;
 @end
 

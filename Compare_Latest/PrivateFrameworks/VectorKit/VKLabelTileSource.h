@@ -19,12 +19,12 @@ __attribute__((visibility("hidden")))
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
-- (int)_labelTileType;
+- (unsigned char)_labelTileType;
 - (int)defaultMaximumZoomLevel;
 - (BOOL)maximumZoomLevelBoundsCamera;
 - (BOOL)minimumZoomLevelBoundsCamera;
 - (void)dealloc;
-- (id)initWithTileSet:(id)arg1 labelManager:(const shared_ptr_dd1f7020 *)arg2;
+- (id)initWithTileSet:(id)arg1 tileGroupIdentifier:(unsigned int)arg2 locale:(id)arg3 labelManager:(const shared_ptr_dd1f7020 *)arg4;
 
 @end
 

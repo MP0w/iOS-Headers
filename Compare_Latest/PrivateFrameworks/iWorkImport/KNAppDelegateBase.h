@@ -11,8 +11,12 @@
 __attribute__((visibility("hidden")))
 @interface KNAppDelegateBase : TSABaseApplicationDelegate
 {
+    BOOL _cachedBidiIsSupported;
 }
 
+- (void)p_inputMethodsChanged:(id)arg1;
+- (BOOL)supportsRTL;
+- (void)applicationDidFinishLaunching;
 - (id)defaultHyperlinkURL;
 - (BOOL)URLIsValidForImportedHyperlink:(id)arg1;
 - (id)invalidURLSchemes;
@@ -33,7 +37,7 @@ __attribute__((visibility("hidden")))
 - (id)previewImageNameForNativeDocument;
 - (id)previewImageNameForDocumentType:(id)arg1;
 - (id)appChartPropertyOverrides;
-- (id)applicationTemplateVariants;
+- (id)applicationTemplateVariantsForLocale:(struct __CFLocale *)arg1;
 - (id)createCompatibilityDelegate;
 @property(readonly, nonatomic) NSArray *powerPointDocumentTypes;
 - (id)importableDocumentTypes;

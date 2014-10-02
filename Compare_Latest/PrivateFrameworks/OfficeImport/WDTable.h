@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     NSMutableArray *mRows;
 }
 
+- (id)description;
 - (id)newRunIterator;
 - (id)runIterator;
 - (id)newCellIterator;
@@ -24,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (int)nestingLevel;
 - (int)blockType;
 - (void)clearRows;
+- (id)insertRowAtIndex:(unsigned int)arg1;
 - (id)addRow;
 - (id)rowAt:(unsigned int)arg1;
 - (unsigned int)rowCount;

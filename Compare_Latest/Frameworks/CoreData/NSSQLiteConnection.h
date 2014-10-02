@@ -99,8 +99,14 @@ __attribute__((visibility("hidden")))
 - (void)releaseSQLStatement;
 - (void)resetSQLStatement;
 - (void)execute;
+- (void)executeCorrelationChangesForValue1:(unsigned long long)arg1 value2:(unsigned long long)arg2 value3:(unsigned long long)arg3 value4:(unsigned long long)arg4;
 - (void)bindTempTableForBindIntarray:(id)arg1;
 - (void)prepareSQLStatement:(id)arg1;
+- (void)writeCorrelationChangesFromTracker:(id)arg1;
+- (void)writeCorrelationReordersFromTracker:(id)arg1;
+- (void)writeCorrelationMasterReordersFromTracker:(id)arg1;
+- (void)writeCorrelationDeletesFromTracker:(id)arg1;
+- (void)writeCorrelationInsertsFromTracker:(id)arg1;
 - (void)deleteRow:(id)arg1;
 - (void)updateRow:(id)arg1;
 - (id)cachedUpdateStatementForEntity:(id)arg1 andDeltasMask:(struct __CFBitVector *)arg2;

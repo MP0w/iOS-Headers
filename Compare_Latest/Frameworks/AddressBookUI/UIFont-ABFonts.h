@@ -9,6 +9,7 @@
 @interface UIFont (ABFonts)
 + (BOOL)ab_preferredContentSizeCategoryIsAccessibilityCategory;
 + (id)ab_preferredContentSizeCategoryName;
++ (id)ab_preferredRowFontForTextStyle:(id)arg1;
 + (id)ab_preferredFontForTextStyle:(id)arg1;
 + (BOOL)_shouldUseDefaultFont;
 + (void)ab_setIgnoreUserFontSize:(BOOL)arg1;

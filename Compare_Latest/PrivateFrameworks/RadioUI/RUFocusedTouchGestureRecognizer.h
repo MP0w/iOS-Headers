@@ -8,7 +8,7 @@
 
 #import "UIGestureRecognizerDelegatePrivate.h"
 
-@class UIView;
+@class NSString, UIView;
 
 @interface RUFocusedTouchGestureRecognizer : UIGestureRecognizer <UIGestureRecognizerDelegatePrivate>
 {
@@ -22,6 +22,12 @@
 - (BOOL)_gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (id)initWithFocusedView:(id)arg1 touchAllowance:(struct UIEdgeInsets)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

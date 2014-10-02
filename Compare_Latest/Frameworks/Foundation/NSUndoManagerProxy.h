@@ -12,15 +12,17 @@ __attribute__((visibility("hidden")))
 @interface NSUndoManagerProxy : NSProxy
 {
     NSUndoManager *_manager;
+    Class _targetClass;
 }
 
+- (BOOL)isKindOfClass:(Class)arg1;
 - (void)forwardInvocation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)superRelease;
 - (oneway void)release;
 - (BOOL)_tryRetain;
 - (id)retain;
-- (id)initWithManager:(id)arg1;
+- (id)initWithManager:(id)arg1 targetClass:(Class)arg2;
 
 @end
 

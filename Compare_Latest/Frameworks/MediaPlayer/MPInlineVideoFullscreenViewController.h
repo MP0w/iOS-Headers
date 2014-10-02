@@ -11,7 +11,7 @@
 #import "MPVideoOverlayDelegate.h"
 #import "MPVolumeControllerDelegate.h"
 
-@class MPAVItem, MPInlineVideoController, MPSwipableView, MPVideoPlaybackOverlayView, MPVolumeController, MPWeakTimer, UIActivityIndicatorView, UIPinchGestureRecognizer, UITapGestureRecognizer;
+@class MPAVItem, MPInlineVideoController, MPSwipableView, MPVideoPlaybackOverlayView, MPVolumeController, MPWeakTimer, NSString, UIActivityIndicatorView, UIPinchGestureRecognizer, UITapGestureRecognizer;
 
 @interface MPInlineVideoFullscreenViewController : UIViewController <MPSwipableViewDelegate, MPVolumeControllerDelegate, MPVideoOverlayDelegate, MPTransportControlsTarget>
 {
@@ -50,23 +50,31 @@
 - (void)hideLoadingIndicator;
 - (void)cancelOverlayIdleTimer;
 - (void)volumeController:(id)arg1 volumeValueDidChange:(float)arg2;
+- (void)overlayTappedFullscreenButton:(id)arg1;
 - (void)overlayTappedBackButton:(id)arg1;
 - (void)overlay:(id)arg1 didEndUserEvent:(int)arg2;
 - (void)overlay:(id)arg1 didCancelUserEvent:(int)arg2;
 - (void)overlay:(id)arg1 didBeginUserEvent:(int)arg2;
 - (BOOL)transportControls:(id)arg1 tappedButtonPart:(unsigned long long)arg2;
 - (void)swipableViewHadActivity:(id)arg1;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (BOOL)prefersStatusBarHidden;
 - (unsigned int)supportedInterfaceOrientations;
 - (BOOL)shouldAutorotate;
 - (void)loadView;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
+- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

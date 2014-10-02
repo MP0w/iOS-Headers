@@ -20,7 +20,7 @@
 @property(retain, nonatomic) NSString *daemonAccountClassName; // @synthesize daemonAccountClassName=_daemonAccountClassName;
 @property(retain, nonatomic) NSString *clientAccountClassName; // @synthesize clientAccountClassName=_clientAccountClassName;
 @property(retain, nonatomic) NSString *accountClassName; // @synthesize accountClassName=_accountClassName;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)description;
 
 @end

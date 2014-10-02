@@ -10,8 +10,6 @@
 
 @interface QuietHoursStateController : NSObject
 {
-    BOOL _valid;
-    BOOL _enabled;
     unsigned int _mode;
     NSArray *_overrides;
     unsigned int _privilegeTypes;
@@ -20,7 +18,9 @@
     NSDateComponents *_toComponents;
     BBSettingsGateway *_bbGateway;
     unsigned int _overrideType;
+    BOOL _valid;
     BOOL _isEffectiveWhileUnlocked;
+    NSArray *_behaviorOverrides;
     int _overrideStatus;
 }
 
@@ -38,17 +38,15 @@
 @property(nonatomic) unsigned int privilegeTypes; // @synthesize privilegeTypes=_privilegeTypes;
 @property(nonatomic) BOOL isEffectiveWhileUnlocked; // @synthesize isEffectiveWhileUnlocked=_isEffectiveWhileUnlocked;
 @property(copy, nonatomic) NSArray *overrides; // @synthesize overrides=_overrides;
-@property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
+@property(copy, nonatomic) NSArray *behaviorOverrides; // @synthesize behaviorOverrides=_behaviorOverrides;
 @property(nonatomic) unsigned int mode; // @synthesize mode=_mode;
 @property(nonatomic) BOOL valid; // @synthesize valid=_valid;
-- (void)synchronizeOverrides:(id)arg1 mode:(unsigned int)arg2 gateway:(id)arg3;
 - (void)setAllowedGroup:(id)arg1 recordID:(int)arg2 groupName:(id)arg3;
 - (int)userSelectedGroupID;
 - (unsigned int)allowedGroupType;
 - (void)setRepeatedCalls:(BOOL)arg1;
 - (BOOL)manualModeEnabled;
 - (BOOL)repeatedCalls;
-- (void)synchronizeEnabledState;
 - (void)resetToFallbackRange;
 - (void)dealloc;
 - (id)init;

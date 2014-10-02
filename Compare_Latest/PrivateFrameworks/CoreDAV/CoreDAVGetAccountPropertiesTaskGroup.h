@@ -28,14 +28,14 @@
 }
 
 @property(nonatomic) BOOL shouldIgnoreHomeSetOnDifferentHost; // @synthesize shouldIgnoreHomeSetOnDifferentHost=_shouldIgnoreHomeSetOnDifferentHost;
-@property(readonly) NSSet *principalSearchProperties; // @synthesize principalSearchProperties=_principalSearchProperties;
-@property BOOL fetchPrincipalSearchProperties; // @synthesize fetchPrincipalSearchProperties=_fetchPrincipalSearchProperties;
-@property(readonly) BOOL isExpandPropertyReportSupported; // @synthesize isExpandPropertyReportSupported=_isExpandPropertyReportSupported;
-@property(readonly) NSSet *collections; // @synthesize collections=_collections;
-@property(readonly) NSSet *emailAddresses; // @synthesize emailAddresses=_emailAddresses;
-@property(readonly) NSURL *resourceID; // @synthesize resourceID=_resourceID;
-@property(readonly) NSString *displayName; // @synthesize displayName=_displayName;
-@property(readonly) NSURL *principalURL; // @synthesize principalURL=_principalURL;
+@property(readonly, nonatomic) NSSet *principalSearchProperties; // @synthesize principalSearchProperties=_principalSearchProperties;
+@property(nonatomic) BOOL fetchPrincipalSearchProperties; // @synthesize fetchPrincipalSearchProperties=_fetchPrincipalSearchProperties;
+@property(readonly, nonatomic) BOOL isExpandPropertyReportSupported; // @synthesize isExpandPropertyReportSupported=_isExpandPropertyReportSupported;
+@property(readonly, nonatomic) NSSet *collections; // @synthesize collections=_collections;
+@property(readonly, nonatomic) NSSet *emailAddresses; // @synthesize emailAddresses=_emailAddresses;
+@property(readonly, nonatomic) NSURL *resourceID; // @synthesize resourceID=_resourceID;
+@property(readonly, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
+@property(readonly, nonatomic) NSURL *principalURL; // @synthesize principalURL=_principalURL;
 - (void)task:(id)arg1 didFinishWithError:(id)arg2;
 - (void)searchPropertySetTask:(id)arg1 completetWithPropertySearchSet:(id)arg2 error:(id)arg3;
 - (void)processPrincipalHeaders:(id)arg1;
@@ -48,12 +48,15 @@
 - (id)homeSet;
 - (id)_copyAccountPropertiesPropFindElements;
 - (void)taskGroupWillCancelWithError:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithAccountInfoProvider:(id)arg1 taskManager:(id)arg2;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) id <CoreDAVGetAccountPropertiesTaskGroupDelegate> delegate; // @dynamic delegate;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

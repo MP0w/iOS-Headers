@@ -16,7 +16,7 @@
 - (void)_setTimebase:(struct OpaqueCMTimebase *)arg1;
 - (struct OpaqueCMTimebase *)_copyTimebase;
 - (void)_detachFromPlayerItem;
-- (void)_attachToPlayerItem:(id)arg1;
+- (BOOL)_attachToPlayerItem:(id)arg1;
 - (id)_weakReference;
 @property(nonatomic) BOOL suppressesPlayerRendering;
 - (CDStruct_1b6d18a9)itemTimeForMachAbsoluteTime:(long long)arg1;

@@ -18,9 +18,9 @@
 }
 
 + (id)crossfadeViewWithStartView:(id)arg1 endView:(id)arg2 translucent:(_Bool)arg3;
+@property(retain, nonatomic) SBFAnimationFactory *animationFactory; // @synthesize animationFactory=_animationFactory;
 - (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 - (void)crossfadeWithCompletion:(CDUnknownBlockType)arg1;
-@property(retain, nonatomic) SBFAnimationFactory *animationFactory;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)_initWithStartView:(id)arg1 endView:(id)arg2 translucent:(_Bool)arg3;

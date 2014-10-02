@@ -21,7 +21,10 @@
 + (int)statusFromString:(id)arg1;
 + (id)stringFromStatus:(int)arg1;
 + (id)inheritanceKeywords;
-@property(retain) NSArray *components; // @synthesize components=_components;
+@property(retain) NSMutableArray *components; // @synthesize components=_components;
+- (BOOL)shouldObscureValue;
+- (id)parametersToObscure;
+- (id)propertiesToObscure;
 - (id)propertiesThatIfPresentExcludeThisComponentFromChecksummingForVersion:(int)arg1;
 - (id)parametersToIncludeForChecksumVersion:(int)arg1;
 - (id)propertiesToIncludeForChecksumVersion:(int)arg1;
@@ -46,6 +49,8 @@
 - (BOOL)forcedAllDay;
 - (id)x_apple_travel_start;
 - (void)setX_apple_travel_start:(id)arg1;
+- (void)setX_apple_travel_advisory_behavior:(id)arg1;
+- (id)x_apple_travel_advisory_behavior;
 - (void)setX_apple_travel_duration:(id)arg1;
 - (id)x_apple_travel_duration;
 @property(retain) NSArray *conferences;
@@ -65,6 +70,7 @@
 @property(retain) NSString *uid;
 @property(retain) ICSTrigger *trigger;
 @property(retain) NSString *summary;
+@property(retain) NSString *statusString;
 @property int status;
 @property unsigned int sequence;
 @property(retain) NSArray *rrule;

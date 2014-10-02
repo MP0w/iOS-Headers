@@ -8,6 +8,8 @@
 
 #import "NSCopying.h"
 
+@class NSEntityDescription, NSPersistentStore;
+
 @interface NSManagedObjectID : NSObject <NSCopying>
 {
 }
@@ -20,9 +22,9 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)URIRepresentation;
 - (id)description;
-- (BOOL)isTemporaryID;
-- (id)persistentStore;
-- (id)entity;
+@property(readonly, getter=isTemporaryID) BOOL temporaryID;
+@property(readonly) __weak NSPersistentStore *persistentStore;
+@property(readonly) NSEntityDescription *entity;
 - (BOOL)_isDeallocating;
 - (BOOL)_tryRetain;
 - (id)_retainedURIString;

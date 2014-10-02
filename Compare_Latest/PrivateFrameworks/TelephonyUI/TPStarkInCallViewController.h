@@ -6,13 +6,14 @@
 
 #import "UIViewController.h"
 
+#import "TPStarkHardPauseButtonDelegate.h"
 #import "TPStarkInCallButtonsViewDelegate.h"
 #import "TPStarkPhoneCallGalleryViewDelegate.h"
 #import "UIActionSheetDelegate.h"
 
-@class NSArray, NSTimer, TPStarkInCallButtonsView, TPStarkPhoneCallGalleryView, TUCall, TUReplyWithMessageStore, UIActionSheet, UIView;
+@class NSArray, NSString, NSTimer, TPStarkInCallButtonsView, TPStarkInCallHardPauseButton, TPStarkPhoneCallGalleryView, TUCall, TUReplyWithMessageStore, UIView;
 
-@interface TPStarkInCallViewController : UIViewController <TPStarkPhoneCallGalleryViewDelegate, TPStarkInCallButtonsViewDelegate, UIActionSheetDelegate>
+@interface TPStarkInCallViewController : UIViewController <TPStarkPhoneCallGalleryViewDelegate, TPStarkHardPauseButtonDelegate, TPStarkInCallButtonsViewDelegate, UIActionSheetDelegate>
 {
     TUReplyWithMessageStore *_replyWithMessageStore;
     unsigned short _currentMode;
@@ -23,17 +24,17 @@
     UIView *_flippyView;
     TPStarkPhoneCallGalleryView *_galleryView;
     TPStarkInCallButtonsView *_buttonsView;
+    TPStarkInCallHardPauseButton *_hardPauseButton;
     NSTimer *_viewUpdateClockTickTimer;
+    TUCall *_callToDecline;
     TUCall *_failedCall;
-    UIActionSheet *_messageResponseActionSheet;
-    TUCall *_messageResponseCall;
 }
 
-@property(retain) TUCall *messageResponseCall; // @synthesize messageResponseCall=_messageResponseCall;
-@property(retain) UIActionSheet *messageResponseActionSheet; // @synthesize messageResponseActionSheet=_messageResponseActionSheet;
 @property(retain) TUCall *failedCall; // @synthesize failedCall=_failedCall;
 @property unsigned short currentMode; // @synthesize currentMode=_currentMode;
+@property(retain) TUCall *callToDecline; // @synthesize callToDecline=_callToDecline;
 @property(retain) NSTimer *viewUpdateClockTickTimer; // @synthesize viewUpdateClockTickTimer=_viewUpdateClockTickTimer;
+@property(retain) TPStarkInCallHardPauseButton *hardPauseButton; // @synthesize hardPauseButton=_hardPauseButton;
 @property(retain) TPStarkInCallButtonsView *buttonsView; // @synthesize buttonsView=_buttonsView;
 @property(retain) TPStarkPhoneCallGalleryView *galleryView; // @synthesize galleryView=_galleryView;
 @property(retain) UIView *flippyView; // @synthesize flippyView=_flippyView;
@@ -45,18 +46,23 @@
 - (void)_physicalButtonsEnded:(id)arg1 withEvent:(id)arg2;
 - (void)_physicalButtonsBegan:(id)arg1 withEvent:(id)arg2;
 - (void)_wheelChangedWithEvent:(id)arg1;
+- (void)selectNextHighlightableControlAscending:(BOOL)arg1;
+- (void)hardPauseButtonDidChangeVisibility:(id)arg1;
+- (void)highlightHardPauseButton;
 - (BOOL)currentCallStateWarrantsCallWaitingMode;
 - (void)callFailedNotification:(id)arg1;
 - (void)muteStateChangedNotification:(id)arg1;
 - (void)viewUpdateClockTickTimerFired:(id)arg1;
 - (void)updateButtonsViewState;
 - (BOOL)canSendMessageToCall:(id)arg1;
+- (BOOL)isSpringBoardPasscodeLocked;
 - (BOOL)areIncomingCallOptionsAllowed;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)handleAlertControllerSendMessageResponse:(id)arg1;
 - (id)replyWithMessageStore;
 - (void)inCallButtonWasTapped:(id)arg1;
 - (void)_sendMessageResponse:(id)arg1 toCall:(id)arg2;
 - (BOOL)canSendMessage;
+- (BOOL)isKeypadAllowed;
 - (BOOL)isSwapCallsAllowed;
 - (BOOL)isMergeCallsAllowed;
 - (BOOL)isAddCallAllowed;
@@ -76,6 +82,12 @@
 - (void)dealloc;
 - (void)loadView;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

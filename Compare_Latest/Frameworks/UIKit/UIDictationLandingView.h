@@ -8,7 +8,7 @@
 
 #import "_UIBasicAnimationFactory.h"
 
-@class CADisplayLink, NSInvocationOperation, UITextRange;
+@class CADisplayLink, NSOperation, NSString, UITextRange;
 
 __attribute__((visibility("hidden")))
 @interface UIDictationLandingView : UIView <_UIBasicAnimationFactory>
@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
     double _startTime;
     double _shrinkStartTime;
     BOOL _shrinking;
-    NSInvocationOperation *_afterShrinkCompletionInvocation;
+    NSOperation *_afterShrinkCompletionInvocation;
 }
 
 + (id)activeInstance;
@@ -36,7 +36,6 @@ __attribute__((visibility("hidden")))
 - (float)fadeOutDuration;
 - (void)stopLandingForError;
 - (void)errorShakeDidFinish;
-- (void)errorShrinkDidFinish;
 - (void)stopLanding;
 - (void)startLandingIfNecessary;
 - (void)startDisplayLinkIfNecessary;
@@ -46,11 +45,17 @@ __attribute__((visibility("hidden")))
 - (void)updatePosition;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)advanceLanding:(id)arg1;
-- (void)shrinkWithCompletionInvocation:(id)arg1;
+- (void)shrinkWithCompletion:(id)arg1;
 - (void)rotateBy:(float)arg1;
 - (void)clearRotation;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -18,6 +18,7 @@
     NSObject<OS_dispatch_queue> *_queue;
     unsigned int _queuedFeed;
     NSString *_queuedSectionID;
+    NSString *_queuedUniversalSectionID;
     NSMutableDictionary *_deferredDismissalsBySectionID;
     NSTimer *_deferredTimer;
     int _lockNotifyToken;
@@ -37,10 +38,17 @@
 - (void)sendSyncedRemovalForBulletin:(id)arg1 feeds:(unsigned int)arg2;
 - (void)enqueueSyncedRemovalForBulletin:(id)arg1 feeds:(unsigned int)arg2;
 - (void)sendPendingSyncedRemovals;
+- (id)dismissalSectionIdentifierForIncomingMessage:(id)arg1;
 - (void)service:(id)arg1 account:(id)arg2 incomingMessage:(id)arg3 fromID:(id)arg4;
 - (void)service:(id)arg1 activeAccountsChanged:(id)arg2;
 - (void)dealloc;
 - (id)initWithQueue:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

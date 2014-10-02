@@ -8,7 +8,7 @@
 
 #import "SSXPCCoding.h"
 
-@class NSURLRequest, SSAuthenticationContext, SSURLRequestProperties, SSVURLDataConsumer;
+@class NSString, NSURLRequest, SSAuthenticationContext, SSURLRequestProperties, SSVURLDataConsumer;
 
 @interface SSURLConnectionRequest : SSRequest <SSXPCCoding>
 {
@@ -39,7 +39,11 @@
 - (id)init;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) id <SSURLConnectionRequestDelegate> delegate; // @dynamic delegate;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,24 +6,17 @@
 
 #import <GeoServices/GEOPlaceSearchRequest.h>
 
-@class NSString;
-
 @interface GEOGeocodeRequest : GEOPlaceSearchRequest
 {
-    unsigned short _geocodeProvider;
-    NSString *_logRequestToFile;
-    NSString *_logResponseToFile;
 }
 
-@property(retain, nonatomic) NSString *logResponseToFile; // @synthesize logResponseToFile=_logResponseToFile;
-@property(retain, nonatomic) NSString *logRequestToFile; // @synthesize logRequestToFile=_logRequestToFile;
-@property(nonatomic) unsigned short geocodeProvider; // @synthesize geocodeProvider=_geocodeProvider;
-- (void)dealloc;
 - (id)initForwardGeocodeWithAddressString:(id)arg1;
 - (id)initForwardGeocodeWithAddressDictionary:(id)arg1;
 - (id)initForwardGeocodeWithAddress:(id)arg1;
-- (id)initReverseGeocodeWithCoordinate:(CDStruct_c3b9c2ee)arg1;
 - (id)initReverseGeocodeWithCoordinate:(CDStruct_c3b9c2ee)arg1 includeBusinessOptions:(BOOL)arg2;
+- (id)initReverseGeocodeWithCoordinate:(CDStruct_c3b9c2ee)arg1;
+- (id)initWithCoordinate:(CDStruct_c3b9c2ee)arg1 includeEntryPoints:(BOOL)arg2 traits:(id)arg3;
+- (id)initWithAddress:(id)arg1 maxResults:(int)arg2 traits:(id)arg3;
 
 @end
 

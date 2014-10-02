@@ -4,16 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class CLSilo;
+#import "CLIntersiloProxyDelegateProtocol.h"
 
-@protocol CLIntersiloServiceProtocol
+@class CLSilo, NSMutableArray;
+
+@protocol CLIntersiloServiceProtocol <CLIntersiloProxyDelegateProtocol>
++ (void)becameFatallyBlocked:(NSMutableArray *)arg1;
 + (CLSilo *)getSilo;
-- (void)heartAttack;
 
 @optional
-- (oneway void)release;
-- (id)retain;
-- (void)registerDelegate:(id)arg1 inSilo:(CLSilo *)arg2;
+- (void)registerDelegate:(id <CLIntersiloProxyDelegateProtocol>)arg1 inSilo:(CLSilo *)arg2;
 - (void)endService;
 - (void)beginService;
 @end

@@ -6,10 +6,12 @@
 
 #import "NSObject.h"
 
-#import "OCCancelDelegate.h"
+#import "TCCancelDelegate.h"
+
+@class NSString;
 
 __attribute__((visibility("hidden")))
-@interface OCCancel : NSObject <OCCancelDelegate>
+@interface OCCancel : NSObject <TCCancelDelegate>
 {
     BOOL mIsCancelled;
     BOOL mIsQuit;
@@ -20,6 +22,12 @@ __attribute__((visibility("hidden")))
 - (BOOL)isCancelled;
 - (void)cancel;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

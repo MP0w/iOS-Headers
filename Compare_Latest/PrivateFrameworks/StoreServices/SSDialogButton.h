@@ -19,7 +19,7 @@
 @property(readonly, nonatomic) NSString *URLTarget;
 @property(readonly, nonatomic) NSString *buttonAction;
 @property(readonly, nonatomic) id actionParameter;
-@property(readonly, nonatomic) NSString *buttonTitle;
+@property(readonly, copy, nonatomic) NSString *buttonTitle;
 - (void)dealloc;
 - (id)initWithTitle:(id)arg1 actionDictionary:(id)arg2;
 - (id)init;

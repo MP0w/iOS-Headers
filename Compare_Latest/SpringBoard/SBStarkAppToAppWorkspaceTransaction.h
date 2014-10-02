@@ -6,15 +6,14 @@
 
 #import "SBStarkToAppWorkspaceTransaction.h"
 
-#import "SBUIAnimationControllerDelegate.h"
+#import "SBUIAnimationControllerObserver.h"
 
-@class BKSApplicationActivationAssertion, SBApplication, SBUIAnimationController;
+@class NSString, SBApplication, SBUIAnimationController;
 
-@interface SBStarkAppToAppWorkspaceTransaction : SBStarkToAppWorkspaceTransaction <SBUIAnimationControllerDelegate>
+@interface SBStarkAppToAppWorkspaceTransaction : SBStarkToAppWorkspaceTransaction <SBUIAnimationControllerObserver>
 {
     SBApplication *_fromApp;
     SBUIAnimationController *_animationController;
-    BKSApplicationActivationAssertion *_suspendingAppAssertion;
     _Bool _animatedActivation;
     _Bool _animatedDeactivation;
 }
@@ -36,25 +35,25 @@
 - (id)_defaultAnimationFactory;
 - (id)_setupAnimationFrom:(id)arg1 to:(id)arg2;
 - (id)swizzledToDisplayIfNecessary;
-- (void)_transactionComplete;
-- (void)_interruptWithReason:(int)arg1;
+- (void)_didComplete;
+- (void)_didInterruptWithReason:(id)arg1;
 - (_Bool)_canBeInterrupted;
 - (void)_endAnimation;
-- (_Bool)selfStarkAlertDidDeactivate:(id)arg1;
-- (_Bool)selfAlertDidDeactivate:(id)arg1;
-- (_Bool)selfApplicationExited:(id)arg1;
-- (_Bool)selfApplicationLaunchDidFail:(id)arg1;
-- (_Bool)selfApplicationActivated:(id)arg1;
-- (_Bool)selfApplicationDidFinishLaunching:(id)arg1 withInfo:(id)arg2;
-- (_Bool)selfApplicationDidBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
-- (_Bool)selfApplicationWillBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
-- (void)_commit;
+- (void)mainScreenApplicationSceneWillCommit:(id)arg1;
+- (void)mainScreenApplicationUpdateScenesTransactionCompleted:(id)arg1;
+- (void)_fixupSettingsAndCommit;
+- (void)_begin;
 - (void)_beginAnimation;
-- (int)_setupMilestonesFrom:(id)arg1 to:(id)arg2;
+- (void)_setupMilestonesFrom:(id)arg1 to:(id)arg2;
 - (void)_noteWillActivateApplicationOnMainScreen:(id)arg1 underLock:(_Bool)arg2;
-- (id)debugDescription;
+@property(readonly, copy) NSString *debugDescription;
 - (void)dealloc;
-- (id)initWithWorkspace:(id)arg1 mainScreenAlertManager:(id)arg2 starkScreenController:(id)arg3 from:(id)arg4 to:(id)arg5;
+- (id)initWithMainScreenAlertManager:(id)arg1 starkScreenController:(id)arg2 from:(id)arg3 to:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

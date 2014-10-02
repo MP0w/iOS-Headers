@@ -24,6 +24,7 @@
     UILabel *_combinedLabel;
 }
 
++ (float)defaultCellHeight;
 + (id)combinedStringFromDate:(id)arg1 withTimezoneOffset:(int)arg2 dayText:(id *)arg3 hourText:(id *)arg4 usesSeparateLines:(BOOL)arg5;
 @property(readonly, nonatomic) BOOL started; // @synthesize started=_started;
 @property(readonly, nonatomic) UILabel *combinedLabel; // @synthesize combinedLabel=_combinedLabel;

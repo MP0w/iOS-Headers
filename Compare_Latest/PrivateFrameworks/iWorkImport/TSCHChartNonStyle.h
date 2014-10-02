@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (id)p_magicMoveProperties;
 + (id)defaultStyleWithContext:(id)arg1;
 + (int)muxDefaultPropertyForSpecificProperty:(int)arg1;
 + (id)defaultValueForProperty:(int)arg1;
@@ -18,6 +19,8 @@ __attribute__((visibility("hidden")))
 + (int)defaultIntValueForProperty:(int)arg1;
 + (id)imageFillProperties;
 + (id)properties;
+- (id)mixedObjectWithFraction:(float)arg1 ofObject:(id)arg2;
+- (int)mixingTypeWithObject:(id)arg1;
 - (id)initFromPreUFFArchiveWithUnarchiver:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
 - (id)initFromUnarchiver:(id)arg1;

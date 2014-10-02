@@ -11,7 +11,7 @@
     BOOL _isDisabled;
 }
 
-@property BOOL isDisabled; // @synthesize isDisabled=_isDisabled;
+@property(nonatomic) BOOL isDisabled; // @synthesize isDisabled=_isDisabled;
 - (void)disable;
 
 @end

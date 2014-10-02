@@ -14,15 +14,18 @@
 {
 }
 
-+ (id)domainSearchResultsWithDictionary:(id)arg1 context:(id)arg2;
-+ (id)domainSearchResults;
 - (BOOL)requiresResponse;
+- (id)init;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 
 // Remaining properties
 @property(copy, nonatomic) NSString *aceId; // @dynamic aceId;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(copy, nonatomic) NSString *refId; // @dynamic refId;
+@property(readonly) Class superclass;
 
 @end
 

@@ -10,7 +10,7 @@
 #import "TSKDocumentObject.h"
 #import "TSWPStorageParent.h"
 
-@class NSObject<TSDContainerInfo>, TSDInfoGeometry, TSPObject<TSDOwningAttachment>, TSWPStorage;
+@class NSObject<TSDContainerInfo>, NSString, TSDInfoGeometry, TSPObject<TSDOwningAttachment>, TSWPStorage;
 
 __attribute__((visibility("hidden")))
 @interface KNNoteInfo : TSPObject <TSDContainerInfo, TSWPStorageParent, TSKDocumentObject>
@@ -46,6 +46,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=isInlineWithText) BOOL inlineWithText;
 @property(readonly, nonatomic, getter=isAnchoredToText) BOOL anchoredToText;
 @property(readonly, nonatomic, getter=isFloatingAboveText) BOOL floatingAboveText;
+- (void)clearBackPointerToParentInfoIfNeeded:(id)arg1;
 @property(copy, nonatomic) TSDInfoGeometry *geometry;
 - (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
 - (id)copyWithContext:(id)arg1;
@@ -58,7 +59,11 @@ __attribute__((visibility("hidden")))
 - (id)initFromUnarchiver:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(nonatomic) BOOL matchesObjectPlaceholderGeometry;
+@property(readonly) Class superclass;
 
 @end
 

@@ -22,6 +22,7 @@
     struct __CFRunLoopSource *_rls;
     CDUnknownFunctionPointerType _clientCallback;
     CDStruct_304912e7 _clientContext;
+    SLRequestBodyInputStream *_selfReferenceDuringStreamEventTrigger;
     id <NSStreamDelegate> _delegate;
 }
 

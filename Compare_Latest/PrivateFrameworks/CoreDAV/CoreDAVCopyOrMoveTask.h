@@ -15,8 +15,8 @@
 }
 
 + (id)stringFromOverwriteValue:(int)arg1;
-@property(retain) NSURL *destinationURL; // @synthesize destinationURL=_destinationURL;
-@property int overwrite; // @synthesize overwrite=_overwrite;
+@property(retain, nonatomic) NSURL *destinationURL; // @synthesize destinationURL=_destinationURL;
+@property(nonatomic) int overwrite; // @synthesize overwrite=_overwrite;
 - (void)_callBackToDelegateWithResponses:(id)arg1 error:(id)arg2;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)additionalHeaderValues;

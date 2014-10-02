@@ -13,9 +13,11 @@ __attribute__((visibility("hidden")))
 
 + (void)resolveStyle:(id)arg1 state:(id)arg2;
 + (int)chdShapeTypeFromXmlShapeTypeElement:(struct _xmlNode *)arg1;
++ (id)stringWithGroupingEnum:(int)arg1;
 + (int)chdGroupingFromXmlGroupingElement:(struct _xmlNode *)arg1;
 + (id)chdChartTypeFromXmlChartTypeElement:(struct _xmlNode *)arg1 state:(id)arg2;
-+ (Class)chxChartTypeClassWithXmlElement:(struct _xmlNode *)arg1;
++ (void)prepareChartTypeForWriting:(id)arg1;
++ (Class)chxChartTypeClassWithXmlElement:(struct _xmlNode *)arg1 state:(id)arg2;
 
 @end
 

@@ -6,46 +6,46 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
-#import "NSCopying.h"
+@class PKRegion;
 
-@interface PKPhysicsField : NSObject <NSCopying, NSCoding>
+@interface PKPhysicsField : NSObject
 {
-    struct b2PKField *_field;
-    BOOL _inUse;
-    struct CGVector _scale;
-    struct CGVector _halfExtent;
-    id <NSObject> _representedObject;
-    BOOL _active;
+    shared_ptr_307a0f33 _field;
+    PKRegion *_region;
+    // Error parsing type: , name: _position
+    float _rotation;
+    // Error parsing type: , name: _scale
     BOOL _override;
-    BOOL _exclusive;
 }
 
-@property(nonatomic, getter=isExclusive) BOOL exclusive; // @synthesize exclusive=_exclusive;
 @property(nonatomic, getter=isOverride) BOOL override; // @synthesize override=_override;
-@property(nonatomic, getter=isActive) BOOL active; // @synthesize active=_active;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)setIsExclusive:(BOOL)arg1;
-- (BOOL)exclusive;
-@property(nonatomic, getter=isRound) BOOL round;
-@property(nonatomic) struct CGVector halfExtent;
-@property(nonatomic) struct CGVector scale;
+@property(nonatomic) float minimumRadius;
+// Error parsing type for property scale:
+// Property attributes: T,N
+
 @property(nonatomic) float rotation;
-@property(nonatomic) struct CGPoint position;
+// Error parsing type for property position:
+// Property attributes: T,N
+
 - (void)setIsOverride:(BOOL)arg1;
 - (BOOL)override;
-- (void)setIsActive:(BOOL)arg1;
-- (BOOL)active;
+@property(nonatomic) unsigned int categoryBitMask;
+- (void)setActive:(BOOL)arg1;
+- (BOOL)isActive;
+@property(nonatomic, getter=isEnabled) BOOL enabled;
+@property(nonatomic) float falloff;
+// Error parsing type for property direction:
+// Property attributes: T,N
+
 @property(nonatomic) float strength;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
 @property(nonatomic) __weak id <NSObject> representedObject;
-- (void)set_field:(struct b2PKField *)arg1;
-- (struct b2PKField *)_field;
+@property(retain, nonatomic) id region;
+- (void)set_field:(shared_ptr_307a0f33)arg1;
+- (shared_ptr_307a0f33)_field;
+- (void)dealloc;
 - (id)init;
-@property(nonatomic) BOOL _inUse;
 
 @end
 

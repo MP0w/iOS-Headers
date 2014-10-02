@@ -14,7 +14,7 @@
 
 - (void)setCustomValidity:(id)arg1;
 - (BOOL)checkValidity;
-@property(readonly) NSURL *absoluteImageURL;
+@property(readonly, copy) NSURL *absoluteImageURL;
 @property(readonly) DOMDocument *contentDocument;
 - (id)validationMessage;
 - (id)validity;

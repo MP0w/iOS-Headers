@@ -8,7 +8,7 @@
 
 #import "BBSectionIdentity.h"
 
-@class BBDataProviderIdentity;
+@class BBDataProviderIdentity, NSString;
 
 @interface BBDataProvider : NSObject <BBSectionIdentity>
 {
@@ -16,6 +16,8 @@
 }
 
 @property(retain) BBDataProviderIdentity *identity; // @synthesize identity=_identity;
+@property(readonly, copy) NSString *debugDescription;
+- (id)debugDescriptionWithChildren:(unsigned int)arg1;
 - (void)deliverMessageWithName:(id)arg1 userInfo:(id)arg2;
 - (BOOL)migrateSectionInfo:(id)arg1 oldSectionInfo:(id)arg2;
 - (BOOL)canPerformMigration;
@@ -29,6 +31,7 @@
 - (void)clearedInfoAndBulletinsForClearingAllBulletinsWithLimit:(id)arg1 lastClearedInfo:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)clearedInfoForBulletins:(id)arg1 lastClearedInfo:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)bulletinsWithRequestParameters:(id)arg1 lastCleared:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)parentSectionIdentifier;
 - (BOOL)canClearAllBulletins;
 - (BOOL)syncsBulletinDismissal;
 - (BOOL)isPushDataProvider;
@@ -40,13 +43,18 @@
 - (id)sectionDisplayName;
 - (id)defaultSubsectionInfos;
 - (id)defaultSectionInfo;
+- (id)universalSectionIdentifier;
 - (id)sectionIdentifier;
 - (void)dataProviderDidLoad;
 - (void)startWatchdog;
 - (BOOL)initialized;
 - (void)invalidate;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

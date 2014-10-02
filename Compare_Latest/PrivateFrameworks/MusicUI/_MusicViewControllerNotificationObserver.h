@@ -16,9 +16,9 @@
     id _target;
 }
 
-@property(readonly, nonatomic) id target; // @synthesize target=_target;
+@property(readonly, nonatomic) __weak id target; // @synthesize target=_target;
 @property(readonly, nonatomic) SEL selector; // @synthesize selector=_selector;
-@property(readonly, nonatomic) id object; // @synthesize object=_object;
+@property(readonly, nonatomic) __weak id object; // @synthesize object=_object;
 @property(readonly, nonatomic) NSString *notificationName; // @synthesize notificationName=_notificationName;
 - (void).cxx_destruct;
 - (void)_didReceiveNotification:(id)arg1;

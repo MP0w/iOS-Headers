@@ -6,13 +6,12 @@
 
 #import <WebCore/DOMDocument.h>
 
-@class DOMElement, DOMHTMLCollection, NSString;
+@class DOMHTMLCollection, NSString;
 
 @interface DOMHTMLDocument : DOMDocument
 {
 }
 
-- (BOOL)hasFocus;
 - (void)releaseEvents;
 - (void)captureEvents;
 - (void)clear;
@@ -25,8 +24,7 @@
 @property(copy) NSString *alinkColor;
 @property(copy) NSString *fgColor;
 @property(copy) NSString *bgColor;
-@property(readonly) DOMElement *activeElement;
-@property(readonly) NSString *compatMode;
+@property(readonly, copy) NSString *compatMode;
 @property(copy) NSString *designMode;
 @property(copy) NSString *dir;
 @property(readonly) int height;

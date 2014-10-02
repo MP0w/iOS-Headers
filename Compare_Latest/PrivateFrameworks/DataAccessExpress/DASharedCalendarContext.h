@@ -10,16 +10,20 @@
 
 @interface DASharedCalendarContext : NSObject
 {
+    BOOL _shouldSyncCalendar;
     NSString *_calendarID;
     NSString *_accountID;
     NSObject<OS_dispatch_queue> *_queue;
     CDUnknownBlockType _completionBlock;
-    BOOL _shouldSyncCalendar;
 }
 
 @property(nonatomic) BOOL shouldSyncCalendar; // @synthesize shouldSyncCalendar=_shouldSyncCalendar;
+@property(readonly, copy, nonatomic) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
+@property(readonly, nonatomic) NSString *accountID; // @synthesize accountID=_accountID;
+@property(readonly, nonatomic) NSString *calendarID; // @synthesize calendarID=_calendarID;
+- (void).cxx_destruct;
 - (void)finishedWithError:(id)arg1;
-- (void)dealloc;
 - (id)initWithCalendarID:(id)arg1 accountID:(id)arg2 queue:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
 
 @end

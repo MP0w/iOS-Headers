@@ -11,7 +11,10 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (id)readShape3DFromXmlNode:(struct _xmlNode *)arg1 packagePart:(id)arg2;
++ (BOOL)isEmpty:(id)arg1;
++ (void)writeShape3D:(id)arg1 to:(id)arg2;
++ (void)writeBevel:(id)arg1 to:(id)arg2;
++ (id)readShape3DFromXmlNode:(struct _xmlNode *)arg1 packagePart:(id)arg2 drawingState:(id)arg3;
 + (id)readBevelFromXmlNode:(struct _xmlNode *)arg1;
 + (id)materialEnumMap;
 + (id)bevelTypeEnumMap;

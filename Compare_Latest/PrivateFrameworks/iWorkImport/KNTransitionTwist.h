@@ -6,30 +6,28 @@
 
 #import <iWorkImport/KNAnimationEffect.h>
 
+#import "KNAnimationPluginArchiving.h"
 #import "KNFrameAnimator.h"
 
-@class NSArray, TSDGLDataBuffer, TSDGLMotionBlurEffect, TSDGLShader;
+@class NSArray, NSString, TSDGLDataBuffer, TSDGLMotionBlurEffect, TSDGLShader;
 
 __attribute__((visibility("hidden")))
-@interface KNTransitionTwist : KNAnimationEffect <KNFrameAnimator>
+@interface KNTransitionTwist : KNAnimationEffect <KNFrameAnimator, KNAnimationPluginArchiving>
 {
     TSDGLMotionBlurEffect *_motionBlurEffect;
-    TSDGLShader *_colorShader;
-    TSDGLShader *_velocityShader;
-    TSDGLDataBuffer *_colorDataBuffer;
-    TSDGLDataBuffer *_velocityDataBuffer;
-    NSArray *_colorBufferAttributes;
-    NSArray *_velocityBufferAttributes;
-    unsigned int _colorPositionAttributeIndex;
-    unsigned int _colorTexCoordAttributeIndex;
-    unsigned int _colorNormalAttributeIndex;
-    unsigned int _velocityPositionAttributeIndex;
-    unsigned int _velocityPrevPositionAttributeIndex;
+    TSDGLShader *_shader;
+    TSDGLDataBuffer *_dataBuffer;
+    NSArray *_bufferAttributes;
+    unsigned int _positionAttributeIndex;
+    unsigned int _texCoordAttributeIndex;
+    unsigned int _normalAttributeIndex;
+    unsigned int _prevPositionAttributeIndex;
     int _numPoints;
     float _twistyness;
-    BOOL _shouldDrawMotionBlur;
 }
 
++ (void)downgradeAttributes:(id *)arg1 animationName:(id *)arg2 warning:(id *)arg3 type:(int)arg4 isToClassic:(BOOL)arg5 version:(unsigned long long)arg6;
++ (void)upgradeAttributes:(id *)arg1 animationName:(id)arg2 warning:(id *)arg3 type:(int)arg4 isFromClassic:(BOOL)arg5 version:(unsigned long long)arg6;
 + (id)thumbnailImageNameForType:(int)arg1;
 + (id)customAttributes;
 + (id)defaultAttributes;
@@ -43,14 +41,20 @@ __attribute__((visibility("hidden")))
 - (void)renderFrameWithContext:(id)arg1;
 - (void)animationDidEndWithContext:(id)arg1;
 - (void)animationWillBeginWithContext:(id)arg1;
-- (void)p_drawTwistWithVelocity:(BOOL)arg1 percent:(float)arg2 texture:(id)arg3 oldTexture:(id)arg4;
-- (void)update:(id)arg1 withPercent:(float)arg2 direction:(unsigned int)arg3;
+- (void)p_drawTwistWithPercent:(float)arg1 texture:(id)arg2 oldTexture:(id)arg3;
+- (void)update:(id)arg1 withContext:(id)arg2;
 - (float)fx:(float)arg1 withPercent:(float)arg2;
 - (void)drawGrid:(id)arg1;
-- (void)createArrays:(id)arg1;
+- (void)createArrays:(id)arg1 context:(id)arg2;
 - (void)dealloc;
 - (void)p_teardown;
 - (id)initWithAnimationContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -29,7 +29,8 @@
 - (_Bool)parseContentsOfURL:(id)arg1;
 - (_Bool)parseData:(id)arg1;
 - (_Bool)parseString:(id)arg1;
-@property id delegate;
+- (_Bool)parseBytes:(const char *)arg1 length:(unsigned long)arg2;
+@property __weak id delegate;
 @property(retain) NSURL *baseURL;
 - (void)dealloc;
 - (id)init;

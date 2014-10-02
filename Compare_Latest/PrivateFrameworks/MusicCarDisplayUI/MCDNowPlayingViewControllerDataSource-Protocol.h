@@ -11,6 +11,7 @@
 @protocol MCDNowPlayingViewControllerDataSource <NSObject>
 - (BOOL)nowPlayingViewControllerIsPlaying:(MCDNowPlayingViewController *)arg1;
 - (double)playbackDurationForNowPlayingViewController:(MCDNowPlayingViewController *)arg1 withElapsedTime:(out double *)arg2;
+- (BOOL)nowPlayingViewControllerIsShowingExplicitTrack:(MCDNowPlayingViewController *)arg1;
 - (UIImage *)backgroundArtForNowPlayingController:(MCDNowPlayingViewController *)arg1;
 - (NSString *)titleForNowPlayingController:(MCDNowPlayingViewController *)arg1;
 - (NSString *)albumTextForNowPlayingController:(MCDNowPlayingViewController *)arg1;

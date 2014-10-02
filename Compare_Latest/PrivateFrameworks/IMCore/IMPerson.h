@@ -34,11 +34,11 @@
 @property(readonly, nonatomic) NSData *imageDataWithoutLoading;
 @property(retain, nonatomic) NSData *imageData;
 - (void)_abPersonChanged:(id)arg1;
-@property(readonly, nonatomic) NSArray *groups;
+@property(readonly, retain, nonatomic) NSArray *groups;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isEqualToIMPerson:(id)arg1;
-@property(readonly, nonatomic) NSString *uniqueID;
+@property(readonly, retain, nonatomic) NSString *uniqueID;
 - (BOOL)containsHandle:(id)arg1 forServiceProperty:(id)arg2;
 - (void)appendID:(id)arg1 toProperty:(id)arg2;
 - (void)save;
@@ -57,11 +57,11 @@
 - (void)setFirstName:(id)arg1 lastName:(id)arg2;
 @property(copy, nonatomic) NSString *lastName;
 @property(copy, nonatomic) NSString *firstName;
-@property(readonly, nonatomic) NSString *fullName;
+@property(readonly, retain, nonatomic) NSString *fullName;
 @property(copy, nonatomic) NSString *nickname;
-@property(readonly, nonatomic) NSString *name;
-@property(readonly, nonatomic) NSString *displayName;
-@property(readonly, nonatomic) NSString *abbreviatedName;
+@property(readonly, retain, nonatomic) NSString *name;
+@property(readonly, retain, nonatomic) NSString *displayName;
+@property(readonly, retain, nonatomic) NSString *abbreviatedName;
 @property(readonly, nonatomic) NSString *companyName;
 @property(readonly, nonatomic) BOOL isCompany;
 - (void)dealloc;
@@ -70,6 +70,7 @@
 @property(readonly, nonatomic) int recordID;
 - (id)initWithABRecordID:(int)arg1;
 - (id)init;
+- (id)idsAddresses;
 - (id)imHandleRegistrarGUID;
 
 @end

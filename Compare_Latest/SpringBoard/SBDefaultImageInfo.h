@@ -17,7 +17,7 @@
     long long _originalOrientation;
     long long _currentOrientation;
     UIImage *_image;
-    struct CGSize _launchingScreenSize;
+    struct CGSize _launchingSize;
 }
 
 @property(nonatomic) _Bool isDownscaled; // @synthesize isDownscaled=_isDownscaled;
@@ -27,7 +27,7 @@
 @property(nonatomic) long long originalOrientation; // @synthesize originalOrientation=_originalOrientation;
 @property(nonatomic) double launchingScale; // @synthesize launchingScale=_launchingScale;
 @property(nonatomic) long long launchingInterfaceOrientation; // @synthesize launchingInterfaceOrientation=_launchingInterfaceOrientation;
-@property(nonatomic) struct CGSize launchingScreenSize; // @synthesize launchingScreenSize=_launchingScreenSize;
+@property(nonatomic) struct CGSize launchingSize; // @synthesize launchingSize=_launchingSize;
 - (id)description;
 - (void)dealloc;
 

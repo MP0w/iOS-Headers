@@ -9,6 +9,8 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
+@class NSString;
+
 @interface PKColor : NSObject <NSSecureCoding, NSCopying>
 {
     float _red;
@@ -26,9 +28,10 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (unsigned int)hash;
-- (id)string;
-- (struct CGColor *)CGColor;
+@property(readonly, nonatomic) unsigned int hash;
+@property(readonly, nonatomic) NSString *string;
+@property(readonly, nonatomic) struct CGColor *CGColor;
+- (float)luminance;
 - (void)dealloc;
 
 @end

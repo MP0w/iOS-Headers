@@ -27,6 +27,7 @@
 @property(retain) NSLayoutConstraint *horizontalPositioningConstraint; // @synthesize horizontalPositioningConstraint=_horizontalPositioningConstraint;
 @property(retain) UILabel *buttonLabel; // @synthesize buttonLabel=_buttonLabel;
 - (void)dealloc;
+- (void)updateToProperIconColor;
 - (void)setHasRingView:(BOOL)arg1;
 - (void)setSelected:(BOOL)arg1;
 - (void)setEnabled:(BOOL)arg1;

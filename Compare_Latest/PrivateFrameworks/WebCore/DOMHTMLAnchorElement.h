@@ -12,15 +12,15 @@
 {
 }
 
-@property(readonly) NSURL *absoluteLinkURL;
-@property(readonly) NSString *text;
-@property(readonly) NSString *search;
-@property(readonly) NSString *protocol;
-@property(readonly) NSString *port;
-@property(readonly) NSString *pathname;
-@property(readonly) NSString *hostname;
-@property(readonly) NSString *host;
-@property(readonly) NSString *hashName;
+@property(readonly, copy) NSURL *absoluteLinkURL;
+@property(readonly, copy) NSString *text;
+@property(readonly, copy) NSString *search;
+@property(readonly, copy) NSString *protocol;
+@property(readonly, copy) NSString *port;
+@property(readonly, copy) NSString *pathname;
+@property(readonly, copy) NSString *hostname;
+@property(readonly, copy) NSString *host;
+@property(readonly, copy) NSString *hashName;
 @property(copy) NSString *accessKey;
 @property(copy) NSString *type;
 @property(copy) NSString *target;

@@ -10,7 +10,7 @@
 
 @interface TRTransferServer : NSObject
 {
-    CDStruct_a554bdc7 *_aesContext;
+    CDStruct_86971917 *_aesContext;
     BOOL _didSendData;
     struct AirPlayPairingSessionPrivate *_pairingSession;
     int _pairingState;

@@ -9,7 +9,7 @@
 #import "SBKSyncTransactionProcessing.h"
 #import "SBKTransactionControllerDelegate.h"
 
-@class NSDictionary, NSError, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, SBKSyncBagContext, SBKSyncTransaction, SBKTransactionController;
+@class NSDictionary, NSError, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, SBKSyncTransaction, SBKTransactionController;
 
 __attribute__((visibility("hidden")))
 @interface SBKPlaybackPositionSyncRequestHandler : SBKSyncRequestHandler <SBKTransactionControllerDelegate, SBKSyncTransactionProcessing>
@@ -72,7 +72,10 @@ __attribute__((visibility("hidden")))
 - (id)initWithDataSource:(id)arg1 bagContext:(id)arg2;
 
 // Remaining properties
-@property(retain) SBKSyncBagContext *bagContext;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

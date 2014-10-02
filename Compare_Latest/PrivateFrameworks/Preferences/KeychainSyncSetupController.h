@@ -14,7 +14,7 @@
 }
 
 - (void)cancelPressed;
-- (void)pushController:(id)arg1;
+- (void)showController:(id)arg1;
 - (id)initWithManager:(id)arg1;
 
 @end

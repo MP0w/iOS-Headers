@@ -8,6 +8,8 @@
 
 #import "NSURLConnectionDelegate.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface GEOVoltaireSimpleTileRequester : GEOSimpleTileRequester <NSURLConnectionDelegate>
 {
@@ -18,6 +20,12 @@ __attribute__((visibility("hidden")))
 - (id)urlForTileKey:(struct _GEOTileKey *)arg1;
 - (unsigned int)tileEditionForKey:(struct _GEOTileKey *)arg1;
 - (unsigned int)tileSetForKey:(const struct _GEOTileKey *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

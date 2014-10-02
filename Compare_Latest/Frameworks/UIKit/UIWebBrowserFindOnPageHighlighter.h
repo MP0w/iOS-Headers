@@ -29,7 +29,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned int highlightedMatchIndex; // @synthesize highlightedMatchIndex=_highlightedMatchIndex;
 @property(readonly, nonatomic) unsigned int numberOfMatches; // @synthesize numberOfMatches=_numberOfMatches;
 @property(nonatomic) id <UIWebFindOnPageHighlighterDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) NSString *searchText; // @synthesize searchText=_searchText;
+@property(readonly, copy, nonatomic) NSString *searchText; // @synthesize searchText=_searchText;
 - (void)search:(id)arg1 hasPartialResults:(id)arg2;
 - (void)searchDidFinish:(id)arg1;
 - (void)searchLimitHit:(id)arg1;
@@ -56,6 +56,12 @@ __attribute__((visibility("hidden")))
 - (void)_commonInitialize;
 - (id)initWithPDFViewHandler:(id)arg1;
 - (id)initWithBrowserView:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

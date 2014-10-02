@@ -9,13 +9,13 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class GEOPlaceResult, NSArray, NSUUID;
+@class NSArray, NSUUID;
 
 @interface RTLocationOfInterest : NSObject <NSCopying, NSSecureCoding>
 {
     NSUUID *_identifier;
     int _type;
-    GEOPlaceResult *_placeResult;
+    id <GEOMapItem> _geoMapItem;
     NSArray *_visits;
     double _latitude;
     double _longitude;
@@ -24,8 +24,9 @@
 }
 
 + (BOOL)supportsSecureCoding;
++ (id)locationOfInterestTypeToString:(int)arg1;
 @property(readonly, nonatomic) NSArray *visits; // @synthesize visits=_visits;
-@property(readonly, nonatomic) GEOPlaceResult *placeResult; // @synthesize placeResult=_placeResult;
+@property(readonly, nonatomic) id <GEOMapItem> geoMapItem; // @synthesize geoMapItem=_geoMapItem;
 @property(readonly, nonatomic) int type; // @synthesize type=_type;
 @property(readonly, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 @property(readonly, nonatomic) double confidence; // @synthesize confidence=_confidence;
@@ -33,17 +34,19 @@
 @property(readonly, nonatomic) double longitude; // @synthesize longitude=_longitude;
 @property(readonly, nonatomic) double latitude; // @synthesize latitude=_latitude;
 - (void).cxx_destruct;
+- (id)mapItem;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithLatitude:(double)arg1 longitude:(double)arg2 uncertainty:(double)arg3 confidence:(double)arg4 identifier:(id)arg5 type:(int)arg6 placeResult:(id)arg7 visits:(id)arg8;
+- (id)initWithLatitude:(double)arg1 longitude:(double)arg2 uncertainty:(double)arg3 confidence:(double)arg4 identifier:(id)arg5 type:(int)arg6 geoMapItem:(id)arg7 visits:(id)arg8;
 - (int)frequencyCompare:(id)arg1;
 - (int)recentCompare:(id)arg1;
 - (id)localizedAllVisitsDescription;
 - (id)localizedLastVisitDescription;
-- (id)relativeNameToPlaceResult:(id)arg1;
+- (id)relativeNameToMapItem:(id)arg1;
+- (id)preciseName;
 - (id)name;
 
 @end

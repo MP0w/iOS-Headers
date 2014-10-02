@@ -14,8 +14,7 @@
 }
 
 - (id)_bulletinListItem;
-- (id)unlockActionContext;
-- (_Bool)isVIP;
+- (id)lockScreenActionContext;
 - (id)attachmentImage;
 - (id)attachmentText;
 - (id)iconImage;

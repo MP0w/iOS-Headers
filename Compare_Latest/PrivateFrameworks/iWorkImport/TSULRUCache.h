@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, TSUNoCopyDictionary;
+@class NSArray, NSMutableArray, TSUNoCopyDictionary;
 
 __attribute__((visibility("hidden")))
 @interface TSULRUCache : NSObject
@@ -22,8 +22,8 @@ __attribute__((visibility("hidden")))
 - (void)p_removeOldestObject;
 - (void)clearEvictionCallbackTarget;
 - (void)setEvictionCallbackTarget:(id)arg1 selector:(SEL)arg2;
-- (id)allKeys;
-- (id)allValues;
+@property(readonly, nonatomic) NSArray *allKeys;
+@property(readonly, nonatomic) NSArray *allValues;
 - (id)objectForKey:(id)arg1;
 - (void)removeAllObjects;
 - (void)removeObjectForKey:(id)arg1;

@@ -21,14 +21,14 @@ __attribute__((visibility("hidden")))
     BOOL mWantInteractiveMode;
     BOOL mIsInteractiveMode;
     struct CGSize mMinimumBufferSize;
-    struct CGRect mLayerVisibleBounds;
+    struct CGRect mVisibleBoundsInLayerRelativeSpace;
     CALayer<TSCH3DGLLayer> *mGLLayer;
     TSCH3DGLLayerDelegate *mGLLayerDelegate;
     TSCH3DSharegroupToken *mSharegroupToken;
 }
 
 @property(readonly, nonatomic) TSCH3DSharegroupToken *sharegroupToken; // @synthesize sharegroupToken=mSharegroupToken;
-@property(nonatomic) struct CGRect layerVisibleBounds; // @synthesize layerVisibleBounds=mLayerVisibleBounds;
+@property(nonatomic) struct CGRect visibleBoundsInLayerRelativeSpace; // @synthesize visibleBoundsInLayerRelativeSpace=mVisibleBoundsInLayerRelativeSpace;
 @property(readonly, nonatomic) TSCH3DRenderProcessor *processor; // @synthesize processor=mProcessor;
 - (id).cxx_construct;
 - (id)GLLayer;

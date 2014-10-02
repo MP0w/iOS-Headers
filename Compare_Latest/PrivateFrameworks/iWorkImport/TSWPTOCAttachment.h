@@ -13,11 +13,12 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (int)elementKind;
 - (void)saveTOCAttachmentMessage:(struct TOCAttachmentArchive *)arg1 archiver:(id)arg2;
 - (void)loadTOCAttachmentMessage:(const struct TOCAttachmentArchive *)arg1 fromUnarchiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
 - (id)initFromUnarchiver:(id)arg1;
-@property(readonly, nonatomic) TSWPTOCInfo *tocInfo;
+@property(readonly, retain, nonatomic) TSWPTOCInfo *tocInfo;
 
 @end
 

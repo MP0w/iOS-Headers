@@ -12,7 +12,8 @@ __attribute__((visibility("hidden")))
 }
 
 + (void)readFrom:(struct _xmlNode *)arg1 graphicProperties:(id)arg2 state:(id)arg3;
-+ (struct CGRect)boundsRectFromXmlManualLayoutElement:(struct _xmlNode *)arg1;
++ (id)stringFromLayoutMode:(int)arg1;
++ (struct CGRect)boundsRectFromXmlManualLayoutElement:(struct _xmlNode *)arg1 state:(id)arg2;
 
 @end
 

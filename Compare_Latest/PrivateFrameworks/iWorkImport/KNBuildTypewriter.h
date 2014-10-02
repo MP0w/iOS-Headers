@@ -10,6 +10,8 @@
 #import "KNAnimationPluginObsoleteNames.h"
 #import "KNChunkableBuildAnimator.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface KNBuildTypewriter : KNAnimationEffect <KNChunkableBuildAnimator, KNAnimationPluginArchiving, KNAnimationPluginObsoleteNames>
 {
@@ -29,6 +31,12 @@ __attribute__((visibility("hidden")))
 + (int)animationCategory;
 + (id)animationName;
 - (id)animationsWithContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

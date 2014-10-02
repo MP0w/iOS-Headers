@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     NSMutableArray *mRows;
 }
 
++ (void)applyTextStyle:(id)arg1 toParagraphProperties:(id)arg2;
 - (void)setParentTextListStyle:(id)arg1;
 - (id)addRow;
 - (id)rowAtIndex:(unsigned int)arg1;
@@ -26,6 +27,7 @@ __attribute__((visibility("hidden")))
 - (id)masterCellOfPos:(struct OADTMatrixPos)arg1;
 - (struct OADTMatrixPos)masterPosOfPos:(struct OADTMatrixPos)arg1;
 - (id)cellAtPos:(struct OADTMatrixPos)arg1;
+- (void)flattenStyle;
 
 @end
 

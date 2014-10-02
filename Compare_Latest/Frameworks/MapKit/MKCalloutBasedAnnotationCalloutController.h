@@ -12,7 +12,6 @@ __attribute__((visibility("hidden")))
 @interface MKCalloutBasedAnnotationCalloutController : MKAnnotationCalloutController
 {
     UICalloutView *_calloutView;
-    Class _calloutViewClass;
 }
 
 - (void).cxx_destruct;
@@ -30,8 +29,6 @@ __attribute__((visibility("hidden")))
 - (BOOL)calloutContainsPoint:(struct CGPoint)arg1;
 - (void)calloutView:(id)arg1 didMoveToAnchorPoint:(struct CGPoint)arg2 animated:(BOOL)arg3;
 - (void)calloutView:(id)arg1 willMoveToAnchorPoint:(struct CGPoint)arg2 animated:(BOOL)arg3;
-- (void)setCalloutViewClass:(Class)arg1;
-- (Class)calloutViewClass;
 - (float)defaultCalloutHeight;
 - (id)init;
 

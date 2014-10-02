@@ -6,7 +6,6 @@
 
 #import "NSObject.h"
 
-__attribute__((visibility("hidden")))
 @interface ML3DatabaseBlob : NSObject
 {
     struct sqlite3_blob *_sqliteHandle;

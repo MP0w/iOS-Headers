@@ -6,12 +6,13 @@
 
 #import <iWorkImport/KNAnimationEffect.h>
 
+#import "KNAnimationPluginMagicChart.h"
 #import "KNChunkableBuildAnimator.h"
 
-@class NSArray, NSMutableArray;
+@class NSArray, NSMutableArray, NSString;
 
 __attribute__((visibility("hidden")))
-@interface KNChartMultiDataBuild : KNAnimationEffect <KNChunkableBuildAnimator>
+@interface KNChartMultiDataBuild : KNAnimationEffect <KNChunkableBuildAnimator, KNAnimationPluginMagicChart>
 {
     NSMutableArray *mLayersToRestore;
     NSArray *mChartAnimatedLayers;
@@ -20,6 +21,7 @@ __attribute__((visibility("hidden")))
 + (id)thumbnailImageNameForType:(int)arg1;
 + (id)defaultAttributes;
 + (id)localizedMenuString:(int)arg1;
++ (BOOL)isMagicChart;
 + (id)supportedTypes;
 + (id)animationFilter;
 + (int)animationCategory;
@@ -29,6 +31,12 @@ __attribute__((visibility("hidden")))
 - (void)animationDidEndWithContext:(id)arg1;
 - (void)animationWillBeginWithContext:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,13 +6,15 @@
 
 #import "NSObject.h"
 
+@class NSArray;
+
 @interface NSMetadataItem : NSObject
 {
     id _item;
     void *_reserved;
 }
 
-- (id)attributes;
+@property(readonly, copy) NSArray *attributes;
 - (id)valuesForAttributes:(id)arg1;
 - (id)valueForAttribute:(id)arg1;
 - (id)valueForKey:(id)arg1;

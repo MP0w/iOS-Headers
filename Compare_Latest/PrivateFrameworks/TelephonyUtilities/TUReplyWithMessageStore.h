@@ -12,15 +12,13 @@
 
 - (void)_handleMessagesStoreChanged;
 - (void)setCustomReply:(id)arg1 atIndex:(unsigned int)arg2;
-- (id)cannedReplySettingsPrefix;
 - (id)cannedRepliesForSending;
 - (id)cannedReplyActionSheetOptions;
-- (id)cannedReplyActionSheetPrefix;
-- (id)cannedRepliesWithCapitalization:(BOOL)arg1;
+- (id)cannedReplies;
+- (id)_cannedRepliesForSending:(BOOL)arg1;
 - (id)customReplies;
-- (id)defaultRepliesWithCapitalization:(BOOL)arg1;
-- (id)cannedReplyPrefixForSending;
-- (id)cannedReplyPrefix;
+- (id)defaultReplies;
+- (id)_defaultRepliesForSending:(BOOL)arg1;
 - (int)count;
 - (void)dealloc;
 - (id)init;

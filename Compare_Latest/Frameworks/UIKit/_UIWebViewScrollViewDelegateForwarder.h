@@ -8,7 +8,7 @@
 
 #import "UIScrollViewDelegate.h"
 
-@class UIWebView;
+@class NSString, UIWebView;
 
 __attribute__((visibility("hidden")))
 @interface _UIWebViewScrollViewDelegateForwarder : NSObject <UIScrollViewDelegate>
@@ -22,6 +22,12 @@ __attribute__((visibility("hidden")))
 - (void)forwardInvocation:(id)arg1;
 - (BOOL)respondsToSelector:(SEL)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

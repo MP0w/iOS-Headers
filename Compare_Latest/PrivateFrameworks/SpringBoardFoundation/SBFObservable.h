@@ -8,6 +8,8 @@
 
 #import "SBFObservable.h"
 
+@class NSString;
+
 @interface SBFObservable : NSObject <SBFObservable>
 {
 }
@@ -23,6 +25,12 @@
 - (id)generate:(CDUnknownBlockType)arg1;
 - (id)observeOn:(id)arg1;
 - (id)subscribeOn:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

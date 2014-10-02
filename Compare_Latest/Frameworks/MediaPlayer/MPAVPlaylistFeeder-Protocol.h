@@ -10,10 +10,10 @@
 
 @protocol MPAVPlaylistFeeder <NSObject>
 @property(readonly, nonatomic) unsigned int itemCount;
-@property(readonly, nonatomic) unsigned int initialPlaybackQueueDepth;
 - (BOOL)shouldReloadForChangeFromNetworkType:(int)arg1 toNetworkType:(int)arg2;
 - (MPAVItem *)itemForIndex:(unsigned int)arg1;
 - (BOOL)hasItemForIndex:(unsigned int)arg1;
+- (unsigned int)initialPlaybackQueueDepthForStartingIndex:(unsigned int)arg1;
 - (void)assumeOwnershipOfItems:(NSArray *)arg1;
 @end
 

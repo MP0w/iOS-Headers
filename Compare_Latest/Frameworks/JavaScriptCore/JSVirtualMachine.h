@@ -13,14 +13,18 @@
     struct OpaqueJSContextGroup *m_group;
     NSMapTable *m_contextCache;
     NSMapTable *m_externalObjectGraph;
+    NSMapTable *m_externalRememberedSet;
 }
 
 + (id)virtualMachineWithContextGroupRef:(struct OpaqueJSContextGroup *)arg1;
 - (void)removeManagedReference:(id)arg1 withOwner:(id)arg2;
 - (void)addManagedReference:(id)arg1 withOwner:(id)arg2;
+- (void)addExternalRememberedObject:(id)arg1;
+- (_Bool)isOldExternalObject:(id)arg1;
 - (void)dealloc;
 - (id)initWithContextGroupRef:(struct OpaqueJSContextGroup *)arg1;
 - (id)init;
+- (id)externalRememberedSet;
 - (id)externalObjectGraph;
 - (void)addContext:(id)arg1 forGlobalContextRef:(struct OpaqueJSContext *)arg2;
 - (id)contextForGlobalContextRef:(struct OpaqueJSContext *)arg1;

@@ -13,6 +13,7 @@
 }
 
 - (id)description;
+- (id)decorateReportingURL:(id)arg1;
 @property(retain, nonatomic) NSNumber *windowWidth;
 @property(retain, nonatomic) NSString *windowOrientation;
 @property(retain, nonatomic) NSNumber *windowHeight;
@@ -29,6 +30,7 @@
 @property(retain, nonatomic) NSString *pageContext;
 - (void)setOriginalTimeUsingDate:(id)arg1;
 @property double originalTime;
+@property(retain, nonatomic) NSString *hostApplicationIdentifier;
 @property(retain, nonatomic) NSNumber *eventVersion;
 @property(retain, nonatomic) NSString *eventType;
 @property(retain, nonatomic) NSString *connection;

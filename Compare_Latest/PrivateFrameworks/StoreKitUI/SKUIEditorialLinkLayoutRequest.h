@@ -8,7 +8,7 @@
 
 #import "SKUILayoutRequest.h"
 
-@class NSArray;
+@class NSArray, NSString;
 
 @interface SKUIEditorialLinkLayoutRequest : NSObject <SKUILayoutRequest>
 {
@@ -21,6 +21,12 @@
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) Class layoutClass;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

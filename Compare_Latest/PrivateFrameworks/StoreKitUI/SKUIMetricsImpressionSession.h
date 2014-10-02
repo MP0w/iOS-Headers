@@ -6,17 +6,26 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray, NSMutableString, NSString;
+@class NSArray, NSMapTable, NSMutableArray, NSMutableOrderedSet, NSMutableString, NSString;
 
 @interface SKUIMetricsImpressionSession : NSObject
 {
     NSMutableArray *_impressionIdentifiers;
     NSMutableString *_impressionsString;
+    NSMutableOrderedSet *_impressionableViewElements;
+    NSMapTable *_impressionableViewElementsTimerMap;
 }
 
-@property(readonly, nonatomic) NSString *impressionsString; // @synthesize impressionsString=_impressionsString;
-@property(readonly, nonatomic) NSArray *impressionIdentifiers; // @synthesize impressionIdentifiers=_impressionIdentifiers;
+@property(readonly, copy, nonatomic) NSString *impressionsString; // @synthesize impressionsString=_impressionsString;
+@property(readonly, copy, nonatomic) NSArray *impressionIdentifiers; // @synthesize impressionIdentifiers=_impressionIdentifiers;
 - (void).cxx_destruct;
+- (void)_clearTimerForViewElement:(id)arg1;
+- (void)_setTimer:(id)arg1 forViewElement:(id)arg2;
+- (id)_getTimerForViewElement:(id)arg1;
+- (void)endActiveImpressionForViewElement:(id)arg1;
+- (void)beginActiveImpressionForViewElement:(id)arg1;
+@property(readonly, copy, nonatomic) NSArray *impressionableViewElements;
+- (void)addItemViewElement:(id)arg1;
 - (void)addItemIdentifier:(long long)arg1;
 - (id)init;
 

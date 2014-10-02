@@ -39,7 +39,7 @@
 - (void)setEnd:(id)arg1 offset:(int)arg2;
 - (void)setStart:(id)arg1:(int)arg2;
 - (void)setStart:(id)arg1 offset:(int)arg2;
-@property(readonly) NSString *text;
+@property(readonly, copy) NSString *text;
 @property(readonly) DOMNode *commonAncestorContainer;
 @property(readonly) BOOL collapsed;
 @property(readonly) int endOffset;

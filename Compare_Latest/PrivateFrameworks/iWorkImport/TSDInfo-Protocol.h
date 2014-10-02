@@ -23,5 +23,9 @@
 - (BOOL)isThemeContent;
 - (Class)repClass;
 - (Class)layoutClass;
+- (void)clearBackPointerToParentInfoIfNeeded:(NSObject<TSDContainerInfo> *)arg1;
+
+@optional
+- (id <TSDInfoUUIDPathPrefixComponentsProvider>)uuidPathPrefixComponentsProvider;
 @end
 

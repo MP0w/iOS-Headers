@@ -13,9 +13,9 @@
     CalDAVUpdateOwnerItem *_changedBy;
 }
 
-@property(retain) CalDAVUpdateOwnerItem *changedBy; // @synthesize changedBy=_changedBy;
+@property(retain, nonatomic) CalDAVUpdateOwnerItem *changedBy; // @synthesize changedBy=_changedBy;
 - (id)copyParseRules;
-@property(readonly) NSURL *fullHrefURL;
+@property(readonly, nonatomic) NSURL *fullHrefURL;
 - (void)dealloc;
 - (id)init;
 

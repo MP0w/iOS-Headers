@@ -41,10 +41,9 @@
 - (id)orthographyAtIndex:(unsigned int)arg1 effectiveRange:(struct _NSRange *)arg2;
 - (void)setOrthography:(id)arg1 range:(struct _NSRange)arg2;
 - (void)stringEditedInRange:(struct _NSRange)arg1 changeInLength:(int)arg2;
-- (id)string;
-- (void)setString:(id)arg1;
+@property(retain) NSString *string;
 - (id)_tagSchemeForScheme:(id)arg1;
-- (id)tagSchemes;
+@property(readonly, copy) NSArray *tagSchemes;
 - (id)description;
 - (void)dealloc;
 - (id)initWithTagSchemes:(id)arg1 options:(unsigned int)arg2;

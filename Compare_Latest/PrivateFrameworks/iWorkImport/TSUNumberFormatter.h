@@ -38,6 +38,8 @@ __attribute__((visibility("hidden")))
 + (id)defaultFormatStringForValueType:(int)arg1 negativeStyle:(int)arg2;
 + (id)numberFormatStringSpecialSymbols;
 + (id)currentLocaleListSeparator;
++ (id)currentNonCachedLocaleCurrencyDecimalSeparator;
++ (id)currentLocaleCurrencyDecimalSeparator;
 + (id)currentNonCachedLocaleDecimalSeparator;
 + (id)currentLocaleDecimalSeparator;
 + (id)currentNonCachedLocaleCurrencyCode;

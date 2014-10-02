@@ -19,10 +19,8 @@
     UIColor *barTintColor;
     _UINavigationBarAppearanceStorage *appearanceStorage;
     UIView *_shadowView;
-    int _backdropStyle;
 }
 
-@property(nonatomic) int backdropStyle; // @synthesize backdropStyle=_backdropStyle;
 @property(nonatomic) BOOL barWantsAdaptiveBackdrop; // @synthesize barWantsAdaptiveBackdrop;
 @property(nonatomic, getter=isTranslucent) BOOL translucent; // @synthesize translucent;
 @property(retain, nonatomic, setter=_setShadowView:) UIView *_shadowView; // @synthesize _shadowView;
@@ -37,6 +35,7 @@
 - (void)updateBackgroundImage;
 - (void)_setIsContainedInPopover:(BOOL)arg1;
 - (void)layoutSubviews;
+@property(nonatomic) int backdropStyle;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

@@ -6,7 +6,7 @@
 
 #import <StoreKitUI/SKUIItemCellLayout.h>
 
-@class NSString, SKUILockupMetadataView, UILabel;
+@class NSString, SKUIEmbeddedMediaView, SKUILockupMetadataView, UIImage, UILabel;
 
 @interface SKUILockupItemCellLayout : SKUIItemCellLayout
 {
@@ -17,12 +17,18 @@
     int _layoutStyle;
     int _lockupSize;
     SKUILockupMetadataView *_metadataView;
+    BOOL _playsInlineVideo;
     int _verticalAlignment;
+    SKUIEmbeddedMediaView *_videoThumbnailView;
+    struct CGSize _videoThumbnailSize;
 }
 
-+ (float)heightForLockupStyle:(struct SKUILockupStyle)arg1 itemKind:(int)arg2 editorial:(id)arg3;
-+ (float)heightForLockupComponent:(id)arg1;
++ (struct CGSize)videoThumbnailSizeForVideo:(id)arg1 clientContext:(id)arg2;
++ (float)heightForLockupStyle:(struct SKUILockupStyle)arg1 item:(id)arg2 editorial:(id)arg3 clientContext:(id)arg4;
++ (float)heightForLockupComponent:(id)arg1 clientContext:(id)arg2;
+@property(nonatomic) struct CGSize videoThumbnailSize; // @synthesize videoThumbnailSize=_videoThumbnailSize;
 @property(nonatomic) int verticalAlignment; // @synthesize verticalAlignment=_verticalAlignment;
+@property(nonatomic) BOOL playsInlineVideo; // @synthesize playsInlineVideo=_playsInlineVideo;
 @property(nonatomic) int lockupSize; // @synthesize lockupSize=_lockupSize;
 @property(nonatomic) int layoutStyle; // @synthesize layoutStyle=_layoutStyle;
 @property(nonatomic) int itemOfferStyle; // @synthesize itemOfferStyle=_itemOfferStyle;
@@ -34,20 +40,27 @@
 - (void)_layoutHorizontal;
 - (id)_itemOfferTextLabel;
 - (BOOL)_isItemOfferHidden;
+- (void)_beginVideoPlaybackAction:(id)arg1;
 - (void)setIconImage:(id)arg1;
 - (void)setClientContext:(id)arg1;
 - (void)setBackgroundColor:(id)arg1;
+- (void)prepareForReuse;
 - (void)layoutSubviews;
 - (void)layoutForItemOfferChange;
 @property(nonatomic) unsigned int visibleFields;
+@property(retain, nonatomic) UIImage *videoThumbnailImage;
 @property(nonatomic) float userRating;
 @property(copy, nonatomic) NSString *title;
 @property(copy, nonatomic) NSString *releaseDateString;
 @property(nonatomic) int numberOfUserRatings;
 @property(copy, nonatomic) NSString *itemCountString;
 - (void)setColoringWithColorScheme:(id)arg1;
+@property(copy, nonatomic) NSString *editorialBadgeString;
 @property(copy, nonatomic) NSString *categoryString;
 @property(copy, nonatomic) NSString *artistName;
+- (void)playInlineVideoWithURL:(id)arg1;
+- (void)endVideoPlaybackAnimated:(BOOL)arg1;
+- (void)dealloc;
 - (id)initWithTableViewCell:(id)arg1;
 - (id)initWithParentView:(id)arg1;
 - (id)initWithCollectionViewCell:(id)arg1;

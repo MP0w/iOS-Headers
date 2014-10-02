@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) int width; // @synthesize width=_width;
 @property(nonatomic) int vertexCount; // @synthesize vertexCount=_vertexCount;
 @property(nonatomic) int vertexOffset; // @synthesize vertexOffset=_vertexOffset;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

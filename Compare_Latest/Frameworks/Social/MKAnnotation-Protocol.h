@@ -12,8 +12,8 @@
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate;
 
 @optional
-@property(readonly, nonatomic) NSString *subtitle;
-@property(readonly, nonatomic) NSString *title;
+@property(readonly, copy, nonatomic) NSString *subtitle;
+@property(readonly, copy, nonatomic) NSString *title;
 - (void)setCoordinate:(CDStruct_c3b9c2ee)arg1;
 @end
 

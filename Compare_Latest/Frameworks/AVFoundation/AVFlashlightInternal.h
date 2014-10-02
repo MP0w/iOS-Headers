@@ -10,11 +10,12 @@
 
 @interface AVFlashlightInternal : NSObject
 {
-    struct OpaqueCMBaseObject *recorder;
     AVWeakReference *weakReference;
-    BOOL overheated;
+    struct OpaqueFigFlashlight *flashlight;
     BOOL available;
+    BOOL overheated;
     float flashlightLevel;
+    struct OpaqueFigSimpleMutex *lock;
 }
 
 @end

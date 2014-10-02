@@ -11,14 +11,16 @@
 __attribute__((visibility("hidden")))
 @interface TSWPTextStatistics : NSObject <NSCopying>
 {
+    BOOL _isAccurate;
     unsigned int _wordCount;
     unsigned int _charactersNoWhiteSpace;
+    unsigned int _charactersWithWhiteSpace;
     unsigned int _paragraphCount;
-    BOOL _isAccurate;
 }
 
 @property(nonatomic) BOOL isAccurate; // @synthesize isAccurate=_isAccurate;
 @property(nonatomic) unsigned int paragraphCount; // @synthesize paragraphCount=_paragraphCount;
+@property(nonatomic) unsigned int charactersWithWhiteSpace; // @synthesize charactersWithWhiteSpace=_charactersWithWhiteSpace;
 @property(nonatomic) unsigned int charactersNoWhiteSpace; // @synthesize charactersNoWhiteSpace=_charactersNoWhiteSpace;
 @property(nonatomic) unsigned int wordCount; // @synthesize wordCount=_wordCount;
 - (BOOL)isEqual:(id)arg1;

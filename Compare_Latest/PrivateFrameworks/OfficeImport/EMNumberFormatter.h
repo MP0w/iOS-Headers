@@ -6,50 +6,50 @@
 
 #import "NSObject.h"
 
-@class NSMutableString, NSString;
+@class NSString;
 
 __attribute__((visibility("hidden")))
 @interface EMNumberFormatter : NSObject
 {
-    struct __CFNumberFormatter *mGenericFormatter;
-    struct __CFNumberFormatter *mBigNumberFormatter;
-    struct __CFNumberFormatter *mSmallNumberFormatter;
-    struct __CFDateFormatter *mDateFormatter;
-    struct __CFNumberFormatter *mCurrencyFormatter;
-    NSString *excelFormatString;
-    NSMutableString *icuFormatString;
-    _Bool mIsNegativeRed;
-    unsigned short mCurrencySymbol;
-    int formatType;
+    struct __CFNumberFormatter *_genericFormatter;
+    struct __CFNumberFormatter *_doubleFormatter;
+    struct __CFNumberFormatter *_percentFormatter;
+    struct __CFNumberFormatter *_bigNumberFormatter;
+    struct __CFNumberFormatter *_smallNumberFormatter;
+    struct __CFNumberFormatter *_currencyFormatter;
+    struct __CFDateFormatter *_dateFormatter;
+    NSString *_excelFormatString;
+    NSString *_baseICUFormatString;
+    _Bool _isNegativeRed;
+    unsigned short _currencySymbol;
+    int _formatType;
 }
 
 + (id)formatterForFormat:(id)arg1;
-+ (void)releaseFormatterCache;
-+ (void)initFormatterCache;
+- (void)_parseExcelFormatString:(id)arg1;
+- (id)convertedGenericNumberFormatWithFormat:(id)arg1;
+- (void)convertGenericNumberFormat:(id)arg1;
 - (id)formatDate:(id)arg1;
 - (id)formatCurrency:(double)arg1;
 - (id)formatDefault:(double)arg1;
 - (id)formatPercent:(double)arg1;
 - (id)formatDoubleValue:(double)arg1;
-- (void)convertCurrencyFormat;
+- (id)_icuFormatStringForCurrencyFormat;
 - (id)formatFraction:(double)arg1;
 - (id)formatPhoneNumber:(double)arg1;
-- (id)icuFormatString;
-- (void)convertDateFormat;
+- (id)_icuFormatStringForDateFormat;
 - (_Bool)isNegativeRed;
 - (int)formatType;
 - (struct __CFNumberFormatter *)_currencyFormatter;
 - (struct __CFDateFormatter *)_dateFormatter;
-- (struct __CFNumberFormatter *)_genericFormatterForPercent;
-- (struct __CFNumberFormatter *)_genericFormatterForDouble;
+- (struct __CFNumberFormatter *)_percentFormatter;
+- (struct __CFNumberFormatter *)_doubleFormatter;
 - (struct __CFNumberFormatter *)_smallNumberFormatter;
 - (struct __CFNumberFormatter *)_bigNumberFormatter;
 - (struct __CFNumberFormatter *)_genericFormatter;
 - (void)dealloc;
 - (id)initWithDefaultFormatString;
 - (id)initWithExcelFormatString:(id)arg1;
-- (void)preprocessIcuString;
-- (void)convertGenericNumberFormat;
 
 @end
 

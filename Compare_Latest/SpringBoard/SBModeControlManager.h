@@ -6,17 +6,15 @@
 
 #import "NSObject.h"
 
-@class NSArray;
+@class NSArray, NSMutableArray;
 
 @interface SBModeControlManager : NSObject
 {
-    NSArray *_views;
+    NSMutableArray *_views;
 }
 
-+ (id)_segmentedControlForUse:(long long)arg1 graphicsQuaility:(long long)arg2;
-+ (void)_configureSegmentedControlForLabelUse:(id)arg1;
-+ (void)_configureSegmentedControlForButtonUse:(id)arg1;
-+ (void)_configureSegmentedControl:(id)arg1 forGraphicsQuaility:(long long)arg2;
++ (id)_segmentedControlForUse:(long long)arg1 colorSettings:(id)arg2;
++ (void)_configureSegmentedControl:(id)arg1 withColorSettings:(id)arg2;
 @property(readonly, nonatomic) NSArray *views; // @synthesize views=_views;
 - (void)setTintColor:(id)arg1 forUse:(long long)arg2;
 - (void)removeAllSegments;

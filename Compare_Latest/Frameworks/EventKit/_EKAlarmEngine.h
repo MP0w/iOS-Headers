@@ -8,7 +8,7 @@
 
 #import "CLLocationManagerDelegate.h"
 
-@class CLLocationManager, NSDate, NSDateFormatter, NSObject<OS_dispatch_queue>, NSTimer, PCPersistentTimer;
+@class CLLocationManager, NSDate, NSDateFormatter, NSObject<OS_dispatch_queue>, NSString, NSTimer, PCPersistentTimer;
 
 @interface _EKAlarmEngine : NSObject <CLLocationManagerDelegate>
 {
@@ -21,16 +21,14 @@
     double _populateStart;
     NSTimer *_syncTimer;
     BOOL _pendingChanges;
-    BOOL _shouldUpdateWithForceForAlarmTable;
-    BOOL _shouldUpdateWithForceForFences;
-    BOOL _abortedLastAttemptToAdjustFences;
+    BOOL _fencesNeedAdjusted;
     NSDateFormatter *_dateFormatter;
     CLLocationManager *_locationManager;
-    double _defaultRadius;
     NSDate *_tomorrow;
+    BOOL _shouldUpdateWithForceForAlarmTable;
+    BOOL _shouldUpdateWithForceForFences;
 }
 
-+ (double)defaultRadius;
 + (id)sharedInstance;
 - (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
 - (void)locationManager:(id)arg1 monitoringDidFailForRegion:(id)arg2 withError:(id)arg3;
@@ -61,15 +59,19 @@
 - (void)_timeZoneChanged:(id)arg1;
 - (BOOL)_haveAlarmsChanged:(id)arg1;
 - (void)_databaseChanged;
-- (void)_updateWithForce:(BOOL)arg1;
 - (void)_updateWithForceForAlarmTable:(BOOL)arg1 forFences:(BOOL)arg2;
 - (BOOL)_isDataProtected;
 - (void)_protectedDataDidBecomeAvailable;
-- (void)_protectedDataWillBecomeUnavailable;
 - (void)reschedule;
 - (void)stop;
 - (void)start;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

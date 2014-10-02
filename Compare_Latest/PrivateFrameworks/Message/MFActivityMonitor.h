@@ -6,7 +6,7 @@
 
 #import "MFPriorityDesignator.h"
 
-@class MFError, MFInvocationQueue, MFMailboxUid, NSString, NSThread;
+@class MFError, MFInvocationQueue, MFMailboxUid, NSMutableSet, NSString, NSThread;
 
 @interface MFActivityMonitor : MFPriorityDesignator
 {
@@ -34,11 +34,19 @@
     double _lastTime;
     double _startTime;
     unsigned int _gotNewMessagesState;
+    unsigned int _bytesRead;
+    unsigned int _bytesWritten;
+    NSMutableSet *_reasons;
 }
 
 + (void)destroyMonitor;
 + (id)currentMonitor;
 @property(retain) MFMailboxUid *mailbox; // @synthesize mailbox=_mailbox;
+- (unsigned int)bytesWritten;
+- (unsigned int)bytesRead;
+- (void)recordBytesWritten:(unsigned int)arg1;
+- (void)recordBytesRead:(unsigned int)arg1;
+- (void)resetConnectionStats;
 - (void)setError:(id)arg1;
 - (id)error;
 - (void)setPercentDone:(double)arg1 withKey:(int)arg2;
@@ -69,12 +77,16 @@
 - (id)description;
 - (unsigned int)expectedLength;
 - (void)setExpectedLength:(unsigned int)arg1;
+- (double)startTime;
 - (double)percentDone;
 - (void)setPercentDone:(double)arg1;
 - (id)statusMessage;
 - (void)setStatusMessage:(id)arg1 percentDone:(double)arg2;
 - (void)setStatusMessage:(id)arg1;
 - (int)changeCount;
+- (id)reasons;
+- (BOOL)hasReason:(id)arg1;
+- (void)addReason:(id)arg1;
 - (unsigned int)gotNewMessagesState;
 - (void)setGotNewMessagesState:(unsigned int)arg1;
 - (void)reset;

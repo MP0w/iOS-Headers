@@ -13,7 +13,8 @@
     UILabel *_titleLabel;
 }
 
-+ (float)defaultHeight;
++ (id)_titleLabelFont;
++ (float)defaultHeightForTraitCollection:(id)arg1;
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSString *title;
 - (void)layoutSubviews;

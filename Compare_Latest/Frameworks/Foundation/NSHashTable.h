@@ -10,6 +10,8 @@
 #import "NSCopying.h"
 #import "NSFastEnumeration.h"
 
+@class NSArray, NSPointerFunctions, NSSet;
+
 @interface NSHashTable : NSObject <NSCopying, NSCoding, NSFastEnumeration>
 {
 }
@@ -21,7 +23,7 @@
 + (id)alloc;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)setRepresentation;
+@property(readonly, copy) NSSet *setRepresentation;
 - (id)mutableSet;
 - (void)minusHashTable:(id)arg1;
 - (void)unionHashTable:(id)arg1;
@@ -30,11 +32,11 @@
 - (BOOL)isEqualToHashTable:(id)arg1;
 - (BOOL)intersectsHashTable:(id)arg1;
 - (BOOL)containsObject:(id)arg1;
-- (id)anyObject;
+@property(readonly, nonatomic) id anyObject;
 - (void)removeAllObjects;
 - (void)removeObject:(id)arg1;
 - (id)member:(id)arg1;
-- (id)pointerFunctions;
+@property(readonly, copy) NSPointerFunctions *pointerFunctions;
 - (id)initWithPointerFunctions:(id)arg1 capacity:(unsigned int)arg2;
 - (void)getKeys:(const void **)arg1 count:(unsigned int *)arg2;
 - (void)removeAllItems;
@@ -44,8 +46,8 @@
 - (void)addObject:(id)arg1;
 - (void *)getItem:(const void *)arg1;
 - (unsigned int)weakCount;
-- (id)allObjects;
-- (unsigned int)count;
+@property(readonly, copy) NSArray *allObjects;
+@property(readonly) unsigned int count;
 - (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)objectEnumerator;

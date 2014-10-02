@@ -20,5 +20,10 @@
 - (struct CGSize)nsli_convertSizeFromEngineSpace:(struct CGSize)arg1;
 - (struct CGSize)nsli_convertSizeToEngineSpace:(struct CGSize)arg1;
 - (NSISEngine *)nsli_layoutEngine;
+
+@optional
+- (float)nsli_marginOffsetForAttribute:(int)arg1;
+- (BOOL)nsli_removeConstraint:(NSLayoutConstraint *)arg1;
+- (void)nsli_addConstraint:(NSLayoutConstraint *)arg1;
 @end
 

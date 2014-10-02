@@ -8,7 +8,7 @@
 
 #import "GQWrapPointGenerator.h"
 
-@class GQDAffineGeometry, GQDBezierPath;
+@class GQDAffineGeometry, GQDBezierPath, NSString;
 
 __attribute__((visibility("hidden")))
 @interface GQDDrawable : NSObject <GQWrapPointGenerator>
@@ -37,6 +37,12 @@ __attribute__((visibility("hidden")))
 - (id)geometry;
 - (void)dealloc;
 - (void)collectWrapPoints:(id)arg1 forPath:(struct CGPath *)arg2 context:(struct FindLinesContext *)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class IMDaemonListener, IMLocalObject, IMRemoteObject<IMRemoteDaemonProtocol>, NSArray, NSLock, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSProtocolChecker, NSString;
+@class IMDaemonListener, IMLocalObject, IMRemoteObject<IMRemoteDaemonProtocol>, NSArray, NSLock, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSProtocolChecker, NSRecursiveLock, NSString;
 
 @interface IMDaemonController : NSObject
 {
@@ -22,7 +22,7 @@
     NSObject<OS_dispatch_queue> *_remoteDaemonLockQueue;
     NSObject<OS_dispatch_queue> *_localObjectLockQueue;
     NSObject<OS_dispatch_queue> *_remoteMessageQueue;
-    NSLock *_connectionLock;
+    NSRecursiveLock *_connectionLock;
     NSArray *_servicesToAllow;
     NSArray *_servicesToDeny;
     struct __CFRunLoopSource *_runLoopSource;
@@ -97,6 +97,7 @@
 - (BOOL)connectToDaemonWithLaunch:(BOOL)arg1;
 - (void)_connectToDaemonWithLaunch:(BOOL)arg1 capabilities:(unsigned int)arg2;
 - (void)disconnectFromDaemon;
+- (void)_disconnectFromDaemonWithForce:(BOOL)arg1;
 - (void)disconnectFromDaemonWithForce:(BOOL)arg1;
 - (void)_blockUntilSendQueueIsEmpty;
 - (BOOL)_makeConnectionWithLaunch:(BOOL)arg1 completionBlock:(CDUnknownBlockType)arg2;

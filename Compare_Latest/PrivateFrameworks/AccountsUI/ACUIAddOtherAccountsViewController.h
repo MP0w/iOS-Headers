@@ -8,6 +8,8 @@
 
 #import "ACUISetupViewControllerDelegate.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface ACUIAddOtherAccountsViewController : PSListController <ACUISetupViewControllerDelegate>
 {
@@ -19,6 +21,12 @@ __attribute__((visibility("hidden")))
 - (id)_specifiersForOtherMailAccounts;
 - (id)specifiers;
 - (id)_viewProvidersManager;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

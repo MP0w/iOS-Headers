@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (id)mixableObjectClasses;
 - (BOOL)shouldBeginEditingOnSingleClick;
 - (BOOL)canBeginEditingChildRepOnDoubleTap:(id)arg1;
 - (BOOL)handleSingleTapAtPoint:(struct CGPoint)arg1 withRecognizer:(id)arg2;

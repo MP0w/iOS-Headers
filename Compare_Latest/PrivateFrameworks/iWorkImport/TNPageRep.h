@@ -4,28 +4,27 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <iWorkImport/TSDContainerRep.h>
-
-@class TNPageNumberLayer;
+#import <iWorkImport/TSWPPageRep.h>
 
 __attribute__((visibility("hidden")))
-@interface TNPageRep : TSDContainerRep
+@interface TNPageRep : TSWPPageRep
 {
-    TNPageNumberLayer *mPageNumberLayer;
-    struct __CTLine *mPageNumberLine;
-    struct __CTLine *mPageNumberLineForDevice;
     struct CGRect _shadowPathRect;
     struct CGPath *_shadowPath;
 }
 
-- (void)drawPageNumberInRect:(struct CGRect)arg1 inContext:(struct CGContext *)arg2 isDeviceSpace:(BOOL)arg3;
-- (void)addAdditionalChildLayersToArray:(id)arg1;
+- (id)p_childRepForInfo:(id)arg1;
+- (id)p_repForHeaderLayout:(id)arg1;
+- (void)p_willBeginDynamicContentScaleChange:(id)arg1;
+- (int)p_hitHeaderFooterFragment:(int)arg1 atPoint:(struct CGPoint)arg2;
+- (BOOL)p_headerFooterIsVisibleAndInteractive:(int)arg1;
 - (BOOL)isOpaque;
+- (id)p_rasterizeHeaderRep:(id)arg1 type:(int)arg2 fragment:(int)arg3;
 - (void)didUpdateLayer:(id)arg1;
+- (void)addAdditionalChildLayersToArray:(id)arg1;
+- (void)willUpdateLayer:(id)arg1;
 - (BOOL)directlyManagesLayerContent;
 - (void)drawInContext:(struct CGContext *)arg1;
-@property(readonly) TNPageNumberLayer *pageNumberLayer;
-- (struct __CTLine *)p_pageNumberLineForDeviceSpace:(BOOL)arg1;
 - (void)dealloc;
 - (id)initWithLayout:(id)arg1 canvas:(id)arg2;
 

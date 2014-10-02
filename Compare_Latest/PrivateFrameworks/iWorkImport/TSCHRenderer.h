@@ -8,7 +8,7 @@
 
 #import "TSCHSupportsTextEditing.h"
 
-@class TSCHChartInfo, TSCHChartLayoutItem, TSCHChartModel;
+@class NSString, TSCHChartInfo, TSCHChartLayoutItem, TSCHChartModel;
 
 __attribute__((visibility("hidden")))
 @interface TSCHRenderer : NSObject <TSCHSupportsTextEditing>
@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
 - (void)renderIntoContext:(struct CGContext *)arg1 visible:(struct CGRect)arg2;
 - (int)chunkPlane;
 - (int)textDrawingFlagForSelectionPath:(id)arg1;
+- (float)frameHeightChangeForPath:(id)arg1;
 - (void)useEditedString:(id)arg1;
 - (id)textEditorForSelectionPath:(id)arg1 chartEditor:(id)arg2;
 - (struct CGRect)frameForEditingTextForSelectionPath:(id)arg1;
@@ -45,6 +46,12 @@ __attribute__((visibility("hidden")))
 - (id)initWithChartRep:(id)arg1 layoutItem:(id)arg2;
 - (void)drawErrorBarsInContext:(struct CGContext *)arg1 chartVertical:(BOOL)arg2 elementRenderClass:(Class)arg3;
 - (void)drawTrendLinesInContext:(struct CGContext *)arg1 chartVertical:(BOOL)arg2 elementRenderClass:(Class)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

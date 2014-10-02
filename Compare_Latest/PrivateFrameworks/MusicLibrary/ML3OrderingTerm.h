@@ -18,6 +18,8 @@
     NSString *_collation;
 }
 
++ (id)orderingTermWithProperty:(id)arg1 direction:(int)arg2;
++ (id)orderingTermWithProperty:(id)arg1;
 @property(readonly, nonatomic) NSString *collation; // @synthesize collation=_collation;
 @property(readonly, nonatomic) int direction; // @synthesize direction=_direction;
 @property(readonly, nonatomic) NSString *property; // @synthesize property=_property;

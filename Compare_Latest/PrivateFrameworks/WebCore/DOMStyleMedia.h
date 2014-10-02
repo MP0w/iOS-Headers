@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (BOOL)matchMedium:(id)arg1;
-@property(readonly) NSString *type;
+@property(readonly, copy) NSString *type;
 - (void)finalize;
 - (void)dealloc;
 

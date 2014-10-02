@@ -6,16 +6,19 @@
 
 #import <UIKit/UIView.h>
 
+#import "UIKBHandwritingStrokeEnabled.h"
+
 @class UIKBHandwritingView;
 
 __attribute__((visibility("hidden")))
-@interface UIKBHandwritingStrokeView : UIView
+@interface UIKBHandwritingStrokeView : UIView <UIKBHandwritingStrokeEnabled>
 {
     UIKBHandwritingView *_keyView;
 }
 
 @property(retain, nonatomic) UIKBHandwritingView *keyView; // @synthesize keyView=_keyView;
 - (void)drawRect:(struct CGRect)arg1;
+@property(readonly, nonatomic) float inkWidth;
 - (void)dealloc;
 
 @end

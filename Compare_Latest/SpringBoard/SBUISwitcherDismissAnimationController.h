@@ -6,13 +6,15 @@
 
 #import "SBUIMainScreenAnimationController.h"
 
-@class SBAppSliderController, SBAppSwitcherPageView, UIView;
+@class FBWindowContextHostManager, SBAppSwitcherController, SBAppSwitcherPageView, SBDisplayLayout, UIView;
 
 @interface SBUISwitcherDismissAnimationController : SBUIMainScreenAnimationController
 {
-    SBAppSliderController *_sliderController;
+    SBAppSwitcherController *_switcherController;
     UIView *_appContextHostView;
+    FBWindowContextHostManager *_contextHostManager;
     SBAppSwitcherPageView *_animatingPageView;
+    SBDisplayLayout *_activatingDisplayLayout;
     _Bool _finishedSwitcherAnimation;
     _Bool _finishedCrossfadingToHostView;
 }
@@ -24,11 +26,13 @@
 - (void)_evaluateDependenciesForCrossfadeStart;
 - (void)_applicationDependencyStateChanged;
 - (id)_animationProgressDependency;
+- (_Bool)_isActivatingFromContinuityApp;
 - (void)_cleanupAnimation;
 - (void)_startAnimation;
 - (void)_prepareAnimation;
 - (void)dealloc;
 - (id)initWithActivatingApp:(id)arg1 deactivatingApp:(id)arg2;
+- (id)initWithActivatingApp:(id)arg1 activatingDisplayLayout:(id)arg2 deactivatingApp:(id)arg3;
 
 @end
 

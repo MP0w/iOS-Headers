@@ -9,7 +9,7 @@
 #import "CBCentralManagerDelegate.h"
 #import "CBPeripheralDelegate.h"
 
-@class CBCentralManager, NSMutableArray;
+@class CBCentralManager, NSMutableArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface GCControllerCBDelegate : NSObject <CBCentralManagerDelegate, CBPeripheralDelegate>
@@ -36,9 +36,16 @@ __attribute__((visibility("hidden")))
 - (void)centralManager:(id)arg1 didRetrievePeripherals:(id)arg2;
 - (void)centralManagerDidUpdateState:(id)arg1;
 - (void)startScanWithTimeout:(double)arg1;
+- (void)startScan;
 - (void)stopScan;
 - (void)fireCompletionHandler;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

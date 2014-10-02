@@ -8,7 +8,7 @@
 
 #import "TSKCGColorProvider.h"
 
-@class TSKAnnotationAuthor;
+@class NSString, TSKAnnotationAuthor;
 
 __attribute__((visibility("hidden")))
 @interface TSKAnnotationAuthorTextHighlightColorProvider : NSObject <TSKCGColorProvider>
@@ -19,6 +19,12 @@ __attribute__((visibility("hidden")))
 - (struct CGColor *)cgColor;
 - (void)dealloc;
 - (id)initWithAnnotationAuthor:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

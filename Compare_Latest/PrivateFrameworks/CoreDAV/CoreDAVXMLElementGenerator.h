@@ -8,7 +8,7 @@
 
 #import "NSXMLParserDelegate.h"
 
-@class CoreDAVItem, NSDictionary, NSMutableData, NSURL;
+@class CoreDAVItem, NSDictionary, NSMutableData, NSString, NSURL;
 
 @interface CoreDAVXMLElementGenerator : NSObject <NSXMLParserDelegate>
 {
@@ -26,17 +26,17 @@
     NSURL *_baseURL;
 }
 
-@property(retain) NSURL *baseURL; // @synthesize baseURL=_baseURL;
-@property BOOL checkedElementValidityIfRootElement; // @synthesize checkedElementValidityIfRootElement=_checkedElementValidityIfRootElement;
-@property(retain) NSDictionary *cachedElementParseRules; // @synthesize cachedElementParseRules=_cachedElementParseRules;
-@property CoreDAVXMLElementGenerator *parentGenerator; // @synthesize parentGenerator=_parentGenerator;
-@property(retain) CoreDAVItem *element; // @synthesize element=_element;
-@property(retain) CoreDAVXMLElementGenerator *currentlyParsingSubItem; // @synthesize currentlyParsingSubItem=_currentlyParsingSubItem;
-@property(retain) NSMutableData *cDATA; // @synthesize cDATA=_cDATA;
-@property(retain) NSMutableData *characters; // @synthesize characters=_characters;
-@property SEL parentElementSetter; // @synthesize parentElementSetter=_parentElementSetter;
-@property int parsingState; // @synthesize parsingState=_parsingState;
-@property BOOL isUnrecognized; // @synthesize isUnrecognized=_isUnrecognized;
+@property(retain, nonatomic) NSURL *baseURL; // @synthesize baseURL=_baseURL;
+@property(nonatomic) BOOL checkedElementValidityIfRootElement; // @synthesize checkedElementValidityIfRootElement=_checkedElementValidityIfRootElement;
+@property(retain, nonatomic) NSDictionary *cachedElementParseRules; // @synthesize cachedElementParseRules=_cachedElementParseRules;
+@property(nonatomic) CoreDAVXMLElementGenerator *parentGenerator; // @synthesize parentGenerator=_parentGenerator;
+@property(retain, nonatomic) CoreDAVItem *element; // @synthesize element=_element;
+@property(retain, nonatomic) CoreDAVXMLElementGenerator *currentlyParsingSubItem; // @synthesize currentlyParsingSubItem=_currentlyParsingSubItem;
+@property(retain, nonatomic) NSMutableData *cDATA; // @synthesize cDATA=_cDATA;
+@property(retain, nonatomic) NSMutableData *characters; // @synthesize characters=_characters;
+@property(nonatomic) SEL parentElementSetter; // @synthesize parentElementSetter=_parentElementSetter;
+@property(nonatomic) int parsingState; // @synthesize parsingState=_parsingState;
+@property(nonatomic) BOOL isUnrecognized; // @synthesize isUnrecognized=_isUnrecognized;
 - (void)resumeParsingWithParser:(id)arg1;
 - (void)noteChildCascadingFailure;
 - (void)parserDidEndDocument:(id)arg1;
@@ -52,6 +52,12 @@
 - (void)dealloc;
 - (id)initWithParser:(id)arg1 parentGenerator:(id)arg2 parentElementSetter:(SEL)arg3 element:(id)arg4;
 - (id)initWithParser:(id)arg1 baseURL:(id)arg2 rootElementNameSpace:(id)arg3 elementName:(id)arg4 parseClass:(Class)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,22 +6,24 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, WDDocument;
+@class NSMutableArray, NSMutableDictionary, WDDocument, WDList;
 
 __attribute__((visibility("hidden")))
 @interface WDListTable : NSObject
 {
-    NSMutableArray *mLists;
     WDDocument *mDocument;
+    NSMutableArray *mLists;
+    NSMutableDictionary *mListMapById;
+    WDList *mNullList;
 }
 
 - (void)dealloc;
 - (id)initWithDocument:(id)arg1;
-- (id)addList:(id)arg1;
-- (id)lists;
+- (id)listWithListId:(long)arg1;
+- (id)addListWithListId:(long)arg1 listDefinitionId:(long)arg2;
 - (id)listAt:(unsigned int)arg1;
 - (unsigned int)listCount;
-- (id)document;
+- (id)lists;
 
 @end
 

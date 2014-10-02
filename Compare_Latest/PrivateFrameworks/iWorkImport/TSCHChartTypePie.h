@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 - (id)userInterfaceName;
 - (id)init;
 - (struct CGSize)mungeBodySize:(struct CGSize)arg1;
+- (BOOL)layoutFrameShouldEncloseInfoGeometry;
 
 @end
 

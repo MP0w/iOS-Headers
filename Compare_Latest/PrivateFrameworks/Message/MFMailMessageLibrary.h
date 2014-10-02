@@ -10,7 +10,7 @@
 #import "MFLibraryContentIndexDataSource.h"
 #import "MFSQLiteConnectionPoolDelegate.h"
 
-@class MFAttachmentLibraryDataProvider, MFDbJournal, MFLibraryContentIndex, MFMailMessageLibraryMigrator, MFSQLiteConnectionPool, MFWeakObjectCache, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
+@class MFDbJournal, MFLibraryContentIndex, MFMailMessageLibraryMigrator, MFSQLiteConnectionPool, MFWeakObjectCache, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
 
 @interface MFMailMessageLibrary : MFMessageLibrary <MFLibraryContentIndexDataSource, MFSQLiteConnectionPoolDelegate, MFContentProtectionObserver>
 {
@@ -18,7 +18,7 @@
     MFLibraryContentIndex *_contentIndex;
     MFWeakObjectCache *_libraryMessageCache;
     struct __CFDictionary *_mailboxCache;
-    NSObject<OS_dispatch_queue> *_metadataQueue;
+    NSObject<OS_dispatch_queue> *_queue;
     id <MFMailboxPathProvider> _mailboxPathProvider;
     MFMailMessageLibraryMigrator *_migrator;
     NSString *_threadLocalHandleKey;
@@ -28,7 +28,6 @@
     NSObject<OS_dispatch_queue> *_keyBagQueue;
     NSMutableSet *_messagesToThreadAtUnlock;
     id <MFMailMessageLibraryDelegate> _delegate;
-    MFAttachmentLibraryDataProvider *_attachmentDataProvider;
 }
 
 + (void)_removeLibrary:(BOOL)arg1 atPath:(id)arg2;
@@ -45,11 +44,18 @@
 - (void)contentIndex:(id)arg1 assignTransactionIdentifier:(unsigned int)arg2 forDocumentIdentifiers:(id)arg3;
 - (void)_assignTransactionIdentifier:(unsigned int)arg1 forLibraryIDs:(id)arg2;
 - (void)contentIndex:(id)arg1 invalidateItemsGreaterThanTransactionId:(unsigned int)arg2;
+- (void)pruneConversationTables:(double)arg1;
 - (void)renameOrRemoveDatabase;
 - (void)_handleBusyError;
 - (void)_handleProtectedDataIOError;
 - (void)_handleIOError;
+- (void)_handleDetachedDatabaseIOError;
+- (void)_handleInvalidDatabaseIOError;
 - (void)_handleFullDatabase;
+- (void)_handleFailedMigration;
+- (void)_handleProtectedDataInconsistencies;
+- (void)_handleJournalMergeFailure;
+- (void)_handleJournalWriteFailure;
 - (void)_handleCorruptDatabase;
 - (void)_handleSQLiteErrorCode:(int)arg1 db:(struct sqlite3 *)arg2;
 - (int)handleSqliteError:(struct sqlite3 *)arg1 format:(id)arg2;
@@ -116,7 +122,6 @@
 - (id)queryForCriterion:(id)arg1 db:(struct sqlite3 *)arg2 options:(unsigned int)arg3 baseTable:(unsigned int)arg4 isSubquery:(BOOL)arg5;
 - (id)queryForCriterion:(id)arg1 db:(struct sqlite3 *)arg2 options:(unsigned int)arg3 baseTable:(unsigned int)arg4 isSubquery:(BOOL)arg5 range:(struct _NSRange)arg6;
 - (id)equalToMailboxIDsFromCriterion:(id)arg1;
-- (id)dataProvider;
 - (BOOL)isMessageContentsLocallyAvailable:(id)arg1;
 - (BOOL)hasCompleteDataForMimePart:(id)arg1;
 - (id)dataForMimePart:(id)arg1 isComplete:(char *)arg2;
@@ -155,6 +160,12 @@
 - (void)_notifyDidCompact:(BOOL)arg1 messages:(id)arg2 mailboxes:(id)arg3;
 - (void)setStoredIntegerPropertyWithName:(id)arg1 value:(id)arg2;
 - (id)storedIntegerPropertyWithName:(id)arg1;
+- (id)messageIdsForConversationId:(long long)arg1 limit:(unsigned int)arg2;
+- (long long)conversationIdForMessageIds:(id)arg1;
+- (void)setConversationInfo:(long long)arg1 syncKey:(id)arg2 flags:(unsigned long long)arg3;
+- (void)setFlags:(unsigned long long)arg1 forConversationId:(long long)arg2;
+- (unsigned long long)flagsForConversationId:(long long)arg1;
+- (id)syncedConversations;
 - (BOOL)_canSelectMessagesWithOptions:(unsigned int)arg1 db:(struct sqlite3 *)arg2;
 - (BOOL)shouldCancel;
 - (id)accountForMessage:(id)arg1;
@@ -219,13 +230,15 @@
 - (void)sendMessagesForStatement:(struct sqlite3_stmt *)arg1 db:(struct sqlite3 *)arg2 to:(id)arg3 options:(unsigned int)arg4 timestamp:(unsigned long long)arg5;
 - (void)iterateStatement:(struct sqlite3_stmt *)arg1 db:(struct sqlite3 *)arg2 withProgressMonitor:(id)arg3 andRowHandler:(CDUnknownFunctionPointerType)arg4 context:(void *)arg5;
 - (void)updateThreadingInfoForMessage:(id)arg1 fromHeaders:(id)arg2;
+- (void)updateAdditionalThreadingInfoForSentMessageWithHeaders:(id)arg1 externalConversationID:(long long)arg2;
 - (void)updateRecipientsForMessage:(id)arg1 fromHeaders:(id)arg2;
 - (id)addMessages:(id)arg1 withMailbox:(id)arg2 fetchBodies:(BOOL)arg3 newMessagesByOldMessage:(id)arg4 remoteIDs:(id)arg5 setFlags:(unsigned long long)arg6 clearFlags:(unsigned long long)arg7 messageFlagsForMessages:(id)arg8 copyFiles:(BOOL)arg9 addPOPUIDs:(BOOL)arg10 dataSectionsByMessage:(id)arg11;
 @property(nonatomic) id <MFMailMessageLibraryDelegate> delegate;
-- (long long)addReferencesForMessage:(id)arg1 libraryID:(unsigned int)arg2 messageIDHash:(long long)arg3 withSubject:(id)arg4 withReferences:(id)arg5 usingDatabase:(struct sqlite3 *)arg6 otherSubjectIDMappings:(id)arg7 usingMailbox:(int)arg8 notify:(BOOL)arg9;
+- (long long)addReferencesForMessage:(id)arg1 libraryID:(unsigned int)arg2 messageIDHash:(long long)arg3 withSubject:(id)arg4 withReferences:(id)arg5 usingDatabase:(struct sqlite3 *)arg6 otherSubjectIDMappings:(id)arg7 usingMailbox:(int)arg8 conversationFlags:(unsigned long long *)arg9 mergeHandler:(CDUnknownBlockType)arg10;
 - (id)addThreadingInfoBySubjectForMessageID:(unsigned int)arg1 nonPrefixedSubject:(id)arg2 messageIDsBySubject:(id)arg3 usingDatabase:(struct sqlite3 *)arg4 toReferences:(id)arg5 withinMailbox:(int)arg6;
 - (id)referencesFromHeaders:(id)arg1;
 - (void)notifyConversation:(long long)arg1 hasMergedIntoConversation:(long long)arg2;
+- (void)notifyNewDataAvailableForMessages:(id)arg1;
 - (BOOL)_writeEmlxFile:(id)arg1 withBodyData:(id)arg2 protectionClass:(int)arg3;
 - (void)setMessage:(id)arg1 isPartial:(BOOL)arg2;
 - (void)setNumberOfAttachments:(unsigned int)arg1 isSigned:(BOOL)arg2 isEncrypted:(BOOL)arg3 forMessage:(id)arg4;
@@ -234,9 +247,17 @@
 - (void)updateFlagsForMessagesInPlace:(id)arg1 success:(char *)arg2;
 - (void)setFlagsForMessages:(id)arg1 mask:(unsigned long long)arg2;
 - (void)setFlags:(unsigned long long)arg1 forMessage:(id)arg2;
+- (void)applicationWillResume;
+- (void)applicationWillSuspend;
 - (void)invalidateAndWait;
 - (void)dealloc;
 - (id)initWithPath:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

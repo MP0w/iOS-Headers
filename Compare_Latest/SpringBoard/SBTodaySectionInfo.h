@@ -10,7 +10,6 @@
 {
 }
 
-- (double)heightForReusableViewForBulletinViewController:(id)arg1 layoutMode:(long long)arg2;
 - (Class)reusableViewClass;
 - (id)identifier;
 

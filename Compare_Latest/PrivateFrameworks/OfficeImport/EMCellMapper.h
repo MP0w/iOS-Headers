@@ -22,8 +22,8 @@ __attribute__((visibility("hidden")))
     double columnWidth;
 }
 
-- (void)mapAt:(id)arg1 withState:(id)arg2 height:(double)arg3;
-- (void)mapAt:(id)arg1 withState:(id)arg2;
++ (BOOL)isCellEmpty:(struct EDCellHeader *)arg1;
+- (void)mapAt:(id)arg1 withState:(id)arg2 height:(double)arg3 nextCell:(struct EDCellHeader *)arg4;
 - (void)mapRowColSpansAt:(id)arg1 withState:(id)arg2;
 - (void)adjustColumnSpanForGrid:(double *)arg1 columnCount:(unsigned int)arg2 nextCell:(struct EDCellHeader *)arg3 withState:(id)arg4;
 - (BOOL)isCellMerged;

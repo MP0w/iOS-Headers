@@ -7,47 +7,46 @@
 #import "NSObject.h"
 
 #import "UIActionSheetDelegate.h"
-#import "UIModalItemDelegate.h"
 
-@class RCActionSheet, UIResponder, UIViewController, _RCModalItem;
+@class NSArray, NSString, RCActionSheetAlertController, UIResponder, UIViewController;
 
-@interface RCActionSheetController : NSObject <UIActionSheetDelegate, UIModalItemDelegate>
+@interface RCActionSheetController : NSObject <UIActionSheetDelegate>
 {
     BOOL _showing;
-    unsigned int _cancelButtonIndex;
-    BOOL _forceDismiss;
+    NSString *_alertTitle;
+    NSString *_alertMessage;
+    NSString *_cancelButtonTitle;
+    NSArray *_actionButtonTitles;
+    BOOL _dismissWhenDismissIsEnabled;
     UIResponder *_originalFirstResponder;
-    RCActionSheet *_actionSheet;
-    _RCModalItem *_modalItem;
+    RCActionSheetAlertController *_alertController;
     UIViewController *_modalItemPresentationViewController;
-    BOOL _dismissDisabled;
+    BOOL _autoDismissDisabled;
     BOOL _enabled;
     UIViewController *_accessoryViewController;
     CDUnknownBlockType _actionHandlerBlock;
 }
 
-@property(readonly, nonatomic) CDUnknownBlockType actionHandlerBlock; // @synthesize actionHandlerBlock=_actionHandlerBlock;
+@property(readonly, copy, nonatomic) CDUnknownBlockType actionHandlerBlock; // @synthesize actionHandlerBlock=_actionHandlerBlock;
 @property(readonly, nonatomic) UIViewController *accessoryViewController; // @synthesize accessoryViewController=_accessoryViewController;
 @property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
-@property(nonatomic) BOOL dismissDisabled; // @synthesize dismissDisabled=_dismissDisabled;
+@property(nonatomic) BOOL autoDismissDisabled; // @synthesize autoDismissDisabled=_autoDismissDisabled;
 - (void).cxx_destruct;
-- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)actionSheet:(id)arg1 willDismissWithButtonIndex:(int)arg2;
-- (void)didPresentActionSheet:(id)arg1;
-- (void)willPresentActionSheet:(id)arg1;
-- (void)modalItem:(id)arg1 didDismissWithButtonIndex:(int)arg2;
-- (BOOL)modalItem:(id)arg1 shouldDismissForButtonAtIndex:(int)arg2;
-- (void)modalItem:(id)arg1 willDismissWithButtonIndex:(int)arg2;
-- (void)didPresentModalItem:(id)arg1;
-- (void)willPresentModalItem:(id)arg1;
-- (unsigned int)_buttonIndexForActionIndex:(unsigned int)arg1;
-- (unsigned int)_actionIndexForButtonIndex:(unsigned int)arg1;
-- (void)cancel;
+- (void)_willDismiss;
+- (void)_invokeActionHandlerWithActionIndex:(int)arg1;
+- (void)dismissWithActionIndex:(int)arg1 invokeActionHandler:(BOOL)arg2;
 - (void)dismissWithActionIndex:(int)arg1;
+- (void)cancel;
 - (void)showInView:(id)arg1 actionHandlerBlock:(CDUnknownBlockType)arg2;
+- (void)showInViewController:(id)arg1 actionHandlerBlock:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)initWithTitle:(id)arg1 cancelTitle:(id)arg2 actionTitles:(id)arg3 accessoryViewController:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

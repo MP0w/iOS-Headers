@@ -6,39 +6,50 @@
 
 #import "UIViewController.h"
 
-#import "RCAudioWaveformViewControllerDelegate.h"
+#import "RCAVWaveformViewControllerDelegate.h"
 
-@class NSURL, RCAVPreviewController, RCAudioFileWaveformDataSource, RCAudioWaveformViewController, UIActivityIndicatorView, UIButton, UIColor, UILabel;
+@class AVPlayerItem, NSURL, RCAVWaveformViewController, RCFileInputWaveformDataSource, RCPreviewController, RCUIConfiguration, UIButton, UILabel, UIView;
 
-@interface RCAudioTrimmingModalItemViewController : UIViewController <RCAudioWaveformViewControllerDelegate>
+@interface RCAudioTrimmingModalItemViewController : UIViewController <RCAVWaveformViewControllerDelegate>
 {
-    RCAudioWaveformViewController *_waveformViewController;
-    RCAudioFileWaveformDataSource *_waveformDataSource;
-    UIActivityIndicatorView *_indeterminateProgressView;
-    UIColor *_indeterminateProgressViewColor;
+    UIView *_nonWaveformContentView;
+    RCAVWaveformViewController *_waveformViewController;
+    RCFileInputWaveformDataSource *_waveformDataSource;
     UILabel *_timeDisplayLabel;
     UIButton *_playPauseButton;
-    BOOL _showingIndeterminateProgress;
+    AVPlayerItem *_playerItem;
+    RCUIConfiguration *_defaultUIConfiguration;
+    RCUIConfiguration *_disabledUIConfiguration;
+    RCUIConfiguration *_progressUIConfiguration;
+    BOOL _showsProgress;
     BOOL _enabled;
     NSURL *_audioURL;
-    RCAVPreviewController *_previewController;
+    RCPreviewController *_previewController;
+    float _progress;
     double _maximumDuration;
 }
 
 @property(nonatomic, getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
-@property(nonatomic, getter=isShowingIndeterminateProgress) BOOL showingIndeterminateProgress; // @synthesize showingIndeterminateProgress=_showingIndeterminateProgress;
-@property(readonly, nonatomic) RCAVPreviewController *previewController; // @synthesize previewController=_previewController;
+@property(nonatomic) float progress; // @synthesize progress=_progress;
+@property(nonatomic) BOOL showsProgress; // @synthesize showsProgress=_showsProgress;
+@property(readonly, nonatomic) RCPreviewController *previewController; // @synthesize previewController=_previewController;
 @property(readonly, nonatomic) double maximumDuration; // @synthesize maximumDuration=_maximumDuration;
-@property(readonly, nonatomic) NSURL *audioURL; // @synthesize audioURL=_audioURL;
+@property(readonly, copy, nonatomic) NSURL *audioURL; // @synthesize audioURL=_audioURL;
 - (void).cxx_destruct;
-- (id)_assetImageForButtonPlaybackState:(int)arg1;
+- (id)_playStateImageForAVPreviewState:(int)arg1;
 - (void)_playPauseAction;
+- (void)_pausePreviewing;
+- (void)_beginOrResumePreviewing;
 - (void)_updateAudioStateInterface;
+- (id)_currentUIConfiguration;
+- (void)audioWaveformControllerDidChangeAVState:(id)arg1;
+- (void)audioWaveformControllerDidChangeAVTimes:(id)arg1;
 - (void)audioWaveformControllerDidChangeWaveformDataSource:(id)arg1;
-- (void)audioWaveformControllerDidChangeSelectedTimeRange:(id)arg1;
-- (void)audioWaveformControllerDidChangeAudioAVState:(id)arg1;
-- (struct CGSize)preferredContentSize;
+- (struct CGSize)_calculatedPreferredContentSize;
+- (void)updateViewConstraints;
 - (void)viewDidLoad;
+- (void)loadView;
+- (void)_updateProgressView;
 @property(readonly, nonatomic) CDStruct_73a5d3ca selectedTimeRange;
 - (id)initWithAudioURL:(id)arg1 maximumDuration:(double)arg2;
 

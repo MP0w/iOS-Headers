@@ -23,5 +23,10 @@
 @property(readonly, nonatomic) BOOL vibrationPickerUsesOpaqueBackground;
 - (UIView *)newAccessoryDisclosureIndicatorViewForVibrationPickerCell;
 - (UIView *)newBackgroundViewForSelectedVibrationPickerCell:(BOOL)arg1;
+
+@optional
+@property(readonly, nonatomic) BOOL vibrationPickerHeaderTextShouldBeUppercase;
+@property(readonly, nonatomic) int vibrationPickerCustomTableSeparatorBackdropOverlayBlendMode;
+@property(readonly, nonatomic) UIColor *vibrationPickerCustomTableSeparatorColor;
 @end
 

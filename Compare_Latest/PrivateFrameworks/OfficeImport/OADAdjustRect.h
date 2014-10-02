@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (id).cxx_construct;
+- (id)description;
 - (struct OADAdjustCoord)bottom;
 - (struct OADAdjustCoord)right;
 - (struct OADAdjustCoord)top;

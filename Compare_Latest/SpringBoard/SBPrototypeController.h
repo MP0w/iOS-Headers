@@ -9,7 +9,7 @@
 #import "SBVolumePressBandit.h"
 #import "_UISettingsKeyObserver.h"
 
-@class NSArray, PTSettingsController, SBRootSettings, UIWindow;
+@class NSArray, NSString, PTSettingsController, SBRootSettings, UIWindow;
 
 @interface SBPrototypeController : NSObject <SBVolumePressBandit, _UISettingsKeyObserver>
 {
@@ -45,6 +45,12 @@
 - (id)rootSettings;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

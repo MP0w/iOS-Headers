@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (unsigned int)xlBordersIndexFromEDBordersIndex:(unsigned int)arg1;
 + (void)readFrom:(struct _xmlNode *)arg1 state:(id)arg2;
 
 @end

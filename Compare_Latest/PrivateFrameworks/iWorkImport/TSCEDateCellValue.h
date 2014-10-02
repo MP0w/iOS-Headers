@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithArchive:(const struct DateCellValueArchive *)arg1;
 - (BOOL)isEqualToCellValue:(id)arg1;
 - (id)displayString;
-- (CDStruct_95e644ef)formatStruct;
+- (CDStruct_bfed0e84)formatStruct;
 - (struct TSCEDateValue *)dateValue;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

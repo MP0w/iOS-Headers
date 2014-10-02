@@ -8,6 +8,7 @@
 
 @class NSArray;
 
+__attribute__((visibility("hidden")))
 @interface _CUIKeyTestOrganizer : NSObject
 {
     struct _renditionkeytoken originalKey[16];

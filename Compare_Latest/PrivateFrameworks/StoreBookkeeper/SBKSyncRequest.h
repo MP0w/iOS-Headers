@@ -6,20 +6,12 @@
 
 #import <StoreBookkeeper/SBKRequest.h>
 
-@class SBKSyncTransaction;
-
 __attribute__((visibility("hidden")))
 @interface SBKSyncRequest : SBKRequest
 {
-    SBKSyncTransaction *_transaction;
 }
 
-+ (int)bodyContentEncodingType;
-+ (int)bodyContentType;
 + (id)requestForTransaction:(id)arg1;
-@property(retain, nonatomic) SBKSyncTransaction *transaction; // @synthesize transaction=_transaction;
-- (void).cxx_destruct;
-- (id)newURLOperation;
 - (id)canonicalResponseForResponse:(id)arg1;
 
 @end

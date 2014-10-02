@@ -10,6 +10,7 @@
 
 @interface MKSearchCompletion : NSObject
 {
+    id <GEOCompletionItem> _item;
     NSString *_sourceID;
     NSString *_localizedSectionHeader;
 }
@@ -17,9 +18,9 @@
 @property(copy, nonatomic) NSString *localizedSectionHeader; // @synthesize localizedSectionHeader=_localizedSectionHeader;
 @property(copy, nonatomic) NSString *sourceID; // @synthesize sourceID=_sourceID;
 - (void).cxx_destruct;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)description;
-- (void)applyToPlaceSearchRequest:(id)arg1;
-- (void)applyToLocalSearchRequest:(id)arg1;
 @property(readonly, nonatomic) MKMapItem *mapItem;
 - (void)sendFeedback;
 - (id)calloutTitle;
@@ -28,6 +29,9 @@
 - (id)iconWithScale:(float)arg1;
 - (id)highlightsForLine:(unsigned int)arg1;
 @property(readonly, nonatomic) NSArray *displayLines;
+- (id)initWithGeoCompletionItem:(id)arg1;
+@property(readonly, nonatomic) id <GEOCompletionItem> geoCompletionItem;
+- (void)applyToLegacySearch:(id)arg1;
 
 @end
 

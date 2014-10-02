@@ -25,12 +25,16 @@
     NSArray *_charsets;
     unsigned int _threaded:1;
     unsigned int _useCellDataOnly:1;
+    BOOL _isUserRequested;
+    unsigned long long _conversationFlags;
 }
 
 + (BOOL)deliverMessage:(id)arg1;
 + (id)newWithHeaders:(id)arg1 HTML:(id)arg2 plainTextAlternative:(id)arg3 other:(id)arg4 charsets:(id)arg5;
 + (id)newWithHeaders:(id)arg1 mixedContent:(id)arg2 textPartsAreHTML:(BOOL)arg3;
 + (id)newWithMessage:(id)arg1;
+@property(nonatomic) BOOL isUserRequested; // @synthesize isUserRequested=_isUserRequested;
+@property(nonatomic) unsigned long long conversationFlags; // @synthesize conversationFlags=_conversationFlags;
 @property(retain, nonatomic) NSDictionary *compositionSpecification; // @synthesize compositionSpecification=_compositionSpecification;
 - (void)archive;
 - (void)setCellDataOnly:(BOOL)arg1;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class TSSPropertyMap;
+@class NSString, TSSPropertyMap;
 
 __attribute__((visibility("hidden")))
 @interface TSCHConfiguration : NSObject
@@ -21,14 +21,18 @@ __attribute__((visibility("hidden")))
     BOOL mShouldForceDiscreteGraphicsFor3D;
     BOOL mExportsUsingSageKeynoteChartNonStyleDefaultsOverride;
     BOOL mSupportsTextBackground;
+    BOOL mSupportsTextWrapping;
     Class mMultiDataChartOptionsControllerBuildSupportClass;
+    NSString *mSaveChartStyleHelpKey;
 }
 
 + (void)resetSharedChartConfiguration;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)sharedChartConfiguration;
 + (id)_singletonAlloc;
+@property(copy, nonatomic) NSString *saveChartStyleHelpKey; // @synthesize saveChartStyleHelpKey=mSaveChartStyleHelpKey;
 @property(nonatomic) Class multiDataChartOptionsControllerBuildSupportClass; // @synthesize multiDataChartOptionsControllerBuildSupportClass=mMultiDataChartOptionsControllerBuildSupportClass;
+@property(nonatomic) BOOL supportsTextWrapping; // @synthesize supportsTextWrapping=mSupportsTextWrapping;
 @property(nonatomic) BOOL supportsTextBackground; // @synthesize supportsTextBackground=mSupportsTextBackground;
 @property(nonatomic) BOOL exportsUsingSageKeynoteChartNonStyleDefaultsOverride; // @synthesize exportsUsingSageKeynoteChartNonStyleDefaultsOverride=mExportsUsingSageKeynoteChartNonStyleDefaultsOverride;
 @property(nonatomic) BOOL shouldForceDiscreteGraphicsFor3D; // @synthesize shouldForceDiscreteGraphicsFor3D=mShouldForceDiscreteGraphicsFor3D;

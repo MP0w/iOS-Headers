@@ -15,8 +15,6 @@
 - (BOOL)mayModifyFormulasInCells;
 - (TSTCell *)cellAtIndex:(unsigned int)arg1;
 - (CDStruct_0441cfb5)cellIDAtIndex:(unsigned int)arg1;
-- (BOOL)containsCellID:(CDStruct_0441cfb5)arg1;
-- (CDStruct_0441cfb5 *)cellIDs;
 - (void)popLastCell;
 - (void)addCell:(TSTCell *)arg1 andCellID:(CDStruct_0441cfb5)arg2;
 - (unsigned int)count;

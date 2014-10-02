@@ -12,7 +12,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class MFContactsSearchManager, MFContactsSearchResultsModel, MFSearchShadowView, NSArray, NSNumber, PLComposeRecipientView, UIPopoverController, UIScrollView, UITableView;
+@class MFContactsSearchManager, MFContactsSearchResultsModel, MFSearchShadowView, NSArray, NSNumber, NSString, PLComposeRecipientView, UIPopoverController, UIScrollView, UITableView;
 
 @interface PLComposeRecipientViewController : UIViewController <ABPeoplePickerNavigationControllerDelegate, MFContactsSearchConsumer, UITableViewDelegate, UITableViewDataSource, UIPopoverControllerDelegate>
 {
@@ -68,8 +68,8 @@
 - (void)endedNetworkActivity;
 - (void)beganNetworkActivity;
 - (void)finishedTaskWithID:(id)arg1;
-- (void)finishedSearchingForType:(int)arg1;
-- (void)consumeSearchResults:(id)arg1 type:(int)arg2 taskID:(id)arg3;
+- (void)finishedSearchingForType:(unsigned int)arg1;
+- (void)consumeSearchResults:(id)arg1 type:(unsigned int)arg2 taskID:(id)arg3;
 - (void)_searchForRecipientWithText:(id)arg1;
 - (void)_updateSearchResultsTableVisibility;
 - (BOOL)_searchResultsShowInPopover;
@@ -93,6 +93,12 @@
 - (void)didReceiveMemoryWarning;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

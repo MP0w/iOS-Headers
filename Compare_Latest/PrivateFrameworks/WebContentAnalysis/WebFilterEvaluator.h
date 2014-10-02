@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding.h"
+
 @class NSMutableData, NSString, NSURL;
 
-@interface WebFilterEvaluator : NSObject
+@interface WebFilterEvaluator : NSObject <NSSecureCoding>
 {
     unsigned int _filterState;
     NSURL *_url;
@@ -16,8 +18,11 @@
     NSMutableData *_buffer;
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)createWithResponse:(id)arg1;
 + (BOOL)isManagedSession;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (void)unblockWithCompletion:(CDUnknownBlockType)arg1;
 - (void)attemptUnblockWithCompletion:(CDUnknownBlockType)arg1;
 - (BOOL)wasBlocked;

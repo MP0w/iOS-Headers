@@ -9,7 +9,7 @@
 #import "NSCoding.h"
 #import "SSXPCCoding.h"
 
-@class NSArray;
+@class NSArray, NSString;
 
 @interface SSDownloadManifestResponse : NSObject <SSXPCCoding, NSCoding>
 {
@@ -22,6 +22,12 @@
 - (id)initWithCoder:(id)arg1;
 @property(copy) NSArray *validDownloads;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

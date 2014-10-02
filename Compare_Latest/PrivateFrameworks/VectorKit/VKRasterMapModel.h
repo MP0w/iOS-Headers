@@ -8,33 +8,43 @@
 
 #import "VKMapLayer.h"
 
-@class NSMutableArray, VGLRenderState, VGLTexture;
+@class NSMutableArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface VKRasterMapModel : VKMapTileModel <VKMapLayer>
 {
     NSMutableArray *_sortedTiles;
-    unsigned int _mapLayer;
+    unsigned long long _mapLayer;
     BOOL _rasterViewer;
-    VGLRenderState *_renderState;
-    VGLTexture *_clutTexture;
     BOOL _showingNoDataPlaceholders;
+    shared_ptr_6e6219d6 _styleQuery;
+    shared_ptr_479d1306 _gglClutTexture;
+    struct Pos2DUVMesh *_unitMesh;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _renderState;
+    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _clutRenderState;
 }
 
 + (BOOL)reloadOnStylesheetChange;
 @property(readonly, getter=isShowingNoDataPlaceholders) BOOL showingNoDataPlaceholders; // @synthesize showingNoDataPlaceholders=_showingNoDataPlaceholders;
 @property(nonatomic) BOOL rasterViewer; // @synthesize rasterViewer=_rasterViewer;
-@property(nonatomic) unsigned int mapLayerPosition; // @synthesize mapLayerPosition=_mapLayer;
-- (void)drawScene:(id)arg1 withContext:(id)arg2;
-- (id)_rasterProgram:(id)arg1;
-- (void)layoutScene:(id)arg1 withContext:(id)arg2;
-- (void)setupClutTextureForLevelOfDetail:(unsigned int)arg1 scale:(float)arg2;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (BOOL)shouldEnableCLUT;
+- (void)gglLayoutScene:(id)arg1 withContext:(id)arg2 renderQueue:(struct RenderQueue *)arg3 roadAlpha:(float)arg4;
+- (void)gglLayoutScene:(id)arg1 withContext:(id)arg2 renderQueue:(struct RenderQueue *)arg3;
+- (void)gglSetupClutTextureForLevelOfDetail:(unsigned int)arg1 scale:(float)arg2;
 - (void)stylesheetDidChange;
-- (id)stylesheet;
+- (id)styleManager;
 - (void)reset;
 - (void)dealloc;
 - (id)init;
-- (unsigned int)supportedRenderPasses;
+@property(nonatomic) unsigned long long mapLayerPosition;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -35,6 +35,10 @@ struct PKEdgeInsets {
 #pragma mark Typedef'd Structures
 
 typedef struct {
+    unsigned int _field1[8];
+} CDStruct_6ad76789;
+
+typedef struct {
     double _field1;
     double _field2;
 } CDStruct_c3b9c2ee;

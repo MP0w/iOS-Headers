@@ -8,20 +8,45 @@
 
 #import "SBLockOverlayViewDelegate.h"
 
-@class SBAwayBulletinListItem, SBLockOverlayView;
+@class NSString, SBAwayBulletinListItem, SBLockOverlayView;
 
 @interface SBLockScreenFullscreenBulletinViewController : SBLockOverlayViewController <SBLockOverlayViewDelegate>
 {
     SBLockOverlayView *_bulletinView;
+    _Bool _performedAction;
     SBAwayBulletinListItem *_bulletinItem;
 }
 
 @property(retain, nonatomic) SBAwayBulletinListItem *bulletinItem; // @synthesize bulletinItem=_bulletinItem;
+- (_Bool)isRepeatingSound;
+- (id)_lockScreenActionContext;
+- (id)slideToUnlockText;
+- (void)performUnlockAction;
+- (void)performSnoozeAction;
+- (id)_snoozeAction;
+- (id)_dismissAction;
+- (void)performDismissAction;
+- (id)_alternateAction;
+- (_Bool)_hasAlternateAction;
+- (void)performAlternateAction;
+- (void)performAction:(id)arg1;
+- (id)_titleForAlternateActionButton;
+- (id)_calculatedTitleForAlternateActionButton;
+- (id)_customTitleForAlternateActionButton;
 - (void)handleTapGestureFromView:(id)arg1;
+- (void)lockButtonPressed:(id)arg1;
+- (void)volumeChanged:(id)arg1;
 - (void)updateContent;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

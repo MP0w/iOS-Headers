@@ -4,23 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <MusicUI/MusicPlaybackContext.h>
+#import "MPQueryPlaybackContext.h"
 
-@class MPMediaQuery, NSArray;
-
-@interface MusicQueryPlaybackContext : MusicPlaybackContext
+@interface MusicQueryPlaybackContext : MPQueryPlaybackContext
 {
-    NSArray *_prefixMediaItems;
-    MPMediaQuery *_query;
-    unsigned int _startIndex;
 }
 
 + (Class)queueFeederClass;
-@property(nonatomic) unsigned int startIndex; // @synthesize startIndex=_startIndex;
-@property(readonly, nonatomic) MPMediaQuery *query; // @synthesize query=_query;
-@property(copy, nonatomic) NSArray *prefixMediaItems; // @synthesize prefixMediaItems=_prefixMediaItems;
-- (void).cxx_destruct;
-- (id)initWithQuery:(id)arg1;
 
 @end
 

@@ -11,7 +11,6 @@
 + (id)dateWithSerialNumber:(double)arg1 dateMode:(int)arg2;
 - (double)mapToDouble;
 - (int)weekday;
-- (int)week;
 - (int)second;
 - (int)minute;
 - (int)hour;

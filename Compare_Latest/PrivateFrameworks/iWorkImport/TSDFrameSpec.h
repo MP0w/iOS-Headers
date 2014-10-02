@@ -40,7 +40,7 @@ __attribute__((visibility("hidden")))
 + (id)frameSpecWithName:(id)arg1;
 + (id)frameSpecs;
 @property(readonly, nonatomic) BOOL displayInPicker; // @synthesize displayInPicker=mDisplayInPicker;
-@property(readonly, nonatomic) NSString *frameName; // @synthesize frameName=mFrameName;
+@property(readonly, copy, nonatomic) NSString *frameName; // @synthesize frameName=mFrameName;
 - (void)p_loadImageMetrics;
 - (id)p_imageDataForKey:(id)arg1;
 - (id)p_infoDictionary;

@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)nullShape3D;
+- (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (void)setMaterial:(int)arg1;

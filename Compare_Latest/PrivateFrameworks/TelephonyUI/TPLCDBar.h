@@ -6,11 +6,10 @@
 
 #import "UIView.h"
 
-@class UIImage, UIImageView;
+@class UIImageView;
 
 @interface TPLCDBar : UIView
 {
-    UIImage *_barBackground;
     UIImageView *_shadowView;
 }
 
@@ -18,8 +17,6 @@
 + (float)defaultHeightForOrientation:(int)arg1;
 + (float)defaultHeight;
 @property(readonly) UIImageView *shadowView; // @synthesize shadowView=_shadowView;
-@property(retain, nonatomic) UIImage *barBackground; // @synthesize barBackground=_barBackground;
-- (struct CGRect)contentStretchRect;
 - (void)setOrientation:(int)arg1;
 - (void)setOrientation:(int)arg1 updateFrame:(BOOL)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;

@@ -11,7 +11,9 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (void)updateConstraintsIfNeeded;
 - (void)setBackgroundColor:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

@@ -9,12 +9,13 @@
 #import "TSPDatabaseReaderDelegate.h"
 #import "TSPReadCoordinator.h"
 
-@class NSMapTable, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSURL, TSPDatabase, TSPDocumentResourceDataProvider, TSPFinalizeHandlerQueue, TSPObjectContext;
+@class NSMapTable, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSURL, NSUUID, TSPDatabase, TSPDocumentResourceDataProvider, TSPFinalizeHandlerQueue, TSPObjectContext;
 
 __attribute__((visibility("hidden")))
 @interface TSPDatabaseReadCoordinator : TSPReadCoordinatorBase <TSPDatabaseReaderDelegate, TSPReadCoordinator>
 {
     TSPObjectContext *_context;
+    NSUUID *_baseObjectUUID;
     NSURL *_packageURL;
     TSPFinalizeHandlerQueue *_finalizeHandlerQueue;
     TSPDocumentResourceDataProvider *_documentResourceDataProvider;
@@ -28,6 +29,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
+- (void)reader:(id)arg1 didUnarchiveObject:(id)arg2;
 - (void)reader:(id)arg1 didFindExternalRepeatedReference:(id)arg2 isWeak:(BOOL)arg3 allowUnknownObject:(BOOL)arg4 fromParentObject:(id)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)reader:(id)arg1 didFindExternalReferenceToObjectIdentifier:(long long)arg2 componentIdentifier:(long long)arg3 isWeak:(BOOL)arg4 allowUnknownObject:(BOOL)arg5 fromParentObject:(id)arg6 completion:(CDUnknownBlockType)arg7;
 - (id)databaseReader:(id)arg1 wantsDataForAppRelativePath:(id)arg2 filename:(id)arg3;
@@ -38,6 +40,8 @@ __attribute__((visibility("hidden")))
 - (id)unarchivedObjectForIdentifier:(long long)arg1 isReadFinished:(BOOL)arg2;
 - (id)context;
 @property(readonly, nonatomic) BOOL isReadingFromDocument;
+@property(readonly, nonatomic) NSUUID *baseObjectUUID;
+@property(readonly, nonatomic) unsigned long long fileFormatVersion;
 - (id)createUpgradedOldAppBundleResourcePath:(id)arg1;
 - (id)dataForAppRelativePath:(id)arg1 filename:(id)arg2;
 - (id)documentResourceEntryForAppRelativePath:(id)arg1;
@@ -52,9 +56,13 @@ __attribute__((visibility("hidden")))
 - (id)init;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
 @property(readonly, nonatomic) BOOL isCrossAppPaste;
 @property(readonly, nonatomic) BOOL isCrossDocumentPaste;
 @property(readonly, nonatomic) BOOL isFromPasteboard;
+@property(readonly) Class superclass;
 
 @end
 

@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     CDStruct_6c9b9d05 *_typesetterAuxiliary;
     CDUnion_a04c68c6 *_lineFragmentRectArgs;
     char *_bidiLevels;
+    float _defaultTighteningFactor;
     struct {
         unsigned int _isiChatTypesetter:1;
         unsigned int _resToWillSetLineFragmentRect:1;

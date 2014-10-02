@@ -26,8 +26,7 @@
 - (void)_unlock;
 - (id)_passcodeView;
 - (void)alertDisplayWillBecomeVisible;
-- (void)_dismissAnimationCompleted;
-- (id)_buildPasscodeView;
+- (CDUnknownBlockType)_passcodeViewGenerator;
 - (void)setupUnlockAttemptState;
 - (void)setupSuccess;
 - (void)setupCurrentLockAttemptState;
@@ -37,6 +36,12 @@
 - (id)localizedStringWithKey:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 languageCode:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -15,6 +15,8 @@
     UILabel *_currentTimeLabel;
 }
 
++ (float)_spacingAdjustmentFontSize;
++ (id)timeMarkerFont;
 @property(retain, nonatomic) UILabel *currentTimeLabel; // @synthesize currentTimeLabel=_currentTimeLabel;
 @property(nonatomic) BOOL showsLine; // @synthesize showsLine=_showsLine;
 @property(nonatomic) BOOL showsThumb; // @synthesize showsThumb=_showsThumb;
@@ -24,6 +26,8 @@
 - (struct CGRect)_lineFrame;
 @property(readonly, nonatomic) struct CGRect currentTimeFrame;
 - (void)_updateTimeLabelColor;
+- (void)invalidateFonts;
+- (void)_updateTimeWithForce:(BOOL)arg1;
 - (void)updateTime;
 @property(readonly, nonatomic) float markerMidHeight;
 @property(readonly, nonatomic) float markerWidth;

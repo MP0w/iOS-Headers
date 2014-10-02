@@ -11,6 +11,7 @@
 @protocol AXGroupable <NSObject>
 @property(nonatomic) AXElementGroup *parentGroup;
 @property(readonly, nonatomic) struct CGRect frame;
+- (AXElementGroup *)keyboardContainer;
 - (BOOL)isGroup;
 - (AXElementGroup *)highestAncestorGroup;
 @end

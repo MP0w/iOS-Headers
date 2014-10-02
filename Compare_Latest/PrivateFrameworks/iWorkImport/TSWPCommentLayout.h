@@ -14,14 +14,13 @@ __attribute__((visibility("hidden")))
 - (BOOL)shouldDisplayGuides;
 - (void)layoutSearchForAnnotationWithHitBlock:(CDUnknownBlockType)arg1;
 - (struct CGSize)minimumSize;
-- (id)stroke;
-- (id)fill;
 - (BOOL)canResetTextAndObjectHandles;
 - (BOOL)canBeIntersected;
 - (BOOL)supportsRotation;
 - (BOOL)allowsConnections;
 - (struct CGRect)nonAutosizedFrameForTextLayout:(id)arg1;
 - (BOOL)shouldBeDisplayedInShowMode;
+- (id)fill;
 - (id)commentInfo;
 - (int)wrapType;
 - (Class)repClassOverride;

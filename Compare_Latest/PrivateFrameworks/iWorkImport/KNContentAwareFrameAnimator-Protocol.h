@@ -7,7 +7,6 @@
 #import "KNAnimationPluginFrameRendering.h"
 
 @protocol KNContentAwareFrameAnimator <KNAnimationPluginFrameRendering>
-+ (BOOL)requiresMagicMoveTextures;
 + (BOOL)requiresBullets;
 + (BOOL)isCharacterAwareEffect;
 @end

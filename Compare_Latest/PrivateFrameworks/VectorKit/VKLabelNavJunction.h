@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
 @interface VKLabelNavJunction : NSObject <VKLabelNavFeature>
 {
     VKLabelTile *_tile;
-    Vec2Imp_1782d7e3 _tileCoordinate;
+    Matrix_8746f91e _tileCoordinate;
     CDStruct_dde70fb6 *_geoJunction;
     struct PolylineCoordinate _routeOffset;
     NSMutableArray *_roads;
@@ -24,17 +24,17 @@ __attribute__((visibility("hidden")))
     int _preferredLabelPlacement;
     BOOL _isOnDualCarriageway;
     BOOL _hasSharedRouteDirection;
-    Vec2Imp_1782d7e3 _sharedRouteDirection;
+    Matrix_8746f91e _sharedRouteDirection;
     BOOL _foundRoads;
     BOOL _isOverpass;
     BOOL _isRouteOverpass;
     int _largestRoadClass;
     struct {
-        CDStruct_4c1ff046 _field1;
-        Vec2Imp_1782d7e3 _field2;
+        CDStruct_fafc065c _field1;
+        CDStruct_b2fbf00d _field2;
         unsigned char _field3;
-        char _field4;
-        char _field5;
+        unsigned char _field4;
+        unsigned char _field5;
         CDStruct_183601bc *_field6;
     } *_labelFeature;
     NSString *_name;
@@ -55,7 +55,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL isOverpass; // @synthesize isOverpass=_isOverpass;
 @property(nonatomic) VKLabelNavJunction *overpassJunction; // @synthesize overpassJunction=_overpassJunction;
 @property(nonatomic) unsigned int depthFromRoute; // @synthesize depthFromRoute=_depthFromRoute;
-@property(nonatomic) Vec2Imp_1782d7e3 sharedRouteDirection; // @synthesize sharedRouteDirection=_sharedRouteDirection;
+@property(nonatomic) Matrix_8746f91e sharedRouteDirection; // @synthesize sharedRouteDirection=_sharedRouteDirection;
 @property(readonly, nonatomic) BOOL hasSharedRouteDirection; // @synthesize hasSharedRouteDirection=_hasSharedRouteDirection;
 @property(nonatomic) BOOL isOnDualCarriageway; // @synthesize isOnDualCarriageway=_isOnDualCarriageway;
 @property(nonatomic) float distanceFromPreviousShieldLabel; // @synthesize distanceFromPreviousShieldLabel=_distanceFromPreviousShieldLabel;
@@ -63,7 +63,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) VKLabelNavRoad *incomingRoad; // @synthesize incomingRoad=_incomingRoad;
 @property(readonly, nonatomic) VKLabelNavRoad *outgoingRoad; // @synthesize outgoingRoad=_outgoingRoad;
 @property(nonatomic) struct PolylineCoordinate routeOffset; // @synthesize routeOffset=_routeOffset;
-@property(readonly, nonatomic) Vec2Imp_1782d7e3 tileCoordinate; // @synthesize tileCoordinate=_tileCoordinate;
+@property(readonly, nonatomic) Matrix_8746f91e tileCoordinate; // @synthesize tileCoordinate=_tileCoordinate;
 @property(readonly, nonatomic) const CDStruct_dde70fb6 *geoJunction; // @synthesize geoJunction=_geoJunction;
 @property(readonly, nonatomic) VKLabelTile *tile; // @synthesize tile=_tile;
 - (id).cxx_construct;

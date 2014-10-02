@@ -18,6 +18,7 @@
     } fields;
 }
 
++ (BOOL)supportsSecureCoding;
 + (Class)_mutableStringClass;
 - (id)initWithCoder:(id)arg1;
 - (Class)classForCoder;

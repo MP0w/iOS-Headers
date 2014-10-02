@@ -10,6 +10,7 @@
 
 @interface SUScriptPopOver : SUScriptObject
 {
+    UIViewController *_contentViewController;
     BOOL _ignoreDismiss;
 }
 
@@ -22,6 +23,7 @@
 - (BOOL)_shouldDisplayAsPopover;
 - (void)_setNativeViewController:(id)arg1;
 - (void)_setIgnoresDismiss:(BOOL)arg1;
+- (id)_presentablePopoverController;
 - (id)_popOverController;
 - (BOOL)_isViewControllerVisible;
 - (id)_nativeViewController;
@@ -46,6 +48,7 @@
 - (void)tearDownUserInterface;
 - (BOOL)isVisible;
 @property(retain, nonatomic) UIPopoverController *nativePopoverController;
+@property(readonly, nonatomic) UIPopoverController *presentablePopoverController;
 @property(readonly) UIViewController *activeViewController;
 - (void)dealloc;
 - (id)init;

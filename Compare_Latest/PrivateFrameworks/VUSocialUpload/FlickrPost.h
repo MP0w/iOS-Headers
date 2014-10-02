@@ -16,32 +16,36 @@
     NSURL *_assetURL;
     NSData *_photoData;
     NSString *_title;
-    NSString *_description;
+    NSString *_postDescription;
     NSArray *_tags;
     unsigned int _visibility;
     int _safetyLevel;
     int _contentType;
-    id <FlickrPostDelegate> _delegate;
     long long _photoSetID;
 }
 
 + (BOOL)supportsSecureCoding;
-@property(nonatomic) id <FlickrPostDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) BOOL hidden; // @synthesize hidden=_hidden;
 @property(nonatomic) int contentType; // @synthesize contentType=_contentType;
 @property(nonatomic) int safetyLevel; // @synthesize safetyLevel=_safetyLevel;
 @property(nonatomic) unsigned int visibility; // @synthesize visibility=_visibility;
 @property(nonatomic) long long photoSetID; // @synthesize photoSetID=_photoSetID;
 @property(retain, nonatomic) NSArray *tags; // @synthesize tags=_tags;
-@property(retain, nonatomic) NSString *description; // @synthesize description=_description;
+@property(retain, nonatomic) NSString *postDescription; // @synthesize postDescription=_postDescription;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) NSData *photoData; // @synthesize photoData=_photoData;
 @property(retain, nonatomic) NSURL *assetURL; // @synthesize assetURL=_assetURL;
-- (BOOL)uploadToAccount:(id)arg1;
-- (void)_uploadData:(id)arg1 toAccount:(id)arg2;
-- (void)dealloc;
+- (void).cxx_destruct;
+- (BOOL)uploadToAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_uploadData:(id)arg1 toAccount:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)serializedDictionary;
 - (id)initWithDictionary:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

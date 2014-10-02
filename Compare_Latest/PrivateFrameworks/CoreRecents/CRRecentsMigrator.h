@@ -12,6 +12,10 @@
     int _isNewDatabase;
 }
 
++ (BOOL)executeSQL:(id)arg1 database:(id)arg2;
++ (void)setVersion:(int)arg1 ofDatabase:(id)arg2;
++ (int)versionOfDatabase:(id)arg1;
+- (BOOL)migrateWithSQLiteConnection:(id)arg1 toVersion:(int)arg2;
 - (BOOL)migrateWithSQLiteConnection:(id)arg1;
 - (BOOL)isNewDatabase;
 - (void)dealloc;

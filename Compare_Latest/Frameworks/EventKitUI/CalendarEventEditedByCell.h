@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UITableViewCell.h"
+#import <EventKitUI/EKUIConstrainedFontsTableViewCell.h>
 
 @class UILabel;
 
-@interface CalendarEventEditedByCell : UITableViewCell
+@interface CalendarEventEditedByCell : EKUIConstrainedFontsTableViewCell
 {
     UILabel *_titleLabel2;
     UILabel *_valueLabel2;
@@ -24,8 +24,8 @@
 - (BOOL)detailTextIsPlaceholder;
 - (void)setDetailText2IsPlaceholder:(BOOL)arg1;
 - (void)setDetailTextIsPlaceholder:(BOOL)arg1;
-@property(readonly, nonatomic) UILabel *detailTextLabel2;
-@property(readonly, nonatomic) UILabel *textLabel2;
+@property(readonly, retain, nonatomic) UILabel *detailTextLabel2;
+@property(readonly, retain, nonatomic) UILabel *textLabel2;
 - (void)_copyTextLabelAttributesFrom:(id)arg1 to:(id)arg2;
 
 @end

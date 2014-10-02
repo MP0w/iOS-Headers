@@ -11,9 +11,9 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)readNode:(struct _xmlNode *)arg1 toChoose:(id)arg2;
-+ (void)readElseNode:(struct _xmlNode *)arg1 toChoose:(id)arg2;
-+ (void)readIfNode:(struct _xmlNode *)arg1 toChoose:(id)arg2;
++ (void)readNode:(struct _xmlNode *)arg1 toChoose:(id)arg2 state:(id)arg3;
++ (void)readElseNode:(struct _xmlNode *)arg1 toChoose:(id)arg2 state:(id)arg3;
++ (void)readIfNode:(struct _xmlNode *)arg1 toChoose:(id)arg2 state:(id)arg3;
 
 @end
 

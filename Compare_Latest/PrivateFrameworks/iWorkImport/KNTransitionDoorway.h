@@ -6,16 +6,19 @@
 
 #import <iWorkImport/KNAnimationEffect.h>
 
+#import "KNFrameAnimator.h"
 #import "KNTransitionAnimator.h"
 
-@class KNAnimParameterGroup;
+@class KNAnimParameterGroup, KNMotionBlurAnimationPluginWrapper, NSString;
 
 __attribute__((visibility("hidden")))
-@interface KNTransitionDoorway : KNAnimationEffect <KNTransitionAnimator>
+@interface KNTransitionDoorway : KNAnimationEffect <KNTransitionAnimator, KNFrameAnimator>
 {
     KNAnimParameterGroup *_parameterGroup;
+    KNMotionBlurAnimationPluginWrapper *_motionBlurWrapper;
 }
 
++ (int)rendererTypeForCapabilities:(id)arg1;
 + (id)thumbnailImageNameForType:(int)arg1;
 + (id)defaultAttributes;
 + (void)fillLocalizedDirectionMenu:(id)arg1 forType:(int)arg2;
@@ -25,9 +28,18 @@ __attribute__((visibility("hidden")))
 + (id)animationFilter;
 + (int)animationCategory;
 + (id)animationName;
+- (void)animationDidEndWithContext:(id)arg1;
+- (void)renderFrameWithContext:(id)arg1;
+- (void)animationWillBeginWithContext:(id)arg1;
 - (id)animationsWithContext:(id)arg1;
 - (void)dealloc;
 - (id)initWithAnimationContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

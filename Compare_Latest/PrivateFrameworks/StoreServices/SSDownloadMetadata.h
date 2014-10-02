@@ -58,8 +58,9 @@
 - (id)newDownloadProperties;
 @property(readonly) NSArray *MD5HashStrings;
 @property(readonly, getter=isContentRestricted) BOOL contentRestricted;
+@property(readonly) NSNumber *downloaderAccountIdentifier;
 - (id)copyWritableMetadata;
-@property(readonly) NSData *appReceiptData;
+@property(readonly, retain) NSData *appReceiptData;
 - (id)viewStoreItemURL;
 - (id)videoDetailsDictionary;
 @property(retain) NSString *transactionIdentifier;
@@ -91,6 +92,7 @@
 - (void)setNumberOfCollectionsInCollectionGroup:(id)arg1;
 - (void)setNetworkName:(id)arg1;
 @property(copy) NSString *longDescription;
+@property(retain) NSURL *launchExtrasUrl;
 @property(retain) NSString *kind;
 @property unsigned long long itemIdentifier;
 - (void)setIndexInCollection:(id)arg1;
@@ -160,6 +162,12 @@
 - (id)initWithItem:(id)arg1;
 - (id)initWithDictionary:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -12,12 +12,13 @@
 #import "NSLayoutManagerDelegate.h"
 #import "UITextViewDelegate.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSString, NSTimer, UIButton, UIFont, UITextView, UIView, _MFAtomTextAttachment, _MFAtomTextView;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSString, NSTimer, UIButton, UIColor, UIFont, UITextView, UIView, _MFAtomTextAttachment, _MFAtomTextView;
 
 @interface MFComposeRecipientTextView : MFComposeHeaderView <UITextViewDelegate, NSLayoutManagerDelegate, MFMultiDragSource, MFMultiDragDestination, MFComposeRecipientAtomDelegate>
 {
     _MFAtomTextView *_textView;
     UITextView *_inactiveTextView;
+    UIColor *_inactiveTextColor;
     UIView *_atomContainerView;
     NSMutableArray *_atomViews;
     NSMutableDictionary *_atomPresentationOptionsByRecipient;
@@ -27,16 +28,20 @@
     id <MFDraggableItem> _pivotItem;
     BOOL _parentIsClosing;
     BOOL _textViewExclusionPathsAreValid;
+    BOOL _isTextFieldCollapsed;
+    BOOL _collapsedStateInitialized;
+    BOOL _indicatesUnsafeRecipientsWhenCollapsed;
+    BOOL _notifyDelegateOfSizeChange;
     NSTimer *_inputDelayTimer;
     NSTimer *_collapsableUpdateTimer;
     NSArray *_properties;
+    NSMutableArray *_recipientsBeingRemoved;
     BOOL _editable;
     BOOL _allowsDragAndDrop;
     BOOL _separatorHidden;
     BOOL _focused;
     BOOL _didIgnoreFirstResponderResign;
     UIFont *_baseFont;
-    NSArray *_uncommentedAddresses;
     int _maxRecipients;
     UIButton *_addButton;
     int _hideLastAtomComma;
@@ -55,7 +60,7 @@
 @property(nonatomic, getter=isSeparatorHidden) BOOL separatorHidden; // @synthesize separatorHidden=_separatorHidden;
 @property(nonatomic) BOOL allowsDragAndDrop; // @synthesize allowsDragAndDrop=_allowsDragAndDrop;
 @property(nonatomic) BOOL editable; // @synthesize editable=_editable;
-@property(copy, nonatomic) NSArray *uncommentedAddresses; // @synthesize uncommentedAddresses=_uncommentedAddresses;
+@property(nonatomic) BOOL indicatesUnsafeRecipientsWhenCollapsed; // @synthesize indicatesUnsafeRecipientsWhenCollapsed=_indicatesUnsafeRecipientsWhenCollapsed;
 @property(readonly, nonatomic) UIView *atomContainerView; // @synthesize atomContainerView=_atomContainerView;
 - (void)composeRecipientAtomSelectNext:(id)arg1;
 - (void)composeRecipientAtomSelectPrevious:(id)arg1;
@@ -81,6 +86,7 @@
 - (BOOL)allowsDrag;
 - (struct _NSRange)_placeholderAttachmentRange;
 - (id)_placeholderAttachmentForRecipient:(id)arg1;
+- (void)_notifyDelegateOfSizeChange;
 - (void)layoutManager:(id)arg1 didCompleteLayoutForTextContainer:(id)arg2 atEnd:(BOOL)arg3;
 - (void)atomTextView:(id)arg1 didChangeWritingDirection:(int)arg2;
 - (void)atomTextViewDidResignFirstResponder:(id)arg1;
@@ -97,6 +103,7 @@
 - (void)_insertAtomAttachment:(id)arg1 atCharacterIndex:(unsigned int)arg2;
 - (id)_atomAttachmentForRecipient:(id)arg1;
 - (BOOL)_canAddAdditionalAtoms;
+- (void)_longPressGestureRecognized:(id)arg1;
 - (void)_tapGestureRecognized:(id)arg1;
 - (void)_setAddButtonVisible:(BOOL)arg1 animated:(BOOL)arg2;
 - (BOOL)_isAddButtonVisible;
@@ -125,6 +132,7 @@
 - (void)invalidateAtomPresentationOptionsForRecipient:(id)arg1;
 - (void)invalidateAtomPresentationOptions;
 - (void)clearText;
+@property(retain, nonatomic) UIColor *inactiveTextColor;
 - (void)setLabel:(id)arg1;
 - (void)_invalidateAtomPresentationOptionsCache;
 - (unsigned int)_atomPresentationOptionsForRecipient:(id)arg1;
@@ -140,12 +148,14 @@
 - (id)_userEnteredTextWithRange:(struct _NSRange *)arg1;
 - (BOOL)_hasUnsafeRecipients;
 - (void)setEditable:(BOOL)arg1 animated:(BOOL)arg2;
+@property(readonly, copy, nonatomic) NSArray *uncommentedAddresses;
 @property(copy, nonatomic) NSArray *addresses;
 @property(nonatomic) id <MFComposeRecipientTextViewDelegate> delegate;
 - (void)_addButtonTapped:(id)arg1;
 - (BOOL)containsAddress:(id)arg1;
 - (void)addAddress:(id)arg1;
 - (void)removeRecipient:(id)arg1;
+- (void)_didRemoveRecipient:(id)arg1;
 - (void)addRecipient:(id)arg1 index:(unsigned int)arg2 animate:(BOOL)arg3;
 - (void)addRecord:(void *)arg1 property:(int)arg2 identifier:(int)arg3;
 - (void)_addRecord:(void *)arg1 identifier:(int)arg2;
@@ -160,6 +170,12 @@
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

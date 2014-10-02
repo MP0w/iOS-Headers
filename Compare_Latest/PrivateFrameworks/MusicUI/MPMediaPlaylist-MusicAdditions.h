@@ -10,6 +10,7 @@
 
 @interface MPMediaPlaylist (MusicAdditions)
 + (id)activeGeniusPlaylist;
+- (void)generateGeniusArtworkWithImageSize:(struct CGSize)arg1 completionHandler:(CDUnknownBlockType)arg2 queue:(id)arg3;
 @property(readonly, nonatomic, getter=music_seedItem) MPMediaItem *music_seedItem;
 @end
 

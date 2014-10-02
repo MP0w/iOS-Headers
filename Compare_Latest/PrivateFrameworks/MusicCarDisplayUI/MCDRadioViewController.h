@@ -8,7 +8,7 @@
 
 #import "RURadioDataSourceDelegate.h"
 
-@class NSArray, NSMutableDictionary, NSString, RURadioDataSource;
+@class NSArray, NSString, RURadioDataSource;
 
 @interface MCDRadioViewController : MCD_OLD_TableViewController <RURadioDataSourceDelegate>
 {
@@ -16,20 +16,25 @@
     NSArray *_featuredStations;
     NSArray *_myStations;
     NSString *_featuredStationNamesBrief;
-    NSMutableDictionary *_stationArtworkRequests;
 }
 
 - (void).cxx_destruct;
+- (id)_stationFromIndexPath:(id)arg1;
+- (void)_categorizeStations;
+- (void)_radioDataSourceDidInvalidate:(id)arg1;
 - (id)viewControllerForRowAtIndexPath:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (void)_radioDataSourceDidInvalidate:(id)arg1;
 - (void)radioDataSourceDidInvalidate:(id)arg1;
-- (id)stationFromIndexPath:(id)arg1;
-- (void)categorizeStations;
 - (void)dealloc;
 - (id)initWithPlayer:(id)arg1 serviceProvider:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

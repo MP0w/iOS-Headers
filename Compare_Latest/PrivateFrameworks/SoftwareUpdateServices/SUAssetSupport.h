@@ -10,7 +10,7 @@
 {
 }
 
-+ (id)assetDownloadOptionsFromMetadata:(id)arg1 descriptor:(id)arg2 priority:(int)arg3;
++ (id)assetDownloadOptionsFromMetadata:(id)arg1 descriptor:(id)arg2 priority:(int)arg3 forBrain:(BOOL)arg4;
 + (id)assetDownloadOptionsForDocumentation;
 + (id)defaultAssetDownloadOptionsWithPriority:(int)arg1;
 + (id)getInstalledDocumentationAssetFromSoftwareUpdateAssetIfExists:(id)arg1;

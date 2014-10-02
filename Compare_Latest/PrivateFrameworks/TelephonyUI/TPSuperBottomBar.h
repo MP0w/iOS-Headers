@@ -8,7 +8,7 @@
 
 #import "TPSlidingButtonDelegateProtocol.h"
 
-@class NSArray, NSMutableArray, TPSlidingButton, UIButton;
+@class NSArray, NSMutableArray, NSString, TPSlidingButton, UIButton;
 
 @interface TPSuperBottomBar : UIView <TPSlidingButtonDelegateProtocol>
 {
@@ -21,6 +21,8 @@
     int _currentState;
     int _orientation;
     float _bottomMargin;
+    float _yOffsetForLoweredButtons;
+    UIView *_topLayoutGuide;
     NSArray *_buttonLayoutConstraints;
     NSArray *_horizontalConstraintsForSupplementalButtons;
     UIButton *_supplementalTopLeftButton;
@@ -36,6 +38,8 @@
     NSMutableArray *_stateStack;
 }
 
++ (float)defaultYOffsetForBottomButtons;
++ (float)defaultBottomSupplementalButtonSpacing;
 + (float)defaultBottomMargin;
 + (float)defaultWidth;
 + (float)defaultInterButtonSpacing;
@@ -54,6 +58,8 @@
 @property(retain, nonatomic) UIButton *supplementalTopLeftButton; // @synthesize supplementalTopLeftButton=_supplementalTopLeftButton;
 @property(retain) NSArray *horizontalConstraintsForSupplementalButtons; // @synthesize horizontalConstraintsForSupplementalButtons=_horizontalConstraintsForSupplementalButtons;
 @property(retain) NSArray *buttonLayoutConstraints; // @synthesize buttonLayoutConstraints=_buttonLayoutConstraints;
+@property(retain, nonatomic) UIView *topLayoutGuide; // @synthesize topLayoutGuide=_topLayoutGuide;
+@property(nonatomic) float yOffsetForLoweredButtons; // @synthesize yOffsetForLoweredButtons=_yOffsetForLoweredButtons;
 @property(nonatomic) float bottomMargin; // @synthesize bottomMargin=_bottomMargin;
 @property(nonatomic) int orientation; // @synthesize orientation=_orientation;
 @property(nonatomic) int currentState; // @synthesize currentState=_currentState;
@@ -63,26 +69,31 @@
 @property(nonatomic) BOOL declineAndMessageIsAvailable; // @synthesize declineAndMessageIsAvailable=_declineAndMessageIsAvailable;
 @property(nonatomic) BOOL declineAndRemindIsAvailable; // @synthesize declineAndRemindIsAvailable=_declineAndRemindIsAvailable;
 @property id <TPSuperBottomBarDelegateProtocol> delegate; // @synthesize delegate=_delegate;
+- (id)nameForActionType:(int)arg1;
+- (void)_startShopDemoMode;
 - (void)animateFromIncomingCallStateToFaceTimeInCallState:(int)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)animateFromIncomingCallStateToInCallStateWithCompletion:(CDUnknownBlockType)arg1;
-- (void)animateOutSupplementalBottomLeftButtonWithCompletion:(CDUnknownBlockType)arg1;
-- (void)animateOutSupplementalBottomRightButtonWithCompletion:(CDUnknownBlockType)arg1;
+- (void)animateFromIncomingCallStateToInCallState:(int)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)animateFromOutgoingStateToCallbackAndMessageUIToState:(int)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)animateOutSupplementalBottomLeftButtonToState:(int)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)animateOutSupplementalBottomRightButtonToState:(int)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)animateInSupplementalBottomRightButton:(id)arg1 WithCompletion:(CDUnknownBlockType)arg2;
-- (void)animateOutLeftAndRightMainButtonsAndAddNewMainButton:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)animateOutMainButtonAndAddNewLeftButton:(id)arg1 newSupplementalBottomRightButton:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)animateOutMainButtonAndAddNewLeftButton:(id)arg1 newRightButton:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)animateFromOutgoingStateToInCallStateWithCompletion:(CDUnknownBlockType)arg1;
+- (void)layoutSubviews;
 - (BOOL)animateFromState:(int)arg1 toState:(int)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)prepareButtonsForAnimationEnd;
 - (void)prepareButtonsForAnimationBegin;
 - (void)refreshCustomizedActionTypeTitleForButton:(id)arg1;
 - (void)refreshCustomizedActionTypeTitles;
+- (int)updatedActionTypeForActionType:(int)arg1;
+- (id)updatedSelectedImageForActionType:(int)arg1 givenDefaultSelectedImage:(id)arg2;
+- (id)updatedImageForActionType:(int)arg1 givenDefaultImage:(id)arg2;
 - (id)customTitleStringForActionType:(int)arg1 givenDefaultTitle:(id)arg2;
 - (id)controlForActionType:(int)arg1;
 - (struct CGRect)frameForControlWithActionType:(int)arg1;
 - (id)viewLabels;
 - (void)slidingButton:(id)arg1 didSlideToProportion:(float)arg2;
 - (void)slidingButtonDidFinishSlide;
+- (void)slidingButtonWillFinishSlide;
 - (void)buttonLongPressed:(id)arg1;
 - (void)buttonPressed:(id)arg1;
 - (void)shrinkButtonFontSizesIfNecessary;
@@ -90,6 +101,9 @@
 - (void)addSubview:(id)arg1;
 - (id)makeSlidingButtonWithType:(int)arg1;
 - (id)makeButtonWithType:(int)arg1 title:(id)arg2 image:(id)arg3 color:(id)arg4 font:(id)arg5 fontColor:(id)arg6;
+- (BOOL)shouldShowActionTypeSendToVoicemail;
+- (BOOL)shouldShowActionTypeAudioRoute;
+- (BOOL)shouldShowActionTypeCameraFlip;
 - (id)_horizontalConstraintsForSupplementalButtonsUsingLabels:(id)arg1;
 - (void)_updateHorizontalConstraintsForSupplementalButtons;
 - (id)constraintsForState:(int)arg1;
@@ -100,12 +114,19 @@
 - (BOOL)popStateAnimated:(BOOL)arg1 animationCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)pushState:(int)arg1 animated:(BOOL)arg2 animationCompletionBlock:(CDUnknownBlockType)arg3;
 - (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)updateTopLayoutGuide;
 @property(readonly, nonatomic) struct CGSize effectiveSize;
 - (struct CGSize)intrinsicContentSize;
 - (void)_clearHijackedGestureRecognizers;
 - (void)dealloc;
 - (id)init;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

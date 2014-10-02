@@ -8,12 +8,13 @@
 
 #import "TSDPathPainter.h"
 
-@class TSDShadow;
+@class NSString, TSDShadow;
 
 __attribute__((visibility("hidden")))
 @interface TSDShadowSwatch : NSObject <TSDPathPainter>
 {
     TSDShadow *mShadow;
+    struct CGImage *mShadowSwatchImage;
 }
 
 @property(readonly, nonatomic) TSDShadow *shadow; // @synthesize shadow=mShadow;
@@ -25,6 +26,12 @@ __attribute__((visibility("hidden")))
 - (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithShadow:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

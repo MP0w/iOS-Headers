@@ -8,6 +8,8 @@
 
 #import "TSKCompatibilityDelegate.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TNBaseCompatibilityDelegate : NSObject <TSKCompatibilityDelegate>
 {
@@ -24,6 +26,12 @@ __attribute__((visibility("hidden")))
 - (Class)exporterClassForType:(id)arg1 options:(id)arg2;
 - (Class)importerClassForType:(id)arg1;
 - (id)newExportableDocumentTypesForFlag:(unsigned int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

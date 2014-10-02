@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1;
 - (void)updateFrameWithTileSize:(struct CGSize)arg1 tilesWide:(unsigned int)arg2 tilesHigh:(unsigned int)arg3;
 - (id)hitTest:(struct CGPoint)arg1;
+- (void)cancelLayoutForTilingLayers;
 - (void)setNeedsLayoutForTilingLayers;
 - (void)drawInContext:(struct CGContext *)arg1;
 - (void)display;

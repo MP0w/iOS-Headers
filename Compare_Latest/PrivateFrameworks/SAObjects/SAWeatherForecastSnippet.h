@@ -6,7 +6,7 @@
 
 #import <SAObjects/SAUISnippet.h>
 
-@class NSArray;
+@class NSArray, SAUIAppPunchOut, SAUIImageResource;
 
 @interface SAWeatherForecastSnippet : SAUISnippet
 {
@@ -14,6 +14,8 @@
 
 + (id)forecastSnippetWithDictionary:(id)arg1 context:(id)arg2;
 + (id)forecastSnippet;
+@property(retain, nonatomic) SAUIImageResource *attributionImage;
+@property(retain, nonatomic) SAUIAppPunchOut *appPunchOut;
 @property(copy, nonatomic) NSArray *aceWeathers;
 - (id)encodedClassName;
 - (id)groupIdentifier;

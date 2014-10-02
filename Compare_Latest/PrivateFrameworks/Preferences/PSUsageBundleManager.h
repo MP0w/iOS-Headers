@@ -6,17 +6,19 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary;
+@class NSArray, NSDictionary, NSMutableArray;
 
 @interface PSUsageBundleManager : NSObject
 {
     NSDictionary *_bundleMap;
     NSArray *_usageBundleApps;
+    NSMutableArray *_storageReporters;
 }
 
 - (void)dealloc;
+- (void)vendUsageBundleAppsWithHandler:(CDUnknownBlockType)arg1;
 - (id)allUsageBundleApps;
-- (void)_loadUsageBundles;
+- (void)_loadUsageBundlesWithHandler:(CDUnknownBlockType)arg1;
 
 @end
 

@@ -12,7 +12,7 @@
 #import "TSPObjectModifyDelegate.h"
 #import "TSPProxyObjectManager.h"
 
-@class NSHashTable, NSMutableArray, NSObject<OS_dispatch_queue>, NSURL, TSPArchiverManager, TSPObjectContext;
+@class NSHashTable, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, NSURL, TSPArchiverManager, TSPObjectContext;
 
 __attribute__((visibility("hidden")))
 @interface TSPPasteboardWriteCoordinator : NSObject <TSPArchiverManagerDelegate, TSPComponentWriterDelegate, TSPDataArchiver, TSPProxyObjectManager, TSPObjectModifyDelegate>
@@ -45,6 +45,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithContext:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

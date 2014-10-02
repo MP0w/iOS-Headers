@@ -10,11 +10,15 @@ __attribute__((visibility("hidden")))
 @interface TSCH3DChartSceneRender3DBuildSetup : TSCH3DChartLayerBasedSceneRenderSetup
 {
     struct CGRect mAnimationBounds;
+    tvec2_84d5962d mBuildOffsetFromLayerRelativeToBodyCanvas;
 }
 
 @property(nonatomic) struct CGRect animationBounds; // @synthesize animationBounds=mAnimationBounds;
 - (id).cxx_construct;
 - (void)updateFramebufferBounds:(struct FramebufferBounds *)arg1;
+- (box_80622335)globalPixelAlignedBodyCanvasBoundsForRenderingCamera;
+- (void)setOffsetFromLayerRelativeToBodyCanvas:(tvec2_84d5962d)arg1;
+- (box_80622335)layerFrameInLayerRelativeSpaceFromFramebufferBounds:(const struct FramebufferBounds *)arg1;
 
 @end
 

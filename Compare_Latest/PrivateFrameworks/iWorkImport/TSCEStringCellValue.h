@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)isEqualToCellValue:(id)arg1;
 - (id)displayString;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (CDStruct_95e644ef)formatStruct;
+- (CDStruct_bfed0e84)formatStruct;
 - (struct TSCEStringValue *)stringValue;
 - (void)dealloc;
 - (id)initWithStringValue:(struct TSCEStringValue *)arg1;

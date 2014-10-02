@@ -9,7 +9,7 @@
 #import "CoreDAVACLTaskDelegate.h"
 #import "CoreDAVPropFindTaskDelegate.h"
 
-@class CoreDAVPropFindTask, NSSet, NSURL;
+@class CoreDAVPropFindTask, NSSet, NSString, NSURL;
 
 @interface CoreDAVUpdateACLTaskGroup : CoreDAVTaskGroup <CoreDAVPropFindTaskDelegate, CoreDAVACLTaskDelegate>
 {
@@ -19,10 +19,10 @@
     CoreDAVPropFindTask *_fetchTask;
 }
 
-@property(retain) CoreDAVPropFindTask *fetchTask; // @synthesize fetchTask=_fetchTask;
-@property(retain) NSURL *url; // @synthesize url=_url;
-@property(retain) NSSet *aceItems; // @synthesize aceItems=_aceItems;
-@property int state; // @synthesize state=_state;
+@property(retain, nonatomic) CoreDAVPropFindTask *fetchTask; // @synthesize fetchTask=_fetchTask;
+@property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
+@property(retain, nonatomic) NSSet *aceItems; // @synthesize aceItems=_aceItems;
+@property(nonatomic) int state; // @synthesize state=_state;
 - (void)taskGroupWillCancelWithError:(id)arg1;
 - (void)task:(id)arg1 didFinishWithError:(id)arg2;
 - (void)_finishWithError:(id)arg1 state:(int)arg2;
@@ -31,6 +31,12 @@
 - (void)_startGetACL;
 - (void)dealloc;
 - (id)initWithAccountInfoProvider:(id)arg1 aceItems:(id)arg2 url:(id)arg3 taskManager:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

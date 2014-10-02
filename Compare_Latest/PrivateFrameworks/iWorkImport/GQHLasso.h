@@ -8,6 +8,8 @@
 
 #import "GQLassoGenerator.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface GQHLasso : NSObject <GQLassoGenerator>
 {
@@ -21,6 +23,12 @@ __attribute__((visibility("hidden")))
 + (int)handleStylesheet:(id)arg1 state:(id)arg2;
 + (int)endDocument:(id)arg1 state:(id)arg2;
 + (int)beginDocument:(id)arg1 state:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

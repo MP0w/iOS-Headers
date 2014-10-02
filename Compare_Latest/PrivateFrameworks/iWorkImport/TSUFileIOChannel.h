@@ -8,19 +8,19 @@
 
 #import "TSURandomWriteChannel.h"
 #import "TSUReadChannel.h"
-#import "TSUStreamReadChannel.h"
 #import "TSUStreamWriteChannel.h"
 
-@class NSObject<OS_dispatch_io>;
+@class NSObject<OS_dispatch_io>, NSString;
 
 __attribute__((visibility("hidden")))
-@interface TSUFileIOChannel : NSObject <TSUReadChannel, TSUStreamReadChannel, TSUStreamWriteChannel, TSURandomWriteChannel>
+@interface TSUFileIOChannel : NSObject <TSUReadChannel, TSUStreamWriteChannel, TSURandomWriteChannel>
 {
     NSObject<OS_dispatch_io> *_channel;
     BOOL _isClosed;
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL isValid;
 - (void)addBarrier:(CDUnknownBlockType)arg1;
 - (void)setLowWater:(unsigned long)arg1;
 - (void)close;
@@ -29,11 +29,20 @@ __attribute__((visibility("hidden")))
 - (void)readWithQueue:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)readFromOffset:(long long)arg1 length:(unsigned long)arg2 queue:(id)arg3 handler:(CDUnknownBlockType)arg4;
 - (id)createRandomAccessChannel;
+- (void)dealloc;
+- (id)initWithType:(unsigned long)arg1 descriptor:(int)arg2 queue:(id)arg3 cleanupHandler:(CDUnknownBlockType)arg4;
 - (id)initWithType:(unsigned long)arg1 channel:(id)arg2;
-- (id)initForRandomWritingURL:(id)arg1;
-- (id)initForStreamWritingURL:(id)arg1;
-- (id)initForReadingURL:(id)arg1;
-- (id)initWithType:(unsigned long)arg1 URL:(id)arg2 oflag:(int)arg3 mode:(unsigned short)arg4;
+- (id)initForRandomWritingURL:(id)arg1 error:(id *)arg2;
+- (id)initForStreamWritingURL:(id)arg1 error:(id *)arg2;
+- (id)initForReadingDescriptor:(int)arg1 queue:(id)arg2 cleanupHandler:(CDUnknownBlockType)arg3;
+- (id)initForReadingURL:(id)arg1 error:(id *)arg2;
+- (id)initWithType:(unsigned long)arg1 URL:(id)arg2 oflag:(int)arg3 mode:(unsigned short)arg4 error:(id *)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

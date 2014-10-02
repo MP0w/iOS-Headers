@@ -13,18 +13,33 @@
     _IDSService *_internal;
 }
 
-- (void)requestKeepAlive;
-@property(readonly, nonatomic) NSArray *devices;
-@property(readonly, nonatomic) NSSet *accounts;
+- (id)uriForFromID:(id)arg1;
+- (id)deviceForFromID:(id)arg1;
+@property(readonly, copy, nonatomic) NSArray *devices;
+@property(readonly, copy, nonatomic) NSSet *accounts;
+- (id)iCloudAccount;
+- (id)serviceDomain;
 - (BOOL)sendServerMessage:(id)arg1 command:(id)arg2 fromAccount:(id)arg3;
+- (BOOL)cancelIdentifier:(id)arg1 error:(id *)arg2;
+- (BOOL)sendData:(id)arg1 priority:(int)arg2 options:(id)arg3 identifier:(id *)arg4 error:(id *)arg5;
+- (BOOL)sendData:(id)arg1 toDestinations:(id)arg2 priority:(int)arg3 options:(id)arg4 identifier:(id *)arg5 error:(id *)arg6;
+- (BOOL)sendData:(id)arg1 fromAccount:(id)arg2 toDestinations:(id)arg3 priority:(int)arg4 options:(id)arg5 identifier:(id *)arg6 error:(id *)arg7;
+- (BOOL)sendMessage:(id)arg1 toDestinations:(id)arg2 priority:(int)arg3 options:(id)arg4 identifier:(id *)arg5 error:(id *)arg6;
 - (BOOL)sendMessage:(id)arg1 fromAccount:(id)arg2 toDestinations:(id)arg3 priority:(int)arg4 options:(id)arg5 identifier:(id *)arg6 error:(id *)arg7;
 - (BOOL)sendMessage:(id)arg1 fromAccount:(id)arg2 toDestinations:(id)arg3 options:(id)arg4 identifier:(id *)arg5 error:(id *)arg6;
+- (BOOL)sendProtobuf:(id)arg1 toDestinations:(id)arg2 priority:(int)arg3 options:(id)arg4 identifier:(id *)arg5 error:(id *)arg6;
+- (BOOL)sendProtobuf:(id)arg1 fromAccount:(id)arg2 toDestinations:(id)arg3 priority:(int)arg4 options:(id)arg5 identifier:(id *)arg6 error:(id *)arg7;
+- (SEL)protobufActionForIncomingResponsesOfType:(unsigned short)arg1;
+- (SEL)protobufActionForIncomingRequestsOfType:(unsigned short)arg1;
+- (void)setProtobufAction:(SEL)arg1 forIncomingResponsesOfType:(unsigned short)arg2;
+- (void)setProtobufAction:(SEL)arg1 forIncomingRequestsOfType:(unsigned short)arg2;
 - (void)removeDelegate:(id)arg1;
 - (void)addDelegate:(id)arg1 queue:(id)arg2;
-@property(readonly, nonatomic) _IDSService *_internal;
+@property(readonly, retain, nonatomic) _IDSService *_internal;
 - (void)dealloc;
 - (id)initWithService:(id)arg1;
 - (id)initWithService:(id)arg1 commands:(id)arg2;
+- (id)initWithService:(id)arg1 serviceDomain:(id)arg2;
 
 @end
 

@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) float textDropShadowSize; // @synthesize textDropShadowSize=_textDropShadowSize;
 @property(nonatomic) unsigned int textStrokeColor; // @synthesize textStrokeColor=_textStrokeColor;
 @property(nonatomic) float textStrokeSize; // @synthesize textStrokeSize=_textStrokeSize;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

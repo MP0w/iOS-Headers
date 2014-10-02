@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     OADColor *mColor;
 }
 
+- (id)description;
 - (void)applyToParagraphProperties:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;

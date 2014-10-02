@@ -16,7 +16,8 @@
     unsigned int _showsDoneButton:1;
 }
 
-@property(nonatomic) id <CertInfoCertificateDetailsControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <CertInfoCertificateDetailsControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (id)_propertiesForIndexPath:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
@@ -31,7 +32,6 @@
 @property(nonatomic) BOOL showsDoneButton; // @dynamic showsDoneButton;
 - (id)_sectionsForProperties:(id)arg1 currentSectionDictionary:(id)arg2;
 - (id)_sectionsForProperties:(id)arg1;
-- (void)dealloc;
 - (id)initWithCertificateProperties:(id)arg1;
 - (id)initWithTrust:(struct __SecTrust *)arg1 certificateIndex:(long)arg2;
 - (id)initWithTrust:(struct __SecTrust *)arg1;

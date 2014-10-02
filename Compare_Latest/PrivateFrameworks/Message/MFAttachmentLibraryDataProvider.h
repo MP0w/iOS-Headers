@@ -8,18 +8,25 @@
 
 #import "MFAttachmentDataProvider.h"
 
-@class MFMailMessageLibrary;
+@class MFMessageLibrary, MFWeakReferenceHolder, NSString;
 
 @interface MFAttachmentLibraryDataProvider : NSObject <MFAttachmentDataProvider>
 {
-    MFMailMessageLibrary *_messageLibrary;
+    MFWeakReferenceHolder *_messageLibraryHolder;
 }
 
-@property(retain, nonatomic) MFMailMessageLibrary *messageLibrary; // @synthesize messageLibrary=_messageLibrary;
 - (id)messageForAttachment:(id)arg1;
 - (BOOL)fetchDataForAttachment:(id)arg1 withDataConsumer:(id)arg2 error:(id *)arg3;
+- (id)fetchLocalDataForAttachment:(id)arg1;
+@property(nonatomic) __weak MFMessageLibrary *messageLibrary;
 - (void)dealloc;
 - (id)initWithLibrary:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

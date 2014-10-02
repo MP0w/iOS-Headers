@@ -8,26 +8,34 @@
 
 #import "_EditScriptData.h"
 
-@class NSArray;
+@class NSArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface _EditScriptDataArray : NSObject <_EditScriptData>
 {
     NSArray *_data;
+    NSString *_cachedStringValue;
 }
 
 + (id)EditScriptDataWithArray:(id)arg1;
 + (id)EditScriptDataWithString:(id)arg1 chunkSize:(int)arg2;
+@property(retain, nonatomic) NSString *cachedStringValue; // @synthesize cachedStringValue=_cachedStringValue;
 @property(retain, nonatomic) NSArray *data; // @synthesize data=_data;
+- (int)indexOfFirstDifferenceWithOtherData:(id)arg1 shouldReverseIterate:(BOOL)arg2;
 - (int)characterIndexForItem:(int)arg1;
 - (int)lengthOfItem:(int)arg1;
 - (id)stringValue;
 - (id)stringAtIndex:(int)arg1;
 - (int)length;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)initWithArray:(id)arg1;
 - (id)initWithString:(id)arg1 chunkSize:(int)arg2;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

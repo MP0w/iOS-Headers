@@ -13,9 +13,9 @@
     UIActivityIndicatorView *_spinner;
 }
 
+- (void).cxx_destruct;
 - (void)stopAnimating;
 - (void)startAnimating;
-- (void)dealloc;
 - (id)initWithActivityIndicatorStyle:(int)arg1;
 
 @end

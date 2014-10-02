@@ -6,35 +6,27 @@
 
 #import "SBUIStarkStartupAnimation.h"
 
-#import "SBWindowContextHostManagerObserver.h"
+@class FBWindowContextHostManager, UIStatusBar, UIView;
 
-@class SBWindowContextHostManager, UIStatusBar, UIView;
-
-@interface SBUIStarkStartupToAppAnimation : SBUIStarkStartupAnimation <SBWindowContextHostManagerObserver>
+@interface SBUIStarkStartupToAppAnimation : SBUIStarkStartupAnimation
 {
-    SBWindowContextHostManager *_contextHostManager;
+    FBWindowContextHostManager *_contextHostManager;
     UIView *_viewToAnimate;
     UIStatusBar *_fakeStatusBar;
     _Bool _finished;
 }
 
-- (void)windowContextHostManagerDidInvalidate:(id)arg1;
-- (void)windowContextHostManagerContextsDidChange:(id)arg1;
-- (void)_animationWatchdogFired;
-- (void)_cancelAnimationWatchdog;
-- (void)_scheduleAnimationWatchdog;
 - (void)_finishedAnimation:(_Bool)arg1;
 - (void)_cleanupAnimation;
 - (void)_cancelAnimation;
 - (void)_startAnimation;
+- (void)_reallyPrepareAnimation;
 - (void)_prepareAnimation;
-- (id)_getTransitionWindow;
 - (void)_applicationDependencyStateChanged;
-- (_Bool)_animationShouldStart;
 - (id)_animationProgressDependency;
+- (void)_setupStartDependencies;
 - (id)_createViewToAnimate;
 - (void)dealloc;
-- (id)initWithActivatingApp:(id)arg1 fromLockoutView:(id)arg2 starkScreenController:(id)arg3;
 
 @end
 

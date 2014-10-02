@@ -15,7 +15,7 @@
     NSObject<OS_dispatch_queue> *_serialQueue;
 }
 
-@property(retain, nonatomic, setter=_setSerialQueue:) NSObject<OS_dispatch_queue> *_serialQueue; // @synthesize _serialQueue;
+@property(nonatomic, setter=_setSerialQueue:) NSObject<OS_dispatch_queue> *_serialQueue; // @synthesize _serialQueue;
 @property(copy, nonatomic, setter=_setThreadLocalStorageKey:) NSString *_threadLocalStorageKey; // @synthesize _threadLocalStorageKey;
 - (void)_setLabel:(id)arg1;
 @property(copy, nonatomic) NSString *label; // @synthesize label=_label;

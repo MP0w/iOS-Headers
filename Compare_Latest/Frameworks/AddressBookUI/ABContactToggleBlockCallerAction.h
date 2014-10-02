@@ -6,13 +6,10 @@
 
 #import <AddressBookUI/ABContactAction.h>
 
-#import "UIActionSheetDelegate.h"
-
-@interface ABContactToggleBlockCallerAction : ABContactAction <UIActionSheetDelegate>
+@interface ABContactToggleBlockCallerAction : ABContactAction
 {
 }
 
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (void)unblock;
 - (void)block;
 - (id)allNumbersAndEmails;

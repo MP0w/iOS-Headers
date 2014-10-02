@@ -8,7 +8,7 @@
 
 #import "IMSystemMonitorListener.h"
 
-@class IMAVChatParticipant, IMAccount, IMHandle, IMPair, IMTimingCollection, NSArray, NSDate, NSDictionary, NSError, NSMutableArray, NSMutableDictionary, NSNumber, NSObject<OS_dispatch_queue>, NSString, NSTimer;
+@class IMAVChatParticipant, IMAccount, IMHandle, IMPair, IMTimingCollection, NSArray, NSData, NSDate, NSDictionary, NSError, NSMutableArray, NSMutableDictionary, NSNumber, NSObject<OS_dispatch_queue>, NSString, NSTimer;
 
 @interface IMAVChat : NSObject <IMSystemMonitorListener>
 {
@@ -45,6 +45,7 @@
     NSTimer *_firstFrameTimeoutTimer;
     NSTimer *_connectionTimeoutTimer;
     NSTimer *_breakBeforeMakeTimeoutTimer;
+    NSData *_relayRemotePrimaryIdentifier;
     id _conferenceController;
     unsigned int _sessionID;
     NSError *_error;
@@ -74,6 +75,9 @@
     BOOL _isCallUpgrade;
     BOOL _startedAudioSession;
     BOOL _connectionStarted;
+    BOOL _isProxied;
+    BOOL _wantsHoldMusic;
+    BOOL _metadataFinalized;
 }
 
 + (int)systemSupportsNewOutgoingConferenceTo:(id)arg1 isVideo:(BOOL)arg2;
@@ -117,24 +121,27 @@
 @property(nonatomic, setter=_setNetworkCheckResult:) int _networkCheckResult; // @synthesize _networkCheckResult;
 @property(nonatomic, setter=_setPingTestResult:) int _pingTestResult; // @synthesize _pingTestResult;
 @property(retain, nonatomic, setter=_setPingTestResults:) NSDictionary *_pingTestResults; // @synthesize _pingTestResults;
-@property(readonly) NSDictionary *_extraServerContext; // @synthesize _extraServerContext;
-@property(readonly, nonatomic) NSArray *participants; // @synthesize participants=_participants;
-@property(readonly, nonatomic) IMAVChatParticipant *localParticipant; // @synthesize localParticipant=_localParticipant;
+@property(readonly, retain) NSDictionary *_extraServerContext; // @synthesize _extraServerContext;
+@property(readonly, retain, nonatomic) NSArray *participants; // @synthesize participants=_participants;
+@property(readonly, retain, nonatomic) IMAVChatParticipant *localParticipant; // @synthesize localParticipant=_localParticipant;
 @property(readonly, nonatomic) unsigned int state; // @synthesize state=_localState;
-@property(readonly, nonatomic) NSDate *dateEnded; // @synthesize dateEnded=_dateEnded;
-@property(readonly, nonatomic) NSDate *dateCreated; // @synthesize dateCreated=_dateCreated;
-@property(readonly, nonatomic) NSDate *dateConnected; // @synthesize dateConnected=_dateConnected;
+@property(readonly, retain, nonatomic) NSDate *dateEnded; // @synthesize dateEnded=_dateEnded;
+@property(readonly, retain, nonatomic) NSDate *dateCreated; // @synthesize dateCreated=_dateCreated;
+@property(readonly, retain, nonatomic) NSDate *dateConnected; // @synthesize dateConnected=_dateConnected;
 @property(nonatomic, setter=_setConferenceController:) id _conferenceController; // @synthesize _conferenceController;
 - (void)_setGUID:(id)arg1;
 @property(retain, nonatomic) NSString *GUID; // @synthesize GUID=_GUID;
 @property(retain, nonatomic) NSString *conferenceID; // @synthesize conferenceID=_conferenceID;
 @property(readonly, nonatomic) BOOL isCaller; // @synthesize isCaller=_isCaller;
+@property(nonatomic, setter=_setWantsHoldMusic:) BOOL wantsHoldMusic; // @synthesize wantsHoldMusic=_wantsHoldMusic;
+@property(readonly, nonatomic) BOOL isProxied; // @synthesize isProxied=_isProxied;
+@property(retain, nonatomic, setter=_setRelayRemotePrimaryIdentifier:) NSData *_relayRemotePrimaryIdentifier; // @synthesize _relayRemotePrimaryIdentifier;
 @property(nonatomic, setter=_setConnectionStarted:) BOOL _connectionStarted; // @synthesize _connectionStarted;
 @property(nonatomic, setter=_setIsAudioInterrupted:) BOOL _isAudioInterrupted; // @synthesize _isAudioInterrupted;
 @property(nonatomic, setter=_setIsVideoInterrupted:) BOOL _isVideoInterrupted; // @synthesize _isVideoInterrupted;
-@property(retain, nonatomic, setter=_setDataDownloaded:) NSNumber *_dataDownloaded; // @synthesize _dataDownloaded;
-@property(retain, nonatomic, setter=_setDataUploaded:) NSNumber *_dataUploaded; // @synthesize _dataUploaded;
-@property(retain, nonatomic, setter=_setDataRate:) NSNumber *_dataRate; // @synthesize _dataRate;
+@property(retain, nonatomic, setter=setDataDownloaded:) NSNumber *dataDownloaded; // @synthesize dataDownloaded=_dataDownloaded;
+@property(retain, nonatomic, setter=setDataUploaded:) NSNumber *dataUploaded; // @synthesize dataUploaded=_dataUploaded;
+@property(retain, nonatomic, setter=setDataRate:) NSNumber *dataRate; // @synthesize dataRate=_dataRate;
 @property(retain, nonatomic, setter=_setBackCameraCaptureTime:) NSNumber *_backCameraCaptureTime; // @synthesize _backCameraCaptureTime;
 @property(retain, nonatomic, setter=_setFrontCameraCaptureTime:) NSNumber *_frontCameraCaptureTime; // @synthesize _frontCameraCaptureTime;
 @property(retain, nonatomic, setter=_setInterruptionBegan:) NSDate *_interruptionBegan; // @synthesize _interruptionBegan;
@@ -144,7 +151,7 @@
 @property(nonatomic, setter=_setRemoteNetworkConnectionType:) unsigned int _remoteNetworkConnectionType; // @synthesize _remoteNetworkConnectionType;
 @property(nonatomic, setter=_setLocalNetworkConnectionType:) unsigned int _localNetworkConnectionType; // @synthesize _localNetworkConnectionType;
 @property(retain, nonatomic, setter=_setNatType:) NSNumber *_natType; // @synthesize _natType;
-@property(readonly, nonatomic) IMHandle *initiatorIMHandle; // @synthesize initiatorIMHandle=_initiator;
+@property(readonly, retain, nonatomic) IMHandle *initiatorIMHandle; // @synthesize initiatorIMHandle=_initiator;
 @property(retain, nonatomic, setter=_setCallerProperties:) NSDictionary *callerProperties; // @synthesize callerProperties=_callerProperties;
 @property(readonly, nonatomic) unsigned int sessionID; // @synthesize sessionID=_sessionID;
 @property(nonatomic, setter=_setStartedAudioSession:) BOOL _startedAudioSession; // @synthesize _startedAudioSession;
@@ -161,7 +168,7 @@
 - (void)_postNotificationName:(id)arg1 participant:(id)arg2 userInfo:(id)arg3;
 - (void)_postNotificationName:(id)arg1 userInfo:(id)arg2;
 - (void)_handleAVError:(id)arg1;
-@property(readonly, nonatomic) NSArray *_imHandles;
+@property(readonly, retain, nonatomic) NSArray *_imHandles;
 @property(readonly, nonatomic) BOOL isUsingWifi;
 @property(readonly, nonatomic) BOOL _usesRelay;
 @property(readonly, nonatomic) NSNumber *_relayConnectDuration;
@@ -176,9 +183,10 @@
 @property(readonly, nonatomic) unsigned int endedReason;
 @property(readonly, nonatomic) int endedError;
 - (void)_setConferenceID:(id)arg1;
-@property(readonly, nonatomic) IMAccount *account;
+@property(readonly, retain, nonatomic) IMAccount *account;
 @property(readonly, nonatomic) BOOL _isProxy;
-@property(readonly, nonatomic) IMHandle *otherIMHandle;
+- (void)resetWantsHoldMusic;
+@property(readonly, retain, nonatomic) IMHandle *otherIMHandle;
 - (id)participantMatchingIMHandle:(id)arg1;
 - (id)vcPartyIDForIMHandle:(id)arg1;
 - (id)participantWithID:(id)arg1;
@@ -192,6 +200,7 @@
 - (void)_setStateDisconnected;
 - (void)declineInvitation;
 - (void)declineInvitationWithResponse:(unsigned int)arg1;
+- (void)acceptInvitationWithHoldMusic;
 - (void)acceptInvitation;
 - (void)invite:(id)arg1;
 - (void)invite:(id)arg1 additionalPeers:(id)arg2;
@@ -286,14 +295,15 @@
 @property(readonly, nonatomic) BOOL isStateFinal; // @dynamic isStateFinal;
 - (id)_participantMatchingVCPartyID:(id)arg1;
 @property(readonly, nonatomic) BOOL _allParticipantsUsingICE;
-@property(readonly, nonatomic) NSArray *remoteParticipants; // @dynamic remoteParticipants;
-@property(readonly, nonatomic) IMAVChatParticipant *initiatorParticipant; // @dynamic initiatorParticipant;
+@property(readonly, retain, nonatomic) NSArray *remoteParticipants; // @dynamic remoteParticipants;
+@property(readonly, retain, nonatomic) IMAVChatParticipant *initiatorParticipant; // @dynamic initiatorParticipant;
 - (BOOL)_participantsCheckOut;
 - (void)_initParticipantsWithIMHandles:(id)arg1;
 - (BOOL)_moveVCPartyID:(id)arg1 toIndex:(unsigned int)arg2 inCount:(unsigned int)arg3;
 - (void)_insertRemoteParticipant:(id)arg1 atIndex:(unsigned int)arg2;
 - (void)_updateIMHandleInBuddyList:(id)arg1;
 - (void)_peerID:(id)arg1 changedTo:(id)arg2;
+- (void)setMetadataFinalized;
 - (id)_proxyRepresentation;
 - (id)_proxyRepresentationForIMAVChatParticipant:(id)arg1;
 - (void)_submitCallEndedLoggingWithReason:(unsigned int)arg1 andError:(int)arg2;

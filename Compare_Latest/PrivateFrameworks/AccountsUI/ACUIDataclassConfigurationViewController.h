@@ -22,6 +22,7 @@
     BOOL _didShowDataclassActionPickerDuringRemoval;
     BOOL _firstTimeSetup;
     BOOL _shouldShowDeleteAccountButton;
+    BOOL _shouldEnableDeleteAccountButton;
     BOOL _shouldEnableAccountSummaryCell;
     BOOL _isMailSetupForced;
     NSArray *_preEnabledDataclasses;
@@ -32,7 +33,9 @@
 + (BOOL)shouldPresentAsModalSheet;
 @property(nonatomic) BOOL isMailSetupForced; // @synthesize isMailSetupForced=_isMailSetupForced;
 @property(nonatomic) BOOL shouldEnableAccountSummaryCell; // @synthesize shouldEnableAccountSummaryCell=_shouldEnableAccountSummaryCell;
+@property(nonatomic) BOOL shouldEnableDeleteAccountButton; // @synthesize shouldEnableDeleteAccountButton=_shouldEnableDeleteAccountButton;
 @property(nonatomic) BOOL shouldShowDeleteAccountButton; // @synthesize shouldShowDeleteAccountButton=_shouldShowDeleteAccountButton;
+@property(readonly, nonatomic) __weak PSSpecifier *deleteButtonSpecifier; // @synthesize deleteButtonSpecifier=_deleteButtonSpecifier;
 @property(nonatomic) __weak PSSpecifier *dataclassGroupSpecifier; // @synthesize dataclassGroupSpecifier=_dataclassGroupSpecifier;
 @property(retain, nonatomic) ACAccount *account; // @synthesize account=_account;
 @property(copy, nonatomic) NSArray *preEnabledDataclasses; // @synthesize preEnabledDataclasses=_preEnabledDataclasses;
@@ -69,7 +72,7 @@
 - (id)specifierForDataclass:(id)arg1;
 - (BOOL)shouldShowSpecifierForDataclass:(id)arg1;
 - (id)_specifiersForDataclasses:(id)arg1;
-- (id)_specifierForAccountSummaryCell;
+- (id)specifierForAccountSummaryCell;
 - (id)specifiers;
 - (BOOL)shouldVerifyBeforeAccountSave;
 - (void)cancelButtonTapped:(id)arg1;
@@ -78,6 +81,9 @@
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidLoad;
+- (BOOL)shouldShowOtherSpecifiersDuringFirstSetup;
+- (id)messageForAccountDeletionProgressUI;
+- (id)titleForDeleteButton;
 - (int)deleteButtonIndex;
 - (id)valueForAccountSummaryCell;
 - (id)displayedShortAccountTypeString;

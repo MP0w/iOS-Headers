@@ -6,18 +6,21 @@
 
 #import "NSObject.h"
 
-@class NSData, NSString, NSURL, NSURLRequest;
+@class NSData, NSDictionary, NSString, NSURL, NSURLRequest;
 
 @protocol NDBackgroundSessionProtocol <NSObject>
+- (void)avAssetDownloadTaskWithURL:(NSURL *)arg1 destinationURL:(NSURL *)arg2 options:(NSDictionary *)arg3 identifier:(unsigned int)arg4 reply:(void (^)(BOOL))arg5;
 - (void)invalidateWithReply:(void (^)(void))arg1;
 - (void)resetStorageWithReply:(void (^)(void))arg1;
+- (void)setPriority:(long long)arg1 forTaskWithIdentifier:(unsigned int)arg2;
 - (void)setDescription:(NSString *)arg1 forTask:(unsigned int)arg2;
 - (void)resumeTaskWithIdentifier:(unsigned int)arg1;
 - (void)suspendTaskWithIdentifier:(unsigned int)arg1;
 - (void)cancelTaskWithIdentifier:(unsigned int)arg1 byProducingResumeData:(void (^)(NSData *))arg2;
 - (void)cancelTaskWithIdentifier:(unsigned int)arg1;
 - (void)downloadTaskWithResumeData:(NSData *)arg1 identifier:(unsigned int)arg2 reply:(void (^)(BOOL))arg3;
-- (void)uploadTaskWithRequest:(NSURLRequest *)arg1 originalRequest:(NSURLRequest *)arg2 fromFile:(NSURL *)arg3 identifier:(unsigned int)arg4 reply:(void (^)(BOOL))arg5;
-- (void)downloadTaskWithRequest:(NSURLRequest *)arg1 originalRequest:(NSURLRequest *)arg2 identifier:(unsigned int)arg3 reply:(void (^)(BOOL))arg4;
+- (void)dataTaskWithRequest:(NSURLRequest *)arg1 originalRequest:(NSURLRequest *)arg2 identifier:(unsigned int)arg3 reply:(void (^)(BOOL))arg4;
+- (void)uploadTaskWithRequest:(NSURLRequest *)arg1 originalRequest:(NSURLRequest *)arg2 fromFile:(NSURL *)arg3 sandboxExtensionData:(NSData *)arg4 identifier:(unsigned int)arg5 reply:(void (^)(BOOL))arg6;
+- (void)downloadTaskWithRequest:(NSURLRequest *)arg1 originalRequest:(NSURLRequest *)arg2 downloadFilePath:(NSString *)arg3 identifier:(unsigned int)arg4 reply:(void (^)(BOOL))arg5;
 @end
 

@@ -6,48 +6,61 @@
 
 #import "NSObject.h"
 
-@class TSDGLDataBuffer, TSDGLFrameBuffer, TSDGLShader;
+@class TSDGLDataBuffer, TSDGLFrameBuffer, TSDGLShader, TSDGLState;
 
 __attribute__((visibility("hidden")))
 @interface TSDGLMotionBlurEffect : NSObject
 {
-    struct CGSize mFramebufferSize;
-    struct CGSize mSlideSize;
-    int mDebugDrawMode;
-    TSDGLFrameBuffer *mColorFrameBuffer;
-    TSDGLShader *mVelocityVisualizerShader;
-    TSDGLShader *mVelocityCollectionShader;
-    TSDGLFrameBuffer *mVelocityFrameBuffer;
-    TSDGLShader *mDefaultTextureShader;
-    TSDGLDataBuffer *mVelocityFBODataBuffer;
-    TSDGLDataBuffer *mFBODataBuffer;
-    TSDGLShader *mBlurHorizontalShader;
-    TSDGLShader *mBlurVerticalShader;
-    float mDilationDistanceInSlidePercent;
-    float mMotionBlurStrength;
-    int mBackingWidth;
-    int mBackingHeight;
+    struct CGSize _framebufferSize;
+    struct CGSize _slideSize;
+    TSDGLFrameBuffer *_combinedFramebuffer;
+    TSDGLShader *_velocityVisualizerShader;
+    TSDGLShader *_velocityCollectionShader;
+    TSDGLFrameBuffer *_velocityFramebuffer;
+    TSDGLShader *_defaultTextureShader;
+    TSDGLFrameBuffer *_colorFramebuffer;
+    TSDGLDataBuffer *_colorFBODataBuffer;
+    TSDGLDataBuffer *_velocityFBODataBuffer;
+    TSDGLDataBuffer *_velocitySquashedFBODataBuffer;
+    TSDGLDataBuffer *_FBODataBuffer;
+    TSDGLShader *_velocityTileMaxVerticalShader;
+    TSDGLShader *_velocityTileMaxHorizontalShader;
+    TSDGLShader *_velocityNeighborMaxHorizontalShader;
+    TSDGLShader *_velocityNeighborMaxVerticalShader;
+    int _originalViewport[4];
+    BOOL _isSingleObject;
+    float _motionBlurStrength;
+    int _debugDrawMode;
+    float _framebufferScale;
+    TSDGLState *_GLState;
 }
 
-@property(nonatomic) int debugDrawMode; // @synthesize debugDrawMode=mDebugDrawMode;
-@property(nonatomic) float motionBlurStrength; // @synthesize motionBlurStrength=mMotionBlurStrength;
-@property(nonatomic) float dilationDistanceInSlidePercent; // @synthesize dilationDistanceInSlidePercent=mDilationDistanceInSlidePercent;
+@property(retain, nonatomic) TSDGLState *GLState; // @synthesize GLState=_GLState;
+@property(nonatomic) float framebufferScale; // @synthesize framebufferScale=_framebufferScale;
+@property(nonatomic) int debugDrawMode; // @synthesize debugDrawMode=_debugDrawMode;
+@property(nonatomic) float motionBlurStrength; // @synthesize motionBlurStrength=_motionBlurStrength;
+@property(nonatomic) BOOL isSingleObject; // @synthesize isSingleObject=_isSingleObject;
+- (void)p_setupVelocityFramebufferIfNecessary;
+- (void)p_setupShaders;
+- (void)setupMotionBlurEffectIfNecessary;
+- (void)p_dilateVelocityBufferWithCurrentGLFramebuffer:(int)arg1;
+- (void)p_blitIntoVelocityFramebufferWithCurrentGLFramebuffer:(int)arg1;
+- (void)p_blitIntoColorFramebufferWithCurrentGLFramebuffer:(int)arg1;
+- (struct CGSize)p_squashedVelocityFramebufferSize;
+- (struct CGSize)p_velocityFramebufferTextureScale;
+- (struct CGSize)p_velocityFramebufferSize;
 - (void)drawResultWithCurrentGLFramebuffer:(int)arg1;
 - (void)unbindFramebufferAndBindGLFramebuffer:(int)arg1;
 - (void)bindVelocityFramebuffer;
 - (void)bindColorFramebuffer;
+- (void)bindColorAndVelocityFramebuffer;
+- (void)p_updateMaxVelocityInShadersWithScale:(float)arg1 isColorFBO:(BOOL)arg2;
 - (void)updateVelocityScaleInShader:(id)arg1;
-- (void)setupMotionBlurEffectIfNecessary;
+- (struct CGSize)velocityScaleForColorFBO:(BOOL)arg1;
+- (id)description;
+- (void)teardown;
 - (void)dealloc;
 - (id)initWithFramebufferSize:(struct CGSize)arg1 slideSize:(struct CGSize)arg2;
-- (void)p_updateMaxVelocityInShadersWithScale:(float)arg1;
-- (void)p_setupVelocityFramebufferIfNecessary;
-- (void)p_setupGLTextureParameters;
-- (struct CGSize)p_velocityFramebufferSize;
-- (float)p_velocityFramebufferScale;
-- (void)p_setupBlurShaders;
-- (void)p_dilateVelocityBufferWithCurrentGLFramebuffer:(int)arg1;
-@property(readonly, nonatomic) struct CGSize velocityScale;
 
 @end
 

@@ -70,9 +70,11 @@ __attribute__((visibility("hidden")))
 - (void)addJoinForToOneRelationship:(id)arg1 sourcePath:(id)arg2 destinationPath:(id)arg3;
 - (void)appendClause:(id)arg1 forProperty:(id)arg2 keypath:(id)arg3;
 - (void)buildWhereClauseWithSelectPredicate:(id)arg1;
-- (void)prepareDeleteStatementWithCorrelation:(id)arg1;
-- (void)prepareUpdateStatementWithCorrelation:(id)arg1;
-- (void)prepareInsertStatementWithCorrelation:(id)arg1;
+- (void)prepareDeleteStatementForRelationship:(id)arg1;
+- (void)prepareReorderStatementForRelationship:(id)arg1;
+- (void)prepareMasterReorderStatementPart2ForRelationship:(id)arg1;
+- (void)prepareMasterReorderStatementForRelationship:(id)arg1;
+- (void)prepareInsertStatementForRelationship:(id)arg1;
 - (void)prepareInsertStatementWithRow:(id)arg1;
 - (void)_appendWhereClauseForConstVal:(id)arg1;
 - (void)_addBindVarForConstVal1:(id)arg1;

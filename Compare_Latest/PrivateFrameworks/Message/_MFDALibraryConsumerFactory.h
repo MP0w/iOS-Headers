@@ -8,7 +8,7 @@
 
 #import "MFMessageDataConsumerFactory.h"
 
-@class MFMessage, MFMessageLibrary;
+@class MFMessage, MFMessageLibrary, NSString;
 
 @interface _MFDALibraryConsumerFactory : NSObject <MFMessageDataConsumerFactory>
 {
@@ -20,6 +20,12 @@
 @property(retain, nonatomic) MFMessageLibrary *library; // @synthesize library=_library;
 - (void)dealloc;
 - (id)dataConsumerForPart:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

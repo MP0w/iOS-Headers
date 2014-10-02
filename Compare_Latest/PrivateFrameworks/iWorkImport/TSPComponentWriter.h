@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSHashTable, NSMapTable, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString, TSPArchiverManager, TSPComponent, TSPObject;
+@class NSHashTable, NSMapTable, NSMutableDictionary, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString, TSPArchiverManager, TSPComponent, TSPObject;
 
 __attribute__((visibility("hidden")))
 @interface TSPComponentWriter : NSObject
@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_semaphore> *_delegateSemaphore;
     NSHashTable *_archivedObjects;
     NSMapTable *_archivedObjectsDictionary;
+    NSMutableDictionary *_objectUUIDToIdentifierDictionary;
     struct vector<TSP::ObjectStackEntry, std::__1::allocator<TSP::ObjectStackEntry>> _objectStack;
     NSObject<OS_dispatch_group> *_writeGroup;
     NSObject<OS_dispatch_queue> *_writeQueue;

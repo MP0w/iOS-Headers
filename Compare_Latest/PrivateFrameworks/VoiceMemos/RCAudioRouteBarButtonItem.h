@@ -14,6 +14,7 @@
     UIButton *_button;
     UIColor *_toggleSpeakerSpeakerRouteChosenColor;
     UIColor *_toggleSpeakerOtherRouteChosenColor;
+    BOOL _needsButtonUpdate;
 }
 
 + (id)newAudioRouteItem;
@@ -23,6 +24,7 @@
 - (void)_audioRouteControllerPickedRouteDidChangeNotification:(id)arg1;
 - (void)_audioRouteControllerAvailableRoutesMaskDidChangeNotification:(id)arg1;
 - (void)_updateButton;
+- (void)_setNeedsUpdateButton;
 - (void)dealloc;
 - (id)initAudioRouteItem;
 

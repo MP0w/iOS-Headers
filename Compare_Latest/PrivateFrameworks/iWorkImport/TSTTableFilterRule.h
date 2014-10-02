@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
 + (id)ruleWhereValuesInTable:(id)arg1 inColumn:(unsigned char)arg2 matchCell:(id)arg3;
 + (id)ruleWithFormulaPredicate:(id)arg1;
 - (id)initFromArchive:(const struct FilterRuleArchive *)arg1;
-- (void)encodeToArchive:(struct FilterRuleArchive *)arg1;
+- (void)encodeToArchive:(struct FilterRuleArchive *)arg1 archiver:(id)arg2;
 - (BOOL)isEnabled;
 - (void)setEnabled:(BOOL)arg1;
 - (id)localizedTextRepresentation;

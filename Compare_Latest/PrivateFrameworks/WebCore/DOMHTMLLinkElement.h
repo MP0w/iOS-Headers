@@ -13,7 +13,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-@property(readonly) NSURL *absoluteLinkURL;
+@property(readonly, copy) NSURL *absoluteLinkURL;
 @property(readonly) DOMStyleSheet *sheet;
 @property(copy) NSString *type;
 @property(copy) NSString *target;

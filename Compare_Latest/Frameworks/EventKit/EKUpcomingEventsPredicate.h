@@ -6,12 +6,15 @@
 
 #import "NSPredicate.h"
 
-@interface EKUpcomingEventsPredicate : NSPredicate
+#import "NSSecureCoding.h"
+
+@interface EKUpcomingEventsPredicate : NSPredicate <NSSecureCoding>
 {
     int _limit;
 }
 
 + (id)predicateWithLimit:(int)arg1;
++ (BOOL)supportsSecureCoding;
 @property(readonly, nonatomic) int limit; // @synthesize limit=_limit;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

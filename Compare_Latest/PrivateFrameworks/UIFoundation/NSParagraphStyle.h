@@ -56,7 +56,7 @@
 @property(readonly) float maximumLineHeight;
 @property(readonly) float minimumLineHeight;
 @property(readonly) float firstLineHeadIndent;
-@property(readonly, nonatomic) NSArray *tabStops;
+@property(readonly, copy, nonatomic) NSArray *tabStops;
 @property(readonly) float tailIndent;
 @property(readonly) float headIndent;
 @property(readonly) int alignment;

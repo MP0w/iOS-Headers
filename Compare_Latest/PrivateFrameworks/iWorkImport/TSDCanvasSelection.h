@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "TSDCanvasSelection.h"
 
-@class NSSet, TSDDrawableInfo<TSDContainerInfo>;
+@class NSSet, NSString, TSDDrawableInfo<TSDContainerInfo>;
 
 __attribute__((visibility("hidden")))
 @interface TSDCanvasSelection : TSKSelection <TSDCanvasSelection, NSCopying>
@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 + (id)emptySelection;
 + (Class)archivedSelectionClass;
 @property(readonly, nonatomic) TSDDrawableInfo<TSDContainerInfo> *container; // @synthesize container=mContainer;
+@property(readonly, copy) NSString *description;
 - (id)copyExcludingInfo:(id)arg1;
 - (id)copyIncludingInfo:(id)arg1;
 - (BOOL)containsUnlockedKindOfClass:(Class)arg1;
@@ -38,6 +39,11 @@ __attribute__((visibility("hidden")))
 - (id)initWithInfos:(id)arg1 andContainer:(id)arg2;
 - (void)saveToArchive:(struct CanvasSelectionArchive *)arg1 archiver:(id)arg2;
 - (id)initWithArchive:(const struct CanvasSelectionArchive *)arg1 unarchiver:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

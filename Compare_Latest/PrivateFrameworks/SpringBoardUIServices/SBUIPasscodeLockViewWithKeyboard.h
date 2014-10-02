@@ -8,7 +8,7 @@
 
 #import "SBUIPasscodeEntryFieldDelegate.h"
 
-@class SBPasscodeKeyboard, SBUIAlphanumericPasscodeEntryField, SBUIRingViewLabelButton, UILabel, UIView;
+@class NSString, SBPasscodeKeyboard, SBUIAlphanumericPasscodeEntryField, SBUIRingViewLabelButton, UILabel, UIView;
 
 @interface SBUIPasscodeLockViewWithKeyboard : SBUIPasscodeLockViewBase <SBUIPasscodeEntryFieldDelegate>
 {
@@ -28,11 +28,12 @@
     BOOL _disableAnimationsDuringMinMax;
     BOOL _triedToMinMaxWhileRotating;
     BOOL _isAnimating;
+    BOOL _usesLightStyle;
 }
 
 @property(retain, nonatomic) UILabel *statusSubtitleView; // @synthesize statusSubtitleView=_statusSubtitleView;
 @property(retain, nonatomic) UILabel *statusField; // @synthesize statusField=_statusField;
-- (void)_updateStatusText:(id)arg1 subtitle:(id)arg2 animated:(BOOL)arg3;
+- (void)updateStatusText:(id)arg1 subtitle:(id)arg2 animated:(BOOL)arg3;
 - (void)_handleDidRotateNotification:(id)arg1;
 - (void)_handleWillAnimateNotification:(id)arg1;
 - (void)_handleWillRotateNotification:(id)arg1;
@@ -71,7 +72,13 @@
 - (void)_luminanceBoostDidChange;
 - (float)backgroundAlpha;
 - (void)dealloc;
-- (id)init;
+- (id)initWithLightStyle:(BOOL)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

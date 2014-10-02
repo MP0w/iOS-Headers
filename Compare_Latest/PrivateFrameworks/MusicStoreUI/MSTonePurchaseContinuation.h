@@ -10,7 +10,7 @@
 #import "UIActionSheetDelegate.h"
 #import "UIAlertViewDelegate.h"
 
-@class ABPeoplePickerNavigationController, UIActionSheet, UIAlertView;
+@class ABPeoplePickerNavigationController, NSString, UIActionSheet, UIAlertView;
 
 @interface MSTonePurchaseContinuation : SUPurchaseContinuation <ABPeoplePickerNavigationControllerDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
 {
@@ -36,6 +36,12 @@
 - (void)cancel;
 - (void)dealloc;
 - (id)initWithPurchase:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

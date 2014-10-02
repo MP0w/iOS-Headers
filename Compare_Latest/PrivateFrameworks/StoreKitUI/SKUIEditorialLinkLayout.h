@@ -8,7 +8,7 @@
 
 #import "SKUICachedLayout.h"
 
-@class NSArray;
+@class NSArray, NSString;
 
 @interface SKUIEditorialLinkLayout : NSObject <SKUICachedLayout>
 {
@@ -24,6 +24,12 @@
 - (void)enumerateLinesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)initWithLayoutRequest:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

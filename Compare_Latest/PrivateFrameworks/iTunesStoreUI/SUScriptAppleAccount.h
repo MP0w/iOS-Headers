@@ -21,6 +21,7 @@
 - (id)attributeKeys;
 @property(readonly) NSString *username;
 @property(readonly) NSString *identifier;
+@property(readonly) NSString *dsID;
 @property(readonly) SUScriptAppleAccountCredential *credential;
 - (id)_className;
 @property(readonly) SUScriptAppleAccountType *accountType;

@@ -10,10 +10,13 @@
 
 @interface SKUIResourceRequest : NSObject <NSCopying>
 {
+    id _cacheKey;
     unsigned int _requestID;
 }
 
 @property(nonatomic) unsigned int requestIdentifier; // @synthesize requestIdentifier=_requestID;
+@property(retain, nonatomic) id cacheKey; // @synthesize cacheKey=_cacheKey;
+- (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;

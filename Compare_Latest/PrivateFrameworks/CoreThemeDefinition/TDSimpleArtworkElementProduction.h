@@ -6,21 +6,17 @@
 
 #import <CoreThemeDefinition/TDElementProduction.h>
 
-@class NSString;
+@class TDTemplateRenderingMode;
 
 @interface TDSimpleArtworkElementProduction : TDElementProduction
 {
-    struct CGRect _alignmentRect;
 }
 
 - (id)associatedFileModificationDateWithDocument:(id)arg1;
 - (void)deleteRenditionsInDocument:(id)arg1 shouldDeleteAssetFiles:(BOOL)arg2;
-- (void)awakeFromFetch;
-@property(nonatomic) struct CGRect alignmentRect; // @dynamic alignmentRect;
-@property(nonatomic) struct CGRect primitiveAlignmentRect;
 
 // Remaining properties
-@property(retain, nonatomic) NSString *alignmentRectString; // @dynamic alignmentRectString;
+@property(retain, nonatomic) TDTemplateRenderingMode *templateRenderingMode; // @dynamic templateRenderingMode;
 
 @end
 

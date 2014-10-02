@@ -8,7 +8,7 @@
 
 #import "SKUIEditorialLinkViewDelegate.h"
 
-@class SKUIEditorialLinkView, SKUITextBoxView;
+@class NSString, SKUIEditorialLinkView, SKUITextBoxView;
 
 @interface SKUIEditorialCellLayout : SKUICellLayout <SKUIEditorialLinkViewDelegate>
 {
@@ -33,6 +33,12 @@
 - (id)initWithParentView:(id)arg1;
 - (id)initWithCollectionViewCell:(id)arg1;
 - (void)_initSKUIEditorialCellLayout;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

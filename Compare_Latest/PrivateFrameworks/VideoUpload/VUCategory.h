@@ -17,6 +17,7 @@
 + (id)categoryWithDisplayName:(id)arg1 value:(id)arg2;
 @property(retain, nonatomic) id value; // @synthesize value=_value;
 @property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
+- (void).cxx_destruct;
 
 @end
 

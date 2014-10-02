@@ -4,19 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <MusicUI/MusicCellConfiguration.h>
+#import <MusicUI/MusicStandardMediaCellConfiguration.h>
 
-@interface MusicAlbumCellConfiguration : MusicCellConfiguration
+@interface MusicAlbumCellConfiguration : MusicStandardMediaCellConfiguration
 {
 }
 
-+ (id)_albumImageCache;
-+ (id)collectionPropertiesToFetch;
-+ (struct UIEdgeInsets)tableViewSeparatorInset;
-+ (float)tableViewCellHeight;
-+ (Class)tableViewCellClass;
-+ (id)tableViewCellBackgroundColor;
-+ (id)tableViewBackgroundColor;
++ (id)mediaEntityPropertiesToFetch;
++ (BOOL)mediaCellConfigurationUsesSubtitle;
++ (id)reuseIdentifier;
 + (void)configureCell:(id)arg1 withViewController:(id)arg2 entity:(id)arg3 atIndex:(unsigned int)arg4 animated:(BOOL)arg5;
 
 @end

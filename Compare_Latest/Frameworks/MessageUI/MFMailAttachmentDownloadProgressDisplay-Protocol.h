@@ -5,6 +5,7 @@
 //
 
 @protocol MFMailAttachmentDownloadProgressDisplay
+- (void)setTheme:(int)arg1;
 - (void)downloadProgressDidEnd;
 - (void)downloadProgressDidCancel;
 - (void)downloadProgressDidUpdatePercentageComplete:(float)arg1;

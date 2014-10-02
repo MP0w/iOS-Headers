@@ -9,7 +9,7 @@
 #import "SBPowerDownViewInterface.h"
 #import "_UIActionSliderDelegate.h"
 
-@class NSTimer, SBShapeView, UIButton, UILabel, UIView, _UIActionSlider;
+@class NSString, NSTimer, SBShapeView, UIButton, UILabel, UIView, _UIActionSlider;
 
 @interface SBPowerDownView : SBAlertView <_UIActionSliderDelegate, SBPowerDownViewInterface>
 {
@@ -42,11 +42,16 @@
 - (void)actionSliderDidBeginSlide:(id)arg1;
 - (void)dismiss;
 - (void)layoutForInterfaceOrientation:(long long)arg1;
-- (_Bool)isSupportedInterfaceOrientation:(long long)arg1;
 - (void)animateOut;
 - (void)animateIn;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

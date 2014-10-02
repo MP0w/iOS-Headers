@@ -10,8 +10,8 @@
 
 @interface UIPanGestureRecognizer : UIGestureRecognizer
 {
-    struct CGPoint _firstScreenLocation;
-    struct CGPoint _lastScreenLocation;
+    struct CGPoint _firstSceneReferenceLocation;
+    struct CGPoint _lastSceneReferenceLocation;
     double _lastTouchTime;
     id _velocitySample;
     id _previousVelocitySample;
@@ -20,7 +20,7 @@
     unsigned int _minimumNumberOfTouches;
     unsigned int _maximumNumberOfTouches;
     float _hysteresis;
-    struct CGPoint _lastUnadjustedScreenLocation;
+    struct CGPoint _lastUnadjustedSceneReferenceLocation;
     unsigned int _failsPastMaxTouches:1;
     unsigned int _canPanHorizontally:1;
     unsigned int _canPanVertically:1;
@@ -28,6 +28,7 @@
     NSMutableArray *_movingTouches;
 }
 
++ (void)_setPanGestureRecognizersEnabled:(BOOL)arg1;
 @property(readonly, getter=_previousVelocitySample) UIPanGestureVelocitySample *_previousVelocitySample; // @synthesize _previousVelocitySample;
 @property(readonly, getter=_velocitySample) UIPanGestureVelocitySample *_velocitySample; // @synthesize _velocitySample;
 @property(nonatomic) unsigned int maximumNumberOfTouches; // @synthesize maximumNumberOfTouches=_maximumNumberOfTouches;
@@ -48,16 +49,16 @@
 - (BOOL)_willScrollY;
 - (BOOL)_willScrollX;
 - (void)_centroidMovedTo:(struct CGPoint)arg1 atTime:(double)arg2;
-- (struct CGPoint)_adjustScreenLocation:(struct CGPoint)arg1;
-- (struct CGPoint)_shiftPanLocationToNewScreenLocation:(struct CGPoint)arg1 lockingToAxis:(int)arg2;
-- (struct UIOffset)_offsetInViewFromScreenLocation:(struct CGPoint)arg1 toScreenLocation:(struct CGPoint)arg2;
+- (struct CGPoint)_adjustSceneReferenceLocation:(struct CGPoint)arg1;
+- (struct CGPoint)_shiftPanLocationToNewSceneReferenceLocation:(struct CGPoint)arg1 lockingToAxis:(int)arg2;
+- (struct UIOffset)_offsetInViewFromSceneReferenceLocation:(struct CGPoint)arg1 toSceneReferenceLocation:(struct CGPoint)arg2;
 - (void)_touchesListChangedFrom:(id)arg1 to:(id)arg2;
 - (struct CGPoint)velocityInView:(id)arg1;
-- (struct CADoublePoint)_convertVelocitySample:(id)arg1 fromScreenCoordinatesToView:(id)arg2;
+- (struct CADoublePoint)_convertVelocitySample:(id)arg1 fromSceneReferenceCoordinatesToView:(id)arg2;
 - (void)setTranslation:(struct CGPoint)arg1 inView:(id)arg2;
 - (struct CGPoint)translationInView:(id)arg1;
-- (struct CADoublePoint)_convertPoint:(struct CGPoint)arg1 fromScreenCoordinatesToView:(id)arg2;
-- (struct CADoublePoint)_convertPoint:(struct CGPoint)arg1 toScreenCoordinatesFromView:(id)arg2;
+- (struct CADoublePoint)_convertPoint:(struct CGPoint)arg1 fromSceneReferenceCoordinatesToView:(id)arg2;
+- (struct CADoublePoint)_convertPoint:(struct CGPoint)arg1 toSceneReferenceCoordinatesFromView:(id)arg2;
 - (void)_setCanPanVertically:(BOOL)arg1;
 - (void)_setCanPanHorizontally:(BOOL)arg1;
 - (BOOL)_canPanVertically;

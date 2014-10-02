@@ -9,7 +9,7 @@
 @interface NSValue (NSValueMapKitGeometryExtensions)
 + (id)valueWithMKCoordinateSpan:(CDStruct_c3b9c2ee)arg1;
 + (id)valueWithMKCoordinate:(CDStruct_c3b9c2ee)arg1;
-- (CDStruct_c3b9c2ee)MKCoordinateSpanValue;
-- (CDStruct_c3b9c2ee)MKCoordinateValue;
+@property(readonly) CDStruct_c3b9c2ee MKCoordinateSpanValue;
+@property(readonly) CDStruct_c3b9c2ee MKCoordinateValue;
 @end
 

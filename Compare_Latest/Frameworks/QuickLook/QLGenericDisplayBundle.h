@@ -8,7 +8,7 @@
 
 #import "QLGenericViewDelegate.h"
 
-@class NSError, QLGenericView;
+@class NSError, NSString, QLGenericView;
 
 @interface QLGenericDisplayBundle : QLDisplayBundle <QLGenericViewDelegate>
 {
@@ -21,11 +21,18 @@
 - (void)discardAirPlayView;
 - (void)setupAirPlayView;
 - (id)airplayView;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)loadWithHints:(id)arg1;
 - (void)_loadPreviewItemInfos;
+- (id)subtitleWithDescription:(id)arg1 fileSize:(unsigned long long)arg2;
 - (void)loadView;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

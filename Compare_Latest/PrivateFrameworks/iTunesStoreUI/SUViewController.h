@@ -32,8 +32,10 @@
     BOOL _shouldInvalidateForMemoryPurge;
     BOOL _showsLibraryButton;
     int _transitionSafetyCount;
+    BOOL _shouldAdjustContentOffsets;
 }
 
+@property(nonatomic) BOOL shouldAdjustContentOffsets; // @synthesize shouldAdjustContentOffsets=_shouldAdjustContentOffsets;
 @property(nonatomic) BOOL showsLibraryButton; // @synthesize showsLibraryButton=_showsLibraryButton;
 @property(nonatomic) BOOL shouldInvalidateForMemoryPurge; // @synthesize shouldInvalidateForMemoryPurge=_shouldInvalidateForMemoryPurge;
 @property(nonatomic) BOOL shouldExcludeFromNavigationHistory; // @synthesize shouldExcludeFromNavigationHistory=_excludeFromNavigationHistory;
@@ -62,7 +64,6 @@
 - (void)_dismissFooterAnimationDidStop:(id)arg1;
 - (void)_exitStoreButtonAction:(id)arg1;
 - (BOOL)clearsWeakScriptReferences;
-- (BOOL)_shouldUseDefaultFirstResponder;
 - (void)remoteControlReceivedWithEvent:(id)arg1;
 - (id)inputAccessoryView;
 - (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
@@ -87,7 +88,7 @@
 - (void)_setExistingNavigationItem:(id)arg1;
 - (void)restoreArchivableContext:(id)arg1;
 - (void)resetRestoredContext;
-@property(readonly, nonatomic) SUNavigationItem *navigationItem; // @dynamic navigationItem;
+@property(readonly, retain, nonatomic) SUNavigationItem *navigationItem; // @dynamic navigationItem;
 - (id)moreListSelectedImage;
 - (id)moreListImage;
 - (void)loadView;
@@ -129,6 +130,12 @@
 - (void)dealloc;
 - (id)initWithSection:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

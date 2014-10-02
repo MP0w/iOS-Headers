@@ -24,6 +24,8 @@
 @property(retain, nonatomic) NSMutableData *mutableData; // @synthesize mutableData=_mutableData;
 - (id)candidateResultSet;
 - (id)dataFromCandidateResultSet:(id)arg1;
+- (id)decodePointerValueArray;
+- (void)encodePointerValueArray:(id)arg1;
 - (id)decodeStringArray;
 - (void)encodeStringArray:(id)arg1;
 - (id)decodeString;

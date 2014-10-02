@@ -15,7 +15,7 @@
     int _token;
 }
 
-@property(readonly, nonatomic) NSString *service;
+@property(readonly, retain, nonatomic) NSString *service;
 - (int)serviceAvailability;
 - (void)handleActiveAccountsChanged:(id)arg1;
 - (void)updateAvailability;

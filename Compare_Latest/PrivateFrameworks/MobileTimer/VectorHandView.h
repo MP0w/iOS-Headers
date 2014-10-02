@@ -8,7 +8,7 @@
 
 #import "HandView.h"
 
-@class RenderedHandViewFactory;
+@class NSString, RenderedHandViewFactory;
 
 @interface VectorHandView : UIView <HandView>
 {
@@ -18,6 +18,12 @@
 - (void)drawRect:(struct CGRect)arg1;
 - (void)dealloc;
 - (id)initWithPDFFile:(id)arg1 offset:(struct CGPoint)arg2 scale:(struct CGSize)arg3 bundle:(id)arg4 allowCaching:(BOOL)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

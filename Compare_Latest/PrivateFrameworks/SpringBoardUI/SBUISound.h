@@ -12,6 +12,7 @@
 {
     int _soundType;
     unsigned long _systemSoundID;
+    unsigned long _resolvedSystemSoundID;
     unsigned int _soundBehavior;
     NSString *_ringtoneName;
     AVItem *_avItem;
@@ -25,8 +26,10 @@
     NSString *_vibrationIdentifier;
     NSString *_resolvedToneIdentifier;
     CDUnknownBlockType _completionBlock;
+    NSString *_songPath;
 }
 
+@property(copy, nonatomic) NSString *songPath; // @synthesize songPath=_songPath;
 @property(copy, nonatomic) NSString *vibrationIdentifier; // @synthesize vibrationIdentifier=_vibrationIdentifier;
 @property(copy, nonatomic) NSString *toneIdentifier; // @synthesize toneIdentifier=_toneIdentifier;
 @property(copy, nonatomic) NSString *accountIdentifier; // @synthesize accountIdentifier=_accountIdentifier;
@@ -38,6 +41,7 @@
 @property(retain, nonatomic) AVItem *avItem; // @synthesize avItem=_avItem;
 @property(retain, nonatomic) NSString *ringtoneName; // @synthesize ringtoneName=_ringtoneName;
 @property(nonatomic) unsigned int soundBehavior; // @synthesize soundBehavior=_soundBehavior;
+@property(nonatomic, setter=_setResolvedSoundID:) unsigned long _resolvedSystemSoundID; // @synthesize _resolvedSystemSoundID;
 @property(nonatomic) unsigned long systemSoundID; // @synthesize systemSoundID=_systemSoundID;
 @property(nonatomic) int soundType; // @synthesize soundType=_soundType;
 - (id)description;
@@ -49,9 +53,11 @@
 - (BOOL)playInEvironments:(int)arg1 completion:(CDUnknownBlockType)arg2;
 - (BOOL)isPlaying;
 - (void)dealloc;
+- (id)initWithSong:(id)arg1 vibrationPattern:(id)arg2 repeats:(BOOL)arg3 maxDuration:(double)arg4 controllerAttributes:(id)arg5;
 - (id)initWithToneAlert:(int)arg1 accountIdentifier:(id)arg2 toneIdentifier:(id)arg3 vibrationIdentifier:(id)arg4;
 - (id)initWithAVItem:(id)arg1 vibrationPattern:(id)arg2 repeats:(BOOL)arg3 maxDuration:(double)arg4 controllerAttributes:(id)arg5;
-- (id)initWithRingtone:(id)arg1 vibrationPattern:(id)arg2 repeats:(BOOL)arg3 controllerAttributes:(id)arg4;
+- (id)initWithRingtone:(id)arg1 vibrationPattern:(id)arg2 repeats:(BOOL)arg3 maxDuration:(double)arg4 controllerAttributes:(id)arg5;
+- (id)initWithSystemSoundPath:(id)arg1 behavior:(unsigned int)arg2 vibrationPattern:(id)arg3;
 - (id)initWithSystemSoundID:(unsigned long)arg1 behavior:(unsigned int)arg2 vibrationPattern:(id)arg3;
 
 @end

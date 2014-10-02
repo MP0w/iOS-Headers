@@ -7,24 +7,26 @@
 #import "UIViewController.h"
 
 #import "PLCommentsViewControllerDelegate.h"
+#import "PLPhotoTileCloudPlaceholderViewDelegate.h"
 #import "UIGestureRecognizerDelegate.h"
 #import "UIScrollViewDelegate.h"
 
-@class NSObject<OS_dispatch_source>, PLCommentsViewController, PLExpandableImageView, PLImageScrollView, PLManagedAsset, PLPhotoTileBadgeView, PLPhotoTilePlaceholderView, PLTileContainerView, PLVideoView, UIGestureRecognizer, UIImage, UIImageView;
+@class NSArray, NSObject<OS_dispatch_source>, NSString, PHAsset, PHCachingImageManager, PLCommentsViewController, PLExpandableImageView, PLImageScrollView, PLPhotoTileBadgeView, PLTileContainerView, PLVideoView, UIGestureRecognizer, UIImage, UIImageView, UIView, UIView<PLTilePlaceholderView>;
 
-@interface PLPhotoTileViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate, PLCommentsViewControllerDelegate>
+@interface PLPhotoTileViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate, PLCommentsViewControllerDelegate, PLPhotoTileCloudPlaceholderViewDelegate>
 {
     UIImage *_image;
     UIImage *_pendingImage;
     UIImage *_unscaledImage;
-    PLManagedAsset *_modelPhoto;
+    PHAsset *_modelPhoto;
     PLImageScrollView *_scrollView;
     PLExpandableImageView *_imageView;
     PLVideoView *_videoView;
     UIImageView *_gradientView;
     PLPhotoTileBadgeView *_badgeView;
     UIImageView *_reviewCheckmarkImageView;
-    PLPhotoTilePlaceholderView *_placeholderView;
+    UIView<PLTilePlaceholderView> *_placeholderView;
+    BOOL _currentTileDownloadFinished;
     PLCommentsViewController *_commentsViewController;
     UIGestureRecognizer *_singleTapGestureRecognizer;
     UIGestureRecognizer *_doubleTapGestureRecognizer;
@@ -71,27 +73,33 @@
     unsigned int _viewWillAppear:1;
     unsigned int _didRequestFullSizeImage:1;
     unsigned int _useZoomScaleForCropRect:1;
-    unsigned int _photoShouldBeHDRBadged:1;
-    unsigned int _HDRBadgeShouldBeHidden:1;
     unsigned int _avalancheBadgeShouldBeHidden:1;
-    unsigned int _photoShouldBeAvalancheBadged:1;
     unsigned int _badgeShouldBeVisible:1;
-    unsigned int _didSetHDRForModelPhoto:1;
     unsigned int _commentsTableVisible:1;
     PLTileContainerView *_containerView;
+    PHCachingImageManager *__cachingImageManager;
+    int _fullSizeImageRequestID;
+    NSArray *_customCenterOverlayConstraints;
+    BOOL _wantsCompactLayout;
     BOOL _reviewing;
     BOOL _picked;
+    BOOL _shouldHideProgressIndicator;
+    UIView *__customCenterOverlay;
     struct UIEdgeInsets _overlayInsets;
 }
 
++ (BOOL)_shouldForwardViewWillTransitionToSize;
 + (id)newPhotoTileViewControllerWithFrame:(struct CGRect)arg1 modelPhoto:(id)arg2 mode:(int)arg3;
 + (id)newPhotoTileViewControllerWithFrame:(struct CGRect)arg1 image:(id)arg2 allowZoomToFill:(BOOL)arg3 mode:(int)arg4;
 + (id)newPhotoTileViewControllerWithFrame:(struct CGRect)arg1 imageRef:(struct CGImage *)arg2 imageOrientation:(int)arg3 allowZoomToFill:(BOOL)arg4 mode:(int)arg5;
 + (struct CGSize)tvOutTileSize;
 + (struct CGSize)tileSize;
 + (BOOL)shouldShowPlaceholderForAsset:(id)arg1;
+@property(retain, nonatomic, setter=_setCustomCenterOverlay:) UIView *_customCenterOverlay; // @synthesize _customCenterOverlay=__customCenterOverlay;
+@property(nonatomic) BOOL shouldHideProgressIndicator; // @synthesize shouldHideProgressIndicator=_shouldHideProgressIndicator;
 @property(nonatomic) BOOL picked; // @synthesize picked=_picked;
 @property(nonatomic) BOOL reviewing; // @synthesize reviewing=_reviewing;
+@property(nonatomic) BOOL wantsCompactLayout; // @synthesize wantsCompactLayout=_wantsCompactLayout;
 @property(nonatomic) struct UIEdgeInsets overlayInsets; // @synthesize overlayInsets=_overlayInsets;
 @property(nonatomic) BOOL force1XCroppedImage; // @synthesize force1XCroppedImage=_force1XCroppedImage;
 @property(nonatomic) BOOL forceNativeScreenScale; // @synthesize forceNativeScreenScale=_forceNativeScreenScale;
@@ -120,10 +128,12 @@
 - (float)minRotatedScale;
 - (void)_performDidEndZoomBlock;
 - (void)_setDidEndZoomingBlock:(CDUnknownBlockType)arg1;
-- (void)zoomToScale:(float)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void)zoomToScale:(float)arg1 animated:(BOOL)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (id)dictionaryWithCroppedImageForRect:(struct CGRect)arg1 minimalCropDimension:(float)arg2 withOptions:(int)arg3;
 - (id)newImageWithCropRect:(struct CGRect)arg1 minimalCropDimension:(float)arg2 croppedImageData:(id *)arg3 fullScreenImageData:(id *)arg4 fullScreenImage:(struct CGImage **)arg5 imageCropRect:(struct CGRect *)arg6 intersectCropWithFullRect:(BOOL)arg7;
 - (void)_handleDoubleTap:(id)arg1;
+- (void)_readOrientation:(int *)arg1 andSize:(struct CGSize *)arg2 fromImageData:(id)arg3;
+- (void)_handleFullSizeImageRequestResult:(id)arg1 dataUTI:(id)arg2 orientation:(int)arg3;
 - (void)_requestFullSizeImage;
 - (void)_handleSingleTap:(id)arg1;
 - (void)ensureFullSizeImageLoaded;
@@ -132,12 +142,14 @@
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)resetZoom;
+- (void)updateViewConstraints;
 - (void)viewDidLayoutSubviews;
 - (void)_viewWillMoveToSuperView:(id)arg1;
 - (void)_resetZoomCommon;
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (BOOL)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (id)viewForZoomingInScrollView:(id)arg1;
@@ -155,22 +167,31 @@
 - (void)commentsControllerWillEnterEditMode:(id)arg1;
 - (void)commentsControllerInactiveAreaWasTapped:(id)arg1;
 - (void)setCommentsTableVisibility:(BOOL)arg1 duration:(float)arg2;
+- (void)removeCommentsTable;
 @property(readonly, nonatomic) BOOL commentsTableIsVisible;
 - (void)initializeCommentsTable;
 - (void)updateForVisibleOverlays:(BOOL)arg1;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)loadView;
-- (BOOL)didRequestFullSizeImage;
+- (void)cancelFullSizeImageRequest;
 - (BOOL)hasFullSizeImage;
 - (void)setFullSizeImage:(id)arg1;
-- (void)refreshTileWithFullScreenImage:(id)arg1;
+- (void)showErrorPlaceholderView;
+- (void)_removePlaceholderView;
+- (void)didLoadImage;
+- (void)refreshTileWithFullScreenImage:(id)arg1 modelPhoto:(id)arg2;
 - (void)_setImage:(id)arg1 isThumbnail:(BOOL)arg2 preserveFrame:(BOOL)arg3;
 - (void)_updateAggdKeys;
 - (void)_updateModelPhotoWithImage:(id)arg1;
+- (void)_updatePlaceholderVisibility;
+- (void)_updatePlaceholderImageRect;
 - (void)_updateContentInset;
 - (void)_adjustScrollViewContentOffsetForInsets;
 - (void)_centerImageInScrollView;
+- (void)retryDownload;
 - (void)_updatePlaceholderViewAnimated:(BOOL)arg1;
+- (void)updateCloudDownloadProgress:(float)arg1;
+- (void)_updateSubviewOrdering;
 - (void)_installSubview:(id)arg1;
 - (void)installVideoOverlay:(id)arg1;
 - (void)_configureViews;
@@ -178,7 +199,6 @@
 - (void)setBadgeVisible:(BOOL)arg1;
 - (void)_showBadgeViewIfAppropriate;
 - (void)_setupBadgeView;
-- (void)setHDRBadgesHidden:(BOOL)arg1;
 - (void)setAvalancheBadgesHidden:(BOOL)arg1;
 - (BOOL)photoShouldHaveAvalancheBadge;
 - (BOOL)photoShouldHaveHDRBadge;
@@ -196,6 +216,7 @@
 - (void)updateAfterZoomTransitionWithImage:(id)arg1;
 - (void)showContentView;
 - (void)hideContentView;
+- (void)updateCenterOverlay;
 - (void)setVideoView:(id)arg1;
 - (id)videoView;
 - (id)scrollView;
@@ -208,20 +229,27 @@
 - (void)setZoomingGesturesEnabled:(BOOL)arg1;
 - (void)setCropOverlayRect:(struct CGRect)arg1 forCropRect:(struct CGRect)arg2;
 - (void)setZoomScale:(float)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 @property(nonatomic) struct CGRect tileFrame;
 @property(retain, nonatomic) UIImage *thumbnailImage;
-@property(readonly, nonatomic) PLManagedAsset *photo;
+@property(readonly, nonatomic) PHAsset *photo;
+- (void)_updateVideoViewForModelPhoto;
 - (void)_setPhoto:(id)arg1;
 - (BOOL)tileIsOnScreen;
 - (void)dealloc;
 - (void)_teardownDispatchTimer;
-- (id)initWithPhoto:(id)arg1 thumbnailImage:(id)arg2 size:(struct CGSize)arg3;
+- (id)cachingImageManager;
+- (id)initWithModelPhoto:(id)arg1 thumbnailImage:(id)arg2 size:(struct CGSize)arg3;
 - (id)initForPageController;
-- (id)initWithPhoto:(id)arg1 image:(id)arg2 frame:(struct CGRect)arg3 isThumbnail:(BOOL)arg4 imageOrientation:(int)arg5 allowZoomToFill:(BOOL)arg6 mode:(int)arg7;
+- (id)initWithModelPhoto:(id)arg1 image:(id)arg2 frame:(struct CGRect)arg3 isThumbnail:(BOOL)arg4 imageOrientation:(int)arg5 allowZoomToFill:(BOOL)arg6 mode:(int)arg7;
 - (id)init;
 - (int)_imageOrientation;
 - (id)_newOriginalImageForPickerFromCachedData;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,32 +6,37 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
+#import "CADClientInterface.h"
+
+@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
 
 __attribute__((visibility("hidden")))
-@interface EKDaemonConnection : NSObject
+@interface EKDaemonConnection : NSObject <CADClientInterface>
 {
     unsigned long _options;
     NSString *_dbPath;
-    unsigned int _serverPort;
-    unsigned int _machPort;
-    unsigned int _connectionPort;
-    NSObject<OS_dispatch_queue> *_connectionLock;
     id _delegate;
-    NSMutableDictionary *_replyHandlers;
-    unsigned int _nextID;
-    NSObject<OS_dispatch_source> *_replySource;
+    NSObject<OS_dispatch_queue> *_connectionLock;
+    id <CADInterface> _remoteOperationProxy;
     NSObject<OS_dispatch_queue> *_replyHandlerLock;
+    NSMutableDictionary *_cancellableOperations;
+    unsigned int _nextCancellationToken;
     BOOL _registeredForStartNote;
+    NSXPCConnection *_xpcConnection;
+    int _connectionIdentifier;
 }
 
++ (void)waitOnSemaphoreWithBlock:(CDUnknownBlockType)arg1;
+@property(nonatomic) int connectionIdentifier; // @synthesize connectionIdentifier=_connectionIdentifier;
 @property id delegate; // @synthesize delegate=_delegate;
+- (void)CADClientReceiveOccurrenceCacheSearchResults:(id)arg1 forSearchToken:(unsigned int)arg2 finished:(BOOL)arg3;
 - (void)_finishAllRepliesOnServerDeath;
-- (void)_processReplyWithID:(unsigned int)arg1 data:(id)arg2 finished:(BOOL)arg3;
-- (void)removeReplyHandler:(id)arg1;
-- (id)addReplyHandler:(CDUnknownBlockType)arg1;
+- (void)cancelRemoteOperation:(unsigned int)arg1;
+- (void)removeCancellableRemoteOperation:(unsigned int)arg1;
+- (unsigned int)addCancellableRemoteOperation:(id)arg1;
 - (void)_daemonRestarted;
-@property(readonly) unsigned int port;
+@property(readonly, retain) id <CADInterface> CADOperationProxy;
+@property(readonly, retain) NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
 - (void)disconnect;
 - (BOOL)_connectToServer;
 - (void)dealloc;

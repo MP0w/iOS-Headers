@@ -9,7 +9,7 @@
 #import "TSKAccessControllerDelegate.h"
 #import "TSKModel.h"
 
-@class NSDictionary, NSLocale, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<TSKSearchReference>, NSString, TSKAccessController, TSKAnnotationAuthorStorage, TSKChangeNotifier, TSKCommandController, TSKCommandHistory, TSKCommandSelectionBehaviorHistory, TSKDocumentSupport, TSKPasteboardController, TSSStylesheet, TSSTheme;
+@class NSDictionary, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<TSKSearchReference>, NSSet, NSString, TSKAccessController, TSKAnnotationAuthorStorage, TSKChangeNotifier, TSKCommandController, TSKCommandHistory, TSKCommandSelectionBehaviorHistory, TSKDocumentSupport, TSKPasteboardController, TSSStylesheet, TSSTheme, TSULocale;
 
 __attribute__((visibility("hidden")))
 @interface TSKDocumentRoot : TSPObject <TSKAccessControllerDelegate, TSKModel>
@@ -21,10 +21,11 @@ __attribute__((visibility("hidden")))
     TSKPasteboardController *_pasteboardController;
     id <TSKUndoRedoState> _undoRedoState;
     TSKAnnotationAuthorStorage *_annotationAuthorStorage;
+    NSSet *_filteredAuthors;
+    NSMutableArray *_activityLogEntries;
     NSObject<OS_dispatch_queue> *_iCloudTeardownStackQueue;
     NSMutableArray *_iCloudTeardownStack;
     BOOL _isBeingLocalized;
-    NSLocale *_locale;
     NSObject<TSKSearchReference> *_activeSearchReference;
     NSDictionary *_searchReferencesToHighlight;
 }
@@ -33,6 +34,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSDictionary *searchReferencesToHighlight; // @synthesize searchReferencesToHighlight=_searchReferencesToHighlight;
 @property(retain, nonatomic) NSObject<TSKSearchReference> *activeSearchReference; // @synthesize activeSearchReference=_activeSearchReference;
 @property(readonly, nonatomic) BOOL isBeingLocalized; // @synthesize isBeingLocalized=_isBeingLocalized;
+@property(retain, nonatomic) NSSet *filteredAuthors; // @synthesize filteredAuthors=_filteredAuthors;
 @property(retain, nonatomic) TSKAnnotationAuthorStorage *annotationAuthorStorage; // @synthesize annotationAuthorStorage=_annotationAuthorStorage;
 @property(retain, nonatomic) id <TSKUndoRedoState> undoRedoState; // @synthesize undoRedoState=_undoRedoState;
 @property(nonatomic, getter=isFindActive) BOOL findActive; // @synthesize findActive=_isFindActive;
@@ -40,12 +42,13 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSKChangeNotifier *changeNotifier; // @synthesize changeNotifier=_changeNotifier;
 @property(readonly, nonatomic) TSKCommandController *commandController; // @synthesize commandController=_commandController;
 @property(readonly, nonatomic) TSKAccessController *accessController; // @synthesize accessController=_accessController;
-@property(retain, nonatomic) NSLocale *locale; // @synthesize locale=_locale;
 - (void)gilligan_documentDidRemoveObject:(id)arg1;
 - (void)gilligan_documentWillRemoveObject:(id)arg1;
 - (void)gilligan_documentWillInsertObject:(id)arg1;
 - (void)gilligan_documentDidInsertObject:(id)arg1;
 - (void)updateForNonCommandChangesWithWriteLock:(id)arg1;
+- (void)willRelinquishReadLock;
+- (void)didAcquireReadLock;
 @property(readonly, nonatomic) BOOL hasICloudConflict;
 - (BOOL)hasICloudTeardownObserver;
 - (void)notifyICloudTeardownObservers;
@@ -55,7 +58,6 @@ __attribute__((visibility("hidden")))
 - (unsigned int)nextRootSearchTargetIndexFromIndex:(unsigned int)arg1 forString:(id)arg2 options:(unsigned int)arg3 inDirection:(unsigned int)arg4;
 - (unsigned int)rootSearchTargetCountThroughIndex:(unsigned int)arg1;
 - (void)withRootSearchTargetAtIndex:(unsigned int)arg1 executeBlock:(CDUnknownBlockType)arg2;
-- (void)markAsModifiedIfLocaleIsOutOfDate;
 - (void)coalesceChanges:(id)arg1;
 @property(readonly, nonatomic) NSString *cachedRedoActionString;
 @property(readonly, nonatomic) NSString *cachedUndoActionString;
@@ -66,6 +68,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSKCommandSelectionBehaviorHistory *commandSelectionBehaviorHistory;
 @property(readonly, nonatomic) TSKCommandHistory *commandHistory;
 @property(readonly, nonatomic) TSKDocumentSupport *documentSupport;
+- (id)activityLogEntries;
 - (id)additionalDocumentPropertiesForWrite;
 - (void)saveToArchive:(struct DocumentArchive *)arg1 archiver:(id)arg2;
 - (void)loadFromArchive:(const struct DocumentArchive *)arg1 unarchiver:(id)arg2;
@@ -76,8 +79,10 @@ __attribute__((visibility("hidden")))
 - (id)modelEnumeratorWithFlags:(unsigned int)arg1;
 - (id)modelEnumerator;
 - (BOOL)documentDisallowsHighlightsOnStorage:(id)arg1;
+- (BOOL)shouldShowComments;
 - (BOOL)isDirectionRightToLeft;
 @property(readonly, nonatomic) NSString *creationLanguage;
+@property(readonly, nonatomic) unsigned int writingDirectionForStorage;
 @property(readonly, nonatomic) unsigned int writingDirection;
 - (void)documentDidLoad;
 - (void)didSaveWithEncryptionChange;
@@ -88,26 +93,24 @@ __attribute__((visibility("hidden")))
 - (BOOL)writeData:(id)arg1 atDocumentCachePath:(id)arg2;
 - (id)dataFromDocumentCachePath:(id)arg1;
 @property(readonly, nonatomic) unsigned int applicationType;
+@property(readonly, retain) TSULocale *documentLocale;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1;
 - (void)setUIState:(id)arg1 forChart:(id)arg2;
 - (id)UIStateForChart:(id)arg1;
 - (Class)thumbnailImagerClass;
-@property(readonly) TSPObject *webState;
+@property(readonly, retain) TSPObject *webState;
 - (id)createWebStateRoot;
-- (id)objectForDspId:(id)arg1;
-- (id)dspIdForObject:(id)arg1;
 - (void)enumerateStyleClientsUsingBlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) TSSStylesheet *stylesheet;
 - (void)setThemeForTemplateImport:(id)arg1;
 @property(retain, nonatomic) TSSTheme *theme;
-- (id)unavailableDocumentFonts;
-- (id)documentFonts;
-- (BOOL)useLigatures;
-- (struct __CFLocale *)hyphenationLocale;
-- (BOOL)shouldHyphenate;
-- (id)changeVisibility;
-- (id)changeSessionManagerForModel:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

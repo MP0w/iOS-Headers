@@ -9,20 +9,24 @@
 __attribute__((visibility("hidden")))
 @interface TSTLayoutProcessChangesActions : NSObject
 {
-    BOOL mLayoutInvalidate;
-    BOOL mLayoutInvalidateProvider;
-    BOOL mLayoutInvalidateSize;
-    BOOL mLayoutInvalidateTableNameVisibility;
-    BOOL mLayoutSpacesInvalidateCoordinates;
-    BOOL mLayoutSpacesInvalidateTableOffsets;
+    BOOL _layoutInvalidate;
+    BOOL _layoutInvalidateProvider;
+    BOOL _layoutInvalidateSize;
+    BOOL _layoutInvalidateTableNameVisibility;
+    BOOL _layoutSpacesInvalidateCoordinates;
+    BOOL _layoutSpacesInvalidateTableOffsets;
+    BOOL _layoutInvalidateChildren;
+    BOOL _layoutUpdateChildren;
 }
 
-@property(nonatomic) BOOL layoutSpacesInvalidateTableOffsets; // @synthesize layoutSpacesInvalidateTableOffsets=mLayoutSpacesInvalidateTableOffsets;
-@property(nonatomic) BOOL layoutSpacesInvalidateCoordinates; // @synthesize layoutSpacesInvalidateCoordinates=mLayoutSpacesInvalidateCoordinates;
-@property(nonatomic) BOOL layoutInvalidateTableNameVisibility; // @synthesize layoutInvalidateTableNameVisibility=mLayoutInvalidateTableNameVisibility;
-@property(nonatomic) BOOL layoutInvalidateSize; // @synthesize layoutInvalidateSize=mLayoutInvalidateSize;
-@property(nonatomic) BOOL layoutInvalidateProvider; // @synthesize layoutInvalidateProvider=mLayoutInvalidateProvider;
-@property(nonatomic) BOOL layoutInvalidate; // @synthesize layoutInvalidate=mLayoutInvalidate;
+@property(nonatomic) BOOL layoutUpdateChildren; // @synthesize layoutUpdateChildren=_layoutUpdateChildren;
+@property(nonatomic) BOOL layoutInvalidateChildren; // @synthesize layoutInvalidateChildren=_layoutInvalidateChildren;
+@property(nonatomic) BOOL layoutSpacesInvalidateTableOffsets; // @synthesize layoutSpacesInvalidateTableOffsets=_layoutSpacesInvalidateTableOffsets;
+@property(nonatomic) BOOL layoutSpacesInvalidateCoordinates; // @synthesize layoutSpacesInvalidateCoordinates=_layoutSpacesInvalidateCoordinates;
+@property(nonatomic) BOOL layoutInvalidateTableNameVisibility; // @synthesize layoutInvalidateTableNameVisibility=_layoutInvalidateTableNameVisibility;
+@property(nonatomic) BOOL layoutInvalidateSize; // @synthesize layoutInvalidateSize=_layoutInvalidateSize;
+@property(nonatomic) BOOL layoutInvalidateProvider; // @synthesize layoutInvalidateProvider=_layoutInvalidateProvider;
+@property(nonatomic) BOOL layoutInvalidate; // @synthesize layoutInvalidate=_layoutInvalidate;
 
 @end
 

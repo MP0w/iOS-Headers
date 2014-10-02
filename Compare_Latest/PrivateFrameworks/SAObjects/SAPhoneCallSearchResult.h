@@ -12,12 +12,11 @@
 {
 }
 
-+ (id)callSearchResultWithDictionary:(id)arg1 context:(id)arg2;
-+ (id)callSearchResult;
 - (void)updateUsingSet:(id)arg1 add:(id)arg2 remove:(id)arg3;
 @property(copy, nonatomic) NSNumber *isNew;
 @property(retain, nonatomic) SAPersonAttribute *contact;
 @property(copy, nonatomic) NSDate *callTime;
+- (id)init;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

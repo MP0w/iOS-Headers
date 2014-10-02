@@ -11,20 +11,18 @@
 - (void)stopDeferringExpensiveOperations;
 - (void)deferExpensiveOperations;
 - (NSString *)serviceAccountTypeIdentifier;
-- (void)getPermaLinkFromLastStatusUpdate:(void (^)(NSString *, NSError *))arg1;
 - (void)showSettingsIfNeeded;
 - (void)sendStatus:(SLMicroBlogStatus *)arg1 completion:(void (^)(BOOL, NSError *))arg2;
 - (void)fetchProfileImageDataForScreenName:(NSString *)arg1 completion:(void (^)(NSData *, NSError *))arg2;
 - (void)recordsMatchingPrefixString:(NSString *)arg1 completion:(BOOL (^)(NSArray *, NSError *))arg2;
-- (void)fetchRecordForScreenName:(NSString *)arg1 completion:(void (^)(SLMicroBlogUserRecord *, NSError *))arg2;
-- (void)overrideLocationWithLatitude:(float)arg1 longitude:(float)arg2 name:(NSString *)arg3;
 - (void)setGeotagStatus:(int)arg1;
 - (void)fetchGeotagStatus:(void (^)(int, NSError *))arg1;
 - (void)fetchCurrentImageLimits:(void (^)(NSNumber *, NSError *))arg1;
 - (void)fetchCurrentUrlLimits:(void (^)(int, int, NSError *))arg1;
-- (void)fetchRelationshipWithScreenName:(NSString *)arg1 completion:(void (^)(int, NSError *))arg2;
 - (void)fetchSessionInfo:(void (^)(NSDictionary *, NSError *))arg1;
 - (void)setActiveAccountIdentifier:(NSString *)arg1;
+- (void)endPotentialLocationUse;
+- (void)beginPotentialLocationUse;
 
 @optional
 - (void)ensureUserRecordStore;

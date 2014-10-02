@@ -28,10 +28,10 @@
 @property(readonly, nonatomic) id <TSWPFootnoteMarkProvider> footnoteMarkProvider;
 @property(readonly, nonatomic) id <TSWPFootnoteHeightMeasurer> footnoteHeightMeasurer;
 @property(readonly, nonatomic) const struct TSWPTopicNumberHints *nextTargetTopicNumbers;
-@property(readonly, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
+@property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
 @property(readonly, nonatomic) const struct TSWPTopicNumberHints *previousTargetTopicNumbers;
-@property(readonly, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
-@property(readonly, nonatomic) NSMutableArray *columns;
+@property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
+@property(readonly, retain, nonatomic) NSMutableArray *columns;
 - (BOOL)isLayoutOffscreen;
 - (void)addAttachmentLayout:(TSDLayout *)arg1;
 - (NSArray *)currentAnchoredDrawableLayouts;
@@ -50,7 +50,6 @@
 @property(readonly, nonatomic) TSDCanvas *canvas;
 @property(retain, nonatomic) NSMutableArray *anchoredDrawablesForRelayout;
 @property(readonly, nonatomic) struct CGRect maskRect;
-- (BOOL)adjustColumnOriginForAlignment;
 - (BOOL)siblingTargetIsManipulatingDrawable:(TSDDrawableInfo *)arg1;
 - (TSDBezierPath *)interiorClippingPath;
 - (BOOL)invalidateForPageCountChange;

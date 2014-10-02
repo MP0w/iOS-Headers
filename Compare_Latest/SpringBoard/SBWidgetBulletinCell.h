@@ -6,16 +6,26 @@
 
 #import "UITableViewCell.h"
 
-@class SBBBWidgetBulletinInfo;
+#import "SBModalLayoutCaching.h"
 
-@interface SBWidgetBulletinCell : UITableViewCell
+@class NSString, SBBBWidgetBulletinInfo;
+
+@interface SBWidgetBulletinCell : UITableViewCell <SBModalLayoutCaching>
 {
     SBBBWidgetBulletinInfo *_representedWidgetBulletinInfo;
+    long long _layoutMode;
 }
 
+@property(nonatomic) long long layoutMode; // @synthesize layoutMode=_layoutMode;
 @property(retain, nonatomic) SBBBWidgetBulletinInfo *representedWidgetBulletinInfo; // @synthesize representedWidgetBulletinInfo=_representedWidgetBulletinInfo;
 - (void)dealloc;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

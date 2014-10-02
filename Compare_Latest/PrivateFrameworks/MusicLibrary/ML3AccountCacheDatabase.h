@@ -8,7 +8,6 @@
 
 @class ML3DatabaseConnection;
 
-__attribute__((visibility("hidden")))
 @interface ML3AccountCacheDatabase : NSObject
 {
     ML3DatabaseConnection *_databaseConnection;

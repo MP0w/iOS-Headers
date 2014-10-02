@@ -6,19 +6,27 @@
 
 #import <Preferences/PINView.h>
 
+#import "PSPasscodeFieldDelegate.h"
+
 @class PSPasscodeField;
 
-@interface NumericPINView : PINView
+@interface NumericPINView : PINView <PSPasscodeFieldDelegate>
 {
     PSPasscodeField *_passcodeField;
 }
 
+- (void)passcodeField:(id)arg1 enteredPasscode:(id)arg2;
+- (BOOL)resignFirstResponder;
+- (BOOL)becomeFirstResponder;
+- (BOOL)canBecomeFirstResponder;
+- (BOOL)isFirstResponder;
 - (void)appendString:(id)arg1;
 - (void)deleteLastCharacter;
 - (void)setStringValue:(id)arg1;
 - (id)stringValue;
 - (void)hidePasscodeField:(BOOL)arg1;
 - (void)layoutSubviews;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

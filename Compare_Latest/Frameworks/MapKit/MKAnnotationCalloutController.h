@@ -13,10 +13,10 @@ __attribute__((visibility("hidden")))
 {
     id <MKAnnotationCalloutControllerDelegate> _delegate;
     MKAnnotationView *_annotationView;
-    int _mapDisplayStyle;
+    unsigned int _mapDisplayStyle;
 }
 
-@property(nonatomic) int mapDisplayStyle; // @synthesize mapDisplayStyle=_mapDisplayStyle;
+@property(nonatomic) unsigned int mapDisplayStyle; // @synthesize mapDisplayStyle=_mapDisplayStyle;
 @property(nonatomic) __weak id <MKAnnotationCalloutControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) MKAnnotationView *annotationView; // @synthesize annotationView=_annotationView;
 - (void).cxx_destruct;
@@ -40,7 +40,6 @@ __attribute__((visibility("hidden")))
 - (float)defaultCalloutHeight;
 - (BOOL)isCalloutExpanded;
 - (BOOL)calloutContainsPoint:(struct CGPoint)arg1;
-@property(nonatomic) __weak Class calloutViewClass;
 - (void)dealloc;
 
 @end

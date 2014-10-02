@@ -11,11 +11,11 @@
 __attribute__((visibility("hidden")))
 @interface VKModelObject_DrawPass : NSObject
 {
+    unsigned char _pass;
     VKModelObject *_submodel;
-    unsigned int _pass;
 }
 
-@property(nonatomic) unsigned int pass; // @synthesize pass=_pass;
+@property(nonatomic) unsigned char pass; // @synthesize pass=_pass;
 @property(retain, nonatomic) VKModelObject *submodel; // @synthesize submodel=_submodel;
 - (void)dealloc;
 - (id)description;

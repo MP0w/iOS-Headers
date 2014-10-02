@@ -6,7 +6,7 @@
 
 #import "_UISettings.h"
 
-@class NSString, SBAlertItemsSettings, SBAppParallaxSettings, SBAppSliderSettings, SBCarDisplaySettings, SBControlCenterSettings, SBFAnimationFactorySettings, SBFWallpaperSettings, SBFadeAnimationSettings, SBFolderSettings, SBHomeButtonSettings, SBIconColorSettings, SBLegibilitySettings, SBLockScreenSettings, SBLockScreenTestPluginSettings, SBNotificationCenterSettings, SBRootAnimationSettings;
+@class NSString, SBAlertItemsSettings, SBAppParallaxSettings, SBAppSwitcherSettings, SBCarDisplaySettings, SBControlCenterSettings, SBFAnimationFactorySettings, SBFWallpaperSettings, SBFadeAnimationSettings, SBFolderSettings, SBHomeButtonSettings, SBIconColorSettings, SBLegibilitySettings, SBLockScreenSettings, SBLockScreenSlideUpAppSettings, SBLockScreenTestPluginSettings, SBNotificationCenterSettings, SBReachabilitySettings, SBRootAnimationSettings;
 
 @interface SBRootSettings : _UISettings
 {
@@ -15,7 +15,7 @@
     SBFolderSettings *_folderSettings;
     SBRootAnimationSettings *_rootAnimationSettings;
     SBControlCenterSettings *_controlCenterSettings;
-    SBAppSliderSettings *_appSliderSettings;
+    SBAppSwitcherSettings *_appSwitcherSettings;
     SBLockScreenSettings *_lockScreenSettings;
     SBCarDisplaySettings *_carDisplaySettings;
     SBLockScreenTestPluginSettings *_lockScreenTestPluginSettings;
@@ -27,12 +27,16 @@
     SBFWallpaperSettings *_wallpaperSettings;
     SBFAnimationFactorySettings *_animationSettings;
     SBHomeButtonSettings *_homeButtonSettings;
+    SBLockScreenSlideUpAppSettings *_lockScreenSlideUpAppSettings;
+    SBReachabilitySettings *_reachabilitySettings;
     NSString *_testRecipeClassName;
 }
 
 + (id)settingsControllerModule;
 @property _Bool preventLockover; // @synthesize preventLockover=_preventLockover;
 @property(retain) NSString *testRecipeClassName; // @synthesize testRecipeClassName=_testRecipeClassName;
+@property(retain) SBReachabilitySettings *reachabilitySettings; // @synthesize reachabilitySettings=_reachabilitySettings;
+@property(retain) SBLockScreenSlideUpAppSettings *lockScreenSlideUpAppSettings; // @synthesize lockScreenSlideUpAppSettings=_lockScreenSlideUpAppSettings;
 @property(retain) SBHomeButtonSettings *homeButtonSettings; // @synthesize homeButtonSettings=_homeButtonSettings;
 @property(retain) SBFAnimationFactorySettings *animationSettings; // @synthesize animationSettings=_animationSettings;
 @property(retain) SBFWallpaperSettings *wallpaperSettings; // @synthesize wallpaperSettings=_wallpaperSettings;
@@ -44,7 +48,7 @@
 @property(retain) SBLockScreenTestPluginSettings *lockScreenTestPluginSettings; // @synthesize lockScreenTestPluginSettings=_lockScreenTestPluginSettings;
 @property(retain) SBCarDisplaySettings *carDisplaySettings; // @synthesize carDisplaySettings=_carDisplaySettings;
 @property(retain) SBLockScreenSettings *lockScreenSettings; // @synthesize lockScreenSettings=_lockScreenSettings;
-@property(retain) SBAppSliderSettings *appSliderSettings; // @synthesize appSliderSettings=_appSliderSettings;
+@property(retain) SBAppSwitcherSettings *appSwitcherSettings; // @synthesize appSwitcherSettings=_appSwitcherSettings;
 @property(retain) SBControlCenterSettings *controlCenterSettings; // @synthesize controlCenterSettings=_controlCenterSettings;
 @property(retain) SBRootAnimationSettings *rootAnimationSettings; // @synthesize rootAnimationSettings=_rootAnimationSettings;
 @property(retain) SBFolderSettings *folderSettings; // @synthesize folderSettings=_folderSettings;

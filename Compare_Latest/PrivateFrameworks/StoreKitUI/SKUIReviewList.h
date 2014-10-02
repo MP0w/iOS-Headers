@@ -8,7 +8,7 @@
 
 #import "SKUICacheCoding.h"
 
-@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSURL;
+@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, NSURL;
 
 @interface SKUIReviewList : NSObject <SKUICacheCoding>
 {
@@ -31,6 +31,12 @@
 @property(readonly, nonatomic) int fiveStarRatingCount;
 - (void)addReviews:(id)arg1;
 - (id)initWithReviewListDictionary:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

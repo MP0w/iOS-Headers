@@ -6,14 +6,19 @@
 
 #import "NSObject.h"
 
-@class VKStyle;
+@class VKCartoStyle, VKStyleManager;
 
 __attribute__((visibility("hidden")))
 @interface VKDrawStyle : NSObject
 {
-    VKStyle *_sourceStyle;
+    VKCartoStyle *_sourceStyle;
+    struct StyleData _internal;
+    VKStyleManager *_styleManager;
 }
 
++ (int)renderStyleID;
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2 globals:(id)arg3;
 - (void)takeFromZoomInvariantProperties:(id)arg1;
 @property(readonly, nonatomic) id variant;
@@ -21,7 +26,7 @@ __attribute__((visibility("hidden")))
 - (id)styleName;
 - (void)clearSourceStyle;
 - (id)sourceStyle;
-- (id)initWithStyle:(id)arg1;
+- (id)initWithStyle:(id)arg1 manager:(id)arg2;
 
 @end
 

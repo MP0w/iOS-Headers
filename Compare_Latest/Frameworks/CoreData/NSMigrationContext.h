@@ -26,12 +26,9 @@ __attribute__((visibility("hidden")))
 - (void)associateSourceInstance:(id)arg1 withDestinationInstance:(id)arg2 forEntityMapping:(id)arg3;
 - (void)_createAssociationsByDestination:(id)arg1 fromSource:(id)arg2 forEntityMapping:(id)arg3;
 - (void)_createAssociationsBySource:(id)arg1 withDestination:(id)arg2 forEntityMapping:(id)arg3;
-- (void)setCurrentMigrationStep:(unsigned int)arg1;
-- (unsigned int)currentMigrationStep;
-- (void)setCurrentPropertyMapping:(id)arg1;
-- (id)currentPropertyMapping;
-- (void)setCurrentEntityMapping:(id)arg1;
-- (id)currentEntityMapping;
+@property unsigned int currentMigrationStep;
+@property(retain) NSPropertyMapping *currentPropertyMapping;
+@property(retain) NSEntityMapping *currentEntityMapping;
 - (void)clearAssociationTables;
 - (void)dealloc;
 - (id)initWithMigrationManager:(id)arg1;

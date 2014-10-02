@@ -8,7 +8,7 @@
 
 #import "TSTTableHeaderStorage.h"
 
-@class TSTTableHeaderStorageBucket;
+@class NSString, TSTTableHeaderStorageBucket;
 
 __attribute__((visibility("hidden")))
 @interface TSTTableHeaderStorage : TSPContainedObject <TSTTableHeaderStorage>
@@ -33,6 +33,12 @@ __attribute__((visibility("hidden")))
 - (id)initWithArchive:(const struct HeaderStorage *)arg1 unarchiver:(id)arg2 owner:(id)arg3;
 - (void)dealloc;
 - (id)initWithOwner:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

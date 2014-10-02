@@ -9,12 +9,13 @@
 #import "ADAdSpace_RPC.h"
 #import "UIViewControllerTransitioningDelegate.h"
 
-@class ADAdImpressionPublicAttributes, ADAdSpaceConfiguration, NSString, NSURL, _ADRemoteViewController, _UIAsyncInvocation;
+@class ADAdImpressionPublicAttributes, ADAdSpaceConfiguration, NSDictionary, NSSet, NSString, NSURL, _ADRemoteViewController, _UIAsyncInvocation;
 
 @interface ADAdSpace : NSObject <UIViewControllerTransitioningDelegate, ADAdSpace_RPC>
 {
     id <ADAdRecipient> _recipient;
     BOOL _visibilityCheckScheduled;
+    BOOL _serviceAdSpaceRequestInProgress;
     BOOL _shouldPresentActionViewControllerWhenReady;
     BOOL _actionViewControllerReadyForPresentation;
     BOOL _actionViewControllerWantsDismissal;
@@ -23,25 +24,30 @@
     NSURL *_serverURL;
     NSString *_advertisingSection;
     NSString *_authenticationUserName;
+    NSSet *_context;
     ADAdImpressionPublicAttributes *_currentAdImpressionPublicAttributes;
     int _visibility;
     _UIAsyncInvocation *_remoteViewControllerRequestCancelationInvocation;
     _ADRemoteViewController *_remoteViewController;
     _ADRemoteViewController *_portraitOnlyViewController;
+    NSDictionary *_adToLoad;
     double _lastSlowCheck;
     struct CGRect _viewFrame;
 }
 
+@property(retain, nonatomic) NSDictionary *adToLoad; // @synthesize adToLoad=_adToLoad;
 @property(nonatomic) BOOL actionViewControllerWantsDismissal; // @synthesize actionViewControllerWantsDismissal=_actionViewControllerWantsDismissal;
 @property(nonatomic) BOOL actionViewControllerReadyForPresentation; // @synthesize actionViewControllerReadyForPresentation=_actionViewControllerReadyForPresentation;
 @property(nonatomic) BOOL shouldPresentActionViewControllerWhenReady; // @synthesize shouldPresentActionViewControllerWhenReady=_shouldPresentActionViewControllerWhenReady;
 @property(retain, nonatomic) _ADRemoteViewController *portraitOnlyViewController; // @synthesize portraitOnlyViewController=_portraitOnlyViewController;
 @property(retain, nonatomic) _ADRemoteViewController *remoteViewController; // @synthesize remoteViewController=_remoteViewController;
 @property(retain, nonatomic) _UIAsyncInvocation *remoteViewControllerRequestCancelationInvocation; // @synthesize remoteViewControllerRequestCancelationInvocation=_remoteViewControllerRequestCancelationInvocation;
+@property(nonatomic) BOOL serviceAdSpaceRequestInProgress; // @synthesize serviceAdSpaceRequestInProgress=_serviceAdSpaceRequestInProgress;
 @property(nonatomic) double lastSlowCheck; // @synthesize lastSlowCheck=_lastSlowCheck;
 @property(nonatomic) BOOL visibilityCheckScheduled; // @synthesize visibilityCheckScheduled=_visibilityCheckScheduled;
 @property(nonatomic) int visibility; // @synthesize visibility=_visibility;
 @property(retain, nonatomic) ADAdImpressionPublicAttributes *currentAdImpressionPublicAttributes; // @synthesize currentAdImpressionPublicAttributes=_currentAdImpressionPublicAttributes;
+@property(copy, nonatomic) NSSet *context; // @synthesize context=_context;
 @property(copy, nonatomic) NSString *authenticationUserName; // @synthesize authenticationUserName=_authenticationUserName;
 @property(copy, nonatomic) NSString *advertisingSection; // @synthesize advertisingSection=_advertisingSection;
 @property(copy, nonatomic) NSURL *serverURL; // @synthesize serverURL=_serverURL;
@@ -55,16 +61,19 @@
 - (void)_remote_updateViewControllerSupportedOrientations:(unsigned int)arg1;
 - (void)_remote_requestViewControllerWithClassName:(id)arg1 forAdSpaceControllerWithIdentifier:(id)arg2;
 - (void)_considerPresentingActionViewController;
+- (void)_remote_resumeBannerMedia;
+- (void)_remote_pauseBannerMedia;
 - (void)_remote_openURL:(id)arg1;
 - (void)_remote_creativeDidFailWithError:(id)arg1;
 - (void)_remote_adImpressionDidLoadWithPublicAttributes:(id)arg1;
 - (void)_remote_creativeWillLoad;
-- (void)_remote_setRemoteWindowContextID:(unsigned int)arg1;
+- (void)_remote_setHostedWindowHostingHandle:(id)arg1;
 - (void)interstitialWasRemovedFromSuperview;
-- (void)presentInterstitialStoryboard;
 - (void)cancelBannerViewAction;
 - (void)refuseBannerViewAction;
 - (void)executeBannerViewActionFrom:(struct CGRect)arg1 withTapLocation:(struct CGPoint)arg2;
+- (void)setAdSpaceType:(int)arg1;
+- (void)loadAd:(id)arg1;
 - (void)_updateAllProperties;
 - (void)updateVisibility;
 - (void)_clientApplicationDidBecomeActive;
@@ -76,8 +85,14 @@
 - (void)_requestServiceAdSpace;
 @property(readonly, nonatomic) ADAdSpaceConfiguration *configuration;
 @property(readonly, nonatomic) NSString *connectionAssertionIdentifier;
+@property(readonly, copy) NSString *description;
 - (id)initForRecipient:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

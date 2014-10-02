@@ -13,7 +13,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-@property(readonly) NSString *url;
+@property(readonly, copy) NSString *url;
 
 @end
 

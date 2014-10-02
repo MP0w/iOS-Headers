@@ -285,11 +285,11 @@ struct Display {
     int _field11;
     int _field12;
     struct Bounds _field13;
-    unsigned int _field14;
+    struct Bounds _field14;
     unsigned int _field15;
-    float _field16;
-    int _field17;
-    _Bool _field18;
+    unsigned int _field16;
+    float _field17;
+    int _field18;
     _Bool _field19;
     _Bool _field20;
     _Bool _field21;
@@ -471,6 +471,7 @@ struct Server {
     double _field17;
     unsigned int :1;
     unsigned int :1;
+    unsigned int :1;
 };
 
 struct Shape;
@@ -543,19 +544,20 @@ struct Weak<id> {
 struct _CAEAGLNativeWindow {
     struct _EAGLWindowObject _field1;
     struct CAEAGLBuffer *_field2;
-    struct Atomic _field3;
+    unsigned int _field3;
     struct Atomic _field4;
-    struct SpinLock _field5;
-    struct _CAImageQueue *_field6;
-    id _field7;
-    struct x_list_struct *_field8;
-    unsigned int _field9;
-    struct CAEAGLBuffer *_field10;
+    struct Atomic _field5;
+    struct SpinLock _field6;
+    struct _CAImageQueue *_field7;
+    id _field8;
+    struct x_list_struct *_field9;
+    unsigned int _field10;
     struct CAEAGLBuffer *_field11;
-    unsigned int _field12;
+    struct CAEAGLBuffer *_field12;
     unsigned int _field13;
     unsigned int _field14;
-    struct CAEAGLBuffer *_field15;
+    unsigned int _field15;
+    struct CAEAGLBuffer *_field16;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;

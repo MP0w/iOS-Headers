@@ -11,9 +11,13 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (id)xmlRangesFromDiscontinuousReferences:(id)arg1;
 + (id)edDiscontinousReferencesFromXmlRanges:(id)arg1;
 + (id)edReferenceFromXmlReference:(id)arg1;
++ (id)xmlReferenceFromEDReference:(id)arg1;
++ (id)xmlReferenceFromAreaReference:(struct EDAreaReference *)arg1;
 + (_Bool)edAreaReferenceFromXmlReference:(id)arg1 areaReference:(struct EDAreaReference *)arg2;
++ (id)numberToStringBase26:(int)arg1;
 
 @end
 

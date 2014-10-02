@@ -6,17 +6,17 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSMutableDictionary;
+@class NSArray, NSDictionary;
 
 __attribute__((visibility("hidden")))
 @interface KNAnimationRegistry : NSObject
 {
-    NSMutableDictionary *mClassesForTypeAndName;
-    NSMutableDictionary *mClassesForTypeAndCategory;
-    NSMutableDictionary *mClassesForTypeAndFilter;
-    NSMutableDictionary *mClassesForTypeAndObsoleteName;
-    NSMutableDictionary *mAlternateEffectIdentifiersForEffectIdentifierAndFilter;
-    NSMutableArray *mAnimationInfos;
+    NSDictionary *mClassesForTypeAndName;
+    NSDictionary *mClassesForTypeAndCategory;
+    NSDictionary *mClassesForTypeAndFilter;
+    NSDictionary *mClassesForTypeAndObsoleteName;
+    NSDictionary *mAlternateEffectIdentifiersForEffectIdentifierAndFilter;
+    NSArray *mAnimationInfos;
 }
 
 + (id)localizedNameForUnsupportedAnimation:(id)arg1;
@@ -35,7 +35,7 @@ __attribute__((visibility("hidden")))
 - (id)distinctCategoriesForType:(int)arg1;
 - (void)dealloc;
 - (id)init;
-- (void)p_buildAlternateFilterMap;
+- (id)p_buildAlternateFilterMap;
 
 @end
 

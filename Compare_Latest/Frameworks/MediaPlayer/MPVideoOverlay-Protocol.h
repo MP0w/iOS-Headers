@@ -12,7 +12,7 @@
 @property(nonatomic) unsigned long long desiredParts;
 @property(retain, nonatomic) MPAVItem *item;
 @property(nonatomic) __weak id <MPVideoOverlayDelegate> delegate;
-@property(readonly, nonatomic) UINavigationBar *navigationBar;
+@property(readonly, retain, nonatomic) UINavigationBar *navigationBar;
 @property(retain, nonatomic) MPAVController *player;
 @property(nonatomic) BOOL navigationBarHidden;
 @property(nonatomic) BOOL allowsWirelessPlayback;

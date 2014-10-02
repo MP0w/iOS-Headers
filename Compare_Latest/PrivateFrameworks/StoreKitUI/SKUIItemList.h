@@ -9,16 +9,18 @@
 #import "NSCopying.h"
 #import "SKUICacheCoding.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSString;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSSet, NSString;
 
 @interface SKUIItemList : NSObject <SKUICacheCoding, NSCopying>
 {
     NSMutableArray *_items;
+    NSString *_seeAllTitle;
     NSString *_seeAllURLString;
     NSString *_title;
-    NSString *_seeAllTitle;
+    NSSet *_unavailableItemIdentifiers;
 }
 
+@property(copy, nonatomic) NSSet *unavailableItemIdentifiers; // @synthesize unavailableItemIdentifiers=_unavailableItemIdentifiers;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(copy, nonatomic) NSString *seeAllURLString; // @synthesize seeAllURLString=_seeAllURLString;
 @property(copy, nonatomic) NSString *seeAllTitle; // @synthesize seeAllTitle=_seeAllTitle;
@@ -28,8 +30,15 @@
 @property(readonly, nonatomic) NSMutableDictionary *cacheRepresentation;
 - (id)initWithCacheRepresentation:(id)arg1;
 - (void)removeItemsAtIndexes:(id)arg1;
+- (BOOL)isUnavailableItemIdentifier:(id)arg1;
 - (void)addItems:(id)arg1;
 - (void)addItem:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

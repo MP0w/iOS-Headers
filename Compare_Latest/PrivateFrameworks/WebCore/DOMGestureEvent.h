@@ -6,6 +6,7 @@
 
 #import <WebCore/DOMUIEvent.h>
 
+__attribute__((visibility("hidden")))
 @interface DOMGestureEvent : DOMUIEvent
 {
 }

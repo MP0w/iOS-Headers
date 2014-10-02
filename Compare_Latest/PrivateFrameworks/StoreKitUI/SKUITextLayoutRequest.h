@@ -8,10 +8,11 @@
 
 #import "SKUILayoutRequest.h"
 
-@class NSString;
+@class NSAttributedString, NSString;
 
 @interface SKUITextLayoutRequest : NSObject <SKUILayoutRequest>
 {
+    NSAttributedString *_attributedText;
     float _fontSize;
     int _fontWeight;
     int _numberOfLines;
@@ -26,10 +27,17 @@
 @property(nonatomic) int numberOfLines; // @synthesize numberOfLines=_numberOfLines;
 @property(nonatomic) int fontWeight; // @synthesize fontWeight=_fontWeight;
 @property(nonatomic) float fontSize; // @synthesize fontSize=_fontSize;
+@property(copy, nonatomic) NSAttributedString *attributedText; // @synthesize attributedText=_attributedText;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) Class layoutClass;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

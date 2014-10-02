@@ -9,10 +9,10 @@
 @class TSDGLDataBufferAttribute;
 
 @protocol TSDGLDataBufferAccessor <NSObject>
-- (void)setGLPoint4D:(CDStruct_f2e236b6)arg1 forAttribute:(TSDGLDataBufferAttribute *)arg2 atIndex:(unsigned int)arg3;
-- (CDStruct_f2e236b6)GLPoint4DForAttribute:(TSDGLDataBufferAttribute *)arg1 atIndex:(unsigned int)arg2;
-- (void)setGLPoint3D:(CDStruct_03942939)arg1 forAttribute:(TSDGLDataBufferAttribute *)arg2 atIndex:(unsigned int)arg3;
-- (CDStruct_03942939)GLPoint3DForAttribute:(TSDGLDataBufferAttribute *)arg1 atIndex:(unsigned int)arg2;
+- (void)setGLPoint4D:(CDStruct_818bb265)arg1 forAttribute:(TSDGLDataBufferAttribute *)arg2 atIndex:(unsigned int)arg3;
+- (CDStruct_818bb265)GLPoint4DForAttribute:(TSDGLDataBufferAttribute *)arg1 atIndex:(unsigned int)arg2;
+- (void)setGLPoint3D:(CDStruct_869f9c67)arg1 forAttribute:(TSDGLDataBufferAttribute *)arg2 atIndex:(unsigned int)arg3;
+- (CDStruct_869f9c67)GLPoint3DForAttribute:(TSDGLDataBufferAttribute *)arg1 atIndex:(unsigned int)arg2;
 - (void)setGLPoint2D:(CDStruct_b2fbf00d)arg1 forAttribute:(TSDGLDataBufferAttribute *)arg2 atIndex:(unsigned int)arg3;
 - (CDStruct_b2fbf00d)GLPoint2DForAttribute:(TSDGLDataBufferAttribute *)arg1 atIndex:(unsigned int)arg2;
 - (void)setCGFloat:(float)arg1 forAttribute:(TSDGLDataBufferAttribute *)arg2 atIndex:(unsigned int)arg3;

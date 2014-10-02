@@ -11,5 +11,6 @@
 @protocol TPSlidingButtonDelegateProtocol <NSObject>
 - (void)slidingButton:(TPSlidingButton *)arg1 didSlideToProportion:(float)arg2;
 - (void)slidingButtonDidFinishSlide;
+- (void)slidingButtonWillFinishSlide;
 @end
 

@@ -11,13 +11,11 @@
 }
 
 + (void)initialize;
-- (void)updateLabeledValueWithStringValue:(id)arg1;
 - (id)displayStringForValue:(id)arg1;
 - (id)bestValue:(id)arg1;
 - (BOOL)isEquivalentToItem:(id)arg1;
 - (id)defaultActionURL;
 - (id)normalizedValue;
-- (id)displayLabel;
 
 @end
 

@@ -13,18 +13,19 @@ __attribute__((visibility("hidden")))
 {
     CALayer<TSCH3DGLLayer> *mLayer;
     CALayer *mPixelAlignmentLayer;
-    struct CGRect mLayerVisibleBounds;
+    struct CGRect mVisibleBoundsInLayerRelativeSpace;
 }
 
 @property(retain, nonatomic) CALayer *pixelAlignmentLayer; // @synthesize pixelAlignmentLayer=mPixelAlignmentLayer;
 @property(retain, nonatomic) CALayer<TSCH3DGLLayer> *layer; // @synthesize layer=mLayer;
 - (id).cxx_construct;
-- (struct CGRect)layerVisibleBounds;
-- (void)setLayerVisibleBounds:(struct CGRect)arg1;
+- (struct CGRect)visibleBoundsInLayerRelativeSpace;
+- (void)setVisibleBoundsInLayerRelativeSpace:(struct CGRect)arg1;
 - (BOOL)allocateFramebufferWithAllocationInfo:(const struct FramebufferAllocationInfo *)arg1 forRenderCycle:(id)arg2;
 - (BOOL)setupLayerFromLayerProvider:(id)arg1 canvas:(id)arg2 visible:(struct CGRect)arg3 pixelAlignmentLayer:(id)arg4;
+- (box_80622335)layerFrameInLayerRelativeSpaceFromFramebufferBounds:(const struct FramebufferBounds *)arg1;
 - (box_80622335)pixelAlignBodyCanvasBounds:(const box_80622335 *)arg1;
-- (box_80622335)fullBoxForRenderingCamera;
+- (box_80622335)globalPixelAlignedBodyCanvasBoundsForRenderingCamera;
 - (void)copyFromChartRenderSetup:(id)arg1;
 - (void)dealloc;
 - (id)init;

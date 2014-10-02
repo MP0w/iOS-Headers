@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
     unsigned char mFormFocusedFieldIndex;
 }
 
++ (int)currentDeviceIdiom;
 + (id)sheetUIStateWithPreviousVisibleRect:(struct CGRect)arg1;
 + (id)sheetUIStateWithVisibleRect:(struct CGRect)arg1;
 @property(nonatomic) unsigned char formFocusedFieldIndex; // @synthesize formFocusedFieldIndex=mFormFocusedFieldIndex;
@@ -43,7 +44,6 @@ __attribute__((visibility("hidden")))
 - (void)clearPreviousVisibleRect;
 - (void)clearVisibleRect;
 - (BOOL)isDefault;
-@property(readonly, nonatomic) int currentDeviceIdiom;
 - (id)init;
 
 @end

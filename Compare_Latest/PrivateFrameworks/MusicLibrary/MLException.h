@@ -6,7 +6,6 @@
 
 #import "NSException.h"
 
-__attribute__((visibility("hidden")))
 @interface MLException : NSException
 {
 }

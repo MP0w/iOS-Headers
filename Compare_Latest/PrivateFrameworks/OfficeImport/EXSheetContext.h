@@ -8,12 +8,12 @@
 
 #import "OCDDelayedNodeContext.h"
 
-@class EXState, NSString, NSURL;
+@class EXReadState, NSString, NSURL;
 
 __attribute__((visibility("hidden")))
 @interface EXSheetContext : NSObject <OCDDelayedNodeContext>
 {
-    EXState *mSheetState;
+    EXReadState *mSheetState;
     NSURL *mPackageLocation;
     NSString *mType;
 }
@@ -21,6 +21,12 @@ __attribute__((visibility("hidden")))
 - (_Bool)loadDelayedNode:(id)arg1;
 - (void)dealloc;
 - (id)initWithSheetLocation:(id)arg1 sheetXmlType:(id)arg2 state:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

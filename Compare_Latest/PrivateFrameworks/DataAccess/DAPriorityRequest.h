@@ -12,8 +12,8 @@
     int _UIDataclasses;
 }
 
-@property int UIDataclasses; // @synthesize UIDataclasses=_UIDataclasses;
-@property int refreshDataclasses; // @synthesize refreshDataclasses=_refreshDataclasses;
+@property(nonatomic) int UIDataclasses; // @synthesize UIDataclasses=_UIDataclasses;
+@property(nonatomic) int refreshDataclasses; // @synthesize refreshDataclasses=_refreshDataclasses;
 
 @end
 

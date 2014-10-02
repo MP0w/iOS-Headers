@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 + (Class)propertiesClass;
 + (float)chartSeriesPolygonOffset;
 - (void)sortElements:(vector_cd7372eb *)arg1 pipeline:(id)arg2;
+- (float)shadowCameraDepthLimitAdjustmentFactorForScene:(id)arg1;
 - (BOOL)transparencyDepthMask;
 - (BOOL)shouldRenderSeries:(id)arg1;
 - (float)chartMinZForScene:(id)arg1;

@@ -8,7 +8,7 @@
 
 #import "TSKSearchReference.h"
 
-@class NSArray, TSWPSelection, TSWPSmartField, TSWPStorage;
+@class NSArray, NSString, TSWPSelection, TSWPSmartField, TSWPStorage;
 
 __attribute__((visibility("hidden")))
 @interface TSWPSearchReference : NSObject <TSKSearchReference>
@@ -43,7 +43,7 @@ __attribute__((visibility("hidden")))
 - (id)searchReferenceStart;
 - (id)searchReferenceForReplacingWithString:(id)arg1 options:(unsigned int)arg2 authorCreatedWithCommand:(id *)arg3;
 - (id)storage;
-- (id)description;
+@property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) BOOL isInsertionPoint;
 @property(nonatomic) struct _NSRange range;
 - (BOOL)isEqual:(id)arg1;
@@ -54,6 +54,11 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithStorage:(id)arg1 selection:(id)arg2;
 - (id)initWithStorage:(id)arg1 range:(struct _NSRange)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

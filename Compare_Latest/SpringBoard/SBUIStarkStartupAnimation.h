@@ -13,7 +13,7 @@
     UIView *_fromLockoutView;
 }
 
-@property(readonly, nonatomic) UIView *fromLockoutView; // @synthesize fromLockoutView=_fromLockoutView;
+@property(readonly, retain, nonatomic) UIView *fromLockoutView; // @synthesize fromLockoutView=_fromLockoutView;
 - (void)_cancelAnimation;
 - (void)_cleanupAnimation;
 - (void)beginAnimation;

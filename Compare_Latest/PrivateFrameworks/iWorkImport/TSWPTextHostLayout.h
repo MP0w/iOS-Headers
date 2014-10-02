@@ -8,7 +8,7 @@
 
 #import "TSWPTextEditingHostLayout.h"
 
-@class TSWPShapeInfo, TSWPShapeLayout;
+@class NSString, TSWPShapeInfo, TSWPShapeLayout;
 
 __attribute__((visibility("hidden")))
 @interface TSWPTextHostLayout : TSDDrawableLayout <TSWPTextEditingHostLayout>
@@ -21,6 +21,12 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSWPShapeLayout *editingShapeLayout; // @synthesize editingShapeLayout=_editingShapeLayout;
 - (void)updateChildrenFromInfo;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

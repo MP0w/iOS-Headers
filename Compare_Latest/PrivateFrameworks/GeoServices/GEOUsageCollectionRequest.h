@@ -13,19 +13,28 @@
 @interface GEOUsageCollectionRequest : PBRequest <NSCopying>
 {
     NSMutableArray *_directionsFeedbackCollections;
+    NSMutableArray *_leaveNowFeedbackCollections;
+    NSMutableArray *_mapsLaunchFeedbackCollections;
     NSMutableArray *_mapsUsageFeedbackCollections;
-    NSMutableArray *_placeSearchFeedbackCollections;
+    NSMutableArray *_placeDataCacheFeedbackCollections;
+    NSMutableArray *_stateTimingFeedbackCollections;
     NSMutableArray *_suggestionsFeedbackCollections;
+    NSMutableArray *_trafficRerouteFeedbackCollections;
     NSMutableArray *_transitAppLaunchFeedbackCollections;
     NSMutableArray *_usageCollections;
 }
 
+@property(retain, nonatomic) NSMutableArray *placeDataCacheFeedbackCollections; // @synthesize placeDataCacheFeedbackCollections=_placeDataCacheFeedbackCollections;
+@property(retain, nonatomic) NSMutableArray *mapsLaunchFeedbackCollections; // @synthesize mapsLaunchFeedbackCollections=_mapsLaunchFeedbackCollections;
+@property(retain, nonatomic) NSMutableArray *leaveNowFeedbackCollections; // @synthesize leaveNowFeedbackCollections=_leaveNowFeedbackCollections;
+@property(retain, nonatomic) NSMutableArray *trafficRerouteFeedbackCollections; // @synthesize trafficRerouteFeedbackCollections=_trafficRerouteFeedbackCollections;
+@property(retain, nonatomic) NSMutableArray *stateTimingFeedbackCollections; // @synthesize stateTimingFeedbackCollections=_stateTimingFeedbackCollections;
 @property(retain, nonatomic) NSMutableArray *suggestionsFeedbackCollections; // @synthesize suggestionsFeedbackCollections=_suggestionsFeedbackCollections;
 @property(retain, nonatomic) NSMutableArray *mapsUsageFeedbackCollections; // @synthesize mapsUsageFeedbackCollections=_mapsUsageFeedbackCollections;
 @property(retain, nonatomic) NSMutableArray *transitAppLaunchFeedbackCollections; // @synthesize transitAppLaunchFeedbackCollections=_transitAppLaunchFeedbackCollections;
-@property(retain, nonatomic) NSMutableArray *placeSearchFeedbackCollections; // @synthesize placeSearchFeedbackCollections=_placeSearchFeedbackCollections;
 @property(retain, nonatomic) NSMutableArray *directionsFeedbackCollections; // @synthesize directionsFeedbackCollections=_directionsFeedbackCollections;
 @property(retain, nonatomic) NSMutableArray *usageCollections; // @synthesize usageCollections=_usageCollections;
+- (void)mergeFrom:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -36,6 +45,26 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)placeDataCacheFeedbackCollectionAtIndex:(unsigned int)arg1;
+- (unsigned int)placeDataCacheFeedbackCollectionsCount;
+- (void)addPlaceDataCacheFeedbackCollection:(id)arg1;
+- (void)clearPlaceDataCacheFeedbackCollections;
+- (id)mapsLaunchFeedbackCollectionAtIndex:(unsigned int)arg1;
+- (unsigned int)mapsLaunchFeedbackCollectionsCount;
+- (void)addMapsLaunchFeedbackCollection:(id)arg1;
+- (void)clearMapsLaunchFeedbackCollections;
+- (id)leaveNowFeedbackCollectionAtIndex:(unsigned int)arg1;
+- (unsigned int)leaveNowFeedbackCollectionsCount;
+- (void)addLeaveNowFeedbackCollection:(id)arg1;
+- (void)clearLeaveNowFeedbackCollections;
+- (id)trafficRerouteFeedbackCollectionAtIndex:(unsigned int)arg1;
+- (unsigned int)trafficRerouteFeedbackCollectionsCount;
+- (void)addTrafficRerouteFeedbackCollection:(id)arg1;
+- (void)clearTrafficRerouteFeedbackCollections;
+- (id)stateTimingFeedbackCollectionAtIndex:(unsigned int)arg1;
+- (unsigned int)stateTimingFeedbackCollectionsCount;
+- (void)addStateTimingFeedbackCollection:(id)arg1;
+- (void)clearStateTimingFeedbackCollections;
 - (id)suggestionsFeedbackCollectionAtIndex:(unsigned int)arg1;
 - (unsigned int)suggestionsFeedbackCollectionsCount;
 - (void)addSuggestionsFeedbackCollection:(id)arg1;
@@ -48,10 +77,6 @@
 - (unsigned int)transitAppLaunchFeedbackCollectionsCount;
 - (void)addTransitAppLaunchFeedbackCollection:(id)arg1;
 - (void)clearTransitAppLaunchFeedbackCollections;
-- (id)placeSearchFeedbackCollectionAtIndex:(unsigned int)arg1;
-- (unsigned int)placeSearchFeedbackCollectionsCount;
-- (void)addPlaceSearchFeedbackCollection:(id)arg1;
-- (void)clearPlaceSearchFeedbackCollections;
 - (id)directionsFeedbackCollectionAtIndex:(unsigned int)arg1;
 - (unsigned int)directionsFeedbackCollectionsCount;
 - (void)addDirectionsFeedbackCollection:(id)arg1;

@@ -9,6 +9,7 @@
 @class MPMediaEntityCache, MPMediaQueryCriteria, NSArray, NSData, NSSet, NSString;
 
 @protocol MPMediaLibraryDataProvider <NSObject>
+@property(readonly, nonatomic) id <MPArtworkDataSource> artworkDataSource;
 @property(readonly, nonatomic) MPMediaEntityCache *entityCache;
 @property(readonly, nonatomic) NSString *uniqueIdentifier;
 @property(readonly, nonatomic) NSString *name;
@@ -18,7 +19,6 @@
 - (void)loadQueryCriteria:(MPMediaQueryCriteria *)arg1 hasItemsWithCompletionBlock:(void (^)(BOOL))arg2;
 - (id <MPMediaLibraryResultSet>)collectionResultSetForQueryCriteria:(MPMediaQueryCriteria *)arg1;
 - (id <MPMediaLibraryResultSet>)itemResultSetForQueryCriteria:(MPMediaQueryCriteria *)arg1;
-- (void)loadBestArtworkImageDataForSize:(struct CGSize)arg1 ofItemWithIdentifier:(long long)arg2 atPlaybackTime:(double)arg3 completionBlock:(void (^)(NSData *))arg4;
 - (void)loadProperties:(NSSet *)arg1 ofCollectionWithIdentifier:(long long)arg2 groupingType:(int)arg3 completionBlock:(void (^)(NSDictionary *))arg4;
 - (void)loadProperties:(NSSet *)arg1 ofItemWithIdentifier:(long long)arg2 completionBlock:(void (^)(NSDictionary *))arg3;
 - (void)loadValueForAggregateFunction:(NSString *)arg1 onCollectionsForProperty:(NSString *)arg2 queryCriteria:(MPMediaQueryCriteria *)arg3 completionBlock:(void (^)(id))arg4;

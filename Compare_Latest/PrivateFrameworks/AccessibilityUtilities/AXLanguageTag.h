@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "NSCopying.h"
+
 @class AXDialectMap, NSMutableOrderedSet, NSString;
 
-@interface AXLanguageTag : NSObject
+@interface AXLanguageTag : NSObject <NSCopying>
 {
     BOOL _wasPredicted;
     NSString *_content;
@@ -23,6 +25,7 @@
 @property(retain, nonatomic) NSMutableOrderedSet *unambiguousDialects; // @synthesize unambiguousDialects=_unambiguousDialects;
 @property(nonatomic) NSString *content; // @synthesize content=_content;
 @property(nonatomic) struct _NSRange range; // @synthesize range=_range;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (BOOL)canBeSpokenByLanguage:(id)arg1;
 - (BOOL)canBeSpokenByDialect:(id)arg1;
 - (id)description;

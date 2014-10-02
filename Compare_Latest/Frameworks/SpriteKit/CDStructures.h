@@ -41,103 +41,143 @@ struct CGVector {
     float dy;
 };
 
+struct MaxRectTexturePacker;
+
+struct PKCAether;
+
+struct PKPath;
+
+struct SCNVector3 {
+    float x;
+    float y;
+    float z;
+};
+
 struct SKCAction {
     CDUnknownFunctionPointerType *_field1;
-    float _field2;
-    id _field3;
-    _Bool _field4;
-    double _field5;
-    double _field6;
-    float _field7;
-    float _field8;
-    double _field9;
-    _Bool _field10;
-    _Bool _field11;
-    CDUnknownBlockType _field12;
-    int _field13;
-    float _field14;
-    float _field15;
+    unsigned int _field2;
+    float _field3;
+    CDUnknownBlockType _field4;
+    id _field5;
+    _Bool _field6;
+    double _field7;
+    double _field8;
+    float _field9;
+    float _field10;
+    double _field11;
+    _Bool _field12;
+    _Bool _field13;
+    CDUnknownBlockType _field14;
+    int _field15;
     float _field16;
     float _field17;
+    float _field18;
+    float _field19;
 };
 
 struct SKCAnimate {
     CDUnknownFunctionPointerType *_field1;
-    float _field2;
-    id _field3;
-    _Bool _field4;
-    double _field5;
-    double _field6;
-    float _field7;
-    float _field8;
-    double _field9;
-    _Bool _field10;
-    _Bool _field11;
-    CDUnknownBlockType _field12;
-    int _field13;
-    float _field14;
-    float _field15;
+    unsigned int _field2;
+    float _field3;
+    CDUnknownBlockType _field4;
+    id _field5;
+    _Bool _field6;
+    double _field7;
+    double _field8;
+    float _field9;
+    float _field10;
+    double _field11;
+    _Bool _field12;
+    _Bool _field13;
+    CDUnknownBlockType _field14;
+    int _field15;
     float _field16;
     float _field17;
-    struct vector<SKTexture *, std::__1::allocator<SKTexture *>> _field18;
-    double _field19;
-    id _field20;
-    CDStruct_b2fbf00d _field21;
-    char _field22;
-    char _field23;
+    float _field18;
+    float _field19;
+    struct vector<SKTexture *, std::__1::allocator<SKTexture *>> _field20;
+    double _field21;
+    id _field22;
+    struct {
+        float _field1;
+        float _field2;
+    } _field23;
+    char _field24;
+    char _field25;
 };
 
 struct SKCColorize {
     CDUnknownFunctionPointerType *_field1;
-    float _field2;
-    id _field3;
-    _Bool _field4;
-    double _field5;
-    double _field6;
-    float _field7;
-    float _field8;
-    double _field9;
-    _Bool _field10;
-    _Bool _field11;
-    CDUnknownBlockType _field12;
-    int _field13;
-    float _field14;
-    float _field15;
+    unsigned int _field2;
+    float _field3;
+    CDUnknownBlockType _field4;
+    id _field5;
+    _Bool _field6;
+    double _field7;
+    double _field8;
+    float _field9;
+    float _field10;
+    double _field11;
+    _Bool _field12;
+    _Bool _field13;
+    CDUnknownBlockType _field14;
+    int _field15;
     float _field16;
     float _field17;
-    CDStruct_83984b6f _field18;
+    float _field18;
     float _field19;
-    CDStruct_83984b6f _field20;
+    struct {
+        float _field1;
+        float _field2;
+        float _field3;
+        float _field4;
+    } _field20;
     float _field21;
-    CDStruct_83984b6f _field22;
+    struct {
+        float _field1;
+        float _field2;
+        float _field3;
+        float _field4;
+    } _field22;
     float _field23;
-    char _field24;
+    struct {
+        float _field1;
+        float _field2;
+        float _field3;
+        float _field4;
+    } _field24;
+    float _field25;
+    char _field26;
 };
 
 struct SKCCustomAction {
     CDUnknownFunctionPointerType *_field1;
-    float _field2;
-    id _field3;
-    _Bool _field4;
-    double _field5;
-    double _field6;
-    float _field7;
-    float _field8;
-    double _field9;
-    _Bool _field10;
-    _Bool _field11;
-    CDUnknownBlockType _field12;
-    int _field13;
-    float _field14;
-    float _field15;
+    unsigned int _field2;
+    float _field3;
+    CDUnknownBlockType _field4;
+    id _field5;
+    _Bool _field6;
+    double _field7;
+    double _field8;
+    float _field9;
+    float _field10;
+    double _field11;
+    _Bool _field12;
+    _Bool _field13;
+    CDUnknownBlockType _field14;
+    int _field15;
     float _field16;
     float _field17;
-    CDUnknownBlockType _field18;
+    float _field18;
+    float _field19;
+    CDUnknownBlockType _field20;
 };
 
 struct SKCEmitterSprite {
     CDUnknownFunctionPointerType *_field1;
-    id _field2;
+    struct list<SKCAction *, std::__1::allocator<SKCAction *>> _field2;
+    struct shared_ptr<PKPath> _field3;
+    id _field4;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
@@ -162,7 +202,9 @@ struct SKCEmitterSprite {
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
-    _Bool _field3;
+    unsigned int :1;
+    unsigned int :1;
+    _Bool _field5;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
@@ -173,191 +215,321 @@ struct SKCEmitterSprite {
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
-    float _field4;
-    struct SKCSprite *_field5;
-    id _field6;
-    _Bool _field7;
-    _Bool _field8;
-    struct __CVBuffer *_field9;
-    struct __CVBuffer *_field10;
-    struct __CVOpenGLESTextureCache *_field11;
+    float _field6;
+    struct SKCSprite *_field7;
+    unsigned int _field8;
+    unsigned int _field9;
+    unsigned int _field10;
+    id _field11;
     id _field12;
-    id _field13;
-    unsigned int _field14;
-    unsigned int _field15;
-    unsigned int _field16;
-    CDStruct_b2fbf00d _field17;
-    CDStruct_b2fbf00d _field18;
-    CDStruct_b2fbf00d _field19;
-    CDStruct_c7fe8b62 _field20;
-    _Bool _field21;
-    struct __CVBuffer *_field22;
-    struct __CVBuffer *_field23;
-    _Bool _field24;
-    CDStruct_50983af4 _field25;
-    CDStruct_183601bc *_field26;
-    CDStruct_183601bc *_field27;
-    CDStruct_31cefc2d _field28;
-    CDStruct_c7fe8b62 _field29;
-    int _field30;
-    CDStruct_c7fe8b62 _field31;
-    struct SKCSprite *_field32;
-    union _GLKMatrix4 _field33;
-    struct list<SKCSprite *, std::__1::allocator<SKCSprite *>> _field34;
-    struct set<SKCSprite *, std::__1::less<SKCSprite *>, std::__1::allocator<SKCSprite *>> *_field35;
-    struct list<SKCSprite *, std::__1::allocator<SKCSprite *>> *_field36;
-    unsigned int _field37;
-    unsigned int _field38;
-    _Bool _field39;
-    struct list<SKCAction *, std::__1::allocator<SKCAction *>> _field40;
-    struct set<SKCSprite *, std::__1::less<SKCSprite *>, std::__1::allocator<SKCSprite *>> _field41;
-    struct unordered_set<SKCAction *, std::__1::hash<SKCAction *>, std::__1::equal_to<SKCAction *>, std::__1::allocator<SKCAction *>> _field42;
-    float _field43;
-    float _field44;
-    float _field45;
-    id _field46;
-    CDStruct_b2fbf00d _field47;
-    id _field48;
-    _Bool _field49;
-    CDStruct_c7fe8b62 _field50;
-    CDStruct_b2fbf00d _field51;
-    unsigned int _field52;
-    CDStruct_b2fbf00d _field53;
-    CDStruct_b2fbf00d _field54;
-    float _field55;
-    float _field56;
-    float _field57;
-    float _field58;
-    float _field59;
+    _Bool _field13;
+    _Bool _field14;
+    struct __CVBuffer *_field15;
+    struct __CVBuffer *_field16;
+    struct __CVOpenGLESTextureCache *_field17;
+    id _field18;
+    id _field19;
+    id _field20;
+    unsigned int _field21;
+    unsigned int _field22;
+    unsigned int _field23;
+    struct {
+        float _field1;
+        float _field2;
+    } _field24;
+    struct {
+        float _field1;
+        float _field2;
+    } _field25;
+    struct {
+        float _field1;
+        float _field2;
+    } _field26;
+    CDStruct_c7fe8b62 _field27;
+    struct __CVBuffer *_field28;
+    struct __CVBuffer *_field29;
+    _Bool _field30;
+    CDStruct_dd1bd620 _field31;
+    CDStruct_183601bc *_field32;
+    CDStruct_183601bc *_field33;
+    CDStruct_31cefc2d _field34;
+    CDStruct_c7fe8b62 _field35;
+    int _field36;
+    CDStruct_c7fe8b62 _field37;
+    struct SKCSprite *_field38;
+    union _GLKMatrix4 _field39;
+    struct list<SKCSprite *, std::__1::allocator<SKCSprite *>> _field40;
+    struct set<SKCSprite *, std::__1::less<SKCSprite *>, std::__1::allocator<SKCSprite *>> *_field41;
+    struct list<SKCSprite *, std::__1::allocator<SKCSprite *>> *_field42;
+    unsigned int _field43;
+    unsigned int _field44;
+    _Bool _field45;
+    struct set<SKCSprite *, std::__1::less<SKCSprite *>, std::__1::allocator<SKCSprite *>> _field46;
+    struct unordered_set<SKCAction *, std::__1::hash<SKCAction *>, std::__1::equal_to<SKCAction *>, std::__1::allocator<SKCAction *>> _field47;
+    float _field48;
+    float _field49;
+    float _field50;
+    id _field51;
+    struct {
+        float _field1;
+        float _field2;
+    } _field52;
+    id _field53;
+    _Bool _field54;
+    CDStruct_c7fe8b62 _field55;
+    struct {
+        float _field1;
+        float _field2;
+    } _field56;
+    unsigned int _field57;
+    struct {
+        float _field1;
+        float _field2;
+    } _field58;
+    struct {
+        float _field1;
+        float _field2;
+    } _field59;
     float _field60;
-    CDStruct_83984b6f _field61;
-    CDStruct_83984b6f _field62;
+    float _field61;
+    float _field62;
     float _field63;
     float _field64;
     float _field65;
-    CDStruct_c7fe8b62 _field66;
-    id _field67;
+    float _field66;
+    float _field67;
     float _field68;
-    struct SKCSprite *_field69;
-    id _field70;
-    struct SKCKeyframeSequence *_field71;
-    struct SKCKeyframeSequence *_field72;
-    struct SKCKeyframeSequence *_field73;
-    struct SKCKeyframeSequence *_field74;
-    struct SKCKeyframeSequence *_field75;
-    unsigned int _field76;
-    unsigned int _field77;
-    int _field78;
-    int _field79;
-    struct vector<SKCParticle *, std::__1::allocator<SKCParticle *>> _field80;
-    struct vector<SKCParticle *, std::__1::allocator<SKCParticle *>> _field81;
-    double _field82;
-    double _field83;
-    double _field84;
-    double _field85;
-    struct CGSize _field86;
-    float _field87;
-    float _field88;
-    CDStruct_83984b6f _field89;
-    CDStruct_83984b6f _field90;
-    CDStruct_83984b6f _field91;
-    float _field92;
-    float _field93;
-    float _field94;
-    CDStruct_b2fbf00d _field95;
-    _Bool _field96;
-    CDStruct_b2fbf00d _field97;
-    CDStruct_b2fbf00d _field98;
-    float _field99;
+    struct {
+        float _field1;
+        float _field2;
+        float _field3;
+        float _field4;
+    } _field69;
+    struct {
+        float _field1;
+        float _field2;
+        float _field3;
+        float _field4;
+    } _field70;
+    float _field71;
+    float _field72;
+    float _field73;
+    CDStruct_c7fe8b62 _field74;
+    id _field75;
+    float _field76;
+    id _field77;
+    shared_ptr_11a7378b _field78;
+    struct SKCSprite *_field79;
+    id _field80;
+    float _field81;
+    _Bool _field82;
+    struct SKCKeyframeSequence *_field83;
+    struct SKCKeyframeSequence *_field84;
+    struct SKCKeyframeSequence *_field85;
+    struct SKCKeyframeSequence *_field86;
+    struct SKCKeyframeSequence *_field87;
+    struct SKCKeyframeSequence *_field88;
+    unsigned int _field89;
+    unsigned int _field90;
+    int _field91;
+    int _field92;
+    struct vector<SKCParticle *, std::__1::allocator<SKCParticle *>> _field93;
+    struct vector<SKCParticle *, std::__1::allocator<SKCParticle *>> _field94;
+    double _field95;
+    double _field96;
+    double _field97;
+    double _field98;
+    struct CGSize _field99;
     float _field100;
     float _field101;
     float _field102;
-    CDStruct_b2fbf00d _field103;
+    float _field103;
     float _field104;
-    float _field105;
-    float _field106;
-    float _field107;
+    struct {
+        float _field1;
+        float _field2;
+        float _field3;
+        float _field4;
+    } _field105;
+    struct {
+        float _field1;
+        float _field2;
+        float _field3;
+        float _field4;
+    } _field106;
+    struct {
+        float _field1;
+        float _field2;
+        float _field3;
+        float _field4;
+    } _field107;
     float _field108;
     float _field109;
     float _field110;
-    float _field111;
-    float _field112;
-    float _field113;
+    struct list<PKPoint, std::__1::allocator<PKPoint>> _field111;
+    struct {
+        float _field1;
+        float _field2;
+    } _field112;
+    struct {
+        float _field1;
+        float _field2;
+    } _field113;
     float _field114;
     float _field115;
-    id _field116;
-    int _field117;
+    float _field116;
+    float _field117;
+    struct {
+        float _field1;
+        float _field2;
+    } _field118;
+    float _field119;
+    float _field120;
+    float _field121;
+    float _field122;
+    float _field123;
+    float _field124;
+    float _field125;
+    float _field126;
+    float _field127;
+    float _field128;
+    float _field129;
+    float _field130;
+    id _field131;
+    int _field132;
+    unsigned int _field133;
 };
 
 struct SKCFade {
     CDUnknownFunctionPointerType *_field1;
-    float _field2;
-    id _field3;
-    _Bool _field4;
-    double _field5;
-    double _field6;
-    float _field7;
-    float _field8;
-    double _field9;
-    _Bool _field10;
-    _Bool _field11;
-    CDUnknownBlockType _field12;
-    int _field13;
-    float _field14;
-    float _field15;
+    unsigned int _field2;
+    float _field3;
+    CDUnknownBlockType _field4;
+    id _field5;
+    _Bool _field6;
+    double _field7;
+    double _field8;
+    float _field9;
+    float _field10;
+    double _field11;
+    _Bool _field12;
+    _Bool _field13;
+    CDUnknownBlockType _field14;
+    int _field15;
     float _field16;
     float _field17;
     float _field18;
     float _field19;
     float _field20;
-    char _field21;
+    float _field21;
+    float _field22;
+    char _field23;
+};
+
+struct SKCFalloff {
+    CDUnknownFunctionPointerType *_field1;
+    unsigned int _field2;
+    float _field3;
+    CDUnknownBlockType _field4;
+    id _field5;
+    _Bool _field6;
+    double _field7;
+    double _field8;
+    float _field9;
+    float _field10;
+    double _field11;
+    _Bool _field12;
+    _Bool _field13;
+    CDUnknownBlockType _field14;
+    int _field15;
+    float _field16;
+    float _field17;
+    float _field18;
+    float _field19;
+    float _field20;
+    float _field21;
+    float _field22;
+    float _field23;
+    float _field24;
+    char _field25;
+    char _field26;
 };
 
 struct SKCFollowPath {
     CDUnknownFunctionPointerType *_field1;
-    float _field2;
-    id _field3;
-    _Bool _field4;
-    double _field5;
-    double _field6;
-    float _field7;
-    float _field8;
-    double _field9;
-    _Bool _field10;
-    _Bool _field11;
-    CDUnknownBlockType _field12;
-    int _field13;
-    float _field14;
-    float _field15;
+    unsigned int _field2;
+    float _field3;
+    CDUnknownBlockType _field4;
+    id _field5;
+    _Bool _field6;
+    double _field7;
+    double _field8;
+    float _field9;
+    float _field10;
+    double _field11;
+    _Bool _field12;
+    _Bool _field13;
+    CDUnknownBlockType _field14;
+    int _field15;
     float _field16;
     float _field17;
     float _field18;
-    unsigned int _field19;
-    CDStruct_183601bc *_field20;
-    CDStruct_b2fbf00d _field21;
-    char _field22;
-    char _field23;
+    float _field19;
+    float _field20;
+    unsigned int _field21;
+    struct PKPath *_field22;
+    struct {
+        float _field1;
+        float _field2;
+    } _field23;
+    char _field24;
+    char _field25;
 };
 
 struct SKCGroup {
     CDUnknownFunctionPointerType *_field1;
-    float _field2;
-    id _field3;
-    _Bool _field4;
-    double _field5;
-    double _field6;
-    float _field7;
-    float _field8;
-    double _field9;
-    _Bool _field10;
-    _Bool _field11;
-    CDUnknownBlockType _field12;
-    int _field13;
-    float _field14;
-    float _field15;
+    unsigned int _field2;
+    float _field3;
+    CDUnknownBlockType _field4;
+    id _field5;
+    _Bool _field6;
+    double _field7;
+    double _field8;
+    float _field9;
+    float _field10;
+    double _field11;
+    _Bool _field12;
+    _Bool _field13;
+    CDUnknownBlockType _field14;
+    int _field15;
     float _field16;
     float _field17;
-    struct list<SKCAction *, std::__1::allocator<SKCAction *>> _field18;
+    float _field18;
+    float _field19;
+    struct list<SKCAction *, std::__1::allocator<SKCAction *>> _field20;
+};
+
+struct SKCHide {
+    CDUnknownFunctionPointerType *_field1;
+    unsigned int _field2;
+    float _field3;
+    CDUnknownBlockType _field4;
+    id _field5;
+    _Bool _field6;
+    double _field7;
+    double _field8;
+    float _field9;
+    float _field10;
+    double _field11;
+    _Bool _field12;
+    _Bool _field13;
+    CDUnknownBlockType _field14;
+    int _field15;
+    float _field16;
+    float _field17;
+    float _field18;
+    float _field19;
+    _Bool _field20;
 };
 
 struct SKCKeyframeSequence {
@@ -371,57 +543,72 @@ struct SKCKeyframeSequence {
 
 struct SKCMove {
     CDUnknownFunctionPointerType *_field1;
-    float _field2;
-    id _field3;
-    _Bool _field4;
-    double _field5;
-    double _field6;
-    float _field7;
-    float _field8;
-    double _field9;
-    _Bool _field10;
-    _Bool _field11;
-    CDUnknownBlockType _field12;
-    int _field13;
-    float _field14;
-    float _field15;
+    unsigned int _field2;
+    float _field3;
+    CDUnknownBlockType _field4;
+    id _field5;
+    _Bool _field6;
+    double _field7;
+    double _field8;
+    float _field9;
+    float _field10;
+    double _field11;
+    _Bool _field12;
+    _Bool _field13;
+    CDUnknownBlockType _field14;
+    int _field15;
     float _field16;
     float _field17;
     float _field18;
-    CDStruct_b2fbf00d _field19;
-    CDStruct_b2fbf00d _field20;
-    CDStruct_b2fbf00d _field21;
-    char _field22;
-    char _field23;
+    float _field19;
+    float _field20;
+    struct {
+        float _field1;
+        float _field2;
+    } _field21;
+    struct {
+        float _field1;
+        float _field2;
+    } _field22;
+    struct {
+        float _field1;
+        float _field2;
+    } _field23;
     char _field24;
     char _field25;
+    char _field26;
+    char _field27;
 };
+
+struct SKCParticle;
 
 struct SKCPlaySound {
     CDUnknownFunctionPointerType *_field1;
-    float _field2;
-    id _field3;
-    _Bool _field4;
-    double _field5;
-    double _field6;
-    float _field7;
-    float _field8;
-    double _field9;
-    _Bool _field10;
-    _Bool _field11;
-    CDUnknownBlockType _field12;
-    int _field13;
-    float _field14;
-    float _field15;
+    unsigned int _field2;
+    float _field3;
+    CDUnknownBlockType _field4;
+    id _field5;
+    _Bool _field6;
+    double _field7;
+    double _field8;
+    float _field9;
+    float _field10;
+    double _field11;
+    _Bool _field12;
+    _Bool _field13;
+    CDUnknownBlockType _field14;
+    int _field15;
     float _field16;
     float _field17;
-    id _field18;
-    char _field19;
-    char _field20;
+    float _field18;
+    float _field19;
+    id _field20;
+    char _field21;
+    char _field22;
 };
 
 struct SKCRenderPassNew {
-    unsigned int _field1;
+    struct xglProgram *_field1;
     union _GLKMatrix4 _field2;
     unsigned int _field3;
     unsigned long _field4;
@@ -429,186 +616,241 @@ struct SKCRenderPassNew {
     unsigned int _field6;
     int _field7;
     CDStruct_c7fe8b62 _field8;
-    _Bool _field9;
-    _Bool _field10;
-    _Bool _field11;
+    struct SKCSprite *_field9;
+    unsigned int _field10;
+    unsigned int _field11;
     _Bool _field12;
     _Bool _field13;
     _Bool _field14;
     _Bool _field15;
     _Bool _field16;
     _Bool _field17;
-    CDStruct_f129a329 _field18;
+    _Bool _field18;
     _Bool _field19;
     _Bool _field20;
-    _Bool _field21;
+    CDStruct_f129a329 _field21;
     _Bool _field22;
     _Bool _field23;
     _Bool _field24;
     _Bool _field25;
     _Bool _field26;
-    unsigned int _field27;
-    CDStruct_83984b6f _field28;
-    id _field29;
-    CDStruct_c7fe8b62 _field30;
-    CDStruct_c7fe8b62 _field31;
-    CDStruct_b2fbf00d _field32;
-    float _field33;
-    unsigned int _field34;
-    _Bool _field35;
-    char *_field36;
-    id _field37;
+    _Bool _field27;
+    _Bool _field28;
+    _Bool _field29;
+    _Bool _field30;
+    _Bool _field31;
+    _Bool _field32;
+    _Bool _field33;
+    id _field34;
+    float _field35;
+    float _field36;
+    unsigned int _field37;
+    struct {
+        float _field1;
+        float _field2;
+        float _field3;
+        float _field4;
+    } _field38;
+    id _field39;
+    CDStruct_c7fe8b62 _field40;
+    CDStruct_c7fe8b62 _field41;
+    struct {
+        float _field1;
+        float _field2;
+    } _field42;
+    float _field43;
+    unsigned int _field44;
+    _Bool _field45;
+    char *_field46;
+    id _field47;
 };
 
 struct SKCRenderer {
-    int _field1[7];
+    id _field1;
     id _field2;
-    id _field3;
+    char _field3;
     char _field4;
-    char _field5;
+    float _field5;
     float _field6;
-    float _field7;
+    id _field7;
     id _field8;
-    id _field9;
-    CDStruct_d89f453b _field10;
-    CDStruct_d89f453b _field11;
-    struct stack<PKRect, std::__1::deque<PKRect, std::__1::allocator<PKRect>>> _field12;
-    struct stack<_GLKMatrix4, std::__1::deque<_GLKMatrix4, std::__1::allocator<_GLKMatrix4>>> _field13;
-    struct stack<SKCTextureAttachment, std::__1::deque<SKCTextureAttachment, std::__1::allocator<SKCTextureAttachment>>> _field14;
-    CDStruct_b2fbf00d _field15;
-    CDStruct_b2fbf00d _field16;
-    struct SKCRenderPassNew _field17;
-    unsigned int _field18;
-    int _field19;
+    float _field9;
+    struct {
+        float _field1;
+        float _field2;
+    } _field10;
+    CDStruct_2605ac7d _field11;
+    CDStruct_2605ac7d _field12;
+    struct stack<PKRect, std::__1::deque<PKRect, std::__1::allocator<PKRect>>> _field13;
+    struct stack<_GLKMatrix4, std::__1::deque<_GLKMatrix4, std::__1::allocator<_GLKMatrix4>>> _field14;
+    struct stack<SKCTextureAttachment, std::__1::deque<SKCTextureAttachment, std::__1::allocator<SKCTextureAttachment>>> _field15;
+    struct {
+        float _field1;
+        float _field2;
+    } _field16;
+    struct {
+        float _field1;
+        float _field2;
+    } _field17;
+    struct SKCRenderPassNew _field18;
+    unsigned int _field19;
     int _field20;
-    float _field21;
-    int _field22;
+    int _field21;
+    float _field22;
     float _field23;
-    unsigned int _field24;
-    unsigned int _field25;
+    int _field24;
+    float _field25;
     unsigned int _field26;
     unsigned int _field27;
     unsigned int _field28;
     unsigned int _field29;
-    float _field30;
-    float _field31;
-    unsigned int _field32;
-    unsigned int _field33;
-    double _field34;
-    float _field35;
+    unsigned int _field30;
+    unsigned int _field31;
+    float _field32;
+    float _field33;
+    unsigned int _field34;
+    unsigned int _field35;
     unsigned int _field36;
-    int _field37;
-    id _field38;
-    id _field39;
-    id _field40;
-    id _field41;
-    _Bool _field42;
-    _Bool _field43;
-    _Bool _field44;
-    struct list<SKCRenderPassNew, std::__1::allocator<SKCRenderPassNew>> _field45;
-    unsigned int _field46;
-    unsigned int _field47;
-    unsigned short *_field48;
-    CDStruct_50983af4 _field49[10500];
-    unsigned int _field50;
+    unsigned int _field37;
+    double _field38;
+    float _field39;
+    unsigned int _field40;
+    int _field41;
+    id _field42;
+    id _field43;
+    id _field44;
+    id _field45;
+    _Bool _field46;
+    _Bool _field47;
+    _Bool _field48;
+    _Bool _field49;
+    struct list<SKCRenderPassNew, std::__1::allocator<SKCRenderPassNew>> _field50;
     unsigned int _field51;
     unsigned int _field52;
-    unsigned int _field53;
-    unsigned int _field54;
+    unsigned short *_field53;
+    CDStruct_dd1bd620 _field54[10500];
     unsigned int _field55;
     unsigned int _field56;
     unsigned int _field57;
     unsigned int _field58;
-    id _field59;
-    int _field60;
-    unsigned int _field61;
-    unsigned int _field62;
-    struct list<SKCSprite *, std::__1::allocator<SKCSprite *>> _field63;
-    struct vector<const SKCRenderer::SpriteRenderInfo *, std::__1::allocator<const SKCRenderer::SpriteRenderInfo *>> _field64;
-    struct vector<SKCRenderer::SpriteRenderInfo, std::__1::allocator<SKCRenderer::SpriteRenderInfo>> _field65;
-    struct SKRenderQuadPool _field66;
+    struct xglProgram *_field59;
+    struct xglProgram *_field60;
+    struct xglProgram *_field61;
+    struct xglProgram *_field62;
+    struct xglProgram *_field63;
+    struct xglProgram *_field64;
+    id _field65;
+    int _field66;
     id _field67;
-    _Bool _field68;
-    _Bool _field69;
-    _Bool _field70;
-    _Bool _field71;
-    _Bool _field72;
-    _Bool _field73;
-    _Bool _field74;
-    _Bool _field75;
-    _Bool _field76;
-    _Bool _field77;
-    _Bool _field78;
+    int _field68;
+    unsigned int _field69;
+    unsigned int _field70;
+    struct list<SKCSprite *, std::__1::allocator<SKCSprite *>> _field71;
+    struct vector<const SKCRenderer::SpriteRenderInfo *, std::__1::allocator<const SKCRenderer::SpriteRenderInfo *>> _field72;
+    struct vector<SKCRenderer::SpriteRenderInfo, std::__1::allocator<SKCRenderer::SpriteRenderInfo>> _field73;
+    struct SKRenderQuadPool _field74;
+    struct map<const SKCSprite *, PKPoint, std::__1::less<const SKCSprite *>, std::__1::allocator<std::__1::pair<const SKCSprite *const, PKPoint>>> _field75;
+    struct list<const SKCSprite *, std::__1::allocator<const SKCSprite *>> _field76;
+    struct map<const SKCSprite *, ShadowInfo *, std::__1::less<const SKCSprite *>, std::__1::allocator<std::__1::pair<const SKCSprite *const, ShadowInfo *>>> _field77;
+    struct map<const SKCSprite *, std::__1::list<const SKCRenderer::SpriteRenderInfo *, std::__1::allocator<const SKCRenderer::SpriteRenderInfo *>>, std::__1::less<const SKCSprite *>, std::__1::allocator<std::__1::pair<const SKCSprite *const, std::__1::list<const SKCRenderer::SpriteRenderInfo *, std::__1::allocator<const SKCRenderer::SpriteRenderInfo *>>>>> _field78;
+    id _field79;
+    _Bool _field80;
+    _Bool _field81;
+    _Bool _field82;
+    _Bool _field83;
+    _Bool _field84;
+    _Bool _field85;
+    _Bool _field86;
+    _Bool _field87;
+    _Bool _field88;
+    _Bool _field89;
+    _Bool _field90;
+    _Bool _field91;
+    _Bool _field92;
+    _Bool _field93;
 };
 
 struct SKCRepeat {
     CDUnknownFunctionPointerType *_field1;
-    float _field2;
-    id _field3;
-    _Bool _field4;
-    double _field5;
-    double _field6;
-    float _field7;
-    float _field8;
-    double _field9;
-    _Bool _field10;
-    _Bool _field11;
-    CDUnknownBlockType _field12;
-    int _field13;
-    float _field14;
-    float _field15;
+    unsigned int _field2;
+    float _field3;
+    CDUnknownBlockType _field4;
+    id _field5;
+    _Bool _field6;
+    double _field7;
+    double _field8;
+    float _field9;
+    float _field10;
+    double _field11;
+    _Bool _field12;
+    _Bool _field13;
+    CDUnknownBlockType _field14;
+    int _field15;
     float _field16;
     float _field17;
-    struct SKCAction *_field18;
-    unsigned int _field19;
-    unsigned int _field20;
-    char _field21;
+    float _field18;
+    float _field19;
+    struct SKCAction *_field20;
+    unsigned int _field21;
+    unsigned int _field22;
+    char _field23;
 };
 
 struct SKCResize {
     CDUnknownFunctionPointerType *_field1;
-    float _field2;
-    id _field3;
-    _Bool _field4;
-    double _field5;
-    double _field6;
-    float _field7;
-    float _field8;
-    double _field9;
-    _Bool _field10;
-    _Bool _field11;
-    CDUnknownBlockType _field12;
-    int _field13;
-    float _field14;
-    float _field15;
+    unsigned int _field2;
+    float _field3;
+    CDUnknownBlockType _field4;
+    id _field5;
+    _Bool _field6;
+    double _field7;
+    double _field8;
+    float _field9;
+    float _field10;
+    double _field11;
+    _Bool _field12;
+    _Bool _field13;
+    CDUnknownBlockType _field14;
+    int _field15;
     float _field16;
     float _field17;
     float _field18;
-    CDStruct_b2fbf00d _field19;
-    CDStruct_b2fbf00d _field20;
-    CDStruct_b2fbf00d _field21;
-    char _field22;
-    char _field23;
+    float _field19;
+    float _field20;
+    struct {
+        float _field1;
+        float _field2;
+    } _field21;
+    struct {
+        float _field1;
+        float _field2;
+    } _field22;
+    struct {
+        float _field1;
+        float _field2;
+    } _field23;
     char _field24;
     char _field25;
+    char _field26;
+    char _field27;
 };
 
 struct SKCRotate {
     CDUnknownFunctionPointerType *_field1;
-    float _field2;
-    id _field3;
-    _Bool _field4;
-    double _field5;
-    double _field6;
-    float _field7;
-    float _field8;
-    double _field9;
-    _Bool _field10;
-    _Bool _field11;
-    CDUnknownBlockType _field12;
-    int _field13;
-    float _field14;
-    float _field15;
+    unsigned int _field2;
+    float _field3;
+    CDUnknownBlockType _field4;
+    id _field5;
+    _Bool _field6;
+    double _field7;
+    double _field8;
+    float _field9;
+    float _field10;
+    double _field11;
+    _Bool _field12;
+    _Bool _field13;
+    CDUnknownBlockType _field14;
+    int _field15;
     float _field16;
     float _field17;
     float _field18;
@@ -621,30 +863,32 @@ struct SKCRotate {
     float _field25;
     float _field26;
     float _field27;
-    char _field28;
-    char _field29;
+    float _field28;
+    float _field29;
     char _field30;
     char _field31;
     char _field32;
     char _field33;
+    char _field34;
+    char _field35;
 };
 
 struct SKCScale {
     CDUnknownFunctionPointerType *_field1;
-    float _field2;
-    id _field3;
-    _Bool _field4;
-    double _field5;
-    double _field6;
-    float _field7;
-    float _field8;
-    double _field9;
-    _Bool _field10;
-    _Bool _field11;
-    CDUnknownBlockType _field12;
-    int _field13;
-    float _field14;
-    float _field15;
+    unsigned int _field2;
+    float _field3;
+    CDUnknownBlockType _field4;
+    id _field5;
+    _Bool _field6;
+    double _field7;
+    double _field8;
+    float _field9;
+    float _field10;
+    double _field11;
+    _Bool _field12;
+    _Bool _field13;
+    CDUnknownBlockType _field14;
+    int _field15;
     float _field16;
     float _field17;
     float _field18;
@@ -656,37 +900,43 @@ struct SKCScale {
     float _field24;
     float _field25;
     float _field26;
-    char _field27;
-    char _field28;
+    float _field27;
+    float _field28;
     char _field29;
     char _field30;
+    char _field31;
+    char _field32;
 };
 
 struct SKCSequence {
     CDUnknownFunctionPointerType *_field1;
-    float _field2;
-    id _field3;
-    _Bool _field4;
-    double _field5;
-    double _field6;
-    float _field7;
-    float _field8;
-    double _field9;
-    _Bool _field10;
-    _Bool _field11;
-    CDUnknownBlockType _field12;
-    int _field13;
-    float _field14;
-    float _field15;
+    unsigned int _field2;
+    float _field3;
+    CDUnknownBlockType _field4;
+    id _field5;
+    _Bool _field6;
+    double _field7;
+    double _field8;
+    float _field9;
+    float _field10;
+    double _field11;
+    _Bool _field12;
+    _Bool _field13;
+    CDUnknownBlockType _field14;
+    int _field15;
     float _field16;
     float _field17;
-    struct vector<SKCAction *, std::__1::allocator<SKCAction *>> _field18;
-    unsigned long _field19;
+    float _field18;
+    float _field19;
+    struct vector<SKCAction *, std::__1::allocator<SKCAction *>> _field20;
+    unsigned long _field21;
 };
 
 struct SKCShapeSprite {
     CDUnknownFunctionPointerType *_field1;
-    id _field2;
+    struct list<SKCAction *, std::__1::allocator<SKCAction *>> _field2;
+    struct shared_ptr<PKPath> _field3;
+    id _field4;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
@@ -711,7 +961,9 @@ struct SKCShapeSprite {
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
-    _Bool _field3;
+    unsigned int :1;
+    unsigned int :1;
+    _Bool _field5;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
@@ -722,98 +974,151 @@ struct SKCShapeSprite {
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
-    float _field4;
-    struct SKCSprite *_field5;
-    id _field6;
-    _Bool _field7;
-    _Bool _field8;
-    struct __CVBuffer *_field9;
-    struct __CVBuffer *_field10;
-    struct __CVOpenGLESTextureCache *_field11;
+    float _field6;
+    struct SKCSprite *_field7;
+    unsigned int _field8;
+    unsigned int _field9;
+    unsigned int _field10;
+    id _field11;
     id _field12;
-    id _field13;
-    unsigned int _field14;
-    unsigned int _field15;
-    unsigned int _field16;
-    CDStruct_b2fbf00d _field17;
-    CDStruct_b2fbf00d _field18;
-    CDStruct_b2fbf00d _field19;
-    CDStruct_c7fe8b62 _field20;
-    _Bool _field21;
-    struct __CVBuffer *_field22;
-    struct __CVBuffer *_field23;
-    _Bool _field24;
-    CDStruct_50983af4 _field25;
-    CDStruct_183601bc *_field26;
-    CDStruct_183601bc *_field27;
-    CDStruct_31cefc2d _field28;
-    CDStruct_c7fe8b62 _field29;
-    int _field30;
-    CDStruct_c7fe8b62 _field31;
-    struct SKCSprite *_field32;
-    union _GLKMatrix4 _field33;
-    struct list<SKCSprite *, std::__1::allocator<SKCSprite *>> _field34;
-    struct set<SKCSprite *, std::__1::less<SKCSprite *>, std::__1::allocator<SKCSprite *>> *_field35;
-    struct list<SKCSprite *, std::__1::allocator<SKCSprite *>> *_field36;
-    unsigned int _field37;
-    unsigned int _field38;
-    _Bool _field39;
-    struct list<SKCAction *, std::__1::allocator<SKCAction *>> _field40;
-    struct set<SKCSprite *, std::__1::less<SKCSprite *>, std::__1::allocator<SKCSprite *>> _field41;
-    struct unordered_set<SKCAction *, std::__1::hash<SKCAction *>, std::__1::equal_to<SKCAction *>, std::__1::allocator<SKCAction *>> _field42;
-    float _field43;
-    float _field44;
-    float _field45;
-    id _field46;
-    CDStruct_b2fbf00d _field47;
-    id _field48;
-    _Bool _field49;
-    CDStruct_c7fe8b62 _field50;
-    CDStruct_b2fbf00d _field51;
-    unsigned int _field52;
-    CDStruct_b2fbf00d _field53;
-    CDStruct_b2fbf00d _field54;
-    float _field55;
-    float _field56;
-    float _field57;
-    float _field58;
-    float _field59;
+    _Bool _field13;
+    _Bool _field14;
+    struct __CVBuffer *_field15;
+    struct __CVBuffer *_field16;
+    struct __CVOpenGLESTextureCache *_field17;
+    id _field18;
+    id _field19;
+    id _field20;
+    unsigned int _field21;
+    unsigned int _field22;
+    unsigned int _field23;
+    struct {
+        float _field1;
+        float _field2;
+    } _field24;
+    struct {
+        float _field1;
+        float _field2;
+    } _field25;
+    struct {
+        float _field1;
+        float _field2;
+    } _field26;
+    CDStruct_c7fe8b62 _field27;
+    struct __CVBuffer *_field28;
+    struct __CVBuffer *_field29;
+    _Bool _field30;
+    CDStruct_dd1bd620 _field31;
+    CDStruct_183601bc *_field32;
+    CDStruct_183601bc *_field33;
+    CDStruct_31cefc2d _field34;
+    CDStruct_c7fe8b62 _field35;
+    int _field36;
+    CDStruct_c7fe8b62 _field37;
+    struct SKCSprite *_field38;
+    union _GLKMatrix4 _field39;
+    struct list<SKCSprite *, std::__1::allocator<SKCSprite *>> _field40;
+    struct set<SKCSprite *, std::__1::less<SKCSprite *>, std::__1::allocator<SKCSprite *>> *_field41;
+    struct list<SKCSprite *, std::__1::allocator<SKCSprite *>> *_field42;
+    unsigned int _field43;
+    unsigned int _field44;
+    _Bool _field45;
+    struct set<SKCSprite *, std::__1::less<SKCSprite *>, std::__1::allocator<SKCSprite *>> _field46;
+    struct unordered_set<SKCAction *, std::__1::hash<SKCAction *>, std::__1::equal_to<SKCAction *>, std::__1::allocator<SKCAction *>> _field47;
+    float _field48;
+    float _field49;
+    float _field50;
+    id _field51;
+    struct {
+        float _field1;
+        float _field2;
+    } _field52;
+    id _field53;
+    _Bool _field54;
+    CDStruct_c7fe8b62 _field55;
+    struct {
+        float _field1;
+        float _field2;
+    } _field56;
+    unsigned int _field57;
+    struct {
+        float _field1;
+        float _field2;
+    } _field58;
+    struct {
+        float _field1;
+        float _field2;
+    } _field59;
     float _field60;
-    CDStruct_83984b6f _field61;
-    CDStruct_83984b6f _field62;
+    float _field61;
+    float _field62;
     float _field63;
     float _field64;
     float _field65;
-    CDStruct_c7fe8b62 _field66;
-    id _field67;
+    float _field66;
+    float _field67;
     float _field68;
-    CDStruct_183601bc *_field69;
-    CDStruct_83984b6f _field70;
-    CDStruct_83984b6f _field71;
-    int _field72;
+    struct {
+        float _field1;
+        float _field2;
+        float _field3;
+        float _field4;
+    } _field69;
+    struct {
+        float _field1;
+        float _field2;
+        float _field3;
+        float _field4;
+    } _field70;
+    float _field71;
+    float _field72;
     float _field73;
-    char _field74;
-    struct CGPath *_field75;
+    CDStruct_c7fe8b62 _field74;
+    id _field75;
     float _field76;
-    char _field77;
+    id _field77;
+    shared_ptr_11a7378b _field78;
+    struct SKCompositeBezierPath *_field79;
+    struct {
+        float _field1;
+        float _field2;
+        float _field3;
+        float _field4;
+    } _field80;
+    struct {
+        float _field1;
+        float _field2;
+        float _field3;
+        float _field4;
+    } _field81;
+    int _field82;
+    float _field83;
+    char _field84;
+    struct CGPath *_field85;
+    float _field86;
+    char _field87;
+    float _field88;
+    int _field89;
+    int _field90;
+    float _field91;
 };
 
 struct SKCSpeed {
     CDUnknownFunctionPointerType *_field1;
-    float _field2;
-    id _field3;
-    _Bool _field4;
-    double _field5;
-    double _field6;
-    float _field7;
-    float _field8;
-    double _field9;
-    _Bool _field10;
-    _Bool _field11;
-    CDUnknownBlockType _field12;
-    int _field13;
-    float _field14;
-    float _field15;
+    unsigned int _field2;
+    float _field3;
+    CDUnknownBlockType _field4;
+    id _field5;
+    _Bool _field6;
+    double _field7;
+    double _field8;
+    float _field9;
+    float _field10;
+    double _field11;
+    _Bool _field12;
+    _Bool _field13;
+    CDUnknownBlockType _field14;
+    int _field15;
     float _field16;
     float _field17;
     float _field18;
@@ -821,13 +1126,17 @@ struct SKCSpeed {
     float _field20;
     float _field21;
     float _field22;
-    char _field23;
-    char _field24;
+    float _field23;
+    float _field24;
+    char _field25;
+    char _field26;
 };
 
 struct SKCSprite {
     CDUnknownFunctionPointerType *_field1;
-    id _field2;
+    struct list<SKCAction *, std::__1::allocator<SKCAction *>> _field2;
+    struct shared_ptr<PKPath> _field3;
+    id _field4;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
@@ -852,7 +1161,9 @@ struct SKCSprite {
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
-    _Bool _field3;
+    unsigned int :1;
+    unsigned int :1;
+    _Bool _field5;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
@@ -863,92 +1174,164 @@ struct SKCSprite {
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
-    float _field4;
-    struct SKCSprite *_field5;
-    id _field6;
-    _Bool _field7;
-    _Bool _field8;
-    struct __CVBuffer *_field9;
-    struct __CVBuffer *_field10;
-    struct __CVOpenGLESTextureCache *_field11;
+    float _field6;
+    struct SKCSprite *_field7;
+    unsigned int _field8;
+    unsigned int _field9;
+    unsigned int _field10;
+    id _field11;
     id _field12;
-    id _field13;
-    unsigned int _field14;
-    unsigned int _field15;
-    unsigned int _field16;
-    CDStruct_b2fbf00d _field17;
-    CDStruct_b2fbf00d _field18;
-    CDStruct_b2fbf00d _field19;
-    CDStruct_c7fe8b62 _field20;
-    _Bool _field21;
-    struct __CVBuffer *_field22;
-    struct __CVBuffer *_field23;
-    _Bool _field24;
-    CDStruct_50983af4 _field25;
-    CDStruct_183601bc *_field26;
-    CDStruct_183601bc *_field27;
-    CDStruct_31cefc2d _field28;
-    CDStruct_c7fe8b62 _field29;
-    int _field30;
-    CDStruct_c7fe8b62 _field31;
-    struct SKCSprite *_field32;
-    union _GLKMatrix4 _field33;
-    struct list<SKCSprite *, std::__1::allocator<SKCSprite *>> _field34;
-    struct set<SKCSprite *, std::__1::less<SKCSprite *>, std::__1::allocator<SKCSprite *>> *_field35;
-    struct list<SKCSprite *, std::__1::allocator<SKCSprite *>> *_field36;
-    unsigned int _field37;
-    unsigned int _field38;
-    _Bool _field39;
-    struct list<SKCAction *, std::__1::allocator<SKCAction *>> _field40;
-    struct set<SKCSprite *, std::__1::less<SKCSprite *>, std::__1::allocator<SKCSprite *>> _field41;
-    struct unordered_set<SKCAction *, std::__1::hash<SKCAction *>, std::__1::equal_to<SKCAction *>, std::__1::allocator<SKCAction *>> _field42;
-    float _field43;
-    float _field44;
-    float _field45;
-    id _field46;
-    CDStruct_b2fbf00d _field47;
-    id _field48;
-    _Bool _field49;
-    CDStruct_c7fe8b62 _field50;
-    CDStruct_b2fbf00d _field51;
-    unsigned int _field52;
-    CDStruct_b2fbf00d _field53;
-    CDStruct_b2fbf00d _field54;
-    float _field55;
-    float _field56;
-    float _field57;
-    float _field58;
-    float _field59;
+    _Bool _field13;
+    _Bool _field14;
+    struct __CVBuffer *_field15;
+    struct __CVBuffer *_field16;
+    struct __CVOpenGLESTextureCache *_field17;
+    id _field18;
+    id _field19;
+    id _field20;
+    unsigned int _field21;
+    unsigned int _field22;
+    unsigned int _field23;
+    struct {
+        float _field1;
+        float _field2;
+    } _field24;
+    struct {
+        float _field1;
+        float _field2;
+    } _field25;
+    struct {
+        float _field1;
+        float _field2;
+    } _field26;
+    CDStruct_c7fe8b62 _field27;
+    struct __CVBuffer *_field28;
+    struct __CVBuffer *_field29;
+    _Bool _field30;
+    CDStruct_dd1bd620 _field31;
+    CDStruct_183601bc *_field32;
+    CDStruct_183601bc *_field33;
+    CDStruct_31cefc2d _field34;
+    CDStruct_c7fe8b62 _field35;
+    int _field36;
+    CDStruct_c7fe8b62 _field37;
+    struct SKCSprite *_field38;
+    union _GLKMatrix4 _field39;
+    struct list<SKCSprite *, std::__1::allocator<SKCSprite *>> _field40;
+    struct set<SKCSprite *, std::__1::less<SKCSprite *>, std::__1::allocator<SKCSprite *>> *_field41;
+    struct list<SKCSprite *, std::__1::allocator<SKCSprite *>> *_field42;
+    unsigned int _field43;
+    unsigned int _field44;
+    _Bool _field45;
+    struct set<SKCSprite *, std::__1::less<SKCSprite *>, std::__1::allocator<SKCSprite *>> _field46;
+    struct unordered_set<SKCAction *, std::__1::hash<SKCAction *>, std::__1::equal_to<SKCAction *>, std::__1::allocator<SKCAction *>> _field47;
+    float _field48;
+    float _field49;
+    float _field50;
+    id _field51;
+    struct {
+        float _field1;
+        float _field2;
+    } _field52;
+    id _field53;
+    _Bool _field54;
+    CDStruct_c7fe8b62 _field55;
+    struct {
+        float _field1;
+        float _field2;
+    } _field56;
+    unsigned int _field57;
+    struct {
+        float _field1;
+        float _field2;
+    } _field58;
+    struct {
+        float _field1;
+        float _field2;
+    } _field59;
     float _field60;
-    CDStruct_83984b6f _field61;
-    CDStruct_83984b6f _field62;
+    float _field61;
+    float _field62;
     float _field63;
     float _field64;
     float _field65;
-    CDStruct_c7fe8b62 _field66;
-    id _field67;
+    float _field66;
+    float _field67;
     float _field68;
+    struct {
+        float _field1;
+        float _field2;
+        float _field3;
+        float _field4;
+    } _field69;
+    struct {
+        float _field1;
+        float _field2;
+        float _field3;
+        float _field4;
+    } _field70;
+    float _field71;
+    float _field72;
+    float _field73;
+    CDStruct_c7fe8b62 _field74;
+    id _field75;
+    float _field76;
+    id _field77;
+    shared_ptr_11a7378b _field78;
+};
+
+struct SKCStrength {
+    CDUnknownFunctionPointerType *_field1;
+    unsigned int _field2;
+    float _field3;
+    CDUnknownBlockType _field4;
+    id _field5;
+    _Bool _field6;
+    double _field7;
+    double _field8;
+    float _field9;
+    float _field10;
+    double _field11;
+    _Bool _field12;
+    _Bool _field13;
+    CDUnknownBlockType _field14;
+    int _field15;
+    float _field16;
+    float _field17;
+    float _field18;
+    float _field19;
+    float _field20;
+    float _field21;
+    float _field22;
+    float _field23;
+    float _field24;
+    char _field25;
+    char _field26;
 };
 
 struct SKCWait {
     CDUnknownFunctionPointerType *_field1;
-    float _field2;
-    id _field3;
-    _Bool _field4;
-    double _field5;
-    double _field6;
-    float _field7;
-    float _field8;
-    double _field9;
-    _Bool _field10;
-    _Bool _field11;
-    CDUnknownBlockType _field12;
-    int _field13;
-    float _field14;
-    float _field15;
+    unsigned int _field2;
+    float _field3;
+    CDUnknownBlockType _field4;
+    id _field5;
+    _Bool _field6;
+    double _field7;
+    double _field8;
+    float _field9;
+    float _field10;
+    double _field11;
+    _Bool _field12;
+    _Bool _field13;
+    CDUnknownBlockType _field14;
+    int _field15;
     float _field16;
     float _field17;
+    float _field18;
+    float _field19;
 };
+
+struct SKCompositeBezierPath;
 
 struct SKRenderQuadPool {
     struct vector<SKRenderQuad *, std::__1::allocator<SKRenderQuad *>> _field1;
@@ -960,17 +1343,31 @@ struct SKRenderQuadPool {
 
 struct SpriteRenderInfo;
 
+struct TextureInfo;
+
+struct Token;
+
 struct __CVBuffer;
 
 struct __CVOpenGLESTextureCache;
 
 struct __hash_node<SKCAction *, void *>;
 
+struct __list_node<PKPoint, void *>;
+
 struct __list_node<SKCAction *, void *>;
 
 struct __list_node<SKCRenderPassNew, void *>;
 
 struct __list_node<SKCSprite *, void *>;
+
+struct __list_node<const SKCSprite *, void *>;
+
+struct __shared_weak_count;
+
+struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
+    struct __tree_node_base<void *> *__left_;
+};
 
 struct deque<PKRect, std::__1::allocator<PKRect>> {
     struct __split_buffer<PKRect *, std::__1::allocator<PKRect *>> {
@@ -1017,6 +1414,16 @@ struct deque<_GLKMatrix4, std::__1::allocator<_GLKMatrix4>> {
     } _field3;
 };
 
+struct list<PKPoint, std::__1::allocator<PKPoint>> {
+    struct __list_node_base<PKPoint, void *> {
+        struct __list_node<PKPoint, void *> *_field1;
+        struct __list_node<PKPoint, void *> *_field2;
+    } _field1;
+    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<PKPoint, void *>>> {
+        unsigned long _field1;
+    } _field2;
+};
+
 struct list<SKCAction *, std::__1::allocator<SKCAction *>> {
     struct __list_node_base<SKCAction *, void *> {
         struct __list_node<SKCAction *, void *> *_field1;
@@ -1047,18 +1454,154 @@ struct list<SKCSprite *, std::__1::allocator<SKCSprite *>> {
     } _field2;
 };
 
+struct list<const SKCSprite *, std::__1::allocator<const SKCSprite *>> {
+    struct __list_node_base<const SKCSprite *, void *> {
+        struct __list_node<const SKCSprite *, void *> *_field1;
+        struct __list_node<const SKCSprite *, void *> *_field2;
+    } _field1;
+    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<const SKCSprite *, void *>>> {
+        unsigned long _field1;
+    } _field2;
+};
+
+struct map<const SKCSprite *, PKPoint, std::__1::less<const SKCSprite *>, std::__1::allocator<std::__1::pair<const SKCSprite *const, PKPoint>>> {
+    struct __tree<std::__1::__value_type<const SKCSprite *, PKPoint>, std::__1::__map_value_compare<const SKCSprite *, std::__1::__value_type<const SKCSprite *, PKPoint>, std::__1::less<const SKCSprite *>, true>, std::__1::allocator<std::__1::__value_type<const SKCSprite *, PKPoint>>> {
+        struct __tree_node<std::__1::__value_type<const SKCSprite *, PKPoint>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<const SKCSprite *, PKPoint>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<const SKCSprite *, std::__1::__value_type<const SKCSprite *, PKPoint>, std::__1::less<const SKCSprite *>, true>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<const SKCSprite *, ShadowInfo *, std::__1::less<const SKCSprite *>, std::__1::allocator<std::__1::pair<const SKCSprite *const, ShadowInfo *>>> {
+    struct __tree<std::__1::__value_type<const SKCSprite *, ShadowInfo *>, std::__1::__map_value_compare<const SKCSprite *, std::__1::__value_type<const SKCSprite *, ShadowInfo *>, std::__1::less<const SKCSprite *>, true>, std::__1::allocator<std::__1::__value_type<const SKCSprite *, ShadowInfo *>>> {
+        struct __tree_node<std::__1::__value_type<const SKCSprite *, ShadowInfo *>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<const SKCSprite *, ShadowInfo *>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<const SKCSprite *, std::__1::__value_type<const SKCSprite *, ShadowInfo *>, std::__1::less<const SKCSprite *>, true>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<const SKCSprite *, std::__1::list<const SKCRenderer::SpriteRenderInfo *, std::__1::allocator<const SKCRenderer::SpriteRenderInfo *>>, std::__1::less<const SKCSprite *>, std::__1::allocator<std::__1::pair<const SKCSprite *const, std::__1::list<const SKCRenderer::SpriteRenderInfo *, std::__1::allocator<const SKCRenderer::SpriteRenderInfo *>>>>> {
+    struct __tree<std::__1::__value_type<const SKCSprite *, std::__1::list<const SKCRenderer::SpriteRenderInfo *, std::__1::allocator<const SKCRenderer::SpriteRenderInfo *>>>, std::__1::__map_value_compare<const SKCSprite *, std::__1::__value_type<const SKCSprite *, std::__1::list<const SKCRenderer::SpriteRenderInfo *, std::__1::allocator<const SKCRenderer::SpriteRenderInfo *>>>, std::__1::less<const SKCSprite *>, true>, std::__1::allocator<std::__1::__value_type<const SKCSprite *, std::__1::list<const SKCRenderer::SpriteRenderInfo *, std::__1::allocator<const SKCRenderer::SpriteRenderInfo *>>>>> {
+        struct __tree_node<std::__1::__value_type<const SKCSprite *, std::__1::list<const SKCRenderer::SpriteRenderInfo *, std::__1::allocator<const SKCRenderer::SpriteRenderInfo *>>>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<const SKCSprite *, std::__1::list<const SKCRenderer::SpriteRenderInfo *, std::__1::allocator<const SKCRenderer::SpriteRenderInfo *>>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<const SKCSprite *, std::__1::__value_type<const SKCSprite *, std::__1::list<const SKCRenderer::SpriteRenderInfo *, std::__1::allocator<const SKCRenderer::SpriteRenderInfo *>>>, std::__1::less<const SKCSprite *>, true>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::basic_string<char>, int, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, int>>> {
+    struct __tree<std::__1::__value_type<std::__1::basic_string<char>, int>, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, int>, std::__1::less<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::basic_string<char>, int>>> {
+        struct __tree_node<std::__1::__value_type<std::__1::basic_string<char>, int>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::basic_string<char>, int>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, int>, std::__1::less<std::__1::basic_string<char>>, true>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::basic_string<char>, unsigned int, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, unsigned int>>> {
+    struct __tree<std::__1::__value_type<std::__1::basic_string<char>, unsigned int>, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, unsigned int>, std::__1::less<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::basic_string<char>, unsigned int>>> {
+        struct __tree_node<std::__1::__value_type<std::__1::basic_string<char>, unsigned int>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::basic_string<char>, unsigned int>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, unsigned int>, std::__1::less<std::__1::basic_string<char>>, true>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<unsigned int, float, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, float>>> {
+    struct __tree<std::__1::__value_type<unsigned int, float>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, float>, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, float>>> {
+        struct __tree_node<std::__1::__value_type<unsigned int, float>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned int, float>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, float>, std::__1::less<unsigned int>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<unsigned short, SKSpriteNode *, std::__1::less<unsigned short>, std::__1::allocator<std::__1::pair<const unsigned short, SKSpriteNode *>>> {
+    struct __tree<std::__1::__value_type<unsigned short, SKSpriteNode *>, std::__1::__map_value_compare<unsigned short, std::__1::__value_type<unsigned short, SKSpriteNode *>, std::__1::less<unsigned short>, true>, std::__1::allocator<std::__1::__value_type<unsigned short, SKSpriteNode *>>> {
+        struct __tree_node<std::__1::__value_type<unsigned short, SKSpriteNode *>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned short, SKSpriteNode *>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned short, std::__1::__value_type<unsigned short, SKSpriteNode *>, std::__1::less<unsigned short>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<unsigned short, float, std::__1::less<unsigned short>, std::__1::allocator<std::__1::pair<const unsigned short, float>>> {
+    struct __tree<std::__1::__value_type<unsigned short, float>, std::__1::__map_value_compare<unsigned short, std::__1::__value_type<unsigned short, float>, std::__1::less<unsigned short>, true>, std::__1::allocator<std::__1::__value_type<unsigned short, float>>> {
+        struct __tree_node<std::__1::__value_type<unsigned short, float>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned short, float>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned short, std::__1::__value_type<unsigned short, float>, std::__1::less<unsigned short>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
 struct set<SKCSprite *, std::__1::less<SKCSprite *>, std::__1::allocator<SKCSprite *>> {
     struct __tree<SKCSprite *, std::__1::less<SKCSprite *>, std::__1::allocator<SKCSprite *>> {
         struct __tree_node<SKCSprite *, void *> *_field1;
         struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<SKCSprite *, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
-                struct __tree_node_base<void *> *_field1;
-            } _field1;
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
         } _field2;
         struct __compressed_pair<unsigned long, std::__1::less<SKCSprite *>> {
             unsigned long _field1;
         } _field3;
     } _field1;
+};
+
+struct set<SKNode *, std::__1::less<SKNode *>, std::__1::allocator<SKNode *>> {
+    struct __tree<SKNode *, std::__1::less<SKNode *>, std::__1::allocator<SKNode *>> {
+        struct __tree_node<SKNode *, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<SKNode *, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::less<SKNode *>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct shared_ptr<MaxRectTexturePacker> {
+    struct MaxRectTexturePacker *_field1;
+    struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<PKCAether> {
+    struct PKCAether *_field1;
+    struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<PKPath> {
+    struct PKPath *_field1;
+    struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<char> {
+    char *_field1;
+    struct __shared_weak_count *_field2;
 };
 
 struct stack<PKRect, std::__1::deque<PKRect, std::__1::allocator<PKRect>>> {
@@ -1101,6 +1644,22 @@ struct unordered_set<SKCAction *, std::__1::hash<SKCAction *>, std::__1::equal_t
     } _field1;
 };
 
+struct vector<CGRect, std::__1::allocator<CGRect>> {
+    struct CGRect *_field1;
+    struct CGRect *_field2;
+    struct __compressed_pair<CGRect *, std::__1::allocator<CGRect>> {
+        struct CGRect *_field1;
+    } _field3;
+};
+
+struct vector<CGSize, std::__1::allocator<CGSize>> {
+    struct CGSize *_field1;
+    struct CGSize *_field2;
+    struct __compressed_pair<CGSize *, std::__1::allocator<CGSize>> {
+        struct CGSize *_field1;
+    } _field3;
+};
+
 struct vector<SKCAction *, std::__1::allocator<SKCAction *>> {
     struct SKCAction **_field1;
     struct SKCAction **_field2;
@@ -1110,10 +1669,10 @@ struct vector<SKCAction *, std::__1::allocator<SKCAction *>> {
 };
 
 struct vector<SKCParticle *, std::__1::allocator<SKCParticle *>> {
-    CDStruct_183601bc **_field1;
-    CDStruct_183601bc **_field2;
+    struct SKCParticle **_field1;
+    struct SKCParticle **_field2;
     struct __compressed_pair<SKCParticle **, std::__1::allocator<SKCParticle *>> {
-        CDStruct_183601bc **_field1;
+        struct SKCParticle **_field1;
     } _field3;
 };
 
@@ -1141,12 +1700,39 @@ struct vector<SKTexture *, std::__1::allocator<SKTexture *>> {
     } _field3;
 };
 
+struct vector<TextureInfo, std::__1::allocator<TextureInfo>> {
+    struct TextureInfo *_field1;
+    struct TextureInfo *_field2;
+    struct __compressed_pair<TextureInfo *, std::__1::allocator<TextureInfo>> {
+        struct TextureInfo *_field1;
+    } _field3;
+};
+
+struct vector<Token, std::__1::allocator<Token>> {
+    struct Token *_field1;
+    struct Token *_field2;
+    struct __compressed_pair<Token *, std::__1::allocator<Token>> {
+        struct Token *_field1;
+    } _field3;
+};
+
 struct vector<const SKCRenderer::SpriteRenderInfo *, std::__1::allocator<const SKCRenderer::SpriteRenderInfo *>> {
     struct SpriteRenderInfo **_field1;
     struct SpriteRenderInfo **_field2;
     struct __compressed_pair<const SKCRenderer::SpriteRenderInfo **, std::__1::allocator<const SKCRenderer::SpriteRenderInfo *>> {
         struct SpriteRenderInfo **_field1;
     } _field3;
+};
+
+struct xglProgram {
+    _Bool _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    struct shared_ptr<char> _field5;
+    struct shared_ptr<char> _field6;
+    struct map<std::__1::basic_string<char>, int, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, int>>> _field7;
+    struct map<std::__1::basic_string<char>, unsigned int, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, unsigned int>>> _field8;
 };
 
 #pragma mark Typedef'd Structures
@@ -1157,6 +1743,94 @@ typedef struct {
     unsigned long *_field3;
     unsigned long _field4[5];
 } CDStruct_11f37819;
+
+typedef struct CDStruct_183601bc;
+
+typedef struct {
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    struct {
+        float _field1;
+        float _field2;
+    } _field5;
+    char _field6;
+} CDStruct_f129a329;
+
+typedef struct {
+    int type;
+    float duration;
+    CDStruct_83984b6f color;
+} CDStruct_eed8e9f9;
+
+typedef struct {
+    struct {
+        float _field1;
+        float _field2;
+    } _field1;
+    struct {
+        float _field1;
+        float _field2;
+    } _field2;
+    struct {
+        float _field1;
+        float _field2;
+    } _field3;
+    struct {
+        float _field1;
+        float _field2;
+    } _field4;
+} CDStruct_31cefc2d;
+
+typedef struct {
+    struct {
+        float _field1;
+        float _field2;
+    } _field1;
+    struct {
+        float _field1;
+        float _field2;
+    } _field2;
+} CDStruct_c7fe8b62;
+
+typedef struct {
+    struct xglProgram *_field1;
+    CDStruct_c7fe8b62 _field2;
+    unsigned int _field3;
+    union _GLKMatrix4 _field4;
+    unsigned int _field5;
+    unsigned int _field6;
+    unsigned int _field7;
+    struct {
+        float _field1;
+        float _field2;
+        float _field3;
+        float _field4;
+    } _field8;
+    int _field9;
+    struct {
+        float _field1;
+        float _field2;
+    } _field10;
+    CDStruct_f129a329 _field11;
+} CDStruct_2605ac7d;
+
+typedef struct {
+    struct {
+        union _GLKVector4 _field1;
+        unsigned char _field2[4];
+        float _field3[3];
+    } _field1[4];
+} CDStruct_dd1bd620;
+
+// Ambiguous groups
+typedef struct {
+    float _field1;
+    float _field2;
+    float _field3;
+    float _field4;
+} CDStruct_818bb265;
 
 typedef struct {
     float r;
@@ -1170,85 +1844,155 @@ typedef struct {
     float _field2;
 } CDStruct_b2fbf00d;
 
-typedef struct CDStruct_183601bc;
+typedef struct set<SKNode *, std::__1::less<SKNode *>, std::__1::allocator<SKNode *>> {
+    struct __tree<SKNode *, std::__1::less<SKNode *>, std::__1::allocator<SKNode *>> {
+        struct __tree_node<SKNode *, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<SKNode *, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::less<SKNode *>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
+} set_06f0222a;
 
-typedef struct {
-    unsigned int _field1;
-    unsigned int _field2;
-    unsigned int _field3;
-    unsigned int _field4;
-    CDStruct_b2fbf00d _field5;
-    char _field6;
-} CDStruct_f129a329;
+typedef struct shared_ptr<MaxRectTexturePacker> {
+    struct MaxRectTexturePacker *_field1;
+    struct __shared_weak_count *_field2;
+} shared_ptr_7747cbe3;
 
-typedef struct {
-    int type;
-    float duration;
-    CDStruct_83984b6f color;
-} CDStruct_eed8e9f9;
+typedef struct shared_ptr<PKCAether> {
+    struct PKCAether *_field1;
+    struct __shared_weak_count *_field2;
+} shared_ptr_11a7378b;
 
-typedef struct {
-    CDStruct_b2fbf00d _field1;
-    CDStruct_b2fbf00d _field2;
-    CDStruct_b2fbf00d _field3;
-    CDStruct_b2fbf00d _field4;
-} CDStruct_31cefc2d;
+typedef struct vector<CGRect, std::__1::allocator<CGRect>> {
+    struct CGRect *_field1;
+    struct CGRect *_field2;
+    struct __compressed_pair<CGRect *, std::__1::allocator<CGRect>> {
+        struct CGRect *_field1;
+    } _field3;
+} vector_ea45b3ba;
 
-typedef struct {
-    CDStruct_b2fbf00d _field1;
-    CDStruct_b2fbf00d _field2;
-} CDStruct_c7fe8b62;
+typedef struct vector<CGSize, std::__1::allocator<CGSize>> {
+    struct CGSize *_field1;
+    struct CGSize *_field2;
+    struct __compressed_pair<CGSize *, std::__1::allocator<CGSize>> {
+        struct CGSize *_field1;
+    } _field3;
+} vector_c74fc2b3;
 
-typedef struct {
-    unsigned int _field1;
-    CDStruct_c7fe8b62 _field2;
-    unsigned int _field3;
-    union _GLKMatrix4 _field4;
-    unsigned int _field5;
-    unsigned int _field6;
-    unsigned int _field7;
-    CDStruct_83984b6f _field8;
-    int _field9;
-    CDStruct_b2fbf00d _field10;
-    CDStruct_f129a329 _field11;
-} CDStruct_d89f453b;
+typedef struct vector<TextureInfo, std::__1::allocator<TextureInfo>> {
+    struct TextureInfo *_field1;
+    struct TextureInfo *_field2;
+    struct __compressed_pair<TextureInfo *, std::__1::allocator<TextureInfo>> {
+        struct TextureInfo *_field1;
+    } _field3;
+} vector_65e381fc;
 
-typedef struct {
-    struct {
-        union _GLKVector4 _field1;
-        unsigned char _field2[4];
-        float _field3[3];
-    } _field1[4];
-} CDStruct_50983af4;
+typedef struct vector<Token, std::__1::allocator<Token>> {
+    struct Token *_field1;
+    struct Token *_field2;
+    struct __compressed_pair<Token *, std::__1::allocator<Token>> {
+        struct Token *_field1;
+    } _field3;
+} vector_408ca79d;
 
 #pragma mark Named Unions
 
+union _GLKMatrix2 {
+    struct {
+        float m00;
+        float m01;
+        float m10;
+        float m11;
+    } ;
+    float m2[2][2];
+    float m[4];
+};
+
+union _GLKMatrix3 {
+    struct {
+        float m00;
+        float m01;
+        float m02;
+        float m10;
+        float m11;
+        float m12;
+        float m20;
+        float m21;
+        float m22;
+    } ;
+    float m[9];
+};
+
 union _GLKMatrix4 {
     struct {
-        float _field1;
-        float _field2;
-        float _field3;
-        float _field4;
-        float _field5;
-        float _field6;
-        float _field7;
-        float _field8;
-        float _field9;
-        float _field10;
-        float _field11;
-        float _field12;
-        float _field13;
-        float _field14;
-        float _field15;
-        float _field16;
-    } _field1;
-    float _field2[16];
+        float m00;
+        float m01;
+        float m02;
+        float m03;
+        float m10;
+        float m11;
+        float m12;
+        float m13;
+        float m20;
+        float m21;
+        float m22;
+        float m23;
+        float m30;
+        float m31;
+        float m32;
+        float m33;
+    } ;
+    float m[16];
+};
+
+union _GLKVector2 {
+    struct {
+        float x;
+        float y;
+    } ;
+    struct {
+        float s;
+        float t;
+    } ;
+    float v[2];
+};
+
+union _GLKVector3 {
+    struct {
+        float x;
+        float y;
+        float z;
+    } ;
+    struct {
+        float r;
+        float g;
+        float b;
+    } ;
+    struct {
+        float s;
+        float t;
+        float p;
+    } ;
+    float v[3];
 };
 
 union _GLKVector4 {
-    CDStruct_83984b6f _field1;
-    CDStruct_83984b6f _field2;
-    CDStruct_83984b6f _field3;
-    float _field4[4];
+    struct {
+        float x;
+        float y;
+        float z;
+        float w;
+    } ;
+    CDStruct_83984b6f ;
+    struct {
+        float s;
+        float t;
+        float p;
+        float q;
+    } ;
+    float v[4];
 };
 

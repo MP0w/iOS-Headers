@@ -15,8 +15,8 @@ __attribute__((visibility("hidden")))
     unsigned int _errorCount;
 }
 
++ (id)untargetedInvocationWithInvocation:(id)arg1 withCompletion:(BOOL)arg2;
 @property(nonatomic) unsigned int errorCount; // @synthesize errorCount=_errorCount;
-- (id)untargetedInvocationWithInvocation:(id)arg1;
 @property(readonly, nonatomic) NSInvocation *invocation;
 - (id)initWithInvocation:(id)arg1;
 - (void)dealloc;

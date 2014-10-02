@@ -17,5 +17,8 @@
 - (_Bool)folderController:(SBFolderController *)arg1 draggedIconDidMoveFromListView:(SBIconListView *)arg2 toListView:(SBIconListView *)arg3;
 - (_Bool)folderController:(SBFolderController *)arg1 draggedIconDidPauseAtLocation:(struct CGPoint)arg2 inListView:(SBIconListView *)arg3;
 - (Class)controllerClassForFolder:(SBFolder *)arg1;
+
+@optional
+- (void)folderControllerDidReceiveCancelReachabilityAction:(SBFolderController *)arg1;
 @end
 

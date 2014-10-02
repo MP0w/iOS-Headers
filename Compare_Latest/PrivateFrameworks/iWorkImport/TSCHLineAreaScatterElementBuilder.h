@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (unsigned int)countOfLabelsForSeries:(id)arg1 forGroups:(id)arg2 forBodyLayout:(id)arg3 outNewTransforms:(struct CGAffineTransform **)arg4 outNewElementSizes:(struct CGSize **)arg5 outNewClipRect:(struct CGRect **)arg6 outNewStrings:(id **)arg7;
-- (unsigned int)countOfPointsForSeries:(id)arg1 forGroups:(id)arg2 forBodyLayout:(id)arg3 outElementSize:(struct CGSize *)arg4 outClipRect:(struct CGRect *)arg5 outUnitSymbolPath:(const struct CGPath **)arg6 outNewTransformArray:(struct CGAffineTransform **)arg7;
+- (unsigned int)countOfPointsForSeries:(id)arg1 forGroups:(id)arg2 forBodyLayout:(id)arg3 outElementSize:(struct CGSize *)arg4 outClipRect:(struct CGRect *)arg5 outUnitSymbolPath:(const struct CGPath **)arg6 outNewTransformArray:(struct CGAffineTransform **)arg7 outNewGroupIndexArray:(unsigned int **)arg8;
 - (struct CGAffineTransform)transformForRenderingSeriesElementSymbolsForSeries:(id)arg1 forGroups:(id)arg2 forBodyLayout:(id)arg3 outElementSize:(struct CGSize *)arg4 outClipRect:(struct CGRect *)arg5 outNewElementPath:(const struct CGPath **)arg6;
 - (struct CGAffineTransform)transformForRenderingSeriesElementForSeries:(id)arg1 forGroups:(id)arg2 forBodyLayout:(id)arg3 outElementSize:(struct CGSize *)arg4 outClipRect:(struct CGRect *)arg5 outNewElementPath:(const struct CGPath **)arg6;
 - (struct CGAffineTransform)transformForRenderingSeriesElementTopStrokeForSeries:(id)arg1 forGroups:(id)arg2 forBodyLayout:(id)arg3 outElementSize:(struct CGSize *)arg4 outClipRect:(struct CGRect *)arg5 outNewElementPath:(const struct CGPath **)arg6;
@@ -33,6 +33,7 @@ __attribute__((visibility("hidden")))
 - (void)p_addTopStroke:(CDStruct_a79ab58c *)arg1 toPath:(struct CGPath *)arg2 withPointsArray:(CDStruct_b946340a *)arg3 withCount:(unsigned int)arg4 lineType:(int)arg5;
 - (void)p_addCurvedTopStroke:(CDStruct_a79ab58c *)arg1 toPath:(struct CGPath *)arg2 withPointsArray:(CDStruct_b946340a *)arg3 withCount:(unsigned int)arg4;
 - (CDStruct_c2e5f5a5 *)p_centerPointsForSeries:(id)arg1 forGroupIndexes:(struct _NSRange)arg2 xAxis:(id)arg3 yAxis:(id)arg4 plotAreaFrame:(struct CGRect)arg5;
+- (CDStruct_c2e5f5a5 *)p_centerPointsForSeries:(id)arg1 forGroupIndexes:(struct _NSRange)arg2 xAxis:(id)arg3 yAxis:(id)arg4 nullsUseIntercept:(BOOL)arg5 plotAreaFrame:(struct CGRect)arg6;
 - (BOOL)p_centerPointForSeries:(id)arg1 forGroupIndex:(unsigned int)arg2 xAxis:(id)arg3 yAxis:(id)arg4 plotAreaFrame:(struct CGRect)arg5 nullsUseIntercept:(BOOL)arg6 outPoint:(struct CGPoint *)arg7;
 - (struct CGPoint)labelPointForPosition:(unsigned int)arg1 rect:(struct CGRect)arg2 stringSize:(struct CGSize)arg3 symbolType:(int)arg4;
 - (struct CGPath *)p_newPlusPath:(struct CGPoint)arg1 width:(float)arg2 pathLocation:(int)arg3 stroke:(id)arg4 context:(struct CGContext *)arg5;

@@ -8,7 +8,7 @@
 
 #import "ABPersonTabsScrollView.h"
 
-@class ABPersonViewControllerHelper, UIView;
+@class ABPersonViewControllerHelper, NSString, UIView;
 
 @interface ABPersonTableView : UITableView <ABPersonTabsScrollView>
 {
@@ -29,6 +29,10 @@
 
 // Remaining properties
 @property(retain, nonatomic) UIView *backgroundView;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

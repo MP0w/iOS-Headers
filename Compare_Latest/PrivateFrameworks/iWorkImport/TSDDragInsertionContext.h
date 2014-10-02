@@ -13,10 +13,9 @@ __attribute__((visibility("hidden")))
     BOOL mPreferredCenterRequired;
     BOOL mShouldEndEditing;
     BOOL mFromDragToInsertController;
-    BOOL mInsertWillBeDiscarded;
+    BOOL mInsertFloating;
 }
 
-- (BOOL)insertWillBeDiscarded;
 - (BOOL)fromDragToInsertController;
 - (BOOL)shouldEndEditing;
 - (struct CGPoint)preferredCenter;
@@ -26,7 +25,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)insertFloating;
 - (BOOL)hasPreferredCenter;
 - (id)init;
-- (id)initWithPreferredCenter:(struct CGPoint)arg1 required:(BOOL)arg2 shouldEndEditing:(BOOL)arg3 fromDragToInsertController:(BOOL)arg4 insertWillBeDiscarded:(BOOL)arg5;
+- (id)initWithPreferredCenter:(struct CGPoint)arg1 required:(BOOL)arg2 shouldEndEditing:(BOOL)arg3 fromDragToInsertController:(BOOL)arg4 insertFloating:(BOOL)arg5;
 
 @end
 

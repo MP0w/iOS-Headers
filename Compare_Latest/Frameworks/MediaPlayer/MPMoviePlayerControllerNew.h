@@ -9,7 +9,7 @@
 #import "MPMediaPlayback.h"
 #import "MPMovieViewDelegate.h"
 
-@class MPAVController, MPInlineVideoController, MPMovieAccessLog, MPMovieErrorLog, MPMoviePlayerController, MPMovieView, MPNowPlayingObserver, NSArray, NSDictionary, NSError, NSMutableArray, NSMutableDictionary, NSMutableSet, UIWindow;
+@class MPAVController, MPInlineVideoController, MPMovieAccessLog, MPMovieErrorLog, MPMoviePlayerController, MPMovieView, MPNowPlayingObserver, NSArray, NSDictionary, NSError, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, UIWindow;
 
 @interface MPMoviePlayerControllerNew : NSObject <MPMovieViewDelegate, MPMediaPlayback>
 {
@@ -109,7 +109,7 @@
 - (void)_setNavigationBarHidden:(BOOL)arg1;
 - (void)_setMovieTitle:(id)arg1;
 - (void)_setMovieSubtitle:(id)arg1;
-- (void)_setMovieMediaTypesOverride:(int)arg1;
+- (void)_setMovieMediaTypesOverride:(unsigned int)arg1;
 - (void)_setHTTPHeaderFields:(id)arg1;
 - (void)_setDisallowsAMRAudio:(BOOL)arg1;
 - (void)_setDelegate:(id)arg1;
@@ -132,6 +132,7 @@
 - (id)_HTTPHeaderFields;
 - (BOOL)disallowsAMRAudio;
 - (id)_delegate;
+- (id)_currentItem;
 - (id)_audioSessionModeOverride;
 - (BOOL)_areControlsHidden;
 - (id)_advertisementView;
@@ -184,7 +185,7 @@
 - (double)duration;
 - (int)movieSourceType;
 - (void)setMovieSourceType:(int)arg1;
-- (int)movieMediaTypes;
+- (unsigned int)movieMediaTypes;
 - (void)skipToPreviousItem;
 - (void)skipToBeginning;
 - (void)skipToNextItem;
@@ -212,16 +213,24 @@
 - (void)setControlStyle:(int)arg1;
 - (int)scalingMode;
 - (void)setScalingMode:(int)arg1;
-- (int)loadState;
+- (unsigned int)loadState;
 - (int)playbackState;
 - (id)backgroundView;
 - (id)view;
+- (void)setPlayerItem:(id)arg1;
+- (id)playerItem;
 - (void)setAsset:(id)arg1;
 - (id)asset;
 - (void)setContentURL:(id)arg1;
 - (id)contentURL;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

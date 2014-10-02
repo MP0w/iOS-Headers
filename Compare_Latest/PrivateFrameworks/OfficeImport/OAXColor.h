@@ -11,10 +11,15 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (void)writeSRgbColor:(id)arg1 to:(id)arg2;
++ (void)writePresetColor:(id)arg1 to:(id)arg2;
++ (id)readSchemeColorFromAttribute:(id)arg1;
 + (id)readSystemColorFromAttribute:(id)arg1;
 + (id)readPresetColorFromAttribute:(id)arg1;
 + (id)readColorFromNode:(struct _xmlNode *)arg1;
 + (id)readColorFromParentXmlNode:(struct _xmlNode *)arg1;
++ (id)stringSRgbColor:(id)arg1;
++ (id)presetColorRGBEnumMap;
 + (id)schemeColorEnumMap;
 + (id)systemColorEnumMap;
 + (id)presetColorEnumMap;
