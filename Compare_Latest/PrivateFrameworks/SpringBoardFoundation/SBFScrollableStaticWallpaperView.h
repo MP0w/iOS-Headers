@@ -54,7 +54,7 @@
 - (float)parallaxFactor;
 - (void)setParallaxEnabled:(BOOL)arg1;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 wallpaperImage:(id)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 wallpaperImage:(id)arg2 variant:(int)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

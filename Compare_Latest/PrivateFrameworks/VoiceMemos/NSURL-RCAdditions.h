@@ -7,6 +7,7 @@
 #import "NSURL.h"
 
 @interface NSURL (RCAdditions)
+- (id)rc_URLByFixingUpPersistentMediaRecordingsDirectory;
 - (id)rc_URLByReplacingPathExtensionWithExtension:(id)arg1;
 - (id)rc_URLByAppendingStringToLastComponentBasename:(id)arg1;
 @end

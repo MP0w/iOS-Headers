@@ -54,6 +54,7 @@
 - (void)bannerViewControllerDidPullDown:(id)arg1;
 - (void)bannerViewControllerDidShrinkForKeyboard:(id)arg1;
 - (void)bannerViewControllerDidReceiveRaiseGesture:(id)arg1;
+- (void)bannerViewController:(id)arg1 didRequestSticky:(_Bool)arg2;
 - (void)bannerViewControllerDidRequestSticky:(id)arg1;
 - (void)bannerViewControllerDidRequestDismissal:(id)arg1;
 - (void)bannerViewControllerDidSelectAction:(id)arg1;

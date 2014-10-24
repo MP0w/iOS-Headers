@@ -17,6 +17,7 @@
 - (void)getApplicationStatus:(void (^)(BOOL, NSError *))arg1;
 - (void)forceConflictForURL:(NSURL *)arg1 bookmarkData:(NSString *)arg2 forcedEtag:(NSString *)arg3 reply:(void (^)(NSError *))arg4;
 - (void)getPublishedURLForItemAtURL:(NSURL *)arg1 forStreaming:(BOOL)arg2 requestedTTL:(unsigned int)arg3 reply:(void (^)(NSURL *, NSDate *, NSError *))arg4;
+- (void)getBackReferencingContainerIDsForURL:(NSURL *)arg1 reply:(void (^)(NSArray *, NSError *))arg2;
 - (void)resolveBookmarkDataToURL:(NSString *)arg1 reply:(void (^)(NSURL *, NSData *, NSURL *, NSData *, NSError *))arg2;
 - (void)getBookmarkDataForURL:(NSURL *)arg1 reply:(void (^)(NSString *, NSString *, NSError *))arg2;
 - (void)jetsamCloudDocsAppsWithReply:(void (^)(NSError *))arg1;

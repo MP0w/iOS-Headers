@@ -23,7 +23,7 @@
 @property(nonatomic) BOOL shouldRepeatTexture; // @synthesize shouldRepeatTexture=_shouldRepeatTexture;
 - (void).cxx_destruct;
 - (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToNode:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)copy;
 - (BOOL)containsPoint:(struct CGPoint)arg1;

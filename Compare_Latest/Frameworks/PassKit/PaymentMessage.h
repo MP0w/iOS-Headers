@@ -11,20 +11,24 @@
 }
 
 + (id)_propertySettersForPaymentMessage;
++ (id)_predicateForMessagesThatExpireOnTransaction;
++ (id)_predicateForNonExpiredMessages;
 + (id)_predicateForIdentifier:(id)arg1;
 + (id)_predicateForPassWithUniqueIdentifier:(id)arg1;
 + (id)_predicateForPaymentPass:(id)arg1;
 + (id)_paymentMessagesInDatabase:(id)arg1 matchingPredicate:(id)arg2;
-+ (id)anyInDatabase:(id)arg1 withIdentifier:(id)arg2;
 + (id)paymentMessagesInDatabase:(id)arg1 forPaymentPassUniqueIdentifier:(id)arg2;
-+ (id)paymentMessagesInDatabase:(id)arg1 forPaymentPass:(id)arg2;
++ (id)anyInDatabase:(id)arg1 withIdentifier:(id)arg2 forPassWithUniqueIdentifier:(id)arg3;
++ (void)expireAnyMessagesDueToTransactionOnPass:(id)arg1 inDatabase:(id)arg2;
 + (void)truncateEntitiesForPass:(id)arg1 inDatabase:(id)arg2 toCount:(int)arg3;
 + (void)deleteEntitiesForPass:(id)arg1 inDatabase:(id)arg2;
 + (id)insertPaymentMessage:(id)arg1 withPaymentPass:(id)arg2 inDatabase:(id)arg3;
 + (id)joinClauseForProperty:(id)arg1;
 + (id)associationPropertyForEntityClass:(Class)arg1;
 + (id)databaseTable;
+- (BOOL)isExpired;
 - (id)paymentMessage;
+- (void)expire;
 - (void)updateWithPaymentMessage:(id)arg1;
 - (id)initWithPaymentMessage:(id)arg1 paymentPass:(id)arg2 inDatabase:(id)arg3;
 

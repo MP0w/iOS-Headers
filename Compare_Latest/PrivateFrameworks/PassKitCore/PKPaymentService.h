@@ -8,7 +8,7 @@
 
 #import "PKPaymentServiceExportedInterface.h"
 
-@class NSLock, NSString, NSXPCConnection, PKPaymentServiceExportedProxy, PKPaymentWebService;
+@class NSLock, NSString, NSXPCConnection, PKPaymentServiceExportedProxy, PKPaymentWebServiceContext;
 
 @interface PKPaymentService : NSObject <PKPaymentServiceExportedInterface>
 {
@@ -18,7 +18,6 @@
     id <PKPaymentServiceDelegate> _delegate;
 }
 
-+ (void)_tearDownPaymentServiceConnection:(id)arg1 exportedProxy:(id)arg2;
 + (BOOL)paymentServiceIsAvailable;
 @property(nonatomic) id <PKPaymentServiceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)_unregisterForPaymentServiceNotifications;
@@ -32,34 +31,33 @@
 - (void)_establishPaymentServiceConnection;
 - (void)_tearDownPaymentServiceConnection;
 - (CDUnknownBlockType)_errorHandlerWithCompletion:(CDUnknownBlockType)arg1;
-- (void)_sharedPaymentWebServiceWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_sharedPaymentWebServiceContextWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_defaultPaymentPassUniqueIdentifier:(CDUnknownBlockType)arg1;
 - (void)_secureElementIdentifierWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_paymentDeviceIsInRestrictedModeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_paymentDeviceIsInFieldWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_paymentDeviceIsAvailableWithCompletion:(CDUnknownBlockType)arg1;
-- (void)_markAllPaymentApplicationsForDeleteWithCompletion:(CDUnknownBlockType)arg1;
-- (void)_deleteAllMessagesForPaymentPassWithUniqueIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_deleteMessageWithIdentifier:(id)arg1 fromPassWithUniqueIdentifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_activationStateForPaymentPassWithUniqueIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
-@property(retain, nonatomic) PKPaymentWebService *sharedPaymentWebService;
+@property(retain, nonatomic) PKPaymentWebServiceContext *sharedPaymentWebServiceContext;
 @property(retain, nonatomic) NSString *defaultPaymentPassUniqueIdentifier;
 @property(readonly, nonatomic) NSString *secureElementIdentifier;
 @property(readonly, nonatomic) BOOL paymentDeviceIsInRestrictedMode;
 @property(readonly, nonatomic) BOOL paymentDeviceIsAvailable;
 @property(readonly, nonatomic) BOOL paymentDeviceIsInField;
-- (void)setNewAuthRandomIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
+- (void)setNewAuthRandomIfNecessaryWithRetryCount:(unsigned int)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setNewAuthRandom;
+- (void)downloadAllPaymentPasses;
 - (void)consistencyCheck;
 - (void)simulatePaymentPush;
 - (void)markAllPaymentApplicationsForDelete;
 - (void)presentPaymentInterfaceWithCompletion:(CDUnknownBlockType)arg1;
-- (void)deleteAllMessagesForPaymentPassWithUniqueIdentifier:(id)arg1;
-- (void)messageForPaymentPassWithUniqueIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)messagesForPaymentPassWithUniqueIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)transactionsForPaymentPassWithUniqueIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)insertOrUpdatePaymentTransaction:(id)arg1 forPassUniqueIdentifier:(id)arg2 paymentApplication:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)deleteMessageWithIdentifier:(id)arg1 fromPassWithUniqueIdentifier:(id)arg2;
 - (void)submitVerificationCode:(id)arg1 verificationData:(id)arg2 forDPANIdentifier:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)submitVerificationCode:(id)arg1 verificationData:(id)arg2 forDPANIdentifier:(id)arg3;
-- (void)removePaymentDeviceContactlessInterfaceRestrictionOverride:(id)arg1;
-- (void)addPaymentDeviceContactlessInterfaceRestrictionOverride:(id)arg1;
 - (void)authorizeInAppPaymentRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)deauthorizePaymentPassWithUniqueIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)authorizePaymentPassWithUniqueIdentifier:(id)arg1 authenticationCredential:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -75,6 +73,7 @@
 - (void)paymentPassWithUniqueIdentifierDidDeauthorize:(id)arg1;
 - (void)paymentPassWithUniqueIdentifierDidAuthorize:(id)arg1;
 - (void)paymentPassWithUniqueIdentifierDidActivate:(id)arg1;
+- (void)didUpdateDefaultPaymentPassWithUniqueIdentifier:(id)arg1;
 - (void)paymentDeviceDidLeaveRestrictedMode;
 - (void)paymentDeviceDidEnterRestrictedMode;
 - (void)paymentDeviceDidBecomeUnavailable;

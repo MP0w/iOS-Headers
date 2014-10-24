@@ -34,6 +34,7 @@
     struct CGRect _cachedLayoutAttributesLastKnownRect;
     NSIndexSet *_deletedSections;
     NSSet *_deletedItemIndexPaths;
+    BOOL _processingCollectionViewUpdates;
     NSIndexPath *_viewSizeTransitionAnchorItem;
     float _viewSizeTransitionAnchorItemNormalizedYOffset;
     BOOL _floatingHeadersLayoutIsValid;
@@ -45,6 +46,7 @@
     NSDictionary *_transitionSectionInfosByVisualSection;
     BOOL _delegateSupportsGroupedSections;
     BOOL _delegateSupportsAnchorItemForContentOffset;
+    BOOL _delegateSupportsTargetContentOffset;
     BOOL _delegateSupportsTransitionAutoContentOffsetEnabled;
     BOOL _delegateSupportsDidInvalidateWithContext;
     BOOL _usesRenderedStrips;

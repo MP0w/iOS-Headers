@@ -114,7 +114,7 @@
 @property(readonly) BOOL _shouldAlignToKeyboard;
 - (void)_updateShouldAlignToKeyboard;
 - (void)loadView;
-- (void)_getRotationContentSettings:(CDStruct_19ba41f1 *)arg1;
+- (void)_getRotationContentSettings:(CDStruct_f39609a0 *)arg1;
 - (BOOL)_isSupportedInterfaceOrientation:(int)arg1;
 - (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)didRotateFromInterfaceOrientation:(int)arg1;

@@ -106,7 +106,7 @@
 - (id)geometrySet:(BOOL)arg1;
 - (id)keySet;
 - (void)updateMoreAndInternationalKeysWithOptions:(int)arg1;
-- (void)mergeKeyNames:(id)arg1;
+- (id)mergeKeyNames:(id)arg1;
 - (void)subsumeDisappearingKeyName:(id)arg1 intoKeyName:(id)arg2 factors:(id)arg3;
 - (id)keysForMergeConditions;
 - (void)updateDictationKeyOnNumberPads:(BOOL)arg1;

@@ -53,6 +53,7 @@
     NSString *_bulletinVersionID;
     NSMutableArray *_lifeAssertions;
     NSMutableSet *_observers;
+    NSString *_parentSectionID;
     unsigned int realertCount_deprecated;
     NSSet *alertSuppressionAppIDs_deprecated;
 }
@@ -66,6 +67,7 @@
 + (void)vetSortDescriptor:(id)arg1;
 @property(copy, nonatomic) NSSet *alertSuppressionAppIDs_deprecated; // @synthesize alertSuppressionAppIDs_deprecated;
 @property(nonatomic) unsigned int realertCount_deprecated; // @synthesize realertCount_deprecated;
+@property(copy, nonatomic) NSString *parentSectionID; // @synthesize parentSectionID=_parentSectionID;
 @property(retain, nonatomic) NSMutableSet *observers; // @synthesize observers=_observers;
 @property(retain, nonatomic) NSMutableArray *lifeAssertions; // @synthesize lifeAssertions=_lifeAssertions;
 @property(nonatomic) BOOL usesExternalSync; // @synthesize usesExternalSync=_usesExternalSync;

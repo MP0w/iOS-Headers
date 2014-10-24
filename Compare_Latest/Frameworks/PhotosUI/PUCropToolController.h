@@ -134,9 +134,7 @@
 - (struct CGPoint)_pointForHandle:(unsigned int)arg1 onCropRect:(struct CGRect)arg2;
 - (struct CGPoint)_pointForHandle:(unsigned int)arg1;
 - (struct CGVector)_deltaMaskForHandle:(unsigned int)arg1;
-- (struct CGRect)_cropRectForCurrentAspectRatio;
 - (struct CGVector)_correctInputVector:(struct CGVector)arg1 forHandle:(unsigned int)arg2 onCropRect:(struct CGRect)arg3 lockDirection:(BOOL)arg4;
-- (struct CGRect)_correctRect:(struct CGRect)arg1 withAspect:(float)arg2;
 - (struct CGRect)_addHeight:(float)arg1 toRect:(struct CGRect)arg2 anchorTop:(BOOL)arg3;
 - (struct CGRect)_addWidth:(float)arg1 toRect:(struct CGRect)arg2 anchorLeft:(BOOL)arg3;
 - (struct CGRect)_cropRectFromPanningHandle:(unsigned int)arg1 byAmount:(struct CGVector)arg2;
@@ -177,6 +175,7 @@
 - (void)_cancelAnimationForKeyPath:(id)arg1;
 - (void)_setStraightenAngle:(float)arg1 animated:(BOOL)arg2;
 - (void)_setViewCropRect:(struct CGRect)arg1 normalizedImageRect:(struct CGRect)arg2 animated:(BOOL)arg3;
+- (struct CGRect)_validatedRectFromNormalizedImageRect:(struct CGRect)arg1;
 - (void)_setCropAspect:(id)arg1 animated:(BOOL)arg2;
 - (void)_setRotation:(unsigned int)arg1 animated:(BOOL)arg2;
 - (struct CGRect)_viewCropToMatchPreview;

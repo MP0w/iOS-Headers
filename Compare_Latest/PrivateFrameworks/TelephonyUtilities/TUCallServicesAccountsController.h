@@ -6,21 +6,24 @@
 
 #import "NSObject.h"
 
-@class NSObject<TUCallServicesAccountsControllerDelegate>, NSSet, NSString;
+@class IDSService, NSObject<TUCallServicesAccountsControllerDelegate>, NSSet, NSString;
 
 @interface TUCallServicesAccountsController : NSObject
 {
     NSObject<TUCallServicesAccountsControllerDelegate> *_delegate;
     NSSet *_availableOutgoingRelayCallerIDs;
+    IDSService *_faceTimeService;
+    IDSService *_phoneRelayService;
 }
 
+@property(retain, nonatomic) IDSService *phoneRelayService; // @synthesize phoneRelayService=_phoneRelayService;
+@property(retain, nonatomic) IDSService *faceTimeService; // @synthesize faceTimeService=_faceTimeService;
 @property(copy, nonatomic) NSSet *availableOutgoingRelayCallerIDs; // @synthesize availableOutgoingRelayCallerIDs=_availableOutgoingRelayCallerIDs;
 @property(nonatomic) NSObject<TUCallServicesAccountsControllerDelegate> *delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (id)_iCloudLogin;
-- (id)_faceTimeLogin;
-- (id)_faceTimeAccountOfType:(int)arg1;
-@property(readonly, copy, nonatomic) NSString *localRelayCallerID;
+- (id)_phoneCallRelayAccount;
+- (id)_faceTimeAccount;
+- (id)_idsAccountForService:(id)arg1 ofType:(int)arg2;
 @property(readonly, copy, nonatomic) NSString *outgoingRelayCallerID;
 @property(readonly, nonatomic) BOOL faceTimeIDMatchesAppleID;
 - (void)daemonControllerDidConnect;

@@ -9,7 +9,7 @@
 @class HDSQLiteDatabase;
 
 @protocol HDDatabaseMigrator <NSObject>
-- (BOOL)migrateProtectedDatabaseToVersion:(int)arg1 withDatabase:(HDSQLiteDatabase *)arg2 error:(id *)arg3;
+- (BOOL)migrateProtectedDatabaseToVersion:(int)arg1 withDatabase:(HDSQLiteDatabase *)arg2 healthDaemon:(id <HDHealthDaemon>)arg3 error:(id *)arg4;
 - (BOOL)migrateUnprotectedDatabaseToVersion:(int)arg1 withDatabase:(HDSQLiteDatabase *)arg2 error:(id *)arg3;
 @end
 

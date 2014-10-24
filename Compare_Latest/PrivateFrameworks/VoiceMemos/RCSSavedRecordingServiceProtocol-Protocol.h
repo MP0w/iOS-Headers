@@ -13,7 +13,7 @@
 - (oneway void)enableOrphanHandlingWithCompletionBlock:(void (^)(NSError *))arg1;
 - (oneway void)disableOrphanHandlingWithCompletionBlock:(void (^)(NSError *))arg1;
 - (oneway void)enableOrphanedFragmentCleanupForCompositionAVURL:(NSURL *)arg1;
-- (oneway void)disableOrphanedFragmentCleanupForCompositionAVURL:(NSURL *)arg1;
+- (oneway void)disableOrphanedFragmentCleanupForCompositionAVURL:(NSURL *)arg1 completionBlock:(void (^)(NSError *))arg2;
 - (oneway void)endAccessSessionWithToken:(RCSSavedRecordingAccessToken *)arg1;
 - (oneway void)prepareToTrimCompositionAVURL:(NSURL *)arg1 accessRequestHandler:(void (^)(RCSSavedRecordingAccessToken *, NSError *))arg2;
 - (oneway void)prepareToExportCompositionAVURL:(NSURL *)arg1 cacheWaveform:(BOOL)arg2 accessRequestHandler:(void (^)(RCSSavedRecordingAccessToken *, NSError *))arg3;

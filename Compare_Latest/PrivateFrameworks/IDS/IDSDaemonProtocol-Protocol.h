@@ -21,6 +21,7 @@
 - (void)continuityStopAdvertisingOfType:(int)arg1;
 - (void)continuityStartAdvertisingOfType:(int)arg1 withData:(NSData *)arg2 withOptions:(NSDictionary *)arg3;
 - (void)continuityClientInstanceCreated;
+- (void)acknowledgeSessionID:(NSString *)arg1 clientID:(NSString *)arg2;
 - (void)setInviteTimetout:(int)arg1 forSessionWithUniqueID:(NSString *)arg2;
 - (void)setAudioEnabled:(BOOL)arg1 forSessionWithUniqueID:(NSString *)arg2;
 - (void)sendSessionMessage:(NSData *)arg1 toSession:(NSString *)arg2;

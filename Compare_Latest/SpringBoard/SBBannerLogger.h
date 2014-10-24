@@ -10,6 +10,7 @@
 {
 }
 
+- (id)logPrefixForCategory:(id)arg1 destination:(unsigned long long)arg2;
 - (id)logPreferenceName;
 - (void)_setEnabled:(_Bool)arg1;
 - (id)name;

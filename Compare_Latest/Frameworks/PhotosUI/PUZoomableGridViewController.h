@@ -76,7 +76,6 @@
 - (void)_invalidateSyncProgressAlbums;
 @property(readonly, nonatomic) NSArray *_syncProgressAlbums; // @synthesize _syncProgressAlbums=__syncProgressAlbums;
 - (BOOL)wantsAssetCounts;
-- (void)didUpdateAssetCounts;
 - (void)configureGlobalFooterView:(id)arg1;
 - (BOOL)wantsGlobalFooter;
 - (double)cellAspectRatioHint;

@@ -34,7 +34,7 @@
     float _lastTransitionWidth;
     PHAsset *_visibleReferenceAssetBeforeChange;
     PHAssetCollection *_visibleReferenceAssetContainerBeforeChange;
-    struct CGRect _visibleReferenceAssetFrameBeforeChange;
+    float _visibleReferenceAssetRelativeYBeforeChange;
     UIBarButtonItem *_selectSessionDoneBarButtonItem;
     UIBarButtonItem *_cancelButtonItem;
     UINavigationButton *_selectionButton;
@@ -56,7 +56,7 @@
     BOOL __hasEditSessionReorderedItems;
     BOOL _isDisplayingSearchResults;
     BOOL _showsCustomDoneButtonItemOnLeft;
-    BOOL __assetsNeedsCounting;
+    BOOL __shouldConsolidateFetchesForPreheating;
     PUPhotosGridViewControllerSpec *_gridSpec;
     PUPhotosDataSource *_photosDataSource;
     PUSessionInfo *_sessionInfo;
@@ -84,15 +84,13 @@
     int __maximumNumberOfRowsToPreheat;
     PUScrollViewSpeedometer *__collectionViewSpeedometer;
     id __lockScreenSharingObserver;
-    int _imageCount;
-    int _videoCount;
+    int __batchPreheatingCount;
     struct CGPoint __previousPreheatContentOffset;
     struct CGRect __previousPreheatRect;
 }
 
-@property(nonatomic, setter=_setAssetsNeedsCounting:) BOOL _assetsNeedsCounting; // @synthesize _assetsNeedsCounting=__assetsNeedsCounting;
-@property(nonatomic, setter=_setVideoCount:) int videoCount; // @synthesize videoCount=_videoCount;
-@property(nonatomic, setter=_setImageCount:) int imageCount; // @synthesize imageCount=_imageCount;
+@property(nonatomic, setter=_setShouldConsolidateFetchesForPreheating:) BOOL _shouldConsolidateFetchesForPreheating; // @synthesize _shouldConsolidateFetchesForPreheating=__shouldConsolidateFetchesForPreheating;
+@property(nonatomic, setter=_setBatchPreheatingCount:) int _batchPreheatingCount; // @synthesize _batchPreheatingCount=__batchPreheatingCount;
 @property(retain, nonatomic, setter=_setLockScreenSharingObserver:) id _lockScreenSharingObserver; // @synthesize _lockScreenSharingObserver=__lockScreenSharingObserver;
 @property(retain, nonatomic, setter=_setCollectionViewSpeedometer:) PUScrollViewSpeedometer *_collectionViewSpeedometer; // @synthesize _collectionViewSpeedometer=__collectionViewSpeedometer;
 @property(nonatomic, setter=_setMaximumNumberOfRowsToPreheat:) int _maximumNumberOfRowsToPreheat; // @synthesize _maximumNumberOfRowsToPreheat=__maximumNumberOfRowsToPreheat;
@@ -182,8 +180,6 @@
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
 - (int)numberOfSectionsInCollectionView:(id)arg1;
-- (void)_countAssetsIfNeeded;
-- (void)didUpdateAssetCounts;
 - (BOOL)wantsAssetCounts;
 - (void)_updateBackButtonTitle;
 - (void)_configureAddPlaceholderCell:(id)arg1 animated:(BOOL)arg2;
@@ -233,6 +229,7 @@
 - (void)processDataSourceChange:(id)arg1;
 - (void)photosDataSource:(id)arg1 didChange:(id)arg2;
 - (void)photosDataSourceWillChange:(id)arg1;
+- (struct CGPoint)stableUpdatesContentOffsetForProposedContentOffset:(struct CGPoint)arg1;
 - (void)_clearAutomaticContentOffsetSnapshot;
 - (void)_performAutomaticContentOffsetAdjustment;
 - (void)_prepareForAutomaticContentOffsetAdjustment;
@@ -269,6 +266,9 @@
 - (void)scrollViewSpeedometer:(id)arg1 regimeDidChange:(int)arg2 from:(int)arg3;
 - (id)indexPathsForPreheatingInRect:(struct CGRect)arg1;
 - (double)cellAspectRatioHint;
+- (void)endBatchPreheating;
+- (void)beginBatchPreheating;
+- (BOOL)isPreheatingEnabled;
 - (void)preheatAssets;
 - (void)preheatAssetsConsolidatingFetches:(BOOL)arg1;
 - (struct CGSize)contentSizeForPreheating;

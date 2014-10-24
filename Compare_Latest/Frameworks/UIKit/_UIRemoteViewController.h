@@ -22,6 +22,7 @@
     NSArray *_serviceViewControllerSupportedInterfaceOrientations;
     unsigned int _serviceAccessibilityServerPort;
     unsigned int _serviceRegisteredScrollToTopViewCount;
+    int _applicationDeactivationReason;
     id _viewControllerOperatorProxy;
     _UIAsyncInvocation *_viewControllerOperatorHalfDisconnectionInvocation;
     id _textEffectsOperatorProxy;
@@ -68,6 +69,7 @@
 + (BOOL)shouldPropagateAppearanceCustomizations;
 @property(nonatomic) BOOL serviceViewShouldShareTouchesWithHost; // @synthesize serviceViewShouldShareTouchesWithHost=_serviceViewShouldShareTouchesWithHost;
 @property(retain, nonatomic, setter=_setTouchDeliveryPolicyAssertion:) BKSTouchDeliveryPolicyAssertion *_touchDeliveryPolicyAssertion; // @synthesize _touchDeliveryPolicyAssertion;
+- (void)_snapshotAdjustedMediaTiming:(id)arg1;
 - (id)_cancelTouchesForCurrentEventInHostedContent;
 - (void)_prepareTouchDeliveryPolicy;
 - (void)restoreStateForSession:(id)arg1 anchor:(id)arg2;
@@ -130,6 +132,7 @@
 - (id)_terminateWithError:(id)arg1;
 - (void)_setContentOverlayInsets:(struct UIEdgeInsets)arg1;
 - (void)_updateTouchGrabbingView;
+- (void)_applicationDidAddDeactivationReason:(id)arg1;
 - (void)_applicationWillDeactivate:(id)arg1;
 - (void)_applicationDidBecomeActive:(id)arg1;
 - (void)_snapshotAndRemoveTextEffectsRemoteView;

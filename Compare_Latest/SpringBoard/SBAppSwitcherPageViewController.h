@@ -59,7 +59,6 @@
 - (void)reloadInOrientation:(long long)arg1;
 - (double)_halfWidth;
 - (id)_safeDelegate;
-- (void)viewDidDisappear:(_Bool)arg1;
 - (void)loadView;
 - (unsigned long long)supportedInterfaceOrientations;
 - (_Bool)shouldAutorotate;

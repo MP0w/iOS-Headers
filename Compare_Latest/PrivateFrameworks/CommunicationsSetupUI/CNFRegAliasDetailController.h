@@ -14,9 +14,12 @@
     PSSpecifier *_removeGroupSpecifier;
     PSSpecifier *_removeButtonSpecifier;
     NSArray *_resendValidationSpecifierGroup;
+    CDUnknownBlockType _alertHandler;
 }
 
+@property(copy, nonatomic) CDUnknownBlockType alertHandler; // @synthesize alertHandler=_alertHandler;
 @property(retain, nonatomic) CNFRegAlias *alias; // @synthesize alias=_alias;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)_setupEventHandlers;
 - (void)_showAliasValidationError:(id)arg1;
 - (void)systemApplicationWillEnterForeground;

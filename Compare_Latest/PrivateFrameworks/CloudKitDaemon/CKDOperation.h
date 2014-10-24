@@ -55,7 +55,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) BOOL usesBackgroundSession; // @synthesize usesBackgroundSession=_usesBackgroundSession;
 @property(nonatomic) BOOL useEncryption; // @synthesize useEncryption=_useEncryption;
 @property(nonatomic) __weak CKDClientProxy *proxy; // @synthesize proxy=_proxy;
-@property(readonly, nonatomic) __weak CKDClientContext *context; // @synthesize context=_context;
+@property(retain, nonatomic) CKDClientContext *context; // @synthesize context=_context;
 @property(nonatomic) __weak CKDOperation *parentOperation; // @synthesize parentOperation=_parentOperation;
 @property(retain, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
 @property(readonly, nonatomic) NSString *operationID; // @synthesize operationID=_operationID;

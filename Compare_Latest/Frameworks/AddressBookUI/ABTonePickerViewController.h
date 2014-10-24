@@ -15,7 +15,7 @@
 
 - (void)cancelButtonClicked:(id)arg1;
 - (void)ringtoneSaveButtonClicked:(id)arg1;
-- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
+- (void)_getRotationContentSettings:(CDStruct_3421d26a *)arg1;
 - (float)ab_heightToFitForViewInPopoverView;
 - (void)loadView;
 @property(readonly, retain, nonatomic) TKTonePickerViewController *tonePickerViewController;

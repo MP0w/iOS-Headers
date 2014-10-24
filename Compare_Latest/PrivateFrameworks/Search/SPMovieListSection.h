@@ -16,6 +16,7 @@
 
 
 // Remaining properties
+@property(retain, nonatomic) NSURL *attribution_url;
 @property(retain, nonatomic) NSArray *movies; // @dynamic movies;
 @property(retain, nonatomic) NSString *subtitle; // @dynamic subtitle;
 @property(retain, nonatomic) NSString *title; // @dynamic title;

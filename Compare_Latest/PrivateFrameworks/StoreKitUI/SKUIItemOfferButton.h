@@ -16,6 +16,7 @@
     UIView *_borderView;
     SKUIFocusedTouchGestureRecognizer *_cancelGestureRecognizer;
     UIImage *_cloudImage;
+    UIColor *_cloudTintColor;
     UIColor *_confirmationColor;
     NSMutableAttributedString *_confirmationTitleAttributedString;
     int _confirmationTitleStyle;
@@ -24,7 +25,6 @@
     int _fillStyle;
     UIImage *_image;
     UIImageView *_imageView;
-    BOOL _isUbered;
     float _progress;
     SKUICircleProgressIndicator *_progressIndicator;
     BOOL _showsConfirmationState;
@@ -41,7 +41,7 @@
 + (id)_basicAnimationWithKeyPath:(id)arg1;
 + (struct UIEdgeInsets)_imageInsetsForProgressType:(int)arg1;
 + (id)_imageForProgressType:(int)arg1;
-+ (id)_cloudImageForTint:(id)arg1 isUbered:(BOOL)arg2;
++ (id)_cloudImageWithTintColor:(id)arg1 arrowTintColor:(id)arg2;
 + (id)_universalPlusImageWithTintColor:(id)arg1;
 + (struct CGSize)_titleSizeThatFitsForSize:(struct CGSize)arg1 titleStyle:(int)arg2 mutableAttributedString:(id)arg3;
 + (BOOL)_sizeMattersForTitleStyle:(int)arg1;
@@ -50,6 +50,7 @@
 + (id)_cachedImageForAttributedTitle:(id)arg1 titleStyle:(int)arg2 size:(struct CGSize)arg3 fillStyle:(int)arg4 universal:(BOOL)arg5 tintColor:(id)arg6;
 + (id)localizedTitleForItemState:(id)arg1 clientContext:(id)arg2;
 + (id)itemOfferButtonWithAppearance:(id)arg1;
++ (id)cloudTintColorForBackgroundColor:(id)arg1;
 @property(nonatomic) float progress; // @synthesize progress=_progress;
 @property(nonatomic, getter=isUniversal) BOOL universal; // @synthesize universal=_universal;
 @property(nonatomic) int titleStyle; // @synthesize titleStyle=_titleStyle;
@@ -57,6 +58,7 @@
 @property(nonatomic) int fillStyle; // @synthesize fillStyle=_fillStyle;
 @property(nonatomic) __weak id <SKUIItemOfferButtonDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) int confirmationTitleStyle; // @synthesize confirmationTitleStyle=_confirmationTitleStyle;
+@property(copy, nonatomic) UIColor *cloudTintColor; // @synthesize cloudTintColor=_cloudTintColor;
 - (void).cxx_destruct;
 - (void)_removeAllAnimations:(BOOL)arg1;
 - (void)_updateForChangedTitleProperty;

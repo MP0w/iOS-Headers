@@ -8,29 +8,32 @@
 
 #import "NSSecureCoding.h"
 
-@class NSLock, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString, PDContactlessInterface, PKPaymentApplication;
+@class NSLock, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, PDContactlessInterface, PKPaymentApplication;
 
 @interface PDSecureElement : NSObject <NSSecureCoding>
 {
     NSObject<OS_dispatch_queue> *_processingQueue;
+    NSObject<OS_dispatch_source> *_deleteTimeoutTimer;
     NSString *_secureElementIdentifier;
     NSLock *_activatedPaymentApplicationLock;
     NSLock *_authorizedPaymentApplicationLock;
     PKPaymentApplication *_activatedPaymentApplication;
     PKPaymentApplication *_authorizedPaymentApplication;
-    NSObject<OS_dispatch_semaphore> *_authRandomMutex;
-    BOOL _needsAuthRandom;
+    BOOL _isInRestrictedMode;
     BOOL _isAvailable;
+    BOOL _isRemovingAllPaymentApplications;
     PDContactlessInterface *_contactlessInterface;
     id <PDSecureElementDelegate> _delegate;
 }
 
 + (BOOL)supportsSecureCoding;
++ (id)archiveWithDelegate:(id)arg1;
 + (id)archive;
-+ (id)sharedInstance;
 @property(nonatomic) id <PDSecureElementDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) PDContactlessInterface *contactlessInterface; // @synthesize contactlessInterface=_contactlessInterface;
+@property(readonly, nonatomic) BOOL isRemovingAllPaymentApplications; // @synthesize isRemovingAllPaymentApplications=_isRemovingAllPaymentApplications;
 @property(readonly, nonatomic) BOOL isAvailable; // @synthesize isAvailable=_isAvailable;
+@property(readonly, nonatomic) BOOL isInRestrictedMode; // @synthesize isInRestrictedMode=_isInRestrictedMode;
 - (void)_archiveToDisk;
 - (id)_secureElementCardsWithAIDs:(id)arg1;
 - (void)_processingQueueDeauthorizePaymentApplication:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -38,17 +41,18 @@
 - (void)_processingQueueActivatePaymentApplication:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_setAuthorizedPaymentApplication:(id)arg1;
 - (void)_setActivatedPaymentApplication:(id)arg1;
+- (int)_numberOfPaymentApplicationsToDelete;
+- (void)updateRestrictedModeState:(BOOL)arg1;
 - (id)secureElementCards;
 - (BOOL)syncWithTSM;
 @property(readonly, nonatomic) PKPaymentApplication *authorizedPaymentApplication;
 @property(readonly, nonatomic) PKPaymentApplication *activatedPaymentApplication;
 @property(readonly, nonatomic) NSString *secureElementIdentifier;
-@property(readonly, nonatomic) BOOL isInRestrictedMode;
-- (void)setupNewUserWithCompletion:(CDUnknownBlockType)arg1;
-- (void)markAllPaymentApplicationsForDelete;
-- (void)setAuthRandomIfNecessary;
-- (void)markPaymentApplicationsWithIdentifiersForDelete:(id)arg1;
+- (void)setNewAuthRandomIfNecessary;
+- (void)setNewAuthRandomWithCompletion:(CDUnknownBlockType)arg1;
+- (void)markPaymentApplicationsWithIdentifiersForDelete:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)markPaymentApplicationForDelete:(id)arg1;
+- (void)markAllPaymentApplicationsForDelete;
 - (void)casdCertificatesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)encodeAndSignDictionary:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)inAppPaymentDataWithPaymentAuthorizationRequest:(id)arg1 paymentApplication:(id)arg2 completion:(CDUnknownBlockType)arg3;

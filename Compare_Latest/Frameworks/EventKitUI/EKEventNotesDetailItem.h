@@ -18,6 +18,8 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
+- (unsigned int)maximumNumberOfSubItems;
+- (BOOL)requiresLayoutForSubitemCount;
 - (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2;
 - (BOOL)hasDetailViewControllerAtIndex:(unsigned int)arg1;
 - (id)cellForSubitemAtIndex:(unsigned int)arg1;

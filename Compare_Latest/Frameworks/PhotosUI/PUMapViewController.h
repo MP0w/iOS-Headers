@@ -7,14 +7,14 @@
 #import "UIViewController.h"
 
 #import "MKMapViewDelegate.h"
-#import "PHPhotoLibraryChangeObserver.h"
 #import "PUMapAnnotationManagerDataSource.h"
 #import "PUPhotoBrowserZoomTransitionDelegate.h"
+#import "PUPhotoLibraryUIChangeObserver.h"
 #import "PUStackedAlbumTransitionDelegate.h"
 
 @class MKMapView, NSArray, NSMutableArray, NSObject<PLDiagnosticsProvider>, NSString, PHFetchResult, PUMapAnnotationManager, PUMapViewControllerSpec;
 
-@interface PUMapViewController : UIViewController <PHPhotoLibraryChangeObserver, MKMapViewDelegate, PUMapAnnotationManagerDataSource, PUPhotoBrowserZoomTransitionDelegate, PUStackedAlbumTransitionDelegate>
+@interface PUMapViewController : UIViewController <PUPhotoLibraryUIChangeObserver, MKMapViewDelegate, PUMapAnnotationManagerDataSource, PUPhotoBrowserZoomTransitionDelegate, PUStackedAlbumTransitionDelegate>
 {
     MKMapView *_mapView;
     NSMutableArray *_mapAnnotations;
@@ -38,7 +38,8 @@
 @property(nonatomic) BOOL shouldShowToolbar; // @synthesize shouldShowToolbar=_shouldShowToolbar;
 @property(nonatomic) unsigned int maxItemsInitialZoom; // @synthesize maxItemsInitialZoom=_maxItemsInitialZoom;
 - (void).cxx_destruct;
-- (void)photoLibraryDidChange:(id)arg1;
+- (void)photoLibraryDidChangeOnMainQueue:(id)arg1;
+- (void)prepareForPhotoLibraryChange:(id)arg1;
 - (void)_handleReportButton:(id)arg1;
 - (id)stackedAlbumTransition:(id)arg1 layoutForCollection:(id)arg2 forCollectionView:(id)arg3;
 - (void)stackedAlbumTransition:(id)arg1 setVisibility:(BOOL)arg2 forCollection:(id)arg3;

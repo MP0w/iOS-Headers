@@ -17,6 +17,8 @@
 }
 
 + (id)sharedInstance;
+- (void)_rebuildSpotlightDatabaseFor18306262;
+- (void)systemDidUnlock;
 - (void)systemDidLeaveFirstDataProtectionLock;
 - (BOOL)updateProperties:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3;
 - (BOOL)saveChats;

@@ -67,7 +67,9 @@
 - (void)_remoteAccessEnabled:(BOOL)arg1;
 - (void)_handleMultipleCharacteristicRead:(id)arg1;
 - (void)_readCharacteristicValues:(id)arg1 identifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (id)writeRequestTuplesFromMessage:(id)arg1;
 - (void)_handleMultipleCharacteristicWrite:(id)arg1;
+- (void)_handlePrepareMultipleCharacteristicWrite:(id)arg1;
 - (void)_writeCharacteristicValues:(id)arg1 identifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)_notifyChangedCharacteristics:(id)arg1 identifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)_notifyChangedCharacteristics:(id)arg1;
@@ -103,6 +105,7 @@
 - (void)_handleAddTimerTrigger:(id)arg1;
 - (void)_handleAddTrigger:(id)arg1;
 - (void)_handleExecuteActionSet:(id)arg1;
+- (void)_handlePrepareExecuteActionSet:(id)arg1;
 - (void)_handleRemoveActionSet:(id)arg1;
 - (void)_handleAddActionSet:(id)arg1;
 - (void)_handleRemoveServiceGroup:(id)arg1;
@@ -148,7 +151,7 @@
 - (void)invalidate;
 - (void)configure:(id)arg1;
 - (void)takeOwnershipOfTriggers:(id)arg1 triggersToReactivate:(id)arg2;
-- (void)fixupReplacementAccessories:(id)arg1 commonAccessories:(id)arg2;
+- (void)fixupReplacementAccessories:(id)arg1 commonAccessories:(id)arg2 idsDataSync:(BOOL)arg3;
 @property(readonly, copy) NSString *description;
 - (id)initWithName:(id)arg1 uuid:(id)arg2 entireRoomUUID:(id)arg3 administratorName:(id)arg4 homeManager:(id)arg5;
 

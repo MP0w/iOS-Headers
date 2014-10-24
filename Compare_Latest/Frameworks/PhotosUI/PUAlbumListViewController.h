@@ -6,7 +6,6 @@
 
 #import "UIViewController.h"
 
-#import "PHPhotoLibraryChangeObserver.h"
 #import "PLCloudFeedNavigating.h"
 #import "PLNavigableAssetContainerListViewController.h"
 #import "PLNavigablePhotoStreamViewController.h"
@@ -14,6 +13,7 @@
 #import "PUAlbumStreamActivityDelegate.h"
 #import "PUCollectionViewReorderDelegate.h"
 #import "PUFeedRecentsManagerDelegate.h"
+#import "PUPhotoLibraryUIChangeObserver.h"
 #import "PUSearchViewControllerDelegate.h"
 #import "PUSectionedGridLayoutDelegate.h"
 #import "PUStackedAlbumControllerTransition.h"
@@ -28,7 +28,7 @@
 
 @class NSArray, NSMutableDictionary, NSMutableSet, NSString, PHCachingImageManager, PHCollection, PHCollectionList, PHFetchResult, PUAlbumListTransitionContext, PUAlbumListViewControllerSpec, PUAlbumStreamActivity, PUCollageView, PUCollectionView, PUFeedRecentsManager, PUFeedViewController, PULongPressableBarButtonItem, PUPhotoPinchGestureRecognizer, PUPhotosGlobalFooterView, PUPhotosGridViewController, PUSearchButtonItem, PUSearchViewController, PUSectionedGridLayout, PUSessionInfo, UIBarButtonItem, UICollectionViewLayout, UITableView, UIView, _UIContentUnavailableView;
 
-@interface PUAlbumListViewController : UIViewController <UIGestureRecognizerDelegate, PUStackedAlbumTransitionDelegate, PUAlbumStreamActivityDelegate, PUFeedRecentsManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PUCollectionViewReorderDelegate, PUSectionedGridLayoutDelegate, UITableViewDataSource, UITableViewDelegate, PUAlbumListTableViewCellDelegate, UIPopoverPresentationControllerDelegate, UISearchBarDelegate, PUSearchViewControllerDelegate, PHPhotoLibraryChangeObserver, PLNavigableAssetContainerListViewController, PLCloudFeedNavigating, PLNavigablePhotoStreamViewController, PUStackedAlbumControllerTransition>
+@interface PUAlbumListViewController : UIViewController <UIGestureRecognizerDelegate, PUStackedAlbumTransitionDelegate, PUAlbumStreamActivityDelegate, PUFeedRecentsManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PUCollectionViewReorderDelegate, PUSectionedGridLayoutDelegate, UITableViewDataSource, UITableViewDelegate, PUAlbumListTableViewCellDelegate, UIPopoverPresentationControllerDelegate, UISearchBarDelegate, PUSearchViewControllerDelegate, PUPhotoLibraryUIChangeObserver, PLNavigableAssetContainerListViewController, PLCloudFeedNavigating, PLNavigablePhotoStreamViewController, PUStackedAlbumControllerTransition>
 {
     PUAlbumListViewControllerSpec *_spec;
     struct CGRect _lastLayoutUpdateBounds;
@@ -182,7 +182,8 @@
 - (void)albumListCellContentView:(id)arg1 performPinAction:(id)arg2;
 - (void)albumListCellContentView:(id)arg1 performDeleteAction:(id)arg2;
 - (void)feedRecentsManagerRecentAssetsDidChange:(id)arg1;
-- (void)photoLibraryDidChange:(id)arg1;
+- (void)photoLibraryDidChangeOnMainQueue:(id)arg1;
+- (void)prepareForPhotoLibraryChange:(id)arg1;
 - (void)_updateAlbumSubtitleFormat;
 - (void)updateSyncProgress;
 - (void)sessionInfoPhotoSelectionDidChange:(id)arg1;
@@ -234,6 +235,7 @@
 - (void)handleCreateSharedAlbum;
 - (void)_handleAlbumOrFolderCreation:(id)arg1;
 - (void)_handleAlbumCreation:(id)arg1;
+- (id)_targetIndexPathForMoveFromIndexPath:(id)arg1 toProposedIndexPath:(id)arg2;
 - (id)indexPathForAddNewAlbumPlaceholder;
 - (id)indexPathForCloudFeedPlaceholder;
 - (int)placeholderKindAtIndexPath:(id)arg1;

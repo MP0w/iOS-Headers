@@ -49,6 +49,7 @@
 - (id)_bulletin;
 - (void)_updateMotionGestureObservation;
 - (void)didReceiveRaiseGesture;
+- (void)hostViewController:(id)arg1 didRequestSticky:(_Bool)arg2;
 - (void)hostViewControllerDidRequestSticky:(id)arg1;
 - (void)hostViewControllerDidRequestDismissal:(id)arg1;
 - (void)buttonViewController:(id)arg1 didSelectButtonAtIndex:(unsigned long long)arg2;

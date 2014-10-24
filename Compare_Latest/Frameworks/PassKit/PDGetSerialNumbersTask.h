@@ -28,6 +28,7 @@
 - (id)queryFields;
 - (id)endpointComponents;
 - (id)method;
+- (BOOL)isValid;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;

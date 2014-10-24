@@ -73,7 +73,7 @@
 - (void)_updateToolbarItems;
 - (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
 - (id)inputAccessoryView;
-- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
+- (void)_getRotationContentSettings:(CDStruct_3421d26a *)arg1;
 - (unsigned int)supportedInterfaceOrientations;
 - (void)parentControllerDidResume:(BOOL)arg1 animating:(BOOL)arg2;
 - (void)prepareForResume;

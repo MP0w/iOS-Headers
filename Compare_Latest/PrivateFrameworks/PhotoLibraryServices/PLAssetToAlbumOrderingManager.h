@@ -16,12 +16,12 @@
 + (void)logAlbum:(id)arg1;
 + (void)logAssetsToOrder:(id)arg1;
 + (id)sharedManager;
-- (void)updateAlbumCounts:(id)arg1 inLibrary:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)updateChildCollectionsUsingTransientOrdersByFolderOID:(id)arg1 inLibrary:(id)arg2;
 - (void)updateAlbumAssetsUsingTransientOrdersByAlbumOID:(id)arg1 inLibrary:(id)arg2;
 - (void)_updateOrderOfChildrenInParent:(id)arg1 usingTransientOrders:(id)arg2;
-- (void)updateOrderValuesForAlbumOIDs:(id)arg1 inLibrary:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)updateOrderValuesForAlbumOIDs:(id)arg1 albumCounts:(id)arg2 inLibrary:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)updateOrderValuesForAlbums:(id)arg1 managedObjectContext:(id)arg2;
+- (void)_updateOrderValuesForAlbum:(id)arg1 managedObjectContext:(id)arg2;
 - (void)_updateOrderKeysForParent:(id)arg1 childToOrderKeyMap:(id)arg2;
 - (void)fixupOrderKeys:(id)arg1 withSpacing:(long long)arg2;
 - (long long)defaultOrderKeySpacing;

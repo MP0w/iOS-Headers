@@ -17,6 +17,8 @@
 - (void)passRemoved:(id)arg1;
 - (void)passUpdated:(id)arg1;
 - (void)passAdded:(id)arg1;
+- (void)removingPassesOfType:(unsigned int)arg1 didFinishWithSuccess:(BOOL)arg2;
+- (void)removingPassesOfType:(unsigned int)arg1 didUpdateWithProgress:(double)arg2;
 - (void)catalogChanged:(id)arg1 withNewPasses:(id)arg2;
 - (id)initWithDelegate:(id)arg1;
 

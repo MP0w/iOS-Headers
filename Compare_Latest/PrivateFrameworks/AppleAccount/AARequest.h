@@ -8,7 +8,7 @@
 
 #import "NSURLSessionDataDelegate.h"
 
-@class NSError, NSHTTPURLResponse, NSMutableData, NSString, NSURLRequest;
+@class NSString, NSURLRequest;
 
 @interface AARequest : NSObject <NSURLSessionDataDelegate>
 {
@@ -18,9 +18,6 @@
     NSString *_oneTimePassword;
     NSString *_machineId;
     CDUnknownBlockType _handler;
-    NSMutableData *_responseData;
-    NSHTTPURLResponse *_response;
-    NSError *_error;
 }
 
 + (id)protocolVersion;
@@ -30,10 +27,7 @@
 - (id)_redactedHeadersFromHTTPHeaders:(id)arg1;
 - (id)redactedBodyStringWithPropertyList:(id)arg1;
 - (void)dealloc;
-- (void)URLSession:(id)arg1 didBecomeInvalidWithError:(id)arg2;
-- (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;
-- (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveData:(id)arg3;
-- (id)_urlSession;
+- (void)_handleDataTaskCompletionWithData:(id)arg1 response:(id)arg2 error:(id)arg3;
 - (void)performRequestWithHandler:(CDUnknownBlockType)arg1;
 - (id)bodyDictionary;
 - (id)urlCredential;

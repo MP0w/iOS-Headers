@@ -10,6 +10,8 @@
 
 @protocol EKIdentityProtocol <NSObject>
 - (NSString *)emailAddress;
+- (NSString *)lastName;
+- (NSString *)firstName;
 - (NSString *)name;
 
 @optional

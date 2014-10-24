@@ -32,7 +32,7 @@ __attribute__((visibility("hidden")))
 - (void)setReadPixels;
 - (void)drawWithTimestamp:(double)arg1;
 - (void)_deleteBuffers;
-- (void)_createRenderTarget;
+- (BOOL)_createRenderTarget;
 - (void)layoutSublayers;
 @property(readonly) struct GLRenderer *renderer;
 - (void)dealloc;

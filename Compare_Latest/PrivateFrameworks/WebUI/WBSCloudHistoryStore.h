@@ -27,7 +27,7 @@
 - (id)_recordWithType:(id)arg1 zoneID:(id)arg2 version:(unsigned int)arg3 dataDictionary:(id)arg4;
 - (void)_deleteAllRecordsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_appendRecord:(id)arg1 toResult:(id)arg2;
-- (void)_fetchRecordsWithServerChangeToken:(id)arg1 result:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_fetchRecordsWithServerChangeToken:(id)arg1 numberOfFetchRecordsOperationsPerformedSoFar:(unsigned int)arg2 result:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)fetchRecordsWithServerChangeTokenData:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)_recordWithHistoryTombstones:(id)arg1 zoneID:(id)arg2;
 - (id)_recordWithCloudHistoryVisits:(id)arg1 zoneID:(id)arg2;

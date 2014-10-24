@@ -15,7 +15,6 @@
 @property(nonatomic) float maximumRating; // @synthesize maximumRating=_maximumRating;
 @property(nonatomic) float minimumRating; // @synthesize minimumRating=_minimumRating;
 - (id)_mediaRemoteCommandInfoOptions;
-- (id)keyPathsForValuesTriggeringCommandsChanged;
 
 @end
 

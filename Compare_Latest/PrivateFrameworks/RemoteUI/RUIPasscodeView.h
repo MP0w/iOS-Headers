@@ -9,7 +9,7 @@
 #import "RUIPasscodeFieldDelegate.h"
 #import "RUITableFooterDelegate.h"
 
-@class RUIObjectModel, RUIPasscodeField, UILabel, UIView;
+@class RUIObjectModel, RUIPage, RUIPasscodeField, UILabel, UIView;
 
 @interface RUIPasscodeView : RUIElement <RUITableFooterDelegate, RUIPasscodeFieldDelegate>
 {
@@ -17,10 +17,12 @@
     UILabel *_label;
     UIView *_footer;
     RUIObjectModel *_objectModel;
+    RUIPage *_page;
     RUIPasscodeField *_passcodeField;
 }
 
 @property(readonly, nonatomic) RUIPasscodeField *passcodeField; // @synthesize passcodeField=_passcodeField;
+@property(nonatomic) __weak RUIPage *page; // @synthesize page=_page;
 @property(nonatomic) __weak RUIObjectModel *objectModel; // @synthesize objectModel=_objectModel;
 - (void).cxx_destruct;
 - (void)submitPIN;

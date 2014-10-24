@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CPLResource, PLCloudPhotoLibraryManager, PLCloudScenario;
+@class PLCloudOperationResource, PLCloudPhotoLibraryManager, PLCloudScenario;
 
 @interface PLCloudOperation : NSObject
 {
@@ -14,16 +14,17 @@
     BOOL _running;
     unsigned int _cost;
     long _createdAt;
-    CPLResource *_resource;
     PLCloudScenario *_scenario;
+    PLCloudOperationResource *_operationResource;
 }
 
 @property BOOL running; // @synthesize running=_running;
-@property(readonly, retain, nonatomic) PLCloudPhotoLibraryManager *connection; // @synthesize connection=_connection;
-@property(readonly, retain, nonatomic) PLCloudScenario *scenario; // @synthesize scenario=_scenario;
-@property(retain, nonatomic) CPLResource *resource; // @synthesize resource=_resource;
+@property(retain, nonatomic) PLCloudOperationResource *operationResource; // @synthesize operationResource=_operationResource;
+@property(readonly, nonatomic) PLCloudPhotoLibraryManager *connection; // @synthesize connection=_connection;
+@property(readonly, nonatomic) PLCloudScenario *scenario; // @synthesize scenario=_scenario;
 @property(readonly, nonatomic) long createdAt; // @synthesize createdAt=_createdAt;
 @property(readonly, nonatomic) unsigned int cost; // @synthesize cost=_cost;
+- (id)resource;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (void)runOperationWithCompletionHandler:(CDUnknownBlockType)arg1;

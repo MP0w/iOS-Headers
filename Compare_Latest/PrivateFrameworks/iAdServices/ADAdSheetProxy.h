@@ -12,7 +12,8 @@
 {
     id <ADAdSheetProxyDelegate> _delegate;
     BOOL _serviceLaunchThrottled;
-    BOOL _launchInProgress;
+    BOOL _waitingForAdSheet;
+    BOOL _openApplicationInProgress;
     int _unexpectedTerminationCount;
     NSMutableSet *_launchAssertions;
     NSObject<OS_dispatch_queue> *_proxyQueue;
@@ -26,7 +27,8 @@
 @property(nonatomic) double nextScheduledLaunch; // @synthesize nextScheduledLaunch=_nextScheduledLaunch;
 @property(nonatomic) int unexpectedTerminationCount; // @synthesize unexpectedTerminationCount=_unexpectedTerminationCount;
 @property(nonatomic) double lastLaunchTimestamp; // @synthesize lastLaunchTimestamp=_lastLaunchTimestamp;
-@property(nonatomic) BOOL launchInProgress; // @synthesize launchInProgress=_launchInProgress;
+@property(nonatomic) BOOL openApplicationInProgress; // @synthesize openApplicationInProgress=_openApplicationInProgress;
+@property(nonatomic) BOOL waitingForAdSheet; // @synthesize waitingForAdSheet=_waitingForAdSheet;
 @property(readonly, nonatomic) BOOL serviceLaunchThrottled; // @synthesize serviceLaunchThrottled=_serviceLaunchThrottled;
 - (void)reportAdSheetUnexpectedTermination;
 - (void)_adSheetAvailable;

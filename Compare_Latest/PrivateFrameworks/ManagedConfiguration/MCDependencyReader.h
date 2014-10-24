@@ -6,20 +6,27 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary;
+@class NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
 @interface MCDependencyReader : NSObject
 {
-    NSMutableDictionary *_domainsDict;
+    NSObject<OS_dispatch_queue> *_memberQueue;
+    NSMutableDictionary *_memberQueueDomainsDict;
 }
 
 + (id)sharedReader;
-@property(retain, nonatomic) NSMutableDictionary *domainsDict; // @synthesize domainsDict=_domainsDict;
++ (void)setStoragePath:(id)arg1;
++ (id)storagePath;
+@property(retain, nonatomic) NSMutableDictionary *memberQueueDomainsDict; // @synthesize memberQueueDomainsDict=_memberQueueDomainsDict;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *memberQueue; // @synthesize memberQueue=_memberQueue;
 - (void).cxx_destruct;
 - (void)invalidateCache;
+- (void)memberQueueRereadDomainsDict;
 - (id)dependentsOfParent:(id)arg1 inDomain:(id)arg2;
 - (id)parentsInDomain:(id)arg1;
-- (id)_domainsDictionaryForDomain:(id)arg1 parent:(id)arg2 outParentsDict:(id *)arg3 outDependents:(id *)arg4;
+- (id)memberQueueDependentsOfParent:(id)arg1 inDomain:(id)arg2;
+- (id)memberQueueParentsInDomain:(id)arg1;
+@property(readonly, nonatomic) NSDictionary *domainsDict;
 - (id)_init;
 - (id)init;
 

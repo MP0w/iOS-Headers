@@ -18,7 +18,10 @@
     UITextField *_expirationDateField;
     NSDate *_expirationDate;
     UIButton *_photoButton;
+    UITableViewCell *_cardHolderNameCell;
     UITableViewCell *_cardNumberCell;
+    UITableViewCell *_expirationDateCell;
+    UITableViewCell *_securityCodeCell;
     UIDatePicker *_expirationDatePicker;
     NSDateFormatter *_dateFormatter;
     void *_unifiedMeCard;
@@ -35,6 +38,11 @@
 - (void)_updateTextField:(id)arg1 withDate:(id)arg2;
 - (BOOL)textFieldShouldReturn:(id)arg1;
 - (BOOL)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
+- (id)_securityCodeCell;
+- (id)_expirationDateCell;
+- (id)_cardNumberCell;
+- (id)_cardHolderNameCell;
+- (id)_defaultCell;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;

@@ -219,7 +219,7 @@
 @property(copy, nonatomic) NSDictionary *slideshowSettingsForCurrentAssetContainer;
 - (void)saveSelectionOfMusic:(id)arg1 transition:(id)arg2;
 - (void)currentAirplayRouteChanged;
-- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
+- (void)_getRotationContentSettings:(CDStruct_3421d26a *)arg1;
 - (void)_longPressRecognized:(id)arg1;
 @property(nonatomic) BOOL canShowCopyCallout;
 - (void)_removeTVOutWindow;
@@ -286,6 +286,7 @@
 - (void)_performPostAlbumStreamTasksWithNewlyCreatedAlbum:(struct NSObject *)arg1;
 - (void)deleteImageClicked:(id)arg1;
 - (BOOL)_isTrashBin;
+- (void)commitPendingUpdatesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)endEditingPhoto;
 - (void)beginEditingPhoto;
 - (void)_dismissEditControllerWithOldStatusBarStyle:(int)arg1;
@@ -459,6 +460,7 @@
 - (void)_cancelEditControllerIfEditedPhotoDeleted;
 - (id)_updateIndexPath:(id)arg1 withChange:(id)arg2 deleteAction:(int)arg3;
 - (void)_updateIndexPathsWithChange:(id)arg1;
+- (void)photoLibraryDidChangeOnMainQueue:(id)arg1;
 - (void)photoLibraryDidChange:(id)arg1;
 - (void)_applicationDidBecomeActive:(id)arg1;
 - (void)applicationWillEnterForeground:(id)arg1;

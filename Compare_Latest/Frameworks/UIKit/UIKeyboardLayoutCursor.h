@@ -48,6 +48,7 @@ __attribute__((visibility("hidden")))
 - (int)enabledStateForKey:(id)arg1;
 - (int)activeStateForKey:(id)arg1;
 - (void)updateStatesForGridSelection;
+- (unsigned int)targetEdgesForScreenGestureRecognition;
 - (BOOL)shouldRetestKey:(id)arg1 withKeyplane:(id)arg2;
 - (BOOL)shouldPreventInputManagerHitTestingForKey:(id)arg1;
 - (void)setKeyplaneName:(id)arg1;

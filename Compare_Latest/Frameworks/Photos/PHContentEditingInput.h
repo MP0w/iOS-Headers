@@ -6,11 +6,13 @@
 
 #import "NSObject.h"
 
-@class AVAsset, CLLocation, NSDate, NSString, NSURL, PHAdjustmentData, UIImage;
+@class AVAsset, CLLocation, NSDate, NSObject<OS_dispatch_queue>, NSString, NSURL, PHAdjustmentData, UIImage;
 
 @interface PHContentEditingInput : NSObject
 {
     long long _sandboxExtensionHandle;
+    NSObject<OS_dispatch_queue> *_avAssetIsolationQueue;
+    AVAsset *_avAsset;
     int _mediaType;
     unsigned int _mediaSubtypes;
     NSDate *_creationDate;
@@ -20,13 +22,12 @@
     UIImage *_displaySizeImage;
     NSURL *_fullSizeImageURL;
     int _fullSizeImageOrientation;
-    AVAsset *_avAsset;
     int _baseVersion;
+    NSURL *_videoURL;
 }
 
+@property(copy, nonatomic) NSURL *videoURL; // @synthesize videoURL=_videoURL;
 @property(nonatomic) int baseVersion; // @synthesize baseVersion=_baseVersion;
-- (void)setAVAsset:(id)arg1;
-@property(retain) AVAsset *avAsset; // @synthesize avAsset=_avAsset;
 @property int fullSizeImageOrientation; // @synthesize fullSizeImageOrientation=_fullSizeImageOrientation;
 @property(copy) NSURL *fullSizeImageURL; // @synthesize fullSizeImageURL=_fullSizeImageURL;
 @property(retain) UIImage *displaySizeImage; // @synthesize displaySizeImage=_displaySizeImage;
@@ -38,6 +39,8 @@
 @property int mediaType; // @synthesize mediaType=_mediaType;
 - (void).cxx_destruct;
 - (id)description;
+- (void)_invalidateAVAsset;
+@property(readonly) AVAsset *avAsset; // @synthesize avAsset=_avAsset;
 - (void)consumeSandboxExtensionToken:(id)arg1;
 - (void)requestFullSizeImageURLWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)videoComposition;
@@ -46,6 +49,7 @@
 - (void)loadFullSizeImageDataWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (BOOL)isMediaSubtype:(unsigned int)arg1;
 - (void)dealloc;
+- (id)init;
 
 @end
 

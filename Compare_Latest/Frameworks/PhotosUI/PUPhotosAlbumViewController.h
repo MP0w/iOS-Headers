@@ -24,11 +24,11 @@
 - (void)handleAddFromAction;
 - (void)handleAddToAlbum:(id)arg1 pickedAssets:(id)arg2;
 - (void)setupScrubber;
+- (void)viewWillAppear:(BOOL)arg1;
 - (BOOL)isTrashBinViewController;
 - (struct CGPoint)contentOffsetForPreheating;
 - (void)updateTitle;
 - (BOOL)wantsAssetCounts;
-- (void)didUpdateAssetCounts;
 - (void)configureGlobalFooterView:(id)arg1;
 - (void)configureGlobalHeaderView:(id)arg1;
 - (float)globalHeaderHeight;

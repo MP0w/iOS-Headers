@@ -55,7 +55,7 @@
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)loadView;
 - (void)updateNavigationButtons;
-- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
+- (void)_getRotationContentSettings:(CDStruct_3421d26a *)arg1;
 - (BOOL)supportedInterfaceOrientation:(int)arg1;
 - (BOOL)_allowsAutorotation;
 - (void)viewDidLoad;

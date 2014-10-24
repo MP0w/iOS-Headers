@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSError, UIView, UIViewController, _UIHostedWindowHostingHandle;
+@class NSError, UIView, UIViewController;
 
 @protocol ADAdRecipient <NSObject>
 @property(readonly, nonatomic) UIViewController *presentingViewController;
@@ -16,10 +16,10 @@
 - (void)resumeBannerMedia;
 - (void)pauseBannerMedia;
 - (void)storyboardViewControllerDidPresent;
+- (void)bannerTappedAtPoint:(struct CGPoint)arg1;
 - (void)serverStoryboardDidTransitionOut;
 - (void)serverBannerViewDidFailToReceiveAdWithError:(NSError *)arg1;
 - (void)serverBannerViewDidLoad;
 - (void)serverBannerViewWillLoad;
-- (void)setHostedWindowHostingHandle:(_UIHostedWindowHostingHandle *)arg1;
 @end
 

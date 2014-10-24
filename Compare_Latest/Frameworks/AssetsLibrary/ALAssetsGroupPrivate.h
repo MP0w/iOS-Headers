@@ -39,8 +39,8 @@ __attribute__((visibility("hidden")))
 - (void)setValue:(id)arg1 forProperty:(id)arg2;
 - (id)valueForProperty:(id)arg1;
 - (void)populateAssets;
+- (void)updateAlbumFiltering;
 - (void)resetAssets;
-- (BOOL)hasFilter;
 - (int)albumFilter;
 - (void)dealloc;
 - (id)initWithAlbum:(struct NSObject *)arg1 library:(id)arg2;

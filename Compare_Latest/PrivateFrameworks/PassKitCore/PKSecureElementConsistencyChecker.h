@@ -20,6 +20,7 @@
 - (void)_rescheduleWithBackoff;
 - (BOOL)_downloadPasses;
 - (void)queue_checkConsistencyWithPaymentApplications:(id)arg1 secureElementCards:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)queue_startWithCompletion:(CDUnknownBlockType)arg1;
 - (void)startWithCompletion:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)initWithPaymentWebService:(id)arg1 delegate:(id)arg2;

@@ -7,6 +7,8 @@
 #import "UIApplication.h"
 
 @interface UIApplication (RCAdditions)
++ (void)rc_endTemporaryInteractionEventIgnoringForToken:(id)arg1;
++ (id)rc_beginTemporaryInteractionEventIgnoringWithTimeout:(double)arg1 sessionWillEndHandler:(CDUnknownBlockType)arg2;
 + (double)rc_animationDragCoefficient;
 + (BOOL)rc_isRunningInStoreDemoMode;
 + (BOOL)rc_shouldMakeUIForDefaultPNG;

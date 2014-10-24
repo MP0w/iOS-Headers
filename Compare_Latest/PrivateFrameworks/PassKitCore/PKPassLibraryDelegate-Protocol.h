@@ -9,6 +9,10 @@
 @class NSSet, PKCatalog, PKPassLibrary;
 
 @protocol PKPassLibraryDelegate <NSObject>
+
+@optional
+- (void)passLibrary:(PKPassLibrary *)arg1 removingPassesOfType:(unsigned int)arg2 didFinishWithSuccess:(BOOL)arg3;
+- (void)passLibrary:(PKPassLibrary *)arg1 removingPassesOfType:(unsigned int)arg2 didUpdateWithProgress:(double)arg3;
 - (void)passLibrary:(PKPassLibrary *)arg1 receivedUpdatedCatalog:(PKCatalog *)arg2 passes:(NSSet *)arg3;
 @end
 

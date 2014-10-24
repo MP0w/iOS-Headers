@@ -12,9 +12,11 @@
 
 @interface CKDClientContext : NSObject <CKLoggingProtocol>
 {
+    BOOL _isForClouddInternalUse;
     BOOL _hasDataContainer;
     BOOL _canAccessProtectionData;
     BOOL _canSetDeviceIdentifier;
+    BOOL _hasSystemServiceEntitlement;
     BOOL _accountRefreshInProgress;
     BOOL _accountReloadRequired;
     BOOL _sandboxed;
@@ -55,12 +57,14 @@
     NSObject<OS_dispatch_queue> *_setupQueue;
     NSString *_contextID;
     NSMutableArray *_oldApplicationCaches;
+    CDStruct_4c969caf _auditToken;
 }
 
 + (id)contextWithAppContainerTuple:(id)arg1 accountInfoOverride:(id)arg2 proxy:(id)arg3;
-+ (id)sharedContextWithAppContainerTuple:(id)arg1;
++ (id)sharedContextForInternalUseWithAppContainerTuple:(id)arg1;
 + (id)sharedContextWithAppContainerTuple:(id)arg1 accountInfoOverride:(id)arg2 proxy:(id)arg3;
-+ (id)_sharedContextWithAppContainerTuple:(id)arg1 accountInfoOverride:(id)arg2 proxy:(id)arg3;
++ (id)sharedContextWithAppContainerTuple:(id)arg1 accountInfoOverride:(id)arg2 proxy:(id)arg3 forInternalUse:(BOOL)arg4;
++ (id)_sharedContextWithAppContainerTuple:(id)arg1 accountInfoOverride:(id)arg2 proxy:(id)arg3 forInternalUse:(BOOL)arg4;
 + (id)sharedContexts;
 + (id)applicationContainerPathForBundleID:(id)arg1 bundleURL:(id *)arg2 type:(int *)arg3;
 @property(retain, nonatomic) NSMutableArray *oldApplicationCaches; // @synthesize oldApplicationCaches=_oldApplicationCaches;
@@ -78,6 +82,7 @@
 @property(retain, nonatomic) CKDPCSManager *pcsManager; // @synthesize pcsManager=_pcsManager;
 @property(retain) CKDMMCS *MMCS; // @synthesize MMCS=_MMCS;
 @property(retain, nonatomic) CKDFlowControlManager *flowControlManager; // @synthesize flowControlManager=_flowControlManager;
+@property(nonatomic) BOOL hasSystemServiceEntitlement; // @synthesize hasSystemServiceEntitlement=_hasSystemServiceEntitlement;
 @property(nonatomic) BOOL canSetDeviceIdentifier; // @synthesize canSetDeviceIdentifier=_canSetDeviceIdentifier;
 @property(nonatomic) BOOL canAccessProtectionData; // @synthesize canAccessProtectionData=_canAccessProtectionData;
 @property(nonatomic) BOOL hasDataContainer; // @synthesize hasDataContainer=_hasDataContainer;
@@ -101,19 +106,21 @@
 @property(readonly, nonatomic) NSString *applicationBundleID; // @synthesize applicationBundleID=_applicationBundleID;
 @property(readonly, nonatomic) NSBundle *applicationBundle; // @synthesize applicationBundle=_applicationBundle;
 @property(readonly, nonatomic) CKContainerID *containerID; // @synthesize containerID=_containerID;
+@property(nonatomic) CDStruct_4c969caf auditToken; // @synthesize auditToken=_auditToken;
+@property(nonatomic) BOOL isForClouddInternalUse; // @synthesize isForClouddInternalUse=_isForClouddInternalUse;
 @property(retain, nonatomic) NSString *containerScopedUserID; // @synthesize containerScopedUserID=_containerScopedUserID;
 @property(retain, nonatomic) NSURL *publicDeviceServiceURL; // @synthesize publicDeviceServiceURL=_publicDeviceServiceURL;
 @property(retain, nonatomic) NSURL *publicShareServiceURL; // @synthesize publicShareServiceURL=_publicShareServiceURL;
 @property(retain, nonatomic) NSURL *publicCloudDBURL; // @synthesize publicCloudDBURL=_publicCloudDBURL;
 @property(retain, nonatomic) CKDServerConfiguration *config; // @synthesize config=_config;
 - (void).cxx_destruct;
-- (void)clearAuthTokensForRecordWithID:(id)arg1 inScope:(int)arg2;
+- (void)clearAuthTokensForRecordWithID:(id)arg1 databaseScope:(int)arg2;
 - (void)clearRecordCacheWithDatabaseScope:(int)arg1;
 - (void)clearAssetCacheWithDatabaseScope:(int)arg1;
 - (void)clearAssetCache;
 - (void)setFakeError:(id)arg1 forNextRequestOfClassName:(id)arg2;
-- (void)finishSetupWithClientProxy:(id)arg1;
-- (id)startSetupWithClientProxy:(id)arg1;
+- (void)finishSetupWithClientProxy:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)startSetupWithClientProxy:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property(retain, nonatomic, setter=setAPSEnvironmentString:) NSString *apsEnvironmentString;
 @property(readonly, copy) NSString *description;
 - (id)CKPropertiesDescription;

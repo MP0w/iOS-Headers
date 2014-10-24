@@ -55,7 +55,7 @@
 - (id)init;
 - (void)_initialize;
 - (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToNode:(id)arg1;
 - (id)_copyImageData;
 
 @end

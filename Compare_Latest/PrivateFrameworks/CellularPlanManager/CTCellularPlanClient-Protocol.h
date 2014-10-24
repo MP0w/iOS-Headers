@@ -6,20 +6,20 @@
 
 #import "NSObject.h"
 
-@class NSData, NSDictionary, NSNumber, NSString;
+@class NSData, NSNumber, NSString;
 
 @protocol CTCellularPlanClient <NSObject>
 - (void)getCurrentPlanType:(void (^)(int))arg1;
 - (void)openInternalUrlId:(int)arg1;
 - (void)getDeviceInfo:(void (^)(NSDictionary *))arg1;
 - (void)retrieveRequestSettings:(void (^)(NSDictionary *, NSDictionary *, NSDictionary *))arg1;
-- (void)fetchNewProfiles:(void (^)(BOOL, NSError *))arg1;
+- (void)fetchNewProfilesWithCompletion:(void (^)(BOOL, NSError *))arg1;
+- (void)registerHasNewProfileCompletion:(void (^)(void))arg1;
 - (void)setUserInPurchaseFlow:(BOOL)arg1;
-- (void)didPurchasePlanWithIccid:(NSString *)arg1 downloadProfile:(BOOL)arg2 cookieData:(NSData *)arg3;
+- (void)didPurchasePlanWithIccid:(NSString *)arg1 downloadProfile:(BOOL)arg2;
 - (void)setActivePlan:(NSData *)arg1 completion:(void (^)(BOOL, NSError *))arg2;
-- (void)startPurchaseWithPlanId:(NSString *)arg1 sessionId:(NSString *)arg2 options:(NSDictionary *)arg3 completion:(void (^)(BOOL, NSError *))arg4;
 - (void)signIdMapForSessionId:(NSString *)arg1 WithCompletion:(void (^)(NSString *, NSError *))arg2 latitude:(NSNumber *)arg3 longitude:(NSNumber *)arg4;
-- (void)getSubscriptionDetailsWithServerSync:(BOOL)arg1;
+- (void)subscriptionDetailsAndUpdateIfNeeded:(BOOL)arg1;
 - (void)isNewDataPlanCapable:(void (^)(BOOL))arg1;
 @end
 

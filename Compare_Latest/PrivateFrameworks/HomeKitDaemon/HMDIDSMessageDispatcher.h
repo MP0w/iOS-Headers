@@ -22,6 +22,7 @@
 }
 
 + (BOOL)isWhitelistedLocalMessage:(id)arg1;
++ (id)remappedRemotePrepareWriteCommands;
 + (id)whitelistedCommands;
 @property(retain, nonatomic) HMMessageDispatcher *notificationDispatcher; // @synthesize notificationDispatcher=_notificationDispatcher;
 @property(retain, nonatomic) HMDNotificationRelay *notificationRelay; // @synthesize notificationRelay=_notificationRelay;

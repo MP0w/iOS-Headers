@@ -20,10 +20,12 @@
     NSArray *_teamIDs;
     NSArray *_passTypeIDs;
     NSString *_applicationID;
+    NSArray *_merchantIdentifiers;
 }
 
 + (BOOL)supportsSecureCoding;
 @property BOOL addSilently; // @synthesize addSilently=_addSilently;
+@property(readonly, copy) NSArray *merchantIdentifiers; // @synthesize merchantIdentifiers=_merchantIdentifiers;
 @property(readonly) BOOL inAppPaymentsPrivate; // @synthesize inAppPaymentsPrivate=_inAppPaymentsPrivate;
 @property(readonly) BOOL inAppPayments; // @synthesize inAppPayments=_inAppPayments;
 @property(readonly) BOOL paymentPassAccess; // @synthesize paymentPassAccess=_paymentPassAccess;

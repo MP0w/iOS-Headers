@@ -44,7 +44,7 @@
 - (void)barrier;
 - (void)cancelTask:(id)arg1;
 - (void)connection:(id)arg1 handleInvocation:(id)arg2 isReply:(BOOL)arg3;
-- (void)libraryManagerDidUpdateSizeOfResourcesToUploadToSize:(unsigned long long)arg1;
+- (void)libraryManagerDidUpdateSizeOfResourcesToUploadToSize:(unsigned long long)arg1 numberOfImages:(unsigned int)arg2 numberOfVideos:(unsigned int)arg3 numberOfOtherItems:(unsigned int)arg4;
 - (void)libraryManagerDidUpdateStatusWithProperties:(id)arg1;
 - (void)libraryManagerHasChangesToPull;
 - (void)uploadOfResource:(id)arg1 didFinishForResourceTransferTask:(id)arg2 withError:(id)arg3;

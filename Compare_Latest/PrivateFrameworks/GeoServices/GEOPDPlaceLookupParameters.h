@@ -33,7 +33,7 @@
 @property(readonly, nonatomic) unsigned int muidsCount;
 @property(nonatomic) BOOL hasResultProviderId;
 - (void)dealloc;
-- (id)initWithMUIDs:(id)arg1;
+- (id)initWithMUIDs:(id)arg1 resultProviderID:(int)arg2;
 
 @end
 

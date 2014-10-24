@@ -6,12 +6,13 @@
 
 #import <RemoteUI/RUIElement.h>
 
-@class RUIObjectModel, UIActivityIndicatorView, UIView;
+@class RUIObjectModel, UIActivityIndicatorView, UILabel, UIView;
 
 @interface RUISpinnerView : RUIElement
 {
     UIView *_view;
     UIActivityIndicatorView *_spinner;
+    UILabel *_label;
     RUIObjectModel *_objectModel;
 }
 

@@ -52,6 +52,7 @@
 - (void)willShowMagnifiedViewController:(id)arg1;
 - (void)sectionedGridLayout:(id)arg1 didInvalidateWithContext:(id)arg2;
 - (BOOL)sectionedGridLayoutTransitionAutoAdjustContentOffsetEnabled:(id)arg1;
+- (struct CGPoint)sectionedGridLayout:(id)arg1 targetContentOffsetForProposedUpdatesContentOffset:(struct CGPoint)arg2;
 - (id)sectionedGridLayoutAnchorItemForAdjustingContentOffset:(id)arg1;
 - (id)sectionedGridLayoutName:(id)arg1;
 - (void)sectionedGridLayout:(id)arg1 didFinalizePrepareTransitionIsAppearing:(BOOL)arg2;

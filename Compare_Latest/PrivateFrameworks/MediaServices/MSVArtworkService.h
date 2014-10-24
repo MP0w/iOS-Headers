@@ -18,7 +18,7 @@
 @property(retain, nonatomic) NSXPCConnection *serverConnection; // @synthesize serverConnection=_serverConnection;
 @property(retain, nonatomic) NSOperationQueue *serviceThrottlingOperationQueue; // @synthesize serviceThrottlingOperationQueue=_serviceThrottlingOperationQueue;
 - (void).cxx_destruct;
-- (void)resizeImageAtSourceURL:(id)arg1 destinationSize:(struct CGSize)arg2 destinationURL:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)sendRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)init;
 

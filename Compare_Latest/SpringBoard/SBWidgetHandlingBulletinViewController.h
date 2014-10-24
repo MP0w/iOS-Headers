@@ -34,7 +34,7 @@
 @property(readonly, nonatomic) NSSet *visibleWidgetIDs;
 - (void)tableView:(id)arg1 didEndDisplayingCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (void)makeVisibleWidgetInSection:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)makeVisibleWidgetInSection:(id)arg1 andReconnect:(_Bool)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)removeChildBulletinIfPossible:(id)arg1;
 - (void)addChildBulletinIfPossible:(id)arg1;
 - (void)_captureSnapshot:(_Bool)arg1 andInsert:(_Bool)arg2 disconnectingRemoteViewController:(_Bool)arg3 forceDisconnection:(_Bool)arg4 forWidget:(id)arg5 completion:(CDUnknownBlockType)arg6;

@@ -137,6 +137,7 @@ struct PUAlbumListCellContentView {
         unsigned int :1;
         unsigned int :1;
         unsigned int :1;
+        unsigned int :1;
         unsigned int :5;
         unsigned int :1;
         unsigned int :1;

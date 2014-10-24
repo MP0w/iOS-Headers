@@ -13,7 +13,6 @@
 
 @property(nonatomic) unsigned int currentRepeatType; // @synthesize currentRepeatType=_currentRepeatType;
 - (id)_mediaRemoteCommandInfoOptions;
-- (id)keyPathsForValuesTriggeringCommandsChanged;
 
 @end
 

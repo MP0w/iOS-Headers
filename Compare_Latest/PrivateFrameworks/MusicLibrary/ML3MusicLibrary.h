@@ -90,7 +90,7 @@
 - (void)_configureMediaLibraryDatabaseConnection:(id)arg1;
 - (BOOL)_canConfigureMediaLibraryDatabaseConnection:(id)arg1;
 - (id)_newGeniusDBConnectionAtPath:(id)arg1;
-- (void)_autogenerateArtworkForRelativePath:(id)arg1 artworkType:(int)arg2 mediaType:(unsigned long)arg3;
+- (void)_autogenerateArtworkForRelativePath:(id)arg1 artworkType:(int)arg2 mediaType:(unsigned long)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_deleteAllArtworkVariantsAtRelativePaths:(id)arg1;
 - (BOOL)_insertArtworkRowWithArtworkToken:(id)arg1 artworkType:(int)arg2 sourceType:(int)arg3 relativePath:(id)arg4;
 - (void)updateTrackIntegrity;
@@ -119,7 +119,7 @@
 - (BOOL)importOriginalArtworkFromImageData:(id)arg1 withArtworkToken:(id)arg2 artworkType:(int)arg3 sourceType:(int)arg4 mediaType:(unsigned long)arg5;
 - (BOOL)importOriginalArtworkFromFileURL:(id)arg1 withArtworkToken:(id)arg2 artworkType:(int)arg3 sourceType:(int)arg4 mediaType:(unsigned long)arg5;
 - (BOOL)importExistingOriginalArtworkWithArtworkToken:(id)arg1 artworkType:(int)arg2 sourceType:(int)arg3 mediaType:(unsigned long)arg4;
-- (void)autogenerateSupportedSizesForAllOriginalArtworkPostMigrationWithConnection:(id)arg1;
+- (void)autogenerateSupportedSizesForAllOriginalArtworkWithConnection:(id)arg1;
 - (long long)deleteAutoFilledTracksOfAtLeastTotalSize:(long long)arg1 urgency:(unsigned int)arg2 respectSongMattress:(BOOL)arg3;
 - (void)purgeCloudAssets;
 - (long long)getDatabaseFileFreeSpace;

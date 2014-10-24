@@ -47,6 +47,7 @@
     NSString *_inCallStatusPreamble;
     NSString *_inCallDurationString;
     NSTimer *_inCallTimer;
+    NSTimer *_inCallStyleDelayTimer;
     RadiosPreferences *_radioPrefs;
     int _needsUserIdentificationModule;
     NSString *_simStatus;
@@ -181,6 +182,8 @@
 - (void)updateStatusBarCallDuration;
 - (id)preambleStringForKey:(id)arg1;
 - (void)_updateStatusBarCallStateForCall:(id)arg1;
+- (void)_noteInCallStyleDelayExpired;
+- (void)_noteInCallAlertDidActivate;
 - (id)_phoneApp;
 - (void)updateSpringBoard;
 - (int)callForwardingIndicator;

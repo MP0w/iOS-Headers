@@ -16,6 +16,7 @@
 }
 
 + (void)_fetchUserActivityWithUUID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
++ (id)_userFacingErrorForLaunchServicesError:(id)arg1 userInfo:(id)arg2;
 @property(readonly, retain) LSUserActivity *_internalUserActivity; // @synthesize _internalUserActivity=_internal;
 - (void)setWebPageURL:(id)arg1;
 - (id)webPageURL;

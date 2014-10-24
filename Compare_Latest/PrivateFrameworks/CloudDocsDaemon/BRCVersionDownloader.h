@@ -24,7 +24,7 @@
 - (void)transferQueueDidRequestOperations:(id)arg1;
 - (void)_scheduleAllDownloads;
 - (BOOL)_scheduleDownloadForItem:(id)arg1;
-- (void)cancelAllDownloads;
+- (id)cancelAllDownloads;
 - (void)cancelDownloadForItemID:(id)arg1;
 - (BOOL)isDownloadingItemID:(id)arg1;
 - (BOOL)isDownloadingAddition:(id)arg1;

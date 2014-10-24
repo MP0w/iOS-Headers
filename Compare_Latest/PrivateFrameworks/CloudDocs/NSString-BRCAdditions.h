@@ -7,6 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (BRCAdditions)
+- (id)brc_libnotifyPerUserNotificationName;
 - (id)brc_stringByBackslashEscapingCharactersInString:(id)arg1;
 @end
 

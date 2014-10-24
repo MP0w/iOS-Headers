@@ -32,7 +32,6 @@
 - (void)determineAppInstallAttributionWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_remote_policyEngineTestStationDescriptionsComputed:(id)arg1;
 - (void)_remote_heartbeatTokenDidChange:(id)arg1 expirationDate:(double)arg2 error:(id)arg3;
-- (void)_orientationChanged;
 - (void)unregisterAdSpace:(id)arg1;
 - (void)registerAdSpace:(id)arg1;
 - (void)adSheetConnectionLost;

@@ -24,6 +24,7 @@
 - (void)paymentPassWithUniqueIdentifierDidDeauthorize:(id)arg1;
 - (void)paymentPassWithUniqueIdentifierDidAuthorize:(id)arg1;
 - (void)paymentPassWithUniqueIdentifierDidActivate:(id)arg1;
+- (void)didUpdateDefaultPaymentPassWithUniqueIdentifier:(id)arg1;
 - (void)paymentDeviceDidLeaveRestrictedMode;
 - (void)paymentDeviceDidEnterRestrictedMode;
 - (void)paymentDeviceDidBecomeUnavailable;

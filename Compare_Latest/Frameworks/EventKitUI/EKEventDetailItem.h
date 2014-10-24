@@ -29,6 +29,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) BOOL allowsEditing; // @synthesize allowsEditing=_allowsEditing;
 @property(nonatomic) __weak id <EKEventDetailItemDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) unsigned int maximumNumberOfSubItems;
+@property(readonly, nonatomic) BOOL requiresLayoutForSubitemCount;
 - (void)editItemViewController:(id)arg1 didCompleteWithAction:(int)arg2;
 - (BOOL)editItemViewControllerShouldShowDetachAlert;
 - (BOOL)editItemViewControllerCommit:(id)arg1;

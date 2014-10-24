@@ -20,6 +20,8 @@
 @property(retain, nonatomic) NSArray *familyMembers; // @synthesize familyMembers=_familyMembers;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
+- (id)newCacheRepresentation;
+- (id)initWithCacheRepresentation:(id)arg1;
 - (id)allITunesAccountNames;
 - (id)allITunesIdentifiers;
 - (void)dealloc;

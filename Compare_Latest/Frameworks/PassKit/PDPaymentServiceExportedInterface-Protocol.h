@@ -4,30 +4,29 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSData, NSString, PKPaymentAuthorizationRequest, PKPaymentWebService;
+@class NSData, NSString, PKPaymentApplication, PKPaymentAuthorizationRequest, PKPaymentTransaction, PKPaymentWebServiceContext;
 
 @protocol PDPaymentServiceExportedInterface
 - (void)presentPaymentInterfaceWithHandler:(void (^)(void))arg1;
+- (void)downloadAllPaymentPassesWithHandler:(void (^)(void))arg1;
 - (void)consistencyCheckWithHandler:(void (^)(void))arg1;
 - (void)simulatePaymentPushWithHandler:(void (^)(void))arg1;
-- (void)setNewAuthRandomIfNecessaryWithCompletion:(void (^)(void))arg1;
+- (void)setNewAuthRandomIfNecessaryWithCompletion:(void (^)(BOOL))arg1;
 - (void)setNewAuthRandomWithCompletion:(void (^)(void))arg1;
-- (void)markAllPaymentApplicationsForDeleteWithHandler:(void (^)(void))arg1;
-- (void)deleteAllMessagesForPaymentPassWithUniqueIdentifier:(NSString *)arg1 handler:(void (^)(void))arg2;
-- (void)messageForPaymentPassWithUniqueIdentifier:(NSString *)arg1 handler:(void (^)(PKPaymentMessage *, NSString *))arg2;
+- (void)messagesForPaymentPassWithUniqueIdentifier:(NSString *)arg1 handler:(void (^)(NSSet *, NSString *))arg2;
 - (void)transactionsForPaymentPassWithUniqueIdentifier:(NSString *)arg1 handler:(void (^)(NSSet *, NSString *))arg2;
+- (void)insertOrUpdatePaymentTransaction:(PKPaymentTransaction *)arg1 forPassUniqueIdentifier:(NSString *)arg2 paymentApplication:(PKPaymentApplication *)arg3 handler:(void (^)(PKPaymentTransaction *))arg4;
+- (void)deleteMessageWithIdentifier:(NSString *)arg1 fromPassWithUniqueIdentifier:(NSString *)arg2 handler:(void (^)(void))arg3;
 - (void)submitVerificationCode:(NSString *)arg1 verificationData:(NSData *)arg2 forDPANIdentifier:(NSString *)arg3 handler:(void (^)(BOOL, NSError *))arg4;
 - (void)authorizeInAppPaymentRequest:(PKPaymentAuthorizationRequest *)arg1 handler:(void (^)(NSError *, PKWrappedPayment *))arg2;
 - (void)deauthorizePaymentPassWithUniqueIdentifier:(NSString *)arg1 handler:(void (^)(BOOL))arg2;
 - (void)authorizePaymentPassWithUniqueIdentifier:(NSString *)arg1 authenticationCredential:(NSData *)arg2 handler:(void (^)(BOOL, NSError *, NSDate *))arg3;
 - (void)activatePaymentPassWithUniqueIdentifier:(NSString *)arg1 handler:(void (^)(BOOL, NSError *))arg2;
 - (void)activationStateForPaymentPassWithUniqueIdentifier:(NSString *)arg1 handler:(void (^)(int))arg2;
-- (void)sharedPaymentWebServiceWithHandler:(void (^)(PKPaymentWebService *))arg1;
-- (void)setSharedPaymentWebService:(PKPaymentWebService *)arg1 handler:(void (^)(void))arg2;
+- (void)sharedPaymentWebServiceContextWithHandler:(void (^)(PKPaymentWebServiceContext *))arg1;
+- (void)setSharedPaymentWebServiceContext:(PKPaymentWebServiceContext *)arg1 handler:(void (^)(void))arg2;
 - (void)defaultPaymentPassUniqueIdentifier:(void (^)(NSString *))arg1;
 - (void)setDefaultPaymentPassUniqueIdentifier:(NSString *)arg1 handler:(void (^)(void))arg2;
-- (void)removePaymentDeviceContactlessInterfaceRestrictionOverride:(NSString *)arg1 handler:(void (^)(void))arg2;
-- (void)addPaymentDeviceContactlessInterfaceRestrictionOverride:(NSString *)arg1 handler:(void (^)(void))arg2;
 - (void)secureElementIdentifierWithHandler:(void (^)(NSString *))arg1;
 - (void)paymentDeviceIsInRestrictedModeWithHandler:(void (^)(BOOL))arg1;
 - (void)paymentDeviceIsAvailableWithHandler:(void (^)(BOOL))arg1;

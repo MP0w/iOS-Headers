@@ -8,7 +8,7 @@
 
 #import "HMDaemonConnection.h"
 
-@class HMMessageDispatcher, NSMutableSet, NSObject<OS_dispatch_group>, NSString, NSXPCConnection;
+@class HMMessageDispatcher, NSMutableSet, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
 
 @interface HMDConnectionProxy : NSObject <HMDaemonConnection>
 {
@@ -18,6 +18,7 @@
     NSXPCConnection *_xpcConnection;
     HMMessageDispatcher *_recvDispatcher;
     NSMutableSet *_pendingRequests;
+    NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_dispatch_group> *_activeMessageTracker;
     unsigned int _activeMessageCount;
 }
@@ -26,6 +27,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_group> *activeMessageTracker; // @synthesize activeMessageTracker=_activeMessageTracker;
 @property(nonatomic) BOOL activated; // @synthesize activated=_activated;
 @property(nonatomic) BOOL ready; // @synthesize ready=_ready;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(retain, nonatomic) NSMutableSet *pendingRequests; // @synthesize pendingRequests=_pendingRequests;
 @property(retain, nonatomic) HMMessageDispatcher *recvDispatcher; // @synthesize recvDispatcher=_recvDispatcher;
 @property(nonatomic) __weak NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;

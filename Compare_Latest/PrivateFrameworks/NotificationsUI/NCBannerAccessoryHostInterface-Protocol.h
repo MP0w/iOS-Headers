@@ -5,6 +5,7 @@
 //
 
 @protocol NCBannerAccessoryHostInterface
+- (void)_setSticky:(BOOL)arg1;
 - (void)_becomeSticky;
 - (void)_dismiss;
 @end

@@ -20,7 +20,7 @@ __attribute__((visibility("hidden")))
 @property(retain) id extensionMatchingContext; // @synthesize extensionMatchingContext=_extensionMatchingContext;
 @property(copy, nonatomic) NSArray *extensionPointIdentifiers; // @synthesize extensionPointIdentifiers=_extensionPointIdentifiers;
 - (void)cancelUpdatesIfNeeded;
-- (id)activitiesMatchingInputItems:(id)arg1 error:(id *)arg2 updateBlock:(CDUnknownBlockType)arg3;
+- (id)activitiesMatchingInputItems:(id)arg1 sourceIsManaged:(BOOL)arg2 error:(id *)arg3 updateBlock:(CDUnknownBlockType)arg4;
 - (void)dealloc;
 - (id)init;
 - (id)initWithExtensionPointIdentifiers:(id)arg1;

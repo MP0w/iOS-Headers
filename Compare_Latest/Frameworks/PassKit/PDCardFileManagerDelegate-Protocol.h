@@ -9,8 +9,8 @@
 @protocol PDCardFileManagerDelegate
 - (void)notePassWithUniqueID:(NSString *)arg1 isRevoked:(BOOL)arg2;
 - (void)catalogOfRecordWritten:(PKCatalog *)arg1;
-- (void)passWithUniqueIDDidDisappear:(NSString *)arg1 ignoringPaymentApplications:(BOOL)arg2;
-- (void)passWithUniqueIDDidDisappear:(NSString *)arg1;
+- (void)passWithUniqueIdentifierDidDisappear:(NSString *)arg1 forReason:(int)arg2;
+- (void)passWithUniqueIdentifierWillDisappear:(NSString *)arg1 forReason:(int)arg2;
 - (void)passWritten:(PKPass *)arg1 source:(int)arg2 withDiff:(PKDiff *)arg3;
 @end
 

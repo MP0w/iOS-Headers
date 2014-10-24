@@ -18,6 +18,7 @@
     BOOL _wantsBinaryPush;
     BOOL _wantsIntegerUniqueIDs;
     BOOL _highPriority;
+    BOOL _hasReceivedPushAck;
     id _context;
     NSDictionary *_clientInfo;
     NSData *_serviceData;
@@ -36,6 +37,7 @@
     double _timeSent;
 }
 
+@property BOOL hasReceivedPushAck; // @synthesize hasReceivedPushAck=_hasReceivedPushAck;
 @property BOOL highPriority; // @synthesize highPriority=_highPriority;
 @property(copy) NSDictionary *responseAlertInfo; // @synthesize responseAlertInfo=_responseAlert;
 @property BOOL wantsIntegerUniqueIDs; // @synthesize wantsIntegerUniqueIDs=_wantsIntegerUniqueIDs;

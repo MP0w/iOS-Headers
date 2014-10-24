@@ -43,6 +43,8 @@
 + (void)requestCourierConnection;
 + (void)_blockingXPCCallWithArgumentBlock:(CDUnknownBlockType)arg1 resultHandler:(CDUnknownBlockType)arg2;
 + (struct __SecIdentity *)copyIdentity;
++ (void)_safelyCancelAndReleaseConnection:(id)arg1;
++ (void)_safelyCancelAndReleaseAfterBarrierConnection:(id)arg1;
 + (BOOL)isValidEnvironment:(id)arg1;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *ivarQueue; // @synthesize ivarQueue=_ivarQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue; // @synthesize delegateQueue=_delegateQueue;

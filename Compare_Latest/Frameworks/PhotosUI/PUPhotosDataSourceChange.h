@@ -6,28 +6,41 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSIndexSet, PHChange;
+@class NSArray, NSDictionary, NSIndexSet, PHChange, PHFetchResultChangeDetails;
 
 @interface PUPhotosDataSourceChange : NSObject
 {
+    int _previousCollectionsCount;
+    NSDictionary *_assetCollectionToSectionCache;
+    PHFetchResultChangeDetails *_collectionListChangeDetails;
+    NSDictionary *_assetCollectionChangeDetails;
+    BOOL _prepared;
     NSIndexSet *_deletedSections;
     NSIndexSet *_insertedSections;
     NSIndexSet *_changedSections;
     NSArray *_deletedIndexPaths;
     NSArray *_insertedIndexPaths;
     NSArray *_changedIndexPaths;
+    NSArray *_contentChangedIndexPaths;
     PHChange *_originatingPhotoLibraryChange;
 }
 
-@property(retain) PHChange *originatingPhotoLibraryChange; // @synthesize originatingPhotoLibraryChange=_originatingPhotoLibraryChange;
-@property(copy) NSArray *changedIndexPaths; // @synthesize changedIndexPaths=_changedIndexPaths;
-@property(copy) NSArray *insertedIndexPaths; // @synthesize insertedIndexPaths=_insertedIndexPaths;
-@property(copy) NSArray *deletedIndexPaths; // @synthesize deletedIndexPaths=_deletedIndexPaths;
-@property(copy) NSIndexSet *changedSections; // @synthesize changedSections=_changedSections;
-@property(copy) NSIndexSet *insertedSections; // @synthesize insertedSections=_insertedSections;
-@property(copy) NSIndexSet *deletedSections; // @synthesize deletedSections=_deletedSections;
+@property(readonly) PHChange *originatingPhotoLibraryChange; // @synthesize originatingPhotoLibraryChange=_originatingPhotoLibraryChange;
 - (void).cxx_destruct;
+- (BOOL)_shouldPerformFullReloadForCollectionListChangeNotifications:(id)arg1 collectionChangeNotifications:(id)arg2;
+- (void)_prepareIncrementalDetails;
+- (void)prepareIfNeeded;
+- (id)description;
+@property(readonly, copy) NSArray *contentChangedIndexPaths;
+@property(readonly, copy) NSArray *changedIndexPaths;
+@property(readonly, copy) NSArray *insertedIndexPaths;
+@property(readonly, copy) NSArray *deletedIndexPaths;
+@property(readonly, copy) NSIndexSet *changedSections;
+@property(readonly, copy) NSIndexSet *insertedSections;
+@property(readonly, copy) NSIndexSet *deletedSections;
 @property(readonly) BOOL hasIncrementalChanges;
+- (id)initWithIncrementalChanges:(id)arg1 assetCollectionChangeDetails:(id)arg2 previousCollectionsCount:(int)arg3 assetCollectionToSectionCache:(id)arg4 originatingPhotoLibraryChange:(id)arg5;
+- (id)init;
 
 @end
 

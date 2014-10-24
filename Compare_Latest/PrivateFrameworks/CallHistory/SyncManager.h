@@ -33,6 +33,7 @@
 - (id)fetchObjectsWithLimits:(id)arg1;
 - (id)fetchObjectWithUniqueId:(id)arg1;
 - (id)fetchAllObjects;
+- (void)insertRecordsWithoutTransactions:(id)arg1;
 - (void)insertWithoutTransaction:(id)arg1;
 - (void)insert:(id)arg1;
 - (id)init;

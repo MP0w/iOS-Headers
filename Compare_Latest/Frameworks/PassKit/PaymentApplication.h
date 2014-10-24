@@ -14,9 +14,7 @@
 + (id)_predicateForPass:(id)arg1;
 + (id)_predicateForPassPID:(long long)arg1;
 + (id)_predicateForApplicationIdentifier:(id)arg1 secureElementIdentifier:(id)arg2;
-+ (id)_predicateForApplicationIdentifier:(id)arg1;
 + (id)predicateForNotificationService:(id)arg1;
-+ (id)predicateForState:(int)arg1;
 + (id)predicateForSecureElementIdentifier:(id)arg1;
 + (id)predicateForPassWithUniqueIdentifier:(id)arg1;
 + (id)predicateForDPANIdentifier:(id)arg1;
@@ -28,7 +26,7 @@
 + (id)paymentApplicationsInDatabase:(id)arg1 forSecureElementIdentifier:(id)arg2;
 + (id)paymentApplicationsInDatabase:(id)arg1 forPassPID:(unsigned long long)arg2;
 + (id)paymentApplicationsInDatabase:(id)arg1 forPass:(id)arg2;
-+ (id)anyInDatabase:(id)arg1 withApplicationIdentifier:(id)arg2;
++ (id)anyInDatabase:(id)arg1 withApplicationIdentifier:(id)arg2 secureElementIdentifier:(id)arg3;
 + (id)joinClauseForProperty:(id)arg1;
 + (id)associationPropertyForEntityClass:(Class)arg1;
 + (id)databaseTable;

@@ -70,7 +70,7 @@
 - (void)cancel:(id)arg1;
 - (BOOL)isNavigationButtonEnabled:(int)arg1;
 - (void)applicationDidResume;
-- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
+- (void)_getRotationContentSettings:(CDStruct_3421d26a *)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;

@@ -58,6 +58,7 @@
 @property(readonly, nonatomic) unsigned int approximateCount;
 @property(retain, nonatomic) NSOrderedSet *assets; // @dynamic assets;
 @property(readonly, nonatomic) unsigned int assetsCount;
+@property(nonatomic) unsigned int batchSize;
 @property(readonly, nonatomic) BOOL canShowAvalancheStacks;
 @property(readonly, nonatomic) BOOL canShowComments;
 @property(nonatomic) short cloudAlbumSubtype; // @dynamic cloudAlbumSubtype;
@@ -100,6 +101,7 @@
 @property(readonly, nonatomic) BOOL isPhotoStreamAlbum;
 @property(readonly, nonatomic) BOOL isRecentlyAddedAlbum;
 @property(readonly, nonatomic) BOOL isStandInAlbum;
+@property(readonly, nonatomic) BOOL isUserLibraryAlbum;
 @property(readonly, nonatomic) BOOL isWallpaperAlbum;
 @property(retain, nonatomic) PLManagedAsset *keyAsset;
 @property(readonly, retain, nonatomic) NSNumber *kind;

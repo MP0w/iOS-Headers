@@ -26,7 +26,7 @@
 - (id)initWithAccountSession:(id)arg1;
 - (void)fixupItemsAtStartup;
 - (void)writeUnderCoordinationFromURL:(id)arg1 toURL:(id)arg2 canDelete:(BOOL)arg3;
-- (void)applyAdditionsForItemID:(id)arg1 inContainer:(id)arg2;
+- (long long)applyAdditionsForItemID:(id)arg1 inContainer:(id)arg2;
 - (void)applyChangesForItem:(id)arg1 rank:(id)arg2 inContainer:(id)arg3;
 - (void)_applyChangesForAliasWithRank:(id)arg1 container:(id)arg2 li:(id)arg3 si:(id)arg4 diffs:(unsigned long long)arg5;
 - (void)stageCreationOfFault:(id)arg1 serverItem:(id)arg2 forCreation:(BOOL)arg3;

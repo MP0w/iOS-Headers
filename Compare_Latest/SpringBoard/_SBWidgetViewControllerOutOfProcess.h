@@ -64,7 +64,7 @@
 - (void)_synchronizeCachedState;
 - (id)_cachedStateURLEnsuringDirectoryExists:(_Bool)arg1;
 - (void)widgetDidTerminateWithError:(id)arg1;
-- (void)_disconnectRemoteViewControllerAndCoalesce:(CDUnknownBlockType)arg1;
+- (void)_disconnectRemoteViewControllerAndCoalesce:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_invalidateDisconnectionTimer;
 - (void)_disconnectionTimerDidFire:(id)arg1;
 - (void)_disconnectRemoteViewController:(CDUnknownBlockType)arg1;
@@ -111,6 +111,7 @@
 - (void)invalidateCachedSnapshotWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)validateSnapshotViewForActiveLayoutMode;
 - (void)captureSnapshotWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)_disconnectRemoteViewControllerImmediatelyWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)disconnectRemoteViewControllerWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)connectRemoteViewControllerWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (_Bool)shouldAutomaticallyForwardAppearanceMethods;

@@ -45,6 +45,7 @@
 - (void)setAlertDelegate:(id)arg1;
 - (id)alertDelegate;
 - (_Bool)_shouldDismissSwitcherOnActivation;
+@property(readonly, nonatomic) _Bool suppressesSiri;
 @property(readonly, nonatomic) _Bool suppressesControlCenter;
 @property(readonly, nonatomic) _Bool suppressesNotificationCenter;
 @property(nonatomic) _Bool suppressesBanners;

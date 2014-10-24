@@ -6,12 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSError, PDContactlessInterface, PKPaymentApplication, PKPaymentTransaction;
+@class NSString, PDContactlessInterface;
 
 @protocol PDContactlessInterfaceDelegate <NSObject>
-- (void)contactlessInterface:(PDContactlessInterface *)arg1 didEncounterError:(NSError *)arg2 forPaymentApplication:(PKPaymentApplication *)arg3;
-- (void)contactlessInterface:(PDContactlessInterface *)arg1 didUpdateTransaction:(PKPaymentTransaction *)arg2 forPaymentApplication:(PKPaymentApplication *)arg3;
-- (void)contactlessInterface:(PDContactlessInterface *)arg1 didGenerateTransaction:(PKPaymentTransaction *)arg2 forPaymentApplication:(PKPaymentApplication *)arg3;
+- (void)contactlessInterfaceDidCompleteTransaction:(PDContactlessInterface *)arg1 forPassWithUniqueIdentifier:(NSString *)arg2;
+- (void)contactlessInterfaceDidFailTransaction:(PDContactlessInterface *)arg1 forPassWithUniqueIdentifier:(NSString *)arg2;
 - (void)contactlessInterfaceDidLeaveField:(PDContactlessInterface *)arg1;
 - (void)contactlessInterfaceDidEnterField:(PDContactlessInterface *)arg1;
 - (BOOL)contactlessInterfaceShouldStartFieldDetection;

@@ -15,7 +15,7 @@
 #import "CPLPullFromTransportTaskDelegate.h"
 #import "CPLPushToTransportTaskDelegate.h"
 
-@class CPLBackgroundDownloadsTask, CPLBackgroundUploadsTask, CPLEngineLibrary, CPLEngineSyncEmergencyTask, CPLMinglePulledChangesTask, CPLPlatformObject, CPLPullFromTransportTask, CPLPushToTransportTask, NSError, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
+@class CPLBackgroundDownloadsTask, CPLBackgroundUploadsTask, CPLEngineLibrary, CPLEngineSyncEmergencyTask, CPLGetAssetCountsTask, CPLMinglePulledChangesTask, CPLPlatformObject, CPLPullFromTransportTask, CPLPushToTransportTask, NSError, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface CPLEngineSyncManager : NSObject <CPLEngineSyncEmergencyTaskDelegate, CPLPushToTransportTaskDelegate, CPLPullFromTransportTaskDelegate, CPLMinglePulledChangesTaskDelegate, CPLBackgroundUploadsTaskDelegate, CPLBackgroundDownloadsTaskDelegate, CPLAbstractObject, CPLEngineComponent>
 {
@@ -30,6 +30,7 @@
     NSMutableArray *_archivedManagementTasks;
     NSMutableDictionary *_completionHandlerPerTaskIdentifier;
     CPLPushToTransportTask *_pushTask;
+    CPLGetAssetCountsTask *_getAssetCountsTask;
     CPLPullFromTransportTask *_pullTask;
     CPLMinglePulledChangesTask *_mingleTask;
     CPLBackgroundUploadsTask *_backgroundUploadsTask;
@@ -77,6 +78,11 @@
 - (void)_cancelAllTasksForPull;
 - (BOOL)_launchNecessaryTasksForPull;
 - (id)_descriptionForPullTasks;
+- (BOOL)_didFinishGetAssetCountsTask:(id)arg1 withError:(id)arg2 shouldStop:(char *)arg3;
+- (float)_progressForGetAssetCountsTask:(id)arg1 progress:(float)arg2;
+- (void)_cancelAllTasksForGetAssetCounts;
+- (BOOL)_launchNecessaryTasksForGetAssetCounts;
+- (id)_descriptionForGetAssetCountsTasks;
 - (id)task:(id)arg1 wantsToPushBatch:(id)arg2 continuationBlock:(CDUnknownBlockType)arg3;
 - (BOOL)_didFinishPushTask:(id)arg1 withError:(id)arg2 shouldStop:(char *)arg3;
 - (float)_progressForPushTask:(id)arg1 progress:(float)arg2;

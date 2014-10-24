@@ -43,11 +43,16 @@
     id <PKPassGroupsViewControllerDelegate> _delegate;
 }
 
+@property(readonly, nonatomic, getter=isShowingWelcome) BOOL showingWelcome; // @synthesize showingWelcome=_showingWelcome;
 @property(nonatomic, getter=isWelcomeStateEnabled) BOOL welcomeStateEnabled; // @synthesize welcomeStateEnabled=_welcomeStateEnabled;
 @property BOOL passesAreOutdated; // @synthesize passesAreOutdated=_passesAreOutdated;
 @property(nonatomic) id <PKPassGroupsViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)_appStorePressed;
 - (void)_addTapped;
+- (void)updateRegionSupportIfNecessary;
+- (void)_regionConfigurationDidChangeNotification;
+- (void)_localeDidChangeNotification:(id)arg1;
+- (void)_updateStatusBarGradientOpacity:(BOOL)arg1;
 - (void)_updateWelcomeButtonOpacity:(BOOL)arg1;
 - (void)_updateWelcomeButton:(BOOL)arg1;
 - (void)_loadWelcomeContainer;
@@ -57,6 +62,7 @@
 - (void)_applyPresentationState;
 - (void)_presentWithUpdatedPasses:(CDUnknownBlockType)arg1;
 @property(readonly, retain, nonatomic) PKPassGroupStackView *groupStackView;
+- (void)presentPassWithUniqueID:(id)arg1 animated:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3 fallbackHandler:(CDUnknownBlockType)arg4;
 - (void)presentPassWithUniqueID:(id)arg1 animated:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)presentPassWithUniqueID:(id)arg1 animated:(BOOL)arg2;
 - (void)presentGroupTable;

@@ -33,7 +33,7 @@
 @property(nonatomic, getter=isExclusive) BOOL exclusive; // @synthesize exclusive=_exclusive;
 - (void).cxx_destruct;
 - (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToNode:(id)arg1;
 @property(retain, nonatomic) SKRegion *region;
 @property(nonatomic, getter=isEnabled) BOOL enabled;
 @property(nonatomic) float falloff;

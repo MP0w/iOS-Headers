@@ -8,7 +8,7 @@
 
 #import "BRCContainer.h"
 
-@class BRCAccountSession, BRCDBThrottle, BRCRelativePath, BRCServerContainer, BRCSyncBudgetThrottle, BRCSyncDownOperation, BRCSyncOperationThrottle, BRCSyncUpOperation, BRCVersionDownloader, BRCVersionUploader, BRContainer, NSArray, NSDictionary, NSError, NSMutableIndexSet, NSMutableSet, NSNumber, NSObject<OS_dispatch_group>, NSString, NSURL, PQLConnection, PQLNameInjection;
+@class BRCAccountSession, BRCDBThrottle, BRCRelativePath, BRCServerContainer, BRCSyncBudgetThrottle, BRCSyncDownOperation, BRCSyncOperationThrottle, BRCSyncUpOperation, BRCThrottle, BRCVersionDownloader, BRCVersionUploader, BRContainer, NSArray, NSDate, NSDictionary, NSError, NSMutableIndexSet, NSMutableSet, NSNumber, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSURL, PQLConnection, PQLNameInjection;
 
 @interface BRCLocalContainer : NSObject <BRCContainer>
 {
@@ -35,11 +35,16 @@
     BRCVersionDownloader *_versionDownloader;
     BRCVersionUploader *_versionUploader;
     NSMutableIndexSet *_appliedTombstoneRanks;
+    unsigned long long _lastInsertedRank;
     NSObject<OS_dispatch_group> *_faultingGroup;
     NSMutableIndexSet *_pendingCoordinatedIOs;
     NSMutableSet *_pendingFileCoordinators;
     BOOL _shouldForceContainerForeground;
     NSMutableSet *_foregroundXPCClients;
+    NSString *_lastForegroundClientDescription;
+    NSDate *_dateWhenLastForegroundClientLeft;
+    NSObject<OS_dispatch_source> *_timerForGraceForegroundPeriod;
+    NSObject<OS_dispatch_queue> *_foregroundStateQueue;
     NSMutableSet *_XPCClientsUsingUbiquity;
     int _notifyTokenForFramework;
     BOOL _deactivated;
@@ -61,6 +66,7 @@
     NSArray *_tableNames;
     BRCDBThrottle *_readerThrottle;
     BRCDBThrottle *_applyThrottle;
+    BRCThrottle *_additionsThrottle;
     NSArray *_syncThrottles;
     BRContainer *_containerMetadata;
     NSString *_containerMetadataEtag;
@@ -76,6 +82,7 @@
 @property(readonly, nonatomic) BRCVersionDownloader *versionDownloader; // @synthesize versionDownloader=_versionDownloader;
 @property(readonly, nonatomic) BRCVersionUploader *versionUploader; // @synthesize versionUploader=_versionUploader;
 @property(retain, nonatomic) BRCAccountSession *accountSession; // @synthesize accountSession=_session;
+@property(readonly, nonatomic) BRCThrottle *additionsThrottle; // @synthesize additionsThrottle=_additionsThrottle;
 @property(readonly, nonatomic) BRCDBThrottle *applyThrottle; // @synthesize applyThrottle=_applyThrottle;
 @property(readonly, nonatomic) BRCDBThrottle *readerThrottle; // @synthesize readerThrottle=_readerThrottle;
 @property(readonly, nonatomic) NSArray *tableNames; // @synthesize tableNames=_tableNames;
@@ -129,7 +136,7 @@
 - (BOOL)hasUbiquitousDocuments;
 - (void)availableQuotaDidIncreaseWithNewAvailableQuota:(long long)arg1;
 - (void)handleRootRecordDeletion;
-- (void)didSyncDownRequestID:(unsigned long long)arg1 recoverFromRank:(id)arg2 caughtUpWithServer:(BOOL)arg3 flushClientTruth:(BOOL)arg4;
+- (void)didSyncDownRequestID:(unsigned long long)arg1 caughtUpWithServer:(BOOL)arg2 flushClientTruth:(BOOL)arg3;
 - (void)_buildUnappliedCommandsQueue:(unsigned long long)arg1 maxRank:(unsigned long long)arg2;
 - (id)_itemsKilledInSyncUp;
 - (id)_unappliedRanks;
@@ -143,6 +150,7 @@
 - (BOOL)recomputeSyncBlockState;
 - (void)scheduleContainerMetadataSyncUp;
 - (void)setSyncDisabled:(BOOL)arg1;
+- (void)clearSyncUpError;
 - (void)resetSyncBudgetAndThrottle;
 - (void)scheduleSyncDown;
 - (void)scheduleSyncUp;
@@ -160,6 +168,7 @@
 - (void)didMarkItemNeedsDownload;
 - (void)didUpdateCurrentVersionOfItem:(id)arg1;
 - (long long)throttleHashWithItemID:(id)arg1;
+- (void)didCreateDocumentScopedItem;
 - (void)didFindLostItem:(id)arg1;
 - (BOOL)changedAtRelativePath:(id)arg1;
 - (void)updateFromFSAtPath:(id)arg1;
@@ -229,11 +238,13 @@
 - (void)addClientUsingUbiquity:(id)arg1;
 @property(readonly, nonatomic) BOOL isForeground;
 - (void)removeForegroundClient:(id)arg1;
+- (void)_armForegroundGraceTimerForClientDescription:(id)arg1;
 - (void)addForegroundClient:(id)arg1;
 - (void)_notifyFrameworkContainersMonitorWithState:(BOOL)arg1;
 - (void)tellDuetContainerWasAccessedByBundleID:(id)arg1;
 @property(readonly, nonatomic) NSString *coreDuetAdmissionTicket;
 - (void)reset:(unsigned int)arg1;
+- (void)reset:(unsigned int)arg1 withCoordinationCompletionHandler:(CDUnknownBlockType)arg2;
 - (BOOL)finishedReset:(unsigned int)arg1;
 - (BOOL)startReset:(unsigned int)arg1;
 - (void)deactivate;

@@ -13,6 +13,7 @@
 
 @interface MPUExtrasSlideshowTemplateViewController : MPUExtrasTemplateViewController <MPUExtrasSlideshowViewControllerDataSource, MPUExtrasZoomingImageTransitionParticipant>
 {
+    BOOL _overlayHidden;
     BOOL _preventNavbarAutohide;
     MPUExtrasSlideshowViewController *_slideshowViewController;
     NSArray *_imageElements;

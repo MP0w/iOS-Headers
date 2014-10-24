@@ -23,7 +23,7 @@
 - (void)propertyPicker:(id)arg1 selectedProperty:(int)arg2 withDefaultValue:(id)arg3;
 - (void)propertyPicker:(id)arg1 selectedProperty:(int)arg2;
 - (void)viewWillAppear:(BOOL)arg1;
-- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
+- (void)_getRotationContentSettings:(CDStruct_3421d26a *)arg1;
 @property(nonatomic) void *addressBook;
 @property(nonatomic) struct __CFArray *properties;
 - (float)ab_heightToFitForViewInPopoverView;

@@ -10,6 +10,7 @@
 {
 }
 
++ (BOOL)canSkipUserPromptsForProcessWithName:(id)arg1 identifier:(int)arg2;
 + (BOOL)connectionIsEntitledForPhotoKit:(id)arg1;
 + (BOOL)isEntitledForPhotoKit;
 + (BOOL)connection:(id)arg1 hasEntitlement:(id)arg2;

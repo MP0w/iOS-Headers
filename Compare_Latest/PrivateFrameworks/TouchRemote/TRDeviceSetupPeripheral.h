@@ -41,6 +41,7 @@
 - (void)_didDisconnect;
 - (void)cancelSetupForTimeout;
 - (void)cancelSetupForStateChange;
+- (void)cancelPreparingForSetup;
 - (BOOL)performSetup;
 - (id)init;
 

@@ -27,6 +27,8 @@
     BOOL __shouldSkipPreferredClientCertificateLookup;
     BOOL __allowsRetryForBackgroundDataTasks;
     BOOL __respectsAllowsCellularAccessForDiscretionaryTasks;
+    BOOL __overridesBackgroundSessionAutoRedirect;
+    BOOL __performsEVCertCheck;
     BOOL __infersDiscretionaryFromOriginatingClient;
     BOOL _backgroundSession;
     BOOL __phskip_credStorageSet;
@@ -121,6 +123,8 @@
 @property(getter=isBackgroundSession) BOOL backgroundSession; // @synthesize backgroundSession=_backgroundSession;
 @property(copy) NSString *_connectionPoolName; // @synthesize _connectionPoolName=__connectionPoolName;
 @property BOOL _infersDiscretionaryFromOriginatingClient; // @synthesize _infersDiscretionaryFromOriginatingClient=__infersDiscretionaryFromOriginatingClient;
+@property BOOL _performsEVCertCheck; // @synthesize _performsEVCertCheck=__performsEVCertCheck;
+@property BOOL _overridesBackgroundSessionAutoRedirect; // @synthesize _overridesBackgroundSessionAutoRedirect=__overridesBackgroundSessionAutoRedirect;
 @property BOOL _respectsAllowsCellularAccessForDiscretionaryTasks; // @synthesize _respectsAllowsCellularAccessForDiscretionaryTasks=__respectsAllowsCellularAccessForDiscretionaryTasks;
 @property BOOL _allowsRetryForBackgroundDataTasks; // @synthesize _allowsRetryForBackgroundDataTasks=__allowsRetryForBackgroundDataTasks;
 @property double _connectionCacheCellPurgeTimeout; // @synthesize _connectionCacheCellPurgeTimeout=__connectionCacheCellPurgeTimeout;

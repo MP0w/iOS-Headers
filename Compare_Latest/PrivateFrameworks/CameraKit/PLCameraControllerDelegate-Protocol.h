@@ -59,6 +59,7 @@
 - (void)cameraControllerModeDidChange:(CAMCaptureController *)arg1;
 - (void)cameraController:(CAMCaptureController *)arg1 willChangeToMode:(int)arg2 device:(int)arg3;
 - (void)cameraController:(CAMCaptureController *)arg1 cleanApertureDidChange:(struct CGRect)arg2;
+- (void)cameraControllerServerError:(CAMCaptureController *)arg1;
 - (void)cameraControllerServerDied:(CAMCaptureController *)arg1;
 - (void)cameraControllerSessionInterruptionEnded:(CAMCaptureController *)arg1;
 - (void)cameraControllerSessionWasInterrupted:(CAMCaptureController *)arg1;

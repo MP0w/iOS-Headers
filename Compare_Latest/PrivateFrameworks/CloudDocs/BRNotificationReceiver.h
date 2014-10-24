@@ -7,12 +7,11 @@
 #import "NSObject.h"
 
 #import "BRItemNotificationReceiving.h"
-#import "BRReachabilityObserver.h"
 
 @class BRNotificationQueue, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
 
 __attribute__((visibility("hidden")))
-@interface BRNotificationReceiver : NSObject <BRReachabilityObserver, BRItemNotificationReceiving>
+@interface BRNotificationReceiver : NSObject <BRItemNotificationReceiving>
 {
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_queue> *_ipcQueue;
@@ -30,6 +29,8 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_progressObserverByID;
     NSMutableDictionary *_itemInTransferByID;
     // Error parsing type: Ai, name: _suspendCount
+    int _networkReachabilityToken;
+    BOOL _isNetworkReachable;
 }
 
 @property(retain, nonatomic) id <BRNotificationReceiverDelegate> delegate; // @synthesize delegate=_delegate;
@@ -38,7 +39,7 @@ __attribute__((visibility("hidden")))
 - (void)enableUpdatesFromIPCAfterStitching;
 - (void)disableUpdatesFromIPCBeforeStitching;
 - (void)receiveStitchingUpdates:(id)arg1;
-- (void)reachabilityMonitor:(id)arg1 didChangeReachabilityStatusTo:(BOOL)arg2;
+- (void)networkDidChangeReachabilityStatusTo:(BOOL)arg1;
 - (void)receiveUpdates:(id)arg1 logicalExtensions:(id)arg2 physicalExtensions:(id)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)_receiveUpdates:(id)arg1;
 - (void)_signalSourceIfNeeded;

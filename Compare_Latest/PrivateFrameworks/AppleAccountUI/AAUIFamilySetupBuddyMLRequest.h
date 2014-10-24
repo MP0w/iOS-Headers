@@ -19,6 +19,7 @@
 - (void).cxx_destruct;
 - (id)urlRequest;
 - (id)urlString;
+- (BOOL)isUserInitiated;
 
 @end
 

@@ -12,15 +12,15 @@
 {
     NSMutableArray *_buttons;
     UIScrollView *_scrollView;
-    _Bool _useFlexiblePadding;
     double _interButtonPadding;
     unsigned long long _buttonStretchThreshold;
+    unsigned long long _buttonShrinkThreshold;
     long long _maxButtons;
     struct UIEdgeInsets _contentEdgeInsets;
 }
 
-@property(nonatomic) _Bool useFlexiblePadding; // @synthesize useFlexiblePadding=_useFlexiblePadding;
 @property(nonatomic) long long maxButtons; // @synthesize maxButtons=_maxButtons;
+@property(nonatomic) unsigned long long buttonShrinkThreshold; // @synthesize buttonShrinkThreshold=_buttonShrinkThreshold;
 @property(nonatomic) unsigned long long buttonStretchThreshold; // @synthesize buttonStretchThreshold=_buttonStretchThreshold;
 @property(nonatomic) struct UIEdgeInsets contentEdgeInsets; // @synthesize contentEdgeInsets=_contentEdgeInsets;
 @property(nonatomic) double interButtonPadding; // @synthesize interButtonPadding=_interButtonPadding;

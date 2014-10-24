@@ -21,6 +21,7 @@
 + (id)sharedInstance;
 @property(copy, nonatomic) CDUnknownBlockType CPLDownloadTransactionsLostHandler; // @synthesize CPLDownloadTransactionsLostHandler=_CPLDownloadTransactionsLostHandler;
 @property(nonatomic) NSObject<OS_xpc_object> *connection; // @synthesize connection;
+- (void)getCPLRemainingUploadCountsWithHandler:(CDUnknownBlockType)arg1;
 - (id)getCPLState;
 @property(retain, nonatomic) NSArray *previewAssetLocalIdentifiers; // @synthesize previewAssetLocalIdentifiers=_previewAssetLocalIdentifiers;
 - (id)previewRenderedContentURLAtIndex:(unsigned int)arg1;

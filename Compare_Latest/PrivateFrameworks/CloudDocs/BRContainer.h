@@ -21,6 +21,7 @@
     unsigned int _currentStatus;
     BOOL _isOverQuota;
     BOOL _isCloudSyncTCCDisabled;
+    BOOL _isInInitialState;
 }
 
 + (BOOL)supportsSecureCoding;
@@ -42,6 +43,7 @@
 + (id)mangleContainerID:(id)arg1;
 + (BOOL)validateContainerID:(id)arg1;
 + (id)containerForContainerID:(id)arg1;
+@property(nonatomic) BOOL isInInitialState; // @synthesize isInInitialState=_isInInitialState;
 @property(nonatomic) BOOL isCloudSyncTCCDisabled; // @synthesize isCloudSyncTCCDisabled=_isCloudSyncTCCDisabled;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void)encodeWithCoder:(id)arg1;
@@ -56,7 +58,7 @@
 @property(readonly, nonatomic) NSSet *documentsTypes;
 @property(readonly, nonatomic) NSString *supportedFolderLevels;
 @property(readonly, nonatomic) BOOL isDocumentScopePublic;
-- (id)localizedNameForLanguageCode:(id)arg1;
+- (id)localizedNameForLocale:(id)arg1;
 @property(readonly, nonatomic) NSString *localizedName;
 @property(readonly, copy, nonatomic) NSSet *bundleIdentifiers;
 - (id)enumeratorOfBundleProperty:(id)arg1 valuesOfClass:(Class)arg2;
@@ -68,7 +70,7 @@
 - (id)initWithContainerID:(id)arg1 propertiesByBundleID:(id)arg2;
 - (BOOL)setPropertiesData:(id)arg1 stagedBundleIconPaths:(id)arg2 salt:(id)arg3 refresh:(BOOL)arg4;
 - (BOOL)setProperties:(id)arg1 stagedBundleIconPaths:(id)arg2 forBundleIdentifier:(id)arg3 salt:(id)arg4;
-- (BOOL)hasMetadataForBundleID:(id)arg1;
+- (BOOL)hasMostRecentMetadataForBundleID:(id)arg1;
 - (id)iconURLs;
 - (BOOL)hasIconWithName:(id)arg1;
 @property(readonly, nonatomic) NSData *propertiesData;

@@ -327,8 +327,10 @@
 - (void)_applicationBecameActive:(id)arg1;
 - (void)registerForNotifications;
 - (void)registerForSharedNotifications;
+- (void)_askToTurnOnSMSRelayIfNeeded;
 - (void)_confirmReadReceiptSettings;
 - (void)_askToTurnOnReadReceiptsIfNeeded;
+- (BOOL)_shouldShowReadRecieptAlert;
 - (void)_markMessagesAsReadIfNecessary;
 - (void)_updateBackPlacardSubviews;
 - (id)rotatingFooterView;

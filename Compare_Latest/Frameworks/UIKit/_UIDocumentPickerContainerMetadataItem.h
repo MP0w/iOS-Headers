@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     int _cachedType;
     NSString *_cachedTitle;
     NSString *_cachedSubtitle;
+    NSString *_cachedSubtitle2;
     NSArray *_cachedTags;
     NSURL *_cachedURL;
 }
@@ -21,6 +22,7 @@ __attribute__((visibility("hidden")))
 - (id)sortDate;
 - (id)tags;
 - (id)url;
+- (id)subtitle2;
 - (id)subtitle;
 - (id)title;
 - (int)type;

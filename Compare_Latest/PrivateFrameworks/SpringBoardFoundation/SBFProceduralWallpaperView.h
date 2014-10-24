@@ -45,7 +45,7 @@
 - (void)setContinuousColorSamplingEnabled:(BOOL)arg1;
 - (void)invalidate;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 proceduralWallpaper:(id)arg2 options:(id)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 proceduralWallpaper:(id)arg2 options:(id)arg3 variant:(int)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

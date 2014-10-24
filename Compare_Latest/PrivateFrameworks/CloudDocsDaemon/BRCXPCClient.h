@@ -9,7 +9,7 @@
 #import "BRCProcessMonitorDelegate.h"
 #import "BRProtocol.h"
 
-@class BRCAccountSession, NSMutableSet, NSSet, NSString, NSXPCConnection;
+@class BRCAccountSession, NSCountedSet, NSSet, NSString, NSXPCConnection;
 
 __attribute__((visibility("hidden")))
 @interface BRCXPCClient : NSObject <BRProtocol, BRCProcessMonitorDelegate>
@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
     BOOL _isProxyEntitled;
     int _clientPid;
     NSString *_debugIdentifier;
-    NSMutableSet *_containers;
+    NSCountedSet *_containers;
     NSString *_applicationIdenfier;
     NSString *_defaultContainerID;
     NSSet *_entitledContainerIDs;
@@ -82,6 +82,7 @@ __attribute__((visibility("hidden")))
 - (void)getContainerStatusWithID:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)getApplicationStatusWithPID:(int)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)getApplicationStatus:(CDUnknownBlockType)arg1;
+- (void)getBackReferencingContainerIDsForURL:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)resolveBookmarkDataToURL:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)getBookmarkDataForURL:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)getMigrationStatusForPrimaryiCloudAccount:(CDUnknownBlockType)arg1;

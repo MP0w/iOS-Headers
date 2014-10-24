@@ -67,6 +67,12 @@
 - (id)itemVisitedAtURLString:(id)arg1 title:(id)arg2 wasHTTPNonGet:(BOOL)arg3 wasFailure:(BOOL)arg4 increaseVisitCount:(BOOL)arg5;
 - (void)_replayAndAddTombstone:(id)arg1;
 - (void)_getAllTombstonesWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_setCachedNumberOfDevicesInSyncCircle:(unsigned int)arg1;
+- (unsigned int)_cachedNumberOfDevicesInSyncCircle;
+- (void)_setSyncCircleSizeRetrievalThrottlerData:(id)arg1;
+- (id)_syncCircleSizeRetrievalThrottlerData;
+- (void)_setFetchThrottlerData:(id)arg1;
+- (id)_fetchThrottlerData;
 - (void)_setPushThrottlerData:(id)arg1;
 - (id)_pushThrottlerData;
 - (void)_setServerChangeTokenData:(id)arg1;

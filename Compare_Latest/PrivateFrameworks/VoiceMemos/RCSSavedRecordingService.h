@@ -38,7 +38,7 @@
 - (oneway void)enableOrphanHandlingWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (oneway void)disableOrphanHandlingWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (oneway void)enableOrphanedFragmentCleanupForCompositionAVURL:(id)arg1;
-- (oneway void)disableOrphanedFragmentCleanupForCompositionAVURL:(id)arg1;
+- (oneway void)disableOrphanedFragmentCleanupForCompositionAVURL:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (oneway void)endAccessSessionWithToken:(id)arg1;
 - (oneway void)prepareToTrimCompositionAVURL:(id)arg1 accessRequestHandler:(CDUnknownBlockType)arg2;
 - (oneway void)prepareToExportCompositionAVURL:(id)arg1 cacheWaveform:(BOOL)arg2 accessRequestHandler:(CDUnknownBlockType)arg3;

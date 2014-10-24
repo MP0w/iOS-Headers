@@ -33,6 +33,7 @@
 - (id)removeLibraryTaskWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)resourcePublishTaskForResource:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)resourceDownloadTaskForResource:(id)arg1 clientBundleID:(id)arg2 didStartHandler:(CDUnknownBlockType)arg3 progressHandler:(CDUnknownBlockType)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (id)getAssetCountsTaskWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)downloadBatchTaskForSyncAnchor:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)uploadBatchTaskForBatch:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)setupTaskCreateLibraryIfNecessary:(BOOL)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;

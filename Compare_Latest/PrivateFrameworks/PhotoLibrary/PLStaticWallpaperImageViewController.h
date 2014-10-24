@@ -17,7 +17,7 @@
 - (id)wallpaperImage;
 - (void)viewWillAppear:(BOOL)arg1;
 - (id)initWithPhoto:(id)arg1;
-- (id)initWithUIImage:(id)arg1 cropRect:(struct CGRect)arg2;
+- (id)initWithUIImage:(id)arg1 name:(id)arg2;
 - (id)initWithUIImage:(id)arg1;
 
 @end

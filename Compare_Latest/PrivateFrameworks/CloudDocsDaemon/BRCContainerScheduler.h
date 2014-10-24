@@ -103,7 +103,7 @@
 - (void)syncSuspend;
 - (void)_automaticSyncSchedule;
 - (long long)_applyChangesScheduleContainer:(id)arg1;
-- (void)_applyAdditionsInContainer:(id)arg1;
+- (long long)_applyAdditionsInContainer:(id)arg1;
 - (void)endWriteCoordinationInContainer:(id)arg1;
 - (BOOL)startWriteCoordinationInContainer:(id)arg1;
 - (unsigned int)_writeCoordinationCount;
@@ -123,10 +123,10 @@
 - (id)containerByMangledID:(id)arg1;
 - (id)containerByID:(id)arg1;
 - (void)refreshPushRegistrationAfterAppsListChanged;
-- (id)createContainerIfNeeded:(id)arg1;
+- (id)createContainerIfNeeded:(id)arg1 isInReset:(BOOL)arg2;
 - (void)activateLocalContainer:(id)arg1 withServerContainer:(id)arg2 creation:(BOOL)arg3;
 - (void)_addContainerToScheduler:(id)arg1;
-- (BOOL)_createContainerOnDisk:(id)arg1 andDocumentsFolder:(BOOL)arg2 underRoot:(id)arg3;
+- (BOOL)createContainerOnDisk:(id)arg1 createdRoot:(char *)arg2 createdDocuments:(char *)arg3;
 - (void)setupWithRoot:(id)arg1;
 - (void)close;
 - (void)deactivate;

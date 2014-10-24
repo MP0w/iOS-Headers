@@ -9,6 +9,9 @@
 @class IMItem, IMMessageItem, NSArray, NSData, NSDate, NSDictionary, NSNumber, NSString;
 
 @protocol IMRemoteDaemonProtocol <NSObject>
+- (void)enrollSelfDeviceForSMSRelay:(NSString *)arg1;
+- (void)unEnrollDeviceForSMSRelay:(NSString *)arg1 account:(NSString *)arg2;
+- (void)enrollDeviceForSMSRelay:(NSString *)arg1 account:(NSString *)arg2;
 - (void)validateProfileAccount:(NSString *)arg1;
 - (void)unvalidateAliases:(NSArray *)arg1 account:(NSString *)arg2;
 - (void)validateAliases:(NSArray *)arg1 account:(NSString *)arg2;
@@ -39,6 +42,7 @@
 - (void)invitePersonInfo:(NSDictionary *)arg1 withMessage:(IMMessageItem *)arg2 toChatID:(NSString *)arg3 identifier:(NSString *)arg4 style:(unsigned char)arg5 account:(NSString *)arg6;
 - (void)removeChatID:(NSString *)arg1 identifier:(NSString *)arg2 style:(unsigned char)arg3 account:(NSString *)arg4;
 - (void)leaveChatID:(NSString *)arg1 identifier:(NSString *)arg2 style:(unsigned char)arg3 account:(NSString *)arg4;
+- (void)joinChatID:(NSString *)arg1 handleInfo:(NSArray *)arg2 identifier:(NSString *)arg3 style:(unsigned char)arg4 groupID:(NSString *)arg5 joinProperties:(NSDictionary *)arg6 account:(NSString *)arg7;
 - (void)joinChatID:(NSString *)arg1 handleInfo:(NSArray *)arg2 identifier:(NSString *)arg3 style:(unsigned char)arg4 joinProperties:(NSDictionary *)arg5 account:(NSString *)arg6;
 - (void)updateAuthorizationCredentials:(NSString *)arg1 token:(NSString *)arg2 account:(NSString *)arg3;
 - (void)setValue:(id)arg1 ofProperty:(NSString *)arg2 ofPerson:(NSString *)arg3 account:(NSString *)arg4;

@@ -29,6 +29,7 @@
 - (id)description;
 - (id)changeDetailsForFetchResult:(id)arg1;
 - (id)changeDetailsForObject:(id)arg1;
+- (BOOL)contentChangedForPHAssetOID:(id)arg1;
 - (void)preloadChangeDetailsForFetchResults:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)preloadSimulatedChangeDetailsForManualFetchResults:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (id)deletedObjectIDs;

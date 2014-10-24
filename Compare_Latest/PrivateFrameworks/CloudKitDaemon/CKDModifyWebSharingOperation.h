@@ -6,7 +6,7 @@
 
 #import <CloudKitDaemon/CKDDatabaseOperation.h>
 
-@class NSArray, NSMutableDictionary;
+@class NSArray, NSMutableDictionary, NSMutableSet;
 
 __attribute__((visibility("hidden")))
 @interface CKDModifyWebSharingOperation : CKDDatabaseOperation
@@ -16,10 +16,14 @@ __attribute__((visibility("hidden")))
     NSArray *_recordIDsToShare;
     NSArray *_recordIDsToUnshare;
     NSArray *_recordIDsToShareReadWrite;
+    NSMutableSet *_fetchedRecordIDs;
     NSMutableDictionary *_recordsToSaveByID;
+    NSMutableSet *_savedRecordIDs;
 }
 
+@property(retain, nonatomic) NSMutableSet *savedRecordIDs; // @synthesize savedRecordIDs=_savedRecordIDs;
 @property(retain, nonatomic) NSMutableDictionary *recordsToSaveByID; // @synthesize recordsToSaveByID=_recordsToSaveByID;
+@property(retain, nonatomic) NSMutableSet *fetchedRecordIDs; // @synthesize fetchedRecordIDs=_fetchedRecordIDs;
 @property(retain, nonatomic) NSArray *recordIDsToShareReadWrite; // @synthesize recordIDsToShareReadWrite=_recordIDsToShareReadWrite;
 @property(retain, nonatomic) NSArray *recordIDsToUnshare; // @synthesize recordIDsToUnshare=_recordIDsToUnshare;
 @property(retain, nonatomic) NSArray *recordIDsToShare; // @synthesize recordIDsToShare=_recordIDsToShare;

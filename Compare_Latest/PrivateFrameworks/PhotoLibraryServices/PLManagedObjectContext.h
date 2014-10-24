@@ -47,6 +47,7 @@
 
 + (BOOL)assetsLibraryLoggingEnabled;
 + (void)handleUnknownMergeEvent;
++ (BOOL)_isAssetLibraryFetchingAlbum:(id)arg1;
 + (void)mergeChangesFromRemoteContextSave:(id)arg1 intoAllContextsNotIdenticalTo:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (void)mergeIntoAllContextsChangesFromRemoteContextSave:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (void)delayedAlbumCountUpdatesFromChangeHubEvent:(id)arg1 countUpdates:(id *)arg2;

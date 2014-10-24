@@ -10,9 +10,11 @@ __attribute__((visibility("hidden")))
 @interface UIInputViewSetPlacementUndocked : UIInputViewSetPlacement
 {
     float _normalizedOffset;
+    struct UIEdgeInsets _chromeBuffer;
 }
 
-+ (id)placementWithUndockedOffset:(float)arg1;
++ (id)placementWithUndockedOffset:(float)arg1 chromeBuffer:(struct UIEdgeInsets)arg2;
+@property(nonatomic) struct UIEdgeInsets chromeBuffer; // @synthesize chromeBuffer=_chromeBuffer;
 @property(nonatomic) float normalizedOffset; // @synthesize normalizedOffset=_normalizedOffset;
 - (BOOL)isUndocked;
 - (BOOL)inputViewWillAppear;

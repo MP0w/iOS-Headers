@@ -85,7 +85,8 @@
 - (void)_readValueForCharacteristic:(id)arg1 messageIdentifier:(id)arg2 responseHandler:(CDUnknownBlockType)arg3;
 - (void)_handleCharacteristicRead:(id)arg1;
 - (void)_handleCharacteristicWrite:(id)arg1;
-- (void)_writeValue:(id)arg1 forCharacteristic:(id)arg2 identifier:(id)arg3 queue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)_handlePrepareCharacteristicWrite:(id)arg1;
+- (void)_writeValue:(id)arg1 forCharacteristic:(id)arg2 authorizationData:(id)arg3 identifier:(id)arg4 queue:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (void)_readCharacteristicValues:(id)arg1 queue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_writeCharacteristicValues:(id)arg1 queue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)hmdCharacteristicResponseTuples:(id)arg1 mapping:(id)arg2;
@@ -103,7 +104,6 @@
 - (void)addBridgedAccessory:(id)arg1;
 - (void)readCharacteristicValues:(id)arg1 queue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)writeCharacteristicValues:(id)arg1 queue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)writeValue:(id)arg1 forCharacteristic:(id)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)configure:(id)arg1 msgDispatcher:(id)arg2 accessoryManager:(id)arg3;
 - (void)savePublicKeyToKeychain;
 - (void)setPairingUsername:(id)arg1 publicKey:(id)arg2;

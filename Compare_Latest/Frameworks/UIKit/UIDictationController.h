@@ -8,7 +8,7 @@
 
 #import "_UITouchPhaseChangeDelegate.h"
 
-@class AFDictationConnection, AFDictationOptions, AFPreferences, CADisplayLink, NSArray, NSMutableArray, NSString, NSTimer, UIAlertView, UIDictationStreamingOperations, UIKeyboardInputMode;
+@class AFDictationConnection, AFDictationOptions, AFPreferences, CADisplayLink, NSArray, NSMutableArray, NSString, NSTimer, UIAlertView, UIDictationStreamingOperations, UIKeyboardInputMode, UIWindow, _UIDictationPrivacySheetController;
 
 __attribute__((visibility("hidden")))
 @interface UIDictationController : NSObject <_UITouchPhaseChangeDelegate>
@@ -41,6 +41,8 @@ __attribute__((visibility("hidden")))
     NSString *_previousHypothesis;
     NSString *_lastHypothesis;
     NSString *_targetHypothesis;
+    UIWindow *_dictationPresenterWindow;
+    _UIDictationPrivacySheetController *_dictationPrivacySheetController;
     UIKeyboardInputMode *_inputModeThatInvokedDictation;
     struct _NSRange _insertionRange;
 }
@@ -68,6 +70,7 @@ __attribute__((visibility("hidden")))
 + (id)serializedInterpretationFromTokens:(id)arg1 transform:(struct __CFString *)arg2 ranges:(id *)arg3;
 + (void)applicationDidChangeStatusBarFrame;
 + (void)siriPreferencesChanged;
++ (void)applicationDidEnterBackgroundNotification;
 + (void)applicationWillResignActive;
 + (void)applicationDidBecomeActive;
 + (BOOL)shouldInsertText:(id)arg1 inInputDelegate:(id)arg2;
@@ -98,6 +101,8 @@ __attribute__((visibility("hidden")))
 + (BOOL)setupForPhraseSerialization;
 + (BOOL)openAssistantFrameworkIfNecessary;
 @property(retain, nonatomic) UIKeyboardInputMode *inputModeThatInvokedDictation; // @synthesize inputModeThatInvokedDictation=_inputModeThatInvokedDictation;
+@property(retain, nonatomic) _UIDictationPrivacySheetController *dictationPrivacySheetController; // @synthesize dictationPrivacySheetController=_dictationPrivacySheetController;
+@property(retain, nonatomic) UIWindow *dictationPresenterWindow; // @synthesize dictationPresenterWindow=_dictationPresenterWindow;
 @property(nonatomic) BOOL hasPreheated; // @synthesize hasPreheated=_hasPreheated;
 @property(nonatomic) struct _NSRange insertionRange; // @synthesize insertionRange=_insertionRange;
 @property(nonatomic) BOOL discardNextHypothesis; // @synthesize discardNextHypothesis=_discardNextHypothesis;
@@ -143,6 +148,10 @@ __attribute__((visibility("hidden")))
 - (void)startDictationForFileAtURL:(id)arg1 forInputModeIdentifier:(id)arg2;
 - (void)switchToDictationInputMode;
 - (void)_touchPhaseChangedForTouch:(id)arg1;
+- (void)_presentPrivacySheet;
+- (void)_presentOptInAlert;
+- (void)_endEnableDictationPromptAnimated:(BOOL)arg1;
+- (void)_beginEnableDictationPrompt;
 - (void)switchToDictationInputModeWithTouch:(id)arg1;
 - (void)startDictation;
 - (void)startDictationForReason:(int)arg1;

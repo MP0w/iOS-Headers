@@ -30,6 +30,7 @@
     long long _customStatusBarStyle;
     int _desiredStatusBarStyleOverrides;
     _Bool _wantsToShowStatusBar;
+    _Bool _suppressesSiri;
     _Bool _dismissOnUILock;
     long long _desiredLaunchingInterfaceOrientation;
     _Bool _dontCancelStatusBarStyleOverrides;
@@ -67,6 +68,7 @@
 - (void)remoteAlertWantsWallpaperTunnelActive:(_Bool)arg1;
 - (void)remoteAlertWantsToUpdateAllowedHardwareButtonEvents:(long long)arg1;
 - (void)remoteAlertWantsToAllowBanners:(_Bool)arg1;
+- (void)_setSuppressesSiri:(_Bool)arg1;
 - (void)_setShouldDisableFadeInAnimation:(_Bool)arg1;
 - (void)_setCustomStatusBarStyle:(long long)arg1;
 - (void)_setHasTranslucentBackground:(_Bool)arg1;
@@ -83,6 +85,7 @@
 - (long long)statusBarStyle;
 - (_Bool)allowsStackingOfAlert:(id)arg1;
 - (_Bool)hasTranslucentBackground;
+- (_Bool)suppressesSiri;
 - (_Bool)suppressesControlCenter;
 - (_Bool)suppressesNotificationCenter;
 - (void)handleDoubleHeightStatusBarTap;

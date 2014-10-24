@@ -10,7 +10,7 @@
 #import "UITableViewDelegate.h"
 #import "UITextViewDelegate.h"
 
-@class BluetoothManager, NSArray, NSMutableDictionary, NSString, NSTimer, PKLinkedAppView, PKSettingTableCell, UIAlertView, UIButton, UILabel, UIRefreshControl, UITableView, UIView;
+@class BluetoothManager, NSArray, NSMutableDictionary, NSString, NSTimer, PKLinkedAppView, PKSettingTableCell, UIButton, UILabel, UIRefreshControl, UITableView, UIView;
 
 @interface PKPassBackFaceView : PKPassFaceView <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate>
 {
@@ -19,7 +19,6 @@
     UILabel *_updateDateLabel;
     UIButton *_doneButton;
     PKLinkedAppView *_linkedApp;
-    UIAlertView *_storeDemoRefuseDeleteAlert;
     UIView *_locationHelpView;
     UITableView *_bodyTable;
     PKSettingTableCell *_automaticUpdates;
@@ -43,7 +42,6 @@
 + (BOOL)isWifiEnabled;
 + (id)_linkColor;
 + (id)_linkTextAttributes;
-@property(retain, nonatomic) UIAlertView *storeDemoRefuseDeleteAlert; // @synthesize storeDemoRefuseDeleteAlert=_storeDemoRefuseDeleteAlert;
 @property(nonatomic) PKLinkedAppView *linkedApp; // @synthesize linkedApp=_linkedApp;
 @property(nonatomic) BOOL showsLinks; // @synthesize showsLinks=_showsLinks;
 @property(nonatomic) BOOL showsSettings; // @synthesize showsSettings=_showsSettings;
@@ -51,11 +49,7 @@
 @property(nonatomic) BOOL showsDelete; // @synthesize showsDelete=_showsDelete;
 - (void)layoutSubviews;
 - (void)pushSettingsFromViewToModel;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (void)_deleteButtonPressed:(id)arg1;
-- (void)applicationDidEnterBackground:(id)arg1;
-- (void)unregisterForEnterBackgroundNotification;
-- (void)registerForEnterBackgroundNotification;
 - (BOOL)showBackgroundMatte;
 - (BOOL)showUpdateDateLabel;
 - (BOOL)deleteEnabled;

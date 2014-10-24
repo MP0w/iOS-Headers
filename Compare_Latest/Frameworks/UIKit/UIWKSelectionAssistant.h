@@ -11,8 +11,10 @@
 @interface UIWKSelectionAssistant : UIWebSelectionAssistant
 {
     _UITextServiceSession *_definitionSession;
+    _UITextServiceSession *_learnSession;
 }
 
+- (void)showTextServiceFor:(id)arg1 fromRect:(struct CGRect)arg2;
 - (void)blockSelectionChangedWithTouch:(int)arg1 withFlags:(int)arg2 growThreshold:(float)arg3 shrinkThreshold:(float)arg4;
 - (void)selectionChangedWithTouchAt:(struct CGPoint)arg1 withSelectionTouch:(int)arg2 withFlags:(int)arg3;
 - (void)selectionChangedWithTouchAt:(struct CGPoint)arg1 withSelectionTouch:(int)arg2;

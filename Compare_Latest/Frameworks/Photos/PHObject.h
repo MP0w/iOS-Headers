@@ -25,8 +25,12 @@
 + (id)localIdentifierWithUUID:(id)arg1;
 + (id)entityKeyForPropertyKey:(id)arg1;
 + (id)identifierCode;
++ (BOOL)managedObjectSupportsiTunesSyncType;
++ (BOOL)managedObjectSupportsCloudSharedType;
++ (BOOL)managedObjectSupportsPhotoStreamType;
 + (BOOL)managedObjectSupportsWallpaperType;
 + (BOOL)managedObjectSupportsBursts;
++ (BOOL)managedObjectSupportsVisibilityState;
 + (BOOL)managedObjectSupportsHiddenState;
 + (BOOL)managedObjectSupportsTrashedState;
 + (id)managedEntityName;

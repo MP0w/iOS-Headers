@@ -72,6 +72,7 @@
 - (void)setBodyText:(id)arg1;
 - (id)message;
 - (void)setMessage:(id)arg1;
+- (void)_didPresent;
 - (void)_setIsPresented:(BOOL)arg1;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
 - (void)_dismissForTappedIndex:(int)arg1;

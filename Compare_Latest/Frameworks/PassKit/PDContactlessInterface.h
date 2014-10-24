@@ -18,8 +18,7 @@
 @property(nonatomic) id <PDContactlessInterfaceDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) PDSecureElement *secureElement; // @synthesize secureElement=_secureElement;
 @property(readonly, nonatomic) BOOL isInField; // @synthesize isInField=_isInField;
-- (void)removeContactlessInterfaceRestrictionOverride:(id)arg1;
-- (void)addContactlessInterfaceRestrictionOverride:(id)arg1;
+- (BOOL)pendingLocationLookupForTransaction:(id)arg1;
 - (void)preheatForTransactionEvent;
 @property(readonly, nonatomic) BOOL isDetectingField;
 - (void)updateFieldDetectionState;
@@ -27,7 +26,7 @@
 - (void)startCardEmulation;
 - (void)dealloc;
 - (id)init;
-- (id)initWithNotificationManager:(id)arg1 delegate:(id)arg2;
+- (id)initWithNotificationManager:(id)arg1 databaseManager:(id)arg2 delegate:(id)arg3;
 
 @end
 

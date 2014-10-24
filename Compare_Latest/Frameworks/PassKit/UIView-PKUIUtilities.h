@@ -13,10 +13,8 @@
 + (void)pkui_animateUsingOptions:(unsigned int)arg1 animations:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)pkui_viewControllerFromResponderChain;
 - (id)pkui_translationAnimation;
-- (void)addTranslationAnimationWithStartTime:(float)arg1 duration:(float)arg2 timing:(id)arg3;
 - (void)addTransformSpringWithMass:(float)arg1 stiffness:(float)arg2 damping:(float)arg3 startTime:(float)arg4 timing:(id)arg5;
 - (void)addDefaultTransformSpringWithStartTime:(float)arg1;
-- (void)addTransformAnimationWithStartTime:(float)arg1 duration:(float)arg2 timing:(id)arg3;
 - (void)addTranslationSpringWithMass:(float)arg1 stiffness:(float)arg2 damping:(float)arg3 startTime:(float)arg4 velocity:(float)arg5 timing:(id)arg6;
 - (void)addTranslationSpringWithMass:(float)arg1 stiffness:(float)arg2 damping:(float)arg3 startTime:(float)arg4 timing:(id)arg5;
 - (void)addDefaultTranslationSpringWithVelocity:(float)arg1 startTime:(float)arg2;

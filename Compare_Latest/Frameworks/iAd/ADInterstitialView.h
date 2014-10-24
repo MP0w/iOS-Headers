@@ -6,39 +6,37 @@
 
 #import "UIView.h"
 
-@class ADInterstitialAd, ADTapGestureRecognizer, _UIRemoteView;
+#import "ADDimmerViewDelegate.h"
 
-@interface ADInterstitialView : UIView
+@class ADInterstitialAd, NSString;
+
+@interface ADInterstitialView : UIView <ADDimmerViewDelegate>
 {
     ADInterstitialAd *_interstitialAd;
-    BOOL _dimmed;
-    ADTapGestureRecognizer *_tapGestureRecognizer;
-    _UIRemoteView *_remoteView;
-    UIView *_dimmerView;
-    ADTapGestureRecognizer *_gestureRecognizer;
     struct CGRect _dismissButtonRect;
 }
 
-@property(nonatomic) BOOL dimmed; // @synthesize dimmed=_dimmed;
-@property(retain, nonatomic) ADTapGestureRecognizer *gestureRecognizer; // @synthesize gestureRecognizer=_gestureRecognizer;
-@property(retain, nonatomic) UIView *dimmerView; // @synthesize dimmerView=_dimmerView;
-@property(retain, nonatomic) _UIRemoteView *remoteView; // @synthesize remoteView=_remoteView;
++ (BOOL)requiresConstraintBasedLayout;
 @property(nonatomic) struct CGRect dismissButtonRect; // @synthesize dismissButtonRect=_dismissButtonRect;
-@property(readonly, nonatomic) ADTapGestureRecognizer *tapGestureRecognizer; // @synthesize tapGestureRecognizer=_tapGestureRecognizer;
-- (void)_gestureHandler:(id)arg1;
+- (BOOL)enableDimmerView:(id)arg1;
+- (void)dimmerView:(id)arg1 didReceiveTouchUpAtPoint:(struct CGPoint)arg2;
 - (struct CGSize)intrinsicContentSize;
 - (void)didMoveToWindow;
 - (void)removeFromSuperview;
-- (void)setCenter:(struct CGPoint)arg1;
 - (void)setAlpha:(float)arg1;
 - (void)setHidden:(BOOL)arg1;
 - (void)setTransform:(struct CGAffineTransform)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
-- (void)setHostedWindowHostingHandle:(id)arg1;
-- (id)interstitialAd;
+@property(readonly, nonatomic) ADInterstitialAd *interstitialAd;
 - (id)initForInterstitialAd:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -26,6 +26,7 @@
 @property(retain, nonatomic) _UIHostedWindowHostingHandle *hostedWindowHostingHandle; // @synthesize hostedWindowHostingHandle=_hostedWindowHostingHandle;
 @property(nonatomic, setter=_setActsAsTintView:) BOOL _actsAsTintView; // @synthesize _actsAsTintView;
 @property(retain, nonatomic, setter=_setStatusBarTintColor:) UIColor *_statusBarTintColor; // @synthesize _statusBarTintColor;
+- (void)_compensateForGlobalMediaTimeAdjustmentsIfNecessary;
 - (void)_didMoveFromWindow:(id)arg1 toWindow:(id)arg2;
 - (void)_setStatusBarTintColor:(id)arg1 duration:(double)arg2;
 @property(nonatomic, setter=_setInheritsSecurity:) BOOL _inheritsSecurity;

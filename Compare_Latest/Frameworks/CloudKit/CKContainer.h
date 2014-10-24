@@ -6,12 +6,15 @@
 
 #import "NSObject.h"
 
-@class ACAccountStore, CKAccountInfo, CKContainerID, CKDatabase, CKOperationCallbackManager, CKOperationFlowControlManager, CKRecordID, NSMutableArray, NSOperationQueue, NSString, NSXPCConnection;
+@class ACAccountStore, CKAccountInfo, CKContainerID, CKContainerSetupInfo, CKDatabase, CKOperationCallbackManager, CKOperationFlowControlManager, CKRecordID, NSMutableArray, NSOperationQueue, NSString, NSXPCConnection;
 
 @interface CKContainer : NSObject
 {
-    BOOL _connectionIsInvalid;
-    BOOL _shouldSendClientIDs;
+    NSString *_sourceApplicationBundleIdentifier;
+    NSString *_sourceApplicationSecondaryIdentifier;
+    BOOL _hasValidConnection;
+    BOOL _needsSandboxExtensions;
+    BOOL _hasCachedSetupInfo;
     CKContainerID *_containerID;
     CKRecordID *_containerScopedUserID;
     CKDatabase *_privateCloudDatabase;
@@ -26,15 +29,15 @@
     int _statusReportToken;
     int _killSwitchToken;
     NSMutableArray *_sandboxExtensionHandles;
-    NSString *_sourceApplicationBundleIdentifier;
-    NSString *_sourceApplicationSecondaryIdentifier;
+    CKContainerSetupInfo *_cachedSetupInfo;
 }
 
 + (void)getBehaviorOptionForKey:(id)arg1 isContainerOption:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (id)containerWithIdentifier:(id)arg1;
 + (id)defaultContainer;
-@property(retain, nonatomic) NSString *sourceApplicationSecondaryIdentifier; // @synthesize sourceApplicationSecondaryIdentifier=_sourceApplicationSecondaryIdentifier;
-@property(retain, nonatomic) NSString *sourceApplicationBundleIdentifier; // @synthesize sourceApplicationBundleIdentifier=_sourceApplicationBundleIdentifier;
+@property(nonatomic) BOOL hasCachedSetupInfo; // @synthesize hasCachedSetupInfo=_hasCachedSetupInfo;
+@property(retain, nonatomic) CKContainerSetupInfo *cachedSetupInfo; // @synthesize cachedSetupInfo=_cachedSetupInfo;
+@property(nonatomic) BOOL needsSandboxExtensions; // @synthesize needsSandboxExtensions=_needsSandboxExtensions;
 @property(retain, nonatomic) NSMutableArray *sandboxExtensionHandles; // @synthesize sandboxExtensionHandles=_sandboxExtensionHandles;
 @property(nonatomic) int killSwitchToken; // @synthesize killSwitchToken=_killSwitchToken;
 @property(nonatomic) int statusReportToken; // @synthesize statusReportToken=_statusReportToken;
@@ -44,8 +47,7 @@
 @property(retain, nonatomic) CKOperationCallbackManager *callbackManager; // @synthesize callbackManager=_callbackManager;
 @property(retain, nonatomic) NSOperationQueue *throttlingOperationQueue; // @synthesize throttlingOperationQueue=_throttlingOperationQueue;
 @property(retain, nonatomic) NSOperationQueue *convenienceOperationQueue; // @synthesize convenienceOperationQueue=_convenienceOperationQueue;
-@property(nonatomic) BOOL shouldSendClientIDs; // @synthesize shouldSendClientIDs=_shouldSendClientIDs;
-@property(nonatomic) BOOL connectionIsInvalid; // @synthesize connectionIsInvalid=_connectionIsInvalid;
+@property(nonatomic) BOOL hasValidConnection; // @synthesize hasValidConnection=_hasValidConnection;
 @property(retain, nonatomic) NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
 @property(retain, nonatomic) CKDatabase *publicCloudDatabase; // @synthesize publicCloudDatabase=_publicCloudDatabase;
 @property(retain, nonatomic) CKDatabase *privateCloudDatabase; // @synthesize privateCloudDatabase=_privateCloudDatabase;
@@ -56,6 +58,10 @@
 - (void)updatePushTokens;
 - (void)wipeAllCachesAndDie;
 - (void)setEffectiveClientBundleIdentifier:(id)arg1;
+- (void)setSourceApplicationSecondaryIdentifier:(id)arg1;
+- (id)sourceApplicationSecondaryIdentifier;
+- (void)setSourceApplicationBundleIdentifier:(id)arg1;
+- (id)sourceApplicationBundleIdentifier;
 - (void)setFakeError:(id)arg1 forNextRequestOfClassName:(id)arg2;
 - (void)serverPreferredPushEnvironmentWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)tossConfigWithCompletionHandler:(CDUnknownBlockType)arg1;
@@ -71,7 +77,6 @@
 - (void)handleOperationProgress:(id)arg1 forOperationWithID:(id)arg2;
 - (id)daemonWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)connection;
-- (void)_synchronouslySendContextInformation;
 - (void)_consumeSandboxExtensions:(id)arg1;
 - (void)_cleanupSandboxExtensionHandles:(id)arg1;
 @property(readonly, nonatomic) NSString *containerIdentifier;
@@ -79,6 +84,7 @@
 - (id)_checkSelfContainerIdentifier;
 - (void)_checkSelfCloudServicesEntitlement;
 - (id)_untrustedEntitlementForKey:(id)arg1;
+- (id)setupInfo;
 - (id)description;
 - (id)CKPropertiesDescription;
 - (void)dealloc;

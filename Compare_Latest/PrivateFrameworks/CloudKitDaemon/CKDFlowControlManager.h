@@ -14,13 +14,15 @@ __attribute__((visibility("hidden")))
     unsigned int _defaultBudget;
     double _defaultRegeneration;
     NSMutableDictionary *_operationFlowControls;
+    double _maximumThrottleTime;
 }
 
 @property(retain, nonatomic) NSMutableDictionary *operationFlowControls; // @synthesize operationFlowControls=_operationFlowControls;
+@property double maximumThrottleTime; // @synthesize maximumThrottleTime=_maximumThrottleTime;
 - (void).cxx_destruct;
 - (double)currentRegeneration:(id)arg1;
 - (unsigned int)currentBudgetCap:(id)arg1;
-- (unsigned int)currentBudget:(id)arg1;
+- (double)currentBudget:(id)arg1;
 @property(nonatomic) double defaultRegeneration;
 @property(nonatomic) unsigned int defaultBudget;
 - (void)updateFlowControlWithLocalErrorForOperation:(id)arg1;
@@ -33,7 +35,7 @@ __attribute__((visibility("hidden")))
 - (id)statusReport;
 - (id)description;
 - (id)CKPropertiesDescription;
-- (id)initWithDefaultBudget:(unsigned int)arg1 andDefaultRegeneration:(double)arg2;
+- (id)initWithDefaultBudget:(unsigned int)arg1 maximumThrottleTime:(double)arg2 andDefaultRegeneration:(double)arg3;
 
 @end
 

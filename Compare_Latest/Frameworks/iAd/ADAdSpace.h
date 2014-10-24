@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+#import "ADAdSpaceRemoteViewControllerDelegate.h"
 #import "ADAdSpace_RPC.h"
 #import "UIViewControllerTransitioningDelegate.h"
 
-@class ADAdImpressionPublicAttributes, ADAdSpaceConfiguration, NSDictionary, NSSet, NSString, NSURL, _ADRemoteViewController, _UIAsyncInvocation;
+@class ADAdImpressionPublicAttributes, ADAdSpaceConfiguration, ADAdSpaceRemoteViewController, NSDictionary, NSSet, NSString, NSURL, _ADRemoteViewController, _UIAsyncInvocation;
 
-@interface ADAdSpace : NSObject <UIViewControllerTransitioningDelegate, ADAdSpace_RPC>
+@interface ADAdSpace : NSObject <UIViewControllerTransitioningDelegate, ADAdSpace_RPC, ADAdSpaceRemoteViewControllerDelegate>
 {
     id <ADAdRecipient> _recipient;
     BOOL _visibilityCheckScheduled;
@@ -19,7 +20,6 @@
     BOOL _shouldPresentActionViewControllerWhenReady;
     BOOL _actionViewControllerReadyForPresentation;
     BOOL _actionViewControllerWantsDismissal;
-    id <ADSAdSpace_RPC><NSObject> _serviceAdSpace;
     NSString *_identifier;
     NSURL *_serverURL;
     NSString *_advertisingSection;
@@ -27,12 +27,12 @@
     NSSet *_context;
     ADAdImpressionPublicAttributes *_currentAdImpressionPublicAttributes;
     int _visibility;
+    ADAdSpaceRemoteViewController *_creativeViewController;
     _UIAsyncInvocation *_remoteViewControllerRequestCancelationInvocation;
     _ADRemoteViewController *_remoteViewController;
     _ADRemoteViewController *_portraitOnlyViewController;
     NSDictionary *_adToLoad;
     double _lastSlowCheck;
-    struct CGRect _viewFrame;
 }
 
 @property(retain, nonatomic) NSDictionary *adToLoad; // @synthesize adToLoad=_adToLoad;
@@ -43,6 +43,7 @@
 @property(retain, nonatomic) _ADRemoteViewController *remoteViewController; // @synthesize remoteViewController=_remoteViewController;
 @property(retain, nonatomic) _UIAsyncInvocation *remoteViewControllerRequestCancelationInvocation; // @synthesize remoteViewControllerRequestCancelationInvocation=_remoteViewControllerRequestCancelationInvocation;
 @property(nonatomic) BOOL serviceAdSpaceRequestInProgress; // @synthesize serviceAdSpaceRequestInProgress=_serviceAdSpaceRequestInProgress;
+@property(retain, nonatomic) ADAdSpaceRemoteViewController *creativeViewController; // @synthesize creativeViewController=_creativeViewController;
 @property(nonatomic) double lastSlowCheck; // @synthesize lastSlowCheck=_lastSlowCheck;
 @property(nonatomic) BOOL visibilityCheckScheduled; // @synthesize visibilityCheckScheduled=_visibilityCheckScheduled;
 @property(nonatomic) int visibility; // @synthesize visibility=_visibility;
@@ -51,9 +52,7 @@
 @property(copy, nonatomic) NSString *authenticationUserName; // @synthesize authenticationUserName=_authenticationUserName;
 @property(copy, nonatomic) NSString *advertisingSection; // @synthesize advertisingSection=_advertisingSection;
 @property(copy, nonatomic) NSURL *serverURL; // @synthesize serverURL=_serverURL;
-@property(nonatomic) struct CGRect viewFrame; // @synthesize viewFrame=_viewFrame;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-@property(retain, nonatomic) id <ADSAdSpace_RPC><NSObject> serviceAdSpace; // @synthesize serviceAdSpace=_serviceAdSpace;
 - (void)_remote_dismissPortraitOnlyViewController;
 - (void)_remote_requestPortraitOnlyViewController;
 - (void)_remote_dismissViewController;
@@ -67,7 +66,6 @@
 - (void)_remote_creativeDidFailWithError:(id)arg1;
 - (void)_remote_adImpressionDidLoadWithPublicAttributes:(id)arg1;
 - (void)_remote_creativeWillLoad;
-- (void)_remote_setHostedWindowHostingHandle:(id)arg1;
 - (void)interstitialWasRemovedFromSuperview;
 - (void)cancelBannerViewAction;
 - (void)refuseBannerViewAction;
@@ -76,12 +74,15 @@
 - (void)loadAd:(id)arg1;
 - (void)_updateAllProperties;
 - (void)updateVisibility;
+- (void)adSpaceRemoteViewControllerDidTerminateWithError:(id)arg1;
+@property(readonly, nonatomic) id <ADSAdSpace_RPC><NSObject> serviceAdSpace;
 - (void)_clientApplicationDidBecomeActive;
 - (void)_clientApplicationDidEnterBackground;
+- (void)_remote_close;
 - (void)close;
 - (void)_closeConnectionIfNecessary;
 @property(readonly, nonatomic) id <ADAdRecipient> recipient;
-- (void)_serviceConnectionLost;
+- (void)viewServiceDidTerminateWithError:(id)arg1;
 - (void)_requestServiceAdSpace;
 @property(readonly, nonatomic) ADAdSpaceConfiguration *configuration;
 @property(readonly, nonatomic) NSString *connectionAssertionIdentifier;

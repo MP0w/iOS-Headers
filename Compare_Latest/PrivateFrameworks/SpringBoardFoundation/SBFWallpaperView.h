@@ -112,7 +112,10 @@
 - (void)_updateLegibilitySettingsForAverageColor:(id)arg1 notify:(BOOL)arg2;
 - (void)updateLegibilitySettingsForAverageColor:(id)arg1;
 - (void)_setLegibilitySettings:(id)arg1 notify:(BOOL)arg2;
+- (id)_primaryColorOverride;
+- (id)_wallpaperName;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings;
+- (void)setVariant:(int)arg1 withAnimationFactory:(id)arg2 forced:(BOOL)arg3;
 - (void)setVariant:(int)arg1 withAnimationFactory:(id)arg2;
 - (float)cropZoomScale;
 - (BOOL)supportsCropping;
@@ -122,6 +125,7 @@
 - (struct CGRect)cropRect;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 variant:(int)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

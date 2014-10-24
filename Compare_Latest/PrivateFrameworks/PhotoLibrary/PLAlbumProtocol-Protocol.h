@@ -17,6 +17,7 @@
 @property(retain, nonatomic) NSDictionary *slideshowSettings;
 @property(readonly, nonatomic) BOOL shouldDeleteWhenEmpty;
 @property(readonly, nonatomic) BOOL canContributeToCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isUserLibraryAlbum;
 @property(readonly, nonatomic) BOOL isRecentlyAddedAlbum;
 @property(readonly, nonatomic) BOOL isMultipleContributorCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL isFamilyCloudSharedAlbum;
@@ -40,6 +41,7 @@
 - (void)reducePendingItemsCountBy:(unsigned int)arg1;
 
 @optional
+@property(nonatomic) unsigned int batchSize;
 @property(readonly, copy, nonatomic) NSString *name;
 - (void)setUINotificationsEnabled:(BOOL)arg1;
 - (NSMutableIndexSet *)filteredIndexesForPredicate:(NSPredicate *)arg1;

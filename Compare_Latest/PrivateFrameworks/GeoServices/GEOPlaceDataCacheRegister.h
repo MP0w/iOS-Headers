@@ -14,11 +14,13 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_caches;
 }
 
++ (void)setDiskCachePath:(id)arg1;
 - (void)evictAllEntries;
 - (void)deletePhoneNumberMapping;
 - (void)shrinkToSize:(unsigned long long)arg1 finished:(CDUnknownBlockType)arg2;
 - (void)calculateFreeableSpaceWithHandler:(CDUnknownBlockType)arg1;
 - (id)allCacheEntries;
+- (id)allCaches;
 - (id)cacheForProviderID:(int)arg1;
 - (void)dealloc;
 - (id)init;

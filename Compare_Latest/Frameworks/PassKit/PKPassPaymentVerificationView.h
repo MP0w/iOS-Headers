@@ -6,9 +6,11 @@
 
 #import <PassKit/PKPassPaymentFooterContentView.h>
 
-@class PKPassView, PKVerificationRequestRecord, UIButton, UILabel, UIView;
+#import "PKPaymentVerificationPresentationDelegate.h"
 
-@interface PKPassPaymentVerificationView : PKPassPaymentFooterContentView
+@class PKPassView, PKPaymentVerificationPresentationController, UIButton, UILabel, UIView;
+
+@interface PKPassPaymentVerificationView : PKPassPaymentFooterContentView <PKPaymentVerificationPresentationDelegate>
 {
     PKPassView *_passView;
     UILabel *_titleLabel;
@@ -16,14 +18,11 @@
     UIButton *_button;
     UIButton *_alternateButton;
     UIView *_bottomRule;
-    PKVerificationRequestRecord *_requestRecord;
+    PKPaymentVerificationPresentationController *_presenter;
 }
 
-- (id)_bodyStringForChannel:(id)arg1;
-- (void)_bodyLabelTapped:(id)arg1;
-- (void)_enterCodeButtonPressed:(id)arg1;
-- (void)_completeVerificationButtonPressed:(id)arg1;
-- (void)reloadView;
+- (void)presentVerificationViewController:(id)arg1 animated:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)didChangeVerificationPresentation;
 - (id)_bottomRule;
 - (id)_alternateButton;
 - (id)_button;
@@ -31,7 +30,6 @@
 - (id)_titleLabel;
 - (void)layoutSubviews;
 - (void)dealloc;
-- (void)sharedPaymentServiceChanged:(id)arg1;
 - (id)initWithPass:(id)arg1 passView:(id)arg2;
 
 @end

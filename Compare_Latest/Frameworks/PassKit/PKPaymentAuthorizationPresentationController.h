@@ -6,19 +6,25 @@
 
 #import "UIPresentationController.h"
 
-@class UIView;
+@class NSLayoutConstraint, UITapGestureRecognizer, UIView;
 
 @interface PKPaymentAuthorizationPresentationController : UIPresentationController
 {
     UIView *_dimmingView;
+    UITapGestureRecognizer *_tap;
+    NSLayoutConstraint *_topConstraint;
+    NSLayoutConstraint *_leftConstraint;
+    NSLayoutConstraint *_rightConstraint;
+    struct CGSize _preferredContentSize;
 }
 
 - (void)_dimmingViewTapped:(id)arg1;
-- (struct CGRect)frameOfPresentedViewInContainerView;
-- (void)containerViewWillLayoutSubviews;
 - (void)preferredContentSizeDidChangeForChildContentContainer:(id)arg1;
+- (void)containerViewWillLayoutSubviews;
 - (void)dismissalTransitionWillBegin;
 - (void)presentationTransitionWillBegin;
+- (BOOL)shouldRemovePresentersView;
+- (void)dealloc;
 - (id)initWithPresentedViewController:(id)arg1 presentingViewController:(id)arg2;
 
 @end

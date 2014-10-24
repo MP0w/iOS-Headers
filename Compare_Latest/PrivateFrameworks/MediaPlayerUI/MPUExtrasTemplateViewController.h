@@ -27,11 +27,13 @@
 - (void)documentDidFail:(id)arg1 withError:(id)arg2;
 - (void)documentDidUpdate:(id)arg1;
 - (void)documentNeedsUpdate:(id)arg1;
+- (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)_startBackgroundAudio;
 - (void)viewDidLoad;
 - (void)_showPlaceholder;
 @property(readonly, nonatomic) BOOL showsPlaceholder;
+- (void)dealloc;
 - (id)initWithDocument:(id)arg1 options:(id)arg2 context:(id)arg3;
 
 // Remaining properties

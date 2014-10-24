@@ -18,6 +18,7 @@
 
 + (void)_preflightPolicy:(int)arg1 completion:(CDUnknownBlockType)arg2;
 + (unsigned int)currentStateForPreflightPolicy:(int)arg1;
++ (void)preheatAuthenticator;
 @property(retain, nonatomic) NSNumber *applicationProcessID; // @synthesize applicationProcessID=_applicationProcessID;
 @property(nonatomic) double authenticationTimeout; // @synthesize authenticationTimeout=_authenticationTimeout;
 @property(nonatomic) BOOL fingerPresent; // @synthesize fingerPresent=_fingerPresent;

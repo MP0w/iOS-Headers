@@ -75,8 +75,8 @@
 - (BOOL)setVersionToStage:(id)arg1 wantsFault:(BOOL)arg2 startDownload:(BOOL)arg3 needsSave:(char *)arg4;
 - (id)_scheduleLosersDownloadForVersion:(id)arg1;
 @property(readonly, nonatomic) BOOL isDownloadRequested;
-- (void)markRenamedUsingServerItem:(id)arg1;
-- (void)markRemovedFromFilesystem;
+- (void)markRenamedUsingServerItem:(id)arg1 parentFileID:(id)arg2;
+- (void)markRemovedFromFilesystemForServerEdit:(BOOL)arg1;
 - (void)moveAsideLocally;
 - (void)deleteForRescheduleOfItem:(id)arg1;
 - (void)markDead;
@@ -168,6 +168,7 @@
 @property(readonly, nonatomic) unsigned int queryItemStatus;
 - (void)deleteAllDesiredLosers;
 - (void)deleteAllDesiredAdditions;
+- (void)unstageDesiredLosers;
 - (BOOL)hasStagedThumbnail;
 - (id)desiredThumbnail;
 - (id)desiredLoserForEtag:(id)arg1;

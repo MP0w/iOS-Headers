@@ -13,7 +13,8 @@
 + (id)appreciationKeywords;
 + (id)alternativeInversions;
 + (id)polarTagKeywords;
-+ (id)sensitiveSubjects;
++ (id)sensitiveSubjectRegularExpressionPatterns;
++ (id)sensitiveSubjectKeywords;
 + (id)wordIDs;
 + (id)synonyms;
 + (id)fixedPhrases;

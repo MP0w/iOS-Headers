@@ -17,11 +17,12 @@
 + (id)getSpecificUpdatesTaskWithNotificationService:(id)arg1 dpanIdentifier:(id)arg2 lastUpdatedTag:(id)arg3;
 @property(retain, nonatomic) NSString *lastUpdatedTag; // @synthesize lastUpdatedTag=_lastUpdatedTag;
 @property(retain, nonatomic, setter=setDPANIdentifier:) NSString *dpanIdentifier; // @synthesize dpanIdentifier=_dpanIdentifier;
-- (BOOL)pertainsToDPANIdentifier:(id)arg1;
+- (BOOL)pertainsToNotificationService:(id)arg1 andDPANIdentifier:(id)arg2;
 - (BOOL)matchesTask:(id)arg1;
 - (id)description;
 - (id)endpointComponents;
 - (id)queryFields;
+- (BOOL)isValid;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;

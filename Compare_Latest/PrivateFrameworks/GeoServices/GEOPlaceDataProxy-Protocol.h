@@ -16,6 +16,6 @@
 - (void)trackPlaceData:(GEOPDPlace *)arg1;
 - (void)fetchAllCacheEntriesWithRequesterHandler:(void (^)(NSDictionary *, NSError *))arg1;
 - (void)requestPhoneNumbers:(NSArray *)arg1 allowCellularDataForLookup:(BOOL)arg2 traits:(GEOMapServiceTraits *)arg3 requesterHandler:(void (^)(NSArray *, NSError *))arg4;
-- (void)requestMUIDs:(NSArray *)arg1 includeETA:(BOOL)arg2 traits:(GEOMapServiceTraits *)arg3 requesterHandler:(void (^)(NSArray *, NSError *))arg4;
+- (void)requestMUIDs:(NSArray *)arg1 resultProviderID:(int)arg2 includeETA:(BOOL)arg3 traits:(GEOMapServiceTraits *)arg4 requesterHandler:(void (^)(NSArray *, NSError *))arg5;
 @end
 

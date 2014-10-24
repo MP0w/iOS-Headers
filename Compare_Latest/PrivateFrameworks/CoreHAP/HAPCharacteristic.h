@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class HAPCharacteristicMetadata, HAPService, NSData, NSNumber, NSString;
+@class HAPCharacteristicMetadata, HAPService, NSNumber, NSString;
 
 @interface HAPCharacteristic : NSObject
 {
@@ -17,12 +17,10 @@
     unsigned int _properties;
     HAPCharacteristicMetadata *_metadata;
     id _value;
-    NSData *_authorizationData;
 }
 
 + (id)characteristicTypeFromUUIDString:(id)arg1;
 + (id)masterCharacteristicsUUIDDictionary;
-@property(copy, nonatomic) NSData *authorizationData; // @synthesize authorizationData=_authorizationData;
 @property(copy, nonatomic) id value; // @synthesize value=_value;
 @property(retain, nonatomic) HAPCharacteristicMetadata *metadata; // @synthesize metadata=_metadata;
 @property(nonatomic) BOOL eventNotificationsEnabled; // @synthesize eventNotificationsEnabled=_eventNotificationsEnabled;

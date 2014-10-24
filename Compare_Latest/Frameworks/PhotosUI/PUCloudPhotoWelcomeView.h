@@ -16,6 +16,7 @@
         unsigned int delegateRespondsToLearnMoreTapped:1;
     } _delegateFlags;
     BOOL _goButtonEnabled;
+    BOOL _goButtonVisible;
     id <PUCloudPhotoWelcomeViewDelegate> _delegate;
     UIImageView *_graphicImageView;
     UILabel *_titleLabel;
@@ -30,6 +31,7 @@
 @property(retain, nonatomic) UILabel *bodyLabel; // @synthesize bodyLabel=_bodyLabel;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) UIImageView *graphicImageView; // @synthesize graphicImageView=_graphicImageView;
+@property(nonatomic, getter=goButtonIsVisible) BOOL goButtonVisible; // @synthesize goButtonVisible=_goButtonVisible;
 @property(nonatomic, getter=goButtonIsEnabled) BOOL goButtonEnabled; // @synthesize goButtonEnabled=_goButtonEnabled;
 @property(nonatomic) __weak id <PUCloudPhotoWelcomeViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;

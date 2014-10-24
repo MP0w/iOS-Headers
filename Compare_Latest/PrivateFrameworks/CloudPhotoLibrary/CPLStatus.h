@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDate, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSURL;
+@class NSDate, NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSURL;
 
 @interface CPLStatus : NSObject
 {
@@ -21,6 +21,9 @@
 - (void).cxx_destruct;
 - (id)statusDescription;
 - (void)_statusDidChange;
+@property(readonly, nonatomic) NSDate *cloudAssetCountPerTypeLastCheckDate;
+- (void)setCloudAssetCountPerType:(id)arg1 updateCheckDate:(BOOL)arg2;
+@property(readonly, nonatomic) NSDictionary *cloudAssetCountPerType;
 @property(nonatomic) BOOL iCloudLibraryExists;
 @property(nonatomic) BOOL iCloudLibraryHasBeenWiped;
 @property(nonatomic) NSDate *exitDeleteTime;

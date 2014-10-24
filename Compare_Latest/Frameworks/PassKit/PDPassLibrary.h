@@ -34,7 +34,6 @@
 @property(nonatomic) id <PDPassLibraryDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)nukeDatabaseAndExit;
 - (void)shuffleGroups:(int)arg1;
-- (void)removePassesOfType:(unsigned int)arg1;
 - (void)noteAccountDeletedWithHandler:(CDUnknownBlockType)arg1;
 - (void)noteAccountChangedWithHandler:(CDUnknownBlockType)arg1;
 - (void)introduceDatabaseIntegrityProblem;
@@ -54,8 +53,9 @@
 - (void)migrateDataWithHandler:(CDUnknownBlockType)arg1;
 - (void)recomputeRelevantPassesWithSearchMode:(int)arg1;
 - (void)updateObjectWithUniqueID:(id)arg1 handler:(CDUnknownBlockType)arg2;
-- (void)addPassesWithData:(id)arg1 handler:(CDUnknownBlockType)arg2;
+- (void)removePassesOfType:(unsigned int)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)removePassWithUniqueID:(id)arg1 handler:(CDUnknownBlockType)arg2;
+- (void)addPassesWithData:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)noteObjectSharedWithUniqueID:(id)arg1;
 - (void)updateSettings:(int)arg1 forObjectWithUniqueID:(id)arg2;
 - (void)ingestPassDatas:(id)arg1 settings:(id)arg2 handler:(CDUnknownBlockType)arg3;
@@ -66,6 +66,7 @@
 - (void)getRouteRelevantPassesForLocation:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)getPassWithPassTypeID:(id)arg1 serialNumber:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)getArchivedObjectWithUniqueID:(id)arg1 handler:(CDUnknownBlockType)arg2;
+- (void)isRemovingPassesOfType:(unsigned int)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)countPassesOfType:(unsigned int)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)hasPassesOfType:(unsigned int)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)hasInAppPaymentPassesForNetworks:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
@@ -73,12 +74,14 @@
 - (void)getPassWithUniqueID:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)sendPassbookUIServiceLaunched;
 - (void)sendUserEditedCatalog:(id)arg1;
-- (void)getPassesAndCatalog:(BOOL)arg1 withHandler:(CDUnknownBlockType)arg2;
+- (void)getPassesAndCatalogOfPassTypes:(unsigned int)arg1 limitResults:(BOOL)arg2 withHandler:(CDUnknownBlockType)arg3;
 - (void)isPaymentPassActivationAvailableWithHandler:(CDUnknownBlockType)arg1;
 - (void)submitVerificationCode:(id)arg1 verificationData:(id)arg2 forPassWithUniqueID:(id)arg3 handler:(CDUnknownBlockType)arg4;
 - (void)getPassesOfType:(unsigned int)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)getPassesWithHandler:(CDUnknownBlockType)arg1;
 - (void)sendCatalogChanged:(id)arg1;
+- (void)sendRemovingPassesOfType:(unsigned int)arg1 didFinishWithSuccess:(BOOL)arg2;
+- (void)sendRemovingPassesOfType:(unsigned int)arg1 didUpdateWithProgress:(double)arg2;
 - (void)sendPassRemoved:(id)arg1 catalog:(id)arg2;
 - (void)sendPassUpdated:(id)arg1 catalog:(id)arg2;
 - (void)sendPassAdded:(id)arg1 catalog:(id)arg2;

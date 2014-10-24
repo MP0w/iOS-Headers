@@ -159,6 +159,7 @@
 - (void)didReceiveMessageReadForMessageID:(id)arg1 date:(id)arg2 useMessageSuppression:(BOOL)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (void)didReceiveMessageReadForMessageID:(id)arg1 date:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)_didReceiveMessageReadForMessageID:(id)arg1 date:(id)arg2 attempts:(int)arg3 useMessageSuppression:(BOOL)arg4 completionBlock:(CDUnknownBlockType)arg5;
+- (BOOL)_didReceiveMessageDeliveryReceiptForMessageID:(id)arg1 attempts:(int)arg2 date:(id)arg3;
 - (BOOL)didReceiveMessageDeliveryReceiptForMessageID:(id)arg1 date:(id)arg2;
 - (void)didSendMessageSavedReceiptForMessageID:(id)arg1;
 - (void)didSendMessagePlayedReceiptForMessageID:(id)arg1;
@@ -185,6 +186,7 @@
 - (void)registerChat:(id)arg1 style:(unsigned char)arg2 displayName:(id)arg3 groupID:(id)arg4 handleInfo:(id)arg5;
 - (void)registerChat:(id)arg1 style:(unsigned char)arg2 handleInfo:(id)arg3;
 - (void)registerChat:(id)arg1 style:(unsigned char)arg2;
+- (void)registerChat:(id)arg1 groupID:(id)arg2 style:(unsigned char)arg3;
 - (id)_newHashForChat:(id)arg1 style:(unsigned char)arg2;
 - (id)chatRoomForGroupChatIdentifier:(id)arg1;
 - (id)groupChatIdentifierForChatRoom:(id)arg1;
@@ -213,7 +215,7 @@
 - (void)invitePersonInfo:(id)arg1 withMessage:(id)arg2 toChatID:(id)arg3 identifier:(id)arg4 style:(unsigned char)arg5;
 - (void)removeChatID:(id)arg1 identifier:(id)arg2 style:(unsigned char)arg3;
 - (void)leaveChatID:(id)arg1 identifier:(id)arg2 style:(unsigned char)arg3;
-- (void)joinChatID:(id)arg1 handleInfo:(id)arg2 identifier:(id)arg3 style:(unsigned char)arg4 joinProperties:(id)arg5;
+- (void)joinChatID:(id)arg1 handleInfo:(id)arg2 identifier:(id)arg3 style:(unsigned char)arg4 groupID:(id)arg5 joinProperties:(id)arg6;
 - (void)updateAuthorizationCredentials:(id)arg1 token:(id)arg2;
 - (void)validateProfile;
 - (void)unvalidateAliases:(id)arg1;
@@ -239,7 +241,8 @@
 - (void)invitePerson:(id)arg1 withMessage:(id)arg2 toChat:(id)arg3 style:(unsigned char)arg4;
 - (void)removeChat:(id)arg1 style:(unsigned char)arg2;
 - (void)leaveChat:(id)arg1 style:(unsigned char)arg2;
-- (void)joinChat:(id)arg1 handleInfo:(id)arg2 style:(unsigned char)arg3 joinProperties:(id)arg4;
+- (void)joinChat:(id)arg1 handleInfo:(id)arg2 style:(unsigned char)arg3 groupID:(id)arg4 joinProperties:(id)arg5;
+- (void)joinChat:(id)arg1 style:(unsigned char)arg2 groupID:(id)arg3 joinProperties:(id)arg4;
 - (void)joinChat:(id)arg1 style:(unsigned char)arg2 joinProperties:(id)arg3;
 - (BOOL)shouldImitateGroupChatUsingChatRooms;
 - (id)defaultChatSuffix;

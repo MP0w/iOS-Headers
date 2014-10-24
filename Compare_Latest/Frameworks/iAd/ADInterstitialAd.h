@@ -33,8 +33,9 @@
 @property(retain, nonatomic) ADAdSpace *adSpace; // @synthesize adSpace=_adSpace;
 @property(retain, nonatomic) ADInterstitialView *interstitialView; // @synthesize interstitialView=_interstitialView;
 @property(nonatomic, getter=isActionInProgress) BOOL actionInProgress; // @synthesize actionInProgress=_actionInProgress;
-@property(readonly, nonatomic, getter=isLoaded) BOOL loaded; // @synthesize loaded=_loaded;
+@property(nonatomic, getter=isLoaded) BOOL loaded; // @synthesize loaded=_loaded;
 @property(readonly, nonatomic) int options; // @synthesize options=_options;
+- (void)bannerTappedAtPoint:(struct CGPoint)arg1;
 - (void)resumeBannerMedia;
 - (void)pauseBannerMedia;
 - (void)storyboardViewControllerDidPresent;
@@ -43,9 +44,7 @@
 - (void)serverBannerViewDidLoad;
 - (BOOL)_considerClosingAdSpace;
 - (void)serverBannerViewWillLoad;
-- (void)setHostedWindowHostingHandle:(id)arg1;
 @property(readonly, nonatomic) int internalAdType;
-- (void)handleTapOnInterstitialViewAtLocation:(struct CGPoint)arg1;
 - (void)_dismissModalInterstitial;
 - (int)clickAction;
 @property(copy, nonatomic) NSSet *context;
@@ -60,7 +59,6 @@
 - (void)presentFromViewController:(id)arg1;
 - (BOOL)presentInView:(id)arg1;
 - (void)cancelAction;
-- (void)setLoaded:(BOOL)arg1;
 @property(readonly, nonatomic) UIViewController *presentingViewController;
 @property(nonatomic) __weak UIViewController *internalPresentingViewController;
 @property(readonly, nonatomic) UIView *adSpaceView;

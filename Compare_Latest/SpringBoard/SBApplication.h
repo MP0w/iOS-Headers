@@ -214,6 +214,7 @@
 - (_Bool)isTranslucent;
 - (long long)wallpaperStyle;
 - (_Bool)setWallpaperStyleForBackgroundStyle:(long long)arg1;
+- (long long)launchingInterfaceOrientationForCurrentOrientationIgnoringClassicMode;
 - (long long)launchingInterfaceOrientationForCurrentOrientation;
 - (_Bool)allowsEventOnlySuspension;
 - (void)_bumpActivationCountBy:(long long)arg1;
@@ -380,6 +381,7 @@
 - (void)_calculateSupportedTypesLazilyIfNecessary;
 - (_Bool)_hasDefaultPNGForApplicationSupportedType:(int)arg1;
 - (struct CGSize)defaultLaunchingSizeForScreen:(id)arg1;
+- (long long)_launchingInterfaceOrientationForOrientation:(long long)arg1 ignoringClassicMode:(_Bool)arg2;
 - (long long)launchingInterfaceOrientationForOrientation:(long long)arg1;
 - (_Bool)_currentClassicModeShouldAllowLandscapeLaunching;
 - (void)removeDefaultInterfaceOrientationOverride;

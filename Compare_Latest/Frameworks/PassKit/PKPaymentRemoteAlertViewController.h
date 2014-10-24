@@ -21,12 +21,15 @@
 
 + (BOOL)_isSecureForRemoteViewService;
 + (BOOL)_shouldForwardViewWillTransitionToSize;
++ (id)groupsController;
++ (void)preloadGroupsController;
++ (id)_createGroupsController;
+- (void)paymentContainerDidFinishAnimatingNotification:(id)arg1;
 - (BOOL)_isBacklightActive;
 - (void)_dismiss;
 - (void)_dismissIfRestricted;
 - (void)paymentPassWithUniqueIdentifierDidDeauthorize:(id)arg1;
 - (void)paymentPassWithUniqueIdentifierDidAuthorize:(id)arg1;
-- (void)paymentPassWithUniqueIdentifierDidCompleteTransaction:(id)arg1;
 - (void)handleHomeButtonPressed;
 - (unsigned int)supportedInterfaceOrientations;
 - (BOOL)shouldAutorotate;

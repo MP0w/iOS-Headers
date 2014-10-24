@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
-@class GCController, NSNumber, NSString;
+@class GCController, NSDictionary, NSNumber, NSString;
 
 @protocol GameControllerDaemon <NSObject>
 - (void)requestConnectedHosts;
 - (void)controllerWithUDID:(unsigned int)arg1 setValue:(float)arg2 forElement:(int)arg3 forward:(BOOL)arg4;
 - (void)removeController:(GCController *)arg1 forward:(BOOL)arg2;
 - (void)addController:(GCController *)arg1 forward:(BOOL)arg2;
+- (void)setUserActivityUserInfo:(NSDictionary *)arg1;
 - (void)startBonjourService;
 - (void)startForwardingToApplicationNamed:(NSString *)arg1 pid:(NSNumber *)arg2 bundlePath:(NSString *)arg3;
 - (void)ping;

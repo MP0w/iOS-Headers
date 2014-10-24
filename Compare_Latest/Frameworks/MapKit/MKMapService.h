@@ -37,6 +37,7 @@
 - (id)ticketForForwardGeocodeString:(id)arg1 traits:(id)arg2;
 - (id)ticketForForwardGeocodeAddress:(id)arg1 traits:(id)arg2;
 - (id)ticketForPhoneNumbers:(id)arg1 allowCellularDataForLookup:(BOOL)arg2 traits:(id)arg3;
+- (id)ticketForMUIDs:(id)arg1 resultProviderID:(int)arg2 includeETA:(BOOL)arg3 traits:(id)arg4;
 - (id)ticketForMUIDs:(id)arg1 includeETA:(BOOL)arg2 traits:(id)arg3;
 - (id)defaultTraitsWithTraits:(id)arg1;
 - (id)defaultTraits;

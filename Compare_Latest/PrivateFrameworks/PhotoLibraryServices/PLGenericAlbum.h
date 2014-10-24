@@ -70,7 +70,7 @@
 + (id)allVerticalPanoramasAlbumInLibrary:(id)arg1;
 + (id)allPanoramasAlbumInLibrary:(id)arg1;
 + (id)allAssetsAlbumInLibrary:(id)arg1;
-+ (id)recentlyAddedAlbumInLibrary:(id)arg1;
++ (id)userLibraryAlbumInLibrary:(id)arg1;
 + (id)cameraRollAlbumInLibrary:(id)arg1;
 + (id)rootFolderInLibrary:(id)arg1;
 + (id)_singletonManagedAlbumWithKind:(int)arg1 library:(id)arg2;
@@ -113,6 +113,7 @@
 @property(readonly, nonatomic) BOOL isFolder;
 @property(readonly, nonatomic) BOOL isStandInAlbum;
 @property(readonly, nonatomic) BOOL isPendingPhotoStreamAlbum;
+@property(readonly, nonatomic) BOOL isUserLibraryAlbum;
 @property(readonly, nonatomic) BOOL isRecentlyAddedAlbum;
 @property(readonly, nonatomic) BOOL isCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL isPhotoStreamAlbum;
@@ -167,6 +168,7 @@
 
 // Remaining properties
 @property(readonly, retain, nonatomic) NSOrderedSet *assets; // @dynamic assets;
+@property(nonatomic) unsigned int batchSize;
 @property(nonatomic) short cloudLocalState; // @dynamic cloudLocalState;
 @property(nonatomic) short cloudServerState; // @dynamic cloudServerState;
 @property(readonly, copy) NSString *debugDescription;

@@ -46,6 +46,7 @@
 - (void)recacheComposedDuration;
 - (id)compositionByDuplicatingResourcesToDestinationComposedAVURL:(id)arg1;
 - (BOOL)saveMetadataToDefaultLocation;
+- (id)compositionByReloadingFromDefaultMetadataLocation;
 - (void)deleteFromFilesystem;
 - (void)enumerateOrphanedFragmentsWithBlock:(CDUnknownBlockType)arg1;
 - (id)newRandomFragmentWithInsertionTimeRangeInComposition:(CDStruct_73a5d3ca)arg1 pathExtension:(id)arg2;

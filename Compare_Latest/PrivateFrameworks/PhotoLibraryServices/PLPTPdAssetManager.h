@@ -8,7 +8,7 @@
 
 #import "PLManagedObjectContextPTPNotificationDelegate.h"
 
-@class NSArray, NSFileManager, NSObject<OS_dispatch_queue>, NSObject<PhotoLibraryPTPDelegate>, NSSet, NSString, PLManagedObjectContext, PLPhotoLibrary;
+@class NSArray, NSFileManager, NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<PhotoLibraryPTPDelegate>, NSSet, NSString, PLManagedObjectContext, PLPhotoLibrary;
 
 @interface PLPTPdAssetManager : NSObject <PLManagedObjectContextPTPNotificationDelegate>
 {
@@ -18,6 +18,7 @@
     NSSet *_availableAssetIDs;
     PLPhotoLibrary *_photoLibrary;
     int _libraryStatus;
+    NSMutableSet *_ptpDeletedAssets;
     NSObject<OS_dispatch_queue> *availableAssetsQueue;
     NSFileManager *fileManager;
 }

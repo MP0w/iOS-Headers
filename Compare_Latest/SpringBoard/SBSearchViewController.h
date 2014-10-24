@@ -97,6 +97,7 @@
 - (void)_sendAbandonmentFeedback;
 - (void)_fadeOutAndHideKeyboardAnimated:(_Bool)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)_fadeForLaunchWithDuration:(double)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)attributionButtonTapped:(id)arg1;
 - (void)_sendFeedback:(id)arg1;
 - (void)_updateClipping;
 - (void)_updateHeaderHeightIfNeeded;

@@ -17,9 +17,12 @@
     NSTimer *_validationTimeoutTimer;
     NSString *_pendingAlias;
     BOOL _validating;
+    CDUnknownBlockType _alertHandler;
 }
 
+@property(copy, nonatomic) CDUnknownBlockType alertHandler; // @synthesize alertHandler=_alertHandler;
 @property(copy, nonatomic) NSString *pendingAlias; // @synthesize pendingAlias=_pendingAlias;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)_setupEventHandlers;
 - (void)_buildSpecifierCache:(id)arg1;
 - (void)_buildCheckMailSpecifierCache:(id)arg1;

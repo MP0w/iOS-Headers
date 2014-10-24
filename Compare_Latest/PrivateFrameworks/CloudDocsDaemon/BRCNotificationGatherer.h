@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)invalidate;
 - (void)done;
-- (BOOL)continueGatheringWithBatchSize:(unsigned int)arg1;
+- (BOOL)continueGatheringWithBatchSize:(int)arg1;
 - (id)initWithNotificationPipe:(id)arg1 reply:(CDUnknownBlockType)arg2;
 
 @end

@@ -18,7 +18,7 @@
 @property(retain, nonatomic, setter=_setSaveButton:) UIBarButtonItem *_saveButton; // @synthesize _saveButton;
 - (void)_vibrationSaveButtonClicked:(id)arg1;
 - (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
+- (void)_getRotationContentSettings:(CDStruct_3421d26a *)arg1;
 - (float)ab_heightToFitForViewInPopoverView;
 - (void)loadView;
 - (void)setStyleProvider:(id)arg1;

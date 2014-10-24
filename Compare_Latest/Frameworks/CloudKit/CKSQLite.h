@@ -12,8 +12,8 @@
 {
     BOOL _corrupt;
     NSString *_path;
-    NSString *_schemaPath;
-    unsigned int _schemaVersion;
+    NSString *_schema;
+    NSString *_schemaVersion;
     NSString *_objectClassPrefix;
     struct sqlite3 *_db;
     unsigned int _openCount;
@@ -27,8 +27,8 @@
 @property(nonatomic) unsigned int openCount; // @synthesize openCount=_openCount;
 @property(nonatomic) struct sqlite3 *db; // @synthesize db=_db;
 @property(retain, nonatomic) NSString *objectClassPrefix; // @synthesize objectClassPrefix=_objectClassPrefix;
-@property(readonly, nonatomic) unsigned int schemaVersion; // @synthesize schemaVersion=_schemaVersion;
-@property(readonly, nonatomic) NSString *schemaPath; // @synthesize schemaPath=_schemaPath;
+@property(readonly, nonatomic) NSString *schemaVersion; // @synthesize schemaVersion=_schemaVersion;
+@property(readonly, nonatomic) NSString *schema; // @synthesize schema=_schema;
 @property(readonly, nonatomic) NSString *path; // @synthesize path=_path;
 - (void).cxx_destruct;
 - (id)_boxedValue:(id)arg1 forObjcCProperty:(id)arg2;
@@ -64,16 +64,13 @@
 - (void)end;
 - (void)begin;
 - (void)remove;
-- (id)_schemaVersionString;
-- (id)_schemaString;
 - (void)close;
 - (void)open;
 - (BOOL)openWithError:(id *)arg1;
 @property(readonly, nonatomic) BOOL isOpen;
+- (id)_createSchemaHash;
 - (void)dealloc;
-- (id)initWithPath:(id)arg1 schemaFilename:(id)arg2 schemaVersion:(unsigned int)arg3;
-- (id)initWithPath:(id)arg1 bundle:(id)arg2 schemaFilename:(id)arg3 schemaVersion:(unsigned int)arg4;
-- (id)initWithPath:(id)arg1 schemaPath:(id)arg2 schemaVersion:(unsigned int)arg3;
+- (id)initWithPath:(id)arg1 schema:(id)arg2;
 
 @end
 

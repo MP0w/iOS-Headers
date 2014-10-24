@@ -194,7 +194,7 @@
 - (void)willTransitionToTraitCollection:(id)arg1 withTransitionCoordinator:(id)arg2;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)_getRotationContentSettings:(CDStruct_19ba41f1 *)arg1;
+- (void)_getRotationContentSettings:(CDStruct_f39609a0 *)arg1;
 - (BOOL)_shouldUseOnePartRotation;
 - (id)rotatingFooterView;
 - (id)rotatingHeaderView;

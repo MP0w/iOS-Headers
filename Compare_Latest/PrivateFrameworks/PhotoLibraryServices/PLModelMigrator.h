@@ -34,6 +34,12 @@
 + (BOOL)_populateHasAdjustmentsForAssetsInStore:(id)arg1;
 + (BOOL)_generateAddedDateForAssetsInStore:(id)arg1;
 + (void)fixAddedDateForAsset:(id)arg1;
++ (BOOL)_repersistDuplicatedAssets:(id)arg1;
++ (BOOL)_clearChangeStore;
++ (BOOL)_fixNonDuplicatedAssets:(id)arg1 adjusted:(BOOL)arg2;
++ (BOOL)_fixDuplicatedAssets:(id)arg1;
++ (BOOL)_fixAdjustedAssets:(id)arg1;
++ (BOOL)_duplicateResourceIn:(id)arg1 forAsset:(id)arg2 forType:(unsigned int)arg3 inManagedObjectContext:(id)arg4;
 + (BOOL)_migrateLegacySlomoAdjustmentsInStore:(id)arg1 fromLegacySLMFormat:(BOOL)arg2;
 + (int)_migrateLegacySlomoAdjustmentsForAsset:(id)arg1;
 + (BOOL)_batchFetchedObjects:(id)arg1 inMOC:(id)arg2 batchSize:(unsigned int)arg3 objectHandler:(CDUnknownBlockType)arg4 error:(id *)arg5;
@@ -108,6 +114,7 @@
 + (id)descriptionForForceMigrationType:(int)arg1;
 + (BOOL)debug_resetThumbnailsAndInitiateRebuildRequest;
 + (BOOL)_removeEvents:(id)arg1;
++ (BOOL)_forceSoftResetSync;
 + (BOOL)_disableICloudPhoto;
 + (BOOL)_verifyCloudAssetsLocalAvailability:(id)arg1;
 + (BOOL)_resetThumbnailsAndInitiateRebuildRequest;

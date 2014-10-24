@@ -34,13 +34,13 @@
 @property(nonatomic) BOOL shouldSeparatePaymentPasses; // @synthesize shouldSeparatePaymentPasses=_shouldSeparatePaymentPasses;
 @property(readonly, nonatomic, getter=isReorderingEnabled) BOOL reorderingEnabled; // @synthesize reorderingEnabled=_reorderingEnabled;
 @property(nonatomic) id <PKGroupsControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)_insertLocalGroupsIntoCatalog:(id)arg1;
+- (void)_insertLocalGroupsIntoCatalog:(id)arg1 withPassesByUniqueID:(id)arg2;
 - (id)_copyRemoteCatalog;
 - (void)_removeGroup:(id)arg1 notify:(BOOL)arg2;
 - (void)_moveGroup:(id)arg1 fromIndex:(unsigned int)arg2 toIndex:(unsigned int)arg3 notify:(BOOL)arg4;
 - (void)_insertGroup:(id)arg1 atIndex:(unsigned int)arg2 notify:(BOOL)arg3;
 - (void)_placeGroup:(id)arg1 atIndex:(unsigned int)arg2 notify:(BOOL)arg3;
-- (id)_updateAndCreateGroupsWithCatalog:(id)arg1 passes:(id)arg2 notify:(BOOL)arg3;
+- (id)_updateAndCreateGroupsWithCatalog:(id)arg1 passesByUniqueID:(id)arg2 notify:(BOOL)arg3;
 - (unsigned int)_destinationIndexForGroupID:(id)arg1 catalogGroups:(id)arg2 skippingNewGroupsAfterIndex:(unsigned int)arg3;
 - (void)_updateStateWithCatalog:(id)arg1 passes:(id)arg2 notify:(BOOL)arg3;
 - (BOOL)_groupIDIsNew:(id)arg1;
@@ -51,6 +51,7 @@
 - (unsigned int)_indexOfGroupID:(id)arg1;
 - (void)_performEnqueuedUpdates;
 - (void)_performOrEnqueueUpdate:(CDUnknownBlockType)arg1;
+- (void)_getPassesAndCatalogWithHandler:(CDUnknownBlockType)arg1;
 - (void)passLibrary:(id)arg1 receivedUpdatedCatalog:(id)arg2 passes:(id)arg3;
 - (void)reloadGroupsAndNotify:(BOOL)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)reloadGroupsWithCompletion:(CDUnknownBlockType)arg1;
@@ -68,6 +69,7 @@
 - (void)reloadGroups;
 - (void)loadGroupsSynchronously;
 - (void)loadGroupsWithCompletion:(CDUnknownBlockType)arg1;
+- (void)preloadGroupsAndFrontFaceImages;
 - (void)dealloc;
 - (id)initLimited;
 - (id)initWithPassTypeMask:(unsigned int)arg1;

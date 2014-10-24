@@ -10,5 +10,6 @@
 
 @protocol PDRelevantPassProviderDelegate <NSObject>
 - (void)relevantPassProvider:(PDRelevantPassProvider *)arg1 didProvideRelevantPasses:(NSArray *)arg2;
+- (BOOL)shouldRecomputeRelevantPassesWithSearchMode:(int)arg1;
 @end
 

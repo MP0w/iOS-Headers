@@ -20,6 +20,7 @@
 @property(copy, nonatomic) NSDictionary *context; // @synthesize context=_context;
 - (void)_getPreferredContentSizeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_setContext:(id)arg1;
+- (void)setSticky:(BOOL)arg1;
 - (void)becomeSticky;
 - (void)dismiss;
 - (void)dealloc;

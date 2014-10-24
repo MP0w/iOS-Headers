@@ -65,6 +65,7 @@
 - (id)attributeForName:(id)arg1;
 @property(nonatomic) id replacement;
 - (void)merge:(id)arg1;
+- (BOOL)canMerge:(id)arg1;
 - (void)setTransferAttribute:(id)arg1 forKey:(id)arg2 diff:(unsigned short)arg3;
 - (void)_mergeURL:(id)arg1;
 - (void)_mergeAttrs:(id)arg1;

@@ -28,7 +28,6 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)bodyLabel;
 - (id)titleLabel;
-- (id)glyph;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 context:(int)arg2;
 

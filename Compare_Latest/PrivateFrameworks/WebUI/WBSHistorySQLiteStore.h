@@ -29,6 +29,9 @@
     long long _currentGeneration;
     long long _lastSyncedGeneration;
     NSData *_pushThrottlerData;
+    NSData *_fetchThrottlerData;
+    NSData *_syncCircleSizeRetrievalThrottlerData;
+    long long _cachedNumberOfDevicesInSyncCircle;
     int _databaseLockingPolicy;
     BOOL _loadInProgress;
     NSArray *_loadedItems;
@@ -98,6 +101,7 @@
 - (void)_writeTimerFired;
 - (void)_scheduleWrite;
 - (void)_loadRedirectVisitsForLoadedItems:(id)arg1;
+- (unsigned int)_cachedNumberOfDevicesInSyncCircleOnDatabaseQueue;
 - (void)_loadFromDatabase;
 - (void)_openDatabase:(id)arg1 andCheckIntegrity:(BOOL)arg2;
 - (BOOL)_checkDatabaseIntegrity;
@@ -111,6 +115,12 @@
 - (long long)_currentGeneration;
 - (void)replayAndAddTombstone:(id)arg1;
 - (void)getAllTombstonesWithCompletion:(CDUnknownBlockType)arg1;
+- (void)setCachedNumberOfDevicesInSyncCircle:(unsigned int)arg1;
+- (unsigned int)cachedNumberOfDevicesInSyncCircle;
+- (void)setSyncCircleSizeRetrievalThrottlerData:(id)arg1;
+- (id)syncCircleSizeRetrievalThrottlerData;
+- (void)setFetchThrottlerData:(id)arg1;
+- (id)fetchThrottlerData;
 - (void)setPushThrottlerData:(id)arg1;
 - (id)pushThrottlerData;
 - (void)setServerChangeTokenData:(id)arg1;

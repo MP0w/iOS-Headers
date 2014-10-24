@@ -119,7 +119,7 @@
         unsigned int delegateSessionDidStop:1;
         unsigned int delegateSessionWasInterrupted:1;
         unsigned int delegateSessionInterruptionEnded:1;
-        unsigned int delegateServerDied:1;
+        unsigned int delegateServerError:1;
         unsigned int delegateCleanApertureDidChange:1;
         unsigned int delegateModeWillChange:1;
         unsigned int delegateModeDidChange:1;
@@ -533,7 +533,7 @@
 - (void)_interruptionEnded:(id)arg1;
 - (void)_wasInterrupted:(id)arg1;
 - (void)_serverDied:(id)arg1;
-- (void)_recoverFromServerError;
+- (void)_recoverFromServerError:(id)arg1;
 - (void)stopPreview;
 - (void)_previewStarted;
 - (void)_clearPreviewLayer;

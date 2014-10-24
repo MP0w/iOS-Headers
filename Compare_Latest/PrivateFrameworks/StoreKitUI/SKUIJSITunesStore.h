@@ -17,6 +17,7 @@
 }
 
 - (void).cxx_destruct;
+- (void)_purchaseRequestDidSucceedNotification:(id)arg1;
 - (void)_finishPurchaseForOptions:(id)arg1 purchaseResponse:(id)arg2;
 - (void)itemStateCenterMediaLibrariesDidChange:(id)arg1;
 - (void)setPreviewOverlay:(id)arg1:(id)arg2;

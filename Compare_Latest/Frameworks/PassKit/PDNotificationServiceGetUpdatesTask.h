@@ -23,6 +23,7 @@
 - (id)queryFields;
 - (id)endpointComponents;
 - (id)headerFields;
+- (BOOL)isValid;
 - (id)initWithNotificationService:(id)arg1;
 
 @end

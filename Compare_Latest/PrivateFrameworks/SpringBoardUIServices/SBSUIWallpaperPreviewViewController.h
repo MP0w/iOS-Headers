@@ -37,7 +37,7 @@
 - (id)_previewView;
 - (id)_proceduralWallpaperViewWithFrame:(struct CGRect)arg1 variant:(int)arg2;
 - (id)_wallpaperViewWithFrame:(struct CGRect)arg1 variant:(int)arg2 options:(id)arg3;
-- (id)_wallpaperViewWithFrame:(struct CGRect)arg1 image:(id)arg2 supportsCropping:(BOOL)arg3;
+- (id)_wallpaperViewWithFrame:(struct CGRect)arg1 image:(id)arg2 supportsCropping:(BOOL)arg3 variant:(int)arg4;
 - (id)_wallpaperViewWithFrame:(struct CGRect)arg1;
 - (id)_backdropWallpaperView;
 - (void)wallpaperView:(id)arg1 legibilitySettingsDidChange:(id)arg2;

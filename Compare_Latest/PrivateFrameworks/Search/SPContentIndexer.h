@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSString, SPIndex;
+@class NSMutableArray, NSObject<OS_dispatch_queue>, NSString, SPIndex;
 
 @interface SPContentIndexer : NSObject
 {
@@ -19,8 +19,10 @@
     NSMutableArray *_dirtyRecords;
     NSMutableArray *_dirtyContent;
     NSMutableArray *_dirtyRemoves;
+    NSObject<OS_dispatch_queue> *_indexQueue;
 }
 
++ (void)shutdown;
 + (void)preheat;
 + (id)indexerForDisplayIdentifier:(id)arg1 category:(id)arg2;
 - (void)dealloc;
@@ -28,10 +30,12 @@
 - (id)existingRecordsForExtIDs:(id)arg1;
 - (id)resultForIdentifier:(id)arg1;
 - (void)cancelSearch;
+- (void)_cancelSearch;
 - (BOOL)nextSearchResults:(id *)arg1;
 - (void)beginSearch:(id)arg1;
 - (void)removeRecord:(id)arg1;
 - (void)setIdentifier:(id)arg1 forRecordDictionary:(id)arg2 existingRecord:(id)arg3;
+- (void)closeIndex;
 - (BOOL)commitUpdates;
 - (void)_openOrCreateIndex;
 - (id)_legacyStorePath;

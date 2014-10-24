@@ -20,7 +20,7 @@
 
 + (BOOL)isAccountStillUsingUbiquity;
 + (id)inSystemStoreAccountIDForUbiquityDataclass;
-+ (id)inSystemStoreAccountIDWithServiceValidation:(BOOL)arg1 isServiceEnabled:(char *)arg2;
++ (id)inSystemStoreAccountIDWithServiceValidation:(BOOL)arg1 isServiceEnabled:(char *)arg2 didCompleteFirstSyncDown:(char *)arg3;
 + (id)inSystemStoreAccountIDWithServiceValidation:(BOOL)arg1;
 + (void)_migrateAccountIfNecessaryForAccountID:(id)arg1;
 @property(readonly, nonatomic) BRCAccountSession *accountSession; // @synthesize accountSession=_accountSession;

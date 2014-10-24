@@ -67,7 +67,7 @@
 - (void)expandableViewDidCompleteExpanding:(id)arg1;
 - (void)expandableView:(id)arg1 willCompleteExpandingWithDuration:(double)arg2;
 - (void)expandableViewWillBeginExpanding:(id)arg1;
-- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
+- (void)_getRotationContentSettings:(CDStruct_3421d26a *)arg1;
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (id)rotatingFooterView;
 - (id)rotatingHeaderView;

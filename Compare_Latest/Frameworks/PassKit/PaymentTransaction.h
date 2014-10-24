@@ -13,10 +13,11 @@
 + (id)_propertySettersForPaymentTransaction;
 + (id)_predicateForTransactionDate:(id)arg1 withinWindow:(double)arg2;
 + (id)_predicateForTransactionIdentifer:(id)arg1;
++ (id)_predicateForPersistentID:(id)arg1;
 + (id)_predicateForIdentifier:(id)arg1;
-+ (id)_predicateForTransactionSources:(unsigned int)arg1;
++ (id)_predicateForTransactionSource:(unsigned int)arg1;
 + (id)_predicateForPassWithUniqueIdentifier:(id)arg1;
-+ (id)_predicateForMerchantPID:(unsigned long long)arg1;
++ (id)_predicateForMerchantPersistentID:(id)arg1;
 + (id)_predicateForMerchant:(id)arg1;
 + (id)_predicateForPaymentApplication:(id)arg1;
 + (id)_predicateForPaymentPass:(id)arg1;
@@ -26,15 +27,19 @@
 + (id)paymentTransactionsInDatabase:(id)arg1 forPaymentPassUniqueIdentifier:(id)arg2;
 + (id)paymentTransactionsInDatabase:(id)arg1 forPaymentPass:(id)arg2;
 + (id)bestMatchWithTransactionIdentifier:(id)arg1 transactionDate:(id)arg2 transactionSources:(unsigned int)arg3 forPassUniqueIdentifier:(id)arg4 inDatabase:(id)arg5;
-+ (id)anyInDatabase:(id)arg1 withIdentifier:(id)arg2;
++ (id)anyInDatabase:(id)arg1 withIdentifier:(id)arg2 forPassWithUniqueIdentifier:(id)arg3;
++ (id)anyInDatabase:(id)arg1 withPersistentID:(id)arg2;
 + (void)truncateEntitiesForPass:(id)arg1 inDatabase:(id)arg2 toCount:(int)arg3;
 + (void)deleteEntitiesForPass:(id)arg1 inDatabase:(id)arg2;
 + (id)insertPaymentTransaction:(id)arg1 withPaymentPass:(id)arg2 paymentApplication:(id)arg3 merchant:(id)arg4 inDatabase:(id)arg5;
 + (id)joinClauseForProperty:(id)arg1;
 + (id)associationPropertyForEntityClass:(Class)arg1;
 + (id)databaseTable;
-- (void)updateWithPaymentTransaction:(id)arg1 merchant:(id)arg2;
+- (BOOL)processedForMerchantCleanup;
+- (id)merchantPeristantID;
 - (id)paymentTransaction;
+- (void)updateWithPaymentTransaction:(id)arg1 merchant:(id)arg2;
+- (void)updateProcessedForMerchantCleanup:(BOOL)arg1;
 - (BOOL)deleteFromDatabase;
 - (id)initWithPaymentTransaction:(id)arg1 paymentPass:(id)arg2 paymentApplication:(id)arg3 merchant:(id)arg4 inDatabase:(id)arg5;
 

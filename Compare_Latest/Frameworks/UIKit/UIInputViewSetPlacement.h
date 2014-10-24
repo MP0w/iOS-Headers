@@ -9,9 +9,11 @@
 __attribute__((visibility("hidden")))
 @interface UIInputViewSetPlacement : NSObject
 {
+    float _extendedHeight;
 }
 
 + (id)placement;
+@property(nonatomic) float extendedHeight; // @synthesize extendedHeight=_extendedHeight;
 - (BOOL)accessoryViewWillAppear;
 - (BOOL)inputViewWillAppear;
 - (unsigned int)notificationsForTransitionToPlacement:(id)arg1;

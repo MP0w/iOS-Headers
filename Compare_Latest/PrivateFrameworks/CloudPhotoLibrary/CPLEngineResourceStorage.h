@@ -15,8 +15,6 @@
     NSMutableSet *_identitiesToCommit;
     NSMutableSet *_identitiesToDelete;
     NSURL *_tempFolderURL;
-    BOOL _modifiedSizeOfResourcesToUpload;
-    unsigned long long _previousSizeOfResourcesToUpload;
     CPLEngineFileStorage *_fileStorage;
 }
 

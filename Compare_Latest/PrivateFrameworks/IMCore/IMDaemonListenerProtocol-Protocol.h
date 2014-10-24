@@ -9,6 +9,8 @@
 @class IMItem, IMMessageItem, NSArray, NSData, NSDictionary, NSError, NSNumber, NSString;
 
 @protocol IMDaemonListenerProtocol <NSObject>
+- (void)pinCodeAlertCompleted:(NSString *)arg1 deviceName:(NSString *)arg2 deviceType:(NSString *)arg3 phoneNumber:(NSString *)arg4 responseFromDevice:(BOOL)arg5 wasCancelled:(BOOL)arg6;
+- (void)displayPinCodeForAccount:(NSString *)arg1 pinCode:(NSNumber *)arg2 deviceName:(NSString *)arg3 deviceType:(NSString *)arg4 phoneNumber:(NSString *)arg5;
 - (void)lastFailedMessageIDChanged:(long long)arg1;
 - (void)unreadCountChanged:(int)arg1;
 - (void)databaseNoLongerFull;

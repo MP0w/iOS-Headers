@@ -10,6 +10,7 @@
 
 @interface CKModifyRecordZonesOperation : CKDatabaseOperation
 {
+    BOOL _markZonesAsUserPurged;
     NSArray *_recordZonesToSave;
     NSArray *_recordZoneIDsToDelete;
     CDUnknownBlockType _modifyRecordZonesCompletionBlock;
@@ -23,6 +24,7 @@
 @property(retain, nonatomic) NSMutableDictionary *recordZonesByZoneIDs; // @synthesize recordZonesByZoneIDs=_recordZonesByZoneIDs;
 @property(retain, nonatomic) NSMutableArray *deletedRecordZoneIDs; // @synthesize deletedRecordZoneIDs=_deletedRecordZoneIDs;
 @property(retain, nonatomic) NSMutableArray *savedRecordZones; // @synthesize savedRecordZones=_savedRecordZones;
+@property(nonatomic) BOOL markZonesAsUserPurged; // @synthesize markZonesAsUserPurged=_markZonesAsUserPurged;
 @property(copy, nonatomic) CDUnknownBlockType modifyRecordZonesCompletionBlock; // @synthesize modifyRecordZonesCompletionBlock=_modifyRecordZonesCompletionBlock;
 @property(copy, nonatomic) NSArray *recordZoneIDsToDelete; // @synthesize recordZoneIDsToDelete=_recordZoneIDsToDelete;
 @property(copy, nonatomic) NSArray *recordZonesToSave; // @synthesize recordZonesToSave=_recordZonesToSave;

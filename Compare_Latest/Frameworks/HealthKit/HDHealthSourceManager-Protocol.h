@@ -18,6 +18,7 @@
 - (HDSourceEntity *)sourceForExternalHealthDeviceWithIdentifier:(NSString *)arg1 name:(NSString *)arg2 productType:(NSString *)arg3 createIfNecessary:(BOOL)arg4 error:(id *)arg5;
 - (HDSourceEntity *)sourceForApplicationIdentifier:(NSString *)arg1 entitlements:(_HKEntitlements *)arg2 name:(NSString *)arg3 createIfNecessary:(BOOL)arg4 error:(id *)arg5;
 - (HDSourceEntity *)sourceForClient:(HDClient *)arg1 createIfNecessary:(BOOL)arg2 error:(id *)arg3;
+- (HDSourceEntity *)healthAppSourceWithError:(id *)arg1;
 - (HDSourceEntity *)localDeviceSourceWithError:(id *)arg1;
 - (HDSourceEntity *)sourceForBundleIdentifier:(NSString *)arg1 error:(id *)arg2;
 @end

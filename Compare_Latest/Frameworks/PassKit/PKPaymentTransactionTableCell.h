@@ -18,10 +18,13 @@
     NSString *_amountString;
 }
 
++ (float)rowHeight;
 @property(retain, nonatomic) NSString *amountString; // @synthesize amountString=_amountString;
 @property(retain, nonatomic) NSString *secondaryString; // @synthesize secondaryString=_secondaryString;
 @property(retain, nonatomic) NSString *primaryString; // @synthesize primaryString=_primaryString;
+- (void)prepareForReuse;
 - (void)layoutSubviews;
+- (void)setAmountColor:(id)arg1;
 - (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 

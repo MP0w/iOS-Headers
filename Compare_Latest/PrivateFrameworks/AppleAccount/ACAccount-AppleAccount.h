@@ -11,6 +11,8 @@
 @interface ACAccount (AppleAccount)
 + (id)aa_dataclassesBoundToSingleAppleAccount;
 + (id)aa_dataclassesBoundToPrimaryAppleAccount;
+@property(readonly, nonatomic) int aa_repairerPID;
+@property(nonatomic, setter=aa_setUndergoingRepair:) BOOL aa_isUndergoingRepair;
 @property(nonatomic, setter=aa_setCloudDocsMigrationComplete:) BOOL aa_isCloudDocsMigrationComplete;
 @property(nonatomic, setter=aa_setUsesCloudDocs:) BOOL aa_isUsingCloudDocs;
 @property(readonly, nonatomic) ACAccount *aa_cloudKitAccount;

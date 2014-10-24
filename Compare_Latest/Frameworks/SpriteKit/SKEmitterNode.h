@@ -91,7 +91,7 @@
 - (void)setPhysicsWorld:(id)arg1;
 - (id)physicsWorld;
 - (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToNode:(id)arg1;
 - (void)setFieldInfluenceSequence:(id)arg1;
 - (id)fieldInfluenceSequence;
 

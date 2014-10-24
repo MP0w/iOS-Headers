@@ -43,7 +43,7 @@
 - (id)managedObjectsAtAlbumIndexes:(id)arg1;
 - (id)managedObjectAtAlbumIndex:(unsigned int)arg1;
 - (id)managedObjectForOID:(id)arg1;
-- (unsigned int)batchSize;
+@property(nonatomic) unsigned int batchSize;
 - (BOOL)hasDerivedIndexMappers;
 - (void)enumerateDerivedAlbums:(CDUnknownBlockType)arg1;
 - (void)unregisterAllDerivedAlbums;
@@ -65,6 +65,7 @@
 @property(readonly, nonatomic) BOOL canShowAvalancheStacks;
 @property(readonly, nonatomic) BOOL canShowComments;
 @property(readonly, nonatomic) BOOL canContributeToCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isUserLibraryAlbum;
 @property(readonly, nonatomic) BOOL isRecentlyAddedAlbum;
 @property(readonly, nonatomic) BOOL isMultipleContributorCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL isFamilyCloudSharedAlbum;

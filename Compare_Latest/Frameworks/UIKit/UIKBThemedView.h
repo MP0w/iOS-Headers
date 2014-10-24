@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL cacheDeferable;
 - (void)drawContentsOfRenderers:(id)arg1;
 - (id)traitsForCurrentStyle;
+- (id)borderFilterTypeForCurrentStyle;
 - (void)displayLayer:(id)arg1;
 - (void)_popuplateLayer:(id)arg1 withContents:(id)arg2;
 - (void)layoutSubviews;

@@ -30,6 +30,7 @@
 - (int)numberOfSectionsInTableView:(id)arg1;
 - (void)dealloc;
 - (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (id)initWithPaymentWebService:(id)arg1 eligibleCards:(id)arg2 context:(int)arg3 delegate:(id)arg4;
 

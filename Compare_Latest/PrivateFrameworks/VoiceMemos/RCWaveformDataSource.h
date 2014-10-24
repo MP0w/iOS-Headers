@@ -36,7 +36,7 @@
 - (void)waveformGenerator:(id)arg1 didLoadWaveformSegment:(id)arg2;
 - (void)waveformGeneratorDidFinishLoading:(id)arg1 error:(id)arg2;
 - (void)waveformGeneratorWillBeginLoading:(id)arg1;
-- (void)setAccumulatorWaveformSegments:(id)arg1;
+- (void)updateAccumulatorWaveformSegmentsWithBlock:(CDUnknownBlockType)arg1;
 - (void)saveGeneratedWaveformIfNecessary;
 - (id)saveableWaveform;
 - (id)synchronouslyApproximateWaveformSegmentsByReadingCurrentFileAheadTimeRange:(CDStruct_73a5d3ca)arg1;

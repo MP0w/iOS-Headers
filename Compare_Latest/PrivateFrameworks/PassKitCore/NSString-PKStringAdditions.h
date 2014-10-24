@@ -7,6 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (PKStringAdditions)
+- (id)pk_uppercaseStringForPreferredLocale;
 - (id)decodeHexadecimal;
 @end
 

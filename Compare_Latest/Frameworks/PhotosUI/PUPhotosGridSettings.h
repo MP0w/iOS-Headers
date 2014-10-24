@@ -12,6 +12,7 @@
     BOOL _displayAllItemsAsBursts;
     BOOL _forceJPEGThumbnailsInDefaultGrid;
     BOOL _slowBackgroundFetch;
+    BOOL _flashDegradedImages;
     float _defaultItemSideSize;
     float _minimumSpacing;
     float _maximumSpacing;
@@ -22,6 +23,7 @@
 
 + (id)settingsControllerModule;
 + (id)sharedInstance;
+@property(nonatomic) BOOL flashDegradedImages; // @synthesize flashDegradedImages=_flashDegradedImages;
 @property(nonatomic) BOOL slowBackgroundFetch; // @synthesize slowBackgroundFetch=_slowBackgroundFetch;
 @property(nonatomic) int numberOfColumnsInWideGrid; // @synthesize numberOfColumnsInWideGrid=_numberOfColumnsInWideGrid;
 @property(nonatomic) int numberColumnsInDefaultGrid; // @synthesize numberColumnsInDefaultGrid=_numberColumnsInDefaultGrid;

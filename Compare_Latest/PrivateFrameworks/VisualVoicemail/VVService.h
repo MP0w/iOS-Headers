@@ -40,6 +40,7 @@
         unsigned int notificationFallbackEnabled:1;
         unsigned int capabilitiesLoaded:1;
     } _serviceFlags;
+    BOOL _VVMDataConnectionAvailable;
 }
 
 + (void)setInsomniaEnabled:(BOOL)arg1;
@@ -52,6 +53,7 @@
 + (id)sharedService;
 + (void)_handleSIMChange;
 + (void)initialize;
+@property BOOL VVMDataConnectionAvailable; // @synthesize VVMDataConnectionAvailable=_VVMDataConnectionAvailable;
 - (void)_attemptScheduledTrashCompaction;
 - (void)_cancelAutomatedTrashCompaction;
 - (void)cancelAutomatedTrashCompaction;

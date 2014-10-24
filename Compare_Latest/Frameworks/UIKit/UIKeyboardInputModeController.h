@@ -48,6 +48,7 @@
 @property(retain) NSArray *keyboardInputModes; // @synthesize keyboardInputModes;
 - (void)startConnectionForFileAtURL:(id)arg1 forInputModeIdentifier:(id)arg2;
 - (void)startDictationConnectionForFileAtURL:(id)arg1 forInputModeIdentifier:(id)arg2;
+- (void)performWithForcedExtensionInputModes:(CDUnknownBlockType)arg1;
 - (void)performWithoutExtensionInputModes:(CDUnknownBlockType)arg1;
 - (void)switchToCurrentSystemInputMode;
 - (void)updateCurrentAndNextInputModes;

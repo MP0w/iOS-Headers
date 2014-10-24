@@ -18,6 +18,7 @@
     BOOL _enableOnAppear;
     PUCloudPhotoWelcomeView *_welcomeView;
     UIBarButtonItem *_skipBarButtonItem;
+    UIBarButtonItem *_betaGoButtonItem;
     ACAccountStore *_accountStore;
 }
 
@@ -26,6 +27,7 @@
 + (void)showWithPresentingViewController:(id)arg1;
 + (void)showIfNecessaryWithPresentingViewController:(id)arg1;
 @property(retain, nonatomic) ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
+@property(readonly, nonatomic) UIBarButtonItem *betaGoButtonItem; // @synthesize betaGoButtonItem=_betaGoButtonItem;
 @property(readonly, nonatomic) UIBarButtonItem *skipBarButtonItem; // @synthesize skipBarButtonItem=_skipBarButtonItem;
 @property(retain, nonatomic) PUCloudPhotoWelcomeView *welcomeView; // @synthesize welcomeView=_welcomeView;
 - (void).cxx_destruct;
@@ -35,12 +37,15 @@
 - (void)manager:(id)arg1 willPresentViewController:(id)arg2;
 - (void)cloudPhotoWelcomeViewLearnMoreTapped:(id)arg1;
 - (void)cloudPhotoWelcomeViewGoButtonTapped:(id)arg1;
+- (void)_betaGoButtonTapped:(id)arg1;
+- (void)_handleGoButtonTapped;
 - (void)_continueWithoutStoragePurchase:(id)arg1;
 - (void)_enableCPLDataClass;
 - (void)_enableCloudPhotoLibrary;
 - (void)_dismiss;
 - (void)_presentStoragePurchaseController;
 - (void)_skipButtonTapped:(id)arg1;
+- (void)_enableButtons;
 - (struct CGSize)preferredContentSize;
 - (BOOL)shouldAutorotate;
 - (int)preferredInterfaceOrientationForPresentation;

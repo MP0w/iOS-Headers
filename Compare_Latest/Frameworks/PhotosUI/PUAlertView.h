@@ -18,7 +18,6 @@
 }
 
 + (id)alertForStorageUpgradeLoadFailure;
-+ (void)showCPLBetaAlertViewWithCompletion:(CDUnknownBlockType)arg1;
 + (id)alertForCPLEnableError:(id)arg1;
 + (id)deleteITunesContentAlertWithAssetCount:(int)arg1 includesPhotos:(BOOL)arg2 includesVideos:(BOOL)arg3;
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;

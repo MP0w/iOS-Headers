@@ -47,7 +47,7 @@
 @property(readonly, nonatomic) CPLPlatformObject *platformObject; // @synthesize platformObject=_platformObject;
 - (void).cxx_destruct;
 - (id)componentName;
-- (void)notifyAttachedObjectsSizeOfResourcesToUploadDidChangeToSize:(unsigned long long)arg1;
+- (void)notifyAttachedObjectsSizeOfResourcesToUploadDidChangeToSize:(unsigned long long)arg1 numberOfImages:(unsigned int)arg2 numberOfVideos:(unsigned int)arg3 numberOfOtherItems:(unsigned int)arg4;
 - (void)notifyAttachedObjectsUploadTask:(id)arg1 didFinishWithError:(id)arg2;
 - (void)notifyAttachedObjectsUploadTask:(id)arg1 didProgress:(float)arg2;
 - (void)notifyAttachedObjectsUploadTaskDidStart:(id)arg1;
@@ -61,6 +61,7 @@
 - (void)startSyncSession;
 @property(nonatomic) BOOL iCloudLibraryExists;
 @property(nonatomic) BOOL iCloudLibraryHasBeenWiped;
+- (void)updateAssetCountsFromServer:(id)arg1;
 @property(retain, nonatomic) NSDate *exitDeleteTime;
 @property(nonatomic) BOOL isExceedingQuota;
 @property(nonatomic) BOOL hasChangesToProcess;

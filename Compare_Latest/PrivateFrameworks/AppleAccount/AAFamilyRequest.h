@@ -15,6 +15,7 @@
 
 - (void).cxx_destruct;
 - (id)urlRequest;
+@property(readonly, nonatomic) BOOL isUserInitiated;
 - (id)initWithGrandSlamSigner:(id)arg1;
 - (id)initWithAppleAccount:(id)arg1 grandSlamAccount:(id)arg2 accountStore:(id)arg3;
 

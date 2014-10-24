@@ -40,6 +40,7 @@ __attribute__((visibility("hidden")))
 - (void)locationManager:(id)arg1 didUpdateHeading:(id)arg2;
 - (void)locationManager:(id)arg1 didUpdateLocations:(id)arg2;
 - (void)dismissHeadingCalibrationDisplay;
+@property(readonly, nonatomic) BOOL isTracePlayer;
 @property(readonly, nonatomic) BOOL isSimulation;
 @property(readonly, nonatomic) BOOL airplaneModeBlocksLocation;
 @property(readonly, nonatomic) int authorizationStatus;

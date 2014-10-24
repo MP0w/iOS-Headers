@@ -21,6 +21,7 @@
 + (BOOL)currentMessageAutoKeepForType:(int)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (id)controllerForSpecifier:(id)arg1;
+- (id)_smsRelayDevicesController;
 - (id)_madridSettingsController;
 - (void)_setupAccountHandlersForDisabling;
 - (BOOL)_allAccountsAreDeactivated;
@@ -31,6 +32,7 @@
 - (void)_showMadridSetupIfNecessary:(BOOL)arg1;
 - (void)setKeepMessages:(id)arg1 specifier:(id)arg2;
 - (id)getKeepMessages:(id)arg1;
+- (id)getSMSRelayDevicesSummary:(id)arg1;
 - (id)madridSigninButtonTextForSpecifier:(id)arg1;
 - (void)madridSigninTappedWithSpecifier:(id)arg1;
 - (id)madridSigninSpecifiers;
@@ -44,6 +46,8 @@
 - (id)areReadReceiptsEnabled:(id)arg1;
 - (id)readReceiptSpecifierIdentifiers;
 - (BOOL)shouldShowReadReceipts;
+- (id)smsRelaySettingsSpecifierIdentifiers;
+- (BOOL)shouldShowSMSRelaySettings;
 - (id)videoMessageSettingsSpecifierIdentifiers;
 - (BOOL)shouldShowVideoMessageSettings;
 - (id)audioMessageSettingsSpecifierIdentifiers;

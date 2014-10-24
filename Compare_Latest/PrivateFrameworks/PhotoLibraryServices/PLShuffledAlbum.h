@@ -34,6 +34,7 @@
 @property(readonly, nonatomic) BOOL canShowAvalancheStacks;
 @property(readonly, nonatomic) BOOL canShowComments;
 @property(readonly, nonatomic) BOOL canContributeToCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isUserLibraryAlbum;
 @property(readonly, nonatomic) BOOL isRecentlyAddedAlbum;
 @property(readonly, nonatomic) BOOL isMultipleContributorCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL isFamilyCloudSharedAlbum;
@@ -90,6 +91,7 @@
 - (unsigned int)countOfShuffledAssets;
 
 // Remaining properties
+@property(nonatomic) unsigned int batchSize;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, retain, nonatomic) NSDate *endDate;
 @property(readonly) unsigned int hash;

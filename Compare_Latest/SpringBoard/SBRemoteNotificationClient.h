@@ -42,6 +42,8 @@
 @property(readonly, nonatomic, getter=isPushEnabled) _Bool pushEnabled;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (_Bool)wantsPushWithCoder:(id)arg1;
+- (_Bool)backgroundAppRefreshAllowedForBundleIdentifier:(id)arg1;
 - (void)dealloc;
 - (id)initWithBundleIdentifier:(id)arg1;
 

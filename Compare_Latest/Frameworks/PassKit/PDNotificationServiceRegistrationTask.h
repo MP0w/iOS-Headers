@@ -28,11 +28,13 @@
 - (BOOL)matchesTask:(id)arg1;
 - (int)actionForInactiveTask:(id)arg1;
 - (BOOL)coalescesWithTaskSubclass:(Class)arg1;
+- (BOOL)backoffComplete;
 - (id)description;
 - (void)handleResponse:(id)arg1 data:(id)arg2;
 - (id)bodyDictionary;
 - (id)endpointComponents;
 - (id)method;
+- (BOOL)isValid;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;

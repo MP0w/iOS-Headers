@@ -28,7 +28,7 @@ __attribute__((visibility("hidden")))
 @property __weak id <BRCTransferQueueDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (BOOL)trySchedulingOperation:(id)arg1 forKey:(id)arg2;
-- (void)cancelAllOperations;
+- (id)cancelAllOperations;
 - (void)cancelOperationForKey:(id)arg1;
 - (id)inflightOperationForKey:(id)arg1;
 - (void)noteShouldRequestsOperations;
@@ -36,6 +36,7 @@ __attribute__((visibility("hidden")))
 - (double)_availableBudgetForPriority:(int)arg1;
 - (double)_budgetInFlightForPriority:(int)arg1;
 - (void)close;
+@property(readonly, nonatomic) BOOL isSuspended;
 - (void)resume;
 - (void)suspend;
 - (void)dumpToContext:(id)arg1 name:(id)arg2;

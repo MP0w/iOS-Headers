@@ -9,6 +9,8 @@
 @class PDSecureElement, PKPaymentApplication;
 
 @protocol PDSecureElementDelegate <NSObject>
+- (void)secureElement:(PDSecureElement *)arg1 removingPaymentApplicationsDidFinishWithSuccess:(BOOL)arg2;
+- (void)secureElement:(PDSecureElement *)arg1 removingPaymentApplicationsDidUpdateToProgress:(double)arg2;
 - (void)secureElement:(PDSecureElement *)arg1 didDeauthorizeApplication:(PKPaymentApplication *)arg2;
 - (void)secureElement:(PDSecureElement *)arg1 didAuthorizeApplication:(PKPaymentApplication *)arg2;
 - (void)secureElement:(PDSecureElement *)arg1 didActivateApplication:(PKPaymentApplication *)arg2;

@@ -29,6 +29,7 @@
 @property(copy, nonatomic) NSString *typeDescription; // @synthesize typeDescription=_typeDescription;
 @property(nonatomic) unsigned int type; // @synthesize type=_type;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+- (BOOL)needsServerRequest;
 - (id)description;
 @property(readonly, nonatomic) NSString *typeDescriptionUnlocalized;
 - (id)copyWithZone:(struct _NSZone *)arg1;

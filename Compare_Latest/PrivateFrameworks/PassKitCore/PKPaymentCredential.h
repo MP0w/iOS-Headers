@@ -26,10 +26,12 @@
     NSURL *_passURL;
     int _status;
     int _eligibilityStatus;
+    NSString *_applicationIdentifier;
 }
 
 + (BOOL)supportsSecureCoding;
 + (id)credentialWithDictionary:(id)arg1;
+@property(copy, nonatomic) NSString *applicationIdentifier; // @synthesize applicationIdentifier=_applicationIdentifier;
 @property(nonatomic) int eligibilityStatus; // @synthesize eligibilityStatus=_eligibilityStatus;
 @property(nonatomic) int status; // @synthesize status=_status;
 @property(copy, nonatomic) NSURL *passURL; // @synthesize passURL=_passURL;

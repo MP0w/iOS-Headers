@@ -6,16 +6,18 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
+@class NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
 
 @interface SBFMappedImageCache : NSObject
 {
     NSObject<OS_dispatch_queue> *_queue;
     NSString *_path;
     NSMutableDictionary *_images;
+    NSMutableSet *_allKeys;
 }
 
 + (id)wallpaperCache;
+- (id)allKeys;
 - (void)removeAllObjects;
 - (void)removeImageForKey:(id)arg1;
 - (void)warmupImageForKey:(id)arg1;

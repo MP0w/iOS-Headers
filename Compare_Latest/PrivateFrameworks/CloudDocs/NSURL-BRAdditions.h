@@ -17,7 +17,8 @@
 - (BOOL)br_isInCloudDocsPrivateStorages;
 - (BOOL)br_isInMobileDocuments;
 - (id)br_debugDescription;
-- (id)_br_pathRelativeToMobileDocuments;
+- (id)br_pathRelativeToMobileDocuments;
+- (void)br_containerIDsWithExternalReferencesWithHandler:(CDUnknownBlockType)arg1;
 - (void)br_bookmarkableStringWithEtag:(BOOL)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)br_preCacheBookmarkData:(id)arg1 versionEtag:(id)arg2;
 - (BOOL)br_isParentOfURL:(id)arg1;

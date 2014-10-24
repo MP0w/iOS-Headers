@@ -265,7 +265,7 @@
 - (void)activateApplicationAnimatedFromIcon:(id)arg1 fromLocation:(int)arg2;
 - (void)activateApplicationAnimated:(id)arg1;
 - (void)launchIcon:(id)arg1 fromLocation:(int)arg2;
-- (void)getRotationContentSettings:(CDStruct_ebaa735e *)arg1 forWindow:(id)arg2;
+- (void)getRotationContentSettings:(CDStruct_e950349b *)arg1 forWindow:(id)arg2;
 - (id)window;
 - (id)contentView;
 - (void)setFakeSpringBoardStatusBarVisible:(_Bool)arg1;

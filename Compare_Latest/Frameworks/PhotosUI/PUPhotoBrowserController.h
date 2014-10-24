@@ -7,13 +7,13 @@
 #import "UIViewController.h"
 
 #import "PHAssetCollectionDataSource.h"
-#import "PHPhotoLibraryChangeObserver.h"
 #import "PLDismissableViewController.h"
 #import "PLPhotoBrowserControllerDelegate.h"
 #import "PUAvalancheReviewControllerDelegate.h"
 #import "PUCollectionViewLayoutProvider.h"
 #import "PUEditPluginSessionDelegate.h"
 #import "PUPhotoEditViewControllerDelegate.h"
+#import "PUPhotoLibraryUIChangeObserver.h"
 #import "PUPhotosSharingTransitionDelegate.h"
 #import "PUPhotosSharingViewControllerDelegate.h"
 #import "PUVideoEditPluginSessionDataSource.h"
@@ -22,7 +22,7 @@
 
 @class NSDictionary, NSMutableDictionary, NSMutableSet, NSString, PHAsset, PHAssetCollection, PHCachingImageManager, PHFetchResult, PLCloudSharedComment, PLPhotoBrowserController, PLPhotoTileViewController, PLSlalomRegionEditor, PUAirplayRoute, PUAvalancheReviewController, PUPhotoBrowserControllerSpec, PUPhotoBrowserTitleView, PUPhotoPinchGestureRecognizer, PUPhotosSharingViewController, PUSlideshowSettings, PUVideoEditPluginSession, UIColor, UIImage, UIMovieScrubber, UIPopoverController, UIView, _UIContentUnavailableView, _UINavigationControllerPalette;
 
-@interface PUPhotoBrowserController : UIViewController <PLPhotoBrowserControllerDelegate, PUPhotosSharingViewControllerDelegate, PUPhotosSharingTransitionDelegate, PUPhotoEditViewControllerDelegate, UIGestureRecognizerDelegate, PUCollectionViewLayoutProvider, PUAvalancheReviewControllerDelegate, UIPopoverControllerDelegate, PUVideoEditPluginSessionDataSource, PUEditPluginSessionDelegate, PLDismissableViewController, PHPhotoLibraryChangeObserver, PHAssetCollectionDataSource>
+@interface PUPhotoBrowserController : UIViewController <PLPhotoBrowserControllerDelegate, PUPhotosSharingViewControllerDelegate, PUPhotosSharingTransitionDelegate, PUPhotoEditViewControllerDelegate, UIGestureRecognizerDelegate, PUCollectionViewLayoutProvider, PUAvalancheReviewControllerDelegate, UIPopoverControllerDelegate, PUVideoEditPluginSessionDataSource, PUEditPluginSessionDelegate, PUPhotoLibraryUIChangeObserver, PLDismissableViewController, PHAssetCollectionDataSource>
 {
     PUPhotoBrowserControllerSpec *_spec;
     PLPhotoBrowserController *_legacyPhotoBrowserController;
@@ -104,7 +104,9 @@
 - (void)photoEditController:(id)arg1 didFinishWithSavedChanges:(BOOL)arg2;
 - (BOOL)prepareForDismissingForced:(BOOL)arg1;
 - (BOOL)_currentItemHasAudio;
-- (void)photoLibraryDidChange:(id)arg1;
+- (void)photoLibraryDidChangeOnMainQueue:(id)arg1;
+- (void)prepareForPhotoLibraryChange:(id)arg1;
+- (BOOL)photoBrowserControllerShouldHandleLibraryChangesInternally:(id)arg1;
 - (void)photoBrowserController:(id)arg1 setRemakingVideo:(BOOL)arg2;
 - (void)photoBrowserController:(id)arg1 willShowMenuController:(id)arg2;
 - (void)photoBrowserController:(id)arg1 didFailToStreamPhotoToCurrentRouteWithError:(id)arg2 retryBlock:(CDUnknownBlockType)arg3;
@@ -185,6 +187,7 @@
 - (void)copy:(id)arg1;
 - (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (BOOL)_isTrashBin;
+- (void)commitPendingUpdatesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_endEditingCurrentAsset;
 - (void)_pushPhotoEditorForAsset:(id)arg1;
 - (void)_beginEditingCurrentAsset:(id)arg1;

@@ -6,28 +6,39 @@
 
 #import "UIView.h"
 
-@class PKGlyphView, UILabel;
+#import "PKGlyphViewDelegate.h"
 
-@interface PKPassPaymentPayStateView : UIView
+@class NSString, PKGlyphView, UILabel;
+
+@interface PKPassPaymentPayStateView : UIView <PKGlyphViewDelegate>
 {
     int _state;
     PKGlyphView *_glyph;
     UILabel *_label;
     float _labelAlpha;
+    id <PKPassPaymentPayStateViewDelegate> _delegate;
 }
 
+@property(nonatomic) id <PKPassPaymentPayStateViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) float labelAlpha; // @synthesize labelAlpha=_labelAlpha;
 @property(readonly, nonatomic) UILabel *label; // @synthesize label=_label;
 @property(readonly, nonatomic) PKGlyphView *glyph; // @synthesize glyph=_glyph;
 @property(nonatomic) int state; // @synthesize state=_state;
+- (void)glyphView:(id)arg1 revealingCheckmark:(BOOL)arg2;
 - (id)_labelForState:(int)arg1 textOverride:(id)arg2;
 - (BOOL)_canEmphasizeState:(int)arg1;
 - (void)emphasizeStateIfPossible:(int)arg1 withTextOverride:(id)arg2;
-- (void)_applyStateWithTextOverride:(id)arg1 duration:(double)arg2;
-- (void)setState:(int)arg1 textOverride:(id)arg2 duration:(double)arg3;
+- (void)_applyStateWithTextOverride:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)setState:(int)arg1 textOverride:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

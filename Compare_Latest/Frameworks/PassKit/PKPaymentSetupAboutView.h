@@ -6,11 +6,10 @@
 
 #import "UIView.h"
 
-@class UIButton, UIImageView, UILabel, UIScrollView;
+@class UIButton, UILabel, UIScrollView;
 
 @interface PKPaymentSetupAboutView : UIView
 {
-    UIImageView *_headerImageView;
     UILabel *_aboutTextLabel;
     UIScrollView *_scrollView;
     UIButton *_actionButton;

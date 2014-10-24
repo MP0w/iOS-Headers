@@ -36,7 +36,7 @@
 + (id)_itemWithAddressBookRef:(void *)arg1 geoMapItem:(id)arg2;
 + (id)_itemWithGeoMapItem:(id)arg1;
 + (id)_mapItemWithWithLocation:(id)arg1 addressDictionary:(id)arg2 name:(id)arg3 businessURL:(id)arg4 phoneNumber:(id)arg5 sessionID:(id)arg6 muid:(unsigned long long)arg7 attributionID:(id)arg8 sampleSizeForUserRatingScore:(unsigned int)arg9 normalizedUserRatingScore:(float)arg10;
-+ (unsigned long long)_placeCardIDForMapsDataString:(id)arg1;
++ (void)_fillOutRequest:(id)arg1 withMapsDataString:(id)arg2;
 @property(readonly, nonatomic, getter=_reviewsAttribution) _MKMapItemReviewsAttribution *reviewsAttribution; // @synthesize reviewsAttribution=_reviewsAttribution;
 @property(readonly, nonatomic, getter=_photosAttribution) _MKMapItemPhotosAttribution *photosAttribution; // @synthesize photosAttribution=_photosAttribution;
 @property(readonly, nonatomic, getter=_attribution) _MKMapItemPlaceAttribution *attribution; // @synthesize attribution=_attribution;
@@ -133,6 +133,8 @@
 - (id)_mapsDataString;
 - (void)_setRecord:(void *)arg1 property:(int)arg2 stringValue:(id)arg3 label:(id)arg4;
 - (id)_placeCardContact;
+@property(readonly, getter=_isEmptyContactMapItem) BOOL isEmptyContactMapItem;
+- (id)initWithContact:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

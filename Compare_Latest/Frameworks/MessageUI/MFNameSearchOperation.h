@@ -4,23 +4,24 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <MessageUI/MFContactsSearchOperation.h>
+#import <MessageUI/_MFAddressBookSearchOperation.h>
 
 #import "ABPredicateDelegate.h"
 
-@class MFComposeRecipientOriginContext, NSMutableArray, NSString;
+@class NSString;
 
-@interface MFNameSearchOperation : MFContactsSearchOperation <ABPredicateDelegate>
+@interface MFNameSearchOperation : _MFAddressBookSearchOperation <ABPredicateDelegate>
 {
-    NSMutableArray *_results;
-    MFComposeRecipientOriginContext *_originContext;
+    struct __CFArray *_uids;
+    struct __CFArray *_addresses;
+    struct __CFArray *_identifiers;
+    struct __CFArray *_properties;
 }
 
 + (id)operationWithAddressBook:(void *)arg1 owner:(id)arg2 text:(id)arg3 taskID:(id)arg4 properties:(id)arg5;
-@property(readonly, nonatomic) MFComposeRecipientOriginContext *originContext; // @synthesize originContext=_originContext;
 - (BOOL)predicateShouldContinue:(id)arg1 afterFindingRecord:(void *)arg2;
 - (BOOL)predicateShouldContinue:(id)arg1;
-- (void)main;
+- (struct __CFArray *)copyArrayOfUIDsMatchingText:(id)arg1 addresses:(const struct __CFArray **)arg2 identifiers:(const struct __CFArray **)arg3 properties:(const struct __CFArray **)arg4;
 - (void)dealloc;
 
 // Remaining properties

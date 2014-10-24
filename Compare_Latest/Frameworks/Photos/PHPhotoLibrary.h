@@ -10,6 +10,8 @@
 
 @interface PHPhotoLibrary : NSObject
 {
+    BOOL _unknownMergeEvent;
+    BOOL _isChangeProcessingPending;
     NSObject<OS_dispatch_queue> *_queue;
     PLPhotoLibrary *_photoLibrary;
     NSObject<OS_dispatch_queue> *_transactionQueue;
@@ -21,6 +23,7 @@
     NSHashTable *_fetchResults;
     NSHashTable *_observers;
     NSMutableDictionary *_changeNotificationInfo;
+    double _lastChangeProcessingStarted;
 }
 
 + (id)uniquedOIDsFromObjects:(id)arg1;
@@ -33,6 +36,9 @@
 + (void)requestAuthorization:(CDUnknownBlockType)arg1;
 + (int)authorizationStatus;
 + (id)sharedPhotoLibrary;
+@property(nonatomic) double lastChangeProcessingStarted; // @synthesize lastChangeProcessingStarted=_lastChangeProcessingStarted;
+@property(nonatomic) BOOL isChangeProcessingPending; // @synthesize isChangeProcessingPending=_isChangeProcessingPending;
+@property(nonatomic) BOOL unknownMergeEvent; // @synthesize unknownMergeEvent=_unknownMergeEvent;
 @property(retain, nonatomic) NSMutableDictionary *changeNotificationInfo; // @synthesize changeNotificationInfo=_changeNotificationInfo;
 @property(retain, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
 @property(retain, nonatomic) NSHashTable *fetchResults; // @synthesize fetchResults=_fetchResults;
@@ -45,6 +51,7 @@
 @property(retain, nonatomic) PLPhotoLibrary *photoLibrary; // @synthesize photoLibrary=_photoLibrary;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 - (void).cxx_destruct;
+- (void)_processPendingChanges;
 - (void)handleMergeNotification:(id)arg1;
 - (id)transactionPLPhotoLibrary;
 - (id)transactionContext;

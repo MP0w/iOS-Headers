@@ -15,7 +15,6 @@
 @property(nonatomic) CDStruct_e0453228 skipLimit; // @synthesize skipLimit=_skipLimit;
 @property(nonatomic) BOOL adPreventsDisplay; // @synthesize adPreventsDisplay=_adPreventsDisplay;
 - (id)_mediaRemoteCommandInfoOptions;
-- (id)keyPathsForValuesTriggeringCommandsChanged;
 
 @end
 

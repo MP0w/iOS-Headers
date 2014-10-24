@@ -33,6 +33,7 @@
     BOOL _mesaLockedOut;
     unsigned int _biometricMatchMode;
     BOOL _deviceHasBeenUnlockedOnceSinceBoot;
+    BOOL _appearingForSmartCoverUnlock;
     BOOL _shouldResetForFailedPasscodeAttempt;
     NSString *_statusText;
     NSString *_statusSubtitleText;
@@ -68,6 +69,7 @@
 - (void)_clearBrightnessChangeTimer;
 - (void)_noteBioMatchingEnabledDidChange;
 - (void)_noteScreenBrightnessDidChange;
+- (void)_noteAppearingForSmartCoverUnlock:(BOOL)arg1;
 - (void)_noteDeviceHasBeenUnlockedOnceSinceBoot:(BOOL)arg1;
 - (BOOL)_wantsBiometricAuthentication;
 - (void)_resetForFailedPasscode:(BOOL)arg1;

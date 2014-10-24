@@ -72,6 +72,7 @@ __attribute__((visibility("hidden")))
 - (id)protectionIdentifierFromShareProtection:(struct _OpaquePCSShareProtection *)arg1;
 - (id)etagFromPCSData:(id)arg1;
 - (struct _PCSIdentityData *)copyServiceIdentityWithError:(id *)arg1;
+- (void)_clearCachedIdentities;
 - (void)dealloc;
 - (id)initWithClientContext:(id)arg1;
 - (id)_serviceNameForContainerID:(id)arg1;

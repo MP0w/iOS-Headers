@@ -6,11 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSString;
-
 @protocol PDPaymentServiceDelegate <NSObject>
 - (void)presentPaymentInterfaceWithCompletion:(void (^)(void))arg1;
-- (void)setDefaultPaymentPassUniqueIdentifier:(NSString *)arg1;
-- (NSString *)defaultPaymentPassUniqueIdentifier;
 @end
 

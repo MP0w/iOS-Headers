@@ -6,15 +6,17 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString, PKPaymentRequest;
+@class NSArray;
 
 @protocol PKPaymentAuthorizationServiceProtocol <NSObject>
-- (void)_authorizationDidSelectShippingContactCompleteWithStatus:(int)arg1 shippingMethods:(NSArray *)arg2 paymentSummaryItems:(NSArray *)arg3;
-- (void)_authorizationDidSelectShippingMethodCompleteWithStatus:(int)arg1 paymentSummaryItems:(NSArray *)arg2;
-- (void)_authorizationDidAuthorizePaymentCompleteWithStatus:(int)arg1;
-- (void)_handleHostApplicationDidBecomeActive;
-- (void)_handleHostApplicationWillResignActive;
-- (void)_handleHostApplicationDidCancel;
-- (void)_handlePaymentRequest:(PKPaymentRequest *)arg1 fromAppWithLocalizedName:(NSString *)arg2 completion:(void (^)(BOOL))arg3;
+- (void)authorizationDidSelectShippingAddressCompleteWithStatus:(int)arg1 shippingMethods:(NSArray *)arg2 paymentSummaryItems:(NSArray *)arg3;
+- (void)authorizationDidSelectShippingMethodCompleteWithStatus:(int)arg1 paymentSummaryItems:(NSArray *)arg2;
+- (void)authorizationDidAuthorizePaymentCompleteWithStatus:(int)arg1;
+- (void)handleHostApplicationDidBecomeActive;
+- (void)handleHostApplicationWillResignActive:(BOOL)arg1;
+
+@optional
+- (void)handleDismissWithCompletion:(void (^)(void))arg1;
+- (void)handleHostApplicationDidCancel;
 @end
 

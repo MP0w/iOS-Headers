@@ -80,9 +80,10 @@ typedef struct {
     _Bool _field2;
     _Bool _field3;
     _Bool _field4;
-    double _field5;
-    int _field6;
-} CDStruct_ebaa735e;
+    _Bool _field5;
+    double _field6;
+    int _field7;
+} CDStruct_e950349b;
 
 typedef struct {
     unsigned long long _field1;

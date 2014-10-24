@@ -16,6 +16,8 @@ __attribute__((visibility("hidden")))
 }
 
 + (BOOL)_preventsAppearanceProxyCustomization;
+- (void)setPreferredContentSize:(struct CGSize)arg1;
+- (struct CGSize)preferredContentSize;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

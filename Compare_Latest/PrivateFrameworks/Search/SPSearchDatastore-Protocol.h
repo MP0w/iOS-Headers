@@ -21,7 +21,7 @@
 - (NSString *)categoryForDomain:(unsigned int)arg1;
 - (BOOL)wantsExtendedTimeForDomain:(unsigned int)arg1;
 - (BOOL)wantsEveryResultInItsOwnSection;
-- (void)coolDown;
+- (BOOL)coolDown;
 - (void)preheat;
 @end
 

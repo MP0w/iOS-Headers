@@ -7,17 +7,19 @@
 #import <MusicUI/MusicSongsViewController.h>
 
 #import "MusicPickerOverlayDelegate.h"
+#import "MusicViewControllerKeepLocalContainer.h"
 #import "UIActionSheetDelegate.h"
 
 @class MusicPlaylistActionsView, NSOperationQueue, NSString, UIActionSheet;
 
-@interface MusicPlaylistSongsViewController : MusicSongsViewController <MusicPickerOverlayDelegate, UIActionSheetDelegate>
+@interface MusicPlaylistSongsViewController : MusicSongsViewController <MusicPickerOverlayDelegate, MusicViewControllerKeepLocalContainer, UIActionSheetDelegate>
 {
     MusicPlaylistActionsView *_actionsView;
     struct UIEdgeInsets _actionsViewContentInsetAdditions;
     UIActionSheet *_clearActionSheet;
     UIActionSheet *_deleteActionSheet;
     NSOperationQueue *_downloadabilityOperationQueue;
+    BOOL _isCollectionKeptLocal;
     BOOL _isTransitioning;
     BOOL _isDownloading;
     int _downloadableSongCount;
@@ -55,6 +57,7 @@
 - (void)tableView:(id)arg1 commitEditingStyle:(int)arg2 forRowAtIndexPath:(id)arg3;
 - (BOOL)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
 - (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (BOOL)isCollectionKeptLocalForMediaItem:(id)arg1 inSection:(int)arg2;
 - (void)pickerOverlayDidFinish:(id)arg1;
 - (void)pickerOverlayRequestsFinish:(id)arg1;
 - (BOOL)shouldShowActionCellConfiguration:(Class)arg1;

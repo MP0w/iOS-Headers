@@ -16,6 +16,7 @@
     BOOL _tentative;
     BOOL _acknowledged;
     BOOL _isOffsetFromTravelTimeStart;
+    NSString *_publisherBulletinID;
     NSString *_title;
     NSString *_location;
     NSDate *_eventDate;
@@ -50,12 +51,14 @@
 @property(readonly, nonatomic) NSDate *eventDate; // @synthesize eventDate=_eventDate;
 @property(readonly, nonatomic) NSString *location; // @synthesize location=_location;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
+@property(readonly, nonatomic) NSString *publisherBulletinID; // @synthesize publisherBulletinID=_publisherBulletinID;
+@property(readonly, nonatomic) NSString *recordID;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)initWithTitle:(id)arg1 location:(id)arg2 date:(id)arg3 endDate:(id)arg4 timeZone:(id)arg5 allDay:(BOOL)arg6 tentative:(BOOL)arg7 entityID:(id)arg8 action:(id)arg9 proximity:(int)arg10 externalID:(id)arg11 acknowledged:(BOOL)arg12 dismissalID:(id)arg13 alarmID:(id)arg14 isOffsetFromTravelTimeStart:(BOOL)arg15;
+- (id)initWithTitle:(id)arg1 location:(id)arg2 date:(id)arg3 endDate:(id)arg4 timeZone:(id)arg5 allDay:(BOOL)arg6 tentative:(BOOL)arg7 publisherBulletinID:(id)arg8 entityID:(id)arg9 action:(id)arg10 proximity:(int)arg11 externalID:(id)arg12 acknowledged:(BOOL)arg13 dismissalID:(id)arg14 alarmID:(id)arg15 isOffsetFromTravelTimeStart:(BOOL)arg16;
 
 @end
 

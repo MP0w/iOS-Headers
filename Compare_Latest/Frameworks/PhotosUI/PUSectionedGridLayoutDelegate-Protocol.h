@@ -16,6 +16,7 @@
 - (NSIndexSet *)sectionedGridLayout:(PUSectionedGridLayout *)arg1 sectionsForVisualSection:(int)arg2;
 - (int)numberOfVisualSectionsForSectionedGridLayout:(PUSectionedGridLayout *)arg1;
 - (BOOL)sectionedGridLayoutTransitionAutoAdjustContentOffsetEnabled:(PUSectionedGridLayout *)arg1;
+- (struct CGPoint)sectionedGridLayout:(PUSectionedGridLayout *)arg1 targetContentOffsetForProposedUpdatesContentOffset:(struct CGPoint)arg2;
 - (NSIndexPath *)sectionedGridLayoutAnchorItemForAdjustingContentOffset:(PUSectionedGridLayout *)arg1;
 - (int)sectionedGridLayout:(PUSectionedGridLayout *)arg1 maximumRowsForVisualSection:(int)arg2;
 - (void)sectionedGridLayout:(PUSectionedGridLayout *)arg1 didFinalizePrepareTransitionIsAppearing:(BOOL)arg2;

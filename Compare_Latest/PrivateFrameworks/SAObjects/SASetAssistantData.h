@@ -16,6 +16,7 @@
 
 + (id)setAssistantDataWithDictionary:(id)arg1 context:(id)arg2;
 + (id)setAssistantData;
+@property(copy, nonatomic) NSNumber *voiceTriggerEnabled;
 @property(nonatomic) BOOL voiceOver;
 @property(copy, nonatomic) NSString *userInterfaceIdiom;
 @property(copy, nonatomic) NSNumber *uiScale;

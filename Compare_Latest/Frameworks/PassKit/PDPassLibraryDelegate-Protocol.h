@@ -9,7 +9,7 @@
 @class NSString, PDPassLibrary;
 
 @protocol PDPassLibraryDelegate <NSObject>
-- (void)deletePaymentPassesAndMarkAllPaymentApplicationsForDelete;
+- (void)removePassesOfType:(unsigned int)arg1;
 - (void)passbookUIServiceLaunched;
 - (void)introduceDatabaseIntegrityProblem;
 - (void)migrateData;

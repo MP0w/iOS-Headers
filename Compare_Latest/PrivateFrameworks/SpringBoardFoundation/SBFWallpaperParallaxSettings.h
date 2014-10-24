@@ -16,6 +16,7 @@
 + (id)settingsControllerModule;
 + (struct CGSize)overhangSizeForCurrentDevice;
 + (struct CGSize)minimumWallpaperSizeForCurrentDevice;
++ (struct CGSize)bestWallpaperSizeForParallaxFactor:(float)arg1 portrait:(BOOL)arg2;
 + (struct CGSize)bestWallpaperSizeForParallaxFactor:(float)arg1;
 + (struct CGSize)_requiredOverhangSizeForCurrentDevice;
 @property float perspectiveTransform; // @synthesize perspectiveTransform=_perspectiveTransform;

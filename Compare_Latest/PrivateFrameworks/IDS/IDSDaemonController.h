@@ -42,7 +42,6 @@
 + (BOOL)_applicationWillTerminate;
 + (id)sharedInstance;
 @property(setter=_setAutoReconnect:) BOOL _autoReconnect; // @synthesize _autoReconnect;
-@property(retain, nonatomic, setter=_setListenerID:) NSString *_listenerID; // @synthesize _listenerID;
 @property(nonatomic) id delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *_remoteMessageQueue; // @synthesize _remoteMessageQueue;
 @property(readonly, nonatomic) IDSDaemonListener *listener; // @synthesize listener=_daemonListener;
@@ -66,6 +65,7 @@
 - (void)blockUntilConnected;
 - (BOOL)isConnected;
 @property(readonly, nonatomic) BOOL isConnecting;
+@property(readonly, nonatomic) NSString *listenerID; // @synthesize listenerID=_listenerID;
 - (BOOL)setCapabilities:(unsigned int)arg1 forListenerID:(id)arg2;
 - (unsigned int)capabilitiesForListenerID:(id)arg1;
 - (id)commandsForListenerID:(id)arg1;

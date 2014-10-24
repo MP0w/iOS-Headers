@@ -10,8 +10,10 @@ __attribute__((visibility("hidden")))
 @interface GEOPlaceDataCache : NSObject
 {
     id <_GEOPlaceDataCacheProxy> _proxyCache;
+    int _resultProviderID;
 }
 
+@property(readonly, nonatomic) int resultProviderID; // @synthesize resultProviderID=_resultProviderID;
 - (void)shrinkToSize:(unsigned long long)arg1 finished:(CDUnknownBlockType)arg2;
 - (void)calculateFreeableSpaceWithHandler:(CDUnknownBlockType)arg1;
 - (void)deletePhoneNumberMapping;
@@ -26,8 +28,7 @@ __attribute__((visibility("hidden")))
 - (id)allCacheEntries;
 - (id)placeDataForPhoneNumber:(unsigned long long)arg1;
 - (void)dealloc;
-- (id)initWithTransientCacheType;
-- (id)initWithCacheType:(int)arg1 atPath:(id)arg2;
+- (id)initWithPath:(id)arg1 resultProviderID:(int)arg2;
 
 @end
 

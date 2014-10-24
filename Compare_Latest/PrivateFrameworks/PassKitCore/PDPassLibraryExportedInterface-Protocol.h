@@ -7,9 +7,9 @@
 @class CLLocation, NSArray, NSData, NSSet, NSString, PKCatalog, PKDisplayProfile;
 
 @protocol PDPassLibraryExportedInterface
-- (void)removePassesOfType:(unsigned int)arg1;
 - (void)hasInAppPaymentPassesForNetworks:(NSSet *)arg1 withHandler:(void (^)(BOOL))arg2;
 - (void)inAppPaymentPassesForNetworks:(NSSet *)arg1 withHandler:(void (^)(NSSet *))arg2;
+- (void)isRemovingPassesOfType:(unsigned int)arg1 handler:(void (^)(BOOL))arg2;
 - (void)countPassesOfType:(unsigned int)arg1 handler:(void (^)(unsigned int))arg2;
 - (void)hasPassesOfType:(unsigned int)arg1 handler:(void (^)(BOOL))arg2;
 - (void)recomputeRelevantPassesWithSearchMode:(int)arg1;
@@ -18,7 +18,7 @@
 - (void)libraryResumed;
 - (void)sendPassbookUIServiceLaunched;
 - (void)sendUserEditedCatalog:(PKCatalog *)arg1;
-- (void)getPassesAndCatalog:(BOOL)arg1 withHandler:(void (^)(NSSet *, PKCatalog *))arg2;
+- (void)getPassesAndCatalogOfPassTypes:(unsigned int)arg1 limitResults:(BOOL)arg2 withHandler:(void (^)(NSSet *, PKCatalog *))arg3;
 - (void)getManifestHashAndSettingsForPassTypeID:(NSString *)arg1 serialNumber:(NSString *)arg2 handler:(void (^)(NSData *, int))arg3;
 - (void)shuffleGroups:(int)arg1;
 - (void)introduceDatabaseIntegrityProblem;
@@ -42,6 +42,7 @@
 - (void)noteObjectSharedWithUniqueID:(NSString *)arg1;
 - (void)updateSettings:(int)arg1 forObjectWithUniqueID:(NSString *)arg2;
 - (void)ingestPassDatas:(NSArray *)arg1 settings:(NSArray *)arg2 handler:(void (^)(void))arg3;
+- (void)removePassesOfType:(unsigned int)arg1 handler:(void (^)(void))arg2;
 - (void)removePassWithUniqueID:(NSString *)arg1 handler:(void (^)(void))arg2;
 - (void)addPassesWithData:(NSSet *)arg1 handler:(void (^)(unsigned int))arg2;
 - (void)replacePassWithPassData:(NSData *)arg1 handler:(void (^)(BOOL))arg2;

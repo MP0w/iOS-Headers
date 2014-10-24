@@ -54,6 +54,7 @@
 @property(nonatomic) BOOL showsFaceTimeCalls; // @synthesize showsFaceTimeCalls=_showsFaceTimeCalls;
 @property(retain, nonatomic) NSArray *recentCalls; // @synthesize recentCalls=_recentCalls;
 - (void).cxx_destruct;
+- (void)addMultipleCallsToCallHistory:(id)arg1;
 - (void)flush;
 - (void)callTimersReset;
 - (double)callTimersGetLifetime;

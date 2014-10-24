@@ -16,6 +16,7 @@
     int _emptyState;
     NSArray *_cachedKeyAssets;
     NSPredicate *_ALAssetsGroupFilterPredicate;
+    unsigned int _batchSize;
 }
 
 + (id)sortDescriptorsForAlbumKind:(int)arg1;
@@ -25,6 +26,7 @@
 + (BOOL)contextShouldIgnoreChangesForFetchRequest;
 + (BOOL)contextShouldIgnoreChangesForFetchedAssetsSet;
 + (BOOL)contextShouldIgnoreChangesForFetchedAssets;
+@property(nonatomic) unsigned int batchSize; // @synthesize batchSize=_batchSize;
 @property(retain, nonatomic) NSPredicate *ALAssetsGroupFilterPredicate; // @synthesize ALAssetsGroupFilterPredicate=_ALAssetsGroupFilterPredicate;
 - (BOOL)mayHaveAssetsInCommon:(id)arg1;
 - (id)fastPointerAccessSetForAssets:(id)arg1;
@@ -53,7 +55,6 @@
 @property(readonly, retain, nonatomic) NSPredicate *extraFilterPredicate;
 @property(retain, nonatomic) NSFetchRequest *fetchRequest;
 - (void)setupFetchRequest;
-- (unsigned int)batchSize;
 - (void)didTurnIntoFault;
 - (void)awakeFromInsert;
 - (void)awakeFromFetch;

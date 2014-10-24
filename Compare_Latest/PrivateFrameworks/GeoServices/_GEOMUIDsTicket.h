@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
 @interface _GEOMUIDsTicket : NSObject <GEOMapServiceTicket>
 {
     NSArray *_muids;
+    int _resultProviderID;
     GEOMapServiceTraits *_traits;
     BOOL _includeETA;
     BOOL _canceled;
@@ -30,7 +31,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) GEOMapRegion *resultBoundingRegion;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
-- (id)initWithMUIDs:(id)arg1 includeETA:(BOOL)arg2 traits:(id)arg3;
+- (id)initWithMUIDs:(id)arg1 resultProviderID:(int)arg2 includeETA:(BOOL)arg3 traits:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

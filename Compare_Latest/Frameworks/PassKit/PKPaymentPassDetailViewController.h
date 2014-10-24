@@ -8,11 +8,11 @@
 
 #import "MFMailComposeViewControllerDelegate.h"
 #import "PKPaymentServiceDelegate.h"
-#import "UIActionSheetDelegate.h"
+#import "PKPaymentVerificationPresentationDelegate.h"
 
-@class NSMutableArray, NSNumberFormatter, NSString, NSURL, PKPassLibrary, PKPassView, PKPaymentApplication, PKPaymentPass, PKPaymentPassDetailActivationFooterView, PKPaymentService, PKPaymentWebService, PKVerificationRequestRecord;
+@class NSMutableArray, NSNumberFormatter, NSObject<OS_dispatch_source>, NSString, NSURL, PKPassLibrary, PKPassView, PKPaymentApplication, PKPaymentPass, PKPaymentPassDetailActivationFooterView, PKPaymentService, PKPaymentVerificationPresentationController, PKPaymentWebService, PKVerificationRequestRecord;
 
-@interface PKPaymentPassDetailViewController : UITableViewController <PKPaymentServiceDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
+@interface PKPaymentPassDetailViewController : UITableViewController <PKPaymentServiceDelegate, PKPaymentVerificationPresentationDelegate, MFMailComposeViewControllerDelegate>
 {
     PKPaymentPass *_pass;
     PKPassLibrary *_passLibrary;
@@ -23,6 +23,7 @@
     int _style;
     PKVerificationRequestRecord *_verificationRecord;
     PKPaymentPassDetailActivationFooterView *_activationFooter;
+    PKPaymentVerificationPresentationController *_verificationPresenter;
     NSNumberFormatter *_numberFormatter;
     NSMutableArray *_transactions;
     unsigned int _issuerAppSection;
@@ -36,15 +37,13 @@
     unsigned int _legalInfoSection;
     unsigned int _deleteCardSection;
     unsigned int _sectionCount;
-    int _contactEmailIndex;
-    int _contactPhoneIndex;
-    int _contactWebsiteIndex;
     int _cardInfoNameIndex;
     int _cardInfoNumberIndex;
     int _legalInfoPrivacyPolicy;
     int _legalInfoTermsAndConditions;
     NSURL *_moreTransactionsURL;
     NSString *_appLaunchToken;
+    NSObject<OS_dispatch_source> *_transactionTimer;
     id <PKPaymentVerificationEntryDelegate> _verificationDelegate;
     id <PKPassDeleteHandler> _deleteOverrider;
 }
@@ -52,11 +51,7 @@
 @property(nonatomic) id <PKPassDeleteHandler> deleteOverrider; // @synthesize deleteOverrider=_deleteOverrider;
 @property(nonatomic) id <PKPaymentVerificationEntryDelegate> verificationDelegate; // @synthesize verificationDelegate=_verificationDelegate;
 - (void)mailComposeController:(id)arg1 didFinishWithResult:(int)arg2 error:(id)arg3;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)_enterCodeButtonPressed;
-- (void)_completeVerificationButtonPressed;
-- (id)_verificationStringForRecord:(id)arg1;
+- (void)_activationFooterPressed:(id)arg1;
 - (void)_notificationSwitchChanged:(id)arg1;
 - (void)_deleteCard;
 - (void)_openIssuerWebsite;
@@ -80,8 +75,11 @@
 - (id)_infoCell:(id)arg1;
 - (id)_linkCellWithText:(id)arg1;
 - (id)_defaultCell;
+- (void)presentVerificationViewController:(id)arg1 animated:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)didChangeVerificationPresentation;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didEnableTransactionService:(BOOL)arg2;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didReceiveTransaction:(id)arg2;
+- (void)_updateTransactionsArrayWithTransaction:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 viewForFooterInSection:(int)arg2;
 - (float)tableView:(id)arg1 heightForFooterInSection:(int)arg2;

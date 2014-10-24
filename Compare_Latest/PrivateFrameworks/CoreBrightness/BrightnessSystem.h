@@ -4,13 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSThread.h"
+#import "NSObject.h"
 
-#import "NSXPCListenerDelegate.h"
-
-@class NSString;
-
-@interface BrightnessSystem : NSThread <NSXPCListenerDelegate>
+@interface BrightnessSystem : NSObject
 {
     _Bool _initializationComplete;
 }
@@ -22,12 +18,6 @@
 - (void)dealloc;
 - (id)init;
 - (BOOL)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
 
 @end
 

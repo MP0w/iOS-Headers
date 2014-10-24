@@ -6,14 +6,15 @@
 
 #import "NSObject.h"
 
-#import "PHPhotoLibraryChangeObserver.h"
+#import "PUPhotoLibraryUIChangeObserver.h"
 
-@class NSDictionary, NSHashTable, NSMutableDictionary, NSMutableOrderedSet, NSMutableSet, NSObject<OS_dispatch_queue>, NSPredicate, NSSet, NSString, PHFetchResult;
+@class NSHashTable, NSMutableDictionary, NSMutableOrderedSet, NSMutableSet, NSObject<OS_dispatch_queue>, NSPredicate, NSSet, NSString, PHFetchResult, PUPhotosDataSourceSectionCache;
 
-@interface PUPhotosDataSource : NSObject <PHPhotoLibraryChangeObserver>
+@interface PUPhotosDataSource : NSObject <PUPhotoLibraryUIChangeObserver>
 {
     NSHashTable *_observers;
-    NSDictionary *__assetCollectionSectionLookup;
+    PUPhotosDataSourceSectionCache *__sectionCache;
+    PUPhotosDataSourceSectionCache *__preparedSectionCache;
     NSMutableDictionary *_resultsForAssetCollection;
     NSMutableSet *_inaccurateAssetCollections;
     NSMutableDictionary *_infoForAssetCollection;
@@ -24,7 +25,7 @@
     NSMutableDictionary *_pendingResultsForAssetCollection;
     NSObject<OS_dispatch_queue> *_pendingResultsIsolationQueue;
     BOOL _processAndPublishScheduledOnRunloop;
-    NSObject<OS_dispatch_queue> *_backgroundFetchQueue;
+    NSObject<OS_dispatch_queue> *_backgroundQueue;
     NSMutableOrderedSet *_queuedAssetCollectionsToFetch;
     BOOL _slowBackgroundFetch;
     PHFetchResult *_collectionListFetchResult;
@@ -40,11 +41,8 @@
 @property(nonatomic) int backgroundFetchOriginSection; // @synthesize backgroundFetchOriginSection=_backgroundFetchOriginSection;
 @property(retain, nonatomic) PHFetchResult *collectionListFetchResult; // @synthesize collectionListFetchResult=_collectionListFetchResult;
 - (void).cxx_destruct;
-- (BOOL)_shouldPerformFullReloadForCollectionListChangeNotifications:(id)arg1 collectionChangeNotifications:(id)arg2;
-- (void)_getInsertedCollectionIndexes:(id *)arg1 removedIndexes:(id *)arg2 changedIndexes:(id *)arg3 forCollectionListChangeNotifications:(id)arg4;
-- (id)_createChangeForCollectionListChangeNotifications:(id)arg1 collectionChangeNotificationDict:(id)arg2;
-- (void)_processAndPublishPhotoLibraryChange:(id)arg1;
-- (void)photoLibraryDidChange:(id)arg1;
+- (void)photoLibraryDidChangeOnMainQueue:(id)arg1;
+- (void)prepareForPhotoLibraryChange:(id)arg1;
 - (void)_didFinishBackgroundFetching;
 - (void)_processAndPublishPendingCollectionFetchResults;
 - (void)_processAndPublishPendingCollectionFetchResultsWhenAppropriate;
@@ -67,8 +65,10 @@
 - (int)numberOfSections;
 - (void)unregisterChangeObserver:(id)arg1;
 - (void)registerChangeObserver:(id)arg1;
-- (void)_clearAssetCollectionSectionLookup;
-- (id)_assetCollectionSectionLookup;
+- (id)_sectionCache;
+- (unsigned int)_cachedSectionForAssetCollection:(id)arg1;
+@property(readonly, nonatomic) int estimatedVideosCount;
+@property(readonly, nonatomic) int estimatedPhotosCount;
 - (void)_interruptBackgroundFetch;
 - (void)_publishDidReceivePhotoLibraryChange:(id)arg1;
 - (void)_publishChange:(id)arg1;

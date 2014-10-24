@@ -63,6 +63,7 @@
 - (void)setDelegate:(id)arg1 queue:(id)arg2;
 - (void)_callDelegateWithBlock:(CDUnknownBlockType)arg1;
 - (void)_broadcastNewSessionToDaemon;
+- (void)daemonDisconnected;
 - (void)dealloc;
 - (id)initWithAccount:(id)arg1 destinations:(id)arg2 transportType:(int)arg3 delegateContext:(id)arg4;
 - (id)initWithAccount:(id)arg1 destinations:(id)arg2 transportType:(int)arg3 uniqueID:(id)arg4 delegateContext:(id)arg5;

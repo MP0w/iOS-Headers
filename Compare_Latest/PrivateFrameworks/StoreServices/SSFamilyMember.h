@@ -30,6 +30,8 @@
 @property(retain, nonatomic) NSString *firstName; // @synthesize firstName=_firstName;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
+- (id)newCacheRepresentation;
+- (id)initWithCacheRepresentation:(id)arg1;
 @property(readonly, copy) NSString *description;
 
 // Remaining properties

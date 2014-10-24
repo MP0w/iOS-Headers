@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 {
     UILabel *_titleLabel;
     UILabel *_subtitleLabel;
+    UILabel *_subtitle2Label;
     UIImageView *_thumbnailView;
     UIProgressView *_progressView;
     UIView *_thumbnailCenterView;
@@ -29,6 +30,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIView *thumbnailCenterView; // @synthesize thumbnailCenterView=_thumbnailCenterView;
 @property(retain, nonatomic) UIProgressView *progressView; // @synthesize progressView=_progressView;
 @property(retain, nonatomic) UIImageView *thumbnailView; // @synthesize thumbnailView=_thumbnailView;
+@property(retain, nonatomic) UILabel *subtitle2Label; // @synthesize subtitle2Label=_subtitle2Label;
 @property(retain, nonatomic) UILabel *subtitleLabel; // @synthesize subtitleLabel=_subtitleLabel;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 - (void)_showPickableDiagnostic;
@@ -36,7 +38,6 @@ __attribute__((visibility("hidden")))
 - (id)viewControllerForDisplay;
 - (void)dealloc;
 - (void)prepareForReuse;
-- (void)tintColorDidChange;
 - (void)traitCollectionDidChange:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 

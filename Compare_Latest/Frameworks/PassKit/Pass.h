@@ -22,7 +22,7 @@
 + (id)predicateForGroup:(id)arg1;
 + (id)predicateForPassType:(id)arg1;
 + (id)predicateForPrimaryAccountIdentifier:(id)arg1;
-+ (id)predicateForPaymentApplicationIdentifier:(id)arg1;
++ (id)predicateForPaymentApplicationIdentifier:(id)arg1 withSecureElementIdentifier:(id)arg2;
 + (id)predicateForPaymentApplicationNetworks:(id)arg1;
 + (id)predicateForPaymentApplicationSupportInAppPayment:(BOOL)arg1;
 + (id)predicateForPaymentApplicationState:(int)arg1;
@@ -33,7 +33,7 @@
 + (id)queryWithDatabase:(id)arg1 group:(id)arg2;
 + (id)queryWithDatabase:(id)arg1 passType:(id)arg2;
 + (id)anyInDatabase:(id)arg1 withPrimaryAccountIdentifier:(id)arg2;
-+ (id)anyInDatabase:(id)arg1 withApplicationIdentifier:(id)arg2;
++ (id)anyInDatabase:(id)arg1 withApplicationIdentifier:(id)arg2 secureElementIdentifier:(id)arg3;
 + (id)anyInDatabase:(id)arg1 withNotificationService:(id)arg2;
 + (id)anyInDatabase:(id)arg1 withWebService:(id)arg2 serialNumber:(id)arg3;
 + (id)anyInDatabase:(id)arg1 withPassType:(id)arg2 serialNumber:(id)arg3;

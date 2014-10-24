@@ -18,6 +18,7 @@
 + (BOOL)isSafeURL:(id)arg1;
 + (BOOL)canConvertDocumentType:(id)arg1;
 + (BOOL)isSpreadSheetDocumentType:(id)arg1;
++ (BOOL)isRTFDocumentType:(id)arg1;
 + (BOOL)isLPDFDocumentType:(id)arg1;
 + (BOOL)isCSVDocumentType:(id)arg1;
 + (BOOL)isIWorkDocumentType:(id)arg1;

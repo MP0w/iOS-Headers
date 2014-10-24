@@ -74,9 +74,10 @@ typedef struct {
     char _field2;
     char _field3;
     char _field4;
-    float _field5;
-    int _field6;
-} CDStruct_af7d35ee;
+    char _field5;
+    float _field6;
+    int _field7;
+} CDStruct_3421d26a;
 
 typedef struct {
     long long _field1;

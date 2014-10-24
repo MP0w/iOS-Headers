@@ -30,6 +30,7 @@
 - (BOOL)syncsBulletinDismissal;
 - (id)bulletinsWithRequestParameters:(id)arg1 lastCleared:(id)arg2;
 - (id)clearedInfoForBulletins:(id)arg1 lastClearedInfo:(id)arg2;
+- (id)sectionParameters;
 - (id)sectionIcon;
 - (id)sectionDisplayName;
 - (id)universalSectionIdentifier;

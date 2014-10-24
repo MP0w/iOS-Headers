@@ -12,7 +12,7 @@
 #import "PKPaymentProvisioningServiceDelegate.h"
 #import "PKSecureElementConsistencyCheckerDelegate.h"
 
-@class NSString, PDBulletinManager, PDCardFileManager, PDDatabaseManager, PDPushNotificationManager, PDSecureElement, PKPaymentWebService;
+@class NSObject<OS_dispatch_queue>, NSString, PDBulletinManager, PDCardFileManager, PDDatabaseManager, PDPushNotificationManager, PDSecureElement, PKPaymentWebService, PKPaymentWebServiceContext;
 
 @interface PDPaymentWebServiceCoordinator : NSObject <PDPushNotificationConsumer, PDDatabaseManagerPaymentServicesDelegate, PKPaymentProvisioningServiceDelegate, PKPaymentBackgroundProvisioningServiceDelegate, PKSecureElementConsistencyCheckerDelegate>
 {
@@ -21,13 +21,15 @@
     PDCardFileManager *_cardFileManager;
     PDSecureElement *_secureElement;
     PDBulletinManager *_bulletinManager;
-    PKPaymentWebService *_oneTrueWebService;
+    PKPaymentWebService *_sharedWebService;
+    NSObject<OS_dispatch_queue> *_sharedWebServiceQueue;
 }
 
-- (void)_archiveWebService;
+- (void)_queue_setupBackgroundWebService;
 - (void)_registerWithPaymentWebService:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_handleDownloadedPass:(id)arg1;
 - (void)_checkVerificationStatusForUniqueID:(id)arg1;
+- (void)_fetchPassesIfNecessary;
 - (void)_scheduleVerificationCheckForPass:(id)arg1 onDate:(id)arg2;
 - (void)scheduleConsistencyCheck:(id)arg1 pluggedIn:(BOOL)arg2;
 - (id)paymentApplications;
@@ -38,9 +40,12 @@
 - (void)deleteCardsWithAIDs:(id)arg1;
 - (void)handleDeletionForPassTypeIdentifier:(id)arg1 serialNumber:(id)arg2;
 - (void)handleInsertionForPaymentPass:(id)arg1;
+- (void)paymentWebService:(id)arg1 didDownloadSerialNumbersForInstalledPasses:(id)arg2;
 - (void)paymentWebService:(id)arg1 didDownloadPassRemoteAssets:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)paymentWebService:(id)arg1 didDownloadPass:(id)arg2;
-- (void)shouldArchiveWebService:(id)arg1;
+- (void)shouldArchiveBackgroundContext:(id)arg1;
+- (void)shouldArchiveContext:(id)arg1;
+- (void)passAdded:(id)arg1;
 - (void)removePassWithUniqueID:(id)arg1;
 - (void)applyPushNotificationToken:(id)arg1;
 - (void)handlePushNotificationForTopic:(id)arg1;
@@ -49,9 +54,10 @@
 - (void)performConsistencyCheckWithCompletion:(CDUnknownBlockType)arg1;
 - (void)initiateConsistencyCheck;
 - (void)submitVerificationCode:(id)arg1 verificationData:(id)arg2 forPass:(id)arg3 handler:(CDUnknownBlockType)arg4;
-- (void)updateSharedProvisioningServiceWithService:(id)arg1;
+- (void)updateSharedWebServiceContext:(id)arg1;
 - (void)deleteSharedWebService;
-@property(readonly, nonatomic) PKPaymentWebService *sharedWebService;
+@property(readonly, nonatomic) PKPaymentWebServiceContext *sharedWebServiceContext;
+- (id)sharedWebService;
 - (void)updateWebServiceConfiguration;
 - (void)connect;
 - (void)dealloc;

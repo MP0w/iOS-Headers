@@ -16,10 +16,12 @@
     double _totalCost;
     NSDate *_lastExpenditure;
     double _budget;
+    double _maximumThrottleTime;
 }
 
-+ (id)flowControlWithBudgetCap:(unsigned int)arg1 andRegenerationPerSecond:(double)arg2;
++ (id)flowControlWithBudgetCap:(unsigned int)arg1 withMaximumThrottleTime:(double)arg2 andRegenerationPerSecond:(double)arg3;
 @property(retain) NSDate *lastExpenditure; // @synthesize lastExpenditure=_lastExpenditure;
+@property(nonatomic) double maximumThrottleTime; // @synthesize maximumThrottleTime=_maximumThrottleTime;
 @property double budget; // @synthesize budget=_budget;
 - (void).cxx_destruct;
 - (BOOL)attemptBudgetedExpenditureWithCost:(double)arg1;
@@ -32,7 +34,7 @@
 - (void)regenerate;
 - (id)description;
 - (id)CKPropertiesDescription;
-- (id)initWithBudgetCap:(unsigned int)arg1 andRegenerationPerSecond:(double)arg2;
+- (id)initWithBudgetCap:(unsigned int)arg1 withMaximumThrottleTime:(double)arg2 andRegenerationPerSecond:(double)arg3;
 
 @end
 

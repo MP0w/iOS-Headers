@@ -11,6 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface CKDModifyRecordZonesURLRequest : CKDURLRequest
 {
+    BOOL _markZonesAsUserPurged;
     CDUnknownBlockType _recordZoneModifiedBlock;
     NSArray *_recordZonesToSave;
     NSArray *_recordZoneIDsToDelete;
@@ -21,6 +22,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSArray *recordZoneIDsToDelete; // @synthesize recordZoneIDsToDelete=_recordZoneIDsToDelete;
 @property(retain, nonatomic) NSArray *recordZonesToSave; // @synthesize recordZonesToSave=_recordZonesToSave;
 @property(copy, nonatomic) CDUnknownBlockType recordZoneModifiedBlock; // @synthesize recordZoneModifiedBlock=_recordZoneModifiedBlock;
+@property(nonatomic) BOOL markZonesAsUserPurged; // @synthesize markZonesAsUserPurged=_markZonesAsUserPurged;
 - (void).cxx_destruct;
 - (void)requestDidParseNodeFailure:(id)arg1;
 - (id)requestDidParseProtobufObject:(id)arg1;

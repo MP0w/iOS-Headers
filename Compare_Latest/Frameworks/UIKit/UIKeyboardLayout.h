@@ -6,9 +6,11 @@
 
 #import <UIKit/UIView.h>
 
-@class NSMutableArray, NSString, UIKBScreenTraits, UIKBTextEditingTraits, UIKeyboardTaskQueue, UITextInputTraits, UITouch;
+#import "_UIScreenEdgePanRecognizerDelegate.h"
 
-@interface UIKeyboardLayout : UIView
+@class NSMutableArray, NSString, UIKBScreenTraits, UIKBTextEditingTraits, UIKeyboardTaskQueue, UITextInputTraits, UITouch, _UIScreenEdgePanRecognizer;
+
+@interface UIKeyboardLayout : UIView <_UIScreenEdgePanRecognizerDelegate>
 {
     UITextInputTraits *_inputTraits;
     UIKBScreenTraits *_screenTraits;
@@ -20,9 +22,19 @@
     BOOL _disableInteraction;
     UIKeyboardTaskQueue *_taskQueue;
     BOOL hideKeysUnderIndicator;
+    BOOL _isExecutingDeferredTouchTasks;
+    _UIScreenEdgePanRecognizer *_screenEdgePanRecognizer;
+    CDUnknownBlockType _deferredTouchDownTask;
+    CDUnknownBlockType _deferredTouchMovedTask;
+    double lastTouchUpTime;
 }
 
 + (Class)_subclassForScreenTraits:(id)arg1;
+@property(nonatomic) BOOL isExecutingDeferredTouchTasks; // @synthesize isExecutingDeferredTouchTasks=_isExecutingDeferredTouchTasks;
+@property(nonatomic) double lastTouchUpTime; // @synthesize lastTouchUpTime;
+@property(copy, nonatomic) CDUnknownBlockType deferredTouchMovedTask; // @synthesize deferredTouchMovedTask=_deferredTouchMovedTask;
+@property(copy, nonatomic) CDUnknownBlockType deferredTouchDownTask; // @synthesize deferredTouchDownTask=_deferredTouchDownTask;
+@property(retain, nonatomic) _UIScreenEdgePanRecognizer *screenEdgePanRecognizer; // @synthesize screenEdgePanRecognizer=_screenEdgePanRecognizer;
 @property(nonatomic) BOOL hideKeysUnderIndicator; // @synthesize hideKeysUnderIndicator;
 @property(nonatomic) BOOL disableInteraction; // @synthesize disableInteraction=_disableInteraction;
 @property(nonatomic) int cursorLocation; // @synthesize cursorLocation=_cursorLocation;
@@ -34,6 +46,7 @@
 - (id)keyplaneNamed:(id)arg1;
 - (id)keyplaneForKey:(id)arg1;
 - (id)baseKeyForString:(id)arg1;
+- (BOOL)keyplaneContainsEmojiKey;
 - (void)triggerSpaceKeyplaneSwitchIfNecessary;
 - (id)currentKeyplane;
 - (void)setPasscodeOutlineAlpha:(float)arg1;
@@ -46,6 +59,18 @@
 - (float)flickDistance;
 - (float)hitBuffer;
 - (BOOL)canHandleEvent:(id)arg1;
+- (void)didFinishScreenGestureRecognition;
+- (void)didRecognizeGestureOnEdge:(unsigned int)arg1 withDistance:(float)arg2;
+- (unsigned int)targetEdgesForScreenGestureRecognition;
+- (void)screenEdgePanRecognizerStateDidChange:(id)arg1;
+- (void)_notifyLayoutOfGesturePosition:(struct CGPoint)arg1 relativeToEdge:(unsigned int)arg2;
+- (BOOL)_canAddTouchesToScreenGestureRecognizer:(id)arg1;
+- (void)reloadTargetEdgesForScreenGestureRecognition;
+- (BOOL)_shouldAllowKeyboardHandlingForTouchesEndedOrCancelled:(id)arg1 withEvent:(id)arg2;
+- (BOOL)_shouldAllowKeyboardHandlingForTouchesMoved:(id)arg1 withEvent:(id)arg2;
+- (BOOL)_shouldAllowKeyboardHandlingForTouchesBegan:(id)arg1 withEvent:(id)arg2;
+- (void)_addTouchToScreenEdgePanRecognizer:(id)arg1;
+- (void)_executeDeferredTouchTasks;
 - (BOOL)canForceTouchCommit:(id)arg1;
 - (void)commitTouches:(id)arg1 executionContext:(id)arg2;
 - (void)forceUpdatesForCommittedTouch;
@@ -65,6 +90,7 @@
 - (void)touchDragged:(id)arg1;
 - (void)touchDown:(id)arg1 executionContext:(id)arg2;
 - (void)touchDown:(id)arg1;
+- (void)assertSavedLocation:(struct CGPoint)arg1 onTouch:(id)arg2 inWindow:(id)arg3 resetPrevious:(BOOL)arg4;
 - (BOOL)canProduceString:(id)arg1;
 - (BOOL)shouldShowIndicator;
 - (id)activationIndicatorView;
@@ -108,6 +134,12 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)addWipeRecognizer;
 - (void)wipeGestureRecognized:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

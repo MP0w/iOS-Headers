@@ -14,9 +14,14 @@ __attribute__((visibility("hidden")))
 @interface CKDPZoneDeleteRequest : PBRequest <NSCopying>
 {
     CKDPRecordZoneIdentifier *_zoneIdentifier;
+    BOOL _userPurge;
+    struct {
+        unsigned int userPurge:1;
+    } _has;
 }
 
 + (id)options;
+@property(nonatomic) BOOL userPurge; // @synthesize userPurge=_userPurge;
 @property(retain, nonatomic) CKDPRecordZoneIdentifier *zoneIdentifier; // @synthesize zoneIdentifier=_zoneIdentifier;
 - (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
@@ -30,6 +35,7 @@ __attribute__((visibility("hidden")))
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) BOOL hasUserPurge;
 @property(readonly, nonatomic) BOOL hasZoneIdentifier;
 
 @end

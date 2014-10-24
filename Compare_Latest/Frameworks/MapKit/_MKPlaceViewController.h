@@ -34,6 +34,7 @@
     void *_originalContactRecordCopy;
     NSMapTable *_additionalViewControllers;
     BOOL _overrideDefaultShowRAP;
+    BOOL _hasContactOnlyMapItem;
     BOOL _hasCheckedDistanceAvailability;
     BOOL _showEditButton;
     BOOL _hideInlineMap;

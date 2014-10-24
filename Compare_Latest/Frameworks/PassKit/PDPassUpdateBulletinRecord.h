@@ -24,9 +24,9 @@
 @property(readonly, nonatomic) NSDate *date; // @synthesize date=_date;
 @property(readonly, nonatomic) PKDiff *seedDiff; // @synthesize seedDiff=_seedDiff;
 - (void)_removeDiffs:(id)arg1;
-@property(readonly, nonatomic) NSArray *passUniqueIDs;
+@property(readonly, nonatomic) NSArray *passUniqueIdentifiers;
 @property(readonly, nonatomic) BOOL hasDiffs;
-- (BOOL)removeDiffsForPassUniqueID:(id)arg1;
+- (BOOL)removeDiffsForPassUniqueIdentifier:(id)arg1;
 - (BOOL)removeDiffsConflictingWithDiff:(id)arg1;
 - (BOOL)addDiff:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

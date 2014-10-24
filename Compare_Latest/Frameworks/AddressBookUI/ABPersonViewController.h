@@ -115,7 +115,7 @@
 - (void)updateNavigationButtons;
 - (void)updateNavigationButtonsAnimated:(BOOL)arg1;
 - (void)pickerCancel:(id)arg1;
-- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
+- (void)_getRotationContentSettings:(CDStruct_3421d26a *)arg1;
 - (BOOL)supportedInterfaceOrientation:(int)arg1;
 - (BOOL)_allowsAutorotation;
 @property(nonatomic) BOOL observesExternalChanges;

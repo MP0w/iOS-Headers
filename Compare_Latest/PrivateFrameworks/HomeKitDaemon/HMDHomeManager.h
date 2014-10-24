@@ -16,8 +16,10 @@
 {
     BOOL _accountActive;
     BOOL _accountStatusFailedDueToNetworkFailure;
+    BOOL _backOffOperationInProgress;
     BOOL _uploadToCloudIsPending;
     BOOL _lastAnswerForShouldCloudSyncData;
+    BOOL _newiCloudAccountAdded;
     NSUUID *_uuid;
     HMDPersistentStore *_store;
     NSMutableArray *_homes;
@@ -43,7 +45,9 @@
     HMDMessageFilterChain *_msgFilterChain;
     NSMutableSet *_pendingResponsesForRemoteAccessSetup;
     HMDIdentityRegistry *_identityRegistry;
+    unsigned int _cloudOperationRetryCount;
     NSObject<OS_dispatch_source> *_cloudUploadTimer;
+    NSObject<OS_dispatch_source> *_cloudOperationRetryTimer;
     HMDCloudDataSyncStateFilter *_cloudDataSyncStateFilter;
 }
 
@@ -51,9 +55,13 @@
 + (id)activeAccountIdentifier;
 + (BOOL)shouldDisableCloudDataSync;
 @property(retain, nonatomic) HMDCloudDataSyncStateFilter *cloudDataSyncStateFilter; // @synthesize cloudDataSyncStateFilter=_cloudDataSyncStateFilter;
+@property(retain, nonatomic) NSObject<OS_dispatch_source> *cloudOperationRetryTimer; // @synthesize cloudOperationRetryTimer=_cloudOperationRetryTimer;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *cloudUploadTimer; // @synthesize cloudUploadTimer=_cloudUploadTimer;
+@property(nonatomic) BOOL newiCloudAccountAdded; // @synthesize newiCloudAccountAdded=_newiCloudAccountAdded;
 @property(nonatomic) BOOL lastAnswerForShouldCloudSyncData; // @synthesize lastAnswerForShouldCloudSyncData=_lastAnswerForShouldCloudSyncData;
 @property(nonatomic) BOOL uploadToCloudIsPending; // @synthesize uploadToCloudIsPending=_uploadToCloudIsPending;
+@property(nonatomic) unsigned int cloudOperationRetryCount; // @synthesize cloudOperationRetryCount=_cloudOperationRetryCount;
+@property(nonatomic) BOOL backOffOperationInProgress; // @synthesize backOffOperationInProgress=_backOffOperationInProgress;
 @property(nonatomic) BOOL accountStatusFailedDueToNetworkFailure; // @synthesize accountStatusFailedDueToNetworkFailure=_accountStatusFailedDueToNetworkFailure;
 @property(nonatomic) BOOL accountActive; // @synthesize accountActive=_accountActive;
 @property(retain, nonatomic) HMDIdentityRegistry *identityRegistry; // @synthesize identityRegistry=_identityRegistry;
@@ -89,6 +97,7 @@
 - (void)_postiCloudSigninState:(BOOL)arg1;
 - (void)_teardownRemoteAccessForHome:(id)arg1;
 - (void)_handlePrimaryAccountDeleted:(id)arg1;
+- (void)_handleIDSAccountStatusChanged:(id)arg1;
 - (void)_handlePrimaryAccountModified:(id)arg1;
 - (void)_handleLogControl:(id)arg1;
 - (void)_handleRemoteSessionTornDown:(id)arg1;
@@ -100,6 +109,7 @@
 - (id)_accessoryIdentifiersForHome:(id)arg1;
 - (void)_removeFromUnassociatedPeers:(id)arg1;
 - (void)_checkForRemotePeers;
+- (id)remotePeerDeviceAddress:(id)arg1;
 - (void)_handleRemoteAccessPeersFoundNotification:(id)arg1;
 - (void)_handleAreYouAtHome:(id)arg1;
 - (void)_handleControllerKeyAvailable;
@@ -133,6 +143,8 @@
 - (void)_handleRequestAddHome:(id)arg1;
 - (void)notifyPrimaryHomeUpdated:(id)arg1;
 - (void)_handleRequestFetchHomeConfiguration:(id)arg1;
+- (void)_retryCloudOperationWithName:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_startTimerToResetCloudOperationRetryCounter;
 - (void)_monitorReachability;
 - (void)_registerForMessages;
 - (void)_postHomesDidUpdateNotification;
@@ -165,6 +177,9 @@
 - (void)_handleAccountStatusDetermined:(id)arg1;
 - (void)_stopUploadTimer;
 - (void)_startUploadTimer;
+- (void)_resetCloudOperationRetryCounters;
+- (void)_stopCloudOperationRetryTimer;
+- (void)_startCloudOperationRetryWithTimeout:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_uploadHomeConfigToCloud;
 - (void)_pushChangesToCloud;
 - (void)_removePendingDataSyncAcksForUser:(id)arg1 forHome:(id)arg2;

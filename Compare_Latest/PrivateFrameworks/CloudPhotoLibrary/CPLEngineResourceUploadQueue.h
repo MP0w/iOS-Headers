@@ -17,6 +17,9 @@
 
 - (BOOL)openWithError:(id *)arg1;
 - (BOOL)resetWithError:(id *)arg1;
+- (unsigned int)countOfOriginalOthers;
+- (unsigned int)countOfOriginalVideos;
+- (unsigned int)countOfOriginalImages;
 - (unsigned int)countOfQueuedUploadTasks;
 - (BOOL)resetDequeuedBackgroundUploadTasksWithError:(id *)arg1;
 - (id)dequeueBackgroundUploadTaskForResourceType:(unsigned int)arg1 foreground:(BOOL)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;

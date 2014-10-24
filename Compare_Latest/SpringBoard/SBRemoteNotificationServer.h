@@ -26,6 +26,7 @@
 - (_Bool)isPushAllowedForBundleIdentifier:(id)arg1;
 - (void)requestTokenForClient:(id)arg1;
 - (void)setBackgroundAppRefreshAllowed:(_Bool)arg1 forBundleIdentifier:(id)arg2;
+- (void)registerApplicationWithBundleIdentifier:(id)arg1 forEnvironment:(id)arg2 appWantsPush:(_Bool)arg3;
 - (void)registerApplication:(id)arg1 forEnvironment:(id)arg2 appWantsPush:(_Bool)arg3;
 - (void)userNotificationsChangedStateForBundleIdentifier:(id)arg1 becameEnabled:(_Bool)arg2;
 - (id)_allTopicsForApplication:(id)arg1;

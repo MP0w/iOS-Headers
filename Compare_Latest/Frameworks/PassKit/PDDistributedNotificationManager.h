@@ -6,16 +6,19 @@
 
 #import "NSObject.h"
 
-@class NSHashTable, NSMutableSet;
+@class NSHashTable, NSMutableDictionary, NSMutableSet;
 
 @interface PDDistributedNotificationManager : NSObject
 {
     NSHashTable *_consumers;
+    NSMutableDictionary *_registeredNameMapping;
     NSMutableSet *_registeredNotificationNames;
 }
 
 - (void)_stopObservingNotification:(id)arg1;
 - (void)_startObservingNotification:(id)arg1;
+- (id)_updateNameCacheForConsumer:(id)arg1;
+- (void)_clearNameCacheForConsumer:(id)arg1;
 - (void)start;
 - (void)recalculateNotificationNames;
 - (void)unregisterConsumer:(id)arg1;

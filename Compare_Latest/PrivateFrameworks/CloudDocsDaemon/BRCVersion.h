@@ -45,6 +45,7 @@
 - (void).cxx_destruct;
 - (id)additionNameForItemID:(id)arg1 container:(id)arg2;
 - (unsigned long long)diffAgainst:(id)arg1;
+- (unsigned long long)diffAgainst:(id)arg1 lastEditorChanged:(char *)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (BOOL)check:(id)arg1 logToFile:(struct __sFILE *)arg2;
 - (void)encodeWithCoder:(id)arg1;

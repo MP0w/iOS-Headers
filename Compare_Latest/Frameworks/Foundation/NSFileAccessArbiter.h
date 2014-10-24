@@ -23,6 +23,7 @@
 
 - (void)tiePresenterForID:(id)arg1 toItemAtURL:(id)arg2;
 - (void)writerWithPurposeID:(id)arg1 didVersionChangeOfKind:(id)arg2 toItemAtURL:(id)arg3 withClientID:(id)arg4 name:(id)arg5;
+- (void)writerWithPurposeID:(id)arg1 didChangeItemAtURL:(id)arg2;
 - (void)writerWithPurposeID:(id)arg1 didMakeItemDisappearAtURL:(id)arg2;
 - (void)writerWithPurposeID:(id)arg1 didChangeUbiquityOfItemAtURL:(id)arg2;
 - (void)writerWithPurposeID:(id)arg1 didReconnectItemAtURL:(id)arg2;
@@ -48,6 +49,7 @@
 - (void)_addPresenter:(id)arg1 ofItemAtURL:(id)arg2 watchingFile:(BOOL)arg3 withLastEventID:(id)arg4;
 - (void)_tiePresenterForID:(id)arg1 toItemAtURL:(id)arg2;
 - (void)_writerWithPurposeID:(id)arg1 didVersionChangeOfKind:(id)arg2 toItemAtURL:(id)arg3 withClientID:(id)arg4 name:(id)arg5;
+- (void)_writerWithPurposeID:(id)arg1 didChangeItemAtURL:(id)arg2;
 - (void)_writerWithPurposeID:(id)arg1 didMakeItemDisappearAtURL:(id)arg2;
 - (void)_writerWithPurposeID:(id)arg1 didChangeUbiquityOfItemAtURL:(id)arg2;
 - (void)_writerWithPurposeID:(id)arg1 didReconnectItemAtURL:(id)arg2;

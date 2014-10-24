@@ -249,9 +249,10 @@ typedef struct {
     char preserveHeight;
     char avoidFadingBottomOfContent;
     char skipSnapshotOfEndState;
+    char preventAdditveAnimations;
     float contentStretchRightEdgeInset;
     int edgeClip;
-} CDStruct_19ba41f1;
+} CDStruct_f39609a0;
 
 typedef struct {
     double w;

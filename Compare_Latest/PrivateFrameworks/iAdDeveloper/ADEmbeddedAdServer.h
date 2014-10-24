@@ -42,7 +42,6 @@
 - (id)_webResourcesInDirectory:(id)arg1 baseURL:(id)arg2;
 - (id)_webResourceForPath:(id)arg1 url:(id)arg2;
 - (id)_handleManifestRequest:(id)arg1 message:(id)arg2;
-- (id)_handlePurchaseRequest:(id)arg1 message:(id)arg2;
 - (id)_handleLogPassEventRequest:(id)arg1 message:(id)arg2;
 - (id)_handleLogStationClientEventRequest:(id)arg1 message:(id)arg2;
 - (id)_handleLogAggregateMetricsRequest:(id)arg1 message:(id)arg2;

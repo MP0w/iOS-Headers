@@ -43,9 +43,21 @@
     unsigned int _defaultResourceDownloadType;
     PLCloudTaskManager *_taskManager;
     NSObject<OS_dispatch_source> *_unpauseDispatchTimer;
+    unsigned int _boundForUploadingPhotos;
+    unsigned int _boundForUploadingVideos;
+    unsigned int _boundForUploadingOtherItems;
+    unsigned int _serverPhotoCount;
+    unsigned int _serverVideoCount;
+    unsigned int _imageDeletionsSinceLastSync;
+    unsigned int _videoDeletionsSinceLastSync;
 }
 
 + (id)descriptionForResourceType:(unsigned int)arg1;
+@property(readonly, nonatomic) unsigned int videoDeletionsSinceLastSync; // @synthesize videoDeletionsSinceLastSync=_videoDeletionsSinceLastSync;
+@property(readonly, nonatomic) unsigned int imageDeletionsSinceLastSync; // @synthesize imageDeletionsSinceLastSync=_imageDeletionsSinceLastSync;
+@property(readonly, nonatomic) unsigned int numberOfVideosToUpload;
+@property(readonly, nonatomic) unsigned int numberOfPhotosToUpload;
+@property(readonly, nonatomic) unsigned int numberOfOtherItemsToUpload;
 - (id)getCPLState;
 - (void)foregroundMonitor:(id)arg1 changedStateToForeground:(BOOL)arg2 context:(id)arg3;
 - (void)sizeOfResourcesToUploadDidChangeForLibraryManager:(id)arg1;
@@ -53,6 +65,7 @@
 - (void)libraryManager:(id)arg1 uploadDidStartForResourceTransferTask:(id)arg2;
 - (void)libraryManager:(id)arg1 backgroundDownloadDidFailForResource:(id)arg2;
 - (void)libraryManager:(id)arg1 backgroundDownloadDidFinishForResource:(id)arg2;
+- (void)updateUploadCounts;
 - (void)_recoverFromPauseUnderDiskPressureIfNeeded;
 - (void)_updateAsset:(id)arg1 withImageFileURL:(id)arg2;
 - (void)_updateThumbnailDataForAsset:(id)arg1 withImageFileURL:(id)arg2;
@@ -106,7 +119,7 @@
 - (void)_doResetSync:(BOOL)arg1;
 - (void)deleteResourcesIfSafe:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)downloadAsset:(id)arg1 resourceType:(unsigned int)arg2 highPriority:(BOOL)arg3 clientBundleID:(id)arg4 taskDidBeginHandler:(CDUnknownBlockType)arg5 progressBlock:(CDUnknownBlockType)arg6 completionHandler:(CDUnknownBlockType)arg7;
-- (void)downloadResource:(id)arg1 highPriority:(BOOL)arg2 clientBundleID:(id)arg3 taskDidBeginHandler:(CDUnknownBlockType)arg4 progressBlock:(CDUnknownBlockType)arg5 completionHandler:(CDUnknownBlockType)arg6;
+- (void)downloadResource:(id)arg1 forAssetUuid:(id)arg2 highPriority:(BOOL)arg3 clientBundleID:(id)arg4 taskDidBeginHandler:(CDUnknownBlockType)arg5 progressBlock:(CDUnknownBlockType)arg6 completionHandler:(CDUnknownBlockType)arg7;
 - (void)fetchPublicURLForAsset:(id)arg1 resourceType:(unsigned int)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (BOOL)isResourceTransferTaskAliveWithTaskWithIdentifier:(id)arg1;
 - (void)cancelResourceTransferTaskWithIdentifier:(id)arg1;
@@ -138,6 +151,7 @@
 - (void)deleteExpiredTrashBinObjects;
 - (id)init;
 - (void)updateLastKnownIndexFromChangeHub;
+- (void)saveLastKnownIndexFromChangeHubToDisk;
 - (id)_debugNameForMode:(unsigned int)arg1;
 
 // Remaining properties

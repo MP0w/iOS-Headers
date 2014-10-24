@@ -23,7 +23,9 @@ __attribute__((visibility("hidden")))
 - (void)_exchangeDataAndSendRequest:(id)arg1;
 - (void)_handleDataExchanged:(id)arg1 withError:(id)arg2;
 - (void)main;
+- (BOOL)allowsAnonymousAccount;
 - (BOOL)shouldCheckAppVersion;
+- (BOOL)requiresTokenRegistration;
 - (id)flowControlKey;
 - (id)initWithOperationInfo:(id)arg1 clientContext:(id)arg2;
 

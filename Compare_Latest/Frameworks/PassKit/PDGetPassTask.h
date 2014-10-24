@@ -32,6 +32,7 @@
 - (id)method;
 - (BOOL)pertainsToPassTypeID:(id)arg1 serialNumber:(id)arg2;
 @property(readonly, nonatomic) NSString *serialNumber;
+- (BOOL)isValid;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;

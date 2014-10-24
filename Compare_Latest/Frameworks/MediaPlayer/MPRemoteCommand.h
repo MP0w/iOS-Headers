@@ -10,6 +10,7 @@
 
 @interface MPRemoteCommand : NSObject
 {
+    id <MPRemoteCommandDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_serialQueue;
     NSMutableArray *_targetInvocations;
     unsigned int _mediaRemoteCommandType;
@@ -20,12 +21,14 @@
 - (void).cxx_destruct;
 - (void)_addTarget:(id)arg1 action:(SEL)arg2 retainTarget:(BOOL)arg3;
 - (id)_mediaRemoteCommandInfoOptions;
-- (id)keyPathsForValuesTriggeringCommandsChanged;
+- (void)notifyPropagatablePropertyChanged;
 - (struct _MRMediaRemoteCommandInfo *)createCommandInfoRepresentation;
 - (void)invokeCommandWithEvent:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (BOOL)hasTargets;
 - (unsigned int)mediaRemoteCommandType;
 - (BOOL)isSupported;
+- (void)setDelegate:(id)arg1;
+- (id)delegate;
 - (id)addTargetWithHandler:(CDUnknownBlockType)arg1;
 - (void)removeTarget:(id)arg1;
 - (void)removeTarget:(id)arg1 action:(SEL)arg2;

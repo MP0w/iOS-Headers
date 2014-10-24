@@ -22,12 +22,14 @@
     int _accountStatus;
     NSString *_accountURL;
     NSArray *_dataUsage;
+    int _subscriptionResult;
     double _billingStartDate;
     double _billingEndDate;
     double _timestamp;
 }
 
 + (BOOL)supportsSecureCoding;
+@property(nonatomic) int subscriptionResult; // @synthesize subscriptionResult=_subscriptionResult;
 @property(readonly, nonatomic) NSArray *dataUsage; // @synthesize dataUsage=_dataUsage;
 @property(readonly, nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 @property(readonly, nonatomic) NSString *accountURL; // @synthesize accountURL=_accountURL;
@@ -45,7 +47,8 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithIccid:(id)arg1 autoRenew:(BOOL)arg2 billingStartDate:(double)arg3 billingEndDate:(double)arg4 carrierName:(id)arg5 planType:(int)arg6 planDescription:(id)arg7 planStatus:(int)arg8 accountStatus:(int)arg9 accountURL:(id)arg10 timestamp:(double)arg11 dataUsage:(id)arg12;
+- (BOOL)isEqualOrNewerThanSubscription:(id)arg1;
+- (id)initWithIccid:(id)arg1 subscriptionResult:(int)arg2 autoRenew:(BOOL)arg3 billingStartDate:(double)arg4 billingEndDate:(double)arg5 carrierName:(id)arg6 planType:(int)arg7 planDescription:(id)arg8 planStatus:(int)arg9 accountStatus:(int)arg10 accountURL:(id)arg11 timestamp:(double)arg12 dataUsage:(id)arg13;
 
 @end
 

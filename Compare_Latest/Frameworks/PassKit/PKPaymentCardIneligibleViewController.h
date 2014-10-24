@@ -27,6 +27,7 @@
 @property(nonatomic) int setupContext; // @synthesize setupContext=_setupContext;
 @property(retain, nonatomic) PKPaymentCredential *credential; // @synthesize credential=_credential;
 - (void)handleDone:(id)arg1;
+- (BOOL)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(int)arg3;
 - (void)webView:(id)arg1 didFailLoadWithError:(id)arg2;
 - (void)webViewDidFinishLoad:(id)arg1;
 - (void)_webViewDidLoad:(BOOL)arg1 withError:(id)arg2;

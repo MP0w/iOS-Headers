@@ -9,6 +9,7 @@
 @class NSBundle, NSString;
 
 @protocol MKLocationProvider <NSObject>
+@property(readonly, nonatomic) BOOL isTracePlayer;
 @property(readonly, nonatomic) BOOL isSimulation;
 @property(readonly, nonatomic) BOOL usesCLMapCorrection;
 @property(nonatomic) int activityType;

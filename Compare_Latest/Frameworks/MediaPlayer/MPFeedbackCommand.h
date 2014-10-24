@@ -19,7 +19,6 @@
 @property(nonatomic, getter=isActive) BOOL active; // @synthesize active=_active;
 - (void).cxx_destruct;
 - (id)_mediaRemoteCommandInfoOptions;
-- (id)keyPathsForValuesTriggeringCommandsChanged;
 - (void)setLocalizedShortTitle:(id)arg1;
 - (id)localizedShortTitle;
 

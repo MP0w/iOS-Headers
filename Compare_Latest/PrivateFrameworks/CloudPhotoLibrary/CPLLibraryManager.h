@@ -26,6 +26,9 @@
     NSURL *_cloudLibraryResourceStorageURL;
     NSString *_libraryIdentifier;
     NSString *_libraryVersion;
+    unsigned int _numberOfImagesToUpload;
+    unsigned int _numberOfVideosToUpload;
+    unsigned int _numberOfOtherItemsToUpload;
     id <CPLLibraryManagerDelegate> _delegate;
     id <CPLResourceProgressDelegate> _resourceProgressDelegate;
     unsigned int _status;
@@ -46,7 +49,10 @@
 @property(readonly, nonatomic) unsigned int status; // @synthesize status=_status;
 @property(nonatomic) __weak id <CPLResourceProgressDelegate> resourceProgressDelegate; // @synthesize resourceProgressDelegate=_resourceProgressDelegate;
 @property(nonatomic) __weak id <CPLLibraryManagerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) unsigned long long sizeOfResourcesToUpload; // @synthesize sizeOfResourcesToUpload=_sizeOfResourcesToUpload;
+@property(readonly, nonatomic) unsigned int numberOfOtherItemsToUpload; // @synthesize numberOfOtherItemsToUpload=_numberOfOtherItemsToUpload;
+@property(readonly, nonatomic) unsigned int numberOfVideosToUpload; // @synthesize numberOfVideosToUpload=_numberOfVideosToUpload;
+@property(readonly, nonatomic) unsigned int numberOfImagesToUpload; // @synthesize numberOfImagesToUpload=_numberOfImagesToUpload;
+@property(readonly, nonatomic) unsigned long long sizeOfResourcesToUpload; // @synthesize sizeOfResourcesToUpload=_sizeOfResourcesToUpload;
 @property(readonly, copy, nonatomic) NSString *libraryVersion; // @synthesize libraryVersion=_libraryVersion;
 @property(readonly, copy, nonatomic) NSString *libraryIdentifier; // @synthesize libraryIdentifier=_libraryIdentifier;
 @property(readonly, copy, nonatomic) NSURL *cloudLibraryResourceStorageURL; // @synthesize cloudLibraryResourceStorageURL=_cloudLibraryResourceStorageURL;
@@ -71,7 +77,7 @@
 - (id)addSubscriberUsingPublishingHandler:(CDUnknownBlockType)arg1;
 - (void)startSyncSession;
 - (void)resetStatus;
-- (void)_setSizeOfResourcesToUpload:(unsigned long long)arg1;
+- (void)_setSizeOfResourcesToUpload:(unsigned long long)arg1 numberOfImages:(unsigned int)arg2 numberOfVideos:(unsigned int)arg3 numberOfOtherItems:(unsigned int)arg4;
 - (BOOL)_setStatus:(unsigned int)arg1 andError:(id)arg2;
 - (void)getLocalIdentifiersForCloudIdentifiers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)getCloudIdentifiersForLocalIdentifiers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

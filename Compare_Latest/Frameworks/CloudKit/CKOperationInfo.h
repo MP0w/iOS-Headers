@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding.h"
 
-@class NSString;
+@class CKContainerSetupInfo, NSString;
 
 @interface CKOperationInfo : NSObject <NSSecureCoding>
 {
@@ -19,6 +19,7 @@
     int _qualityOfService;
     NSString *_sourceApplicationBundleIdentifier;
     NSString *_sourceApplicationSecondaryIdentifier;
+    CKContainerSetupInfo *_setupInfo;
     NSString *_deviceIdentifier;
     id _parentOperation;
 }
@@ -26,6 +27,7 @@
 + (BOOL)supportsSecureCoding;
 @property(nonatomic) __weak id parentOperation; // @synthesize parentOperation=_parentOperation;
 @property(retain, nonatomic) NSString *deviceIdentifier; // @synthesize deviceIdentifier=_deviceIdentifier;
+@property(retain, nonatomic) CKContainerSetupInfo *setupInfo; // @synthesize setupInfo=_setupInfo;
 @property(retain, nonatomic) NSString *sourceApplicationSecondaryIdentifier; // @synthesize sourceApplicationSecondaryIdentifier=_sourceApplicationSecondaryIdentifier;
 @property(retain, nonatomic) NSString *sourceApplicationBundleIdentifier; // @synthesize sourceApplicationBundleIdentifier=_sourceApplicationBundleIdentifier;
 @property(nonatomic) int qualityOfService; // @synthesize qualityOfService=_qualityOfService;

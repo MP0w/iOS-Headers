@@ -6,7 +6,7 @@
 
 #import <UIKit/UIInputViewController.h>
 
-@class UIKeyboard, UIKeyboardInputMode, UIViewController;
+@class UIKeyboard, UIKeyboardInputMode, UIView, UIViewController;
 
 __attribute__((visibility("hidden")))
 @interface UICompatibilityInputViewController : UIInputViewController
@@ -16,12 +16,14 @@ __attribute__((visibility("hidden")))
     UIKeyboardInputMode *_incomingExtensionInputMode;
     BOOL _shouldRegenerateSizingConstraints;
     UIViewController *_inputController;
+    UIView *_inputControllerSnapshot;
 }
 
 + (BOOL)_shouldForwardViewWillTransitionToSize;
 + (BOOL)_requiresProxyInterface;
 + (id)deferredInputModeControllerWithKeyboard:(id)arg1;
 + (id)inputViewControllerWithView:(id)arg1;
+@property(retain, nonatomic) UIView *inputControllerSnapshot; // @synthesize inputControllerSnapshot=_inputControllerSnapshot;
 @property(retain, nonatomic) UIViewController *inputController; // @synthesize inputController=_inputController;
 - (void)viewDidLayoutSubviews;
 - (void)didFinishTranslation;
@@ -35,6 +37,8 @@ __attribute__((visibility("hidden")))
 - (id)childCompatibilityController;
 - (void)setInputMode:(id)arg1;
 - (void)tearDownInputController;
+- (void)removeSnapshotView;
+- (void)snapshotCurrentDisplay;
 - (void)rebuildChildConstraints;
 - (void)generateCompatibleSizeConstraintsIfNecessary;
 - (void)didMoveToParentViewController:(id)arg1;

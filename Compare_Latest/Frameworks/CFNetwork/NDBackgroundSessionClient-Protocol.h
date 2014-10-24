@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSData, NSDictionary, NSError, NSString, NSURL, NSURLAuthenticationChallenge, NSURLCredential, NSURLProtectionSpace, NSURLRequest, NSURLResponse;
+@class NSData, NSDictionary, NSError, NSHTTPURLResponse, NSString, NSURL, NSURLAuthenticationChallenge, NSURLCredential, NSURLProtectionSpace, NSURLRequest, NSURLResponse;
 
 @protocol NDBackgroundSessionClient <NSObject>
 - (void)credStorage_setDefaultCredential:(NSURLCredential *)arg1 forProtectionSpace:(NSURLProtectionSpace *)arg2;
@@ -34,7 +34,7 @@
 - (void)backgroundTask:(unsigned int)arg1 didReceiveResponse:(NSURLResponse *)arg2 timingData:(NSDictionary *)arg3;
 - (void)backgroundTaskHasConnectionWaiting:(unsigned int)arg1;
 - (void)backgroundTask:(unsigned int)arg1 _willSendRequestForEstablishedConnection:(NSURLRequest *)arg2 reply:(void (^)(NSURLRequest *, NSFileHandle *))arg3;
-- (void)backgroundTask:(unsigned int)arg1 willPerformHTTPRedirectionWithNewRequest:(NSURLRequest *)arg2 reply:(void (^)(NSURLRequest *))arg3;
+- (void)backgroundTask:(unsigned int)arg1 willPerformHTTPRedirection:(NSHTTPURLResponse *)arg2 withNewRequest:(NSURLRequest *)arg3 reply:(void (^)(NSURLRequest *))arg4;
 - (void)backgroundTask:(unsigned int)arg1 didReceiveChallenge:(NSURLAuthenticationChallenge *)arg2 reply:(void (^)(int, NSURLCredential *))arg3;
 - (void)backgroundTaskDidSuspend:(unsigned int)arg1;
 - (void)backgroundTaskDidResume:(unsigned int)arg1;

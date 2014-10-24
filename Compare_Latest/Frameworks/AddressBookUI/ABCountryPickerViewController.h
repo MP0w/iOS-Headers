@@ -47,7 +47,7 @@
 - (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)viewWillAppear:(BOOL)arg1;
-- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
+- (void)_getRotationContentSettings:(CDStruct_3421d26a *)arg1;
 - (float)ab_heightToFitForViewInPopoverView;
 - (void)loadView;
 - (void)scrollToSearchFieldAnimated:(BOOL)arg1;

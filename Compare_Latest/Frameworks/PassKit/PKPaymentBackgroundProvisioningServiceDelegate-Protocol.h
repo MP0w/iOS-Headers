@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
-@class PKPaymentPass, PKPaymentWebService;
+@class NSArray, PKPaymentPass, PKPaymentWebService;
 
 @protocol PKPaymentBackgroundProvisioningServiceDelegate <NSObject>
+- (void)paymentWebService:(PKPaymentWebService *)arg1 didDownloadSerialNumbersForInstalledPasses:(NSArray *)arg2;
 - (void)paymentWebService:(PKPaymentWebService *)arg1 didDownloadPassRemoteAssets:(PKPaymentPass *)arg2 completion:(void (^)(void))arg3;
 - (void)paymentWebService:(PKPaymentWebService *)arg1 didDownloadPass:(PKPaymentPass *)arg2;
 @end

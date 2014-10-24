@@ -117,7 +117,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (unsigned int)supportedInterfaceOrientations;
 - (BOOL)shouldAutorotate;
-- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
+- (void)_getRotationContentSettings:(CDStruct_3421d26a *)arg1;
 - (void)applicationDidResume;
 - (void)applicationWillSuspend;
 - (void)viewWillLayoutSubviews;

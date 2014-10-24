@@ -18,12 +18,13 @@
 + (id)allCloudResourcesInManagedObjectContext:(id)arg1;
 + (id)insertIntoPhotoLibrary:(id)arg1 forAsset:(id)arg2 withCPLResource:(id)arg3;
 - (id)cplResourceWithItemIdentifier:(id)arg1 includeFile:(BOOL)arg2;
+- (void)duplicatePropertiesFromCloudResource:(id)arg1 withFilePath:(id)arg2 forAssetUuid:(id)arg3;
 - (void)applyPropertiesFromCloudResource:(id)arg1 forAsset:(id)arg2;
 - (id)description;
-- (id)localPathForAsset:(id)arg1;
 
 // Remaining properties
 @property(retain, nonatomic) PLAdditionalAssetAttributes *assetAttributes; // @dynamic assetAttributes;
+@property(retain, nonatomic) NSString *assetUuid; // @dynamic assetUuid;
 @property(retain, nonatomic) PLCloudMaster *cloudMaster; // @dynamic cloudMaster;
 @property(retain, nonatomic) NSString *filePath; // @dynamic filePath;
 @property(nonatomic) long long fileSize; // @dynamic fileSize;

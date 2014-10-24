@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CLLocation, NSDate, NSDateFormatter, NSDictionary, NSMutableOrderedSet, NSMutableSet, NSObject<OS_dispatch_queue>, NSOrderedSet, NSString, PLMomentAnalyzerWorkThread;
+@class CLLocation, NSDate, NSDateFormatter, NSDictionary, NSMutableArray, NSMutableOrderedSet, NSMutableSet, NSObject<OS_dispatch_queue>, NSOrderedSet, NSString, PLMomentAnalyzerWorkThread;
 
 @interface PLMomentAnalyzer : NSObject
 {
@@ -17,7 +17,7 @@
     BOOL _delayedSavePending;
     unsigned int _objectUpdatesSinceSave;
     NSMutableOrderedSet *_pendingGEORequests;
-    NSMutableSet *_activeGEORequests;
+    NSMutableArray *_activeGEORequests;
     NSMutableSet *_processingMomentUuids;
     NSMutableSet *_megaMomentListIdsToProcess;
     NSMutableSet *_yearMomentListIdsToProcess;

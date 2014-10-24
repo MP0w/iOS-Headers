@@ -16,6 +16,10 @@
     BOOL _includeAllBurstAssets;
     BOOL _wantsIncrementalChangeDetails;
     BOOL _includeWallpaperAssets;
+    BOOL _forceIncludeCloudSharedAssets;
+    BOOL _forceIncludeiTunesSyncAssets;
+    BOOL _includeDuplicateAssets;
+    BOOL _hasIncludeCloudSharedAssetsOverride;
     NSPredicate *_predicate;
     NSArray *_sortDescriptors;
     unsigned int _fetchPropertyHint;
@@ -27,7 +31,11 @@
 }
 
 + (id)fetchOptionsWithInclusiveDefaults;
+@property(readonly, nonatomic) BOOL hasIncludeCloudSharedAssetsOverride; // @synthesize hasIncludeCloudSharedAssetsOverride=_hasIncludeCloudSharedAssetsOverride;
 @property(retain, nonatomic) NSArray *customObjectIDSortOrder; // @synthesize customObjectIDSortOrder=_customObjectIDSortOrder;
+@property(nonatomic) BOOL includeDuplicateAssets; // @synthesize includeDuplicateAssets=_includeDuplicateAssets;
+@property(nonatomic) BOOL forceIncludeiTunesSyncAssets; // @synthesize forceIncludeiTunesSyncAssets=_forceIncludeiTunesSyncAssets;
+@property(nonatomic) BOOL forceIncludeCloudSharedAssets; // @synthesize forceIncludeCloudSharedAssets=_forceIncludeCloudSharedAssets;
 @property(nonatomic) BOOL includeWallpaperAssets; // @synthesize includeWallpaperAssets=_includeWallpaperAssets;
 @property(retain, nonatomic) NSArray *internalSortDescriptors; // @synthesize internalSortDescriptors=_internalSortDescriptors;
 @property(retain, nonatomic) NSPredicate *internalPredicate; // @synthesize internalPredicate=_internalPredicate;

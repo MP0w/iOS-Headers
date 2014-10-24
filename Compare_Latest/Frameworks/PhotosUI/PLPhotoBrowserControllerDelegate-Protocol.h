@@ -11,6 +11,7 @@
 @protocol PLPhotoBrowserControllerDelegate <NSObject>
 
 @optional
+- (BOOL)photoBrowserControllerShouldHandleLibraryChangesInternally:(PLPhotoBrowserController *)arg1;
 - (void)photoBrowserController:(PLPhotoBrowserController *)arg1 setRemakingVideo:(BOOL)arg2;
 - (void)photoBrowserController:(PLPhotoBrowserController *)arg1 willShowMenuController:(UIMenuController *)arg2;
 - (void)photoBrowserController:(PLPhotoBrowserController *)arg1 didFailToStreamPhotoToCurrentRouteWithError:(NSError *)arg2 retryBlock:(void (^)(void))arg3;

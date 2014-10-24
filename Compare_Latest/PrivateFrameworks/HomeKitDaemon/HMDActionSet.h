@@ -31,7 +31,8 @@
 @property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
-- (void)_execute:(CDUnknownBlockType)arg1;
+- (void)_execute:(CDUnknownBlockType)arg1 writeRequestTuples:(id)arg2;
+- (void)prepareMessageForRemoteExecuteActionSet:(id)arg1;
 - (id)_generateOverallError:(id)arg1;
 - (void)_handleReplaceActionValueRequest:(id)arg1;
 - (void)_handleRenameRequest:(id)arg1;

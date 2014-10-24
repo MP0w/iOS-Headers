@@ -13,13 +13,13 @@
 + (id)_propertySettersForMerchant;
 + (id)_predicateForName:(id)arg1;
 + (id)_predicateForShortName:(id)arg1;
-+ (id)_predicateForMerchantPID:(unsigned long long)arg1;
++ (id)_predicateForPersistentID:(id)arg1;
 + (id)_merchantsInDatabase:(id)arg1 matchingPredicate:(id)arg2;
 + (id)merchantInDatabase:(id)arg1 forPaymentTransaction:(id)arg2;
 + (id)merchantsInDatabase:(id)arg1;
 + (id)anyInDatabase:(id)arg1 withName:(id)arg2;
 + (id)anyInDatabase:(id)arg1 withShortName:(id)arg2;
-+ (id)anyInDatabase:(id)arg1 withMerchantPID:(unsigned long long)arg2;
++ (id)anyInDatabase:(id)arg1 withPersistentID:(id)arg2;
 + (id)insertMerchant:(id)arg1 inDatabase:(id)arg2;
 + (id)databaseTable;
 - (id)_dictionaryOfPropertiesFromMerchant:(id)arg1;

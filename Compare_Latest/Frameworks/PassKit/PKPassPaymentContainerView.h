@@ -7,12 +7,13 @@
 #import <PassKit/PKPassPaymentFooterContentView.h>
 
 #import "PKAuthenticatorDelegate.h"
+#import "PKPassPaymentPayStateViewDelegate.h"
 #import "PKPassPaymentSummaryViewDelegate.h"
 #import "PKPaymentServiceDelegate.h"
 
-@class NSString, PKAuthenticator, PKPassPaymentPayStateView, PKPassPaymentSummaryView, PKPaymentService, UIButton;
+@class NSDictionary, NSMutableArray, NSString, PKAuthenticator, PKPassPaymentPayStateView, PKPassPaymentSummaryView, PKPaymentService, UIButton;
 
-@interface PKPassPaymentContainerView : PKPassPaymentFooterContentView <PKPaymentServiceDelegate, PKAuthenticatorDelegate, PKPassPaymentSummaryViewDelegate>
+@interface PKPassPaymentContainerView : PKPassPaymentFooterContentView <PKPaymentServiceDelegate, PKAuthenticatorDelegate, PKPassPaymentSummaryViewDelegate, PKPassPaymentPayStateViewDelegate>
 {
     PKPaymentService *_paymentService;
     PKAuthenticator *_authenticator;
@@ -25,9 +26,15 @@
     unsigned int _authenticatorState;
     BOOL _authenticating;
     BOOL _transitioning;
+    NSMutableArray *_transitionCompletionHandlers;
+    BOOL _waitingForGlyphView;
     BOOL _presentingPasscode;
     BOOL _requiresPasscodeDismissal;
-    BOOL _enteringBackground;
+    BOOL _inBackground;
+    unsigned int _deactivationReasons;
+    BOOL _isVisible;
+    unsigned long _successAudioID;
+    NSDictionary *_successVibrationPattern;
 }
 
 - (BOOL)_showSummaryState;
@@ -38,19 +45,34 @@
 - (id)_preArmButtonTitle;
 - (id)_emphasisButtonForState:(int)arg1;
 - (id)_buttonForState:(int)arg1;
+- (BOOL)_canAuthenticateWithPasscode;
+- (BOOL)_canAuthenticateWithTouchID;
+- (void)_updateAuthenticatorState;
+- (void)_executeTransitionCompletionHandlers:(BOOL)arg1;
 - (void)_endTransition:(BOOL)arg1;
 - (void)_transitionViewsAnimated:(BOOL)arg1;
-- (void)_transitionToState:(int)arg1 withTextOverride:(id)arg2 animated:(BOOL)arg3;
+- (void)_transitionToState:(int)arg1 withTextOverride:(id)arg2 animated:(BOOL)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_emphasizeStateIfPossible:(int)arg1 withTextOverride:(id)arg2;
+- (void)_applyPayState:(int)arg1 withTextOverride:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_applyPayState:(int)arg1 withTextOverride:(id)arg2;
 - (void)_applyPayState:(int)arg1 afterDelay:(double)arg2;
 - (void)_applyPayState:(int)arg1;
-- (void)_promoteToAuthorizedStateIfPossible;
-- (void)_applyLatestTransactionAndMessageToSummaryView;
-- (void)_resetToIdleStateAfterDelay:(double)arg1;
-- (void)_resetToIdleState;
+- (BOOL)_isForegroundActiveWithReasons:(unsigned int)arg1;
+- (BOOL)_isInBackgroundWithReasons:(unsigned int)arg1;
+- (BOOL)_isDeactivatedWithReasons:(unsigned int)arg1;
+- (void)_handleRemoveDeactivationReasonNotification:(id)arg1;
+- (void)_handleAddDeactivationReasonNotification:(id)arg1;
 - (void)_handleEnterBackgroundNotification:(id)arg1;
 - (void)_handleEnterForegroundNotification:(id)arg1;
+- (BOOL)_isLifecycleNotificationRelevant:(id)arg1;
+- (void)_promoteToAuthorizedStateIfPossible;
+- (void)_lookupLatestMessageWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_lookupLatestTransactionWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_applyLatestTransactionAndMessageToSummaryView;
+- (void)_resetToIdleStateAfterDelay:(double)arg1 whileIgnoreField:(BOOL)arg2;
+- (void)_resetToIdleStateAfterDelay:(double)arg1;
+- (void)_resetToIdleStateWhileIgnoringField:(BOOL)arg1;
+- (void)_resetToIdleState;
 - (void)_prearmButtonPressed:(id)arg1;
 - (void)_passcodeFallbackButtonPressed:(id)arg1;
 - (void)_passcodeAuthenticationButtonPressed:(id)arg1;
@@ -62,6 +84,7 @@
 - (void)_endPaymentAuthorization;
 - (void)_beginPaymentAuthorizationWithImmediatePasscode:(BOOL)arg1;
 - (void)_beginPaymentAuthorization;
+- (void)payStateView:(id)arg1 revealingCheckmark:(BOOL)arg2;
 - (void)summaryView:(id)arg1 didDeleteMessage:(id)arg2;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didEnableTransactionService:(BOOL)arg2;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didEnableMessageService:(BOOL)arg2;

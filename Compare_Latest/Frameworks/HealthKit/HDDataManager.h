@@ -13,6 +13,7 @@
 @interface HDDataManager : NSObject <HDHealthDataManager>
 {
     NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_notificationQueue;
     NSMutableDictionary *_observersByDataType;
     unsigned int _openTransactions;
     NSMutableDictionary *_pendingObjectsBySampleType;
@@ -35,11 +36,13 @@
 - (BOOL)containsDataObject:(id)arg1;
 - (BOOL)containsAnyDataObjectInArray:(id)arg1;
 - (void)dataObjectsOfType:(id)arg1 filter:(id)arg2 sinceAnchor:(id)arg3 batchHandler:(CDUnknownBlockType)arg4;
+- (void)_notificationQueue_notifyObserversSamplesWithTypesWereRemoved:(id)arg1;
 - (void)_notifyObserversSamplesWithTypesWereRemoved:(id)arg1;
 - (BOOL)_deleteObjectsWithTypes:(id)arg1 sourceIdentifier:(id)arg2 error:(id *)arg3;
 - (BOOL)deleteSamplesWithSourceIdentifier:(id)arg1 error:(id *)arg2;
 - (BOOL)deleteSamplesWithTypes:(id)arg1 sourceBundleIdentifier:(id)arg2 error:(id *)arg3;
 - (BOOL)deleteDataObjects:(id)arg1 sourceBundleIdentifier:(id)arg2 error:(id *)arg3;
+- (void)_notifyObserversWithAddedObjectsBySampleType:(id)arg1 lastAnchor:(id)arg2;
 - (void)_callObserversIfPossible;
 - (BOOL)insertDataObjects:(id)arg1 withProvenance:(unsigned int)arg2 sourceEntity:(id)arg3 error:(id *)arg4;
 - (id)initWithDaemon:(id)arg1;

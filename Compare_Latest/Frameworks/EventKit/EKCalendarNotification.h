@@ -22,8 +22,12 @@ __attribute__((visibility("hidden")))
     struct CGColor *_dotColor;
     BOOL _hiddenFromNotificationCenter;
     BOOL _alerted;
+    NSString *_firstName;
+    NSString *_lastName;
 }
 
+@property(retain, nonatomic) NSString *lastName; // @synthesize lastName=_lastName;
+@property(retain, nonatomic) NSString *firstName; // @synthesize firstName=_firstName;
 @property(nonatomic) BOOL alerted; // @synthesize alerted=_alerted;
 @property(nonatomic) BOOL hiddenFromNotificationCenter; // @synthesize hiddenFromNotificationCenter=_hiddenFromNotificationCenter;
 @property(nonatomic) struct CGColor *dotColor; // @synthesize dotColor=_dotColor;

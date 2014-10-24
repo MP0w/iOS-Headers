@@ -148,7 +148,7 @@
 - (void)_scrubToSlalomRegionEditorStartHandle:(BOOL)arg1;
 - (void)slalomRegionEditorEndValueChanged:(id)arg1;
 - (void)slalomRegionEditorStartValueChanged:(id)arg1;
-- (void)_commitPendingAdjustmentsUpdateAndWait:(BOOL)arg1;
+- (void)_commitPendingAdjustmentsUpdateAndWait:(BOOL)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_cancelDelayedCommitPendingAdjustmentsUpdate;
 - (void)_commitPendingAdjustmentsUpdate;
 - (void)_enqueueAdjustmentsForCommit;
@@ -194,6 +194,7 @@
 - (void)setFrame:(struct CGRect)arg1;
 - (void)applicationDidEnterBackground;
 - (void)applicationWillResignActive;
+- (void)commitPendingUpdatesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)viewDidDisappear;
 - (void)viewDidAppear;
 - (void)viewWillAppear:(BOOL)arg1;

@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSXPCConnection, NSXPCListener;
+@class PKPassPaymentPayStateView;
 
-@protocol NSXPCListenerDelegate <NSObject>
+@protocol PKPassPaymentPayStateViewDelegate <NSObject>
 
 @optional
-- (BOOL)listener:(NSXPCListener *)arg1 shouldAcceptNewConnection:(NSXPCConnection *)arg2;
+- (void)payStateView:(PKPassPaymentPayStateView *)arg1 revealingCheckmark:(BOOL)arg2;
 @end
 

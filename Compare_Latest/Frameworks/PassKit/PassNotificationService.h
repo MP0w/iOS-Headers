@@ -18,9 +18,11 @@
 - (void)updateWithLastUpdatedTag:(id)arg1;
 - (void)updateWithLastUpdatedDate:(id)arg1;
 - (void)updateWithNotificationService:(id)arg1;
+- (void)updateWithRegistrationStatus:(int)arg1;
 - (id)lastUpdatedTagDate;
 - (id)lastUpdatedTag;
 - (id)lastUpdatedDate;
+- (int)registrationStatus;
 - (id)notificationService;
 - (id)initWithNotificationServicePID:(unsigned long long)arg1 inDatabase:(id)arg2;
 

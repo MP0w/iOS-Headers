@@ -22,6 +22,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)defaultPropertiesToLoad;
 - (BOOL)shouldLoadDefaultProperties;
+- (id)predicateFormat;
 - (BOOL)evaluateWithObject:(id)arg1;
 - (void)dealloc;
 - (id)initWithOpaqueKey:(id)arg1;

@@ -6,7 +6,7 @@
 
 #import <PhotoLibraryServices/PLManagedAsset.h>
 
-@class NSDictionary, NSURL;
+@class NSDictionary, NSString, NSURL;
 
 @interface PLWallpaperAsset : PLManagedAsset
 {
@@ -29,6 +29,7 @@
 - (id)imageWithFormat:(int)arg1 outImageProperties:(const struct __CFDictionary **)arg2;
 - (id)imageWithFormat:(int)arg1;
 @property(retain, nonatomic) NSDictionary *wallpaperOptions;
+@property(readonly, nonatomic) NSString *imageName;
 @property(retain, nonatomic) NSURL *thumbnailURL;
 @property(retain, nonatomic) NSURL *imageURL;
 

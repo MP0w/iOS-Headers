@@ -80,6 +80,7 @@
 // Remaining properties
 @property(retain, nonatomic) NSSet *assetOrders; // @dynamic assetOrders;
 @property(retain, nonatomic) NSOrderedSet *assets; // @dynamic assets;
+@property(nonatomic) unsigned int batchSize;
 @property(readonly, nonatomic) BOOL canContributeToCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL canShowAvalancheStacks;
 @property(readonly, nonatomic) BOOL canShowComments;
@@ -103,6 +104,7 @@
 @property(readonly, nonatomic) BOOL isPhotoStreamAlbum;
 @property(readonly, nonatomic) BOOL isRecentlyAddedAlbum;
 @property(readonly, nonatomic) BOOL isStandInAlbum;
+@property(readonly, nonatomic) BOOL isUserLibraryAlbum;
 @property(readonly, nonatomic) BOOL isWallpaperAlbum;
 @property(retain, nonatomic) PLManagedAsset *keyAsset;
 @property(readonly, retain, nonatomic) NSNumber *kind;

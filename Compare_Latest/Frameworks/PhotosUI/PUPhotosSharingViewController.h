@@ -7,9 +7,9 @@
 #import "UIViewController.h"
 
 #import "PHAssetCollectionDataSource.h"
-#import "PHPhotoLibraryChangeObserver.h"
 #import "PLDismissableViewController.h"
 #import "PUActivityViewControllerDelegate.h"
+#import "PUPhotoLibraryUIChangeObserver.h"
 #import "PUPhotosSharingCollectionViewLayoutDelegate.h"
 #import "PUPhotosSharingTransitionViewController.h"
 #import "PUScrollViewSpeedometerDelegate.h"
@@ -21,7 +21,7 @@
 
 @class NSIndexPath, NSMutableDictionary, NSMutableSet, NSPredicate, NSString, PHAsset, PHCachingImageManager, PHFetchResult, PUActivityViewController, PUPhotoPinchGestureRecognizer, PUPhotoSelectionManager, PUPhotosSharingCollectionViewLayout, PUPhotosSharingTransitionContext, PUPhotosSharingViewControllerSpec, PUPhotosZoomingSharingGridCell, PUScrollViewSpeedometer, PUTransitionViewAnimator, UIBarButtonItem, UICollectionView, UICollectionViewLayout, UITapGestureRecognizer, UIView;
 
-@interface PUPhotosSharingViewController : UIViewController <PLDismissableViewController, UIGestureRecognizerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PUPhotosSharingCollectionViewLayoutDelegate, UIActivityViewControllerDelegate, PUTransitionViewAnimatorDelegate, PUScrollViewSpeedometerDelegate, PUActivityViewControllerDelegate, PHPhotoLibraryChangeObserver, PUPhotosSharingTransitionViewController, PHAssetCollectionDataSource>
+@interface PUPhotosSharingViewController : UIViewController <PLDismissableViewController, UIGestureRecognizerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PUPhotosSharingCollectionViewLayoutDelegate, UIActivityViewControllerDelegate, PUTransitionViewAnimatorDelegate, PUScrollViewSpeedometerDelegate, PUActivityViewControllerDelegate, PUPhotoLibraryUIChangeObserver, PUPhotosSharingTransitionViewController, PHAssetCollectionDataSource>
 {
     PUScrollViewSpeedometer *_speedometer;
     NSMutableDictionary *_resultsForAssetCollection;
@@ -117,7 +117,8 @@
 - (void)_statusBarFrameDidChange:(id)arg1;
 - (void)_statusBarFrameWillChange:(id)arg1;
 - (void)_processCollectionListChangeNotifications:(id)arg1 singleCollectionNotifications:(id)arg2;
-- (void)photoLibraryDidChange:(id)arg1;
+- (void)photoLibraryDidChangeOnMainQueue:(id)arg1;
+- (void)prepareForPhotoLibraryChange:(id)arg1;
 - (id)ppt_scrollView;
 - (void)ppt_faultInScollViewContentSize;
 - (BOOL)ppt_scrollToAssetAtRelativeIndex:(int)arg1 completion:(CDUnknownBlockType)arg2;

@@ -16,6 +16,7 @@
 
 
 // Remaining properties
+@property(retain, nonatomic) NSURL *attribution_url;
 @property(retain, nonatomic) NSString *key; // @dynamic key;
 @property(nonatomic) BOOL key_nowrap; // @dynamic key_nowrap;
 @property(nonatomic) int key_weight; // @dynamic key_weight;

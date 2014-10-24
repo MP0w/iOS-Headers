@@ -29,7 +29,7 @@
 - (void)_applyDataAccessorToObjects:(id)arg1;
 - (void)_getArchivedObjectWithUniqueID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_getPassWithUniqueID:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_getPassesAndCatalog:(BOOL)arg1 withRetries:(unsigned int)arg2 withHandler:(CDUnknownBlockType)arg3;
+- (void)_getPassesAndCatalogOfPassTypes:(unsigned int)arg1 limitResults:(BOOL)arg2 withRetries:(unsigned int)arg3 handler:(CDUnknownBlockType)arg4;
 - (id)_passesOfType:(unsigned int)arg1 withRetries:(unsigned int)arg2;
 - (id)_passesWithRetries:(unsigned int)arg1;
 - (void)_unregisterForApplicationLifeCycleNotifications;
@@ -42,6 +42,8 @@
 - (void)passRemoved:(id)arg1;
 - (void)passUpdated:(id)arg1;
 - (void)passAdded:(id)arg1;
+- (void)removingPassesOfType:(unsigned int)arg1 didFinishWithSuccess:(BOOL)arg2;
+- (void)removingPassesOfType:(unsigned int)arg1 didUpdateWithProgress:(double)arg2;
 - (void)catalogChanged:(id)arg1 withNewPasses:(id)arg2;
 - (id)diffForPassBulletinWithRecordID:(id)arg1;
 - (void)noteAccountDeleted;
@@ -71,10 +73,12 @@
 - (id)archiveForObjectWithUniqueID:(id)arg1;
 - (BOOL)replacePassWithPass:(id)arg1;
 - (BOOL)containsPass:(id)arg1;
+- (void)getPassesAndCatalogOfPassTypes:(unsigned int)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)getPassesAndCatalog:(BOOL)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)getRouteRelevantPassesFromLocation:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)hasInAppPaymentPassesForNetworks:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)inAppPaymentPassesForNetworks:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
+- (BOOL)isRemovingPassesOfType:(unsigned int)arg1;
 - (BOOL)canAddPassOfType:(unsigned int)arg1;
 - (BOOL)hasPassesOfType:(unsigned int)arg1;
 - (id)passWithPassTypeIdentifier:(id)arg1 serialNumber:(id)arg2;

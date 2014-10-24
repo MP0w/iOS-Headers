@@ -14,10 +14,11 @@
 {
 }
 
+- (BOOL)_setHealthAppSourceForAllObjectsWithHealtDaemon:(id)arg1 database:(id)arg2 error:(id *)arg3;
 - (BOOL)_addCreationDateToObjectsTableWithDatabase:(id)arg1 error:(id *)arg2;
 - (BOOL)_addWorkoutsTableWithDatabase:(id)arg1 error:(id *)arg2;
 - (BOOL)_changeCorrelationsTableToStoringIntegersWithDatabase:(id)arg1 error:(id *)arg2;
-- (BOOL)migrateProtectedDatabaseToVersion:(int)arg1 withDatabase:(id)arg2 error:(id *)arg3;
+- (BOOL)migrateProtectedDatabaseToVersion:(int)arg1 withDatabase:(id)arg2 healthDaemon:(id)arg3 error:(id *)arg4;
 - (BOOL)migrateUnprotectedDatabaseToVersion:(int)arg1 withDatabase:(id)arg2 error:(id *)arg3;
 
 // Remaining properties

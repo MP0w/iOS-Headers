@@ -10,6 +10,7 @@
 {
 }
 
+- (void)removeBulletinsForPass:(id)arg1;
 - (void)insertPassbookBulletinWithTitle:(id)arg1 message:(id)arg2 forPass:(id)arg3;
 - (id)defaultSectionInfo;
 - (id)sectionIcon;

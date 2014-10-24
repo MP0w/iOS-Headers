@@ -10,6 +10,7 @@
 @property(retain, nonatomic) NSString *type;
 
 @optional
+@property(retain, nonatomic) NSURL *attribution_url;
 @property(retain, nonatomic) NSURL *url;
 @end
 

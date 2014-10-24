@@ -56,8 +56,6 @@
     NSMutableDictionary *_animatorsByGroupID;
     PKPaymentService *_paymentService;
     PKPassPaymentFooterView *_paymentFooterView;
-    BOOL _footerConfiguredForRestrictedMode;
-    BOOL _footerConfiguredForPaymentDeviceUnavailable;
     BOOL _showingFooter;
     id <PKPassGroupStackViewDatasource> _datasource;
     unsigned int _separatorGroupIndex;
@@ -134,9 +132,11 @@
 - (void)_animateGroupView:(id)arg1 toIndex:(unsigned int)arg2 referenceView:(id)arg3 orderAbove:(BOOL)arg4;
 - (void)_fanAndPageGroupView:(id)arg1 animated:(BOOL)arg2;
 - (void)_layoutContentFromOffset:(struct CGPoint)arg1 toOffset:(struct CGPoint)arg2 animated:(BOOL)arg3;
+- (void)_updatePositionForGroupView:(id)arg1 toPresentationState:(int)arg2 withSpringFactory:(id)arg3 atIndex:(unsigned int)arg4;
+- (void)_updatePositionForGroupView:(id)arg1 toPresentationState:(int)arg2 withSpringFactory:(id)arg3;
+- (void)_updateTransformForGroupView:(id)arg1 toPresentationState:(int)arg2 withSpringFactory:(id)arg3;
 - (void)_updateGroupView:(id)arg1 toPresentationState:(int)arg2 withSpringFactory:(id)arg3 atIndex:(unsigned int)arg4;
 - (void)_updateGroupView:(id)arg1 toPresentationState:(int)arg2 withSpringFactory:(id)arg3;
-- (void)_transformCardGroupView:(id)arg1 toState:(int)arg2 startTime:(float)arg3 duration:(float)arg4;
 - (void)_transformCardGroupView:(id)arg1 toState:(int)arg2 startTime:(float)arg3 animated:(BOOL)arg4;
 - (void)_translateCardGroupView:(id)arg1 toState:(int)arg2 startTime:(float)arg3 animated:(BOOL)arg4;
 - (void)_updateGroupStateForGroupViewInModalPresentation:(id)arg1 animated:(BOOL)arg2;
@@ -188,6 +188,7 @@
 - (void)_showPaymentFooterView:(BOOL)arg1 forPassView:(id)arg2 animated:(BOOL)arg3 delay:(float)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)_updatePaymentFooterViewAnimated:(BOOL)arg1;
 - (void)_updatePaymentFooterViewIfNecessaryAnimated:(BOOL)arg1 withBecomeVisibleDelay:(double)arg2;
+- (int)_footerStateForPassView:(id)arg1;
 - (BOOL)_canShowPaymentFooter;
 - (void)_presentPassIngestionAcceptanceWithAnimation:(BOOL)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)_presentPassIngestionWithAnimation:(BOOL)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;

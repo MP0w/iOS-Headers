@@ -23,6 +23,9 @@
     UITextField *_cscField;
 }
 
++ (void)handlePassAlreadyProvisionedError;
++ (void)handleProvisioningError:(id)arg1 forApplicationIdentifier:(id)arg2;
++ (void)handleDownloadedPasses:(id)arg1 fromViewController:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 @property(retain, nonatomic) UITextField *cscField; // @synthesize cscField=_cscField;
 @property(retain, nonatomic) PKPaymentCredential *paymentCredential; // @synthesize paymentCredential=_paymentCredential;
 @property(retain, nonatomic) PKPaymentWebService *webService; // @synthesize webService=_webService;

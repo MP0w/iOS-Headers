@@ -16,7 +16,6 @@
 @property(copy, nonatomic) NSArray *preferredIntervals; // @synthesize preferredIntervals=_preferredIntervals;
 - (void).cxx_destruct;
 - (id)_mediaRemoteCommandInfoOptions;
-- (id)keyPathsForValuesTriggeringCommandsChanged;
 
 @end
 

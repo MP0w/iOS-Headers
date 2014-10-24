@@ -25,7 +25,10 @@
 - (void)_configurePassbookParentSection;
 - (id)diffForPassBulletinWithRecordID:(id)arg1;
 - (void)removeAllBulletins;
-- (void)removeBulletinsForPass:(id)arg1;
+- (void)removeAllBulletinsForPass:(id)arg1;
+- (void)removePassbookBulletinsForPass:(id)arg1;
+- (void)removePassUpdateBulletinsForPass:(id)arg1;
+- (void)removeTransactionBulletinsForPass:(id)arg1;
 - (void)insertPassbookBulletinWithTitle:(id)arg1 message:(id)arg2 forPass:(id)arg3;
 - (void)insertOrUpdatePassUpdateBulletinWithDiff:(id)arg1 forPass:(id)arg2;
 - (void)insertOrUpdateTransactionBulletinWithPaymentTransaction:(id)arg1 forPass:(id)arg2;

@@ -16,11 +16,12 @@
 + (id)deregisterTaskWithNotificationService:(id)arg1 dpanIdentifier:(id)arg2;
 + (id)registerTaskWithNotificationService:(id)arg1 registrationData:(id)arg2 signature:(id)arg3 casdCertificate:(id)arg4 dpanIdentifier:(id)arg5 completionTask:(id)arg6;
 @property(retain, nonatomic, setter=setDPANIdentifier:) NSString *dpanIdentifier; // @synthesize dpanIdentifier=_dpanIdentifier;
-- (BOOL)pertainsToDPANIdentifier:(id)arg1;
+- (BOOL)pertainsToNotificationService:(id)arg1 andDPANIdentifier:(id)arg2;
 - (BOOL)matchesTask:(id)arg1;
 - (int)actionForInactiveTask:(id)arg1;
 - (id)description;
 - (id)endpointComponents;
+- (BOOL)isValid;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;

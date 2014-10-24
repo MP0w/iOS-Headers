@@ -31,6 +31,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, retain, nonatomic) EKCalendarItem *calendarItem;
 @property(readonly, retain, nonatomic) EKCalendar *calendar;
 - (id)emailAddress;
+- (id)lastName;
+- (id)firstName;
 - (id)name;
 @property(readonly, copy, nonatomic) NSString *changedByLastName;
 @property(readonly, copy, nonatomic) NSString *changedByFirstName;

@@ -8,7 +8,7 @@
 
 #import "UITraitEnvironment.h"
 
-@class NSString, PKServicePaymentAuthorizationViewController, UITraitCollection;
+@class NSString, PKPaymentAuthorizationServiceViewController, UITraitCollection;
 
 @interface PKPaymentAuthorizationLayout : NSObject <UITraitEnvironment>
 {
@@ -16,10 +16,10 @@
     float _headerMargin;
     float _contentMargin;
     float _valueLeftMargin;
-    PKServicePaymentAuthorizationViewController *_controller;
+    PKPaymentAuthorizationServiceViewController *_controller;
 }
 
-@property(nonatomic) PKServicePaymentAuthorizationViewController *controller; // @synthesize controller=_controller;
+@property(nonatomic) PKPaymentAuthorizationServiceViewController *controller; // @synthesize controller=_controller;
 @property(readonly, nonatomic) float valueLeftMargin; // @synthesize valueLeftMargin=_valueLeftMargin;
 @property(readonly, nonatomic) float contentMargin; // @synthesize contentMargin=_contentMargin;
 @property(readonly, nonatomic) float headerMargin; // @synthesize headerMargin=_headerMargin;

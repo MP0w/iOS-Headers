@@ -13,6 +13,7 @@
     UIButton *_skipButton;
 }
 
++ (BOOL)setupAssistantNeedsToRunReturningRequirements:(unsigned int *)arg1;
 + (BOOL)setupAssistantNeedsToRun;
 - (void)aboutButtonTouched:(id)arg1;
 - (void)skip:(id)arg1;

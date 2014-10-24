@@ -16,7 +16,6 @@
 }
 
 + (struct CGSize)_sizeForLabelWithText:(id)arg1 font:(id)arg2 maximumNumberOfLines:(int)arg3 width:(float)arg4;
-+ (id)_detailsButtonFont;
 + (id)_amountTextFont;
 + (id)_detailTextFont;
 + (id)_primaryTextFont;

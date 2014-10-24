@@ -11,14 +11,15 @@
 @interface PDPassBulletinProvider : PDBulletinProvider
 {
     NSData *_iconImageData;
-    NSString *_organizationName;
     NSMutableDictionary *_passUpdateBulletinRecords;
     NSMutableDictionary *_transactionBulletinRecords;
-    NSString *_passTypeIdentifier;
+    NSString *_sectionIdentifier;
+    NSString *_sectionTitle;
 }
 
 + (BOOL)supportsSecureCoding;
-@property(readonly, nonatomic) NSString *passTypeIdentifier; // @synthesize passTypeIdentifier=_passTypeIdentifier;
+@property(readonly, nonatomic) NSString *sectionTitle; // @synthesize sectionTitle=_sectionTitle;
+@property(readonly, nonatomic) NSString *sectionIdentifier; // @synthesize sectionIdentifier=_sectionIdentifier;
 - (void)_removeBulletinForTransactionRecord:(id)arg1;
 - (void)_removeBulletinForPassUpdateRecord:(id)arg1;
 - (void)_insertOrUpdateBulletinForTransactionRecord:(id)arg1;
@@ -34,13 +35,12 @@
 - (id)sectionParameters;
 - (id)parentSectionIdentifier;
 - (id)universalSectionIdentifier;
-- (id)sectionIdentifier;
 - (id)sectionDisplayName;
 - (void)removeAllBulletins;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
-- (id)initWithDelegate:(id)arg1 pass:(id)arg2;
+- (id)initWithDelegate:(id)arg1 sectionIdentifier:(id)arg2 sectionTitle:(id)arg3 iconImage:(id)arg4;
 - (id)initWithDelegate:(id)arg1;
 
 @end

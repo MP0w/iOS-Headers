@@ -8,56 +8,66 @@
 
 #import "PKPaymentValidating.h"
 
-@class CNContact, NSArray, NSDecimalNumber, NSMutableArray, NSMutableDictionary, NSString, PKPaymentApplication, PKPaymentPass, PKPaymentRequest, PKShippingMethod;
+@class CNContact, NSArray, NSDecimalNumber, NSMutableArray, NSMutableDictionary, NSString, PKPassLibrary, PKPaymentApplication, PKPaymentOptionsDefaults, PKPaymentOptionsRecents, PKPaymentPass, PKPaymentRequest, PKPaymentTransaction, PKShippingMethod;
 
 @interface PKPaymentAuthorizationDataModel : NSObject <PKPaymentValidating>
 {
-    NSString *_secureElementIdentifier;
     NSMutableArray *_items;
     NSMutableDictionary *_typeToItemMap;
     unsigned int _holdPendingUpdatesCount;
+    NSArray *_acceptedPasses;
+    PKPaymentRequest *_paymentRequest;
+    NSString *_hostAppLocalizedName;
     PKPaymentPass *_pass;
-    NSString *_shippingEmail;
-    NSString *_shippingPhone;
+    CNContact *_shippingEmail;
+    CNContact *_shippingPhone;
     CNContact *_shippingAddress;
     PKShippingMethod *_shippingMethod;
-    NSString *_billingEmail;
-    NSString *_billingPhone;
     CNContact *_billingAddress;
+    PKPaymentOptionsDefaults *_defaults;
+    PKPaymentOptionsRecents *_recents;
+    PKPassLibrary *_library;
+    PKPaymentTransaction *_pendingTransaction;
     CDUnknownBlockType _updateHandler;
-    PKPaymentRequest *_paymentRequest;
     NSDecimalNumber *_transactionAmount;
-    NSString *_sourceAppLocalizedName;
     PKPaymentApplication *_paymentApplication;
 }
 
 @property(retain, nonatomic) PKPaymentApplication *paymentApplication; // @synthesize paymentApplication=_paymentApplication;
-@property(readonly, nonatomic) NSString *sourceAppLocalizedName; // @synthesize sourceAppLocalizedName=_sourceAppLocalizedName;
 @property(readonly, nonatomic) NSArray *items; // @synthesize items=_items;
 @property(retain, nonatomic) NSDecimalNumber *transactionAmount; // @synthesize transactionAmount=_transactionAmount;
-@property(readonly, nonatomic) PKPaymentRequest *paymentRequest; // @synthesize paymentRequest=_paymentRequest;
 @property(copy, nonatomic) CDUnknownBlockType updateHandler; // @synthesize updateHandler=_updateHandler;
+@property(retain, nonatomic) PKPaymentTransaction *pendingTransaction; // @synthesize pendingTransaction=_pendingTransaction;
+@property(retain, nonatomic) PKPassLibrary *library; // @synthesize library=_library;
+@property(retain, nonatomic) PKPaymentOptionsRecents *recents; // @synthesize recents=_recents;
+@property(retain, nonatomic) PKPaymentOptionsDefaults *defaults; // @synthesize defaults=_defaults;
 @property(retain, nonatomic) CNContact *billingAddress; // @synthesize billingAddress=_billingAddress;
-@property(retain, nonatomic) NSString *billingPhone; // @synthesize billingPhone=_billingPhone;
-@property(retain, nonatomic) NSString *billingEmail; // @synthesize billingEmail=_billingEmail;
 @property(retain, nonatomic) PKShippingMethod *shippingMethod; // @synthesize shippingMethod=_shippingMethod;
 @property(retain, nonatomic) CNContact *shippingAddress; // @synthesize shippingAddress=_shippingAddress;
-@property(retain, nonatomic) NSString *shippingPhone; // @synthesize shippingPhone=_shippingPhone;
-@property(retain, nonatomic) NSString *shippingEmail; // @synthesize shippingEmail=_shippingEmail;
+@property(retain, nonatomic) CNContact *shippingPhone; // @synthesize shippingPhone=_shippingPhone;
+@property(retain, nonatomic) CNContact *shippingEmail; // @synthesize shippingEmail=_shippingEmail;
 @property(retain, nonatomic) PKPaymentPass *pass; // @synthesize pass=_pass;
+@property(retain, nonatomic) NSString *hostAppLocalizedName; // @synthesize hostAppLocalizedName=_hostAppLocalizedName;
+@property(retain, nonatomic) PKPaymentRequest *paymentRequest; // @synthesize paymentRequest=_paymentRequest;
 - (BOOL)isValidWithError:(id *)arg1;
+- (id)_inAppPaymentPassesForNetworks:(id)arg1;
 - (void)_notifyModelChanged;
 - (void)_ensurePlaceholderItems;
 - (void)_ensureItemForClass:(Class)arg1;
+- (void)_ensureItems;
+- (id)_initialBillingContactForPropertyID:(int)arg1;
+- (id)_initialShippingContactForPropertyID:(int)arg1;
 - (void)_setDataItem:(id)arg1;
 - (void)rejectItemWithType:(int)arg1;
 - (id)itemForType:(int)arg1;
 - (void)endUpdates;
 - (void)beginUpdates;
+@property(readonly, nonatomic) NSArray *acceptedPasses;
 @property(retain, nonatomic) NSArray *paymentSummaryItems;
 @property(readonly, nonatomic) NSString *currencyCode;
+@property(readonly, nonatomic) NSString *merchantName;
 - (void)dealloc;
-- (id)initWithPaymentRequest:(id)arg1 sourceAppLocalizedName:(id)arg2 secureElementIdentifier:(id)arg3;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

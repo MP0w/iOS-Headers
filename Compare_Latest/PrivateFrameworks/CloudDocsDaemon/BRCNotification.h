@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)generateLogicalExtension:(id)arg1 physicalExtension:(id)arg2;
 - (void)merge:(id)arg1;
+- (BOOL)canMerge:(id)arg1;
 - (id)initWithLocalItem:(id)arg1 itemDiffs:(unsigned long long)arg2 updateDiffs:(unsigned short)arg3;
 - (void)_setupFileIDsWithLocalItem:(id)arg1;
 - (void)_setupWithNonAliasItem:(id)arg1 diffs:(unsigned long long)arg2;

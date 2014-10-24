@@ -29,7 +29,7 @@
 - (CKContainerID *)containerID;
 - (NSString *)containerScopedUserID;
 - (NSString *)dsid;
-- (void)renewMescalSessionForRequest:(CKDURLRequest *)arg1 withCompletionHandler:(void (^)(BOOL))arg2;
+- (void)renewMescalSessionForRequest:(CKDURLRequest *)arg1 withCompletionHandler:(void (^)(BOOL, NSError *))arg2;
 - (void)resetMescalSession;
 - (CKDMescalSession *)mescalSession;
 - (void)fetchDeviceIDUsingBackgroundSession:(BOOL)arg1 allowsCellularAccess:(BOOL)arg2 withCompletionHandler:(void (^)(NSString *, NSError *))arg3;

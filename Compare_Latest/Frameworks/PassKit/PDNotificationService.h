@@ -37,6 +37,7 @@
 @property(nonatomic) int serviceType; // @synthesize serviceType=_serviceType;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 

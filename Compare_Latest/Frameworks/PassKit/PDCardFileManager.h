@@ -37,8 +37,7 @@
 - (void)registerDatabaseObject:(id)arg1;
 - (void)nukeCards;
 - (void)updateUbiquitousCatalog:(id)arg1;
-- (void)deleteCardWithUniqueID:(id)arg1 ignoringPaymentApplications:(BOOL)arg2;
-- (void)deleteCardWithUniqueID:(id)arg1 andTellUbiquity:(BOOL)arg2;
+- (void)deleteCardWithUniqueID:(id)arg1 forReason:(int)arg2;
 - (void)writeCatalogOfRecord:(id)arg1 source:(int)arg2;
 - (BOOL)writeCard:(id)arg1 source:(int)arg2 error:(id *)arg3;
 - (id)imageSetForUniqueID:(id)arg1 ofType:(int)arg2 withDisplayProfile:(id)arg3;

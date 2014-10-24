@@ -24,6 +24,7 @@
 - (id)dictionaryPropertyEncoding;
 - (id)initWithPropertyDictionary:(id)arg1;
 - (unsigned int)maxBatchSizeForContainer:(id)arg1;
+- (id)flowControlMaximumThrottleTime:(id)arg1;
 - (id)flowControlRegenerationForContainer:(id)arg1;
 - (id)flowControlBudgetForContainer:(id)arg1;
 - (int)tokenRegisterDaysForContainer:(id)arg1;

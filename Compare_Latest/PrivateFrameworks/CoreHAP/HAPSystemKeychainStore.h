@@ -29,7 +29,7 @@
 - (BOOL)updatePeripheralIdentifier:(id)arg1 forAccessoryName:(id)arg2 error:(id *)arg3;
 - (long)_savePeripheralIdentifier:(id)arg1 forAccessoryName:(id)arg2;
 - (BOOL)savePeripheralIdentifier:(id)arg1 forAccessoryName:(id)arg2 error:(id *)arg3;
-- (long)_removeKeychainItem:(id)arg1;
+- (long)_removeKeychainItem:(id)arg1 leaveTombstone:(BOOL)arg2;
 - (long)_addKeychainItem:(id)arg1;
 - (id)_getKeychainItemsForAccessGroup:(id)arg1 type:(id)arg2 account:(id)arg3 shouldReturnData:(BOOL)arg4 error:(int *)arg5;
 - (BOOL)_removeAccessoryKeyForName:(id)arg1;

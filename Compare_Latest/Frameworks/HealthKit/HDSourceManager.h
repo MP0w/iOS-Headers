@@ -43,6 +43,7 @@
 - (id)sourceForExternalHealthDeviceWithIdentifier:(id)arg1 name:(id)arg2 productType:(id)arg3 createIfNecessary:(BOOL)arg4 error:(id *)arg5;
 - (id)sourceForApplicationIdentifier:(id)arg1 entitlements:(id)arg2 name:(id)arg3 createIfNecessary:(BOOL)arg4 error:(id *)arg5;
 - (id)sourceForClient:(id)arg1 createIfNecessary:(BOOL)arg2 error:(id *)arg3;
+- (id)healthAppSourceWithError:(id *)arg1;
 - (id)localDeviceSourceWithError:(id *)arg1;
 - (id)sourceForBundleIdentifier:(id)arg1 error:(id *)arg2;
 - (id)init;

@@ -30,6 +30,7 @@
 @property(nonatomic) long long requestState; // @synthesize requestState=_requestState;
 @property(nonatomic) _Bool hasContent; // @synthesize hasContent=_hasContent;
 @property(copy, nonatomic) NSString *appBundleID; // @synthesize appBundleID=_appBundleID;
+- (void)_disconnectRemoteViewControllerImmediatelyWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)disconnectRemoteViewControllerWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)connectRemoteViewControllerWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)insertSnapshotWithCompletionHandler:(CDUnknownBlockType)arg1;

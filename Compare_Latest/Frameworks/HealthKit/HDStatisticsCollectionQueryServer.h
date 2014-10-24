@@ -24,10 +24,10 @@
 - (void).cxx_destruct;
 - (id)_orderedSourcesWithRestrictedSourceIdentifier:(id)arg1;
 - (BOOL)_queue_objectIsRelevant:(id)arg1;
-- (void)_queue_fetchAndDeliverStatisticsForTimePeriod:(id)arg1 sourceIdentifier:(id)arg2 orderedSources:(id)arg3;
+- (void)_queue_fetchAndDeliverStatisticsForTimePeriod:(id)arg1 sourceIdentifier:(id)arg2 orderedSources:(id)arg3 extraSources:(id)arg4;
 - (id)_fetchStatisticsByEnumeratingTimePeriodsWithStartDate:(id)arg1 endDate:(id)arg2 sourceIdentifier:(id)arg3 error:(id *)arg4;
 - (void)_queue_fetchAndDeliverAllStatisticsInitial:(BOOL)arg1;
-- (id)_queue_fetchStatisticsWithStartDate:(id)arg1 endDate:(id)arg2 sourceIdentifier:(id)arg3 orderedSources:(id)arg4 error:(id *)arg5;
+- (id)_queue_fetchStatisticsWithStartDate:(id)arg1 endDate:(id)arg2 sourceIdentifier:(id)arg3 orderedSources:(id)arg4 extraSources:(id)arg5 error:(id *)arg6;
 - (void)samplesOfTypeWereRemoved:(id)arg1;
 - (void)_queue_samplesAdded:(id)arg1;
 - (void)samplesAdded:(id)arg1 anchor:(id)arg2;

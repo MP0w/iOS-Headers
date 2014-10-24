@@ -12,16 +12,21 @@
 {
     PKPassView *_passView;
     PKPassPaymentFooterContentView *_contentView;
+    int _paymentApplicationState;
     BOOL _isVisible;
+    int _state;
 }
 
+@property(readonly, nonatomic) int state; // @synthesize state=_state;
 @property(retain, nonatomic) PKPassView *passView; // @synthesize passView=_passView;
 - (void)_lostModeButtonTapped;
 - (void)_deleteButtonTapped;
 - (void)setContentView:(id)arg1;
-- (void)configureForPaymentApplication:(id)arg1;
-- (void)configureForRestrictedMode;
-- (void)configureForPaymentDeviceUnavailable;
+- (void)configureForPaymentApplication;
+- (void)_configureForState:(int)arg1 withPassView:(id)arg2;
+- (void)configureForState:(int)arg1 withPassView:(id)arg2;
+- (void)_handleEnterBackgroundNotification:(id)arg1;
+- (void)_handleEnterForegroundNotification:(id)arg1;
 - (void)didBecomeHiddenAnimated:(BOOL)arg1;
 - (void)didBecomeVisibleAnimated:(BOOL)arg1;
 - (void)willBecomeHiddenAnimated:(BOOL)arg1;

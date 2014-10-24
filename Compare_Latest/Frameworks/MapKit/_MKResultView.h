@@ -57,6 +57,7 @@
 - (void)locationManagerDidReset:(id)arg1;
 - (void)locationManagerFailedToUpdateLocation:(id)arg1 withError:(id)arg2;
 - (void)locationManagerUpdatedLocation:(id)arg1;
+- (void)_locationApprovalDidChange;
 - (void)handleTap:(id)arg1;
 @property(retain, nonatomic) CLLocation *referenceLocation; // @synthesize referenceLocation=_referenceLocation;
 - (void)_cancelReferenceLocationTimer;

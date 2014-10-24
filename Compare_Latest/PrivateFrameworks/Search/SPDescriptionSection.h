@@ -16,6 +16,7 @@
 
 
 // Remaining properties
+@property(retain, nonatomic) NSURL *attribution_url;
 @property(nonatomic) BOOL description_expand; // @dynamic description_expand;
 @property(retain, nonatomic) NSString *description_expand_text; // @dynamic description_expand_text;
 @property(nonatomic) int description_maxlines; // @dynamic description_maxlines;

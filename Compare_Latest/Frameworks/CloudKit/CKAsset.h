@@ -9,7 +9,7 @@
 #import "CKRecordValue.h"
 #import "NSSecureCoding.h"
 
-@class CKRecord, NSData, NSDate, NSNumber, NSString, NSURL;
+@class CKRecord, CKRecordID, NSData, NSDate, NSNumber, NSString, NSURL;
 
 @interface CKAsset : NSObject <CKRecordValue, NSSecureCoding>
 {
@@ -29,6 +29,7 @@
     NSData *_referenceSignature;
     NSString *_referenceIdentifierString;
     NSString *_uploadReceipt;
+    CKRecordID *_recordID;
     CKRecord *_record;
     NSString *_recordKey;
     NSURL *_contentBaseURL;
@@ -52,6 +53,7 @@
 @property(retain, nonatomic) NSURL *contentBaseURL; // @synthesize contentBaseURL=_contentBaseURL;
 @property(copy, nonatomic) NSString *recordKey; // @synthesize recordKey=_recordKey;
 @property(nonatomic) __weak CKRecord *record; // @synthesize record=_record;
+@property(retain, nonatomic) CKRecordID *recordID; // @synthesize recordID=_recordID;
 @property(nonatomic, getter=isUploaded) BOOL uploaded; // @synthesize uploaded=_uploaded;
 @property(nonatomic) BOOL hasSize; // @synthesize hasSize=_hasSize;
 @property(nonatomic) BOOL wasCached; // @synthesize wasCached=_wasCached;

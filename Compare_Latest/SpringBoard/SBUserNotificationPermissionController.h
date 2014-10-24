@@ -20,7 +20,7 @@
 }
 
 + (void)evictControllerFromCache:(id)arg1;
-+ (id)_controllerForBundleIdentifier:(id)arg1;
++ (id)controllerForBundleIdentifier:(id)arg1;
 + (id)controllerForApplication:(id)arg1;
 + (void)createCacheIfNecessary;
 + (void)migratePushSettings:(unsigned long long)arg1 forBundleIdentifier:(id)arg2;

@@ -22,6 +22,7 @@
 - (NSArray *)fetchObjectsWithLimits:(NSDictionary *)arg1;
 - (CHRecentCall *)fetchObjectWithUniqueId:(NSString *)arg1;
 - (NSArray *)fetchAllObjects;
+- (void)insertRecordsWithoutTransactions:(NSArray *)arg1;
 - (void)insertWithoutTransaction:(CHRecentCall *)arg1;
 - (void)insert:(CHRecentCall *)arg1;
 @end

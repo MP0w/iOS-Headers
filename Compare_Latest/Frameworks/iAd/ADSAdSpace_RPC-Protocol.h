@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSData, NSDictionary, NSSet, NSString, NSURL, NSValue;
+@class ADAdSpaceConfiguration, NSData, NSDictionary, NSSet, NSString, NSURL, NSValue;
 
 @protocol ADSAdSpace_RPC
 - (void)_priv_loadAd:(NSDictionary *)arg1;
@@ -24,7 +24,6 @@
 - (void)_remote_bannerBeginActionFromFrame:(NSValue *)arg1 tapLocation:(NSValue *)arg2 completionHandler:(void (^)(BOOL))arg3;
 - (void)_remote_setShouldNotCycle:(BOOL)arg1;
 - (void)_remote_setAdSpaceType:(int)arg1;
-- (void)_remote_setFrame:(NSValue *)arg1;
 - (void)_remote_setVisibility:(int)arg1;
 - (void)_remote_setContext:(NSSet *)arg1;
 - (void)_remote_setAuthenticationUserName:(NSString *)arg1;
@@ -34,5 +33,6 @@
 - (void)_remote_setIdentifier:(NSString *)arg1;
 - (void)_remote_close;
 - (void)_remote_setupComplete;
+- (void)_remote_configureForClientAdSpace:(id <ADAdSpace_RPC><NSObject>)arg1 configuration:(ADAdSpaceConfiguration *)arg2;
 @end
 

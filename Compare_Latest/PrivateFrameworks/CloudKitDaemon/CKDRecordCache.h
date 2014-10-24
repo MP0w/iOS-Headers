@@ -19,6 +19,7 @@
 @property(nonatomic) int scope; // @synthesize scope=_scope;
 @property(retain, nonatomic) CKDClientContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
+- (void)expireRecordsWithExpiryDate:(id)arg1;
 - (void)clearAssetAuthTokensForRecordWithID:(id)arg1;
 - (void)clearAllRecordsForZoneWithID:(id)arg1;
 - (void)clearAllRecords;

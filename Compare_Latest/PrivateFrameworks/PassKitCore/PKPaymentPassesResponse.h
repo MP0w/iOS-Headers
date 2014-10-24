@@ -11,12 +11,12 @@
 @interface PKPaymentPassesResponse : PKPaymentWebServiceResponse
 {
     NSArray *_passURLs;
-    NSString *_updatedSinceTag;
     NSString *_lastUpdatedTag;
+    NSArray *_devicePassSerialNumbers;
 }
 
+@property(retain, nonatomic) NSArray *devicePassSerialNumbers; // @synthesize devicePassSerialNumbers=_devicePassSerialNumbers;
 @property(retain, nonatomic) NSString *lastUpdatedTag; // @synthesize lastUpdatedTag=_lastUpdatedTag;
-@property(readonly, nonatomic) NSString *updatedSinceTag; // @synthesize updatedSinceTag=_updatedSinceTag;
 @property(retain, nonatomic) NSArray *passURLs; // @synthesize passURLs=_passURLs;
 - (void)dealloc;
 - (id)initWithData:(id)arg1;

@@ -7,17 +7,17 @@
 #import "UIViewController.h"
 
 #import "GLKViewDelegate.h"
-#import "PHPhotoLibraryChangeObserver.h"
 #import "PUEditPluginSessionDelegate.h"
 #import "PUImageEditPluginSessionDataSource.h"
 #import "PUPhotoEditLayoutSource.h"
 #import "PUPhotoEditToolControllerDelegate.h"
+#import "PUPhotoLibraryUIChangeObserver.h"
 #import "UIGestureRecognizerDelegate.h"
 #import "UIScrollViewDelegate.h"
 
 @class CIImage, GLKView, NSArray, NSString, NSURL, PHAsset, PLPhotoEditModel, PLPhotoEditMutableModel, PLPhotoEditRenderer, PUAdjustmentsToolController, PUAutoAdjustmentController, PUCropToolController, PUEditPluginSession, PUFiltersToolController, PUPhotoEditOverlayBadge, PUPhotoEditToolController, PUPhotoEditToolbar, PUPhotoEditValuesCalculator, PUPhotoEditViewControllerSpec, PUProgressIndicatorView, PURedeyeToolController, PUResourceDownloadRequest, UIButton, UIImage, UIImageView, UILongPressGestureRecognizer, UIScrollView, _PUPhotoEditSnapshot;
 
-@interface PUPhotoEditViewController : UIViewController <GLKViewDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegate, PUPhotoEditToolControllerDelegate, PUImageEditPluginSessionDataSource, PUEditPluginSessionDelegate, PHPhotoLibraryChangeObserver, PUPhotoEditLayoutSource>
+@interface PUPhotoEditViewController : UIViewController <GLKViewDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegate, PUPhotoEditToolControllerDelegate, PUImageEditPluginSessionDataSource, PUEditPluginSessionDelegate, PUPhotoLibraryUIChangeObserver, PUPhotoEditLayoutSource>
 {
     NSArray *__allTools;
     NSArray *__toolbarTools;
@@ -184,7 +184,8 @@
 - (void)_handleTogglePreviewPressGesture:(id)arg1;
 - (void)_updateTogglePreviewGestureRecognizer;
 - (void)_photoEditModelDidChange:(id)arg1;
-- (void)photoLibraryDidChange:(id)arg1;
+- (void)photoLibraryDidChangeOnMainQueue:(id)arg1;
+- (void)prepareForPhotoLibraryChange:(id)arg1;
 - (void)_handleAutoEnhanceButton:(id)arg1;
 - (void)_handleRedeyeButton:(id)arg1;
 - (void)_handlePluginButton:(id)arg1;

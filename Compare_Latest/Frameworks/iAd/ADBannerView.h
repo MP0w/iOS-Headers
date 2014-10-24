@@ -7,16 +7,16 @@
 #import "UIView.h"
 
 #import "ADAdRecipient.h"
+#import "ADDimmerViewDelegate.h"
 
-@class ADAdSpace, ADTapGestureRecognizer, NSString, NSTimer, NSURL, UIViewController, _UIRemoteView;
+@class ADAdSpace, NSString, NSTimer, NSURL, UIViewController;
 
-@interface ADBannerView : UIView <ADAdRecipient>
+@interface ADBannerView : UIView <ADAdRecipient, ADDimmerViewDelegate>
 {
     id <ADBannerViewDelegate> _weakDelegate;
     id <ADBannerViewInternalDelegate> _weakInternalDelegate;
     BOOL _bannerViewActionInProgress;
     BOOL _createdForIBInternal;
-    BOOL _hasFailedHitTest;
     BOOL _dimmed;
     BOOL _determiningConstraintBasedWidth;
     BOOL _inSecondConstraintsPass;
@@ -24,12 +24,9 @@
     int _internalAdType;
     int _adType;
     NSString *_advertisingSection;
-    _UIRemoteView *_remoteView;
-    UIView *_dimmerView;
     UIView *_highlightClippedView;
     UIView *_highlightHittableView;
     NSTimer *_highlightUpdateTimer;
-    ADTapGestureRecognizer *_gestureRecognizer;
     NSString *_authenticationUserName;
     NSURL *_serverURL;
     ADAdSpace *_adSpace;
@@ -42,21 +39,18 @@
 + (struct CGSize)_portraitBannerSize;
 + (struct CGSize)sizeFromBannerContentSizeIdentifier:(id)arg1;
 + (void)setServerURL:(id)arg1;
++ (BOOL)requiresConstraintBasedLayout;
 @property(nonatomic) BOOL inSecondConstraintsPass; // @synthesize inSecondConstraintsPass=_inSecondConstraintsPass;
 @property(nonatomic) float constraintBasedWidth; // @synthesize constraintBasedWidth=_constraintBasedWidth;
 @property(nonatomic) BOOL determiningConstraintBasedWidth; // @synthesize determiningConstraintBasedWidth=_determiningConstraintBasedWidth;
 @property(nonatomic) BOOL dimmed; // @synthesize dimmed=_dimmed;
 @property(retain, nonatomic) ADAdSpace *adSpace; // @synthesize adSpace=_adSpace;
-@property(nonatomic) BOOL hasFailedHitTest; // @synthesize hasFailedHitTest=_hasFailedHitTest;
 @property(readonly, nonatomic) BOOL createdForIBInternal; // @synthesize createdForIBInternal=_createdForIBInternal;
 @property(copy, nonatomic) NSURL *serverURL; // @synthesize serverURL=_serverURL;
 @property(copy, nonatomic) NSString *authenticationUserName; // @synthesize authenticationUserName=_authenticationUserName;
-@property(retain, nonatomic) ADTapGestureRecognizer *gestureRecognizer; // @synthesize gestureRecognizer=_gestureRecognizer;
 @property(retain, nonatomic) NSTimer *highlightUpdateTimer; // @synthesize highlightUpdateTimer=_highlightUpdateTimer;
 @property(retain, nonatomic) UIView *highlightHittableView; // @synthesize highlightHittableView=_highlightHittableView;
 @property(retain, nonatomic) UIView *highlightClippedView; // @synthesize highlightClippedView=_highlightClippedView;
-@property(retain, nonatomic) UIView *dimmerView; // @synthesize dimmerView=_dimmerView;
-@property(retain, nonatomic) _UIRemoteView *remoteView; // @synthesize remoteView=_remoteView;
 @property(copy, nonatomic) NSString *advertisingSection; // @synthesize advertisingSection=_advertisingSection;
 @property(nonatomic, getter=isBannerViewActionInProgress) BOOL bannerViewActionInProgress; // @synthesize bannerViewActionInProgress=_bannerViewActionInProgress;
 @property(readonly, nonatomic) int adType; // @synthesize adType=_adType;
@@ -110,13 +104,14 @@
 - (void)serverBannerViewDidFailToReceiveAdWithError:(id)arg1;
 - (void)serverBannerViewDidLoad;
 - (void)serverBannerViewWillLoad;
-- (void)setHostedWindowHostingHandle:(id)arg1;
 @property(readonly, nonatomic) UIViewController *presentingViewController;
 - (void)_resetHighlightTimer;
 - (void)_updateHighlight:(id)arg1;
 - (void)layoutSubviews;
-- (void)_bannerTapped:(id)arg1;
+- (void)bannerTappedAtPoint:(struct CGPoint)arg1;
 - (void)beginAction;
+- (BOOL)enableDimmerView:(id)arg1;
+- (void)dimmerView:(id)arg1 didReceiveTouchUpAtPoint:(struct CGPoint)arg2;
 - (void)didMoveToWindow;
 - (void)setCenter:(struct CGPoint)arg1;
 - (void)setAlpha:(float)arg1;

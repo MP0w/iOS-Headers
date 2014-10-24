@@ -20,6 +20,7 @@
 + (void)__daemon__removeController:(id)arg1;
 + (void)__daemon__addController:(id)arg1;
 + (void)__daemon__requestConnectedHostUpdatesWithHandler:(CDUnknownBlockType)arg1;
++ (void)__daemon__setUserActivityUserInfo:(id)arg1;
 + (void)__daemon__startBonjourService;
 + (void)__setLogger__:(CDUnknownBlockType)arg1;
 + (void)__open__;

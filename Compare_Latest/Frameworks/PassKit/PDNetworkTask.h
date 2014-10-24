@@ -17,12 +17,14 @@
     unsigned int _nextBackoffLevel;
     unsigned int _nextBackoffIteration;
     BOOL _canRequestReauthentication;
+    BOOL _isValid;
     id <PDNetworkTaskManagerProtocol> _manager;
     NSDate *_nextStartDate;
     NSDate *_creationDate;
 }
 
 + (BOOL)supportsSecureCoding;
+@property(nonatomic) BOOL isValid; // @synthesize isValid=_isValid;
 @property(nonatomic) BOOL canRequestReauthentication; // @synthesize canRequestReauthentication=_canRequestReauthentication;
 @property(retain, nonatomic) NSDate *creationDate; // @synthesize creationDate=_creationDate;
 @property(retain, nonatomic) NSDate *nextStartDate; // @synthesize nextStartDate=_nextStartDate;

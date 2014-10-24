@@ -39,7 +39,6 @@ __attribute__((visibility("hidden")))
 - (void)updateProgress:(id)arg1;
 @property(nonatomic) __weak _UIDocumentPickerDocumentTableViewController *tableView;
 - (void)dealloc;
-- (void)tintColorDidChange;
 - (void)prepareForReuse;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 

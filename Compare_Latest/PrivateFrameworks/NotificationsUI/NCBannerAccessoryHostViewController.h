@@ -17,6 +17,7 @@
 + (id)exportedInterface;
 + (void)requestBannerAccessoryViewControllerWithName:(id)arg1 bundleIdentifier:(id)arg2 context:(id)arg3 completion:(CDUnknownBlockType)arg4;
 @property(nonatomic) id <NCBannerAccessoryHostViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)_setSticky:(BOOL)arg1;
 - (void)_becomeSticky;
 - (void)_dismiss;
 

@@ -26,10 +26,13 @@
 - (void)_finishLocationFixWithLocation:(id)arg1;
 - (void)locationManager:(id)arg1 didFailWithError:(id)arg2;
 - (void)locationManager:(id)arg1 didUpdateLocations:(id)arg2;
-@property(readonly, nonatomic) BOOL hasDevelopmentSignedSE;
+- (void)deleteApplicationWithAID:(id)arg1;
+- (void)setRegistrationFlag;
+- (void)secureElementSigningKeyTypeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)provisioningDataWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)configurationDataWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)rewrapDataWithDeviceIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)registrationDataWithAuthToken:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)queueConnectionToTrustedServiceManagerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)queueConnectionToTrustedServiceManager;
 - (void)dealloc;

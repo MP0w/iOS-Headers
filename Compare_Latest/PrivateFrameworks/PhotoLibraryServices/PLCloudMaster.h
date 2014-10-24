@@ -19,9 +19,11 @@
 + (id)cloudMasterWithGUID:(id)arg1 inManagedObjectContext:(id)arg2;
 + (id)insertIntoPhotoLibrary:(id)arg1 withCloudMasterGUID:(id)arg2;
 - (id)description;
-- (id)cloudResourceForResourceType:(unsigned int)arg1;
+- (void)applyPropertiesFromCPLMasterChange:(id)arg1;
+- (id)cloudResourcesForResourceType:(unsigned int)arg1;
+- (id)cloudResourceForResourceType:(unsigned int)arg1 forAssetUuid:(id)arg2;
 - (void)awakeFromInsert;
-- (id)cplResourceForResourceType:(unsigned int)arg1;
+- (id)cplResourceForResourceType:(unsigned int)arg1 forAssetUuid:(id)arg2;
 
 // Remaining properties
 @property(retain, nonatomic) NSSet *assetAttributes; // @dynamic assetAttributes;
@@ -29,11 +31,13 @@
 @property(retain, nonatomic) NSString *cloudMasterGUID; // @dynamic cloudMasterGUID;
 @property(nonatomic) short cloudServerState; // @dynamic cloudServerState;
 @property(retain, nonatomic) NSDate *creationDate; // @dynamic creationDate;
-@property(retain, nonatomic) NSString *filename; // @dynamic filename;
 @property(nonatomic) short fullSizeJPEGSource; // @dynamic fullSizeJPEGSource;
 @property(retain, nonatomic) NSDate *importDate; // @dynamic importDate;
+@property(retain, nonatomic) NSString *importSessionID; // @dynamic importSessionID;
 @property(retain, nonatomic) NSManagedObject *mediaMetadata; // @dynamic mediaMetadata;
 @property(retain, nonatomic) NSString *mediaMetadataType; // @dynamic mediaMetadataType;
+@property(retain, nonatomic) NSString *originalFilename; // @dynamic originalFilename;
+@property(nonatomic) short originalOrientation; // @dynamic originalOrientation;
 @property(retain, nonatomic) NSSet *resources; // @dynamic resources;
 @property(retain, nonatomic) NSString *uniformTypeIdentifier; // @dynamic uniformTypeIdentifier;
 

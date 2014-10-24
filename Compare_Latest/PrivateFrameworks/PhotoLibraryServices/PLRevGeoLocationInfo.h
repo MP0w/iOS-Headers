@@ -23,6 +23,7 @@
 + (unsigned int)qualityTypeForPointInCountryCode:(id)arg1 withDataProviderId:(id)arg2;
 + (CDUnknownBlockType)sortedNameInfoComparatorWithHomeAtEnd:(BOOL)arg1;
 + (id)_namingOrderForAssetReverseGeoDescription;
++ (BOOL)isValidFromData:(id)arg1;
 @property(nonatomic) unsigned int providerVersion; // @synthesize providerVersion=_providerVersion;
 @property(retain, nonatomic) NSString *providerId; // @synthesize providerId=_providerId;
 @property(nonatomic) BOOL isHome; // @synthesize isHome=_isHome;

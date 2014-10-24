@@ -36,6 +36,7 @@ __attribute__((visibility("hidden")))
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 @property(readonly, retain, nonatomic) NSURL *url;
+@property(readonly, retain, nonatomic) NSString *subtitle2;
 @property(readonly, retain, nonatomic) NSString *subtitle;
 @property(readonly, retain, nonatomic) NSString *title;
 - (id)_blockingThumbnailWithSize:(struct CGSize)arg1 scale:(float)arg2;

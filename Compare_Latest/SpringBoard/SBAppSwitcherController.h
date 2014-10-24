@@ -157,7 +157,7 @@
 - (void)didRotateFromInterfaceOrientation:(long long)arg1;
 - (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
-- (void)_getRotationContentSettings:(CDStruct_ebaa735e *)arg1;
+- (void)_getRotationContentSettings:(CDStruct_e950349b *)arg1;
 - (unsigned long long)supportedInterfaceOrientations;
 - (_Bool)shouldAutorotate;
 - (_Bool)shouldAutomaticallyForwardRotationMethods;

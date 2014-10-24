@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) BRCAccountSession *accountSession; // @synthesize accountSession=_session;
 - (void).cxx_destruct;
+- (void)invalidatePipesWatchingContainerID:(id)arg1;
 - (void)flushUpdates;
 - (void)queueUpdate:(id)arg1;
 - (id)notificationGatheredFromItem:(id)arg1;

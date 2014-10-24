@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class ADAdImpressionPublicAttributes, NSError, NSString, NSURL, _UIHostedWindowHostingHandle;
+@class ADAdImpressionPublicAttributes, NSError, NSString, NSURL;
 
 @protocol ADAdSpace_RPC
 - (void)_remote_resumeBannerMedia;
@@ -19,6 +19,6 @@
 - (void)_remote_creativeDidFailWithError:(NSError *)arg1;
 - (void)_remote_adImpressionDidLoadWithPublicAttributes:(ADAdImpressionPublicAttributes *)arg1;
 - (void)_remote_creativeWillLoad;
-- (void)_remote_setHostedWindowHostingHandle:(_UIHostedWindowHostingHandle *)arg1;
+- (void)_remote_close;
 @end
 

@@ -8,25 +8,29 @@
 
 #import "NSSecureCoding.h"
 
-@class CLLocation, NSDate, NSDecimalNumber, NSString, PKMerchant;
+@class CLLocation, NSDate, NSDecimalNumber, NSNumber, NSString, PKMerchant;
 
 @interface PKPaymentTransaction : NSObject <NSSecureCoding>
 {
     NSString *_identifier;
+    NSNumber *_persistentIdentifier;
     NSString *_transactionIdentifier;
     NSDecimalNumber *_amount;
     NSString *_currencyCode;
     NSDate *_transactionDate;
     PKMerchant *_merchant;
     NSString *_locality;
-    NSString *_sublocality;
     NSString *_administrativeArea;
+    NSDate *_locationDate;
     int _transactionStatus;
     int _transactionType;
     int _technologyType;
     unsigned int _transactionSources;
     double _locationLatitude;
     double _locationLongitude;
+    double _locationAltitude;
+    double _locationHorizontalAccuracy;
+    double _locationVerticalAccuracy;
 }
 
 + (BOOL)supportsSecureCoding;
@@ -36,17 +40,22 @@
 @property(nonatomic) int technologyType; // @synthesize technologyType=_technologyType;
 @property(nonatomic) int transactionType; // @synthesize transactionType=_transactionType;
 @property(nonatomic) int transactionStatus; // @synthesize transactionStatus=_transactionStatus;
+@property(nonatomic) double locationVerticalAccuracy; // @synthesize locationVerticalAccuracy=_locationVerticalAccuracy;
+@property(nonatomic) double locationHorizontalAccuracy; // @synthesize locationHorizontalAccuracy=_locationHorizontalAccuracy;
+@property(nonatomic) double locationAltitude; // @synthesize locationAltitude=_locationAltitude;
 @property(nonatomic) double locationLongitude; // @synthesize locationLongitude=_locationLongitude;
 @property(nonatomic) double locationLatitude; // @synthesize locationLatitude=_locationLatitude;
+@property(retain, nonatomic) NSDate *locationDate; // @synthesize locationDate=_locationDate;
 @property(retain, nonatomic) NSString *administrativeArea; // @synthesize administrativeArea=_administrativeArea;
-@property(retain, nonatomic) NSString *sublocality; // @synthesize sublocality=_sublocality;
 @property(retain, nonatomic) NSString *locality; // @synthesize locality=_locality;
 @property(retain, nonatomic) PKMerchant *merchant; // @synthesize merchant=_merchant;
 @property(copy, nonatomic) NSDate *transactionDate; // @synthesize transactionDate=_transactionDate;
 @property(copy, nonatomic) NSString *currencyCode; // @synthesize currencyCode=_currencyCode;
 @property(copy, nonatomic) NSDecimalNumber *amount; // @synthesize amount=_amount;
 @property(copy, nonatomic) NSString *transactionIdentifier; // @synthesize transactionIdentifier=_transactionIdentifier;
+@property(copy, nonatomic) NSNumber *persistentIdentifier; // @synthesize persistentIdentifier=_persistentIdentifier;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(readonly, nonatomic) BOOL originatedFromThisDevice;
 - (id)description;
 @property(retain, nonatomic) CLLocation *location;
 @property(readonly, nonatomic) NSString *displayLocation;

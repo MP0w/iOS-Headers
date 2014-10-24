@@ -89,6 +89,7 @@
 @property(nonatomic) int autocorrectionType; // @synthesize autocorrectionType;
 @property(nonatomic) int autocapitalizationType; // @synthesize autocapitalizationType;
 - (BOOL)isEqual:(id)arg1;
+- (int)updateResultComparedToTraits:(id)arg1;
 - (BOOL)publicTraitsMatchTraits:(id)arg1;
 @property(readonly, copy) NSString *description;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -11,13 +11,15 @@
 @interface SBFWallpaperOptions : NSObject
 {
     BOOL _supportsCropping;
+    BOOL _isPortrait;
     NSString *_name;
     float _parallaxFactor;
     float _zoomScale;
     struct CGRect _cropRect;
 }
 
-+ (id)optionsWithName:(id)arg1 parallaxFactor:(float)arg2 zoomScale:(float)arg3 supportsCropping:(BOOL)arg4 cropRect:(struct CGRect)arg5;
++ (id)optionsWithName:(id)arg1 parallaxFactor:(float)arg2 zoomScale:(float)arg3 supportsCropping:(BOOL)arg4 cropRect:(struct CGRect)arg5 portrait:(BOOL)arg6;
+@property(readonly, nonatomic) BOOL isPortrait; // @synthesize isPortrait=_isPortrait;
 @property(readonly, nonatomic) struct CGRect cropRect; // @synthesize cropRect=_cropRect;
 @property(readonly, nonatomic) BOOL supportsCropping; // @synthesize supportsCropping=_supportsCropping;
 @property(readonly, nonatomic) float zoomScale; // @synthesize zoomScale=_zoomScale;
@@ -25,7 +27,7 @@
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) BOOL parallaxEnabled;
 - (void)dealloc;
-- (id)initWithName:(id)arg1 parallaxFactor:(float)arg2 zoomScale:(float)arg3 supportsCropping:(BOOL)arg4 cropRect:(struct CGRect)arg5;
+- (id)initWithName:(id)arg1 parallaxFactor:(float)arg2 zoomScale:(float)arg3 supportsCropping:(BOOL)arg4 cropRect:(struct CGRect)arg5 portrait:(BOOL)arg6;
 
 @end
 

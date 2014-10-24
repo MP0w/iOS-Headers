@@ -9,6 +9,9 @@
 @protocol IMServiceSessionProtocol
 
 @optional
+- (void)enrollSelfDeviceInSMSRelay;
+- (void)unEnrollDeviceInSMSRelay:(NSString *)arg1;
+- (void)enrollDeviceInSMSRelay:(NSString *)arg1;
 - (void)validateProfile;
 - (void)unvalidateAliases:(NSArray *)arg1;
 - (void)validateAliases:(NSArray *)arg1;
@@ -42,6 +45,7 @@
 - (void)invitePersonInfo:(NSDictionary *)arg1 withMessage:(IMMessageItem *)arg2 toChatID:(NSString *)arg3 identifier:(NSString *)arg4 style:(unsigned char)arg5;
 - (void)removeChatID:(NSString *)arg1 identifier:(NSString *)arg2 style:(unsigned char)arg3;
 - (void)leaveChatID:(NSString *)arg1 identifier:(NSString *)arg2 style:(unsigned char)arg3;
+- (void)joinChatID:(NSString *)arg1 handleInfo:(NSDictionary *)arg2 identifier:(NSString *)arg3 style:(unsigned char)arg4 groupID:(NSString *)arg5 joinProperties:(NSDictionary *)arg6;
 - (void)joinChatID:(NSString *)arg1 handleInfo:(NSDictionary *)arg2 identifier:(NSString *)arg3 style:(unsigned char)arg4 joinProperties:(NSDictionary *)arg5;
 - (void)updateAuthorizationCredentials:(NSString *)arg1 token:(NSString *)arg2;
 - (void)setValue:(id)arg1 ofProperty:(NSString *)arg2 ofPerson:(NSString *)arg3;

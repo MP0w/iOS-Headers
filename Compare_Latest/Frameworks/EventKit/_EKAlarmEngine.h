@@ -29,6 +29,9 @@
     BOOL _shouldUpdateWithForceForFences;
 }
 
++ (id)_publisherBulletinIDForTaskUniqueIdentifier:(id)arg1;
++ (id)_publisherBulletinIDForReminder:(id)arg1;
++ (id)_publisherBulletinIDForTask:(void *)arg1;
 + (id)sharedInstance;
 - (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
 - (void)locationManager:(id)arg1 monitoringDidFailForRegion:(id)arg2 withError:(id)arg3;

@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 @interface CKDModifyRecordZonesOperation : CKDDatabaseOperation
 {
     BOOL _allowDefaultZoneSave;
+    BOOL _markZonesAsUserPurged;
     CDUnknownBlockType _saveCompletionBlock;
     CDUnknownBlockType _deleteCompletionBlock;
     NSMutableArray *_recordZonesToSave;
@@ -22,6 +23,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) int numZoneSaveAttempts; // @synthesize numZoneSaveAttempts=_numZoneSaveAttempts;
+@property(nonatomic) BOOL markZonesAsUserPurged; // @synthesize markZonesAsUserPurged=_markZonesAsUserPurged;
 @property(nonatomic) BOOL allowDefaultZoneSave; // @synthesize allowDefaultZoneSave=_allowDefaultZoneSave;
 @property(retain, nonatomic) NSMutableDictionary *pcsOplockFailureCountByZoneID; // @synthesize pcsOplockFailureCountByZoneID=_pcsOplockFailureCountByZoneID;
 @property(retain, nonatomic) NSMutableDictionary *recordZonesByZoneID; // @synthesize recordZonesByZoneID=_recordZonesByZoneID;

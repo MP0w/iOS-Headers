@@ -13,11 +13,13 @@
 @interface CKModifyRecordZonesOperationInfo : CKDatabaseOperationInfo <NSSecureCoding>
 {
     BOOL _allowDefaultZoneSave;
+    BOOL _markZonesAsUserPurged;
     NSArray *_recordZonesToSave;
     NSArray *_recordZoneIDsToDelete;
 }
 
 + (BOOL)supportsSecureCoding;
+@property(nonatomic) BOOL markZonesAsUserPurged; // @synthesize markZonesAsUserPurged=_markZonesAsUserPurged;
 @property(nonatomic) BOOL allowDefaultZoneSave; // @synthesize allowDefaultZoneSave=_allowDefaultZoneSave;
 @property(retain, nonatomic) NSArray *recordZoneIDsToDelete; // @synthesize recordZoneIDsToDelete=_recordZoneIDsToDelete;
 @property(retain, nonatomic) NSArray *recordZonesToSave; // @synthesize recordZonesToSave=_recordZonesToSave;

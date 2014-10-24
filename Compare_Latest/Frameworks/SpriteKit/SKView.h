@@ -82,7 +82,7 @@
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)_renderContent;
 - (void)renderContent;
-- (void)renderCallback:(double)arg1;
+- (void)renderCallback:(double)arg1 shouldBlock:(BOOL)arg2;
 - (void)presentScene:(id)arg1 transition:(id)arg2;
 - (void)presentScene:(id)arg1;
 - (void)_setupContext;
@@ -108,6 +108,7 @@
 @property(nonatomic) BOOL _usesAsyncUpdateQueue;
 @property(nonatomic) BOOL ignoresSiblingOrder;
 @property(nonatomic, getter=isAsynchronous) BOOL asynchronous;
+- (void)renderForTime:(double)arg1 shouldBlock:(BOOL)arg2;
 @property(readonly, nonatomic) int _spriteSubmitCount;
 @property(readonly, nonatomic) int _spriteRenderCount;
 @property(readonly, nonatomic) float _fps;

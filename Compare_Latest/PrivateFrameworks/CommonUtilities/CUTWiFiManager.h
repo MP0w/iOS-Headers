@@ -17,7 +17,6 @@
     BOOL _isWifiEnabled;
     BOOL _isWakeOnWiFiEnabled;
     BOOL _isWakeOnWiFiSupported;
-    BOOL _isWifiAssociated;
     NSMutableSet *_wiFiAutoAssociationTokens;
     NSRecursiveLock *_lock;
     NSHashTable *_delegateMap;
@@ -37,7 +36,6 @@
 @property(retain, nonatomic) NSRunLoop *wifiRunLoop; // @synthesize wifiRunLoop=_wifiRunLoop;
 @property(nonatomic) struct __CFRunLoopSource *runLoopSource; // @synthesize runLoopSource=_runLoopSource;
 @property(retain, nonatomic) NSThread *wifiThread; // @synthesize wifiThread=_wifiThread;
-@property(readonly, nonatomic) BOOL isWiFiAssociated; // @synthesize isWiFiAssociated=_isWifiAssociated;
 @property(copy, nonatomic) NSDictionary *lastWiFiPowerInfo; // @synthesize lastWiFiPowerInfo=_lastWiFiPowerInfo;
 @property(nonatomic) void *dynamicStore; // @synthesize dynamicStore=_dynamicStore;
 @property(nonatomic) void *wifiDevice; // @synthesize wifiDevice=_wifiDevice;
@@ -66,6 +64,7 @@
 @property(readonly, nonatomic) BOOL isWiFiEnabled; // @synthesize isWiFiEnabled=_isWifiEnabled;
 - (void)_updateIsWiFiEnabled;
 - (void)_updateIsWiFiAssociatedAsync:(BOOL)arg1;
+@property(readonly, nonatomic) BOOL isWiFiAssociated;
 @property(readonly, retain, nonatomic) NSNumber *wiFiScaledRate;
 @property(readonly, retain, nonatomic) NSNumber *wiFiScaledRSSI;
 @property(readonly, retain, nonatomic) NSNumber *wiFiSignalStrength;

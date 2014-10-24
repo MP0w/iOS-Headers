@@ -7,6 +7,7 @@
 #import "UIViewController.h"
 
 #import "IKAppContextDelegate.h"
+#import "IKAppDeviceConfig.h"
 #import "IKApplication.h"
 #import "MPVideoOverlayDelegate.h"
 #import "UICollectionViewDelegate.h"
@@ -14,7 +15,7 @@
 
 @class IKAppContext, MPUExtrasArtworkDataSource, MPUExtrasContext, MPUExtrasFeatureContainerViewController, MPUExtrasMainTemplateViewController, MPUExtrasNavigationController, NSObject<OS_dispatch_queue>, NSString, UINavigationController, UIView;
 
-@interface MPUExtrasRootViewController : UIViewController <IKApplication, IKAppContextDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, MPVideoOverlayDelegate>
+@interface MPUExtrasRootViewController : UIViewController <IKApplication, IKAppContextDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, IKAppDeviceConfig, MPVideoOverlayDelegate>
 {
     MPUExtrasNavigationController *_navigationController;
     NSObject<OS_dispatch_queue> *_imageRequestQueue;
@@ -53,6 +54,13 @@
 - (unsigned int)supportedInterfaceOrientations;
 - (void)viewDidLoad;
 - (BOOL)prefersStatusBarHidden;
+- (id)storeFrontCountryCode;
+- (id)systemLanguage;
+- (id)timeZone;
+- (BOOL)isTimeZoneSet;
+- (struct CGSize)screenSize;
+- (unsigned int)preferredVideoPreviewFormat;
+- (unsigned int)preferredVideoFormat;
 - (void)appContext:(id)arg1 didStopWithOptions:(id)arg2;
 - (void)appContext:(id)arg1 didFailWithError:(id)arg2;
 - (void)appContext:(id)arg1 didStartWithOptions:(id)arg2;

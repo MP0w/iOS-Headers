@@ -11,7 +11,9 @@
 + (void)pkAddLabeledValues:(id)arg1 toRecord:(void *)arg2 withProperty:(int)arg3;
 + (id)pkContactWithNameFromContact:(id)arg1 labeledValue:(id)arg2 propertyID:(int)arg3;
 + (id)pkContactWithFirstName:(id)arg1 lastName:(id)arg2 labeledValue:(id)arg3 propertyID:(int)arg4;
++ (id)contactWithPkDictionary:(id)arg1;
 - (id)pkSingleLineFormattedContactAddress;
 - (id)pkFormattedContactAddress;
+- (id)pkDictionaryForPropertyID:(int)arg1;
 @end
 

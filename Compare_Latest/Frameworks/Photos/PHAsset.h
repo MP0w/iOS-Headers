@@ -52,8 +52,12 @@
 + (id)fetchAssetsInAssetCollection:(id)arg1 options:(id)arg2;
 + (id)identifierCode;
 + (id)entityKeyForPropertyKey:(id)arg1;
++ (BOOL)managedObjectSupportsiTunesSyncType;
++ (BOOL)managedObjectSupportsCloudSharedType;
++ (BOOL)managedObjectSupportsPhotoStreamType;
 + (BOOL)managedObjectSupportsWallpaperType;
 + (BOOL)managedObjectSupportsBursts;
++ (BOOL)managedObjectSupportsVisibilityState;
 + (BOOL)managedObjectSupportsHiddenState;
 + (BOOL)managedObjectSupportsTrashedState;
 + (id)managedEntityName;
@@ -96,6 +100,8 @@
 - (id)fileURLForFullsizeRenderImage;
 - (id)fileURLForAdjustmentsDirectory;
 - (id)fileURLForMutationsDirectory;
+- (id)pathForAdjustmentDirectory;
+- (id)pathForMutationsDirectory;
 - (id)fileURLForDiagnosticFile;
 - (id)fileURLForXMPFile;
 - (id)fileURLForVideoPreviewFile;

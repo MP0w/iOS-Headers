@@ -17,10 +17,11 @@
 
 @property(readonly, nonatomic) CallHistoryDBHandle *dbStoreHandle; // @synthesize dbStoreHandle;
 - (void).cxx_destruct;
+- (BOOL)saveDatabase:(id *)arg1;
 - (void)dealloc;
 - (BOOL)updateCallRecord_sync:(id)arg1 withChangeDict:(id)arg2;
 - (id)updateAllCallRecords_sync:(id)arg1 error:(id *)arg2;
-- (id)updateCallRecords_sync:(id)arg1 error:(id *)arg2;
+- (id)updateCallRecords_sync:(id)arg1 error:(id *)arg2 save:(BOOL)arg3;
 - (BOOL)willHandleNotification_sync:(id)arg1;
 - (void)handleCallTimersSave_sync:(id)arg1;
 - (void)handleCallRecordSave_sync:(id)arg1;
@@ -31,14 +32,17 @@
 - (id)timerIncoming;
 - (id)updateAllCallRecords:(id)arg1 error:(id *)arg2;
 - (id)updateAllCallRecords:(id)arg1;
+- (id)updateCallRecords:(id)arg1 error:(id *)arg2 save:(BOOL)arg3;
 - (id)updateCallRecords:(id)arg1 error:(id *)arg2;
 - (id)updateCallRecords:(id)arg1;
 - (BOOL)createCallRecords:(id)arg1 error:(id *)arg2;
 - (BOOL)createCallRecords:(id)arg1;
+- (BOOL)createCallRecord:(id)arg1 error:(id *)arg2 save:(BOOL)arg3;
 - (BOOL)createCallRecord:(id)arg1 error:(id *)arg2;
 - (BOOL)createCallRecord:(id)arg1;
 - (BOOL)deleteObjectsWithUniqueIds:(id)arg1 error:(id *)arg2;
 - (BOOL)deleteObjectsWithUniqueIds:(id)arg1;
+- (BOOL)deleteObjectWithUniqueId:(id)arg1 error:(id *)arg2 save:(BOOL)arg3;
 - (BOOL)deleteObjectWithUniqueId:(id)arg1 error:(id *)arg2;
 - (BOOL)deleteObjectWithUniqueId:(id)arg1;
 - (BOOL)deleteAll:(id *)arg1;

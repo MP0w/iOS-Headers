@@ -19,8 +19,11 @@ __attribute__((visibility("hidden")))
 - (id)traitsForToggleButtonWithSize:(struct CGSize)arg1 highlighted:(BOOL)arg2 edges:(unsigned int)arg3;
 - (id)traitsForCellSize:(struct CGSize)arg1 highlighted:(BOOL)arg2 edges:(BOOL)arg3;
 - (id)initWithRenderConfig:(id)arg1;
+- (id)controlKeyDividerColorName;
+- (id)controlKeyForegroundColorName;
 - (id)controlKeyBackgroundColorName;
-- (id)defaultKeyBackgroundColorName;
+- (id)defaultKeyDividerColorName;
+- (int)lightHighQualityEnabledBlendForm;
 
 @end
 

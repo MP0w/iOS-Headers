@@ -40,6 +40,7 @@
 @property(copy) NSUUID *uuid; // @synthesize uuid=_uuid;
 - (id)statusString;
 - (id)description;
+- (id)logString;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

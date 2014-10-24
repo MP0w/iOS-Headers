@@ -42,6 +42,7 @@
 @property(nonatomic) BOOL requiresFlatThumb; // @synthesize requiresFlatThumb=_requiresFlatThumb;
 @property(nonatomic) unsigned int targetEdges; // @synthesize targetEdges=_targetEdges;
 @property(nonatomic) struct CGRect screenBounds; // @synthesize screenBounds=_screenBounds;
+@property(readonly, nonatomic) struct CGPoint _lastTouchLocation; // @synthesize _lastTouchLocation;
 @property(nonatomic) BOOL shouldUseGrapeFlags; // @synthesize shouldUseGrapeFlags=_useGrapeFlags;
 - (unsigned int)_targetEdges;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;

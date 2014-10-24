@@ -33,6 +33,7 @@
 - (_Bool)wantsHighlightOnInsert;
 - (void)buttonPressed;
 - (_Bool)canBeClearedByNotificationCenter;
+- (_Bool)wantsFullscreenPresentation;
 - (_Bool)canSnooze;
 - (_Bool)canCoalesceWithBulletin:(id)arg1;
 - (_Bool)hasSamePersonAsBulletin:(id)arg1;

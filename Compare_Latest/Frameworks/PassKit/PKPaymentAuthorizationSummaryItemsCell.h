@@ -16,10 +16,11 @@
     NSMutableArray *_constraints;
 }
 
-- (id)_valueAttributedStringWithString:(id)arg1 total:(BOOL)arg2;
-- (id)_labelAttributedStringWithString:(id)arg1 total:(BOOL)arg2;
+- (id)_valueAttributedStringWithString:(id)arg1;
+- (id)_labelAttributedStringWithString:(id)arg1;
 - (void)updateConstraints;
-- (void)addLabel:(id)arg1 value:(id)arg2 total:(BOOL)arg3;
+- (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1 withHorizontalFittingPriority:(float)arg2 verticalFittingPriority:(float)arg3;
+- (void)addLabel:(id)arg1 value:(id)arg2;
 - (void)prepareForReuse;
 - (void)dealloc;
 - (id)initWithLayout:(id)arg1 reuseIdentifier:(id)arg2;

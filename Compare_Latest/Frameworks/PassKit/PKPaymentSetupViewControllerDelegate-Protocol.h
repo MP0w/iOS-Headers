@@ -6,10 +6,14 @@
 
 #import "NSObject.h"
 
-@class NSArray, UIViewController;
+@class NSArray, NSError, NSString, UIViewController;
 
 @protocol PKPaymentSetupViewControllerDelegate <NSObject>
-- (void)handleDownloadedPasses:(NSArray *)arg1 fromViewController:(UIViewController *)arg2 withCompletion:(void (^)(void))arg3;
 - (void)viewControllerDidTerminateSetupFlow:(UIViewController *)arg1;
+
+@optional
+- (void)handlePassAlreadyProvisionedError;
+- (void)handleProvisioningError:(NSError *)arg1 forApplicationIdentifier:(NSString *)arg2;
+- (void)handleDownloadedPasses:(NSArray *)arg1 fromViewController:(UIViewController *)arg2 withCompletion:(void (^)(void))arg3;
 @end
 

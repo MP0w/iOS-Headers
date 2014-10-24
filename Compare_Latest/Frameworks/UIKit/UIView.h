@@ -83,10 +83,11 @@
         unsigned int subviewWantsAutolayout:1;
         unsigned int isApplyingValuesFromEngine:1;
         unsigned int isInAutolayout:1;
-        unsigned int isUpdatingAutoresizingConstraints:1;
+        unsigned int isSubviewUpdatingAutoresizingConstraints:1;
         unsigned int isUpdatingConstraints:1;
         unsigned int isHostingUpdateConstraintsPassDuringLayout:1;
         unsigned int isRunningEngineLevelConstraintsPass:1;
+        unsigned int isUnsatisfiableConstraintsLoggingSuspended:1;
         unsigned int systemLayoutFittingSizeNeedsUpdate:1;
         unsigned int systemLayoutFittingSizeNeedsUpdateInWholeSubtree:1;
         unsigned int isCalculatingSystemLayoutFittingSize:1;
@@ -391,6 +392,7 @@
 - (void)_dispatchTintColorVisitorWithReasons:(unsigned int)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)_processTraitsDidChangeRecursively:(id)arg1 forceNotification:(BOOL)arg2;
+- (void)_wrappedProcessTraitsDidChangeRecursively:(id)arg1 forceNotification:(BOOL)arg2;
 - (void)_traitCollectionDidChange:(id)arg1;
 - (void)_noteTraitsDidChangeRecursively;
 - (id)_traitCollectionForChildEnvironment:(id)arg1;
@@ -460,6 +462,7 @@
 - (id)retain;
 - (id)_contentHeightVariable;
 - (id)_contentWidthVariable;
+@property(nonatomic, getter=_isUnsatisfiableConstraintsLoggingSuspended, setter=_setUnsatisfiableConstraintsLoggingSuspended:) BOOL unsatisfiableConstraintsLoggingSuspended;
 - (BOOL)_canBeReusedInPickerView;
 - (void)setOrigin:(struct CGPoint)arg1;
 - (struct CGPoint)origin;
@@ -818,7 +821,6 @@
 - (struct CGSize)_systemLayoutSizeFittingSize:(struct CGSize)arg1 withHorizontalFittingPriority:(float)arg2 verticalFittingPriority:(float)arg3;
 - (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1;
 - (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1 withHorizontalFittingPriority:(float)arg2 verticalFittingPriority:(float)arg3;
-- (struct CGSize)_systemLayoutSizeFittingSize:(struct CGSize)arg1 withHorizontalFittingPriority:(float)arg2 verticalFittingPriority:(float)arg3 hasIntentionallyCollapsedHeight:(char *)arg4;
 - (BOOL)_forwardsSystemLayoutFittingSizeToContentView:(id)arg1;
 - (struct CGSize)_calculatedSystemLayoutSizeFittingSize:(struct CGSize)arg1 withHorizontalFittingPriority:(float)arg2 verticalFittingPriority:(float)arg3 hasIntentionallyCollapsedHeight:(char *)arg4;
 - (void)_recursiveCollectTemporaryInternalConstraintsWithEngine:(id)arg1 ignoreAutoresizingMaskConstraints:(BOOL)arg2 returningConstraintsForViewsNeedingSecondPass:(id *)arg3 constraintsRemovedForFitting:(id)arg4 constraintsAddedForFitting:(id)arg5;
@@ -936,6 +938,9 @@
 - (void)_updateConstraintsIfNeededAccumulatingViewsNeedingSecondPassAndViewsNeedingBaselineUpdate:(id)arg1;
 - (void)_internalUpdateConstraintsIfNeededAccumulatingViewsNeedingSecondPassAndViewsNeedingBaselineUpdate:(id)arg1;
 - (void)setTranslatesAutoresizingMaskIntoConstraints:(BOOL)arg1;
+- (id)_constraintsBrokenWhileUnsatisfiableConstraintsLoggingSuspended;
+- (void)_recordConstraintBrokenWhileUnsatisfiableConstraintsLoggingSuspended:(id)arg1;
+- (void)_withUnsatisfiableConstraintsLoggingSuspendedIfEngineDelegateExists:(CDUnknownBlockType)arg1;
 - (void)_withAutomaticEngineOptimizationDisabledIfEngineExists:(CDUnknownBlockType)arg1;
 - (id)_layoutEngineIfAvailable;
 - (id)_uiib_layoutEngineCreatingIfNecessary;
@@ -992,6 +997,7 @@
 - (id)_constraintsValidityDescription;
 - (id)_rootView;
 - (id)_recursiveConstraintsTraceAtLevel:(int)arg1;
+- (struct CGSize)_systemLayoutSizeFittingSize:(struct CGSize)arg1 withHorizontalFittingPriority:(float)arg2 verticalFittingPriority:(float)arg3 hasIntentionallyCollapsedHeight:(char *)arg4;
 - (void)engine:(id)arg1 willBreakConstraint:(id)arg2 dueToMutuallyExclusiveConstraints:(id)arg3;
 - (id)engine:(id)arg1 markerForConstraintToBreakAmongConstraints:(id)arg2;
 - (void)constraintsDidChangeInEngine:(id)arg1;

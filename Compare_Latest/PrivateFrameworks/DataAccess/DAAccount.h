@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class ACAccount, DAStatusReport, DATaskManager, NSArray, NSData, NSMapTable, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString, NSURL;
+@class ACAccount, DAStatusReport, DATaskManager, DATrustHandler, NSArray, NSData, NSMapTable, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString, NSURL;
 
 @interface DAAccount : NSObject
 {
@@ -14,7 +14,6 @@
     BOOL _hasInitted;
     BOOL _shouldUseOpportunisticSockets;
     BOOL _wasUserInitiated;
-    NSMutableDictionary *_haveWarnedAboutCertDict;
     DAStatusReport *_statusReport;
     NSMapTable *_consumers;
     struct __CFURLStorageSession *_storageSession;
@@ -22,6 +21,7 @@
     DATaskManager *_taskManager;
     BOOL _shouldFailAllTasks;
     BOOL _isValidating;
+    DATrustHandler *_trustHandler;
     NSArray *_appIdsForPasswordPrompt;
     NSMutableArray *_pendingQueries;
     NSObject<OS_dispatch_queue> *_pendingQueryQueue;
@@ -39,6 +39,7 @@
 @property(retain, nonatomic) NSMutableArray *pendingQueries; // @synthesize pendingQueries=_pendingQueries;
 @property(nonatomic) BOOL isValidating; // @synthesize isValidating=_isValidating;
 @property(readonly, nonatomic) NSArray *appIdsForPasswordPrompt; // @synthesize appIdsForPasswordPrompt=_appIdsForPasswordPrompt;
+@property(retain, nonatomic) DATrustHandler *trustHandler; // @synthesize trustHandler=_trustHandler;
 @property(readonly, nonatomic) DATaskManager *taskManager; // @synthesize taskManager=_taskManager;
 @property(nonatomic) BOOL wasUserInitiated; // @synthesize wasUserInitiated=_wasUserInitiated;
 @property(nonatomic) BOOL shouldUseOpportunisticSockets; // @synthesize shouldUseOpportunisticSockets=_shouldUseOpportunisticSockets;
@@ -64,8 +65,6 @@
 @property(readonly, nonatomic) BOOL shouldFailAllTasks; // @synthesize shouldFailAllTasks=_shouldFailAllTasks;
 - (void)resetStatusReport;
 - (BOOL)resetCertWarnings;
-- (void)setHaveWarnedAboutCert:(id)arg1 forHost:(id)arg2;
-- (BOOL)haveWarnedAboutCert:(id)arg1 forHost:(id)arg2;
 @property(readonly, nonatomic) BOOL isChildAccount;
 - (void)cleanupAccountFiles;
 - (void)setExceptions:(struct __CFData *)arg1 forDigest:(id)arg2;
@@ -166,9 +165,6 @@
 - (id)initWithBackingAccountInfo:(id)arg1;
 - (void)dealloc;
 - (BOOL)handleTrustChallenge:(id)arg1;
-- (void)handleTrust:(struct __SecTrust *)arg1 forHost:(id)arg2 withCompletionBlock:(CDUnknownBlockType)arg3;
-- (id)_serverSuffixesToAlwaysFail;
-- (int)_actionForTrust:(struct __SecTrust *)arg1 host:(id)arg2 service:(id)arg3;
 - (void)handleValidationError:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)webLoginRequestedAtURL:(id)arg1 reasonString:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)_webLoginRequestedAtURL:(id)arg1 reasonString:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;

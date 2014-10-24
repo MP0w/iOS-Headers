@@ -31,7 +31,7 @@
     unsigned int _deletedCountSinceLastFetchedGPSCount;
     unsigned int _newlyCompleteWithGPS;
     PLManagedAlbum *_cameraRollAlbum;
-    PLFetchingAlbum *_recentlyAddedAlbum;
+    PLFetchingAlbum *_userLibraryAlbum;
     PLFetchingAlbum *_cameraSessionAlbum;
     PLInFlightAssetsAlbum *_inFlightAssetsAlbum;
     PLManagedObjectContext *managedObjectContext;
@@ -83,6 +83,7 @@
 + (void)setDupeAnalysisNeeded:(BOOL)arg1;
 + (BOOL)isDisableICloudPhotos;
 + (BOOL)isEnableICloudPhotos;
++ (BOOL)isForceSoftResetSync;
 + (BOOL)isICloudPhotosPaused;
 + (id)pauseTime;
 + (void)setPauseMarker:(BOOL)arg1;
@@ -91,6 +92,7 @@
 + (void)setICloudPhotosEnabled:(BOOL)arg1;
 + (void)setEnableICloudPhotos:(BOOL)arg1;
 + (void)setDisableICloudPhotos:(BOOL)arg1;
++ (void)forceSoftResetSync;
 + (BOOL)isMomentAnalysisNeeded;
 + (void)setMomentAnalysisNeeded:(BOOL)arg1;
 + (id)fileReservationForFileAtPath:(id)arg1 exclusive:(BOOL)arg2;
@@ -114,6 +116,7 @@
 + (id)pauseICloudPhotosFilePath;
 + (id)enableICloudPhotosFilePath;
 + (id)disableICloudPhotosFilePath;
++ (id)forceSoftResetSyncPath;
 + (id)momentAnalysisNeededFilePath;
 + (id)dupeAnalysisNeededFilePath;
 + (void)createPhotoStreamAlbumWithStreamID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -256,7 +259,7 @@
 - (void)addInflightAsset:(id)arg1;
 - (struct NSObject *)inFlightAssetsAlbumIfAvailable;
 @property(readonly, retain, nonatomic) NSObject<PLAlbumProtocol> *inFlightAssetsAlbum;
-@property(readonly, retain, nonatomic) NSObject<PLAlbumProtocol> *recentlyAddedAlbum;
+@property(readonly, retain, nonatomic) NSObject<PLAlbumProtocol> *userLibraryAlbum;
 @property(readonly, retain, nonatomic) NSObject<PLAlbumProtocol> *savedPhotosAlbum;
 - (void)_withDispatchGroup:(id)arg1 synchronously:(BOOL)arg2 performBlock:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)withDispatchGroup:(id)arg1 performBlock:(CDUnknownBlockType)arg2;

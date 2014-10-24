@@ -6,35 +6,23 @@
 
 #import "NSObject.h"
 
-#import "NSSecureCoding.h"
 #import "NSURLSessionDelegate.h"
 #import "NSURLSessionDownloadDelegate.h"
 
-@class ACAccount, ACAccountStore, NSArray, NSDate, NSDictionary, NSMutableDictionary, NSOperationQueue, NSString, NSURL, NSURLSession, NSURLSessionConfiguration, PKPaymentDevice;
+@class ACAccount, ACAccountStore, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSOperationQueue, NSString, NSURL, NSURLSession, NSURLSessionConfiguration, PKPaymentDevice, PKPaymentWebServiceBackgroundContext, PKPaymentWebServiceContext;
 
-@interface PKPaymentWebService : NSObject <NSURLSessionDelegate, NSURLSessionDownloadDelegate, NSSecureCoding>
+@interface PKPaymentWebService : NSObject <NSURLSessionDelegate, NSURLSessionDownloadDelegate>
 {
     NSURLSession *_urlSession;
+    NSURLSession *_backgroundSession;
     ACAccountStore *_accountStore;
     PKPaymentDevice *_paymentDevice;
     NSMutableDictionary *_passesByLocalURL;
-    NSDictionary *_backgroundTasksByTaskIdentifier;
     NSOperationQueue *_delegateOperationQueue;
-    BOOL _devSigned;
-    BOOL _transactionServiceSupported;
-    BOOL _messageServiceSupported;
+    NSObject<OS_dispatch_queue> *_backgroundDownloadQueue;
     BOOL _sharedService;
-    NSString *_deviceID;
-    NSString *_secureElementID;
-    NSDate *_registrationDate;
-    int _consistencyCheckBackoffLevel;
-    NSArray *_certificates;
-    NSString *_lastUpdatedTag;
-    NSURL *_brokerURL;
-    NSURL *_paymentServicesURL;
-    NSString *_pushToken;
-    NSDictionary *_verificationRequestsByPassUniqueID;
-    NSDate *_configurationDate;
+    PKPaymentWebServiceContext *_context;
+    PKPaymentWebServiceBackgroundContext *_backgroundContext;
     id <PKPaymentProvisioningServiceDelegate> _delegate;
     id <PKPaymentBackgroundProvisioningServiceDelegate> _backgroundDelegate;
     unsigned int _maxCards;
@@ -42,36 +30,21 @@
 
 + (id)_sharedCookieStorage;
 + (BOOL)supportsSecureCoding;
-+ (id)serviceWithArchive:(id)arg1;
 + (id)sharedService;
-@property(retain, nonatomic) NSDictionary *backgroundTasksByTaskIdentifier; // @synthesize backgroundTasksByTaskIdentifier=_backgroundTasksByTaskIdentifier;
 @property(nonatomic) unsigned int maxCards; // @synthesize maxCards=_maxCards;
 @property(nonatomic) BOOL sharedService; // @synthesize sharedService=_sharedService;
-@property(nonatomic) id <PKPaymentBackgroundProvisioningServiceDelegate> backgroundDelegate; // @synthesize backgroundDelegate=_backgroundDelegate;
-@property(nonatomic) id <PKPaymentProvisioningServiceDelegate> delegate; // @synthesize delegate=_delegate;
-@property(copy, nonatomic) NSDate *configurationDate; // @synthesize configurationDate=_configurationDate;
-@property(nonatomic) BOOL messageServiceSupported; // @synthesize messageServiceSupported=_messageServiceSupported;
-@property(nonatomic) BOOL transactionServiceSupported; // @synthesize transactionServiceSupported=_transactionServiceSupported;
-@property(copy, nonatomic) NSDictionary *verificationRequestsByPassUniqueID; // @synthesize verificationRequestsByPassUniqueID=_verificationRequestsByPassUniqueID;
-@property(nonatomic) BOOL devSigned; // @synthesize devSigned=_devSigned;
-@property(copy, nonatomic) NSString *pushToken; // @synthesize pushToken=_pushToken;
-@property(copy, nonatomic) NSURL *paymentServicesURL; // @synthesize paymentServicesURL=_paymentServicesURL;
-@property(copy, nonatomic) NSURL *brokerURL; // @synthesize brokerURL=_brokerURL;
-@property(copy, nonatomic) NSString *lastUpdatedTag; // @synthesize lastUpdatedTag=_lastUpdatedTag;
-@property(copy, nonatomic) NSArray *certificates; // @synthesize certificates=_certificates;
-@property(nonatomic) int consistencyCheckBackoffLevel; // @synthesize consistencyCheckBackoffLevel=_consistencyCheckBackoffLevel;
-@property(copy, nonatomic) NSDate *registrationDate; // @synthesize registrationDate=_registrationDate;
-@property(copy, nonatomic) NSString *secureElementID; // @synthesize secureElementID=_secureElementID;
-@property(copy, nonatomic) NSString *deviceID; // @synthesize deviceID=_deviceID;
-- (void)_archive;
-- (void)_replaceBackgroundTaskWithIdentifier:(int)arg1 withTask:(id)arg2;
-- (void)_removeBackgroundTaskIdentifier:(int)arg1;
-- (void)_setBackgroundTask:(id)arg1 forTaskIdentifier:(int)arg2;
+@property id <PKPaymentBackgroundProvisioningServiceDelegate> backgroundDelegate; // @synthesize backgroundDelegate=_backgroundDelegate;
+@property id <PKPaymentProvisioningServiceDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain) PKPaymentWebServiceBackgroundContext *backgroundContext; // @synthesize backgroundContext=_backgroundContext;
+@property(retain) PKPaymentWebServiceContext *context; // @synthesize context=_context;
+- (void)_didRegister;
+- (void)_archiveBackgroundContext;
+- (void)_archiveContext;
 - (void)_cleanupPassDownloadCache;
 - (id)_downloadCacheLocation;
 - (id)_movePassToDownloadCache:(id)arg1;
 - (id)_paymentDevice;
-@property(readonly, nonatomic) ACAccount *account;
+@property(readonly) ACAccount *account;
 - (id)_accountStore;
 - (id)_errorUserInfoWithErrorCode:(int)arg1;
 - (id)_errorUserInfoWithData:(id)arg1;
@@ -91,13 +64,13 @@
 - (void)_handlePassListDownloadTask:(id)arg1 data:(id)arg2;
 - (void)_handleRemoteAssetDownloadTask:(id)arg1 data:(id)arg2;
 - (id)_passWithFileURL:(id)arg1;
-- (void)_performRequest:(id)arg1 retries:(unsigned int)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_performRequest:(id)arg1 retries:(unsigned int)arg2 authHandling:(BOOL)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_performRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;
 - (void)URLSession:(id)arg1 downloadTask:(id)arg2 didFinishDownloadingToURL:(id)arg3;
 - (BOOL)_canBypassTrustExtendedValidation;
 - (BOOL)_trustPassesExtendedValidation:(struct __SecTrust *)arg1;
-- (void)URLSession:(id)arg1 task:(id)arg2 didReceiveChallenge:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)URLSession:(id)arg1 didReceiveChallenge:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)URLSession:(id)arg1 task:(id)arg2 willPerformHTTPRedirection:(id)arg3 newRequest:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)rewrapInAppPayment:(id)arg1 merchantIdentifier:(id)arg2 applicationData:(id)arg3 pass:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)inAppPaymentNonceForPass:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -113,6 +86,7 @@
 - (void)backgroundDownloadDevicePassesSinceLastUpdatedTag:(BOOL)arg1;
 - (void)devicePassesSinceLastUpdatedTag:(BOOL)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)submitVerificationCode:(id)arg1 verificationData:(id)arg2 forPass:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (id)_addVerificationRequestRecordForChannel:(id)arg1 pass:(id)arg2;
 - (void)requestVerificationCodeForPass:(id)arg1 usingChannel:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)_fakeVerificationChannelsWithRealChannels:(id)arg1;
 - (void)verificationChannelsForPass:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -121,21 +95,23 @@
 - (void)eligibilityForPaymentCredential:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)remotePaymentCredentialsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)unregisterDeviceWithCompletion:(CDUnknownBlockType)arg1;
+- (void)registerDeviceWithConsistencyData:(id)arg1 retries:(unsigned int)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)registerDeviceWithConsistencyData:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)registerDeviceWithCompletion:(CDUnknownBlockType)arg1;
 - (void)configurePaymentServiceWithCompletion:(CDUnknownBlockType)arg1;
-@property(readonly, nonatomic) NSURLSessionConfiguration *sessionConfiguration;
-- (void)startBackgroundURLSessionWithIdentifier:(id)arg1 backgroundDelegate:(id)arg2;
+@property(readonly) NSURLSessionConfiguration *sessionConfiguration;
+- (void)invalidateBackgroundSession;
+- (void)startBackgroundURLSessionWithIdentifier:(id)arg1 context:(id)arg2 backgroundDelegate:(id)arg3;
+- (id)paymentServicesURL;
+- (void)setBrokerURL:(id)arg1;
+@property(readonly) NSURL *brokerURL;
 - (void)sharedServiceDidRegister;
-@property(readonly, nonatomic) BOOL needsConfiguration;
-@property(readonly, nonatomic) BOOL needsRegistration;
-@property(readonly, nonatomic) int paymentSetupSupportedInRegion;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
+@property(readonly) BOOL needsConfiguration;
+@property(readonly) BOOL needsRegistration;
+@property(readonly) int paymentSetupSupportedInRegion;
 - (void)dealloc;
-- (void)archiveAtPath:(id)arg1;
-- (id)initWithDelegate:(id)arg1;
-- (id)init;
+- (id)initWithContext:(id)arg1 delegate:(id)arg2;
+- (id)initWithContext:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

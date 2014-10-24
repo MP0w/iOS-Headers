@@ -18,6 +18,9 @@
 + (id)writeQueue;
 - (BOOL)setKeywords:(id)arg1 forAssetUUID:(id)arg2;
 - (id)keywordObjectsForKeywords:(id)arg1;
+- (id)_keywordsForAsset:(id)arg1;
+- (id)keywordsForAssets:(id)arg1;
+- (id)keywordsForAsset:(id)arg1;
 - (id)keywordsForAssetWithUUID:(id)arg1;
 - (id)allKeywords;
 - (void)dealloc;

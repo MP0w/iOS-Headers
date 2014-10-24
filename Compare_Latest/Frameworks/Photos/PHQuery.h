@@ -20,6 +20,8 @@
     NSManagedObjectID *_containerIdentifier;
     BOOL __includesTrashedObjects;
     BOOL __includesCameraRoll;
+    BOOL __includesCloudSharedAssets;
+    BOOL __includesiTunesSyncAssets;
     PHFetchOptions *_fetchOptions;
     NSString *_fetchType;
     NSArray *_seedOIDs;
@@ -58,6 +60,7 @@
 + (id)queryForType:(id)arg1 withIdentifiers:(id)arg2 local:(BOOL)arg3;
 + (id)queryForAssetsWithMediaType:(int)arg1 options:(id)arg2;
 + (id)queryForAssetsInAssetCollection:(id)arg1 options:(id)arg2;
++ (id)_fetchOptionsForFetchingAssetsFromAssetCollection:(id)arg1 options:(id)arg2;
 + (id)_filterPredicateFromFetchOptionsPredicate:(id)arg1 phClass:(Class)arg2;
 + (id)_containerIdentifierForFetchType:(id)arg1 predicate:(id)arg2;
 + (id)_transformedSortDescriptors:(id)arg1 forFetchType:(id)arg2;
@@ -65,6 +68,8 @@
 + (id)_relationshipForFetchType:(id)arg1 predicate:(id)arg2;
 + (id)queryForType:(id)arg1 withBasePredicate:(id)arg2 seedOIDs:(id)arg3 inLibrary:(id)arg4;
 + (id)queryForType:(id)arg1 withBasePredicate:(id)arg2 inLibrary:(id)arg3;
+@property(nonatomic, setter=_setIncludesiTunesSyncAssets:) BOOL _includesiTunesSyncAssets; // @synthesize _includesiTunesSyncAssets=__includesiTunesSyncAssets;
+@property(nonatomic, setter=_setIncludesCloudSharedAssets:) BOOL _includesCloudSharedAssets; // @synthesize _includesCloudSharedAssets=__includesCloudSharedAssets;
 @property(nonatomic, setter=_setIncludesCameraRoll:) BOOL _includesCameraRoll; // @synthesize _includesCameraRoll=__includesCameraRoll;
 @property(nonatomic, setter=_setIncludesTrashedObjects:) BOOL _includesTrashedObjects; // @synthesize _includesTrashedObjects=__includesTrashedObjects;
 @property(readonly) PHPhotoLibrary *photoLibrary; // @synthesize photoLibrary=_photoLibrary;

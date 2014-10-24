@@ -104,6 +104,7 @@
 - (BOOL)openAtPath:(id)arg1 isReadOnly:(BOOL)arg2 error:(id *)arg3;
 - (BOOL)_installFunctions;
 - (BOOL)_setupPragmas;
+- (BOOL)_setupPragmasNotUpsetAboutWAL_17553237;
 - (BOOL)_setupDBIfNeeded;
 - (BOOL)_upgradeDB:(long long)arg1;
 - (BOOL)_gotoV3;

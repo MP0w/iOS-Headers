@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CKDClientContext, NSData, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSOperationQueue;
+@class CKDClientContext, NSData, NSError, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSOperationQueue;
 
 __attribute__((visibility("hidden")))
 @interface CKDMescalSession : NSObject
@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     BOOL _renewing;
     BOOL _didCheckGoldenTicket;
     CKDClientContext *_context;
+    NSError *_lastSetupError;
     NSObject<OS_dispatch_queue> *_opQueue;
     NSObject<OS_dispatch_group> *_renewalGroup;
     NSOperationQueue *_renewQueue;
@@ -26,6 +27,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSOperationQueue *renewQueue; // @synthesize renewQueue=_renewQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_group> *renewalGroup; // @synthesize renewalGroup=_renewalGroup;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *opQueue; // @synthesize opQueue=_opQueue;
+@property(retain, nonatomic) NSError *lastSetupError; // @synthesize lastSetupError=_lastSetupError;
 @property BOOL renewing; // @synthesize renewing=_renewing;
 @property(nonatomic) BOOL isSetup; // @synthesize isSetup=_isSetup;
 @property(readonly, nonatomic) __weak CKDClientContext *context; // @synthesize context=_context;
@@ -37,6 +39,7 @@ __attribute__((visibility("hidden")))
 - (void)exchangeData:(id)arg1 serverVersion:(int)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)_setUpWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_teardown;
+- (void)_teardownLocked;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1;
 

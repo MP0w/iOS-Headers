@@ -14,6 +14,7 @@
 
 + (id)_exportedInterface;
 + (id)_remoteViewControllerInterface;
+- (void)setUserInfo:(id)arg1;
 - (void)noteActivatedForCustomReason:(id)arg1;
 - (void)handleDoubleHeightStatusBarTap;
 - (void)dealloc;

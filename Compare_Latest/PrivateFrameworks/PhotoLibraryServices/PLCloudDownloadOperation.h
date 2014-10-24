@@ -13,7 +13,6 @@
 
 - (id)description;
 - (void)runOperationWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)markAsLocallyAvailable:(BOOL)arg1;
 - (unsigned int)cost;
 - (void)requestCancel;
 

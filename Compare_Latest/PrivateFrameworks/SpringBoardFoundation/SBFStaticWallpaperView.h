@@ -48,8 +48,8 @@
 - (id)wallpaperImage;
 - (BOOL)isDisplayingWallpaper:(id)arg1 forVariant:(int)arg2 options:(id)arg3;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 wallpaperImage:(id)arg2 treatWallpaper:(BOOL)arg3;
-- (id)initWithFrame:(struct CGRect)arg1 wallpaperImage:(id)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 wallpaperImage:(id)arg2 treatWallpaper:(BOOL)arg3 variant:(int)arg4;
+- (id)initWithFrame:(struct CGRect)arg1 wallpaperImage:(id)arg2 variant:(int)arg3;
 
 @end
 

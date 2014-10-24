@@ -17,13 +17,16 @@
     unsigned int _mtuLength;
     int _pairingState;
     int _hostState;
+    BOOL _isLinkEncrypted;
 }
 
-@property(nonatomic) unsigned int mtuLength; // @synthesize mtuLength=_mtuLength;
+@property(nonatomic) BOOL isLinkEncrypted; // @synthesize isLinkEncrypted=_isLinkEncrypted;
 @property(nonatomic) int hostState; // @synthesize hostState=_hostState;
 @property(nonatomic) int pairingState; // @synthesize pairingState=_pairingState;
+@property(nonatomic) unsigned int mtuLength; // @synthesize mtuLength=_mtuLength;
 @property(readonly, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 @property(readonly, nonatomic) struct __CFUUID *UUID; // @synthesize UUID=_UUID;
+- (void)handleLinkEncryptionChanged:(id)arg1;
 - (void)handleHostStateUpdated:(id)arg1;
 - (void)handleMTUChanged:(id)arg1;
 - (void)handleMsg:(int)arg1 args:(id)arg2;

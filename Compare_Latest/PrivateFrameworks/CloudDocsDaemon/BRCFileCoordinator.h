@@ -20,13 +20,13 @@
     BOOL _isUpdateForReconnecting;
 }
 
-+ (void)itemAtPath:(id)arg1 logicalFilename:(id)arg2 didMoveToPath:(id)arg3 logicalFilename:(id)arg4;
++ (void)itemAtPath:(id)arg1 logicalFilename:(id)arg2 didMoveToPath:(id)arg3 logicalFilename:(id)arg4 hasContentUpdate:(BOOL)arg5;
 + (void)itemAtPath:(id)arg1 didBounceToName:(id)arg2;
 + (void)itemDidDisappearAtPath:(id)arg1 logicalFilename:(id)arg2;
 + (void)itemDidAppearAtPath:(id)arg1 logicalFilename:(id)arg2;
 @property(nonatomic) BOOL isUpdateForReconnecting; // @synthesize isUpdateForReconnecting=_isUpdateForReconnecting;
 - (void).cxx_destruct;
-- (void)scheduleRenameOfItemAtURL:(id)arg1 toItemAtURL:(id)arg2 target:(id)arg3;
+- (void)scheduleRenameOfItemAtURL:(id)arg1 toItemAtURL:(id)arg2 contentUpdate:(BOOL)arg3 target:(id)arg4;
 - (void)scheduleUpdateOfItemAtURL:(id)arg1 target:(id)arg2;
 - (void)scheduleDeleteOfItemAtURL:(id)arg1 target:(id)arg2;
 - (void)scheduleReadOfItemAtURL:(id)arg1 target:(id)arg2;

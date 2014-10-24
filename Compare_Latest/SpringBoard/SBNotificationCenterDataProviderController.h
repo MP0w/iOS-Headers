@@ -16,8 +16,6 @@
     NSMutableDictionary *_identifiersToDataProviderProxies;
     NSMutableDictionary *_identifiersToWidgetExtensions;
     NSArray *_defaultEnabledWeeAppIDs;
-    NSArray *_updatedAvailableExtensions;
-    _Bool _isCoalescingAvailableExtensions;
     _Bool _isCoalescingForSectionSort;
     NSMutableSet *_serviceIDsOnProbation;
     id _plugInDiscoveryToken;
@@ -41,6 +39,7 @@
 - (void)beginPublishingIfNecessary;
 - (void)_setupBBObserverIfNecessary;
 - (void)updatePublishedWidgetExtensions;
+- (void)_updatePublishedWidgetExtensions:(id)arg1;
 - (_Bool)_shouldPublishWidgetExtension:(id)arg1;
 - (void)_coalesceAndSortChronologicalSections;
 - (void)sortChronologicalSectionsWithCompletion:(CDUnknownBlockType)arg1;

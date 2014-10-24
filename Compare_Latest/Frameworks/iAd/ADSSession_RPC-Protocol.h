@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class ADAdSlot, ADAdSpaceConfiguration, NSArray, NSData, NSDictionary, NSNumber, NSString;
+@class ADAdSlot, NSArray, NSData, NSDictionary, NSNumber, NSString;
 
 @protocol ADSSession_RPC
 - (void)_priv_removeRecordForAccountWithIdentifier:(NSNumber *)arg1;
@@ -24,8 +24,6 @@
 - (void)_remote_addClientToSegments:(NSArray *)arg1 replaceExisting:(BOOL)arg2;
 - (void)_remote_lookupAdConversionDetails:(void (^)(NSDate *, NSDate *))arg1;
 - (void)_remote_determineAppInstallAttributionWithCompletionHandler:(void (^)(BOOL))arg1;
-- (void)_remote_forwardDeviceOrientation:(int)arg1 statusBarOrientation:(int)arg2;
-- (void)_remote_createProxyForAdSpace:(id <ADAdSpace_RPC><NSObject>)arg1 configuration:(ADAdSpaceConfiguration *)arg2 reply:(void (^)(id <ADSAdSpace_RPC><NSObject>))arg3;
 - (void)_remote_setClientLinkedOnVersion:(NSString *)arg1;
 - (void)_remote_didBecomeActive;
 - (void)_remote_willResignActive;

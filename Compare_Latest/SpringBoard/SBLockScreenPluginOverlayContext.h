@@ -8,8 +8,10 @@
 
 @interface SBLockScreenPluginOverlayContext : SBLockOverlayContext
 {
+    _Bool _disabledMesaMatching;
 }
 
+@property(nonatomic) _Bool disabledMesaMatching; // @synthesize disabledMesaMatching=_disabledMesaMatching;
 - (_Bool)_pluginNeedsOverlay:(id)arg1;
 - (id)initWithPluginName:(id)arg1 pluginController:(id)arg2 lockScreenViewController:(id)arg3;
 

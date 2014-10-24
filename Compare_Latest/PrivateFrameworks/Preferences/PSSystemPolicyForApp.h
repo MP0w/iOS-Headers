@@ -22,7 +22,9 @@
 - (void)setPrivacyAccess:(id)arg1 forSpecifier:(id)arg2;
 - (struct __CFBundle *)copyTCCBundleForService:(struct __CFString *)arg1;
 - (id)privacySpecifierForService:(struct __CFString *)arg1;
-- (id)privacySpecifier;
+- (id)privacySpecifiers;
+- (id)authLevelStringForStatus:(int)arg1;
+- (id)locationStatus:(id)arg1;
 - (BOOL)_isLocationServicesRestricted;
 - (id)locationServicesSpecifier;
 - (id)isBackgroundRefreshEnabled:(id)arg1;

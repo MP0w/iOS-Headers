@@ -47,6 +47,7 @@
 - (BOOL)isRingerMuted;
 - (BOOL)isSideSwitchUsedForOrientation;
 - (void)resetDimTimer;
+- (void)setOrientationLocked:(BOOL)arg1;
 - (BOOL)isOrientationLocked;
 - (int)topEventPidOverride;
 - (void)startHearingAidServer;

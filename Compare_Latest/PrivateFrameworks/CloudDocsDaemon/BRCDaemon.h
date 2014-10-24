@@ -7,11 +7,12 @@
 #import "NSObject.h"
 
 #import "BRCAccountHandlerDelegate.h"
+#import "BRCReachabilityDelegate.h"
 #import "NSXPCListenerDelegate.h"
 
 @class BRCAccountHandler, BRCAccountSession, BRCCloudFileProvider, BRCVersionsFileProvider, NSDate, NSError, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_source>, NSString, NSXPCListener, NSXPCListenerEndpoint;
 
-@interface BRCDaemon : NSObject <NSXPCListenerDelegate, BRCAccountHandlerDelegate>
+@interface BRCDaemon : NSObject <BRCReachabilityDelegate, NSXPCListenerDelegate, BRCAccountHandlerDelegate>
 {
     NSObject<OS_dispatch_source> *_sigIntSrc;
     NSObject<OS_dispatch_source> *_sigQuitSrc;
@@ -24,6 +25,7 @@
     BRCCloudFileProvider *_fileProvider;
     BRCVersionsFileProvider *_versionsProvider;
     BRCAccountHandler *_accountHandler;
+    int _serverAvailabilityNotifyToken;
     BOOL _disableAccountChangesHandling;
     BOOL _disableAppsChangesHandling;
     NSString *_logsDirPath;
@@ -55,6 +57,7 @@
 - (void).cxx_destruct;
 - (void)exitWithCode:(int)arg1;
 - (void)handleExitSignal:(int)arg1;
+- (void)networkReachabilityChanged:(BOOL)arg1;
 - (BOOL)status:(struct __sFILE *)arg1;
 - (BOOL)selfCheck:(struct __sFILE *)arg1;
 - (void)resume;

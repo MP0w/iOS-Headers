@@ -22,10 +22,8 @@
 + (id)_descriptionForEvent:(id)arg1;
 + (id)sharedNode;
 - (void)_processDelayedAssetsForFileSystemPersistencyFromChangeHubEvent:(id)arg1 transaction:(id)arg2;
-- (void)_processDelayedAlbumCountUpdatesFromChangeHubEvent:(id)arg1 transaction:(id)arg2;
-- (void)processDelayedAlbumCountUpdates:(id)arg1 transaction:(id)arg2;
-- (void)_processDelayedAlbumOrderUpdatesFromChangeHubEvent:(id)arg1 transaction:(id)arg2;
-- (void)processDelayedAlbumOrderUpdates:(id)arg1 transaction:(id)arg2;
+- (void)_processDelayedAlbumOrderUpdatesAndCountUpdatesFromChangeHubEvent:(id)arg1 transaction:(id)arg2;
+- (void)_processDelayedAlbumOrderUpdates:(id)arg1 countUpdates:(id)arg2 transaction:(id)arg3;
 - (void)_processDelayedSearchIndexUpdatesFromChangeHubEvent:(id)arg1 transaction:(id)arg2;
 - (void)_processDelayedSearchIndexUpdates:(id)arg1 transaction:(id)arg2;
 - (void)processDelayedAssetsForFileSystemPersistency:(id)arg1 transaction:(id)arg2;

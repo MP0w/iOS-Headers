@@ -31,6 +31,6 @@
 - (void)deactivateLibraryWithCompletionHandler:(void (^)(NSError *))arg1;
 - (void)removeLibraryWithCompletionHandler:(void (^)(NSError *))arg1;
 - (void)closeLibraryWithCompletionHandler:(void (^)(NSError *))arg1;
-- (void)openLibraryWithClientLibraryBaseURL:(NSURL *)arg1 cloudLibraryStateStorageURL:(NSURL *)arg2 cloudLibraryResourceStorageURL:(NSURL *)arg3 libraryIdentifier:(NSString *)arg4 completionHandler:(void (^)(NSError *, NSDictionary *, unsigned long long, NSString *, NSString *, NSURL *))arg5;
+- (void)openLibraryWithClientLibraryBaseURL:(NSURL *)arg1 cloudLibraryStateStorageURL:(NSURL *)arg2 cloudLibraryResourceStorageURL:(NSURL *)arg3 libraryIdentifier:(NSString *)arg4 completionHandler:(void (^)(NSError *, NSDictionary *, unsigned long long, unsigned int, unsigned int, unsigned int, NSString *, NSString *, NSURL *))arg5;
 @end
 

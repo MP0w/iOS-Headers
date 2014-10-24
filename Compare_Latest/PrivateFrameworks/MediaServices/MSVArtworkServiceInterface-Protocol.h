@@ -6,9 +6,9 @@
 
 #import "NSObject.h"
 
-@class NSURL;
+@class MSVArtworkServiceRequest;
 
 @protocol MSVArtworkServiceInterface <NSObject>
-- (void)resizeImageAtSourceURL:(NSURL *)arg1 destinationSize:(struct CGSize)arg2 destinationURL:(NSURL *)arg3 completionHandler:(void (^)(NSError *))arg4;
+- (void)processArtworkRequest:(MSVArtworkServiceRequest *)arg1 completionHandler:(void (^)(NSError *))arg2;
 @end
 

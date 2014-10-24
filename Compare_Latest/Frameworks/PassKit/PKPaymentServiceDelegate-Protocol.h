@@ -21,6 +21,7 @@
 - (void)paymentPassWithUniqueIdentifierDidDeauthorize:(NSString *)arg1;
 - (void)paymentPassWithUniqueIdentifierDidAuthorize:(NSString *)arg1;
 - (void)paymentPassWithUniqueIdentifierDidActivate:(NSString *)arg1;
+- (void)didUpdateDefaultPaymentPassWithUniqueIdentifier:(NSString *)arg1;
 - (void)paymentDeviceDidLeaveRestrictedMode;
 - (void)paymentDeviceDidEnterRestrictedMode;
 - (void)paymentDeviceDidBecomeUnavailable;

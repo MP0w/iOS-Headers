@@ -4,10 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSProgress.h"
+#import "CRRecentContact.h"
 
-@interface NSProgress (_TSTAssert)
-+ (void)initialize;
-- (void)_tsts_becomeCurrentWithPendingUnitCount:(long long)arg1;
+@interface CRRecentContact (PKAdditions)
+- (id)contactForPropertyID:(int)arg1;
 @end
 

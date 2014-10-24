@@ -28,6 +28,7 @@
 @property(readonly, nonatomic) unsigned long long accessTimeDeltaInMedUrgency;
 @property(readonly, nonatomic) unsigned long long accessTimeDeltaInLowUrgency;
 @property(readonly, nonatomic) BOOL forceBatchFailureWhenReceivingAssetTokenExpiration;
+@property(readonly, nonatomic) double foregroundGracePeriod;
 @property(readonly, nonatomic) unsigned int logoutTimeout;
 @property(readonly, nonatomic) unsigned int minEvictableFilesize;
 @property(readonly, nonatomic) unsigned int publishURLTimeout;
@@ -83,6 +84,7 @@
 @property(readonly, nonatomic) NSDictionary *containerResetThrottleParams;
 @property(readonly, nonatomic) NSDictionary *operationFailureThrottleParams;
 @property(readonly, nonatomic) int syncOperationQueueWidth;
+@property(readonly, nonatomic) NSDictionary *additionsThrottleParams;
 @property(readonly, nonatomic) NSDictionary *applyThrottleParams;
 @property(readonly, nonatomic) NSDictionary *lostItemThrottleParams;
 @property(readonly, nonatomic) NSDictionary *containerScanThrottleParams;

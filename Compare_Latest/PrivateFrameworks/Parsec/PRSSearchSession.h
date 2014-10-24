@@ -35,7 +35,7 @@
 - (id)urlSessionForImage:(id)arg1;
 - (void)getImageWithIdentifier:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (void)addFeedback:(id)arg1;
-- (void)flushFeedback;
+- (BOOL)flushFeedback;
 - (void)setFeedbackStartTime;
 - (void)killFeedback;
 - (id)createFeedbackRequest:(id *)arg1;

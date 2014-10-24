@@ -21,6 +21,8 @@
 @property(nonatomic) int bestFormat; // @synthesize bestFormat=_bestFormat;
 @property(readonly, nonatomic) struct CGSize optimalSourcePixelSize; // @synthesize optimalSourcePixelSize=_optimalSourcePixelSize;
 @property(readonly, nonatomic) int format; // @synthesize format=_format;
+- (BOOL)hasPrefetchCount;
+- (void)resetPrefetchCount;
 - (int)decrementPrefetchCount;
 - (int)incrementPrefetchCount;
 - (BOOL)isCancelled;

@@ -107,7 +107,7 @@
 - (void)_animateSlideDownWithVelocity:(struct CGPoint)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_finishSlideDownWithCompletion:(CDUnknownBlockType)arg1;
 - (void)translateSlidingViewByY:(double)arg1;
-- (void)cleanupFromGesture;
+- (void)performGeneralCleanupForUserAction:(_Bool)arg1;
 - (void)_cleanupFromDismissal;
 - (void)_cleanupBackgroundLaunchAndContextHostingNonsense;
 - (void)_handleAppLaunchedUnderLockScreenWithResult:(long long)arg1;

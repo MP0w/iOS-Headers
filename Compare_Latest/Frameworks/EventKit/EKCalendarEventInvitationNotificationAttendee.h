@@ -16,6 +16,8 @@ __attribute__((visibility("hidden")))
     BOOL _statusChanged;
     BOOL _commentChanged;
     NSString *_name;
+    NSString *_firstName;
+    NSString *_lastName;
     NSString *_emailAddress;
     NSURL *_url;
     int _participantStatus;
@@ -28,6 +30,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BOOL statusChanged; // @synthesize statusChanged=_statusChanged;
 @property(readonly, nonatomic) NSURL *url; // @synthesize url=_url;
 @property(readonly, nonatomic) NSString *emailAddress; // @synthesize emailAddress=_emailAddress;
+@property(readonly, nonatomic) NSString *lastName; // @synthesize lastName=_lastName;
+@property(readonly, nonatomic) NSString *firstName; // @synthesize firstName=_firstName;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (void)dealloc;
 - (id)initWithAttendee:(id)arg1;

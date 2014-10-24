@@ -8,6 +8,8 @@
 
 @interface PHCachingImageManager : PHImageManager
 {
+    int _batchAssetCachingUpdateCount;
+    BOOL _shouldPurgePreheatItems;
     BOOL _allowsCachingHighQualityImages;
 }
 
@@ -17,6 +19,8 @@
 - (void)startCachingImagesForAssets:(id)arg1 targetSize:(struct CGSize)arg2 contentMode:(int)arg3 options:(id)arg4;
 - (id)approximateThumbnailIndexesForAssets:(id)arg1;
 - (BOOL)canAvoidTouchingAssetsWithTargetSize:(struct CGSize)arg1 contentMode:(int)arg2 options:(id)arg3 outBestFormat:(int *)arg4 outBestFormatIsTable:(char *)arg5 outDegradedFormat:(int *)arg6 outDegradedFormatIsTable:(char *)arg7;
+- (void)endBatchAssetCachingUpdates;
+- (void)beginBatchAssetCachingUpdates;
 - (id)_highPriorityRequestWaitGroup;
 - (id)description;
 - (id)init;

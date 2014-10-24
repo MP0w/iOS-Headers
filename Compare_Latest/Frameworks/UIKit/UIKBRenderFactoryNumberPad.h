@@ -25,10 +25,11 @@ __attribute__((visibility("hidden")))
 - (struct CGPoint)deleteGlyphOffset;
 - (float)letterFontSize;
 - (float)numberFontSize;
-- (id)backgroundTraitsForKeyplane:(id)arg1;
+- (id)controlKeyDividerColorName;
 - (id)controlKeyForegroundColorName;
 - (id)controlKeyBackgroundColorName;
-- (id)defaultKeyBackgroundColorName;
+- (id)defaultKeyDividerColorName;
+- (int)lightHighQualityEnabledBlendForm;
 
 @end
 

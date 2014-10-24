@@ -99,6 +99,7 @@
 - (void)_handleCallWantsHoldMusicChangedNotification:(id)arg1;
 - (void)_handleCallConnectedNotification:(id)arg1;
 - (void)_handleCallStatusChangedNotification:(id)arg1;
+- (void)_endProxyCallsForActiveVideoCall;
 - (void)_launchInCallApplicationIfNecessary;
 - (void)_updateStateForRelayCapabilitiesChange:(id)arg1;
 - (void)dealloc;

@@ -11,6 +11,7 @@
 @protocol PDDatabaseManagerNotificationServicesDelegate <NSObject>
 - (void)handlePushDisabledForPassWithUniqueIdentifier:(NSString *)arg1 notificationService:(PDNotificationService *)arg2;
 - (void)handlePushEnabledForPassWithUniqueIdentifier:(NSString *)arg1 notificationService:(PDNotificationService *)arg2;
+- (void)handleUpdateOfPassWithUniqueIdentifier:(NSString *)arg1 notificationService:(PDNotificationService *)arg2;
 - (void)handleDeletionOfPassWithUniqueIdentifier:(NSString *)arg1 notificationService:(PDNotificationService *)arg2;
 - (void)handleInsertionOfPassWithUniqueIdentifier:(NSString *)arg1 notificationService:(PDNotificationService *)arg2;
 @end

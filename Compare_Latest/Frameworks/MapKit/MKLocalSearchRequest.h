@@ -21,6 +21,7 @@
     _MKLocalSearchMerchantParameters *_merchantParameters;
     NSArray *_phoneNumbers;
     NSArray *_muids;
+    int _resultProviderID;
     NSString *_contactsDataString;
     NSString *_canonicalSearchString;
 }
@@ -29,6 +30,7 @@
 @property(nonatomic, getter=_allowPhoneNumberLookupUsingCellular, setter=_setAllowPhoneNumberLookupUsingCellular:) BOOL allowPhoneNumberLookupUsingCellular; // @synthesize allowPhoneNumberLookupUsingCellular=_allowPhoneNumberLookupUsingCellular;
 @property(retain, nonatomic, getter=_canonicalSearchString, setter=_setCanonicalSearchString:) NSString *canonicalSearchString; // @synthesize canonicalSearchString=_canonicalSearchString;
 @property(retain, nonatomic, getter=_contactsDataString, setter=_setContactsDataString:) NSString *contactsDataString; // @synthesize contactsDataString=_contactsDataString;
+@property(nonatomic, getter=_resultProviderID, setter=_setResultProviderID:) int resultProviderID; // @synthesize resultProviderID=_resultProviderID;
 @property(retain, nonatomic, getter=_muids, setter=_setMuids:) NSArray *muids; // @synthesize muids=_muids;
 @property(retain, nonatomic, getter=_phoneNumbers, setter=_setPhoneNumbers:) NSArray *phoneNumbers; // @synthesize phoneNumbers=_phoneNumbers;
 @property(retain, nonatomic, getter=_merchantParameters, setter=_setMerchantParameters:) _MKLocalSearchMerchantParameters *merchantParameters; // @synthesize merchantParameters=_merchantParameters;

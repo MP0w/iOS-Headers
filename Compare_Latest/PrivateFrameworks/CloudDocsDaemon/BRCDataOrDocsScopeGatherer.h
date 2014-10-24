@@ -20,7 +20,7 @@ __attribute__((visibility("hidden")))
 
 @property(retain, nonatomic) BRCItemID *gatheredChildrenItemID; // @synthesize gatheredChildrenItemID=_gatheredChildrenItemID;
 - (void).cxx_destruct;
-- (BOOL)continueGatheringWithBatchSize:(unsigned int)arg1;
+- (BOOL)continueGatheringWithBatchSize:(int)arg1;
 - (id)_gatheringNotDescendantOfContainerWithID:(id)arg1;
 - (id)_gatheringDescendantOfContainerWithID:(id)arg1;
 - (id)initWithNotificationPipe:(id)arg1 reply:(CDUnknownBlockType)arg2;

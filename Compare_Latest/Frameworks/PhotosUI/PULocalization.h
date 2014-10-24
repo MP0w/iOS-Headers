@@ -18,6 +18,7 @@
 + (id)titleForEmptyPhotosCollection:(id)arg1;
 + (id)messageForEmptyCollectionListFetchResult:(id)arg1 fromFolder:(BOOL)arg2;
 + (id)messageForEmptyAlbumList:(id)arg1;
++ (id)_emptyMyPhotoStreamMessage;
 + (id)titleForEmptyCollectionListFetchResult:(id)arg1 fromFolder:(BOOL)arg2;
 + (id)titleForEmptyAlbumList:(id)arg1;
 

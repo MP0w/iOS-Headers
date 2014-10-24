@@ -61,7 +61,7 @@
 - (void)_registerRequest:(id)arg1;
 - (void)_updateCPLDownloadStatesUponNotification;
 - (id)_fastFetchAdjustmentDataWithRequest:(id)arg1;
-- (void)_cancelAndFlushPreheatItemsForAssets:(id)arg1 domain:(id)arg2 passingTestHandler:(CDUnknownBlockType)arg3;
+- (void)_cancelAndFlushPreheatItemsForAssets:(id)arg1 domain:(id)arg2 operation:(int)arg3 passingTestHandler:(CDUnknownBlockType)arg4;
 - (void)_cancelAndFlushPreheatWithAsset:(id)arg1 format:(int)arg2 domain:(id)arg3;
 - (BOOL)_cancelAndFlushPreheatWithAsset:(id)arg1 preheatItem:(id)arg2 domain:(id)arg3;
 - (id)_originalPreheatlItemCreateTransientWithAsset:(id)arg1 optimalSourcePixelSize:(struct CGSize)arg2 options:(unsigned int)arg3 domain:(id)arg4;

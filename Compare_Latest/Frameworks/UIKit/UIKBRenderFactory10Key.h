@@ -30,9 +30,11 @@ __attribute__((visibility("hidden")))
 - (struct UIEdgeInsets)topEdgeAdjustmentInsets;
 - (id)_preferredScriptFontForRendering:(int)arg1;
 - (id)displayContentsForKey:(id)arg1;
-- (id)backgroundTraitsForKeyplane:(id)arg1;
+- (id)controlKeyDividerColorName;
+- (id)controlKeyForegroundColorName;
 - (id)controlKeyBackgroundColorName;
-- (id)defaultKeyBackgroundColorName;
+- (id)defaultKeyDividerColorName;
+- (int)lightHighQualityEnabledBlendForm;
 
 @end
 

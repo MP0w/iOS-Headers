@@ -6,45 +6,43 @@
 
 #import "UIViewController.h"
 
-@class NSMutableArray, PKRemotePaymentAuthorizationViewController, UIView, _UIAsyncInvocation;
+#import "PKPaymentAuthorizationControllerDelegate.h"
+#import "PKPaymentAuthorizationControllerPrivateDelegate.h"
 
-@interface PKPaymentAuthorizationViewController : UIViewController
+@class NSString, PKPaymentAuthorizationController;
+
+@interface PKPaymentAuthorizationViewController : UIViewController <PKPaymentAuthorizationControllerDelegate, PKPaymentAuthorizationControllerPrivateDelegate>
 {
-    UIView *_contentView;
-    _UIAsyncInvocation *_cancelViewServiceRequest;
-    PKRemotePaymentAuthorizationViewController *_remoteViewController;
-    NSMutableArray *_delayedActions;
-    BOOL _hasAppeared;
-    id <UIViewControllerTransitioningDelegate> _defaultTransitionDelegate;
     id <PKPaymentAuthorizationViewControllerDelegate> _delegate;
     id <PKPaymentAuthorizationViewControllerPrivateDelegate> _privateDelegate;
+    PKPaymentAuthorizationController *_paymentController;
 }
 
-+ (BOOL)_shouldForwardViewWillTransitionToSize;
 + (BOOL)canMakePaymentsUsingNetworks:(id)arg1;
 + (BOOL)canMakePayments;
+@property(retain, nonatomic) PKPaymentAuthorizationController *paymentController; // @synthesize paymentController=_paymentController;
 @property(nonatomic) id <PKPaymentAuthorizationViewControllerPrivateDelegate> privateDelegate; // @synthesize privateDelegate=_privateDelegate;
 @property(nonatomic) id <PKPaymentAuthorizationViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (id)_serviceViewControllerProxy;
-- (void)_performAllDelayedActions;
-- (void)_peformOrEnqueueDelayedAction:(CDUnknownBlockType)arg1;
-- (void)_handleAppDidCancel;
-- (void)_preferredContentSizeChanged:(struct CGSize)arg1;
-- (void)_authorizationDidSelectShippingContact:(id)arg1;
-- (void)_authorizationDidSelectShippingMethod:(id)arg1;
-- (void)_authorizationDidAuthorizePayment:(id)arg1;
-- (void)_authorizationDidFinishWithError:(id)arg1;
-- (void)_didBecomeActive:(id)arg1;
-- (void)_willResignActive:(id)arg1;
+- (void)paymentAuthorizationController:(id)arg1 willFinishWithError:(id)arg2;
+- (void)paymentAuthorizationController:(id)arg1 didSelectShippingAddress:(void *)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)paymentAuthorizationController:(id)arg1 didSelectShippingMethod:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)paymentAuthorizationControllerDidFinish:(id)arg1;
+- (void)paymentAuthorizationController:(id)arg1 didAuthorizePayment:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_removeDeactivationReason:(id)arg1;
+- (void)_addDeactivationReason:(id)arg1;
 - (void)_unregisterForApplicationLifeCycleNotifications;
 - (void)_registerForApplicationLifeCycleNotifications;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewDidLoad;
-- (id)transitioningDelegate;
+- (void)viewWillDisappear:(BOOL)arg1;
 - (unsigned int)supportedInterfaceOrientations;
-- (struct CGSize)sizeForChildContentContainer:(id)arg1 withParentContainerSize:(struct CGSize)arg2;
+- (int)modalPresentationStyle;
 - (void)dealloc;
 - (id)initWithPaymentRequest:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

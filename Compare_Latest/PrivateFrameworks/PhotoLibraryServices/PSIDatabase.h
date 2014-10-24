@@ -17,7 +17,6 @@
     NSObject<OS_dispatch_queue> *_searchQueue;
     PSITokenizer *_tokenizer;
     int _options;
-    int _pendingUpdatesCount;
     int _queryCounter;
     NSString *_path;
 }
@@ -53,9 +52,10 @@
 - (struct __CFArray *)_inqNewAssetUUIDsForAssetIds:(const void **)arg1 count:(long)arg2;
 - (void)group:(id)arg1 fetchOwningContentString:(BOOL)arg2 assetUUIDs:(struct _NSRange)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)newQueryWithSearchText:(id)arg1;
-- (void)removeAssetWithUUID:(id)arg1;
-- (void)addAsset:(id)arg1;
-@property(readonly) int pendingUpdatesCount;
+- (void)removeAssetsWithUUIDs:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)removeAssetWithUUID:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)addAssets:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)addAsset:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)dropDatabaseWithCompletion:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)initWithPath:(id)arg1 options:(int)arg2;

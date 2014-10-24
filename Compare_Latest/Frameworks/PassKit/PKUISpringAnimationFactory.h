@@ -20,11 +20,13 @@
     float _damping;
     float _velocity;
     CAMediaTimingFunction *_timing;
+    double _maximumVendedDelay;
 }
 
 + (id)springAnimationWithKeyPath:(id)arg1 velocity:(float)arg2;
 + (id)springAnimationWithKeyPath:(id)arg1;
 + (id)defaultTimingFunction;
+@property(readonly, nonatomic) double maximumVendedDelay; // @synthesize maximumVendedDelay=_maximumVendedDelay;
 @property(retain, nonatomic) CAMediaTimingFunction *timing; // @synthesize timing=_timing;
 @property(nonatomic) float velocity; // @synthesize velocity=_velocity;
 @property(nonatomic) float damping; // @synthesize damping=_damping;

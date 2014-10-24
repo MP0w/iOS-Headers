@@ -8,10 +8,11 @@
 
 #import "MPUCompletionFooterViewDelegate.h"
 #import "MPUCompletionQueryDataSourceDelegate.h"
+#import "MusicViewControllerKeepLocalContainer.h"
 
 @class MPUCompletionQueryDataSource, NSOperationQueue, NSString;
 
-@interface MusicAlbumsDetailViewController : MusicTableViewController <MPUCompletionQueryDataSourceDelegate, MPUCompletionFooterViewDelegate>
+@interface MusicAlbumsDetailViewController : MusicTableViewController <MPUCompletionQueryDataSourceDelegate, MPUCompletionFooterViewDelegate, MusicViewControllerKeepLocalContainer>
 {
     BOOL _hasEverReceivedWillAppear;
     BOOL _useDownloadAllArtistCellConfig;
@@ -42,6 +43,7 @@
 - (void)_MusicAlbumsDetailViewController_canShowCloudDownloadButtonsDidChangeNotification:(id)arg1;
 - (void)_MusicAlbumsDetailViewController_defaultsDidChangeNotification:(id)arg1;
 @property(readonly, nonatomic) float maximumDurationWidth; // @synthesize maximumDurationWidth=_maximumDurationWidth;
+- (BOOL)isCollectionKeptLocalForMediaItem:(id)arg1 inSection:(int)arg2;
 - (void)completionFooterView:(id)arg1 purchaseCollectionFromOffering:(id)arg2;
 - (void)completionFooterView:(id)arg1 showItemsInOffering:(id)arg2;
 - (void)completionQueryDataSource:(id)arg1 didUpdateOffer:(id)arg2 forSectionAtIndex:(int)arg3;

@@ -20,6 +20,7 @@
 @property(readonly, nonatomic) ACAccount *appleAccount; // @synthesize appleAccount=_appleAccount;
 @property(readonly, nonatomic) ACAccountStore *accountStore; // @synthesize accountStore=_store;
 - (void).cxx_destruct;
+- (BOOL)signURLRequest:(id)arg1 isUserInitiated:(BOOL)arg2;
 - (BOOL)signURLRequest:(id)arg1;
 - (id)initWithAppleAccount:(id)arg1 grandSlamAccount:(id)arg2 accountStore:(id)arg3 appTokenID:(id)arg4;
 

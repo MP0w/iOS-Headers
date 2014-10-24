@@ -6,15 +6,17 @@
 
 #import "NSObject.h"
 
-@class HAPCharacteristic;
+@class HAPCharacteristic, NSData;
 
 @interface HAPCharacteristicWriteRequestTuple : NSObject
 {
     HAPCharacteristic *_characteristic;
     id _value;
+    NSData *_authorizationData;
 }
 
-+ (id)writeRequestTupleForCharacteristic:(id)arg1 value:(id)arg2;
++ (id)writeRequestTupleForCharacteristic:(id)arg1 value:(id)arg2 authorizationData:(id)arg3;
+@property(retain, nonatomic) NSData *authorizationData; // @synthesize authorizationData=_authorizationData;
 @property(retain, nonatomic) id value; // @synthesize value=_value;
 @property(retain, nonatomic) HAPCharacteristic *characteristic; // @synthesize characteristic=_characteristic;
 - (void).cxx_destruct;

@@ -59,6 +59,7 @@
 - (float)_zoomScaleToFitCanvas;
 - (float)_zoomScaleForImageToFit:(BOOL)arg1 viewBounds:(struct CGRect)arg2;
 - (float)_zoomScaleForImageRegion:(struct CGRect)arg1 toFit:(BOOL)arg2 viewBounds:(struct CGRect)arg3;
+- (void)_updateScrollOffset;
 - (void)_updateScrollInsets;
 - (void)_updateZoomScale;
 - (void)_updateScrollView;

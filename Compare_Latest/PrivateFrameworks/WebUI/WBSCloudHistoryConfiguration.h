@@ -12,6 +12,9 @@
 {
     NSString *_singleDeviceSaveChangesThrottlingPolicyString;
     NSString *_multipleDeviceSaveChangesThrottlingPolicyString;
+    NSString *_singleDeviceFetchChangesThrottlingPolicyString;
+    NSString *_multipleDeviceFetchChangesThrottlingPolicyString;
+    NSString *_syncCircleSizeRetrievalThrottlingPolicyString;
     unsigned int _maximumRequestCharacterCount;
     unsigned int _syncWindow;
 }
@@ -19,6 +22,9 @@
 + (id)existingSharedCloudHistoryConfiguration;
 @property unsigned int syncWindow; // @synthesize syncWindow=_syncWindow;
 @property unsigned int maximumRequestCharacterCount; // @synthesize maximumRequestCharacterCount=_maximumRequestCharacterCount;
+@property(retain) NSString *syncCircleSizeRetrievalThrottlingPolicyString; // @synthesize syncCircleSizeRetrievalThrottlingPolicyString=_syncCircleSizeRetrievalThrottlingPolicyString;
+@property(retain) NSString *multipleDeviceFetchChangesThrottlingPolicyString; // @synthesize multipleDeviceFetchChangesThrottlingPolicyString=_multipleDeviceFetchChangesThrottlingPolicyString;
+@property(retain) NSString *singleDeviceFetchChangesThrottlingPolicyString; // @synthesize singleDeviceFetchChangesThrottlingPolicyString=_singleDeviceFetchChangesThrottlingPolicyString;
 @property(retain) NSString *multipleDeviceSaveChangesThrottlingPolicyString; // @synthesize multipleDeviceSaveChangesThrottlingPolicyString=_multipleDeviceSaveChangesThrottlingPolicyString;
 @property(retain) NSString *singleDeviceSaveChangesThrottlingPolicyString; // @synthesize singleDeviceSaveChangesThrottlingPolicyString=_singleDeviceSaveChangesThrottlingPolicyString;
 - (void).cxx_destruct;

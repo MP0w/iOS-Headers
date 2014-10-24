@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class AFDictationOptions, AFSpeechCorrectionInfo, AFSpeechRequestOptions, NSDictionary, NSString, NSURL;
+@class AFDictationOptions, AFSpeechCorrectionInfo, AFSpeechRequestOptions, NSDictionary, NSError, NSString, NSURL;
 
 @protocol AFDictationService <NSObject>
 - (oneway void)_startDictationWithURL:(NSURL *)arg1 isNarrowBand:(BOOL)arg2 language:(NSString *)arg3 options:(AFDictationOptions *)arg4;
 - (oneway void)requestStateUpdateWithReply:(void (^)(unsigned int))arg1;
+- (oneway void)recordFailureMetricsForError:(NSError *)arg1;
 - (oneway void)endSession;
 - (oneway void)preheat;
 - (oneway void)sendSpeechCorrectionInfo:(AFSpeechCorrectionInfo *)arg1 forCorrectionContext:(NSDictionary *)arg2;

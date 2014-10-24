@@ -20,48 +20,39 @@
     UIImageView *_backgroundImageView;
     UIImageView *_glyphImageView;
     UIVisualEffectView *_backgroundEffectView;
+    BOOL _useSmallButton;
     BOOL _isCircleButton;
     BOOL _isRectButton;
     id <SBUIControlCenterButtonDelegate> _delegate;
     UIImage *_normalBGImage;
-    UIImage *_selectedBGImage;
     UIImage *_sourceGlyphImage;
-    UIImage *_normalGlyphImage;
     UIImage *_sourceSelectedGlyphImage;
-    UIImage *_selectedGlyphImage;
     float _naturalHeight;
 }
 
-+ (struct UIEdgeInsets)visibleContentInsets;
-+ (id)_buttonWithBGImage:(id)arg1 selectedBGImage:(id)arg2 glyphImage:(id)arg3 naturalHeight:(float)arg4;
-+ (id)roundRectButtonWithGlyphImage:(id)arg1;
-+ (id)circularButtonWithGlyphImage:(id)arg1;
++ (id)_buttonWithBGImage:(id)arg1 glyphImage:(id)arg2 naturalHeight:(float)arg3;
 + (id)roundRectButton;
 + (id)circularButton;
-+ (id)_roundRectBackgroundImageForState:(int)arg1;
-+ (id)_circleBackgroundImageForState:(int)arg1;
++ (id)_roundRectBackgroundImage;
++ (id)_smallCircleBackgroundImage;
++ (id)_circleBackgroundImage;
++ (id)_circleBackgroundImageForSize:(struct CGSize)arg1;
 + (void)controlAppearanceDidChangeForState:(int)arg1;
 @property(nonatomic) float naturalHeight; // @synthesize naturalHeight=_naturalHeight;
-@property(retain, nonatomic) UIImage *selectedGlyphImage; // @synthesize selectedGlyphImage=_selectedGlyphImage;
 @property(retain, nonatomic) UIImage *sourceSelectedGlyphImage; // @synthesize sourceSelectedGlyphImage=_sourceSelectedGlyphImage;
-@property(retain, nonatomic) UIImage *normalGlyphImage; // @synthesize normalGlyphImage=_normalGlyphImage;
 @property(retain, nonatomic) UIImage *sourceGlyphImage; // @synthesize sourceGlyphImage=_sourceGlyphImage;
-@property(retain, nonatomic) UIImage *selectedBGImage; // @synthesize selectedBGImage=_selectedBGImage;
 @property(retain, nonatomic) UIImage *normalBGImage; // @synthesize normalBGImage=_normalBGImage;
 @property(nonatomic) BOOL isRectButton; // @synthesize isRectButton=_isRectButton;
 @property(nonatomic) BOOL isCircleButton; // @synthesize isCircleButton=_isCircleButton;
+@property(nonatomic) BOOL useSmallButton; // @synthesize useSmallButton=_useSmallButton;
 @property(nonatomic) id <SBUIControlCenterButtonDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (void)_updateEffects;
 - (void)setEnabled:(BOOL)arg1;
 - (void)_pressAction;
-- (struct CGSize)visibleContentSize;
 - (void)setBackgroundImage:(id)arg1;
-- (void)_setBackgroundImage:(id)arg1 selectedBackgroundImage:(id)arg2 naturalHeight:(float)arg3;
+- (void)_setBackgroundImage:(id)arg1 naturalHeight:(float)arg2;
 - (void)setGlyphImage:(id)arg1 selectedGlyphImage:(id)arg2;
-- (void)_rebuildGlyphImages;
-- (void)_rebuildSelectedGlyph;
-- (void)_rebuildNormalGlyph;
 - (void)_updateForStateChange;
 - (void)_updateBackgroundForStateChange;
 - (void)_updateGlyphForStateChange;
@@ -77,7 +68,7 @@
 - (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 backgroundImage:(id)arg2 selectedBackgroundImage:(id)arg3 glyphImage:(id)arg4 naturalHeight:(float)arg5;
+- (id)initWithFrame:(struct CGRect)arg1 backgroundImage:(id)arg2 glyphImage:(id)arg3 naturalHeight:(float)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -104,7 +104,7 @@ struct UILabel {
     id _field8;
     id _field9;
     unsigned int _field10;
-    CDStruct_7eae0dec _field11;
+    CDStruct_40634de2 _field11;
 };
 
 struct UIView {
@@ -118,7 +118,7 @@ struct UIView {
     id _field8;
     id _field9;
     unsigned int _field10;
-    CDStruct_7eae0dec _field11;
+    CDStruct_40634de2 _field11;
 };
 
 struct _GEOTileKey {
@@ -231,6 +231,7 @@ typedef struct {
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
+    unsigned int :1;
     unsigned int :5;
     unsigned int :1;
     unsigned int :1;
@@ -249,7 +250,7 @@ typedef struct {
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
-} CDStruct_7eae0dec;
+} CDStruct_40634de2;
 
 typedef struct {
     double _field1;

@@ -25,6 +25,7 @@
 - (void)setScreen:(id)arg1;
 - (void)updateSceneSettings;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (BOOL)_canBecomeKeyWindow;
 - (BOOL)_shouldApplyHorizontalPixelScaleTransform;
 - (BOOL)_shouldPrepareScreenForWindow;
 - (BOOL)_appearsInLoupe;

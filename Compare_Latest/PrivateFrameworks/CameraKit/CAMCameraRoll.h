@@ -17,7 +17,7 @@
     NSDate *_sessionIdentifier;
     PHFetchResult *__weakAssetCollectionFetchResult;
     PHAssetCollection *__weakAssetCollection;
-    PHFetchResult *__recentlyAddedAssetsFetchResult;
+    PHFetchResult *__userLibraryAssetsFetchResult;
     NSMutableSet *__cachedChangeObservers;
     NSMutableDictionary *__inflightAssets;
     NSMutableSet *__sessionAssetUUIDs;
@@ -29,7 +29,7 @@
 @property(readonly, nonatomic) NSMutableSet *_sessionAssetUUIDs; // @synthesize _sessionAssetUUIDs=__sessionAssetUUIDs;
 @property(readonly, nonatomic) NSMutableDictionary *_inflightAssets; // @synthesize _inflightAssets=__inflightAssets;
 @property(readonly, nonatomic) NSMutableSet *_cachedChangeObservers; // @synthesize _cachedChangeObservers=__cachedChangeObservers;
-@property(readonly, nonatomic) PHFetchResult *_recentlyAddedAssetsFetchResult; // @synthesize _recentlyAddedAssetsFetchResult=__recentlyAddedAssetsFetchResult;
+@property(readonly, nonatomic) PHFetchResult *_userLibraryAssetsFetchResult; // @synthesize _userLibraryAssetsFetchResult=__userLibraryAssetsFetchResult;
 @property(readonly, nonatomic) PHAssetCollection *_weakAssetCollection; // @synthesize _weakAssetCollection=__weakAssetCollection;
 @property(readonly, nonatomic) PHFetchResult *_weakAssetCollectionFetchResult; // @synthesize _weakAssetCollectionFetchResult=__weakAssetCollectionFetchResult;
 @property(readonly, nonatomic, getter=_isWeakAssetCollectionLoaded) BOOL _weakAssetCollectionLoaded; // @synthesize _weakAssetCollectionLoaded=__weakAssetCollectionLoaded;

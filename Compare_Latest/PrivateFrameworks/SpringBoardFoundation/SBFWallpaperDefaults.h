@@ -11,6 +11,12 @@
 }
 
 + (id)defaults;
+- (id)nameForVariant:(int)arg1;
+- (void)setName:(id)arg1 forLocations:(int)arg2;
+- (void)resetNameDefaults;
+- (BOOL)isPortraitForVariant:(int)arg1;
+- (void)setPortrait:(BOOL)arg1 forLocations:(int)arg2;
+- (void)resetPortraitDefaults;
 - (BOOL)magnifyEnabledForVariant:(int)arg1;
 - (void)setMagnifyEnabled:(BOOL)arg1 forLocations:(int)arg2;
 - (void)resetMagnifyDefaults;

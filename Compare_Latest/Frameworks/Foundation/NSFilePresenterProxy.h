@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
 - (void)forwardObservationMessageWithKind:(id)arg1 parameters:(id)arg2;
 - (void)forwardRelinquishmentMessageWithKind:(id)arg1 parameters:(id)arg2 resultHandler:(CDUnknownBlockType)arg3;
 - (void)observeVersionChangeOfKind:(id)arg1 withClientID:(id)arg2 name:(id)arg3 subitemPath:(id)arg4;
+- (void)observeChangeAtSubitemPath:(id)arg1;
 - (void)observeDisappearanceAtSubitemPath:(id)arg1;
 - (void)observeUbiquityChangeAtSubitemPath:(id)arg1 withPhysicalURL:(id)arg2;
 - (void)observeReconnectionByWriterWithPurposeID:(id)arg1;

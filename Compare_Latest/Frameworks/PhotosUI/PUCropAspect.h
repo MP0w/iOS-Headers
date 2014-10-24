@@ -20,6 +20,8 @@
 @property(readonly, nonatomic) unsigned int height; // @synthesize height=_height;
 @property(readonly, nonatomic) unsigned int width; // @synthesize width=_width;
 - (void).cxx_destruct;
+- (id)inverseAspect;
+- (struct CGRect)constrainRect:(struct CGRect)arg1 boundingRect:(struct CGRect)arg2 boundingAngle:(float)arg3 minSize:(struct CGSize)arg4;
 - (float)heightForWidth:(float)arg1;
 - (float)widthForHeight:(float)arg1;
 - (BOOL)isEqualToCropAspect:(id)arg1;

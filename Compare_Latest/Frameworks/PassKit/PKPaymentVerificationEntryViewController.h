@@ -32,7 +32,7 @@
 - (void)_enableUI;
 - (void)_disableUI;
 - (void)_submitVerificationCode;
-- (void)textFieldDidEndEditing:(id)arg1;
+- (BOOL)textFieldShouldReturn:(id)arg1;
 - (void)textFieldDidChange:(id)arg1;
 - (void)next:(id)arg1;
 - (void)cancel:(id)arg1;

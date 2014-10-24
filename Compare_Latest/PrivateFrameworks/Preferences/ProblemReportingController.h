@@ -33,6 +33,8 @@
 - (void)showAboutAppAnalyticsSheet;
 - (void)showAboutDiagnosticsSheet;
 - (void)dismissAboutSheet:(id)arg1;
+- (void)launchDiagnosticsSession:(id)arg1;
+- (void)checkDiagnosticsSessionAvailability;
 
 @end
 

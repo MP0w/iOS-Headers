@@ -24,6 +24,7 @@
 - (void)cameraViewWillPreviewPhoto:(id)arg1;
 - (void)cameraViewWillRetakePhoto:(id)arg1;
 - (void)cameraViewCancelled:(id)arg1;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)_windowOrientationWillChange:(id)arg1;
 - (void)_adjustContentSizeForOrientation:(int)arg1;
 - (void)_stopVideoCapture;

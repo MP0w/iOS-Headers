@@ -9,7 +9,7 @@
 @class CPLResource, NSDictionary, NSError, NSString;
 
 @protocol CPLClientLibraryManagerProtocol <NSObject>
-- (void)libraryManagerDidUpdateSizeOfResourcesToUploadToSize:(unsigned long long)arg1;
+- (void)libraryManagerDidUpdateSizeOfResourcesToUploadToSize:(unsigned long long)arg1 numberOfImages:(unsigned int)arg2 numberOfVideos:(unsigned int)arg3 numberOfOtherItems:(unsigned int)arg4;
 - (void)libraryManagerDidUpdateStatusWithProperties:(NSDictionary *)arg1;
 - (void)libraryManagerHasChangesToPull;
 - (void)uploadOfResource:(CPLResource *)arg1 didFinishForResourceTransferTask:(NSString *)arg2 withError:(NSError *)arg3;

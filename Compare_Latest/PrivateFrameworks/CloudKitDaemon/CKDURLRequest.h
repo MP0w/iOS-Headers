@@ -10,7 +10,7 @@
 #import "CKDProtobufMessageSigningDelegate.h"
 #import "CKDURLSessionTaskDelegate.h"
 
-@class CKDClientContext, CKDProtobufStreamWriter, CKDProtocolTranslator, NSArray, NSData, NSDate, NSDictionary, NSError, NSFileHandle, NSHTTPURLResponse, NSInputStream, NSMutableArray, NSMutableData, NSMutableDictionary, NSOperationQueue, NSRunLoop, NSString, NSURL, NSURLRequest, NSURLSessionConfiguration, NSURLSessionDataTask;
+@class CKDClientContext, CKDProtobufStreamWriter, CKDProtocolTranslator, NSArray, NSData, NSDate, NSDictionary, NSError, NSFileHandle, NSHTTPURLResponse, NSInputStream, NSMutableArray, NSMutableData, NSMutableDictionary, NSOperationQueue, NSString, NSURL, NSURLRequest, NSURLSessionConfiguration, NSURLSessionDataTask;
 
 __attribute__((visibility("hidden")))
 @interface CKDURLRequest : NSObject <CKDURLSessionTaskDelegate, CKDProtobufMessageSigningDelegate, CKDFlowControllable>
@@ -18,7 +18,6 @@ __attribute__((visibility("hidden")))
     id <CKDAccountInfoProvider> _accountInfoProvider;
     double _timeoutInterval;
     int _responseStatusCode;
-    NSRunLoop *_runLoopToFireOn;
     NSString *_requestUUID;
     BOOL _didSendRequest;
     BOOL _didFinishLoading;

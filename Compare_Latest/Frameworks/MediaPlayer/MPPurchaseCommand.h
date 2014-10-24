@@ -13,7 +13,6 @@
 
 @property(nonatomic) int state; // @synthesize state=_state;
 - (id)_mediaRemoteCommandInfoOptions;
-- (id)keyPathsForValuesTriggeringCommandsChanged;
 
 @end
 

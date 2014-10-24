@@ -27,6 +27,8 @@
 - (unsigned int)supportedInterfaceOrientations;
 - (BOOL)shouldAutorotate;
 - (void)viewControllerDidTerminateSetupFlow:(id)arg1;
+- (void)handlePassAlreadyProvisionedError;
+- (void)handleProvisioningError:(id)arg1 forApplicationIdentifier:(id)arg2;
 - (void)handleDownloadedPasses:(id)arg1 fromViewController:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)cancel:(id)arg1;
 - (void)preflightWithCompletion:(CDUnknownBlockType)arg1;

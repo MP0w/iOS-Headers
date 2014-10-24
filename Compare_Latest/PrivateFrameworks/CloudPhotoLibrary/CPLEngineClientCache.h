@@ -20,6 +20,7 @@
 - (id)compactedBatchFromExpandedBatch:(id)arg1;
 - (BOOL)resetWithError:(id *)arg1;
 - (id)recordsWithRelatedIdentifier:(id)arg1;
+- (BOOL)hasRecordWithIdentifier:(id)arg1;
 - (id)relatedIdentifierForRecordWithIdentifier:(id)arg1;
 - (id)_relatedIdentifierForRecordWithIdentifier:(id)arg1;
 - (id)recordWithIdentifier:(id)arg1;

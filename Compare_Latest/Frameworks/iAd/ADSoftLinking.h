@@ -53,6 +53,7 @@
 @property(readonly, nonatomic) NSString *PKPaymentNetworkMasterCard;
 @property(readonly, nonatomic) NSString *PKPaymentNetworkChinaUnionPay;
 @property(readonly, nonatomic) NSString *PKPaymentNetworkAmex;
+@property(readonly, nonatomic) Class PKShippingMethod;
 @property(readonly, nonatomic) Class PKPaymentSummaryItem;
 @property(readonly, nonatomic) Class PKPaymentAuthorizationViewController;
 @property(readonly, nonatomic) Class PKPaymentRequest;

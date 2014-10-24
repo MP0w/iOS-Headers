@@ -55,7 +55,7 @@ __attribute__((visibility("hidden")))
 - (void)backgroundTask:(unsigned int)arg1 didReceiveResponse:(id)arg2 timingData:(id)arg3;
 - (void)backgroundTaskHasConnectionWaiting:(unsigned int)arg1;
 - (void)backgroundTask:(unsigned int)arg1 _willSendRequestForEstablishedConnection:(id)arg2 reply:(CDUnknownBlockType)arg3;
-- (void)backgroundTask:(unsigned int)arg1 willPerformHTTPRedirectionWithNewRequest:(id)arg2 reply:(CDUnknownBlockType)arg3;
+- (void)backgroundTask:(unsigned int)arg1 willPerformHTTPRedirection:(id)arg2 withNewRequest:(id)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)backgroundTask:(unsigned int)arg1 didReceiveChallenge:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)backgroundTaskDidSuspend:(unsigned int)arg1;
 - (void)backgroundTaskDidResume:(unsigned int)arg1;

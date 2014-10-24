@@ -180,6 +180,9 @@
 @property(readonly, retain, nonatomic) NSDictionary *profileInfo;
 @property(readonly, retain, nonatomic) NSString *countryCode;
 - (BOOL)updateAuthorizationCredentials:(id)arg1 token:(id)arg2;
+- (void)enrollSelfDeviceInSMSRelay;
+- (void)unEnrollDeviceInSMSRelay:(id)arg1;
+- (void)enrollDeviceInSMSRelay:(id)arg1;
 - (BOOL)authenticateAccount;
 - (BOOL)requestNewAuthorizationCredentials;
 @property(readonly, nonatomic) NSString *authorizationToken;
@@ -313,6 +316,7 @@
 @property(readonly, nonatomic) BOOL validPort;
 @property(readonly, nonatomic) BOOL validLogin;
 @property(readonly, nonatomic) BOOL canActivate;
+@property(readonly, nonatomic) BOOL isSMSRelayCapable;
 @property(readonly, nonatomic) BOOL allowsMMSRelay;
 @property(readonly, nonatomic) BOOL allowsSMSRelay;
 @property(nonatomic) BOOL allowsVCRelay;

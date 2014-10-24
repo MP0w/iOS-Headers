@@ -6,7 +6,7 @@
 
 #import <PassKit/PKPaymentDataItem.h>
 
-@class NSArray, NSDecimalNumber, NSString;
+@class NSArray, NSString;
 
 @interface PKPaymentSummaryItemsDataItem : PKPaymentDataItem
 {
@@ -14,7 +14,6 @@
 
 + (int)dataType;
 - (BOOL)isValidWithError:(id *)arg1;
-@property(readonly, nonatomic) NSDecimalNumber *transactionAmount;
 @property(readonly, nonatomic) NSArray *paymentSummaryItems;
 @property(readonly, nonatomic) NSString *currencyCode;
 

@@ -13,7 +13,6 @@
 
 @property(nonatomic) unsigned int currentShuffleType; // @synthesize currentShuffleType=_currentShuffleType;
 - (id)_mediaRemoteCommandInfoOptions;
-- (id)keyPathsForValuesTriggeringCommandsChanged;
 
 @end
 

@@ -14,7 +14,7 @@
 - (void)window:(UIWindow *)arg1 willAnimateSecondHalfOfRotationFromInterfaceOrientation:(long long)arg2 duration:(double)arg3;
 - (void)window:(UIWindow *)arg1 willAnimateFirstHalfOfRotationToInterfaceOrientation:(long long)arg2 duration:(double)arg3;
 - (void)window:(UIWindow *)arg1 willAnimateRotationToInterfaceOrientation:(long long)arg2 duration:(double)arg3;
-- (void)getRotationContentSettings:(CDStruct_ebaa735e *)arg1 forWindow:(UIWindow *)arg2;
+- (void)getRotationContentSettings:(CDStruct_e950349b *)arg1 forWindow:(UIWindow *)arg2;
 - (_Bool)shouldWindowUseOnePartInterfaceRotationAnimation:(UIWindow *)arg1;
 - (void)window:(UIWindow *)arg1 didRotateFromInterfaceOrientation:(long long)arg2;
 - (void)window:(UIWindow *)arg1 didAnimateFirstHalfOfRotationToInterfaceOrientation:(long long)arg2;

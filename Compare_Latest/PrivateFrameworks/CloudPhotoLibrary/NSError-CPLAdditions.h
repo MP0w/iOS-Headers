@@ -7,6 +7,8 @@
 #import "NSError.h"
 
 @interface NSError (CPLAdditions)
+- (id)cplSafeErrorForXPC;
+- (id)_cplSafeUserInfoForXPCDidChange:(char *)arg1;
 - (id)cplShortDomainDescription;
 - (id)cplUnderlyingPOSIXError;
 - (BOOL)isCPLOperationCancelledError;

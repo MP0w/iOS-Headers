@@ -14,6 +14,7 @@
 {
     struct PairingSessionPrivate *_pairingSession;
     BOOL _startPairingRequested;
+    BOOL _pairingFeaturesRead;
     BOOL _disconnecting;
     BOOL _unpairedIdentifyRequested;
     BOOL _removeOnDisconnect;
@@ -48,6 +49,7 @@
     NSMutableData *_writeNonce;
     NSObject<OS_dispatch_source> *_connectionLifetimeTimer;
     CDUnknownBlockType _unpairedIdentifyCompletionBlock;
+    unsigned long long _pairingFeatureFlags;
 }
 
 + (id)_convertFromBTLEToHAPUUID:(id)arg1;
@@ -60,6 +62,8 @@
 @property(retain, nonatomic) NSData *sessionWriteKey; // @synthesize sessionWriteKey=_sessionWriteKey;
 @property(retain, nonatomic) NSMutableData *readNonce; // @synthesize readNonce=_readNonce;
 @property(retain, nonatomic) NSData *sessionReadKey; // @synthesize sessionReadKey=_sessionReadKey;
+@property(nonatomic) unsigned long long pairingFeatureFlags; // @synthesize pairingFeatureFlags=_pairingFeatureFlags;
+@property(nonatomic) BOOL pairingFeaturesRead; // @synthesize pairingFeaturesRead=_pairingFeaturesRead;
 @property(nonatomic) BOOL startPairingRequested; // @synthesize startPairingRequested=_startPairingRequested;
 @property(copy, nonatomic) CDUnknownBlockType pairVerifyCompletionBlock; // @synthesize pairVerifyCompletionBlock=_pairVerifyCompletionBlock;
 @property(retain, nonatomic) NSString *accessoryPairingUsername; // @synthesize accessoryPairingUsername=_accessoryPairingUsername;
@@ -136,12 +140,12 @@
 - (void)readValueForCharacteristic:(id)arg1 queue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)_convertFromBTLEValue:(id)arg1 metadata:(id)arg2;
 - (void)_handleHAPWriteConfirmationForCharacteristic:(id)arg1 error:(id)arg2;
-- (id)_convertValueToTLV:(id)arg1 characteristic:(id)arg2 error:(id *)arg3;
+- (id)_convertValueToTLV:(id)arg1 characteristic:(id)arg2 authorizationData:(id)arg3 error:(id *)arg4;
 - (id)_convertToBTLEValue:(id)arg1 metadata:(id)arg2;
 - (void)_writeCharacteristicValues:(id)arg1 queue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)writeCharacteristicValues:(id)arg1 queue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)_writeValue:(id)arg1 forCharacteristic:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3 queue:(id)arg4;
-- (void)writeValue:(id)arg1 forCharacteristic:(id)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)_writeValue:(id)arg1 forCharacteristic:(id)arg2 authorizationData:(id)arg3 withCompletionHandler:(CDUnknownBlockType)arg4 queue:(id)arg5;
+- (void)writeValue:(id)arg1 forCharacteristic:(id)arg2 authorizationData:(id)arg3 queue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (id)_dequeueReadCompletionTupleForCharacteristic:(id)arg1;
 - (void)_enqueueReadCompletionHandler:(CDUnknownBlockType)arg1 queue:(id)arg2 forCharacteristic:(id)arg3;
 - (CDUnknownBlockType)_dequeueWriteCompletionHandlerForCharacteristic:(id)arg1;
@@ -159,6 +163,7 @@
 - (BOOL)stopPairingWithError:(id *)arg1;
 - (void)_handlePairingStateMachine;
 - (BOOL)tryPairingPassword:(id)arg1 error:(id *)arg2;
+- (void)_checkForAuthPrompt;
 - (void)continuePairingAfterAuthPrompt;
 - (void)startPairing;
 - (void)_createPrimaryAccessoryFromAdvertisementData;

@@ -33,6 +33,7 @@
 }
 
 + (void)_validateSpans:(id)arg1;
++ (id)_selfOrganizerForNewlyScheduledEventWithAddress:(id)arg1;
 + (int)_invalidBinarySearchIndex;
 + (int)_binarySearchForIndexOfTimeSpanInArray:(id)arg1 containingDate:(id)arg2;
 + (id)_rankNonOptimalTimeSpans:(id)arg1;

@@ -34,9 +34,6 @@ __attribute__((visibility("hidden")))
 - (struct UIEdgeInsets)wideShadowPaddleInsets;
 - (void)_customizeSymbolStyle:(id)arg1 forKey:(id)arg2 contents:(id)arg3;
 - (void)_customizeGeometry:(id)arg1 forKey:(id)arg2 contents:(id)arg3;
-- (id)backgroundTraitsForKeyplane:(id)arg1;
-- (id)controlKeyForegroundColorName;
-- (id)controlKeyBackgroundColorName;
 - (float)skinnyKeyThreshold;
 - (id)shiftLockImageName;
 - (id)shiftOnKeyImageName;
@@ -74,6 +71,7 @@ __attribute__((visibility("hidden")))
 - (float)shiftKeyFontSize;
 - (float)deleteKeyFontSize;
 - (float)stringKeyFontSize;
+- (int)lightHighQualityEnabledBlendForm;
 
 @end
 

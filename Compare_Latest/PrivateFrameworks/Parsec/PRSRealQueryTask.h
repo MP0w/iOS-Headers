@@ -23,6 +23,7 @@
     double _startTime;
 }
 
++ (id)existingQueryForString:(id)arg1 scaleFactor:(float)arg2 webSearch:(BOOL)arg3 handler:(id)arg4;
 @property float scaleFactor; // @synthesize scaleFactor=_scaleFactor;
 @property(nonatomic) __weak id <PRSSessionController> factory; // @synthesize factory=_factory;
 @property(retain, nonatomic) NSString *queryString; // @synthesize queryString=_queryString;

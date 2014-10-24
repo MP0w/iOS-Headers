@@ -18,6 +18,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *cachedPrefsQueue; // @synthesize cachedPrefsQueue=_cachedPrefsQueue;
 @property(retain, nonatomic) NSMutableDictionary *cachedPrefs; // @synthesize cachedPrefs=_cachedPrefs;
 - (void).cxx_destruct;
+- (double)maximumThrottleSeconds;
 - (int)defaultRetryAfter;
 - (BOOL)shouldLogProtobufBinary;
 - (BOOL)shouldDecryptRecordsBeforeSave;

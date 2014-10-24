@@ -60,6 +60,7 @@
 @property(nonatomic) __weak id <RCAVWaveformViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) RCWaveformDataSource *waveformDataSource; // @synthesize waveformDataSource=_waveformDataSource;
 - (void).cxx_destruct;
+- (id)_selectionOverlay;
 - (void)_endShowingSelectionOverlayWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)_beginShowingSelectionOverlay;
 - (void)_updateInterfaceForAVState;

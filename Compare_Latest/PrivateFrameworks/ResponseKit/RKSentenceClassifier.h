@@ -33,7 +33,7 @@
 + (id)alternativeInversionsForLanguage:(id)arg1;
 + (id)polarTagRegularExpressionForLanguage:(id)arg1;
 + (id)polarTagKeywordsForLanguage:(id)arg1;
-+ (id)sensitiveSubjectsForLanguage:(id)arg1;
++ (id)sensitiveSubjectRegularExpressionForLanguage:(id)arg1;
 + (id)keywordMap;
 + (unsigned int)categoryForPreferenceKey:(id)arg1;
 + (id)preferenceKeyForCategory:(unsigned int)arg1;

@@ -35,7 +35,7 @@ __attribute__((visibility("hidden")))
 - (void)fetchAllCacheEntriesWithRequesterHandler:(CDUnknownBlockType)arg1;
 - (int)_invalidationStateForPlace:(id)arg1;
 - (void)requestPhoneNumbers:(id)arg1 allowCellularDataForLookup:(BOOL)arg2 traits:(id)arg3 requesterHandler:(CDUnknownBlockType)arg4;
-- (void)requestMUIDs:(id)arg1 includeETA:(BOOL)arg2 traits:(id)arg3 requesterHandler:(CDUnknownBlockType)arg4;
+- (void)requestMUIDs:(id)arg1 resultProviderID:(int)arg2 includeETA:(BOOL)arg3 traits:(id)arg4 requesterHandler:(CDUnknownBlockType)arg5;
 - (void)cancelRequest:(id)arg1;
 - (void)startRequest:(id)arg1 traits:(id)arg2 finished:(CDUnknownBlockType)arg3 networkActivity:(CDUnknownBlockType)arg4 error:(CDUnknownBlockType)arg5;
 - (void)dealloc;

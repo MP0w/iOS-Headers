@@ -56,7 +56,7 @@
 + (id)_transformValueExpression:(id)arg1 forKeyPath:(id)arg2;
 + (id)fetchMomentsWithOptions:(id)arg1;
 + (id)fetchMomentsInMomentList:(id)arg1 options:(id)arg2;
-+ (id)fetchRecentlyAddedAlbumWithOptions:(id)arg1;
++ (id)fetchUserLibraryAlbumWithOptions:(id)arg1;
 + (id)fetchAssetCollectionsWithObjectIDs:(id)arg1 options:(id)arg2;
 + (id)fetchAssetCollectionsWithALAssetGroupURLs:(id)arg1 options:(id)arg2;
 + (id)fetchAssetCollectionsWithType:(int)arg1 subtype:(int)arg2 options:(id)arg3;

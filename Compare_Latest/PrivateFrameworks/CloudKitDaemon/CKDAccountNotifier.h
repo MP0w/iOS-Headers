@@ -6,15 +6,17 @@
 
 #import "NSObject.h"
 
-@class NSMapTable;
+@class NSMapTable, NSOperationQueue;
 
 @interface CKDAccountNotifier : NSObject
 {
     int _accountChangedToken;
     NSMapTable *_notificationObservers;
+    NSOperationQueue *_notifyQueue;
 }
 
 + (id)sharedNotifier;
+@property(retain, nonatomic) NSOperationQueue *notifyQueue; // @synthesize notifyQueue=_notifyQueue;
 @property(retain, nonatomic) NSMapTable *notificationObservers; // @synthesize notificationObservers=_notificationObservers;
 @property(nonatomic) int accountChangedToken; // @synthesize accountChangedToken=_accountChangedToken;
 - (void).cxx_destruct;

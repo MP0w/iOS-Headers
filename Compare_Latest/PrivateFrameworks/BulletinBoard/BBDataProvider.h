@@ -8,14 +8,14 @@
 
 #import "BBSectionIdentity.h"
 
-@class BBDataProviderIdentity, NSString;
+@class BBDataProviderIdentity, NSObject<OS_dispatch_queue>, NSString;
 
 @interface BBDataProvider : NSObject <BBSectionIdentity>
 {
-    BBDataProviderIdentity *_identity;
+    NSObject<OS_dispatch_queue> *_identityQueue;
+    BBDataProviderIdentity *__identity;
 }
 
-@property(retain) BBDataProviderIdentity *identity; // @synthesize identity=_identity;
 @property(readonly, copy) NSString *debugDescription;
 - (id)debugDescriptionWithChildren:(unsigned int)arg1;
 - (void)deliverMessageWithName:(id)arg1 userInfo:(id)arg2;
@@ -49,8 +49,10 @@
 - (void)startWatchdog;
 - (BOOL)initialized;
 - (void)invalidate;
+@property(retain) BBDataProviderIdentity *identity;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
+- (id)init;
 
 // Remaining properties
 @property(readonly) unsigned int hash;

@@ -31,12 +31,13 @@
 - (void)send:(id)arg1;
 - (void)cancel:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (id)_detailTextLabelForChanne:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
 - (void)dealloc;
-- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)arg1;
 - (id)initWithPaymentWebService:(id)arg1 pass:(id)arg2 context:(int)arg3;
 
 @end

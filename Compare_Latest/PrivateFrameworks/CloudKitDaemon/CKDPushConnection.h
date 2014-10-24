@@ -20,9 +20,11 @@
     NSMutableSet *_enabledTopics;
     NSMutableDictionary *_topicsToWaitingAppContainerTuples;
     NSMutableSet *_topicsAwaitingPublicToken;
+    NSMutableSet *_topicsAwaitingPrivateToken;
 }
 
 + (id)sharedConnectionForAPSEnvironmentString:(id)arg1;
+@property(retain, nonatomic) NSMutableSet *topicsAwaitingPrivateToken; // @synthesize topicsAwaitingPrivateToken=_topicsAwaitingPrivateToken;
 @property(retain, nonatomic) NSMutableSet *topicsAwaitingPublicToken; // @synthesize topicsAwaitingPublicToken=_topicsAwaitingPublicToken;
 @property(retain, nonatomic) NSMutableDictionary *topicsToWaitingAppContainerTuples; // @synthesize topicsToWaitingAppContainerTuples=_topicsToWaitingAppContainerTuples;
 @property(retain, nonatomic) NSMutableSet *enabledTopics; // @synthesize enabledTopics=_enabledTopics;

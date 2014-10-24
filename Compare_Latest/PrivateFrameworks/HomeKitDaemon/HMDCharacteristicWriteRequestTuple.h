@@ -6,15 +6,17 @@
 
 #import "NSObject.h"
 
-@class HMDCharacteristic;
+@class HMDCharacteristic, NSData;
 
 @interface HMDCharacteristicWriteRequestTuple : NSObject
 {
     HMDCharacteristic *_characteristic;
     id _value;
+    NSData *_authorizationData;
 }
 
-+ (id)tupleWithCharacteristic:(id)arg1 value:(id)arg2;
++ (id)tupleWithCharacteristic:(id)arg1 value:(id)arg2 authorizationData:(id)arg3;
+@property(readonly, nonatomic) NSData *authorizationData; // @synthesize authorizationData=_authorizationData;
 @property(readonly, nonatomic) id value; // @synthesize value=_value;
 @property(readonly, nonatomic) HMDCharacteristic *characteristic; // @synthesize characteristic=_characteristic;
 - (void).cxx_destruct;

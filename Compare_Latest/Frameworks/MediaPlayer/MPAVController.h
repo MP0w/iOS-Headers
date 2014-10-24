@@ -166,6 +166,7 @@
 - (void)_delayedPostPlaybackStateChangedNotification;
 - (void)_setActionAtEndAttributeForState:(unsigned int)arg1;
 - (void)_setBufferingState:(unsigned int)arg1;
+- (BOOL)_hasEnoughDataToPlay;
 - (void)_attemptAutoPlay;
 - (void)_resetQueue:(BOOL)arg1 useVideoLayer:(BOOL)arg2;
 - (void)_resetInternalState;
@@ -332,11 +333,15 @@
 - (void)endTickTimer;
 - (void)beginTickTimerWithInterval:(double)arg1;
 - (BOOL)forceRestartPlaybackIfNecessary;
+- (void)togglePlaybackWithOptions:(long long)arg1;
 - (void)togglePlayback;
 @property(nonatomic) double currentTime;
+- (void)playChapterTimeMarkerAtIndex:(unsigned int)arg1 withOptions:(long long)arg2;
 - (void)playChapterTimeMarkerAtIndex:(unsigned int)arg1;
+- (void)playItemAtIndex:(unsigned int)arg1 withOptions:(long long)arg2;
 - (void)playItemAtIndex:(unsigned int)arg1 forceRestart:(BOOL)arg2;
 - (void)playItemAtIndex:(unsigned int)arg1;
+- (void)playWithOptions:(long long)arg1;
 - (void)play;
 - (void)pause;
 - (void)pauseWithFadeout:(float)arg1;

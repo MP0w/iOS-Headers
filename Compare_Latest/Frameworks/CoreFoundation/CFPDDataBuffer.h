@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
 + (id)newBufferFromPropertyList:(void *)arg1;
 + (id)newBufferFromFile:(int)arg1 allowMappingIfSafe:(BOOL)arg2;
 + (id)newBufferFromCFData:(struct __CFData *)arg1;
+- (BOOL)validatePlist;
 - (void *)copyPropertyListWithMutability:(unsigned long)arg1;
 - (id)copyXPCData;
 - (struct __CFData *)copyCFData;

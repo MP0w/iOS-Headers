@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (Class)layerClass;
-- (id)initWithFrame:(struct CGRect)arg1 contextID:(unsigned int)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 contextID:(unsigned int)arg2 hostingDeviceScaleFactor:(float)arg3;
 
 @end
 

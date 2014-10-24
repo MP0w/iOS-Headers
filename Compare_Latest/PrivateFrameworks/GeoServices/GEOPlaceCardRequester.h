@@ -25,10 +25,10 @@
 - (void)performPlaceDataRequest:(id)arg1 traits:(id)arg2 networkActivity:(CDUnknownBlockType)arg3 requesterHandler:(CDUnknownBlockType)arg4;
 - (void)trackPlaceData:(id)arg1;
 - (void)requestPhoneNumbers:(id)arg1 allowCellularDataForLookup:(BOOL)arg2 traits:(id)arg3 networkActivity:(CDUnknownBlockType)arg4 requesterHandler:(CDUnknownBlockType)arg5;
-- (void)requestMUIDs:(id)arg1 includeETA:(BOOL)arg2 traits:(id)arg3 networkActivity:(CDUnknownBlockType)arg4 requesterHandler:(CDUnknownBlockType)arg5;
+- (void)requestMUIDs:(id)arg1 resultProviderID:(int)arg2 includeETA:(BOOL)arg3 traits:(id)arg4 networkActivity:(CDUnknownBlockType)arg5 requesterHandler:(CDUnknownBlockType)arg6;
 - (void)fetchAllCacheEntriesWithRequesterHandler:(CDUnknownBlockType)arg1;
 - (void)requestPhoneNumbers:(id)arg1 allowCellularDataForLookup:(BOOL)arg2 traits:(id)arg3 requesterHandler:(CDUnknownBlockType)arg4;
-- (void)requestMUIDs:(id)arg1 includeETA:(BOOL)arg2 traits:(id)arg3 requesterHandler:(CDUnknownBlockType)arg4;
+- (void)requestMUIDs:(id)arg1 resultProviderID:(int)arg2 includeETA:(BOOL)arg3 traits:(id)arg4 requesterHandler:(CDUnknownBlockType)arg5;
 - (void)dealloc;
 - (id)init;
 

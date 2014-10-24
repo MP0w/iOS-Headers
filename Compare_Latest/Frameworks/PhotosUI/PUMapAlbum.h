@@ -60,6 +60,7 @@
 @property(readonly, nonatomic) BOOL isPhotoStreamAlbum;
 @property(readonly, nonatomic) BOOL isWallpaperAlbum;
 @property(readonly, nonatomic) BOOL isPanoramasAlbum;
+@property(readonly, nonatomic) BOOL isUserLibraryAlbum;
 @property(readonly, nonatomic) BOOL isRecentlyAddedAlbum;
 @property(readonly, nonatomic) BOOL isCameraAlbum;
 @property(readonly, nonatomic) BOOL isLibrary;
@@ -72,6 +73,7 @@
 - (id)initWithAnnotation:(id)arg1;
 
 // Remaining properties
+@property(nonatomic) unsigned int batchSize;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned int hash;

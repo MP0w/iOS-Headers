@@ -40,7 +40,7 @@
 - (void)sanitizeWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)finalizingComposedAssetWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)endTrimAccessSession;
-- (void)beginAccessSessionToTrimWithAssetReadyBlock:(CDUnknownBlockType)arg1;
+- (void)beginAccessSessionToTrimAsCopy:(BOOL)arg1 assetReadyBlock:(CDUnknownBlockType)arg2;
 - (void)beginAccessSessionToExportWithAssetReadyBlock:(CDUnknownBlockType)arg1;
 - (void)beginAccessSessionToPlayTimeRange:(CDStruct_73a5d3ca)arg1 readyToPlayBlock:(CDUnknownBlockType)arg2;
 - (void)activeRecordingSessionWillFinish;
@@ -48,7 +48,7 @@
 - (void)endAccessSessions;
 - (void)endPreviewAccessSession;
 - (void)endEditing;
-- (void)beginEditing;
+- (void)prepareToBeginEditingWithReadyBlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) NSURL *savedRecordingURI;
 - (id)init;
 - (id)initWithComposition:(id)arg1;

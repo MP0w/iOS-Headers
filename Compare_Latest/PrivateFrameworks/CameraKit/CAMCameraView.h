@@ -123,6 +123,7 @@
     BOOL __delayedCaptureIndicatorVisible;
     BOOL __hideFocusForFilterSelection;
     BOOL __hideGridViewForFilterSelection;
+    BOOL __recoveringFromServerError;
     BOOL __stopVideoCaptureWhenRecordingStarts;
     BOOL __panningExposureRect;
     BOOL __panningExposureBias;
@@ -201,6 +202,7 @@
 @property(readonly, nonatomic) struct CGPoint _lastFocusPanPoint; // @synthesize _lastFocusPanPoint=__lastFocusPanPoint;
 @property(readonly, nonatomic) BOOL _panningExposureRect; // @synthesize _panningExposureRect=__panningExposureRect;
 @property(nonatomic, setter=_setStopVideoCaptureWhenRecordingStarts:) BOOL _stopVideoCaptureWhenRecordingStarts; // @synthesize _stopVideoCaptureWhenRecordingStarts=__stopVideoCaptureWhenRecordingStarts;
+@property(nonatomic, setter=_setRecoveringFromServerError:) BOOL _recoveringFromServerError; // @synthesize _recoveringFromServerError=__recoveringFromServerError;
 @property(readonly, nonatomic) NSMutableSet *_filterNamesSelectedBeforeCapture; // @synthesize _filterNamesSelectedBeforeCapture=__filterNamesSelectedBeforeCapture;
 @property(nonatomic, setter=_setNumFilterSelectionsBeforeCapture:) unsigned int _numFilterSelectionsBeforeCapture; // @synthesize _numFilterSelectionsBeforeCapture=__numFilterSelectionsBeforeCapture;
 @property(nonatomic, setter=_setHideGridViewForFilterSelection:) BOOL _hideGridViewForFilterSelection; // @synthesize _hideGridViewForFilterSelection=__hideGridViewForFilterSelection;
@@ -557,6 +559,7 @@
 - (id)_constraintsForLivePreviewWithMode:(int)arg1;
 - (id)_viewWhichOwnsLivePreviewConstraints;
 - (void)_ensureLivePreviewHierarchyIsValid;
+- (BOOL)_isPreviewViewInSnapshotWindow;
 - (BOOL)_allowFocusRectPanning;
 - (void)_createLivePreviewHierarchyIfNecessary;
 - (void)_setupPreviewLayer;
@@ -752,7 +755,8 @@
 - (void)_diskSpaceDidChange;
 - (id)delegate;
 - (id)captureController;
-- (void)cameraControllerServerDied:(id)arg1;
+- (void)cameraControllerServerError:(id)arg1;
+- (void)_recoverFromServerError;
 - (void)cameraControllerSessionInterruptionEnded:(id)arg1;
 - (void)cameraControllerSessionWasInterrupted:(id)arg1;
 - (void)cameraControllerSessionDidStop:(id)arg1;

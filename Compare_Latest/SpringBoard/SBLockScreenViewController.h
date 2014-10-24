@@ -134,7 +134,7 @@
 - (void)chargingViewControllerFadedOutContent:(id)arg1;
 - (void)_cleanupBatteryChargingViewWithAnimationDuration:(double)arg1;
 - (void)_fadeViewsForChargingViewVisible:(_Bool)arg1;
-- (void)_acStatusChanged:(id)arg1;
+- (void)_powerStatusChanged:(id)arg1;
 - (void)_updateBatteryChargingViewAnimated:(_Bool)arg1;
 - (void)authenticateForNotificationActionWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_dismissFullscreenBulletinAlertAnimated:(_Bool)arg1;
@@ -186,7 +186,7 @@
 - (void)_handlePasscodeLockStateChanged;
 - (void)_handleBacklightLevelChanged:(id)arg1;
 - (void)_handleBacklightFadeEnded;
-- (void)_handleDisplayTurnedOn;
+- (void)_handleDisplayTurnedOn:(id)arg1;
 - (void)_handleDisplayWillUndim;
 - (void)_handleDisplayTurnedOff;
 - (void)noteResetRestoreStateUpdated;
@@ -297,7 +297,7 @@
 - (void)_removeMediaControls;
 - (void)_addMediaControls;
 - (void)_removeBatteryChargingView;
-- (void)_addBatteryChargingView;
+- (void)_addBatteryChargingViewAndShowBattery:(_Bool)arg1;
 - (void)_removeNotificationView;
 - (void)_addNotificationView;
 - (void)_removeModalAlertView;

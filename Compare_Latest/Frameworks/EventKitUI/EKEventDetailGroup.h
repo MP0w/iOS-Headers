@@ -19,6 +19,7 @@
 @property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
 @property(nonatomic) int tag; // @synthesize tag=_tag;
 - (void).cxx_destruct;
+- (void)updateCellLayoutsForRowCountIfNeededUsingWidth:(float)arg1;
 - (id)description;
 - (BOOL)hasSubitemForIndexPathRow:(unsigned int)arg1;
 - (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;

@@ -79,7 +79,7 @@
 @property(readonly, nonatomic) IMAccount *account; // @synthesize account=_account;
 @property(readonly, nonatomic) NSString *guid; // @synthesize guid=_guid;
 @property(retain, nonatomic, setter=_setGUIDs:) NSMutableSet *_guids; // @synthesize _guids;
-@property(readonly, retain, nonatomic) NSString *groupID; // @synthesize groupID=_groupID;
+@property(retain, nonatomic) NSString *groupID; // @synthesize groupID=_groupID;
 @property(readonly, retain, nonatomic) NSString *lastAddressedHandleID; // @synthesize lastAddressedHandleID=_lastAddressedHandleID;
 @property(retain, nonatomic, getter=_nextStaleChatItem, setter=_setNextStaleChatItem:) IMChatItem *nextStaleChatItem; // @synthesize nextStaleChatItem=_nextStaleChatItem;
 @property(retain, nonatomic) NSArray *frequentReplies; // @synthesize frequentReplies=_frequentReplies;

@@ -287,8 +287,8 @@
 - (void)_willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2 forwardToChildControllers:(BOOL)arg3 skipSelf:(BOOL)arg4;
 - (void)window:(id)arg1 resizeFromOrientation:(int)arg2;
 - (struct CGAffineTransform)tranformForScreenOriginRotation:(float)arg1;
-- (void)_getRotationContentSettings:(CDStruct_19ba41f1 *)arg1;
-- (void)getRotationContentSettings:(CDStruct_19ba41f1 *)arg1 forWindow:(id)arg2;
+- (void)_getRotationContentSettings:(CDStruct_f39609a0 *)arg1;
+- (void)getRotationContentSettings:(CDStruct_f39609a0 *)arg1 forWindow:(id)arg2;
 - (BOOL)_shouldUseOnePartRotation;
 - (BOOL)shouldWindowUseOnePartInterfaceRotationAnimation:(id)arg1;
 - (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
@@ -399,7 +399,7 @@
 - (void)_replaceViewControllerInPresentationHierarchy:(id)arg1;
 - (id)_adaptedPresentationControllerForTraitCollection:(id)arg1 withTransitionCoordinator:(id)arg2;
 - (BOOL)_shouldAdaptWhenRotated;
-- (void)_presentViewController:(id)arg1 presentationController:(id)arg2 animationController:(id)arg3 interactionController:(id)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)_presentViewController:(id)arg1 modalSourceViewController:(id)arg2 presentationController:(id)arg3 animationController:(id)arg4 interactionController:(id)arg5 completion:(CDUnknownBlockType)arg6;
 - (id)transitionCoordinator;
 - (id)_transitionCoordinator;
 - (id)_transitionCoordinatorForWindowController:(id)arg1;
